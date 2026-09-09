@@ -1,0 +1,916 @@
+{
+  "lesson_id": "electricity-magnetism-v1",
+  "scenes": [
+    {
+      "scene_id": "S01",
+      "module": "L1",
+      "title": "Hook: What is electricity?",
+      "purpose": "orient",
+      "duration_frames": 300,
+      "content_refs": [
+        "U01",
+        "U04"
+      ],
+      "source_refs": [
+        "p1:L16-L24",
+        "p1:L31-L34"
+      ],
+      "visual": {
+        "type": "charge_interaction",
+        "layout": "center",
+        "objects": [
+          "positive_charge",
+          "negative_charge",
+          "neutral_region"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "positive and negative charge",
+          "static versus moving charge"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 45,
+          "action": "show_charges"
+        },
+        {
+          "start": 45,
+          "duration": 90,
+          "action": "contrast_static_current"
+        },
+        {
+          "start": 135,
+          "duration": 165,
+          "action": "highlight_question"
+        }
+      ]
+    },
+    {
+      "scene_id": "S02",
+      "module": "L1",
+      "title": "Electric field",
+      "purpose": "define",
+      "duration_frames": 360,
+      "content_refs": [
+        "U02"
+      ],
+      "source_refs": [
+        "p1:L18-L20"
+      ],
+      "visual": {
+        "type": "field_region",
+        "layout": "radial",
+        "objects": [
+          "source_charge",
+          "field_region",
+          "test_point"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "region around charge",
+          "effect can be felt"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 60,
+          "action": "introduce_charge"
+        },
+        {
+          "start": 60,
+          "duration": 180,
+          "action": "reveal_field_region"
+        },
+        {
+          "start": 240,
+          "duration": 120,
+          "action": "label_effect"
+        }
+      ]
+    },
+    {
+      "scene_id": "S03",
+      "module": "L1",
+      "title": "Conductors vs insulators",
+      "purpose": "compare",
+      "duration_frames": 360,
+      "content_refs": [
+        "U03"
+      ],
+      "source_refs": [
+        "p1:L25-L30"
+      ],
+      "visual": {
+        "type": "comparison",
+        "layout": "split",
+        "objects": [
+          "conductor",
+          "insulator",
+          "mobile_electrons"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "free mobile electrons",
+          "current passage comparison"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "show_materials"
+        },
+        {
+          "start": 90,
+          "duration": 150,
+          "action": "animate_electrons"
+        },
+        {
+          "start": 240,
+          "duration": 120,
+          "action": "compare"
+        }
+      ]
+    },
+    {
+      "scene_id": "S04",
+      "module": "L2",
+      "title": "Open and closed circuits",
+      "purpose": "mechanism",
+      "duration_frames": 360,
+      "content_refs": [
+        "U05"
+      ],
+      "source_refs": [
+        "p2:L40-L45"
+      ],
+      "visual": {
+        "type": "circuit_switch",
+        "layout": "schematic",
+        "objects": [
+          "cell",
+          "wire",
+          "switch",
+          "lamp"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "broken path",
+          "continuous path"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "open_switch"
+        },
+        {
+          "start": 90,
+          "duration": 90,
+          "action": "show_no_flow"
+        },
+        {
+          "start": 180,
+          "duration": 90,
+          "action": "close_switch"
+        },
+        {
+          "start": 270,
+          "duration": 90,
+          "action": "show_flow"
+        }
+      ]
+    },
+    {
+      "scene_id": "S05",
+      "module": "L2",
+      "title": "Current: charge per time",
+      "purpose": "formula",
+      "duration_frames": 420,
+      "content_refs": [
+        "U06"
+      ],
+      "source_refs": [
+        "p2:L46-L50"
+      ],
+      "visual": {
+        "type": "flow_and_formula",
+        "layout": "equation_plus_particles",
+        "formula": "I = Q/t"
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "rate of charge flow",
+          "ampere",
+          "1 A = 1 C/s"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "particle_flow"
+        },
+        {
+          "start": 90,
+          "duration": 150,
+          "action": "build_formula"
+        },
+        {
+          "start": 240,
+          "duration": 90,
+          "action": "unit_conversion"
+        },
+        {
+          "start": 330,
+          "duration": 90,
+          "action": "quick_check"
+        }
+      ]
+    },
+    {
+      "scene_id": "S06",
+      "module": "L2",
+      "title": "Ammeter placement",
+      "purpose": "application",
+      "duration_frames": 300,
+      "content_refs": [
+        "U07"
+      ],
+      "source_refs": [
+        "p2:L49-L50"
+      ],
+      "visual": {
+        "type": "instrument_placement",
+        "layout": "circuit",
+        "objects": [
+          "ammeter",
+          "series_path"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "measures current",
+          "series connection"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 100,
+          "action": "place_meter_wrong"
+        },
+        {
+          "start": 100,
+          "duration": 80,
+          "action": "flag_wrong"
+        },
+        {
+          "start": 180,
+          "duration": 120,
+          "action": "place_meter_series"
+        }
+      ]
+    },
+    {
+      "scene_id": "S07",
+      "module": "L3",
+      "title": "Potential difference",
+      "purpose": "define",
+      "duration_frames": 420,
+      "content_refs": [
+        "U08",
+        "U09"
+      ],
+      "source_refs": [
+        "p3:L58-L65"
+      ],
+      "visual": {
+        "type": "potential_difference",
+        "layout": "two_point_energy",
+        "formula": "V = W/q"
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "work per charge",
+          "volt",
+          "voltmeter in parallel"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 120,
+          "action": "show_two_points"
+        },
+        {
+          "start": 120,
+          "duration": 120,
+          "action": "build_formula"
+        },
+        {
+          "start": 240,
+          "duration": 90,
+          "action": "show_voltmeter_parallel"
+        },
+        {
+          "start": 330,
+          "duration": 90,
+          "action": "check"
+        }
+      ]
+    },
+    {
+      "scene_id": "S08",
+      "module": "L3",
+      "title": "Ohm's law",
+      "purpose": "law",
+      "duration_frames": 480,
+      "content_refs": [
+        "U10",
+        "U11"
+      ],
+      "source_refs": [
+        "p3:L66-L75"
+      ],
+      "visual": {
+        "type": "graph_and_equation",
+        "layout": "graph_right_equation_left",
+        "formula": "V = IR"
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "constant temperature condition",
+          "direct proportionality",
+          "resistance"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 100,
+          "action": "state_condition"
+        },
+        {
+          "start": 100,
+          "duration": 160,
+          "action": "animate_V_I_graph"
+        },
+        {
+          "start": 260,
+          "duration": 100,
+          "action": "derive_R"
+        },
+        {
+          "start": 360,
+          "duration": 120,
+          "action": "flag_source_ambiguity_review"
+        }
+      ]
+    },
+    {
+      "scene_id": "S09",
+      "module": "L4",
+      "title": "What changes resistance?",
+      "purpose": "mechanism",
+      "duration_frames": 420,
+      "content_refs": [
+        "U12",
+        "U13"
+      ],
+      "source_refs": [
+        "p3:L76-L81",
+        "p4:L86-L90"
+      ],
+      "visual": {
+        "type": "parameter_simulation",
+        "layout": "wire",
+        "formula": "R = rho L/A",
+        "parameters": [
+          "L",
+          "A",
+          "rho"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "length",
+          "cross-sectional area",
+          "material",
+          "temperature",
+          "resistivity"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "change_length"
+        },
+        {
+          "start": 90,
+          "duration": 90,
+          "action": "change_area"
+        },
+        {
+          "start": 180,
+          "duration": 90,
+          "action": "change_material"
+        },
+        {
+          "start": 270,
+          "duration": 90,
+          "action": "show_formula"
+        },
+        {
+          "start": 360,
+          "duration": 60,
+          "action": "summary"
+        }
+      ]
+    },
+    {
+      "scene_id": "S10",
+      "module": "L4",
+      "title": "Series vs parallel",
+      "purpose": "compare",
+      "duration_frames": 480,
+      "content_refs": [
+        "U14"
+      ],
+      "source_refs": [
+        "p4:L91-L99"
+      ],
+      "visual": {
+        "type": "circuit_comparison",
+        "layout": "split",
+        "formulas": [
+          "R=R1+R2+...",
+          "1/R=1/R1+1/R2+..."
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "series current",
+          "parallel potential difference",
+          "household circuits parallel"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 120,
+          "action": "series_path"
+        },
+        {
+          "start": 120,
+          "duration": 120,
+          "action": "parallel_paths"
+        },
+        {
+          "start": 240,
+          "duration": 120,
+          "action": "compare_current_voltage"
+        },
+        {
+          "start": 360,
+          "duration": 120,
+          "action": "household_application"
+        }
+      ]
+    },
+    {
+      "scene_id": "S11",
+      "module": "L5",
+      "title": "Joule heating",
+      "purpose": "mechanism",
+      "duration_frames": 420,
+      "content_refs": [
+        "U16"
+      ],
+      "source_refs": [
+        "p4:L103-L104",
+        "p5:L109-L114"
+      ],
+      "visual": {
+        "type": "electron_collision_heat",
+        "layout": "microscopic_to_macroscopic",
+        "formula": "H = I²RT"
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "electron collisions",
+          "heat production",
+          "heating devices"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 120,
+          "action": "microscopic_collision"
+        },
+        {
+          "start": 120,
+          "duration": 120,
+          "action": "temperature_rise"
+        },
+        {
+          "start": 240,
+          "duration": 120,
+          "action": "device_examples"
+        },
+        {
+          "start": 360,
+          "duration": 60,
+          "action": "formula"
+        }
+      ]
+    },
+    {
+      "scene_id": "S12",
+      "module": "L5",
+      "title": "Fuse, overload and earthing",
+      "purpose": "safety",
+      "duration_frames": 480,
+      "content_refs": [
+        "U17",
+        "U18"
+      ],
+      "source_refs": [
+        "p5:L115-L131"
+      ],
+      "visual": {
+        "type": "failure_and_safety_sequence",
+        "layout": "household_circuit",
+        "objects": [
+          "fuse",
+          "short_circuit",
+          "earth_wire"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "excess current",
+          "fuse interruption",
+          "overloading",
+          "short circuiting",
+          "earthing"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 120,
+          "action": "overload"
+        },
+        {
+          "start": 120,
+          "duration": 100,
+          "action": "fuse_melts"
+        },
+        {
+          "start": 220,
+          "duration": 120,
+          "action": "short_circuit"
+        },
+        {
+          "start": 340,
+          "duration": 140,
+          "action": "earthing_path"
+        }
+      ]
+    },
+    {
+      "scene_id": "S13",
+      "module": "L6",
+      "title": "AC vs DC",
+      "purpose": "compare",
+      "duration_frames": 360,
+      "content_refs": [
+        "U19",
+        "U20"
+      ],
+      "source_refs": [
+        "p6:L136-L144"
+      ],
+      "visual": {
+        "type": "waveform_comparison",
+        "layout": "stacked",
+        "objects": [
+          "dc_line",
+          "ac_wave"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "directionality",
+          "periodic reversal",
+          "rectifier",
+          "inverter",
+          "transformer"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 120,
+          "action": "dc_wave"
+        },
+        {
+          "start": 120,
+          "duration": 120,
+          "action": "ac_wave"
+        },
+        {
+          "start": 240,
+          "duration": 120,
+          "action": "conversion_devices"
+        }
+      ]
+    },
+    {
+      "scene_id": "S14",
+      "module": "L7",
+      "title": "Current creates magnetism",
+      "purpose": "bridge",
+      "duration_frames": 360,
+      "content_refs": [
+        "U21",
+        "U22"
+      ],
+      "source_refs": [
+        "p6:L145-L149"
+      ],
+      "visual": {
+        "type": "electromagnet",
+        "layout": "coil_and_core",
+        "objects": [
+          "coil",
+          "soft_iron_core",
+          "magnetic_field"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "magnetic effect of current",
+          "soft iron core",
+          "switching current changes magnetism"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "current_off"
+        },
+        {
+          "start": 90,
+          "duration": 120,
+          "action": "current_on"
+        },
+        {
+          "start": 210,
+          "duration": 90,
+          "action": "core_strength"
+        },
+        {
+          "start": 300,
+          "duration": 60,
+          "action": "turns_current_factors"
+        }
+      ]
+    },
+    {
+      "scene_id": "S15",
+      "module": "L7",
+      "title": "Motor vs generator",
+      "purpose": "energy_conversion",
+      "duration_frames": 420,
+      "content_refs": [
+        "U24"
+      ],
+      "source_refs": [
+        "p7 image",
+        "p9:L213-L219"
+      ],
+      "visual": {
+        "type": "energy_conversion",
+        "layout": "side_by_side",
+        "objects": [
+          "motor",
+          "generator",
+          "mechanical_energy",
+          "electrical_energy"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "motor electrical to mechanical",
+          "generator mechanical to electrical"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 120,
+          "action": "motor"
+        },
+        {
+          "start": 120,
+          "duration": 120,
+          "action": "generator"
+        },
+        {
+          "start": 240,
+          "duration": 120,
+          "action": "reverse_flow_comparison"
+        },
+        {
+          "start": 360,
+          "duration": 60,
+          "action": "recall"
+        }
+      ]
+    },
+    {
+      "scene_id": "S16",
+      "module": "L8",
+      "title": "Magnetic field lines",
+      "purpose": "visualize",
+      "duration_frames": 420,
+      "content_refs": [
+        "U25",
+        "U26"
+      ],
+      "source_refs": [
+        "p9:L219-L223",
+        "p10:L228-L229"
+      ],
+      "visual": {
+        "type": "field_lines",
+        "layout": "magnet_center",
+        "objects": [
+          "bar_magnet",
+          "field_lines",
+          "north",
+          "south"
+        ]
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "dipole",
+          "north-south alignment",
+          "field-line direction",
+          "stronger field where lines closer",
+          "no intersection"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 100,
+          "action": "magnet_poles"
+        },
+        {
+          "start": 100,
+          "duration": 160,
+          "action": "draw_field_lines"
+        },
+        {
+          "start": 260,
+          "duration": 100,
+          "action": "show_density"
+        },
+        {
+          "start": 360,
+          "duration": 60,
+          "action": "properties"
+        }
+      ]
+    },
+    {
+      "scene_id": "S17",
+      "module": "L9",
+      "title": "Worked numerical: electric iron",
+      "purpose": "assessment",
+      "duration_frames": 360,
+      "content_refs": [
+        "U27"
+      ],
+      "source_refs": [
+        "p7:L158-L162"
+      ],
+      "visual": {
+        "type": "worked_problem",
+        "layout": "question_equation_answer"
+      },
+      "narration": {
+        "mode": "source_grounded",
+        "key_points": [
+          "given V and I",
+          "find resistance",
+          "use R=V/I"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "read_problem"
+        },
+        {
+          "start": 90,
+          "duration": 120,
+          "action": "select_formula"
+        },
+        {
+          "start": 210,
+          "duration": 90,
+          "action": "substitute"
+        },
+        {
+          "start": 300,
+          "duration": 60,
+          "action": "answer"
+        }
+      ]
+    },
+    {
+      "scene_id": "S18",
+      "module": "L9",
+      "title": "Transfer check",
+      "purpose": "assessment",
+      "duration_frames": 420,
+      "content_refs": [
+        "U28"
+      ],
+      "source_refs": [
+        "p7:L156-L174",
+        "p8:L182-L205",
+        "p9:L210-L223",
+        "p10:L230-L247"
+      ],
+      "visual": {
+        "type": "adaptive_question",
+        "layout": "question_then_feedback"
+      },
+      "narration": {
+        "mode": "interactive",
+        "key_points": [
+          "definition",
+          "instrument placement",
+          "series/parallel",
+          "motor/generator",
+          "magnetic field"
+        ]
+      },
+      "timeline": [
+        {
+          "start": 0,
+          "duration": 90,
+          "action": "question"
+        },
+        {
+          "start": 90,
+          "duration": 120,
+          "action": "wait"
+        },
+        {
+          "start": 210,
+          "duration": 120,
+          "action": "explain_reason"
+        },
+        {
+          "start": 330,
+          "duration": 90,
+          "action": "branch_difficulty"
+        }
+      ]
+    }
+  ]
+}

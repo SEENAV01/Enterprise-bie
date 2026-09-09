@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "workflow_id",
+    "jobs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.75"
+    },
+    "workflow_id": {
+      "type": "string"
+    },
+    "jobs": {
+      "type": "array"
+    }
+  }
+}

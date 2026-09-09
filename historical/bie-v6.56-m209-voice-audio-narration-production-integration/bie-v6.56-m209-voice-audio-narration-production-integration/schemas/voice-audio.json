@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "voice",
+    "narration_segments",
+    "pronunciation",
+    "audio_cues",
+    "timeline",
+    "mix_profile",
+    "evidence_bindings",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.56"
+    },
+    "voice": {
+      "type": "object"
+    },
+    "narration_segments": {
+      "type": "array"
+    },
+    "pronunciation": {
+      "type": "array"
+    },
+    "audio_cues": {
+      "type": "array"
+    },
+    "timeline": {
+      "type": "array"
+    },
+    "mix_profile": {
+      "type": "object"
+    },
+    "evidence_bindings": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

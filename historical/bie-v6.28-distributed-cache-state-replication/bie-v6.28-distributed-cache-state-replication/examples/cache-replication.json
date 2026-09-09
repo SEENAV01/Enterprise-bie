@@ -1,0 +1,74 @@
+{
+  "schema_version": "6.28",
+  "cache": {
+    "key": "workflow:42",
+    "value": {
+      "status": "READY"
+    },
+    "ttl_seconds": 300,
+    "version": 9,
+    "status": "PRESENT"
+  },
+  "ttl": {
+    "ttl_seconds": 300,
+    "refresh_on_read": true
+  },
+  "invalidation": {
+    "key": "workflow:42",
+    "reason": "UPDATE",
+    "version": 9,
+    "status": "INVALIDATED"
+  },
+  "consistency": {
+    "mode": "BOUNDED_STALENESS",
+    "max_staleness_seconds": 30
+  },
+  "pattern": {
+    "name": "workflow-cache",
+    "read": "CACHE_ASIDE",
+    "write": "WRITE_THROUGH"
+  },
+  "ownership": {
+    "key": "workflow:42",
+    "owner": "cache-node-a",
+    "epoch": 4,
+    "status": "OWNED"
+  },
+  "replication": {
+    "mode": "ASYNC",
+    "replicas": 3,
+    "max_lag_seconds": 15
+  },
+  "stale_read": {
+    "allow": true,
+    "max_staleness_seconds": 30
+  },
+  "observability": {
+    "event_id": "cache-1",
+    "key": "workflow:42",
+    "operation": "GET",
+    "status": "HIT",
+    "latency_ms": 2.4,
+    "lag_seconds": 7
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "cache_present": true,
+    "ttl_valid": true,
+    "invalidated": true,
+    "stale_permitted": true,
+    "pattern_supported": true,
+    "ownership_current": true,
+    "replication_lag_ok": true,
+    "stale_read_allowed": true,
+    "metric": {
+      "operation": "GET",
+      "status": "HIT",
+      "latency_ms": 2.4,
+      "lag_seconds": 7
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v6.37 — Data Protection, Encryption & Privacy Policy Layer\n\nClassification, encryption requirements, masking, tokenization, retention, privacy purpose, handling boundaries, access boundaries and protection observability.\n

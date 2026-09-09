@@ -1,0 +1,1 @@
+# BIE v5.46 — Content Retrieval, Curriculum Coverage & Knowledge-Gap Planner\n\nMaps objectives/concepts to source documents and content fragments, tracks coverage and provenance, flags missing or conflicting coverage, and produces retrieval/generation actions.\n

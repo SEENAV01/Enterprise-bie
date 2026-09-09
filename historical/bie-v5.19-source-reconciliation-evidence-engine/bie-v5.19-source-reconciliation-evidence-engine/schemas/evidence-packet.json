@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "concept_id",
+    "claims",
+    "evidence",
+    "status"
+  ],
+  "properties": {
+    "concept_id": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "contradictions": {
+      "type": "array"
+    },
+    "unresolved": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

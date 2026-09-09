@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "segments",
+    "shots",
+    "narration_quality",
+    "visual_alignment",
+    "alignment_validation",
+    "overlays",
+    "overlay_validation",
+    "storyboard_qa",
+    "pedagogical_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.84"
+    },
+    "segments": {
+      "type": "array"
+    },
+    "shots": {
+      "type": "array"
+    },
+    "narration_quality": {
+      "type": "object"
+    },
+    "visual_alignment": {
+      "type": "array"
+    },
+    "alignment_validation": {
+      "type": "object"
+    },
+    "overlays": {
+      "type": "array"
+    },
+    "overlay_validation": {
+      "type": "object"
+    },
+    "storyboard_qa": {
+      "type": "object"
+    },
+    "pedagogical_gate": {
+      "type": "object"
+    }
+  }
+}

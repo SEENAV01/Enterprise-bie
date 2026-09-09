@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact",
+    "storage",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.95"
+    },
+    "artifact": {
+      "type": "object"
+    },
+    "storage": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_envelope",
+    "response_envelope",
+    "api_contract",
+    "schema_version_contract",
+    "compatibility",
+    "service",
+    "endpoint",
+    "health",
+    "idempotent_api",
+    "integration_adapter",
+    "contract_test",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.13"
+    },
+    "request_envelope": {
+      "type": "object"
+    },
+    "response_envelope": {
+      "type": "object"
+    },
+    "api_contract": {
+      "type": "object"
+    },
+    "schema_version_contract": {
+      "type": "object"
+    },
+    "compatibility": {
+      "type": "object"
+    },
+    "service": {
+      "type": "object"
+    },
+    "endpoint": {
+      "type": "object"
+    },
+    "health": {
+      "type": "object"
+    },
+    "idempotent_api": {
+      "type": "object"
+    },
+    "integration_adapter": {
+      "type": "object"
+    },
+    "contract_test": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

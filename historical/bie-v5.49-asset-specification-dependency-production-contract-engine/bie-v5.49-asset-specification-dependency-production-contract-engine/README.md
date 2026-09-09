@@ -1,0 +1,1 @@
+# BIE v5.49 — Asset Specification, Dependency Graph & Production Contract Engine\n\nTurns representation plans into precise renderer-independent asset specifications, dependency graphs and production contracts with timing, interaction, accessibility and validation requirements.\n

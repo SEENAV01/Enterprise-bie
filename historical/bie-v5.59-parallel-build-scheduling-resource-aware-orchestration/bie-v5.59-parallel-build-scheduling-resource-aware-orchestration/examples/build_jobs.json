@@ -1,0 +1,66 @@
+{
+  "resources": {
+    "cpu": 16,
+    "gpu": 2,
+    "memory_mb": 32768,
+    "tools": {
+      "remotion": 4,
+      "tts": 2
+    }
+  },
+  "jobs": [
+    {
+      "job_id": "scene1",
+      "node_ref": "scene1",
+      "job_type": "RENDER",
+      "dependencies": [],
+      "priority": 5,
+      "resources": {
+        "cpu": 2,
+        "gpu": 1,
+        "memory_mb": 4096,
+        "tools": {
+          "remotion": 1
+        }
+      },
+      "estimated": {
+        "duration": 30
+      }
+    },
+    {
+      "job_id": "scene2",
+      "node_ref": "scene2",
+      "job_type": "RENDER",
+      "dependencies": [],
+      "priority": 5,
+      "resources": {
+        "cpu": 2,
+        "gpu": 1,
+        "memory_mb": 4096,
+        "tools": {
+          "remotion": 1
+        }
+      },
+      "estimated": {
+        "duration": 25
+      }
+    },
+    {
+      "job_id": "lesson1",
+      "node_ref": "lesson1",
+      "job_type": "ASSEMBLE",
+      "dependencies": [
+        "scene1",
+        "scene2"
+      ],
+      "priority": 10,
+      "resources": {
+        "cpu": 2,
+        "memory_mb": 2048
+      },
+      "estimated": {
+        "duration": 10
+      }
+    }
+  ]
+}

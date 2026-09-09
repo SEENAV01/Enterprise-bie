@@ -1,0 +1,166 @@
+{
+  "book_id": "demo-book",
+  "nodes": [
+    {
+      "id": "u_charge",
+      "label": "Electric charge",
+      "scope": "BOOK_INTERNAL",
+      "kind": "concept"
+    },
+    {
+      "id": "u_field",
+      "label": "Electric field",
+      "scope": "BOOK_INTERNAL",
+      "kind": "concept"
+    },
+    {
+      "id": "u_flux",
+      "label": "Electric flux",
+      "scope": "BOOK_INTERNAL",
+      "kind": "concept"
+    },
+    {
+      "id": "x_maxwell",
+      "label": "Maxwell equations",
+      "scope": "HIGHER_LEVEL",
+      "kind": "theory",
+      "depth": 1
+    },
+    {
+      "id": "x_antenna",
+      "label": "Antenna theory",
+      "scope": "EXTERNAL_EXTENSION",
+      "kind": "theory",
+      "depth": 2
+    },
+    {
+      "id": "x_wireless",
+      "label": "Wireless power transfer",
+      "scope": "EXTERNAL_APPLICATION",
+      "kind": "technology",
+      "depth": 1
+    },
+    {
+      "id": "p_vector",
+      "label": "Vector calculus",
+      "scope": "BOOK_PREREQUISITE",
+      "kind": "skill",
+      "depth": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "p_vector",
+      "relation": "PREREQUISITE_OF",
+      "target": "u_field",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "type": "domain_reasoning"
+        }
+      ]
+    },
+    {
+      "source": "u_charge",
+      "relation": "PREREQUISITE_OF",
+      "target": "u_field",
+      "confidence": 0.99,
+      "evidence": [
+        {
+          "type": "book",
+          "page": 12
+        }
+      ]
+    },
+    {
+      "source": "u_field",
+      "relation": "PREREQUISITE_OF",
+      "target": "u_flux",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "type": "book",
+          "page": 44
+        }
+      ]
+    },
+    {
+      "source": "u_field",
+      "relation": "EXTENDS_TO",
+      "target": "x_maxwell",
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "type": "external_verified",
+          "source": "domain_reference"
+        }
+      ]
+    },
+    {
+      "source": "x_maxwell",
+      "relation": "ENABLES",
+      "target": "x_antenna",
+      "confidence": 0.77,
+      "evidence": [
+        {
+          "type": "external_verified",
+          "source": "domain_reference"
+        }
+      ]
+    },
+    {
+      "source": "u_field",
+      "relation": "APPLIED_IN",
+      "target": "x_wireless",
+      "confidence": 0.93,
+      "evidence": [
+        {
+          "type": "external_verified",
+          "source": "application_reference"
+        }
+      ]
+    }
+  ],
+  "frontiers": {
+    "backward": [
+      "p_vector"
+    ],
+    "forward": [
+      "x_maxwell",
+      "x_antenna"
+    ],
+    "application": [
+      "x_wireless"
+    ]
+  },
+  "learning_graph": {
+    "ordered_nodes": [
+      "p_vector",
+      "u_charge",
+      "u_field",
+      "u_flux",
+      "x_maxwell",
+      "x_antenna"
+    ],
+    "levels": {
+      "0": [
+        "p_vector",
+        "u_charge"
+      ],
+      "1": [
+        "u_field"
+      ],
+      "2": [
+        "u_flux",
+        "x_maxwell"
+      ],
+      "3": [
+        "x_antenna"
+      ]
+    }
+  },
+  "validation": {
+    "cycles": [],
+    "external_nodes_require_evidence": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "BIE-INFRA-EXECUTOR-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "scheduler_to_worker_runtime": true,
+    "capacity_reservation_before_execution": true,
+    "lease_before_execution": true,
+    "heartbeat_renewal": true,
+    "fenced_state_commit": true,
+    "fenced_artifact_commit": true,
+    "expired_commit_rejected": true,
+    "success_cleanup": true,
+    "failure_cleanup": true,
+    "stale_worker_fenced": true,
+    "release_success_isolated": true
+  },
+  "next_task": "BIE-INFRA-QUEUE-001",
+  "next_task_title": "Durable Task Queue, Delivery Semantics & Backpressure Contract"
+}

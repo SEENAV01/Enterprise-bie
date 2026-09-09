@@ -1,0 +1,1 @@
+# BIE v6.29 — Search, Indexing & Query Execution\n\nIndex definitions, analyzers, query AST, filtering, sorting, pagination, ranking, consistency, index lifecycle, rebuilds, aliases, query plans and observability.\n

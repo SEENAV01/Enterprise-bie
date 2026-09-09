@@ -1,0 +1,50 @@
+{
+  "ir_id": "course-physics-01",
+  "type": "DOCUMENT",
+  "title": "Mechanics",
+  "lessons": [
+    {
+      "lesson_id": "lesson-01",
+      "type": "LESSON",
+      "title": "Force",
+      "objectives": [
+        "explain-force"
+      ],
+      "scenes": [
+        {
+          "scene_id": "scene-01",
+          "components": [
+            {
+              "component_id": "force-vector",
+              "component_type": "VECTOR",
+              "semantic_refs": [
+                "force"
+              ],
+              "props": {
+                "magnitude": "semantic:force.magnitude"
+              }
+            }
+          ],
+          "timeline": {
+            "fps": 30,
+            "duration": 20
+          },
+          "layout": {
+            "viewport": {
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          "bindings": [
+            {
+              "binding_id": "b1",
+              "semantic_ref": "force.magnitude",
+              "target_ref": "force-vector",
+              "binding_type": "DATA"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

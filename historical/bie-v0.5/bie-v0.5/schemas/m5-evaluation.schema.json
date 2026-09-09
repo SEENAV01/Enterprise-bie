@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE M5 Evaluation Report",
+  "type": "object",
+  "required": [
+    "run_id",
+    "claims",
+    "graph_checks",
+    "scores",
+    "decision"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "support",
+          "confidence"
+        ]
+      }
+    },
+    "graph_checks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "scores": {
+      "type": "object"
+    },
+    "decision": {
+      "enum": [
+        "PASS",
+        "REVIEW",
+        "REJECT"
+      ]
+    }
+  }
+}

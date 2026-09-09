@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "event_type",
+    "version",
+    "schema"
+  ],
+  "properties": {
+    "event_type": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "object"
+    }
+  }
+}

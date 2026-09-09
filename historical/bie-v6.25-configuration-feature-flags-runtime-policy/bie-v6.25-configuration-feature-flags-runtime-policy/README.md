@@ -1,0 +1,1 @@
+# BIE v6.25 — Configuration, Feature Flags & Runtime Policy\n\nTyped configuration, hierarchical scopes, defaults, validation, secret references, reload, feature flags, rollout strategies, policy evaluation and observability.\n

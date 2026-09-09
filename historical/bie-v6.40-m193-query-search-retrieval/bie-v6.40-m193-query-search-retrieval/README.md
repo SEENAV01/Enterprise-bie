@@ -1,0 +1,1 @@
+# BIE v6.40 — Query, Search & Retrieval Abstraction Layer\n\nQuery contracts, filtering, sorting, pagination, projections, indexes, consistency hints, result envelopes, audit and retrieval observability.\n

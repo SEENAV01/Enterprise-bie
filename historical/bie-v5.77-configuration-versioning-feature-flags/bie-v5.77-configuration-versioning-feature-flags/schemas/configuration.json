@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "configuration",
+    "reproducibility_ref",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.77"
+    },
+    "configuration": {
+      "type": "object"
+    },
+    "reproducibility_ref": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

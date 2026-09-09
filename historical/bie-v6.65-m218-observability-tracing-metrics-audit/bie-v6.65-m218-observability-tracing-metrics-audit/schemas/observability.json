@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_context",
+    "spans",
+    "logs",
+    "metrics",
+    "audit_log",
+    "retention_policy",
+    "diagnostics",
+    "observability_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.65"
+    },
+    "trace_context": {
+      "type": "object"
+    },
+    "spans": {
+      "type": "array"
+    },
+    "logs": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "audit_log": {
+      "type": "array"
+    },
+    "retention_policy": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "observability_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "evaluation_suites": [
+    {
+      "suite_id": "suite1",
+      "name": "representation-study",
+      "targets": [
+        "static",
+        "interactive"
+      ],
+      "metrics": [
+        "mastery",
+        "cost",
+        "latency"
+      ]
+    }
+  ],
+  "benchmarks": [
+    {
+      "benchmark_id": "b1",
+      "suite_ref": "suite1",
+      "target_ref": "interactive",
+      "baseline": "static"
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "r1",
+      "policy_ref": "repr-policy",
+      "action": "CONDITIONAL_INTERACTIVE",
+      "confidence": 0.92,
+      "evidence_refs": [
+        "experiment:42"
+      ],
+      "expected_effects": {
+        "mastery": "+8%",
+        "cost": "+35%"
+      }
+    }
+  ],
+  "policy_changes": [
+    {
+      "change_id": "pc1",
+      "policy_ref": "repr-policy",
+      "scope": "LOCAL",
+      "from_version": "1",
+      "to_version": "2",
+      "rationale": "benchmark improvement",
+      "evidence_refs": [
+        "experiment:42"
+      ],
+      "approval_required": true
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "BIE-INFRA-QUEUE-PERSIST-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "ready_survives_restart": true,
+    "delivered_survives_restart": true,
+    "visibility_recovery": true,
+    "durable_delivery_count": true,
+    "durable_ack": true,
+    "durable_dead_letter": true,
+    "manual_redrive": true,
+    "idempotent_enqueue": true,
+    "conflict_rejection": true,
+    "capability_routing": true,
+    "priority_ordering": true,
+    "transactional_mutations": true,
+    "durable_queue_events": true,
+    "schema_versioning": true
+  },
+  "next_task": "BIE-INFRA-QUEUE-WORKER-001",
+  "next_task_title": "Queue-to-Worker Consumer Loop, ACK-after-Fenced-Commit & Retry Policy Integration"
+}

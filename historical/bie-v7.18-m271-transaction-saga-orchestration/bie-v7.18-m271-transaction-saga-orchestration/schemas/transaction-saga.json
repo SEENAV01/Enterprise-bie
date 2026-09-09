@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "saga",
+    "transaction",
+    "completed_before_failure",
+    "failure",
+    "compensation",
+    "duplicate_effect",
+    "transaction_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.18"
+    },
+    "saga": {
+      "type": "object"
+    },
+    "transaction": {
+      "type": "object"
+    },
+    "completed_before_failure": {
+      "type": "array"
+    },
+    "failure": {
+      "type": "object"
+    },
+    "compensation": {
+      "type": "object"
+    },
+    "duplicate_effect": {
+      "type": "object"
+    },
+    "transaction_gate": {
+      "type": "object"
+    }
+  }
+}

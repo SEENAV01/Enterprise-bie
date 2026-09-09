@@ -1,0 +1,83 @@
+{
+  "version": "0.1.0",
+  "tasks": [
+    {
+      "task_id": "BIE-INFRA-SPEC-001",
+      "title": "Freeze master product contract and constitution",
+      "status": "QA_VERIFIED",
+      "system": "INFRA",
+      "purpose": "Create immutable North Star and architectural constraints.",
+      "dependencies": []
+    },
+    {
+      "task_id": "BIE-INFRA-AUDIT-001",
+      "title": "Exhaustive current repository enterprise gap audit",
+      "status": "READY",
+      "system": "INFRA",
+      "purpose": "Inventory and classify every relevant current module against final architecture.",
+      "dependencies": [
+        "BIE-INFRA-SPEC-001"
+      ]
+    },
+    {
+      "task_id": "BIE-INFRA-CONTRACT-001",
+      "title": "Canonical artifact envelope and lineage contract",
+      "status": "PLANNED",
+      "system": "INFRA",
+      "purpose": "Make every stage output typed, versioned, traceable and gateable.",
+      "dependencies": [
+        "BIE-INFRA-AUDIT-001"
+      ]
+    },
+    {
+      "task_id": "BIE-RE-CORE-001",
+      "title": "Enterprise reasoning decision artifact contract",
+      "status": "PLANNED",
+      "system": "RE",
+      "purpose": "Represent auditable reasoning decisions independent of provider.",
+      "dependencies": [
+        "BIE-INFRA-CONTRACT-001"
+      ]
+    },
+    {
+      "task_id": "BIE-DSL-CORE-001",
+      "title": "Universal Scene IR semantic contract",
+      "status": "PLANNED",
+      "system": "DSL",
+      "purpose": "Replace fixed layout assumptions with universal semantic visual IR.",
+      "dependencies": [
+        "BIE-RE-CORE-001"
+      ]
+    },
+    {
+      "task_id": "BIE-GAME-DSL-001",
+      "title": "Enterprise Game IR semantic contract",
+      "status": "PLANNED",
+      "system": "GAME",
+      "purpose": "Represent revision mechanics/interactions independently of runtime.",
+      "dependencies": [
+        "BIE-RE-CORE-001"
+      ]
+    },
+    {
+      "task_id": "BIE-QA-RELEASE-001",
+      "title": "Evidence-backed enterprise release gates",
+      "status": "PLANNED",
+      "system": "QA",
+      "purpose": "Prevent false success and define production evidence.",
+      "dependencies": [
+        "BIE-INFRA-CONTRACT-001"
+      ]
+    },
+    {
+      "task_id": "BIE-INFRA-EVAL-001",
+      "title": "Multi-domain golden benchmark framework",
+      "status": "PLANNED",
+      "system": "INFRA",
+      "purpose": "Measure rather than claim enterprise capability.",
+      "dependencies": [
+        "BIE-QA-RELEASE-001"
+      ]
+    }
+  ]
+}

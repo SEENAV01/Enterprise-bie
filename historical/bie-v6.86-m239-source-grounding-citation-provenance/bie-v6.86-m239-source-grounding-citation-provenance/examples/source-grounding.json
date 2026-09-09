@@ -1,0 +1,30 @@
+{
+  "schema_version": "6.86",
+  "sources": [
+    {
+      "source_id": "SRC-1",
+      "uri": "textbook://chapter1"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-1",
+      "source_id": "SRC-1"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C-1",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "confidence": 0.98
+    }
+  ],
+  "coverage": {
+    "coverage": 1.0
+  },
+  "grounding_gate": {
+    "valid": true
+  }
+}

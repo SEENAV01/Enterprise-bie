@@ -1,0 +1,42 @@
+{
+  "schema_version": "6.58",
+  "render_job": {
+    "job_id": "job-1",
+    "composition_id": "composition-1",
+    "render_profile_id": "render-1080p",
+    "output_path": "output://lesson.mp4",
+    "status": "QUEUED"
+  },
+  "render_result": {
+    "job_id": "job-1",
+    "status": "SUCCEEDED",
+    "output_path": "output://lesson.mp4"
+  },
+  "qa_report": {
+    "report_id": "report-1",
+    "job_id": "job-1",
+    "checks": [
+      {
+        "check_id": "qa1",
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS"
+  },
+  "output_manifest": {
+    "job_id": "job-1",
+    "outputs": [
+      {
+        "path": "output://lesson.mp4",
+        "format": "MP4"
+      }
+    ]
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

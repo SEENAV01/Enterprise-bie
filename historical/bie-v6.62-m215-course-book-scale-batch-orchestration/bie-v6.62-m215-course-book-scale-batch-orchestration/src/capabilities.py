@@ -1,0 +1,1 @@
+def capabilities(): return {"course_book_manifest":True,"dependency_graph":True,"parallel_batch_scheduling":True,"change_detection":True,"incremental_rebuild":True,"cache_reuse":True,"provenance":True,"verification":True}

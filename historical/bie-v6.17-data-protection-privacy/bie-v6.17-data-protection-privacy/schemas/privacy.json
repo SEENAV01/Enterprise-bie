@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "classification",
+    "encryption",
+    "field_protection",
+    "redaction",
+    "retention",
+    "deletion",
+    "privacy_boundary",
+    "access_audit",
+    "masking",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.17"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "encryption": {
+      "type": "object"
+    },
+    "field_protection": {
+      "type": "object"
+    },
+    "redaction": {
+      "type": "object"
+    },
+    "retention": {
+      "type": "object"
+    },
+    "deletion": {
+      "type": "object"
+    },
+    "privacy_boundary": {
+      "type": "object"
+    },
+    "access_audit": {
+      "type": "object"
+    },
+    "masking": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

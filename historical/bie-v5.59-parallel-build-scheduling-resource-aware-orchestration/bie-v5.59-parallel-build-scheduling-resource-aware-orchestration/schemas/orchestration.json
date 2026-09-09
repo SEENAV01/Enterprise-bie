@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "jobs",
+    "schedule",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.59"
+    },
+    "jobs": {
+      "type": "array"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

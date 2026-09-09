@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges",
+    "claim_mappings",
+    "terminology"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.3"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "edges": {
+      "type": "array"
+    },
+    "claim_mappings": {
+      "type": "object"
+    },
+    "terminology": {
+      "type": "object"
+    }
+  }
+}

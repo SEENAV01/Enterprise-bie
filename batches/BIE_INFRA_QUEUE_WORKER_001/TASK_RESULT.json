@@ -1,0 +1,18 @@
+{
+  "task_id": "BIE-INFRA-QUEUE-WORKER-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "queue_poll_to_worker_runtime": true,
+    "ack_only_after_runtime_and_commit": true,
+    "fenced_commit_failure_not_acked": true,
+    "runtime_failure_not_acked": true,
+    "retry_policy": true,
+    "dead_letter_permanent_failure": true,
+    "max_delivery_integration": true,
+    "capability_filtered_poll": true,
+    "batch_consumer": true,
+    "delivery_count_stage_attempt_separation": true
+  },
+  "next_task": "BIE-INFRA-E2E-RUNTIME-001",
+  "next_task_title": "End-to-End Enterprise Runtime Wiring: Orchestrator \u2192 Durable Queue \u2192 Worker \u2192 Artifact/State Persistence"
+}

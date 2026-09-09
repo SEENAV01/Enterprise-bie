@@ -1,0 +1,1 @@
+# BIE v5.56 — Governance, Provenance, Versioning & Reproducibility Layer\n\nCreates stable artifact/build identities, explicit version pins, provenance graphs, build manifests, approval records and machine-checkable reproducibility requirements.\n

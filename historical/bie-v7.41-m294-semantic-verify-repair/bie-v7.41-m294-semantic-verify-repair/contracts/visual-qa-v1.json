@@ -1,0 +1,16 @@
+{
+  "version": "7.37",
+  "visual_qa": "1.0",
+  "features": [
+    "render-artifact-inspection",
+    "optional-ffprobe-inspection",
+    "repair-plan-generation",
+    "qa-gate"
+  ],
+  "invariants": [
+    "Missing or empty render artifacts never pass visual QA",
+    "Repair planning never mutates source claims",
+    "Semantic visual correctness is not claimed by artifact inspection alone",
+    "Visual QA failure blocks final publish"
+  ]
+}

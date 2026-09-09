@@ -1,0 +1,1 @@
+# BIE v6.21 — File, Object & Large-Artifact Storage\n\nObject references, upload/download contracts, multipart transfers, checksums, metadata, versioning, lifecycle, quarantine/scanning hooks, access control and retention.\n

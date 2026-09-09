@@ -1,0 +1,1 @@
+# BIE v5.16 — Production QA, Evaluation & Regression Engine\n\nM60 validates generated scenes and courses, detects regressions, validates renders, and supports human-review checkpoints before final delivery.\n

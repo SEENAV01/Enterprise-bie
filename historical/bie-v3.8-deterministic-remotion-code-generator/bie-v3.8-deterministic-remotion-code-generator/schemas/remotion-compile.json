@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "ir",
+    "timeline",
+    "component_source",
+    "render_metadata"
+  ],
+  "properties": {
+    "ir": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "object"
+    },
+    "component_source": {
+      "type": "string"
+    },
+    "render_metadata": {
+      "type": "object"
+    }
+  }
+}

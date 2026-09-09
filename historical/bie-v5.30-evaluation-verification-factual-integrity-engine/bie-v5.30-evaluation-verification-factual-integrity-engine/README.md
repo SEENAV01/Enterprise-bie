@@ -1,0 +1,1 @@
+# BIE v5.30 — Evaluation, Verification & Factual Integrity Engine\n\nM74 verifies claims against evidence, supports numerical/unit checks, contradiction detection, cross-representation consistency and release-time integrity gates.\n

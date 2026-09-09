@@ -1,0 +1,75 @@
+{
+  "book_id": "physics_book_01",
+  "style_profile": {
+    "version": "1",
+    "required": [
+      "consistent_equation_style",
+      "consistent_typography"
+    ]
+  },
+  "terminology": [
+    {
+      "term": "electric current",
+      "canonical": "electric current",
+      "avoid": [
+        "current flow"
+      ]
+    },
+    {
+      "term": "potential difference",
+      "canonical": "potential difference",
+      "avoid": []
+    }
+  ],
+  "concepts": [
+    {
+      "id": "charge"
+    },
+    {
+      "id": "current"
+    },
+    {
+      "id": "voltage"
+    }
+  ],
+  "chapters": [
+    {
+      "chapter_id": "ch1",
+      "lessons": [
+        {
+          "lesson_id": "l1",
+          "depends_on": []
+        },
+        {
+          "lesson_id": "l2",
+          "depends_on": [
+            "l1"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_id": "ch2",
+      "lessons": [
+        {
+          "lesson_id": "l3",
+          "depends_on": [
+            "l2"
+          ]
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "semantic_id": "charge_symbol",
+      "variant": "default",
+      "style_version": "1"
+    },
+    {
+      "semantic_id": "current_symbol",
+      "variant": "default",
+      "style_version": "1"
+    }
+  ]
+}

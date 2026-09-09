@@ -1,0 +1,61 @@
+{
+  "concepts": [
+    {
+      "id": "current",
+      "label": "Electric current"
+    },
+    {
+      "id": "charge",
+      "label": "Electric charge"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Current is rate of charge flow",
+      "source_quality": 0.95,
+      "evidence_ids": [
+        "s1"
+      ]
+    },
+    {
+      "id": "c2",
+      "text": "Current is the rate of charge flow",
+      "source_quality": 0.9,
+      "evidence_ids": [
+        "s2"
+      ]
+    },
+    {
+      "id": "c3",
+      "text": "Current is not related to charge flow",
+      "source_quality": 0.4,
+      "relation": "CONTRADICTS",
+      "evidence_ids": [
+        "s3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "s1",
+      "title": "Authoritative source 1"
+    },
+    {
+      "source_id": "s2",
+      "title": "Authoritative source 2"
+    },
+    {
+      "source_id": "s3",
+      "title": "Conflicting source"
+    }
+  ],
+  "terms": [
+    {
+      "canonical": "electric current",
+      "aliases": [
+        "current flow"
+      ]
+    }
+  ]
+}

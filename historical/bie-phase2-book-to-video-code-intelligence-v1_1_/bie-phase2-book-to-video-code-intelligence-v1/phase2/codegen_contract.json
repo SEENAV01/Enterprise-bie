@@ -1,0 +1,48 @@
+{
+  "phase": "2",
+  "name": "Book-to-Video Code Intelligence",
+  "goal": "Generate production-ready video code for an entire book without rendering it in this phase.",
+  "input": "PDF or other source document",
+  "outputs": [
+    "book_model",
+    "concept_graph",
+    "chapter_map",
+    "prerequisite_graph",
+    "course_map",
+    "lesson_specs",
+    "scene_specs",
+    "visual_specs",
+    "video_code_generation_inputs",
+    "Remotion_code"
+  ],
+  "stages": [
+    "ingest",
+    "document_structure",
+    "knowledge_extraction",
+    "concept_graph",
+    "prerequisite_resolution",
+    "pedagogical_decomposition",
+    "lesson_planning",
+    "scene_planning",
+    "visual_planning",
+    "code_architecture",
+    "code_generation",
+    "static_validation",
+    "book_level_manifest"
+  ],
+  "non_goals": [
+    "video rendering",
+    "ffmpeg execution",
+    "OCR QA of rendered video",
+    "automatic repair after rendering",
+    "publishing"
+  ],
+  "core_invariants": [
+    "Every generated concept retains source provenance.",
+    "Every lesson references concepts and prerequisites.",
+    "Every scene references one or more concepts or explicit pedagogical purpose.",
+    "Generated code must be traceable to scene specifications.",
+    "The entire book is represented by a persistent manifest, not one giant prompt.",
+    "Unsupported source claims are marked unresolved rather than invented."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "BIE-INFRA-RECOVERY-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "single_active_owner": true,
+    "lease_scope_run_stage_attempt": true,
+    "heartbeat_renewal": true,
+    "fencing_tokens": true,
+    "expired_write_rejection": true,
+    "safe_takeover": true,
+    "recovery_evidence": true,
+    "worker_scope_guard": true,
+    "provider_neutral": true
+  },
+  "next_task": "BIE-INFRA-WORKER-001",
+  "next_task_title": "Distributed Worker Protocol & Capability-Aware Scheduling Contract"
+}

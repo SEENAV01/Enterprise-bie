@@ -1,0 +1,87 @@
+{
+  "schema_version": "6.18",
+  "entity": {
+    "name": "workflow",
+    "fields": {
+      "id": "string",
+      "tenant_id": "string",
+      "status": "string",
+      "version": "int"
+    },
+    "tenant_scoped": true,
+    "versioned": true
+  },
+  "repository": {
+    "repository": "workflow-repo",
+    "entity": "workflow",
+    "consistency": "STRONG"
+  },
+  "query": {
+    "entity": "workflow",
+    "filters": {
+      "status": "ACTIVE"
+    },
+    "sort": [
+      [
+        "version",
+        "DESC"
+      ]
+    ],
+    "limit": 100
+  },
+  "transaction": {
+    "tx_id": "tx-1",
+    "isolation": "SERIALIZABLE",
+    "status": "COMMITTED"
+  },
+  "index": {
+    "name": "workflow-status",
+    "entity": "workflow",
+    "fields": [
+      "tenant_id",
+      "status"
+    ],
+    "unique": false
+  },
+  "migration": {
+    "migration_id": "m-1",
+    "from_version": 1,
+    "to_version": 2,
+    "operations": [
+      "add:version",
+      "add:index"
+    ],
+    "status": "APPLIED"
+  },
+  "archive_policy": {
+    "entity": "workflow",
+    "hot_until": 100,
+    "archive_after": 1000,
+    "tier": "COLD"
+  },
+  "lifecycle": {
+    "entity": "workflow",
+    "states": [
+      "ACTIVE",
+      "ARCHIVED",
+      "DELETED"
+    ]
+  },
+  "consistency": {
+    "entity": "workflow",
+    "read": "STRONG",
+    "write": "STRONG"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "tenant_scoped": true,
+    "has_version": true,
+    "index_covers": true,
+    "archival_due": true,
+    "active_to_archive": true,
+    "consistency": true
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v5.80 — Human Review, Approval & Exception Workflow\n\nReview queues, reviewer authorization, structured annotations, approval/rejection states, escalation, explicit overrides and dual-control support.\n

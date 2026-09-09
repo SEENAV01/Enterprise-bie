@@ -1,0 +1,85 @@
+{
+  "schema_version": "6.17",
+  "classification": {
+    "data_id": "customer-42",
+    "level": "RESTRICTED",
+    "categories": [
+      "PERSONAL"
+    ],
+    "tenant_id": "tenant-a"
+  },
+  "encryption": {
+    "data_id": "customer-42",
+    "algorithm": "AES-256-GCM",
+    "key_ref": "key://customer-data",
+    "scope": "AT_REST",
+    "status": "REQUIRED"
+  },
+  "field_protection": {
+    "resource": "customer-42",
+    "fields": [
+      "email",
+      "phone"
+    ],
+    "mode": "TOKENIZE"
+  },
+  "redaction": {
+    "resource": "customer-42",
+    "fields": [
+      "ssn"
+    ],
+    "placeholder": "[REDACTED]"
+  },
+  "retention": {
+    "resource": "customer-42",
+    "retain_until": 1000,
+    "legal_hold": false,
+    "reason": "business-retention"
+  },
+  "deletion": {
+    "request_id": "del-1",
+    "resource": "customer-42",
+    "requested_by": "privacy-service",
+    "reason": "retention-expired",
+    "status": "COMPLETED"
+  },
+  "privacy_boundary": {
+    "resource": "customer-42",
+    "tenant_id": "tenant-a",
+    "allowed_purposes": [
+      "customer-support",
+      "fraud-review"
+    ],
+    "minimum_access": true
+  },
+  "access_audit": {
+    "event_id": "access-1",
+    "subject_id": "user-1",
+    "resource": "customer-42",
+    "purpose": "customer-support",
+    "decision": "ALLOW",
+    "tenant_id": "tenant-a"
+  },
+  "masking": {
+    "resource": "customer-42",
+    "fields": [
+      "phone"
+    ],
+    "visible_suffix": 4
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "restricted": true,
+    "encrypted": true,
+    "field_protected": true,
+    "retention_expired": true,
+    "purpose_allowed": true,
+    "access_allowed": true,
+    "masked": {
+      "phone": "******7890"
+    }
+  }
+}

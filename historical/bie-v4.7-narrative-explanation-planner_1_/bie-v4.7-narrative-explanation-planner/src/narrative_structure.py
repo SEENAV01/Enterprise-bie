@@ -1,0 +1,19 @@
+def structure_block(block):
+    btype=block["type"]
+    templates={
+      "HOOK":["HOOK","PROMISE"],
+      "OBJECTIVE":["OBJECTIVE"],
+      "PREREQUISITE_RECALL":["RECALL","CONNECT"],
+      "INTUITION":["INTUITION","ANALOGY","CHECK"],
+      "CORE_EXPLANATION":["STATE","EXPLAIN","CONNECT"],
+      "MECHANISM":["QUESTION","CAUSE","MECHANISM","CHECK"],
+      "DERIVATION":["START","STEP","STEP","CONCLUSION"],
+      "WORKED_EXAMPLE":["PROBLEM","SETUP","SOLVE","VERIFY"],
+      "APPLICATION":["SCENARIO","APPLY","INTERPRET"],
+      "COMPARISON":["CASE_A","CASE_B","DISTINGUISH"],
+      "MISCONCEPTION_CHECK":["CLAIM","CHALLENGE","CORRECT"],
+      "GUIDED_PRACTICE":["PROMPT","THINK","SOLUTION"],
+      "RECAP":["RECAP"],
+      "ASSESSMENT":["QUESTION","RESPONSE","FEEDBACK"]
+    }
+    return templates.get(btype,["EXPLAIN"])

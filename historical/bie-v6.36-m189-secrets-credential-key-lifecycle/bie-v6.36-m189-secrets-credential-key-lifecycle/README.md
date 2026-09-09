@@ -1,0 +1,1 @@
+# BIE v6.36 — Secrets, Credential & Key Lifecycle Management Layer\n\nSecret references, key versions, rotation, revocation, credential leases, envelope-encryption boundaries, secure retrieval and lifecycle audit.\n

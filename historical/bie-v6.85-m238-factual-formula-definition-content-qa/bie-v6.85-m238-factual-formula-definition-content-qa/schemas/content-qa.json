@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "claims",
+    "definitions",
+    "formulas",
+    "content_qa",
+    "content_quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.85"
+    },
+    "claims": {
+      "type": "array"
+    },
+    "definitions": {
+      "type": "array"
+    },
+    "formulas": {
+      "type": "array"
+    },
+    "content_qa": {
+      "type": "object"
+    },
+    "content_quality_gate": {
+      "type": "object"
+    }
+  }
+}

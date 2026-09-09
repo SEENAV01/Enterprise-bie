@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "scene_id",
+    "canvas",
+    "layers",
+    "animations"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string"
+    },
+    "canvas": {
+      "type": "object"
+    },
+    "layers": {
+      "type": "array"
+    },
+    "animations": {
+      "type": "array"
+    },
+    "audio": {
+      "type": "array"
+    },
+    "captions": {
+      "type": "array"
+    }
+  }
+}

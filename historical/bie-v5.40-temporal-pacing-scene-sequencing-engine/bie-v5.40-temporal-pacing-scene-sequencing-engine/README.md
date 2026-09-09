@@ -1,0 +1,1 @@
+# BIE v5.40 — Temporal, Pacing & Scene Sequencing Engine\n\nBuilds dependency-aware temporal plans from pedagogical beats, scene states, interaction events, synchronization hooks and pacing constraints without requiring arbitrary fixed durations.\n

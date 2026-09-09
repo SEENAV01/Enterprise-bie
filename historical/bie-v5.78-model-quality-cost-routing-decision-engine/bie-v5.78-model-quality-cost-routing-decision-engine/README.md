@@ -1,0 +1,1 @@
+# BIE v5.78 — Model Quality, Cost & Routing Decision Engine\n\nCapability matching, quality/cost/latency/reliability scoring, budget constraints, fallback chains and auditable routing decisions.\n

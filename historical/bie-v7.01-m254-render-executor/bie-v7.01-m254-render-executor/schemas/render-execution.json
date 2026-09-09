@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "build_validation",
+    "project",
+    "render_request",
+    "render_result",
+    "render_validation",
+    "artifact",
+    "artifact_validation",
+    "render_qa",
+    "recovery_plan",
+    "recovery_validation",
+    "release_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.01"
+    },
+    "build_validation": {
+      "type": "object"
+    },
+    "project": {
+      "type": "object"
+    },
+    "render_request": {
+      "type": "object"
+    },
+    "render_result": {
+      "type": "object"
+    },
+    "render_validation": {
+      "type": "object"
+    },
+    "artifact": {
+      "type": "object"
+    },
+    "artifact_validation": {
+      "type": "object"
+    },
+    "render_qa": {
+      "type": "object"
+    },
+    "recovery_plan": {
+      "type": "object"
+    },
+    "recovery_validation": {
+      "type": "object"
+    },
+    "release_gate": {
+      "type": "object"
+    }
+  }
+}

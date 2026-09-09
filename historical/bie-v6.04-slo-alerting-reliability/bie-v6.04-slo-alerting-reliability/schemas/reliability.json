@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sli",
+    "slo",
+    "error_budget",
+    "burn_rate",
+    "alert_rule",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.04"
+    },
+    "sli": {
+      "type": "object"
+    },
+    "slo": {
+      "type": "object"
+    },
+    "error_budget": {
+      "type": "object"
+    },
+    "burn_rate": {
+      "type": "number"
+    },
+    "alert_rule": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

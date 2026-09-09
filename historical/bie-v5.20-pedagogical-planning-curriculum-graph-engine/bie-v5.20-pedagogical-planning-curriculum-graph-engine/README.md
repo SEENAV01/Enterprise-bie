@@ -1,0 +1,1 @@
+# BIE v5.20 — Pedagogical Planning & Curriculum Graph Engine\n\nM64 structures objectives, concept dependencies, prerequisites, misconceptions, learning events, assessments and course-level sequencing.\n

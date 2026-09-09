@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "run_id",
+    "source_ref",
+    "options",
+    "stages",
+    "status"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "options": {
+      "type": "object"
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 14
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

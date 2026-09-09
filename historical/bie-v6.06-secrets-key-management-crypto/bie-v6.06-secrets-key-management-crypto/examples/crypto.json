@@ -1,0 +1,46 @@
+{
+  "schema_version": "6.06",
+  "secret": {
+    "secret_id": "provider-api-key",
+    "version": 7,
+    "scope": "worker-a",
+    "expires_at": null,
+    "kind": "SECRET"
+  },
+  "key": {
+    "key_id": "bie-data-key",
+    "version": 7,
+    "purpose": "ENCRYPTION",
+    "algorithm": "AES",
+    "status": "ACTIVE",
+    "kind": "KEY"
+  },
+  "lifecycle": {
+    "material_id": "provider-api-key",
+    "state": "ACTIVE",
+    "version": 7,
+    "changed_at": 100
+  },
+  "rotation": {
+    "material_id": "provider-api-key",
+    "current_version": 7,
+    "next_version": 8,
+    "created_at": 100,
+    "overlap": true,
+    "status": "PLANNED"
+  },
+  "access_policy": {
+    "material_id": "provider-api-key",
+    "subjects": [
+      "worker-a"
+    ],
+    "actions": [
+      "READ"
+    ],
+    "effect": "ALLOW"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

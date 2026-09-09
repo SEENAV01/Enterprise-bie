@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "renderer",
+    "fps",
+    "resolution",
+    "scenes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "renderer": {
+      "const": "remotion"
+    },
+    "fps": {
+      "type": "integer"
+    },
+    "resolution": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ]
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "type",
+          "duration_ms",
+          "objective",
+          "visual",
+          "narration",
+          "on_screen_text",
+          "equations",
+          "animation",
+          "camera",
+          "transition",
+          "emphasis",
+          "evidence_refs"
+        ]
+      }
+    }
+  }
+}

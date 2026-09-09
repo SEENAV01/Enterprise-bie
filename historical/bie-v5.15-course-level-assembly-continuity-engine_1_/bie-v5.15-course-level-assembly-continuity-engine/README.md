@@ -1,0 +1,1 @@
+# BIE v5.15 — Course-Level Assembly & Continuity Engine\n\nM59 assembles chapters, lessons and scenes into a coherent course with a global timeline, inherited style, asset continuity, recurring motifs and explicit chapter openings/closings.\n

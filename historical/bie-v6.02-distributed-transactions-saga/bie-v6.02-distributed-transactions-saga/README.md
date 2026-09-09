@@ -1,0 +1,1 @@
+# BIE v6.02 — Distributed Transactions, Workflow Consistency & Saga\n\nSaga state, compensating actions, outbox/inbox patterns, retries, consistency policies and distributed transaction boundaries.\n

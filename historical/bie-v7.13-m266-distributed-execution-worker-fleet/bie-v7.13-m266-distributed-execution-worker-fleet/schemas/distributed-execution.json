@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "workers",
+    "dispatch",
+    "lease",
+    "recovery",
+    "isolated_worker",
+    "autoscaling",
+    "distributed_execution_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.13"
+    },
+    "workers": {
+      "type": "array"
+    },
+    "dispatch": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "recovery": {
+      "type": "object"
+    },
+    "isolated_worker": {
+      "type": "object"
+    },
+    "autoscaling": {
+      "type": "object"
+    },
+    "distributed_execution_gate": {
+      "type": "object"
+    }
+  }
+}

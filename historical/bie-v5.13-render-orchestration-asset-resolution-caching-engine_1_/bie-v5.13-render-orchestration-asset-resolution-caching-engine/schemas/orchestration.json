@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dependency_graph",
+    "render_jobs",
+    "schedule",
+    "assembly_manifest",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.13"
+    },
+    "dependency_graph": {
+      "type": "object"
+    },
+    "asset_resolution": {
+      "type": "object"
+    },
+    "render_jobs": {
+      "type": "array"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "assembly_manifest": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

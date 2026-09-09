@@ -1,0 +1,1 @@
+# BIE v6.41 — Transaction, Unit-of-Work & Atomic Commit Abstraction Layer\n\nTransaction scopes, unit-of-work, read/write sets, prepare/commit/rollback, conflicts, idempotency, savepoints and transaction observability.\n

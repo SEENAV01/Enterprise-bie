@@ -1,0 +1,25 @@
+{
+  "schema_version": "6.41",
+  "transaction": {
+    "tx_id": "tx-1",
+    "isolation": "SERIALIZABLE",
+    "timeout_ms": 5000,
+    "idempotency_key": "idem-1",
+    "status": "OPEN"
+  },
+  "unit_of_work": {
+    "uow_id": "uow-1",
+    "tx_id": "tx-1",
+    "operations": [
+      {
+        "operation": "UPDATE",
+        "resource": "artifact:1"
+      }
+    ],
+    "status": "ACTIVE"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v5.12 — Renderer Abstraction & Remotion Scene Compiler\n\nM56 creates a renderer-independent scene IR and a thin Remotion adapter for deterministic render-ready scene specifications.\n

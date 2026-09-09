@@ -1,0 +1,1 @@
+# BIE v5.76 — Distributed Cache, Incremental Build & Dependency Invalidation\n\nContent fingerprints, deterministic cache keys, dependency-aware invalidation, selective rebuilds and cache consistency checks.\n

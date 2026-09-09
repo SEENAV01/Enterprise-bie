@@ -1,0 +1,1 @@
+# BIE v6.05 — Security Policy Enforcement Layer\n\nIdentity context, authentication, authorization, RBAC, resource permissions, tenant isolation, deny-by-default, policy versioning, audit decisions and privileged-operation controls.\n

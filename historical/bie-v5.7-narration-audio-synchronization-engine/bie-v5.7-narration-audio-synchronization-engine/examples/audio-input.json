@@ -1,0 +1,42 @@
+{
+  "segments": [
+    {
+      "segment_id": "s1",
+      "text": "Electric current is the rate of flow of charge.",
+      "purpose": "DEFINE",
+      "visual_ids": [
+        "equation_current"
+      ]
+    },
+    {
+      "segment_id": "s2",
+      "text": "The same amount of charge flowing in less time means a larger current.",
+      "purpose": "EXPLAIN",
+      "visual_ids": [
+        "flow_diagram"
+      ]
+    }
+  ],
+  "cues": [
+    {
+      "cue_id": "c1",
+      "segment_id": "s1",
+      "trigger": "phrase_start",
+      "target_ids": [
+        "equation_current"
+      ],
+      "offset_frames": 20,
+      "duration_frames": 60
+    },
+    {
+      "cue_id": "c2",
+      "segment_id": "s2",
+      "trigger": "concept_emphasis",
+      "target_ids": [
+        "flow_diagram"
+      ],
+      "offset_frames": 45,
+      "duration_frames": 90
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "6.55",
+  "manifest": {
+    "manifest_id": "manifest-1",
+    "storyboard_id": "storyboard-1",
+    "assets": [
+      {
+        "asset_id": "asset-1",
+        "asset_type": "DIAGRAM",
+        "scene_id": "sc1"
+      }
+    ]
+  },
+  "specifications": [
+    {
+      "spec_id": "spec-1",
+      "asset_id": "asset-1",
+      "generation_method": "VECTOR_DIAGRAM"
+    }
+  ],
+  "prompts": [
+    {
+      "prompt_id": "prompt-1",
+      "asset_id": "asset-1",
+      "prompt": "Create a clean educational diagram."
+    }
+  ],
+  "evidence_bindings": [
+    {
+      "asset_id": "asset-1",
+      "evidence_ids": [
+        "ev-1"
+      ]
+    }
+  ],
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

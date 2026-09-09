@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "failure",
+    "diagnosis",
+    "remediation",
+    "impact_analysis",
+    "regeneration_job",
+    "reqa_cycle",
+    "regeneration_guard",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.59"
+    },
+    "failure": {
+      "type": "object"
+    },
+    "diagnosis": {
+      "type": "object"
+    },
+    "remediation": {
+      "type": "object"
+    },
+    "impact_analysis": {
+      "type": "object"
+    },
+    "regeneration_job": {
+      "type": "object"
+    },
+    "reqa_cycle": {
+      "type": "object"
+    },
+    "regeneration_guard": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

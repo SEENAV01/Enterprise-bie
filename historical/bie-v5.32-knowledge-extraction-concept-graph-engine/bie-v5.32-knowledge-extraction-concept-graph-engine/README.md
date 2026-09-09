@@ -1,0 +1,1 @@
+# BIE v5.32 — Knowledge Extraction & Concept Graph Engine\n\nM76 transforms canonical source documents into provenance-aware sections, concepts, definitions, entities, equations, examples and typed relationships.\n

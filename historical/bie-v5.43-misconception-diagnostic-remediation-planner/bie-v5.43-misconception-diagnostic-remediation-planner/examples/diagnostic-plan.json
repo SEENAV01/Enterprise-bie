@@ -1,0 +1,52 @@
+{
+  "diagnoses": [
+    {
+      "diagnosis_id": "d1",
+      "category": "MISCONCEPTION",
+      "concept_refs": [
+        "electric_field"
+      ],
+      "evidence_refs": [
+        "e17"
+      ],
+      "confidence": 0.82,
+      "notes": "Learner repeatedly treats field as force."
+    }
+  ],
+  "remediations": [
+    {
+      "remediation_id": "r1",
+      "target_type": "MISCONCEPTION",
+      "target_refs": [
+        "m-force-field"
+      ],
+      "strategy": "MISCONCEPTION_CONTRAST",
+      "activities": [
+        "compare force and field representations"
+      ],
+      "check": "reassessment"
+    }
+  ],
+  "adaptation": {
+    "plan_id": "p1",
+    "diagnosis_refs": [
+      "d1"
+    ],
+    "steps": [
+      {
+        "step_id": "s1",
+        "condition": "confidence>=0.7",
+        "action": "apply_remediation",
+        "target_refs": [
+          "r1"
+        ]
+      }
+    ],
+    "reassessment": {
+      "item_type": "PREDICTION",
+      "target_objective": "o-field",
+      "target_diagnosis": "d1",
+      "evidence_goal": "distinguish field from force"
+    }
+  }
+}

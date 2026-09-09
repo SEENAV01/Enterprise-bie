@@ -1,0 +1,29 @@
+{
+  "schema_version": "6.50",
+  "source_id": "book-1",
+  "modalities": [
+    {
+      "record_id": "record-text-1",
+      "modality": "TEXT"
+    },
+    {
+      "record_id": "record-figure-1",
+      "modality": "IMAGE"
+    }
+  ],
+  "evidence": {
+    "evidence_id": "evidence-1",
+    "record_ids": [
+      "record-text-1",
+      "record-figure-1"
+    ],
+    "confidence": 0.95
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

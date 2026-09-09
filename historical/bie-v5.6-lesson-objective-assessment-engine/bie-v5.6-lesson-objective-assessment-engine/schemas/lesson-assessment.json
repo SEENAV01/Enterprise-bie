@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "objectives",
+    "questions",
+    "assessment_blueprint"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.6"
+    },
+    "objectives": {
+      "type": "array"
+    },
+    "questions": {
+      "type": "array"
+    },
+    "assessment_blueprint": {
+      "type": "object"
+    },
+    "learner_mastery": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

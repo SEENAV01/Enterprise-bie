@@ -1,0 +1,1 @@
+# BIE v5.24 — Narration, Audio & Temporal Synchronization Engine\n\nM68 derives scene timing from actual narration/audio, creates caption timing, aligns visual cues to phrases, and produces an audio-driven timeline for Remotion.\n

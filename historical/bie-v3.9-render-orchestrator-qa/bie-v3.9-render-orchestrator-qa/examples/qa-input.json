@@ -1,0 +1,46 @@
+{
+  "scenes": [
+    {
+      "scene_id": "s1",
+      "scene_type": "DEFINITION",
+      "duration": {
+        "mode": "AUDIO_DRIVEN"
+      },
+      "narration_unit_ids": [
+        "u1"
+      ],
+      "layers": [
+        {
+          "type": "Text"
+        }
+      ]
+    },
+    {
+      "scene_id": "s2",
+      "scene_type": "DIAGRAM",
+      "duration": {
+        "mode": "AUDIO_DRIVEN"
+      },
+      "narration_unit_ids": [
+        "u2"
+      ],
+      "layers": [
+        {
+          "type": "Diagram"
+        }
+      ]
+    }
+  ],
+  "rendered_outputs": {
+    "s1": {
+      "render_failed": false,
+      "audio_missing": false,
+      "overflow_detected": false
+    },
+    "s2": {
+      "render_failed": false,
+      "audio_missing": false,
+      "overflow_detected": true
+    }
+  }
+}

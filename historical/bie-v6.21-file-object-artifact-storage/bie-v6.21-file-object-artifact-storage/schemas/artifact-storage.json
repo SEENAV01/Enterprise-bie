@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "object_ref",
+    "upload",
+    "download",
+    "multipart",
+    "checksum",
+    "metadata",
+    "version",
+    "lifecycle",
+    "quarantine",
+    "access",
+    "retention",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.21"
+    },
+    "object_ref": {
+      "type": "object"
+    },
+    "upload": {
+      "type": "object"
+    },
+    "download": {
+      "type": "object"
+    },
+    "multipart": {
+      "type": "object"
+    },
+    "checksum": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "version": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "quarantine": {
+      "type": "object"
+    },
+    "access": {
+      "type": "object"
+    },
+    "retention": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

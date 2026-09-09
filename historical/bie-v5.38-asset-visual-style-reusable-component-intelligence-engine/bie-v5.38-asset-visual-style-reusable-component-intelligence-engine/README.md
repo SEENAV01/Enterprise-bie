@@ -1,0 +1,1 @@
+# BIE v5.38 — Asset, Visual Style & Reusable Component Intelligence Engine\n\nManages assets, canonical visual styles, reusable components, templates, semantic asset selection, provenance and visual drift detection across lessons and courses.\n

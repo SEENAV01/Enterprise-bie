@@ -1,0 +1,1 @@
+# BIE v5.47 — Source-Grounded Content Transformation & Generation Engine\n\nTransforms verified source fragments into structured educational outputs while preserving provenance and explicitly distinguishing source-derived material from generated additions.\n

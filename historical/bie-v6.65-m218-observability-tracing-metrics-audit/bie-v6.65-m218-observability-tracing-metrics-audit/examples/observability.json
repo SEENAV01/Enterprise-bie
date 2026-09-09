@@ -1,0 +1,31 @@
+{
+  "schema_version": "6.65",
+  "trace_context": {
+    "trace_id": "trace-demo",
+    "job_id": "lesson-job-1"
+  },
+  "spans": [
+    {
+      "span_id": "span-1",
+      "name": "lesson.build",
+      "status": "OK"
+    }
+  ],
+  "metrics": {
+    "counters": {
+      "lessons.completed": 1
+    }
+  },
+  "audit_log": [
+    {
+      "action": "VERIFY",
+      "result": "PASS"
+    }
+  ],
+  "diagnostics": {
+    "health": "HEALTHY"
+  },
+  "observability_gate": {
+    "valid": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source_id",
+    "evidence",
+    "claims",
+    "claim_assessments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.3"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "claims": {
+      "type": "array"
+    },
+    "claim_assessments": {
+      "type": "array"
+    },
+    "video_elements": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

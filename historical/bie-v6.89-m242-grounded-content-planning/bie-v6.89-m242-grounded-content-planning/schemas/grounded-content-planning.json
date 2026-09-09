@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "content_plan",
+    "lesson_sequence",
+    "lesson_units",
+    "target_coverage",
+    "prerequisite_coverage",
+    "plan_validation",
+    "grounded_planning_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.89"
+    },
+    "content_plan": {
+      "type": "array"
+    },
+    "lesson_sequence": {
+      "type": "array"
+    },
+    "lesson_units": {
+      "type": "array"
+    },
+    "target_coverage": {
+      "type": "object"
+    },
+    "prerequisite_coverage": {
+      "type": "object"
+    },
+    "plan_validation": {
+      "type": "object"
+    },
+    "grounded_planning_gate": {
+      "type": "object"
+    }
+  }
+}

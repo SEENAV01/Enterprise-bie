@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "metadata",
+    "metadata_validation",
+    "classification",
+    "tags",
+    "fingerprints",
+    "embedding_index",
+    "suitability",
+    "asset_intelligence_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.20"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "metadata_validation": {
+      "type": "object"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "fingerprints": {
+      "type": "object"
+    },
+    "embedding_index": {
+      "type": "object"
+    },
+    "suitability": {
+      "type": "object"
+    },
+    "asset_intelligence_gate": {
+      "type": "object"
+    }
+  }
+}

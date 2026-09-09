@@ -1,0 +1,488 @@
+{
+  "suite_id": "bie-enterprise-golden-core",
+  "suite_version": "1.0.0",
+  "global_threshold": 0.91,
+  "domain_requirements": [
+    {
+      "domain": "physics",
+      "minimum_score": 0.92,
+      "required_case_count": 1
+    },
+    {
+      "domain": "mathematics",
+      "minimum_score": 0.93,
+      "required_case_count": 1
+    },
+    {
+      "domain": "biology",
+      "minimum_score": 0.91,
+      "required_case_count": 1
+    },
+    {
+      "domain": "history_civics",
+      "minimum_score": 0.9,
+      "required_case_count": 1
+    },
+    {
+      "domain": "geography_earth_science",
+      "minimum_score": 0.9,
+      "required_case_count": 1
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "PHY-COULOMB-001",
+      "title": "Coulomb force, vectors and inverse-square relation",
+      "domain": "physics",
+      "benchmark_version": "1.0.0",
+      "source_fixture_ref": "fixtures/physics/coulomb_chapter",
+      "concept_tags": [
+        "electrostatics",
+        "vector_force",
+        "inverse_square",
+        "simulation"
+      ],
+      "metrics": [
+        {
+          "metric_id": "source_grounding",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "factual_semantic_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "reasoning_validity",
+          "weight": 1.5,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "pedagogical_sequence",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "representation_fitness",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "video_compile_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "video_render_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_runtime_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_learning_alignment",
+          "weight": 1.0,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "mathematical_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.98,
+          "critical": true
+        }
+      ],
+      "case_threshold": 0.92,
+      "expected_properties": {
+        "representations": [
+          "charge_simulation",
+          "force_vectors",
+          "inverse_square_graph"
+        ],
+        "must_explain": [
+          "sign",
+          "distance_squared"
+        ]
+      },
+      "forbidden_properties": [
+        "universal five-pane requirement",
+        "force direction inferred solely from scalar magnitude formula"
+      ]
+    },
+    {
+      "case_id": "MATH-FUNCTION-001",
+      "title": "Function transformation and graph reasoning",
+      "domain": "mathematics",
+      "benchmark_version": "1.0.0",
+      "source_fixture_ref": "fixtures/mathematics/function_transformations",
+      "concept_tags": [
+        "functions",
+        "symbolic_reasoning",
+        "graphs"
+      ],
+      "metrics": [
+        {
+          "metric_id": "source_grounding",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "factual_semantic_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "reasoning_validity",
+          "weight": 1.5,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "pedagogical_sequence",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "representation_fitness",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "video_compile_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "video_render_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_runtime_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_learning_alignment",
+          "weight": 1.0,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "mathematical_correctness",
+          "weight": 2.5,
+          "minimum_score": 0.99,
+          "critical": true
+        }
+      ],
+      "case_threshold": 0.93,
+      "expected_properties": {
+        "representations": [
+          "symbolic_steps",
+          "graph_transform"
+        ],
+        "must_preserve": [
+          "domain",
+          "transformation_order"
+        ]
+      },
+      "forbidden_properties": [
+        "unsupported algebra step",
+        "visual shift inconsistent with equation"
+      ]
+    },
+    {
+      "case_id": "BIO-PHOTO-001",
+      "title": "Photosynthesis system and causal process",
+      "domain": "biology",
+      "benchmark_version": "1.0.0",
+      "source_fixture_ref": "fixtures/biology/photosynthesis",
+      "concept_tags": [
+        "photosynthesis",
+        "chloroplast",
+        "process_system",
+        "causal_chain"
+      ],
+      "metrics": [
+        {
+          "metric_id": "source_grounding",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "factual_semantic_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "reasoning_validity",
+          "weight": 1.5,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "pedagogical_sequence",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "representation_fitness",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "video_compile_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "video_render_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_runtime_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_learning_alignment",
+          "weight": 1.0,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "causal_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        }
+      ],
+      "case_threshold": 0.91,
+      "expected_properties": {
+        "representations": [
+          "chloroplast_process",
+          "energy_flow",
+          "matter_flow"
+        ],
+        "must_distinguish": [
+          "light_reactions",
+          "carbon_fixation"
+        ]
+      },
+      "forbidden_properties": [
+        "equation-only explanation",
+        "claim that oxygen originates from carbon dioxide"
+      ]
+    },
+    {
+      "case_id": "HIST-FRENCH-001",
+      "title": "French Revolution chronology and causal explanation",
+      "domain": "history_civics",
+      "benchmark_version": "1.0.0",
+      "source_fixture_ref": "fixtures/history/french_revolution",
+      "concept_tags": [
+        "chronology",
+        "causality",
+        "actors",
+        "social_structure"
+      ],
+      "metrics": [
+        {
+          "metric_id": "source_grounding",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "factual_semantic_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "reasoning_validity",
+          "weight": 1.5,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "pedagogical_sequence",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "representation_fitness",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "video_compile_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "video_render_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_runtime_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_learning_alignment",
+          "weight": 1.0,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "causal_correctness",
+          "weight": 1.5,
+          "minimum_score": 0.92,
+          "critical": true
+        }
+      ],
+      "case_threshold": 0.9,
+      "expected_properties": {
+        "representations": [
+          "timeline",
+          "social_hierarchy",
+          "causal_network"
+        ],
+        "must_preserve": [
+          "chronology",
+          "actor_roles"
+        ]
+      },
+      "forbidden_properties": [
+        "single-cause determinism presented as fact",
+        "invented quotation"
+      ]
+    },
+    {
+      "case_id": "GEO-PLATE-001",
+      "title": "Plate tectonics spatial-process reasoning",
+      "domain": "geography_earth_science",
+      "benchmark_version": "1.0.0",
+      "source_fixture_ref": "fixtures/geography/plate_tectonics",
+      "concept_tags": [
+        "tectonics",
+        "maps",
+        "spatial_process",
+        "earth_system"
+      ],
+      "metrics": [
+        {
+          "metric_id": "source_grounding",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "factual_semantic_correctness",
+          "weight": 2.0,
+          "minimum_score": 0.95,
+          "critical": true
+        },
+        {
+          "metric_id": "reasoning_validity",
+          "weight": 1.5,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "pedagogical_sequence",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "representation_fitness",
+          "weight": 1.0,
+          "minimum_score": 0.85,
+          "critical": false
+        },
+        {
+          "metric_id": "video_compile_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "video_render_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_runtime_success",
+          "weight": 1.0,
+          "minimum_score": 1.0,
+          "critical": true
+        },
+        {
+          "metric_id": "game_learning_alignment",
+          "weight": 1.0,
+          "minimum_score": 0.9,
+          "critical": true
+        },
+        {
+          "metric_id": "causal_correctness",
+          "weight": 1.5,
+          "minimum_score": 0.94,
+          "critical": true
+        }
+      ],
+      "case_threshold": 0.9,
+      "expected_properties": {
+        "representations": [
+          "plate_cross_section",
+          "boundary_map",
+          "process_animation"
+        ],
+        "must_distinguish": [
+          "convergent",
+          "divergent",
+          "transform"
+        ]
+      },
+      "forbidden_properties": [
+        "all boundaries treated as subduction",
+        "geographic map without spatial meaning"
+      ]
+    }
+  ]
+}

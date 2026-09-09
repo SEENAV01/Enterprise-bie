@@ -1,0 +1,1 @@
+# BIE v6.42 — Distributed Coordination & Consensus Abstraction Layer\n\nParticipants, epochs, leases, leader terms, quorum contracts, prepare/accept/finalize states, membership changes, audit and observability.\n

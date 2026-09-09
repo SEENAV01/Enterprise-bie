@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "units",
+    "question_bank",
+    "coverage_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.1"
+    },
+    "units": {
+      "type": "array"
+    },
+    "question_bank": {
+      "type": "array"
+    },
+    "coverage_policy": {
+      "type": "object"
+    }
+  }
+}

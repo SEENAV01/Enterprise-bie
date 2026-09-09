@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest",
+    "specifications",
+    "prompts",
+    "diagram",
+    "equation",
+    "animation",
+    "evidence_bindings",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.55"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "specifications": {
+      "type": "array"
+    },
+    "prompts": {
+      "type": "array"
+    },
+    "diagram": {
+      "type": "object"
+    },
+    "equation": {
+      "type": "object"
+    },
+    "animation": {
+      "type": "object"
+    },
+    "evidence_bindings": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

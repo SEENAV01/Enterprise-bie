@@ -1,0 +1,1 @@
+# BIE v5.27 — Course-Level Production Orchestrator\n\nM71 scales production from individual scenes to complete courses using dependency graphs, incremental builds, parallel rendering, manifests, continuity and recovery.\n

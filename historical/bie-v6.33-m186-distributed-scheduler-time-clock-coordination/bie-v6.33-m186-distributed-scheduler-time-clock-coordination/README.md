@@ -1,0 +1,1 @@
+# BIE v6.33 — Distributed Scheduler & Time/Clock Coordination Layer\n\nSchedules, recurrence, time zones, clock uncertainty, misfire policies, distributed leadership, calendar windows, dispatch and scheduler observability.\n

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "record_id",
+    "record_type",
+    "version",
+    "payload",
+    "source_refs",
+    "concept_refs"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string"
+    },
+    "record_type": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "payload": {},
+    "source_refs": {
+      "type": "array"
+    },
+    "concept_refs": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  }
+}

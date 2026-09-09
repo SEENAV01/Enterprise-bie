@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event",
+    "topic",
+    "publication",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.97"
+    },
+    "event": {
+      "type": "object"
+    },
+    "topic": {
+      "type": "object"
+    },
+    "publication": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "6.39",
+  "metadata": {
+    "resource_id": "ds-1",
+    "name": "customer-profile",
+    "owner": "data-owner",
+    "status": "ACTIVE"
+  },
+  "schema": {
+    "schema_id": "sch-1",
+    "resource_id": "ds-1",
+    "version": "1",
+    "fields": [
+      {
+        "name": "customer_id",
+        "data_type": "string",
+        "required": true
+      }
+    ]
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

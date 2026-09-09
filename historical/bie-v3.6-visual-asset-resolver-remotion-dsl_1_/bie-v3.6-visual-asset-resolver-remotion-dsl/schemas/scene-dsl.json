@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "required": [
+    "dsl_version",
+    "scene_id",
+    "objective",
+    "duration",
+    "assets",
+    "layers",
+    "events"
+  ],
+  "properties": {
+    "dsl_version": {
+      "const": "1.0"
+    },
+    "scene_id": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "layers": {
+      "type": "array"
+    },
+    "events": {
+      "type": "array"
+    },
+    "camera": {
+      "type": "array"
+    },
+    "sync_anchors": {
+      "type": "array"
+    }
+  }
+}

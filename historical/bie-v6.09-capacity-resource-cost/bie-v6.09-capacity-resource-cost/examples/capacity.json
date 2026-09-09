@@ -1,0 +1,69 @@
+{
+  "schema_version": "6.09",
+  "resource": {
+    "service": "worker",
+    "resource_id": "compute",
+    "kind": "COMPUTE",
+    "capacity": 100,
+    "unit": "units",
+    "current": 60
+  },
+  "quota": {
+    "tenant_id": "tenant-a",
+    "resource": "compute",
+    "limit": 100,
+    "unit": "units",
+    "period": "1h"
+  },
+  "rate_limit": {
+    "name": "worker",
+    "requests": 1000,
+    "window_seconds": 60,
+    "burst": 100
+  },
+  "concurrency": {
+    "resource": "worker",
+    "max_concurrent": 50,
+    "queue_limit": 100
+  },
+  "autoscaling": {
+    "resource": "worker",
+    "min_instances": 2,
+    "max_instances": 20,
+    "target_utilization": 0.7
+  },
+  "budget": {
+    "service": "worker",
+    "compute_units": 100,
+    "storage_units": 1000,
+    "request_units": 100000
+  },
+  "cost": {
+    "service": "worker",
+    "period": "current",
+    "compute_cost": 10,
+    "storage_cost": 2,
+    "network_cost": 1,
+    "request_cost": 3,
+    "total_cost": 16
+  },
+  "policy": {
+    "service": "worker",
+    "quotas": [
+      {
+        "tenant_id": "tenant-a",
+        "resource": "compute",
+        "limit": 100,
+        "unit": "units",
+        "period": "1h"
+      }
+    ],
+    "rate_limits": [],
+    "concurrency": [],
+    "budgets": []
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

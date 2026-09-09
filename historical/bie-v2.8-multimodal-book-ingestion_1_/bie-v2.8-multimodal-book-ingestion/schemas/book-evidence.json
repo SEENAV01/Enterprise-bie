@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pages",
+    "evidence",
+    "context_links"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "context_links": {
+      "type": "array"
+    }
+  }
+}

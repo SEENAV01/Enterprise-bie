@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "cache_key",
+    "ttl_policy",
+    "invalidation",
+    "consistency",
+    "read_through",
+    "write_through",
+    "materialized_view",
+    "stampede_policy",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.19"
+    },
+    "cache_key": {
+      "type": "string"
+    },
+    "ttl_policy": {
+      "type": "object"
+    },
+    "invalidation": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "read_through": {
+      "type": "object"
+    },
+    "write_through": {
+      "type": "object"
+    },
+    "materialized_view": {
+      "type": "object"
+    },
+    "stampede_policy": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

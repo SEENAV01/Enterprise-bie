@@ -1,0 +1,144 @@
+{
+  "scene_ir_version": "1.0.0",
+  "document_id": "coulomb-force-distance",
+  "canvas_aspect_ratio": "16:9",
+  "target_capabilities": [
+    "vector",
+    "graph",
+    "simulation"
+  ],
+  "scenes": [
+    {
+      "scene_id": "scene-inverse-square",
+      "title": "See the inverse-square relationship",
+      "duration_seconds": 18,
+      "purpose": "Connect charge separation to force magnitude before symbolic derivation.",
+      "reasoning_decision_refs": [
+        "reason-representation-coulomb-001"
+      ],
+      "learning_objective_refs": [
+        "lo-coulomb-distance"
+      ],
+      "elements": [
+        {
+          "element_id": "charges",
+          "kind": "simulation",
+          "semantic_role": "primary_concept_simulation",
+          "lifetime": {
+            "start": 0,
+            "end": 18
+          },
+          "spatial": {
+            "x": 0.05,
+            "y": 0.15,
+            "width": 0.55,
+            "height": 0.7,
+            "z_index": 1
+          },
+          "content": {
+            "simulation": "two_charges",
+            "parameters": {
+              "distance_control": true
+            }
+          },
+          "animations": [
+            {
+              "animation_id": "force-update",
+              "kind": "simulation_state",
+              "time": {
+                "start": 0.1,
+                "end": 17.9
+              },
+              "parameters": {
+                "bind": "distance_to_force"
+              },
+              "semantic_purpose": "Make force respond continuously to distance."
+            }
+          ],
+          "interactions": [],
+          "concept_refs": [
+            "concept:coulombs_law"
+          ],
+          "learning_objective_refs": [
+            "lo-coulomb-distance"
+          ],
+          "reasoning_decision_refs": [
+            "reason-representation-coulomb-001"
+          ],
+          "source_artifact_refs": [
+            "source:coulomb-law"
+          ],
+          "asset_refs": [],
+          "accessibility": {
+            "label": "Two charges with force arrows changing as separation changes",
+            "decorative": false
+          },
+          "compiler_capabilities": [
+            "simulation.two_charges"
+          ]
+        },
+        {
+          "element_id": "inverse-graph",
+          "kind": "graph",
+          "semantic_role": "linked_quantitative_representation",
+          "lifetime": {
+            "start": 5,
+            "end": 18
+          },
+          "spatial": {
+            "relative_to": "charges",
+            "anchor": "right",
+            "constraints": [
+              "no_overlap:charges"
+            ],
+            "z_index": 2
+          },
+          "content": {
+            "x": "distance r",
+            "y": "force F",
+            "relationship": "F \u221d 1/r^2"
+          },
+          "animations": [
+            {
+              "animation_id": "trace-curve",
+              "kind": "trace",
+              "time": {
+                "start": 5,
+                "end": 9
+              },
+              "parameters": {},
+              "semantic_purpose": "Reveal inverse-square curve after observed simulation behavior."
+            }
+          ],
+          "interactions": [],
+          "concept_refs": [
+            "concept:coulombs_law"
+          ],
+          "learning_objective_refs": [
+            "lo-coulomb-distance"
+          ],
+          "reasoning_decision_refs": [
+            "reason-representation-coulomb-001"
+          ],
+          "source_artifact_refs": [
+            "source:coulomb-law"
+          ],
+          "asset_refs": [],
+          "accessibility": {
+            "description": "Graph of force versus distance showing inverse-square decrease",
+            "decorative": false
+          },
+          "compiler_capabilities": [
+            "graph.xy"
+          ]
+        }
+      ],
+      "audio_plan": {
+        "narration_ref": "narration-scene-001"
+      },
+      "camera_plan": {},
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

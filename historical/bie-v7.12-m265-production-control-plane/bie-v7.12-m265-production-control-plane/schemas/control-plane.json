@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run",
+    "approval",
+    "approval_decision",
+    "deployment_gate",
+    "release_gate",
+    "audit",
+    "audit_validation",
+    "control_plane_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.12"
+    },
+    "run": {
+      "type": "object"
+    },
+    "approval": {
+      "type": "object"
+    },
+    "approval_decision": {
+      "type": "object"
+    },
+    "deployment_gate": {
+      "type": "object"
+    },
+    "release_gate": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "array"
+    },
+    "audit_validation": {
+      "type": "object"
+    },
+    "control_plane_gate": {
+      "type": "object"
+    }
+  }
+}

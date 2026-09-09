@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE M7 Scene DSL",
+  "type": "object",
+  "required": [
+    "scene_id",
+    "purpose",
+    "duration_frames",
+    "visual",
+    "content_refs",
+    "timeline"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "enum": [
+        "explain",
+        "define",
+        "process",
+        "cause_effect",
+        "derivation",
+        "compare",
+        "timeline",
+        "data",
+        "simulation",
+        "application",
+        "question",
+        "summary"
+      ]
+    },
+    "duration_frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "content_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "visual": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "string"
+        }
+      }
+    },
+    "narration": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "start",
+          "duration",
+          "action"
+        ]
+      }
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

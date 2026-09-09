@@ -1,0 +1,33 @@
+{
+  "schema_version": "6.04",
+  "sli": {
+    "name": "api.availability",
+    "good_events": 9990,
+    "total_events": 10000,
+    "value": 0.999,
+    "window": "30d",
+    "unit": "ratio"
+  },
+  "slo": {
+    "name": "api.availability",
+    "target": 0.999,
+    "sli": "api.availability",
+    "window": "30d"
+  },
+  "error_budget": {
+    "slo_target": 0.999,
+    "allowed_error_ratio": 0.001
+  },
+  "burn_rate": 1.0,
+  "alert_rule": {
+    "rule_id": "slo-burn",
+    "name": "api SLO burn",
+    "condition": "burn_exceeded",
+    "severity": "WARNING",
+    "for_seconds": 0
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

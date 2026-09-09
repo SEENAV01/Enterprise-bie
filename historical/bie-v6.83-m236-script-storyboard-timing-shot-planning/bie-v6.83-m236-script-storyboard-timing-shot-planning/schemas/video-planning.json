@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "script",
+    "storyboard",
+    "timings",
+    "narration_sync",
+    "shot_plan",
+    "sync_validation",
+    "shot_validation",
+    "video_planning_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.83"
+    },
+    "script": {
+      "type": "array"
+    },
+    "storyboard": {
+      "type": "array"
+    },
+    "timings": {
+      "type": "array"
+    },
+    "narration_sync": {
+      "type": "array"
+    },
+    "shot_plan": {
+      "type": "array"
+    },
+    "sync_validation": {
+      "type": "object"
+    },
+    "shot_validation": {
+      "type": "object"
+    },
+    "video_planning_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "audio_track",
+    "speech",
+    "timeline"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.7"
+    },
+    "audio_track": {
+      "type": "object"
+    },
+    "speech": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

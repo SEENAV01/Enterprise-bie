@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event",
+    "topic",
+    "queue",
+    "delivery",
+    "idempotency",
+    "ordering",
+    "dead_letter",
+    "replay",
+    "backpressure",
+    "workflow_delivery",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.10"
+    },
+    "event": {
+      "type": "object"
+    },
+    "topic": {
+      "type": "object"
+    },
+    "queue": {
+      "type": "object"
+    },
+    "delivery": {
+      "type": "object"
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "ordering": {
+      "type": "object"
+    },
+    "dead_letter": {
+      "type": "object"
+    },
+    "replay": {
+      "type": "object"
+    },
+    "backpressure": {
+      "type": "object"
+    },
+    "workflow_delivery": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

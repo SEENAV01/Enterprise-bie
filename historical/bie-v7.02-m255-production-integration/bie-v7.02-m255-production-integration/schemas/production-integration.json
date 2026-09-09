@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "wiring",
+    "wiring_validation",
+    "asset_injection",
+    "audio_injection",
+    "render_run",
+    "logs",
+    "e2e_manifest",
+    "integration_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.02"
+    },
+    "wiring": {
+      "type": "object"
+    },
+    "wiring_validation": {
+      "type": "object"
+    },
+    "asset_injection": {
+      "type": "object"
+    },
+    "audio_injection": {
+      "type": "object"
+    },
+    "render_run": {
+      "type": "object"
+    },
+    "logs": {
+      "type": "object"
+    },
+    "e2e_manifest": {
+      "type": "object"
+    },
+    "integration_gate": {
+      "type": "object"
+    }
+  }
+}

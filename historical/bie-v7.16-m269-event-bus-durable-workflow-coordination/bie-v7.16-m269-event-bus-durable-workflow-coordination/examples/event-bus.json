@@ -1,0 +1,21 @@
+{
+  "schema_version": "7.16",
+  "delivery": {
+    "first": {
+      "delivered": true
+    },
+    "duplicate": {
+      "duplicate": true
+    }
+  },
+  "ordering_errors": [],
+  "retryable_after_3": false,
+  "workflow_triggers": [
+    {
+      "workflow": "START_QA"
+    }
+  ],
+  "event_bus_gate": {
+    "valid": true
+  }
+}

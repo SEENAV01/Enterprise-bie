@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "candidates",
+    "dispatch",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.94"
+    },
+    "candidates": {
+      "type": "array"
+    },
+    "dispatch": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

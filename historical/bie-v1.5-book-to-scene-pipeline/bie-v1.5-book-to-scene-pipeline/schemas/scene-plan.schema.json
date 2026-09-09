@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Scene Plan",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "scene_id",
+      "unit_id",
+      "question_kind",
+      "visual_type",
+      "source_refs"
+    ]
+  }
+}

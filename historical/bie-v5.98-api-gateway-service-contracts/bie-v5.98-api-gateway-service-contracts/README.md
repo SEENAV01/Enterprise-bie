@@ -1,0 +1,1 @@
+# BIE v5.98 — API Gateway & Service Contract Layer\n\nVersioned APIs, request/response contracts, authentication and authorization boundaries, rate limits, idempotency, errors, pagination and compatibility.\n

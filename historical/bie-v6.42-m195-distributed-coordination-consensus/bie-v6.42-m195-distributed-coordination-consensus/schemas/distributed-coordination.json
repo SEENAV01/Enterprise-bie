@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "participant",
+    "epoch",
+    "lease",
+    "leader_term",
+    "quorum",
+    "prepare",
+    "accept",
+    "finalize",
+    "membership",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.42"
+    },
+    "participant": {
+      "type": "object"
+    },
+    "epoch": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "leader_term": {
+      "type": "object"
+    },
+    "quorum": {
+      "type": "object"
+    },
+    "prepare": {
+      "type": "object"
+    },
+    "accept": {
+      "type": "object"
+    },
+    "finalize": {
+      "type": "object"
+    },
+    "membership": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

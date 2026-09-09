@@ -1,0 +1,1 @@
+# BIE v5.59 — Parallel Build, Scheduling & Resource-Aware Orchestration Layer\n\nSchedules dependency-constrained jobs across CPU/GPU/memory/tool resources, supports priorities and critical-path ranking, and prevents resource oversubscription.\n

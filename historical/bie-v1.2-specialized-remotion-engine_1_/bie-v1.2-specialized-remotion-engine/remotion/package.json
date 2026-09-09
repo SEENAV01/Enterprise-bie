@@ -1,0 +1,18 @@
+{
+  "name": "bie-specialized-remotion-engine",
+  "private": true,
+  "scripts": {
+    "start": "remotion studio",
+    "render:scene": "remotion render src/index.ts S08 out/scene.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "@remotion/media": "latest",
+    "remotion": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}

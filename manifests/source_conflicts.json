@@ -1,0 +1,50 @@
+[
+  {
+    "path": "app/bie/enterprise/leases.py",
+    "selected_archive": "BIE_INFRA_RECOVERY_001.zip",
+    "selected_sha256": "59298e73edcfca2f1eaf04cf17ca1470889efee5b8bfd3589b10f4f770d89bb9",
+    "all_versions": [
+      {
+        "archive": "BIE_INFRA_EXECUTOR_001.zip",
+        "sha256": "7efbed18491ac5099c5c6dc60d2a916317366d19ad4052364345c4ad9f07e522"
+      },
+      {
+        "archive": "BIE_INFRA_RECOVERY_001.zip",
+        "sha256": "59298e73edcfca2f1eaf04cf17ca1470889efee5b8bfd3589b10f4f770d89bb9"
+      }
+    ],
+    "reason": "Retain the richer original contract and validations; the later bundle contains a reduced helper copy. Run all combined tests and preserve retry history."
+  },
+  {
+    "path": "app/bie/enterprise/run_state.py",
+    "selected_archive": "BIE_INFRA_STATE_001.zip",
+    "selected_sha256": "88e064bea01b13d277ad2deaba83b4febb82f56ff7bfea57ccec41ad5172b372",
+    "all_versions": [
+      {
+        "archive": "BIE_INFRA_ORCH_001.zip",
+        "sha256": "2e5d994c71c1d548300dab5a9df79e8ef631418e8c271a7c9b97c83caade4a72"
+      },
+      {
+        "archive": "BIE_INFRA_STATE_001.zip",
+        "sha256": "88e064bea01b13d277ad2deaba83b4febb82f56ff7bfea57ccec41ad5172b372"
+      }
+    ],
+    "reason": "Retain the richer original contract and validations; the later bundle contains a reduced helper copy. Run all combined tests and preserve retry history."
+  },
+  {
+    "path": "app/bie/enterprise/worker_scheduler.py",
+    "selected_archive": "BIE_INFRA_WORKER_001.zip",
+    "selected_sha256": "8b5ee4dcdd017fe23c1fccfcc21d3503f558c322245c14bb3edd35f60c4fa16f",
+    "all_versions": [
+      {
+        "archive": "BIE_INFRA_EXECUTOR_001.zip",
+        "sha256": "c4bf9ac1f376e73896ea750781d4fae9ac5e95d154d59a854072d9ed245872ce"
+      },
+      {
+        "archive": "BIE_INFRA_WORKER_001.zip",
+        "sha256": "8b5ee4dcdd017fe23c1fccfcc21d3503f558c322245c14bb3edd35f60c4fa16f"
+      }
+    ],
+    "reason": "Retain the richer original contract and validations; the later bundle contains a reduced helper copy. Run all combined tests and preserve retry history."
+  }
+]

@@ -1,0 +1,1 @@
+# BIE v6.38 — Data Lineage, Provenance & Governance Layer\n\nDatasets, entities, lineage edges, transformations, provenance, ownership, quality hooks, governance rules, audit and observability.\n

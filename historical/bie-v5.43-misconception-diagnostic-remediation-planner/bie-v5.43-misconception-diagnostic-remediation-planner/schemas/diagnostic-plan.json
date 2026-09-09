@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "diagnoses",
+    "remediations",
+    "adaptation",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.43"
+    },
+    "diagnoses": {
+      "type": "array"
+    },
+    "remediations": {
+      "type": "array"
+    },
+    "adaptation": {
+      "type": "object"
+    },
+    "reassessment": {
+      "type": "object"
+    },
+    "prerequisites": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

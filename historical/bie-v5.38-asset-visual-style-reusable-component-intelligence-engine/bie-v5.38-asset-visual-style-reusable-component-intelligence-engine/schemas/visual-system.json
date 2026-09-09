@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "style_system",
+    "assets",
+    "components",
+    "instances",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.38"
+    },
+    "style_system": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "components": {
+      "type": "array"
+    },
+    "instances": {
+      "type": "array"
+    },
+    "templates": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

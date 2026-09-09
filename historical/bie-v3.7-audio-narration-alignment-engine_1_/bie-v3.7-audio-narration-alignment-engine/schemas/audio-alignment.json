@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "narration_text",
+    "anchors",
+    "contract"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.7"
+    },
+    "narration_text": {
+      "type": "string"
+    },
+    "anchors": {
+      "type": "array"
+    },
+    "contract": {
+      "type": "object"
+    }
+  }
+}

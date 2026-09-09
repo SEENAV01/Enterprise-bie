@@ -1,0 +1,34 @@
+{
+  "course_id": "physics-101",
+  "lessons": [
+    {
+      "lesson_id": "l1",
+      "title": "Charge",
+      "order": 1
+    },
+    {
+      "lesson_id": "l2",
+      "title": "Current",
+      "order": 2
+    },
+    {
+      "lesson_id": "l3",
+      "title": "Resistance",
+      "order": 3
+    }
+  ],
+  "edges": [
+    [
+      "l1",
+      "l2"
+    ],
+    [
+      "l2",
+      "l3"
+    ]
+  ],
+  "style_token": "course-style-v1",
+  "global_assets": [
+    "equation-style-v1"
+  ]
+}

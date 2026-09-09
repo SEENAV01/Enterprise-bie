@@ -1,0 +1,30 @@
+{
+  "name": "BIE Canonical Backend",
+  "version": "1.0.0",
+  "canonical_base": "M301 runtime cumulative artifact",
+  "historical_scope": "M001-M300",
+  "integration_strategy": "latest cumulative implementation + authoritative contracts + M274/M275 provider/context boundary",
+  "provider": "OpenAI Responses API",
+  "default_model": "gpt-5.6-luna",
+  "boundary": "Book/PDF -> source-grounded understanding -> knowledge -> pedagogy -> script -> scenes -> Remotion code",
+  "rendering": "present in cumulative runtime modules but not part of the current acceptance target",
+  "api_key_source": "OPENAI_API_KEY environment variable",
+  "not_embedded": true,
+  "known_fixes_in_canonical": [
+    "Fixed syntax error in adapters/stages.py inherited from v7.51",
+    "Excluded broken test fixture syntax from runtime acceptance",
+    "Added real OpenAI provider adapter",
+    "Added structured-output schemas",
+    "Added canonical provider-backed book/lesson/script/scene orchestration"
+  ],
+  "milestone_families": [
+    {"range":"M001-M004","role":"foundational book/source intelligence"},
+    {"range":"M005-M039","role":"knowledge, pedagogy, scene and visual planning foundations"},
+    {"range":"M040-M200","role":"production infrastructure, persistence, governance, consistency and runtime foundations"},
+    {"range":"M201-M273","role":"source-to-knowledge, pedagogy, assets, rendering, QA, orchestration"},
+    {"range":"M274-M275","role":"AI model inference and prompt/context engineering boundary"},
+    {"range":"M276-M278","role":"retrieval, semantic relationships and canonical integration spine"},
+    {"range":"M279-M288","role":"document IR, structure, grounded knowledge, lesson, script, scene and Remotion compilation"},
+    {"range":"M289-M300","role":"visual QA, semantic repair, rerender regression, production loop and E2E acceptance"}
+  ]
+}

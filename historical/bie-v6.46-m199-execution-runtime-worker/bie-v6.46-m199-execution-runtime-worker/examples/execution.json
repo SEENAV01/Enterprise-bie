@@ -1,0 +1,31 @@
+{
+  "schema_version": "6.46",
+  "worker": {
+    "worker_id": "worker-1",
+    "runtime_id": "runtime-1",
+    "capabilities": [
+      "python",
+      "gpu"
+    ],
+    "status": "READY"
+  },
+  "runtime": {
+    "runtime_id": "runtime-1",
+    "runtime_type": "container",
+    "version": "1.0",
+    "status": "AVAILABLE"
+  },
+  "task": {
+    "task_id": "task-1",
+    "job_id": "job-1",
+    "payload": {
+      "action": "compile"
+    },
+    "dependencies": [],
+    "status": "PENDING"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

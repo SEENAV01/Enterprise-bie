@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE M8 Game DSL",
+  "type": "object",
+  "required": [
+    "game_id",
+    "learning_targets",
+    "game_type",
+    "mechanics",
+    "validation"
+  ],
+  "properties": {
+    "game_id": {
+      "type": "string"
+    },
+    "learning_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "game_type": {
+      "enum": [
+        "mcq",
+        "matching",
+        "ordering",
+        "drag_drop",
+        "prediction",
+        "simulation",
+        "graph_interpretation",
+        "derivation_order",
+        "cause_effect",
+        "fill_gap",
+        "error_detection",
+        "concept_map",
+        "adaptive_quiz"
+      ]
+    },
+    "difficulty": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "mechanics": {
+      "type": "object"
+    },
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "feedback": {
+      "type": "object"
+    },
+    "adaptation": {
+      "type": "object"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation": {
+      "type": "object"
+    }
+  }
+}

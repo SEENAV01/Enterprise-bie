@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "items",
+    "dependency_graph",
+    "verification_requests",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.1"
+    },
+    "items": {
+      "type": "array"
+    },
+    "dependency_graph": {
+      "type": "object"
+    },
+    "verification_requests": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "array"
+    },
+    "policy": {
+      "type": "object"
+    }
+  }
+}

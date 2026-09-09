@@ -1,0 +1,1 @@
+# BIE v5.35 — Learning Experience & Interaction Specification Engine\n\nM79 converts pedagogical plans and learner adaptation hooks into explicit interactive lesson contracts, interactions, feedback, controls and accessibility requirements.\n

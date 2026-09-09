@@ -1,0 +1,1 @@
+# BIE v5.14 — Long-Form Timeline & Audio Synchronization Engine\n\nM58 provides a content-driven master timeline for narration, visual beats, captions, music/SFX, pauses and optional word/phoneme timing.\n

@@ -1,0 +1,17 @@
+{
+  "version": "7.34",
+  "scene_dsl": "1.0",
+  "features": [
+    "scene_timing",
+    "narration_audio_spec",
+    "visual_spec",
+    "source_grounding",
+    "renderer_independent_contract"
+  ],
+  "invariants": [
+    "Every scene references a valid script section",
+    "Every factual scene element carries source-block grounding",
+    "Every scene has positive deterministic duration",
+    "DSL is renderer-independent"
+  ]
+}

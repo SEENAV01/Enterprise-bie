@@ -1,0 +1,52 @@
+{
+  "style_system": {
+    "style_id": "course-default",
+    "name": "Course Visual System",
+    "tokens": {
+      "font": "Sans",
+      "corner_radius": 12
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "arrow-01",
+      "asset_type": "ICON",
+      "semantic_tags": [
+        "vector",
+        "direction"
+      ],
+      "source_refs": [
+        "generated"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "component_id": "vector-arrow",
+      "name": "Vector Arrow",
+      "component_type": "DIAGRAM_COMPONENT",
+      "asset_refs": [
+        "arrow-01"
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "instance_id": "field-vector-1",
+      "component_id": "vector-arrow",
+      "props": {
+        "magnitude": 2
+      }
+    }
+  ],
+  "templates": [
+    {
+      "template_id": "diagram-01",
+      "name": "Concept Diagram",
+      "template_type": "DIAGRAM",
+      "component_refs": [
+        "vector-arrow"
+      ]
+    }
+  ]
+}

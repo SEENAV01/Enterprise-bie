@@ -1,0 +1,32 @@
+{
+  "book_concepts": [
+    {
+      "id": "ohms_law",
+      "title": "Ohm's law"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "c1",
+      "title": "Electrical power relation",
+      "relation": "extends",
+      "content": "A higher-level relation connected to voltage and current.",
+      "depends_on": [
+        "ohms_law"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Household electrical safety",
+      "relation": "application",
+      "content": "Application context related to electrical circuits.",
+      "depends_on": [
+        "ohms_law"
+      ]
+    }
+  ],
+  "existing_nodes": [
+    "ohms_law"
+  ],
+  "existing_edges": []
+}

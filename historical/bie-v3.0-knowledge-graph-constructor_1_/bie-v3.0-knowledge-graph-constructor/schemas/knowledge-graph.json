@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges",
+    "external_nodes",
+    "policies"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "edges": {
+      "type": "array"
+    },
+    "external_nodes": {
+      "type": "array"
+    },
+    "policies": {
+      "type": "object"
+    }
+  }
+}

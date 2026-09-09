@@ -1,0 +1,1 @@
+# BIE v6.28 — Distributed Cache & State Replication\n\nCache contracts, TTLs, invalidation, consistency modes, cache patterns, distributed ownership, replication lag, stale-read policies and observability.\n

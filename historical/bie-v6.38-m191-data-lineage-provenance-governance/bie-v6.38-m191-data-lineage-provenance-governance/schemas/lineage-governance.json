@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset",
+    "entity",
+    "lineage",
+    "transformation",
+    "provenance",
+    "ownership",
+    "quality",
+    "governance",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.38"
+    },
+    "dataset": {
+      "type": "object"
+    },
+    "entity": {
+      "type": "object"
+    },
+    "lineage": {
+      "type": "object"
+    },
+    "transformation": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "ownership": {
+      "type": "object"
+    },
+    "quality": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

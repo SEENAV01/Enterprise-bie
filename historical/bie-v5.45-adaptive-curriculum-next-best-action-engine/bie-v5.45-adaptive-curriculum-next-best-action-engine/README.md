@@ -1,0 +1,1 @@
+# BIE v5.45 — Adaptive Curriculum, Path Planning & Next-Best-Learning-Action Engine\n\nSelects and ranks candidate learning actions from learner state, objectives, prerequisites, remediation outcomes, content availability and constraints while preserving alternatives and non-linear paths.\n

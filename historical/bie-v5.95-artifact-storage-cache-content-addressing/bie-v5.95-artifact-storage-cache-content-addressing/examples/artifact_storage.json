@@ -1,0 +1,29 @@
+{
+  "schema_version": "5.95",
+  "artifact": {
+    "artifact_id": "render-17",
+    "content_id": "sha256:example",
+    "size_bytes": 123456,
+    "media_type": "video/mp4",
+    "immutable": true
+  },
+  "storage": {
+    "artifact": {
+      "artifact_id": "render-17",
+      "content_id": "sha256:example"
+    },
+    "locations": [
+      {
+        "content_id": "sha256:example",
+        "backend": "object-store",
+        "uri": "artifact/sha256:example",
+        "tier": "STANDARD"
+      }
+    ],
+    "retention": {}
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

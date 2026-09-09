@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "assets",
+    "contracts",
+    "dependency_graph",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.49"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "contracts": {
+      "type": "array"
+    },
+    "dependency_graph": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

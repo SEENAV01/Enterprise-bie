@@ -1,0 +1,39 @@
+{
+  "scene_id": "field-scene-01",
+  "objective_ref": "o-field",
+  "primitives": [
+    {
+      "primitive_id": "q",
+      "primitive_type": "POINT",
+      "semantic_role": "charge"
+    },
+    {
+      "primitive_id": "v",
+      "primitive_type": "VECTOR",
+      "semantic_role": "field_direction"
+    }
+  ],
+  "relations": [
+    {
+      "source": "q",
+      "target": "v",
+      "relation_type": "POINTS_TO"
+    }
+  ],
+  "mappings": [
+    {
+      "primitive_id": "q",
+      "concept_ref": "electric_charge",
+      "meaning": "source charge",
+      "source_ref": "p120"
+    }
+  ],
+  "animations": [
+    {
+      "animation_id": "a1",
+      "target": "v",
+      "behavior": "TRACE",
+      "trigger": "narration_cue"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "resource",
+    "capability",
+    "unit",
+    "quota",
+    "budget",
+    "reservation",
+    "allocation",
+    "admission",
+    "utilization",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.45"
+    },
+    "resource": {
+      "type": "object"
+    },
+    "capability": {
+      "type": "object"
+    },
+    "unit": {
+      "type": "object"
+    },
+    "quota": {
+      "type": "object"
+    },
+    "budget": {
+      "type": "object"
+    },
+    "reservation": {
+      "type": "object"
+    },
+    "allocation": {
+      "type": "object"
+    },
+    "admission": {
+      "type": "object"
+    },
+    "utilization": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

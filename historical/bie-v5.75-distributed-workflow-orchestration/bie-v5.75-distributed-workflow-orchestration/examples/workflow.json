@@ -1,0 +1,25 @@
+{
+  "schema_version": "5.75",
+  "workflow_id": "course-build-1842",
+  "jobs": [
+    {
+      "job_id": "asset-a",
+      "kind": "GENERATE",
+      "depends_on": []
+    },
+    {
+      "job_id": "scene-1",
+      "kind": "RENDER",
+      "depends_on": [
+        "asset-a"
+      ]
+    },
+    {
+      "job_id": "lesson-1",
+      "kind": "RENDER",
+      "depends_on": [
+        "scene-1"
+      ]
+    }
+  ]
+}

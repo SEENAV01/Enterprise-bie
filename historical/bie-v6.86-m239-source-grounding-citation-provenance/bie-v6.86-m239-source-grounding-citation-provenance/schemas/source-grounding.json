@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sources",
+    "source_validation",
+    "evidence",
+    "evidence_validation",
+    "claims",
+    "claim_validation",
+    "citation_map",
+    "coverage",
+    "provenance",
+    "grounding_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.86"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "source_validation": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "evidence_validation": {
+      "type": "array"
+    },
+    "claims": {
+      "type": "array"
+    },
+    "claim_validation": {
+      "type": "array"
+    },
+    "citation_map": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "array"
+    },
+    "grounding_gate": {
+      "type": "object"
+    }
+  }
+}

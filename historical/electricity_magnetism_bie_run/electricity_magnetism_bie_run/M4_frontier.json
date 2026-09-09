@@ -1,0 +1,125 @@
+{
+  "backward": [
+    {
+      "topic": "Charge conservation and electron/proton model",
+      "reason": "Needed to ground current and charge-flow ideas more rigorously.",
+      "status": "EXTERNAL_EXTENSION"
+    },
+    {
+      "topic": "Electric potential energy and electric field as force per unit charge",
+      "reason": "Provides deeper foundation for the source's potential-difference and electric-field definitions.",
+      "status": "EXTERNAL_EXTENSION"
+    },
+    {
+      "topic": "Basic circuit conservation laws",
+      "reason": "Explains why current/voltage relations and circuit rules work.",
+      "status": "EXTERNAL_EXTENSION"
+    }
+  ],
+  "forward": [
+    {
+      "topic": "Kirchhoff's junction and loop laws",
+      "depends_on": [
+        "U06",
+        "U08",
+        "U11",
+        "U14"
+      ],
+      "reason": "Generalizes series/parallel analysis to complex circuits; derived from charge and energy conservation.",
+      "evidence": "OpenStax College Physics 2e, Kirchhoff's Rules",
+      "status": "VERIFIED_EXTERNAL"
+    },
+    {
+      "topic": "Capacitors and RC circuits",
+      "depends_on": [
+        "U08",
+        "U11",
+        "U06"
+      ],
+      "reason": "Extends potential difference/current/resistance into time-dependent circuit behavior.",
+      "status": "EXTERNAL_EXTENSION"
+    },
+    {
+      "topic": "Faraday's law and electromagnetic induction",
+      "depends_on": [
+        "U21",
+        "U24"
+      ],
+      "reason": "Formalizes the source's generator/electricity-from-magnetism idea.",
+      "evidence": "OpenStax Physics, Electromagnetic Induction",
+      "status": "VERIFIED_EXTERNAL"
+    },
+    {
+      "topic": "Ampere-Maxwell law and Maxwell equations",
+      "depends_on": [
+        "U02",
+        "U21",
+        "U25",
+        "U26"
+      ],
+      "reason": "Unifies electric and magnetic fields and adds changing-electric-field production of magnetic fields.",
+      "evidence": "OpenStax University Physics Vol. 2, Maxwell's Equations",
+      "status": "VERIFIED_EXTERNAL"
+    },
+    {
+      "topic": "Electromagnetic waves and light",
+      "depends_on": [
+        "U02",
+        "U21",
+        "U26",
+        "Maxwell equations"
+      ],
+      "reason": "Higher-level consequence of coupled changing electric and magnetic fields.",
+      "evidence": "OpenStax College Physics 2e, Maxwell's Equations",
+      "status": "VERIFIED_EXTERNAL"
+    },
+    {
+      "topic": "Lorentz force",
+      "depends_on": [
+        "U02",
+        "U21",
+        "U25"
+      ],
+      "reason": "Unifies electric and magnetic forces on moving charges.",
+      "evidence": "OpenStax University Physics Vol. 2",
+      "status": "VERIFIED_EXTERNAL"
+    }
+  ],
+  "application": [
+    {
+      "topic": "Power grids and transformers",
+      "depends_on": [
+        "U20",
+        "U14"
+      ],
+      "status": "APPLICATION_EXTENSION"
+    },
+    {
+      "topic": "Electric motors and generators",
+      "depends_on": [
+        "U21",
+        "U22",
+        "U24"
+      ],
+      "status": "SOURCE_APPLICATION"
+    },
+    {
+      "topic": "Household electrical safety",
+      "depends_on": [
+        "U17",
+        "U18",
+        "U14"
+      ],
+      "status": "SOURCE_APPLICATION"
+    },
+    {
+      "topic": "Electromagnetic technology",
+      "depends_on": [
+        "U21",
+        "U22",
+        "U24"
+      ],
+      "status": "APPLICATION_EXTENSION"
+    }
+  ]
+}

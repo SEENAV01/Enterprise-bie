@@ -1,0 +1,1 @@
+# BIE v6.22 — Messaging, Event Bus & Queue Layer\n\nTopics, queues, events, commands, consumer groups, delivery semantics, retries, dead-letter handling, idempotency, scheduling and observability.\n

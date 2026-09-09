@@ -1,0 +1,19 @@
+def capabilities():
+    return {
+    "distributed_locks": true,
+    "lock_acquisition_release": true,
+    "leases": true,
+    "lease_renewal": true,
+    "fencing_tokens": true,
+    "ownership_epochs": true,
+    "semaphores": true,
+    "concurrency_limits": true,
+    "optimistic_concurrency": true,
+    "pessimistic_concurrency": true,
+    "deadlock_detection": true,
+    "deadlock_recovery": true,
+    "fairness": true,
+    "ownership_transfer": true,
+    "cancellation_safety": true,
+    "observability": true
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "M180-reference",
+  "module": "Notification, Webhook & External Integration",
+  "capabilities": {
+    "notifications": true,
+    "webhooks": true,
+    "subscriptions": true,
+    "filters": true,
+    "delivery_attempts": true,
+    "idempotency": true,
+    "retry_backoff": true,
+    "dead_letter": true,
+    "signatures": true,
+    "connector_health": true,
+    "delivery_observability": true
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

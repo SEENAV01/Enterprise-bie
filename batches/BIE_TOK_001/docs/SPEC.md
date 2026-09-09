@@ -1,0 +1,1 @@
+# BIE-TOK-001 — Mathematical tokenizer\n\nDeterministic mathematical semantic infrastructure. Status: IMPLEMENTED, NOT ACCEPTED.\n\nAcceptance requires integrated real-book equation/math validation.\n

@@ -1,0 +1,21 @@
+{
+  "version": "7.46",
+  "milestone": "M299",
+  "adapters": [
+    "remotion",
+    "ffmpeg",
+    "tesseract",
+    "mp4-verifier"
+  ],
+  "features": [
+    "real-command-execution",
+    "dependency-detection",
+    "artifact-verification"
+  ],
+  "invariants": [
+    "Unavailable runtime dependencies are explicit blocked states",
+    "Non-empty MP4 is required before downstream QA",
+    "ffprobe metadata is never fabricated",
+    "OCR execution never fabricates text"
+  ]
+}

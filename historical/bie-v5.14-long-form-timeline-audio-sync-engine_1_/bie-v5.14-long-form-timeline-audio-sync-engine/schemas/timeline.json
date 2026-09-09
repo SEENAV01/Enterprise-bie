@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "timeline_id",
+    "fps",
+    "tracks",
+    "duration_frames"
+  ],
+  "properties": {
+    "timeline_id": {
+      "type": "string"
+    },
+    "fps": {
+      "type": "number"
+    },
+    "tracks": {
+      "type": "array"
+    },
+    "duration_frames": {
+      "type": "integer"
+    }
+  }
+}

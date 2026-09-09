@@ -1,0 +1,52 @@
+{
+  "course_id": "physics-101",
+  "objectives": [
+    {
+      "objective_id": "o1",
+      "text": "Calculate current from charge and time",
+      "level": "APPLY",
+      "concept_refs": [
+        "current"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "concept_id": "charge",
+      "label": "Electric charge"
+    },
+    {
+      "concept_id": "current",
+      "label": "Electric current"
+    }
+  ],
+  "prerequisite_edges": [
+    {
+      "from_concept": "charge",
+      "to_concept": "current",
+      "relation": "REQUIRES"
+    }
+  ],
+  "learning_events": [
+    {
+      "event_id": "e1",
+      "event_type": "EXPLAIN",
+      "concept_id": "charge",
+      "order": 0
+    },
+    {
+      "event_id": "e2",
+      "event_type": "EXPLAIN",
+      "concept_id": "current",
+      "order": 1
+    }
+  ],
+  "assessment_targets": [
+    {
+      "target_id": "a1",
+      "concept_id": "current",
+      "skill": "CALCULATE",
+      "success_criteria": "Correctly compute I=Q/t"
+    }
+  ]
+}

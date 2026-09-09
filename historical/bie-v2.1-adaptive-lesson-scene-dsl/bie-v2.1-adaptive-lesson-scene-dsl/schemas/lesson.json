@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lesson_id",
+    "learning_units",
+    "adaptive_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "lesson_id": {
+      "type": "string"
+    },
+    "learning_units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "unit_id",
+          "title",
+          "objective",
+          "question_coverage",
+          "evidence_refs",
+          "mastery_gate",
+          "scenes"
+        ]
+      }
+    },
+    "adaptive_policy": {
+      "type": "object"
+    }
+  }
+}

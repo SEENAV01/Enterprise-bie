@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "grounding",
+    "scene_intent",
+    "asset_candidates",
+    "selected_asset",
+    "equation_render",
+    "equation_validation",
+    "narration",
+    "narration_sync",
+    "scene_spec",
+    "scene_validation",
+    "grounding_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.97"
+    },
+    "grounding": {
+      "type": "object"
+    },
+    "scene_intent": {
+      "type": "object"
+    },
+    "asset_candidates": {
+      "type": "array"
+    },
+    "selected_asset": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "equation_render": {
+      "type": "object"
+    },
+    "equation_validation": {
+      "type": "object"
+    },
+    "narration": {
+      "type": "object"
+    },
+    "narration_sync": {
+      "type": "object"
+    },
+    "scene_spec": {
+      "type": "object"
+    },
+    "scene_validation": {
+      "type": "object"
+    },
+    "grounding_gate": {
+      "type": "object"
+    }
+  }
+}

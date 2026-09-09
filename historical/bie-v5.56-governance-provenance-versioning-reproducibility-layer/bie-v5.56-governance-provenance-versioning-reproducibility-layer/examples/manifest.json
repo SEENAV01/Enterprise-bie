@@ -1,0 +1,61 @@
+{
+  "build_ref": "course:physics:build:17",
+  "artifact_refs": [
+    "scene37",
+    "scene38"
+  ],
+  "source_pins": [
+    {
+      "ref": "textbook",
+      "version_id": "2026.08"
+    }
+  ],
+  "model_pins": [
+    {
+      "ref": "planner",
+      "version_id": "3.2.1"
+    }
+  ],
+  "tool_pins": [
+    {
+      "ref": "remotion",
+      "version_id": "4.x"
+    }
+  ],
+  "policy_pins": [
+    {
+      "ref": "representation-policy",
+      "version_id": "2"
+    }
+  ],
+  "experiment_pins": [
+    {
+      "ref": "exp-representation",
+      "version_id": "7"
+    }
+  ],
+  "environment": {
+    "runtime": "node",
+    "lockfile_hash": "abc123"
+  },
+  "provenance_nodes": [
+    {
+      "node_id": "n1",
+      "node_type": "SOURCE",
+      "ref": "textbook",
+      "version": "2026.08"
+    },
+    {
+      "node_id": "n2",
+      "node_type": "ARTIFACT",
+      "ref": "scene37"
+    }
+  ],
+  "provenance_edges": [
+    {
+      "source_ref": "textbook",
+      "target_ref": "scene37",
+      "relation": "DERIVED_FROM"
+    }
+  ]
+}

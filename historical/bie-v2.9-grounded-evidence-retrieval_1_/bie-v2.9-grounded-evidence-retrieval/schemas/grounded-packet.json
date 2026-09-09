@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "query",
+    "evidence",
+    "context",
+    "grounding_policy",
+    "candidate_conflicts"
+  ],
+  "properties": {
+    "query": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "context": {
+      "type": "array"
+    },
+    "grounding_policy": {
+      "type": "object"
+    },
+    "candidate_conflicts": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "6.22",
+  "topic": {
+    "name": "workflow-events",
+    "retention": 604800,
+    "partitions": 12,
+    "ordered": true
+  },
+  "queue": {
+    "name": "workflow-commands",
+    "visibility_timeout": 30,
+    "max_attempts": 5
+  },
+  "event": {
+    "event_id": "evt-1",
+    "event_type": "WorkflowStarted",
+    "payload_ref": "obj://events/evt-1",
+    "tenant_id": "tenant-a",
+    "correlation_id": "corr-1",
+    "causation_id": null,
+    "version": 1
+  },
+  "command": {
+    "command_id": "cmd-1",
+    "command_type": "StartWorkflow",
+    "payload_ref": "obj://commands/cmd-1",
+    "tenant_id": "tenant-a",
+    "correlation_id": "corr-1",
+    "status": "ACCEPTED"
+  },
+  "consumer_group": {
+    "name": "workflow-workers",
+    "topic": "workflow-events",
+    "concurrency": 4
+  },
+  "delivery": {
+    "mode": "AT_LEAST_ONCE",
+    "ack_required": true
+  },
+  "retry": {
+    "max_attempts": 5,
+    "backoff": "EXPONENTIAL",
+    "initial_delay": 2
+  },
+  "dead_letter": {
+    "queue": "workflow-commands",
+    "after_attempts": 5,
+    "reason_codes": [
+      "VALIDATION_ERROR",
+      "TIMEOUT"
+    ],
+    "enabled": true
+  },
+  "idempotency": {
+    "scope": "tenant-a",
+    "operation": "StartWorkflow",
+    "key": "cmd-1"
+  },
+  "schedule": {
+    "message_id": "msg-1",
+    "deliver_at": 1000,
+    "timezone": "UTC",
+    "status": "SCHEDULED"
+  },
+  "observability": {
+    "event_id": "msg-event",
+    "entity_id": "cmd-1",
+    "operation": "DELIVER",
+    "status": "ACKED",
+    "latency_ms": 12.5,
+    "attempt": 2
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "ordered_topic": true,
+    "retryable": true,
+    "correlated": true,
+    "command_accepted": true,
+    "partition_owned": true,
+    "ack_required": true,
+    "retry_delay": 8,
+    "dead_lettered": true,
+    "idempotent": true,
+    "scheduled_due": true,
+    "metric": {
+      "status": "ACKED",
+      "latency_ms": 12.5,
+      "attempt": 2
+    }
+  }
+}

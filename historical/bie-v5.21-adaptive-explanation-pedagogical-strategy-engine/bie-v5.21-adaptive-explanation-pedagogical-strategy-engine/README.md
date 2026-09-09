@@ -1,0 +1,1 @@
+# BIE v5.21 — Adaptive Explanation & Pedagogical Strategy Engine\n\nM65 adapts explanation depth, examples, visual modality, practice density, misconception interventions and pacing using learner state and concept difficulty.\n

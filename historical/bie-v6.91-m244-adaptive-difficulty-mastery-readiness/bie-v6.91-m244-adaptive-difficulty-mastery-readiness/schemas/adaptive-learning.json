@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mastery_scores",
+    "mastery_levels",
+    "readiness",
+    "readiness_gate",
+    "path_selection",
+    "difficulty",
+    "adapted_units",
+    "adaptive_learning_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.91"
+    },
+    "mastery_scores": {
+      "type": "object"
+    },
+    "mastery_levels": {
+      "type": "object"
+    },
+    "readiness": {
+      "type": "array"
+    },
+    "readiness_gate": {
+      "type": "object"
+    },
+    "path_selection": {
+      "type": "object"
+    },
+    "difficulty": {
+      "type": "object"
+    },
+    "adapted_units": {
+      "type": "array"
+    },
+    "adaptive_learning_gate": {
+      "type": "object"
+    }
+  }
+}

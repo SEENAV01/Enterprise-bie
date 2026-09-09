@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lease",
+    "fencing_token",
+    "mutex",
+    "leadership",
+    "quorum",
+    "ownership_epoch",
+    "failure_detector",
+    "coordination_request",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.24"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "fencing_token": {
+      "type": "object"
+    },
+    "mutex": {
+      "type": "object"
+    },
+    "leadership": {
+      "type": "object"
+    },
+    "quorum": {
+      "type": "object"
+    },
+    "ownership_epoch": {
+      "type": "object"
+    },
+    "failure_detector": {
+      "type": "object"
+    },
+    "coordination_request": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "course_id": "physics-101",
+  "version": "1.0.0",
+  "artifact": {
+    "artifact_id": "course.mp4",
+    "path": "course.mp4",
+    "media_type": "video/mp4"
+  },
+  "provenance": [
+    {
+      "entity_id": "scene-1",
+      "entity_type": "scene",
+      "source_refs": [
+        "book:chapter1:page12"
+      ],
+      "model_refs": [
+        "model:v1"
+      ],
+      "prompt_refs": [
+        "prompt:scene-planner:v3"
+      ],
+      "build_ref": "build-42"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "electron",
+      "license": "CC-BY"
+    }
+  ],
+  "build": {
+    "build_id": "build-42",
+    "renderer_version": "remotion-x",
+    "engine_version": "bie-5.17"
+  }
+}

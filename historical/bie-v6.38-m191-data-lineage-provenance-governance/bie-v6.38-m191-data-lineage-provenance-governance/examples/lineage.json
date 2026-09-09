@@ -1,0 +1,20 @@
+{
+  "schema_version": "6.38",
+  "dataset": {
+    "dataset_id": "ds-1",
+    "name": "customer-profile",
+    "owner": "data-owner",
+    "classification": "RESTRICTED",
+    "status": "ACTIVE"
+  },
+  "lineage": {
+    "source_id": "raw-customers",
+    "target_id": "ds-1",
+    "transformation": "normalize-v2",
+    "relation": "DERIVES_FROM"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

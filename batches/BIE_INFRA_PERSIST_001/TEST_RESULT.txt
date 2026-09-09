@@ -1,0 +1,88 @@
+
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.
+..../usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5d710>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5d410>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5d610>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5db10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5dc10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5dd10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5de10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc5df10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f010>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f110>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f210>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f310>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f410>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f510>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f610>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f710>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f810>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0f910>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0fa10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0fb10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0fc10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0fd10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0fe10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.13/shutil.py:683: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7fc8bbc0ff10>
+  entries = list(scandir_it)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.......
+----------------------------------------------------------------------
+Ran 11 tests in 0.027s
+
+OK

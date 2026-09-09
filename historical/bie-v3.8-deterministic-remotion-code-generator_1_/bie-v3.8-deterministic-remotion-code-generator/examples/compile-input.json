@@ -1,0 +1,66 @@
+{
+  "scene_dsl": {
+    "scene_id": "s1",
+    "objective": "electric_current",
+    "narration_unit_ids": [
+      "u1"
+    ],
+    "evidence_ids": [
+      "p12:t1"
+    ],
+    "duration": {
+      "mode": "AUDIO_DRIVEN"
+    },
+    "assets": [],
+    "layers": [
+      {
+        "type": "Text",
+        "props": {
+          "text": "Electric Current",
+          "x": 960,
+          "y": 180
+        }
+      },
+      {
+        "type": "Diagram",
+        "props": {
+          "kind": "charge_flow",
+          "x": 960,
+          "y": 540
+        }
+      }
+    ],
+    "events": [
+      {
+        "event": "REVEAL_TERM",
+        "anchor_ids": [
+          "w0"
+        ]
+      },
+      {
+        "event": "HIGHLIGHT_FLOW",
+        "anchor_ids": [
+          "p0"
+        ]
+      }
+    ]
+  },
+  "alignment": {
+    "anchors": [
+      {
+        "anchor_id": "w0",
+        "type": "WORD",
+        "start": 0.0,
+        "end": 0.5,
+        "text": "Electric"
+      },
+      {
+        "anchor_id": "p0",
+        "type": "PHRASE",
+        "start": 0.6,
+        "end": 1.8,
+        "text": "rate of flow"
+      }
+    ]
+  }
+}

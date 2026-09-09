@@ -1,0 +1,1 @@
+# BIE v5.58 — Asset / Artifact Registry & Dependency Graph Layer\n\nManages versioned assets, explicit dependency graphs, invalidation, cache keys and dependency-aware rebuild planning for books, courses and large production graphs.\n

@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene_graph",
+    "timeline",
+    "composition",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.25"
+    },
+    "scene_graph": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "object"
+    },
+    "animations": {
+      "type": "object"
+    },
+    "component": {
+      "type": "object"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "component_source": {
+      "type": "string"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

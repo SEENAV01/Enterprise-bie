@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "masteries",
+    "forgetting_risk",
+    "review_schedule",
+    "pacing",
+    "lesson_sequence",
+    "session_plan",
+    "adaptive_experience_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.80"
+    },
+    "masteries": {
+      "type": "object"
+    },
+    "forgetting_risk": {
+      "type": "object"
+    },
+    "review_schedule": {
+      "type": "object"
+    },
+    "pacing": {
+      "type": "object"
+    },
+    "lesson_sequence": {
+      "type": "array"
+    },
+    "session_plan": {
+      "type": "object"
+    },
+    "adaptive_experience_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "multimodal_payload",
+    "visual_learning_roles",
+    "model_stage"
+  ],
+  "properties": {
+    "multimodal_payload": {
+      "type": "object",
+      "required": [
+        "evidence",
+        "visual_assets"
+      ]
+    },
+    "visual_learning_roles": {
+      "type": "array"
+    },
+    "model_stage": {
+      "type": "string"
+    }
+  }
+}

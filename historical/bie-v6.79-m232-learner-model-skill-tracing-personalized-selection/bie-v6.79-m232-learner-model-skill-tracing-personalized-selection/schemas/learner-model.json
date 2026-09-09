@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "learner",
+    "skill_states",
+    "skill_traces",
+    "knowledge_state",
+    "persistence",
+    "loaded_state",
+    "personalized_selection",
+    "learner_model_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.79"
+    },
+    "learner": {
+      "type": "object"
+    },
+    "skill_states": {
+      "type": "object"
+    },
+    "skill_traces": {
+      "type": "array"
+    },
+    "knowledge_state": {
+      "type": "object"
+    },
+    "persistence": {
+      "type": "object"
+    },
+    "loaded_state": {
+      "type": "object"
+    },
+    "personalized_selection": {
+      "type": "array"
+    },
+    "learner_model_gate": {
+      "type": "object"
+    }
+  }
+}

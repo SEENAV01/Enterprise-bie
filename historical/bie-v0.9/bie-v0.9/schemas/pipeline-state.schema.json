@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Pipeline State",
+  "type": "object",
+  "required": [
+    "job_id",
+    "source_path",
+    "created_at",
+    "stages"
+  ],
+  "properties": {
+    "job_id": {
+      "type": "string"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "object"
+    }
+  }
+}

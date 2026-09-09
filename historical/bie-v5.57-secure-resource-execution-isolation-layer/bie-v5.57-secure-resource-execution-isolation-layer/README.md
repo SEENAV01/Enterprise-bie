@@ -1,0 +1,1 @@
+# BIE v5.57 — Secure Resource & Execution Isolation Layer\n\nDefines execution envelopes, permissions, resource budgets, network/filesystem boundaries, isolation policies and auditable execution events.\n

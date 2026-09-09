@@ -1,0 +1,1 @@
+# BIE v5.72 — Identity, Secrets & Trust Boundary Layer\n\nAuthenticated identity references, scoped credentials, secret references, trust zones, rotation metadata and explicit privilege boundaries.\n

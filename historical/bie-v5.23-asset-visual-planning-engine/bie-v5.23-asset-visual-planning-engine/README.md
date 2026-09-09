@@ -1,0 +1,1 @@
+# BIE v5.23 — Asset & Visual Planning Engine\n\nM67 selects visual modalities and reusable visual primitives from concept type, learning objectives and learner preferences, producing renderable Remotion visual specifications.\n

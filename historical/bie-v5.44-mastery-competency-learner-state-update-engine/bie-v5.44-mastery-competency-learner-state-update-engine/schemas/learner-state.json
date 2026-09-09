@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "learner_ref",
+    "objective_states",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.44"
+    },
+    "learner_ref": {
+      "type": "string"
+    },
+    "objective_states": {
+      "type": "object"
+    },
+    "competency_states": {
+      "type": "object"
+    },
+    "misconception_risks": {
+      "type": "object"
+    },
+    "prerequisite_readiness": {
+      "type": "object"
+    },
+    "history": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

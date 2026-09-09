@@ -1,0 +1,45 @@
+{
+  "decision_id": "reason-coulomb-teach-order-001",
+  "decision_type": "teaching_order",
+  "subject_id": "concept:coulombs_law",
+  "question": "Which instructional sequence best builds Coulomb's law understanding?",
+  "selected_option": "phenomenon\u2192charge-sign\u2192distance\u2192force-vectors\u2192inverse-square\u2192equation\u2192misconception-check",
+  "rationale_summary": "The sequence establishes observable interaction and prerequisite quantities before symbolic compression into the equation, then tests the common inverse-square misconception.",
+  "confidence": 0.93,
+  "evidence_refs": [
+    {
+      "artifact_id": "knowledge.concept:1.0.0:example-source-hash",
+      "role": "primary",
+      "strength": 0.95,
+      "note": "Concept and prerequisite evidence"
+    }
+  ],
+  "alternatives": [
+    {
+      "option_id": "equation-first",
+      "description": "Start with formula and define variables afterwards",
+      "score": 0.55,
+      "rejected_reason": "Higher abstraction before prerequisite grounding"
+    }
+  ],
+  "premises": [
+    "Learner knows basic multiplication and signed quantities"
+  ],
+  "constraints": [
+    "Preserve source-grounded physics",
+    "Do not imply vector direction from magnitude equation alone"
+  ],
+  "uncertainty": [],
+  "downstream_effects": [
+    "PED lesson ordering",
+    "DIR explanation beats",
+    "VIS force-vector plan",
+    "GAME inverse-square challenge"
+  ],
+  "depends_on_decisions": [],
+  "requires_review": false,
+  "policy_tags": [
+    "physics",
+    "pedagogy-critical"
+  ]
+}

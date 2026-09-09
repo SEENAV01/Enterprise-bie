@@ -1,0 +1,1 @@
+# BIE v5.81 — Notification, Eventing & Approval Signal Layer\n\nDurable domain events, subscriptions, idempotent delivery, retry/backoff, dead-letter handling, notifications and correlation.\n

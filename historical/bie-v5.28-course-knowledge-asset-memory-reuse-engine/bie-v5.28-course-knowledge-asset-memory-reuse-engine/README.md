@@ -1,0 +1,1 @@
+# BIE v5.28 — Course Knowledge & Asset Memory/Re-use Engine\n\nM72 stores versioned canonical concepts, explanations, examples, visuals, narration and render artifacts with provenance, lineage and explicit semantic reuse decisions.\n

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dag",
+    "topological_order",
+    "schedule",
+    "batch",
+    "incremental_plan",
+    "course_progress",
+    "lesson_progress",
+    "course_orchestration_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.05"
+    },
+    "dag": {
+      "type": "object"
+    },
+    "topological_order": {
+      "type": "object"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "batch": {
+      "type": "object"
+    },
+    "incremental_plan": {
+      "type": "object"
+    },
+    "course_progress": {
+      "type": "object"
+    },
+    "lesson_progress": {
+      "type": "object"
+    },
+    "course_orchestration_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "5.93",
+  "dag": {
+    "workflow_id": "lesson-1",
+    "nodes": [
+      "ingest",
+      "plan",
+      "render",
+      "evaluate"
+    ],
+    "edges": [
+      {
+        "from": "ingest",
+        "to": "plan"
+      },
+      {
+        "from": "plan",
+        "to": "render"
+      },
+      {
+        "from": "render",
+        "to": "evaluate"
+      }
+    ]
+  },
+  "initial_ready": [
+    "ingest"
+  ],
+  "schedule": {
+    "workflow_id": "lesson-1",
+    "task_ids": [
+      "ingest"
+    ],
+    "concurrency": 2
+  },
+  "execution": {
+    "workflow_id": "lesson-1",
+    "status": "PLANNED",
+    "completed": [],
+    "failed": [],
+    "cancelled": false
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

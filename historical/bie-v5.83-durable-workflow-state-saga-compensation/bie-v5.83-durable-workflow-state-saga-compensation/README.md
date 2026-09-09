@@ -1,0 +1,1 @@
+# BIE v5.83 — Durable Workflow State & Saga/Compensation Layer\n\nPersistent workflow state machines, checkpoints, timeout handling, recovery and saga-style compensation for partial failures.\n

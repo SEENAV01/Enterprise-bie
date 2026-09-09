@@ -1,0 +1,1 @@
+# BIE v5.17 — Delivery Packaging & Provenance Engine\n\nM61 packages final deliverables with manifests, source lineage, model/prompt/build provenance, licensing metadata, captions and accessibility metadata.\n

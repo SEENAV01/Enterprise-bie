@@ -1,0 +1,1 @@
+# BIE v6.35 — Identity, Access Control & Authorization Policy Layer\n\nPrincipals, roles, permissions, resource scopes, authorization decisions, delegation, service identities, credential boundaries and audit integration.\n

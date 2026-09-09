@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "required": [
+    "asset_id",
+    "class",
+    "quality_score",
+    "provenance",
+    "reuse_policy"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "quality_score": {
+      "type": "number"
+    },
+    "source_page": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "caption": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ocr_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reuse_policy": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  }
+}

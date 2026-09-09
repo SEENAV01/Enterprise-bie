@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "evaluations",
+    "aggregate",
+    "adaptation_signals",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.64"
+    },
+    "evaluations": {
+      "type": "array"
+    },
+    "aggregate": {
+      "type": "object"
+    },
+    "adaptation_signals": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

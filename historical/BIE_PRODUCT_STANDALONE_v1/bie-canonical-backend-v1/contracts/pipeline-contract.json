@@ -1,0 +1,30 @@
+{
+  "version": "7.25",
+  "run": {
+    "required": [
+      "run_id",
+      "source_uri",
+      "artifacts",
+      "events",
+      "errors"
+    ]
+  },
+  "stages": [
+    "source",
+    "understanding",
+    "knowledge",
+    "planning",
+    "script",
+    "scene",
+    "remotion",
+    "render",
+    "qa",
+    "publish"
+  ],
+  "invariants": [
+    "Every stage emits STARTED and COMPLETED or FAILED/BLOCKED",
+    "A stage cannot be considered complete without its gate",
+    "QA must pass before publish",
+    "Every output artifact is traceable to the same run_id"
+  ]
+}

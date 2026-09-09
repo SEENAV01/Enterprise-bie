@@ -1,0 +1,56 @@
+{
+  "book_id": "book01",
+  "chapters": [
+    {
+      "chapter_id": "ch1",
+      "sections": [
+        {
+          "section_id": "s1",
+          "heading": "Electric Current",
+          "text": "Electric current is the rate of flow of electric charge.",
+          "page_start": 12,
+          "page_end": 12
+        },
+        {
+          "section_id": "s2",
+          "heading": "Why current flows",
+          "text": "A potential difference causes charges to move.",
+          "page_start": 13,
+          "page_end": 13
+        }
+      ]
+    }
+  ],
+  "candidate_map": {
+    "s1": [
+      {
+        "dimension": "WHAT",
+        "text": "What is electric current?"
+      },
+      {
+        "dimension": "DEFINITION",
+        "text": "Electric current is the rate of flow of electric charge.",
+        "confidence": "SUPPORTED"
+      },
+      {
+        "dimension": "FORMULA",
+        "text": "Current can be represented quantitatively."
+      }
+    ],
+    "s2": [
+      {
+        "dimension": "WHY",
+        "text": "Why does current flow?"
+      },
+      {
+        "dimension": "CAUSE",
+        "text": "Potential difference causes charge movement.",
+        "confidence": "SUPPORTED"
+      },
+      {
+        "dimension": "HOW",
+        "text": "How charges move in a circuit."
+      }
+    ]
+  }
+}

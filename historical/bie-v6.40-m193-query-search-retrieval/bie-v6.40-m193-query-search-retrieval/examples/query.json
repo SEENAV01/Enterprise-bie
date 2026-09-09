@@ -1,0 +1,31 @@
+{
+  "schema_version": "6.40",
+  "query": {
+    "resource": "artifacts",
+    "filters": [
+      {
+        "field": "status",
+        "operator": "EQ",
+        "value": "ACTIVE"
+      }
+    ],
+    "projection": [
+      "id",
+      "status"
+    ],
+    "sort": [
+      {
+        "field": "created_at",
+        "direction": "DESC"
+      }
+    ]
+  },
+  "pagination": {
+    "limit": 25,
+    "cursor": "cursor-1"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

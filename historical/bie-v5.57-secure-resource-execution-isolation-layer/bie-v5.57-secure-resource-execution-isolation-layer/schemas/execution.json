@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "envelope",
+    "budget_check",
+    "isolation_check",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.57"
+    },
+    "envelope": {
+      "type": "object"
+    },
+    "budget_check": {
+      "type": "object"
+    },
+    "isolation_check": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

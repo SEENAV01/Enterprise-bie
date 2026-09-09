@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "results",
+    "quality_summary",
+    "repair_candidates",
+    "media_quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.08"
+    },
+    "results": {
+      "type": "object"
+    },
+    "quality_summary": {
+      "type": "object"
+    },
+    "repair_candidates": {
+      "type": "array"
+    },
+    "media_quality_gate": {
+      "type": "object"
+    }
+  }
+}

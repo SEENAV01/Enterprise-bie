@@ -1,0 +1,45 @@
+{
+  "schema_version": "6.54",
+  "storyboard": {
+    "storyboard_id": "storyboard-1",
+    "script_id": "script-1",
+    "scenes": [
+      {
+        "scene_id": "sc1",
+        "scene_type": "EXPLANATION"
+      }
+    ]
+  },
+  "visuals": [
+    {
+      "visual_id": "v1",
+      "visual_type": "DIAGRAM",
+      "scene_id": "sc1"
+    }
+  ],
+  "narration_links": [
+    {
+      "link_id": "n1",
+      "scene_id": "sc1",
+      "script_block_ids": [
+        "b1"
+      ]
+    }
+  ],
+  "coverage": {
+    "obj-1": [
+      "sc1"
+    ]
+  },
+  "timeline": {
+    "total_duration_sec": 60,
+    "scene_count": 1
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

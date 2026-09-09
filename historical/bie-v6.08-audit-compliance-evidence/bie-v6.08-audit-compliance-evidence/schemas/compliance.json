@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "audit_event",
+    "integrity",
+    "evidence",
+    "control",
+    "mapping",
+    "bundle",
+    "attestation",
+    "snapshot",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.08"
+    },
+    "audit_event": {
+      "type": "object"
+    },
+    "integrity": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "control": {
+      "type": "object"
+    },
+    "mapping": {
+      "type": "object"
+    },
+    "bundle": {
+      "type": "object"
+    },
+    "attestation": {
+      "type": "object"
+    },
+    "snapshot": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

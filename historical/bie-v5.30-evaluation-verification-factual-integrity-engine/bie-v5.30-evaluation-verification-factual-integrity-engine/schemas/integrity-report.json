@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "claim_results",
+    "verification_gate",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.30"
+    },
+    "claim_results": {
+      "type": "array"
+    },
+    "verification_gate": {
+      "type": "object"
+    },
+    "contradictions": {
+      "type": "array"
+    },
+    "representation_checks": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

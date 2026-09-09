@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "composition",
+    "solver_status",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.39"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "solver_status": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "array"
+    },
+    "responsive": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "nodes",
+    "dependencies",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.2"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "validation": {
+      "type": "object"
+    }
+  }
+}

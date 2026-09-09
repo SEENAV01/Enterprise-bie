@@ -1,0 +1,1 @@
+# BIE v5.37 — Visual Semantics, Diagram & Animation Grammar Engine\n\nTurns multimodal representation intent into structured visual primitives, semantic relationships, states, transitions, layout constraints and animation behaviors suitable for deterministic rendering.\n

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "timing_policy",
+    "audio_policy",
+    "audio_plan",
+    "timeline",
+    "presentation_plan",
+    "sync_markers"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "timing_policy": {
+      "const": "CONTENT_DRIVEN_NO_FIXED_MAX_DURATION"
+    },
+    "audio_policy": {
+      "const": "AUDIO_IS_AUTHORITATIVE"
+    },
+    "audio_plan": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "array"
+    },
+    "presentation_plan": {
+      "type": "array"
+    },
+    "sync_markers": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "bie-remotion-output",
+  "private": true,
+  "scripts": {
+    "start": "remotion studio",
+    "render": "remotion render src/index.tsx BIELesson out/bie-lesson.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "remotion": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}

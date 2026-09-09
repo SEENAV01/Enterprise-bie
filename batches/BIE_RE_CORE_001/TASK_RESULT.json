@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-CORE-001",
+  "status": "IMPLEMENTED",
+  "deliverables": [
+    "docs/bie/REASONING_SPEC.md",
+    "docs/bie/reasoning-decision.schema.json",
+    "docs/bie/reasoning-example.json",
+    "docs/bie/REASONING_INTEGRATION_PLAN.md",
+    "app/bie/reasoning/decision_contracts.py",
+    "tests/reasoning/test_reasoning_contracts.py"
+  ],
+  "acceptance": {
+    "provider_neutral": true,
+    "structured_auditable_decisions": true,
+    "evidence_required": true,
+    "confidence_and_uncertainty_explicit": true,
+    "critical_escalation_contract": true,
+    "decision_dependency_graph": true,
+    "cycle_detection": true,
+    "downstream_effects_explicit": true
+  },
+  "next_task": "BIE-DSL-CORE-001"
+}

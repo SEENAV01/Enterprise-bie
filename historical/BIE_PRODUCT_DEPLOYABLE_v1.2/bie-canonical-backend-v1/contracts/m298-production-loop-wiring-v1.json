@@ -1,0 +1,25 @@
+{
+  "version": "7.45",
+  "milestone": "M298",
+  "required_adapters": [
+    "render",
+    "frame_sample",
+    "ocr",
+    "semantic_qa",
+    "repair",
+    "regenerate"
+  ],
+  "features": [
+    "production-adapter-validation",
+    "end-to-end-loop-wiring",
+    "bounded-retries",
+    "explicit-failure-propagation"
+  ],
+  "invariants": [
+    "No production loop starts with missing adapters",
+    "Every rendered cycle is sampled and passed through OCR and semantic QA",
+    "Rejected output can only continue through repair and regeneration",
+    "Failures are explicit and never converted to acceptance",
+    "Retry count is bounded"
+  ]
+}

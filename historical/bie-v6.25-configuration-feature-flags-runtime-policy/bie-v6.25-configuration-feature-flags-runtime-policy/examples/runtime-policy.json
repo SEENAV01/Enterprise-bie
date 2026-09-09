@@ -1,0 +1,96 @@
+{
+  "schema_version": "6.25",
+  "config": {
+    "key": "video.max_resolution",
+    "value": "1080p",
+    "value_type": "string",
+    "source": "ENV",
+    "scope": "WORKFLOW"
+  },
+  "scopes": [
+    {
+      "name": "WORKFLOW",
+      "parent": "TENANT",
+      "priority": 20
+    },
+    {
+      "name": "TENANT",
+      "parent": "GLOBAL",
+      "priority": 10
+    },
+    {
+      "name": "GLOBAL",
+      "parent": null,
+      "priority": 0
+    }
+  ],
+  "default": {
+    "key": "timeout_seconds",
+    "value": 300,
+    "value_type": "integer"
+  },
+  "validation": {
+    "key": "timeout_seconds",
+    "required": true,
+    "allowed": null,
+    "min_value": 1,
+    "max_value": 3600
+  },
+  "secret_ref": {
+    "name": "storage.api_key",
+    "provider": "SECRET_STORE",
+    "version": "v3",
+    "kind": "SECRET_REFERENCE"
+  },
+  "reload": {
+    "mode": "ON_CHANGE",
+    "restart_required": false
+  },
+  "feature_flag": {
+    "key": "new_renderer",
+    "default": false,
+    "description": "renderer rollout"
+  },
+  "rollout": {
+    "flag_key": "new_renderer",
+    "strategy": "PERCENTAGE",
+    "percentage": 25,
+    "segments": []
+  },
+  "policy": {
+    "name": "production-renderers",
+    "effect": "ALLOW",
+    "conditions": {
+      "environment": "production"
+    },
+    "priority": 5
+  },
+  "observability": {
+    "event_id": "cfg-1",
+    "key": "video.max_resolution",
+    "operation": "RESOLVE",
+    "status": "APPLIED",
+    "scope": "WORKFLOW",
+    "source": "ENV"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "typed": true,
+    "scope_priority": true,
+    "default_resolved": true,
+    "validation": true,
+    "secret_is_reference": true,
+    "hot_reload": true,
+    "flag_enabled": true,
+    "rollout_applies": true,
+    "policy_allows": true,
+    "metric": {
+      "key": "video.max_resolution",
+      "operation": "RESOLVE",
+      "status": "APPLIED"
+    }
+  }
+}

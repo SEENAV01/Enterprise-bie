@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "plans",
+    "sync_plan",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.36"
+    },
+    "plans": {
+      "type": "array"
+    },
+    "sync_plan": {
+      "type": "object"
+    },
+    "load_budgets": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

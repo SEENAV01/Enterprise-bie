@@ -1,0 +1,1 @@
+# BIE v6.39 — Metadata Catalog, Schema Registry & Semantic Contract Layer\n\nMetadata, versioned schemas, compatibility rules, semantic types, field contracts, catalog indexing, semantic contracts and schema governance.\n

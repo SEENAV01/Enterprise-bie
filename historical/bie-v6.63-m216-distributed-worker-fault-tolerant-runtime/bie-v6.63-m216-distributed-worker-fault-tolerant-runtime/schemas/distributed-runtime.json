@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "job",
+    "resource_pool",
+    "worker",
+    "attempts",
+    "retry_policy",
+    "checkpoint",
+    "worker_failure",
+    "recovery_action",
+    "aggregation",
+    "runtime_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.63"
+    },
+    "job": {
+      "type": "object"
+    },
+    "resource_pool": {
+      "type": "object"
+    },
+    "worker": {
+      "type": "object"
+    },
+    "attempts": {
+      "type": "array"
+    },
+    "retry_policy": {
+      "type": "object"
+    },
+    "checkpoint": {
+      "type": "object"
+    },
+    "worker_failure": {
+      "type": "object"
+    },
+    "aggregation": {
+      "type": "object"
+    }
+  }
+}

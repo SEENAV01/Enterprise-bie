@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "blocks",
+    "narrative_beats",
+    "script_plan",
+    "visual_plan",
+    "transitions",
+    "timing_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.7"
+    },
+    "blocks": {
+      "type": "array"
+    },
+    "narrative_beats": {
+      "type": "array"
+    },
+    "script_plan": {
+      "type": "array"
+    },
+    "visual_plan": {
+      "type": "array"
+    },
+    "transitions": {
+      "type": "array"
+    },
+    "timing_policy": {
+      "type": "object"
+    }
+  }
+}

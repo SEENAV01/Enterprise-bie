@@ -1,0 +1,40 @@
+{
+  "beats": [
+    {
+      "beat_id": "b1",
+      "kind": "EXPLAIN",
+      "scene_ref": "s1"
+    },
+    {
+      "beat_id": "b2",
+      "kind": "DEMONSTRATE",
+      "scene_ref": "s2"
+    },
+    {
+      "beat_id": "b3",
+      "kind": "PREDICT",
+      "scene_ref": "s3"
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "b1",
+      "target": "b2",
+      "relation": "AFTER"
+    },
+    {
+      "source": "b2",
+      "target": "b3",
+      "relation": "AFTER"
+    }
+  ],
+  "sync_events": [
+    {
+      "event_id": "e1",
+      "event_type": "NARRATION_CUE",
+      "target": "s2",
+      "source": "voice",
+      "offset": 0.2
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "item_id": "q1",
+      "item_type": "MCQ",
+      "objective_ref": "o-field",
+      "stem": "What does the field vector represent?",
+      "answer": "direction and magnitude",
+      "choices": [
+        {
+          "text": "direction and magnitude",
+          "misconception_ref": null
+        },
+        {
+          "text": "only force",
+          "misconception_ref": "m-force-field"
+        },
+        {
+          "text": "only charge",
+          "misconception_ref": "m-charge-field"
+        }
+      ],
+      "difficulty": {
+        "level": 2
+      },
+      "misconception_refs": [
+        "m-force-field",
+        "m-charge-field"
+      ]
+    }
+  ],
+  "evaluation_rules": [
+    {
+      "rule_id": "r1",
+      "response_type": "MCQ",
+      "method": "EXACT",
+      "expected": "direction and magnitude"
+    }
+  ]
+}

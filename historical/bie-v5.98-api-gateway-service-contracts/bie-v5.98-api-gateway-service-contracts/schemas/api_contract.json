@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "version",
+    "route",
+    "contract",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.98"
+    },
+    "version": {
+      "type": "object"
+    },
+    "route": {
+      "type": "object"
+    },
+    "contract": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

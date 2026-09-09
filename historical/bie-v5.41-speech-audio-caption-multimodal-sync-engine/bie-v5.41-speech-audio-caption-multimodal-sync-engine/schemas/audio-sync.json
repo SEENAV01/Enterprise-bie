@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "script",
+    "alignments",
+    "captions",
+    "anchors",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.41"
+    },
+    "script": {
+      "type": "object"
+    },
+    "alignments": {
+      "type": "array"
+    },
+    "captions": {
+      "type": "array"
+    },
+    "anchors": {
+      "type": "array"
+    },
+    "audio_assets": {
+      "type": "array"
+    },
+    "speech_plan": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

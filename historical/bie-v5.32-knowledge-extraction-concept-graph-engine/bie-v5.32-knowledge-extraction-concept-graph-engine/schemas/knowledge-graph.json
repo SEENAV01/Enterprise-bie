@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sections",
+    "knowledge_graph",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.32"
+    },
+    "sections": {
+      "type": "array"
+    },
+    "knowledge_graph": {
+      "type": "object"
+    },
+    "extraction_checks": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "events",
+    "metrics",
+    "traces",
+    "costs",
+    "latencies",
+    "experiments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.54"
+    },
+    "events": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "array"
+    },
+    "traces": {
+      "type": "array"
+    },
+    "costs": {
+      "type": "array"
+    },
+    "latencies": {
+      "type": "array"
+    },
+    "experiments": {
+      "type": "array"
+    }
+  }
+}

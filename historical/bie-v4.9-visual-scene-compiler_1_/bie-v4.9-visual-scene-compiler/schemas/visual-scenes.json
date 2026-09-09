@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "fps",
+    "duration_s",
+    "scenes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.9"
+    },
+    "fps": {
+      "type": "number"
+    },
+    "duration_s": {
+      "type": "number"
+    },
+    "scenes": {
+      "type": "array"
+    },
+    "accessibility": {
+      "type": "object"
+    },
+    "motion_policy": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "laws": [
+    {
+      "law_id": "current_definition",
+      "name": "Current",
+      "equation": "I=\u0394Q/\u0394t",
+      "variables": [
+        "I",
+        "\u0394Q",
+        "\u0394t"
+      ],
+      "domain": "electric current",
+      "conservation": "charge"
+    }
+  ],
+  "simulations": [
+    {
+      "simulation_id": "charge_flow",
+      "variables": [
+        "Q",
+        "I"
+      ],
+      "parameters": {
+        "I": 2
+      },
+      "equations": [
+        "dQ/dt=I"
+      ],
+      "initial_state": {
+        "Q": 0
+      },
+      "dt": 0.1,
+      "steps": 100
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "nonnegative_time",
+      "expression": "t>=0",
+      "kind": "HARD",
+      "description": "Time parameter cannot be negative."
+    }
+  ],
+  "dimension_checks": [
+    {
+      "lhs": {
+        "dimension": {
+          "exponents": {
+            "A": 1
+          }
+        }
+      },
+      "rhs": [
+        {
+          "dimension": {
+            "exponents": {
+              "A": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

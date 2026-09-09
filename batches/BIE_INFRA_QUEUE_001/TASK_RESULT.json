@@ -1,0 +1,20 @@
+{
+  "task_id": "BIE-INFRA-QUEUE-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "at_least_once_delivery": true,
+    "stable_task_identity": true,
+    "ack_nack": true,
+    "visibility_timeout_redelivery": true,
+    "delivery_count": true,
+    "dead_letter": true,
+    "priority_ordering": true,
+    "capability_routing": true,
+    "queue_backpressure": true,
+    "inflight_backpressure": true,
+    "idempotent_enqueue": true,
+    "transport_release_isolation": true
+  },
+  "next_task": "BIE-INFRA-QUEUE-PERSIST-001",
+  "next_task_title": "Durable SQL Queue Persistence, Visibility Recovery & Dead-Letter Storage"
+}

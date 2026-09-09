@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "secret",
+    "key",
+    "lifecycle",
+    "rotation",
+    "access_policy",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.06"
+    },
+    "secret": {
+      "type": "object"
+    },
+    "key": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "rotation": {
+      "type": "object"
+    },
+    "access_policy": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

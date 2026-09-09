@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "renderer_adapter",
+    "render_job",
+    "render_result",
+    "qa_report",
+    "retry_policy",
+    "output_manifest",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.58"
+    },
+    "renderer_adapter": {
+      "type": "object"
+    },
+    "render_job": {
+      "type": "object"
+    },
+    "render_result": {
+      "type": "object"
+    },
+    "qa_report": {
+      "type": "object"
+    },
+    "retry_policy": {
+      "type": "object"
+    },
+    "output_manifest": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

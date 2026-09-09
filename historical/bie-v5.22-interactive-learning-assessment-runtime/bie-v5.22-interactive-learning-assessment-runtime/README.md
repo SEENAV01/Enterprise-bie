@@ -1,0 +1,1 @@
+# BIE v5.22 — Interactive Learning & Assessment Runtime\n\nM66 executes questions, evaluates responses, provides feedback and hints, updates mastery, records attempts and exposes repeated-error signals for misconception detection.\n

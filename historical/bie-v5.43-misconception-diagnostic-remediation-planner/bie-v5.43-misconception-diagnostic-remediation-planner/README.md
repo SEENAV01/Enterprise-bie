@@ -1,0 +1,1 @@
+# BIE v5.43 — Misconception, Diagnostic Reasoning & Remediation Planner\n\nInterprets assessment evidence into structured diagnostic hypotheses, prerequisite gaps, targeted remediation plans, adaptation steps and reassessment goals.\n

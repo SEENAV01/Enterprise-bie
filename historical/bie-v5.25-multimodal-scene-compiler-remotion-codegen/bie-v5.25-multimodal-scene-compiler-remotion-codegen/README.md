@@ -1,0 +1,1 @@
+# BIE v5.25 — Multimodal Scene Compiler & Remotion Code Generation Engine\n\nM69 compiles validated visual, audio and temporal specifications into deterministic scene graphs, component specifications, asset bindings, animation instructions and render-ready Remotion composition metadata.\n

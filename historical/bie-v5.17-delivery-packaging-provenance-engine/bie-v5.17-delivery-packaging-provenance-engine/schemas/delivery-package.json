@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "package",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.17"
+    },
+    "package": {
+      "type": "object"
+    },
+    "accessibility_check": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

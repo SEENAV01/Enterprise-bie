@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "published",
+    "received",
+    "delivery",
+    "ordered",
+    "ordering_errors",
+    "dead_letter",
+    "retryable_after_3",
+    "workflow_triggers",
+    "event_bus_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.16"
+    },
+    "published": {
+      "type": "array"
+    },
+    "received": {
+      "type": "array"
+    },
+    "delivery": {
+      "type": "object"
+    },
+    "ordered": {
+      "type": "array"
+    },
+    "ordering_errors": {
+      "type": "array"
+    },
+    "dead_letter": {
+      "type": "object"
+    },
+    "retryable_after_3": {
+      "type": "boolean"
+    },
+    "workflow_triggers": {
+      "type": "array"
+    },
+    "event_bus_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "nodes": [
+    "source:p1",
+    "concept:c1",
+    "lesson:l1",
+    "scene:s1",
+    "visual:v1",
+    "audio:a1",
+    "render:r1"
+  ],
+  "edges": [
+    [
+      "source:p1",
+      "concept:c1"
+    ],
+    [
+      "concept:c1",
+      "lesson:l1"
+    ],
+    [
+      "lesson:l1",
+      "scene:s1"
+    ],
+    [
+      "scene:s1",
+      "visual:v1"
+    ],
+    [
+      "scene:s1",
+      "audio:a1"
+    ],
+    [
+      "visual:v1",
+      "render:r1"
+    ],
+    [
+      "audio:a1",
+      "render:r1"
+    ]
+  ],
+  "changed_nodes": [
+    "source:p1"
+  ],
+  "change_type": "UPDATE"
+}

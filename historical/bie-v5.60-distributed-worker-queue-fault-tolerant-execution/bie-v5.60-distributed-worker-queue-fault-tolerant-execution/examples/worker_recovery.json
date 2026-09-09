@@ -1,0 +1,33 @@
+{
+  "worker": {
+    "worker_id": "gpu-02",
+    "capabilities": {
+      "gpu": 1,
+      "memory_mb": 16384
+    }
+  },
+  "lease": {
+    "job_id": "scene-381",
+    "worker_id": "gpu-02",
+    "lease_id": "lease-77",
+    "expires_at": "2026-08-31T12:00:00",
+    "attempt": 2,
+    "status": "ACTIVE"
+  },
+  "checkpoint": {
+    "job_id": "scene-381",
+    "checkpoint_id": "cp-14",
+    "progress": 0.68,
+    "artifact_refs": [
+      "frames:1-680"
+    ]
+  },
+  "retry_policy": {
+    "max_attempts": 4,
+    "backoff_seconds": 30,
+    "retryable_errors": [
+      "WORKER_LOST",
+      "TIMEOUT"
+    ]
+  }
+}

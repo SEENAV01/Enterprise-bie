@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "asset_index_size",
+    "assets",
+    "deduplication",
+    "retrieval",
+    "reuse_plan",
+    "version_ref",
+    "asset_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.69"
+    },
+    "asset_index_size": {
+      "type": "integer"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "deduplication": {
+      "type": "object"
+    },
+    "retrieval": {
+      "type": "object"
+    },
+    "reuse_plan": {
+      "type": "object"
+    },
+    "version_ref": {
+      "type": "string"
+    },
+    "asset_gate": {
+      "type": "object"
+    }
+  }
+}

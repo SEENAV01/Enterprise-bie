@@ -1,0 +1,36 @@
+{
+  "schema_version": "6.01",
+  "lock": {
+    "lock_id": "lock-1",
+    "resource": "workflow-42",
+    "owner": "node-a",
+    "fencing_token": 42,
+    "expires_at": 130,
+    "status": "HELD"
+  },
+  "lease": {
+    "lease_id": "lease-1",
+    "owner": "node-a",
+    "issued_at": 100,
+    "expires_at": 130,
+    "renewable": true,
+    "status": "ACTIVE"
+  },
+  "ownership": {
+    "resource": "workflow-42",
+    "owner": "node-a",
+    "fencing_token": 42,
+    "lease_id": "lease-1"
+  },
+  "singleton": {
+    "workflow_id": "workflow-42",
+    "owner": "node-a",
+    "fencing_token": 42,
+    "lease_id": "lease-1",
+    "status": "OWNED"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "version": "7.36",
+  "render_contract": "1.0",
+  "features": [
+    "remotion_cli_execution",
+    "mp4_output_detection",
+    "render_timeout",
+    "explicit_blocked_or_failed_status"
+  ],
+  "invariants": [
+    "A render is successful only when the MP4 output exists",
+    "Missing npx is an explicit blocked state",
+    "Timeouts are explicit failures",
+    "Render failure blocks the final QA gate"
+  ]
+}

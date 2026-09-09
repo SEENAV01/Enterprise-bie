@@ -1,0 +1,1 @@
+# BIE v6.26 — API Gateway, Routing & Service Edge\n\nRoutes, API versioning, auth handoff, rate-limit integration, request/response transformation, upstream selection, health-aware routing, retries, circuit breakers and edge observability.\n

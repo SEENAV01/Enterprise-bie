@@ -1,0 +1,35 @@
+{
+  "schema_version": "5.90",
+  "artifact_id": "video-lesson-1",
+  "artifact_hash": "sha256:example",
+  "inputs": [
+    {
+      "input_id": "lesson-source",
+      "hash": "sha256:source"
+    }
+  ],
+  "model": {
+    "id": "model-x",
+    "version": "1"
+  },
+  "prompt": {
+    "id": "lesson-prompt",
+    "version": "3"
+  },
+  "config": {
+    "id": "render-config",
+    "version": "5"
+  },
+  "code": {
+    "commit": "abc123"
+  },
+  "dependencies": [
+    {
+      "id": "remotion@x"
+    }
+  ],
+  "environment": {
+    "runtime": "node",
+    "version": "x"
+  }
+}

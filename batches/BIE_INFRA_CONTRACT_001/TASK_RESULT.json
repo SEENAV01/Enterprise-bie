@@ -1,0 +1,22 @@
+{
+  "task_id": "BIE-INFRA-CONTRACT-001",
+  "status": "IMPLEMENTED",
+  "deliverables": [
+    "docs/bie/ARTIFACT_LINEAGE_CONTRACT.md",
+    "docs/bie/artifact-envelope.schema.json",
+    "app/bie/bie_core/artifact_contracts.py",
+    "tests/contracts/test_artifact_contracts.py",
+    "docs/bie/INTEGRATION_PLAN.md"
+  ],
+  "acceptance": {
+    "typed_versioned_envelope": true,
+    "stable_content_identity": true,
+    "provider_neutral_producer": true,
+    "parent_lineage": true,
+    "source_traceability": true,
+    "tamper_detection": true,
+    "inference_confidence_rule": true,
+    "cycle_detection": true
+  },
+  "next_task": "BIE-RE-CORE-001"
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "selected_model",
+    "fallback_chain",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.78"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "selected_model": {
+      "type": "string"
+    },
+    "fallback_chain": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

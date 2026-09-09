@@ -1,0 +1,89 @@
+{
+  "schema_version": "6.11",
+  "entity": {
+    "entity_id": "workflow-42",
+    "entity_type": "WORKFLOW",
+    "tenant_id": "tenant-a",
+    "state": {
+      "status": "RUNNING"
+    },
+    "version": 7
+  },
+  "update": {
+    "status": "UPDATED",
+    "entity": {
+      "entity_id": "workflow-42",
+      "entity_type": "WORKFLOW",
+      "tenant_id": "tenant-a",
+      "state": {
+        "status": "DONE"
+      },
+      "version": 8
+    }
+  },
+  "sequence": {
+    "entity_id": "workflow-42",
+    "next_sequence": 8
+  },
+  "version_vector": {
+    "node-a": 4,
+    "node-b": 2
+  },
+  "transaction": {
+    "tx_id": "tx-42",
+    "operations": [
+      {
+        "op": "update"
+      }
+    ],
+    "isolation": "READ_COMMITTED",
+    "status": "COMMITTED"
+  },
+  "idempotent_transition": {
+    "status": "APPLIED",
+    "operation": "COMPLETE",
+    "state": {
+      "status": "DONE",
+      "_operations": [
+        "op-42"
+      ]
+    }
+  },
+  "consistency": {
+    "scope": "workflow-state",
+    "level": "CAUSAL",
+    "read_your_writes": true,
+    "monotonic_reads": true
+  },
+  "conflict": {
+    "entity_id": "workflow-42",
+    "left_version": 7,
+    "right_version": 8,
+    "left_state": {
+      "status": "A"
+    },
+    "right_state": {
+      "status": "B"
+    },
+    "resolved_state": {
+      "status": "B"
+    },
+    "strategy": "LAST_WRITER_WINS",
+    "status": "RESOLVED"
+  },
+  "reconciliation": {
+    "resource_id": "workflow-42",
+    "source_state": {
+      "status": "B"
+    },
+    "target_state": {
+      "status": "B"
+    },
+    "started_at": 100,
+    "status": "CONVERGED"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

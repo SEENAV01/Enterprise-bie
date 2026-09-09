@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source",
+    "document"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.18"
+    },
+    "source": {
+      "type": "object"
+    },
+    "document": {
+      "type": "object"
+    },
+    "hierarchy": {
+      "type": "object"
+    },
+    "chunks": {
+      "type": "array"
+    }
+  }
+}

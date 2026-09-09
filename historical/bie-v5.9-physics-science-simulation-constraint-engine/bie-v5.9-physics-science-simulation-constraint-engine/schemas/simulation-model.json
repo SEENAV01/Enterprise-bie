@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "laws",
+    "simulations",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.9"
+    },
+    "laws": {
+      "type": "array"
+    },
+    "simulations": {
+      "type": "array"
+    },
+    "constraints": {
+      "type": "array"
+    },
+    "constraint_status": {
+      "type": "array"
+    },
+    "dimension_check": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

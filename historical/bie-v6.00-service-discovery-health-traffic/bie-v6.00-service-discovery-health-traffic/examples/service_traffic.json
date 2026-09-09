@@ -1,0 +1,35 @@
+{
+  "schema_version": "6.00",
+  "service": {
+    "name": "workflow-service",
+    "version": "v1",
+    "instance_id": "wf-01",
+    "endpoint": "internal://wf-01",
+    "metadata": {
+      "region": "in",
+      "zone": "a"
+    },
+    "weight": 1,
+    "status": "REGISTERED"
+  },
+  "probe": {
+    "instance_id": "wf-01",
+    "check_type": "READINESS",
+    "observed_at": 100,
+    "status": "HEALTHY",
+    "latency_ms": 4,
+    "details": {}
+  },
+  "routing_policy": {
+    "policy_id": "workflow-service",
+    "algorithm": "WEIGHTED",
+    "health_required": true
+  },
+  "discovered": [
+    "wf-01"
+  ],
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

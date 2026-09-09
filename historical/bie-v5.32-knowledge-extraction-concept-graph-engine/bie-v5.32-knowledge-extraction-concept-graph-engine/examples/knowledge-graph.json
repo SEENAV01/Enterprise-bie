@@ -1,0 +1,64 @@
+{
+  "schema_version": "5.32",
+  "sections": [
+    {
+      "section_id": "s1",
+      "title": "Electric Field",
+      "order": 1,
+      "source_refs": [
+        "p120"
+      ]
+    }
+  ],
+  "knowledge_graph": {
+    "concepts": [
+      {
+        "concept_id": "c1",
+        "name": "Electric Field",
+        "prerequisites": [
+          "c0"
+        ],
+        "source_refs": [
+          "p120"
+        ]
+      }
+    ],
+    "entities": [],
+    "relationships": [
+      {
+        "rel_id": "r1",
+        "source": "c0",
+        "target": "c1",
+        "relation_type": "PREREQUISITE_OF",
+        "source_refs": [
+          "p119"
+        ]
+      }
+    ],
+    "equations": [
+      {
+        "equation_id": "e1",
+        "formula": "E=F/q",
+        "source_refs": [
+          "p121"
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "example_id": "ex1",
+        "title": "Field near a charge",
+        "concept_refs": [
+          "c1"
+        ],
+        "source_refs": [
+          "p123"
+        ]
+      }
+    ]
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

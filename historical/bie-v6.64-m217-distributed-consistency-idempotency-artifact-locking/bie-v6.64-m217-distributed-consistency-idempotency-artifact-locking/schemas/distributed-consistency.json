@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "idempotency",
+    "versioned_state",
+    "artifact_lock",
+    "fencing_token",
+    "guarded_write",
+    "lease",
+    "reconciliation",
+    "commit",
+    "consistency_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.64"
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "versioned_state": {
+      "type": "object"
+    },
+    "artifact_lock": {
+      "type": "object"
+    },
+    "fencing_token": {
+      "type": "integer"
+    },
+    "guarded_write": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "reconciliation": {
+      "type": "object"
+    },
+    "commit": {
+      "type": "object"
+    },
+    "consistency_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "6.60",
+  "modality_scores": [
+    {
+      "modality": "VISUAL",
+      "score": 0.96
+    }
+  ],
+  "correctness_checks": [
+    {
+      "dimension": "FACTUAL",
+      "target_ref": "lesson-1",
+      "score": 0.98
+    }
+  ],
+  "objectives": [
+    {
+      "objective_id": "o1",
+      "covered": true,
+      "coverage_score": 0.95
+    }
+  ],
+  "alignment_records": [
+    {
+      "record_id": "a1",
+      "script_ref": "b1",
+      "scene_ref": "sc1",
+      "score": 0.96
+    }
+  ],
+  "quality_report": {
+    "report_id": "q1",
+    "artifact_ref": "output://lesson.mp4",
+    "overall_score": 0.95,
+    "decision": "PASS"
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

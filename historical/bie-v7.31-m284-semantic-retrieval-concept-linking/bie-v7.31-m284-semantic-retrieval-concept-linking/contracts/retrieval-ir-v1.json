@@ -1,0 +1,15 @@
+{
+  "version": "7.31",
+  "retrieval_ir": "1.0",
+  "features": [
+    "section_lexical_index",
+    "query_search",
+    "cross_section_grounded_entity_links"
+  ],
+  "invariants": [
+    "Search results reference only indexed sections",
+    "Concept links reference existing grounded entities and claims",
+    "Retrieval creates no new factual claims",
+    "Index remains replaceable by an embedding/vector backend later"
+  ]
+}

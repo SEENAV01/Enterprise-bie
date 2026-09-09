@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "visual_spec",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.23"
+    },
+    "visual_spec": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

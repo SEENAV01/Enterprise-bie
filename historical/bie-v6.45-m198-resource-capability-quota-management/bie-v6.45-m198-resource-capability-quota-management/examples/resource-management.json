@@ -1,0 +1,28 @@
+{
+  "schema_version": "6.45",
+  "resource": {
+    "resource_id": "cpu-cluster",
+    "resource_type": "COMPUTE",
+    "capacity": 1000,
+    "status": "ACTIVE"
+  },
+  "quota": {
+    "quota_id": "q-1",
+    "subject": "service-a",
+    "resource": "cpu-cluster",
+    "limit": 800,
+    "burst": 100,
+    "status": "ACTIVE"
+  },
+  "admission": {
+    "requested": 200,
+    "available": 500,
+    "quota_ok": true,
+    "budget_ok": true,
+    "decision": "ADMIT"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

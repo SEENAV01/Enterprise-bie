@@ -1,0 +1,62 @@
+{
+  "equations": [
+    {
+      "equation_id": "current",
+      "latex": "I=\\frac{\\Delta Q}{\\Delta t}",
+      "variables": [
+        {
+          "symbol": "I",
+          "meaning": "current"
+        },
+        {
+          "symbol": "\u0394Q",
+          "meaning": "charge change"
+        },
+        {
+          "symbol": "\u0394t",
+          "meaning": "time interval"
+        }
+      ],
+      "meaning": {
+        "concept": "rate_of_charge_flow"
+      }
+    }
+  ],
+  "derivations": [
+    {
+      "step_id": "s1",
+      "expression": "I=\\frac{\\Delta Q}{\\Delta t}",
+      "operation": "definition",
+      "from_step": null,
+      "explanation": "Current is charge transferred per unit time."
+    }
+  ],
+  "graphs": [
+    {
+      "graph_id": "q_vs_t",
+      "x_label": "time",
+      "y_label": "charge",
+      "domain": [
+        0,
+        10
+      ],
+      "function": "Q(t)=5t",
+      "data": null
+    }
+  ],
+  "vectors": [],
+  "fields": [],
+  "visual_semantics": [
+    {
+      "visual_id": "v1",
+      "concept_id": "rate_of_charge_flow",
+      "mathematical_state": {
+        "equation": "I=\u0394Q/\u0394t",
+        "parameter": "t"
+      },
+      "narration_cues": [
+        "when_rate_is_explained"
+      ]
+    }
+  ]
+}

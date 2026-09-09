@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "auth_context",
+    "token",
+    "service_identity",
+    "authorization_policy",
+    "enforcement_point",
+    "authorization_decision",
+    "tenant_boundary",
+    "rotation",
+    "security_event",
+    "credential",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.14"
+    },
+    "auth_context": {
+      "type": "object"
+    },
+    "token": {
+      "type": "object"
+    },
+    "service_identity": {
+      "type": "object"
+    },
+    "authorization_policy": {
+      "type": "object"
+    },
+    "enforcement_point": {
+      "type": "object"
+    },
+    "authorization_decision": {
+      "type": "string"
+    },
+    "tenant_boundary": {
+      "type": "object"
+    },
+    "rotation": {
+      "type": "object"
+    },
+    "security_event": {
+      "type": "object"
+    },
+    "credential": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "config",
+    "scopes",
+    "default",
+    "validation",
+    "secret_ref",
+    "reload",
+    "feature_flag",
+    "rollout",
+    "policy",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.25"
+    },
+    "config": {
+      "type": "object"
+    },
+    "scopes": {
+      "type": "array"
+    },
+    "default": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "secret_ref": {
+      "type": "object"
+    },
+    "reload": {
+      "type": "object"
+    },
+    "feature_flag": {
+      "type": "object"
+    },
+    "rollout": {
+      "type": "object"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v6.44 — Scheduling, Time & Temporal Execution Layer\n\nClock abstractions, schedules, intervals, calendars, deadlines, timeouts, temporal retries, windows, temporal state, audit and observability.\n

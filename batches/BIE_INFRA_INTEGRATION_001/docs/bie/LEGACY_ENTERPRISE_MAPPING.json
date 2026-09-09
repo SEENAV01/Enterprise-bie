@@ -1,0 +1,64 @@
+{
+  "document_ingestor.py": {
+    "legacy": "M001",
+    "enterprise": [
+      "DOCUMENT_INTELLIGENCE"
+    ],
+    "action": "REFACTOR_BEHIND_ADAPTER"
+  },
+  "concept_understanding.py": {
+    "legacy": "M050",
+    "enterprise": [
+      "KNOWLEDGE",
+      "PREREQUISITE"
+    ],
+    "action": "SPLIT_AND_REFACTOR"
+  },
+  "lesson_planner.py": {
+    "legacy": "M100",
+    "enterprise": [
+      "PEDAGOGY"
+    ],
+    "action": "REPLACE_AFTER_ADAPTER"
+  },
+  "script_compiler.py": {
+    "legacy": "M150",
+    "enterprise": [
+      "DIRECTOR"
+    ],
+    "action": "REPLACE_AFTER_ADAPTER"
+  },
+  "scene_dsl.py": {
+    "legacy": "M200",
+    "enterprise": [
+      "VISUAL",
+      "ANIMATION",
+      "SCENE_IR"
+    ],
+    "action": "REPLACE"
+  },
+  "remotion_generator.py": {
+    "legacy": "M250",
+    "enterprise": [
+      "VIDEO_CODE"
+    ],
+    "action": "REFACTOR_AS_COMPILER"
+  },
+  "game_generator.py": {
+    "legacy": "M275",
+    "enterprise": [
+      "GAME_DIRECTOR",
+      "GAME_IR",
+      "GAME_CODE"
+    ],
+    "action": "REPLACE"
+  },
+  "m301_real_execution.py": {
+    "legacy": "M301",
+    "enterprise": [
+      "RELEASE_EVALUATION",
+      "RELEASE_MANIFEST"
+    ],
+    "action": "REPLACE"
+  }
+}

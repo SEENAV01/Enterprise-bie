@@ -1,0 +1,42 @@
+{
+  "narration": [
+    {
+      "segment_id": "n1",
+      "text": "Electric current is the rate of flow of charge.",
+      "start_frame": 0,
+      "end_frame": 180,
+      "emphasis": [
+        "rate of flow"
+      ]
+    }
+  ],
+  "visual_beats": [
+    {
+      "beat_id": "b1",
+      "segment_id": "n1",
+      "trigger": "DEFINE",
+      "start_frame": 10,
+      "end_frame": 160,
+      "action": "REVEAL_EQUATION",
+      "target_ids": [
+        "eq1"
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "caption_id": "c1",
+      "text": "Electric current is the rate of flow of charge.",
+      "start_frame": 0,
+      "end_frame": 180
+    }
+  ],
+  "audio_clips": [
+    {
+      "clip_id": "a1",
+      "source": "narration.wav",
+      "start_frame": 0,
+      "end_frame": 180
+    }
+  ]
+}

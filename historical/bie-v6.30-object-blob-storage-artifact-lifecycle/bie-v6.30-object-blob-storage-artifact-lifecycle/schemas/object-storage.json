@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "object",
+    "namespace",
+    "metadata",
+    "multipart",
+    "checksum",
+    "content_address",
+    "version",
+    "retention",
+    "legal_hold",
+    "lifecycle",
+    "signed_access",
+    "artifact",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.30"
+    },
+    "object": {
+      "type": "object"
+    },
+    "namespace": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "multipart": {
+      "type": "object"
+    },
+    "checksum": {
+      "type": "object"
+    },
+    "content_address": {
+      "type": "object"
+    },
+    "version": {
+      "type": "object"
+    },
+    "retention": {
+      "type": "object"
+    },
+    "legal_hold": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "signed_access": {
+      "type": "object"
+    },
+    "artifact": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

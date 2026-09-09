@@ -1,0 +1,34 @@
+{
+  "scene_id": "scene-10",
+  "audio_duration": 18.6,
+  "phrases": [
+    {
+      "phrase_id": "p1",
+      "text": "Charge begins to move.",
+      "start": 0.0,
+      "end": 2.8
+    },
+    {
+      "phrase_id": "p2",
+      "text": "This flow is electric current.",
+      "start": 2.8,
+      "end": 6.4
+    }
+  ],
+  "cues": [
+    {
+      "cue_id": "c1",
+      "target_id": "particles",
+      "trigger_type": "START",
+      "phrase_ref": "p1",
+      "offset": 0.0
+    },
+    {
+      "cue_id": "c2",
+      "target_id": "current-arrow",
+      "trigger_type": "EMPHASIZE",
+      "phrase_ref": "p2",
+      "offset": 0.1
+    }
+  ]
+}

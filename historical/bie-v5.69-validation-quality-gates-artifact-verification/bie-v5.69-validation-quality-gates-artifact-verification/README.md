@@ -1,0 +1,1 @@
+# BIE v5.69 — Validation, Quality Gates & Artifact Verification\n\nExplicit verification contracts for semantic, structural, dependency, accessibility, media and reproducibility checks before release.\n

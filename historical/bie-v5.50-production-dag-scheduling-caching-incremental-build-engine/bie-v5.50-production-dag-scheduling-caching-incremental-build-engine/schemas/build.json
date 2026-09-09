@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "batches",
+    "nodes",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.50"
+    },
+    "batches": {
+      "type": "array"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "invalidated": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "artifact_id": "lesson-01-video@3",
+  "results": [
+    {
+      "check_id": "semantic-refs",
+      "category": "SEMANTIC",
+      "status": "PASS"
+    },
+    {
+      "check_id": "structure",
+      "category": "STRUCTURAL",
+      "status": "PASS"
+    },
+    {
+      "check_id": "dependencies",
+      "category": "DEPENDENCY",
+      "status": "PASS"
+    },
+    {
+      "check_id": "accessibility",
+      "category": "ACCESSIBILITY",
+      "status": "WARN"
+    }
+  ],
+  "gates": [
+    {
+      "gate_id": "release",
+      "passed": true,
+      "missing_categories": [],
+      "failures": []
+    }
+  ],
+  "release_eligible": true
+}

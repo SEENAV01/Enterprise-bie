@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pages",
+    "heading_tree",
+    "assets",
+    "chapter_units",
+    "consolidation_batches"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "array"
+    },
+    "heading_tree": {
+      "type": "array"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "chapter_units": {
+      "type": "array"
+    },
+    "consolidation_batches": {
+      "type": "array"
+    }
+  }
+}

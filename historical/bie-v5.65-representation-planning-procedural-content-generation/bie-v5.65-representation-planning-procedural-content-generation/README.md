@@ -1,0 +1,1 @@
+# BIE v5.65 — Representation Planning & Procedural Content Generation Layer\n\nTransforms semantic concepts into explicit representation specifications, generation strategies, scene specifications, procedural programs and validation contracts.\n

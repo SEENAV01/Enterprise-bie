@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "input_fingerprint",
+    "cache_key"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.76"
+    },
+    "input_fingerprint": {
+      "type": "string"
+    },
+    "cache_key": {
+      "type": "string"
+    }
+  }
+}

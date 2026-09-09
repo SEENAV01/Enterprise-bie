@@ -1,0 +1,41 @@
+{
+  "schema_version": "6.49",
+  "source": {
+    "source_id": "book-1",
+    "uri": "file://book.pdf",
+    "media_type": "application/pdf",
+    "status": "REGISTERED"
+  },
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "source_id": "book-1",
+      "page": 1,
+      "order": 1
+    }
+  ],
+  "evidence": {
+    "evidence_id": "ev-1",
+    "source_id": "book-1",
+    "segment_ids": [
+      "seg-1"
+    ]
+  },
+  "concept": {
+    "concept_id": "c-1",
+    "label": "Electric Charge",
+    "evidence_ids": [
+      "ev-1"
+    ]
+  },
+  "verification": {
+    "status": "PASS",
+    "evidence_ids": [
+      "ev-1"
+    ]
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "6.26",
+  "route": {
+    "route_id": "r-1",
+    "path": "/v1/workflows",
+    "method": "GET",
+    "upstream": "workflow-service",
+    "version": "v1",
+    "enabled": true
+  },
+  "versioning": {
+    "name": "v1",
+    "strategy": "PATH",
+    "value": "/v1",
+    "default": true
+  },
+  "auth_handoff": {
+    "mode": "BEARER",
+    "identity_ref": "identity:user-1",
+    "scopes": [
+      "workflow:read"
+    ]
+  },
+  "rate_limit": {
+    "key": "tenant-a:user-1",
+    "limit": 100,
+    "window_seconds": 60,
+    "algorithm": "TOKEN_BUCKET"
+  },
+  "transform": {
+    "name": "request-normalize",
+    "request_headers": {
+      "x-request-id": "req-1"
+    },
+    "response_headers": {
+      "x-gateway": "bie"
+    },
+    "body": null
+  },
+  "upstream": {
+    "name": "workflow-service",
+    "endpoints": [
+      "worker-a",
+      "worker-b"
+    ],
+    "strategy": "ROUND_ROBIN"
+  },
+  "health": {
+    "endpoint": "worker-a",
+    "status": "HEALTHY",
+    "latency_ms": 12.1
+  },
+  "retry": {
+    "max_attempts": 2,
+    "backoff": "EXPONENTIAL",
+    "retry_on": [
+      "502",
+      "503",
+      "504"
+    ]
+  },
+  "circuit_breaker": {
+    "name": "workflow-service",
+    "failure_threshold": 5,
+    "recovery_timeout": 30,
+    "state": "CLOSED"
+  },
+  "observability": {
+    "event_id": "edge-1",
+    "route_id": "r-1",
+    "operation": "PROXY",
+    "status": "SUCCESS",
+    "upstream": "worker-a",
+    "latency_ms": 18.4
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "route_matches": true,
+    "version_selected": true,
+    "authorized": true,
+    "rate_limit_ok": true,
+    "transform_header": true,
+    "upstream_selected": true,
+    "healthy_routable": true,
+    "retry_503": true,
+    "circuit_allows": true,
+    "metric": {
+      "route_id": "r-1",
+      "status": "SUCCESS",
+      "latency_ms": 18.4
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v6.18 — Storage, Data Model & Persistence Abstraction\n\nLogical entities, repositories, queries, transactions, indexes, migrations, archival tiers, lifecycle and consistency contracts.\n

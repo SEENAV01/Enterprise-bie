@@ -1,0 +1,1 @@
+# BIE v5.70 — Observability, Provenance & Audit Event Layer\n\nAppend-only event model for tracing planning, generation, execution, validation, release, learner adaptation and policy changes.\n

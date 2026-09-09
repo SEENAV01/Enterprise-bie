@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scenes",
+    "timing_contract",
+    "implementation_target"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.5"
+    },
+    "scenes": {
+      "type": "array"
+    },
+    "timing_contract": {
+      "type": "object"
+    },
+    "implementation_target": {
+      "type": "string"
+    }
+  }
+}

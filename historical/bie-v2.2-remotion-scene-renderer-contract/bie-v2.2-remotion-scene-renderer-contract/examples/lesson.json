@@ -1,0 +1,55 @@
+{
+  "learning_units": [
+    {
+      "unit_id": "C1",
+      "title": "Electric Current",
+      "objective": "Explain electric current.",
+      "evidence_refs": [
+        "b2"
+      ],
+      "scenes": [
+        {
+          "type": "definition",
+          "objective": "establish the definition",
+          "visual_type": "diagram",
+          "visual_instructions": "Show charge carriers moving through a conductor.",
+          "narration": "Electric current describes the rate at which electric charge flows.",
+          "on_screen_text": [
+            "Electric current = rate of flow of charge"
+          ],
+          "animation": {
+            "enter": "fade",
+            "exit": "fade",
+            "actions": [
+              "move charge particles"
+            ]
+          },
+          "camera": {
+            "mode": "slow_push_in"
+          },
+          "transition": "cut",
+          "emphasis": [
+            "rate of flow"
+          ]
+        },
+        {
+          "type": "checkpoint",
+          "objective": "test the definition",
+          "visual_type": "text",
+          "narration": "What does electric current measure?",
+          "on_screen_text": [
+            "What does electric current measure?"
+          ],
+          "checkpoint": {
+            "kind": "mcq",
+            "options": [
+              "Charge flow rate",
+              "Resistance only",
+              "Voltage only"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "secret_ref",
+    "key",
+    "key_version",
+    "rotation",
+    "revocation",
+    "lease",
+    "envelope",
+    "retrieval",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.36"
+    },
+    "secret_ref": {
+      "type": "object"
+    },
+    "key": {
+      "type": "object"
+    },
+    "key_version": {
+      "type": "object"
+    },
+    "rotation": {
+      "type": "object"
+    },
+    "revocation": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "envelope": {
+      "type": "object"
+    },
+    "retrieval": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

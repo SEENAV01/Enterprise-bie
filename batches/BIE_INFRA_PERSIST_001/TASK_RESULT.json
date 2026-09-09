@@ -1,0 +1,19 @@
+{
+  "task_id": "BIE-INFRA-PERSIST-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "durable_run_state": true,
+    "durable_stage_attempts": true,
+    "append_preserving_retry_history": true,
+    "durable_transition_events": true,
+    "durable_artifact_catalog": true,
+    "durable_lineage": true,
+    "transactional_writes": true,
+    "schema_versioning": true,
+    "immutable_artifact_metadata": true,
+    "crash_resume_contract": true,
+    "backend_separation": true
+  },
+  "next_task": "BIE-INFRA-RECOVERY-001",
+  "next_task_title": "Crash Recovery, Lease & Worker Ownership Contract"
+}

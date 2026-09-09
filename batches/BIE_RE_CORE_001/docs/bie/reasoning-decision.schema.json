@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bie.local/schemas/reasoning-decision-1.0.0.json",
+  "title": "BIE Reasoning Decision",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "decision_type",
+    "subject_id",
+    "question",
+    "selected_option",
+    "rationale_summary",
+    "confidence",
+    "evidence_refs",
+    "alternatives",
+    "premises",
+    "constraints",
+    "uncertainty",
+    "downstream_effects",
+    "depends_on_decisions",
+    "requires_review",
+    "policy_tags"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_type": {
+      "enum": [
+        "animation_strategy",
+        "assessment_strategy",
+        "causal_explanation",
+        "contradiction_resolution",
+        "evidence_arbitration",
+        "example_selection",
+        "game_revision_strategy",
+        "mathematical_derivation",
+        "misconception_resolution",
+        "prerequisite_order",
+        "remediation_strategy",
+        "representation_selection",
+        "simulation_strategy",
+        "teaching_order",
+        "uncertainty_resolution",
+        "visual_strategy"
+      ]
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selected_option": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact_id",
+          "role",
+          "strength"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": [
+              "primary",
+              "supporting",
+              "contradicting",
+              "prerequisite",
+              "example",
+              "constraint",
+              "derived"
+            ]
+          },
+          "strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "option_id",
+          "description"
+        ],
+        "properties": {
+          "option_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "score": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "rejected_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "premises": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "uncertainty": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "downstream_effects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "depends_on_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requires_review": {
+      "type": "boolean"
+    },
+    "policy_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

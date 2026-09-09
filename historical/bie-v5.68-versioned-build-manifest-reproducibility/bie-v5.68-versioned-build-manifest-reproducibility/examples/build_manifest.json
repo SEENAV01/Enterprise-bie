@@ -1,0 +1,38 @@
+{
+  "build_id": "course-1842",
+  "inputs": {
+    "source": "book@12",
+    "knowledge_graph": "kg@8",
+    "learning_graph": "lg@5"
+  },
+  "assets": [
+    "diagram@7",
+    "voice@3"
+  ],
+  "ir_version": "ir@4",
+  "generator": {
+    "name": "bie-generator",
+    "version": "2.8.1"
+  },
+  "renderer": {
+    "name": "remotion",
+    "version": "4.x"
+  },
+  "dependencies": {
+    "node": "22.x"
+  },
+  "config": {
+    "fps": 30,
+    "width": 1920,
+    "height": 1080
+  },
+  "policies": {
+    "pedagogy": "policy@6"
+  },
+  "environment": {
+    "os": "declared-by-build-system"
+  },
+  "seeds": {
+    "scene_generation": 1842
+  }
+}

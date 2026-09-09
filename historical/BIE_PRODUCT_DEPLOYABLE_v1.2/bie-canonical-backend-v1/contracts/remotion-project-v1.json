@@ -1,0 +1,16 @@
+{
+  "version": "7.35",
+  "project_contract": "1.0",
+  "features": [
+    "generated_tsx",
+    "remotion_composition",
+    "frame_duration_conversion",
+    "renderer_ready_project"
+  ],
+  "invariants": [
+    "Generated project contains a Root composition",
+    "Generated lesson component consumes Scene DSL scenes",
+    "Duration is derived from Scene DSL seconds at 30fps",
+    "Generation is deterministic for the same Scene DSL"
+  ]
+}

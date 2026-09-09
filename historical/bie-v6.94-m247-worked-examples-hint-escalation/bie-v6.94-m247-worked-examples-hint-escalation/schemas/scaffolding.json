@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "worked_example",
+    "example_validation",
+    "scaffold",
+    "scaffold_validation",
+    "hint_level",
+    "hint",
+    "next_hint_level",
+    "answer_reveal_policy",
+    "scaffolding_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.94"
+    },
+    "worked_example": {
+      "type": "object"
+    },
+    "example_validation": {
+      "type": "object"
+    },
+    "scaffold": {
+      "type": "object"
+    },
+    "scaffold_validation": {
+      "type": "object"
+    },
+    "hint_level": {
+      "type": "string"
+    },
+    "hint": {
+      "type": "string"
+    },
+    "next_hint_level": {
+      "type": "string"
+    },
+    "answer_reveal_policy": {
+      "type": "object"
+    },
+    "scaffolding_gate": {
+      "type": "object"
+    }
+  }
+}

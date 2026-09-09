@@ -1,0 +1,104 @@
+{
+  "scene_dsl": {
+    "schema_version": "2.2",
+    "renderer": "remotion",
+    "fps": 30,
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "scenes": [
+      {
+        "scene_id": "C1_S01",
+        "type": "definition",
+        "duration_ms": 5000,
+        "objective": "Define electric current.",
+        "visual": {
+          "type": "diagram",
+          "instructions": "Show charge moving through a conductor.",
+          "assets": []
+        },
+        "narration": "Electric current is the rate of flow of electric charge.",
+        "on_screen_text": [
+          "Electric current = rate of flow of charge"
+        ],
+        "equations": [],
+        "animation": {
+          "enter": "fade",
+          "exit": "fade",
+          "actions": [
+            "move charges"
+          ]
+        },
+        "camera": {
+          "mode": "slow_push_in"
+        },
+        "transition": "cut",
+        "emphasis": [
+          "rate of flow"
+        ],
+        "evidence_refs": [
+          "b2"
+        ]
+      },
+      {
+        "scene_id": "C1_S02",
+        "type": "checkpoint",
+        "duration_ms": 4000,
+        "objective": "Check understanding.",
+        "visual": {
+          "type": "text",
+          "instructions": "Show a multiple choice question.",
+          "assets": []
+        },
+        "narration": "What does electric current measure?",
+        "on_screen_text": [
+          "What does electric current measure?"
+        ],
+        "equations": [],
+        "animation": {
+          "enter": "fade",
+          "exit": "fade",
+          "actions": []
+        },
+        "camera": {
+          "mode": "static"
+        },
+        "transition": "cut",
+        "emphasis": [],
+        "evidence_refs": [
+          "b2"
+        ],
+        "checkpoint": {
+          "kind": "mcq",
+          "options": [
+            "Charge flow rate",
+            "Resistance",
+            "Voltage"
+          ]
+        }
+      }
+    ]
+  },
+  "remotion_manifest": {
+    "composition_id": "BIECourse",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "duration_in_frames": 270,
+    "timeline": [
+      {
+        "scene_id": "C1_S01",
+        "from": 0,
+        "duration_in_frames": 150,
+        "type": "definition"
+      },
+      {
+        "scene_id": "C1_S02",
+        "from": 150,
+        "duration_in_frames": 120,
+        "type": "checkpoint"
+      }
+    ]
+  }
+}

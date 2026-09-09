@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "jobs",
+    "performance",
+    "capacity_forecast",
+    "required_workers",
+    "ranked_job_ids",
+    "packing",
+    "admission",
+    "optimization_plan",
+    "optimization_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.66"
+    },
+    "jobs": {
+      "type": "array"
+    },
+    "performance": {
+      "type": "object"
+    },
+    "capacity_forecast": {
+      "type": "object"
+    },
+    "required_workers": {
+      "type": "integer"
+    },
+    "ranked_job_ids": {
+      "type": "array"
+    },
+    "packing": {
+      "type": "object"
+    },
+    "admission": {
+      "type": "array"
+    },
+    "optimization_plan": {
+      "type": "object"
+    },
+    "optimization_gate": {
+      "type": "object"
+    }
+  }
+}

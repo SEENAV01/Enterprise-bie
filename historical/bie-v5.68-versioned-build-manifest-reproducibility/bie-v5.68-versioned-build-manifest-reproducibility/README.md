@@ -1,0 +1,1 @@
+# BIE v5.68 — Versioned Build Manifest & Reproducibility Layer\n\nFreezes build inputs, asset versions, IR, generators, renderers, dependencies, configuration, policies, environment and seeds into a canonical manifest with deterministic digesting, cache keys and rollback records.\n

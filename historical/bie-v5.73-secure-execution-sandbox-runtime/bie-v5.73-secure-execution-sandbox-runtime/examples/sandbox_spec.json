@@ -1,0 +1,31 @@
+{
+  "sandbox_id": "sb-1842",
+  "limits": {
+    "cpu_seconds": 60,
+    "memory_mb": 2048,
+    "disk_mb": 4096,
+    "timeout_seconds": 180,
+    "max_processes": 8,
+    "max_output_mb": 512
+  },
+  "network": {
+    "mode": "DENY",
+    "allowlist": []
+  },
+  "filesystem": {
+    "read_roots": [
+      "/input"
+    ],
+    "write_root": "/artifacts",
+    "allow_delete": false
+  },
+  "process": {
+    "max_processes": 8,
+    "allowed_executables": [
+      "node"
+    ]
+  },
+  "output_contract": {
+    "mode": "ARTIFACT_ONLY"
+  }
+}

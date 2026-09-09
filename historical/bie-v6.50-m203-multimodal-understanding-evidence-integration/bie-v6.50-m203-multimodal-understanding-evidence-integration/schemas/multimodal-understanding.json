@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source_id",
+    "regions",
+    "modalities",
+    "ocr_extraction",
+    "structured_object",
+    "evidence",
+    "cross_modal_link",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.50"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "regions": {
+      "type": "array"
+    },
+    "modalities": {
+      "type": "array"
+    },
+    "ocr_extraction": {
+      "type": "object"
+    },
+    "structured_object": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "cross_modal_link": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

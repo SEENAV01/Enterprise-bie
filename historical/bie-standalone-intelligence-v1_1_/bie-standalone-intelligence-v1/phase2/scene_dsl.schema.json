@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "required": [
+    "lesson_id",
+    "scenes"
+  ],
+  "properties": {
+    "lesson_id": {
+      "type": "string"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "purpose",
+          "narration",
+          "visual_type",
+          "concept_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "narration": {
+            "type": "string"
+          },
+          "visual_type": {
+            "type": "string"
+          },
+          "concept_ids": {
+            "type": "array"
+          },
+          "source_blocks": {
+            "type": "array"
+          },
+          "assets": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": "7.41",
+  "semantic_visual_verification": "1.0",
+  "features": [
+    "source-vs-render-text-comparison",
+    "grounded-repair-patches",
+    "deterministic-source-hash",
+    "semantic-mismatch-qa-gate"
+  ],
+  "invariants": [
+    "Expected visual text comes only from upstream Scene DSL",
+    "A mismatch creates a grounded repair patch",
+    "Repairs never invent replacement content",
+    "Semantic mismatch blocks publish until repaired or explicitly resolved",
+    "When OCR is unavailable, semantic status remains not_proven"
+  ]
+}

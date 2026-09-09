@@ -1,0 +1,21 @@
+def capabilities():
+    return {
+    "job_definitions": true,
+    "job_instances": true,
+    "queue_dispatch": true,
+    "worker_assignment": true,
+    "DAG_dependencies": true,
+    "scheduling": true,
+    "concurrency": true,
+    "priority": true,
+    "retry_backoff": true,
+    "timeouts": true,
+    "cancellation": true,
+    "pause_resume": true,
+    "checkpoints": true,
+    "durable_execution": true,
+    "compensation": true,
+    "dead_letter": true,
+    "execution_history": true,
+    "observability": true
+}

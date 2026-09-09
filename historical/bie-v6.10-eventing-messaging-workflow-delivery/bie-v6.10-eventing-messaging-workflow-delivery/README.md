@@ -1,0 +1,1 @@
+# BIE v6.10 — Eventing, Messaging & Workflow Delivery\n\nEvents, topics, queues, delivery semantics, idempotency, ordering, dead-letter handling, replay and backpressure contracts.\n

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lesson_job",
+    "state_machine",
+    "state_events",
+    "artifact_registry",
+    "checkpoints",
+    "failure_policy",
+    "verification",
+    "provenance",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.61"
+    },
+    "lesson_job": {
+      "type": "object"
+    },
+    "state_machine": {
+      "type": "object"
+    },
+    "state_events": {
+      "type": "array"
+    },
+    "artifact_registry": {
+      "type": "object"
+    },
+    "checkpoints": {
+      "type": "array"
+    },
+    "failure_policy": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "providers",
+    "image",
+    "image_provider",
+    "tts",
+    "tts_provider",
+    "captions",
+    "caption_validation",
+    "image_quality_gate",
+    "fallback_provider",
+    "media_generation_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.07"
+    },
+    "providers": {
+      "type": "object"
+    },
+    "image": {
+      "type": "object"
+    },
+    "image_provider": {
+      "type": "object"
+    },
+    "tts": {
+      "type": "object"
+    },
+    "tts_provider": {
+      "type": "object"
+    },
+    "captions": {
+      "type": "array"
+    },
+    "caption_validation": {
+      "type": "object"
+    },
+    "image_quality_gate": {
+      "type": "object"
+    },
+    "fallback_provider": {
+      "type": "object"
+    },
+    "media_generation_gate": {
+      "type": "object"
+    }
+  }
+}

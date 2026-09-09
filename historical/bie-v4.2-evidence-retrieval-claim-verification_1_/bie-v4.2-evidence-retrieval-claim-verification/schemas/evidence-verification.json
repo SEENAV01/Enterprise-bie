@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "knowledge_id",
+    "retrieval_request",
+    "ranked_sources",
+    "evidence_packet"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.2"
+    },
+    "knowledge_id": {
+      "type": "string"
+    },
+    "retrieval_request": {
+      "type": "object"
+    },
+    "ranked_sources": {
+      "type": "array"
+    },
+    "evidence_packet": {
+      "type": "object"
+    }
+  }
+}

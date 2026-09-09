@@ -1,0 +1,1 @@
+# BIE v5.66 — Structured Authoring / Intermediate Representation Layer\n\nDefines a canonical renderer-independent representation for documents, lessons, scenes, components, timelines, layouts, semantic bindings and transformation passes.\n

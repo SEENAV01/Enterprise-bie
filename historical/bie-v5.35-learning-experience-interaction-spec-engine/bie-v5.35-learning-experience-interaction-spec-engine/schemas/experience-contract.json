@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lesson_contract",
+    "interactions",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.35"
+    },
+    "lesson_contract": {
+      "type": "object"
+    },
+    "interactions": {
+      "type": "array"
+    },
+    "feedback_rules": {
+      "type": "array"
+    },
+    "controls": {
+      "type": "array"
+    },
+    "adaptive_hooks": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

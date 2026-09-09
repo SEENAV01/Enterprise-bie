@@ -1,0 +1,26 @@
+{
+  "schema_version": "M181-reference",
+  "module": "External Connector Runtime & Provider Adapter",
+  "capabilities": {
+    "connector_registry": true,
+    "provider_adapters": true,
+    "authentication": true,
+    "credential_references": true,
+    "capability_discovery": true,
+    "request_response_mapping": true,
+    "timeouts": true,
+    "circuit_breaker": true,
+    "rate_limits": true,
+    "provider_failover": true,
+    "health_checks": true,
+    "connector_versioning": true,
+    "sandbox_mode": true,
+    "error_normalization": true,
+    "webhook_inbound_adapters": true,
+    "connector_observability": true
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

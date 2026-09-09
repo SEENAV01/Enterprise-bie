@@ -1,0 +1,51 @@
+{
+  "nodes": [
+    {
+      "node_id": "diagram",
+      "dependencies": [],
+      "status": "PENDING"
+    },
+    {
+      "node_id": "scene",
+      "dependencies": [
+        "diagram"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "node_id": "narration",
+      "dependencies": [
+        "scene"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "node_id": "final",
+      "dependencies": [
+        "scene",
+        "narration"
+      ],
+      "status": "PENDING"
+    },
+    {
+      "node_id": "independent-chart",
+      "dependencies": [],
+      "status": "PENDING"
+    }
+  ],
+  "batches": [
+    [
+      "diagram",
+      "independent-chart"
+    ],
+    [
+      "scene"
+    ],
+    [
+      "narration"
+    ],
+    [
+      "final"
+    ]
+  ]
+}

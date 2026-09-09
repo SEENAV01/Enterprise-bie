@@ -1,0 +1,26 @@
+{
+  "schema_version": "6.36",
+  "secret_ref": {
+    "secret_id": "secret-1",
+    "version": 3,
+    "scope": "service:runtime",
+    "status": "ACTIVE"
+  },
+  "key": {
+    "key_id": "key-1",
+    "algorithm": "AES-256-GCM",
+    "version": 3,
+    "purpose": "ENCRYPTION",
+    "status": "ACTIVE"
+  },
+  "rotation": {
+    "key_id": "key-1",
+    "current_version": 3,
+    "next_version": 4,
+    "status": "ACTIVE"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

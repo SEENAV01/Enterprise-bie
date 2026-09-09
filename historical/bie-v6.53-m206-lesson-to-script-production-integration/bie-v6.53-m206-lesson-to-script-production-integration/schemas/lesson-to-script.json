@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lesson",
+    "script",
+    "coverage",
+    "timing",
+    "evidence_checks",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.53"
+    },
+    "lesson": {
+      "type": "object"
+    },
+    "script": {
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "timing": {
+      "type": "object"
+    },
+    "evidence_checks": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

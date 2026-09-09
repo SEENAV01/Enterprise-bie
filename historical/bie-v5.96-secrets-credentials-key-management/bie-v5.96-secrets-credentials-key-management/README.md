@@ -1,0 +1,1 @@
+# BIE v5.96 — Secrets, Credentials & Key Management\n\nReference-only secrets, scoped credentials, short-lived grants, rotation, worker injection boundaries, redaction-safe audit and credential leases.\n

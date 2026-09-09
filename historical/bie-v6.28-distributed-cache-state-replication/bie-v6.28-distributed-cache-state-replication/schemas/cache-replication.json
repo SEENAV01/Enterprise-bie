@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "cache",
+    "ttl",
+    "invalidation",
+    "consistency",
+    "pattern",
+    "ownership",
+    "replication",
+    "stale_read",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.28"
+    },
+    "cache": {
+      "type": "object"
+    },
+    "ttl": {
+      "type": "object"
+    },
+    "invalidation": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "pattern": {
+      "type": "object"
+    },
+    "ownership": {
+      "type": "object"
+    },
+    "replication": {
+      "type": "object"
+    },
+    "stale_read": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": "7.29",
+  "structure": "1.0",
+  "features": [
+    "hierarchical_sections",
+    "flat_index",
+    "unit_extraction",
+    "structure_validation"
+  ],
+  "invariants": [
+    "Every section has a stable source block ID",
+    "Parent-child relationships are deterministic",
+    "TOC-like headings are not treated as body sections",
+    "Invalid hierarchy blocks QA",
+    "Downstream planning can reference source units"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "build_identity",
+    "manifest",
+    "governance",
+    "reproducibility",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.56"
+    },
+    "build_identity": {
+      "type": "string"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    },
+    "reproducibility": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

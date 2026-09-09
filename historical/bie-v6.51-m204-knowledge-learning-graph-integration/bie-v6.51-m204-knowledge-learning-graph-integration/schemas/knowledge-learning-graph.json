@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "knowledge_graph",
+    "learning_graph",
+    "prerequisite",
+    "dependency",
+    "ontology_terms",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.51"
+    },
+    "knowledge_graph": {
+      "type": "object"
+    },
+    "learning_graph": {
+      "type": "object"
+    },
+    "prerequisite": {
+      "type": "object"
+    },
+    "dependency": {
+      "type": "object"
+    },
+    "ontology_terms": {
+      "type": "array"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

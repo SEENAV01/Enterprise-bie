@@ -1,0 +1,26 @@
+{
+  "schema_version": "6.37",
+  "classification": {
+    "data_type": "customer_profile",
+    "level": "RESTRICTED",
+    "tags": [
+      "PII"
+    ]
+  },
+  "encryption": {
+    "required": true,
+    "algorithm": "AES-256-GCM",
+    "at_rest": true,
+    "in_transit": true
+  },
+  "retention": {
+    "data_type": "customer_profile",
+    "duration": "365d",
+    "deletion_mode": "ANONYMIZE",
+    "legal_hold": false
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

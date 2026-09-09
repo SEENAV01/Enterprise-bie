@@ -1,0 +1,1 @@
+# BIE v6.01 — Distributed Locking, Coordination & Leader Election\n\nLocks, leases, fencing tokens, leader election, coordination state, ownership verification, singleton execution and split-brain safety contracts.\n

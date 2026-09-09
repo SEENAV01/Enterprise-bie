@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_count",
+    "events",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.70"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

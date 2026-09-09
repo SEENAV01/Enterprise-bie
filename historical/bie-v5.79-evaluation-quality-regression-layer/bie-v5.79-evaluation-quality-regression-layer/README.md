@@ -1,0 +1,1 @@
+# BIE v5.79 — Evaluation, Quality Measurement & Regression Layer\n\nVersioned golden datasets, rubrics, automated evaluation, quality gates, regression detection, model comparison and evaluation provenance.\n

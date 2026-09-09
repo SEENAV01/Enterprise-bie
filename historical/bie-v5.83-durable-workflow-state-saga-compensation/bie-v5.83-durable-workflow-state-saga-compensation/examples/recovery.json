@@ -1,0 +1,14 @@
+{
+  "schema_version": "5.83",
+  "workflow_id": "course-build-17",
+  "recovery_action": "COMPENSATE",
+  "compensation_plan": [
+    "cancel-render-job",
+    "release-temp-assets"
+  ],
+  "failure_reason": "PUBLISH_FAILED",
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

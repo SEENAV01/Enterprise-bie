@@ -1,0 +1,15 @@
+{
+  "version": "7.33",
+  "script_ir": "1.0",
+  "features": [
+    "grounded_narration",
+    "source_block_traceability",
+    "scene_candidates"
+  ],
+  "invariants": [
+    "Every script section references source evidence",
+    "Narration is assembled from selected source evidence",
+    "Ungrounded or empty script sections fail validation",
+    "Scene candidates reference valid script sections"
+  ]
+}

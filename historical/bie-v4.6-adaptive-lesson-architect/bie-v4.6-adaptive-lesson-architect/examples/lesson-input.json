@@ -1,0 +1,34 @@
+{
+  "learner": {
+    "level": "intermediate",
+    "mastery": {
+      "current": 0.2
+    }
+  },
+  "units": [
+    {
+      "knowledge_id": "current",
+      "importance": "CORE",
+      "teaching_mode": "EXPLAIN_WITH_CAUSAL_MODEL",
+      "prerequisites": [
+        "charge"
+      ]
+    },
+    {
+      "knowledge_id": "derivation",
+      "importance": "CORE",
+      "teaching_mode": "DERIVE_STEP_BY_STEP",
+      "prerequisites": [
+        "current"
+      ]
+    },
+    {
+      "knowledge_id": "household",
+      "importance": "IMPORTANT",
+      "teaching_mode": "SHOW_APPLICATION",
+      "prerequisites": [
+        "current"
+      ]
+    }
+  ]
+}

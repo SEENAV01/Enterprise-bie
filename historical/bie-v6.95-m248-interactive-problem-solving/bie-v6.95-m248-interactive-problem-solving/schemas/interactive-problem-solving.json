@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "state",
+    "turns",
+    "summary",
+    "sequence_validation",
+    "interactive_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.95"
+    },
+    "state": {
+      "type": "object"
+    },
+    "turns": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "sequence_validation": {
+      "type": "object"
+    },
+    "interactive_gate": {
+      "type": "object"
+    }
+  }
+}

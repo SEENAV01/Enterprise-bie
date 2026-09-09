@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset_snapshot",
+    "knowledge_snapshot",
+    "evidence_refs",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.91"
+    },
+    "dataset_snapshot": {
+      "type": "object"
+    },
+    "knowledge_snapshot": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v6.30 — Object/Blob Storage & Artifact Lifecycle\n\nObject identities, namespaces, metadata, multipart uploads, checksums, content addressing, versioning, retention, legal holds, lifecycle transitions, signed access references and artifact observability.\n

@@ -1,0 +1,90 @@
+{
+  "schema_version": "6.13",
+  "request_envelope": {
+    "request_id": "req-42",
+    "service": "workflow",
+    "operation": "start",
+    "tenant_id": "tenant-a",
+    "idempotency_key": "idem-42",
+    "schema_version": "1"
+  },
+  "response_envelope": {
+    "request_id": "req-42",
+    "status": 200,
+    "data": {
+      "workflow_id": "wf-42"
+    },
+    "error": null,
+    "schema_version": "1"
+  },
+  "api_contract": {
+    "service": "workflow",
+    "operation": "start",
+    "method": "POST",
+    "path": "/v1/workflows",
+    "request_schema": "WorkflowStart",
+    "response_schema": "WorkflowResponse",
+    "version": "1"
+  },
+  "schema_version_contract": {
+    "name": "WorkflowStart",
+    "version": 1,
+    "compatibility": "BACKWARD",
+    "deprecated": false
+  },
+  "compatibility": {
+    "scope": "workflow-api",
+    "mode": "BACKWARD"
+  },
+  "service": {
+    "name": "workflow",
+    "version": "1",
+    "base_path": "/v1",
+    "owner": "platform",
+    "status": "ACTIVE"
+  },
+  "endpoint": {
+    "service": "workflow",
+    "address": "workflow.internal",
+    "port": 8080,
+    "protocol": "HTTP"
+  },
+  "health": {
+    "service": "workflow",
+    "live": true,
+    "ready": true,
+    "dependencies": [
+      "state-store"
+    ]
+  },
+  "idempotent_api": {
+    "request_id": "req-42",
+    "idempotency_key": "idem-42",
+    "operation": "start",
+    "status": "COMPLETED",
+    "response": {
+      "request_id": "req-42",
+      "status": 200
+    }
+  },
+  "integration_adapter": {
+    "name": "payments",
+    "provider": "payment-provider",
+    "protocol": "HTTPS",
+    "timeout_seconds": 30,
+    "retryable": true
+  },
+  "contract_test": {
+    "name": "workflow-start",
+    "provider_contract": {
+      "version": "1"
+    },
+    "consumer": "workflow-client",
+    "expected_status": 200,
+    "status": "PASSED"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

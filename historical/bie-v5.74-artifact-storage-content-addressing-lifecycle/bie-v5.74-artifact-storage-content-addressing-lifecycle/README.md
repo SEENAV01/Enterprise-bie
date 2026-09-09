@@ -1,0 +1,1 @@
+# BIE v5.74 — Artifact Storage, Content Addressing & Lifecycle Layer\n\nImmutable content-addressed artifacts, lifecycle states, promotion records, retention policies, lineage and garbage-collection planning.\n

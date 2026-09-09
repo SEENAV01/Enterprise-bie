@@ -1,0 +1,24 @@
+{
+  "schema_version": "6.42",
+  "participant": {
+    "participant_id": "node-a",
+    "endpoint": "coord://node-a",
+    "status": "ACTIVE"
+  },
+  "epoch": {
+    "term": 7,
+    "epoch_id": "epoch-7"
+  },
+  "quorum": {
+    "members": [
+      "node-a",
+      "node-b",
+      "node-c"
+    ],
+    "required": 2
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

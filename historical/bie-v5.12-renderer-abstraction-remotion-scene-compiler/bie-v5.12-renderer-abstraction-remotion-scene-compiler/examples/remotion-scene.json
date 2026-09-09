@@ -1,0 +1,40 @@
+{
+  "shot": {
+    "shot_id": "shot_1",
+    "timing": {
+      "start_frame": 0,
+      "end_frame": 300
+    }
+  },
+  "components": [
+    {
+      "shot_id": "shot_1",
+      "layer_id": "title",
+      "component": "TEXT",
+      "props": {
+        "text": "Electric Current",
+        "x": 960,
+        "y": 180,
+        "fontSize": 72
+      },
+      "z_index": 2,
+      "animations": [
+        {
+          "target_id": "title",
+          "property": "opacity",
+          "keyframes": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 20,
+              "value": 1
+            }
+          ],
+          "easing": "easeOut"
+        }
+      ]
+    }
+  ]
+}

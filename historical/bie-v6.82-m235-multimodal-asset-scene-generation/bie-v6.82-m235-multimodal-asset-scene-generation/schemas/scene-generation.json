@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene",
+    "asset_plan",
+    "style_constraints",
+    "voice",
+    "narration_spec",
+    "validation",
+    "scene_generation_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.82"
+    },
+    "scene": {
+      "type": "object"
+    },
+    "asset_plan": {
+      "type": "array"
+    },
+    "style_constraints": {
+      "type": "object"
+    },
+    "voice": {
+      "type": "object"
+    },
+    "narration_spec": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "scene_generation_gate": {
+      "type": "object"
+    }
+  }
+}

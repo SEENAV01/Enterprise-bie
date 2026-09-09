@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request",
+    "outputs",
+    "source_fragments",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.47"
+    },
+    "request": {
+      "type": "object"
+    },
+    "outputs": {
+      "type": "array"
+    },
+    "source_fragments": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

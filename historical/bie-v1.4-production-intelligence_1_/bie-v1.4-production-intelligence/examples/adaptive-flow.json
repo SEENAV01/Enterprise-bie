@@ -1,0 +1,14 @@
+{
+  "question": "What is the resistance if V=12 V and I=2 A?",
+  "target_unit": "S17",
+  "scoring": {
+    "correct": 1.0,
+    "partial": 0.7,
+    "wrong": 0.2
+  },
+  "routing": {
+    "1.0": "S18",
+    "0.7": "S17_remediation",
+    "0.2": "S08_prerequisite_then_S17"
+  }
+}

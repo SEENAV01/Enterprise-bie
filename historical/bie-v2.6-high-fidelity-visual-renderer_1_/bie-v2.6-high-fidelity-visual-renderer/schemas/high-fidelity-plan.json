@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "scene_id",
+    "layers",
+    "actions",
+    "camera",
+    "sync_mode"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string"
+    },
+    "layers": {
+      "type": "array"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "camera": {
+      "type": "object"
+    },
+    "sync_mode": {
+      "const": "AUDIO_MARKER_DRIVEN"
+    }
+  }
+}

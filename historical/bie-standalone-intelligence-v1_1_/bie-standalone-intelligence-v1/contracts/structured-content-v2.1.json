@@ -1,0 +1,18 @@
+{
+  "version": "7.28",
+  "document_ir": "2.1",
+  "features": [
+    "stable_bbox_reading_order",
+    "conservative_table_candidates",
+    "equation_candidates",
+    "caption_links",
+    "content_inventory"
+  ],
+  "invariants": [
+    "Existing source block IDs remain traceable",
+    "Table extraction is explicitly confidence-scored",
+    "Equation candidates preserve original text",
+    "Caption links are explicit and may be unresolved",
+    "Reading order is deterministic when bounding boxes exist"
+  ]
+}

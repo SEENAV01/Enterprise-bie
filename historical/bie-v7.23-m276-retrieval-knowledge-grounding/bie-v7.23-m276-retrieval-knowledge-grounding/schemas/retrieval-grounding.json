@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "document",
+    "version",
+    "chunks",
+    "index_size",
+    "retrieval",
+    "citations",
+    "freshness",
+    "knowledge_grounding_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.23"
+    },
+    "document": {
+      "type": "object"
+    },
+    "version": {
+      "type": "object"
+    },
+    "chunks": {
+      "type": "array"
+    },
+    "index_size": {
+      "type": "integer"
+    },
+    "retrieval": {
+      "type": "object"
+    },
+    "citations": {
+      "type": "array"
+    },
+    "freshness": {
+      "type": "object"
+    },
+    "knowledge_grounding_gate": {
+      "type": "object"
+    }
+  }
+}

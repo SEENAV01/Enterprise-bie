@@ -1,0 +1,84 @@
+{
+  "schema_version": "6.08",
+  "audit_event": {
+    "event_id": "evt-42",
+    "event_type": "AUTHZ_DECISION",
+    "actor": "user-42",
+    "resource": "workflow:42",
+    "action": "workflow.read",
+    "outcome": "ALLOW",
+    "timestamp": 100,
+    "trace_id": "tr-42",
+    "policy_version": 3,
+    "evidence_refs": [
+      "ev-42"
+    ]
+  },
+  "integrity": {
+    "event_id": "evt-42",
+    "previous_hash": "h-41",
+    "event_hash": "h-42",
+    "algorithm": "SHA-256"
+  },
+  "evidence": {
+    "evidence_id": "ev-42",
+    "evidence_type": "AUDIT_EVENT",
+    "source": "BIE",
+    "created_at": 100,
+    "content_ref": "audit://evt-42",
+    "integrity": {
+      "event_id": "evt-42"
+    },
+    "status": "COLLECTED"
+  },
+  "control": {
+    "control_id": "AC-1",
+    "name": "Authorization",
+    "requirement": "Explicit authorization enforcement",
+    "owner": "security"
+  },
+  "mapping": {
+    "control_id": "AC-1",
+    "evidence_refs": [
+      "ev-42"
+    ],
+    "status": "PASS"
+  },
+  "bundle": {
+    "bundle_id": "bundle-42",
+    "control_id": "AC-1",
+    "evidence_refs": [
+      "ev-42"
+    ],
+    "period": "2026-Q3",
+    "owner": "security",
+    "status": "ASSEMBLED"
+  },
+  "attestation": {
+    "attestation_id": "att-42",
+    "control_id": "AC-1",
+    "reviewer": "reviewer-1",
+    "status": "PASS",
+    "reviewed_at": 200,
+    "evidence_refs": [
+      "ev-42"
+    ],
+    "notes": null
+  },
+  "snapshot": {
+    "snapshot_id": "snap-42",
+    "period": "2026-Q3",
+    "controls": [
+      {
+        "control_id": "AC-1",
+        "status": "PASS"
+      }
+    ],
+    "generated_at": 201,
+    "status": "GENERATED"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

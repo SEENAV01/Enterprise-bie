@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_hash",
+    "inputs",
+    "model",
+    "prompt",
+    "config",
+    "code",
+    "dependencies",
+    "environment"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.90"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "artifact_hash": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "environment": {
+      "type": "object"
+    }
+  }
+}

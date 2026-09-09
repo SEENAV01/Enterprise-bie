@@ -1,0 +1,41 @@
+{
+  "objective": {
+    "type": "UNDERSTAND",
+    "topic": "ohms_law",
+    "depth": "CORE"
+  },
+  "nodes": [
+    "charge",
+    "current",
+    "voltage",
+    "ohms_law"
+  ],
+  "dependencies": [
+    {
+      "source": "charge",
+      "target": "current"
+    },
+    {
+      "source": "current",
+      "target": "voltage"
+    },
+    {
+      "source": "voltage",
+      "target": "ohms_law"
+    }
+  ],
+  "evidence_by_node": {
+    "charge": [
+      "p10:t1"
+    ],
+    "current": [
+      "p12:t1"
+    ],
+    "voltage": [
+      "p13:t2"
+    ],
+    "ohms_law": [
+      "p14:t1"
+    ]
+  }
+}

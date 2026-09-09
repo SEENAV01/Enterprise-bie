@@ -1,0 +1,46 @@
+{
+  "source_nodes": [
+    {
+      "id": "charge",
+      "statement": "Charge is a physical quantity.",
+      "level": "FOUNDATION",
+      "importance": 1.0,
+      "required": true
+    },
+    {
+      "id": "current",
+      "statement": "Current describes charge flow rate.",
+      "level": "FOUNDATION",
+      "importance": 1.0,
+      "required": true,
+      "prerequisites": [
+        "charge"
+      ]
+    }
+  ],
+  "expansion_nodes": [
+    {
+      "id": "continuity",
+      "statement": "Charge-flow reasoning connects to conservation ideas.",
+      "level": "ADVANCED",
+      "importance": 0.8,
+      "required": false,
+      "prerequisites": [
+        "current"
+      ],
+      "kind": "HIGHER_ORDER"
+    },
+    {
+      "id": "application",
+      "statement": "Current measurements appear in electrical systems.",
+      "level": "INTERMEDIATE",
+      "importance": 0.6,
+      "required": false,
+      "prerequisites": [
+        "current"
+      ],
+      "kind": "MODERN_CONTEXT"
+    }
+  ],
+  "learner_level": "INTERMEDIATE"
+}

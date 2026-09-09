@@ -1,0 +1,1 @@
+# BIE v5.31 — Source Ingestion & Document Intelligence Engine\n\nM75 converts PDFs, scans and structured documents into a canonical source representation with pages, regions, reading order, OCR confidence, tables, figures, formulas and provenance.\n

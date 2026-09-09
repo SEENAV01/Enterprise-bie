@@ -1,0 +1,45 @@
+{
+  "blocks": [
+    {
+      "id": "teach_current",
+      "type": "MECHANISM",
+      "purpose": "Explain why current flows",
+      "knowledge_ids": [
+        "current"
+      ],
+      "mode": "EXPLAIN_WITH_CAUSAL_MODEL"
+    },
+    {
+      "id": "teach_power",
+      "type": "DERIVATION",
+      "purpose": "Derive the relation",
+      "knowledge_ids": [
+        "power"
+      ],
+      "mode": "DERIVE_STEP_BY_STEP"
+    },
+    {
+      "id": "teach_use",
+      "type": "APPLICATION",
+      "purpose": "Apply to household use",
+      "knowledge_ids": [
+        "use"
+      ],
+      "mode": "SHOW_APPLICATION"
+    }
+  ],
+  "adapted_units": [
+    {
+      "knowledge_id": "current",
+      "teaching_mode": "EXPLAIN_WITH_CAUSAL_MODEL"
+    },
+    {
+      "knowledge_id": "power",
+      "teaching_mode": "DERIVE_STEP_BY_STEP"
+    },
+    {
+      "knowledge_id": "use",
+      "teaching_mode": "SHOW_APPLICATION"
+    }
+  ]
+}

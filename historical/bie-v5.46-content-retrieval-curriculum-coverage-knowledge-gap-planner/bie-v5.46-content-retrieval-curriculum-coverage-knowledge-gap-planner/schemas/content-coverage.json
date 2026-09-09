@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sources",
+    "fragments",
+    "coverage",
+    "gaps",
+    "next_actions",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.46"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "fragments": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "array"
+    },
+    "gaps": {
+      "type": "array"
+    },
+    "next_actions": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

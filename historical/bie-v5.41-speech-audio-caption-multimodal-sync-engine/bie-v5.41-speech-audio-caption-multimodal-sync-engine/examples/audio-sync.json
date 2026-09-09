@@ -1,0 +1,51 @@
+{
+  "script": {
+    "block_id": "b1",
+    "language": "en",
+    "segments": [
+      {
+        "segment_id": "s1",
+        "text": "Electric field is a vector field.",
+        "objective_ref": "o-field"
+      }
+    ]
+  },
+  "alignments": [
+    {
+      "segment_id": "s1",
+      "words": [
+        {
+          "text": "Electric",
+          "start": 0.0,
+          "end": 0.32,
+          "index": 0
+        },
+        {
+          "text": "field",
+          "start": 0.33,
+          "end": 0.58,
+          "index": 1
+        }
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "caption_id": "c1",
+      "text": "Electric field is a vector field.",
+      "start": 0.0,
+      "end": 1.4,
+      "segment_ref": "s1"
+    }
+  ],
+  "anchors": [
+    {
+      "anchor_id": "a1",
+      "source_type": "WORD",
+      "source_ref": "field",
+      "target_type": "VISUAL_EVENT",
+      "target_ref": "highlight-vector",
+      "offset": 0.0
+    }
+  ]
+}

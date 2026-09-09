@@ -1,0 +1,1 @@
+# BIE v6.13 — API, Service Contracts & Integration Boundaries\n\nAPI contracts, envelopes, schema evolution, compatibility, service discovery, health/readiness, idempotent APIs, integration adapters and contract testing.\n

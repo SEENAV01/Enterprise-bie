@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "learner_id",
+    "concept_id",
+    "strategy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.21"
+    },
+    "learner_id": {
+      "type": "string"
+    },
+    "concept_id": {
+      "type": "string"
+    },
+    "strategy": {
+      "type": "object"
+    },
+    "explanation": {
+      "type": "object"
+    },
+    "practice": {
+      "type": "object"
+    },
+    "misconception_intervention": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy",
+    "simulation",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.86"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "simulation": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

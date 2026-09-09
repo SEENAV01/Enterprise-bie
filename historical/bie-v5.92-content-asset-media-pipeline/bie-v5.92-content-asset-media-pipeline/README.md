@@ -1,0 +1,1 @@
+# BIE v5.92 — Content, Asset Transformation & Media Pipeline\n\nUnified asset identity, media metadata, normalization, transformation, transcoding, variants, composition, rendering, compatibility and quality checks.\n

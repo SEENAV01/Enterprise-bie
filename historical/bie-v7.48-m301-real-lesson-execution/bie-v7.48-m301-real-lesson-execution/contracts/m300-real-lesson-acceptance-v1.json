@@ -1,0 +1,25 @@
+{
+  "version": "7.47",
+  "milestone": "M300",
+  "required_artifacts": [
+    "source",
+    "knowledge",
+    "teaching_plan",
+    "script",
+    "scene_dsl",
+    "remotion_project",
+    "mp4",
+    "qa_report"
+  ],
+  "features": [
+    "end-to-end-acceptance-gate",
+    "artifact-manifest",
+    "qa-gate"
+  ],
+  "invariants": [
+    "A lesson is accepted only when all required artifacts exist.",
+    "A non-accepted QA result cannot be published.",
+    "Acceptance records contain an artifact manifest.",
+    "Missing artifacts are explicit."
+  ]
+}

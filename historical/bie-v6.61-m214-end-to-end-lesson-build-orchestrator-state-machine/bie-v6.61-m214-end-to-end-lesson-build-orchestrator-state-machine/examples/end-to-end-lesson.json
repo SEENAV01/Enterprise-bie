@@ -1,0 +1,27 @@
+{
+  "schema_version": "6.61",
+  "lesson_job": {
+    "job_id": "lesson-job-1",
+    "source_ref": "source://lesson",
+    "requested_output": "output://lesson.mp4",
+    "state": "VERIFIED"
+  },
+  "state_machine": {
+    "current_state": "VERIFIED"
+  },
+  "checkpoints": [
+    {
+      "checkpoint_id": "cp1",
+      "state": "VERIFIED"
+    }
+  ],
+  "verification": {
+    "status": "PASS",
+    "state": "VERIFIED",
+    "final_artifact": "output://lesson.mp4"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

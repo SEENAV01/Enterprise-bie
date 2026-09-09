@@ -1,0 +1,81 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "blocks": [
+        {
+          "block_id": "b1",
+          "page": 1,
+          "block_type": "heading",
+          "text": "Electric Current",
+          "order": 0
+        },
+        {
+          "block_id": "b2",
+          "page": 1,
+          "block_type": "paragraph",
+          "text": "Electric current is the rate of flow of electric charge.",
+          "order": 1
+        },
+        {
+          "block_id": "b3",
+          "page": 1,
+          "block_type": "equation",
+          "text": "I = Q/t",
+          "asset_ref": "eq1",
+          "order": 2
+        },
+        {
+          "block_id": "b4",
+          "page": 1,
+          "block_type": "figure",
+          "text": "Simple circuit diagram",
+          "asset_ref": "fig1",
+          "bbox": [
+            70,
+            300,
+            520,
+            650
+          ],
+          "order": 3
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "blocks": [
+        {
+          "block_id": "b5",
+          "page": 2,
+          "block_type": "table",
+          "text": "Material | Resistivity",
+          "asset_ref": "tbl1",
+          "order": 0
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset_ref": "eq1",
+      "page": 1,
+      "type": "equation"
+    },
+    {
+      "asset_ref": "fig1",
+      "page": 1,
+      "type": "figure",
+      "bbox": [
+        70,
+        300,
+        520,
+        650
+      ]
+    },
+    {
+      "asset_ref": "tbl1",
+      "page": 2,
+      "type": "table"
+    }
+  ]
+}

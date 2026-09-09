@@ -1,0 +1,18 @@
+{
+  "task_id": "BIE-INFRA-STATE-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "typed_stage_lifecycle": true,
+    "predecessor_gate": true,
+    "success_requires_artifact_and_evidence": true,
+    "failure_requires_diagnostics": true,
+    "immutable_retry_history": true,
+    "crash_recovery": true,
+    "invalidation": true,
+    "execution_complete_not_release": true,
+    "provider_neutral": true,
+    "auditable_transitions": true
+  },
+  "next_task": "BIE-INFRA-ORCH-001",
+  "next_task_title": "Enterprise Orchestrator Skeleton & Stage Executor Contract"
+}

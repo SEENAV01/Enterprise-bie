@@ -1,0 +1,25 @@
+{
+  "schema_version": "5.86",
+  "policy": {
+    "policy_id": "routing",
+    "version": "2.0",
+    "allow": true
+  },
+  "simulation": [
+    {
+      "context": {
+        "task": "video"
+      },
+      "decision": {
+        "allowed": true,
+        "policy_id": "routing",
+        "policy_version": "2.0"
+      }
+    }
+  ],
+  "behavior_changes": [],
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

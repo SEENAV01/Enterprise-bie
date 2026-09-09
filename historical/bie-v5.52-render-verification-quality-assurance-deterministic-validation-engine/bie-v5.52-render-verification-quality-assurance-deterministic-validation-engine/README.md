@@ -1,0 +1,1 @@
+# BIE v5.52 — Render Verification, Quality Assurance & Deterministic Validation Engine\n\nValidates produced artifacts against explicit contracts across schema, provenance, visual, audio, timing, interaction, pedagogical, accessibility, content, determinism and render checks.\n

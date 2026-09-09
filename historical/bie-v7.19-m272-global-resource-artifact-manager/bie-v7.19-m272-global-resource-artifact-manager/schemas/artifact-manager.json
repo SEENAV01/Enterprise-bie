@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifacts",
+    "resolved",
+    "content_hash",
+    "deduplication",
+    "lineage",
+    "retention",
+    "artifact_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.19"
+    },
+    "artifacts": {
+      "type": "array"
+    },
+    "resolved": {
+      "type": "object"
+    },
+    "content_hash": {
+      "type": "string"
+    },
+    "deduplication": {
+      "type": "object"
+    },
+    "lineage": {
+      "type": "object"
+    },
+    "retention": {
+      "type": "object"
+    },
+    "artifact_gate": {
+      "type": "object"
+    }
+  }
+}

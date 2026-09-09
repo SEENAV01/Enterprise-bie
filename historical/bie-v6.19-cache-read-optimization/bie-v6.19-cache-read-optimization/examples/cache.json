@@ -1,0 +1,70 @@
+{
+  "schema_version": "6.19",
+  "cache_key": "bie:workflow:tenant-a:wf-42:3",
+  "ttl_policy": {
+    "cache": "workflow-cache",
+    "ttl_seconds": 60,
+    "stale_while_revalidate": 30
+  },
+  "invalidation": {
+    "key": "bie:workflow:tenant-a:wf-42:3",
+    "reason": "entity-updated",
+    "mode": "EXACT",
+    "status": "COMPLETED"
+  },
+  "consistency": {
+    "cache": "workflow-cache",
+    "mode": "READ_YOUR_WRITES"
+  },
+  "read_through": {
+    "cache": "workflow-cache",
+    "key": "bie:workflow:tenant-a:wf-42:3",
+    "pattern": "READ_THROUGH",
+    "loader": "workflow-repository"
+  },
+  "write_through": {
+    "cache": "workflow-cache",
+    "key": "bie:workflow:tenant-a:wf-42:3",
+    "pattern": "WRITE_THROUGH",
+    "writer": "workflow-repository"
+  },
+  "materialized_view": {
+    "name": "active-workflows",
+    "source_entities": [
+      "workflow"
+    ],
+    "refresh_mode": "EVENT",
+    "status": "ACTIVE",
+    "last_action": "REFRESH"
+  },
+  "stampede_policy": {
+    "cache": "workflow-cache",
+    "strategy": "SINGLE_FLIGHT",
+    "max_waiters": 100
+  },
+  "observability": {
+    "event_id": "cache-1",
+    "cache": "workflow-cache",
+    "key": "bie:workflow:tenant-a:wf-42:3",
+    "operation": "GET",
+    "hit": true,
+    "latency_ms": 4.2
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "key_valid": true,
+    "expired": false,
+    "invalidation_complete": true,
+    "consistency_acceptable": true,
+    "read_miss": "LOAD_AND_POPULATE",
+    "write_action": "WRITE_BACKING_STORE_AND_CACHE",
+    "stampede_protected": true,
+    "metric": {
+      "hit": true,
+      "latency_ms": 4.2
+    }
+  }
+}

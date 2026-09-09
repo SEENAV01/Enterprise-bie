@@ -1,0 +1,55 @@
+{
+  "style_bible": {
+    "style_id": "science-premium",
+    "name": "Premium Scientific Education",
+    "tokens": {
+      "primary_accent": "#7C3AED",
+      "font_family": "Inter",
+      "corner_radius": "medium",
+      "line_weight": "2px"
+    },
+    "rules": {
+      "diagram_style": "clean_vector",
+      "text_density": "moderate",
+      "camera": "calm_educational"
+    }
+  },
+  "visual_grammar": {
+    "grammar_id": "edu-grammar-v1",
+    "conventions": {
+      "definition": "title+highlight",
+      "cause": "directional_arrow",
+      "comparison": "split_layout",
+      "important_result": "accent_emphasis"
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "electron",
+      "asset_type": "ICON",
+      "semantic_role": "electron",
+      "version": "1.0"
+    },
+    {
+      "asset_id": "wire",
+      "asset_type": "DIAGRAM",
+      "semantic_role": "wire",
+      "version": "1.0"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "s1",
+      "style_id": "science-premium",
+      "visual_grammar_id": "edu-grammar-v1",
+      "asset_refs": [
+        {
+          "asset_id": "electron"
+        },
+        {
+          "asset_id": "wire"
+        }
+      ]
+    }
+  ]
+}

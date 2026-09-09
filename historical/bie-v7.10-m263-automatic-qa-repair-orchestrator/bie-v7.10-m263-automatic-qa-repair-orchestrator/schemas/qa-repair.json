@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "initial_qa",
+    "diagnosis",
+    "orchestration",
+    "repair_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.10"
+    },
+    "initial_qa": {
+      "type": "object"
+    },
+    "diagnosis": {
+      "type": "object"
+    },
+    "orchestration": {
+      "type": "object"
+    },
+    "repair_gate": {
+      "type": "object"
+    }
+  }
+}

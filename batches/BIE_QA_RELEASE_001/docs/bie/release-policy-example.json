@@ -1,0 +1,28 @@
+{
+  "policy_id": "bie-enterprise-default",
+  "policy_version": "1.0.0",
+  "enable_video": true,
+  "enable_game": true,
+  "require_human_review": false,
+  "required_gates": [
+    "lineage_integrity",
+    "source_grounding",
+    "semantic_correctness",
+    "prerequisite_correctness",
+    "pedagogical_correctness",
+    "director_quality",
+    "visual_quality",
+    "animation_quality",
+    "timing_audio_sync",
+    "code_compile",
+    "video_render",
+    "rendered_frame_inspection",
+    "game_build",
+    "game_runtime",
+    "game_learning_alignment",
+    "regression",
+    "reproducibility",
+    "rights_and_asset_provenance",
+    "security"
+  ]
+}

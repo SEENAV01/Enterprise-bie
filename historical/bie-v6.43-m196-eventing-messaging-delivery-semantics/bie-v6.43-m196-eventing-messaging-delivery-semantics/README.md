@@ -1,0 +1,1 @@
+# BIE v6.43 — Eventing, Messaging & Delivery Semantics Layer\n\nEvent envelopes, topics, subscriptions, ordering, delivery guarantees, retries, dead-letter handling, deduplication, consumer groups, acknowledgements, audit and observability.\n

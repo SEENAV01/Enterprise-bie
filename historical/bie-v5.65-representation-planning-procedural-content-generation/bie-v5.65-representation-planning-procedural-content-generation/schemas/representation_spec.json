@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "spec",
+    "strategy",
+    "compiled_program",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.65"
+    },
+    "spec": {
+      "type": "object"
+    },
+    "strategy": {
+      "type": "object"
+    },
+    "compiled_program": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

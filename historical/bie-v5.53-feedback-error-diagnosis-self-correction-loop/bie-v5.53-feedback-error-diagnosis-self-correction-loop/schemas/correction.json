@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "diagnosis",
+    "causes",
+    "correction_plan",
+    "guard",
+    "escalate",
+    "next_iteration",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.53"
+    },
+    "diagnosis": {
+      "type": "object"
+    },
+    "causes": {
+      "type": "array"
+    },
+    "correction_plan": {
+      "type": "object"
+    },
+    "guard": {
+      "type": "object"
+    },
+    "escalate": {
+      "type": "boolean"
+    },
+    "next_iteration": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

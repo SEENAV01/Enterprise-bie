@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "writes",
+    "latest_checkpoint",
+    "recovery",
+    "replay",
+    "merge",
+    "consistency",
+    "revision_comparison",
+    "state_store_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.15"
+    },
+    "writes": {
+      "type": "object"
+    },
+    "latest_checkpoint": {
+      "type": "object"
+    },
+    "recovery": {
+      "type": "object"
+    },
+    "replay": {
+      "type": "array"
+    },
+    "merge": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "revision_comparison": {
+      "type": "string"
+    },
+    "state_store_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "7.18",
+  "failure": {
+    "code": "PARTIAL_COMMIT",
+    "policy": {
+      "action": "COMPENSATE"
+    }
+  },
+  "transaction": {
+    "status": "ROLLED_BACK"
+  },
+  "saga": {
+    "status": "COMPENSATED"
+  },
+  "duplicate_effect": {
+    "duplicate": true
+  },
+  "transaction_gate": {
+    "valid": true
+  }
+}

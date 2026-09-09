@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Scene DSL v1.1",
+  "type": "object",
+  "required": [
+    "lesson_id",
+    "scenes"
+  ],
+  "properties": {
+    "lesson_id": {
+      "type": "string"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "purpose",
+          "duration_frames",
+          "source_refs",
+          "visual",
+          "narration",
+          "timeline"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "duration_frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "content_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "visual": {
+            "type": "object"
+          },
+          "narration": {
+            "type": "object"
+          },
+          "timeline": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

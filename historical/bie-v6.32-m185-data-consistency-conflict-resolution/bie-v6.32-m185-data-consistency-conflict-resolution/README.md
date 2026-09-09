@@ -1,0 +1,1 @@
+# BIE v6.32 — Data Consistency, Conflict Resolution & Replicated State Convergence\n\nLogical/vector clocks, conflict detection, merge policies, tombstones, anti-entropy, reconciliation, divergence detection, consistency contracts and observability.\n

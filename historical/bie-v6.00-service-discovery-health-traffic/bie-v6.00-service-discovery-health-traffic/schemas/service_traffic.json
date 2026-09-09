@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "service",
+    "registry",
+    "probe",
+    "routing_policy",
+    "discovered",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.00"
+    },
+    "service": {
+      "type": "object"
+    },
+    "registry": {
+      "type": "object"
+    },
+    "probe": {
+      "type": "object"
+    },
+    "routing_policy": {
+      "type": "object"
+    },
+    "discovered": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "6.51",
+  "knowledge_graph": {
+    "graph_id": "kg-1",
+    "graph_type": "KNOWLEDGE"
+  },
+  "learning_graph": {
+    "graph_id": "lg-1",
+    "graph_type": "LEARNING"
+  },
+  "prerequisite": {
+    "relation": "PREREQUISITE",
+    "prerequisite": "c-charge",
+    "target": "c-force"
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

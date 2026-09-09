@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene_qas",
+    "lesson_qa",
+    "course_qa",
+    "unified_qa_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.09"
+    },
+    "scene_qas": {
+      "type": "array"
+    },
+    "lesson_qa": {
+      "type": "object"
+    },
+    "course_qa": {
+      "type": "object"
+    },
+    "unified_qa_gate": {
+      "type": "object"
+    }
+  }
+}

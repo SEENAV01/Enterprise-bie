@@ -1,0 +1,41 @@
+{
+  "timeline": {
+    "fps": 30,
+    "duration_s": 8,
+    "scenes": [
+      {
+        "scene_id": "scene_1",
+        "start_s": 0,
+        "end_s": 4
+      },
+      {
+        "scene_id": "scene_2",
+        "start_s": 4,
+        "end_s": 8
+      }
+    ]
+  },
+  "event_map": [
+    {
+      "event_id": "e1",
+      "time_s": 0.5,
+      "kind": "TEXT",
+      "content": "Electric current",
+      "animation": "APPEAR"
+    },
+    {
+      "event_id": "e2",
+      "time_s": 1.5,
+      "kind": "EQUATION",
+      "content": "I = \u0394Q/\u0394t",
+      "animation": "WRITE"
+    },
+    {
+      "event_id": "e3",
+      "time_s": 5.0,
+      "kind": "DIAGRAM",
+      "content": "charge flow",
+      "animation": "TRACE"
+    }
+  ]
+}

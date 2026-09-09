@@ -1,0 +1,28 @@
+{
+  "schema_version": "5.92",
+  "asset": {
+    "asset_id": "scene-video-1",
+    "kind": "VIDEO",
+    "content_hash": "sha256:abc",
+    "mime_type": "video/mp4"
+  },
+  "pipeline": {
+    "asset_id": "scene-video-1",
+    "steps": [
+      {
+        "step_id": "normalize",
+        "target_format": "mp4"
+      }
+    ],
+    "outputs": [
+      {
+        "asset_id": "render-1"
+      }
+    ],
+    "status": "COMPLETE"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

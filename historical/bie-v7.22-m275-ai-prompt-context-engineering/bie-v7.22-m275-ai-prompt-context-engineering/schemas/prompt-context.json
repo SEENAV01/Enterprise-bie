@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "templates",
+    "context",
+    "token_budget",
+    "rendered_prompt",
+    "structured_output",
+    "evaluation",
+    "version_diff",
+    "prompt_context_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.22"
+    },
+    "templates": {
+      "type": "array"
+    },
+    "context": {
+      "type": "object"
+    },
+    "token_budget": {
+      "type": "object"
+    },
+    "rendered_prompt": {
+      "type": "string"
+    },
+    "structured_output": {
+      "type": "object"
+    },
+    "evaluation": {
+      "type": "object"
+    },
+    "version_diff": {
+      "type": "object"
+    },
+    "prompt_context_gate": {
+      "type": "object"
+    }
+  }
+}

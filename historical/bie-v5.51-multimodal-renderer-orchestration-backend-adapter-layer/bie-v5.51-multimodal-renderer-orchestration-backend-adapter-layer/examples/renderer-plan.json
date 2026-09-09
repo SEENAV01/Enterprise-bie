@@ -1,0 +1,67 @@
+{
+  "contracts": [
+    {
+      "contract_id": "c-diagram",
+      "asset_ref": "diagram1",
+      "representation_type": "DIAGRAM"
+    },
+    {
+      "contract_id": "c-animation",
+      "asset_ref": "scene1",
+      "representation_type": "ANIMATION"
+    },
+    {
+      "contract_id": "c-sim",
+      "asset_ref": "sim1",
+      "representation_type": "SIMULATION"
+    }
+  ],
+  "backends": [
+    {
+      "backend_id": "svg",
+      "backend_class": "VECTOR",
+      "capabilities": [
+        "2D_VECTOR"
+      ]
+    },
+    {
+      "backend_id": "remotion",
+      "backend_class": "VIDEO",
+      "capabilities": [
+        "2D_ANIMATION",
+        "VIDEO"
+      ]
+    },
+    {
+      "backend_id": "webgpu",
+      "backend_class": "GPU",
+      "capabilities": [
+        "SIMULATION",
+        "GPU_COMPUTE"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "contract_ref": "c-diagram",
+      "candidate_backends": [
+        "svg"
+      ],
+      "selected_backend": "svg"
+    },
+    {
+      "contract_ref": "c-animation",
+      "candidate_backends": [
+        "remotion"
+      ],
+      "selected_backend": "remotion"
+    },
+    {
+      "contract_ref": "c-sim",
+      "candidate_backends": [
+        "webgpu"
+      ],
+      "selected_backend": "webgpu"
+    }
+  ]
+}

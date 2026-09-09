@@ -1,0 +1,97 @@
+{
+  "schema_version": "6.20",
+  "index": {
+    "name": "workflow-search",
+    "fields": [
+      "title",
+      "status",
+      "tenant_id"
+    ],
+    "index_type": "INVERTED",
+    "version": 3
+  },
+  "query": {
+    "index": "workflow-search",
+    "text": "electric workflow",
+    "filters": {
+      "status": "ACTIVE"
+    },
+    "facets": [
+      "status"
+    ],
+    "sort": [
+      [
+        "score",
+        "DESC"
+      ]
+    ],
+    "limit": 20,
+    "cursor": null
+  },
+  "filter": {
+    "field": "status",
+    "operator": "EQ",
+    "value": "ACTIVE"
+  },
+  "ranking": {
+    "name": "default",
+    "algorithm": "BM25",
+    "fields": [
+      "title"
+    ],
+    "weights": {
+      "title": 2.0
+    }
+  },
+  "facet": {
+    "field": "status",
+    "limit": 10,
+    "sort": "COUNT_DESC"
+  },
+  "pagination": {
+    "page_size": 20,
+    "after": null,
+    "before": null
+  },
+  "consistency": {
+    "mode": "SESSION"
+  },
+  "reindex": {
+    "job_id": "r-1",
+    "index": "workflow-search",
+    "from_version": 2,
+    "to_version": 3,
+    "status": "COMPLETE",
+    "progress": 100
+  },
+  "observability": {
+    "event_id": "search-1",
+    "index": "workflow-search",
+    "query_id": "q-1",
+    "latency_ms": 8.4,
+    "hits": 17
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "query_bounded": true,
+    "indexes_status": true,
+    "filter_matches": true,
+    "ranking_score": 1,
+    "facet_counts": {
+      "ACTIVE": 2,
+      "DONE": 1
+    },
+    "next_cursor": {
+      "after": "key-20"
+    },
+    "consistency_acceptable": true,
+    "reindex_complete": true,
+    "metric": {
+      "latency_ms": 8.4,
+      "hits": 17
+    }
+  }
+}

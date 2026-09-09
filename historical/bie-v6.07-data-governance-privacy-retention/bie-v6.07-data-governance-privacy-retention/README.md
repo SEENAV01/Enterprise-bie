@@ -1,0 +1,1 @@
+# BIE v6.07 — Data Governance, Privacy & Retention\n\nClassification, privacy metadata, retention, holds, lineage, residency, tenant boundaries and controlled deletion.\n

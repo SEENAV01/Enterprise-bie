@@ -1,0 +1,1 @@
+# BIE v5.36 — Multimodal Explanation & Representation Planning Engine\n\nSelects and coordinates narration, text, diagrams, equations, animation, simulation and other representations according to explanation intent, cognitive load and synchronization requirements.\n

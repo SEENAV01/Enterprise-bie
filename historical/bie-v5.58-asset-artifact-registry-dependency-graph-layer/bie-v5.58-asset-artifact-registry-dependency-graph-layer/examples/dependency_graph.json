@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    "equation:E1",
+    "diagram:D1",
+    "animation:A1",
+    "narration:N1",
+    "video:V1"
+  ],
+  "edges": [
+    {
+      "source": "equation:E1",
+      "target": "diagram:D1",
+      "relation": "DEPENDS_ON"
+    },
+    {
+      "source": "diagram:D1",
+      "target": "animation:A1",
+      "relation": "DEPENDS_ON"
+    },
+    {
+      "source": "animation:A1",
+      "target": "narration:N1",
+      "relation": "DEPENDS_ON"
+    },
+    {
+      "source": "narration:N1",
+      "target": "video:V1",
+      "relation": "DEPENDS_ON"
+    }
+  ]
+}

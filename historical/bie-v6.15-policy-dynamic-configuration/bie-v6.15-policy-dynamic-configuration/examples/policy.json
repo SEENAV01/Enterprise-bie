@@ -1,0 +1,87 @@
+{
+  "schema_version": "6.15",
+  "rules": [
+    {
+      "rule_id": "r1",
+      "condition": "workflow.read",
+      "effect": "ALLOW",
+      "priority": 100,
+      "scope": "tenant-a"
+    },
+    {
+      "rule_id": "r2",
+      "condition": "workflow.read",
+      "effect": "DENY",
+      "priority": 10,
+      "scope": "tenant-a"
+    }
+  ],
+  "decision": {
+    "decision": "ALLOW",
+    "matched_rules": [
+      "r1",
+      "r2"
+    ]
+  },
+  "composition": {
+    "rule_ids": [
+      "r1",
+      "r2"
+    ],
+    "operator": "OR"
+  },
+  "configuration": {
+    "name": "workflow",
+    "version": 3,
+    "values": {
+      "timeout": 30
+    },
+    "scope": "tenant-a",
+    "status": "ACTIVE"
+  },
+  "feature_flag": {
+    "name": "new-engine",
+    "enabled": true,
+    "rollout": 25,
+    "scope": "tenant-a"
+  },
+  "rollout": {
+    "config_version": 3,
+    "strategy": "CANARY",
+    "percentage": 25,
+    "status": "ACTIVE"
+  },
+  "validation": {
+    "name": "workflow-v3",
+    "config_version": 3,
+    "checks": [
+      {
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "name": "policy",
+        "passed": true
+      }
+    ],
+    "valid": true
+  },
+  "rollback": {
+    "target_version": 2,
+    "reason": "failed-canary",
+    "requested_by": "operator",
+    "status": "APPROVED"
+  },
+  "change_audit": {
+    "change_id": "chg-1",
+    "config_name": "workflow",
+    "from_version": 2,
+    "to_version": 3,
+    "actor": "operator",
+    "reason": "canary"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

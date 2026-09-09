@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "evidence_packet",
+    "decision",
+    "release",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.89"
+    },
+    "evidence_packet": {
+      "type": "object"
+    },
+    "decision": {
+      "type": "object"
+    },
+    "release": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

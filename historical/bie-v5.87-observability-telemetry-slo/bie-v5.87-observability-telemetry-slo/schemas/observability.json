@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slis",
+    "slo",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.87"
+    },
+    "slis": {
+      "type": "object"
+    },
+    "slo": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

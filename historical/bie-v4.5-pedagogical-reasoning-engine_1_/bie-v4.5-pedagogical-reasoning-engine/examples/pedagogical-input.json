@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "id": "charge",
+      "dimension": "DEFINITION",
+      "properties": {
+        "centrality": 0.9,
+        "downstream_count": 8
+      }
+    },
+    {
+      "id": "current",
+      "dimension": "WHY",
+      "properties": {
+        "dependency_count": 1,
+        "downstream_count": 6,
+        "misconception_risk": 0.8
+      }
+    },
+    {
+      "id": "power",
+      "dimension": "APPLICATION",
+      "properties": {
+        "practical_relevance": 0.9,
+        "downstream_count": 2
+      }
+    },
+    {
+      "id": "formula",
+      "dimension": "DERIVATION",
+      "properties": {
+        "centrality": 0.8
+      }
+    }
+  ],
+  "nodes": [
+    "charge",
+    "current",
+    "power",
+    "formula"
+  ],
+  "edges": [
+    {
+      "source": "charge",
+      "target": "current"
+    },
+    {
+      "source": "current",
+      "target": "power"
+    },
+    {
+      "source": "current",
+      "target": "formula"
+    }
+  ]
+}

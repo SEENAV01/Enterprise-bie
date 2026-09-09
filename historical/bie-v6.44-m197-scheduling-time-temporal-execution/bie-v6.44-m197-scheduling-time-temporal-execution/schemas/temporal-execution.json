@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "clock",
+    "schedule",
+    "interval",
+    "calendar",
+    "deadline",
+    "timeout",
+    "retry",
+    "window",
+    "state",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.44"
+    },
+    "clock": {
+      "type": "object"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "interval": {
+      "type": "object"
+    },
+    "calendar": {
+      "type": "object"
+    },
+    "deadline": {
+      "type": "object"
+    },
+    "timeout": {
+      "type": "object"
+    },
+    "retry": {
+      "type": "object"
+    },
+    "window": {
+      "type": "object"
+    },
+    "state": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

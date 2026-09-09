@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "index",
+    "analyzer",
+    "query_ast",
+    "filter",
+    "sort",
+    "pagination",
+    "ranking",
+    "consistency",
+    "lifecycle",
+    "rebuild",
+    "alias",
+    "query_plan",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.29"
+    },
+    "index": {
+      "type": "object"
+    },
+    "analyzer": {
+      "type": "object"
+    },
+    "query_ast": {
+      "type": "object"
+    },
+    "filter": {
+      "type": "object"
+    },
+    "sort": {
+      "type": "object"
+    },
+    "pagination": {
+      "type": "object"
+    },
+    "ranking": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "rebuild": {
+      "type": "object"
+    },
+    "alias": {
+      "type": "object"
+    },
+    "query_plan": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

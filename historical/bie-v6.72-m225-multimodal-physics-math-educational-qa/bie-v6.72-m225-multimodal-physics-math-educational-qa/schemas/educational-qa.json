@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "claims",
+    "checks",
+    "review",
+    "educational_qa_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.72"
+    },
+    "claims": {
+      "type": "array"
+    },
+    "checks": {
+      "type": "object"
+    },
+    "review": {
+      "type": "object"
+    },
+    "educational_qa_gate": {
+      "type": "object"
+    }
+  }
+}

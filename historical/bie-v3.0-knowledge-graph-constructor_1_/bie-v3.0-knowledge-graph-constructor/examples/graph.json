@@ -1,0 +1,22 @@
+{
+  "evidence": [
+    {
+      "evidence_id": "p12:t1",
+      "content": "Electric current is the rate of flow of electric charge."
+    },
+    {
+      "evidence_id": "p13:t1",
+      "content": "Ohm's law relates voltage, current and resistance."
+    }
+  ],
+  "external_candidates": [
+    {
+      "id": "ext:kirchhoff",
+      "name": "Kirchhoff's circuit laws",
+      "derived_from": "ev:p13:t1",
+      "reason": "Higher circuit analysis knowledge that can extend Ohm's law in network analysis.",
+      "relation": "extends",
+      "confidence": 0.55
+    }
+  ]
+}

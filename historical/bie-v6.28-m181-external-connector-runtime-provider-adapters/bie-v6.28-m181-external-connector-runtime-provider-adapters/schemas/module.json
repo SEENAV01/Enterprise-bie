@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module",
+    "capabilities",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "module": {
+      "const": "External Connector Runtime & Provider Adapter"
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

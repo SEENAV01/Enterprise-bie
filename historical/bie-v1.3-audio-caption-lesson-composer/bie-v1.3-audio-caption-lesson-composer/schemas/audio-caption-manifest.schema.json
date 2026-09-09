@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Audio Caption Manifest",
+  "type": "object",
+  "required": [
+    "lesson_id",
+    "scenes"
+  ],
+  "properties": {
+    "lesson_id": {
+      "type": "string"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "caption_words"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string"
+          },
+          "audio_asset": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "duration_frames": {
+            "type": "integer"
+          },
+          "caption_words": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "startFrame",
+                "endFrame"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "startFrame": {
+                  "type": "integer"
+                },
+                "endFrame": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

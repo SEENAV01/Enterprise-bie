@@ -1,0 +1,27 @@
+{
+  "schema_version": "6.63",
+  "job": {
+    "job_id": "job-1",
+    "node_id": "lesson-2",
+    "status": "RETRYING"
+  },
+  "worker": {
+    "worker_id": "worker-1",
+    "status": "IDLE"
+  },
+  "checkpoint": {
+    "checkpoint_id": "cp-1",
+    "stage": "COMPOSED"
+  },
+  "worker_failure": {
+    "worker_id": "worker-1",
+    "recoverable": true
+  },
+  "recovery_action": "REQUEUE_AFFECTED_JOBS",
+  "aggregation": {
+    "status": "SUCCEEDED"
+  },
+  "runtime_gate": {
+    "valid": true
+  }
+}

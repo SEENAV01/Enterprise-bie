@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "duration_s",
+    "fps",
+    "duration_frames",
+    "events",
+    "scenes",
+    "audio_cues"
+  ],
+  "properties": {
+    "duration_s": {
+      "type": "number"
+    },
+    "fps": {
+      "type": "number"
+    },
+    "duration_frames": {
+      "type": "integer"
+    },
+    "events": {
+      "type": "array"
+    },
+    "scenes": {
+      "type": "array"
+    },
+    "audio_cues": {
+      "type": "array"
+    }
+  }
+}

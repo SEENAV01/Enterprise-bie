@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "worker",
+    "runtime",
+    "job",
+    "task",
+    "attempt",
+    "placement",
+    "cancellation",
+    "heartbeat",
+    "health",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.46"
+    },
+    "worker": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "job": {
+      "type": "object"
+    },
+    "task": {
+      "type": "object"
+    },
+    "attempt": {
+      "type": "object"
+    },
+    "placement": {
+      "type": "object"
+    },
+    "cancellation": {
+      "type": "object"
+    },
+    "heartbeat": {
+      "type": "object"
+    },
+    "health": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

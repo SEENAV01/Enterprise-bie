@@ -1,0 +1,4297 @@
+{
+  "schema_version": 1,
+  "note": "Imported status fields are historical claims, not new acceptance evidence.",
+  "tasks": [
+    {
+      "archive": "BIE_AST_001.zip",
+      "path": "batches/BIE_AST_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-AST-001",
+        "title": "Mathematical expression AST",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book math validation pending."
+      }
+    },
+    {
+      "archive": "BIE_AST_002.zip",
+      "path": "batches/BIE_AST_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-AST-002",
+        "title": "Equation AST and relation parsing",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book math validation pending."
+      }
+    },
+    {
+      "archive": "BIE_AST_003.zip",
+      "path": "batches/BIE_AST_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-AST-003",
+        "title": "Mathematical AST validation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book math validation pending."
+      }
+    },
+    {
+      "archive": "BIE_AST_004.zip",
+      "path": "batches/BIE_AST_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-AST-004",
+        "title": "Canonical mathematical representation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book math validation pending."
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_ADVQA_001.zip",
+      "path": "batches/BIE_BI_DOCINT_ADVQA_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-ADVQA-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-REALBOOK-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_CROSS_001.zip",
+      "path": "batches/BIE_BI_DOCINT_CROSS_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-CROSS-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-ROT-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_E2E_001.zip",
+      "path": "batches/BIE_BI_DOCINT_E2E_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-E2E-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-E2E-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_E2E_002.zip",
+      "path": "batches/BIE_BI_DOCINT_E2E_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-E2E-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-E2E-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_E2E_003.zip",
+      "path": "batches/BIE_BI_DOCINT_E2E_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-E2E-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 5,
+        "next_task": "BIE-BI-DOCINT-CROSS-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_LOSS_002.zip",
+      "path": "batches/BIE_BI_DOCINT_LOSS_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-LOSS-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-ADVQA-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_NUM_001.zip",
+      "path": "batches/BIE_BI_DOCINT_NUM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-NUM-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-XREF-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_READ_001.zip",
+      "path": "batches/BIE_BI_DOCINT_READ_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-READ-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-LOSS-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_REALBOOK_001.zip",
+      "path": "batches/BIE_BI_DOCINT_REALBOOK_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-REALBOOK-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_ROT_001.zip",
+      "path": "batches/BIE_BI_DOCINT_ROT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-ROT-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-TOC-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_TOC_001.zip",
+      "path": "batches/BIE_BI_DOCINT_TOC_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-TOC-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-NUM-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_DOCINT_XREF_001.zip",
+      "path": "batches/BIE_BI_DOCINT_XREF_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-DOCINT-XREF-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-DOCINT-READ-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_EQ_001.zip",
+      "path": "batches/BIE_BI_EQ_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-EQ-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-EQ-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_EQ_002.zip",
+      "path": "batches/BIE_BI_EQ_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-EQ-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-EQ-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_EQ_003.zip",
+      "path": "batches/BIE_BI_EQ_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-EQ-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-EQ-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_EQ_004.zip",
+      "path": "batches/BIE_BI_EQ_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-EQ-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-STRUCT-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_FIG_001.zip",
+      "path": "batches/BIE_BI_FIG_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-FIG-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-FIG-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_FIG_002.zip",
+      "path": "batches/BIE_BI_FIG_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-FIG-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-FIG-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_FIG_003.zip",
+      "path": "batches/BIE_BI_FIG_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-FIG-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-FIG-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_FIG_004.zip",
+      "path": "batches/BIE_BI_FIG_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-FIG-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-FIG-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_FIG_005.zip",
+      "path": "batches/BIE_BI_FIG_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-FIG-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-TABLE-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_001.zip",
+      "path": "batches/BIE_BI_INGEST_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-BI-INGEST-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_002.zip",
+      "path": "batches/BIE_BI_INGEST_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-INGEST-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_003.zip",
+      "path": "batches/BIE_BI_INGEST_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-INGEST-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_004.zip",
+      "path": "batches/BIE_BI_INGEST_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-INGEST-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_005.zip",
+      "path": "batches/BIE_BI_INGEST_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-INGEST-006"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_006.zip",
+      "path": "batches/BIE_BI_INGEST_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-INGEST-007"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_007.zip",
+      "path": "batches/BIE_BI_INGEST_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-INGEST-008"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_008.zip",
+      "path": "batches/BIE_BI_INGEST_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-INGEST-009"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_009.zip",
+      "path": "batches/BIE_BI_INGEST_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-INGEST-010"
+      }
+    },
+    {
+      "archive": "BIE_BI_INGEST_010.zip",
+      "path": "batches/BIE_BI_INGEST_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-INGEST-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-OCR-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_001.zip",
+      "path": "batches/BIE_BI_LAYOUT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_002.zip",
+      "path": "batches/BIE_BI_LAYOUT_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_003.zip",
+      "path": "batches/BIE_BI_LAYOUT_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_004.zip",
+      "path": "batches/BIE_BI_LAYOUT_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_005.zip",
+      "path": "batches/BIE_BI_LAYOUT_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-006"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_006.zip",
+      "path": "batches/BIE_BI_LAYOUT_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-007"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_007.zip",
+      "path": "batches/BIE_BI_LAYOUT_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-008"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_008.zip",
+      "path": "batches/BIE_BI_LAYOUT_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-009"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_009.zip",
+      "path": "batches/BIE_BI_LAYOUT_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-010"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_010.zip",
+      "path": "batches/BIE_BI_LAYOUT_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-011"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_011.zip",
+      "path": "batches/BIE_BI_LAYOUT_011/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-011",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-012"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_012.zip",
+      "path": "batches/BIE_BI_LAYOUT_012/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-012",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-LAYOUT-013"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_013.zip",
+      "path": "batches/BIE_BI_LAYOUT_013/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-013",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-014"
+      }
+    },
+    {
+      "archive": "BIE_BI_LAYOUT_014.zip",
+      "path": "batches/BIE_BI_LAYOUT_014/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-LAYOUT-014",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-FIG-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_NORM_001.zip",
+      "path": "batches/BIE_BI_NORM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-NORM-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-NORM-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_NORM_002.zip",
+      "path": "batches/BIE_BI_NORM_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-NORM-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-NORM-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_NORM_003.zip",
+      "path": "batches/BIE_BI_NORM_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-NORM-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-NORM-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_NORM_004.zip",
+      "path": "batches/BIE_BI_NORM_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-NORM-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-NORM-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_NORM_005.zip",
+      "path": "batches/BIE_BI_NORM_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-NORM-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-NORM-006"
+      }
+    },
+    {
+      "archive": "BIE_BI_NORM_006.zip",
+      "path": "batches/BIE_BI_NORM_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-NORM-006",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-QA-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_OCR_001.zip",
+      "path": "batches/BIE_BI_OCR_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-OCR-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-OCR-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_OCR_002.zip",
+      "path": "batches/BIE_BI_OCR_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-OCR-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-OCR-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_OCR_003.zip",
+      "path": "batches/BIE_BI_OCR_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-OCR-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-OCR-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_OCR_004.zip",
+      "path": "batches/BIE_BI_OCR_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-OCR-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-BI-OCR-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_OCR_005.zip",
+      "path": "batches/BIE_BI_OCR_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-OCR-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-OCR-006"
+      }
+    },
+    {
+      "archive": "BIE_BI_OCR_006.zip",
+      "path": "batches/BIE_BI_OCR_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-OCR-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-LAYOUT-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_PROV_001.zip",
+      "path": "batches/BIE_BI_PROV_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-PROV-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-PROV-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_PROV_002.zip",
+      "path": "batches/BIE_BI_PROV_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-PROV-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-PROV-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_PROV_003.zip",
+      "path": "batches/BIE_BI_PROV_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-PROV-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-PROV-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_PROV_004.zip",
+      "path": "batches/BIE_BI_PROV_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-PROV-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 5,
+        "next_task": "BIE-BI-PROV-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_PROV_005.zip",
+      "path": "batches/BIE_BI_PROV_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-PROV-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-PROV-006"
+      }
+    },
+    {
+      "archive": "BIE_BI_PROV_006.zip",
+      "path": "batches/BIE_BI_PROV_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-PROV-006",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-NORM-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_QA_001.zip",
+      "path": "batches/BIE_BI_QA_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-QA-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-QA-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_QA_002.zip",
+      "path": "batches/BIE_BI_QA_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-QA-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-QA-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_QA_003.zip",
+      "path": "batches/BIE_BI_QA_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-QA-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-QA-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_QA_004.zip",
+      "path": "batches/BIE_BI_QA_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-QA-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-QA-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_QA_005.zip",
+      "path": "batches/BIE_BI_QA_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-QA-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_001.zip",
+      "path": "batches/BIE_BI_STRUCT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-STRUCT-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_002.zip",
+      "path": "batches/BIE_BI_STRUCT_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-STRUCT-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_003.zip",
+      "path": "batches/BIE_BI_STRUCT_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-STRUCT-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_004.zip",
+      "path": "batches/BIE_BI_STRUCT_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-STRUCT-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_005.zip",
+      "path": "batches/BIE_BI_STRUCT_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-STRUCT-006"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_006.zip",
+      "path": "batches/BIE_BI_STRUCT_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-STRUCT-007"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_007.zip",
+      "path": "batches/BIE_BI_STRUCT_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-007",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-STRUCT-008"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_008.zip",
+      "path": "batches/BIE_BI_STRUCT_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-008",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-STRUCT-009"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_009.zip",
+      "path": "batches/BIE_BI_STRUCT_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-009",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-STRUCT-010"
+      }
+    },
+    {
+      "archive": "BIE_BI_STRUCT_010.zip",
+      "path": "batches/BIE_BI_STRUCT_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-STRUCT-010",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-BI-PROV-001"
+      }
+    },
+    {
+      "archive": "BIE_BI_TABLE_001.zip",
+      "path": "batches/BIE_BI_TABLE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-TABLE-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-TABLE-002"
+      }
+    },
+    {
+      "archive": "BIE_BI_TABLE_002.zip",
+      "path": "batches/BIE_BI_TABLE_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-TABLE-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-TABLE-003"
+      }
+    },
+    {
+      "archive": "BIE_BI_TABLE_003.zip",
+      "path": "batches/BIE_BI_TABLE_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-TABLE-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-BI-TABLE-004"
+      }
+    },
+    {
+      "archive": "BIE_BI_TABLE_004.zip",
+      "path": "batches/BIE_BI_TABLE_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-TABLE-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-TABLE-005"
+      }
+    },
+    {
+      "archive": "BIE_BI_TABLE_005.zip",
+      "path": "batches/BIE_BI_TABLE_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-BI-TABLE-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-EQ-001"
+      }
+    },
+    {
+      "archive": "BIE_DER_001.zip",
+      "path": "batches/BIE_DER_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DER-001",
+        "title": "Derivation step model",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_DER_002.zip",
+      "path": "batches/BIE_DER_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DER-002",
+        "title": "Derivation chain intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_DER_003.zip",
+      "path": "batches/BIE_DER_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DER-003",
+        "title": "Missing derivation-step detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_DER_004.zip",
+      "path": "batches/BIE_DER_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DER-004",
+        "title": "Derivation semantic validation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_DER_005.zip",
+      "path": "batches/BIE_DER_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DER-005",
+        "title": "Derivation assumption intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_DER_006.zip",
+      "path": "batches/BIE_DER_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DER-006",
+        "title": "Boundary-condition intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_DSL_CORE_001.zip",
+      "path": "batches/BIE_DSL_CORE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-DSL-CORE-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "framework_neutral": true,
+          "no_fixed_layout": true,
+          "semantic_elements": true,
+          "normalized_or_constraint_layout": true,
+          "semantic_animation": true,
+          "educational_trace_refs": true,
+          "accessibility_contract": true,
+          "compiler_capability_contract": true
+        },
+        "next_task": "BIE-GAME-DSL-001"
+      }
+    },
+    {
+      "archive": "BIE_EQV_001.zip",
+      "path": "batches/BIE_EQV_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-EQV-001",
+        "title": "Symbolic equivalence framework",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_EQV_002.zip",
+      "path": "batches/BIE_EQV_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-EQV-002",
+        "title": "Numerical equivalence validation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_EQV_003.zip",
+      "path": "batches/BIE_EQV_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-EQV-003",
+        "title": "Equation rearrangement validation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_EQV_004.zip",
+      "path": "batches/BIE_EQV_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-EQV-004",
+        "title": "Expression simplification validation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_GAME_DSL_001.zip",
+      "path": "batches/BIE_GAME_DSL_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-GAME-DSL-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "framework_neutral": true,
+          "not_quiz_only": true,
+          "reasoning_trace": true,
+          "source_trace": true,
+          "explicit_state_rules": true,
+          "adaptive_progression": true,
+          "misconception_support": true,
+          "compiler_capabilities": true,
+          "multi_domain_mechanics": true
+        },
+        "next_task": "BIE-QA-RELEASE-001"
+      }
+    },
+    {
+      "archive": "BIE_GRAPH_001.zip",
+      "path": "batches/BIE_GRAPH_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-GRAPH-001",
+        "title": "Function representation intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_GRAPH_002.zip",
+      "path": "batches/BIE_GRAPH_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-GRAPH-002",
+        "title": "Domain and range intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_GRAPH_003.zip",
+      "path": "batches/BIE_GRAPH_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-GRAPH-003",
+        "title": "Function transformation intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_GRAPH_004.zip",
+      "path": "batches/BIE_GRAPH_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-GRAPH-004",
+        "title": "Graph feature intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_001.zip",
+      "path": "batches/BIE_INFRA_API_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-API-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_002.zip",
+      "path": "batches/BIE_INFRA_API_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-API-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_003.zip",
+      "path": "batches/BIE_INFRA_API_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-API-004"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_004.zip",
+      "path": "batches/BIE_INFRA_API_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-API-005"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_005.zip",
+      "path": "batches/BIE_INFRA_API_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-API-006"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_006.zip",
+      "path": "batches/BIE_INFRA_API_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-API-007"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_API_007.zip",
+      "path": "batches/BIE_INFRA_API_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-API-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-DEPLOY-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_ARTIFACT_STORE_001.zip",
+      "path": "batches/BIE_INFRA_ARTIFACT_STORE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-ARTIFACT-STORE-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "sha256_content_addressing": true,
+          "deduplication": true,
+          "immutable_registration": true,
+          "read_integrity_verification": true,
+          "run_stage_indexes": true,
+          "lineage_traversal": true,
+          "evidence_first_class": true,
+          "backend_neutral_boundary": true,
+          "corruption_fail_closed": true
+        },
+        "next_task": "BIE-INFRA-PERSIST-001",
+        "next_task_title": "Durable Run State & Artifact Catalog Persistence Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONFIG_001.zip",
+      "path": "batches/BIE_INFRA_CONFIG_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONFIG-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 8,
+        "next_task": "BIE-INFRA-CONFIG-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONFIG_002.zip",
+      "path": "batches/BIE_INFRA_CONFIG_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONFIG-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-CONFIG-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONFIG_003.zip",
+      "path": "batches/BIE_INFRA_CONFIG_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONFIG-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-CONFIG-004"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONFIG_004.zip",
+      "path": "batches/BIE_INFRA_CONFIG_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONFIG-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-CONFIG-005"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONFIG_005.zip",
+      "path": "batches/BIE_INFRA_CONFIG_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONFIG-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-CONFIG-006"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONFIG_006.zip",
+      "path": "batches/BIE_INFRA_CONFIG_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONFIG-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-IDEMP-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_CONTRACT_001.zip",
+      "path": "batches/BIE_INFRA_CONTRACT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-CONTRACT-001",
+        "status": "IMPLEMENTED",
+        "deliverables": [
+          "docs/bie/ARTIFACT_LINEAGE_CONTRACT.md",
+          "docs/bie/artifact-envelope.schema.json",
+          "app/bie/bie_core/artifact_contracts.py",
+          "tests/contracts/test_artifact_contracts.py",
+          "docs/bie/INTEGRATION_PLAN.md"
+        ],
+        "acceptance": {
+          "typed_versioned_envelope": true,
+          "stable_content_identity": true,
+          "provider_neutral_producer": true,
+          "parent_lineage": true,
+          "source_traceability": true,
+          "tamper_detection": true,
+          "inference_confidence_rule": true,
+          "cycle_detection": true
+        },
+        "next_task": "BIE-RE-CORE-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_001.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-DEPLOY-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_002.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-DEPLOY-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_003.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-DEPLOY-004"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_004.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-DEPLOY-005"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_005.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-DEPLOY-006"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_006.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-DEPLOY-007"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_007.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-DEPLOY-008"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_008.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-DEPLOY-009"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_009.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-DEPLOY-010"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_DEPLOY_010.zip",
+      "path": "batches/BIE_INFRA_DEPLOY_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-DEPLOY-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-MODEL-GW-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_E2E_RUNTIME_001.zip",
+      "path": "batches/BIE_INFRA_E2E_RUNTIME_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-E2E-RUNTIME-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 10,
+        "next_task": "BIE-INFRA-TASKGRAPH-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_EVAL_001.zip",
+      "path": "batches/BIE_INFRA_EVAL_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-EVAL-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "multi_domain_suite": true,
+          "five_initial_domain_families": true,
+          "critical_metric_hard_floors": true,
+          "weighted_case_scoring": true,
+          "domain_minimums": true,
+          "global_threshold": true,
+          "missing_evidence_failure": true,
+          "golden_change_governance": true,
+          "evaluator_identity_evidence": true,
+          "single_demo_certification_prohibited": true
+        },
+        "next_task": "BIE-INFRA-INTEGRATION-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_EXECUTOR_001.zip",
+      "path": "batches/BIE_INFRA_EXECUTOR_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-EXECUTOR-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "scheduler_to_worker_runtime": true,
+          "capacity_reservation_before_execution": true,
+          "lease_before_execution": true,
+          "heartbeat_renewal": true,
+          "fenced_state_commit": true,
+          "fenced_artifact_commit": true,
+          "expired_commit_rejected": true,
+          "success_cleanup": true,
+          "failure_cleanup": true,
+          "stale_worker_fenced": true,
+          "release_success_isolated": true
+        },
+        "next_task": "BIE-INFRA-QUEUE-001",
+        "next_task_title": "Durable Task Queue, Delivery Semantics & Backpressure Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_IDEMP_001.zip",
+      "path": "batches/BIE_INFRA_IDEMP_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-IDEMP-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 8,
+        "next_task": "BIE-INFRA-IDEMP-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_IDEMP_002.zip",
+      "path": "batches/BIE_INFRA_IDEMP_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-IDEMP-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-IDEMP-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_IDEMP_003.zip",
+      "path": "batches/BIE_INFRA_IDEMP_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-IDEMP-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-MIGRATION-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_INTEGRATION_001.zip",
+      "path": "batches/BIE_INFRA_INTEGRATION_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-INTEGRATION-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "canonical_enterprise_graph": true,
+          "reasoning_mandatory": true,
+          "scene_ir_before_video_code": true,
+          "game_ir_before_game_code": true,
+          "video_game_first_class": true,
+          "qa_convergence": true,
+          "release_manifest_from_evidence_decision": true,
+          "legacy_mapping": true,
+          "strangler_migration_plan": true
+        },
+        "next_task": "BIE-INFRA-STATE-001",
+        "next_task_title": "Enterprise Run State Machine & Typed Stage Transition Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_MIGRATION_001.zip",
+      "path": "batches/BIE_INFRA_MIGRATION_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-MIGRATION-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-MIGRATION-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_MIGRATION_002.zip",
+      "path": "batches/BIE_INFRA_MIGRATION_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-MIGRATION-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-MIGRATION-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_MIGRATION_003.zip",
+      "path": "batches/BIE_INFRA_MIGRATION_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-MIGRATION-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-OBS-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_001.zip",
+      "path": "batches/BIE_INFRA_OBS_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_002.zip",
+      "path": "batches/BIE_INFRA_OBS_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_003.zip",
+      "path": "batches/BIE_INFRA_OBS_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-004"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_004.zip",
+      "path": "batches/BIE_INFRA_OBS_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-005"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_005.zip",
+      "path": "batches/BIE_INFRA_OBS_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-006"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_006.zip",
+      "path": "batches/BIE_INFRA_OBS_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-007"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_007.zip",
+      "path": "batches/BIE_INFRA_OBS_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-008"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_008.zip",
+      "path": "batches/BIE_INFRA_OBS_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-OBS-009"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_009.zip",
+      "path": "batches/BIE_INFRA_OBS_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-OBS-010"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_OBS_010.zip",
+      "path": "batches/BIE_INFRA_OBS_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-OBS-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-SEC-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_ORCH_001.zip",
+      "path": "batches/BIE_INFRA_ORCH_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-ORCH-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "dependency_aware_scheduling": true,
+          "typed_executor_contract": true,
+          "artifact_handoff": true,
+          "success_requires_evidence": true,
+          "structured_failure_routing": true,
+          "unhandled_exception_fail_closed": true,
+          "retry_resume": true,
+          "idempotency_key": true,
+          "deterministic_scheduler": true,
+          "release_success_isolated": true
+        },
+        "next_task": "BIE-INFRA-ARTIFACT-STORE-001",
+        "next_task_title": "Content-Addressed Artifact & Evidence Store Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_PERSIST_001.zip",
+      "path": "batches/BIE_INFRA_PERSIST_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-PERSIST-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "durable_run_state": true,
+          "durable_stage_attempts": true,
+          "append_preserving_retry_history": true,
+          "durable_transition_events": true,
+          "durable_artifact_catalog": true,
+          "durable_lineage": true,
+          "transactional_writes": true,
+          "schema_versioning": true,
+          "immutable_artifact_metadata": true,
+          "crash_resume_contract": true,
+          "backend_separation": true
+        },
+        "next_task": "BIE-INFRA-RECOVERY-001",
+        "next_task_title": "Crash Recovery, Lease & Worker Ownership Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_QUEUE_001.zip",
+      "path": "batches/BIE_INFRA_QUEUE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-QUEUE-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "at_least_once_delivery": true,
+          "stable_task_identity": true,
+          "ack_nack": true,
+          "visibility_timeout_redelivery": true,
+          "delivery_count": true,
+          "dead_letter": true,
+          "priority_ordering": true,
+          "capability_routing": true,
+          "queue_backpressure": true,
+          "inflight_backpressure": true,
+          "idempotent_enqueue": true,
+          "transport_release_isolation": true
+        },
+        "next_task": "BIE-INFRA-QUEUE-PERSIST-001",
+        "next_task_title": "Durable SQL Queue Persistence, Visibility Recovery & Dead-Letter Storage"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_QUEUE_PERSIST_001.zip",
+      "path": "batches/BIE_INFRA_QUEUE_PERSIST_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-QUEUE-PERSIST-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "ready_survives_restart": true,
+          "delivered_survives_restart": true,
+          "visibility_recovery": true,
+          "durable_delivery_count": true,
+          "durable_ack": true,
+          "durable_dead_letter": true,
+          "manual_redrive": true,
+          "idempotent_enqueue": true,
+          "conflict_rejection": true,
+          "capability_routing": true,
+          "priority_ordering": true,
+          "transactional_mutations": true,
+          "durable_queue_events": true,
+          "schema_versioning": true
+        },
+        "next_task": "BIE-INFRA-QUEUE-WORKER-001",
+        "next_task_title": "Queue-to-Worker Consumer Loop, ACK-after-Fenced-Commit & Retry Policy Integration"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_QUEUE_WORKER_001.zip",
+      "path": "batches/BIE_INFRA_QUEUE_WORKER_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-QUEUE-WORKER-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "queue_poll_to_worker_runtime": true,
+          "ack_only_after_runtime_and_commit": true,
+          "fenced_commit_failure_not_acked": true,
+          "runtime_failure_not_acked": true,
+          "retry_policy": true,
+          "dead_letter_permanent_failure": true,
+          "max_delivery_integration": true,
+          "capability_filtered_poll": true,
+          "batch_consumer": true,
+          "delivery_count_stage_attempt_separation": true
+        },
+        "next_task": "BIE-INFRA-E2E-RUNTIME-001",
+        "next_task_title": "End-to-End Enterprise Runtime Wiring: Orchestrator \u2192 Durable Queue \u2192 Worker \u2192 Artifact/State Persistence"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_RECOVERY_001.zip",
+      "path": "batches/BIE_INFRA_RECOVERY_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-RECOVERY-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "single_active_owner": true,
+          "lease_scope_run_stage_attempt": true,
+          "heartbeat_renewal": true,
+          "fencing_tokens": true,
+          "expired_write_rejection": true,
+          "safe_takeover": true,
+          "recovery_evidence": true,
+          "worker_scope_guard": true,
+          "provider_neutral": true
+        },
+        "next_task": "BIE-INFRA-WORKER-001",
+        "next_task_title": "Distributed Worker Protocol & Capability-Aware Scheduling Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_001.zip",
+      "path": "batches/BIE_INFRA_SEC_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-SEC-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_002.zip",
+      "path": "batches/BIE_INFRA_SEC_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-SEC-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_003.zip",
+      "path": "batches/BIE_INFRA_SEC_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-SEC-004"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_004.zip",
+      "path": "batches/BIE_INFRA_SEC_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-INFRA-SEC-005"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_005.zip",
+      "path": "batches/BIE_INFRA_SEC_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-SEC-006"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_006.zip",
+      "path": "batches/BIE_INFRA_SEC_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-SEC-007"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_007.zip",
+      "path": "batches/BIE_INFRA_SEC_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-SEC-008"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_008.zip",
+      "path": "batches/BIE_INFRA_SEC_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-SEC-009"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_009.zip",
+      "path": "batches/BIE_INFRA_SEC_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-SEC-010"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_SEC_010.zip",
+      "path": "batches/BIE_INFRA_SEC_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-SEC-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-INFRA-API-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_STATE_001.zip",
+      "path": "batches/BIE_INFRA_STATE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-STATE-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "typed_stage_lifecycle": true,
+          "predecessor_gate": true,
+          "success_requires_artifact_and_evidence": true,
+          "failure_requires_diagnostics": true,
+          "immutable_retry_history": true,
+          "crash_recovery": true,
+          "invalidation": true,
+          "execution_complete_not_release": true,
+          "provider_neutral": true,
+          "auditable_transitions": true
+        },
+        "next_task": "BIE-INFRA-ORCH-001",
+        "next_task_title": "Enterprise Orchestrator Skeleton & Stage Executor Contract"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_001.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 10,
+        "next_task": "BIE-INFRA-TASKGRAPH-002"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_002.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 8,
+        "next_task": "BIE-INFRA-TASKGRAPH-003"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_003.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-TASKGRAPH-004"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_004.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 8,
+        "next_task": "BIE-INFRA-TASKGRAPH-005"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_005.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 9,
+        "next_task": "BIE-INFRA-TASKGRAPH-006"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_006.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-TASKGRAPH-007"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_007.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 8,
+        "next_task": "BIE-INFRA-TASKGRAPH-008"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_008.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-INFRA-TASKGRAPH-009"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_009.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-TASKGRAPH-010"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_TASKGRAPH_010.zip",
+      "path": "batches/BIE_INFRA_TASKGRAPH_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-TASKGRAPH-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 7,
+        "next_task": "BIE-INFRA-CONFIG-001"
+      }
+    },
+    {
+      "archive": "BIE_INFRA_WORKER_001.zip",
+      "path": "batches/BIE_INFRA_WORKER_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-INFRA-WORKER-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "worker_capability_contract": true,
+          "stage_resource_requirement_contract": true,
+          "hard_capability_matching": true,
+          "cpu_memory_floors": true,
+          "gpu_vram_floors": true,
+          "concurrency_limits": true,
+          "health_filtering": true,
+          "affinity_ranking": true,
+          "deterministic_selection": true,
+          "capacity_reservation_release": true,
+          "sandbox_requirement": true,
+          "provider_neutral": true
+        },
+        "next_task": "BIE-INFRA-EXECUTOR-001",
+        "next_task_title": "Worker Executor Runtime, Heartbeat & Lease-Guarded Commit Adapter"
+      }
+    },
+    {
+      "archive": "BIE_KI_CLAIM_001.zip",
+      "path": "batches/BIE_KI_CLAIM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CLAIM-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CLAIM-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_CLAIM_002.zip",
+      "path": "batches/BIE_KI_CLAIM_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CLAIM-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CLAIM-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_CLAIM_003.zip",
+      "path": "batches/BIE_KI_CLAIM_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CLAIM-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CLAIM-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_CLAIM_004.zip",
+      "path": "batches/BIE_KI_CLAIM_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CLAIM-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CLAIM-005"
+      }
+    },
+    {
+      "archive": "BIE_KI_CLAIM_005.zip",
+      "path": "batches/BIE_KI_CLAIM_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CLAIM-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-TERM-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_CLAIM_006.zip",
+      "path": "batches/BIE_KI_CLAIM_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CLAIM-006",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EQ-LINK-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_001.zip",
+      "path": "batches/BIE_KI_CONCEPT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_002.zip",
+      "path": "batches/BIE_KI_CONCEPT_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_003.zip",
+      "path": "batches/BIE_KI_CONCEPT_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_004.zip",
+      "path": "batches/BIE_KI_CONCEPT_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-005"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_005.zip",
+      "path": "batches/BIE_KI_CONCEPT_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-006"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_006.zip",
+      "path": "batches/BIE_KI_CONCEPT_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-006",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 5,
+        "next_task": "BIE-KI-CONCEPT-007"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_007.zip",
+      "path": "batches/BIE_KI_CONCEPT_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-007",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-008"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_008.zip",
+      "path": "batches/BIE_KI_CONCEPT_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-008",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-009"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_009.zip",
+      "path": "batches/BIE_KI_CONCEPT_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-009",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONCEPT-010"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONCEPT_010.zip",
+      "path": "batches/BIE_KI_CONCEPT_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONCEPT-010",
+        "status": "IMPLEMENTED",
+        "test_module_passed": false,
+        "contract_checks": 5,
+        "next_task": "BIE-KI-REL-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONDITION_001.zip",
+      "path": "batches/BIE_KI_CONDITION_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONDITION-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONDITION-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONDITION_002.zip",
+      "path": "batches/BIE_KI_CONDITION_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONDITION-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONDITION-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONDITION_003.zip",
+      "path": "batches/BIE_KI_CONDITION_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONDITION-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EXCEPTION-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONTEXT_001.zip",
+      "path": "batches/BIE_KI_CONTEXT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONTEXT-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONTEXT-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONTEXT_002.zip",
+      "path": "batches/BIE_KI_CONTEXT_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONTEXT-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONTEXT-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_CONTEXT_003.zip",
+      "path": "batches/BIE_KI_CONTEXT_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CONTEXT-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CLAIM-006"
+      }
+    },
+    {
+      "archive": "BIE_KI_CROSSMODAL_001.zip",
+      "path": "batches/BIE_KI_CROSSMODAL_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CROSSMODAL-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CROSSMODAL-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_CROSSMODAL_002.zip",
+      "path": "batches/BIE_KI_CROSSMODAL_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CROSSMODAL-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CROSSMODAL-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_CROSSMODAL_003.zip",
+      "path": "batches/BIE_KI_CROSSMODAL_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-CROSSMODAL-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-SALIENCE-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_DEF_001.zip",
+      "path": "batches/BIE_KI_DEF_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-DEF-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-DEF-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_DEF_002.zip",
+      "path": "batches/BIE_KI_DEF_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-DEF-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-DEF-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_DEF_003.zip",
+      "path": "batches/BIE_KI_DEF_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-DEF-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EXAMPLE-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_E2E_001.zip",
+      "path": "batches/BIE_KI_E2E_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-E2E-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REALBOOK-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_ENTITY_001.zip",
+      "path": "batches/BIE_KI_ENTITY_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-ENTITY-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-ENTITY-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_ENTITY_002.zip",
+      "path": "batches/BIE_KI_ENTITY_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-ENTITY-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-ENTITY-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_ENTITY_003.zip",
+      "path": "batches/BIE_KI_ENTITY_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-ENTITY-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-ENTITY-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_ENTITY_004.zip",
+      "path": "batches/BIE_KI_ENTITY_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-ENTITY-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-PROP-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_EQ_LINK_001.zip",
+      "path": "batches/BIE_KI_EQ_LINK_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EQ-LINK-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EQ-LINK-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_EQ_LINK_002.zip",
+      "path": "batches/BIE_KI_EQ_LINK_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EQ-LINK-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EQ-LINK-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_EQ_LINK_003.zip",
+      "path": "batches/BIE_KI_EQ_LINK_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EQ-LINK-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-FIGSEM-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_EXAMPLE_001.zip",
+      "path": "batches/BIE_KI_EXAMPLE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EXAMPLE-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EXAMPLE-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_EXAMPLE_002.zip",
+      "path": "batches/BIE_KI_EXAMPLE_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EXAMPLE-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EXAMPLE-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_EXAMPLE_003.zip",
+      "path": "batches/BIE_KI_EXAMPLE_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EXAMPLE-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EXAMPLE-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_EXAMPLE_004.zip",
+      "path": "batches/BIE_KI_EXAMPLE_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EXAMPLE-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CLAIM-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_EXCEPTION_001.zip",
+      "path": "batches/BIE_KI_EXCEPTION_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EXCEPTION-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-EXCEPTION-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_EXCEPTION_002.zip",
+      "path": "batches/BIE_KI_EXCEPTION_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-EXCEPTION-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONTEXT-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_FIGSEM_001.zip",
+      "path": "batches/BIE_KI_FIGSEM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-FIGSEM-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-FIGSEM-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_FIGSEM_002.zip",
+      "path": "batches/BIE_KI_FIGSEM_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-FIGSEM-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-TABLESEM-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_001.zip",
+      "path": "batches/BIE_KI_GRAPH_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_002.zip",
+      "path": "batches/BIE_KI_GRAPH_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_003.zip",
+      "path": "batches/BIE_KI_GRAPH_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_004.zip",
+      "path": "batches/BIE_KI_GRAPH_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-005"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_005.zip",
+      "path": "batches/BIE_KI_GRAPH_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-006"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_006.zip",
+      "path": "batches/BIE_KI_GRAPH_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-006",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-007"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_007.zip",
+      "path": "batches/BIE_KI_GRAPH_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-007",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-008"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_008.zip",
+      "path": "batches/BIE_KI_GRAPH_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-008",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-009"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_009.zip",
+      "path": "batches/BIE_KI_GRAPH_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-009",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-010"
+      }
+    },
+    {
+      "archive": "BIE_KI_GRAPH_010.zip",
+      "path": "batches/BIE_KI_GRAPH_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-GRAPH-010",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-DEF-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_PROP_001.zip",
+      "path": "batches/BIE_KI_PROP_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-PROP-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-PROP-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_PROP_002.zip",
+      "path": "batches/BIE_KI_PROP_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-PROP-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-PROP-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_PROP_003.zip",
+      "path": "batches/BIE_KI_PROP_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-PROP-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CONDITION-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_QA_001.zip",
+      "path": "batches/BIE_KI_QA_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-QA-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-QA-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_QA_002.zip",
+      "path": "batches/BIE_KI_QA_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-QA-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-QA-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_QA_003.zip",
+      "path": "batches/BIE_KI_QA_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-QA-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-QA-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_QA_004.zip",
+      "path": "batches/BIE_KI_QA_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-QA-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-SECTION-COMPLETE"
+      }
+    },
+    {
+      "archive": "BIE_KI_REALBOOK_001.zip",
+      "path": "batches/BIE_KI_REALBOOK_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REALBOOK-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-SECTION-FROZEN"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_001.zip",
+      "path": "batches/BIE_KI_REL_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_002.zip",
+      "path": "batches/BIE_KI_REL_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_003.zip",
+      "path": "batches/BIE_KI_REL_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_004.zip",
+      "path": "batches/BIE_KI_REL_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-005"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_005.zip",
+      "path": "batches/BIE_KI_REL_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-005",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-006"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_006.zip",
+      "path": "batches/BIE_KI_REL_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-006",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-007"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_007.zip",
+      "path": "batches/BIE_KI_REL_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-007",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-008"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_008.zip",
+      "path": "batches/BIE_KI_REL_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-008",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-009"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_009.zip",
+      "path": "batches/BIE_KI_REL_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-009",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-REL-010"
+      }
+    },
+    {
+      "archive": "BIE_KI_REL_010.zip",
+      "path": "batches/BIE_KI_REL_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-REL-010",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-GRAPH-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_SALIENCE_001.zip",
+      "path": "batches/BIE_KI_SALIENCE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-SALIENCE-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-SALIENCE-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_SALIENCE_002.zip",
+      "path": "batches/BIE_KI_SALIENCE_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-SALIENCE-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-SALIENCE-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_SALIENCE_003.zip",
+      "path": "batches/BIE_KI_SALIENCE_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-SALIENCE-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-E2E-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_TABLESEM_001.zip",
+      "path": "batches/BIE_KI_TABLESEM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-TABLESEM-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-TABLESEM-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_TABLESEM_002.zip",
+      "path": "batches/BIE_KI_TABLESEM_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-TABLESEM-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-CROSSMODAL-001"
+      }
+    },
+    {
+      "archive": "BIE_KI_TERM_001.zip",
+      "path": "batches/BIE_KI_TERM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-TERM-001",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-TERM-002"
+      }
+    },
+    {
+      "archive": "BIE_KI_TERM_002.zip",
+      "path": "batches/BIE_KI_TERM_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-TERM-002",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-TERM-003"
+      }
+    },
+    {
+      "archive": "BIE_KI_TERM_003.zip",
+      "path": "batches/BIE_KI_TERM_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-TERM-003",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-TERM-004"
+      }
+    },
+    {
+      "archive": "BIE_KI_TERM_004.zip",
+      "path": "batches/BIE_KI_TERM_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-KI-TERM-004",
+        "status": "IMPLEMENTED",
+        "test_module_passed": true,
+        "contract_checks": 4,
+        "next_task": "BIE-KI-QA-001"
+      }
+    },
+    {
+      "archive": "BIE_MATH_BENCH_001.zip",
+      "path": "batches/BIE_MATH_BENCH_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-BENCH-001",
+        "title": "Math Intelligence acceptance benchmark",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Actual diverse real-book benchmark execution pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_CONTEXT_001.zip",
+      "path": "batches/BIE_MATH_CONTEXT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-CONTEXT-001",
+        "title": "Equation-to-textbook context grounding",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_CROSSMODAL_001.zip",
+      "path": "batches/BIE_MATH_CROSSMODAL_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-CROSSMODAL-001",
+        "title": "Equation-graph-figure-table linkage",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_DER_HARD_001.zip",
+      "path": "batches/BIE_MATH_DER_HARD_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-DER-HARD-001",
+        "title": "Multi-step derivation reconstruction",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_E2E_001.zip",
+      "path": "batches/BIE_MATH_E2E_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-E2E-001",
+        "title": "Integrated Math Intelligence pipeline",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_NOTATION_HARD_001.zip",
+      "path": "batches/BIE_MATH_NOTATION_HARD_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-NOTATION-HARD-001",
+        "title": "Advanced mathematical notation intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_QA_001.zip",
+      "path": "batches/BIE_MATH_QA_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-QA-001",
+        "title": "Formula integrity QA",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_QA_002.zip",
+      "path": "batches/BIE_MATH_QA_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-QA-002",
+        "title": "Derivation QA gate",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_QA_003.zip",
+      "path": "batches/BIE_MATH_QA_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-QA-003",
+        "title": "Unit consistency QA",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_QA_004.zip",
+      "path": "batches/BIE_MATH_QA_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-QA-004",
+        "title": "Numerical result QA",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_QA_005.zip",
+      "path": "batches/BIE_MATH_QA_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-QA-005",
+        "title": "Symbolic consistency QA",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_REALBOOK_001.zip",
+      "path": "batches/BIE_MATH_REALBOOK_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-REALBOOK-001",
+        "title": "Real-book Math Intelligence benchmark harness",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_RENDER_001.zip",
+      "path": "batches/BIE_MATH_RENDER_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-RENDER-001",
+        "title": "Math-to-Scene-IR semantic contract",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_SEM_001.zip",
+      "path": "batches/BIE_MATH_SEM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-SEM-001",
+        "title": "Equation semantic-role intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_SOLVER_001.zip",
+      "path": "batches/BIE_MATH_SOLVER_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-SOLVER-001",
+        "title": "Governed solver adapter contract",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MATH_TEACH_001.zip",
+      "path": "batches/BIE_MATH_TEACH_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MATH-TEACH-001",
+        "title": "Teachable mathematical derivation planning",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated diverse real-book Math Intelligence validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MIS_001.zip",
+      "path": "batches/BIE_MIS_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MIS-001",
+        "title": "Misconception extraction",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/assessment and pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MIS_002.zip",
+      "path": "batches/BIE_MIS_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MIS-002",
+        "title": "Likely misconception inference",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/assessment and pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MIS_003.zip",
+      "path": "batches/BIE_MIS_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MIS-003",
+        "title": "Misconception evidence aggregation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/assessment and pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MIS_004.zip",
+      "path": "batches/BIE_MIS_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MIS-004",
+        "title": "Misconception severity scoring",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/assessment and pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MIS_005.zip",
+      "path": "batches/BIE_MIS_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MIS-005",
+        "title": "Misconception-to-concept mapping",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/assessment and pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MIS_006.zip",
+      "path": "batches/BIE_MIS_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MIS-006",
+        "title": "Misconception remediation mapping",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/assessment and pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_001.zip",
+      "path": "batches/BIE_MODEL_GW_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-001",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-002"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_002.zip",
+      "path": "batches/BIE_MODEL_GW_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-002",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-003"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_003.zip",
+      "path": "batches/BIE_MODEL_GW_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-003",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-MODEL-GW-004"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_004.zip",
+      "path": "batches/BIE_MODEL_GW_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-004",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-005"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_005.zip",
+      "path": "batches/BIE_MODEL_GW_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-005",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-006"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_006.zip",
+      "path": "batches/BIE_MODEL_GW_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-006",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-007"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_007.zip",
+      "path": "batches/BIE_MODEL_GW_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-007",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-008"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_008.zip",
+      "path": "batches/BIE_MODEL_GW_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-008",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-009"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_009.zip",
+      "path": "batches/BIE_MODEL_GW_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-009",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-010"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_010.zip",
+      "path": "batches/BIE_MODEL_GW_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-010",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-011"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_011.zip",
+      "path": "batches/BIE_MODEL_GW_011/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-011",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-012"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_012.zip",
+      "path": "batches/BIE_MODEL_GW_012/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-012",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-013"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_013.zip",
+      "path": "batches/BIE_MODEL_GW_013/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-013",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-014"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_014.zip",
+      "path": "batches/BIE_MODEL_GW_014/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-014",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-015"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_015.zip",
+      "path": "batches/BIE_MODEL_GW_015/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-015",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-016"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_016.zip",
+      "path": "batches/BIE_MODEL_GW_016/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-016",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-017"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_017.zip",
+      "path": "batches/BIE_MODEL_GW_017/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-017",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-018"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_018.zip",
+      "path": "batches/BIE_MODEL_GW_018/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-018",
+        "status": "IMPLEMENTED",
+        "tests_passed": 6,
+        "next_task": "BIE-MODEL-GW-019"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_019.zip",
+      "path": "batches/BIE_MODEL_GW_019/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-019",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-020"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_020.zip",
+      "path": "batches/BIE_MODEL_GW_020/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-020",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-021"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_021.zip",
+      "path": "batches/BIE_MODEL_GW_021/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-021",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-022"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_022.zip",
+      "path": "batches/BIE_MODEL_GW_022/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-022",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-023"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_023.zip",
+      "path": "batches/BIE_MODEL_GW_023/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-023",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-024"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_024.zip",
+      "path": "batches/BIE_MODEL_GW_024/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-024",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-025"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_025.zip",
+      "path": "batches/BIE_MODEL_GW_025/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-025",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-026"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_026.zip",
+      "path": "batches/BIE_MODEL_GW_026/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-026",
+        "status": "IMPLEMENTED",
+        "tests_passed": 4,
+        "next_task": "BIE-MODEL-GW-027"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_027.zip",
+      "path": "batches/BIE_MODEL_GW_027/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-027",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-028"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_028.zip",
+      "path": "batches/BIE_MODEL_GW_028/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-028",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-029"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_029.zip",
+      "path": "batches/BIE_MODEL_GW_029/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-029",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-MODEL-GW-030"
+      }
+    },
+    {
+      "archive": "BIE_MODEL_GW_030.zip",
+      "path": "batches/BIE_MODEL_GW_030/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-MODEL-GW-030",
+        "status": "IMPLEMENTED",
+        "tests_passed": 5,
+        "next_task": "BIE-BI-INGEST-001"
+      }
+    },
+    {
+      "archive": "BIE_NOT_001.zip",
+      "path": "batches/BIE_NOT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-NOT-001",
+        "title": "Notation extraction and normalization",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/math/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_NOT_002.zip",
+      "path": "batches/BIE_NOT_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-NOT-002",
+        "title": "Symbol definition and ambiguity tracking",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/math/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_NOT_003.zip",
+      "path": "batches/BIE_NOT_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-NOT-003",
+        "title": "Coordinate-system intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/math/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_NOT_004.zip",
+      "path": "batches/BIE_NOT_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-NOT-004",
+        "title": "Unit notation intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/math/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_NOT_005.zip",
+      "path": "batches/BIE_NOT_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-NOT-005",
+        "title": "Required mathematical-tool inference",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book/math/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_001.zip",
+      "path": "batches/BIE_PR_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-001",
+        "title": "Candidate prerequisite edge generation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "test_command": "python -m unittest discover -s tests -v",
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite-graph validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_002.zip",
+      "path": "batches/BIE_PR_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-002",
+        "title": "Explicit prerequisite extraction",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "test_command": "python -m unittest discover -s tests -v",
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite-graph validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_003.zip",
+      "path": "batches/BIE_PR_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-003",
+        "title": "Implicit prerequisite inference",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "test_command": "python -m unittest discover -s tests -v",
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite-graph validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_004.zip",
+      "path": "batches/BIE_PR_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-004",
+        "title": "Prerequisite evidence model and aggregation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "test_command": "python -m unittest discover -s tests -v",
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite-graph validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_005.zip",
+      "path": "batches/BIE_PR_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-005",
+        "title": "Prerequisite confidence calibration",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "test_command": "python -m unittest discover -s tests -v",
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite-graph validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_006.zip",
+      "path": "batches/BIE_PR_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-006",
+        "title": "Prerequisite graph construction",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "test_command": "python -m unittest discover -s tests -v",
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_007.zip",
+      "path": "batches/BIE_PR_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-007",
+        "title": "Prerequisite transitive reduction",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "test_command": "python -m unittest discover -s tests -v",
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_008.zip",
+      "path": "batches/BIE_PR_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-008",
+        "title": "Prerequisite cycle detection and resolution",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "test_command": "python -m unittest discover -s tests -v",
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_009.zip",
+      "path": "batches/BIE_PR_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-009",
+        "title": "Prerequisite depth calculation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "test_command": "python -m unittest discover -s tests -v",
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_010.zip",
+      "path": "batches/BIE_PR_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-010",
+        "title": "Prerequisite strength scoring",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "test_command": "python -m unittest discover -s tests -v",
+        "acceptance_blocker": "Integrated real-book and downstream prerequisite/reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_011.zip",
+      "path": "batches/BIE_PR_011/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-011",
+        "title": "Foundational concept identification",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_012.zip",
+      "path": "batches/BIE_PR_012/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-012",
+        "title": "Assumed knowledge detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_013.zip",
+      "path": "batches/BIE_PR_013/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-013",
+        "title": "Missing prerequisite detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_014.zip",
+      "path": "batches/BIE_PR_014/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-014",
+        "title": "External prerequisite classification",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_015.zip",
+      "path": "batches/BIE_PR_015/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-015",
+        "title": "Prerequisite clustering",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_016.zip",
+      "path": "batches/BIE_PR_016/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-016",
+        "title": "Prerequisite-respecting teaching order",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book + downstream reasoning/pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_017.zip",
+      "path": "batches/BIE_PR_017/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-017",
+        "title": "Mastery dependency evaluation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book + downstream reasoning/pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_018.zip",
+      "path": "batches/BIE_PR_018/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-018",
+        "title": "Bridge lesson requirement detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book + downstream reasoning/pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_019.zip",
+      "path": "batches/BIE_PR_019/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-019",
+        "title": "Bridge lesson scope planning",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book + downstream reasoning/pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_020.zip",
+      "path": "batches/BIE_PR_020/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-020",
+        "title": "Prerequisite Intelligence QA gate",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book + downstream reasoning/pedagogy validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_BRIDGE_OPT_001.zip",
+      "path": "batches/BIE_PR_BRIDGE_OPT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-BRIDGE-OPT-001",
+        "title": "Minimum bridge curriculum optimizer",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book context; no learner profile",
+        "acceptance_blocker": "Actual diverse real-textbook corpus has not yet been executed through integrated BIE."
+      }
+    },
+    {
+      "archive": "BIE_PR_CAL_001.zip",
+      "path": "batches/BIE_PR_CAL_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-CAL-001",
+        "title": "Prerequisite confidence calibration framework",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book context; no learner profile",
+        "acceptance_blocker": "Actual diverse real-textbook corpus has not yet been executed through integrated BIE."
+      }
+    },
+    {
+      "archive": "BIE_PR_CONFLICT_001.zip",
+      "path": "batches/BIE_PR_CONFLICT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-CONFLICT-001",
+        "title": "Prerequisite evidence conflict arbitration",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book-context driven; no learner-profile dependency",
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_CROSSDOMAIN_001.zip",
+      "path": "batches/BIE_PR_CROSSDOMAIN_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-CROSSDOMAIN-001",
+        "title": "Cross-domain prerequisite detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book-context driven; no learner-profile dependency",
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_E2E_001.zip",
+      "path": "batches/BIE_PR_E2E_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-E2E-001",
+        "title": "Prerequisite Intelligence end-to-end acceptance harness",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book context; no learner profile",
+        "acceptance_blocker": "Actual diverse real-textbook corpus has not yet been executed through integrated BIE."
+      }
+    },
+    {
+      "archive": "BIE_PR_GRAN_001.zip",
+      "path": "batches/BIE_PR_GRAN_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-GRAN-001",
+        "title": "Minimum prerequisite granularity resolver",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book context; no learner profile",
+        "acceptance_blocker": "Actual diverse real-textbook corpus has not yet been executed through integrated BIE."
+      }
+    },
+    {
+      "archive": "BIE_PR_HIER_001.zip",
+      "path": "batches/BIE_PR_HIER_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-HIER-001",
+        "title": "Hierarchical source-context prerequisite resolution",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book-context driven; no learner-profile dependency",
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_NECESSITY_001.zip",
+      "path": "batches/BIE_PR_NECESSITY_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-NECESSITY-001",
+        "title": "Prerequisite necessity and counterfactual testing",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book-context driven; no learner-profile dependency",
+        "acceptance_blocker": "Integrated real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_PR_REALBOOK_001.zip",
+      "path": "batches/BIE_PR_REALBOOK_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-PR-REALBOOK-001",
+        "title": "Real-book prerequisite benchmark harness",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "scope_policy": "source/book context; no learner profile",
+        "acceptance_blocker": "Actual diverse real-textbook corpus has not yet been executed through integrated BIE."
+      }
+    },
+    {
+      "archive": "BIE_QA_RELEASE_001.zip",
+      "path": "batches/BIE_QA_RELEASE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-QA-RELEASE-001",
+        "status": "IMPLEMENTED",
+        "acceptance": {
+          "generation_only_success_impossible": true,
+          "required_gate_evidence": true,
+          "actual_video_compile_render_required_when_enabled": true,
+          "game_build_runtime_required_when_enabled": true,
+          "lineage_always_required": true,
+          "source_grounding_always_required": true,
+          "deterministic_release_decision": true,
+          "failure_routing": true,
+          "human_review_state": true
+        },
+        "next_task": "BIE-INFRA-EVAL-001"
+      }
+    },
+    {
+      "archive": "BIE_READY_001.zip",
+      "path": "batches/BIE_READY_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-READY-001",
+        "title": "Prerequisite readiness checks",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated learner diagnostic + real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_READY_002.zip",
+      "path": "batches/BIE_READY_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-READY-002",
+        "title": "Adaptive readiness threshold policy",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated learner diagnostic + real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_READY_003.zip",
+      "path": "batches/BIE_READY_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-READY-003",
+        "title": "Diagnostic prerequisite question generation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated learner diagnostic + real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_READY_004.zip",
+      "path": "batches/BIE_READY_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-READY-004",
+        "title": "Evidence-backed readiness decision",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated learner diagnostic + real-book validation pending."
+      }
+    },
+    {
+      "archive": "BIE_RE_CORE_001.zip",
+      "path": "batches/BIE_RE_CORE_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-RE-CORE-001",
+        "status": "IMPLEMENTED",
+        "deliverables": [
+          "docs/bie/REASONING_SPEC.md",
+          "docs/bie/reasoning-decision.schema.json",
+          "docs/bie/reasoning-example.json",
+          "docs/bie/REASONING_INTEGRATION_PLAN.md",
+          "app/bie/reasoning/decision_contracts.py",
+          "tests/reasoning/test_reasoning_contracts.py"
+        ],
+        "acceptance": {
+          "provider_neutral": true,
+          "structured_auditable_decisions": true,
+          "evidence_required": true,
+          "confidence_and_uncertainty_explicit": true,
+          "critical_escalation_contract": true,
+          "decision_dependency_graph": true,
+          "cycle_detection": true,
+          "downstream_effects_explicit": true
+        },
+        "next_task": "BIE-DSL-CORE-001"
+      }
+    },
+    {
+      "archive": "BIE_RE_DEC_001.zip",
+      "path": "batches/BIE_RE_DEC_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-RE-DEC-001",
+        "title": "Auditable reasoning decision factory",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_RE_EVID_001.zip",
+      "path": "batches/BIE_RE_EVID_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-RE-EVID-001",
+        "title": "Reasoning evidence aggregation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_RE_EVID_002.zip",
+      "path": "batches/BIE_RE_EVID_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-RE-EVID-002",
+        "title": "Reasoning evidence ranking",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_RE_EVID_003.zip",
+      "path": "batches/BIE_RE_EVID_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-RE-EVID-003",
+        "title": "Reasoning evidence conflict detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_RE_EVID_004.zip",
+      "path": "batches/BIE_RE_EVID_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-RE-EVID-004",
+        "title": "Reasoning evidence conflict arbitration",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book reasoning validation pending."
+      }
+    },
+    {
+      "archive": "BIE_SYM_001.zip",
+      "path": "batches/BIE_SYM_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-SYM-001",
+        "title": "Variable and symbol metadata",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book math validation pending."
+      }
+    },
+    {
+      "archive": "BIE_SYM_002.zip",
+      "path": "batches/BIE_SYM_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-SYM-002",
+        "title": "Mathematical constant intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_SYM_003.zip",
+      "path": "batches/BIE_SYM_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-SYM-003",
+        "title": "Contextual symbol disambiguation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_SYM_004.zip",
+      "path": "batches/BIE_SYM_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-SYM-004",
+        "title": "Symbol scope tracking",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_SYM_005.zip",
+      "path": "batches/BIE_SYM_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-SYM-005",
+        "title": "Symbol-to-equation linkage",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_001.zip",
+      "path": "batches/BIE_TOK_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-001",
+        "title": "Mathematical tokenizer",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_002.zip",
+      "path": "batches/BIE_TOK_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-002",
+        "title": "Mathematical symbol classification",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_003.zip",
+      "path": "batches/BIE_TOK_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-003",
+        "title": "Mathematical operator intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_004.zip",
+      "path": "batches/BIE_TOK_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-004",
+        "title": "Delimiter and grouping validation",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_005.zip",
+      "path": "batches/BIE_TOK_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-005",
+        "title": "Superscript intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_006.zip",
+      "path": "batches/BIE_TOK_006/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-006",
+        "title": "Subscript intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_007.zip",
+      "path": "batches/BIE_TOK_007/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-007",
+        "title": "Fraction structure intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_008.zip",
+      "path": "batches/BIE_TOK_008/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-008",
+        "title": "Radical structure intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_009.zip",
+      "path": "batches/BIE_TOK_009/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-009",
+        "title": "Matrix structure intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_TOK_010.zip",
+      "path": "batches/BIE_TOK_010/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-TOK-010",
+        "title": "Vector notation intelligence",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_UNIT_001.zip",
+      "path": "batches/BIE_UNIT_001/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-UNIT-001",
+        "title": "Physical unit parser",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_UNIT_002.zip",
+      "path": "batches/BIE_UNIT_002/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-UNIT-002",
+        "title": "SI unit normalization",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_UNIT_003.zip",
+      "path": "batches/BIE_UNIT_003/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-UNIT-003",
+        "title": "Physical unit conversion",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_UNIT_004.zip",
+      "path": "batches/BIE_UNIT_004/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-UNIT-004",
+        "title": "Dimensional analysis",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    },
+    {
+      "archive": "BIE_UNIT_005.zip",
+      "path": "batches/BIE_UNIT_005/TASK_RESULT.json",
+      "historical_result": {
+        "task_id": "BIE-UNIT-005",
+        "title": "Unit mismatch detection",
+        "status": "IMPLEMENTED",
+        "accepted": false,
+        "tests_passed": true,
+        "acceptance_blocker": "Integrated real-book mathematical validation pending."
+      }
+    }
+  ]
+}

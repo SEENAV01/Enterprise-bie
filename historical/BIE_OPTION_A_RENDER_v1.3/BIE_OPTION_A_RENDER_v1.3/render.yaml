@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bie-book-to-video
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: BIE_OPENAI_MODEL
+        value: gpt-5.6-luna
+      - key: BIE_AGENT_MODEL
+        value: gpt-5.6-luna

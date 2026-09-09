@@ -1,0 +1,30 @@
+{
+  "schema_version": "6.64",
+  "idempotency": {
+    "key": "render:lesson-2:v2",
+    "status": "COMPLETED"
+  },
+  "versioned_state": {
+    "compare_and_set": true
+  },
+  "artifact_lock": {
+    "acquired": true
+  },
+  "fencing_token": 1,
+  "lease": {
+    "lease_id": "lease-1"
+  },
+  "guarded_write": {
+    "fencing_token": 1
+  },
+  "reconciliation": {
+    "status": "CONSISTENT"
+  },
+  "commit": {
+    "commit_id": "commit-1",
+    "checksum": "sha256:demo"
+  },
+  "consistency_gate": {
+    "valid": true
+  }
+}

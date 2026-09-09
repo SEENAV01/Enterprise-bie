@@ -1,0 +1,83 @@
+{
+  "schema_version": "6.14",
+  "auth_context": {
+    "subject_id": "user-42",
+    "issuer": "identity",
+    "tenant_id": "tenant-a",
+    "scopes": [
+      "workflow.read"
+    ],
+    "auth_method": "TOKEN"
+  },
+  "token": {
+    "token_id": "tok-42",
+    "issuer": "identity",
+    "subject_id": "user-42",
+    "issued_at": 100,
+    "expires_at": 1000,
+    "scopes": [
+      "workflow.read"
+    ],
+    "audience": [
+      "workflow"
+    ]
+  },
+  "service_identity": {
+    "service_id": "workflow",
+    "issuer": "identity",
+    "tenant_id": "tenant-a",
+    "audiences": [
+      "workflow"
+    ],
+    "status": "ACTIVE"
+  },
+  "authorization_policy": {
+    "resource": "workflow",
+    "action": "READ",
+    "subjects": [
+      "user-42"
+    ],
+    "scopes": [
+      "workflow.read"
+    ],
+    "tenant_bound": true
+  },
+  "enforcement_point": {
+    "service": "workflow",
+    "policy_engine": "policy-engine",
+    "fail_closed": true
+  },
+  "authorization_decision": "ALLOW",
+  "tenant_boundary": {
+    "tenant_id": "tenant-a",
+    "resource_tenant_id": "tenant-a",
+    "status": "MATCHED"
+  },
+  "rotation": {
+    "credential_id": "cred-42",
+    "current_version": 1,
+    "next_version": 2,
+    "rotate_at": 500,
+    "status": "ROTATED"
+  },
+  "security_event": {
+    "event_id": "sec-42",
+    "event_type": "AUTHZ_DECISION",
+    "subject_id": "user-42",
+    "service": "workflow",
+    "decision": "ALLOW",
+    "resource": "workflow",
+    "reason": "policy-evaluation"
+  },
+  "credential": {
+    "credential_id": "cred-42",
+    "kind": "SERVICE_SECRET",
+    "version": 2,
+    "expires_at": 2000,
+    "status": "ACTIVE"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

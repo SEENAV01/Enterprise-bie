@@ -1,0 +1,75 @@
+{
+  "schema_version": "6.24",
+  "lease": {
+    "resource_id": "workflow:42",
+    "owner": "worker-1",
+    "expires_at": 500,
+    "epoch": 7,
+    "status": "HELD"
+  },
+  "fencing_token": {
+    "resource_id": "workflow:42",
+    "epoch": 7
+  },
+  "mutex": {
+    "resource_id": "workflow:42",
+    "owner": null,
+    "mode": "EXCLUSIVE",
+    "status": "FREE"
+  },
+  "leadership": {
+    "group": "workflow-workers",
+    "leader_id": "worker-1",
+    "epoch": 12,
+    "status": "ELECTED"
+  },
+  "quorum": {
+    "total_nodes": 5,
+    "required": 3
+  },
+  "ownership_epoch": {
+    "resource_id": "workflow:42",
+    "epoch": 7,
+    "owner": "worker-1"
+  },
+  "failure_detector": {
+    "node_id": "worker-0",
+    "heartbeat_at": 100,
+    "timeout": 30
+  },
+  "coordination_request": {
+    "request_id": "coord-1",
+    "resource_id": "workflow:42",
+    "operation": "ACQUIRE",
+    "owner": "worker-1",
+    "status": "COMPLETED"
+  },
+  "observability": {
+    "event_id": "coord-event",
+    "resource_id": "workflow:42",
+    "operation": "ACQUIRE",
+    "status": "GRANTED",
+    "owner": "worker-1",
+    "epoch": 7,
+    "latency_ms": 3.1
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "lease_valid": true,
+    "fence_permitted": true,
+    "mutex_acquirable": true,
+    "is_leader": true,
+    "quorum_reached": true,
+    "epoch_newer": true,
+    "node_suspected": true,
+    "request_completed": true,
+    "metric": {
+      "status": "GRANTED",
+      "epoch": 7,
+      "latency_ms": 3.1
+    }
+  }
+}

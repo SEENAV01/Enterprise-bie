@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene_id",
+    "objects",
+    "focus_plan",
+    "animation_plan"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.2"
+    },
+    "scene_id": {
+      "type": "string"
+    },
+    "objects": {
+      "type": "array"
+    },
+    "focus_plan": {
+      "type": "array"
+    },
+    "animation_plan": {
+      "type": "array"
+    },
+    "collisions": {
+      "type": "array"
+    },
+    "cognitive_load": {
+      "type": "object"
+    }
+  }
+}

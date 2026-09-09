@@ -1,0 +1,20 @@
+{
+  "schema_version": "5.78",
+  "task_id": "scene-17-narration",
+  "requirements": {
+    "capability": "TEXT_TO_SPEECH",
+    "min_quality": 0.9,
+    "max_latency_ms": 3000
+  },
+  "selected_model": "provider-a/voice-pro",
+  "fallback_chain": [
+    "provider-a/voice-pro",
+    "provider-b/voice-fast"
+  ],
+  "policy_version": "routing-3.1",
+  "reason": "CAPABILITY_QUALITY_COST_LATENCY",
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

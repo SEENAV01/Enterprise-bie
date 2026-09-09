@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "document",
+    "pages",
+    "regions",
+    "blocks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.31"
+    },
+    "document": {
+      "type": "object"
+    },
+    "pages": {
+      "type": "array"
+    },
+    "regions": {
+      "type": "array"
+    },
+    "blocks": {
+      "type": "array"
+    },
+    "tables": {
+      "type": "array"
+    },
+    "figures": {
+      "type": "array"
+    },
+    "formulas": {
+      "type": "array"
+    }
+  }
+}

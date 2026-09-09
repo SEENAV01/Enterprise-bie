@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "events",
+    "counters",
+    "render_metrics",
+    "trace",
+    "failure_analytics",
+    "lesson_summary",
+    "scene_summary",
+    "audit",
+    "audit_validation",
+    "observability_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.11"
+    },
+    "events": {
+      "type": "array"
+    },
+    "counters": {
+      "type": "object"
+    },
+    "render_metrics": {
+      "type": "object"
+    },
+    "trace": {
+      "type": "object"
+    },
+    "failure_analytics": {
+      "type": "array"
+    },
+    "lesson_summary": {
+      "type": "object"
+    },
+    "scene_summary": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "array"
+    },
+    "audit_validation": {
+      "type": "object"
+    },
+    "observability_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "candidates",
+    "decision",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.45"
+    },
+    "learner_state_ref": {},
+    "goal": {},
+    "candidates": {
+      "type": "array"
+    },
+    "decision": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

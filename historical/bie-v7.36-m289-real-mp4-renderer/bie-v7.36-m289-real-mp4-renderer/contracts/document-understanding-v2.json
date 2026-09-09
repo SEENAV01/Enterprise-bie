@@ -1,0 +1,25 @@
+{
+  "version": "7.27",
+  "document_ir": "2.0",
+  "features": [
+    "page_layout",
+    "bounding_boxes",
+    "block_types",
+    "figure_detection",
+    "heading_detection",
+    "section_hierarchy",
+    "ocr_adapter"
+  ],
+  "statuses": [
+    "UNDERSTOOD",
+    "READY",
+    "OCR_REQUIRED",
+    "NEEDS_OCR"
+  ],
+  "invariants": [
+    "Layout blocks retain page identity",
+    "Figures are represented explicitly rather than discarded",
+    "OCR is explicit and never silently substituted",
+    "Section hierarchy is traceable to source blocks"
+  ]
+}

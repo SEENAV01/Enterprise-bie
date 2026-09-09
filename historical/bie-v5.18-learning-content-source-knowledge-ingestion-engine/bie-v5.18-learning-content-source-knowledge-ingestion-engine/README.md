@@ -1,0 +1,1 @@
+# BIE v5.18 — Learning-Content Source & Knowledge Ingestion Engine\n\nM62 converts source documents into structured, traceable educational content while preserving hierarchy, equations, tables, figures, citations and source provenance.\n

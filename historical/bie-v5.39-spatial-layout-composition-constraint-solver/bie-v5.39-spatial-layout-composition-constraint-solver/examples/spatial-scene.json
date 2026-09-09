@@ -1,0 +1,48 @@
+{
+  "scene_id": "field-01",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "safe_area": {
+    "x": 80,
+    "y": 60,
+    "width": 1760,
+    "height": 960
+  },
+  "objects": [
+    {
+      "object_id": "charge",
+      "box": {
+        "x": 500,
+        "y": 400,
+        "width": 120,
+        "height": 120
+      }
+    },
+    {
+      "object_id": "vector",
+      "box": {
+        "x": 700,
+        "y": 400,
+        "width": 300,
+        "height": 80
+      }
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_id": "c1",
+      "constraint_type": "CENTER_Y",
+      "targets": [
+        "charge",
+        "vector"
+      ]
+    }
+  ],
+  "camera": {
+    "mode": "FOCUS",
+    "target": "charge",
+    "framing": "MEDIUM"
+  }
+}

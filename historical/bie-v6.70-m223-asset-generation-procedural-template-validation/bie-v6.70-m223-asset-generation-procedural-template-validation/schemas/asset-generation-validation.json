@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generation_plan",
+    "template_instance",
+    "procedural_spec",
+    "generated_asset",
+    "validation",
+    "multimodal_validation",
+    "semantic_validation",
+    "provenance",
+    "generation_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.70"
+    },
+    "generation_plan": {
+      "type": "object"
+    },
+    "template_instance": {
+      "type": "object"
+    },
+    "procedural_spec": {
+      "type": "object"
+    },
+    "generated_asset": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "multimodal_validation": {
+      "type": "object"
+    },
+    "semantic_validation": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "generation_gate": {
+      "type": "object"
+    }
+  }
+}

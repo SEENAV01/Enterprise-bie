@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Book Understanding Unit v1.6",
+  "type": "object",
+  "required": [
+    "unit_id",
+    "title",
+    "source_refs",
+    "claims",
+    "question_matrix",
+    "definitions",
+    "processes",
+    "causes",
+    "applications",
+    "dependencies",
+    "uncertainties",
+    "confidence",
+    "review_required"
+  ],
+  "properties": {
+    "unit_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "question_matrix": {
+      "type": "object"
+    },
+    "definitions": {
+      "type": "array"
+    },
+    "processes": {
+      "type": "array"
+    },
+    "causes": {
+      "type": "array"
+    },
+    "applications": {
+      "type": "array"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "uncertainties": {
+      "type": "array"
+    },
+    "higher_knowledge_candidates": {
+      "type": "array"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "review_required": {
+      "type": "boolean"
+    }
+  }
+}

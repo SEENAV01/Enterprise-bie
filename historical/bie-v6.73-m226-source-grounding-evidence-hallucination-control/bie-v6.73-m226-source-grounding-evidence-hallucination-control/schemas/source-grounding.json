@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sources",
+    "claims",
+    "evidence",
+    "retrieved_evidence",
+    "grounding",
+    "grounding_coverage",
+    "citation_map",
+    "hallucination_risks",
+    "hallucination_gate",
+    "grounding_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.73"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "claims": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "retrieved_evidence": {
+      "type": "array"
+    },
+    "grounding": {
+      "type": "array"
+    },
+    "grounding_coverage": {
+      "type": "number"
+    },
+    "citation_map": {
+      "type": "array"
+    },
+    "hallucination_risks": {
+      "type": "array"
+    },
+    "hallucination_gate": {
+      "type": "object"
+    },
+    "grounding_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "7.15",
+  "writes": {
+    "first": {
+      "ok": true,
+      "version": 1
+    },
+    "conflict": {
+      "ok": false,
+      "error": "VERSION_CONFLICT"
+    },
+    "second": {
+      "ok": true,
+      "version": 2
+    }
+  },
+  "recovery": {
+    "ok": true,
+    "sequence": 2
+  },
+  "consistency": {
+    "consistent": true
+  },
+  "revision_comparison": "REMOTE_NEWER",
+  "state_store_gate": {
+    "valid": true
+  }
+}

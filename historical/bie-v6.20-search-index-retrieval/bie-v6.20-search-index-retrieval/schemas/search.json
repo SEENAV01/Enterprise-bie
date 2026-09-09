@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "index",
+    "query",
+    "filter",
+    "ranking",
+    "facet",
+    "pagination",
+    "consistency",
+    "reindex",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.20"
+    },
+    "index": {
+      "type": "object"
+    },
+    "query": {
+      "type": "object"
+    },
+    "filter": {
+      "type": "object"
+    },
+    "ranking": {
+      "type": "object"
+    },
+    "facet": {
+      "type": "object"
+    },
+    "pagination": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "reindex": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

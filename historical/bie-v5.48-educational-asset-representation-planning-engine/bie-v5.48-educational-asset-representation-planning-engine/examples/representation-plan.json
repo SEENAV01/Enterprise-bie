@@ -1,0 +1,44 @@
+{
+  "content_refs": [
+    "out-electric-field"
+  ],
+  "objective_refs": [
+    "o-field"
+  ],
+  "pedagogical_intent": {
+    "intent_id": "i1",
+    "purpose": "VISUALIZE",
+    "learner_need": "representation_gap",
+    "evidence_goal": "predict"
+  },
+  "candidates": [
+    {
+      "candidate_id": "c1",
+      "representation_type": "DIAGRAM",
+      "signals": {
+        "visual_fit": 2,
+        "static": 1
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "representation_type": "ANIMATION",
+      "signals": {
+        "visual_fit": 3,
+        "dynamic_process": 3
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "representation_type": "TEXT",
+      "signals": {
+        "visual_fit": 0,
+        "dynamic_process": 0
+      }
+    }
+  ],
+  "selected": {
+    "candidate_id": "c2",
+    "representation_type": "ANIMATION"
+  }
+}

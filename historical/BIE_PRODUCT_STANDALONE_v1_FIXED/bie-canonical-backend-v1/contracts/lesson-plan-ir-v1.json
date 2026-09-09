@@ -1,0 +1,17 @@
+{
+  "version": "7.32",
+  "lesson_plan_ir": "1.0",
+  "features": [
+    "teaching_units",
+    "source_evidence",
+    "source_order_prerequisites",
+    "confidence_scored_inference",
+    "planning_validation"
+  ],
+  "invariants": [
+    "Every teaching unit references source evidence",
+    "Default sequencing follows source order",
+    "Inferred prerequisite edges are explicitly confidence-scored",
+    "Planning validation failure blocks publish"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "profiles": {
+    "cpu_general": {
+      "capabilities": [
+        "python",
+        "node"
+      ],
+      "example_use": [
+        "DOCUMENT_INTELLIGENCE",
+        "KNOWLEDGE",
+        "REASONING",
+        "PEDAGOGY"
+      ]
+    },
+    "render_gpu": {
+      "capabilities": [
+        "node",
+        "ffmpeg",
+        "remotion_render",
+        "sandbox"
+      ],
+      "gpu": true,
+      "example_use": [
+        "VIDEO_COMPILE",
+        "VIDEO_RENDER"
+      ]
+    },
+    "browser_game": {
+      "capabilities": [
+        "node",
+        "browser_runtime",
+        "game_runtime",
+        "sandbox"
+      ],
+      "example_use": [
+        "GAME_BUILD",
+        "GAME_RUNTIME",
+        "GAME_QA"
+      ]
+    },
+    "vision_qa": {
+      "capabilities": [
+        "python",
+        "vision_qa"
+      ],
+      "example_use": [
+        "VIDEO_QA",
+        "rendered_frame_inspection"
+      ]
+    }
+  }
+}

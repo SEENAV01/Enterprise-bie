@@ -1,0 +1,1 @@
+# BIE v5.39 — Spatial Layout, Composition & Visual Constraint Solver\n\nResolves and validates object placement, hierarchy, alignment, overlap, safe areas, camera framing and responsive composition as a renderer-independent spatial specification.\n

@@ -1,0 +1,1 @@
+# BIE v5.34 — Learner Model, Adaptive Sequencing & Mastery Engine\n\nRepresents learner state, learning evidence, mastery, misconceptions and adaptive next-step decisions without mutating canonical course knowledge.\n

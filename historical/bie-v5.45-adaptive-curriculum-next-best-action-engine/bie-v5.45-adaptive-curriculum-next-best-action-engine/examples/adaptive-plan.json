@@ -1,0 +1,44 @@
+{
+  "learner_state_ref": "learner-demo",
+  "goal": "master-electric-field",
+  "candidates": [
+    {
+      "action_id": "a1",
+      "action_type": "REMEDIATE",
+      "target_refs": [
+        "m-force-field"
+      ]
+    },
+    {
+      "action_id": "a2",
+      "action_type": "PRACTICE",
+      "target_refs": [
+        "electric_field"
+      ]
+    },
+    {
+      "action_id": "a3",
+      "action_type": "NEW_CONCEPT",
+      "target_refs": [
+        "electric_potential"
+      ]
+    }
+  ],
+  "decision": {
+    "ranked_actions": [
+      {
+        "action_id": "a1",
+        "action_type": "REMEDIATE"
+      }
+    ],
+    "scores": {
+      "a1": 3.2,
+      "a2": 1.7,
+      "a3": 0.2
+    },
+    "selected_action": {
+      "action_id": "a1",
+      "action_type": "REMEDIATE"
+    }
+  }
+}

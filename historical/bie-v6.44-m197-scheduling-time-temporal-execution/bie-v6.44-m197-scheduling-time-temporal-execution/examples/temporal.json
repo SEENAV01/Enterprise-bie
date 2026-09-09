@@ -1,0 +1,24 @@
+{
+  "schema_version": "6.44",
+  "clock": {
+    "clock_id": "system",
+    "timezone": "UTC",
+    "monotonic": true
+  },
+  "schedule": {
+    "schedule_id": "sch-1",
+    "start_at": "2026-01-01T00:00:00Z",
+    "recurrence": "0 * * * *",
+    "timezone": "UTC",
+    "status": "ACTIVE"
+  },
+  "timeout": {
+    "duration": 30,
+    "unit": "SECONDS",
+    "action": "RETRY"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

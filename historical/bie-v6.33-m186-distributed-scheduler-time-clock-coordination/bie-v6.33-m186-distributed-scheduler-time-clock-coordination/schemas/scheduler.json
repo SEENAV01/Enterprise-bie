@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "schedule",
+    "clock",
+    "timezone",
+    "misfire",
+    "leadership",
+    "recurrence",
+    "calendar_window",
+    "dispatch",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.33"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "clock": {
+      "type": "object"
+    },
+    "timezone": {
+      "type": "object"
+    },
+    "misfire": {
+      "type": "object"
+    },
+    "leadership": {
+      "type": "object"
+    },
+    "recurrence": {
+      "type": "object"
+    },
+    "calendar_window": {
+      "type": "object"
+    },
+    "dispatch": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

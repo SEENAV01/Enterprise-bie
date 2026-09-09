@@ -1,0 +1,43 @@
+{
+  "lesson_contract": {
+    "lesson_id": "lesson-01",
+    "objective_refs": [
+      "o1"
+    ],
+    "interaction_refs": [
+      "i1",
+      "i2"
+    ],
+    "accessibility": {
+      "captions": true,
+      "transcript": true
+    }
+  },
+  "interactions": [
+    {
+      "interaction_id": "i1",
+      "interaction_type": "EXPLANATION",
+      "objective_id": "o1"
+    },
+    {
+      "interaction_id": "i2",
+      "interaction_type": "PREDICTION",
+      "objective_id": "o1"
+    }
+  ],
+  "feedback_rules": [
+    {
+      "rule_id": "f1",
+      "trigger": "answer",
+      "condition": "incorrect",
+      "response": "Explain prerequisite"
+    }
+  ],
+  "adaptive_hooks": [
+    {
+      "hook_id": "h1",
+      "trigger": "ON_FAILURE",
+      "action": "REVIEW"
+    }
+  ]
+}

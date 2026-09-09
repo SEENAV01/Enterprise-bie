@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "asset_id": "source-text",
+      "version": "2",
+      "asset_type": "SOURCE",
+      "content_hash": "abc123"
+    },
+    {
+      "asset_id": "force-diagram",
+      "version": "7",
+      "asset_type": "DIAGRAM",
+      "content_hash": "def456"
+    }
+  ],
+  "relations": [
+    {
+      "source": "source-text@2",
+      "target": "force-diagram@7",
+      "relation_type": "DERIVED_TO"
+    },
+    {
+      "source": "force-diagram@7",
+      "target": "scene-14@1",
+      "relation_type": "USED_BY"
+    }
+  ]
+}

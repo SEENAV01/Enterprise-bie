@@ -1,0 +1,1 @@
+# BIE v5.95 — Artifact Storage, Cache & Content Addressing\n\nImmutable artifacts, content-addressed IDs, storage locations, caching, deduplication, transfer integrity, retention and signed references.\n

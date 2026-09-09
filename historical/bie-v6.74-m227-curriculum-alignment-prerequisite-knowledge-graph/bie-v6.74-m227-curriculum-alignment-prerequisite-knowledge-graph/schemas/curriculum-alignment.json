@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "standards",
+    "objectives",
+    "objective_mapping",
+    "knowledge_graph",
+    "curriculum_order",
+    "dependency_plan",
+    "alignment",
+    "curriculum_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.74"
+    },
+    "standards": {
+      "type": "array"
+    },
+    "objectives": {
+      "type": "array"
+    },
+    "objective_mapping": {
+      "type": "array"
+    },
+    "knowledge_graph": {
+      "type": "object"
+    },
+    "curriculum_order": {
+      "type": "array"
+    },
+    "dependency_plan": {
+      "type": "object"
+    },
+    "alignment": {
+      "type": "object"
+    },
+    "curriculum_gate": {
+      "type": "object"
+    }
+  }
+}

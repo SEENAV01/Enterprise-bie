@@ -1,0 +1,43 @@
+{
+  "concept_id": "electric-current",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Current is rate of charge flow",
+      "source_refs": [
+        "book-a:p20"
+      ],
+      "concept_refs": [
+        "electric-current"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "text": "Current describes charge passing a point per unit time",
+      "source_refs": [
+        "book-b:p31"
+      ],
+      "concept_refs": [
+        "electric-current"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "claim_id": "c1",
+      "source_id": "book-a",
+      "locator": "p20",
+      "support": "SUPPORTS",
+      "strength": 0.9
+    },
+    {
+      "evidence_id": "e2",
+      "claim_id": "c2",
+      "source_id": "book-b",
+      "locator": "p31",
+      "support": "SUPPORTS",
+      "strength": 0.9
+    }
+  ]
+}

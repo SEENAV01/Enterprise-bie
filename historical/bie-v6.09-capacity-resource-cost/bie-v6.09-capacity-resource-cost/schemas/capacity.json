@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "resource",
+    "quota",
+    "rate_limit",
+    "concurrency",
+    "autoscaling",
+    "budget",
+    "cost",
+    "policy",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.09"
+    },
+    "resource": {
+      "type": "object"
+    },
+    "quota": {
+      "type": "object"
+    },
+    "rate_limit": {
+      "type": "object"
+    },
+    "concurrency": {
+      "type": "object"
+    },
+    "autoscaling": {
+      "type": "object"
+    },
+    "budget": {
+      "type": "object"
+    },
+    "cost": {
+      "type": "object"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

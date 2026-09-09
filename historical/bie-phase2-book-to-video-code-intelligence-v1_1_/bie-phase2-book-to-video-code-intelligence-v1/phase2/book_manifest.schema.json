@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "book_id",
+    "source",
+    "chapters",
+    "concepts",
+    "lessons",
+    "generation_status"
+  ],
+  "properties": {
+    "book_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object"
+    },
+    "chapters": {
+      "type": "array"
+    },
+    "concepts": {
+      "type": "array"
+    },
+    "lessons": {
+      "type": "array"
+    },
+    "generation_status": {
+      "enum": [
+        "planned",
+        "generating",
+        "generated",
+        "validation_failed"
+      ]
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": "6.21",
+  "object_ref": {
+    "object_id": "obj-42",
+    "bucket": "artifacts",
+    "key": "tenant-a/course/lesson-1.mp4",
+    "tenant_id": "tenant-a",
+    "version": "v3"
+  },
+  "upload": {
+    "upload_id": "u-1",
+    "object_id": "obj-42",
+    "content_type": "video/mp4",
+    "size": 1048576,
+    "multipart": true,
+    "status": "COMPLETED"
+  },
+  "download": {
+    "object_id": "obj-42",
+    "version": "v3",
+    "byte_range": [
+      0,
+      1023
+    ],
+    "status": "REQUESTED"
+  },
+  "multipart": {
+    "upload_id": "u-1",
+    "object_id": "obj-42",
+    "part_size": 524288,
+    "total_parts": 2,
+    "parts": {
+      "1": "sha256-part-1",
+      "2": "sha256-part-2"
+    },
+    "status": "OPEN"
+  },
+  "checksum": {
+    "algorithm": "SHA256",
+    "value": "abc123"
+  },
+  "metadata": {
+    "object_id": "obj-42",
+    "content_type": "video/mp4",
+    "size": 1048576,
+    "checksum_ref": "chk-1",
+    "custom": {
+      "course": "lesson-1"
+    }
+  },
+  "version": {
+    "object_id": "obj-42",
+    "version_id": "v3",
+    "previous": "v2",
+    "is_current": true
+  },
+  "lifecycle": {
+    "object_id": "obj-42",
+    "states": [
+      "ACTIVE",
+      "ARCHIVED",
+      "DELETED"
+    ],
+    "archive_after": 100,
+    "delete_after": 1000
+  },
+  "quarantine": {
+    "object_id": "obj-42",
+    "reason": "scan-required",
+    "scanner": "scanner-v1",
+    "status": "RELEASED"
+  },
+  "access": {
+    "object_id": "obj-42",
+    "subject_id": "user-1",
+    "action": "READ",
+    "tenant_id": "tenant-a",
+    "decision": "ALLOW"
+  },
+  "retention": {
+    "object_id": "obj-42",
+    "retain_until": 1000,
+    "legal_hold": false
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "tenant_match": true,
+    "upload_complete": true,
+    "ranged_download": true,
+    "multipart_ready": true,
+    "checksum_match": true,
+    "has_checksum": true,
+    "current_version": true,
+    "active_to_archive": true,
+    "quarantine_released": true,
+    "access_allowed": true,
+    "retention_expired": true
+  }
+}

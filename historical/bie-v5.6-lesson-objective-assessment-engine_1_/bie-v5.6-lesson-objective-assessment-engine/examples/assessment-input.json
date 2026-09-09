@@ -1,0 +1,71 @@
+{
+  "objectives": [
+    {
+      "objective_id": "o1",
+      "concept_id": "current",
+      "statement": "Explain current as rate of charge flow.",
+      "level": "EXPLAIN",
+      "success_criteria": [
+        "uses rate-of-flow relationship",
+        "distinguishes current from charge"
+      ]
+    },
+    {
+      "objective_id": "o2",
+      "concept_id": "current",
+      "statement": "Apply the current relation to a simple numerical situation.",
+      "level": "APPLY",
+      "success_criteria": [
+        "selects correct relation",
+        "calculates correctly"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "q1",
+      "objective_id": "o1",
+      "type": "CONCEPTUAL",
+      "prompt": "What does electric current measure?",
+      "answer": "rate of charge flow",
+      "distractors": [
+        "amount of charge",
+        "voltage only"
+      ],
+      "difficulty": "EASY"
+    },
+    {
+      "question_id": "q2",
+      "objective_id": "o1",
+      "type": "MISCONCEPTION",
+      "prompt": "Does more charge automatically mean more current?",
+      "answer": "not without considering time",
+      "distractors": [],
+      "difficulty": "MEDIUM"
+    },
+    {
+      "question_id": "q3",
+      "objective_id": "o2",
+      "type": "NUMERICAL",
+      "prompt": "If 10 C flows in 2 s, what is I?",
+      "answer": "5 A",
+      "distractors": [
+        "2 A",
+        "20 A"
+      ],
+      "difficulty": "EASY"
+    },
+    {
+      "question_id": "q4",
+      "objective_id": "o2",
+      "type": "TRANSFER",
+      "prompt": "How would current change if the same charge moved in half the time?",
+      "answer": "double",
+      "distractors": [
+        "half",
+        "unchanged"
+      ],
+      "difficulty": "MEDIUM"
+    }
+  ]
+}

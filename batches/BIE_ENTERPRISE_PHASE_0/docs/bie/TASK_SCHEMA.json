@@ -1,0 +1,83 @@
+{
+  "title": "BIE Atomic Task",
+  "type": "object",
+  "required": [
+    "task_id",
+    "title",
+    "status",
+    "system",
+    "purpose",
+    "dependencies",
+    "input_contracts",
+    "output_contracts",
+    "allowed_files",
+    "forbidden_files",
+    "test_requirements",
+    "acceptance_criteria",
+    "evidence"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "READY",
+        "IN_PROGRESS",
+        "IMPLEMENTED",
+        "UNIT_TESTED",
+        "INTEGRATION_TESTED",
+        "GOLDEN_TESTED",
+        "QA_VERIFIED",
+        "ACCEPTED",
+        "BLOCKED"
+      ]
+    },
+    "system": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "input_contracts": {
+      "type": "array"
+    },
+    "output_contracts": {
+      "type": "array"
+    },
+    "allowed_files": {
+      "type": "array"
+    },
+    "forbidden_files": {
+      "type": "array"
+    },
+    "test_requirements": {
+      "type": "array"
+    },
+    "acceptance_criteria": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "commit_sha": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artifacts": {
+      "type": "array"
+    }
+  }
+}

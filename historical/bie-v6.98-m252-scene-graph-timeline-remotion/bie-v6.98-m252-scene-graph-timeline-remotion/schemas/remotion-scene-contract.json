@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene_graph",
+    "graph_validation",
+    "timeline",
+    "dependency_order",
+    "layers",
+    "layer_validation",
+    "camera",
+    "camera_validation",
+    "remotion_scene",
+    "render_validation",
+    "render_contract_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.98"
+    },
+    "scene_graph": {
+      "type": "object"
+    },
+    "graph_validation": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "object"
+    },
+    "dependency_order": {
+      "type": "object"
+    },
+    "layers": {
+      "type": "array"
+    },
+    "layer_validation": {
+      "type": "object"
+    },
+    "camera": {
+      "type": "array"
+    },
+    "camera_validation": {
+      "type": "object"
+    },
+    "remotion_scene": {
+      "type": "object"
+    },
+    "render_validation": {
+      "type": "object"
+    },
+    "render_contract_gate": {
+      "type": "object"
+    }
+  }
+}

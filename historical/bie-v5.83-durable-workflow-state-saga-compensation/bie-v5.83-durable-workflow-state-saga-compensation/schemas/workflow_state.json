@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "workflow_id",
+    "recovery_action",
+    "compensation_plan",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.83"
+    },
+    "workflow_id": {
+      "type": "string"
+    },
+    "recovery_action": {
+      "type": "string"
+    },
+    "compensation_plan": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

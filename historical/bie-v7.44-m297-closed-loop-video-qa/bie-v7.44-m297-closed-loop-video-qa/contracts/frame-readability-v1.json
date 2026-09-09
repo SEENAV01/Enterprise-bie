@@ -1,0 +1,16 @@
+{
+  "version": "7.38",
+  "frame_readability": "1.0",
+  "features": [
+    "frame_sampling",
+    "image_decode_checks",
+    "readability_report",
+    "repair_plan"
+  ],
+  "invariants": [
+    "Frame sampling never invents OCR results",
+    "Unreadable or missing frame files fail the frame QA stage",
+    "Runtime dependency failures are explicit",
+    "Readability QA remains distinct from semantic correctness"
+  ]
+}

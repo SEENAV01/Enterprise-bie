@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "saga",
+    "state",
+    "consistency_policy",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.02"
+    },
+    "saga": {
+      "type": "object"
+    },
+    "state": {
+      "type": "object"
+    },
+    "consistency_policy": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

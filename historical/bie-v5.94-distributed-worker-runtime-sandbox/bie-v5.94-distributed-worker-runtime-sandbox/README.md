@@ -1,0 +1,1 @@
+# BIE v5.94 — Distributed Worker Runtime & Execution Sandbox\n\nWorker registration, capability/resource matching, sandbox policy, artifact mounts, timeouts, heartbeats, health and task result contracts.\n

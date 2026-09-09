@@ -1,0 +1,1 @@
+# BIE v5.42 — Assessment Item Generation & Evaluation Engine\n\nGenerates and validates objective-linked assessment items, difficulty profiles, misconception-aware distractors, evaluation rules and structured learning evidence.\n

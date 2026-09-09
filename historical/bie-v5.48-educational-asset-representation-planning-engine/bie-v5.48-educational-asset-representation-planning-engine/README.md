@@ -1,0 +1,1 @@
+# BIE v5.48 — Educational Asset & Representation Planning Engine\n\nSelects an appropriate representation strategy for source-grounded educational content using pedagogical intent, learner needs, evidence goals, candidate signals and explicit production requirements.\n

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "concept",
+    "detected_misconceptions",
+    "misconception_gate",
+    "hints",
+    "remediation_plan",
+    "reassessment",
+    "mastery_loop",
+    "remediation_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.93"
+    },
+    "concept": {
+      "type": "string"
+    },
+    "detected_misconceptions": {
+      "type": "array"
+    },
+    "misconception_gate": {
+      "type": "object"
+    },
+    "hints": {
+      "type": "array"
+    },
+    "remediation_plan": {
+      "type": "array"
+    },
+    "reassessment": {
+      "type": "object"
+    },
+    "mastery_loop": {
+      "type": "object"
+    },
+    "remediation_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v5.44 — Mastery, Competency & Learner State Update Engine\n\nMaintains a longitudinal learner model using objective-level evidence, competency state, prerequisite readiness, misconception risk, confidence and historical evidence rather than a single simplistic score.\n

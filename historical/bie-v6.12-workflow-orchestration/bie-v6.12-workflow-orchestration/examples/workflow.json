@@ -1,0 +1,96 @@
+{
+  "schema_version": "6.12",
+  "workflow": {
+    "workflow_id": "wf-42",
+    "name": "Order Fulfillment",
+    "version": 3,
+    "tenant_id": "tenant-a",
+    "state": "RUNNING",
+    "status": "RUNNING"
+  },
+  "state_machine": {
+    "states": [
+      "START",
+      "RUNNING",
+      "DONE"
+    ],
+    "transitions": {
+      "START:BEGIN": "RUNNING",
+      "RUNNING:FINISH": "DONE"
+    },
+    "initial_state": "START"
+  },
+  "transition": {
+    "status": "ACCEPTED",
+    "state": "RUNNING"
+  },
+  "checkpoint": {
+    "workflow_id": "wf-42",
+    "sequence": 17,
+    "state": "RUNNING",
+    "created_at": 100
+  },
+  "timer": {
+    "timer_id": "tm-42",
+    "workflow_id": "wf-42",
+    "fire_at": 200,
+    "reason": "approval_timeout",
+    "status": "SCHEDULED"
+  },
+  "wait": {
+    "wait_id": "wait-42",
+    "workflow_id": "wf-42",
+    "condition": "payment.confirmed",
+    "timeout_at": 300,
+    "status": "WAITING"
+  },
+  "saga_step": {
+    "step_id": "reserve",
+    "action": "reserve_inventory",
+    "compensation": "release_inventory",
+    "status": "COMPLETED"
+  },
+  "cancellation": {
+    "workflow_id": "wf-42",
+    "requested_by": "operator",
+    "reason": "incident",
+    "status": "REQUESTED"
+  },
+  "approval_gate": {
+    "gate_id": "gate-42",
+    "workflow_id": "wf-42",
+    "approvers": [
+      "manager"
+    ],
+    "required": 1,
+    "approved_by": [
+      "manager"
+    ],
+    "status": "APPROVED"
+  },
+  "compensation_plan": {
+    "workflow_id": "wf-42",
+    "steps": [
+      "release_inventory"
+    ],
+    "status": "READY"
+  },
+  "deterministic_replay": [
+    {
+      "workflow_id": "wf-42",
+      "sequence": 1,
+      "event_type": "ORDER",
+      "payload_ref": "p1"
+    },
+    {
+      "workflow_id": "wf-42",
+      "sequence": 2,
+      "event_type": "PAYMENT",
+      "payload_ref": "p2"
+    }
+  ],
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

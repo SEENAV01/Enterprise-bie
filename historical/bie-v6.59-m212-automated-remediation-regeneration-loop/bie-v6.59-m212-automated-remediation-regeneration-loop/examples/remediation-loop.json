@@ -1,0 +1,44 @@
+{
+  "schema_version": "6.59",
+  "failure": {
+    "failure_id": "f1",
+    "failure_type": "VISUAL",
+    "severity": "MEDIUM",
+    "target_ref": "asset-1",
+    "qa_check_id": "q1"
+  },
+  "diagnosis": {
+    "diagnosis_id": "d1",
+    "failure_id": "f1",
+    "root_cause": "asset mismatch"
+  },
+  "remediation": {
+    "action_id": "r1",
+    "action": "REGENERATE_ASSET",
+    "target_refs": [
+      "asset-1"
+    ],
+    "reason": "fix mismatch"
+  },
+  "regeneration_job": {
+    "job_id": "j1",
+    "remediation_action_id": "r1",
+    "target_refs": [
+      "asset-1"
+    ],
+    "attempt": 1
+  },
+  "reqa_cycle": {
+    "cycle_id": "c1",
+    "regeneration_job_id": "j1",
+    "qa_report_id": "q2",
+    "status": "PASS"
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

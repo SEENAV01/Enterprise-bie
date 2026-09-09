@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry",
+    "impact_analysis",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.67"
+    },
+    "registry": {
+      "type": "object"
+    },
+    "impact_analysis": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

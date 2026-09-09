@@ -1,0 +1,24 @@
+{
+  "BIE-INFRA-SPEC-001": [],
+  "BIE-INFRA-AUDIT-001": [
+    "BIE-INFRA-SPEC-001"
+  ],
+  "BIE-INFRA-CONTRACT-001": [
+    "BIE-INFRA-AUDIT-001"
+  ],
+  "BIE-RE-CORE-001": [
+    "BIE-INFRA-CONTRACT-001"
+  ],
+  "BIE-DSL-CORE-001": [
+    "BIE-RE-CORE-001"
+  ],
+  "BIE-GAME-DSL-001": [
+    "BIE-RE-CORE-001"
+  ],
+  "BIE-QA-RELEASE-001": [
+    "BIE-INFRA-CONTRACT-001"
+  ],
+  "BIE-INFRA-EVAL-001": [
+    "BIE-QA-RELEASE-001"
+  ]
+}

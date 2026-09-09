@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "quality",
+    "quality_class",
+    "perceptual_similarity",
+    "visual_regression",
+    "visual_diff",
+    "repair_plan",
+    "regeneration_policy",
+    "next_action",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.71"
+    },
+    "quality": {
+      "type": "object"
+    },
+    "quality_class": {
+      "type": "string"
+    },
+    "perceptual_similarity": {
+      "type": "object"
+    },
+    "visual_regression": {
+      "type": "object"
+    },
+    "visual_diff": {
+      "type": "object"
+    },
+    "repair_plan": {
+      "type": "object"
+    },
+    "regeneration_policy": {
+      "type": "object"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

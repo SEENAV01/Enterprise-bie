@@ -1,0 +1,23 @@
+{
+  "version": "7.44",
+  "milestone": "M297",
+  "features": [
+    "single-loop-orchestration",
+    "repair-rerender-qa-cycle",
+    "cycle-history",
+    "explicit-terminal-states"
+  ],
+  "terminal_states": [
+    "accepted",
+    "review_required",
+    "repair_failed",
+    "rerender_failed"
+  ],
+  "invariants": [
+    "Every stage reports explicit status.",
+    "A rejection may trigger only the configured number of repair cycles.",
+    "Repair or rerender failure never becomes acceptance.",
+    "Review remains a valid terminal state when correctness cannot be proven.",
+    "The loop records cycle history for auditability."
+  ]
+}

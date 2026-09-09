@@ -1,0 +1,39 @@
+{
+  "learner_ref": "learner-demo",
+  "objective_states": {
+    "o-field": {
+      "evidence_count": 4,
+      "weighted_score": 0.82,
+      "total_weight": 3.7
+    }
+  },
+  "competency_states": {
+    "c-vectors": {
+      "level": "DEVELOPING",
+      "objective_refs": [
+        "o-field"
+      ]
+    }
+  },
+  "misconception_risks": {
+    "m-force-field": {
+      "probability": 0.35,
+      "evidence_refs": [
+        "e17"
+      ],
+      "status": "ACTIVE"
+    }
+  },
+  "prerequisite_readiness": {
+    "vector-basics": {
+      "readiness": 0.9
+    }
+  },
+  "history": [
+    {
+      "event": "assessment",
+      "objective_ref": "o-field",
+      "score": 0.8
+    }
+  ]
+}

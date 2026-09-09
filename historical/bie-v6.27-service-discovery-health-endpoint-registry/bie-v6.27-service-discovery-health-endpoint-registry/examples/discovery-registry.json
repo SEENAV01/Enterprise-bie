@@ -1,0 +1,119 @@
+{
+  "schema_version": "6.27",
+  "service": {
+    "service_id": "svc-1",
+    "name": "workflow-service",
+    "version": "v1",
+    "metadata": {
+      "team": "platform"
+    },
+    "region": "ap-south-1",
+    "zone": "zone-a",
+    "status": "REGISTERED"
+  },
+  "endpoint": {
+    "endpoint_id": "ep-1",
+    "address": "10.0.0.10",
+    "port": 8080,
+    "protocol": "HTTP",
+    "metadata": {
+      "weight": 100
+    },
+    "status": "ACTIVE"
+  },
+  "lease": {
+    "endpoint_id": "ep-1",
+    "owner": "registry-1",
+    "expires_at": 500,
+    "epoch": 4,
+    "status": "HELD"
+  },
+  "health": {
+    "endpoint_id": "ep-1",
+    "status": "HEALTHY",
+    "latency_ms": 8.2,
+    "checked_at": 400
+  },
+  "probe": {
+    "endpoint_id": "ep-1",
+    "kind": "READINESS",
+    "interval_seconds": 10,
+    "timeout_seconds": 3
+  },
+  "metadata": {
+    "service_id": "svc-1",
+    "labels": {
+      "tier": "backend"
+    },
+    "attributes": {
+      "owner": "platform"
+    }
+  },
+  "discovery": {
+    "service_name": "workflow-service",
+    "version": "v1",
+    "region": "ap-south-1",
+    "zone": "zone-a",
+    "healthy_only": true
+  },
+  "draining": {
+    "endpoint_id": "ep-1",
+    "reason": "DECOMMISSION",
+    "deadline": 600,
+    "status": "DRAINING"
+  },
+  "registry_entry": {
+    "service": {
+      "service_id": "svc-1",
+      "name": "workflow-service",
+      "version": "v1",
+      "metadata": {
+        "team": "platform"
+      },
+      "region": "ap-south-1",
+      "zone": "zone-a",
+      "status": "REGISTERED"
+    },
+    "endpoint": {
+      "endpoint_id": "ep-1",
+      "address": "10.0.0.10",
+      "port": 8080,
+      "protocol": "HTTP",
+      "metadata": {
+        "weight": 100
+      },
+      "status": "ACTIVE"
+    },
+    "health_status": "HEALTHY"
+  },
+  "observability": {
+    "event_id": "reg-1",
+    "service_id": "svc-1",
+    "endpoint_id": "ep-1",
+    "operation": "REGISTER",
+    "status": "SUCCESS",
+    "region": "ap-south-1",
+    "zone": "zone-a"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "registered": true,
+    "endpoint_active": true,
+    "lease_valid": true,
+    "healthy": true,
+    "probe_valid": true,
+    "metadata_label": true,
+    "discovery_match": true,
+    "draining_blocks": true,
+    "discoverable": true,
+    "metric": {
+      "service_id": "svc-1",
+      "endpoint_id": "ep-1",
+      "operation": "REGISTER",
+      "status": "SUCCESS"
+    }
+  }
+}

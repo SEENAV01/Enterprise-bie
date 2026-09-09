@@ -1,0 +1,1 @@
+# BIE v6.16 — Secrets, Keys & Certificate Lifecycle\n\nSecret references, key metadata and rotation, certificate lifecycle, revocation, expiry checks, key-usage policies and secure material boundaries.\n

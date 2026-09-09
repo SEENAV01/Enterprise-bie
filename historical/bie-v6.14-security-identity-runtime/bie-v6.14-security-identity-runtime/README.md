@@ -1,0 +1,1 @@
+# BIE v6.14 — Security Enforcement & Identity Runtime\n\nAuthentication context, token validation contracts, service identity, authorization enforcement, tenant isolation, credential rotation and security audit events.\n

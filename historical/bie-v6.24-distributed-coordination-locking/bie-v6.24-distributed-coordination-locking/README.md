@@ -1,0 +1,1 @@
+# BIE v6.24 — Distributed Coordination & Locking\n\nLeases, fencing tokens, mutexes, leader election, quorum contracts, ownership epochs, failure detection and coordination observability.\n

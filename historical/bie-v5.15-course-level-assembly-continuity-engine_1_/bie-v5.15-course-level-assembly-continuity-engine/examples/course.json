@@ -1,0 +1,51 @@
+{
+  "course": {
+    "course_id": "physics-101",
+    "title": "Physics Fundamentals",
+    "global_style_id": "science-premium"
+  },
+  "chapters": [
+    {
+      "chapter_id": "c1",
+      "title": "Electricity",
+      "lesson_ids": [
+        "l1",
+        "l2"
+      ],
+      "order": 0
+    }
+  ],
+  "lessons": [
+    {
+      "lesson_id": "l1",
+      "title": "Charge",
+      "scene_ids": [
+        "s1"
+      ],
+      "order": 0
+    },
+    {
+      "lesson_id": "l2",
+      "title": "Current",
+      "scene_ids": [
+        "s2"
+      ],
+      "order": 1
+    }
+  ],
+  "lesson_durations": {
+    "l1": 900,
+    "l2": 1200
+  },
+  "continuity_contract": {
+    "global_style_id": "science-premium",
+    "asset_ids": [
+      "electron",
+      "wire"
+    ],
+    "motif_ids": [
+      "chapter-marker"
+    ],
+    "motion_language_id": "calm-science-v1"
+  }
+}

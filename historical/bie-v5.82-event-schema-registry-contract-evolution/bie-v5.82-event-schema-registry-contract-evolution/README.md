@@ -1,0 +1,1 @@
+# BIE v5.82 — Event Schema Registry, Contract Validation & Evolution\n\nVersioned event schemas, producer/consumer contracts, compatibility checks, migrations, deprecation and contract testing.\n

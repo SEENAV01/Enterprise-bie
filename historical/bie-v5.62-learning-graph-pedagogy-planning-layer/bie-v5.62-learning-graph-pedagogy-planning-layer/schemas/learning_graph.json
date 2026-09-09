@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "graph",
+    "target_objectives",
+    "concept_order",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.62"
+    },
+    "graph": {
+      "type": "object"
+    },
+    "target_objectives": {
+      "type": "array"
+    },
+    "concept_order": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

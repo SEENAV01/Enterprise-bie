@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "entity",
+    "repository",
+    "query",
+    "transaction",
+    "index",
+    "migration",
+    "archive_policy",
+    "lifecycle",
+    "consistency",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.18"
+    },
+    "entity": {
+      "type": "object"
+    },
+    "repository": {
+      "type": "object"
+    },
+    "query": {
+      "type": "object"
+    },
+    "transaction": {
+      "type": "object"
+    },
+    "index": {
+      "type": "object"
+    },
+    "migration": {
+      "type": "object"
+    },
+    "archive_policy": {
+      "type": "object"
+    },
+    "lifecycle": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

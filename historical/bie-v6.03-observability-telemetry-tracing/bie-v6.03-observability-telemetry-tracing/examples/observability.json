@@ -1,0 +1,52 @@
+{
+  "schema_version": "6.03",
+  "trace": {
+    "trace_id": "tr-42",
+    "root_span_id": "sp-1",
+    "operation": "create-video",
+    "service": "api",
+    "correlation_id": "req-42",
+    "workflow_id": "wf-42"
+  },
+  "span": {
+    "span_id": "sp-1",
+    "trace_id": "tr-42",
+    "parent_span_id": null,
+    "operation": "create-video",
+    "service": "api",
+    "start": 100,
+    "end": 125,
+    "status": "OK",
+    "attributes": {}
+  },
+  "propagation_context": {
+    "trace_id": "tr-42",
+    "span_id": "sp-1",
+    "correlation_id": "req-42",
+    "workflow_id": "wf-42"
+  },
+  "log": {
+    "timestamp": 100,
+    "level": "INFO",
+    "message": "create-video",
+    "service": "api",
+    "trace_id": "tr-42",
+    "span_id": "sp-1",
+    "correlation_id": "req-42",
+    "fields": {}
+  },
+  "metric": {
+    "name": "operation.started",
+    "value": 1,
+    "timestamp": 100,
+    "labels": {
+      "service": "api",
+      "operation": "create-video"
+    },
+    "unit": null
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

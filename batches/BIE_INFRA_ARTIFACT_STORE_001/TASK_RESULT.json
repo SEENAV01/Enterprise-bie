@@ -1,0 +1,17 @@
+{
+  "task_id": "BIE-INFRA-ARTIFACT-STORE-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "sha256_content_addressing": true,
+    "deduplication": true,
+    "immutable_registration": true,
+    "read_integrity_verification": true,
+    "run_stage_indexes": true,
+    "lineage_traversal": true,
+    "evidence_first_class": true,
+    "backend_neutral_boundary": true,
+    "corruption_fail_closed": true
+  },
+  "next_task": "BIE-INFRA-PERSIST-001",
+  "next_task_title": "Durable Run State & Artifact Catalog Persistence Contract"
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "6.32",
+  "logical_clock": {
+    "node_id": "node-a",
+    "counter": 4
+  },
+  "vector_clock": {
+    "node-a": 4,
+    "node-b": 2
+  },
+  "state_version": {
+    "value": {
+      "status": "READY"
+    },
+    "clock": {
+      "node-a": 4,
+      "node-b": 2
+    },
+    "writer": "node-a"
+  },
+  "conflict": {
+    "key": "k",
+    "left": {
+      "value": "A",
+      "clock": {
+        "a": 2
+      }
+    },
+    "right": {
+      "value": "B",
+      "clock": {
+        "b": 2
+      }
+    },
+    "reason": "CONCURRENT_WRITES",
+    "status": "DETECTED"
+  },
+  "merge_policy": {
+    "name": "MULTI_VALUE",
+    "resolver": null
+  },
+  "tombstone": {
+    "key": "old-key",
+    "clock": {
+      "a": 4
+    },
+    "reason": "DELETE",
+    "status": "TOMBSTONED"
+  },
+  "anti_entropy": {
+    "node_id": "a",
+    "peer_id": "b",
+    "cursor": null,
+    "status": "COMPLETED"
+  },
+  "reconciliation": {
+    "key": "k",
+    "left": {
+      "value": "A"
+    },
+    "right": {
+      "value": "B"
+    },
+    "action": "MERGE",
+    "status": "APPLIED"
+  },
+  "divergence": {
+    "key": "k",
+    "node_a": "a",
+    "node_b": "b",
+    "difference_count": 2,
+    "status": "DIVERGENT"
+  },
+  "consistency": {
+    "mode": "CAUSAL",
+    "read_repair": true
+  },
+  "observability": {
+    "event_id": "ce-1",
+    "key": "k",
+    "operation": "RECONCILE",
+    "status": "SUCCESS",
+    "divergence_count": 2,
+    "merge_count": 1
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "clock_incremented": true,
+    "vector_incremented": true,
+    "versioned": true,
+    "conflict_detected": true,
+    "merge_result": true,
+    "tombstoned": true,
+    "anti_entropy_complete": true,
+    "reconciliation_applied": true,
+    "divergent": true,
+    "causal_read": true,
+    "concurrent_versions": true,
+    "metric": {
+      "key": "k",
+      "operation": "RECONCILE",
+      "status": "SUCCESS",
+      "divergence_count": 2,
+      "merge_count": 1
+    }
+  }
+}

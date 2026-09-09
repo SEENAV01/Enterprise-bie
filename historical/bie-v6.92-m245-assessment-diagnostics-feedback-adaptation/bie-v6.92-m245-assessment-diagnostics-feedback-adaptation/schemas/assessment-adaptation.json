@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "questions",
+    "results",
+    "mastery",
+    "diagnostic_report",
+    "feedback",
+    "adaptation",
+    "assessment_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.92"
+    },
+    "questions": {
+      "type": "array"
+    },
+    "results": {
+      "type": "array"
+    },
+    "mastery": {
+      "type": "object"
+    },
+    "diagnostic_report": {
+      "type": "array"
+    },
+    "feedback": {
+      "type": "array"
+    },
+    "adaptation": {
+      "type": "array"
+    },
+    "assessment_gate": {
+      "type": "object"
+    }
+  }
+}

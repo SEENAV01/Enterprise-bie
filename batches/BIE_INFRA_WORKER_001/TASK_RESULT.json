@@ -1,0 +1,20 @@
+{
+  "task_id": "BIE-INFRA-WORKER-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "worker_capability_contract": true,
+    "stage_resource_requirement_contract": true,
+    "hard_capability_matching": true,
+    "cpu_memory_floors": true,
+    "gpu_vram_floors": true,
+    "concurrency_limits": true,
+    "health_filtering": true,
+    "affinity_ranking": true,
+    "deterministic_selection": true,
+    "capacity_reservation_release": true,
+    "sandbox_requirement": true,
+    "provider_neutral": true
+  },
+  "next_task": "BIE-INFRA-EXECUTOR-001",
+  "next_task_title": "Worker Executor Runtime, Heartbeat & Lease-Guarded Commit Adapter"
+}

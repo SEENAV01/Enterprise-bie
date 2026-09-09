@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lock",
+    "lease",
+    "ownership",
+    "singleton",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.01"
+    },
+    "lock": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "ownership": {
+      "type": "object"
+    },
+    "singleton": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

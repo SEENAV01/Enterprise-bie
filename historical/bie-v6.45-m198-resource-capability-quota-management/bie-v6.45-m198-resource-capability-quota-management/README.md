@@ -1,0 +1,1 @@
+# BIE v6.45 — Resource, Capability & Quota Management Layer\n\nResource identities, capabilities, capacity units, quotas, budgets, reservations, allocations, admission control, utilization, audit and observability.\n

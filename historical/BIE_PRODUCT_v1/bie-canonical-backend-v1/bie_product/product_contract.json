@@ -1,0 +1,10 @@
+{
+  "product": "BIE",
+  "version": "1.0.0",
+  "core": "canonical-m1-m300",
+  "input": {"document": ["pdf", "epub", "txt", "md"], "task": "book_to_video_code"},
+  "output_stages": ["source", "understanding", "book_structure", "knowledge", "lesson_plan", "script", "scene_plan", "scene_dsl", "remotion_project"],
+  "surfaces": ["http_api", "openai_agent_tool", "standalone_web_app"],
+  "model_provider": "replaceable",
+  "mp4_rendering": false
+}

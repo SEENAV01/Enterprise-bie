@@ -1,0 +1,1 @@
+# BIE v5.33 — Curriculum & Pedagogical Mapping Engine\n\nTransforms the knowledge graph into learning objectives, prerequisite ordering, teaching strategies, misconceptions, examples, practice and mastery checkpoints.\n

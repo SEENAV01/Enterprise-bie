@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "workflow",
+    "state_machine",
+    "transition",
+    "checkpoint",
+    "timer",
+    "wait",
+    "saga_step",
+    "cancellation",
+    "approval_gate",
+    "compensation_plan",
+    "deterministic_replay",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.12"
+    },
+    "workflow": {
+      "type": "object"
+    },
+    "state_machine": {
+      "type": "object"
+    },
+    "transition": {
+      "type": "object"
+    },
+    "checkpoint": {
+      "type": "object"
+    },
+    "timer": {
+      "type": "object"
+    },
+    "wait": {
+      "type": "object"
+    },
+    "saga_step": {
+      "type": "object"
+    },
+    "cancellation": {
+      "type": "object"
+    },
+    "approval_gate": {
+      "type": "object"
+    },
+    "compensation_plan": {
+      "type": "object"
+    },
+    "deterministic_replay": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

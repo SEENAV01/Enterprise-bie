@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "composition",
+    "captions",
+    "transitions",
+    "sync_points",
+    "render_profile",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.57"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "captions": {
+      "type": "array"
+    },
+    "transitions": {
+      "type": "array"
+    },
+    "sync_points": {
+      "type": "array"
+    },
+    "render_profile": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

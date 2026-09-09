@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lesson_id",
+    "concepts",
+    "lesson_plan",
+    "validation",
+    "objective_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.76"
+    },
+    "lesson_id": {
+      "type": "string"
+    },
+    "concepts": {
+      "type": "array"
+    },
+    "lesson_plan": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "objective_gate": {
+      "type": "object"
+    }
+  }
+}

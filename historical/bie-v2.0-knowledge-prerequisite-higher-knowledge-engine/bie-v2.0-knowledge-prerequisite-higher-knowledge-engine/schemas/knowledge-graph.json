@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "required": [
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "node_id",
+          "label",
+          "node_type",
+          "provenance",
+          "status",
+          "confidence"
+        ]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "target",
+          "relation",
+          "provenance",
+          "status",
+          "confidence"
+        ]
+      }
+    }
+  }
+}

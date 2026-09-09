@@ -1,0 +1,1 @@
+# BIE v6.20 — Search, Indexing & Retrieval\n\nSearch contracts, inverted/composite/vector/keyword index abstractions, filtering, ranking, faceting, cursor pagination, consistency, reindexing and query observability.\n

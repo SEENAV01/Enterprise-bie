@@ -1,0 +1,33 @@
+{
+  "scene_id": "electric-current-01",
+  "duration_seconds": 18.8,
+  "fps": 30,
+  "visual_refs": [
+    "current-flow-animation"
+  ],
+  "audio_ref": "narration-01",
+  "cues": [
+    {
+      "target_id": "particles",
+      "start": 0.0,
+      "end": 2.8
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "particles",
+      "kind": "vector"
+    }
+  ],
+  "animations": [
+    {
+      "target": "particles",
+      "property_name": "x",
+      "from": 0,
+      "to": 500,
+      "start": 0,
+      "end": 2.8,
+      "easing": "easeInOut"
+    }
+  ]
+}

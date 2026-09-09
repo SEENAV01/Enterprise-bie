@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "composition",
+    "composition_validation",
+    "asset_bindings",
+    "react_source",
+    "react_validation",
+    "render_job",
+    "render_validation",
+    "metadata",
+    "metadata_validation",
+    "compiler_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.00"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "composition_validation": {
+      "type": "object"
+    },
+    "asset_bindings": {
+      "type": "object"
+    },
+    "react_source": {
+      "type": "string"
+    },
+    "react_validation": {
+      "type": "object"
+    },
+    "render_job": {
+      "type": "object"
+    },
+    "render_validation": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "metadata_validation": {
+      "type": "object"
+    },
+    "compiler_gate": {
+      "type": "object"
+    }
+  }
+}

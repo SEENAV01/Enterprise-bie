@@ -1,0 +1,19 @@
+{
+  "name": "bie-v1.3-lesson-composer",
+  "private": true,
+  "scripts": {
+    "start": "remotion studio",
+    "render": "remotion render src/index.ts ElectricityMagnetismLesson out/electricity-magnetism.mp4",
+    "render:scene": "remotion render src/index.ts S08 out/S08.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "@remotion/media": "latest",
+    "remotion": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}

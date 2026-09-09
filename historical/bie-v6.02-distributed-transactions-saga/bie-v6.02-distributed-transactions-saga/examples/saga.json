@@ -1,0 +1,40 @@
+{
+  "schema_version": "6.02",
+  "saga": {
+    "saga_id": "s-42",
+    "workflow_id": "wf-42",
+    "steps": [
+      {
+        "step_id": "generate",
+        "action": "generate_video",
+        "compensation": "delete_draft",
+        "idempotency_key": "g-42",
+        "status": "PENDING"
+      },
+      {
+        "step_id": "publish",
+        "action": "publish_video",
+        "compensation": "unpublish_video",
+        "idempotency_key": "p-42",
+        "status": "PENDING"
+      }
+    ],
+    "consistency": "COMPENSATABLE",
+    "status": "STARTED"
+  },
+  "state": {
+    "saga_id": "s-42",
+    "status": "STARTED",
+    "completed_steps": [],
+    "failed_step": null
+  },
+  "consistency_policy": {
+    "mode": "COMPENSATABLE",
+    "allow_partial": false,
+    "compensation_required": true
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "script_units": [
+    {
+      "id": "u1",
+      "type": "DEFINITION",
+      "objective": "electric_current",
+      "text": "Electric current is the rate of flow of electric charge.",
+      "evidence_ids": [
+        "p12:t1"
+      ]
+    },
+    {
+      "id": "u2",
+      "type": "MECHANISM",
+      "objective": "electric_current",
+      "text": "Charge moves through a conducting path.",
+      "evidence_ids": [
+        "p12:i1"
+      ]
+    },
+    {
+      "id": "u3",
+      "type": "DERIVATION_STEP",
+      "objective": "current_formula",
+      "text": "I = Q/t",
+      "evidence_ids": [
+        "p13:eq1"
+      ]
+    },
+    {
+      "id": "u4",
+      "type": "QUESTION",
+      "objective": "electric_current",
+      "text": "What determines current?",
+      "evidence_ids": [
+        "p12:t1"
+      ]
+    }
+  ]
+}

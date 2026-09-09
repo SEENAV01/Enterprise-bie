@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "transaction",
+    "unit_of_work",
+    "read_write_set",
+    "prepare",
+    "commit",
+    "rollback",
+    "conflict",
+    "idempotency",
+    "savepoint",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.41"
+    },
+    "transaction": {
+      "type": "object"
+    },
+    "unit_of_work": {
+      "type": "object"
+    },
+    "read_write_set": {
+      "type": "object"
+    },
+    "prepare": {
+      "type": "object"
+    },
+    "commit": {
+      "type": "object"
+    },
+    "rollback": {
+      "type": "object"
+    },
+    "conflict": {
+      "type": "object"
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "savepoint": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "book_id",
+    "global_memory",
+    "dependency_graph",
+    "asset_cache",
+    "production_queue"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.0"
+    },
+    "book_id": {
+      "type": "string"
+    },
+    "global_memory": {
+      "type": "object"
+    },
+    "dependency_graph": {
+      "type": "object"
+    },
+    "asset_cache": {
+      "type": "object"
+    },
+    "production_queue": {
+      "type": "object"
+    }
+  }
+}

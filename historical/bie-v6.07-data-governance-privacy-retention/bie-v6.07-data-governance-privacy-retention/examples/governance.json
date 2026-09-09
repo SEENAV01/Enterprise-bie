@@ -1,0 +1,50 @@
+{
+  "schema_version": "6.07",
+  "classification": {
+    "label": "CONFIDENTIAL",
+    "owner": "tenant-a",
+    "reason": "workflow-artifact"
+  },
+  "privacy": {
+    "category": "GENERAL",
+    "contains_pii": false,
+    "special_handling": false
+  },
+  "retention": {
+    "policy_id": "default",
+    "duration_seconds": 2592000,
+    "action": "DELETE",
+    "legal_basis": null
+  },
+  "lineage": {
+    "resource_id": "artifact-42",
+    "parents": [
+      "input-1"
+    ],
+    "transformations": [
+      "render"
+    ]
+  },
+  "residency": {
+    "resource_id": "artifact-42",
+    "allowed_regions": [
+      "IN"
+    ],
+    "actual_region": "IN",
+    "compliant": true
+  },
+  "deletion": {
+    "resource_id": "artifact-42",
+    "requested_at": 0,
+    "reason": "RETENTION_EXPIRED",
+    "status": "PENDING"
+  },
+  "tenant": {
+    "resource_id": "artifact-42",
+    "tenant_id": "tenant-a"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

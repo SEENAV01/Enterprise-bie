@@ -1,0 +1,1 @@
+# BIE v6.11 — Distributed Data & State Consistency\n\nVersioned entities, optimistic concurrency, sequence numbers, version vectors, transactions, idempotent state transitions, consistency contracts, conflict resolution and reconciliation.\n

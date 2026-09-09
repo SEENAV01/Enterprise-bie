@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "curriculum",
+    "concept_order",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.20"
+    },
+    "curriculum": {
+      "type": "object"
+    },
+    "concept_order": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

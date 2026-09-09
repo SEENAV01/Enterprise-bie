@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Book IR",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "passages",
+    "units"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "passages": {
+      "type": "array"
+    },
+    "units": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# BIE v5.67 — Asset & Media Dependency Registry\n\nCanonical registry for source and generated assets, versions, hashes, provenance, transformations, relationships and impact analysis.\n

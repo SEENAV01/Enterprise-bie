@@ -1,0 +1,1 @@
+# BIE v5.73 — Secure Execution & Sandbox Runtime Contract\n\nDefines runtime resource limits, network/filesystem/process policies, artifact-only output, termination semantics and sandbox-to-worker promotion conditions.\n

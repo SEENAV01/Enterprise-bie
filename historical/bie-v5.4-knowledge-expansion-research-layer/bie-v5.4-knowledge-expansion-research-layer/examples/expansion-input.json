@@ -1,0 +1,48 @@
+{
+  "expansions": [
+    {
+      "expansion_id": "x1",
+      "source_claim_ids": [
+        "c1"
+      ],
+      "kind": "HIGHER_ORDER",
+      "title": "Continuity viewpoint",
+      "rationale": "Connect the source definition to a broader conservation framework.",
+      "evidence_ids": [],
+      "confidence": 0.5
+    },
+    {
+      "expansion_id": "x2",
+      "source_claim_ids": [
+        "c1"
+      ],
+      "kind": "MODERN_CONTEXT",
+      "title": "Modern measurement context",
+      "rationale": "Connect the basic concept to contemporary measurement practice.",
+      "evidence_ids": [],
+      "confidence": 0.3
+    }
+  ],
+  "research_results": {
+    "x1": {
+      "sources": [
+        {
+          "id": "s1",
+          "authority": 0.9,
+          "primary": true,
+          "recency_score": 0.9
+        }
+      ]
+    },
+    "x2": {
+      "sources": [
+        {
+          "id": "s2",
+          "authority": 0.8,
+          "primary": false,
+          "recency_score": 1.0
+        }
+      ]
+    }
+  }
+}

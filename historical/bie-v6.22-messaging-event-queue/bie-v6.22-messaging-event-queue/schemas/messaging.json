@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "topic",
+    "queue",
+    "event",
+    "command",
+    "consumer_group",
+    "delivery",
+    "retry",
+    "dead_letter",
+    "idempotency",
+    "schedule",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.22"
+    },
+    "topic": {
+      "type": "object"
+    },
+    "queue": {
+      "type": "object"
+    },
+    "event": {
+      "type": "object"
+    },
+    "command": {
+      "type": "object"
+    },
+    "consumer_group": {
+      "type": "object"
+    },
+    "delivery": {
+      "type": "object"
+    },
+    "retry": {
+      "type": "object"
+    },
+    "dead_letter": {
+      "type": "object"
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

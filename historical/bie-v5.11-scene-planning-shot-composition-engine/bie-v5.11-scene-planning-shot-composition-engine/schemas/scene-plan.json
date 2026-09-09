@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "shots",
+    "production_metadata",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.11"
+    },
+    "shots": {
+      "type": "array"
+    },
+    "transitions": {
+      "type": "array"
+    },
+    "production_metadata": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

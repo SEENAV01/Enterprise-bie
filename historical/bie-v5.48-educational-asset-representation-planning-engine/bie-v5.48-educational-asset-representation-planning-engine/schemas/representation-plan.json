@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "content_refs",
+    "objective_refs",
+    "pedagogical_intent",
+    "candidates",
+    "selected",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.48"
+    },
+    "content_refs": {
+      "type": "array"
+    },
+    "objective_refs": {
+      "type": "array"
+    },
+    "pedagogical_intent": {
+      "type": "object"
+    },
+    "candidates": {
+      "type": "array"
+    },
+    "ranked_candidates": {
+      "type": "array"
+    },
+    "selected": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

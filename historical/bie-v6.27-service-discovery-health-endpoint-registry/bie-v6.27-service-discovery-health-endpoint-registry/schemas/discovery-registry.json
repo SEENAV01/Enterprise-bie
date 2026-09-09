@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "service",
+    "endpoint",
+    "lease",
+    "health",
+    "probe",
+    "metadata",
+    "discovery",
+    "draining",
+    "registry_entry",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.27"
+    },
+    "service": {
+      "type": "object"
+    },
+    "endpoint": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "health": {
+      "type": "object"
+    },
+    "probe": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "discovery": {
+      "type": "object"
+    },
+    "draining": {
+      "type": "object"
+    },
+    "registry_entry": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "5.97",
+  "event": {
+    "event_id": "evt-42",
+    "event_type": "render.completed",
+    "payload": {
+      "artifact_id": "a17"
+    },
+    "producer": "render-worker",
+    "correlation_id": "wf-7",
+    "causation_id": "task-17",
+    "schema_version": "1"
+  },
+  "topic": {
+    "topic_id": "render-events",
+    "event_types": [
+      "render.completed"
+    ],
+    "partitions": 4,
+    "ordering": "PARTITION"
+  },
+  "publication": {
+    "topic_id": "render-events",
+    "partition": 0,
+    "offset": 12,
+    "event": {
+      "event_id": "evt-42"
+    },
+    "status": "PUBLISHED"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

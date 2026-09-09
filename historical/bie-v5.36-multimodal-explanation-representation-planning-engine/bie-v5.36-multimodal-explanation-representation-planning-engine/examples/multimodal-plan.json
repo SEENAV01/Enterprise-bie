@@ -1,0 +1,31 @@
+{
+  "units": [
+    {
+      "unit_id": "u1",
+      "representation_refs": [
+        "r1",
+        "r2"
+      ]
+    }
+  ],
+  "representations": [
+    {
+      "rep_id": "r1",
+      "rep_type": "NARRATION",
+      "purpose": "define"
+    },
+    {
+      "rep_id": "r2",
+      "rep_type": "DIAGRAM",
+      "purpose": "show spatial relation"
+    }
+  ],
+  "sync_items": [
+    {
+      "hook_id": "h1",
+      "target_id": "r2",
+      "trigger": "spoken_term",
+      "offset": 2.5
+    }
+  ]
+}

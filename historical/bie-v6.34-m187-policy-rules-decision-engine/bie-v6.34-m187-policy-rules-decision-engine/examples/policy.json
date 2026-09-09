@@ -1,0 +1,38 @@
+{
+  "schema_version": "6.34",
+  "policy": {
+    "policy_id": "p1",
+    "version": 1,
+    "mode": "BEST_MATCH",
+    "rules": [
+      {
+        "rule_id": "r1",
+        "priority": 10
+      },
+      {
+        "rule_id": "r2",
+        "priority": 5
+      }
+    ]
+  },
+  "decision": {
+    "policy_id": "p1",
+    "version": 1,
+    "decision": {
+      "action": "ALLOW"
+    },
+    "matches": [
+      {
+        "rule_id": "r1",
+        "matched": true,
+        "effect": {
+          "action": "ALLOW"
+        }
+      }
+    ]
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

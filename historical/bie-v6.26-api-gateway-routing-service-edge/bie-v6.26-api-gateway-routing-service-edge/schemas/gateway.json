@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "route",
+    "versioning",
+    "auth_handoff",
+    "rate_limit",
+    "transform",
+    "upstream",
+    "health",
+    "retry",
+    "circuit_breaker",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.26"
+    },
+    "route": {
+      "type": "object"
+    },
+    "versioning": {
+      "type": "object"
+    },
+    "auth_handoff": {
+      "type": "object"
+    },
+    "rate_limit": {
+      "type": "object"
+    },
+    "transform": {
+      "type": "object"
+    },
+    "upstream": {
+      "type": "object"
+    },
+    "health": {
+      "type": "object"
+    },
+    "retry": {
+      "type": "object"
+    },
+    "circuit_breaker": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

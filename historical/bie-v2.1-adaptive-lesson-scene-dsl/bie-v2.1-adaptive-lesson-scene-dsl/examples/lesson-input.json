@@ -1,0 +1,67 @@
+{
+  "graph": {
+    "nodes": [
+      {
+        "node_id": "C1",
+        "label": "Electric Current",
+        "node_type": "concept",
+        "provenance": [
+          "b2"
+        ],
+        "status": "SOURCE_DERIVED",
+        "confidence": 0.95
+      },
+      {
+        "node_id": "C2",
+        "label": "Ohm's Law",
+        "node_type": "law",
+        "provenance": [
+          "b5",
+          "eq1"
+        ],
+        "status": "SOURCE_DERIVED",
+        "confidence": 0.95
+      },
+      {
+        "node_id": "C3",
+        "label": "Electric Motor",
+        "node_type": "application",
+        "provenance": [
+          "b8"
+        ],
+        "status": "SOURCE_DERIVED",
+        "confidence": 0.9
+      }
+    ],
+    "edges": [
+      {
+        "source": "C1",
+        "target": "C2",
+        "relation": "prerequisite_of",
+        "status": "SOURCE_DERIVED",
+        "confidence": 0.9
+      },
+      {
+        "source": "C2",
+        "target": "C3",
+        "relation": "enables",
+        "status": "SOURCE_DERIVED",
+        "confidence": 0.85
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "text": "Electric current is the rate of flow of electric charge.",
+      "evidence_id": "b2"
+    },
+    {
+      "text": "Ohm's law gives the relationship between voltage, current and resistance.",
+      "evidence_id": "b5"
+    },
+    {
+      "text": "The motor is an application of electrical principles.",
+      "evidence_id": "b8"
+    }
+  ]
+}

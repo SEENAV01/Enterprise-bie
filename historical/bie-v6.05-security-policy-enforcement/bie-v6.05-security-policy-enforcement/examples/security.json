@@ -1,0 +1,82 @@
+{
+  "schema_version": "6.05",
+  "identity": {
+    "subject_id": "user-42",
+    "tenant_id": "tenant-a",
+    "identity_type": "USER",
+    "roles": [
+      "operator"
+    ],
+    "claims": {}
+  },
+  "authentication": {
+    "identity": {
+      "subject_id": "user-42",
+      "tenant_id": "tenant-a",
+      "identity_type": "USER",
+      "roles": [
+        "operator"
+      ],
+      "claims": {}
+    },
+    "authenticated_at": 100,
+    "method": "TOKEN",
+    "authenticated": true
+  },
+  "permission": {
+    "action": "workflow.read",
+    "resource": "workflow:42",
+    "effect": "ALLOW",
+    "conditions": {}
+  },
+  "role": {
+    "name": "operator",
+    "permissions": [
+      {
+        "action": "workflow.read",
+        "resource": "workflow:42",
+        "effect": "ALLOW",
+        "conditions": {}
+      }
+    ]
+  },
+  "policy": {
+    "policy_id": "default",
+    "version": 1,
+    "default_effect": "DENY",
+    "rules": []
+  },
+  "request": {
+    "subject": "user-42",
+    "tenant": "tenant-a",
+    "action": "workflow.read",
+    "resource": "workflow:42",
+    "context": {
+      "authenticated": true
+    }
+  },
+  "decision": {
+    "decision": "ALLOW",
+    "reason": "PERMISSION_MATCH"
+  },
+  "tenant_boundary": {
+    "subject_tenant": "tenant-a",
+    "resource_tenant": "tenant-a",
+    "same_tenant": true
+  },
+  "audit": {
+    "decision_id": "decision-1",
+    "subject": "user-42",
+    "tenant": "tenant-a",
+    "action": "workflow.read",
+    "resource": "workflow:42",
+    "decision": "ALLOW",
+    "policy_version": 1,
+    "timestamp": 100,
+    "reason": "PERMISSION_MATCH"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

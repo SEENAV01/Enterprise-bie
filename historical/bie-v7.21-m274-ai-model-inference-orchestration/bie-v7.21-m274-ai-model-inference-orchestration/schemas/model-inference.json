@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry",
+    "policy",
+    "routing",
+    "inference_job",
+    "cache",
+    "fallback",
+    "model_orchestration_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.21"
+    },
+    "registry": {
+      "type": "array"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "routing": {
+      "type": "object"
+    },
+    "inference_job": {
+      "type": "object"
+    },
+    "cache": {
+      "type": "object"
+    },
+    "fallback": {
+      "type": "object"
+    },
+    "model_orchestration_gate": {
+      "type": "object"
+    }
+  }
+}

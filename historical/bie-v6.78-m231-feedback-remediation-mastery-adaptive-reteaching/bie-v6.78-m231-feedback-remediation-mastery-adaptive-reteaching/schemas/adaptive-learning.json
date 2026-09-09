@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "results",
+    "feedback",
+    "overall_mastery",
+    "concept_mastery",
+    "remediation",
+    "adaptive_plan",
+    "mastery_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.78"
+    },
+    "results": {
+      "type": "array"
+    },
+    "feedback": {
+      "type": "array"
+    },
+    "overall_mastery": {
+      "type": "object"
+    },
+    "concept_mastery": {
+      "type": "object"
+    },
+    "remediation": {
+      "type": "object"
+    },
+    "adaptive_plan": {
+      "type": "array"
+    },
+    "mastery_gate": {
+      "type": "object"
+    }
+  }
+}

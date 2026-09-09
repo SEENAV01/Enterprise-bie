@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "modality_scores",
+    "correctness_checks",
+    "objectives",
+    "alignment_records",
+    "quality_report",
+    "remediation_signal",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.60"
+    },
+    "modality_scores": {
+      "type": "array"
+    },
+    "correctness_checks": {
+      "type": "array"
+    },
+    "objectives": {
+      "type": "array"
+    },
+    "alignment_records": {
+      "type": "array"
+    },
+    "quality_report": {
+      "type": "object"
+    },
+    "remediation_signal": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

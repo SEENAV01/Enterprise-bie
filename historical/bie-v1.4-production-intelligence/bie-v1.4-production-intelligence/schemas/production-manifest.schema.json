@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Production Manifest v1.4",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "lesson_id",
+    "units",
+    "dependency_graph",
+    "qc_policy",
+    "render_policy"
+  ],
+  "properties": {
+    "spec_version": {
+      "type": "string"
+    },
+    "lesson_id": {
+      "type": "string"
+    },
+    "units": {
+      "type": "array"
+    },
+    "dependency_graph": {
+      "type": "object"
+    },
+    "qc_policy": {
+      "type": "object"
+    },
+    "render_policy": {
+      "type": "object"
+    }
+  }
+}

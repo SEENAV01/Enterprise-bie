@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dag",
+    "ready",
+    "schedule",
+    "failed_job",
+    "idempotency",
+    "concurrency",
+    "queue_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.14"
+    },
+    "dag": {
+      "type": "object"
+    },
+    "ready": {
+      "type": "array"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "failed_job": {
+      "type": "object"
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "concurrency": {
+      "type": "object"
+    },
+    "queue_gate": {
+      "type": "object"
+    }
+  }
+}

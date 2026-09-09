@@ -1,0 +1,1 @@
+# BIE v6.06 — Secrets, Key Management & Cryptographic Material Lifecycle\n\nSecret references, key versions, rotation, lifecycle, revocation, cryptographic metadata, access policy and redaction boundaries.\n

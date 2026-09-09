@@ -1,0 +1,1 @@
+# BIE v6.12 — Workflow Orchestration & Long-Running Processes\n\nWorkflow state machines, checkpoints, timers, waits, Saga compensation, cancellation, pause/resume, approvals and deterministic replay inputs.\n

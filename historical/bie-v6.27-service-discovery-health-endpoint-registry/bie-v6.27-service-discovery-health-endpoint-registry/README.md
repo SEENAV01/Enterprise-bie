@@ -1,0 +1,1 @@
+# BIE v6.27 — Service Discovery, Health & Endpoint Registry\n\nService registration, endpoint leases, metadata, health probes, readiness/liveness/startup, discovery, draining and registry observability.\n

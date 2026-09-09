@@ -1,0 +1,1 @@
+# BIE-TOK-005 — Superscript intelligence\n\nDeterministic mathematical semantic infrastructure. Status: IMPLEMENTED, NOT ACCEPTED.\n\nAcceptance requires integrated real-book equation/math validation.\n

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "graph",
+    "relations",
+    "prerequisite_map",
+    "prerequisite_validation",
+    "curriculum_dependency",
+    "knowledge_graph_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.88"
+    },
+    "graph": {
+      "type": "object"
+    },
+    "relations": {
+      "type": "object"
+    },
+    "prerequisite_map": {
+      "type": "object"
+    },
+    "prerequisite_validation": {
+      "type": "object"
+    },
+    "curriculum_dependency": {
+      "type": "object"
+    },
+    "knowledge_graph_gate": {
+      "type": "object"
+    }
+  }
+}

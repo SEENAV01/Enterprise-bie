@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "config",
+    "valid",
+    "effective",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.99"
+    },
+    "config": {
+      "type": "object"
+    },
+    "valid": {
+      "type": "boolean"
+    },
+    "effective": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

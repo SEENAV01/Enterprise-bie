@@ -1,0 +1,1 @@
+# BIE v6.31 — Distributed Transactions & Exactly-Once Effects\n\nTransactional boundaries, idempotency, inbox/outbox, exactly-once effect contracts, compensation, recovery and observability.\n

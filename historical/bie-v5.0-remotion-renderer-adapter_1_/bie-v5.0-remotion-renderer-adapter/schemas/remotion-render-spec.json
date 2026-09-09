@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "renderer_spec",
+    "composition",
+    "render_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.0"
+    },
+    "renderer_spec": {
+      "type": "object"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "render_policy": {
+      "type": "object"
+    },
+    "audio": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

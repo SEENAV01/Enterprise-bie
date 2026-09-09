@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "scenes"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": "1.0"
+    },
+    "scenes": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "transaction",
+    "idempotency",
+    "inbox",
+    "outbox",
+    "effect",
+    "saga",
+    "compensation",
+    "recovery",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.31"
+    },
+    "transaction": {
+      "type": "object"
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "inbox": {
+      "type": "object"
+    },
+    "outbox": {
+      "type": "object"
+    },
+    "effect": {
+      "type": "object"
+    },
+    "saga": {
+      "type": "object"
+    },
+    "compensation": {
+      "type": "object"
+    },
+    "recovery": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

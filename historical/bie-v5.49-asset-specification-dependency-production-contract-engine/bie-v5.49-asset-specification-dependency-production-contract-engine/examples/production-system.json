@@ -1,0 +1,76 @@
+{
+  "assets": [
+    {
+      "asset_id": "lesson:field-diagram:v1",
+      "asset_type": "DIAGRAM",
+      "inputs": [
+        "fragment:f1"
+      ],
+      "outputs": [
+        "diagram:field-lines"
+      ],
+      "objective_refs": [
+        "o-field"
+      ]
+    },
+    {
+      "asset_id": "lesson:field-scene:v1",
+      "asset_type": "SCENE",
+      "inputs": [
+        "lesson:field-diagram:v1"
+      ],
+      "outputs": [
+        "scene:field"
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "contract_id": "c1",
+      "asset_ref": "lesson:field-diagram:v1",
+      "renderer_class": "2D_DIAGRAM",
+      "inputs": [
+        "fragment:f1"
+      ],
+      "outputs": [
+        "diagram:field-lines"
+      ],
+      "validation": [
+        "schema",
+        "geometry"
+      ]
+    },
+    {
+      "contract_id": "c2",
+      "asset_ref": "lesson:field-scene:v1",
+      "renderer_class": "2D_ANIMATION",
+      "inputs": [
+        "lesson:field-diagram:v1"
+      ],
+      "outputs": [
+        "scene:field"
+      ],
+      "timing": {
+        "duration": 120,
+        "fps": 30
+      },
+      "validation": [
+        "render",
+        "timing"
+      ]
+    }
+  ],
+  "dependency_graph": {
+    "nodes": [
+      "lesson:field-diagram:v1",
+      "lesson:field-scene:v1"
+    ],
+    "edges": [
+      {
+        "source_id": "lesson:field-scene:v1",
+        "target_id": "lesson:field-diagram:v1",
+        "kind": "REQUIRES"
+      }
+    ]
+  }
+}

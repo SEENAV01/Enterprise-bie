@@ -1,0 +1,1 @@
+# BIE v6.19 — Cache, Materialization & Read Optimization\n\nCache contracts, TTL, invalidation, consistency modes, read/write-through, materialized views, stampede protection and cache observability.\n

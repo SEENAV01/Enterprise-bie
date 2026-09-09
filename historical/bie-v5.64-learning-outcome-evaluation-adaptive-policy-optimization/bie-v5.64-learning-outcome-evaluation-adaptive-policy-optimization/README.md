@@ -1,0 +1,1 @@
+# BIE v5.64 — Learning Outcome Evaluation & Adaptive Policy Optimization\n\nEvaluates the observed effect of learning actions and provides evidence-gated signals for improving sequencing policies.\n

@@ -1,0 +1,1 @@
+# BIE v5.51 — Multi-Modal Renderer Orchestration & Backend Adapter Layer\n\nRoutes renderer-independent production contracts to compatible backends through capability matching and normalized adapters.\n

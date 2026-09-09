@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "logical_clock",
+    "vector_clock",
+    "state_version",
+    "conflict",
+    "merge_policy",
+    "tombstone",
+    "anti_entropy",
+    "reconciliation",
+    "divergence",
+    "consistency",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.32"
+    },
+    "logical_clock": {
+      "type": "object"
+    },
+    "vector_clock": {
+      "type": "object"
+    },
+    "state_version": {
+      "type": "object"
+    },
+    "conflict": {
+      "type": "object"
+    },
+    "merge_policy": {
+      "type": "object"
+    },
+    "tombstone": {
+      "type": "object"
+    },
+    "anti_entropy": {
+      "type": "object"
+    },
+    "reconciliation": {
+      "type": "object"
+    },
+    "divergence": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

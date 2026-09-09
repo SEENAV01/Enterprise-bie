@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "namespace",
+    "collection",
+    "record",
+    "blob",
+    "version",
+    "condition",
+    "transaction",
+    "snapshot",
+    "consistency",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.47"
+    },
+    "namespace": {
+      "type": "object"
+    },
+    "collection": {
+      "type": "object"
+    },
+    "record": {
+      "type": "object"
+    },
+    "blob": {
+      "type": "object"
+    },
+    "version": {
+      "type": "object"
+    },
+    "condition": {
+      "type": "object"
+    },
+    "transaction": {
+      "type": "object"
+    },
+    "snapshot": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

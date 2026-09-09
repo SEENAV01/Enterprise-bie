@@ -1,0 +1,171 @@
+{
+  "game_ir_version": "1.0.0",
+  "document_id": "game-coulomb-book-001",
+  "source_artifact_refs": [
+    "source:coulomb-law"
+  ],
+  "reasoning_decision_refs": [
+    "reason-game-coulomb-001"
+  ],
+  "experiences": [
+    {
+      "game_id": "coulomb-revision",
+      "title": "Coulomb Force Lab",
+      "revision_strategy": "prediction_then_observe + misconception testing",
+      "scoring_policy": {
+        "score_secondary_to_mastery": true
+      },
+      "mastery_policy": {
+        "threshold": 0.8,
+        "requires_without_hint_success": true
+      },
+      "telemetry_events": [
+        "attempt",
+        "hint_used",
+        "success",
+        "misconception_triggered"
+      ],
+      "compiler_capabilities": [
+        "simulation.two_charges",
+        "graph.xy"
+      ],
+      "levels": [
+        {
+          "level_id": "inverse-square",
+          "title": "Feel the inverse square",
+          "purpose": "Build intuition for F proportional to 1/r^2.",
+          "state_variables": [
+            {
+              "variable_id": "distance",
+              "value_type": "number",
+              "initial_value": 2.0,
+              "min_value": 0.5,
+              "max_value": 5.0,
+              "units": "m",
+              "semantic_role": "independent_variable"
+            },
+            {
+              "variable_id": "force",
+              "value_type": "number",
+              "initial_value": 2.25,
+              "min_value": 0.0,
+              "max_value": 100.0,
+              "units": "N",
+              "semantic_role": "dependent_variable"
+            }
+          ],
+          "manipulables": [
+            {
+              "object_id": "charge2",
+              "label": "Second charge",
+              "object_type": "electric_charge",
+              "bindings": {
+                "x": "distance"
+              },
+              "allowed_actions": [
+                "drag_x"
+              ],
+              "semantic_role": "distance_controller",
+              "properties": {},
+              "accessibility_label": "Draggable second charge controlling separation"
+            }
+          ],
+          "rules": [
+            {
+              "rule_id": "coulomb-force-update",
+              "trigger_expression": "distance changed",
+              "effects": [
+                {
+                  "target_variable_id": "force",
+                  "operation": "computed",
+                  "expression": "k*abs(q1*q2)/(distance^2)"
+                }
+              ],
+              "explanation": "Force follows the inverse-square relationship.",
+              "priority": 10,
+              "evidence_refs": [
+                "source:coulomb-law"
+              ],
+              "concept_refs": [
+                "concept:coulombs_law"
+              ]
+            }
+          ],
+          "challenges": [
+            {
+              "challenge_id": "halve-distance",
+              "title": "Predict then test",
+              "mission_prompt": "Predict what happens to force when distance is halved, then drag the charge to test it.",
+              "mechanic": "prediction_then_observe",
+              "success_condition": "distance\u22481.0 and prediction='4x'",
+              "allowed_actions": [
+                "select_prediction",
+                "drag_x"
+              ],
+              "hints": [
+                {
+                  "hint_id": "h1",
+                  "text": "Compare r\u00b2 before and after halving r.",
+                  "level": 1,
+                  "cost": 0.1
+                }
+              ],
+              "feedback": {
+                "success_message": "Correct: halving distance makes force four times larger.",
+                "failure_message": "Re-check the squared distance term.",
+                "misconception_messages": {
+                  "linear": "Force does not merely double because distance is squared in the denominator."
+                },
+                "explanation_artifact_refs": [
+                  "reason-math-coulomb-001"
+                ]
+              },
+              "mastery_weight": 1.0,
+              "difficulty": 0.5,
+              "concept_refs": [
+                "concept:coulombs_law"
+              ],
+              "prerequisite_refs": [],
+              "learning_objective_refs": [
+                "lo-inverse-square"
+              ],
+              "misconception_refs": [
+                "misc-linear-distance-force"
+              ],
+              "reasoning_decision_refs": [
+                "reason-game-coulomb-001"
+              ],
+              "source_artifact_refs": [
+                "source:coulomb-law"
+              ],
+              "failure_conditions": [
+                "prediction='2x'"
+              ],
+              "compiler_capabilities": [
+                "simulation.two_charges"
+              ]
+            }
+          ],
+          "adaptations": [
+            {
+              "adaptation_id": "remediate-linear",
+              "condition": "misconception_triggered('linear') twice",
+              "action": "remediate",
+              "target_id": "bridge-inverse-square",
+              "parameters": {}
+            }
+          ],
+          "reasoning_decision_refs": [
+            "reason-game-coulomb-001"
+          ],
+          "learning_objective_refs": [
+            "lo-inverse-square"
+          ],
+          "metadata": {}
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry",
+    "graph",
+    "rebuild_plan",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.58"
+    },
+    "registry": {
+      "type": "object"
+    },
+    "graph": {
+      "type": "object"
+    },
+    "rebuild_plan": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace",
+    "span",
+    "propagation_context",
+    "log",
+    "metric",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.03"
+    },
+    "trace": {
+      "type": "object"
+    },
+    "span": {
+      "type": "object"
+    },
+    "propagation_context": {
+      "type": "object"
+    },
+    "log": {
+      "type": "object"
+    },
+    "metric": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

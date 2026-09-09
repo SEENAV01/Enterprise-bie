@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "entity",
+    "update",
+    "sequence",
+    "version_vector",
+    "transaction",
+    "idempotent_transition",
+    "consistency",
+    "conflict",
+    "reconciliation",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.11"
+    },
+    "entity": {
+      "type": "object"
+    },
+    "update": {
+      "type": "object"
+    },
+    "sequence": {
+      "type": "object"
+    },
+    "version_vector": {
+      "type": "object"
+    },
+    "transaction": {
+      "type": "object"
+    },
+    "idempotent_transition": {
+      "type": "object"
+    },
+    "consistency": {
+      "type": "object"
+    },
+    "conflict": {
+      "type": "object"
+    },
+    "reconciliation": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

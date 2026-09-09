@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "units",
+    "script_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.4"
+    },
+    "units": {
+      "type": "array"
+    },
+    "script_policy": {
+      "type": "object"
+    }
+  }
+}

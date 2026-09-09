@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source",
+    "segments",
+    "evidence",
+    "concept",
+    "relationship",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.49"
+    },
+    "source": {
+      "type": "object"
+    },
+    "segments": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "concept": {
+      "type": "object"
+    },
+    "relationship": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

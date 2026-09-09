@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "classification",
+    "encryption",
+    "masking",
+    "tokenization",
+    "retention",
+    "privacy",
+    "handling",
+    "access_boundary",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.37"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "encryption": {
+      "type": "object"
+    },
+    "masking": {
+      "type": "object"
+    },
+    "tokenization": {
+      "type": "object"
+    },
+    "retention": {
+      "type": "object"
+    },
+    "privacy": {
+      "type": "object"
+    },
+    "handling": {
+      "type": "object"
+    },
+    "access_boundary": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "source_id": "physics-book-ch1",
+  "evidence": [
+    {
+      "evidence_id": "ev1",
+      "source_id": "physics-book-ch1",
+      "locator": "Chapter 1, paragraph 3",
+      "excerpt": "Current is the rate of flow of charge.",
+      "source_type": "BOOK"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "Current is the rate of flow of charge.",
+      "claim_type": "SOURCE_FACT",
+      "required": true,
+      "evidence_ids": [
+        "ev1"
+      ]
+    },
+    {
+      "claim_id": "c2",
+      "text": "We can visualize this as charge moving through a wire.",
+      "claim_type": "INSTRUCTIONAL_REPHRASE",
+      "required": true,
+      "evidence_ids": [
+        "ev1"
+      ],
+      "reasoning_notes": [
+        "Visual analogy derived from the source definition."
+      ]
+    }
+  ],
+  "video_elements": [
+    {
+      "element_id": "narration_01",
+      "element_type": "NARRATION",
+      "claim_ids": [
+        "c1",
+        "c2"
+      ],
+      "evidence_ids": [
+        "ev1"
+      ]
+    },
+    {
+      "element_id": "diagram_01",
+      "element_type": "DIAGRAM",
+      "claim_ids": [
+        "c2"
+      ],
+      "evidence_ids": [
+        "ev1"
+      ]
+    }
+  ]
+}

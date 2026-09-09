@@ -1,0 +1,1 @@
+# BIE v5.88 — Evaluation, Quality Gates & Automated Verification\n\nDeterministic checks, rubric evaluation, confidence, quality gates, regression detection, repair loops and release eligibility.\n

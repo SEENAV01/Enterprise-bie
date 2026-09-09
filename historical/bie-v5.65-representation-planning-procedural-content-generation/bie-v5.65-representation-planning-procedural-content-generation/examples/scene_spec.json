@@ -1,0 +1,33 @@
+{
+  "spec_id": "force-scene-01",
+  "concept_refs": [
+    "force"
+  ],
+  "modality": "animation",
+  "objective_refs": [
+    "explain-force"
+  ],
+  "fidelity": "HIGH",
+  "parameters": {
+    "duration_seconds": 20
+  },
+  "scene": {
+    "scene_id": "force-intro",
+    "semantic_refs": [
+      "force",
+      "mass",
+      "acceleration"
+    ],
+    "visual_elements": [
+      "object",
+      "force-vector"
+    ],
+    "actions": [
+      "apply-force",
+      "show-acceleration"
+    ],
+    "timing": {
+      "fps": 30
+    }
+  }
+}

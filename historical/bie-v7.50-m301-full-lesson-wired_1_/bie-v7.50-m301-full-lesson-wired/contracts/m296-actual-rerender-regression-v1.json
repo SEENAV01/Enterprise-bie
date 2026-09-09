@@ -1,0 +1,20 @@
+{
+  "version": "7.43",
+  "milestone": "M296",
+  "features": [
+    "remotion-regeneration",
+    "second-mp4-render",
+    "regression-decision"
+  ],
+  "decision_states": [
+    "accept",
+    "reject",
+    "review"
+  ],
+  "invariants": [
+    "A second render is successful only when a non-empty MP4 exists.",
+    "Regeneration failures are explicit.",
+    "Semantic mismatch after repair causes rejection.",
+    "Not-proven semantic QA never becomes an automatic accept."
+  ]
+}

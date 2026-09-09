@@ -1,0 +1,1 @@
+# BIE v6.03 — Observability, Telemetry & Distributed Tracing\n\nStructured logs, metrics, traces, spans, context propagation, worker telemetry, health signals and diagnostic context.\n

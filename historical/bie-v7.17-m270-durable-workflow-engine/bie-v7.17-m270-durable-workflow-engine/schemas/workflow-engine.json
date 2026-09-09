@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "definition",
+    "instance",
+    "persistence",
+    "resume",
+    "timeout",
+    "recovery",
+    "compensation",
+    "workflow_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.17"
+    },
+    "definition": {
+      "type": "object"
+    },
+    "instance": {
+      "type": "object"
+    },
+    "persistence": {
+      "type": "object"
+    },
+    "resume": {
+      "type": "object"
+    },
+    "timeout": {
+      "type": "object"
+    },
+    "recovery": {
+      "type": "object"
+    },
+    "compensation": {
+      "type": "array"
+    },
+    "workflow_gate": {
+      "type": "object"
+    }
+  }
+}

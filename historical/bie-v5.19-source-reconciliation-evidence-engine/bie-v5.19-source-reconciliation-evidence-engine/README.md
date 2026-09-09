@@ -1,0 +1,1 @@
+# BIE v5.19 — Source Reconciliation & Evidence Engine\n\nM63 extracts claim/evidence relationships, makes contradictions explicit, represents uncertainty, and produces evidence packets for downstream domain reasoning.\n

@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy",
+    "decision",
+    "ordered_rules",
+    "override",
+    "policy_version",
+    "trace",
+    "explanation",
+    "simulation",
+    "simulation_diff",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.34"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "decision": {
+      "type": "object"
+    },
+    "ordered_rules": {
+      "type": "array"
+    },
+    "override": {
+      "type": "object"
+    },
+    "policy_version": {
+      "type": "object"
+    },
+    "trace": {
+      "type": "object"
+    },
+    "explanation": {
+      "type": "object"
+    },
+    "simulation": {
+      "type": "array"
+    },
+    "simulation_diff": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

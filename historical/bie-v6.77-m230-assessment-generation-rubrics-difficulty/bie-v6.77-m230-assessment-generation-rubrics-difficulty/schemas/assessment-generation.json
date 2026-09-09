@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "items",
+    "rubrics",
+    "checks",
+    "evaluation_plan",
+    "coverage",
+    "assessment_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.77"
+    },
+    "items": {
+      "type": "array"
+    },
+    "rubrics": {
+      "type": "array"
+    },
+    "checks": {
+      "type": "object"
+    },
+    "evaluation_plan": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "assessment_gate": {
+      "type": "object"
+    }
+  }
+}

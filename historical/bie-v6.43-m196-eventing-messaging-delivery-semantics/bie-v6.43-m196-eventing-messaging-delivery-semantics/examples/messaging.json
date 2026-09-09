@@ -1,0 +1,25 @@
+{
+  "schema_version": "6.43",
+  "envelope": {
+    "event_id": "evt-1",
+    "event_type": "artifact.updated",
+    "payload": {
+      "artifact_id": "a-1"
+    },
+    "source": "artifact-service"
+  },
+  "topic": {
+    "topic_id": "topic-1",
+    "name": "artifact-events",
+    "partitions": 3,
+    "retention": "7d",
+    "status": "ACTIVE"
+  },
+  "delivery": {
+    "mode": "AT_LEAST_ONCE"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

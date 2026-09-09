@@ -1,0 +1,60 @@
+{
+  "scene_id": "electric-current-01",
+  "objects": [
+    {
+      "id": "title",
+      "kind": "TEXT",
+      "content": "Electric Current",
+      "role": "PRIMARY",
+      "width": 700,
+      "height": 100,
+      "semantic_importance": 1
+    },
+    {
+      "id": "equation",
+      "kind": "EQUATION",
+      "content": "I = \u0394Q/\u0394t",
+      "role": "PRIMARY",
+      "width": 600,
+      "height": 160,
+      "semantic_importance": 1
+    },
+    {
+      "id": "diagram",
+      "kind": "DIAGRAM",
+      "content": "charge flow",
+      "role": "SECONDARY",
+      "width": 800,
+      "height": 400,
+      "semantic_importance": 0.8
+    },
+    {
+      "id": "decoration",
+      "kind": "SHAPE",
+      "content": "background",
+      "role": "DECORATIVE",
+      "width": 500,
+      "height": 500
+    }
+  ],
+  "events": [
+    {
+      "event_id": "e1",
+      "frame": 30,
+      "end_frame": 90,
+      "object_id": "title"
+    },
+    {
+      "event_id": "e2",
+      "frame": 90,
+      "end_frame": 180,
+      "object_id": "equation"
+    },
+    {
+      "event_id": "e3",
+      "frame": 180,
+      "end_frame": 300,
+      "object_id": "diagram"
+    }
+  ]
+}

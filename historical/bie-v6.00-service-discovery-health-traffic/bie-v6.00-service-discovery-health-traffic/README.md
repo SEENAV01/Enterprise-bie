@@ -1,0 +1,1 @@
+# BIE v6.00 — Service Discovery, Health & Traffic Management\n\nService registry/discovery, health probes, readiness/liveness, health-aware routing, weights, circuit breakers, traffic draining and graceful degradation.\n

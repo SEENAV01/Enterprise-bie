@@ -1,0 +1,1 @@
+# BIE v5.41 — Speech, Audio, Caption & Multimodal Synchronization Engine\n\nRepresents narration, speech plans, actual word alignment, captions, audio cues and cross-modal synchronization anchors for deriving precise multimodal timing.\n

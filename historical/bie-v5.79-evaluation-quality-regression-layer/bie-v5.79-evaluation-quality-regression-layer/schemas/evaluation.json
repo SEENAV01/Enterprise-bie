@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "evaluation",
+    "promotion_gate",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.79"
+    },
+    "evaluation": {
+      "type": "object"
+    },
+    "promotion_gate": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

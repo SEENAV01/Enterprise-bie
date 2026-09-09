@@ -1,0 +1,1 @@
+# BIE v5.63 — Learner Model, Assessment & Mastery State Layer\n\nRepresents learner evidence, concept mastery with uncertainty, assessment results, remediation rules and adaptive-learning state.\n

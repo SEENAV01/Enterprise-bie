@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "learner_states",
+    "mastery",
+    "decisions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.34"
+    },
+    "learner_states": {
+      "type": "array"
+    },
+    "mastery": {
+      "type": "object"
+    },
+    "decisions": {
+      "type": "array"
+    },
+    "next_objective": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

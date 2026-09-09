@@ -1,0 +1,19 @@
+{
+  "event_id": "evt-1842-09",
+  "event_type": "VALIDATION_FAILED",
+  "timestamp": "2026-08-31T10:00:00Z",
+  "actor": "validation-worker",
+  "entity_ref": "lesson-video@3",
+  "correlation_id": "course-build-1842",
+  "previous_state": {
+    "status": "RENDERED"
+  },
+  "new_state": {
+    "status": "FAILED"
+  },
+  "evidence_refs": [
+    "check:timing-14"
+  ],
+  "build_id": "course-1842",
+  "policy_version": "verification@5.69"
+}

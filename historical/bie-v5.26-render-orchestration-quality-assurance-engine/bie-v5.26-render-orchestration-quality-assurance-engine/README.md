@@ -1,0 +1,1 @@
+# BIE v5.26 — Render Orchestration & Quality Assurance Engine\n\nM70 prepares render jobs, validates assets and timing, fingerprints builds for caching, supports retries/previews, and gates final output on QA.\n

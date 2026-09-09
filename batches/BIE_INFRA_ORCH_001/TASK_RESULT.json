@@ -1,0 +1,18 @@
+{
+  "task_id": "BIE-INFRA-ORCH-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "dependency_aware_scheduling": true,
+    "typed_executor_contract": true,
+    "artifact_handoff": true,
+    "success_requires_evidence": true,
+    "structured_failure_routing": true,
+    "unhandled_exception_fail_closed": true,
+    "retry_resume": true,
+    "idempotency_key": true,
+    "deterministic_scheduler": true,
+    "release_success_isolated": true
+  },
+  "next_task": "BIE-INFRA-ARTIFACT-STORE-001",
+  "next_task_title": "Content-Addressed Artifact & Evidence Store Contract"
+}

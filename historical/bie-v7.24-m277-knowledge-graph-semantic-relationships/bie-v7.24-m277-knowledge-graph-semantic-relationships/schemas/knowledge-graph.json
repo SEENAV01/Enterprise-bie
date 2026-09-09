@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "graph",
+    "entity_resolution",
+    "retrieval",
+    "provenance",
+    "knowledge_graph_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.24"
+    },
+    "graph": {
+      "type": "object"
+    },
+    "entity_resolution": {
+      "type": "object"
+    },
+    "retrieval": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "knowledge_graph_gate": {
+      "type": "object"
+    }
+  }
+}

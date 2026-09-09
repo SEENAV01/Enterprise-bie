@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "storyboard",
+    "visuals",
+    "narration_links",
+    "coverage",
+    "timeline",
+    "evidence",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.54"
+    },
+    "storyboard": {
+      "type": "object"
+    },
+    "visuals": {
+      "type": "array"
+    },
+    "narration_links": {
+      "type": "array"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

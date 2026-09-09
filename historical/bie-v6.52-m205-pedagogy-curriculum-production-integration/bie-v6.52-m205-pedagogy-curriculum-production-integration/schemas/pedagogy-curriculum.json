@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "objectives",
+    "strategies",
+    "assessments",
+    "units",
+    "lesson_plan",
+    "alignment",
+    "provenance",
+    "verification",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.52"
+    },
+    "objectives": {
+      "type": "array"
+    },
+    "strategies": {
+      "type": "array"
+    },
+    "assessments": {
+      "type": "array"
+    },
+    "units": {
+      "type": "array"
+    },
+    "lesson_plan": {
+      "type": "object"
+    },
+    "alignment": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

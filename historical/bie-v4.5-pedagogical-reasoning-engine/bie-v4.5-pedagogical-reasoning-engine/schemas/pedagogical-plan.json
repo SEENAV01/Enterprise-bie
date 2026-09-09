@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "importance",
+    "dependency_order",
+    "strategies",
+    "teaching_units"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.5"
+    },
+    "importance": {
+      "type": "array"
+    },
+    "dependency_order": {
+      "type": "object"
+    },
+    "strategies": {
+      "type": "array"
+    },
+    "teaching_units": {
+      "type": "array"
+    }
+  }
+}

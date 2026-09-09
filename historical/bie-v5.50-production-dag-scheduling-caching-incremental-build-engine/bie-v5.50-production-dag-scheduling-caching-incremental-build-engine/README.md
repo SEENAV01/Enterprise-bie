@@ -1,0 +1,1 @@
+# BIE v5.50 — Production DAG, Scheduling, Caching & Incremental Build Engine\n\nResolves production dependencies, schedules parallel work, computes stable build hashes, supports cache reuse and downstream invalidation, and produces resumable build manifests.\n

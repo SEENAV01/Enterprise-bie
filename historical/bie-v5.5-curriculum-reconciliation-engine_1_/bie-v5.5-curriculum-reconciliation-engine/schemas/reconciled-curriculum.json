@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "nodes",
+    "learning_order",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.5"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "prerequisite_edges": {
+      "type": "array"
+    },
+    "learning_order": {
+      "type": "array"
+    },
+    "conflicts": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "lesson_order",
+    "render_batches",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.27"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "lesson_order": {
+      "type": "array"
+    },
+    "render_batches": {
+      "type": "array"
+    },
+    "global_continuity": {
+      "type": "object"
+    },
+    "fingerprint": {
+      "type": "string"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

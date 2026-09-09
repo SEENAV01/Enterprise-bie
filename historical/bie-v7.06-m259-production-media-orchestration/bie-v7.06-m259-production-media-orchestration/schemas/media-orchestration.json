@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry",
+    "assets",
+    "deduplication",
+    "media_graph",
+    "graph_validation",
+    "cache_key",
+    "cache_before",
+    "cache_after",
+    "resolved_asset",
+    "media_orchestration_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.06"
+    },
+    "registry": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "deduplication": {
+      "type": "object"
+    },
+    "media_graph": {
+      "type": "object"
+    },
+    "graph_validation": {
+      "type": "object"
+    },
+    "cache_key": {
+      "type": "string"
+    },
+    "cache_before": {},
+    "cache_after": {
+      "type": "object"
+    },
+    "resolved_asset": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "media_orchestration_gate": {
+      "type": "object"
+    }
+  }
+}

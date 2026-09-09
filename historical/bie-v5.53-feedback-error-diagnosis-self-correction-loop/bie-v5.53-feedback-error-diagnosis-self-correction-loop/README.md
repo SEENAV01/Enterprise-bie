@@ -1,0 +1,1 @@
+# BIE v5.53 — Feedback, Error Diagnosis & Self-Correction Loop\n\nDiagnoses validation failures, maps them to likely upstream causes, selects targeted corrective actions, enforces iteration guards, and routes unresolved cases to human review.\n

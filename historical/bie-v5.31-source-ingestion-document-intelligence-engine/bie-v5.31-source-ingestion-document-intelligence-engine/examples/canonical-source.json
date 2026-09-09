@@ -1,0 +1,41 @@
+{
+  "schema_version": "5.31",
+  "document": {
+    "document_id": "book-01",
+    "source_uri": "book.pdf",
+    "media_type": "application/pdf"
+  },
+  "pages": [
+    {
+      "page_id": "p1",
+      "document_id": "book-01",
+      "page_number": 1
+    }
+  ],
+  "regions": [
+    {
+      "region_id": "r1",
+      "page_id": "p1",
+      "bbox": [
+        50,
+        80,
+        900,
+        180
+      ],
+      "region_type": "paragraph",
+      "reading_order": 1
+    }
+  ],
+  "blocks": [
+    {
+      "block_id": "b1",
+      "region_id": "r1",
+      "block_type": "TEXT",
+      "text": "Electric charge...",
+      "confidence": 0.98
+    }
+  ],
+  "tables": [],
+  "figures": [],
+  "formulas": []
+}

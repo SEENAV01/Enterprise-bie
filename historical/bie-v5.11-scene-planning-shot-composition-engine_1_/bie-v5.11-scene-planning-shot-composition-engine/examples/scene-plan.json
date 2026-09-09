@@ -1,0 +1,55 @@
+{
+  "objectives": [
+    {
+      "objective_id": "o1",
+      "statement": "Explain current as rate of charge flow."
+    }
+  ],
+  "narration_segments": [
+    {
+      "segment_id": "s1",
+      "purpose": "DEFINE",
+      "text": "Electric current is the rate of flow of charge.",
+      "timing": {
+        "start_frame": 0,
+        "end_frame": 270
+      }
+    },
+    {
+      "segment_id": "s2",
+      "purpose": "EXPLAIN",
+      "text": "More charge in the same time means a larger current.",
+      "timing": {
+        "start_frame": 270,
+        "end_frame": 570
+      }
+    }
+  ],
+  "visuals": [
+    {
+      "visual_id": "v1",
+      "narration_cues": [
+        "s1"
+      ]
+    },
+    {
+      "visual_id": "v2",
+      "narration_cues": [
+        "s2"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "charge",
+      "asset_type": "ICON",
+      "semantic_role": "charge"
+    }
+  ],
+  "style_bible": {
+    "style_id": "science-premium"
+  },
+  "grammar": {
+    "grammar_id": "edu-grammar-v1"
+  }
+}

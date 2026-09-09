@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "blocks",
+    "adapted_units",
+    "presentation_plan",
+    "assessment_plan",
+    "timing_requirements"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "4.6"
+    },
+    "blocks": {
+      "type": "array"
+    },
+    "adapted_units": {
+      "type": "array"
+    },
+    "presentation_plan": {
+      "type": "array"
+    },
+    "assessment_plan": {
+      "type": "array"
+    },
+    "timing_requirements": {
+      "type": "array"
+    }
+  }
+}

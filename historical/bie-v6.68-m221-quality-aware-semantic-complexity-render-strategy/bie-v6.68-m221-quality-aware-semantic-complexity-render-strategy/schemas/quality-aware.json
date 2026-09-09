@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "semantic_profile",
+    "complexity",
+    "quality_profile",
+    "quality_score",
+    "resource_request",
+    "render_strategy",
+    "quality_gate",
+    "quality_aware_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.68"
+    },
+    "semantic_profile": {
+      "type": "object"
+    },
+    "complexity": {
+      "type": "object"
+    },
+    "quality_profile": {
+      "type": "object"
+    },
+    "quality_score": {
+      "type": "number"
+    },
+    "resource_request": {
+      "type": "object"
+    },
+    "render_strategy": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "quality_aware_gate": {
+      "type": "object"
+    }
+  }
+}

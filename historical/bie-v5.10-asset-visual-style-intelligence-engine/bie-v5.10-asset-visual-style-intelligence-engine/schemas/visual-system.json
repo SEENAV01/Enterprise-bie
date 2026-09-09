@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "style_bible",
+    "visual_grammar",
+    "assets",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.10"
+    },
+    "style_bible": {
+      "type": "object"
+    },
+    "visual_grammar": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "scenes": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

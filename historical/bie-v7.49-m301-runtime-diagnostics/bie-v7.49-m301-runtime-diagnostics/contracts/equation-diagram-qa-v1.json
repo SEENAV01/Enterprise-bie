@@ -1,0 +1,16 @@
+{
+  "version": "7.40",
+  "equation_diagram_qa": "1.0",
+  "features": [
+    "equation-candidate-detection",
+    "scene-primitive-inspection",
+    "semantic-status",
+    "repair-plan"
+  ],
+  "invariants": [
+    "OCR does not prove equation correctness",
+    "A diagram primitive does not prove diagram correctness",
+    "Expected equation/diagram requirements must be grounded in upstream artifacts",
+    "Semantic status remains explicit until verified"
+  ]
+}

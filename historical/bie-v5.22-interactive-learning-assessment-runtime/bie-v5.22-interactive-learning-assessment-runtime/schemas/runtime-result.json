@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "question_id",
+    "runtime_result"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.22"
+    },
+    "question_id": {
+      "type": "string"
+    },
+    "runtime_result": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

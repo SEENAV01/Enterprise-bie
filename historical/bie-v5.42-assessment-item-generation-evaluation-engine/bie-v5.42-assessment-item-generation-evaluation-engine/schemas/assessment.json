@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "items",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.42"
+    },
+    "items": {
+      "type": "array"
+    },
+    "evaluation_rules": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

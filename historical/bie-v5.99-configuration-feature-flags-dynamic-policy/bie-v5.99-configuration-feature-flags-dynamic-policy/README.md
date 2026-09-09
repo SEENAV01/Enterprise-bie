@@ -1,0 +1,1 @@
+# BIE v5.99 — Configuration, Feature Flags & Dynamic Policy\n\nTyped configuration, environment overlays, feature flags, deterministic percentage rollout, kill switches, policy versioning, safe updates, rollback metadata and audit.\n

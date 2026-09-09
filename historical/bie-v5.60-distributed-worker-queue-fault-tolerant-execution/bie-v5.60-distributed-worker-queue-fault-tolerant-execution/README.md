@@ -1,0 +1,1 @@
+# BIE v5.60 — Distributed Worker, Queue & Fault-Tolerant Execution Layer\n\nAdds persistent queue state, worker registration, leases, retries, idempotency, checkpoints and crash recovery for large production builds.\n

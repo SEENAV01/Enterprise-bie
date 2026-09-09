@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "rules",
+    "decision",
+    "composition",
+    "configuration",
+    "feature_flag",
+    "rollout",
+    "validation",
+    "rollback",
+    "change_audit",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.15"
+    },
+    "rules": {
+      "type": "array"
+    },
+    "decision": {
+      "type": "object"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "configuration": {
+      "type": "object"
+    },
+    "feature_flag": {
+      "type": "object"
+    },
+    "rollout": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "rollback": {
+      "type": "object"
+    },
+    "change_audit": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

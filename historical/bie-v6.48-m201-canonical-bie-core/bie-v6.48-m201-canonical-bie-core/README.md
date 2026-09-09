@@ -1,0 +1,1 @@
+# BIE v6.48 — M201 Canonical BIE Core\n\nConsolidates the educational-video engine into one canonical stage contract, run envelope, artifact/lineage model, configuration profile, validation and observability boundary.\n

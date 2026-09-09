@@ -1,0 +1,56 @@
+{
+  "asset": {
+    "asset_id": "scene37",
+    "source_refs": [
+      "f37"
+    ],
+    "generated_refs": [
+      "gen37"
+    ],
+    "generated_label": "AI-generated additions"
+  },
+  "validation_contract": {
+    "contract_id": "v1",
+    "asset_ref": "scene37",
+    "checks": [
+      {
+        "check_id": "c-schema",
+        "kind": "SCHEMA"
+      },
+      {
+        "check_id": "c-provenance",
+        "kind": "PROVENANCE"
+      },
+      {
+        "check_id": "c-timing",
+        "kind": "TIMING"
+      }
+    ],
+    "acceptance": {
+      "required_checks": [
+        "c-schema",
+        "c-provenance",
+        "c-timing"
+      ],
+      "allow_review": true
+    }
+  },
+  "results": [
+    {
+      "check_id": "c-schema",
+      "status": "PASS"
+    },
+    {
+      "check_id": "c-provenance",
+      "status": "PASS"
+    },
+    {
+      "check_id": "c-timing",
+      "status": "PASS"
+    }
+  ],
+  "quality_gate": {
+    "status": "PASS",
+    "accepted": true
+  }
+}

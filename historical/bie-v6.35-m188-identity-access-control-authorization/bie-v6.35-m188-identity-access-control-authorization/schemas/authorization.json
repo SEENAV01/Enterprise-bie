@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "principal",
+    "service_identity",
+    "role",
+    "permission",
+    "scope",
+    "authorization",
+    "delegation",
+    "credential_boundary",
+    "audit",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.35"
+    },
+    "principal": {
+      "type": "object"
+    },
+    "service_identity": {
+      "type": "object"
+    },
+    "role": {
+      "type": "object"
+    },
+    "permission": {
+      "type": "object"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "authorization": {
+      "type": "object"
+    },
+    "delegation": {
+      "type": "object"
+    },
+    "credential_boundary": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

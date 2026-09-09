@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE M6 Lesson Plan",
+  "type": "object",
+  "required": [
+    "lesson_id",
+    "objective",
+    "sequence",
+    "assessment",
+    "mastery"
+  ],
+  "properties": {
+    "lesson_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "minimum": 1
+    },
+    "objective": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sequence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step_id",
+          "type",
+          "refs"
+        ]
+      }
+    },
+    "assessment": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "mastery": {
+      "type": "object"
+    }
+  }
+}

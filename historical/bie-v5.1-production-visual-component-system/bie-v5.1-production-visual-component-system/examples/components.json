@@ -1,0 +1,60 @@
+{
+  "components": [
+    {
+      "type": "EQUATION",
+      "expression": "P=VI",
+      "reveal_parts": [
+        "P",
+        "=",
+        "V",
+        "I"
+      ],
+      "highlight_parts": [
+        "P"
+      ]
+    },
+    {
+      "type": "PROCESS",
+      "steps": [
+        "Source",
+        "Potential difference",
+        "Current",
+        "Load"
+      ],
+      "current_step": 2
+    },
+    {
+      "type": "GRAPH",
+      "x": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "series": [
+        {
+          "name": "I",
+          "values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "x_label": "Time",
+      "y_label": "Current"
+    },
+    {
+      "type": "PARTICLES",
+      "count": 30,
+      "path": [
+        "wire_start",
+        "wire_end"
+      ],
+      "speed": 1.2,
+      "seed": 42,
+      "purpose": "show charge flow"
+    }
+  ]
+}

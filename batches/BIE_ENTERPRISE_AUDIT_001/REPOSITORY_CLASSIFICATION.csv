@@ -1,0 +1,44 @@
+path,decision,target_system,enterprise_action
+app/bie/canonical_pipeline.py,REFACTOR,INFRA/ORCH,"Preserve orchestration intent; replace M-stage hard wiring with typed artifact/state-machine orchestration, explicit reasoning/director/game branches, evidence-backed gates."
+app/bie/document_ingestor.py,REFACTOR,BI,"Keep useful ingestion/parsing logic; split into format adapters, OCR/layout/reading-order/figure/table/equation/provenance subsystems with quality/confidence contracts."
+app/bie/concept_understanding.py,REFACTOR,KI/PR,"Preserve useful extraction heuristics/models; separate concept, prerequisite, misconception, evidence and graph builders; remove domain/template assumptions."
+app/bie/lesson_planner.py,REPLACE,PED,Current fixed phases/base duration/one-concept-per-lesson assumptions conflict with adaptive lesson architecture. Retain only reusable helpers after tests.
+app/bie/script_compiler.py,REPLACE,DIR,Current fixed teacher/student personas and fixed hook->law->misconception->handoff structure must become director-plan-driven script generation.
+app/bie/scene_dsl.py,REPLACE,DSL/VIS,Current five-pane fixed composition is not a universal IR. Preserve any generic bbox utilities separately.
+app/bie/remotion_generator.py,REFACTOR,COMP,Preserve compiler boundary and caption generation ideas; replace universal BIELesson layout with registry-driven Scene-IR compiler and real project/build contracts.
+app/bie/game_generator.py,REPLACE,GAME,Current subject-keyword branching/generic physics fallback is not general revision intelligence. Replace with Game Director + Game IR + mechanic registry + compiler.
+app/bie/auto_repair_pipeline.py,REFACTOR,QA,Keep bounded repair concept and geometry utilities; expand from layout-only mutation to diagnosis routed to owning upstream layer and immutable QA gates.
+app/bie/m301_real_execution.py,REPLACE,QA/INFRA,Current runner uses synthetic in-memory textbook and certifies production-ready without actual render/runtime evidence; replace with benchmark/release runner.
+app/bie/EXECUTION_MANIFEST.json,DELETE/MOVE,QA/ARTIFACT,Generated execution artifact must not be authoritative source. Store in run artifact store/fixtures with hashes and evidence.
+app/bie/bie_core/models.py,REFACTOR,CONTRACTS,"Keep domain dataclass concepts where useful; evolve to versioned schemas/artifact envelopes for knowledge, reasoning, pedagogy, director, Scene IR, Game IR, QA evidence."
+app/bie/bie_core/contracts.py,REFACTOR,CONTRACTS/QA,Keep gate-enforcement concept; replace narrow validators with versioned schema + semantic invariants + release evidence gates.
+app/bie/domain_simulation_registry.js,REFACTOR,VIS/ANI/COMP,"Preserve registry idea; migrate to typed, versioned plugin registry with capability metadata, domains, validation, provenance and runtime compatibility."
+app/bie/engine/graph_traversal_engine.js,KEEP+REFACTOR,KI/PR/RE,"Graph traversal is foundational; put behind typed graph contracts and deterministic tests, separate traversal from pedagogical reasoning."
+app/bie/engine/interactive_game_engine.js,REFACTOR,GAME,Preserve runtime interaction primitives if generic; decouple from hard-coded game semantics and compile from Game IR.
+app/bie/engine/latex_ast_parser.js,KEEP+REFACTOR,BI/KI,"Useful deterministic math primitive; add robust AST schema, symbol/unit metadata, error recovery, equivalence/dimensional tests and provenance."
+app/bie/engine/layout_qa_engine.js,KEEP+REFACTOR,QA/VIS,"Keep deterministic geometry checks; generalize for responsive constraints, intentional overlap, typography, safe areas and rendered-frame evidence."
+app/bie/engine/render_cluster_manager.js,REFACTOR,INFRA/QA,"Retain render-dispatch concept; add job state, retries, idempotency, artifact hashes, resource limits, observability and actual render evidence."
+app/bie/generated_video_code/**,DELETE/MOVE,COMP/ARTIFACT,"Generated outputs should live in versioned run artifacts or golden fixtures, not normal source tree. Selected minimal golden fixtures may remain under tests/fixtures."
+app/bie/generated_game_code/**,DELETE/MOVE,GAME/ARTIFACT,Same policy as generated video outputs; runtime fixtures only when deliberately versioned.
+app/bie/tests/test_canonical_pipeline.py,REFACTOR/EXPAND,QA,"Retain as regression seed; replace generation-only success assertions with artifact lineage, build/render/runtime and failure-routing assertions."
+app/bie/tests/test_document_ingestor.py,KEEP+EXPAND,BI/QA,"Keep tests; add scanned/digital/mixed PDFs, reading order, tables, figures, equations, corruption and provenance golden cases."
+app/bie/tests/test_concept_understanding.py,KEEP+EXPAND,KI/QA,Keep tests; add multi-domain concept/relationship/evidence goldens and false-positive/uncertainty cases.
+app/bie/tests/test_lesson_planner.py,REPLACE/EXPAND,PED/QA,Existing tests encode current planner behavior; create adaptive pedagogy goldens and retain only contract-level reusable assertions.
+app/bie/tests/test_script_compiler.py,REPLACE/EXPAND,DIR/QA,"Shift from template-output tests to director-plan fidelity, pedagogy, continuity, timing and source-grounding tests."
+app/bie/tests/test_scene_dsl.py,REPLACE,DSL/QA,Rebuild around universal Scene IR schema/semantics/versioning rather than fixed layout.
+app/bie/tests/test_remotion_generator.py,REPLACE/EXPAND,COMP/QA,Require generated project compile and representative actual render tests.
+app/bie/tests/test_game_generator.py,REPLACE/EXPAND,GAME/QA,"Require Game IR validity, runtime interaction, mechanics correctness and learning-objective coverage."
+app/bie/**/__pycache__/**,DELETE,HYGIENE,Compiled Python cache must not be version-controlled.
+app/bie/tests/__pycache__/**,DELETE,HYGIENE,Compiled test cache must not be version-controlled.
+.pytest_cache/**,DELETE,HYGIENE,Local pytest cache must not be version-controlled.
+.github/workflows/ci.yml,REFACTOR,INFRA/QA,"Keep CI foundation; expand to Python/Node checks, schema validation, unit/integration/golden tests, Remotion compile/smoke render, game runtime tests and artifact retention."
+package.json,REFACTOR,INFRA,Current build points at m301 synthetic runner and has no dependencies; replace with workspace scripts for lint/test/build/render/evaluate/release.
+gemini_service.js,REPLACE/MERGE,INFRA/MODEL,Provider-specific service must become one adapter behind provider-neutral Model/Tool Gateway; no Gemini-specific assumptions in domain layers.
+server.js,REFACTOR/DECOMPOSE,INFRA/API,"Large monolithic server should be decomposed into API boundary, orchestration service, artifact/model adapters and job control; preserve compatible endpoints only after contract audit."
+metadata.json,REFACTOR,INFRA,Move product/runtime metadata into versioned configuration/schema; remove claims not backed by release evidence.
+architecture/enterprise_system_spec.md,MERGE/REPLACE,DOCS,Reconcile into authoritative BIE master spec; avoid competing architectural sources of truth.
+architecture/docker-compose.yml,KEEP+REFACTOR,INFRA,"Useful local infrastructure seed; align services with final stores/workers/gateways, health checks, secrets and pinned versions."
+architecture/api/openapi_spec.json,REFACTOR,INFRA/API,Keep API-contract approach; regenerate against final job/artifact/run/evaluation APIs with versioning and auth/error semantics.
+architecture/db/neo4j_schema.cypher,KEEP+REFACTOR,KI/PR,Graph DB schema is useful; align nodes/edges with versioned knowledge/prerequisite/evidence/reasoning contracts and migrations.
+architecture/db/postgres_schema.sql,KEEP+REFACTOR,INFRA,Relational state store useful; align with runs/tasks/artifacts/lineage/evaluations/models/config and migration discipline.
+architecture/workers/render_worker.py,REFACTOR,QA/INFRA,"Keep worker concept; require idempotent real render execution, sandboxing, logs, artifact hashes, retries and evidence."

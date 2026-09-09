@@ -1,0 +1,18 @@
+{
+  "version": "7.30",
+  "knowledge_ir": "1.0",
+  "features": [
+    "evidence_index",
+    "grounded_claims",
+    "conservative_entities",
+    "evidence_backed_relations",
+    "grounding_validation"
+  ],
+  "invariants": [
+    "Every claim references an existing source block",
+    "Relations reference existing claims as evidence",
+    "Co-occurrence is not represented as causal or semantic truth",
+    "Source wording is preserved in claims",
+    "Grounding failure blocks QA/publish"
+  ]
+}

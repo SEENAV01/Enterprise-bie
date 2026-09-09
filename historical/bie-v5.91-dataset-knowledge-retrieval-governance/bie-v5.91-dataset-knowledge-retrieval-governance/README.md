@@ -1,0 +1,1 @@
+# BIE v5.91 — Dataset, Knowledge & Retrieval Governance\n\nVersioned datasets, document/chunk identity, ingestion lineage, index and embedding versions, retrieval evidence, freshness, access constraints and knowledge snapshots.\n

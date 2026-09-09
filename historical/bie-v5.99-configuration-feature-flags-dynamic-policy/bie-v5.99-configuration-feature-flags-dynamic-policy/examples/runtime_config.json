@@ -1,0 +1,32 @@
+{
+  "schema_version": "5.99",
+  "config": {
+    "key": "renderer.v2",
+    "value": true,
+    "type": "boolean",
+    "source": "production",
+    "version": 3
+  },
+  "valid": true,
+  "overlay": {
+    "environment": "production",
+    "values": {
+      "renderer.v2": true
+    },
+    "priority": 0
+  },
+  "effective": {
+    "renderer.v2": true
+  },
+  "feature_flag": {
+    "flag_id": "renderer-v2",
+    "enabled": true,
+    "rollout": 25,
+    "version": 1,
+    "kill_switch": false
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contracts",
+    "backends",
+    "jobs",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.51"
+    },
+    "contracts": {
+      "type": "array"
+    },
+    "backends": {
+      "type": "array"
+    },
+    "jobs": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

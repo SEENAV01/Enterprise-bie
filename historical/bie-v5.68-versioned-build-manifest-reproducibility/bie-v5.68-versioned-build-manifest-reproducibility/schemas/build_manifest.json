@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest",
+    "manifest_digest",
+    "reproducibility",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.68"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "manifest_digest": {
+      "type": "string"
+    },
+    "reproducibility": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

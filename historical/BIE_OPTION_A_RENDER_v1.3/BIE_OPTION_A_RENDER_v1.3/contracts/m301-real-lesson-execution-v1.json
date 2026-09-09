@@ -1,0 +1,24 @@
+{
+  "version": "7.48",
+  "milestone": "M301",
+  "purpose": "Execute Lesson 1 against real runtime and produce a truthful acceptance record.",
+  "required_runtime": [
+    "node",
+    "npm",
+    "npx",
+    "ffmpeg",
+    "ffprobe",
+    "tesseract"
+  ],
+  "acceptance_requires": [
+    "real_mp4",
+    "frame_sampling",
+    "ocr",
+    "closed_loop_qa",
+    "qa_status_accepted"
+  ],
+  "non_claims": [
+    "Do not claim MP4 success when runtime is unavailable.",
+    "Do not claim acceptance without an actual accepted QA result."
+  ]
+}

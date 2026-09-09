@@ -1,0 +1,47 @@
+{
+  "task_id": "BIE-INFRA-CONTRACT-001",
+  "title": "Canonical Artifact Envelope and Lineage Contract",
+  "status": "READY",
+  "system": "INFRA",
+  "purpose": "Define the versioned envelope carried by every major BIE artifact so source, decisions, models/tools, configuration, parents, hashes and QA evidence remain traceable end-to-end.",
+  "dependencies": [
+    "BIE-INFRA-AUDIT-001"
+  ],
+  "input_contracts": [
+    "BIE_MASTER_SPEC",
+    "repository audit"
+  ],
+  "output_contracts": [
+    "ArtifactEnvelope schema",
+    "ArtifactRef schema",
+    "LineageEdge schema",
+    "RunContext schema",
+    "validation invariants",
+    "migration/version policy"
+  ],
+  "allowed_files": [
+    "docs/bie/**",
+    "app/bie/bie_core/**",
+    "tests/contracts/**"
+  ],
+  "forbidden_files": [
+    "pedagogy implementation",
+    "director implementation",
+    "Scene IR implementation",
+    "Game IR implementation",
+    "Remotion compiler implementation"
+  ],
+  "test_requirements": [
+    "schema positive/negative tests",
+    "hash/id stability tests",
+    "parent lineage tests",
+    "version compatibility tests",
+    "serialization round-trip tests"
+  ],
+  "acceptance_criteria": [
+    "No production artifact can exist without artifact_id,type,schema_version,run_id,created_at,content_hash,producer,parent_refs,provenance_summary.",
+    "Artifact lineage can trace any released video/game artifact to source evidence and generating decisions.",
+    "Contract is provider-neutral and framework-neutral.",
+    "Invalid/missing lineage is gate-failing, not warning-only."
+  ]
+}

@@ -1,0 +1,1 @@
+# BIE v6.47 — Storage, Persistence & State Backend Abstraction Layer\n\nKey/value records, blobs, collections, namespaces, versioning, conditional operations, transaction integration, snapshots, consistency and persistence observability.\n

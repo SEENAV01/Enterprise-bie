@@ -1,0 +1,1 @@
+# BIE v5.77 — Configuration, Versioning & Feature-Flag Layer\n\nImmutable configuration snapshots, deterministic digests, semantic versions, feature flags, experiment assignments and compatibility checks.\n

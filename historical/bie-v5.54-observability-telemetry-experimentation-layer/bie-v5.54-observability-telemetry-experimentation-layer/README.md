@@ -1,0 +1,1 @@
+# BIE v5.54 — Observability, Telemetry & Experimentation Layer\n\nProvides structured events, metrics, traces, cost/latency records, experiment definitions and privacy-oriented telemetry policy without coupling telemetry to educational semantics.\n

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "asset",
+    "validation_contract",
+    "results",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.52"
+    },
+    "asset": {
+      "type": "object"
+    },
+    "validation_contract": {
+      "type": "object"
+    },
+    "results": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,675 @@
+{
+  "book": "1. Electricity, Magnetism.pdf",
+  "pages": 10,
+  "source_grounded": true,
+  "units": [
+    {
+      "id": "U01",
+      "kind": "definition",
+      "topic": "Electric charge",
+      "question_types": [
+        "what",
+        "how_measure"
+      ],
+      "text": "Positive and negative electric charges; charge is expressed with q and measured in coulombs; q = ne is given.",
+      "source_refs": [
+        "p1:L16-L24"
+      ]
+    },
+    {
+      "id": "U02",
+      "kind": "definition",
+      "topic": "Electric field",
+      "question_types": [
+        "what",
+        "where"
+      ],
+      "text": "The source describes a small area around electric charges where their effect can be felt as the electric field.",
+      "source_refs": [
+        "p1:L18-L20"
+      ]
+    },
+    {
+      "id": "U03",
+      "kind": "classification",
+      "topic": "Conductors vs insulators",
+      "question_types": [
+        "what",
+        "why",
+        "comparison",
+        "examples"
+      ],
+      "text": "Conductors allow current and are described as having free mobile electrons; insulators are described as not allowing current because they lack free mobile electrons.",
+      "source_refs": [
+        "p1:L25-L30"
+      ]
+    },
+    {
+      "id": "U04",
+      "kind": "classification",
+      "topic": "Static vs current electricity",
+      "question_types": [
+        "what",
+        "comparison",
+        "example"
+      ],
+      "text": "Static electricity is described as charge developing without flow; current electricity as charge in motion.",
+      "source_refs": [
+        "p1:L31-L34",
+        "p2:L39-L40"
+      ]
+    },
+    {
+      "id": "U05",
+      "kind": "definition",
+      "topic": "Open and closed circuit",
+      "question_types": [
+        "what",
+        "when",
+        "cause_effect"
+      ],
+      "text": "An open circuit has a broken contact so current does not flow; a closed circuit provides a continuous path.",
+      "source_refs": [
+        "p2:L40-L45"
+      ]
+    },
+    {
+      "id": "U06",
+      "kind": "definition",
+      "topic": "Electric current",
+      "question_types": [
+        "what",
+        "how",
+        "formula",
+        "unit"
+      ],
+      "text": "Electric current is rate of flow of charge: I = Q/t; unit ampere; 1 A = 1 C/s.",
+      "source_refs": [
+        "p2:L46-L50"
+      ]
+    },
+    {
+      "id": "U07",
+      "kind": "instrument",
+      "topic": "Ammeter",
+      "question_types": [
+        "what",
+        "how",
+        "where"
+      ],
+      "text": "An ammeter measures current and is connected in series; the source explains this using its low resistance and constant series current.",
+      "source_refs": [
+        "p2:L49-L50"
+      ]
+    },
+    {
+      "id": "U08",
+      "kind": "definition",
+      "topic": "Potential difference",
+      "question_types": [
+        "what",
+        "how",
+        "formula",
+        "unit"
+      ],
+      "text": "Potential difference is described as work done in moving charge between two specified points: V = W/q; one volt corresponds to 1 J per C.",
+      "source_refs": [
+        "p3:L58-L63"
+      ]
+    },
+    {
+      "id": "U09",
+      "kind": "instrument",
+      "topic": "Voltmeter",
+      "question_types": [
+        "what",
+        "how",
+        "where",
+        "why"
+      ],
+      "text": "A voltmeter measures potential difference and is connected in parallel; the source attributes this to high resistance.",
+      "source_refs": [
+        "p3:L62-L65"
+      ]
+    },
+    {
+      "id": "U10",
+      "kind": "law",
+      "topic": "Ohm's law",
+      "question_types": [
+        "what",
+        "when",
+        "relationship",
+        "formula"
+      ],
+      "text": "At constant temperature, current is stated to be directly proportional to applied potential difference: V = IR.",
+      "source_refs": [
+        "p3:L66-L71"
+      ]
+    },
+    {
+      "id": "U11",
+      "kind": "definition",
+      "topic": "Resistance",
+      "question_types": [
+        "what",
+        "formula",
+        "unit"
+      ],
+      "text": "Resistance is described as obstruction to charge flow: R = V/I; 1 ohm permits 1 A for 1 V.",
+      "source_refs": [
+        "p3:L72-L75"
+      ]
+    },
+    {
+      "id": "U12",
+      "kind": "relationship",
+      "topic": "Factors affecting resistance",
+      "question_types": [
+        "what",
+        "why",
+        "how"
+      ],
+      "text": "The source relates resistance to length, cross-sectional area, material, and temperature, with longer wires and higher temperature described as increasing resistance and larger area decreasing it.",
+      "source_refs": [
+        "p3:L76-L81"
+      ]
+    },
+    {
+      "id": "U13",
+      "kind": "derivation",
+      "topic": "Resistivity",
+      "question_types": [
+        "what",
+        "how",
+        "formula",
+        "unit"
+      ],
+      "text": "Combining resistance factors gives R = rho L/A; resistivity is described as a material property and its SI unit as ohm-metre.",
+      "source_refs": [
+        "p4:L86-L90"
+      ]
+    },
+    {
+      "id": "U14",
+      "kind": "comparison",
+      "topic": "Series and parallel resistance",
+      "question_types": [
+        "what",
+        "how",
+        "comparison",
+        "formula",
+        "application"
+      ],
+      "text": "Series: current remains constant and R = R1 + R2 + ...; parallel: potential difference remains constant and reciprocal resistances add. Household circuits are stated to be parallel.",
+      "source_refs": [
+        "p4:L91-L99"
+      ]
+    },
+    {
+      "id": "U15",
+      "kind": "instrument",
+      "topic": "Rheostat and galvanometer",
+      "question_types": [
+        "what",
+        "how",
+        "use"
+      ],
+      "text": "A rheostat is variable resistance used to change current without changing the voltage source; a galvanometer measures very small current.",
+      "source_refs": [
+        "p4:L100-L102"
+      ]
+    },
+    {
+      "id": "U16",
+      "kind": "law",
+      "topic": "Joule heating",
+      "question_types": [
+        "what",
+        "why",
+        "how",
+        "formula",
+        "application"
+      ],
+      "text": "The source attributes heat production to collisions of moving electrons and gives H = I²RT; heating applications include iron, bulb, toaster and heater.",
+      "source_refs": [
+        "p4:L103-L104",
+        "p5:L109-L114"
+      ]
+    },
+    {
+      "id": "U17",
+      "kind": "application",
+      "topic": "Fuse and electrical safety",
+      "question_types": [
+        "what",
+        "why",
+        "how",
+        "cause_effect"
+      ],
+      "text": "A fuse interrupts excessive current; high resistivity and low melting point allow overheating to melt the fuse. Overloading and short circuiting are identified as causes of excessive current.",
+      "source_refs": [
+        "p5:L115-L123"
+      ]
+    },
+    {
+      "id": "U18",
+      "kind": "safety",
+      "topic": "Earthing",
+      "question_types": [
+        "what",
+        "why",
+        "how",
+        "application"
+      ],
+      "text": "Earthing connects an appliance's metallic body to earth through a thick copper wire; the earth is described as 0 potential and the earth wire as a safety wire.",
+      "source_refs": [
+        "p5:L124-L131"
+      ]
+    },
+    {
+      "id": "U19",
+      "kind": "comparison",
+      "topic": "DC vs AC",
+      "question_types": [
+        "what",
+        "comparison",
+        "application"
+      ],
+      "text": "DC is described as one-directional; AC periodically reverses direction and changes magnitude with time. The source states AC has advantages for long-distance transmission.",
+      "source_refs": [
+        "p6:L136-L138"
+      ]
+    },
+    {
+      "id": "U20",
+      "kind": "device",
+      "topic": "Rectifier, inverter, transformer",
+      "question_types": [
+        "what",
+        "how",
+        "conversion"
+      ],
+      "text": "Rectifier converts AC to DC; inverter converts DC to AC; transformer transfers AC electrical energy while stepping voltage up or down.",
+      "source_refs": [
+        "p6:L139-L144"
+      ]
+    },
+    {
+      "id": "U21",
+      "kind": "concept",
+      "topic": "Magnetic effect of current",
+      "question_types": [
+        "what",
+        "cause_effect"
+      ],
+      "text": "The source introduces magnetism produced by electricity and electricity produced by magnetism.",
+      "source_refs": [
+        "p6:L145-L145"
+      ]
+    },
+    {
+      "id": "U22",
+      "kind": "device",
+      "topic": "Electromagnet",
+      "question_types": [
+        "what",
+        "how",
+        "why",
+        "factors"
+      ],
+      "text": "An electromagnet uses a current-carrying coil around a soft iron core and loses magnetism when current is switched off. Strength is linked to coil turns, current and pole-gap length.",
+      "source_refs": [
+        "p6:L146-L149"
+      ]
+    },
+    {
+      "id": "U23",
+      "kind": "comparison",
+      "topic": "Soft iron vs steel in electromagnets",
+      "question_types": [
+        "why",
+        "comparison",
+        "application"
+      ],
+      "text": "The source says steel is unsuitable for an electromagnet because it retains magnetism after current is switched off.",
+      "source_refs": [
+        "p7:L154-L155"
+      ]
+    },
+    {
+      "id": "U24",
+      "kind": "comparison",
+      "topic": "Electric motor vs generator",
+      "question_types": [
+        "what",
+        "how",
+        "comparison",
+        "energy_conversion"
+      ],
+      "text": "The page compares a motor converting electrical to mechanical energy with a generator converting mechanical to electrical energy; the image/text links the motor to force on a current-carrying conductor and the generator to electromagnetic induction.",
+      "source_refs": [
+        "p7 image",
+        "p9:L213-L219"
+      ]
+    },
+    {
+      "id": "U25",
+      "kind": "definition",
+      "topic": "Magnet and magnetic field",
+      "question_types": [
+        "what",
+        "where",
+        "properties"
+      ],
+      "text": "A magnet attracts iron/steel; a freely suspended magnet aligns north-south; like poles repel and unlike poles attract; magnets are described as dipoles; a magnetic field is the region where magnetic effect is felt.",
+      "source_refs": [
+        "p9:L219-L223"
+      ]
+    },
+    {
+      "id": "U26",
+      "kind": "definition",
+      "topic": "Magnetic field lines",
+      "question_types": [
+        "what",
+        "how",
+        "why",
+        "properties"
+      ],
+      "text": "The source describes field lines as originating at north and terminating at south outside the magnet, being closer where the field is stronger, not intersecting, and forming closed continuous curves.",
+      "source_refs": [
+        "p10:L228-L229"
+      ]
+    },
+    {
+      "id": "U27",
+      "kind": "assessment",
+      "topic": "Numerical resistance problem",
+      "question_types": [
+        "application",
+        "calculation"
+      ],
+      "text": "The source asks for resistance of an electric iron drawing 4 A at 220 V.",
+      "source_refs": [
+        "p7:L158-L162"
+      ]
+    },
+    {
+      "id": "U28",
+      "kind": "assessment",
+      "topic": "Concept matching and statements",
+      "question_types": [
+        "what",
+        "comparison",
+        "classification"
+      ],
+      "text": "Pages 7-10 include MCQs, matching, statement questions and household AC/DC questions that test definitions, units, instruments, motor/generator, current direction and magnetic fields.",
+      "source_refs": [
+        "p7:L156-L174",
+        "p8:L182-L205",
+        "p9:L210-L223",
+        "p10:L230-L247"
+      ]
+    }
+  ],
+  "frontier": {
+    "backward": [
+      {
+        "topic": "Charge conservation and electron/proton model",
+        "reason": "Needed to ground current and charge-flow ideas more rigorously.",
+        "status": "EXTERNAL_EXTENSION"
+      },
+      {
+        "topic": "Electric potential energy and electric field as force per unit charge",
+        "reason": "Provides deeper foundation for the source's potential-difference and electric-field definitions.",
+        "status": "EXTERNAL_EXTENSION"
+      },
+      {
+        "topic": "Basic circuit conservation laws",
+        "reason": "Explains why current/voltage relations and circuit rules work.",
+        "status": "EXTERNAL_EXTENSION"
+      }
+    ],
+    "forward": [
+      {
+        "topic": "Kirchhoff's junction and loop laws",
+        "depends_on": [
+          "U06",
+          "U08",
+          "U11",
+          "U14"
+        ],
+        "reason": "Generalizes series/parallel analysis to complex circuits; derived from charge and energy conservation.",
+        "evidence": "OpenStax College Physics 2e, Kirchhoff's Rules",
+        "status": "VERIFIED_EXTERNAL"
+      },
+      {
+        "topic": "Capacitors and RC circuits",
+        "depends_on": [
+          "U08",
+          "U11",
+          "U06"
+        ],
+        "reason": "Extends potential difference/current/resistance into time-dependent circuit behavior.",
+        "status": "EXTERNAL_EXTENSION"
+      },
+      {
+        "topic": "Faraday's law and electromagnetic induction",
+        "depends_on": [
+          "U21",
+          "U24"
+        ],
+        "reason": "Formalizes the source's generator/electricity-from-magnetism idea.",
+        "evidence": "OpenStax Physics, Electromagnetic Induction",
+        "status": "VERIFIED_EXTERNAL"
+      },
+      {
+        "topic": "Ampere-Maxwell law and Maxwell equations",
+        "depends_on": [
+          "U02",
+          "U21",
+          "U25",
+          "U26"
+        ],
+        "reason": "Unifies electric and magnetic fields and adds changing-electric-field production of magnetic fields.",
+        "evidence": "OpenStax University Physics Vol. 2, Maxwell's Equations",
+        "status": "VERIFIED_EXTERNAL"
+      },
+      {
+        "topic": "Electromagnetic waves and light",
+        "depends_on": [
+          "U02",
+          "U21",
+          "U26",
+          "Maxwell equations"
+        ],
+        "reason": "Higher-level consequence of coupled changing electric and magnetic fields.",
+        "evidence": "OpenStax College Physics 2e, Maxwell's Equations",
+        "status": "VERIFIED_EXTERNAL"
+      },
+      {
+        "topic": "Lorentz force",
+        "depends_on": [
+          "U02",
+          "U21",
+          "U25"
+        ],
+        "reason": "Unifies electric and magnetic forces on moving charges.",
+        "evidence": "OpenStax University Physics Vol. 2",
+        "status": "VERIFIED_EXTERNAL"
+      }
+    ],
+    "application": [
+      {
+        "topic": "Power grids and transformers",
+        "depends_on": [
+          "U20",
+          "U14"
+        ],
+        "status": "APPLICATION_EXTENSION"
+      },
+      {
+        "topic": "Electric motors and generators",
+        "depends_on": [
+          "U21",
+          "U22",
+          "U24"
+        ],
+        "status": "SOURCE_APPLICATION"
+      },
+      {
+        "topic": "Household electrical safety",
+        "depends_on": [
+          "U17",
+          "U18",
+          "U14"
+        ],
+        "status": "SOURCE_APPLICATION"
+      },
+      {
+        "topic": "Electromagnetic technology",
+        "depends_on": [
+          "U21",
+          "U22",
+          "U24"
+        ],
+        "status": "APPLICATION_EXTENSION"
+      }
+    ]
+  },
+  "lesson_plan": {
+    "title": "Electricity & Magnetism — From Charge to Electromagnetism",
+    "modules": [
+      {
+        "id": "L1",
+        "title": "Charge, field and materials",
+        "units": [
+          "U01",
+          "U02",
+          "U03",
+          "U04"
+        ],
+        "visuals": [
+          "charge interaction",
+          "field region",
+          "conductor/insulator comparison"
+        ]
+      },
+      {
+        "id": "L2",
+        "title": "Circuits and current",
+        "units": [
+          "U05",
+          "U06",
+          "U07"
+        ],
+        "visuals": [
+          "open/closed circuit animation",
+          "charge-flow animation",
+          "ammeter placement"
+        ]
+      },
+      {
+        "id": "L3",
+        "title": "Potential, Ohm's law and resistance",
+        "units": [
+          "U08",
+          "U09",
+          "U10",
+          "U11",
+          "U12"
+        ],
+        "visuals": [
+          "potential landscape",
+          "V-I graph",
+          "resistance parameter animation"
+        ]
+      },
+      {
+        "id": "L4",
+        "title": "Resistivity and circuit combinations",
+        "units": [
+          "U13",
+          "U14",
+          "U15"
+        ],
+        "visuals": [
+          "R=rhoL/A parameter simulation",
+          "series vs parallel split-screen",
+          "rheostat animation"
+        ]
+      },
+      {
+        "id": "L5",
+        "title": "Heating and safety",
+        "units": [
+          "U16",
+          "U17",
+          "U18"
+        ],
+        "visuals": [
+          "electron-collision heating",
+          "fuse failure sequence",
+          "earthing safety path"
+        ]
+      },
+      {
+        "id": "L6",
+        "title": "AC/DC and electrical conversion",
+        "units": [
+          "U19",
+          "U20"
+        ],
+        "visuals": [
+          "AC/DC waveform",
+          "rectifier/inverter/transformer flow"
+        ]
+      },
+      {
+        "id": "L7",
+        "title": "Electricity → magnetism",
+        "units": [
+          "U21",
+          "U22",
+          "U23",
+          "U24"
+        ],
+        "visuals": [
+          "current-generated field",
+          "electromagnet strength simulation",
+          "motor/generator comparison"
+        ]
+      },
+      {
+        "id": "L8",
+        "title": "Magnetism and field lines",
+        "units": [
+          "U25",
+          "U26"
+        ],
+        "visuals": [
+          "magnetic poles",
+          "field-line simulation"
+        ]
+      },
+      {
+        "id": "L9",
+        "title": "Assessment and transfer",
+        "units": [
+          "U27",
+          "U28"
+        ],
+        "visuals": [
+          "worked numerical",
+          "adaptive questions"
+        ]
+      }
+    ]
+  },
+  "verification": {
+    "source_provenance": "100% of extracted units have page references",
+    "external_frontier": "Separated from book-internal claims",
+    "important_source_quality_note": "The document contains some compressed/ambiguous statements and at least one OCR/text ambiguity (for example the printed Ohm's-law line appears as 'V x I' while the same page gives V=IR). These should be flagged for human/source verification rather than silently corrected."
+  }
+}

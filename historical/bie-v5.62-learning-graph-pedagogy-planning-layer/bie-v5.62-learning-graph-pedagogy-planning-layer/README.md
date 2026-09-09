@@ -1,0 +1,1 @@
+# BIE v5.62 — Learning Graph & Pedagogical Planning Layer\n\nBuilds domain-agnostic learning graphs from semantic knowledge, with objectives, prerequisites, misconceptions, learning paths and pedagogical plans.\n

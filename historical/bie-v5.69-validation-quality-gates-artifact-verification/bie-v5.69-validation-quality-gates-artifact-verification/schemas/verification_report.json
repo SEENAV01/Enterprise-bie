@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "results",
+    "summary",
+    "gates",
+    "release_eligible"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.69"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "gates": {
+      "type": "array"
+    },
+    "release_eligible": {
+      "type": "boolean"
+    }
+  }
+}

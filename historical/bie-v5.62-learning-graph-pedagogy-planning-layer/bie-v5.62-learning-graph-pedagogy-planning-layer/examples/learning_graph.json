@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {
+      "concept_id": "vectors",
+      "label": "Vectors"
+    },
+    {
+      "concept_id": "force",
+      "label": "Force"
+    },
+    {
+      "concept_id": "newton2",
+      "label": "Newton's Second Law"
+    }
+  ],
+  "relations": [
+    {
+      "source": "vectors",
+      "target": "force",
+      "relation_type": "PREREQUISITE_OF"
+    },
+    {
+      "source": "force",
+      "target": "newton2",
+      "relation_type": "PREREQUISITE_OF"
+    }
+  ],
+  "target_objectives": [
+    "Explain and apply Newton's Second Law"
+  ]
+}

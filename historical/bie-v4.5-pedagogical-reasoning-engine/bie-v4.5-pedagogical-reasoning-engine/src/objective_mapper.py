@@ -1,0 +1,10 @@
+def map_objective(item):
+    d=item.get("dimension")
+    if d in ["WHAT","DEFINITION"]: return ("RECALL","Define or state")
+    if d=="WHY": return ("EXPLAIN","Explain why")
+    if d in ["HOW","PROCESS"]: return ("EXPLAIN","Explain how")
+    if d=="DERIVATION": return ("DERIVE","Derive step by step")
+    if d=="APPLICATION": return ("APPLY","Apply in context")
+    if d=="COMPARISON": return ("DISTINGUISH","Distinguish between")
+    if d in ["EXCEPTION","LIMITATION"]: return ("EVALUATE","Identify boundaries")
+    return ("UNDERSTAND","Demonstrate understanding")

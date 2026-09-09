@@ -1,0 +1,16 @@
+{
+  "version": "7.39",
+  "ocr_text_bbox": "1.0",
+  "features": [
+    "tesseract-ocr",
+    "word-bounding-boxes",
+    "confidence-analysis",
+    "qa-gate"
+  ],
+  "invariants": [
+    "OCR availability is explicit",
+    "Recognized words carry bounding boxes",
+    "OCR confidence is preserved",
+    "OCR failure blocks final visual QA"
+  ]
+}

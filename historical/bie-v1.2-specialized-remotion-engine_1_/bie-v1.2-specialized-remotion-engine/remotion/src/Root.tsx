@@ -1,0 +1,2 @@
+import React from "react"; import {Composition} from "remotion"; import data from "./data/electricity-magnetism.scene.json"; import type {SceneDSL} from "./types"; import {SceneComposition} from "./SceneComposition";
+const d=data as SceneDSL; export const Root=()=> <>{d.scenes.map(scene=><Composition key={scene.scene_id} id={scene.scene_id} component={()=> <SceneComposition scene={scene}/>} durationInFrames={scene.duration_frames} fps={30} width={1920} height={1080}/>)}</>;

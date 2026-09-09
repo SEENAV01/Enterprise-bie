@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "decision",
+    "risk"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.71"
+    },
+    "decision": {
+      "enum": [
+        "ALLOW",
+        "DENY",
+        "ESCALATE"
+      ]
+    },
+    "risk": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    }
+  }
+}

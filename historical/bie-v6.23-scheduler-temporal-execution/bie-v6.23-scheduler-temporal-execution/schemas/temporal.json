@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "schedule",
+    "recurrence",
+    "timer",
+    "delayed_job",
+    "misfire",
+    "lease",
+    "execution_window",
+    "cancellation",
+    "retry",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.23"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "recurrence": {
+      "type": "object"
+    },
+    "timer": {
+      "type": "object"
+    },
+    "delayed_job": {
+      "type": "object"
+    },
+    "misfire": {
+      "type": "object"
+    },
+    "lease": {
+      "type": "object"
+    },
+    "execution_window": {
+      "type": "object"
+    },
+    "cancellation": {
+      "type": "object"
+    },
+    "retry": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "required": [
+    "course_id",
+    "chapters",
+    "lessons",
+    "total_duration_frames"
+  ],
+  "properties": {
+    "course_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "chapters": {
+      "type": "array"
+    },
+    "lessons": {
+      "type": "array"
+    },
+    "total_duration_frames": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

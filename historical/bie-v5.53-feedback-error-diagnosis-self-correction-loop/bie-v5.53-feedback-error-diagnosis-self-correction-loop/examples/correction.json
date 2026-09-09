@@ -1,0 +1,33 @@
+{
+  "diagnosis": {
+    "diagnosis_id": "d1",
+    "check_ref": "visual-check",
+    "error_type": "REPRESENTATION",
+    "severity": "MAJOR",
+    "evidence": [
+      "diagram does not expose motion relationship"
+    ],
+    "likely_causes": [
+      "static_representation_inadequate"
+    ],
+    "confidence": 0.91
+  },
+  "causes": [
+    {
+      "cause_id": "c1",
+      "layer": "M92",
+      "cause": "Static representation inadequate",
+      "confidence": 0.91
+    }
+  ],
+  "correction_plan": {
+    "diagnosis_id": "d1",
+    "target_layer": "M92_REPRESENTATION_PLANNING",
+    "action_type": "CHANGE_REPRESENTATION"
+  },
+  "guard": {
+    "allowed": true,
+    "reason": null
+  },
+  "escalate": false
+}

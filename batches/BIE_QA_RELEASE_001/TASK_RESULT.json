@@ -1,0 +1,16 @@
+{
+  "task_id": "BIE-QA-RELEASE-001",
+  "status": "IMPLEMENTED",
+  "acceptance": {
+    "generation_only_success_impossible": true,
+    "required_gate_evidence": true,
+    "actual_video_compile_render_required_when_enabled": true,
+    "game_build_runtime_required_when_enabled": true,
+    "lineage_always_required": true,
+    "source_grounding_always_required": true,
+    "deterministic_release_decision": true,
+    "failure_routing": true,
+    "human_review_state": true
+  },
+  "next_task": "BIE-INFRA-EVAL-001"
+}

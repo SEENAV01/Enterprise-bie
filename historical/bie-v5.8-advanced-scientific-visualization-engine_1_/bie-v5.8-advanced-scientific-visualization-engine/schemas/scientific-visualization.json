@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.8"
+    },
+    "equations": {
+      "type": "array"
+    },
+    "derivations": {
+      "type": "array"
+    },
+    "graphs": {
+      "type": "array"
+    },
+    "vectors": {
+      "type": "array"
+    },
+    "fields": {
+      "type": "array"
+    },
+    "visual_semantics": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

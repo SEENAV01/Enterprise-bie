@@ -1,0 +1,62 @@
+{
+  "events": [
+    {
+      "event_id": "e1",
+      "event_type": "GENERATION",
+      "entity_refs": [
+        "scene37"
+      ],
+      "payload": {
+        "status": "SUCCESS"
+      }
+    },
+    {
+      "event_id": "e2",
+      "event_type": "VALIDATION",
+      "entity_refs": [
+        "scene37"
+      ],
+      "payload": {
+        "status": "FAIL"
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "metric_id": "m1",
+      "name": "validation_failure_rate",
+      "value": 0.5,
+      "unit": "ratio"
+    }
+  ],
+  "costs": [
+    {
+      "record_id": "c1",
+      "entity_ref": "scene37",
+      "currency": "USD",
+      "amount": 0.08,
+      "resource": "render"
+    }
+  ],
+  "latencies": [
+    {
+      "entity_ref": "scene37",
+      "duration_ms": 4200,
+      "stage": "render"
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "exp1",
+      "name": "representation-test",
+      "hypothesis": "interactive improves mastery",
+      "variants": [
+        "static",
+        "interactive"
+      ],
+      "metrics": [
+        "mastery"
+      ]
+    }
+  ]
+}

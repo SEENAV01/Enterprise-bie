@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ordered_beats",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.40"
+    },
+    "ordered_beats": {
+      "type": "array"
+    },
+    "timing_constraints": {
+      "type": "array"
+    },
+    "sync_events": {
+      "type": "array"
+    },
+    "pacing": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

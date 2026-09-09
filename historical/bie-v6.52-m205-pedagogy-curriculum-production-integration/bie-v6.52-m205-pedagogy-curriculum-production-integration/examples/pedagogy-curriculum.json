@@ -1,0 +1,50 @@
+{
+  "schema_version": "6.52",
+  "objectives": [
+    {
+      "objective_id": "obj-1",
+      "label": "Explain a concept",
+      "level": "UNDERSTAND"
+    }
+  ],
+  "strategies": [
+    {
+      "strategy_id": "str-1",
+      "name": "EXPLANATION",
+      "objective_ids": [
+        "obj-1"
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "assessment_id": "a-1",
+      "kind": "FORMATIVE",
+      "objective_ids": [
+        "obj-1"
+      ],
+      "success_criteria": [
+        "Correct explanation"
+      ]
+    }
+  ],
+  "lesson_plan": {
+    "lesson_id": "lesson-1",
+    "objective_ids": [
+      "obj-1"
+    ],
+    "strategy_ids": [
+      "str-1"
+    ],
+    "assessment_ids": [
+      "a-1"
+    ]
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

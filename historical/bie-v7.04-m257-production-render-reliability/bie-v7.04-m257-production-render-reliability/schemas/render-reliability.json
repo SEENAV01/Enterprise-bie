@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "queue",
+    "schedule",
+    "running_job",
+    "resume_command",
+    "cache_key",
+    "cache_before",
+    "cache_after",
+    "resume_available",
+    "reliability_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "7.04"
+    },
+    "queue": {
+      "type": "array"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "running_job": {
+      "type": "object"
+    },
+    "resume_command": {
+      "type": "object"
+    },
+    "cache_key": {
+      "type": "string"
+    },
+    "cache_before": {},
+    "cache_after": {
+      "type": "object"
+    },
+    "resume_available": {
+      "type": "boolean"
+    },
+    "reliability_gate": {
+      "type": "object"
+    }
+  }
+}

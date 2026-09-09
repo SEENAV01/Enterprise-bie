@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "classification",
+    "privacy",
+    "retention",
+    "lineage",
+    "residency",
+    "deletion",
+    "tenant",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.07"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "privacy": {
+      "type": "object"
+    },
+    "retention": {
+      "type": "object"
+    },
+    "lineage": {
+      "type": "object"
+    },
+    "residency": {
+      "type": "object"
+    },
+    "deletion": {
+      "type": "object"
+    },
+    "tenant": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

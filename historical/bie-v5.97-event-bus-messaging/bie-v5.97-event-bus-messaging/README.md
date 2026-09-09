@@ -1,0 +1,1 @@
+# BIE v5.97 — Event Bus & Inter-Service Messaging\n\nTyped events/commands, correlation and causation IDs, topics, subscriptions, acknowledgments, retries, idempotent consumption, dead letters, replay and partition ordering.\n

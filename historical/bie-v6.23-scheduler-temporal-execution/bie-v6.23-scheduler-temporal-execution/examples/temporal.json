@@ -1,0 +1,84 @@
+{
+  "schema_version": "6.23",
+  "schedule": {
+    "schedule_id": "sch-1",
+    "target_ref": "workflow:42",
+    "start_at": 100,
+    "timezone": "UTC",
+    "enabled": true
+  },
+  "recurrence": {
+    "frequency": "DAILY",
+    "interval": 1,
+    "count": 10,
+    "until": null
+  },
+  "timer": {
+    "timer_id": "timer-1",
+    "target_ref": "workflow:42",
+    "fire_at": 200,
+    "timezone": "UTC",
+    "status": "SCHEDULED"
+  },
+  "delayed_job": {
+    "job_id": "job-1",
+    "target_ref": "workflow:42",
+    "run_at": 300,
+    "attempt": 0,
+    "status": "SCHEDULED"
+  },
+  "misfire": {
+    "strategy": "COALESCE",
+    "grace_period": 60
+  },
+  "lease": {
+    "execution_id": "exec-1",
+    "owner": "worker-1",
+    "expires_at": 500,
+    "status": "HELD"
+  },
+  "execution_window": {
+    "start_at": 100,
+    "end_at": 600,
+    "timezone": "UTC"
+  },
+  "cancellation": {
+    "target_id": "job-1",
+    "reason": "user-request",
+    "status": "CANCELLED"
+  },
+  "retry": {
+    "max_attempts": 5,
+    "backoff": "EXPONENTIAL",
+    "initial_delay": 2
+  },
+  "observability": {
+    "event_id": "temporal-1",
+    "target_id": "job-1",
+    "operation": "EXECUTE",
+    "status": "STARTED",
+    "scheduled_at": 300,
+    "started_at": 300,
+    "latency_ms": 4.5
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  },
+  "checks": {
+    "schedule_active": true,
+    "recurrence_bounded": true,
+    "timer_due": true,
+    "job_ready": true,
+    "misfire_action": "COALESCE",
+    "lease_valid": true,
+    "lease_released": true,
+    "inside_window": true,
+    "cancelled": true,
+    "retry_delay": 8,
+    "metric": {
+      "status": "STARTED",
+      "latency_ms": 4.5
+    }
+  }
+}

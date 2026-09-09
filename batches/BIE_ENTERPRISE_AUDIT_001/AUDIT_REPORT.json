@@ -1,0 +1,266 @@
+{
+  "task_id": "BIE-INFRA-AUDIT-001",
+  "status": "QA_VERIFIED",
+  "classification_count": 43,
+  "decisions": [
+    {
+      "path": "app/bie/canonical_pipeline.py",
+      "decision": "REFACTOR",
+      "target_system": "INFRA/ORCH",
+      "action": "Preserve orchestration intent; replace M-stage hard wiring with typed artifact/state-machine orchestration, explicit reasoning/director/game branches, evidence-backed gates."
+    },
+    {
+      "path": "app/bie/document_ingestor.py",
+      "decision": "REFACTOR",
+      "target_system": "BI",
+      "action": "Keep useful ingestion/parsing logic; split into format adapters, OCR/layout/reading-order/figure/table/equation/provenance subsystems with quality/confidence contracts."
+    },
+    {
+      "path": "app/bie/concept_understanding.py",
+      "decision": "REFACTOR",
+      "target_system": "KI/PR",
+      "action": "Preserve useful extraction heuristics/models; separate concept, prerequisite, misconception, evidence and graph builders; remove domain/template assumptions."
+    },
+    {
+      "path": "app/bie/lesson_planner.py",
+      "decision": "REPLACE",
+      "target_system": "PED",
+      "action": "Current fixed phases/base duration/one-concept-per-lesson assumptions conflict with adaptive lesson architecture. Retain only reusable helpers after tests."
+    },
+    {
+      "path": "app/bie/script_compiler.py",
+      "decision": "REPLACE",
+      "target_system": "DIR",
+      "action": "Current fixed teacher/student personas and fixed hook->law->misconception->handoff structure must become director-plan-driven script generation."
+    },
+    {
+      "path": "app/bie/scene_dsl.py",
+      "decision": "REPLACE",
+      "target_system": "DSL/VIS",
+      "action": "Current five-pane fixed composition is not a universal IR. Preserve any generic bbox utilities separately."
+    },
+    {
+      "path": "app/bie/remotion_generator.py",
+      "decision": "REFACTOR",
+      "target_system": "COMP",
+      "action": "Preserve compiler boundary and caption generation ideas; replace universal BIELesson layout with registry-driven Scene-IR compiler and real project/build contracts."
+    },
+    {
+      "path": "app/bie/game_generator.py",
+      "decision": "REPLACE",
+      "target_system": "GAME",
+      "action": "Current subject-keyword branching/generic physics fallback is not general revision intelligence. Replace with Game Director + Game IR + mechanic registry + compiler."
+    },
+    {
+      "path": "app/bie/auto_repair_pipeline.py",
+      "decision": "REFACTOR",
+      "target_system": "QA",
+      "action": "Keep bounded repair concept and geometry utilities; expand from layout-only mutation to diagnosis routed to owning upstream layer and immutable QA gates."
+    },
+    {
+      "path": "app/bie/m301_real_execution.py",
+      "decision": "REPLACE",
+      "target_system": "QA/INFRA",
+      "action": "Current runner uses synthetic in-memory textbook and certifies production-ready without actual render/runtime evidence; replace with benchmark/release runner."
+    },
+    {
+      "path": "app/bie/EXECUTION_MANIFEST.json",
+      "decision": "DELETE/MOVE",
+      "target_system": "QA/ARTIFACT",
+      "action": "Generated execution artifact must not be authoritative source. Store in run artifact store/fixtures with hashes and evidence."
+    },
+    {
+      "path": "app/bie/bie_core/models.py",
+      "decision": "REFACTOR",
+      "target_system": "CONTRACTS",
+      "action": "Keep domain dataclass concepts where useful; evolve to versioned schemas/artifact envelopes for knowledge, reasoning, pedagogy, director, Scene IR, Game IR, QA evidence."
+    },
+    {
+      "path": "app/bie/bie_core/contracts.py",
+      "decision": "REFACTOR",
+      "target_system": "CONTRACTS/QA",
+      "action": "Keep gate-enforcement concept; replace narrow validators with versioned schema + semantic invariants + release evidence gates."
+    },
+    {
+      "path": "app/bie/domain_simulation_registry.js",
+      "decision": "REFACTOR",
+      "target_system": "VIS/ANI/COMP",
+      "action": "Preserve registry idea; migrate to typed, versioned plugin registry with capability metadata, domains, validation, provenance and runtime compatibility."
+    },
+    {
+      "path": "app/bie/engine/graph_traversal_engine.js",
+      "decision": "KEEP+REFACTOR",
+      "target_system": "KI/PR/RE",
+      "action": "Graph traversal is foundational; put behind typed graph contracts and deterministic tests, separate traversal from pedagogical reasoning."
+    },
+    {
+      "path": "app/bie/engine/interactive_game_engine.js",
+      "decision": "REFACTOR",
+      "target_system": "GAME",
+      "action": "Preserve runtime interaction primitives if generic; decouple from hard-coded game semantics and compile from Game IR."
+    },
+    {
+      "path": "app/bie/engine/latex_ast_parser.js",
+      "decision": "KEEP+REFACTOR",
+      "target_system": "BI/KI",
+      "action": "Useful deterministic math primitive; add robust AST schema, symbol/unit metadata, error recovery, equivalence/dimensional tests and provenance."
+    },
+    {
+      "path": "app/bie/engine/layout_qa_engine.js",
+      "decision": "KEEP+REFACTOR",
+      "target_system": "QA/VIS",
+      "action": "Keep deterministic geometry checks; generalize for responsive constraints, intentional overlap, typography, safe areas and rendered-frame evidence."
+    },
+    {
+      "path": "app/bie/engine/render_cluster_manager.js",
+      "decision": "REFACTOR",
+      "target_system": "INFRA/QA",
+      "action": "Retain render-dispatch concept; add job state, retries, idempotency, artifact hashes, resource limits, observability and actual render evidence."
+    },
+    {
+      "path": "app/bie/generated_video_code/**",
+      "decision": "DELETE/MOVE",
+      "target_system": "COMP/ARTIFACT",
+      "action": "Generated outputs should live in versioned run artifacts or golden fixtures, not normal source tree. Selected minimal golden fixtures may remain under tests/fixtures."
+    },
+    {
+      "path": "app/bie/generated_game_code/**",
+      "decision": "DELETE/MOVE",
+      "target_system": "GAME/ARTIFACT",
+      "action": "Same policy as generated video outputs; runtime fixtures only when deliberately versioned."
+    },
+    {
+      "path": "app/bie/tests/test_canonical_pipeline.py",
+      "decision": "REFACTOR/EXPAND",
+      "target_system": "QA",
+      "action": "Retain as regression seed; replace generation-only success assertions with artifact lineage, build/render/runtime and failure-routing assertions."
+    },
+    {
+      "path": "app/bie/tests/test_document_ingestor.py",
+      "decision": "KEEP+EXPAND",
+      "target_system": "BI/QA",
+      "action": "Keep tests; add scanned/digital/mixed PDFs, reading order, tables, figures, equations, corruption and provenance golden cases."
+    },
+    {
+      "path": "app/bie/tests/test_concept_understanding.py",
+      "decision": "KEEP+EXPAND",
+      "target_system": "KI/QA",
+      "action": "Keep tests; add multi-domain concept/relationship/evidence goldens and false-positive/uncertainty cases."
+    },
+    {
+      "path": "app/bie/tests/test_lesson_planner.py",
+      "decision": "REPLACE/EXPAND",
+      "target_system": "PED/QA",
+      "action": "Existing tests encode current planner behavior; create adaptive pedagogy goldens and retain only contract-level reusable assertions."
+    },
+    {
+      "path": "app/bie/tests/test_script_compiler.py",
+      "decision": "REPLACE/EXPAND",
+      "target_system": "DIR/QA",
+      "action": "Shift from template-output tests to director-plan fidelity, pedagogy, continuity, timing and source-grounding tests."
+    },
+    {
+      "path": "app/bie/tests/test_scene_dsl.py",
+      "decision": "REPLACE",
+      "target_system": "DSL/QA",
+      "action": "Rebuild around universal Scene IR schema/semantics/versioning rather than fixed layout."
+    },
+    {
+      "path": "app/bie/tests/test_remotion_generator.py",
+      "decision": "REPLACE/EXPAND",
+      "target_system": "COMP/QA",
+      "action": "Require generated project compile and representative actual render tests."
+    },
+    {
+      "path": "app/bie/tests/test_game_generator.py",
+      "decision": "REPLACE/EXPAND",
+      "target_system": "GAME/QA",
+      "action": "Require Game IR validity, runtime interaction, mechanics correctness and learning-objective coverage."
+    },
+    {
+      "path": "app/bie/**/__pycache__/**",
+      "decision": "DELETE",
+      "target_system": "HYGIENE",
+      "action": "Compiled Python cache must not be version-controlled."
+    },
+    {
+      "path": "app/bie/tests/__pycache__/**",
+      "decision": "DELETE",
+      "target_system": "HYGIENE",
+      "action": "Compiled test cache must not be version-controlled."
+    },
+    {
+      "path": ".pytest_cache/**",
+      "decision": "DELETE",
+      "target_system": "HYGIENE",
+      "action": "Local pytest cache must not be version-controlled."
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "decision": "REFACTOR",
+      "target_system": "INFRA/QA",
+      "action": "Keep CI foundation; expand to Python/Node checks, schema validation, unit/integration/golden tests, Remotion compile/smoke render, game runtime tests and artifact retention."
+    },
+    {
+      "path": "package.json",
+      "decision": "REFACTOR",
+      "target_system": "INFRA",
+      "action": "Current build points at m301 synthetic runner and has no dependencies; replace with workspace scripts for lint/test/build/render/evaluate/release."
+    },
+    {
+      "path": "gemini_service.js",
+      "decision": "REPLACE/MERGE",
+      "target_system": "INFRA/MODEL",
+      "action": "Provider-specific service must become one adapter behind provider-neutral Model/Tool Gateway; no Gemini-specific assumptions in domain layers."
+    },
+    {
+      "path": "server.js",
+      "decision": "REFACTOR/DECOMPOSE",
+      "target_system": "INFRA/API",
+      "action": "Large monolithic server should be decomposed into API boundary, orchestration service, artifact/model adapters and job control; preserve compatible endpoints only after contract audit."
+    },
+    {
+      "path": "metadata.json",
+      "decision": "REFACTOR",
+      "target_system": "INFRA",
+      "action": "Move product/runtime metadata into versioned configuration/schema; remove claims not backed by release evidence."
+    },
+    {
+      "path": "architecture/enterprise_system_spec.md",
+      "decision": "MERGE/REPLACE",
+      "target_system": "DOCS",
+      "action": "Reconcile into authoritative BIE master spec; avoid competing architectural sources of truth."
+    },
+    {
+      "path": "architecture/docker-compose.yml",
+      "decision": "KEEP+REFACTOR",
+      "target_system": "INFRA",
+      "action": "Useful local infrastructure seed; align services with final stores/workers/gateways, health checks, secrets and pinned versions."
+    },
+    {
+      "path": "architecture/api/openapi_spec.json",
+      "decision": "REFACTOR",
+      "target_system": "INFRA/API",
+      "action": "Keep API-contract approach; regenerate against final job/artifact/run/evaluation APIs with versioning and auth/error semantics."
+    },
+    {
+      "path": "architecture/db/neo4j_schema.cypher",
+      "decision": "KEEP+REFACTOR",
+      "target_system": "KI/PR",
+      "action": "Graph DB schema is useful; align nodes/edges with versioned knowledge/prerequisite/evidence/reasoning contracts and migrations."
+    },
+    {
+      "path": "architecture/db/postgres_schema.sql",
+      "decision": "KEEP+REFACTOR",
+      "target_system": "INFRA",
+      "action": "Relational state store useful; align with runs/tasks/artifacts/lineage/evaluations/models/config and migration discipline."
+    },
+    {
+      "path": "architecture/workers/render_worker.py",
+      "decision": "REFACTOR",
+      "target_system": "QA/INFRA",
+      "action": "Keep worker concept; require idempotent real render execution, sandboxing, logs, artifact hashes, retries and evidence."
+    }
+  ],
+  "next_task": "BIE-INFRA-CONTRACT-001"
+}

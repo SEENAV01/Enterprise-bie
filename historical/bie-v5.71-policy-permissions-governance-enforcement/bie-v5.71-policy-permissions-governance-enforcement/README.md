@@ -1,0 +1,1 @@
+# BIE v5.71 — Policy, Permissions & Governance Enforcement Layer\n\nExecutable authorization, risk classification, approvals, separation of duties and auditable governance decisions.\n

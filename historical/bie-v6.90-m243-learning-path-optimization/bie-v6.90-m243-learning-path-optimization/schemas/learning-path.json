@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "learning_path",
+    "optimization_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.90"
+    },
+    "learning_path": {
+      "type": "object"
+    },
+    "optimization_gate": {
+      "type": "object"
+    }
+  }
+}

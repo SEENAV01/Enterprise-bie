@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "scene_id",
+    "visual_type",
+    "actions",
+    "sync_strategy",
+    "audio_markers"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string"
+    },
+    "visual_type": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sync_strategy": {
+      "const": "MARKER_DRIVEN"
+    },
+    "audio_markers": {
+      "type": "array"
+    }
+  }
+}

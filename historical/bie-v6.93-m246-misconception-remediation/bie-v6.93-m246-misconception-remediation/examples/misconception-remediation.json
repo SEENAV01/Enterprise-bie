@@ -1,0 +1,34 @@
+{
+  "schema_version": "6.93",
+  "concept": "Electric Field",
+  "detected_misconceptions": [
+    {
+      "type": "UNIT_ERROR",
+      "count": 1,
+      "confidence": 0.5
+    }
+  ],
+  "hints": [
+    {
+      "error_type": "UNIT_ERROR"
+    }
+  ],
+  "remediation_plan": [
+    {
+      "action": "RETEACH_AND_PRACTICE",
+      "reassessment_required": true
+    }
+  ],
+  "reassessment": {
+    "mastery_before": 0.45,
+    "mastery_after": 0.78,
+    "passed": true
+  },
+  "mastery_loop": {
+    "closed": true,
+    "next_action": "PROGRESS"
+  },
+  "remediation_gate": {
+    "valid": true
+  }
+}

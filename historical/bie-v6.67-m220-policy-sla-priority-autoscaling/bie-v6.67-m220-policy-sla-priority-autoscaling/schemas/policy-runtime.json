@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy",
+    "jobs",
+    "slo",
+    "slo_compliance",
+    "decision",
+    "policy_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.67"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "jobs": {
+      "type": "array"
+    },
+    "slo": {
+      "type": "object"
+    },
+    "slo_compliance": {
+      "type": "object"
+    },
+    "decision": {
+      "type": "object"
+    },
+    "policy_gate": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "diagram",
+    "diagram_validation",
+    "equation",
+    "equation_step",
+    "equation_validation",
+    "animation_state",
+    "visual_step_validation",
+    "animation_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.96"
+    },
+    "diagram": {
+      "type": "object"
+    },
+    "diagram_validation": {
+      "type": "object"
+    },
+    "equation": {
+      "type": "object"
+    },
+    "equation_step": {
+      "type": "object"
+    },
+    "equation_validation": {
+      "type": "object"
+    },
+    "animation_state": {
+      "type": "object"
+    },
+    "visual_step_validation": {
+      "type": "object"
+    },
+    "animation_gate": {
+      "type": "object"
+    }
+  }
+}

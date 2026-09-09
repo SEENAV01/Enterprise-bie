@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "valid",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.73"
+    },
+    "valid": {
+      "type": "boolean"
+    },
+    "errors": {
+      "type": "array"
+    }
+  }
+}

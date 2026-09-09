@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dag",
+    "initial_ready",
+    "schedule",
+    "execution",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.93"
+    },
+    "dag": {
+      "type": "object"
+    },
+    "initial_ready": {
+      "type": "array"
+    },
+    "schedule": {
+      "type": "object"
+    },
+    "execution": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

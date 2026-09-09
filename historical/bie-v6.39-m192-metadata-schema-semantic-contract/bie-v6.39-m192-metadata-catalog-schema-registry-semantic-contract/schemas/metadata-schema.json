@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "metadata",
+    "schema",
+    "schema_version_record",
+    "compatibility",
+    "semantic_type",
+    "catalog",
+    "semantic_contract",
+    "governance",
+    "audit",
+    "observability",
+    "quality_gate",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.39"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "schema": {
+      "type": "object"
+    },
+    "schema_version_record": {
+      "type": "object"
+    },
+    "compatibility": {
+      "type": "object"
+    },
+    "semantic_type": {
+      "type": "object"
+    },
+    "catalog": {
+      "type": "object"
+    },
+    "semantic_contract": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object"
+    },
+    "quality_gate": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "6.57",
+  "composition": {
+    "composition_id": "composition-1",
+    "storyboard_id": "storyboard-1",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "captions": [
+    {
+      "caption_id": "c1",
+      "text": "Charge",
+      "start_sec": 0,
+      "end_sec": 3
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "t1",
+      "transition_type": "FADE",
+      "at_sec": 3
+    }
+  ],
+  "sync_points": [
+    {
+      "sync_id": "s1",
+      "scene_id": "sc1",
+      "narration_segment_id": "n1"
+    }
+  ],
+  "render_profile": {
+    "profile_id": "r1",
+    "format": "MP4",
+    "codec": "H264",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "verification": {
+    "status": "PASS"
+  },
+  "quality_gate": {
+    "valid": true,
+    "errors": []
+  }
+}

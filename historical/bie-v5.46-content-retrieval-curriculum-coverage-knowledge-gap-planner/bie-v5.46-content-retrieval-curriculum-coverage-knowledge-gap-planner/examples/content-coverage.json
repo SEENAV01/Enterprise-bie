@@ -1,0 +1,57 @@
+{
+  "sources": [
+    {
+      "source_id": "book1",
+      "source_type": "BOOK",
+      "title": "Physics Source"
+    }
+  ],
+  "fragments": [
+    {
+      "fragment_id": "f1",
+      "source_ref": "book1",
+      "text": "Electric field is defined as force per unit charge.",
+      "locator": {
+        "page": 42
+      },
+      "concept_refs": [
+        "electric_field"
+      ],
+      "objective_refs": [
+        "o-field"
+      ],
+      "provenance": {
+        "source_ref": "book1",
+        "locator": {
+          "page": 42
+        }
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "target_ref": "o-field",
+      "status": "COVERED",
+      "fragment_refs": [
+        "f1"
+      ],
+      "confidence": 0.94
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "g1",
+      "target_ref": "o-field",
+      "gap_type": "EXAMPLE_MISSING",
+      "status": "OPEN",
+      "priority": 0.7
+    }
+  ],
+  "next_actions": [
+    {
+      "target_ref": "o-field",
+      "action": "ADDRESS_GAP",
+      "gap_type": "EXAMPLE_MISSING"
+    }
+  ]
+}

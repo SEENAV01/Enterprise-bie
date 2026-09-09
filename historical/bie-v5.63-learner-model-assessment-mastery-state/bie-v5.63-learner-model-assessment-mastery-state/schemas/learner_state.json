@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mastery_state",
+    "status",
+    "recommended_remediation",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.63"
+    },
+    "mastery_state": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    },
+    "recommended_remediation": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

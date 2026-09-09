@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    "charge",
+    "current",
+    "voltage",
+    "resistance",
+    "ohms_law",
+    "circuit_analysis"
+  ],
+  "relationships": [
+    {
+      "source": "charge",
+      "target": "current",
+      "type": "PREREQUISITE",
+      "scope": "BOOK_STATED",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "p12:t1"
+      ]
+    },
+    {
+      "source": "current",
+      "target": "ohms_law",
+      "type": "PREREQUISITE",
+      "scope": "MODEL_INFERRED",
+      "confidence": 0.68,
+      "reason": "Understanding current is needed to interpret Ohm's law."
+    },
+    {
+      "source": "ohms_law",
+      "target": "circuit_analysis",
+      "type": "ADVANCED_EXTENSION",
+      "scope": "EXTERNAL_HIGHER_KNOWLEDGE",
+      "confidence": 0.58,
+      "reason": "Extends single-law reasoning into network analysis."
+    }
+  ]
+}

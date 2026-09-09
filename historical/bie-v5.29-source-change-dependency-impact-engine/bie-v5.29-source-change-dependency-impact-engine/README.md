@@ -1,0 +1,1 @@
+# BIE v5.29 — Source Change & Dependency Impact Analysis Engine\n\nM73 traces source changes through the educational/production dependency graph and creates a minimal safe regeneration plan.\n

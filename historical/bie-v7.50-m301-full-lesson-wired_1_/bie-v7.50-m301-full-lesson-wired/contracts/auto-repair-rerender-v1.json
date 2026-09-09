@@ -1,0 +1,16 @@
+{
+  "version": "7.42",
+  "auto_repair_rerender": "1.0",
+  "features": [
+    "grounded-patch-application",
+    "source-hash-before-after",
+    "repair-candidate-artifact",
+    "regression-comparison"
+  ],
+  "invariants": [
+    "Repairs may only use grounded expected content",
+    "Source hashes are recorded before and after candidate repair",
+    "No successful re-render is claimed without an actual second render",
+    "Regression comparison cannot be skipped when an after-render exists"
+  ]
+}

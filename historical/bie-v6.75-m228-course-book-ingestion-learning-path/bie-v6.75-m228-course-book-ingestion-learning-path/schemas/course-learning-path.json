@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source",
+    "structure",
+    "structure_validation",
+    "concepts",
+    "decomposition",
+    "concept_mapping",
+    "lessons",
+    "learning_path",
+    "learning_path_validation",
+    "learning_path_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "6.75"
+    },
+    "source": {
+      "type": "string"
+    },
+    "structure": {
+      "type": "object"
+    },
+    "structure_validation": {
+      "type": "object"
+    },
+    "concepts": {
+      "type": "array"
+    },
+    "decomposition": {
+      "type": "array"
+    },
+    "concept_mapping": {
+      "type": "array"
+    },
+    "lessons": {
+      "type": "array"
+    },
+    "learning_path": {
+      "type": "object"
+    },
+    "learning_path_validation": {
+      "type": "object"
+    },
+    "learning_path_gate": {
+      "type": "object"
+    }
+  }
+}

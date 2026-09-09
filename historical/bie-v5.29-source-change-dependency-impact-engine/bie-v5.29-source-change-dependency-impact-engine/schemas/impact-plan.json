@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "change_gate",
+    "impact",
+    "regeneration_plan",
+    "quality_gate"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.29"
+    },
+    "change_gate": {
+      "type": "object"
+    },
+    "impact": {
+      "type": "object"
+    },
+    "regeneration_plan": {
+      "type": "array"
+    },
+    "quality_gate": {
+      "type": "object"
+    }
+  }
+}

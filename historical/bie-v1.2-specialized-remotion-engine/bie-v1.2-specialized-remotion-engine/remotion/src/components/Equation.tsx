@@ -1,0 +1,2 @@
+import React from "react"; import {Easing,interpolate,useCurrentFrame} from "remotion";
+export const Equation:React.FC<{formula:string}>=({formula})=>{const f=useCurrentFrame();const scale=interpolate(f,[0,18],[.82,1],{extrapolateRight:"clamp",easing:Easing.bezier(.16,1,.3,1)});const opacity=interpolate(f,[0,12],[0,1],{extrapolateRight:"clamp"});return <div style={{fontSize:76,fontFamily:"serif",fontWeight:700,opacity,scale}}>{formula}</div>};
