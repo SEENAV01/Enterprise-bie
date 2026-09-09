@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.page_inventory import *
+from bie.document_intelligence.page_inventory import *
 class T(unittest.TestCase):
  def p(self,i=1):return PageRecord(i,str(i),600,800,True,0)
  def test_ok(self):self.assertEqual(len(validate_pages([self.p()])),1)

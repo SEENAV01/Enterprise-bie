@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.adversarial_document_benchmark import *
+from bie.document_intelligence.adversarial_document_benchmark import *
 class T(unittest.TestCase):
  def test_contract(self):
   cases=[{"id":x,"category":x,"score":.95} for x in REQUIRED]

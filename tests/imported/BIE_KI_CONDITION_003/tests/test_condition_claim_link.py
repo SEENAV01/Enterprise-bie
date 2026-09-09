@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.condition_claim_link import *
+from bie.knowledge_intelligence.condition_claim_link import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(link("k","c","VALID_WHEN",["p"])["role"],"VALID_WHEN")

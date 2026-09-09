@@ -1,5 +1,5 @@
 import unittest
-from context_inheritance import *
+from bie.knowledge_intelligence.context_inheritance import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(resolve("x","y","z")["source"],"LOCAL")

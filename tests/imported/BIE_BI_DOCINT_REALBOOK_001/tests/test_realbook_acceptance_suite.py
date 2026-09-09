@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.realbook_acceptance_suite import *
+from bie.document_intelligence.realbook_acceptance_suite import *
 class T(unittest.TestCase):
  def test_contract(self):
   books=[{"id":d,"domain":d,"source_hash":"a"*64,"gates":{g:True for g in GATES}} for d in REQUIRED]

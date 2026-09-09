@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.equation_semantics import *
+from bie.math_intelligence.equation_semantics import *
 class T(unittest.TestCase):
  def test_fma(self):
   s=infer_semantics(["F"],["m","a"]);self.assertEqual((s.dependent,s.independent),(("F",),("a","m")))

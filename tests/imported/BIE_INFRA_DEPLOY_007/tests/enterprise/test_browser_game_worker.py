@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.browser_game_worker import *
+from bie.infrastructure.browser_game_worker import *
 class T(unittest.TestCase):
  def m(self):return {"tools":["node","chromium","playwright"],"network_default":"deny","sandbox":True}
  def test_ok(self):self.assertTrue(validate_manifest(self.m()))

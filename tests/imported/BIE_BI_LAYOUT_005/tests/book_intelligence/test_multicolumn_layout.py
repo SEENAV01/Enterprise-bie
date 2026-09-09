@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.multicolumn_layout import *
+from bie.document_intelligence.multicolumn_layout import *
 class T(unittest.TestCase):
  def test_two(self):
   r=[{"id":"a","kind":"text","box":(0,0,40,10)},{"id":"b","kind":"text","box":(60,0,100,10)}]

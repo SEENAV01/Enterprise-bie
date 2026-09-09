@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "project": "MY BOOK INTELLIGENCE ENGINE",
+  "repository": "SEENAV01/Enterprise-bie",
+  "branch": "main",
+  "canonical_root": "bie",
+  "restored_checkpoint": "BIE-RE-SPATIAL-002",
+  "completed_this_batch": [
+    "BIE-RE-SPATIAL-003",
+    "BIE-RE-SPATIAL-004",
+    "BIE-RE-TEMP-001",
+    "BIE-RE-TEMP-002",
+    "BIE-RE-TEMP-003"
+  ],
+  "latest_implemented": "BIE-RE-TEMP-003",
+  "prerequisite_scope": "Previously implemented; preserved, do not restart",
+  "math_scope": "Previously implemented/hardened substantially; preserved, do not restart",
+  "reasoning_scope": "Active, IMPLEMENTED not ACCEPTED",
+  "next_task_ids": [],
+  "next_task_note": "The supplied continuation authorizes tasks through RE-TEMP-003. Recover the next authoritative Reasoning roadmap entry before selecting a subsequent task ID; do not infer an approved next task from numbering. Integration/acceptance gates remain open.",
+  "acceptance": {
+    "reasoning": "NOT_ACCEPTED",
+    "product": "NOT_ACCEPTED",
+    "required_evidence": [
+      "diverse real-book integrated reasoning",
+      "video compile/render QA",
+      "playable game runtime/QA",
+      "cumulative-learning evaluations"
+    ]
+  },
+  "tests": {
+    "historical_regression": 1551,
+    "new_task": 78,
+    "new_integration": 13,
+    "assembly_guards": 12,
+    "total": 1654
+  },
+  "preservation": {
+    "archives": 796,
+    "historical_files": 12439,
+    "missing_archives": 0,
+    "ledger": "manifests/lossless_migration.csv"
+  }
+}

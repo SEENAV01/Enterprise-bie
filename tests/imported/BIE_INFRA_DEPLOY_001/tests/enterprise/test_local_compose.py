@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.local_compose import *
+from bie.infrastructure.local_compose import *
 class T(unittest.TestCase):
  def test_valid(self):self.assertTrue(validate(compose_spec()))
  def test_services(self):self.assertEqual(len(compose_spec()["services"]),4)

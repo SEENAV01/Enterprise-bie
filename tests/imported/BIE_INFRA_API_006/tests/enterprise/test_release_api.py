@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.release_api import *
+from bie.infrastructure.release_api import *
 class E:
  def __init__(self,p=True):self.p=p
  def evaluate(self,r):return {"passed":self.p,"gate_results":{"render":self.p}}

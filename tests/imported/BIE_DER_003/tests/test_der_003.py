@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.missing_steps import *
+from bie.math_intelligence.missing_steps import *
 class T(unittest.TestCase):
  def test_gap(self): self.assertEqual(detect_missing_steps(["a","d"],lambda a,b:3)[0].severity,"major")
  def test_none(self): self.assertEqual(detect_missing_steps(["a","b"],lambda a,b:1),())

@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.appendix_structure import *
+from bie.document_intelligence.appendix_structure import *
 class T(unittest.TestCase):
     def test_ok(self): self.assertEqual(len(validate([{"id":"a","title":"Constants","start_page":10,"end_page":11}])),1)
     def test_range(self):

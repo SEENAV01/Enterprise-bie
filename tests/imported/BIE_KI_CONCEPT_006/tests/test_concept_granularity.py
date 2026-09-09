@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.concept_granularity import *
+from bie.knowledge_intelligence.concept_granularity import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(classify(0,1,1),"atomic")

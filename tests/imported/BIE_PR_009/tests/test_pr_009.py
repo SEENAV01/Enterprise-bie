@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.depth import *
+from bie.prerequisite_intelligence.depth import *
 class T(unittest.TestCase):
  def test_chain(self): self.assertEqual(prerequisite_depth({"a","b","c"},[("a","b"),("b","c")])["c"],2)
  def test_multi_parent(self):

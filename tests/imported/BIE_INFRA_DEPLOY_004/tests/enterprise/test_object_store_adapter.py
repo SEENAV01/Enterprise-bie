@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.object_store_adapter import *
+from bie.infrastructure.object_store_adapter import *
 class B:
  def __init__(self):self.x={}
  def put(self,k,v):self.x[k]=v

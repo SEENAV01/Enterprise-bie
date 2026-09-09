@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_depends import *
+from bie.knowledge_intelligence.relation_depends import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("acceleration","velocity",["p"],.9)["type"],"DEPENDS_ON")

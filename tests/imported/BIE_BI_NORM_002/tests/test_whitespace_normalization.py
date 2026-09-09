@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.whitespace_normalization import *
+from bie.document_intelligence.whitespace_normalization import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(normalize(" a   b "),"a b")

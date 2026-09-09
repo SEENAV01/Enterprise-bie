@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.concept_properties import *
+from bie.knowledge_intelligence.concept_properties import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(make("charge","sign","+/-","p")["property"],"sign")

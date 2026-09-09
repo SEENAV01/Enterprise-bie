@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.ocr_reconciliation import *
+from bie.document_intelligence.ocr_reconciliation import *
 class T(unittest.TestCase):
  def c(self,t,c,s):return Candidate(t,c,s)
  def test_agree(self):self.assertEqual(reconcile(self.c("x",.8,"n"),self.c("x",.9,"o"))[1],"AGREE")

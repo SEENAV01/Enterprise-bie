@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.callout_detection import *
+from bie.document_intelligence.callout_detection import *
 class T(unittest.TestCase):
  def test_high(self):self.assertEqual(classify({"border":1,"fill":1,"label":1,"isolation":1}),"CALLOUT_HIGH")
  def test_possible(self):self.assertEqual(classify({"border":1,"fill":1}),"CALLOUT_POSSIBLE")

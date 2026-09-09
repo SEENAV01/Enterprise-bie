@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.qa import *
+from bie.prerequisite_intelligence.qa import *
 class T(unittest.TestCase):
  def test_pass(self): self.assertTrue(validate_prerequisite_graph({"a","b"},[("a","b",.9)]).passed)
  def test_cycle(self): self.assertFalse(validate_prerequisite_graph({"a","b"},[("a","b",1),("b","a",1)]).passed)

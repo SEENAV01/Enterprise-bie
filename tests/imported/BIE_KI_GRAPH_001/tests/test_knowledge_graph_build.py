@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.knowledge_graph_build import *
+from bie.knowledge_intelligence.knowledge_graph_build import *
 class T(unittest.TestCase):
  def test_contract(self):
   c=[{"concept_id":"a"},{"concept_id":"b"}];r=[{"source":"a","target":"b","type":"IS_A"}]

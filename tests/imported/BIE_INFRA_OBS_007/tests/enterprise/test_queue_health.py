@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.queue_health import *
+from bie.infrastructure.queue_health import *
 class T(unittest.TestCase):
  def test_healthy(self): self.assertEqual(classify(QueueSnapshot(1,1,0,2)),"HEALTHY")
  def test_dlq(self): self.assertEqual(classify(QueueSnapshot(0,0,1,0)),"DEGRADED")

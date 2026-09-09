@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.bridge_optimizer import *
+from bie.prerequisite_intelligence.bridge_optimizer import *
 class T(unittest.TestCase):
  def test_chain(self): self.assertEqual([x.concept for x in optimize_bridge({"c"},[("a","b"),("b","c")],set(),{})],["a","b","c"])
  def test_known(self): self.assertEqual([x.concept for x in optimize_bridge({"c"},[("a","b"),("b","c")],{"b"}, {})],["c"])

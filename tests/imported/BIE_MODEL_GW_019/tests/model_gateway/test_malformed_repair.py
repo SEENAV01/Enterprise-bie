@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.malformed_repair import *
+from bie.model_gateway.malformed_repair import *
 class T(unittest.TestCase):
  def test_plain(self):self.assertEqual(repair_json('{"a":1}')["a"],1)
  def test_fence(self):self.assertEqual(repair_json('```json\n{"a":1}\n```')["a"],1)

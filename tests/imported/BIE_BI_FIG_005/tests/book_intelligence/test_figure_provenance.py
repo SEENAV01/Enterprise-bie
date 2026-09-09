@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.figure_provenance import *
+from bie.document_intelligence.figure_provenance import *
 class T(unittest.TestCase):
  def p(self):return FigureProvenance("f","a"*64,1,(0,0,1,1),"cas:x")
  def test_ok(self):self.assertTrue(validate(self.p()))

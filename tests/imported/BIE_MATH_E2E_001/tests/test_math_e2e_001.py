@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.math_pipeline import *
+from bie.math_intelligence.math_pipeline import *
 class T(unittest.TestCase):
  def test_pipeline(self):
   a=process_math("F = m*a","p12:eq1");self.assertEqual((a.relation,a.symbols),("=",("F","a","m")))

@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.real_pdf_contract import *
+from bie.document_intelligence.real_pdf_contract import *
 class T(unittest.TestCase):
  def test_contract(self):
   d=b"%PDF-1.7 sample";self.assertEqual(inspect_pdf(d,2)["page_count"],2)

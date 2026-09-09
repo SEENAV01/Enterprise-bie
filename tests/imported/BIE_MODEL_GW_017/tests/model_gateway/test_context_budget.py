@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.context_budget import *
+from bie.model_gateway.context_budget import *
 class T(unittest.TestCase):
  def b(self):return ContextBudget(100,20,10)
  def test_available(self):self.assertEqual(available_input(self.b()),70)

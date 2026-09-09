@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.roundtrip_coverage import *
+from bie.document_intelligence.roundtrip_coverage import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(audit(["a"],["a"])["passed"])

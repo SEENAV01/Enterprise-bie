@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0.0",
+  "tasks": [
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-002",
+      "title": "canonical monorepo schema",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-001"
+      ],
+      "artifact": "schemas/canonical-monorepo.json",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-003",
+      "title": "automatic ZIP ingestion/classification",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-002"
+      ],
+      "artifact": "scripts/assemble_canonical.py",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-004",
+      "title": "duplicate/conflict resolver",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-003"
+      ],
+      "artifact": "manifests/source_conflicts.json",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-005",
+      "title": "module consolidation",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-004"
+      ],
+      "artifact": "manifests/canonical_source_migrations.json",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-006",
+      "title": "tests consolidation",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-005"
+      ],
+      "artifact": "tests/imported/",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-007",
+      "title": "docs/evidence/task-registry consolidation",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-006"
+      ],
+      "artifact": "task_registry/historical_tasks.json",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-008",
+      "title": "import/path normalization",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-007"
+      ],
+      "artifact": "manifests/canonical_source_migrations.json",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-009",
+      "title": "integrated test runner",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-008"
+      ],
+      "artifact": "scripts/integrated_check.py",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-010",
+      "title": "repository integrity audit",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-009"
+      ],
+      "artifact": "scripts/audit_canonical.py",
+      "evidence": "validation/canonical_integrity.json",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-011",
+      "title": "canonical repository-ready package",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-010"
+      ],
+      "artifact": "scripts/package_repository.py",
+      "evidence": "Final ZIP checksum/readback receipt accompanies delivery",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    },
+    {
+      "task_id": "BIE-REPO-ASSEMBLY-012",
+      "title": "GitHub synchronization workflow",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "depends_on": [
+        "BIE-REPO-ASSEMBLY-011"
+      ],
+      "artifact": "scripts/sync_github.py",
+      "evidence": "Final ZIP checksum/readback receipt accompanies delivery",
+      "scope_note": "Governed canonical assembly; historical M-series archived, not claimed fully wired into enterprise production"
+    }
+  ]
+}

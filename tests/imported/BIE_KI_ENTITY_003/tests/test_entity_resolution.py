@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.entity_resolution import *
+from bie.knowledge_intelligence.entity_resolution import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(resolve("m",[{"entity_id":"e","confidence":.9}])["entity_id"],"e")

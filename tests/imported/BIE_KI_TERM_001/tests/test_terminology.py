@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.terminology import *
+from bie.knowledge_intelligence.terminology import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(register("force","c",["p"])["concept_id"],"c")

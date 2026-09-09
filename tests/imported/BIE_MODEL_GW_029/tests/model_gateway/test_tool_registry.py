@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.tool_registry import *
+from bie.model_gateway.tool_registry import *
 class T(unittest.TestCase):
  def d(self):return ToolDescriptor("calc","1",frozenset({"math"}))
  def test_register(self):r=ToolRegistry();r.register(self.d(),1);self.assertEqual(r.resolve("calc","1",{"math"})[1],1)

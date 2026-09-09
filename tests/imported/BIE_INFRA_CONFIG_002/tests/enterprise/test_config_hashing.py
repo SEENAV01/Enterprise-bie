@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.config_hashing import *
+from bie.infrastructure.config_hashing import *
 class T(unittest.TestCase):
  def test_deterministic(self): self.assertEqual(config_hash({"a":1,"b":2}),config_hash({"b":2,"a":1}))
  def test_changes(self): self.assertNotEqual(config_hash({"a":1}),config_hash({"a":2}))

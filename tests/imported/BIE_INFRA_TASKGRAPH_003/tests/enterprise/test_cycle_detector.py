@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.cycle_detector import *
+from bie.infrastructure.cycle_detector import *
 class T(unittest.TestCase):
     def test_acyclic(self): self.assertEqual(find_cycles({"A":{"dependencies":[]},"B":{"dependencies":["A"]}}),[])
     def test_self_cycle(self): self.assertTrue(find_cycles({"A":{"dependencies":["A"]}}))

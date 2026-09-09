@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.pdf_ingest import *
+from bie.document_intelligence.pdf_ingest import *
 class A:
  def inspect(self,d):return {"page_count":3,"metadata":{"title":"x"},"encrypted":False,"text_pages":2}
 class T(unittest.TestCase):

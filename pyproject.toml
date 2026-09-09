@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-book-intelligence-engine"
+version = "0.1.0"
+description = "Canonical continuation of the BIE enterprise implementation; not a product release"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bie*", "app", "app.bie"]
+exclude = ["batches*", "historical*", "tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"

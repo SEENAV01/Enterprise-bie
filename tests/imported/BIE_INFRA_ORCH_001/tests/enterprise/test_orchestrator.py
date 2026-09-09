@@ -1,6 +1,6 @@
 import unittest
-from enterprise.run_state import build_run_state
-from enterprise.orchestrator import *
+from bie.infrastructure.run_state import build_run_state
+from bie.infrastructure.orchestrator import *
 
 def definitions():
     return {

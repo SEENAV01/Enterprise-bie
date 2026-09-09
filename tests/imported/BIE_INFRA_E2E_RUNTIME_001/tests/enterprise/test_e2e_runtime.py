@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.e2e_runtime import *
+from bie.infrastructure.e2e_runtime import *
 
 class E2ETests(unittest.TestCase):
     def task(self): return StageTask("t1","r1","REASONING",1,["src"],["python"])

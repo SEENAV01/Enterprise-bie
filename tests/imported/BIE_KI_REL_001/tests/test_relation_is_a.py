@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_is_a import *
+from bie.knowledge_intelligence.relation_is_a import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("dog","animal",["a"],.9)["type"],"IS_A")

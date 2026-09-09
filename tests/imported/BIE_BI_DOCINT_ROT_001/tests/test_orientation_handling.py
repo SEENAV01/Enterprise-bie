@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.orientation_handling import *
+from bie.document_intelligence.orientation_handling import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(normalize(90,600,800)["logical_width"],800)

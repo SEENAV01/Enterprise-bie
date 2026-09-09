@@ -1,0 +1,24 @@
+{
+  "task_id": "BIE-RE-TEMP-002",
+  "short_id": "RE-TEMP-002",
+  "title": "Event-order reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "dependencies": [
+    "BIE-RE-TEMP-001",
+    "BIE-RE-GRAPH-001"
+  ],
+  "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+  "implementation_path": "bie/reasoning/event_order_reasoning.py",
+  "implementation_sha256": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
+  "test_path": "tests/reasoning/test_event_order_reasoning.py",
+  "tests_run": 13,
+  "tests_passed": true,
+  "integration": "CANONICAL",
+  "integration_evidence": "validation/integrated_tests.json",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

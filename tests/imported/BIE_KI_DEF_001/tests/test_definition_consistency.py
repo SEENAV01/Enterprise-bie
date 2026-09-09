@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.definition_consistency import *
+from bie.knowledge_intelligence.definition_consistency import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(compare([{"text":"force push pull"}])["consistent"])

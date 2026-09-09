@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.exceptions import *
+from bie.knowledge_intelligence.exceptions import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(make("r","except superconductors",["p"])["severity"],"NORMAL")

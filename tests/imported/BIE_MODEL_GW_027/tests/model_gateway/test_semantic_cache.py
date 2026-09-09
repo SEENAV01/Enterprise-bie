@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.semantic_cache import *
+from bie.model_gateway.semantic_cache import *
 class T(unittest.TestCase):
  def test_cos(self):self.assertAlmostEqual(cosine([1,0],[1,0]),1)
  def test_match(self):self.assertEqual(best_match([1,0],[{"id":"a","vector":[1,0]}],.9)[1]["id"],"a")

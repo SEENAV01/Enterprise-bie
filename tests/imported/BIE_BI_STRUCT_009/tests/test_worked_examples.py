@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.worked_examples import *
+from bie.document_intelligence.worked_examples import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(len(build("e","p",["a","b"],"x","p1")["steps"]),2)

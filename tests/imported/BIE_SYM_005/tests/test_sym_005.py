@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.equation_linkage import *
+from bie.math_intelligence.equation_linkage import *
 class T(unittest.TestCase):
  def test_symbols(self): self.assertEqual(link_equation("e1","F = m a","p2").symbols,("F","a","m"))
  def test_unique(self): self.assertEqual(link_equation("e","x+x=y","p").symbols,("x","y"))

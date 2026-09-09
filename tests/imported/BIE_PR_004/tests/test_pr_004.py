@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.evidence import *
+from bie.prerequisite_intelligence.evidence import *
 class T(unittest.TestCase):
  def test_aggregate(self):
   s=aggregate_evidence([Evidence("p1","explicit",.8),Evidence("p2","semantic",.5)])

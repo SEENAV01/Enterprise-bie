@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.toc_reconciliation import *
+from bie.document_intelligence.toc_reconciliation import *
 class T(unittest.TestCase):
  def test_contract(self):
   r=reconcile([{"title":"Force","page":2}],[{"id":"s1","title":"Force"}]);self.assertEqual(r["matches"][0]["detected_id"],"s1")

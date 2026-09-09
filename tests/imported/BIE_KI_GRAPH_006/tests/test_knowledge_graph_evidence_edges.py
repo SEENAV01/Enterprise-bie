@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.knowledge_graph_evidence_edges import *
+from bie.knowledge_intelligence.knowledge_graph_evidence_edges import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(bind([{"anchors":["p1"]}])[0]["grounded"])

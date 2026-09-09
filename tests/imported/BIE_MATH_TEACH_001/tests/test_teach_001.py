@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.teachable_math import *
+from bie.math_intelligence.teachable_math import *
 class T(unittest.TestCase):
  def test_new(self): self.assertTrue(plan_step("x=2",1,True,False).explain)
  def test_risk(self): self.assertIn("misconception",plan_step("x=2",1,False,True).reason)

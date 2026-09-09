@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.layout_segmentation import *
+from bie.document_intelligence.layout_segmentation import *
 class T(unittest.TestCase):
  def r(self):return Region("r","text",(0,0,1,1),.9)
  def test_ok(self):self.assertEqual(len(normalize([self.r()])),1)

@@ -1,5 +1,5 @@
 import unittest
-from context_disambiguation import *
+from bie.knowledge_intelligence.context_disambiguation import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(choose("cell",[{"sense_id":"bio","confidence":.9}])["sense_id"],"bio")

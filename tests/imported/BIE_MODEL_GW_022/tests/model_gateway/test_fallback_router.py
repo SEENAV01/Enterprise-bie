@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.fallback_router import *
+from bie.model_gateway.fallback_router import *
 class R(Exception):pass
 class F(Exception):pass
 class T(unittest.TestCase):

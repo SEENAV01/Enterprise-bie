@@ -1,5 +1,5 @@
 import unittest
-from app.bie.notation_intelligence.units import *
+from bie.notation_intelligence.units import *
 class T(unittest.TestCase):
  def test_units(self): self.assertEqual([x.raw for x in extract_units("5 kg and 2 m")],["kg","m"])
  def test_family(self): self.assertEqual(extract_units("10 N")[0].family,"force")

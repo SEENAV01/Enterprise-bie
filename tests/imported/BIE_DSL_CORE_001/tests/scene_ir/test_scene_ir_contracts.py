@@ -1,5 +1,5 @@
 import unittest
-from scene_ir.contracts import *
+from bie.scene_ir.contracts import *
 
 def elem(**kw):
     d=dict(element_id="e1",kind="diagram",semantic_role="concept_representation",

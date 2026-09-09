@@ -1,7 +1,7 @@
 
 import unittest
 from types import SimpleNamespace
-from model_gateway.claude_adapter import *
+from bie.model_gateway.claude_adapter import *
 class C:
  def messages_create(self,**k):return {"content":"ok"}
 class T(unittest.TestCase):

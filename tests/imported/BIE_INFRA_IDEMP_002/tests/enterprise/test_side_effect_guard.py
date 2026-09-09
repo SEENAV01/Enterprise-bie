@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.side_effect_guard import *
+from bie.infrastructure.side_effect_guard import *
 class C:
  def __init__(self): self.x={}
  def claim(self,k,f,o):

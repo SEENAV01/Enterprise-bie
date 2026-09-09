@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.disaster_recovery import *
+from bie.infrastructure.disaster_recovery import *
 class T(unittest.TestCase):
  def p(self,**k):
   d=dict(rpo_minutes=15,rto_minutes=60,backup_interval_minutes=10,multi_zone=True,drill_interval_days=30);d.update(k);return DRPolicy(**d)

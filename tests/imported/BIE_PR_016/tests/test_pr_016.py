@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.teaching_order import *
+from bie.prerequisite_intelligence.teaching_order import *
 class T(unittest.TestCase):
  def test_chain(self): self.assertEqual(teaching_order({"a","b","c"},[("a","b"),("b","c")]),["a","b","c"])
  def test_priority(self): self.assertEqual(teaching_order({"a","b"},[],{"b":2}),["b","a"])

@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.ligature_normalization import *
+from bie.document_intelligence.ligature_normalization import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(normalize("ﬁeld"),"field")

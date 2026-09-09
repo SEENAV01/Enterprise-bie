@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_contrasts import *
+from bie.knowledge_intelligence.relation_contrasts import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("mass","weight",["p"],"meaning",.9)["type"],"CONTRASTS_WITH")

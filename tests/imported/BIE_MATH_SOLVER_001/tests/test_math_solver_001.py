@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.solver_adapter import *
+from bie.math_intelligence.solver_adapter import *
 class Fake:
  def solve(self,r):return SolverResult("x=2",True,"fake-cas","deterministic-test")
 class Bad:

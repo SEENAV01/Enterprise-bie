@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.text_blocks import *
+from bie.document_intelligence.text_blocks import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertEqual(build("b"," x ",("r1",),1,.9).text,"x")
  def test_empty(self):

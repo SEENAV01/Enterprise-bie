@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.delimiters import *
+from bie.math_intelligence.delimiters import *
 class T(unittest.TestCase):
  def test_valid(self): self.assertTrue(validate_delimiters("(x+[y])").valid)
  def test_mismatch(self): self.assertFalse(validate_delimiters("(]").valid)

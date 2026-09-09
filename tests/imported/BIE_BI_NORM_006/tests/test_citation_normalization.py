@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.citation_normalization import *
+from bie.document_intelligence.citation_normalization import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(extract("See [12].")["numeric"],(12,))

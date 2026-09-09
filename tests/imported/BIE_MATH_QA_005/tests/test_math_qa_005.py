@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.symbolic_qa import *
+from bie.math_intelligence.symbolic_qa import *
 class T(unittest.TestCase):
  def test_pass(self): self.assertTrue(assess_symbolic({"x","y"},{"x"},True).passed)
  def test_undefined(self): self.assertIn("undefined_symbols:z",assess_symbolic({"x"},{"x","z"},True).failures)

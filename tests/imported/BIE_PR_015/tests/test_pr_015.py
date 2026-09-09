@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.clustering import *
+from bie.prerequisite_intelligence.clustering import *
 class T(unittest.TestCase):
  def test_shared_dependent(self):
   r=cluster_prerequisites({"a","b","c"},[("a","c"),("b","c")]); self.assertIn(("a","b"),[x.members for x in r])

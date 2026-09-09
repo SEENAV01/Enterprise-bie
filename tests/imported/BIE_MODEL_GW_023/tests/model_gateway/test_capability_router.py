@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.capability_router import *
+from bie.model_gateway.capability_router import *
 class T(unittest.TestCase):
  def cs(self):return [{"id":"a","capabilities":["text"],"quality":.8,"cost":2},{"id":"b","capabilities":["text","vision"],"quality":.9,"cost":3}]
  def test_cap(self):self.assertEqual(rank(self.cs(),["vision"])[0]["id"],"b")

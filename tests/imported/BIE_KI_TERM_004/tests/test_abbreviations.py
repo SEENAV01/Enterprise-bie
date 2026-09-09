@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.abbreviations import *
+from bie.knowledge_intelligence.abbreviations import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(register("DNA","deoxyribonucleic acid","p")["short"],"DNA")

@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.graph_versioning import *
+from bie.knowledge_intelligence.graph_versioning import *
 class T(unittest.TestCase):
  def test_contract(self):
   g={"nodes":{"a":{}},"edges":[]};a=version(g);b=version(g)

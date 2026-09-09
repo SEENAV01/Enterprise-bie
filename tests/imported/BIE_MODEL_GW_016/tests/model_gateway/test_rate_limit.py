@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.rate_limit import *
+from bie.model_gateway.rate_limit import *
 class T(unittest.TestCase):
  def test_consume(self):b=Bucket(10,5,1,0);self.assertTrue(consume(b,3,0))
  def test_deny(self):b=Bucket(10,1,0,0);self.assertFalse(consume(b,2,0))

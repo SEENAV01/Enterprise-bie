@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.symbol_metadata import *
+from bie.math_intelligence.symbol_metadata import *
 class T(unittest.TestCase):
  def test_var(self): self.assertEqual(make_metadata("v",unit="m/s").unit,"m/s")
  def test_constant(self): self.assertEqual(make_metadata("G","constant").role,"constant")

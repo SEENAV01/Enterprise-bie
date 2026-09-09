@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.paragraph_detection import *
+from bie.document_intelligence.paragraph_detection import *
 class T(unittest.TestCase):
  def test_one(self):
   l=[{"top":0,"bottom":1,"indent":0},{"top":1.2,"bottom":2,"indent":0}]

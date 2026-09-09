@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.glossary_structure import *
+from bie.document_intelligence.glossary_structure import *
 class T(unittest.TestCase):
     def test_ok(self): self.assertIn("force",normalize([{"term":"Force","definition":"interaction"}])[0])
     def test_alias(self): self.assertEqual(normalize([{"term":"Velocity","definition":"rate","aliases":["v"]}])[1]["v"],"velocity")

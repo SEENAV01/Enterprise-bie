@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.response_cache import *
+from bie.model_gateway.response_cache import *
 class T(unittest.TestCase):
  def test_hit(self):c=ResponseCache();c.put("k","v",10);self.assertEqual(c.get("k",1),"v")
  def test_miss(self):self.assertIsNone(ResponseCache().get("k",1))

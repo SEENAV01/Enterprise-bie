@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.tokenizer import *
+from bie.math_intelligence.tokenizer import *
 class T(unittest.TestCase):
  def test_basic(self): self.assertEqual([x.value for x in tokenize("F=ma")],["F","=","ma"])
  def test_number(self): self.assertEqual(tokenize("3.14")[0].kind,"NUMBER")

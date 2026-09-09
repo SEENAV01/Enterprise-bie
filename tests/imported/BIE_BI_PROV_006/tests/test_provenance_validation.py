@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.provenance_validation import *
+from bie.document_intelligence.provenance_validation import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(validate([{"artifact_id":"x","anchor_ids":["a"]}],["a"])["artifacts"],1)

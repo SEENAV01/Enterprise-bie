@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.execution_sandbox import *
+from bie.infrastructure.execution_sandbox import *
 class T(unittest.TestCase):
  def test_valid(self):self.assertEqual(execution_env(SandboxPolicy(10,128,2,False))["network"],False)
  def test_cpu(self):

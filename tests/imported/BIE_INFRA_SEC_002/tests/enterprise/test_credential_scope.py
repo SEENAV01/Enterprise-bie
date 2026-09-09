@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.credential_scope import *
+from bie.infrastructure.credential_scope import *
 class T(unittest.TestCase):
  def g(self):return CredentialGrant("worker",frozenset({"artifact:write"}),100)
  def test_allow(self):self.assertTrue(authorize(self.g(),"artifact:write",50))

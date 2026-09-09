@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-SPATIAL-004",
+  "short_id": "RE-SPATIAL-004",
+  "title": "Geometry reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "dependencies": [
+    "BIE-RE-SPATIAL-002"
+  ],
+  "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+  "implementation_path": "bie/reasoning/geometry_reasoning.py",
+  "implementation_sha256": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
+  "test_path": "tests/reasoning/test_geometry_reasoning.py",
+  "tests_run": 18,
+  "tests_passed": true,
+  "integration": "CANONICAL",
+  "integration_evidence": "validation/integrated_tests.json",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

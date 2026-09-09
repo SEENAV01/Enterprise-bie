@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.symbol_scope import *
+from bie.math_intelligence.symbol_scope import *
 class T(unittest.TestCase):
  def test_local(self):
   t=ScopeTable();t.bind(Binding("x","position","chapter","p1"));self.assertEqual(t.resolve("x",["section","chapter"]).meaning,"position")

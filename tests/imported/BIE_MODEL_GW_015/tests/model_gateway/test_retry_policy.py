@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.retry_policy import *
+from bie.model_gateway.retry_policy import *
 class T(unittest.TestCase):
  def p(self):return RetryPolicy(3,1,4)
  def test_retry(self):self.assertTrue(should_retry("timeout",1,self.p()))

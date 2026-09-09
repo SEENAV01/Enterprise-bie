@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.concept_candidates import *
+from bie.knowledge_intelligence.concept_candidates import *
 class T(unittest.TestCase):
  def test_contract(self):
   b=[{"anchor_id":"a","concept_candidates":["Force"]},{"anchor_id":"b","concept_candidates":["force","Mass"]}]

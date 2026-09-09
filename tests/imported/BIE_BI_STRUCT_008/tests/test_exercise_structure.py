@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.exercise_structure import *
+from bie.document_intelligence.exercise_structure import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(normalize([{"id":"q","prompt":"Why?","kind":"short_answer"}])[0]["kind"],"short_answer")

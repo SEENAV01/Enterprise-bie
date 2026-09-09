@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.conflict_arbitration import *
+from bie.prerequisite_intelligence.conflict_arbitration import *
 class T(unittest.TestCase):
  def test_accept(self): self.assertTrue(arbitrate([EvidenceVote("text",True,1),EvidenceVote("model",False,.2)]).accepted)
  def test_reject(self): self.assertFalse(arbitrate([EvidenceVote("text",False,1)]).accepted)

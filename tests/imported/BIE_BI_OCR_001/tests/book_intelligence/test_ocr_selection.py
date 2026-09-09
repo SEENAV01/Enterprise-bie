@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.ocr_selection import *
+from bie.document_intelligence.ocr_selection import *
 class T(unittest.TestCase):
  def test_native(self):self.assertEqual(select({"native_text_ratio":.9,"native_text_quality":.95}),"NATIVE_TEXT")
  def test_full(self):self.assertEqual(select({"native_text_ratio":0,"native_text_quality":0,"has_page_image":True}),"FULL_OCR")

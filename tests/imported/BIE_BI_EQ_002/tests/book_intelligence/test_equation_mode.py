@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.equation_mode import *
+from bie.document_intelligence.equation_mode import *
 class T(unittest.TestCase):
     def test_inline(self): self.assertEqual(classify({"line_fraction":.2}),"INLINE")
     def test_display_size(self): self.assertEqual(classify({"line_fraction":.8}),"DISPLAY")

@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.structural_qa import *
+from bie.document_intelligence.structural_qa import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(evaluate([{"id":"c","kind":"chapter"}])["passed"])

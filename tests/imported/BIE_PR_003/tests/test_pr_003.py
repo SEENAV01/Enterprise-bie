@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.implicit_prerequisites import *
+from bie.prerequisite_intelligence.implicit_prerequisites import *
 class T(unittest.TestCase):
  def test_rank(self):
   r=infer_implicit_prerequisites("b",["vector","force"],{"a":["vector","force"],"c":["force"]})

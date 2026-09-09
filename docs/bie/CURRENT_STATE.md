@@ -1,18 +1,15 @@
-# Current verified state — 2026-09-09
+# Current BIE state — canonical continuation
 
-Repository: `SEENAV01/Enterprise-bie`, branch `main`.
+The canonical development source is `bie/`; the active repository is `SEENAV01/Enterprise-bie`, branch `main`. This continues the existing architecture and roadmap.
 
-Repository Assembly 001 recovers 766 ZIPs (691 distinct byte contents): 376 enterprise batches and 390 historical packages. All 12,259 original member files are retained in the original ZIP collection; 11,151 non-cache members are expanded and verified. Combined working enterprise source contains 390 files.
+Completed in this continuation: **RE-SPATIAL-003, RE-SPATIAL-004, RE-TEMP-001, RE-TEMP-002, RE-TEMP-003**. Existing Prerequisite/Math and preceding Reasoning work is preserved. The previously recovered DEC-001 checkpoint is superseded by the user's explicit SPATIAL-002 checkpoint and this implemented batch.
 
-Validation actually executed on Python 3.12.14:
+Assembly-002 through Assembly-012 tooling and canonical migration are implemented. All 796 original archives and 12,439 member files have documented dispositions; all 273 Assembly-001 archive hashes and 2,450 rows match. Historical older M-series features remain archived for governed characterization/integration.
 
-- `python3 scripts/verify_assembly.py`: PASS, 766 archive hashes and 11,151 expanded source hashes match.
-- `python3 scripts/test_enterprise.py`: PASS, 375 test files, 1,431 tests, zero failures/errors/skips. This comprises the 374 imported working test files and two additional regression tests in one file.
+Validation: **1,654 tests pass**, zero failures/errors/skips: 1,551 restored regression tests, 78 new task tests, 13 integration/contract tests, 12 assembly guards. Independent integrity checks pass. All original snapshots remain immutable.
 
-Latest recovered development task: **BIE-RE-DEC-001 — Auditable reasoning decision factory**, IMPLEMENTED, NOT ACCEPTED. Integrated real-book reasoning validation is pending. Preserve the preceding PR, MATH, KI, BI, model gateway and infrastructure implementations.
+**IMPLEMENTED is not ACCEPTED.** Real-book Reasoning E2E and downstream video compile/render/playable-game QA remain pending. Synthetic source/decision/game-contract integration is not production acceptance.
 
-GitHub writes are verified. The initial write/readback commit is `34d14230f6c323e0589e9e6f35421659522e201b`; the final assembly commit accompanies the downloadable backup. Earlier ZIP statements about HTTP 403 are historical, not the present connection state.
+GitHub actual write/readback proof: `4b35084be062ae17b2b8ac8d99af78030e7c42e4`. The delivered backup manifest identifies the final verified remote commit and tree; the synchronization receipt records the source checkpoint.
 
-Next implementation work: reconcile `reasoning/decision_factory.py` with the richer `reasoning/decision_contracts.py` and `bie_core/artifact_contracts.py`, then define the next atomic task and its acceptance evidence. An authoritative specification for a task after DEC-001 was not recovered, so do not invent prior approval or restart completed sections.
-
-Production/full-book/video/game acceptance and the cumulative-learning architecture remain pending. This assembly establishes source preservation and enterprise unit compatibility; it does not declare the entire product complete.
+Read `task_registry/continuation.json`, relevant `docs/tasks/` specs, and `docs/REASONING_BATCH_SPATIAL_TEMPORAL.md`. The user authorized tasks through TEMP-003; no later approved task ID is present in the recovered records. Recover that next roadmap entry rather than inventing one or restarting completed subsystems.

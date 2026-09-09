@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.example_extraction import *
+from bie.knowledge_intelligence.example_extraction import *
 class T(unittest.TestCase):
  def test_contract(self):
   b=[{"id":"e","kind":"example","text":"A ball falls","anchor_id":"p"}];self.assertEqual(len(extract(b)),1)

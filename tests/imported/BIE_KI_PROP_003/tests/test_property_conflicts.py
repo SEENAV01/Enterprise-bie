@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.property_conflicts import *
+from bie.knowledge_intelligence.property_conflicts import *
 class T(unittest.TestCase):
  def test_contract(self):
   a={"concept_id":"c","property":"x","scope":"s","value":1};b={**a,"value":2}

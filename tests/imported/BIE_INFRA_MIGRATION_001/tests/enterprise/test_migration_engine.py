@@ -1,6 +1,6 @@
 
 import unittest,sqlite3
-from enterprise.migration_engine import *
+from bie.infrastructure.migration_engine import *
 class T(unittest.TestCase):
  def db(self): return sqlite3.connect(":memory:")
  def test_empty(self): self.assertEqual(MigrationEngine(self.db(),[]).current(),0)

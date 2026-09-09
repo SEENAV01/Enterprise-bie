@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.audit_log import *
+from bie.infrastructure.audit_log import *
 class T(unittest.TestCase):
  def test_append(self):self.assertEqual(AuditLog().append("u","read","r",1).seq,1)
  def test_chain(self):

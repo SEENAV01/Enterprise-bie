@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.equation_ast import *
+from bie.math_intelligence.equation_ast import *
 class T(unittest.TestCase):
  def test_eq(self): self.assertEqual(parse_equation("F = ma").right,"ma")
  def test_ineq(self): self.assertEqual(parse_equation("x ≤ 3").relation,"≤")

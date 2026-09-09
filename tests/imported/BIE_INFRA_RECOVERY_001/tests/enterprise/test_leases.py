@@ -1,5 +1,5 @@
 import unittest
-from enterprise.leases import *
+from bie.infrastructure.leases import *
 
 class FakeClock:
     def __init__(self):self.t=1000.0

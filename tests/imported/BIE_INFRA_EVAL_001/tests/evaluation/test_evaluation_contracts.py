@@ -1,5 +1,5 @@
 import unittest
-from evaluation.contracts import *
+from bie.evaluation.contracts import *
 
 def metric(mid="source_grounding", critical=True, minimum=.9):
     return MetricSpec(mid,1.0,minimum,critical,1)

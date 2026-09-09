@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.vision_contract import *
+from bie.model_gateway.vision_contract import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertTrue(validate(VisionInput("a","image/png",10,10)))
  def test_mime(self):

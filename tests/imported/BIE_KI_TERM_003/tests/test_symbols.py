@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.symbols import *
+from bie.knowledge_intelligence.symbols import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(bind("g","gravity","constant","p")["kind"],"constant")

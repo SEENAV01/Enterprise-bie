@@ -1,6 +1,6 @@
 
 import unittest,json
-from enterprise.structured_logs import *
+from bie.infrastructure.structured_logs import *
 class T(unittest.TestCase):
  def test_make(self): self.assertEqual(make_log("INFO","start","r").level,"INFO")
  def test_bad_level(self):

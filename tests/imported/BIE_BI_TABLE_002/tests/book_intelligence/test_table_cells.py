@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.table_cells import *
+from bie.document_intelligence.table_cells import *
 class T(unittest.TestCase):
  def c(self):return Cell(0,0,"x",.9)
  def test_ok(self):self.assertEqual(len(validate_cells([self.c()],1,1)),1)

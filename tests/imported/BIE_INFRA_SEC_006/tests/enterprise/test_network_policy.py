@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.network_policy import *
+from bie.infrastructure.network_policy import *
 class T(unittest.TestCase):
  def test_allow(self):self.assertTrue(NetworkPolicy(["api.example.com"]).authorize("https://api.example.com/x"))
  def test_http(self):

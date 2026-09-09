@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.autoscaling import *
+from bie.infrastructure.autoscaling import *
 class T(unittest.TestCase):
  def p(self):return ScalePolicy(1,10,2,30)
  def test_min(self):self.assertEqual(desired(self.p(),0,5),1)

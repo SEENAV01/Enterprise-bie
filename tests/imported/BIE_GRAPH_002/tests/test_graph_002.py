@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.domain_range import *
+from bie.math_intelligence.domain_range import *
 class T(unittest.TestCase):
  def test_contains(self): self.assertTrue(contains(Interval(0,1,True,False),0))
  def test_open(self): self.assertFalse(contains(Interval(0,1),0))

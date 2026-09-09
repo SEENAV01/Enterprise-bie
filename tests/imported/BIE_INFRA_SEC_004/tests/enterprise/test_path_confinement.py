@@ -1,6 +1,6 @@
 
 import unittest,tempfile,os
-from enterprise.path_confinement import *
+from bie.infrastructure.path_confinement import *
 class T(unittest.TestCase):
  def test_inside(self):
   with tempfile.TemporaryDirectory() as d:self.assertTrue(str(confined_path(d,"a/b")).startswith(d))

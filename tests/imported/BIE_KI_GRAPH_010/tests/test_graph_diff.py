@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.graph_diff import *
+from bie.knowledge_intelligence.graph_diff import *
 class T(unittest.TestCase):
  def test_contract(self):
   a={"nodes":{"a":{"x":1}},"edges":[]};b={"nodes":{"a":{"x":2},"b":{}},"edges":[{"source":"a","target":"b","type":"X"}]};r=diff(a,b)

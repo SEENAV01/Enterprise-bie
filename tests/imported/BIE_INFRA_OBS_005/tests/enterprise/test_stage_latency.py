@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.stage_latency import *
+from bie.infrastructure.stage_latency import *
 class T(unittest.TestCase):
  def test_empty(self): self.assertEqual(StageLatency().summary("x")["count"],0)
  def test_one(self): m=StageLatency();m.record("x",2);self.assertEqual(m.summary("x")["avg"],2)

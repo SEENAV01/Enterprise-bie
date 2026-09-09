@@ -1,6 +1,6 @@
 import unittest, tempfile
 from pathlib import Path
-from enterprise.artifact_store import *
+from bie.infrastructure.artifact_store import *
 
 class StoreTests(unittest.TestCase):
     def setUp(self):

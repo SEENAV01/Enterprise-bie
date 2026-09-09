@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.learning_objectives import *
+from bie.document_intelligence.learning_objectives import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(len(normalize([{"id":"o","text":"Explain","source_anchor":"p"}])),1)

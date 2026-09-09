@@ -1,7 +1,7 @@
 
 import unittest
 from types import SimpleNamespace
-from model_gateway.gpt_adapter import *
+from bie.model_gateway.gpt_adapter import *
 class C:
  def responses_create(self,**k):return {"content":"ok","usage":{"in":1},"finish_reason":"stop"}
 class T(unittest.TestCase):

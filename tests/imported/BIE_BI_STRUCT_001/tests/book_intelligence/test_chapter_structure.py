@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.chapter_structure import *
+from bie.document_intelligence.chapter_structure import *
 class T(unittest.TestCase):
     def c(self): return Chapter("c","Intro",1,5,1)
     def test_ok(self): self.assertEqual(len(validate([self.c()])),1)

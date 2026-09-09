@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.production_containers import *
+from bie.infrastructure.production_containers import *
 class T(unittest.TestCase):
  def c(self,**k):
   d=dict(name="api",image="bie-api:1.0.0",run_as_non_root=True,read_only_root=True,healthcheck="/health",cpu_limit=1,memory_mb=512);d.update(k);return ContainerSpec(**d)

@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.table_structured_data import *
+from bie.document_intelligence.table_structured_data import *
 class T(unittest.TestCase):
  def test_hash(self):self.assertEqual(len(canonicalize("t",["A"],[[1]],"p1:r1")[1]),64)
  def test_stable(self):self.assertEqual(canonicalize("t",["A"],[[1]],"a")[1],canonicalize("t",["A"],[[1]],"a")[1])

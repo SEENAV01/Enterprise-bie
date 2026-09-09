@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.caption_linking import *
+from bie.document_intelligence.caption_linking import *
 class T(unittest.TestCase):
  def c(self):return {"kind":"caption","center":(.5,.5)}
  def test_link(self):self.assertEqual(link_caption(self.c(),[{"id":"f","center":(.5,.55)}]),"f")

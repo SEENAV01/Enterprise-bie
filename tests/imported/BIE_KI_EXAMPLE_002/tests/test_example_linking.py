@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.example_linking import *
+from bie.knowledge_intelligence.example_linking import *
 class T(unittest.TestCase):
  def test_contract(self):
   r=link("e",["c","c"],["p"],.9);self.assertEqual(r["concept_ids"],("c",))

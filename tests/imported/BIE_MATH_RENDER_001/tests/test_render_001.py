@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.math_scene_contract import *
+from bie.math_intelligence.math_scene_contract import *
 class T(unittest.TestCase):
  def test_morph(self): self.assertEqual(cue("equation_morph","a=b","b=a",reason="symmetry").after,"b=a")
  def test_highlight(self): self.assertEqual(cue("highlight_term","F=ma",targets=("a",),reason="focus variable").targets,("a",))

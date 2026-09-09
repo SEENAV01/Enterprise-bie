@@ -1,5 +1,5 @@
 import unittest
-from crossmodal_conflict import *
+from bie.knowledge_intelligence.crossmodal_conflict import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(detect([{"semantic_key":"k","value":1}])["passed"])

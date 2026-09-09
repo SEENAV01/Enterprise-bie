@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.merged_cells import *
+from bie.document_intelligence.merged_cells import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertEqual(len(validate_spans([Span(0,0,1,2)],1,2)),1)
  def test_bounds(self):

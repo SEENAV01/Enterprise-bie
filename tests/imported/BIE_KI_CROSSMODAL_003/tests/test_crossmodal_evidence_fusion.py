@@ -1,5 +1,5 @@
 import unittest
-from crossmodal_evidence_fusion import *
+from bie.knowledge_intelligence.crossmodal_evidence_fusion import *
 class T(unittest.TestCase):
  def test_contract(self):
   i=[{"semantic_key":"k","modality":"TEXT","confidence":.9,"anchor_id":"p1"},{"semantic_key":"k","modality":"FIGURE","confidence":.8,"anchor_id":"p2"}];r=fuse(i)

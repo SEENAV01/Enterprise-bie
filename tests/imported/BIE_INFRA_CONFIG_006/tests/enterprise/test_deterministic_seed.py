@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.deterministic_seed import *
+from bie.infrastructure.deterministic_seed import *
 H="a"*64
 class T(unittest.TestCase):
  def test_same_seed(self): self.assertEqual(derive_seed("r","s",H),derive_seed("r","s",H))

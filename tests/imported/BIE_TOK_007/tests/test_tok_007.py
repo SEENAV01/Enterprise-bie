@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.fractions import *
+from bie.math_intelligence.fractions import *
 class T(unittest.TestCase):
  def test_slash(self): self.assertEqual(parse_fraction("a/b").denominator,"b")
  def test_latex(self): self.assertEqual(parse_fraction(r"\\frac{x+1}{2}").numerator,"x+1")

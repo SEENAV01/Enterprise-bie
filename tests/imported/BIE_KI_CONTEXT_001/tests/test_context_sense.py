@@ -1,5 +1,5 @@
 import unittest
-from context_sense import *
+from bie.knowledge_intelligence.context_sense import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(sense("field","physical field","ch1",["p"],.9)["scope"],"ch1")

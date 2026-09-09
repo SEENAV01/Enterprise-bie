@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.capability_taxonomy import *
+from bie.model_gateway.capability_taxonomy import *
 class T(unittest.TestCase):
  def test_valid(self):self.assertIn("vision",validate_capabilities(["vision"]))
  def test_unknown(self):

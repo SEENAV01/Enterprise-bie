@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.quality_escalation import *
+from bie.model_gateway.quality_escalation import *
 class T(unittest.TestCase):
  def p(self):return QualityPolicy(.8,2)
  def test_accept(self):self.assertEqual(next_action(.9,0,self.p()),"ACCEPT")

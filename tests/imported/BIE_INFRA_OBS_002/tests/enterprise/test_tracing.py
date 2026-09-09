@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.tracing import *
+from bie.infrastructure.tracing import *
 class T(unittest.TestCase):
  def test_root(self): self.assertIsNone(Tracer().start("x").parent_id)
  def test_child_trace(self):

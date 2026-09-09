@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.prompt_versioning import *
+from bie.model_gateway.prompt_versioning import *
 class T(unittest.TestCase):
  def p(self):return PromptTemplate("concept","v1","Teach {x}")
  def test_hash(self):self.assertEqual(len(fingerprint(self.p())),64)

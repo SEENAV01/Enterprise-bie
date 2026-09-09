@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.index_structure import *
+from bie.document_intelligence.index_structure import *
 class T(unittest.TestCase):
     def test_ok(self): self.assertEqual(normalize([("Force",[3,2,3])],5)["Force"],(2,3))
     def test_empty_pages(self): self.assertEqual(normalize([("A",[])],2)["A"],())

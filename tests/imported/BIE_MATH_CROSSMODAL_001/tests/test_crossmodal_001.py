@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.crossmodal_math import *
+from bie.math_intelligence.crossmodal_math import *
 class T(unittest.TestCase):
  def test_graph(self): self.assertEqual(link("e1","g1","graph","plots",.9).modality,"graph")
  def test_targets(self): self.assertEqual(targets([link("e","t","table","defines columns",1)],"table"),("t",))

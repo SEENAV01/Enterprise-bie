@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.subsection_structure import *
+from bie.document_intelligence.subsection_structure import *
 class T(unittest.TestCase):
     def test_ok(self): self.assertEqual(len(validate([{"id":"x","section_id":"s","title":"T","order":1}],{"s"})),1)
     def test_parent(self):

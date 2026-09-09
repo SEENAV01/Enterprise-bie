@@ -1,45 +1,33 @@
-# Enterprise BIE
+# My Book Intelligence Engine
 
-Naveen's Book Intelligence Engine: source-grounded book understanding, prerequisite reasoning, educational video code and interactive revision games.
+Continuation of the existing enterprise BIE repository, not a new architecture or product release.
 
-The repository now preserves **766 original BIE ZIP files** (691 distinct byte contents), expands their source history, and assembles **376 enterprise batches** into one `app/bie` source tree. This is repository recovery and source integration. Full-book production acceptance is still pending.
+Working Python source lives in `bie/`, following `schemas/canonical-monorepo.json`. Existing Prerequisite, Math, Document, Knowledge, model gateway and infrastructure implementations are retained. Supported `app.bie.*` imports resolve to the same canonical module identities.
 
-## Start here
+## Current checkpoint
 
-- [Context and continuation](BIE_CONTEXT_HANDOFF.md)
-- [Current verified state](docs/bie/CURRENT_STATE.md)
-- [Master product specification](docs/bie/BIE_MASTER_SPEC.md)
-- [Assembly decisions and fixes](docs/bie/REPOSITORY_ASSEMBLY.md)
-- [Archive inventory](manifests/archive_inventory.json)
+Reasoning implementation includes **RE-SPATIAL-003/004 and RE-TEMP-001/002/003**. See `task_registry/continuation.json` and `docs/tasks/`.
 
-## Layout
+- 796 original archives and 12,439 historical member files accounted for.
+- All 273 Assembly-001 archive hashes and 2,450 member records match the recovered originals.
+- 1,654 passing tests: 1,551 restored regressions, 78 task tests, 13 integration/contract tests and 12 assembly guards.
+- IMPLEMENTED, **NOT ACCEPTED**. Real-book reasoning and rendered-video/playable-game acceptance remain pending.
 
-| Path | Contents |
-| --- | --- |
-| `app/bie/` | Combined enterprise source; current working implementation |
-| `tests/imported/` | Working copies of all 374 imported enterprise test files |
-| `tests/test_repository_integration.py` | Regression checks for assembly fixes |
-| `batches/` | Unmodified source, specifications, task results and test evidence from each enterprise ZIP |
-| `historical/` | Preserved earlier BIE versions, M-series modules and product packages |
-| `backups/BIE_ORIGINAL_ARCHIVES_2026-09-09.zip` | All 766 original ZIPs, byte-for-byte, including duplicate backup copies |
-| `manifests/` | Archive/member checksums, task IDs, duplicate groups and source conflict decisions |
-| `validation/` | Results actually produced during this assembly |
+## Run
 
-Generated cache files are retained inside the original ZIPs and omitted from the expanded source. No original archive, module, specification or task result has been discarded. Imported status claims remain historical evidence and are not automatically promoted to ACCEPTED.
-
-## Local verification
-
-Python 3.12 was used for this assembly. The enterprise checks require only the Python standard library and do not invoke a model provider.
+Python 3.11+; validated on Python 3.12.14. The current enterprise Python distribution needs no third-party runtime packages.
 
 ```bash
-python3 scripts/verify_assembly.py
-python3 scripts/test_enterprise.py
+python scripts/integrated_check.py
+python -m pip install .
 ```
 
-Run one batch with `python3 scripts/test_enterprise.py --batch BIE_RE_DEC_001`.
+The packaging version denotes this canonical distribution, not a reset of historical product versions.
 
-Legacy packages retain their own dependencies and instructions. Their live model calls, renderer builds and full-book acceptance have not been executed by this assembly.
+## Preservation and development
 
-## Delivery rule
+`bie/` is the development source. `tests/` contains normalized working tests. `batches/`, `historical/` and `backups/` retain original bytes and evidence; they are not imported by the production package.
 
-Every future completed development batch must update the working source, tests, specification, task registry and continuation checkpoint; commit verified changes to this repository; and deliver a downloadable backup ZIP with the exact commit SHA. An unavailable write must be reported as blocked, never described as uploaded.
+`manifests/lossless_migration.csv` documents every original file. The 390 older M-series/historical packages remain preserved for governed characterization and later wiring; this migration does not claim all legacy features are already integrated into the enterprise pipeline.
+
+See `docs/adr/ADR-canonical-assembly-002.md`, `docs/GITHUB_SYNC.md` and `docs/REASONING_BATCH_SPATIAL_TEMPORAL.md` for scope and evidence.

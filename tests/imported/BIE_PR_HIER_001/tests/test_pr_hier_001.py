@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.hierarchical_context import *
+from bie.prerequisite_intelligence.hierarchical_context import *
 class T(unittest.TestCase):
  def test_nearest(self):
   r=resolve_context({"vectors"},[ContextLayer("book",frozenset({"vectors"}),4),ContextLayer("section",frozenset({"vectors"}),1)])

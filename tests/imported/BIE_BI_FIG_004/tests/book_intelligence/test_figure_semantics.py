@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.figure_semantics import *
+from bie.document_intelligence.figure_semantics import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertEqual(build("f"," force ",("A","B"),(("A","acts_on","B"),),.9).summary,"force")
  def test_empty(self):

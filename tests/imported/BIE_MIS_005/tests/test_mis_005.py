@@ -1,5 +1,5 @@
 import unittest
-from app.bie.misconception_intelligence.concept_mapping import *
+from bie.misconception_intelligence.concept_mapping import *
 class T(unittest.TestCase):
  def test_map(self):
   r=map_misconception("m",{"mass","weight"},{"mass-v-weight":{"mass","weight"},"force":{"force"}}); self.assertEqual(r[0].concept,"mass-v-weight")

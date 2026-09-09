@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.transitive_reduction import *
+from bie.prerequisite_intelligence.transitive_reduction import *
 class T(unittest.TestCase):
  def test_reduce(self):
   r=transitive_reduction(["a","b","c"],[("a","b"),("b","c"),("a","c")])

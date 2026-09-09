@@ -1,6 +1,6 @@
 import unittest
 from dataclasses import replace
-from bie_core.artifact_contracts import (
+from bie.bie_core.artifact_contracts import (
     ArtifactEnvelope, ArtifactContractError, LineageGraph,
     ProducerIdentity, ProvenanceSummary, ProvenanceSource, RunContext
 )

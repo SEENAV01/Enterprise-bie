@@ -1,6 +1,6 @@
 import unittest, tempfile, sqlite3
 from pathlib import Path
-from enterprise.persistence import *
+from bie.infrastructure.persistence import *
 
 class PersistenceTests(unittest.TestCase):
     def setUp(self):

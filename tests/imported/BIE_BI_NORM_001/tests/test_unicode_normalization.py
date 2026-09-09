@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.unicode_normalization import *
+from bie.document_intelligence.unicode_normalization import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(normalize("e\u0301"),"é")

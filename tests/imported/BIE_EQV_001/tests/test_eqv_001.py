@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.symbolic_equivalence import *
+from bie.math_intelligence.symbolic_equivalence import *
 class T(unittest.TestCase):
  def test_expand(self): self.assertTrue(equivalent("(x+1)*(x+1)","x^2+2*x+1").equivalent)
  def test_false(self): self.assertFalse(equivalent("x+1","x+2").equivalent)

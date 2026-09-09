@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.derivation_reconstruction import *
+from bie.math_intelligence.derivation_reconstruction import *
 class T(unittest.TestCase):
  def test_complete(self):
   r=reconstruct("a","c",[("b","r1"),("c","r2")],lambda a,b,r:(a,b) in {("a","b"),("b","c")});self.assertTrue(r.complete)

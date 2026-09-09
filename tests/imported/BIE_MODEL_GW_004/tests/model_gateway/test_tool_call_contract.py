@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.tool_call_contract import *
+from bie.model_gateway.tool_call_contract import *
 class T(unittest.TestCase):
  def c(self):return ToolCall("search",{},"1")
  def test_ok(self):self.assertTrue(validate_call(self.c(),{"search"}))

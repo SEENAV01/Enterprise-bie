@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.environment_fingerprint import *
+from bie.infrastructure.environment_fingerprint import *
 class T(unittest.TestCase):
  def test_fields(self):
   fp=build_environment_fingerprint(); self.assertIn("python_version",fp); self.assertIn("platform",fp)

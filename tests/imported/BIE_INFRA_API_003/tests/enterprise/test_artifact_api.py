@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.artifact_api import *
+from bie.infrastructure.artifact_api import *
 class C:
  def get(self,k):return {"artifact_id":"a","content_hash":"h"} if k=="a" else None
  def parents(self,k):return ["p"]

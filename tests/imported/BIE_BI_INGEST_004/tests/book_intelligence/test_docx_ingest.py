@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.docx_ingest import *
+from bie.document_intelligence.docx_ingest import *
 class A:
  def inspect(self,d):return {"blocks":[{"kind":"heading","text":"H"},{"kind":"paragraph","text":"P"}]}
 class T(unittest.TestCase):

@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.deterministic_tool_first import *
+from bie.model_gateway.deterministic_tool_first import *
 class T(unittest.TestCase):
  def test_math(self):self.assertEqual(route("arithmetic",True),"TOOL")
  def test_hash(self):self.assertEqual(route("hashing",True),"TOOL")

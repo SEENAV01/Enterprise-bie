@@ -1,5 +1,5 @@
 import unittest
-from app.bie.misconception_intelligence.misconception_evidence import *
+from bie.misconception_intelligence.misconception_evidence import *
 class T(unittest.TestCase):
  def test_combine(self): self.assertEqual(aggregate_misconception_evidence([Evidence("p1",.8,"text"),Evidence("q1",.5,"assessment")]).confidence,.9)
  def test_dedup(self):

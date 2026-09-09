@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.definition_arbitration import *
+from bie.knowledge_intelligence.definition_arbitration import *
 class T(unittest.TestCase):
  def test_contract(self):
   d=[{"anchor_id":"a","confidence":.9,"source_priority":1},{"anchor_id":"b","confidence":.7,"source_priority":2}]

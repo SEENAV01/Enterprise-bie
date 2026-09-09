@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.availability import *
+from bie.model_gateway.availability import *
 class T(unittest.TestCase):
  def h(self,a=True,l=10):return Health("p","m",a,l,1)
  def test_usable(self):self.assertTrue(usable(self.h()))

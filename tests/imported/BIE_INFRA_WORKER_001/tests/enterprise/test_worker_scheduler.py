@@ -1,5 +1,5 @@
 import unittest
-from enterprise.worker_scheduler import *
+from bie.infrastructure.worker_scheduler import *
 
 def worker(wid,caps,cpu=8,mem=16,gpu=False,vram=0,mc=2,aff=None):
     return WorkerCapabilities(wid,set(caps),cpu,mem,gpu,vram,mc,set(aff or []))

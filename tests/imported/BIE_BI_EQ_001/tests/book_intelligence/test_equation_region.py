@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.equation_region import *
+from bie.document_intelligence.equation_region import *
 class T(unittest.TestCase):
     def test_ok(self): self.assertTrue(validate(EquationRegion("e",1,(0,0,1,1),.9)))
     def test_page(self):

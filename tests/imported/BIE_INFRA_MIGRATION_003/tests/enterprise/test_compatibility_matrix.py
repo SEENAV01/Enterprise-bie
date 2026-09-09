@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.compatibility_matrix import *
+from bie.infrastructure.compatibility_matrix import *
 class T(unittest.TestCase):
  def setUp(self): self.m=CompatibilityMatrix([CompatibilityRule("api",1,3),CompatibilityRule("worker",2,4)])
  def test_true(self): self.assertTrue(self.m.check("api",2))

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.realbook_benchmark import *
+from bie.math_intelligence.realbook_benchmark import *
 class T(unittest.TestCase):
  def test_pass(self): self.assertTrue(evaluate_case("p1","physics",1,1,1,1).passed)
  def test_failures(self): self.assertIn("derivation",evaluate_case("m1","mathematics",1,1,0,1).failures)

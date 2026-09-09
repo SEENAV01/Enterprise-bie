@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.concept_dedup import *
+from bie.knowledge_intelligence.concept_dedup import *
 class T(unittest.TestCase):
  def test_contract(self):
   x=[{"concept_id":"a","label":"Electric Field","evidence":("p1",)},{"concept_id":"b","label":"electric-field","evidence":("p2",)}]

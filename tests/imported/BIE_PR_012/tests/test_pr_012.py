@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.assumed_knowledge import *
+from bie.prerequisite_intelligence.assumed_knowledge import *
 class T(unittest.TestCase):
  def test_recall(self): self.assertEqual(detect_assumed_knowledge("Recall that vectors have direction.",{"vectors"})[0].concept,"vectors")
  def test_none(self): self.assertEqual(detect_assumed_knowledge("Vectors are introduced now.",{"vectors"}),[])

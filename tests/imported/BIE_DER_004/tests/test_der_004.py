@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.derivation_validation import *
+from bie.math_intelligence.derivation_validation import *
 class T(unittest.TestCase):
  def test_ok(self): self.assertTrue(validate_step(StepEvidence(1,1,1)).valid)
  def test_equiv(self): self.assertIn("not_equivalent",validate_step(StepEvidence(0,1,1)).failures)

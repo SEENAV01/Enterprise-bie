@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.acceptance_evidence import *
+from bie.infrastructure.acceptance_evidence import *
 class T(unittest.TestCase):
  def setUp(self): self.b=AcceptanceBinder([Criterion("c1","tests",("unit","integration"))])
  def ev(self,t,p=True): return Evidence("r"+t,t,p,"abc")

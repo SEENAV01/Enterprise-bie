@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.knowledge_graph_query import *
+from bie.knowledge_intelligence.knowledge_graph_query import *
 class T(unittest.TestCase):
  def test_contract(self):
   g={"nodes":{"a":{"label":"Electric Field"},"b":{"label":"Force"}},"edges":[{"source":"a","target":"b","type":"X","confidence":.9}]}

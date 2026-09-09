@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.readiness import *
+from bie.infrastructure.readiness import *
 class T(unittest.TestCase):
     def test_no_dep_ready(self):
         self.assertEqual(compute_ready({"A":{"status":"PLANNED","dependencies":[]}}),["A"])

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.derivation_chain import *
+from bie.math_intelligence.derivation_chain import *
 class T(unittest.TestCase):
  def test_valid(self): self.assertTrue(validate_chain([Step("a","b"),Step("b","c")]).valid)
  def test_break(self): self.assertEqual(validate_chain([Step("a","b"),Step("x","c")]).breaks,(1,))

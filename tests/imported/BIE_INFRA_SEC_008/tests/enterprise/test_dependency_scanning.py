@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.dependency_scanning import *
+from bie.infrastructure.dependency_scanning import *
 class T(unittest.TestCase):
  def test_clear(self):self.assertTrue(gate([])["passed"])
  def test_high(self):self.assertFalse(gate([Finding("x","1","HIGH","A")])["passed"])

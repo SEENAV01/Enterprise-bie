@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.unit_conversion import *
+from bie.math_intelligence.unit_conversion import *
 class T(unittest.TestCase):
  def test_km(self): self.assertEqual(convert(2,"km","m").result,2000)
  def test_time(self): self.assertEqual(convert(2,"h","min").result,120)

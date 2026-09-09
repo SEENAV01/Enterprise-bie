@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.event_stream import *
+from bie.infrastructure.event_stream import *
 class T(unittest.TestCase):
  def test_publish(self):self.assertEqual(EventStream().publish("r","stage",{}).seq,1)
  def test_seq(self):

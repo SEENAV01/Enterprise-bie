@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.latex_normalization import *
+from bie.document_intelligence.latex_normalization import *
 class T(unittest.TestCase):
     def test_trim(self): self.assertEqual(normalize("  x + y  "),"x + y")
     def test_minus(self): self.assertEqual(normalize("x−y"),"x-y")

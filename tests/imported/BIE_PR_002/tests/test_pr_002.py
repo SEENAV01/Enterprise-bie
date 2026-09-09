@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.explicit_prerequisites import *
+from bie.prerequisite_intelligence.explicit_prerequisites import *
 class T(unittest.TestCase):
  def test_requires(self):
   r=extract_explicit_prerequisites("Coulomb law","This topic requires vectors and electric charge.")

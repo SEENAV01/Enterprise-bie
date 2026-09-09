@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_part_of import *
+from bie.knowledge_intelligence.relation_part_of import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("nucleus","cell",["p"],1)["type"],"PART_OF")

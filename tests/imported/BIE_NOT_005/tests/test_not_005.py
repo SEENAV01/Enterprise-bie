@@ -1,5 +1,5 @@
 import unittest
-from app.bie.notation_intelligence.math_tools import *
+from bie.notation_intelligence.math_tools import *
 class T(unittest.TestCase):
  def test_calculus(self): self.assertEqual(infer_math_tools("differentiate the rate of change")[0].tool,"calculus")
  def test_vectors(self): self.assertTrue(any(x.tool=="vectors" for x in infer_math_tools("find vector magnitude and direction")))

@@ -1,6 +1,6 @@
 import unittest, tempfile, sqlite3
 from pathlib import Path
-from enterprise.durable_task_queue import *
+from bie.infrastructure.durable_task_queue import *
 
 class FakeClock:
     def __init__(self):self.t=100.0

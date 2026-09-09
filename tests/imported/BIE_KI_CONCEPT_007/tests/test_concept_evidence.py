@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.concept_evidence import *
+from bie.knowledge_intelligence.concept_evidence import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(bind("c",["a","a","b"])["evidence_count"],2)

@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.task_registry import *
+from bie.infrastructure.task_registry import *
 class T(unittest.TestCase):
     def t(self,**kw):
         x=dict(task_id="BIE-X-001",title="X",system="INFRA",purpose="p")

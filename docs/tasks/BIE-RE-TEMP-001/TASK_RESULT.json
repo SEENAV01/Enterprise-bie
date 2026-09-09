@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-TEMP-001",
+  "short_id": "RE-TEMP-001",
+  "title": "Chronology reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "dependencies": [
+    "BIE-RE-CAUSAL-004"
+  ],
+  "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+  "implementation_path": "bie/reasoning/chronology_reasoning.py",
+  "implementation_sha256": "256c85e0ded878b9589eb93d30294be88edd2786de497a63a657cd0231e6e343",
+  "test_path": "tests/reasoning/test_chronology_reasoning.py",
+  "tests_run": 15,
+  "tests_passed": true,
+  "integration": "CANONICAL",
+  "integration_evidence": "validation/integrated_tests.json",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

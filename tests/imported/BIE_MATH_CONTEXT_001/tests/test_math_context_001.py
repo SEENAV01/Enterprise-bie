@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.context_grounding import *
+from bie.math_intelligence.context_grounding import *
 class T(unittest.TestCase):
  def test_link(self): self.assertEqual(ground_equation("e1","force","p2","explicit formula",.9).concept_id,"force")
  def test_best(self):

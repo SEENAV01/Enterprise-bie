@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.ocr_confidence import *
+from bie.document_intelligence.ocr_confidence import *
 class T(unittest.TestCase):
  def test_mean(self):self.assertAlmostEqual(summarize([1,.8]).mean,.9)
  def test_review(self):self.assertTrue(summarize([.2,.9]).needs_review)

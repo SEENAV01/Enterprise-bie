@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.claim_normalize import *
+from bie.knowledge_intelligence.claim_normalize import *
 class T(unittest.TestCase):
  def test_contract(self):
   a=normalize(" Force  causes motion. ");b=normalize("force causes motion")

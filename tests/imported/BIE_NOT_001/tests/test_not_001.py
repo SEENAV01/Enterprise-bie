@@ -1,5 +1,5 @@
 import unittest
-from app.bie.notation_intelligence.notation import *
+from bie.notation_intelligence.notation import *
 class T(unittest.TestCase):
  def test_greek(self): self.assertEqual(extract_notation("angle θ")[0].kind,"greek")
  def test_operator(self): self.assertTrue(any(x.raw=="∫" for x in extract_notation("∫ f dx")))

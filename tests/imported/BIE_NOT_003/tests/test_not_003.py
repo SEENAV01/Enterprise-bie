@@ -1,5 +1,5 @@
 import unittest
-from app.bie.notation_intelligence.coordinates import *
+from bie.notation_intelligence.coordinates import *
 class T(unittest.TestCase):
  def test_xy(self): self.assertEqual(infer_coordinate_system({"x","y"}).kind,"cartesian")
  def test_xyz(self): self.assertEqual(infer_coordinate_system({"x","y","z"}).dimensions,3)

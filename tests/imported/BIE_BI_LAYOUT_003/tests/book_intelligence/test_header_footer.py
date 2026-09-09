@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.header_footer import *
+from bie.document_intelligence.header_footer import *
 class T(unittest.TestCase):
  def test_header(self):self.assertIn(("Book","top"),recurring_candidates([[("Book","top")],[("Book","top")]]))
  def test_footer(self):self.assertIn(("1","bottom"),recurring_candidates([[("1","bottom")],[("1","bottom")]]))

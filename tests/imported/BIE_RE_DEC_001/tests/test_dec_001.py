@@ -1,5 +1,5 @@
 import unittest
-from app.bie.reasoning.decision_factory import *
+from bie.reasoning.decision_factory import *
 class T(unittest.TestCase):
  def test_make(self): self.assertEqual(make_decision("d1","causal","A→B",["e1"],.9,"supported").choice,"A→B")
  def test_no_evidence(self):

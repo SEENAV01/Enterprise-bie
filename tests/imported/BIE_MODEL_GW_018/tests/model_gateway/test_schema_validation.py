@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.schema_validation import *
+from bie.model_gateway.schema_validation import *
 class T(unittest.TestCase):
  def test_obj(self):self.assertTrue(validate({"a":"x"},{"type":"object","required":["a"],"properties":{"a":{"type":"string"}}}))
  def test_missing(self):

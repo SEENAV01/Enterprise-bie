@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.concept_merge_split import *
+from bie.knowledge_intelligence.concept_merge_split import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(decide("a","b",1,1,1)["action"],"MERGE")

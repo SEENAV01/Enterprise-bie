@@ -1,5 +1,5 @@
 import unittest
-from equation_claim_link import *
+from bie.knowledge_intelligence.equation_claim_link import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(link("e","c","EXPRESSES","p")["role"],"EXPRESSES")

@@ -1,7 +1,7 @@
 import unittest
-from enterprise.worker_executor_runtime import *
-from enterprise.worker_scheduler import *
-from enterprise.leases import *
+from bie.infrastructure.worker_executor_runtime import *
+from bie.infrastructure.worker_scheduler import *
+from bie.infrastructure.leases import *
 
 class FakeClock:
     def __init__(self):self.t=100.0

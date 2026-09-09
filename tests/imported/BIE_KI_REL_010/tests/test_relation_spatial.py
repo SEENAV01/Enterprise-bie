@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_spatial import *
+from bie.knowledge_intelligence.relation_spatial import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("nucleus","cell","INSIDE",["p"],.9)["relation"],"INSIDE")

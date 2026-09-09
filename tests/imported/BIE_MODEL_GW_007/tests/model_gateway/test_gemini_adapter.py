@@ -1,7 +1,7 @@
 
 import unittest
 from types import SimpleNamespace
-from model_gateway.gemini_adapter import *
+from bie.model_gateway.gemini_adapter import *
 class C:
  def generate(self,**k):return {"content":"ok"}
 class T(unittest.TestCase):

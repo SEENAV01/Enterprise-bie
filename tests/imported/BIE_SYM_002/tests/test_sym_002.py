@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.constants import *
+from bie.math_intelligence.constants import *
 class T(unittest.TestCase):
  def test_pi(self): self.assertEqual(resolve_constant("π").name,"pi")
  def test_c(self): self.assertEqual(resolve_constant("c","physics").value,299792458.0)

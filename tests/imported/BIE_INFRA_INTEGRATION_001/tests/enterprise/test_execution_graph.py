@@ -1,5 +1,5 @@
 import unittest
-from enterprise.execution_graph import *
+from bie.infrastructure.execution_graph import *
 
 class EnterpriseIntegrationTests(unittest.TestCase):
     def test_default_graph_valid(self):

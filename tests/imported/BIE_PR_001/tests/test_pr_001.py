@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.candidate_edges import *
+from bie.prerequisite_intelligence.candidate_edges import *
 class T(unittest.TestCase):
  def test_explicit_and_inferred(self):
   cs=[Concept("charge",0,frozenset({"charge"})),Concept("coulomb",1,frozenset({"charge","force"}),frozenset({"charge"}))]

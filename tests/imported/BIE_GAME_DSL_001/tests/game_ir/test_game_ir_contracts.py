@@ -1,5 +1,5 @@
 import unittest
-from game_ir.contracts import *
+from bie.game_engine.contracts import *
 
 def state():
     return [StateVariable("x","number",1.0,0,10,units="m")]

@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.dependency_resolver import *
+from bie.infrastructure.dependency_resolver import *
 class T(unittest.TestCase):
     def setUp(self):
         self.tasks={"A":{"dependencies":[]},"B":{"dependencies":["A"]},"C":{"dependencies":["A","B"]}}

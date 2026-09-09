@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.task_versioning import *
+from bie.infrastructure.task_versioning import *
 class T(unittest.TestCase):
  def test_create_v1(self): self.assertEqual(VersionLedger().create("x",{"a":1}).version,1)
  def test_duplicate_create(self):

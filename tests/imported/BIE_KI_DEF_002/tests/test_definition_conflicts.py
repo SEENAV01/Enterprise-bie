@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.definition_conflicts import *
+from bie.knowledge_intelligence.definition_conflicts import *
 class T(unittest.TestCase):
  def test_contract(self):
   d=[{"concept_id":"c","anchor_id":"a","scope":"s","polarity":1},{"concept_id":"c","anchor_id":"b","scope":"x","polarity":1}]

@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.benchmark_api import *
+from bie.infrastructure.benchmark_api import *
 class R:
  def cases(self):return [{"id":"c","domain":"physics"}]
  def get(self,k):return {"id":"c"} if k=="c" else None

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.e2e_acceptance import *
+from bie.prerequisite_intelligence.e2e_acceptance import *
 class T(unittest.TestCase):
  def test_all(self):
   gs=[Gate(n,True,"artifact") for n in REQUIRED];self.assertTrue(assess(gs).accepted)

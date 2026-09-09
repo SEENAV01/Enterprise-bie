@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.derivation_step import *
+from bie.math_intelligence.derivation_step import *
 class T(unittest.TestCase):
  def test_step(self): self.assertEqual(make_step("x+1=2","x=1","subtract 1","same operation both sides").rule,"subtract 1")
  def test_source(self): self.assertEqual(make_step("a","b","r","j","p4:eq2").source,"p4:eq2")

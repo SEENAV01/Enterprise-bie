@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.boundary_cases import *
+from bie.knowledge_intelligence.boundary_cases import *
 class T(unittest.TestCase):
  def test_contract(self):
   r=make("division","denominator zero","undefined","p");self.assertEqual(r["type"],"BOUNDARY_CASE")

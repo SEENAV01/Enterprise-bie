@@ -1,5 +1,5 @@
 import unittest
-from app.bie.readiness_intelligence.diagnostics import *
+from bie.readiness_intelligence.diagnostics import *
 class T(unittest.TestCase):
  def test_question(self): self.assertIn("vectors",generate_diagnostic_questions({"vectors":{"objective":"explain vectors"}})[0].prompt)
  def test_priority(self):

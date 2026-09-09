@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.postgres_adapter import *
+from bie.infrastructure.postgres_adapter import *
 class Cur:
  def execute(self,x):self.x=x
  def fetchone(self):return (1,)

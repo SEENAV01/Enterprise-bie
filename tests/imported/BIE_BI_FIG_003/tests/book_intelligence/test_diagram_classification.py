@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.diagram_classification import *
+from bie.document_intelligence.diagram_classification import *
 class T(unittest.TestCase):
  def test_map(self):self.assertEqual(classify({"map":.9})[0],"map")
  def test_unknown(self):self.assertEqual(classify({"map":.2})[0],"unknown")

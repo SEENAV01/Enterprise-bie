@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.run_timeline import *
+from bie.infrastructure.run_timeline import *
 class T(unittest.TestCase):
  def test_seq(self): self.assertEqual(RunTimeline().add("r","start",1).seq,1)
  def test_stage(self): self.assertEqual(RunTimeline().add("r","x",1,"s").stage_id,"s")

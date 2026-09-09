@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.embeddings_contract import *
+from bie.model_gateway.embeddings_contract import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertTrue(validate(EmbeddingResult("m",((1.,2.),),2),1))
  def test_count(self):

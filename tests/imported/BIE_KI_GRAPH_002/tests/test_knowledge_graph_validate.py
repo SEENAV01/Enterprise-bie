@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.knowledge_graph_validate import *
+from bie.knowledge_intelligence.knowledge_graph_validate import *
 class T(unittest.TestCase):
  def test_contract(self):
   g={"nodes":{"a":{},"b":{}},"edges":[{"source":"a","target":"b","type":"X"}]};self.assertTrue(validate(g)["passed"])

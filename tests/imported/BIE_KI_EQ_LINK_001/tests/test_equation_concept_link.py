@@ -1,5 +1,5 @@
 import unittest
-from equation_concept_link import *
+from bie.knowledge_intelligence.equation_concept_link import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(link("eq1",["force"],["p"],.9)["concept_ids"],("force",))

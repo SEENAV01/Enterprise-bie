@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.bridge_requirement import *
+from bie.prerequisite_intelligence.bridge_requirement import *
 class T(unittest.TestCase):
  def test_required(self): self.assertTrue(bridge_requirement({"a"},set()).required)
  def test_not_missing(self): self.assertFalse(bridge_requirement({"a"},{"a"}).required)

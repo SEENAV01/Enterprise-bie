@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.function_intelligence import *
+from bie.math_intelligence.function_intelligence import *
 class T(unittest.TestCase):
  def test_explicit(self): self.assertEqual(function_spec("f",["x"],"x^2").variables,("x",))
  def test_parametric(self): self.assertEqual(function_spec("r",["t"],"(cos(t),sin(t))","parametric").representation,"parametric")

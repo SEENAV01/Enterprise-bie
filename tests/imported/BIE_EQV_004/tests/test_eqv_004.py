@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.simplification import *
+from bie.math_intelligence.simplification import *
 class T(unittest.TestCase):
  def test_simple(self): self.assertTrue(validate_simplification("x+0","x",True).valid)
  def test_not_equiv(self): self.assertFalse(validate_simplification("x+1","x",False).valid)

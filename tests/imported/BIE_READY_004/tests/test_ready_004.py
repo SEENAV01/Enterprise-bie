@@ -1,5 +1,5 @@
 import unittest
-from app.bie.readiness_intelligence.readiness_evidence import *
+from bie.readiness_intelligence.readiness_evidence import *
 class T(unittest.TestCase):
  def test_ready(self): self.assertTrue(decide_readiness([ReadinessEvidence("quiz",.9,1)]).ready)
  def test_weighted(self):

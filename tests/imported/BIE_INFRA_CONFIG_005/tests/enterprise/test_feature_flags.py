@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.feature_flags import *
+from bie.infrastructure.feature_flags import *
 class T(unittest.TestCase):
  def test_enabled(self):
   f=FeatureFlags([FeatureFlag("x",True,"test","infra")]); self.assertTrue(f.enabled("x"))

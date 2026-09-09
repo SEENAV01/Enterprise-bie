@@ -1,5 +1,5 @@
 import unittest
-from app.bie.misconception_intelligence.misconception_extraction import *
+from bie.misconception_intelligence.misconception_extraction import *
 class T(unittest.TestCase):
  def test_common(self): self.assertEqual(extract_misconceptions("A common misconception is that force is needed for constant velocity.")[0].statement,"force is needed for constant velocity")
  def test_wrong(self): self.assertEqual(len(extract_misconceptions("It is wrong to assume that mass equals weight.")),1)

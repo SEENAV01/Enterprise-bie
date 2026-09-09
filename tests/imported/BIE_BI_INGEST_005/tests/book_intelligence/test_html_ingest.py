@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.html_ingest import *
+from bie.document_intelligence.html_ingest import *
 class A:
  def inspect(self,h):return {"blocks":[{"kind":"p","text":"x"}],"links":["/a"],"title":"T"}
 class T(unittest.TestCase):

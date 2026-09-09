@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.vectors import *
+from bie.math_intelligence.vectors import *
 class T(unittest.TestCase):
  def test_latex(self): self.assertEqual(parse_vector(r"\\vec{v}").symbol,"v")
  def test_components(self): self.assertEqual(parse_vector("<1,2,3>").components,("1","2","3"))

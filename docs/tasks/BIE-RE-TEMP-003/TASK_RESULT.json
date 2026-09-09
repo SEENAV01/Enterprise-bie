@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-TEMP-003",
+  "short_id": "RE-TEMP-003",
+  "title": "Periodization reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "dependencies": [
+    "BIE-RE-TEMP-001"
+  ],
+  "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+  "implementation_path": "bie/reasoning/periodization_reasoning.py",
+  "implementation_sha256": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
+  "test_path": "tests/reasoning/test_periodization_reasoning.py",
+  "tests_run": 16,
+  "tests_passed": true,
+  "integration": "CANONICAL",
+  "integration_evidence": "validation/integrated_tests.json",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

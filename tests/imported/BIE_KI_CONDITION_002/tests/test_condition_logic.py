@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.condition_logic import *
+from bie.knowledge_intelligence.condition_logic import *
 class T(unittest.TestCase):
  def test_contract(self):
   g=group("ALL",["a","b"]);self.assertTrue(satisfied(g,{"a":1,"b":1}))

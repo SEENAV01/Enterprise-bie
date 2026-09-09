@@ -1,5 +1,5 @@
 import unittest
-from qa.release_contracts import *
+from bie.qa.release_contracts import *
 
 def ev(gate,status="PASS",eid=None):
     return GateEvidence(

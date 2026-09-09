@@ -1,7 +1,7 @@
 
 import unittest
 from types import SimpleNamespace
-from model_gateway.local_model_adapter import *
+from bie.model_gateway.local_model_adapter import *
 class R:
  def generate(self,*a):return {"content":"local"}
 class T(unittest.TestCase):

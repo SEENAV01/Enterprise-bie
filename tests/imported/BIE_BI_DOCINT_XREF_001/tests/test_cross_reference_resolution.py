@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.cross_reference_resolution import *
+from bie.document_intelligence.cross_reference_resolution import *
 class T(unittest.TestCase):
  def test_contract(self):
   idx={("fig","3.2"):"f32"};r=resolve("See Fig. 3.2",idx);self.assertTrue(r[0]["resolved"])

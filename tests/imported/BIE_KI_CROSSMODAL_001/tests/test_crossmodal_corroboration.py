@@ -1,5 +1,5 @@
 import unittest
-from crossmodal_corroboration import *
+from bie.knowledge_intelligence.crossmodal_corroboration import *
 class T(unittest.TestCase):
  def test_contract(self):
   r=fuse([{"semantic_key":"k","modality":"TEXT","confidence":.8},{"semantic_key":"k","modality":"FIGURE","confidence":.7}]);self.assertEqual(r["status"],"CORROBORATED")

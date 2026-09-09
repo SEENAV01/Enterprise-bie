@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.notation import *
+from bie.knowledge_intelligence.notation import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(register("v","velocity","chapter","p")["meaning"],"velocity")

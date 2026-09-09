@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.canonical_math import *
+from bie.math_intelligence.canonical_math import *
 class T(unittest.TestCase):
  def test_mul(self): self.assertEqual(canonicalize("a × b"),"a*b")
  def test_minus(self): self.assertEqual(canonicalize("x − 1"),"x-1")

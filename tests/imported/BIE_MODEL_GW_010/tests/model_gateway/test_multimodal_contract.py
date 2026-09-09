@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.multimodal_contract import *
+from bie.model_gateway.multimodal_contract import *
 class T(unittest.TestCase):
  def test_text(self):self.assertEqual(len(validate_parts([Part("text","x")])),1)
  def test_image(self):self.assertEqual(validate_parts([Part("image",b"x","image/png")])[0].kind,"image")

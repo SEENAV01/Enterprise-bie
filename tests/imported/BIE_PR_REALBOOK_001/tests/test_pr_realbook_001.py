@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.realbook_benchmark import *
+from bie.prerequisite_intelligence.realbook_benchmark import *
 class T(unittest.TestCase):
  def test_perfect(self):
   r=evaluate([BookCase("physics",{("a","b")},{("a","b")})]);self.assertEqual(r.f1,1)

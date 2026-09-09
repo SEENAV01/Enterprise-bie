@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.equation_source_link import *
+from bie.document_intelligence.equation_source_link import *
 class T(unittest.TestCase):
     def x(self): return EquationSourceLink("e","a"*64,1,"r","x=1",.9)
     def test_ok(self): self.assertTrue(validate(self.x()))

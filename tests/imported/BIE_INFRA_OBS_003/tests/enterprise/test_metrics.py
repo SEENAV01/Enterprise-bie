@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.metrics import *
+from bie.infrastructure.metrics import *
 class T(unittest.TestCase):
  def test_counter(self): m=Metrics();m.inc("x");m.inc("x",2);self.assertEqual(m.counters["x"],3)
  def test_negative_counter(self):

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.unit_mismatch import *
+from bie.math_intelligence.unit_mismatch import *
 class T(unittest.TestCase):
  def test_ok(self): self.assertTrue(check_dimensions((1,0,-1,0,0,0,0),(1,0,-1,0,0,0,0)).compatible)
  def test_bad(self): self.assertEqual(check_dimensions((1,0,0,0,0,0,0),(0,0,1,0,0,0,0)).reason,"dimension_mismatch")

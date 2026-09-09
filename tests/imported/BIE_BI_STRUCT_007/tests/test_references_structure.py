@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.references_structure import *
+from bie.document_intelligence.references_structure import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(len(normalize([{"id":"r","text":"Book"}])),1)

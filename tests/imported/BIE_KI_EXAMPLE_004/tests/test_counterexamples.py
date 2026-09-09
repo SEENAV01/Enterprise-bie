@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.counterexamples import *
+from bie.knowledge_intelligence.counterexamples import *
 class T(unittest.TestCase):
  def test_contract(self):
   r=create("e","c","not all metals magnetic","p",.9);self.assertEqual(r["type"],"COUNTEREXAMPLE")

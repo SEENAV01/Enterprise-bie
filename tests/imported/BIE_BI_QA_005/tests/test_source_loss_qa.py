@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.source_loss_qa import *
+from bie.document_intelligence.source_loss_qa import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(evaluate(["a"],["a"])["passed"])

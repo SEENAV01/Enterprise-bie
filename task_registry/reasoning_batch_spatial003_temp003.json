@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "tasks": [
+    {
+      "task_id": "BIE-RE-SPATIAL-003",
+      "short_id": "RE-SPATIAL-003",
+      "title": "Map reasoning",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "dependencies": [
+        "BIE-RE-SPATIAL-001",
+        "BIE-RE-SPATIAL-002"
+      ],
+      "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+      "implementation_path": "bie/reasoning/map_reasoning.py",
+      "implementation_sha256": "697487ddc9fd5817e33cec9115463e59a0490b2aef78f083ff6ab4c2df1278be",
+      "test_path": "tests/reasoning/test_map_reasoning.py",
+      "tests_run": 16,
+      "tests_passed": true,
+      "integration": "CANONICAL",
+      "integration_evidence": "validation/integrated_tests.json",
+      "shared_contract": "bie/reasoning/grounded_result.py",
+      "acceptance_blockers": [
+        "Diverse real-book integrated reasoning evidence pending",
+        "Downstream executable video render and playable game QA evidence pending"
+      ]
+    },
+    {
+      "task_id": "BIE-RE-SPATIAL-004",
+      "short_id": "RE-SPATIAL-004",
+      "title": "Geometry reasoning",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "dependencies": [
+        "BIE-RE-SPATIAL-002"
+      ],
+      "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+      "implementation_path": "bie/reasoning/geometry_reasoning.py",
+      "implementation_sha256": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
+      "test_path": "tests/reasoning/test_geometry_reasoning.py",
+      "tests_run": 18,
+      "tests_passed": true,
+      "integration": "CANONICAL",
+      "integration_evidence": "validation/integrated_tests.json",
+      "shared_contract": "bie/reasoning/grounded_result.py",
+      "acceptance_blockers": [
+        "Diverse real-book integrated reasoning evidence pending",
+        "Downstream executable video render and playable game QA evidence pending"
+      ]
+    },
+    {
+      "task_id": "BIE-RE-TEMP-001",
+      "short_id": "RE-TEMP-001",
+      "title": "Chronology reasoning",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "dependencies": [
+        "BIE-RE-CAUSAL-004"
+      ],
+      "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+      "implementation_path": "bie/reasoning/chronology_reasoning.py",
+      "implementation_sha256": "256c85e0ded878b9589eb93d30294be88edd2786de497a63a657cd0231e6e343",
+      "test_path": "tests/reasoning/test_chronology_reasoning.py",
+      "tests_run": 15,
+      "tests_passed": true,
+      "integration": "CANONICAL",
+      "integration_evidence": "validation/integrated_tests.json",
+      "shared_contract": "bie/reasoning/grounded_result.py",
+      "acceptance_blockers": [
+        "Diverse real-book integrated reasoning evidence pending",
+        "Downstream executable video render and playable game QA evidence pending"
+      ]
+    },
+    {
+      "task_id": "BIE-RE-TEMP-002",
+      "short_id": "RE-TEMP-002",
+      "title": "Event-order reasoning",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "dependencies": [
+        "BIE-RE-TEMP-001",
+        "BIE-RE-GRAPH-001"
+      ],
+      "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+      "implementation_path": "bie/reasoning/event_order_reasoning.py",
+      "implementation_sha256": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
+      "test_path": "tests/reasoning/test_event_order_reasoning.py",
+      "tests_run": 13,
+      "tests_passed": true,
+      "integration": "CANONICAL",
+      "integration_evidence": "validation/integrated_tests.json",
+      "shared_contract": "bie/reasoning/grounded_result.py",
+      "acceptance_blockers": [
+        "Diverse real-book integrated reasoning evidence pending",
+        "Downstream executable video render and playable game QA evidence pending"
+      ]
+    },
+    {
+      "task_id": "BIE-RE-TEMP-003",
+      "short_id": "RE-TEMP-003",
+      "title": "Periodization reasoning",
+      "status": "IMPLEMENTED",
+      "accepted": false,
+      "dependencies": [
+        "BIE-RE-TEMP-001"
+      ],
+      "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+      "implementation_path": "bie/reasoning/periodization_reasoning.py",
+      "implementation_sha256": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
+      "test_path": "tests/reasoning/test_periodization_reasoning.py",
+      "tests_run": 16,
+      "tests_passed": true,
+      "integration": "CANONICAL",
+      "integration_evidence": "validation/integrated_tests.json",
+      "shared_contract": "bie/reasoning/grounded_result.py",
+      "acceptance_blockers": [
+        "Diverse real-book integrated reasoning evidence pending",
+        "Downstream executable video render and playable game QA evidence pending"
+      ]
+    }
+  ],
+  "integration_tests": 13,
+  "historical_regression_tests": 1551,
+  "assembly_guard_tests": 12,
+  "total_tests": 1654,
+  "accepted": false
+}

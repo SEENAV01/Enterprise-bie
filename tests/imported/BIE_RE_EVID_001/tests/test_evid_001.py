@@ -1,5 +1,5 @@
 import unittest
-from app.bie.reasoning.evidence_aggregation import *
+from bie.reasoning.evidence_aggregation import *
 class T(unittest.TestCase):
  def test_one(self): self.assertAlmostEqual(aggregate("c",[Evidence("e","c",.8,"p")]).score,.8)
  def test_many(self): self.assertGreater(aggregate("c",[Evidence("a","c",.5,"p"),Evidence("b","c",.5,"q")]).score,.5)

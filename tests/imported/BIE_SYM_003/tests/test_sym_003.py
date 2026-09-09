@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.symbol_disambiguation import *
+from bie.math_intelligence.symbol_disambiguation import *
 class T(unittest.TestCase):
  def test_velocity(self):
   r=disambiguate("v","velocity speed motion",{"velocity":("speed","motion"),"volume":("space","capacity")});self.assertEqual(r[0].meaning,"velocity")

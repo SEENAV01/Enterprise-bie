@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.document_pipeline import *
+from bie.document_intelligence.document_pipeline import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(run({s:(lambda st,s=s:{**st,s:True}) for s in ORDER})["qa"],True)

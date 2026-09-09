@@ -1,5 +1,5 @@
 import unittest
-from figure_graph_link import *
+from bie.knowledge_intelligence.figure_graph_link import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(link("f",["c"],["p"],.9)["target_ids"],("c",))

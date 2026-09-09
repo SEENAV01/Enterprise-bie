@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_causes import *
+from bie.knowledge_intelligence.relation_causes import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("heat","expansion",["p"],.9,"text order")["target"],"expansion")

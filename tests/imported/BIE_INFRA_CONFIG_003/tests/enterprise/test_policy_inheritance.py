@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.policy_inheritance import *
+from bie.infrastructure.policy_inheritance import *
 class T(unittest.TestCase):
  def test_child_override(self): self.assertEqual(merge_policy({"locale":"en"},{"locale":"hi"})["locale"],"hi")
  def test_parent_preserved(self): self.assertEqual(merge_policy({"locale":"en"},{"deterministic":True})["locale"],"en")

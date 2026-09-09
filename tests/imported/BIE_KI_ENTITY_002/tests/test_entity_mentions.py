@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.entity_mentions import *
+from bie.knowledge_intelligence.entity_mentions import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(mention("e","Newton wrote","p",0,6)["surface"],"Newton")

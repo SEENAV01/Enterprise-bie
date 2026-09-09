@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.knowledge_graph_edge_confidence import *
+from bie.knowledge_intelligence.knowledge_graph_edge_confidence import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(assess([{"confidence":.9}])[0]["confidence_status"],"ACCEPT")

@@ -1,5 +1,5 @@
 import unittest
-from concept_salience import *
+from bie.knowledge_intelligence.concept_salience import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(score(1,1,1,1)["band"],"CORE")

@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.encryption_detection import *
+from bie.document_intelligence.encryption_detection import *
 class T(unittest.TestCase):
  def test_plain(self):self.assertEqual(gate(EncryptionStatus(False,True,True)),"EXTRACT")
  def test_extract(self):self.assertEqual(gate(EncryptionStatus(True,True,True,"std")),"EXTRACT")

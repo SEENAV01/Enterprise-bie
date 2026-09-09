@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_temporal import *
+from bie.knowledge_intelligence.relation_temporal import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("event1","event2",["p"],.9)["type"],"TEMPORALLY_PRECEDES")

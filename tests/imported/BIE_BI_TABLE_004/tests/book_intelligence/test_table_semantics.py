@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.table_semantics import *
+from bie.document_intelligence.table_semantics import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertEqual(infer(["A","B"],[[1,2]])["columns"]["B"],(2,))
  def test_rows(self):self.assertEqual(infer(["A"],[[1],[2]])["row_count"],2)

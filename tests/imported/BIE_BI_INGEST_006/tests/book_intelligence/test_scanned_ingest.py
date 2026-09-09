@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.scanned_ingest import *
+from bie.document_intelligence.scanned_ingest import *
 class A:
  def render_pages(self,d):return [{"image_ref":"h1","width":100,"height":200},{"image_ref":"h2","width":100,"height":200}]
 class T(unittest.TestCase):

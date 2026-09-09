@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.knowledge_graph_traversal import *
+from bie.knowledge_intelligence.knowledge_graph_traversal import *
 class T(unittest.TestCase):
  def test_contract(self):
   g={"nodes":{"a":{},"b":{},"c":{}},"edges":[{"source":"a","target":"b","type":"X"},{"source":"b","target":"c","type":"X"}]}

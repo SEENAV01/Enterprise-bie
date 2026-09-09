@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.figure_detection import *
+from bie.document_intelligence.figure_detection import *
 class T(unittest.TestCase):
  def f(self):return FigureRegion("f",1,(0,0,1,1),.9)
  def test_ok(self):self.assertEqual(len(normalize([self.f()])),1)

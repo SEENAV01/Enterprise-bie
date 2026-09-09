@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.entity_concept_link import *
+from bie.knowledge_intelligence.entity_concept_link import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(link("earth","planet","INSTANCE_OF",["p"],1)["relation"],"INSTANCE_OF")

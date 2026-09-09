@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.epub_ingest import *
+from bie.document_intelligence.epub_ingest import *
 class A:
  def inspect(self,d):return {"spine":["c1","c2"],"metadata":{"title":"x"},"resources":["i.png"]}
 class T(unittest.TestCase):

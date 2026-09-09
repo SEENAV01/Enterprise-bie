@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.ocr_qa import *
+from bie.document_intelligence.ocr_qa import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(evaluate([.9,.95])["passed"])

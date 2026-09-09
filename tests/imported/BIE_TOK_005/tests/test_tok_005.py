@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.superscript import *
+from bie.math_intelligence.superscript import *
 class T(unittest.TestCase):
  def test_square(self): self.assertEqual(parse_superscript("x²").exponent,"2")
  def test_negative(self): self.assertEqual(parse_superscript("m⁻²").exponent,"-2")

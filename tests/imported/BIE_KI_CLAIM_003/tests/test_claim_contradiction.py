@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.claim_contradiction import *
+from bie.knowledge_intelligence.claim_contradiction import *
 class T(unittest.TestCase):
  def test_contract(self):
   a={"claim_id":"a","subject":"x","predicate":"is","object":"hot"};b={**a,"claim_id":"b","object":"cold"}

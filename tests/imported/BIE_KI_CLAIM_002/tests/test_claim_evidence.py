@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.claim_evidence import *
+from bie.knowledge_intelligence.claim_evidence import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(bind("c",["p"],.9)["grounded"])

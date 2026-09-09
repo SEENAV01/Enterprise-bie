@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.mastery import *
+from bie.prerequisite_intelligence.mastery import *
 class T(unittest.TestCase):
  def test_ready(self): self.assertTrue(evaluate_mastery("c",{"a"},{"a":.8}).ready)
  def test_block(self): self.assertEqual(evaluate_mastery("c",{"a"},{"a":.2}).blocking,("a",))

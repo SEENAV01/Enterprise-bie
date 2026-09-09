@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.run_config import *
+from bie.infrastructure.run_config import *
 class T(unittest.TestCase):
     def test_valid(self): self.assertEqual(RunConfig(1,"r","src").validate().run_id,"r")
     def test_run_required(self):

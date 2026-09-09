@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_derives import *
+from bie.knowledge_intelligence.relation_derives import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("v=u+at","a=dv/dt",["p"],["integrate"],.9)["type"],"DERIVES_FROM")

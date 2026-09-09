@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.bridge_scope import *
+from bie.prerequisite_intelligence.bridge_scope import *
 class T(unittest.TestCase):
  def test_expand(self):
   r=plan_bridge_scope({"c"},[("a","b"),("b","c")]); self.assertEqual([x.concept for x in r],["a","b","c"])

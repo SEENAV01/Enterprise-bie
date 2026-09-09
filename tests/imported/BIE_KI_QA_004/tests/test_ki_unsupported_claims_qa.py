@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.ki_unsupported_claims_qa import *
+from bie.knowledge_intelligence.ki_unsupported_claims_qa import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(evaluate([{"claim_id":"c","anchor_ids":["p"],"confidence":.9}])["passed"])

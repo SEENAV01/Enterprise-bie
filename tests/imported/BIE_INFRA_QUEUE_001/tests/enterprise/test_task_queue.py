@@ -1,5 +1,5 @@
 import unittest
-from enterprise.task_queue import *
+from bie.infrastructure.task_queue import *
 
 class FakeClock:
     def __init__(self):self.t=100.0

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.graph import *
+from bie.prerequisite_intelligence.graph import *
 class T(unittest.TestCase):
  def test_build(self):
   g=build_graph(["a","b"],[Edge("a","b")]); self.assertEqual(roots(g),["a"]); self.assertEqual(leaves(g),["b"])

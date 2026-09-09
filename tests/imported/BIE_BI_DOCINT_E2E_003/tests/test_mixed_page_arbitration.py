@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.mixed_page_arbitration import *
+from bie.document_intelligence.mixed_page_arbitration import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(choose(.95,.8),"NATIVE")

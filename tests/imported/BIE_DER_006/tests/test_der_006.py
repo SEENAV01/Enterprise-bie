@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.boundary_conditions import *
+from bie.math_intelligence.boundary_conditions import *
 class T(unittest.TestCase):
  def test_make(self): self.assertEqual(make_boundary("y","x=0","1").value,"1")
  def test_complete(self): self.assertTrue(complete({("y","x=0")},[make_boundary("y","x=0","1")]))

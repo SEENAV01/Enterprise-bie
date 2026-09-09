@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.execution_history import *
+from bie.infrastructure.execution_history import *
 class T(unittest.TestCase):
  def test_sequence(self):
   h=ExecutionHistory(); self.assertEqual(h.append("x","START","IN_PROGRESS","worker").seq,1)

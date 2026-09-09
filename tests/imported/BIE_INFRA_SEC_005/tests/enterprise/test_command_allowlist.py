@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.command_allowlist import *
+from bie.infrastructure.command_allowlist import *
 class T(unittest.TestCase):
  def setUp(self):self.p=CommandPolicy({"node","npm"})
  def test_ok(self):self.assertEqual(self.p.validate(["node","x.js"])[0],"node")

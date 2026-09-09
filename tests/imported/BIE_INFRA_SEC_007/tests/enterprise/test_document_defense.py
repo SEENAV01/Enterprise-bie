@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.document_defense import *
+from bie.infrastructure.document_defense import *
 class T(unittest.TestCase):
  def ok(self):return {"bytes":100,"pages":2}
  def test_ok(self):self.assertTrue(validate_document(self.ok()))

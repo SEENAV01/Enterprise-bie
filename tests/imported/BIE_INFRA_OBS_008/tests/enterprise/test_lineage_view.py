@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.lineage_view import *
+from bie.infrastructure.lineage_view import *
 class T(unittest.TestCase):
  def test_nodes(self): self.assertEqual(len(build_lineage_view([{"artifact_id":"a"}])["nodes"]),1)
  def test_edge(self): self.assertEqual(build_lineage_view([{"artifact_id":"a"},{"artifact_id":"b","parent_refs":["a"]}])["edges"][0]["to"],"b")

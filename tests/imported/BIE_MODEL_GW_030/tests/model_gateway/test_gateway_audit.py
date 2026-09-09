@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.gateway_audit import *
+from bie.model_gateway.gateway_audit import *
 class T(unittest.TestCase):
  def test_append(self):self.assertEqual(GatewayAudit().append("r","route",1).seq,1)
  def test_chain(self):

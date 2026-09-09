@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.replay_protection import *
+from bie.infrastructure.replay_protection import *
 class T(unittest.TestCase):
  def setUp(self): self.now=100.; self.p=ReplayProtector(lambda:self.now)
  def tok(self,**kw):

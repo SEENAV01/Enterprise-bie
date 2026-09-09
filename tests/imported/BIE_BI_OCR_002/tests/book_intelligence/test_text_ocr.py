@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.text_ocr import *
+from bie.document_intelligence.text_ocr import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertEqual(normalize_tokens([{"text":"A","confidence":.9,"box":[0,0,1,1]}])[0].text,"A")
  def test_skip(self):self.assertEqual(len(normalize_tokens([{"text":" "},{"text":"B","confidence":1,"box":[0,0,1,1]}])),1)

@@ -1,7 +1,7 @@
 import unittest
 from dataclasses import asdict
-from enterprise.run_state import build_run_state
-from enterprise.worker_scheduler import CapabilityScheduler, WorkerCapabilities, StageResourceRequirement
+from bie.infrastructure.run_state import build_run_state
+from bie.infrastructure.worker_scheduler import CapabilityScheduler, WorkerCapabilities, StageResourceRequirement
 
 class RepositoryIntegrationTests(unittest.TestCase):
     def test_retry_does_not_rewrite_failed_attempt_evidence(self):

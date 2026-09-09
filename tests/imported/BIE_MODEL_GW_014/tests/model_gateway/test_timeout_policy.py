@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.timeout_policy import *
+from bie.model_gateway.timeout_policy import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertTrue(validate(TimeoutPolicy(2,30,35)))
  def test_zero(self):

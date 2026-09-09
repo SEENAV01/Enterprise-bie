@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.formula_qa import *
+from bie.math_intelligence.formula_qa import *
 class T(unittest.TestCase):
  def test_ok(self): self.assertTrue(check_formula("F=ma").passed)
  def test_empty(self): self.assertFalse(check_formula("").passed)

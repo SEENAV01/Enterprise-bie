@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.source_hash import *
+from bie.document_intelligence.source_hash import *
 class T(unittest.TestCase):
  def test_len(self):self.assertEqual(len(source_sha256(b"x")),64)
  def test_stable(self):self.assertEqual(source_sha256(b"x"),source_sha256(b"x"))

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.operators import *
+from bie.math_intelligence.operators import *
 class T(unittest.TestCase):
  def test_power(self): self.assertEqual(operator_info("^").associativity,"right")
  def test_mul(self): self.assertGreater(operator_info("*").precedence,operator_info("+").precedence)

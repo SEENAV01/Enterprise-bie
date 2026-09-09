@@ -1,5 +1,5 @@
 import unittest
-from app.bie.reasoning.evidence_ranking import *
+from bie.reasoning.evidence_ranking import *
 class T(unittest.TestCase):
  def test_rank(self):
   a=RankedEvidence("a",1,1,1);b=RankedEvidence("b",.2,.2,.2);self.assertEqual(rank_evidence([b,a])[0],a)

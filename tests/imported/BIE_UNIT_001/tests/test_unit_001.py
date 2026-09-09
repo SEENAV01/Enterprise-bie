@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.unit_parser import *
+from bie.math_intelligence.unit_parser import *
 class T(unittest.TestCase):
  def test_ms(self): self.assertEqual([(x.symbol,x.exponent) for x in parse_unit("m/s").terms],[("m",1),("s",-1)])
  def test_power(self): self.assertEqual(parse_unit("m^2").terms[0].exponent,2)

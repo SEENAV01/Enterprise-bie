@@ -1,5 +1,5 @@
 import unittest
-from enterprise.run_state import *
+from bie.infrastructure.run_state import *
 
 def machine():
     return build_run_state("run-1",{"SOURCE":[],"REASONING":["SOURCE"],"SCENE_IR":["REASONING"]})

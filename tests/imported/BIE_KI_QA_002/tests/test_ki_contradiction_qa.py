@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.ki_contradiction_qa import *
+from bie.knowledge_intelligence.ki_contradiction_qa import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(evaluate([])["passed"])

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.ast_validation import *
+from bie.math_intelligence.ast_validation import *
 class T(unittest.TestCase):
  def test_valid(self): self.assertTrue(validate_tokens(["x","+","1"]).valid)
  def test_lead(self): self.assertIn("leading_binary_operator",validate_tokens(["+","x"]).errors)

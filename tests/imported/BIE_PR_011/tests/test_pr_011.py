@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.foundational import *
+from bie.prerequisite_intelligence.foundational import *
 class T(unittest.TestCase):
  def test_root_hub(self):
   r=identify_foundational({"a","b","c"},[("a","b"),("a","c")]); self.assertEqual(r[0].id,"a")

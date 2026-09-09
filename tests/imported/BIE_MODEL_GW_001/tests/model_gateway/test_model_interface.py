@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.model_interface import *
+from bie.model_gateway.model_interface import *
 class T(unittest.TestCase):
  def test_valid(self):self.assertTrue(validate_request(ModelRequest("r",({"role":"user","content":"x"},))))
  def test_id(self):

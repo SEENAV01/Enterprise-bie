@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.alert_contracts import *
+from bie.infrastructure.alert_contracts import *
 class T(unittest.TestCase):
  def r(self,**k):
   d=dict(rule_id="r",metric="queue_age",operator=">",threshold=10,severity="ERROR",window_seconds=60);d.update(k);return AlertRule(**d)

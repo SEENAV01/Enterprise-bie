@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.render_worker_image import *
+from bie.infrastructure.render_worker_image import *
 class T(unittest.TestCase):
  def m(self):return {"tools":["node","remotion","ffmpeg","chromium"],"fonts_pinned":True,"gpu_optional":True}
  def test_ok(self):self.assertTrue(validate_manifest(self.m()))

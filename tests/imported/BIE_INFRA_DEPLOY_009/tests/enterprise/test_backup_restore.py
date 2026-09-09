@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.backup_restore import *
+from bie.infrastructure.backup_restore import *
 class T(unittest.TestCase):
  def b(self,**k):
   d=dict(backup_id="b",db_ref="d",object_index_ref="o",created_at=1,schema_version=1,verified=True);d.update(k);return BackupManifest(**d)

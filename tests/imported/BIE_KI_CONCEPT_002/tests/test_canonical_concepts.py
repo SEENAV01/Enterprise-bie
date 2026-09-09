@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.canonical_concepts import *
+from bie.knowledge_intelligence.canonical_concepts import *
 class T(unittest.TestCase):
  def test_contract(self):
   a=canonicalize(" Electric   Field ");b=canonicalize("electric field")

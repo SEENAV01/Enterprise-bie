@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.assumptions import *
+from bie.math_intelligence.assumptions import *
 class T(unittest.TestCase):
  def test_div(self): self.assertIn("!= 0",infer_assumptions("divide","x")[0].statement)
  def test_sqrt(self): self.assertIn(">= 0",infer_assumptions("sqrt","x")[0].statement)

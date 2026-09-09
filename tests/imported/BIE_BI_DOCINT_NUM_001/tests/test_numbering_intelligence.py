@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.numbering_intelligence import *
+from bie.document_intelligence.numbering_intelligence import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(parse("1.2.3")["parts"],(1,2,3))

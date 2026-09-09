@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.worker_images import *
+from bie.infrastructure.worker_images import *
 class T(unittest.TestCase):
  def test_cpu(self):self.assertTrue(validate(WorkerImage("cpu_general","w:1",frozenset({"python"}))))
  def test_render(self):self.assertTrue(validate(WorkerImage("render_gpu","r:1",frozenset({"remotion","ffmpeg","gpu"}))))

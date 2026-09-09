@@ -1,0 +1,24 @@
+{
+  "task_id": "BIE-RE-SPATIAL-003",
+  "short_id": "RE-SPATIAL-003",
+  "title": "Map reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "dependencies": [
+    "BIE-RE-SPATIAL-001",
+    "BIE-RE-SPATIAL-002"
+  ],
+  "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+  "implementation_path": "bie/reasoning/map_reasoning.py",
+  "implementation_sha256": "697487ddc9fd5817e33cec9115463e59a0490b2aef78f083ff6ab4c2df1278be",
+  "test_path": "tests/reasoning/test_map_reasoning.py",
+  "tests_run": 16,
+  "tests_passed": true,
+  "integration": "CANONICAL",
+  "integration_evidence": "validation/integrated_tests.json",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.failure_taxonomy import *
+from bie.infrastructure.failure_taxonomy import *
 class T(unittest.TestCase):
  def test_valid(self): self.assertEqual(make_failure("RENDER","R1","ERROR",True,"compiler","x").category,"RENDER")
  def test_category(self):

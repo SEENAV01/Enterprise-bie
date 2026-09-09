@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.model_provenance import *
+from bie.model_gateway.model_provenance import *
 class T(unittest.TestCase):
  def test_hash(self):self.assertEqual(len(request_hash({"a":1})),64)
  def test_stable(self):self.assertEqual(request_hash({"b":2,"a":1}),request_hash({"a":1,"b":2}))

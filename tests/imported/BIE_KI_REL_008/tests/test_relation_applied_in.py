@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_applied_in import *
+from bie.knowledge_intelligence.relation_applied_in import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("refraction","lens design",["p"],.9)["type"],"APPLIED_IN")

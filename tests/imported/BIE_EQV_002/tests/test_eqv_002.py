@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.numerical_equivalence import *
+from bie.math_intelligence.numerical_equivalence import *
 class T(unittest.TestCase):
  def test_equal(self): self.assertTrue(compare(1,.9999999999,rel_tol=1e-8).equivalent)
  def test_false(self): self.assertFalse(compare(1,2).equivalent)

@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.derivation_qa import *
+from bie.math_intelligence.derivation_qa import *
 class T(unittest.TestCase):
  def test_pass(self): self.assertEqual(assess(3,3,True,True).score,1)
  def test_step(self): self.assertIn("invalid_steps",assess(3,2,True,True).failures)

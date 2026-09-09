@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.strength import *
+from bie.prerequisite_intelligence.strength import *
 class T(unittest.TestCase):
  def test_strong(self):
   r=score_prerequisite_strength(StrengthSignals(1,1,1,1,0)); self.assertEqual(r.score,1); self.assertEqual(r.band,"strong")

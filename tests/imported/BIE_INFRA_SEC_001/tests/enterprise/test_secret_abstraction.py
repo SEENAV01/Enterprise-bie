@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.secret_abstraction import *
+from bie.infrastructure.secret_abstraction import *
 class T(unittest.TestCase):
  def test_resolve(self): self.assertEqual(SecretResolver({"env":lambda n,v:"x"}).resolve(SecretRef("env","API")),"x")
  def test_provider(self):

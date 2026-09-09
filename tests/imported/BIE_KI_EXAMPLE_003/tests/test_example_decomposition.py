@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.example_decomposition import *
+from bie.knowledge_intelligence.example_decomposition import *
 class T(unittest.TestCase):
  def test_contract(self):
   r=decompose("e","Find force",["Given m","Use F=ma"],"10 N");self.assertEqual(len(r["steps"]),2)

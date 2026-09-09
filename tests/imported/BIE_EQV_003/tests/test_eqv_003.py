@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.rearrangement import *
+from bie.math_intelligence.rearrangement import *
 class T(unittest.TestCase):
  def test_add(self): self.assertTrue(validate_linear_step((2,5),(5,8),"add",3).valid)
  def test_bad(self): self.assertFalse(validate_linear_step((2,5),(5,7),"add",3).valid)

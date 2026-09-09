@@ -1,5 +1,5 @@
 import unittest
-from app.bie.misconception_intelligence.severity import *
+from bie.misconception_intelligence.severity import *
 class T(unittest.TestCase):
  def test_critical(self): self.assertEqual(score_severity(1,1,1,1).band,"critical")
  def test_low(self): self.assertEqual(score_severity(0,0,0).band,"low")

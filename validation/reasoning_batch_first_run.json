@@ -1,0 +1,3296 @@
+{
+  "summary": {
+    "scope": "Imported enterprise unit tests against combined source; no production or real-book acceptance claimed",
+    "python": "3.12.14",
+    "test_files": 410,
+    "tests_run": 1629,
+    "failed_files": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 2.032,
+    "passed": true
+  },
+  "results": [
+    {
+      "path": "tests/imported/BIE_AST_001/tests/test_ast_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_AST_002/tests/test_ast_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_AST_003/tests/test_ast_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_AST_004/tests/test_ast_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_ADVQA_001/tests/test_adversarial_document_benchmark.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_CROSS_001/tests/test_cross_page_reconstruction.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_E2E_001/tests/test_document_pipeline.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_E2E_002/tests/test_real_pdf_contract.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_E2E_003/tests/test_mixed_page_arbitration.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_LOSS_002/tests/test_roundtrip_coverage.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_NUM_001/tests/test_numbering_intelligence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_READ_001/tests/test_semantic_reading_flow.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_REALBOOK_001/tests/test_realbook_acceptance_suite.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_ROT_001/tests/test_orientation_handling.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_TOC_001/tests/test_toc_reconciliation.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_DOCINT_XREF_001/tests/test_cross_reference_resolution.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_EQ_001/tests/book_intelligence/test_equation_region.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_EQ_002/tests/book_intelligence/test_equation_mode.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_EQ_003/tests/book_intelligence/test_latex_normalization.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_EQ_004/tests/book_intelligence/test_equation_source_link.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_FIG_001/tests/book_intelligence/test_figure_detection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_FIG_002/tests/book_intelligence/test_figure_caption.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_FIG_003/tests/book_intelligence/test_diagram_classification.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_FIG_004/tests/book_intelligence/test_figure_semantics.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_FIG_005/tests/book_intelligence/test_figure_provenance.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_001/tests/book_intelligence/test_source_type.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_002/tests/book_intelligence/test_pdf_ingest.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_003/tests/book_intelligence/test_epub_ingest.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_004/tests/book_intelligence/test_docx_ingest.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_005/tests/book_intelligence/test_html_ingest.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_006/tests/book_intelligence/test_scanned_ingest.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_007/tests/book_intelligence/test_source_hash.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_008/tests/book_intelligence/test_metadata_normalization.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_009/tests/book_intelligence/test_page_inventory.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_INGEST_010/tests/book_intelligence/test_encryption_detection.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_001/tests/book_intelligence/test_layout_segmentation.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_002/tests/book_intelligence/test_reading_order.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_003/tests/book_intelligence/test_header_footer.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_004/tests/book_intelligence/test_margin_notes.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_005/tests/book_intelligence/test_multicolumn_layout.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_006/tests/book_intelligence/test_text_blocks.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_007/tests/book_intelligence/test_title_hierarchy.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_008/tests/book_intelligence/test_heading_detection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_009/tests/book_intelligence/test_paragraph_detection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_010/tests/book_intelligence/test_list_detection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_011/tests/book_intelligence/test_caption_linking.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_012/tests/book_intelligence/test_callout_detection.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_013/tests/book_intelligence/test_footnote_detection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_LAYOUT_014/tests/book_intelligence/test_page_mapping.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_NORM_001/tests/test_unicode_normalization.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_NORM_002/tests/test_whitespace_normalization.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_NORM_003/tests/test_hyphenation_normalization.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_NORM_004/tests/test_ligature_normalization.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_NORM_005/tests/test_symbol_normalization.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_NORM_006/tests/test_citation_normalization.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_OCR_001/tests/book_intelligence/test_ocr_selection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_OCR_002/tests/book_intelligence/test_text_ocr.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_OCR_003/tests/book_intelligence/test_math_ocr.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_OCR_004/tests/book_intelligence/test_multilingual_ocr.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_OCR_005/tests/book_intelligence/test_ocr_confidence.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_OCR_006/tests/book_intelligence/test_ocr_reconciliation.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_PROV_001/tests/test_source_anchors.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_PROV_002/tests/test_block_provenance.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_PROV_003/tests/test_coordinate_provenance.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_PROV_004/tests/test_provenance_confidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_PROV_005/tests/test_cross_page_provenance.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_PROV_006/tests/test_provenance_validation.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_QA_001/tests/test_completeness_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_QA_002/tests/test_reading_order_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_QA_003/tests/test_ocr_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_QA_004/tests/test_structural_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_QA_005/tests/test_source_loss_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_001/tests/book_intelligence/test_chapter_structure.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_002/tests/book_intelligence/test_section_structure.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_003/tests/book_intelligence/test_subsection_structure.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_004/tests/book_intelligence/test_glossary_structure.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_005/tests/book_intelligence/test_index_structure.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_006/tests/book_intelligence/test_appendix_structure.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_007/tests/test_references_structure.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_008/tests/test_exercise_structure.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_009/tests/test_worked_examples.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_STRUCT_010/tests/test_learning_objectives.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_TABLE_001/tests/book_intelligence/test_table_detection.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_TABLE_002/tests/book_intelligence/test_table_cells.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_TABLE_003/tests/book_intelligence/test_merged_cells.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_TABLE_004/tests/book_intelligence/test_table_semantics.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_BI_TABLE_005/tests/book_intelligence/test_table_structured_data.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DER_001/tests/test_der_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DER_002/tests/test_der_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DER_003/tests/test_der_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DER_004/tests/test_der_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DER_005/tests/test_der_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DER_006/tests/test_der_006.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_DSL_CORE_001/tests/scene_ir/test_scene_ir_contracts.py",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_EQV_001/tests/test_eqv_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_EQV_002/tests/test_eqv_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_EQV_003/tests/test_eqv_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_EQV_004/tests/test_eqv_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_GAME_DSL_001/tests/game_ir/test_game_ir_contracts.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_GRAPH_001/tests/test_graph_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_GRAPH_002/tests/test_graph_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_GRAPH_003/tests/test_graph_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_GRAPH_004/tests/test_graph_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_001/tests/enterprise/test_run_api.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_002/tests/enterprise/test_task_api.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_003/tests/enterprise/test_artifact_api.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_004/tests/enterprise/test_evidence_api.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_005/tests/enterprise/test_benchmark_api.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_006/tests/enterprise/test_release_api.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_API_007/tests/enterprise/test_event_stream.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_ARTIFACT_STORE_001/tests/enterprise/test_artifact_store.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONFIG_001/tests/enterprise/test_run_config.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONFIG_002/tests/enterprise/test_config_hashing.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONFIG_003/tests/enterprise/test_policy_inheritance.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONFIG_004/tests/enterprise/test_environment_fingerprint.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONFIG_005/tests/enterprise/test_feature_flags.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONFIG_006/tests/enterprise/test_deterministic_seed.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_CONTRACT_001/tests/contracts/test_artifact_contracts.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_001/tests/enterprise/test_local_compose.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_002/tests/enterprise/test_production_containers.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_003/tests/enterprise/test_postgres_adapter.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_004/tests/enterprise/test_object_store_adapter.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_005/tests/enterprise/test_worker_images.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_006/tests/enterprise/test_render_worker_image.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_007/tests/enterprise/test_browser_game_worker.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_008/tests/enterprise/test_autoscaling.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_009/tests/enterprise/test_backup_restore.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_DEPLOY_010/tests/enterprise/test_disaster_recovery.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_E2E_RUNTIME_001/tests/enterprise/test_e2e_runtime.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_EVAL_001/tests/evaluation/test_evaluation_contracts.py",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_EXECUTOR_001/tests/enterprise/test_worker_executor_runtime.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_IDEMP_001/tests/enterprise/test_idempotency_store.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_IDEMP_002/tests/enterprise/test_side_effect_guard.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_IDEMP_003/tests/enterprise/test_replay_protection.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_INTEGRATION_001/tests/enterprise/test_execution_graph.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_MIGRATION_001/tests/enterprise/test_migration_engine.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_MIGRATION_002/tests/enterprise/test_rollback_rules.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_MIGRATION_003/tests/enterprise/test_compatibility_matrix.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_001/tests/enterprise/test_structured_logs.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_002/tests/enterprise/test_tracing.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_003/tests/enterprise/test_metrics.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_004/tests/enterprise/test_run_timeline.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_005/tests/enterprise/test_stage_latency.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_006/tests/enterprise/test_worker_health.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_007/tests/enterprise/test_queue_health.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_008/tests/enterprise/test_lineage_view.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_009/tests/enterprise/test_failure_taxonomy.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_OBS_010/tests/enterprise/test_alert_contracts.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_ORCH_001/tests/enterprise/test_orchestrator.py",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_PERSIST_001/tests/enterprise/test_persistence.py",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_QUEUE_001/tests/enterprise/test_task_queue.py",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_QUEUE_PERSIST_001/tests/enterprise/test_durable_task_queue.py",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_QUEUE_WORKER_001/tests/enterprise/test_queue_worker_consumer.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_RECOVERY_001/tests/enterprise/test_leases.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_001/tests/enterprise/test_secret_abstraction.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_002/tests/enterprise/test_credential_scope.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_003/tests/enterprise/test_execution_sandbox.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_004/tests/enterprise/test_path_confinement.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_005/tests/enterprise/test_command_allowlist.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_006/tests/enterprise/test_network_policy.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_007/tests/enterprise/test_document_defense.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_008/tests/enterprise/test_dependency_scanning.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_009/tests/enterprise/test_generated_code_security.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_SEC_010/tests/enterprise/test_audit_log.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_STATE_001/tests/enterprise/test_run_state.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_001/tests/enterprise/test_task_registry.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_002/tests/enterprise/test_dependency_resolver.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_003/tests/enterprise/test_cycle_detector.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_004/tests/enterprise/test_readiness.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_005/tests/enterprise/test_task_lifecycle.py",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_006/tests/enterprise/test_acceptance_evidence.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_007/tests/enterprise/test_task_versioning.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_008/tests/enterprise/test_task_invalidation.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_009/tests/enterprise/test_impact_propagation.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_TASKGRAPH_010/tests/enterprise/test_execution_history.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_INFRA_WORKER_001/tests/enterprise/test_worker_scheduler.py",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CLAIM_001/tests/test_claim_extraction.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CLAIM_002/tests/test_claim_evidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CLAIM_003/tests/test_claim_contradiction.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CLAIM_004/tests/test_claim_confidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CLAIM_005/tests/test_claim_normalize.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CLAIM_006/tests/test_claim_graph_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_001/tests/test_concept_candidates.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_002/tests/test_canonical_concepts.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_003/tests/test_concept_aliases.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_004/tests/test_concept_definitions.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_005/tests/test_concept_scope.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_006/tests/test_concept_granularity.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_007/tests/test_concept_evidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_008/tests/test_concept_confidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_009/tests/test_concept_dedup.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONCEPT_010/tests/test_concept_merge_split.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONDITION_001/tests/test_applicability_conditions.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONDITION_002/tests/test_condition_logic.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONDITION_003/tests/test_condition_claim_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONTEXT_001/tests/test_context_sense.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONTEXT_002/tests/test_context_disambiguation.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CONTEXT_003/tests/test_context_inheritance.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CROSSMODAL_001/tests/test_crossmodal_corroboration.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CROSSMODAL_002/tests/test_crossmodal_conflict.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_CROSSMODAL_003/tests/test_crossmodal_evidence_fusion.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_DEF_001/tests/test_definition_consistency.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_DEF_002/tests/test_definition_conflicts.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_DEF_003/tests/test_definition_arbitration.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_E2E_001/tests/test_ki_e2e_pipeline.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_ENTITY_001/tests/test_entity_model.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_ENTITY_002/tests/test_entity_mentions.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_ENTITY_003/tests/test_entity_resolution.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_ENTITY_004/tests/test_entity_concept_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EQ_LINK_001/tests/test_equation_concept_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EQ_LINK_002/tests/test_equation_claim_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EQ_LINK_003/tests/test_equation_semantics.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EXAMPLE_001/tests/test_example_extraction.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EXAMPLE_002/tests/test_example_linking.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EXAMPLE_003/tests/test_example_decomposition.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EXAMPLE_004/tests/test_counterexamples.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EXCEPTION_001/tests/test_exceptions.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_EXCEPTION_002/tests/test_boundary_cases.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_FIGSEM_001/tests/test_figure_graph_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_FIGSEM_002/tests/test_figure_claims.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_001/tests/test_knowledge_graph_build.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_002/tests/test_knowledge_graph_validate.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_003/tests/test_knowledge_graph_connectivity.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_004/tests/test_knowledge_graph_orphans.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_005/tests/test_knowledge_graph_edge_confidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_006/tests/test_knowledge_graph_evidence_edges.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_007/tests/test_knowledge_graph_traversal.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_008/tests/test_knowledge_graph_query.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_009/tests/test_graph_versioning.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_GRAPH_010/tests/test_graph_diff.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_PROP_001/tests/test_concept_properties.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_PROP_002/tests/test_property_scope.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_PROP_003/tests/test_property_conflicts.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_QA_001/tests/test_ki_coverage_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_QA_002/tests/test_ki_contradiction_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_QA_003/tests/test_ki_graph_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_QA_004/tests/test_ki_unsupported_claims_qa.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REALBOOK_001/tests/test_ki_realbook_acceptance.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_001/tests/test_relation_is_a.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_002/tests/test_relation_part_of.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_003/tests/test_relation_causes.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_004/tests/test_relation_depends.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_005/tests/test_relation_contrasts.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_006/tests/test_relation_exemplifies.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_007/tests/test_relation_derives.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_008/tests/test_relation_applied_in.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_009/tests/test_relation_temporal.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_REL_010/tests/test_relation_spatial.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_SALIENCE_001/tests/test_concept_salience.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_SALIENCE_002/tests/test_salience_evidence.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_SALIENCE_003/tests/test_salience_ranking.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_TABLESEM_001/tests/test_table_graph_link.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_TABLESEM_002/tests/test_table_claims.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_TERM_001/tests/test_terminology.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_TERM_002/tests/test_notation.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_TERM_003/tests/test_symbols.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_KI_TERM_004/tests/test_abbreviations.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_BENCH_001/tests/test_bench_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_CONTEXT_001/tests/test_math_context_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_CROSSMODAL_001/tests/test_crossmodal_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_DER_HARD_001/tests/test_der_hard_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_E2E_001/tests/test_math_e2e_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_NOTATION_HARD_001/tests/test_math_notation_hard_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_QA_001/tests/test_qa_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_QA_002/tests/test_qa_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_QA_003/tests/test_math_qa_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_QA_004/tests/test_math_qa_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_QA_005/tests/test_math_qa_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_REALBOOK_001/tests/test_realbook_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_RENDER_001/tests/test_render_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_SEM_001/tests/test_math_sem_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_SOLVER_001/tests/test_math_solver_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MATH_TEACH_001/tests/test_teach_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MIS_001/tests/test_mis_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MIS_002/tests/test_mis_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MIS_003/tests/test_mis_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MIS_004/tests/test_mis_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MIS_005/tests/test_mis_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MIS_006/tests/test_mis_006.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_001/tests/model_gateway/test_model_interface.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_002/tests/model_gateway/test_capability_taxonomy.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_003/tests/model_gateway/test_structured_output.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_004/tests/model_gateway/test_tool_call_contract.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_005/tests/model_gateway/test_provider_registry.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_006/tests/model_gateway/test_gpt_adapter.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_007/tests/model_gateway/test_gemini_adapter.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_008/tests/model_gateway/test_claude_adapter.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_009/tests/model_gateway/test_local_model_adapter.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_010/tests/model_gateway/test_multimodal_contract.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_011/tests/model_gateway/test_embeddings_contract.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_012/tests/model_gateway/test_vision_contract.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_013/tests/model_gateway/test_availability.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_014/tests/model_gateway/test_timeout_policy.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_015/tests/model_gateway/test_retry_policy.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_016/tests/model_gateway/test_rate_limit.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_017/tests/model_gateway/test_context_budget.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_018/tests/model_gateway/test_schema_validation.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_019/tests/model_gateway/test_malformed_repair.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_020/tests/model_gateway/test_model_provenance.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_021/tests/model_gateway/test_decision_evidence.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_022/tests/model_gateway/test_fallback_router.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_023/tests/model_gateway/test_capability_router.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_024/tests/model_gateway/test_quality_escalation.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_025/tests/model_gateway/test_deterministic_tool_first.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_026/tests/model_gateway/test_response_cache.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_027/tests/model_gateway/test_semantic_cache.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_028/tests/model_gateway/test_prompt_versioning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_029/tests/model_gateway/test_tool_registry.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_MODEL_GW_030/tests/model_gateway/test_gateway_audit.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_NOT_001/tests/test_not_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_NOT_002/tests/test_not_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_NOT_003/tests/test_not_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_NOT_004/tests/test_not_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_NOT_005/tests/test_not_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_001/tests/test_pr_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_002/tests/test_pr_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_003/tests/test_pr_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_004/tests/test_pr_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_005/tests/test_pr_005.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_006/tests/test_pr_006.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_007/tests/test_pr_007.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_008/tests/test_pr_008.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_009/tests/test_pr_009.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_010/tests/test_pr_010.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_011/tests/test_pr_011.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_012/tests/test_pr_012.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_013/tests/test_pr_013.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_014/tests/test_pr_014.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_015/tests/test_pr_015.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_016/tests/test_pr_016.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_017/tests/test_pr_017.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_018/tests/test_pr_018.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_019/tests/test_pr_019.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_020/tests/test_pr_020.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_BRIDGE_OPT_001/tests/test_pr_bridge_opt_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_CAL_001/tests/test_pr_cal_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_CONFLICT_001/tests/test_pr_conflict_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_CROSSDOMAIN_001/tests/test_pr_crossdomain_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_E2E_001/tests/test_pr_e2e_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_GRAN_001/tests/test_pr_gran_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_HIER_001/tests/test_pr_hier_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_NECESSITY_001/tests/test_pr_necessity_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_PR_REALBOOK_001/tests/test_pr_realbook_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_READY_001/tests/test_ready_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_READY_002/tests/test_ready_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_READY_003/tests/test_ready_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_READY_004/tests/test_ready_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_001/tests/test_causal_chain.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_002/tests/test_causal_graph.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_003/tests/test_causal_mechanism.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_004/tests/test_temporal_causality.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_005/tests/test_counterfactual_reasoning.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CORE_001/tests/reasoning/test_reasoning_contracts.py",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_001/tests/test_dec_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_002/tests/test_dec_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_003/tests/test_dec_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_004/tests/test_dec_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_005/tests/test_dec_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_006/tests/test_dec_006.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_007/tests/test_dec_007.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_008/tests/test_dec_008.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_009/tests/test_dec_009.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_010/tests/test_dec_010.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_011/tests/test_dec_011.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_012/tests/test_dec_012.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_013/tests/test_dec_013.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_014/tests/test_dec_014.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_EVID_001/tests/test_evid_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_EVID_002/tests/test_evid_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_EVID_003/tests/test_evid_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_EVID_004/tests/test_evid_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_001/tests/test_graph_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_002/tests/test_graph_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_003/tests/test_graph_cycles.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_004/tests/test_downstream_impact.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_005/tests/test_decision_invalidation.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_SPATIAL_001/tests/test_spatial_relation.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_SPATIAL_002/tests/test_coordinate_reasoning.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_001/tests/test_uncertainty.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_002/tests/test_confidence_calibration.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_003/tests/test_review_threshold.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_004/tests/test_escalation_policy.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_005/tests/test_abstention_policy.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_SYM_001/tests/test_sym_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_SYM_002/tests/test_sym_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_SYM_003/tests/test_sym_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_SYM_004/tests/test_sym_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_SYM_005/tests/test_sym_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_001/tests/test_tok_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_002/tests/test_tok_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_003/tests/test_tok_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_004/tests/test_tok_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_005/tests/test_tok_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_006/tests/test_tok_006.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_007/tests/test_tok_007.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_008/tests/test_tok_008.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_009/tests/test_tok_009.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_TOK_010/tests/test_tok_010.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_UNIT_001/tests/test_unit_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_UNIT_002/tests/test_unit_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_UNIT_003/tests/test_unit_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_UNIT_004/tests/test_unit_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_UNIT_005/tests/test_unit_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/test_repository_integration.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_chronology_reasoning.py",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_event_order_reasoning.py",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_geometry_reasoning.py",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_map_reasoning.py",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_periodization_reasoning.py",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    }
+  ]
+}

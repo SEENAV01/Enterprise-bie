@@ -1,5 +1,5 @@
 import unittest
-from knowledge_intelligence.relation_exemplifies import *
+from bie.knowledge_intelligence.relation_exemplifies import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertEqual(edge("falling apple","gravity",["p"],.9)["type"],"EXEMPLIFIES")

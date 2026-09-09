@@ -1,6 +1,6 @@
 
 import unittest,tempfile,os
-from enterprise.idempotency_store import *
+from bie.infrastructure.idempotency_store import *
 class T(unittest.TestCase):
  def setUp(self): self.f=tempfile.NamedTemporaryFile(delete=False); self.f.close(); self.s=SQLiteIdempotencyStore(self.f.name)
  def tearDown(self): self.s.close(); os.unlink(self.f.name)

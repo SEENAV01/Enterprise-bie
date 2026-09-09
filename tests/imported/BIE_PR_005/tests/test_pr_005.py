@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.confidence import *
+from bie.prerequisite_intelligence.confidence import *
 class T(unittest.TestCase):
  def test_accept(self): self.assertEqual(calibrate_confidence(.8).band,"accepted")
  def test_corroboration(self): self.assertGreater(calibrate_confidence(.6,4).calibrated,.6)

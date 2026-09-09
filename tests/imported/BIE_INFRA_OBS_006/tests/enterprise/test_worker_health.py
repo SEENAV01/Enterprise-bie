@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.worker_health import *
+from bie.infrastructure.worker_health import *
 class T(unittest.TestCase):
  def h(self,**k):
   d=dict(worker_id="w",timestamp=100,active_tasks=1,capacity=2,error_rate=0);d.update(k);return WorkerHeartbeat(**d)

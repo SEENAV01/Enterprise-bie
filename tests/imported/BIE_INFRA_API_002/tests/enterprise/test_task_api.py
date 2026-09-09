@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.task_api import *
+from bie.infrastructure.task_api import *
 class R:
  def __init__(self):self.x={"a":{"task_id":"a","status":"READY"}}
  def get(self,k):return self.x.get(k)

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-REPO-ASSEMBLY-002",
+  "required_directories": [
+    "apps/web",
+    "apps/api",
+    "bie/infrastructure",
+    "bie/model_gateway",
+    "bie/document_intelligence",
+    "bie/knowledge_intelligence",
+    "bie/prerequisite_intelligence",
+    "bie/math_intelligence",
+    "bie/reasoning",
+    "bie/pedagogy",
+    "bie/director",
+    "bie/visual_intelligence",
+    "bie/animation_intelligence",
+    "bie/scene_ir",
+    "bie/video_compiler",
+    "bie/game_engine",
+    "bie/qa",
+    "bie/evaluation",
+    "tests",
+    "benchmarks",
+    "schemas",
+    "docs",
+    "task_registry",
+    "deployment"
+  ],
+  "required_files": [
+    "pyproject.toml",
+    "README.md"
+  ],
+  "canonical_python_namespace": "bie",
+  "historical_evidence_roots": [
+    "batches",
+    "historical",
+    "backups"
+  ],
+  "legacy_compatibility_namespace": "app.bie",
+  "acceptance_requires": [
+    "lossless_integrity",
+    "integrated_regression",
+    "real_book_e2e",
+    "downstream_video_render_and_game_runtime"
+  ]
+}

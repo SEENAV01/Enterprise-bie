@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.title_hierarchy import *
+from bie.document_intelligence.title_hierarchy import *
 class T(unittest.TestCase):
  def test_level1(self):self.assertEqual(infer_level({"prominence":.95}),1)
  def test_level4(self):self.assertEqual(infer_level({"prominence":.5}),4)

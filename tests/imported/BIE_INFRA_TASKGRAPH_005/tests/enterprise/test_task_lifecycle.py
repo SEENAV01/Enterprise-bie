@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.task_lifecycle import *
+from bie.infrastructure.task_lifecycle import *
 class T(unittest.TestCase):
  def test_plan_ready(self): self.assertEqual(transition("x","PLANNED","READY","deps met").to_status,"READY")
  def test_ready_progress(self): self.assertEqual(transition("x","READY","IN_PROGRESS","start").to_status,"IN_PROGRESS")

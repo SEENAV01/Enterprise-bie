@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.reading_order import *
+from bie.document_intelligence.reading_order import *
 class T(unittest.TestCase):
  def test_ok(self):self.assertEqual(validate_order(["a","b"],["a","b"]),("a","b"))
  def test_edges(self):self.assertEqual(edges(("a","b","c")),(("a","b"),("b","c")))

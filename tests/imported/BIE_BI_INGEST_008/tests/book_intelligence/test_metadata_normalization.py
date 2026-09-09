@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.metadata_normalization import *
+from bie.document_intelligence.metadata_normalization import *
 class T(unittest.TestCase):
  def test_title(self):self.assertEqual(normalize({"title":" X "})["title"],"X")
  def test_author(self):self.assertEqual(normalize({"authors":" A "})["authors"],("A",))

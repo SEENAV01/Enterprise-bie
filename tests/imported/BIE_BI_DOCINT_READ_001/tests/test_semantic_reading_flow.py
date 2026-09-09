@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.semantic_reading_flow import *
+from bie.document_intelligence.semantic_reading_flow import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertTrue(validate([{"id":"f","kind":"figure"},{"id":"c","kind":"caption"}])["passed"])

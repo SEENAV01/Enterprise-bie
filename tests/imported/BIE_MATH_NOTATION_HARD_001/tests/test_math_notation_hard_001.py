@@ -1,5 +1,5 @@
 import unittest
-from app.bie.math_intelligence.advanced_notation import *
+from bie.math_intelligence.advanced_notation import *
 class T(unittest.TestCase):
  def test_integral(self): self.assertEqual(detect_notation("∫ f(x) dx")[0].kind,"integral")
  def test_sum(self): self.assertTrue(any(x.kind=="summation" for x in detect_notation(r"\\sum x_i")))

@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.impact_propagation import *
+from bie.infrastructure.impact_propagation import *
 class T(unittest.TestCase):
  def setUp(self):
   self.t={"A":{"dependencies":[],"status":"ACCEPTED"},"B":{"dependencies":["A"],"status":"ACCEPTED"},"C":{"dependencies":["B"],"status":"PLANNED"},"D":{"dependencies":["A"],"status":"IMPLEMENTED"}}

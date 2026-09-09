@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.cross_domain import *
+from bie.prerequisite_intelligence.cross_domain import *
 class T(unittest.TestCase):
  def test_math_for_physics(self): self.assertEqual(detect_cross_domain("resolve the vector into component and magnitude and direction","physics")[0].domain,"vectors")
  def test_calculus(self): self.assertTrue(any(x.domain=="calculus" for x in detect_cross_domain("take derivative rate of change","physics")))

@@ -1,5 +1,5 @@
 import unittest
-from book_intelligence.provenance_confidence import *
+from bie.document_intelligence.provenance_confidence import *
 class T(unittest.TestCase):
  def test_contract(self):
   self.assertAlmostEqual(aggregate([1,.8]),.9)

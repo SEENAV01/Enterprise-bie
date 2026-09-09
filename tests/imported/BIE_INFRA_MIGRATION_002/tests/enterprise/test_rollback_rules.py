@@ -1,7 +1,7 @@
 
 import unittest
 from dataclasses import dataclass
-from enterprise.rollback_rules import *
+from bie.infrastructure.rollback_rules import *
 @dataclass
 class M: version:int; down_sql:str|None
 class T(unittest.TestCase):

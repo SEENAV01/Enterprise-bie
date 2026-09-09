@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.cycle_resolution import *
+from bie.prerequisite_intelligence.cycle_resolution import *
 class T(unittest.TestCase):
  def test_cycle_removed(self):
   e=[WeightedEdge("a","b",.9),WeightedEdge("b","c",.8),WeightedEdge("c","a",.2)]

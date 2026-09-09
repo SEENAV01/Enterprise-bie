@@ -1,6 +1,6 @@
 
 import unittest
-from book_intelligence.margin_notes import *
+from bie.document_intelligence.margin_notes import *
 class T(unittest.TestCase):
  def test_left(self):self.assertEqual(classify((0,0,10,1),100,20,80),"LEFT_MARGIN")
  def test_right(self):self.assertEqual(classify((90,0,100,1),100,20,80),"RIGHT_MARGIN")

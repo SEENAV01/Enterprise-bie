@@ -1,5 +1,5 @@
 import unittest
-from reasoning.decision_contracts import (
+from bie.reasoning.decision_contracts import (
     ReasoningDecision, EvidenceRef, DecisionAlternative,
     ReasoningDecisionGraph, ReasoningContractError, decision_payload
 )

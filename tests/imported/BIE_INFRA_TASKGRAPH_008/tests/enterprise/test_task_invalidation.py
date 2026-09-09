@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.task_invalidation import *
+from bie.infrastructure.task_invalidation import *
 class T(unittest.TestCase):
  def test_invalidate_accepted(self): self.assertEqual(invalidate("x","ACCEPTED","upstream").previous_status,"ACCEPTED")
  def test_source_recorded(self): self.assertEqual(invalidate("x","QA_VERIFIED","dep","y").source_task_id,"y")

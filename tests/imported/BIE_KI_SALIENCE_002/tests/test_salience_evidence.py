@@ -1,5 +1,5 @@
 import unittest
-from salience_evidence import *
+from bie.knowledge_intelligence.salience_evidence import *
 class T(unittest.TestCase):
  def test_contract(self):
   s=[{"kind":"HEADING","anchor_id":"p"}];self.assertTrue(bind("c",s)["grounded"])

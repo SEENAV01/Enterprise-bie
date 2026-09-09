@@ -1,5 +1,5 @@
 import unittest,math
-from app.bie.math_intelligence.numerical_qa import *
+from bie.math_intelligence.numerical_qa import *
 class T(unittest.TestCase):
  def test_pass(self): self.assertTrue(assess_numeric(2,2.000000001).passed)
  def test_fail(self): self.assertIn("outside_tolerance",assess_numeric(2,3).failures)

@@ -1,6 +1,6 @@
 
 import unittest
-from model_gateway.provider_registry import *
+from bie.model_gateway.provider_registry import *
 class T(unittest.TestCase):
  def d(self):return ProviderDescriptor("p","m",frozenset({"text","vision"}))
  def test_register(self):r=ProviderRegistry();r.register(self.d(),object());self.assertEqual(r.get("p","m")[0].model_id,"m")

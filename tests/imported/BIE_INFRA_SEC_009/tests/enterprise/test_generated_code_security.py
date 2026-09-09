@@ -1,6 +1,6 @@
 
 import unittest
-from enterprise.generated_code_security import *
+from bie.infrastructure.generated_code_security import *
 class T(unittest.TestCase):
  def test_safe(self):self.assertTrue(assert_safe("const x = 1;"))
  def test_eval(self):

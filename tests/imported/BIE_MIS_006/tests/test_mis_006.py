@@ -1,5 +1,5 @@
 import unittest
-from app.bie.misconception_intelligence.remediation import *
+from bie.misconception_intelligence.remediation import *
 class T(unittest.TestCase):
  def test_confusion(self): self.assertEqual(remediation_for("m","confusion","medium").strategy,"contrast_cases")
  def test_causal(self): self.assertEqual(remediation_for("m","causal","medium").strategy,"mechanism_rebuild")

@@ -1,7 +1,7 @@
 import unittest
-from enterprise.queue_worker_consumer import *
-from enterprise.fake_queue import *
-from enterprise.fake_runtime import *
+from bie.infrastructure.queue_worker_consumer import *
+from bie.infrastructure.fake_queue import *
+from bie.infrastructure.fake_runtime import *
 
 def message(maxd=3):
     return Msg("t1","r1","REASONING",1,"idem",["python"],["src"],maxd)

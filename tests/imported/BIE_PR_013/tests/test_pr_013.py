@@ -1,5 +1,5 @@
 import unittest
-from app.bie.prerequisite_intelligence.missing import *
+from bie.prerequisite_intelligence.missing import *
 class T(unittest.TestCase):
  def test_missing(self): self.assertEqual(find_missing_prerequisites({"b"},{"b":{"a"}})[0].prerequisite,"a")
  def test_present(self): self.assertEqual(find_missing_prerequisites({"a","b"},{"b":{"a"}}),[])
