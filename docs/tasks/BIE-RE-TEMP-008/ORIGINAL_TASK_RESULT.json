@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-TEMP-008",
+  "short_id": "RE-TEMP-008",
+  "title": "Explainable temporal query reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-006"
+  ],
+  "implementation_path": "bie/reasoning/temporal_query_reasoning.py",
+  "implementation_sha256": "2d77a494086afba83528fd1a721596e9bff214a88d71f9a40abff2fa737c7503",
+  "test_path": "tests/reasoning/test_temporal_query_reasoning.py",
+  "tests_run": 5,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "PENDING_CANONICAL_GITHUB_SESSION",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

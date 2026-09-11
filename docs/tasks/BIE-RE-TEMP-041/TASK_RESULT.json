@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-041",
+  "title": "Temporal Evidence Conflict Matrix",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_evidence_conflict_matrix.py",
+  "implementation_sha256": "674e874b48f01dae48c444ada46302cf557849d6815f23e3094d53b135f1d154",
+  "test_path": "tests/reasoning/test_re_temp_041.py",
+  "test_sha256": "2f1830b5940fd0e72e620638887cca6c375d4a28c51a43209f77da399210442b",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_041.zip",
+    "archive_sha256": "eca91beb4fb9d9532ec508c1cf598b723602a73ac505d56c9bf2c62333a536f6",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_041.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-032",
+  "title": "Temporal Change-Point Reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_change_point_reasoning.py",
+  "implementation_sha256": "318efbe4f629abd2205953a1dca8cd91093019b7f24743ba5370024979dae09a",
+  "test_path": "tests/reasoning/test_re_temp_032.py",
+  "test_sha256": "7d5a7a13a9311be515f563d70e0e9022778bc5d82cb5b905ab827c306b7c0456",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_032.zip",
+    "archive_sha256": "3c17b76cdc7e501274a3f0ac762cd19681e4388f7fff53e3b0e8eec20ae08832",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_032.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

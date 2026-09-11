@@ -1,0 +1,44 @@
+{
+  "task_id": "BIE-RE-TEMP-008",
+  "short_id": "RE-TEMP-008",
+  "title": "Explainable temporal query reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-006"
+  ],
+  "implementation_path": "bie/reasoning/temporal_query_reasoning.py",
+  "implementation_sha256": "2d77a494086afba83528fd1a721596e9bff214a88d71f9a40abff2fa737c7503",
+  "test_path": "tests/reasoning/test_temporal_query_reasoning.py",
+  "tests_run": 5,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ],
+  "test_sha256": "785aa377014454ca91aabe4a5fee2a82ae54c408a3294b38f2928fb33b0f7756",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_008.zip",
+    "archive_sha256": "589d2cb7cc9fcf39ee21af426efca069fdebfd3dfbd5e5aa10bd5a717323621f",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_query_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

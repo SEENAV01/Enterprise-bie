@@ -24,6 +24,8 @@ Operations are deterministic and provider-neutral. They require evidence and rej
 
 ## Evidence and acceptance
 
-78 task tests + 13 integration/contract tests + 12 assembly guards + 1,551 restored regressions = **1,654 passing tests**, zero failures/errors/skips. Numerical/history fixtures are synthetic and labelled accordingly; unavailable textbook data was not fabricated.
+78 original task tests + 17 additional quality task tests + 14 integration/contract tests + 12 assembly guards + 1,551 restored regressions = **1,672 passing tests**, zero failures/errors/skips. Numerical/history fixtures are synthetic and labelled accordingly; unavailable textbook data was not fabricated.
 
 Status: **IMPLEMENTED, NOT ACCEPTED**. Diverse real-book integrated reasoning and downstream compiler/render/game QA remain required. The task names came from the user; concrete bounded interfaces are specifications established in this continuation, not purported recovered specifications.
+
+Quality review 001 adds 18 tests (17 task checks and one contract integration) including 4,416 finite oracle cases. Original task-test counts in the table above are retained; detailed additional counts and fixes are in `docs/evidence/reasoning-quality-001/REVIEW.md`. Gregorian period ends are exclusive and may equal one tick after the final supported day; event times still cannot exceed 9999-12-31.

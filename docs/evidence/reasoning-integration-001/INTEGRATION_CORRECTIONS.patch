@@ -1,0 +1,251 @@
+diff --git a/bie/reasoning/cross_family_arbitration.py b/bie/reasoning/cross_family_arbitration.py
+index d74820f..f7fa7de 100644
+--- a/bie/reasoning/cross_family_arbitration.py
++++ b/bie/reasoning/cross_family_arbitration.py
+@@ -1,7 +1,7 @@
+ from __future__ import annotations
+ from dataclasses import dataclass
+ from typing import Iterable
+-from bie.reasoning.reasoning_status_semantics import aggregate_status
++from bie.reasoning.reasoning_status_semantics import aggregate_status, REVIEW_CONFIDENCE_THRESHOLD
+ 
+ @dataclass(frozen=True)
+ class FamilyConstraint:
+@@ -37,4 +37,5 @@ def arbitrate_constraints(constraints:Iterable[FamilyConstraint]) -> Arbitration
+     if support and oppose: status="CONFLICT"
+     elif any(c.polarity=="UNKNOWN" for c in cs) and status=="RESOLVED": status="AMBIGUOUS"
+     conf=min(c.confidence for c in cs)
+-    return ArbitrationResult(next(iter(props)),status,support,oppose,ev,conf,status!="RESOLVED")
++    return ArbitrationResult(next(iter(props)),status,support,oppose,ev,conf,
++                             status!="RESOLVED" or conf < REVIEW_CONFIDENCE_THRESHOLD)
+diff --git a/bie/reasoning/graph_cycle_hardening.py b/bie/reasoning/graph_cycle_hardening.py
+index 42540ed..3755655 100644
+--- a/bie/reasoning/graph_cycle_hardening.py
++++ b/bie/reasoning/graph_cycle_hardening.py
+@@ -12,8 +12,7 @@ class CycleWitness:
+ def _canon_cycle(cycle: tuple[str, ...]) -> tuple[str, ...]:
+     body=cycle[:-1]
+     rotations=[body[i:]+body[:i] for i in range(len(body))]
+-    rev=tuple(reversed(body))
+-    rotations += [rev[i:]+rev[:i] for i in range(len(rev))]
++    # Rotations preserve directed edges; reversing a cycle can invent edges.
+     best=min(rotations)
+     return best+(best[0],)
+ 
+@@ -28,7 +27,7 @@ def find_canonical_cycles(nodes: Iterable[str], edges: Iterable[tuple[str,str]])
+     found={}
+     def dfs(start,cur,path):
+         for nxt in adj[cur]:
+-            if nxt==start and len(path)>1:
++            if nxt==start:
+                 cyc=_canon_cycle(tuple(path+[start]))
+                 found[cyc]=cyc
+             elif nxt not in path and nxt>=start:
+diff --git a/bie/reasoning/grounded_counterfactual.py b/bie/reasoning/grounded_counterfactual.py
+index 7425539..1c903b8 100644
+--- a/bie/reasoning/grounded_counterfactual.py
++++ b/bie/reasoning/grounded_counterfactual.py
+@@ -18,6 +18,7 @@ class CounterfactualResult:
+     assumptions: tuple[str,...]
+     evidence_ids: tuple[str,...]
+     requires_review: bool
++    contradicting_evidence_ids: tuple[str,...] = ()
+ 
+ def evaluate_counterfactual(
+     intervention: CounterfactualIntervention,
+@@ -35,12 +36,12 @@ def evaluate_counterfactual(
+     if not 0 <= causal_confidence <= 1 or not 0 <= abstain_below <= 1:
+         raise ValueError("confidence threshold")
+     contradictions=tuple(sorted(set(contradicting_evidence_ids)))
+-    ev=tuple(sorted(set(intervention.evidence_ids)))
++    ev=tuple(sorted(set(intervention.evidence_ids) | set(contradictions)))
+     if not causal_path_supported:
+-        return CounterfactualResult("ABSTAINED",None,causal_confidence,intervention.assumptions,ev,True)
++        return CounterfactualResult("ABSTAINED",None,causal_confidence,intervention.assumptions,ev,True,contradictions)
+     if not predicted_effect:
+-        return CounterfactualResult("ABSTAINED",None,causal_confidence,intervention.assumptions,ev,True)
++        return CounterfactualResult("ABSTAINED",None,causal_confidence,intervention.assumptions,ev,True,contradictions)
+     if contradictions or causal_confidence < abstain_below:
+-        return CounterfactualResult("AMBIGUOUS",predicted_effect,causal_confidence,intervention.assumptions,ev,True)
++        return CounterfactualResult("AMBIGUOUS",predicted_effect,causal_confidence,intervention.assumptions,ev,True,contradictions)
+     review=bool(intervention.assumptions)
+     return CounterfactualResult("RESOLVED",predicted_effect,causal_confidence,intervention.assumptions,ev,review)
+diff --git a/bie/reasoning/reasoning_integration_gate.py b/bie/reasoning/reasoning_integration_gate.py
+index be6480d..60c3c31 100644
+--- a/bie/reasoning/reasoning_integration_gate.py
++++ b/bie/reasoning/reasoning_integration_gate.py
+@@ -2,6 +2,7 @@ from __future__ import annotations
+ from dataclasses import dataclass
+ from typing import Iterable, Mapping
+ import hashlib, json
++from collections import deque
+ 
+ @dataclass(frozen=True)
+ class ReasoningStageEvidence:
+@@ -19,6 +20,7 @@ class ReasoningIntegrationReport:
+     ungrounded_stage_artifacts: tuple[str,...]
+     review_artifacts: tuple[str,...]
+     fingerprint: str
++    cycle_blocked_artifact_ids: tuple[str,...] = ()
+ 
+ _REQUIRED=("evidence","decision","graph","uncertainty","qa")
+ 
+@@ -44,6 +46,20 @@ def reasoning_integration_gate(
+         if a.stage != "evidence" and not a.evidence_ids
+     ))
+     reviews=tuple(sorted(a.artifact_id for a in artifacts if a.requires_review))
++    # A set of present parent IDs is insufficient: derived lineage must be acyclic.
++    adjacency = {artifact_id: set() for artifact_id in known}
++    indegree = {artifact_id: 0 for artifact_id in known}
++    for artifact in artifacts:
++        for parent in set(artifact.parent_artifact_ids) & known:
++            adjacency[parent].add(artifact.artifact_id)
++            indegree[artifact.artifact_id] += 1
++    ready = deque(sorted(k for k, degree in indegree.items() if degree == 0))
++    while ready:
++        for child in sorted(adjacency[ready.popleft()]):
++            indegree[child] -= 1
++            if indegree[child] == 0:
++                ready.append(child)
++    cycle_blocked = tuple(sorted(k for k, degree in indegree.items() if degree > 0))
+     payload=[{
+         "stage":a.stage,
+         "artifact_id":a.artifact_id,
+@@ -54,5 +70,5 @@ def reasoning_integration_gate(
+     fingerprint="sha256:"+hashlib.sha256(
+         json.dumps(payload,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode("utf-8")
+     ).hexdigest()
+-    passed=not missing and not dangling and not ungrounded and not reviews
+-    return ReasoningIntegrationReport(passed,missing,dangling,ungrounded,reviews,fingerprint)
++    passed=not missing and not dangling and not ungrounded and not reviews and not cycle_blocked
++    return ReasoningIntegrationReport(passed,missing,dangling,ungrounded,reviews,fingerprint,cycle_blocked)
+diff --git a/bie/reasoning/reasoning_provenance_envelope.py b/bie/reasoning/reasoning_provenance_envelope.py
+index e0c4d86..bb30092 100644
+--- a/bie/reasoning/reasoning_provenance_envelope.py
++++ b/bie/reasoning/reasoning_provenance_envelope.py
+@@ -2,6 +2,7 @@ from __future__ import annotations
+ from dataclasses import dataclass, asdict
+ import hashlib, json
+ from typing import Iterable
++from bie.reasoning.reasoning_status_semantics import REVIEW_CONFIDENCE_THRESHOLD
+ 
+ _STATUSES={"RESOLVED","AMBIGUOUS","CONFLICT","UNREACHABLE","ABSTAINED","INSUFFICIENT_EVIDENCE"}
+ 
+@@ -21,6 +22,8 @@ class ReasoningProvenanceEnvelope:
+         if not self.artifact_id.strip() or not self.reasoning_family.strip(): raise ValueError("artifact/family required")
+         if self.status not in _STATUSES: raise ValueError("unsupported status")
+         if not 0 <= self.confidence <= 1: raise ValueError("confidence")
++        if self.confidence < REVIEW_CONFIDENCE_THRESHOLD and not self.requires_review:
++            raise ValueError("low confidence requires review")
+         if self.status != "RESOLVED" and not self.requires_review: raise ValueError("non-resolved status requires review")
+         if (self.uncertainty or self.status in {"AMBIGUOUS","CONFLICT"}) and not self.requires_review:
+             raise ValueError("uncertainty/conflict requires review")
+diff --git a/bie/reasoning/reasoning_realbook_fixture.py b/bie/reasoning/reasoning_realbook_fixture.py
+index 41f1506..4e62b44 100644
+--- a/bie/reasoning/reasoning_realbook_fixture.py
++++ b/bie/reasoning/reasoning_realbook_fixture.py
+@@ -35,5 +35,5 @@ def evaluate_realbook_fixture(f:RealBookReasoningFixture) -> RealBookFixtureRepo
+     missing=tuple(sorted(referenced-anchor_ids))
+     integ=reasoning_integration_gate(f.stage_artifacts)
+     arb=arbitrate_constraints(f.constraints)
+-    passed=not missing and integ.passed and arb.status=="RESOLVED"
++    passed=not missing and integ.passed and arb.status=="RESOLVED" and not arb.requires_review
+     return RealBookFixtureReport(f.fixture_id,passed,missing,integ.passed,arb.status)
+diff --git a/bie/reasoning/reasoning_status_semantics.py b/bie/reasoning/reasoning_status_semantics.py
+index b3e7603..0ed84ec 100644
+--- a/bie/reasoning/reasoning_status_semantics.py
++++ b/bie/reasoning/reasoning_status_semantics.py
+@@ -2,6 +2,8 @@ from __future__ import annotations
+ from dataclasses import dataclass
+ 
+ STATUSES=("RESOLVED","AMBIGUOUS","CONFLICT","UNREACHABLE","ABSTAINED","INSUFFICIENT_EVIDENCE")
++# Match the established GroundedResult critical review boundary.
++REVIEW_CONFIDENCE_THRESHOLD = 0.75
+ _PRIORITY={"RESOLVED":0,"AMBIGUOUS":1,"INSUFFICIENT_EVIDENCE":2,"ABSTAINED":3,"UNREACHABLE":4,"CONFLICT":5}
+ 
+ @dataclass(frozen=True)
+@@ -12,6 +14,8 @@ class ReasoningStatus:
+     releasable: bool
+ 
+ def normalize_status(status:str, reason_code:str="") -> ReasoningStatus:
++    # TEMP-047's published contract uses ABSTAIN; central output stays canonical.
++    if status == "ABSTAIN": status = "ABSTAINED"
+     if status not in STATUSES: raise ValueError("unsupported status")
+     if not reason_code.strip(): reason_code=status
+     review=status!="RESOLVED"
+@@ -19,6 +23,7 @@ def normalize_status(status:str, reason_code:str="") -> ReasoningStatus:
+ 
+ def aggregate_status(*statuses:str) -> ReasoningStatus:
+     if not statuses: return normalize_status("INSUFFICIENT_EVIDENCE")
++    statuses = tuple(normalize_status(s).status for s in statuses)
+     for s in statuses:
+         if s not in STATUSES: raise ValueError("unsupported status")
+     worst=max(statuses,key=lambda s:(_PRIORITY[s],s))
+diff --git a/bie/reasoning/spatial_frame_units.py b/bie/reasoning/spatial_frame_units.py
+index 175ecc9..10ce15f 100644
+--- a/bie/reasoning/spatial_frame_units.py
++++ b/bie/reasoning/spatial_frame_units.py
+@@ -1,6 +1,7 @@
+ from __future__ import annotations
+ from dataclasses import dataclass
+ from typing import Callable
++from math import isfinite
+ 
+ @dataclass(frozen=True)
+ class SpatialFrame:
+@@ -25,6 +26,9 @@ class SpatialPoint:
+         self.frame.validate()
+         if len(self.coordinates) != self.frame.dimension:
+             raise ValueError("coordinate dimension mismatch")
++        if any(isinstance(x, bool) or not isinstance(x, (int, float)) or not isfinite(x)
++               for x in self.coordinates):
++            raise ValueError("coordinates must be finite numbers")
+ 
+ @dataclass(frozen=True)
+ class FrameTransform:
+diff --git a/bie/reasoning/structured_uncertainty.py b/bie/reasoning/structured_uncertainty.py
+index 2ff43ca..5fab68f 100644
+--- a/bie/reasoning/structured_uncertainty.py
++++ b/bie/reasoning/structured_uncertainty.py
+@@ -2,6 +2,7 @@ from __future__ import annotations
+ from dataclasses import dataclass, asdict
+ from typing import Iterable
+ import json
++from math import isfinite
+ 
+ KINDS={"SOURCE","MEASUREMENT","TEMPORAL","SPATIAL","MODEL","AMBIGUITY","CONFLICT","INFERENCE"}
+ 
+@@ -20,6 +21,9 @@ class UncertaintyComponent:
+         if self.kind not in KINDS: raise ValueError("unsupported uncertainty kind")
+         if not 0 <= self.weight <= 1: raise ValueError("weight must be in [0,1]")
+         if (self.lower is None) != (self.upper is None): raise ValueError("bounds must be both present or absent")
++        if self.lower is not None and any(isinstance(x, bool) or not isinstance(x, (int, float)) or not isfinite(x)
++                                          for x in (self.lower, self.upper)):
++            raise ValueError("uncertainty bounds must be finite numbers")
+         if self.lower is not None and self.lower > self.upper: raise ValueError("lower > upper")
+ 
+ @dataclass(frozen=True)
+diff --git a/bie/reasoning/temporal_reasoning_engine.py b/bie/reasoning/temporal_reasoning_engine.py
+index 253fc79..3833825 100644
+--- a/bie/reasoning/temporal_reasoning_engine.py
++++ b/bie/reasoning/temporal_reasoning_engine.py
+@@ -6,6 +6,7 @@ from bie.reasoning.temporal_synthesis_reasoning import synthesize_timeline
+ from bie.reasoning.grounded_result import inference
+ TASK_ID="BIE-RE-TEMP-018"
+ def temporal_reasoning_engine(events,constraints,periods,refs):
++    events, constraints, periods, refs = tuple(events), tuple(constraints), tuple(periods), tuple(refs)
+     c=chronology(events,refs); o=event_order(events,constraints,refs); p=periodization(events,periods,refs); s=synthesize_timeline(events,constraints,periods,refs)
+     results=(c,o,p,s); conflict=any(r.status=="CONFLICT" for r in results); review=any(r.requires_review for r in results)
+     status="CONFLICT" if conflict else ("AMBIGUOUS" if review else "RESOLVED")
+diff --git a/bie/reasoning/temporal_synthesis_reasoning.py b/bie/reasoning/temporal_synthesis_reasoning.py
+index 81a8719..aac9ba7 100644
+--- a/bie/reasoning/temporal_synthesis_reasoning.py
++++ b/bie/reasoning/temporal_synthesis_reasoning.py
+@@ -9,6 +9,7 @@ TASK_ID="BIE-RE-TEMP-013"
+ 
+ 
+ def synthesize_timeline(events,constraints,periods,refs):
++    constraints, periods = tuple(constraints), tuple(periods)
+     events,refs=validate_events(events,refs)
+     ordered=event_order(events,constraints,refs)
+     assigned=periodization(events,periods,refs)

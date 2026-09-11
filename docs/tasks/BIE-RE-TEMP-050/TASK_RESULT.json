@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-050",
+  "title": "Canonical Namespace Migration",
+  "classification": "MUST-HAVE INTEGRATION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/temporal_canonical_namespace_migration.py",
+  "implementation_sha256": "a314638362ef56232d0dd70cd653d91d0f38b7e697bfd08218dca7b66076e4cd",
+  "test_path": "tests/reasoning/test_re_temp_050.py",
+  "test_sha256": "be9eacabdbfd048c2bad70ba7f8e5f75fb1b1e47826f345ce8239886cd8e0074",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_050.zip",
+    "archive_sha256": "75cb7913cb92e8da97bb82f71a008f00409f5a93347660753030e1abc0584a66",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE INTEGRATION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_050.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "task_id": "BIE-RE-TEMP-006",
+  "short_id": "RE-TEMP-006",
+  "title": "Temporal constraint closure",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-002",
+    "BIE-RE-TEMP-004"
+  ],
+  "implementation_path": "bie/reasoning/temporal_constraint_reasoning.py",
+  "implementation_sha256": "9602a2617f8f4b06d19f900f97f8cc924b8d120c5610b1044c7a16a29c5e688f",
+  "test_path": "tests/reasoning/test_temporal_constraint_reasoning.py",
+  "tests_run": 5,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "PENDING_CANONICAL_GITHUB_SESSION",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

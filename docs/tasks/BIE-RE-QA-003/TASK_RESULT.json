@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-QA-003",
+  "title": "Confidence QA",
+  "classification": "ORIGINAL ROADMAP L1",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "roadmap_section": "RE \u2014 Central Reasoning Engine",
+  "roadmap_position": "RE-QA-003",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/confidence_qa.py",
+  "implementation_sha256": "f97b8457b35e6939c207c0e8fb47ce7f01ffd28c3a080e97bdd61061a5f2dc67",
+  "test_path": "tests/reasoning/test_re_qa_003.py",
+  "test_sha256": "866c22216f5809bd767e873dfab47383817f8fffa4abff8d81275138d5e8a04f",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_QA_003.zip",
+    "archive_sha256": "a1ddf054d4ce7793303f7f8ed73852a8337f86507a21f90c85cf2e2b76a68686",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ORIGINAL ROADMAP L1",
+    "test_result": {
+      "path": "tests/reasoning/test_re_qa_003.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

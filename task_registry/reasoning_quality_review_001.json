@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
+  "kind": "SECTION_QUALITY_REVIEW_AND_EXISTING_TASK_HARDENING",
+  "baseline_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
+  "latest_implemented": "BIE-RE-TEMP-003",
+  "successor_task_ids": [],
+  "roadmap_advanced": false,
+  "new_roadmap_tasks_created": false,
+  "reviewed_task_ids": [
+    "RE-SPATIAL-003",
+    "RE-SPATIAL-004",
+    "RE-TEMP-001",
+    "RE-TEMP-002",
+    "RE-TEMP-003"
+  ],
+  "modified_task_ids": [
+    "RE-SPATIAL-004",
+    "RE-TEMP-002",
+    "RE-TEMP-003"
+  ],
+  "issues": [
+    {
+      "id": "G01",
+      "task": "RE-SPATIAL-004",
+      "finding": "One-shot source evidence was consumed before triangle classification",
+      "status": "FIXED"
+    },
+    {
+      "id": "G02",
+      "task": "RE-SPATIAL-004",
+      "finding": "Containment query could redefine a polygon vertex ID with different coordinates",
+      "status": "FIXED"
+    },
+    {
+      "id": "G03",
+      "task": "RE-SPATIAL-004",
+      "finding": "Matching shared endpoint coordinates with different source citations were rejected",
+      "status": "FIXED"
+    },
+    {
+      "id": "T01",
+      "task": "RE-TEMP-002",
+      "finding": "Open Gregorian bounds allowed infeasible ordering beyond the supported calendar and bypassed review",
+      "status": "FIXED"
+    },
+    {
+      "id": "T02",
+      "task": "RE-TEMP-003",
+      "finding": "Half-open periods could not include the final supported Gregorian day",
+      "status": "FIXED"
+    }
+  ],
+  "tests": {
+    "original": 1654,
+    "added": 18,
+    "total": 1672,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "before_evidence": "docs/evidence/reasoning-quality-001/before.json",
+  "after_evidence": "docs/evidence/reasoning-quality-001/after.json",
+  "report": "docs/evidence/reasoning-quality-001/REVIEW.md",
+  "sync_receipt": "validation/github_sync_quality_001.json",
+  "completion_gate": "OPEN",
+  "acceptance": "NOT_ACCEPTED",
+  "open_requirements": [
+    "Authoritative Reasoning roadmap after RE-TEMP-003 must be recovered before assigning subsequent IDs",
+    "Diverse real-book integrated Reasoning evidence",
+    "Downstream video compile/render and playable-game QA",
+    "Governed cumulative-learning evaluation"
+  ],
+  "scope_limit": "Only current spatial/temporal batch reviewed in depth; this is not acceptance of the entire Reasoning subsystem or BIE."
+}

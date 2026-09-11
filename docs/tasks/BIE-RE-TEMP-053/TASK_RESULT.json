@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-053",
+  "title": "Temporal Import Rewrite for Canonical BIE Namespace",
+  "classification": "MUST-HAVE INTEGRATION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/temporal_import_rewrite.py",
+  "implementation_sha256": "dddd89aec2ec6df84ff5688b658c8050997fd254891f5a5aa054f4e46ac5d719",
+  "test_path": "tests/reasoning/test_re_temp_053.py",
+  "test_sha256": "306b6ceb6d3421cf7bea185a7530df4014cbf48b7064b5c5cac6531d034cc8cf",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_053.zip",
+    "archive_sha256": "73f15f8f27f1c442b335eeea3b15b40d6b44111f4b2b79405ddb8d827c46ba3b",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE INTEGRATION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_053.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

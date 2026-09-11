@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-QA-001",
+  "title": "Rationale-Evidence Consistency",
+  "classification": "ORIGINAL ROADMAP L1",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "roadmap_section": "RE \u2014 Central Reasoning Engine",
+  "roadmap_position": "RE-QA-001",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/rationale_evidence_consistency.py",
+  "implementation_sha256": "2e37f07c0f5862dee67e38a9520335331a7a24a365304c8be633492f09f16a27",
+  "test_path": "tests/reasoning/test_re_qa_001.py",
+  "test_sha256": "bbd0c1a66bbfee06591f394c51e95f9f345fdabdfa0cdd44ab0e6b519e7f9e94",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_QA_001.zip",
+    "archive_sha256": "e73a32a698769ed246043a2dcacb039d8f16f56a4fcb20e58ed56717160e7c49",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ORIGINAL ROADMAP L1",
+    "test_result": {
+      "path": "tests/reasoning/test_re_qa_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

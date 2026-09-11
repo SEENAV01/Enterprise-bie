@@ -1,0 +1,40 @@
+{
+  "baseline_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
+  "scope": "Synthetic unit/contract checks and finite independent oracles; NOT real-book acceptance",
+  "new_quality_tests": {
+    "path": "tests/reasoning/test_section_quality_review.py",
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "integrated_summary": {
+    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+    "python": "3.12.14",
+    "test_files": 413,
+    "tests_run": 1672,
+    "failed_files": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 2.776,
+    "passed": true
+  },
+  "independent_oracle_cases": {
+    "event_order": 4096,
+    "shortest_route": 256,
+    "chronology_relations": 36,
+    "period_membership": 28,
+    "total": 4416
+  },
+  "implementation_sha256": {
+    "bie/reasoning/map_reasoning.py": "697487ddc9fd5817e33cec9115463e59a0490b2aef78f083ff6ab4c2df1278be",
+    "bie/reasoning/geometry_reasoning.py": "af0f7227565cb9183aa0513f5b867d47e142858b122deea81591010e536c68b4",
+    "bie/reasoning/chronology_reasoning.py": "256c85e0ded878b9589eb93d30294be88edd2786de497a63a657cd0231e6e343",
+    "bie/reasoning/event_order_reasoning.py": "2f49eadabebe2dadd68a953aa8bb8fbc496b612f1a928c8e1e6f4997c0986a57",
+    "bie/reasoning/periodization_reasoning.py": "31c5b2d604b5d70e3af53d79cda3ae632a8e7e7a0698aa9183e451bbd57290da"
+  },
+  "quality_test_sha256": "056ce086960036cd9c26edd3ee9c3be7c6db47454eb8c159dc40b461aa988a4b",
+  "accepted": false
+}

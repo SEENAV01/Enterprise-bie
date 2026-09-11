@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-RE-TEMP-006",
+  "short_id": "RE-TEMP-006",
+  "title": "Temporal constraint closure",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-002",
+    "BIE-RE-TEMP-004"
+  ],
+  "implementation_path": "bie/reasoning/temporal_constraint_reasoning.py",
+  "implementation_sha256": "9602a2617f8f4b06d19f900f97f8cc924b8d120c5610b1044c7a16a29c5e688f",
+  "test_path": "tests/reasoning/test_temporal_constraint_reasoning.py",
+  "tests_run": 5,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ],
+  "test_sha256": "3e69edc4ea24a001c7e7fe9f354d4ade14eb7a2f1f6324175a5f73807f9eecac",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_006.zip",
+    "archive_sha256": "53e1c8dabe5c1255cf962ca2cd9be829056081d6dcc8680b9f31b2fa18537b01",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_constraint_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

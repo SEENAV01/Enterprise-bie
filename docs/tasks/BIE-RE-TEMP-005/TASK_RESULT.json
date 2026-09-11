@@ -1,0 +1,44 @@
+{
+  "task_id": "BIE-RE-TEMP-005",
+  "short_id": "RE-TEMP-005",
+  "title": "Duration and elapsed-time reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-001"
+  ],
+  "implementation_path": "bie/reasoning/duration_reasoning.py",
+  "implementation_sha256": "cc32868dfe74f3759af851b2b8d38e022755d6f5357f59c4121db09369fbc293",
+  "test_path": "tests/reasoning/test_duration_reasoning.py",
+  "tests_run": 7,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ],
+  "test_sha256": "db54e4af25c2fe9a7935e79ecbb0aa1aaf9fdc8bc8f6db0d41cca4ddf13e355f",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_005.zip",
+    "archive_sha256": "06e31f93aa97d8038aca1f2218de892e990b49f938be05bcf08d54daca7e346a",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+    "test_result": {
+      "path": "tests/reasoning/test_duration_reasoning.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -6,11 +6,12 @@ Working Python source lives in `bie/`, following `schemas/canonical-monorepo.jso
 
 ## Current checkpoint
 
-Reasoning implementation includes **RE-SPATIAL-003/004 and RE-TEMP-001/002/003**. See `task_registry/continuation.json` and `docs/tasks/`.
+Central Reasoning Engine: **IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED**. This includes the prior checkpoint, TEMP-004 through TEMP-059, and 21 additional Reasoning QA/hardening tasks. See `task_registry/continuation.json` and `docs/tasks/`.
 
 - 796 original archives and 12,439 historical member files accounted for.
 - All 273 Assembly-001 archive hashes and 2,450 member records match the recovered originals.
-- 1,654 passing tests: 1,551 restored regressions, 78 task tests, 13 integration/contract tests and 12 assembly guards.
+- 2,016 passing enterprise tests, including 453 Reasoning tests. All 77 newly integrated production modules import successfully.
+- 77 additional original archives / 483 members are preserved under `backups/ingested/` and reconciled in `manifests/reasoning_integration_001.json`.
 - IMPLEMENTED, **NOT ACCEPTED**. Real-book reasoning and rendered-video/playable-game acceptance remain pending.
 
 ## Run
@@ -31,3 +32,5 @@ The packaging version denotes this canonical distribution, not a reset of histor
 `manifests/lossless_migration.csv` documents every original file. The 390 older M-series/historical packages remain preserved for governed characterization and later wiring; this migration does not claim all legacy features are already integrated into the enterprise pipeline.
 
 See `docs/adr/ADR-canonical-assembly-002.md`, `docs/GITHUB_SYNC.md` and `docs/REASONING_BATCH_SPATIAL_TEMPORAL.md` for scope and evidence.
+
+Current quality review: [spatial/temporal review 001](docs/evidence/reasoning-quality-001/REVIEW.md). That earlier review is preserved. The current section state and remaining acceptance blockers are in `docs/bie/CURRENT_STATE.md`; integration evidence is in `docs/evidence/reasoning-integration-001/INTEGRATION.md`.

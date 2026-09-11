@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-RE-TEMP-014",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Evidence-grounded temporal window intersection and exclusion",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_window_reasoning.py",
+  "source_sha256": "dafd1496cc18329f3ae9cdceac3a63c628c60671c32214351ab857686edb1004",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Temporal Reasoning governed extension",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_window_reasoning.py",
+  "implementation_sha256": "dafd1496cc18329f3ae9cdceac3a63c628c60671c32214351ab857686edb1004",
+  "test_path": "tests/reasoning/test_temporal_window_reasoning.py",
+  "test_sha256": "2176244425711b2b52446a32df5d18928d0a7e134b0350800d7b762cbc9b4412",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_014.zip",
+    "archive_sha256": "c7246ae30065601e191217a4afc03b98e426678349b9c6161f10c708d485528b",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_window_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

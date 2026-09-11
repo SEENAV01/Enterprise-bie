@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-055",
+  "title": "Legacy TEMP-014\u2013018 Unittest Bridge",
+  "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/temporal_unittest_bridge_014_018.py",
+  "implementation_sha256": "b9ee56929609e8924dc2a5570569910335931e2eafc9d25ca77bf7fc8df1613e",
+  "test_path": "tests/reasoning/test_re_temp_055.py",
+  "test_sha256": "28e8a21d6d9fd6ea2324f3595b512bddd9198688016971f819847bd80c96270c",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_055.zip",
+    "archive_sha256": "efbd76f0668a6452fa900c6d74ac7b90290f6c8ca8521bed3ea50387ffdfce46",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_055.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

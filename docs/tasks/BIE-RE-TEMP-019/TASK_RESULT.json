@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-019",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "tests_failed": 0,
+  "scope": "Temporal hypothesis reconciliation with explicit ambiguity preservation",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 7,
+  "implementation_path": "bie/reasoning/temporal_hypothesis_reconciliation.py",
+  "implementation_sha256": "903e799c55a16c49b6675843855c0a37c3c379d5ea991dbb86bc1030ae4f3bcd",
+  "test_path": "tests/reasoning/test_re_temp_019.py",
+  "test_sha256": "730c4f050fcd19cce8a5c1d44845c06c51371275e39b710e3a00894ba07f0729",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_019.zip",
+    "archive_sha256": "07e67ba17a14946f117974c89bff5296268bdef72abbb14037d3087bfd3c0efb",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_019.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

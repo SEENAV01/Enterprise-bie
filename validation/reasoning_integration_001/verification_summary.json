@@ -1,0 +1,95 @@
+{
+  "base_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
+  "archives": 77,
+  "original_members_verified": 483,
+  "production_import_smoke": {
+    "checked": 77,
+    "failures": 0
+  },
+  "groups": {
+    "TEMPORAL": {
+      "archives": 56,
+      "testsRun": 253,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_files": 0
+    },
+    "RE_QA_HARDENING": {
+      "archives": 21,
+      "testsRun": 70,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_files": 0
+    }
+  },
+  "cross_contract_tests": {
+    "path": "tests/reasoning/test_canonical_re_integration_001.py",
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "reasoning_unittest_discovery": {
+    "command": "python -B -m unittest discover -s tests/reasoning -p 'test*.py'",
+    "testsRun": 453,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_files": 0
+  },
+  "enterprise": {
+    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+    "python": "3.12.14",
+    "test_files": 491,
+    "tests_run": 2016,
+    "failed_files": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 3.757,
+    "passed": true
+  },
+  "source_corrections": [
+    "bie/reasoning/cross_family_arbitration.py",
+    "bie/reasoning/graph_cycle_hardening.py",
+    "bie/reasoning/grounded_counterfactual.py",
+    "bie/reasoning/reasoning_integration_gate.py",
+    "bie/reasoning/reasoning_provenance_envelope.py",
+    "bie/reasoning/reasoning_realbook_fixture.py",
+    "bie/reasoning/reasoning_status_semantics.py",
+    "bie/reasoning/spatial_frame_units.py",
+    "bie/reasoning/structured_uncertainty.py",
+    "bie/reasoning/temporal_reasoning_engine.py",
+    "bie/reasoning/temporal_synthesis_reasoning.py"
+  ],
+  "archive_integrity": {
+    "passed": true,
+    "errors": [],
+    "archive_count": 796,
+    "original_member_files_checked": 12439,
+    "ledger_rows": 12439,
+    "assembly_001_files_checked": 2450,
+    "dispositions": {
+      "ARCHIVED_EVIDENCE": 11226,
+      "MIGRATED": 824,
+      "DUPLICATE_WITH_PROVENANCE": 389
+    },
+    "canonical_destinations_checked": 10942,
+    "working_python_files_parsed": 1000,
+    "acceptance": "NOT_ACCEPTED",
+    "scope": "Source preservation, canonical layout, import syntax and manifest integrity; not real-book E2E"
+  },
+  "static_production_python_files": 511,
+  "production_archive_imports": [],
+  "runtime_archive_imports": [],
+  "canonical_initializers_preserved": [
+    "bie/__init__.py",
+    "bie/reasoning/__init__.py",
+    "app/__init__.py",
+    "app/bie/__init__.py"
+  ],
+  "not_acceptance_evidence": "All fixtures in this verification are synthetic; no real-textbook BI/KI/PR/MATH pipeline or PED/DIR/QA product run is claimed."
+}

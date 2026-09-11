@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-024",
+  "title": "Temporal Abstention Policy",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 6,
+  "implementation_path": "bie/reasoning/temporal_abstention_policy.py",
+  "implementation_sha256": "d2111b44e7b5f80bbfa186779e454fd941a537bb52fb531ca9a9c574395ad371",
+  "test_path": "tests/reasoning/test_re_temp_024.py",
+  "test_sha256": "76b9de97fe5e7374975c55f0bad4fe4cdff21362372dd242ffd2cc1a63f58c91",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_024.zip",
+    "archive_sha256": "ea393483e99a2d950942a4a14bff9bcfc1e12c1ce5e80aa72ca3e615450a32b1",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_024.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

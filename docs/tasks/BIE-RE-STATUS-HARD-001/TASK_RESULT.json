@@ -1,0 +1,36 @@
+{
+  "task_id": "BIE-RE-STATUS-HARD-001",
+  "title": "Unified Reasoning Status & Abstention Semantics",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_REAUDIT_002",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/reasoning_status_semantics.py",
+  "implementation_sha256": "7867ba056deb6cc629e28824f9f0f5da0164eb4308d3010c6b5af6d62c964f75",
+  "test_path": "tests/reasoning/test_status_hard_001.py",
+  "test_sha256": "24d71aef1589a27b2fa7537186c31cd2efce4998c4502b5dfddf37f0ac311502",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_STATUS_HARD_001.zip",
+    "archive_sha256": "7bbb0f39944217fe13331d659fe8dd3e2c46bd9910e2f6bb9ddcf554712bc9ff",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_status_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

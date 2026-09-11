@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-028",
+  "title": "Temporal Provenance Merge",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_provenance_merge.py",
+  "implementation_sha256": "536b6b085c481e0036eb9ce06f739155fda907b5651c63487d551b05c14aadda",
+  "test_path": "tests/reasoning/test_re_temp_028.py",
+  "test_sha256": "e1f2baf13a12edb3ffa91d263a56000173e58de5c6c9dab4b93069ac8c9237a4",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_028.zip",
+    "archive_sha256": "09cb51f9bec350884b28dc6a35861b4e4fbf15acab25337ecfe3d731b7893b4f",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_028.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

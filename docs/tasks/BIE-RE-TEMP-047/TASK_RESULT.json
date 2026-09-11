@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-047",
+  "title": "Temporal Result Serialization Contract",
+  "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_result_contract.py",
+  "implementation_sha256": "d1b25213afa6805f7c3681fdf44cd4f3a62b4c95a114e1ea43818dae15df192a",
+  "test_path": "tests/reasoning/test_re_temp_047.py",
+  "test_sha256": "24ebc3ad2beff5fea9c59170aaaed7dc584f2ec088e8f0a017e5b59192695b73",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_047.zip",
+    "archive_sha256": "49e1dbf19225678ee5deb26990323ac3cf4dc917f96e2ad55110092f9f771a38",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_047.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

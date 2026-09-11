@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-056",
+  "title": "Temporal Migration Manifest",
+  "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_migration_manifest.py",
+  "implementation_sha256": "e0884657cc122240693ab292aed5235ab09188fa2795c29b5cff117208dc8adf",
+  "test_path": "tests/reasoning/test_re_temp_056.py",
+  "test_sha256": "ea4a299a06a92b1ff6d135a52e19ea98ac53573a3f00ac2682618c8c2000a747",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_056.zip",
+    "archive_sha256": "f7e7dce248702d87533e02f58bf63413a60555152f2e729504582b8ceaafd252",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_056.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-RE-TEMP-016",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Deadline, lateness and bounded temporal compliance reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_deadline_reasoning.py",
+  "source_sha256": "4e59cc2a7d459ef33921209792b0cead8d65cfd4d82190b552b64f9374f18c2a",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Temporal Reasoning governed extension",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_deadline_reasoning.py",
+  "implementation_sha256": "4e59cc2a7d459ef33921209792b0cead8d65cfd4d82190b552b64f9374f18c2a",
+  "test_path": "tests/reasoning/test_temporal_deadline_reasoning.py",
+  "test_sha256": "79109eaf52586c487df82974ccb5cdbdae33641b8727a303fb6a1f19376cb8fa",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_016.zip",
+    "archive_sha256": "bbc2c9be7974b46cd93ce2258bc6b01014b8d3c07f657e4f10af274acd0e5bae",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_deadline_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

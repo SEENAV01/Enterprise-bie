@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-RE-TEMP-007",
+  "short_id": "RE-TEMP-007",
+  "title": "Temporal evidence fusion",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-001",
+    "BIE-RE-EVID-003",
+    "BIE-RE-EVID-004"
+  ],
+  "implementation_path": "bie/reasoning/temporal_evidence_reasoning.py",
+  "implementation_sha256": "f211e8784618c93978dfbb3138099cc2c46c25883ec65837c37e094515117de2",
+  "test_path": "tests/reasoning/test_temporal_evidence_reasoning.py",
+  "tests_run": 5,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ],
+  "test_sha256": "4c64818aceeee1337d58f73a3a772f686b6d7eaa6659358f14592832353f02bf",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_007.zip",
+    "archive_sha256": "95b62dab5f9d79a703df2b67d90174c615bf4954a4881acbe63ffd435b8eed5a",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_evidence_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

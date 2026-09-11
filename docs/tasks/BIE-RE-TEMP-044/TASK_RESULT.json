@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-044",
+  "title": "Temporal Section Readiness Gate",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_section_readiness.py",
+  "implementation_sha256": "07af2e3d4e9a47578a345a98119047b9b3ae11d8ff8659dd1f9489c2c64b9c71",
+  "test_path": "tests/reasoning/test_re_temp_044.py",
+  "test_sha256": "20fda9475569a26c12f4b53b9a574863883a718d972bf289704c9d904c4c7540",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_044.zip",
+    "archive_sha256": "fabe2fbb242ccde0a8a8353daae46a2586393dac0da332a8441f49cfd32f0dff",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_044.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

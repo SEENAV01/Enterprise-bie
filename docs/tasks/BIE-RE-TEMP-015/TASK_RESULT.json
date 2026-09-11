@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-RE-TEMP-015",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Temporal state-transition and persistence reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_state_reasoning.py",
+  "source_sha256": "1b251fdbe925f0755a7ab7cd058e7a0c61023d26f5f20b05187be030253a2adf",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Temporal Reasoning governed extension",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_state_reasoning.py",
+  "implementation_sha256": "1b251fdbe925f0755a7ab7cd058e7a0c61023d26f5f20b05187be030253a2adf",
+  "test_path": "tests/reasoning/test_temporal_state_reasoning.py",
+  "test_sha256": "e6d03e4d17f4c3d5e9595c7b2c3c42c74716ea9e1525a7d417269806488ff1d5",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_015.zip",
+    "archive_sha256": "c39bd2dbf3e8bbb679112d335c00425271f7e356e8415a4f7ffad52c9cab3762",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_state_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

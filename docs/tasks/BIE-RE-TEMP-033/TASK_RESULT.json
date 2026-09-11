@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-033",
+  "title": "Temporal Query Planning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_query_plan.py",
+  "implementation_sha256": "e5f9b61b35eb38d9c5aee8581f6b939a693555423b449004a1c8cfea3fe9129e",
+  "test_path": "tests/reasoning/test_re_temp_033.py",
+  "test_sha256": "435e338ef055d5bcbd25d203ea056aabc30c4e11577a1383a173104d60af58af",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_033.zip",
+    "archive_sha256": "bd702344ef63b5d9b5332ab59b7f44178a74bae741809bcbce0d8bb2a2bba863",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_033.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

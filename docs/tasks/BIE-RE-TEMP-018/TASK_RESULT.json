@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-RE-TEMP-018",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Integrated temporal reasoning engine with explicit review gates",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_reasoning_engine.py",
+  "source_sha256": "13a180a3e2bf1dde8e5028f25239a9ad6f3568e7cb2ac541429407c3eb47f6f8",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Temporal Reasoning governed extension",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_reasoning_engine.py",
+  "implementation_sha256": "8b9d7a40b33a8e9315a0baf37d6330fbe73d7f4d37fe39c7d48e5348a1f560b6",
+  "test_path": "tests/reasoning/test_temporal_reasoning_engine.py",
+  "test_sha256": "31cc74d51840ac20567eaaafcc484640b58263d66ddff3a28b43dd35f46e95e0",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_018.zip",
+    "archive_sha256": "80ee62ea2def82fb13994bf737944c61031e5b559cdee18e97d3d9392d762272",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_reasoning_engine.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

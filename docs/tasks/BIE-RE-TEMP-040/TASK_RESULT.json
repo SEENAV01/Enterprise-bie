@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-040",
+  "title": "Temporal Precision Compatibility",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_precision_compatibility.py",
+  "implementation_sha256": "facb725d181c6951e1d9cc1c3144ea536325e07f9254dc4d5293c04fdef548fe",
+  "test_path": "tests/reasoning/test_re_temp_040.py",
+  "test_sha256": "57512a06bec973e61dc9fab4b74a01a5a5136a58af9007335148c9bf4bc89fb2",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_040.zip",
+    "archive_sha256": "f749c3385c6917b18db85356898a1c9c7b8c381f550d5eb74c51bb3a91d962c2",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_040.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

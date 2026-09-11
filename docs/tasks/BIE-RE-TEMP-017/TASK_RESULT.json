@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-RE-TEMP-017",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Temporal inference lineage and evidence coverage audit",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_lineage_reasoning.py",
+  "source_sha256": "0aee4aba75659000ea416cd4569d0563b83a14877055882efa9175b5cbff4896",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Temporal Reasoning governed extension",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_lineage_reasoning.py",
+  "implementation_sha256": "0aee4aba75659000ea416cd4569d0563b83a14877055882efa9175b5cbff4896",
+  "test_path": "tests/reasoning/test_temporal_lineage_reasoning.py",
+  "test_sha256": "627e4c0f7a5a9ec6a338e53cac6edbc08e9a811779d57a5b0ddcb99923a80f74",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_017.zip",
+    "archive_sha256": "e1053f0ad33850a3680164aec7db3ca3e4f67e685bc0f5f1e1d02edcdb30b02d",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_lineage_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

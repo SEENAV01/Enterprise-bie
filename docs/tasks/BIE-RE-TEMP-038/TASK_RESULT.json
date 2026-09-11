@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-038",
+  "title": "Derived Temporal Lineage",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_derived_lineage.py",
+  "implementation_sha256": "eabb9203c46ac694ad853451dbd12a33a423b5f4ee1b1e29e733f14f8e0a90e8",
+  "test_path": "tests/reasoning/test_re_temp_038.py",
+  "test_sha256": "f09d9809165e44b4158beea67c881bf111e0ea601deff0f0a9f20b04f2805acb",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_038.zip",
+    "archive_sha256": "0b375abc09f435ed8bc0bde913a39fb5af189e0584599ead2386e1ff7c104f28",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_038.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

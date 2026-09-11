@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-029",
+  "title": "Temporal Consistency Audit",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_consistency_audit.py",
+  "implementation_sha256": "24e7b9396d8f3da3ddbedff38870404084711c4f4f55aa6af10b3f6e9d9cdd03",
+  "test_path": "tests/reasoning/test_re_temp_029.py",
+  "test_sha256": "909cfa21c8bd1b45184c280af451a8301c7e4e42c6d1658b75c404e2b29123a7",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_029.zip",
+    "archive_sha256": "664d578df0a1849aa6f3303c0ff14c6d8ae82cba8b27f62a9e91b7f6b782bb74",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_029.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,14 +1,14 @@
 {
   "summary": {
-    "scope": "Imported enterprise unit tests against combined source; no production or real-book acceptance claimed",
+    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
     "python": "3.12.14",
-    "test_files": 375,
-    "tests_run": 1431,
+    "test_files": 491,
+    "tests_run": 2016,
     "failed_files": 0,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "duration_seconds": 0.557,
+    "duration_seconds": 3.446,
     "passed": true
   },
   "results": [
@@ -2797,6 +2797,46 @@
       "passed": true
     },
     {
+      "path": "tests/imported/BIE_RE_CAUSAL_001/tests/test_causal_chain.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_002/tests/test_causal_graph.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_003/tests/test_causal_mechanism.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_004/tests/test_temporal_causality.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_CAUSAL_005/tests/test_counterfactual_reasoning.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
       "path": "tests/imported/BIE_RE_CORE_001/tests/reasoning/test_reasoning_contracts.py",
       "tests": 8,
       "failures": 0,
@@ -2806,6 +2846,110 @@
     },
     {
       "path": "tests/imported/BIE_RE_DEC_001/tests/test_dec_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_002/tests/test_dec_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_003/tests/test_dec_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_004/tests/test_dec_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_005/tests/test_dec_005.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_006/tests/test_dec_006.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_007/tests/test_dec_007.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_008/tests/test_dec_008.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_009/tests/test_dec_009.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_010/tests/test_dec_010.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_011/tests/test_dec_011.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_012/tests/test_dec_012.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_013/tests/test_dec_013.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_DEC_014/tests/test_dec_014.py",
       "tests": 4,
       "failures": 0,
       "errors": 0,
@@ -2838,6 +2982,102 @@
     },
     {
       "path": "tests/imported/BIE_RE_EVID_004/tests/test_evid_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_001/tests/test_graph_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_002/tests/test_graph_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_003/tests/test_graph_cycles.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_004/tests/test_downstream_impact.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_GRAPH_005/tests/test_decision_invalidation.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_SPATIAL_001/tests/test_spatial_relation.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_SPATIAL_002/tests/test_coordinate_reasoning.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_001/tests/test_uncertainty.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_002/tests/test_confidence_calibration.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_003/tests/test_review_threshold.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_004/tests/test_escalation_policy.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/imported/BIE_RE_UNC_005/tests/test_abstention_policy.py",
       "tests": 4,
       "failures": 0,
       "errors": 0,
@@ -3007,6 +3247,694 @@
     {
       "path": "tests/test_repository_integration.py",
       "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_canonical_re_integration_001.py",
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_causal_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_causal_hard_002.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_causal_hard_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_causal_hard_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_chronology_reasoning.py",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_cross_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_duration_reasoning.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_e2e_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_event_order_reasoning.py",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_geometry_reasoning.py",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_graph_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_graph_hard_002.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_graph_hard_003.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_grounded_integration.py",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_integration_hard_001.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_map_reasoning.py",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_periodization_reasoning.py",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_prov_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_qa_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_qa_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_qa_003.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_qa_004.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_qa_005.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_019.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_020.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_021.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_022.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_023.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_024.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_025.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_026.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_027.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_028.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_029.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_030.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_031.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_032.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_033.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_034.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_035.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_036.py",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_037.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_038.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_039.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_040.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_041.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_042.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_043.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_044.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_045.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_046.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_047.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_048.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_049.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_050.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_051.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_052.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_053.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_054.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_055.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_056.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_057.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_058.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_re_temp_059.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_relative_temporal_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_replay_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_section_quality_review.py",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_spatial_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_status_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_constraint_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_deadline_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_evidence_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_granularity_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_interval_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_lineage_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_query_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_reasoning_engine.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_recurrence_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_scheme_alignment.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_state_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_synthesis_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_temporal_window_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_unc_hard_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/reasoning/test_unc_hard_002.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/assembly/test_assembly_guards.py",
+      "tests": 12,
       "failures": 0,
       "errors": 0,
       "skipped": 0,

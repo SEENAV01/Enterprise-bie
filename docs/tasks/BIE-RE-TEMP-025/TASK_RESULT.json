@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-025",
+  "title": "Calendar and Era Normalization",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_calendar_normalization.py",
+  "implementation_sha256": "ac7be8c40b3a70895fbc324305f1630b020c2c89dc22f3752bd3b2a7f9c16c4d",
+  "test_path": "tests/reasoning/test_re_temp_025.py",
+  "test_sha256": "cee2a1ad37832b1252b85c0edfd2d9e28091ba2dcf78f1ff40da46cf450c7e3b",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_025.zip",
+    "archive_sha256": "324dee4f9d2ffccd9cb53a4ec8956ed5ea2ee4028dfb00e1e365dfea5f39506a",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_025.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

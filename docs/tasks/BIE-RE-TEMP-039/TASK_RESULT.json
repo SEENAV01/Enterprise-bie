@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-039",
+  "title": "Temporal Input Materialization Safety",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_iterator_safety.py",
+  "implementation_sha256": "c7851459f6f6000a8ce22d399a3c727ba0cb68d5f67fd5fd2a24bef3ceb1ef13",
+  "test_path": "tests/reasoning/test_re_temp_039.py",
+  "test_sha256": "5235aaf591b674ebe424d3d5c3bd773cfbfe2bb0a06f4e552400a99b0ba51427",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_039.zip",
+    "archive_sha256": "528afffeb36b6e42c8447a2ae67b28da6437bcba476b11ee11fbd729b09f221a",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_039.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

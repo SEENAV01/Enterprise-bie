@@ -1,0 +1,50 @@
+{
+  "task_id": "BIE-RE-TEMP-009",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Evidence-grounded relative temporal offsets with uncertainty propagation",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0,
+    "integrated_enterprise_tests": 1706,
+    "integrated_failures": 0,
+    "integrated_errors": 0,
+    "integrated_skipped": 0
+  },
+  "canonical_target": "bie/reasoning/relative_temporal_reasoning.py",
+  "source_sha256": "589b118d5ef1af6f0aaf0b4787b1f82b26deed7bb79ef16fd4296a0ef810fadf",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Dependency-valid Temporal Reasoning extension after RE-TEMP-008",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/relative_temporal_reasoning.py",
+  "implementation_sha256": "589b118d5ef1af6f0aaf0b4787b1f82b26deed7bb79ef16fd4296a0ef810fadf",
+  "test_path": "tests/reasoning/test_relative_temporal_reasoning.py",
+  "test_sha256": "f95ab64f02df3cd42c93c9f31122c0bf44e5d8b3344715cbb43691190279fe78",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_009.zip",
+    "archive_sha256": "1c2abdd38e52132c9229b770f9ba3817ac3e44aa3f29824a675ad36a7b989075",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_relative_temporal_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

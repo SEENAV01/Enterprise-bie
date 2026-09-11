@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-SPATIAL-HARD-001",
+  "title": "Coordinate Frame & Unit Safety",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section": "RE \u2014 Central Reasoning Engine",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/spatial_frame_units.py",
+  "implementation_sha256": "8e6f274da97123d9acb9ab0d7b7c2e32699f88c181fd3d59c01430f87e03e25a",
+  "test_path": "tests/reasoning/test_spatial_hard_001.py",
+  "test_sha256": "fe499f3b70ee291522a4bd651f5c9a4acb0138a44b18b6fa4fd122e22d6ef00a",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_SPATIAL_HARD_001.zip",
+    "archive_sha256": "2d1189bb867350d1b74f78bd91a77d8f49c6d2bbbc960786bc10424066c5d33b",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_spatial_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

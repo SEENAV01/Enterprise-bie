@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-TEMP-004",
+  "short_id": "RE-TEMP-004",
+  "title": "Temporal interval algebra",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-001"
+  ],
+  "implementation_path": "bie/reasoning/temporal_interval_reasoning.py",
+  "implementation_sha256": "69e397268a9f944ce3ee3a18d0ae43426790e6fe4a85cc67855a95f136fed92d",
+  "test_path": "tests/reasoning/test_temporal_interval_reasoning.py",
+  "tests_run": 5,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "PENDING_CANONICAL_GITHUB_SESSION",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

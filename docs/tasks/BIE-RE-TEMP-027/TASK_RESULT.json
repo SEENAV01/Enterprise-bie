@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-027",
+  "title": "Fuzzy Temporal Expression Reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_fuzzy_expression.py",
+  "implementation_sha256": "d1cd442293fb33577caa3ba977b6b78d38517f7231a99abcc5bb9b114e35c9a8",
+  "test_path": "tests/reasoning/test_re_temp_027.py",
+  "test_sha256": "bb505d34cb270c95c1e97cfe4eb725b4d29ababf9e127dfd7e0493f1dce654e2",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_027.zip",
+    "archive_sha256": "9512230ceb96f3b8ef66381e62b5c7b6ba34d528d25ed4a5d910bf1063899256",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_027.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -28,10 +28,13 @@ def _points(points, refs):
         identifier(p.point_id, "point id")
         finite(p.x, "x"); finite(p.y, "y")
         require_refs(p.evidence_ids, refs)
-        if p.point_id in identities and identities[p.point_id] != p:
+        coordinate = (Fraction(str(p.x)), Fraction(str(p.y)))
+        # Independent observations may cite different evidence for one point.
+        # Identity constrains coordinates, not which source observed them.
+        if p.point_id in identities and identities[p.point_id] != coordinate:
             raise ValueError("Conflicting coordinates for point id")
-        identities[p.point_id] = p
-        coords.append((Fraction(str(p.x)), Fraction(str(p.y))))
+        identities[p.point_id] = coordinate
+        coords.append(coordinate)
     return tuple(coords), refs
 
 
@@ -105,7 +108,9 @@ def polygon_measure(vertices, refs, *, frame_id: str, unit="m"):
 def point_in_polygon(point: Point, vertices, refs, *, frame_id: str, unit="m"):
     context = _context(frame_id, unit)
     vertices, coords, refs, _ = _polygon(vertices, refs)
-    (p,), refs = _points((point,), refs)
+    # Validate the query and ring together: a query cannot redefine a vertex.
+    all_coords, refs = _points((point, *vertices), refs)
+    p = all_coords[0]
     winding, boundary = 0, False
     for i, a in enumerate(coords):
         b = coords[(i + 1) % len(coords)]
@@ -124,6 +129,7 @@ def triangle_properties(vertices, refs, *, frame_id: str, unit="m"):
     vertices = tuple(vertices)
     if len(vertices) != 3:
         raise ValueError("Exactly three triangle vertices required")
+    refs = evidence(refs)
     measure = polygon_measure(vertices, refs, frame_id=frame_id, unit=unit)
     coords, refs = _points(vertices, refs)
     squared = sorted(sum((coords[i][k] - coords[(i + 1) % 3][k]) ** 2 for k in (0, 1)) for i in range(3))

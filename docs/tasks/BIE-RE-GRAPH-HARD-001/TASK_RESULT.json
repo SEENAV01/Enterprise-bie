@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-GRAPH-HARD-001",
+  "title": "Canonical Cycle Witness & Resolution Proposal",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section_state": "IMPLEMENTED WITH GAPS",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/graph_cycle_hardening.py",
+  "implementation_sha256": "0b51c3120625db9a992484157f4d2733736f3822006163bd855ba8993bc22962",
+  "test_path": "tests/reasoning/test_graph_hard_001.py",
+  "test_sha256": "c678ab0b2b4315b22996ffc96d5e69f9d3dcada6b499c3d882f87c1e0d643718",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_GRAPH_HARD_001.zip",
+    "archive_sha256": "fa3a2e89ce6c196523e47073d13fb2f794f15fe7773e0d1572e2e9e613ce4df7",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_graph_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

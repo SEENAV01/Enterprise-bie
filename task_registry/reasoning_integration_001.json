@@ -1,0 +1,631 @@
+{
+  "batch_id": "BIE-REASONING-INTEGRATION-001",
+  "base_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
+  "section_status": "IMPLEMENTATION-SCOPE COMPLETE",
+  "accepted": false,
+  "tasks": [
+    {
+      "task_id": "BIE-RE-CAUSAL-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/grounded_causal_graph.py",
+      "test": "tests/reasoning/test_causal_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-CAUSAL-HARD-002",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/mechanism_path_reasoning.py",
+      "test": "tests/reasoning/test_causal_hard_002.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-CAUSAL-HARD-003",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/temporal_causal_guard.py",
+      "test": "tests/reasoning/test_causal_hard_003.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-CAUSAL-HARD-004",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/grounded_counterfactual.py",
+      "test": "tests/reasoning/test_causal_hard_004.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-CROSS-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/cross_family_arbitration.py",
+      "test": "tests/reasoning/test_cross_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-E2E-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/reasoning_realbook_fixture.py",
+      "test": "tests/reasoning/test_e2e_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-GRAPH-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/graph_cycle_hardening.py",
+      "test": "tests/reasoning/test_graph_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-GRAPH-HARD-002",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/downstream_impact_paths.py",
+      "test": "tests/reasoning/test_graph_hard_002.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-GRAPH-HARD-003",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/transitive_invalidation.py",
+      "test": "tests/reasoning/test_graph_hard_003.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-INTEGRATION-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/reasoning_integration_gate.py",
+      "test": "tests/reasoning/test_integration_hard_001.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-PROV-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/reasoning_provenance_envelope.py",
+      "test": "tests/reasoning/test_prov_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-QA-001",
+      "classification": "ORIGINAL ROADMAP L1",
+      "source": "bie/reasoning/rationale_evidence_consistency.py",
+      "test": "tests/reasoning/test_re_qa_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-QA-002",
+      "classification": "ORIGINAL ROADMAP L1",
+      "source": "bie/reasoning/unsupported_reasoning_detection.py",
+      "test": "tests/reasoning/test_re_qa_002.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-QA-003",
+      "classification": "ORIGINAL ROADMAP L1",
+      "source": "bie/reasoning/confidence_qa.py",
+      "test": "tests/reasoning/test_re_qa_003.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-QA-004",
+      "classification": "ORIGINAL ROADMAP L1",
+      "source": "bie/reasoning/contradiction_resolution_qa.py",
+      "test": "tests/reasoning/test_re_qa_004.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-QA-005",
+      "classification": "ORIGINAL ROADMAP L1",
+      "source": "bie/reasoning/decision_reproducibility.py",
+      "test": "tests/reasoning/test_re_qa_005.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-REPLAY-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/reasoning_replay_manifest.py",
+      "test": "tests/reasoning/test_replay_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-SPATIAL-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/spatial_frame_units.py",
+      "test": "tests/reasoning/test_spatial_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-STATUS-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/reasoning_status_semantics.py",
+      "test": "tests/reasoning/test_status_hard_001.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-004",
+      "classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+      "source": "bie/reasoning/temporal_interval_reasoning.py",
+      "test": "tests/reasoning/test_temporal_interval_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-005",
+      "classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+      "source": "bie/reasoning/duration_reasoning.py",
+      "test": "tests/reasoning/test_duration_reasoning.py",
+      "testsRun": 7,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-006",
+      "classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+      "source": "bie/reasoning/temporal_constraint_reasoning.py",
+      "test": "tests/reasoning/test_temporal_constraint_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-007",
+      "classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+      "source": "bie/reasoning/temporal_evidence_reasoning.py",
+      "test": "tests/reasoning/test_temporal_evidence_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-008",
+      "classification": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+      "source": "bie/reasoning/temporal_query_reasoning.py",
+      "test": "tests/reasoning/test_temporal_query_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-009",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/relative_temporal_reasoning.py",
+      "test": "tests/reasoning/test_relative_temporal_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-010",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_recurrence_reasoning.py",
+      "test": "tests/reasoning/test_temporal_recurrence_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-011",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_scheme_alignment.py",
+      "test": "tests/reasoning/test_temporal_scheme_alignment.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-012",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_granularity_reasoning.py",
+      "test": "tests/reasoning/test_temporal_granularity_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-013",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_synthesis_reasoning.py",
+      "test": "tests/reasoning/test_temporal_synthesis_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-014",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_window_reasoning.py",
+      "test": "tests/reasoning/test_temporal_window_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-015",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_state_reasoning.py",
+      "test": "tests/reasoning/test_temporal_state_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-016",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_deadline_reasoning.py",
+      "test": "tests/reasoning/test_temporal_deadline_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-017",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_lineage_reasoning.py",
+      "test": "tests/reasoning/test_temporal_lineage_reasoning.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-018",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_reasoning_engine.py",
+      "test": "tests/reasoning/test_temporal_reasoning_engine.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-019",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_hypothesis_reconciliation.py",
+      "test": "tests/reasoning/test_re_temp_019.py",
+      "testsRun": 7,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-020",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_counterfactual_guard.py",
+      "test": "tests/reasoning/test_re_temp_020.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-021",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_scope_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_021.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-022",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_missing_event_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_022.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-023",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_revision_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_023.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-024",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_abstention_policy.py",
+      "test": "tests/reasoning/test_re_temp_024.py",
+      "testsRun": 6,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-025",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_calendar_normalization.py",
+      "test": "tests/reasoning/test_re_temp_025.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-026",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_timezone_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_026.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-027",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_fuzzy_expression.py",
+      "test": "tests/reasoning/test_re_temp_027.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-028",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_provenance_merge.py",
+      "test": "tests/reasoning/test_re_temp_028.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-029",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_consistency_audit.py",
+      "test": "tests/reasoning/test_re_temp_029.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-030",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_multi_scale_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_030.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-031",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_dependency_scheduler.py",
+      "test": "tests/reasoning/test_re_temp_031.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-032",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_change_point_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_032.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-033",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_query_plan.py",
+      "test": "tests/reasoning/test_re_temp_033.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-034",
+      "classification": "GOVERNED_TEMPORAL_EXTENSION",
+      "source": "bie/reasoning/temporal_quality_gate.py",
+      "test": "tests/reasoning/test_re_temp_034.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-035",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_relative_anchor_resolution.py",
+      "test": "tests/reasoning/test_re_temp_035.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-036",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_nested_interval_reasoning.py",
+      "test": "tests/reasoning/test_re_temp_036.py",
+      "testsRun": 6,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-037",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_causal_order_guard.py",
+      "test": "tests/reasoning/test_re_temp_037.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-038",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_derived_lineage.py",
+      "test": "tests/reasoning/test_re_temp_038.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-039",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_iterator_safety.py",
+      "test": "tests/reasoning/test_re_temp_039.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-040",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_precision_compatibility.py",
+      "test": "tests/reasoning/test_re_temp_040.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-041",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_evidence_conflict_matrix.py",
+      "test": "tests/reasoning/test_re_temp_041.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-042",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_dependency_invalidation.py",
+      "test": "tests/reasoning/test_re_temp_042.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-043",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_reproducibility_fingerprint.py",
+      "test": "tests/reasoning/test_re_temp_043.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-044",
+      "classification": "MUST-HAVE HARDENING",
+      "source": "bie/reasoning/temporal_section_readiness.py",
+      "test": "tests/reasoning/test_re_temp_044.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-045",
+      "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+      "source": "bie/reasoning/temporal_uncertainty_chain.py",
+      "test": "tests/reasoning/test_re_temp_045.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-046",
+      "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+      "source": "bie/reasoning/temporal_contradiction_witness.py",
+      "test": "tests/reasoning/test_re_temp_046.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-047",
+      "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+      "source": "bie/reasoning/temporal_result_contract.py",
+      "test": "tests/reasoning/test_re_temp_047.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-048",
+      "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+      "source": "bie/reasoning/temporal_realbook_fixture_harness.py",
+      "test": "tests/reasoning/test_re_temp_048.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-049",
+      "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+      "source": "bie/reasoning/temporal_integration_contract.py",
+      "test": "tests/reasoning/test_re_temp_049.py",
+      "testsRun": 5,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-050",
+      "classification": "MUST-HAVE INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_canonical_namespace_migration.py",
+      "test": "tests/reasoning/test_re_temp_050.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-051",
+      "classification": "MUST-HAVE INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_test_runner_compatibility.py",
+      "test": "tests/reasoning/test_re_temp_051.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-052",
+      "classification": "MUST-HAVE INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_package_inventory_audit.py",
+      "test": "tests/reasoning/test_re_temp_052.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-053",
+      "classification": "MUST-HAVE INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_import_rewrite.py",
+      "test": "tests/reasoning/test_re_temp_053.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-054",
+      "classification": "MUST-HAVE INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_integration_exit_gate.py",
+      "test": "tests/reasoning/test_re_temp_054.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-055",
+      "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_unittest_bridge_014_018.py",
+      "test": "tests/reasoning/test_re_temp_055.py",
+      "testsRun": 3,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-056",
+      "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_migration_manifest.py",
+      "test": "tests/reasoning/test_re_temp_056.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-057",
+      "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_collision_guard.py",
+      "test": "tests/reasoning/test_re_temp_057.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-058",
+      "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_staged_regression_plan.py",
+      "test": "tests/reasoning/test_re_temp_058.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-TEMP-059",
+      "classification": "MUST-HAVE CANONICAL-INTEGRATION HARDENING",
+      "source": "bie/reasoning/temporal_integration_bundle_validator.py",
+      "test": "tests/reasoning/test_re_temp_059.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-UNC-HARD-001",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/structured_uncertainty.py",
+      "test": "tests/reasoning/test_unc_hard_001.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    },
+    {
+      "task_id": "BIE-RE-UNC-HARD-002",
+      "classification": "ENTERPRISE HARDENING ADDITION",
+      "source": "bie/reasoning/calibration_diagnostics.py",
+      "test": "tests/reasoning/test_unc_hard_002.py",
+      "testsRun": 4,
+      "status": "CANONICAL_LOCAL_VERIFIED"
+    }
+  ],
+  "verification": "validation/reasoning_integration_001/verification_summary.json",
+  "acceptance_blockers": [
+    "Integrated real-textbook BI/KI/PR/MATH \u2192 RE E2E",
+    "Downstream PED/DIR/QA consumption",
+    "Benchmark and product acceptance",
+    "Actual video rendering and playable-game validation"
+  ]
+}

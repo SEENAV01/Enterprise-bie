@@ -12,3 +12,5 @@ Read `BIE_CONTEXT_HANDOFF.md`, `docs/bie/CURRENT_STATE.md` and `task_registry/co
 - IMPLEMENTED is not ACCEPTED. Real-book integration and downstream compile/render/game QA evidence remain required.
 - Verify actual GitHub write and exact remote commit/tree readback before reporting synchronization. Never force-push or overwrite concurrent changes.
 - Provide exact commit SHA(s) and a full repository backup. The user must not manually assemble atomic ZIPs.
+
+Current integration authority is `docs/evidence/reasoning-integration-001/USER_INTEGRATION_PROMPT.txt`. The Reasoning implementation scope is complete and not accepted. Preserve the 56 Temporal and 21 QA/hardening tasks and distinguish original-roadmap work from hardening. Do not invent another RE task without a concrete integration/E2E gap. Follow `task_registry/continuation.json` and preserve the real-textbook, downstream-consumer, benchmark and product acceptance blockers.

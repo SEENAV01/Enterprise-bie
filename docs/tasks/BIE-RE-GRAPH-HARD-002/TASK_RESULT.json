@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-GRAPH-HARD-002",
+  "title": "Provenance-Aware Downstream Impact Paths",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section_state": "IMPLEMENTED WITH GAPS",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/downstream_impact_paths.py",
+  "implementation_sha256": "22e3a3b332983e20a77a4575a79da2705656ae18426f43ec940c24735cbdade0",
+  "test_path": "tests/reasoning/test_graph_hard_002.py",
+  "test_sha256": "c8e8c0450ab972b6b66e695111df5afab01b39dae78dc78d9e872d08b38cb2c7",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_GRAPH_HARD_002.zip",
+    "archive_sha256": "16d1a91618ba44bd7fd6b3d2cb6fffb47b11a77ce52ee2d0694764673db1a0b4",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_graph_hard_002.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

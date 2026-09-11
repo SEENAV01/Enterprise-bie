@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-021",
+  "title": "Temporal Scope Reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_scope_reasoning.py",
+  "implementation_sha256": "6c7167e2fba4ca40a1dcfe3e16d248c0fcdee0dded359e987bb97fc3028c1bb8",
+  "test_path": "tests/reasoning/test_re_temp_021.py",
+  "test_sha256": "03fc33c352e1b41f6d431d11a8d058dd828bfb6a0ec6c0bfaf1d1ba237e64d28",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_021.zip",
+    "archive_sha256": "9dc60a08a8531756248f660bad6d5d2bfe5a7a562b2e8df88634df162f75c4d4",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_021.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

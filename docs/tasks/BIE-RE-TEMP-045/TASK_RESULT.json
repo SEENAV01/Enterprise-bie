@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-045",
+  "title": "Chained Temporal Uncertainty Propagation",
+  "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_uncertainty_chain.py",
+  "implementation_sha256": "c4c8875a161a459048568eca8875c0063f7fd96836c400e5031ca57703e85a0a",
+  "test_path": "tests/reasoning/test_re_temp_045.py",
+  "test_sha256": "1d06afea1d150d1fe564438fd6f016c1fbed0dae1be578bb09062c954cda5e5f",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_045.zip",
+    "archive_sha256": "dc3255009fc91e5c3055931e4ce2eb772682c7a85541ee2bf06146c121562065",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_045.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

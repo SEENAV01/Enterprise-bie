@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-CAUSAL-HARD-004",
+  "title": "Grounded Counterfactual Intervention Reasoning",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section": "RE \u2014 Central Reasoning Engine",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/grounded_counterfactual.py",
+  "implementation_sha256": "dee9252f30407c31e2715ae6353466f7ddb8a09e13606e137495705838cefd9c",
+  "test_path": "tests/reasoning/test_causal_hard_004.py",
+  "test_sha256": "05cbf1bd26c0ac317343ec9883109786bd755743d14afc5299d8d722a94925e1",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_CAUSAL_HARD_004.zip",
+    "archive_sha256": "47dc8b153300cf408cdbbcf23541a4cd63e5c97b516f4fb5dc7850868d4323e5",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_causal_hard_004.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

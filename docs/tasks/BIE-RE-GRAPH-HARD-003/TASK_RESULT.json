@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-GRAPH-HARD-003",
+  "title": "Transitive Decision Invalidation",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section_state": "IMPLEMENTED WITH GAPS",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/transitive_invalidation.py",
+  "implementation_sha256": "527464c0f513abc4f346f28976e88addb85cbb944f10fc728e36c6a1dd236ebe",
+  "test_path": "tests/reasoning/test_graph_hard_003.py",
+  "test_sha256": "87739cebbe635f25e39f36b418f9e1d04b45a5406cd83635346801c48663a426",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_GRAPH_HARD_003.zip",
+    "archive_sha256": "c51c0f6a89c43828201e96945b984a2dc44e0b06972f578744384053e7772d2e",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_graph_hard_003.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

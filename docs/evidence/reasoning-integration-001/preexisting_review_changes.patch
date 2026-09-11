@@ -1,0 +1,1318 @@
+diff --git a/BIE_CONTEXT_HANDOFF.md b/BIE_CONTEXT_HANDOFF.md
+index 1181deb..04c3ac6 100644
+--- a/BIE_CONTEXT_HANDOFF.md
++++ b/BIE_CONTEXT_HANDOFF.md
+@@ -6,7 +6,7 @@ Completed in this continuation: **RE-SPATIAL-003, RE-SPATIAL-004, RE-TEMP-001, R
+ 
+ Assembly-002 through Assembly-012 tooling and canonical migration are implemented. All 796 original archives and 12,439 member files have documented dispositions; all 273 Assembly-001 archive hashes and 2,450 rows match. Historical older M-series features remain archived for governed characterization/integration.
+ 
+-Validation: **1,654 tests pass**, zero failures/errors/skips: 1,551 restored regression tests, 78 new task tests, 13 integration/contract tests, 12 assembly guards. Independent integrity checks pass. All original snapshots remain immutable.
++Validation: **1,672 tests pass**, zero failures/errors/skips: 1,551 restored regression tests, 78 original task tests, 17 additional quality task tests, 14 integration/contract tests, 12 assembly guards. Independent integrity checks pass. All original snapshots remain immutable.
+ 
+ **IMPLEMENTED is not ACCEPTED.** Real-book Reasoning E2E and downstream video compile/render/playable-game QA remain pending. Synthetic source/decision/game-contract integration is not production acceptance.
+ 
+@@ -17,3 +17,5 @@ Read `task_registry/continuation.json`, relevant `docs/tasks/` specs, and `docs/
+ ## Binding product decisions
+ 
+ Preserve structured source → knowledge → prerequisite → Math/Reasoning → pedagogy/directors → Scene/Game IR → compilers → executable outputs → QA/repair. Providers remain interchangeable. Source-derived prerequisites do not require learner questionnaires. Content determines teaching order and duration. Preserve cumulative learning through retrieval, corrections, governed datasets and evaluation rather than automatic base-model retraining on every PDF. Every future task integrates into this monorepo, updates evidence and receives a full downloadable backup after verified synchronization.
++
++Quality review 001 hardened five demonstrated defects in the existing geometry, event-order and periodization implementations. All five spatial/temporal tasks were checked; no subsequent roadmap task was invented. The checkpoint remains RE-TEMP-003 and the section completion gate remains open. See `docs/evidence/reasoning-quality-001/REVIEW.md` and `task_registry/reasoning_quality_review_001.json`. Latest synchronization receipt: `validation/github_sync_quality_001.json`.
+diff --git a/README.md b/README.md
+index be65766..e78bd8a 100644
+--- a/README.md
++++ b/README.md
+@@ -10,7 +10,7 @@ Reasoning implementation includes **RE-SPATIAL-003/004 and RE-TEMP-001/002/003**
+ 
+ - 796 original archives and 12,439 historical member files accounted for.
+ - All 273 Assembly-001 archive hashes and 2,450 member records match the recovered originals.
+-- 1,654 passing tests: 1,551 restored regressions, 78 task tests, 13 integration/contract tests and 12 assembly guards.
++- 1,672 passing tests: 1,551 restored regressions, 78 original task tests, 17 additional quality task tests, 14 integration/contract tests and 12 assembly guards.
+ - IMPLEMENTED, **NOT ACCEPTED**. Real-book reasoning and rendered-video/playable-game acceptance remain pending.
+ 
+ ## Run
+@@ -31,3 +31,5 @@ The packaging version denotes this canonical distribution, not a reset of histor
+ `manifests/lossless_migration.csv` documents every original file. The 390 older M-series/historical packages remain preserved for governed characterization and later wiring; this migration does not claim all legacy features are already integrated into the enterprise pipeline.
+ 
+ See `docs/adr/ADR-canonical-assembly-002.md`, `docs/GITHUB_SYNC.md` and `docs/REASONING_BATCH_SPATIAL_TEMPORAL.md` for scope and evidence.
++
++Current quality review: [spatial/temporal review 001](docs/evidence/reasoning-quality-001/REVIEW.md). Roadmap checkpoint remains RE-TEMP-003; product and subsystem acceptance gates remain open.
+diff --git a/bie/reasoning/event_order_reasoning.py b/bie/reasoning/event_order_reasoning.py
+index 985fa77..a786502 100644
+--- a/bie/reasoning/event_order_reasoning.py
++++ b/bie/reasoning/event_order_reasoning.py
+@@ -2,6 +2,7 @@
+ from __future__ import annotations
+ from collections import deque
+ from dataclasses import asdict, dataclass
++from datetime import date
+ import heapq
+ 
+ from bie.reasoning.chronology_reasoning import chronology, validate_events
+@@ -18,6 +19,14 @@ class Before:
+     evidence_ids: tuple[str, ...]
+ 
+ 
++def _effective_bounds(span):
++    """Missing evidence does not remove the declared calendar's limits."""
++    if span.axis == "gregorian_day":
++        return (1 if span.earliest is None else span.earliest,
++                date.max.toordinal() if span.latest is None else span.latest)
++    return span.earliest, span.latest
++
++
+ def _cycle(adjacency, remaining):
+     """Iterative DFS returns an actual cycle witness, not all blocked descendants."""
+     finished = set()
+@@ -42,6 +51,7 @@ def event_order(events, constraints, refs):
+     events, refs = validate_events(events, refs)
+     constraints = tuple(sorted(constraints, key=lambda c: (c.before, c.after)))
+     by_id = {x.event_id: x for x in events}
++    bounds = {x.event_id: _effective_bounds(x.time) for x in events}
+     temporal = chronology(events, refs)
+     edges = {tuple(x) for x in temporal.value["proven_before"]}
+     provenance = {edge: {"kind": "date_bounds", "evidence_ids": sorted(set(by_id[edge[0]].evidence_ids + by_id[edge[1]].evidence_ids))} for edge in edges}
+@@ -54,8 +64,8 @@ def event_order(events, constraints, refs):
+         if edge in seen:
+             raise ValueError("Duplicate explicit order constraint")
+         seen.add(edge)
+-        a, b = by_id[c.before].time, by_id[c.after].time
+-        if a.earliest is not None and b.latest is not None and a.earliest >= b.latest:
++        lower, upper = bounds[c.before][0], bounds[c.after][1]
++        if lower is not None and upper is not None and lower >= upper:
+             violations.append({"before": c.before, "after": c.after, "reason": "Strict before relation contradicts date bounds", "evidence_ids": sorted(set(c.evidence_ids + by_id[c.before].evidence_ids + by_id[c.after].evidence_ids))})
+         edges.add(edge)
+         prior = provenance.get(edge)
+@@ -77,11 +87,11 @@ def event_order(events, constraints, refs):
+     cycle = _cycle(adjacency, remaining) if remaining else []
+     # Propagate all strict constraints through interval lower bounds. This catches
+     # contradictions caused by a chain even when every individual edge is feasible.
+-    effective_lower = {k: by_id[k].time.earliest for k in by_id}
++    effective_lower = {k: bounds[k][0] for k in by_id}
+     if not cycle:
+         for node in order:
+             lower = effective_lower[node]
+-            upper = by_id[node].time.latest
++            upper = bounds[node][1]
+             if lower is not None and upper is not None and lower > upper:
+                 violations.append({"event_id": node, "reason": "Order chain is infeasible within date bounds", "earliest_required": lower, "latest_allowed": upper})
+             if lower is not None:
+diff --git a/bie/reasoning/geometry_reasoning.py b/bie/reasoning/geometry_reasoning.py
+index 2d0f7c7..589afc2 100644
+--- a/bie/reasoning/geometry_reasoning.py
++++ b/bie/reasoning/geometry_reasoning.py
+@@ -28,10 +28,13 @@ def _points(points, refs):
+         identifier(p.point_id, "point id")
+         finite(p.x, "x"); finite(p.y, "y")
+         require_refs(p.evidence_ids, refs)
+-        if p.point_id in identities and identities[p.point_id] != p:
++        coordinate = (Fraction(str(p.x)), Fraction(str(p.y)))
++        # Independent observations may cite different evidence for one point.
++        # Identity constrains coordinates, not which source observed them.
++        if p.point_id in identities and identities[p.point_id] != coordinate:
+             raise ValueError("Conflicting coordinates for point id")
+-        identities[p.point_id] = p
+-        coords.append((Fraction(str(p.x)), Fraction(str(p.y))))
++        identities[p.point_id] = coordinate
++        coords.append(coordinate)
+     return tuple(coords), refs
+ 
+ 
+@@ -105,7 +108,9 @@ def polygon_measure(vertices, refs, *, frame_id: str, unit="m"):
+ def point_in_polygon(point: Point, vertices, refs, *, frame_id: str, unit="m"):
+     context = _context(frame_id, unit)
+     vertices, coords, refs, _ = _polygon(vertices, refs)
+-    (p,), refs = _points((point,), refs)
++    # Validate the query and ring together: a query cannot redefine a vertex.
++    all_coords, refs = _points((point, *vertices), refs)
++    p = all_coords[0]
+     winding, boundary = 0, False
+     for i, a in enumerate(coords):
+         b = coords[(i + 1) % len(coords)]
+@@ -124,6 +129,7 @@ def triangle_properties(vertices, refs, *, frame_id: str, unit="m"):
+     vertices = tuple(vertices)
+     if len(vertices) != 3:
+         raise ValueError("Exactly three triangle vertices required")
++    refs = evidence(refs)
+     measure = polygon_measure(vertices, refs, frame_id=frame_id, unit=unit)
+     coords, refs = _points(vertices, refs)
+     squared = sorted(sum((coords[i][k] - coords[(i + 1) % 3][k]) ** 2 for k in (0, 1)) for i in range(3))
+diff --git a/bie/reasoning/periodization_reasoning.py b/bie/reasoning/periodization_reasoning.py
+index 87988f6..eace055 100644
+--- a/bie/reasoning/periodization_reasoning.py
++++ b/bie/reasoning/periodization_reasoning.py
+@@ -30,9 +30,11 @@ def periodization(events, periods, refs):
+     for p in periods:
+         identifier(p.period_id, "period id"); identifier(p.label, "period label"); identifier(p.scheme_id, "scheme id")
+         require_refs(p.evidence_ids, refs)
+-        TimeSpan(p.start, p.end, p.axis)
+-        if p.start is None or p.end is None or p.start >= p.end or p.axis != axis:
++        if type(p.start) is not int or type(p.end) is not int or p.start >= p.end or p.axis != axis:
+             raise ValueError("Nonempty half-open period on the event time axis required")
++        # Only included ticks must be valid dates. The exclusive boundary may
++        # be one tick after the calendar's last representable day.
++        TimeSpan(p.start, p.end - 1, p.axis)
+         if p.period_id in by_id:
+             raise ValueError("Duplicate period id")
+         by_id[p.period_id] = p
+diff --git a/docs/REASONING_BATCH_SPATIAL_TEMPORAL.md b/docs/REASONING_BATCH_SPATIAL_TEMPORAL.md
+index cfd6d8d..1d68f2a 100644
+--- a/docs/REASONING_BATCH_SPATIAL_TEMPORAL.md
++++ b/docs/REASONING_BATCH_SPATIAL_TEMPORAL.md
+@@ -24,6 +24,8 @@ Operations are deterministic and provider-neutral. They require evidence and rej
+ 
+ ## Evidence and acceptance
+ 
+-78 task tests + 13 integration/contract tests + 12 assembly guards + 1,551 restored regressions = **1,654 passing tests**, zero failures/errors/skips. Numerical/history fixtures are synthetic and labelled accordingly; unavailable textbook data was not fabricated.
++78 original task tests + 17 additional quality task tests + 14 integration/contract tests + 12 assembly guards + 1,551 restored regressions = **1,672 passing tests**, zero failures/errors/skips. Numerical/history fixtures are synthetic and labelled accordingly; unavailable textbook data was not fabricated.
+ 
+ Status: **IMPLEMENTED, NOT ACCEPTED**. Diverse real-book integrated reasoning and downstream compiler/render/game QA remain required. The task names came from the user; concrete bounded interfaces are specifications established in this continuation, not purported recovered specifications.
++
++Quality review 001 adds 18 tests (17 task checks and one contract integration) including 4,416 finite oracle cases. Original task-test counts in the table above are retained; detailed additional counts and fixes are in `docs/evidence/reasoning-quality-001/REVIEW.md`. Gregorian period ends are exclusive and may equal one tick after the final supported day; event times still cannot exceed 9999-12-31.
+diff --git a/docs/bie/CURRENT_STATE.md b/docs/bie/CURRENT_STATE.md
+index d8793d9..9db0e86 100644
+--- a/docs/bie/CURRENT_STATE.md
++++ b/docs/bie/CURRENT_STATE.md
+@@ -6,10 +6,12 @@ Completed in this continuation: **RE-SPATIAL-003, RE-SPATIAL-004, RE-TEMP-001, R
+ 
+ Assembly-002 through Assembly-012 tooling and canonical migration are implemented. All 796 original archives and 12,439 member files have documented dispositions; all 273 Assembly-001 archive hashes and 2,450 rows match. Historical older M-series features remain archived for governed characterization/integration.
+ 
+-Validation: **1,654 tests pass**, zero failures/errors/skips: 1,551 restored regression tests, 78 new task tests, 13 integration/contract tests, 12 assembly guards. Independent integrity checks pass. All original snapshots remain immutable.
++Validation: **1,672 tests pass**, zero failures/errors/skips: 1,551 restored regression tests, 78 original task tests, 17 additional quality task tests, 14 integration/contract tests, 12 assembly guards. Independent integrity checks pass. All original snapshots remain immutable.
+ 
+ **IMPLEMENTED is not ACCEPTED.** Real-book Reasoning E2E and downstream video compile/render/playable-game QA remain pending. Synthetic source/decision/game-contract integration is not production acceptance.
+ 
+ GitHub actual write/readback proof: `4b35084be062ae17b2b8ac8d99af78030e7c42e4`. The delivered backup manifest identifies the final verified remote commit and tree; the synchronization receipt records the source checkpoint.
+ 
+ Read `task_registry/continuation.json`, relevant `docs/tasks/` specs, and `docs/REASONING_BATCH_SPATIAL_TEMPORAL.md`. The user authorized tasks through TEMP-003; no later approved task ID is present in the recovered records. Recover that next roadmap entry rather than inventing one or restarting completed subsystems.
++
++Quality review 001 hardened five demonstrated defects in the existing geometry, event-order and periodization implementations. All five spatial/temporal tasks were checked; no subsequent roadmap task was invented. The checkpoint remains RE-TEMP-003 and the section completion gate remains open. See `docs/evidence/reasoning-quality-001/REVIEW.md` and `task_registry/reasoning_quality_review_001.json`. Latest synchronization receipt: `validation/github_sync_quality_001.json`.
+diff --git a/docs/bie/REPOSITORY_ASSEMBLY.md b/docs/bie/REPOSITORY_ASSEMBLY.md
+index 1461c0c..0f9756e 100644
+--- a/docs/bie/REPOSITORY_ASSEMBLY.md
++++ b/docs/bie/REPOSITORY_ASSEMBLY.md
+@@ -1,3 +1,5 @@
++> Historical snapshot: this document records the earlier 766-archive / 376-batch assembly. It is preserved as history, not the current canonical state. Read `CURRENT_STATE.md` and `../../task_registry/continuation.json` for the 796-archive canonical state and RE-TEMP-003 checkpoint.
++
+ # Repository Assembly 001
+ 
+ ## Scope and evidence
+diff --git a/docs/evidence/reasoning-quality-001/REVIEW.md b/docs/evidence/reasoning-quality-001/REVIEW.md
+new file mode 100644
+index 0000000..f1399fb
+--- /dev/null
++++ b/docs/evidence/reasoning-quality-001/REVIEW.md
+@@ -0,0 +1,99 @@
++# BIE Reasoning section quality review 001
++
++Review date: 2026-09-10 UTC. Repository: `SEENAV01/Enterprise-bie`, branch `main`.
++
++**Five demonstrated defects have been fixed in the existing spatial/temporal batch. The integrated gate passes 1,672 tests. The section completion gate remains OPEN and acceptance remains NOT ACCEPTED.**
++
++This is a quality review and revision of existing implementations, not a new numbered roadmap batch. The latest implemented roadmap checkpoint remains **RE-TEMP-003**. No completed Prerequisite, Math or earlier Reasoning task was recreated.
++
++## Scope and dependency check
++
++The starting remote commit was `03f32e193736904a02aac4544d88c0c3b498c4c2`, tree `636596304406b10b03f1c751b43e82f01fe11f76`. Its actual branch ref was checked before work began. The prior forensic audit applies to that immutable snapshot; this review does not retroactively alter its findings.
++
++All five current tasks were inspected: RE-SPATIAL-003/004 and RE-TEMP-001/002/003. Their canonical dependency implementations, specifications and current registry records were present. Hardening changes are limited to `geometry_reasoning.py`, `event_order_reasoning.py` and `periodization_reasoning.py`. Map and chronology production code is unchanged.
++
++The complete Reasoning subsystem and the downstream BIE product are outside this review's acceptance scope. Existing canonical APIs, task IDs, source-evidence contracts, provider neutrality, archive boundaries and original source lineage are retained.
++
++## Reproduced defects and corrections
++
++| Finding | Existing task | Observed before correction | Correction and outcome |
++| --- | --- | --- | --- |
++| G01 | RE-SPATIAL-004 | Valid triangle evidence supplied as an iterator was consumed during measurement, then rejected as absent during classification. | Materialize the evidence once before both operations. Iterator and tuple inputs now produce the same grounded result ID. |
++| G02 | RE-SPATIAL-004 | A containment query could reuse polygon vertex `A` with different coordinates and return a confident `inside` result. | Validate point identity across query and ring together. Conflicting coordinates now raise `ValueError`. |
++| G03 | RE-SPATIAL-004 | Two observations of the same segment endpoint at identical coordinates were rejected when they cited different sources. | Point identity compares exact coordinates; independent source citations remain in the inference evidence. A valid shared endpoint returns `touching`. |
++| T01 | RE-TEMP-002 | Open Gregorian bounds could produce a supposedly valid strict order before 0001-01-01 or after 9999-12-31. The existing decision adapter then allowed it without review. | Apply the declared Gregorian domain during pair and chain feasibility. Impossible orders now return `CONFLICT`, emit no linear extension and propagate `requires_review=True` through existing decision/artifact contracts. Historical-year open bounds remain unbounded. |
++| T02 | RE-TEMP-003 | A half-open period could not include 9999-12-31 because its exclusive end was validated as an included event date. | Validate `start` through `end - 1`. The exclusive boundary may be `date.max.toordinal() + 1`; no included day may exceed the supported calendar. |
++
++G02 and T01 were correctness and QA concerns: contradictory or impossible inputs could receive a resolved result. G01, G03 and T02 rejected valid inputs. All five findings now have executable regression coverage.
++
++## Independent checks and regression evidence
++
++The 18 new quality tests initially produced **4 failures and 4 errors**, with 10 passing. These eight failing checks represent five defects, not eight separately counted defects. The unchanged added test file now passes all **18/18** tests.
++
++| Task or contract | Original tests | Added quality tests | Current count |
++| --- | ---: | ---: | ---: |
++| RE-SPATIAL-003 | 16 | 1 | 17 |
++| RE-SPATIAL-004 | 18 | 5 | 23 |
++| RE-TEMP-001 | 15 | 1 | 16 |
++| RE-TEMP-002 | 13 | 6 | 19 |
++| RE-TEMP-003 | 16 | 4 | 20 |
++| Shared integration/contract tests | 13 | 1 | 14 |
++| Restored enterprise regression | 1,551 | 0 | 1,551 |
++| Repository assembly guards | 12 | 0 | 12 |
++| **Total** | **1,654** | **18** | **1,672** |
++
++Four test methods independently enumerate **4,416 finite cases**:
++
++- 4,096 interval/graph combinations, checking order feasibility against explicitly enumerated event-date assignments.
++- 256 directed graphs, checking shortest routes against all simple paths; cases include cycles, unreachable goals and equal-cost routes.
++- 36 interval pairs, checking chronology relations against every possible pair of dates.
++- 28 uncertain event spans across a BCE/CE transition, checking period membership against explicit sets of dates.
++
++These are subcases inside four test methods; they are not counted as thousands of additional unit tests. The checks use independent finite reference methods, not copies of the production algorithms. Map and chronology passed their additional checks without implementation changes.
++
++The additional contract integration follows a synthetic calendar-boundary source through event-order reasoning, the existing teaching-order decision contract and an artifact lineage graph. The contradiction reaches the review gate and retains its source locator. This is synthetic contract evidence, not real-book E2E or a rendered/playable product.
++
++Required gate executed: `python -B scripts/integrated_check.py`. Result: **413 test files, 1,672 tests, zero failures, zero errors and zero skips**. Recorded outputs:
++
++- `before.json`: failing pre-fix tests against the original implementation.
++- `baseline.json`: original task records, test summary and immutable source commit.
++- `after.json`: passing added checks, full-suite summary, source and test SHA-256 hashes.
++- `../../../validation/integrated_tests.json`: per-file integrated results.
++- `../../../validation/verification_fingerprint.json`: hashes of the tested code/configuration.
++
++## Preservation and canonical integration
++
++The independent canonical integrity gate passes:
++
++- 796 original archives and all 12,439 original member files checked.
++- Assembly-001's 273 archives and 2,450 files remain accounted for.
++- All 10,942 ledger destination paths match their recorded hashes.
++- Migration dispositions remain 824 MIGRATED, 11,226 ARCHIVED_EVIDENCE and 389 DUPLICATE_WITH_PROVENANCE; zero exclusions and zero unavailable archives.
++
++Original archives, historical snapshots, migration ledgers and historical task evidence were not changed. The fixes are in active `bie/reasoning/`; their new tests are in active `tests/reasoning/`. Existing `app.bie` compatibility behavior remains covered by the integrated suite. No archive path or legacy implementation was introduced into production imports.
++
++Task `SPEC.md` and `TASK_RESULT.json` files, the batch registry, continuation state, code fingerprint and current-state documentation were updated. Original primary test counts remain distinguishable from additional quality counts. The three corrected implementations are revision 2; map and chronology remain revision 1.
++
++The stale `docs/bie/REPOSITORY_ASSEMBLY.md` now has an explicit historical-snapshot notice. Its old content is retained and directs readers to the current canonical state. This addresses the forensic audit's documentation warning without rewriting historical evidence.
++
++## Synchronization and reproducibility
++
++The prior actual tiny-write proof is commit `4b35084be062ae17b2b8ac8d99af78030e7c42e4`. This review's actual source commit/tree and readback are recorded separately in `validation/github_sync_quality_001.json` after synchronization. That receipt identifies the source checkpoint; the full downloadable ZIP's `BACKUP_MANIFEST.json` identifies the final commit including its receipt.
++
++No synchronization success should be inferred from this report alone. Use the actual branch ref, commit/tree and receipt readback. The delivery report supplies the exact verified SHA values and full-backup hash. The backup is generated from the committed repository and its member hashes are checked against Git.
++
++No GitHub Actions run was triggered manually. The earlier audit found no CI run proving the 1,654-test result. The 1,672-test result reported here is the executed local canonical integrated gate; it is not a claimed GitHub Actions success.
++
++## Section completion and next development
++
++**Current outcome: HARDENED, IMPLEMENTED, NOT ACCEPTED.** The five demonstrated defects are closed; the overall section completion gate remains OPEN.
++
++| Remaining requirement | Current evidence/status |
++| --- | --- |
++| Authoritative Reasoning roadmap after RE-TEMP-003 | UNRECOVERED. The repository has `next_task_ids: []`; targeted prior-context and file searches did not recover approved successor IDs/titles/dependencies. No successor was guessed. |
++| Diverse real-book integrated Reasoning validation | PENDING. Finite and synthetic contract checks do not establish this. |
++| Downstream video compiler, actual render and QA/repair | PENDING acceptance evidence. |
++| Playable revision-game runtime and QA/repair | PENDING acceptance evidence. |
++| Governed cumulative-learning evaluation | PENDING acceptance evidence. |
++
++The correct next position is **after RE-TEMP-003**, not a reset to Assembly-001, Prerequisite, Math or early Reasoning. A subsequent numbered roadmap batch requires the original authoritative next block. Justified quality hardening may be added under governed records, but it must not be presented as a recovered historical roadmap task or as product acceptance.
+diff --git a/docs/evidence/reasoning-quality-001/after.json b/docs/evidence/reasoning-quality-001/after.json
+new file mode 100644
+index 0000000..97a692c
+--- /dev/null
++++ b/docs/evidence/reasoning-quality-001/after.json
+@@ -0,0 +1,40 @@
++{
++  "baseline_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
++  "scope": "Synthetic unit/contract checks and finite independent oracles; NOT real-book acceptance",
++  "new_quality_tests": {
++    "path": "tests/reasoning/test_section_quality_review.py",
++    "tests": 18,
++    "failures": 0,
++    "errors": 0,
++    "skipped": 0,
++    "passed": true
++  },
++  "integrated_summary": {
++    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
++    "python": "3.12.14",
++    "test_files": 413,
++    "tests_run": 1672,
++    "failed_files": 0,
++    "failures": 0,
++    "errors": 0,
++    "skipped": 0,
++    "duration_seconds": 2.776,
++    "passed": true
++  },
++  "independent_oracle_cases": {
++    "event_order": 4096,
++    "shortest_route": 256,
++    "chronology_relations": 36,
++    "period_membership": 28,
++    "total": 4416
++  },
++  "implementation_sha256": {
++    "bie/reasoning/map_reasoning.py": "697487ddc9fd5817e33cec9115463e59a0490b2aef78f083ff6ab4c2df1278be",
++    "bie/reasoning/geometry_reasoning.py": "af0f7227565cb9183aa0513f5b867d47e142858b122deea81591010e536c68b4",
++    "bie/reasoning/chronology_reasoning.py": "256c85e0ded878b9589eb93d30294be88edd2786de497a63a657cd0231e6e343",
++    "bie/reasoning/event_order_reasoning.py": "2f49eadabebe2dadd68a953aa8bb8fbc496b612f1a928c8e1e6f4997c0986a57",
++    "bie/reasoning/periodization_reasoning.py": "31c5b2d604b5d70e3af53d79cda3ae632a8e7e7a0698aa9183e451bbd57290da"
++  },
++  "quality_test_sha256": "056ce086960036cd9c26edd3ee9c3be7c6db47454eb8c159dc40b461aa988a4b",
++  "accepted": false
++}
+diff --git a/docs/evidence/reasoning-quality-001/baseline.json b/docs/evidence/reasoning-quality-001/baseline.json
+new file mode 100644
+index 0000000..5aa6276
+--- /dev/null
++++ b/docs/evidence/reasoning-quality-001/baseline.json
+@@ -0,0 +1,145 @@
++{
++  "baseline_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
++  "baseline_tree": "636596304406b10b03f1c751b43e82f01fe11f76",
++  "original_task_registry": {
++    "schema_version": "1.0.0",
++    "tasks": [
++      {
++        "task_id": "BIE-RE-SPATIAL-003",
++        "short_id": "RE-SPATIAL-003",
++        "title": "Map reasoning",
++        "status": "IMPLEMENTED",
++        "accepted": false,
++        "dependencies": [
++          "BIE-RE-SPATIAL-001",
++          "BIE-RE-SPATIAL-002"
++        ],
++        "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
++        "implementation_path": "bie/reasoning/map_reasoning.py",
++        "implementation_sha256": "697487ddc9fd5817e33cec9115463e59a0490b2aef78f083ff6ab4c2df1278be",
++        "test_path": "tests/reasoning/test_map_reasoning.py",
++        "tests_run": 16,
++        "tests_passed": true,
++        "integration": "CANONICAL",
++        "integration_evidence": "validation/integrated_tests.json",
++        "shared_contract": "bie/reasoning/grounded_result.py",
++        "acceptance_blockers": [
++          "Diverse real-book integrated reasoning evidence pending",
++          "Downstream executable video render and playable game QA evidence pending"
++        ]
++      },
++      {
++        "task_id": "BIE-RE-SPATIAL-004",
++        "short_id": "RE-SPATIAL-004",
++        "title": "Geometry reasoning",
++        "status": "IMPLEMENTED",
++        "accepted": false,
++        "dependencies": [
++          "BIE-RE-SPATIAL-002"
++        ],
++        "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
++        "implementation_path": "bie/reasoning/geometry_reasoning.py",
++        "implementation_sha256": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
++        "test_path": "tests/reasoning/test_geometry_reasoning.py",
++        "tests_run": 18,
++        "tests_passed": true,
++        "integration": "CANONICAL",
++        "integration_evidence": "validation/integrated_tests.json",
++        "shared_contract": "bie/reasoning/grounded_result.py",
++        "acceptance_blockers": [
++          "Diverse real-book integrated reasoning evidence pending",
++          "Downstream executable video render and playable game QA evidence pending"
++        ]
++      },
++      {
++        "task_id": "BIE-RE-TEMP-001",
++        "short_id": "RE-TEMP-001",
++        "title": "Chronology reasoning",
++        "status": "IMPLEMENTED",
++        "accepted": false,
++        "dependencies": [
++          "BIE-RE-CAUSAL-004"
++        ],
++        "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
++        "implementation_path": "bie/reasoning/chronology_reasoning.py",
++        "implementation_sha256": "256c85e0ded878b9589eb93d30294be88edd2786de497a63a657cd0231e6e343",
++        "test_path": "tests/reasoning/test_chronology_reasoning.py",
++        "tests_run": 15,
++        "tests_passed": true,
++        "integration": "CANONICAL",
++        "integration_evidence": "validation/integrated_tests.json",
++        "shared_contract": "bie/reasoning/grounded_result.py",
++        "acceptance_blockers": [
++          "Diverse real-book integrated reasoning evidence pending",
++          "Downstream executable video render and playable game QA evidence pending"
++        ]
++      },
++      {
++        "task_id": "BIE-RE-TEMP-002",
++        "short_id": "RE-TEMP-002",
++        "title": "Event-order reasoning",
++        "status": "IMPLEMENTED",
++        "accepted": false,
++        "dependencies": [
++          "BIE-RE-TEMP-001",
++          "BIE-RE-GRAPH-001"
++        ],
++        "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
++        "implementation_path": "bie/reasoning/event_order_reasoning.py",
++        "implementation_sha256": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
++        "test_path": "tests/reasoning/test_event_order_reasoning.py",
++        "tests_run": 13,
++        "tests_passed": true,
++        "integration": "CANONICAL",
++        "integration_evidence": "validation/integrated_tests.json",
++        "shared_contract": "bie/reasoning/grounded_result.py",
++        "acceptance_blockers": [
++          "Diverse real-book integrated reasoning evidence pending",
++          "Downstream executable video render and playable game QA evidence pending"
++        ]
++      },
++      {
++        "task_id": "BIE-RE-TEMP-003",
++        "short_id": "RE-TEMP-003",
++        "title": "Periodization reasoning",
++        "status": "IMPLEMENTED",
++        "accepted": false,
++        "dependencies": [
++          "BIE-RE-TEMP-001"
++        ],
++        "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
++        "implementation_path": "bie/reasoning/periodization_reasoning.py",
++        "implementation_sha256": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
++        "test_path": "tests/reasoning/test_periodization_reasoning.py",
++        "tests_run": 16,
++        "tests_passed": true,
++        "integration": "CANONICAL",
++        "integration_evidence": "validation/integrated_tests.json",
++        "shared_contract": "bie/reasoning/grounded_result.py",
++        "acceptance_blockers": [
++          "Diverse real-book integrated reasoning evidence pending",
++          "Downstream executable video render and playable game QA evidence pending"
++        ]
++      }
++    ],
++    "integration_tests": 13,
++    "historical_regression_tests": 1551,
++    "assembly_guard_tests": 12,
++    "total_tests": 1654,
++    "accepted": false
++  },
++  "original_integrated_summary": {
++    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
++    "python": "3.12.14",
++    "test_files": 412,
++    "tests_run": 1654,
++    "failed_files": 0,
++    "failures": 0,
++    "errors": 0,
++    "skipped": 0,
++    "duration_seconds": 2.233,
++    "passed": true
++  },
++  "original_fingerprint_sha256": "b208bb3ed9f87ba89326a4a0c3529588dc9a9a237a721ac2ccc3b0fdc41c90cd",
++  "note": "Full original bytes remain in the immutable baseline Git commit; historical migration inputs were not changed."
++}
+diff --git a/docs/evidence/reasoning-quality-001/before.json b/docs/evidence/reasoning-quality-001/before.json
+new file mode 100644
+index 0000000..fcc2759
+--- /dev/null
++++ b/docs/evidence/reasoning-quality-001/before.json
+@@ -0,0 +1,9 @@
++{
++  "baseline_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
++  "tests": 18,
++  "failures": 4,
++  "errors": 4,
++  "skipped": 0,
++  "test_sha256": "056ce086960036cd9c26edd3ee9c3be7c6db47454eb8c159dc40b461aa988a4b",
++  "log": "test_relations_against_enumerated_possible_dates (quality_tests.ChronologyQualityTests.test_relations_against_enumerated_possible_dates) ... ok\ntest_first_two_calendar_days_allow_strict_order (quality_tests.EventOrderQualityTests.test_first_two_calendar_days_allow_strict_order) ... ok\ntest_historical_year_axis_keeps_its_open_bounds (quality_tests.EventOrderQualityTests.test_historical_year_axis_keeps_its_open_bounds) ... ok\ntest_last_two_calendar_days_allow_strict_order (quality_tests.EventOrderQualityTests.test_last_two_calendar_days_allow_strict_order) ... ok\ntest_open_lower_bound_cannot_precede_calendar_domain (quality_tests.EventOrderQualityTests.test_open_lower_bound_cannot_precede_calendar_domain) ... FAIL\ntest_open_upper_bound_cannot_exceed_calendar_domain (quality_tests.EventOrderQualityTests.test_open_upper_bound_cannot_exceed_calendar_domain) ... FAIL\ntest_small_orders_against_exhaustive_date_assignments (quality_tests.EventOrderQualityTests.test_small_orders_against_exhaustive_date_assignments) ... ok\ntest_one_shot_evidence_preserves_triangle_result (quality_tests.GeometryQualityTests.test_one_shot_evidence_preserves_triangle_result) ... ERROR\ntest_query_can_reuse_matching_vertex_with_additional_source (quality_tests.GeometryQualityTests.test_query_can_reuse_matching_vertex_with_additional_source) ... ok\ntest_query_cannot_redefine_polygon_vertex (quality_tests.GeometryQualityTests.test_query_cannot_redefine_polygon_vertex) ... FAIL\ntest_shared_segment_endpoint_can_have_additional_source (quality_tests.GeometryQualityTests.test_shared_segment_endpoint_can_have_additional_source) ... ERROR\ntest_shared_segment_endpoint_rejects_conflicting_coordinates (quality_tests.GeometryQualityTests.test_shared_segment_endpoint_rejects_conflicting_coordinates) ... ok\ntest_routes_against_all_simple_paths_in_small_graphs (quality_tests.MapQualityTests.test_routes_against_all_simple_paths_in_small_graphs) ... ok\ntest_exclusive_end_does_not_extend_supported_calendar (quality_tests.PeriodizationQualityTests.test_exclusive_end_does_not_extend_supported_calendar) ... ok\ntest_final_calendar_day_has_a_half_open_period (quality_tests.PeriodizationQualityTests.test_final_calendar_day_has_a_half_open_period) ... ERROR\ntest_final_calendar_days_allow_uncertain_membership (quality_tests.PeriodizationQualityTests.test_final_calendar_days_allow_uncertain_membership) ... ERROR\ntest_membership_against_enumerated_possible_dates (quality_tests.PeriodizationQualityTests.test_membership_against_enumerated_possible_dates) ... ok\ntest_calendar_domain_conflict_reaches_existing_review_gate (quality_tests.QualityIntegrationTests.test_calendar_domain_conflict_reaches_existing_review_gate) ... FAIL\n\n======================================================================\nERROR: test_one_shot_evidence_preserves_triangle_result (quality_tests.GeometryQualityTests.test_one_shot_evidence_preserves_triangle_result)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 44, in test_one_shot_evidence_preserves_triangle_result\n    actual = triangle_properties(iter(vertices), iter(REFS), frame_id=\"f\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/geometry_reasoning.py\", line 128, in triangle_properties\n    coords, refs = _points(vertices, refs)\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/geometry_reasoning.py\", line 25, in _points\n    refs = evidence(refs)\n           ^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/grounded_result.py\", line 33, in evidence\n    raise ValueError(\"Source evidence is required\")\nValueError: Source evidence is required\n\n======================================================================\nERROR: test_shared_segment_endpoint_can_have_additional_source (quality_tests.GeometryQualityTests.test_shared_segment_endpoint_can_have_additional_source)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 59, in test_shared_segment_endpoint_can_have_additional_source\n    result = segment_relation(point(\"A\", 0, 0), point(\"B\", 1, 1),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/geometry_reasoning.py\", line 89, in segment_relation\n    points, refs = _points((a, b, c, d), refs)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/geometry_reasoning.py\", line 32, in _points\n    raise ValueError(\"Conflicting coordinates for point id\")\nValueError: Conflicting coordinates for point id\n\n======================================================================\nERROR: test_final_calendar_day_has_a_half_open_period (quality_tests.PeriodizationQualityTests.test_final_calendar_day_has_a_half_open_period)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 122, in test_final_calendar_day_has_a_half_open_period\n    result = periodization([event(\"E\", LAST_DAY, LAST_DAY, \"gregorian_day\")],\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/periodization_reasoning.py\", line 33, in periodization\n    TimeSpan(p.start, p.end, p.axis)\n  File \"<string>\", line 6, in __init__\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/chronology_reasoning.py\", line 30, in __post_init__\n    raise ValueError(\"Gregorian day outside supported calendar\")\nValueError: Gregorian day outside supported calendar\n\n======================================================================\nERROR: test_final_calendar_days_allow_uncertain_membership (quality_tests.PeriodizationQualityTests.test_final_calendar_days_allow_uncertain_membership)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 129, in test_final_calendar_days_allow_uncertain_membership\n    result = periodization([event(\"E\", LAST_DAY - 1, LAST_DAY, \"gregorian_day\")],\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/periodization_reasoning.py\", line 33, in periodization\n    TimeSpan(p.start, p.end, p.axis)\n  File \"<string>\", line 6, in __init__\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/bie/reasoning/chronology_reasoning.py\", line 30, in __post_init__\n    raise ValueError(\"Gregorian day outside supported calendar\")\nValueError: Gregorian day outside supported calendar\n\n======================================================================\nFAIL: test_open_lower_bound_cannot_precede_calendar_domain (quality_tests.EventOrderQualityTests.test_open_lower_bound_cannot_precede_calendar_domain)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 77, in test_open_lower_bound_cannot_precede_calendar_domain\n    self.assertEqual(result.status, \"CONFLICT\")\nAssertionError: 'RESOLVED' != 'CONFLICT'\n- RESOLVED\n+ CONFLICT\n\n\n======================================================================\nFAIL: test_open_upper_bound_cannot_exceed_calendar_domain (quality_tests.EventOrderQualityTests.test_open_upper_bound_cannot_exceed_calendar_domain)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 83, in test_open_upper_bound_cannot_exceed_calendar_domain\n    self.assertEqual(result.status, \"CONFLICT\")\nAssertionError: 'RESOLVED' != 'CONFLICT'\n- RESOLVED\n+ CONFLICT\n\n\n======================================================================\nFAIL: test_query_cannot_redefine_polygon_vertex (quality_tests.GeometryQualityTests.test_query_cannot_redefine_polygon_vertex)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 49, in test_query_cannot_redefine_polygon_vertex\n    with self.assertRaisesRegex(ValueError, \"Conflicting coordinates\"):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_calendar_domain_conflict_reaches_existing_review_gate (quality_tests.QualityIntegrationTests.test_calendar_domain_conflict_reaches_existing_review_gate)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/9e17c70924f3/my-book-intelligence-engine/tests/reasoning/test_section_quality_review.py\", line 212, in test_calendar_domain_conflict_reaches_existing_review_gate\n    self.assertTrue(decision.requires_review)\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 18 tests in 0.691s\n\nFAILED (failures=4, errors=4)\n"
++}
+diff --git a/docs/tasks/BIE-RE-SPATIAL-003/SPEC.md b/docs/tasks/BIE-RE-SPATIAL-003/SPEC.md
+index ff3d965..64f3dcf 100644
+--- a/docs/tasks/BIE-RE-SPATIAL-003/SPEC.md
++++ b/docs/tasks/BIE-RE-SPATIAL-003/SPEC.md
+@@ -9,3 +9,7 @@ Implementation: `bie/reasoning/map_reasoning.py`. Contract and scope: `docs/REAS
+ Task tests: 16 passing in `tests/reasoning/test_map_reasoning.py`. Shared result lineage uses existing BIE evidence/decision/artifact contracts. Integrated regression evidence: `validation/integrated_tests.json`.
+ 
+ Real-book integration and downstream executable production evidence remain required for acceptance.
++
++## Quality review 001
++
++Implementation revision 1. The original 16 task tests remain passing, plus 1 additional checks in `tests/reasoning/test_section_quality_review.py`. See `docs/evidence/reasoning-quality-001/REVIEW.md` for reproduced defects, independent oracles and remaining acceptance gates.
+diff --git a/docs/tasks/BIE-RE-SPATIAL-003/TASK_RESULT.json b/docs/tasks/BIE-RE-SPATIAL-003/TASK_RESULT.json
+index 69fb7b0..bd11e66 100644
+--- a/docs/tasks/BIE-RE-SPATIAL-003/TASK_RESULT.json
++++ b/docs/tasks/BIE-RE-SPATIAL-003/TASK_RESULT.json
+@@ -20,5 +20,16 @@
+   "acceptance_blockers": [
+     "Diverse real-book integrated reasoning evidence pending",
+     "Downstream executable video render and playable game QA evidence pending"
+-  ]
++  ],
++  "implementation_revision": 1,
++  "quality_review": {
++    "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++    "status": "CHECKED",
++    "source_changed": false,
++    "test_path": "tests/reasoning/test_section_quality_review.py",
++    "additional_task_tests": 1,
++    "passed": true,
++    "evidence": "docs/evidence/reasoning-quality-001/after.json"
++  },
++  "verified_total_task_tests": 17
+ }
+diff --git a/docs/tasks/BIE-RE-SPATIAL-004/SPEC.md b/docs/tasks/BIE-RE-SPATIAL-004/SPEC.md
+index 2f1d3c9..8129ee6 100644
+--- a/docs/tasks/BIE-RE-SPATIAL-004/SPEC.md
++++ b/docs/tasks/BIE-RE-SPATIAL-004/SPEC.md
+@@ -9,3 +9,8 @@ Implementation: `bie/reasoning/geometry_reasoning.py`. Contract and scope: `docs
+ Task tests: 18 passing in `tests/reasoning/test_geometry_reasoning.py`. Shared result lineage uses existing BIE evidence/decision/artifact contracts. Integrated regression evidence: `validation/integrated_tests.json`.
+ 
+ Real-book integration and downstream executable production evidence remain required for acceptance.
++
++## Quality review 001
++
++Implementation revision 2. The original 18 task tests remain passing, plus 5 additional checks in `tests/reasoning/test_section_quality_review.py`. See `docs/evidence/reasoning-quality-001/REVIEW.md` for reproduced defects, independent oracles and remaining acceptance gates.
++One-shot evidence iterables are materialized once. Point IDs constrain coordinates across all operands; additional source citations for matching coordinates are retained.
+diff --git a/docs/tasks/BIE-RE-SPATIAL-004/TASK_RESULT.json b/docs/tasks/BIE-RE-SPATIAL-004/TASK_RESULT.json
+index 441f713..8f506fb 100644
+--- a/docs/tasks/BIE-RE-SPATIAL-004/TASK_RESULT.json
++++ b/docs/tasks/BIE-RE-SPATIAL-004/TASK_RESULT.json
+@@ -9,7 +9,7 @@
+   ],
+   "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+   "implementation_path": "bie/reasoning/geometry_reasoning.py",
+-  "implementation_sha256": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
++  "implementation_sha256": "af0f7227565cb9183aa0513f5b867d47e142858b122deea81591010e536c68b4",
+   "test_path": "tests/reasoning/test_geometry_reasoning.py",
+   "tests_run": 18,
+   "tests_passed": true,
+@@ -19,5 +19,16 @@
+   "acceptance_blockers": [
+     "Diverse real-book integrated reasoning evidence pending",
+     "Downstream executable video render and playable game QA evidence pending"
+-  ]
++  ],
++  "implementation_revision": 2,
++  "quality_review": {
++    "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++    "status": "CHECKED",
++    "source_changed": true,
++    "test_path": "tests/reasoning/test_section_quality_review.py",
++    "additional_task_tests": 5,
++    "passed": true,
++    "evidence": "docs/evidence/reasoning-quality-001/after.json"
++  },
++  "verified_total_task_tests": 23
+ }
+diff --git a/docs/tasks/BIE-RE-TEMP-001/SPEC.md b/docs/tasks/BIE-RE-TEMP-001/SPEC.md
+index 43c772a..eaf6fdc 100644
+--- a/docs/tasks/BIE-RE-TEMP-001/SPEC.md
++++ b/docs/tasks/BIE-RE-TEMP-001/SPEC.md
+@@ -9,3 +9,7 @@ Implementation: `bie/reasoning/chronology_reasoning.py`. Contract and scope: `do
+ Task tests: 15 passing in `tests/reasoning/test_chronology_reasoning.py`. Shared result lineage uses existing BIE evidence/decision/artifact contracts. Integrated regression evidence: `validation/integrated_tests.json`.
+ 
+ Real-book integration and downstream executable production evidence remain required for acceptance.
++
++## Quality review 001
++
++Implementation revision 1. The original 15 task tests remain passing, plus 1 additional checks in `tests/reasoning/test_section_quality_review.py`. See `docs/evidence/reasoning-quality-001/REVIEW.md` for reproduced defects, independent oracles and remaining acceptance gates.
+diff --git a/docs/tasks/BIE-RE-TEMP-001/TASK_RESULT.json b/docs/tasks/BIE-RE-TEMP-001/TASK_RESULT.json
+index db5bbc1..b98e1af 100644
+--- a/docs/tasks/BIE-RE-TEMP-001/TASK_RESULT.json
++++ b/docs/tasks/BIE-RE-TEMP-001/TASK_RESULT.json
+@@ -19,5 +19,16 @@
+   "acceptance_blockers": [
+     "Diverse real-book integrated reasoning evidence pending",
+     "Downstream executable video render and playable game QA evidence pending"
+-  ]
++  ],
++  "implementation_revision": 1,
++  "quality_review": {
++    "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++    "status": "CHECKED",
++    "source_changed": false,
++    "test_path": "tests/reasoning/test_section_quality_review.py",
++    "additional_task_tests": 1,
++    "passed": true,
++    "evidence": "docs/evidence/reasoning-quality-001/after.json"
++  },
++  "verified_total_task_tests": 16
+ }
+diff --git a/docs/tasks/BIE-RE-TEMP-002/SPEC.md b/docs/tasks/BIE-RE-TEMP-002/SPEC.md
+index aba5e97..718b311 100644
+--- a/docs/tasks/BIE-RE-TEMP-002/SPEC.md
++++ b/docs/tasks/BIE-RE-TEMP-002/SPEC.md
+@@ -9,3 +9,8 @@ Implementation: `bie/reasoning/event_order_reasoning.py`. Contract and scope: `d
+ Task tests: 13 passing in `tests/reasoning/test_event_order_reasoning.py`. Shared result lineage uses existing BIE evidence/decision/artifact contracts. Integrated regression evidence: `validation/integrated_tests.json`.
+ 
+ Real-book integration and downstream executable production evidence remain required for acceptance.
++
++## Quality review 001
++
++Implementation revision 2. The original 13 task tests remain passing, plus 6 additional checks in `tests/reasoning/test_section_quality_review.py`. See `docs/evidence/reasoning-quality-001/REVIEW.md` for reproduced defects, independent oracles and remaining acceptance gates.
++Open Gregorian bounds stay within 0001-01-01 through 9999-12-31 for strict-order feasibility; historical-year open bounds remain unbounded.
+diff --git a/docs/tasks/BIE-RE-TEMP-002/TASK_RESULT.json b/docs/tasks/BIE-RE-TEMP-002/TASK_RESULT.json
+index 8662f77..31bc424 100644
+--- a/docs/tasks/BIE-RE-TEMP-002/TASK_RESULT.json
++++ b/docs/tasks/BIE-RE-TEMP-002/TASK_RESULT.json
+@@ -10,7 +10,7 @@
+   ],
+   "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+   "implementation_path": "bie/reasoning/event_order_reasoning.py",
+-  "implementation_sha256": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
++  "implementation_sha256": "2f49eadabebe2dadd68a953aa8bb8fbc496b612f1a928c8e1e6f4997c0986a57",
+   "test_path": "tests/reasoning/test_event_order_reasoning.py",
+   "tests_run": 13,
+   "tests_passed": true,
+@@ -20,5 +20,16 @@
+   "acceptance_blockers": [
+     "Diverse real-book integrated reasoning evidence pending",
+     "Downstream executable video render and playable game QA evidence pending"
+-  ]
++  ],
++  "implementation_revision": 2,
++  "quality_review": {
++    "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++    "status": "CHECKED",
++    "source_changed": true,
++    "test_path": "tests/reasoning/test_section_quality_review.py",
++    "additional_task_tests": 6,
++    "passed": true,
++    "evidence": "docs/evidence/reasoning-quality-001/after.json"
++  },
++  "verified_total_task_tests": 19
+ }
+diff --git a/docs/tasks/BIE-RE-TEMP-003/SPEC.md b/docs/tasks/BIE-RE-TEMP-003/SPEC.md
+index 45e01d2..f1fe670 100644
+--- a/docs/tasks/BIE-RE-TEMP-003/SPEC.md
++++ b/docs/tasks/BIE-RE-TEMP-003/SPEC.md
+@@ -9,3 +9,8 @@ Implementation: `bie/reasoning/periodization_reasoning.py`. Contract and scope:
+ Task tests: 16 passing in `tests/reasoning/test_periodization_reasoning.py`. Shared result lineage uses existing BIE evidence/decision/artifact contracts. Integrated regression evidence: `validation/integrated_tests.json`.
+ 
+ Real-book integration and downstream executable production evidence remain required for acceptance.
++
++## Quality review 001
++
++Implementation revision 2. The original 16 task tests remain passing, plus 4 additional checks in `tests/reasoning/test_section_quality_review.py`. See `docs/evidence/reasoning-quality-001/REVIEW.md` for reproduced defects, independent oracles and remaining acceptance gates.
++Half-open Gregorian periods validate included ticks through `end - 1`; an exclusive end of `date.max.toordinal() + 1` is valid and does not admit an event outside the calendar.
+diff --git a/docs/tasks/BIE-RE-TEMP-003/TASK_RESULT.json b/docs/tasks/BIE-RE-TEMP-003/TASK_RESULT.json
+index 0e88461..15072ad 100644
+--- a/docs/tasks/BIE-RE-TEMP-003/TASK_RESULT.json
++++ b/docs/tasks/BIE-RE-TEMP-003/TASK_RESULT.json
+@@ -9,7 +9,7 @@
+   ],
+   "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+   "implementation_path": "bie/reasoning/periodization_reasoning.py",
+-  "implementation_sha256": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
++  "implementation_sha256": "31c5b2d604b5d70e3af53d79cda3ae632a8e7e7a0698aa9183e451bbd57290da",
+   "test_path": "tests/reasoning/test_periodization_reasoning.py",
+   "tests_run": 16,
+   "tests_passed": true,
+@@ -19,5 +19,16 @@
+   "acceptance_blockers": [
+     "Diverse real-book integrated reasoning evidence pending",
+     "Downstream executable video render and playable game QA evidence pending"
+-  ]
++  ],
++  "implementation_revision": 2,
++  "quality_review": {
++    "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++    "status": "CHECKED",
++    "source_changed": true,
++    "test_path": "tests/reasoning/test_section_quality_review.py",
++    "additional_task_tests": 4,
++    "passed": true,
++    "evidence": "docs/evidence/reasoning-quality-001/after.json"
++  },
++  "verified_total_task_tests": 20
+ }
+diff --git a/task_registry/continuation.json b/task_registry/continuation.json
+index 87f7145..51868d6 100644
+--- a/task_registry/continuation.json
++++ b/task_registry/continuation.json
+@@ -31,14 +31,25 @@
+   "tests": {
+     "historical_regression": 1551,
+     "new_task": 78,
+-    "new_integration": 13,
++    "new_integration": 14,
+     "assembly_guards": 12,
+-    "total": 1654
++    "quality_hardening_task_tests": 17,
++    "total": 1672
+   },
+   "preservation": {
+     "archives": 796,
+     "historical_files": 12439,
+     "missing_archives": 0,
+     "ledger": "manifests/lossless_migration.csv"
+-  }
++  },
++  "latest_quality_review": {
++    "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++    "status": "HARDENED_NOT_ACCEPTED",
++    "review_path": "docs/evidence/reasoning-quality-001/REVIEW.md",
++    "registry": "task_registry/reasoning_quality_review_001.json",
++    "fixes": 5,
++    "quality_tests": 18,
++    "roadmap_checkpoint_unchanged": true
++  },
++  "latest_sync_receipt": "validation/github_sync_quality_001.json"
+ }
+diff --git a/task_registry/reasoning_batch_spatial003_temp003.json b/task_registry/reasoning_batch_spatial003_temp003.json
+index c69ae8c..b793856 100644
+--- a/task_registry/reasoning_batch_spatial003_temp003.json
++++ b/task_registry/reasoning_batch_spatial003_temp003.json
+@@ -23,7 +23,18 @@
+       "acceptance_blockers": [
+         "Diverse real-book integrated reasoning evidence pending",
+         "Downstream executable video render and playable game QA evidence pending"
+-      ]
++      ],
++      "implementation_revision": 1,
++      "quality_review": {
++        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++        "status": "CHECKED",
++        "source_changed": false,
++        "test_path": "tests/reasoning/test_section_quality_review.py",
++        "additional_task_tests": 1,
++        "passed": true,
++        "evidence": "docs/evidence/reasoning-quality-001/after.json"
++      },
++      "verified_total_task_tests": 17
+     },
+     {
+       "task_id": "BIE-RE-SPATIAL-004",
+@@ -36,7 +47,7 @@
+       ],
+       "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+       "implementation_path": "bie/reasoning/geometry_reasoning.py",
+-      "implementation_sha256": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
++      "implementation_sha256": "af0f7227565cb9183aa0513f5b867d47e142858b122deea81591010e536c68b4",
+       "test_path": "tests/reasoning/test_geometry_reasoning.py",
+       "tests_run": 18,
+       "tests_passed": true,
+@@ -46,7 +57,18 @@
+       "acceptance_blockers": [
+         "Diverse real-book integrated reasoning evidence pending",
+         "Downstream executable video render and playable game QA evidence pending"
+-      ]
++      ],
++      "implementation_revision": 2,
++      "quality_review": {
++        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++        "status": "CHECKED",
++        "source_changed": true,
++        "test_path": "tests/reasoning/test_section_quality_review.py",
++        "additional_task_tests": 5,
++        "passed": true,
++        "evidence": "docs/evidence/reasoning-quality-001/after.json"
++      },
++      "verified_total_task_tests": 23
+     },
+     {
+       "task_id": "BIE-RE-TEMP-001",
+@@ -69,7 +91,18 @@
+       "acceptance_blockers": [
+         "Diverse real-book integrated reasoning evidence pending",
+         "Downstream executable video render and playable game QA evidence pending"
+-      ]
++      ],
++      "implementation_revision": 1,
++      "quality_review": {
++        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++        "status": "CHECKED",
++        "source_changed": false,
++        "test_path": "tests/reasoning/test_section_quality_review.py",
++        "additional_task_tests": 1,
++        "passed": true,
++        "evidence": "docs/evidence/reasoning-quality-001/after.json"
++      },
++      "verified_total_task_tests": 16
+     },
+     {
+       "task_id": "BIE-RE-TEMP-002",
+@@ -83,7 +116,7 @@
+       ],
+       "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+       "implementation_path": "bie/reasoning/event_order_reasoning.py",
+-      "implementation_sha256": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
++      "implementation_sha256": "2f49eadabebe2dadd68a953aa8bb8fbc496b612f1a928c8e1e6f4997c0986a57",
+       "test_path": "tests/reasoning/test_event_order_reasoning.py",
+       "tests_run": 13,
+       "tests_passed": true,
+@@ -93,7 +126,18 @@
+       "acceptance_blockers": [
+         "Diverse real-book integrated reasoning evidence pending",
+         "Downstream executable video render and playable game QA evidence pending"
+-      ]
++      ],
++      "implementation_revision": 2,
++      "quality_review": {
++        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++        "status": "CHECKED",
++        "source_changed": true,
++        "test_path": "tests/reasoning/test_section_quality_review.py",
++        "additional_task_tests": 6,
++        "passed": true,
++        "evidence": "docs/evidence/reasoning-quality-001/after.json"
++      },
++      "verified_total_task_tests": 19
+     },
+     {
+       "task_id": "BIE-RE-TEMP-003",
+@@ -106,7 +150,7 @@
+       ],
+       "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
+       "implementation_path": "bie/reasoning/periodization_reasoning.py",
+-      "implementation_sha256": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
++      "implementation_sha256": "31c5b2d604b5d70e3af53d79cda3ae632a8e7e7a0698aa9183e451bbd57290da",
+       "test_path": "tests/reasoning/test_periodization_reasoning.py",
+       "tests_run": 16,
+       "tests_passed": true,
+@@ -116,12 +160,25 @@
+       "acceptance_blockers": [
+         "Diverse real-book integrated reasoning evidence pending",
+         "Downstream executable video render and playable game QA evidence pending"
+-      ]
++      ],
++      "implementation_revision": 2,
++      "quality_review": {
++        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++        "status": "CHECKED",
++        "source_changed": true,
++        "test_path": "tests/reasoning/test_section_quality_review.py",
++        "additional_task_tests": 4,
++        "passed": true,
++        "evidence": "docs/evidence/reasoning-quality-001/after.json"
++      },
++      "verified_total_task_tests": 20
+     }
+   ],
+-  "integration_tests": 13,
++  "integration_tests": 14,
+   "historical_regression_tests": 1551,
+   "assembly_guard_tests": 12,
+-  "total_tests": 1654,
+-  "accepted": false
++  "total_tests": 1672,
++  "accepted": false,
++  "additional_quality_task_tests": 17,
++  "quality_review": "docs/evidence/reasoning-quality-001/REVIEW.md"
+ }
+diff --git a/task_registry/reasoning_quality_review_001.json b/task_registry/reasoning_quality_review_001.json
+new file mode 100644
+index 0000000..71adc31
+--- /dev/null
++++ b/task_registry/reasoning_quality_review_001.json
+@@ -0,0 +1,75 @@
++{
++  "schema_version": "1.0.0",
++  "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
++  "kind": "SECTION_QUALITY_REVIEW_AND_EXISTING_TASK_HARDENING",
++  "baseline_commit": "03f32e193736904a02aac4544d88c0c3b498c4c2",
++  "latest_implemented": "BIE-RE-TEMP-003",
++  "successor_task_ids": [],
++  "roadmap_advanced": false,
++  "new_roadmap_tasks_created": false,
++  "reviewed_task_ids": [
++    "RE-SPATIAL-003",
++    "RE-SPATIAL-004",
++    "RE-TEMP-001",
++    "RE-TEMP-002",
++    "RE-TEMP-003"
++  ],
++  "modified_task_ids": [
++    "RE-SPATIAL-004",
++    "RE-TEMP-002",
++    "RE-TEMP-003"
++  ],
++  "issues": [
++    {
++      "id": "G01",
++      "task": "RE-SPATIAL-004",
++      "finding": "One-shot source evidence was consumed before triangle classification",
++      "status": "FIXED"
++    },
++    {
++      "id": "G02",
++      "task": "RE-SPATIAL-004",
++      "finding": "Containment query could redefine a polygon vertex ID with different coordinates",
++      "status": "FIXED"
++    },
++    {
++      "id": "G03",
++      "task": "RE-SPATIAL-004",
++      "finding": "Matching shared endpoint coordinates with different source citations were rejected",
++      "status": "FIXED"
++    },
++    {
++      "id": "T01",
++      "task": "RE-TEMP-002",
++      "finding": "Open Gregorian bounds allowed infeasible ordering beyond the supported calendar and bypassed review",
++      "status": "FIXED"
++    },
++    {
++      "id": "T02",
++      "task": "RE-TEMP-003",
++      "finding": "Half-open periods could not include the final supported Gregorian day",
++      "status": "FIXED"
++    }
++  ],
++  "tests": {
++    "original": 1654,
++    "added": 18,
++    "total": 1672,
++    "failures": 0,
++    "errors": 0,
++    "skipped": 0
++  },
++  "before_evidence": "docs/evidence/reasoning-quality-001/before.json",
++  "after_evidence": "docs/evidence/reasoning-quality-001/after.json",
++  "report": "docs/evidence/reasoning-quality-001/REVIEW.md",
++  "sync_receipt": "validation/github_sync_quality_001.json",
++  "completion_gate": "OPEN",
++  "acceptance": "NOT_ACCEPTED",
++  "open_requirements": [
++    "Authoritative Reasoning roadmap after RE-TEMP-003 must be recovered before assigning subsequent IDs",
++    "Diverse real-book integrated Reasoning evidence",
++    "Downstream video compile/render and playable-game QA",
++    "Governed cumulative-learning evaluation"
++  ],
++  "scope_limit": "Only current spatial/temporal batch reviewed in depth; this is not acceptance of the entire Reasoning subsystem or BIE."
++}
+diff --git a/tests/reasoning/test_section_quality_review.py b/tests/reasoning/test_section_quality_review.py
+new file mode 100644
+index 0000000..20f2d70
+--- /dev/null
++++ b/tests/reasoning/test_section_quality_review.py
+@@ -0,0 +1,221 @@
++"""Post-TEMP-003 quality gate. Synthetic oracles, not real-book acceptance.
++
++The finite oracles enumerate outcomes independently of the production graph,
++interval and route algorithms. Subcases are not counted as separate unit tests.
++"""
++from datetime import date
++from itertools import permutations, product
++import unittest
++
++from bie.bie_core.artifact_contracts import (
++    ArtifactEnvelope, LineageGraph, ProducerIdentity, ProvenanceSource,
++    ProvenanceSummary,
++)
++from bie.reasoning.chronology_reasoning import Event, TimeSpan, chronology, relation
++from bie.reasoning.decision_contracts import EvidenceRef
++from bie.reasoning.event_order_reasoning import Before, event_order
++from bie.reasoning.geometry_reasoning import (
++    Point, point_in_polygon, segment_relation, triangle_properties,
++)
++from bie.reasoning.map_reasoning import MapEdge, MapFrame, MapLocation, shortest_route
++from bie.reasoning.periodization_reasoning import Period, periodization
++
++REFS = (EvidenceRef("source:1", "primary", .95), EvidenceRef("source:2", "primary", .9))
++IDS = ("source:1",)
++LAST_DAY = date.max.toordinal()
++
++
++def event(name, lo, hi, axis="historical_year"):
++    return Event(name, name, TimeSpan(lo, hi, axis), IDS)
++
++
++def point(name, x, y, refs=IDS):
++    return Point(name, x, y, refs)
++
++
++class GeometryQualityTests(unittest.TestCase):
++    def setUp(self):
++        self.square = [point("A", 0, 0), point("B", 4, 0),
++                       point("C", 4, 4), point("D", 0, 4)]
++
++    def test_one_shot_evidence_preserves_triangle_result(self):
++        vertices = [point("A", 0, 0), point("B", 3, 0), point("C", 0, 4)]
++        expected = triangle_properties(vertices, REFS, frame_id="f")
++        actual = triangle_properties(iter(vertices), iter(REFS), frame_id="f")
++        self.assertEqual(actual.result_id, expected.result_id)
++        self.assertEqual(actual.value["area"], 6)
++
++    def test_query_cannot_redefine_polygon_vertex(self):
++        with self.assertRaisesRegex(ValueError, "Conflicting coordinates"):
++            point_in_polygon(point("A", 2, 2), self.square, REFS, frame_id="f")
++
++    def test_query_can_reuse_matching_vertex_with_additional_source(self):
++        result = point_in_polygon(point("A", 0, 0, ("source:2",)),
++                                  self.square, REFS, frame_id="f")
++        self.assertEqual(result.value["relation"], "boundary")
++        self.assertEqual(result.evidence_refs, REFS)
++
++    def test_shared_segment_endpoint_can_have_additional_source(self):
++        result = segment_relation(point("A", 0, 0), point("B", 1, 1),
++                                  point("A", 0, 0, ("source:2",)), point("C", 1, 0),
++                                  REFS, frame_id="f")
++        self.assertEqual(result.value["relation"], "touching")
++        self.assertEqual(result.evidence_refs, REFS)
++
++    def test_shared_segment_endpoint_rejects_conflicting_coordinates(self):
++        with self.assertRaisesRegex(ValueError, "Conflicting coordinates"):
++            segment_relation(point("A", 0, 0), point("B", 1, 1),
++                             point("A", 2, 0), point("C", 3, 0), REFS, frame_id="f")
++
++
++class EventOrderQualityTests(unittest.TestCase):
++    def order(self, events):
++        return event_order(events, [Before("A", "B", IDS)], REFS)
++
++    def test_open_lower_bound_cannot_precede_calendar_domain(self):
++        result = self.order([event(x, None, 1, "gregorian_day") for x in "AB"])
++        self.assertEqual(result.status, "CONFLICT")
++        self.assertEqual(result.value["linear_extension"], [])
++        self.assertTrue(result.requires_review)
++
++    def test_open_upper_bound_cannot_exceed_calendar_domain(self):
++        result = self.order([event(x, LAST_DAY, None, "gregorian_day") for x in "AB"])
++        self.assertEqual(result.status, "CONFLICT")
++        self.assertEqual(result.value["linear_extension"], [])
++
++    def test_first_two_calendar_days_allow_strict_order(self):
++        result = self.order([event(x, None, 2, "gregorian_day") for x in "AB"])
++        self.assertEqual(result.status, "RESOLVED")
++        self.assertEqual(result.value["linear_extension"], ["A", "B"])
++
++    def test_last_two_calendar_days_allow_strict_order(self):
++        result = self.order([event(x, LAST_DAY - 1, None, "gregorian_day") for x in "AB"])
++        self.assertEqual(result.status, "RESOLVED")
++
++    def test_historical_year_axis_keeps_its_open_bounds(self):
++        for lo, hi in ((None, 1), (LAST_DAY, None)):
++            with self.subTest(lo=lo, hi=hi):
++                self.assertEqual(self.order([event(x, lo, hi) for x in "AB"]).status,
++                                 "RESOLVED")
++
++    def test_small_orders_against_exhaustive_date_assignments(self):
++        # 64 interval combinations x 64 directed graphs = 4,096 cases.
++        names = "ABC"
++        possible_edges = tuple(permutations(range(3), 2))
++        bounds = ((0, 0), (0, 1), (1, 2), (2, 2))
++        for spans in product(bounds, repeat=3):
++            assignments = tuple(product(*(range(lo, hi + 1) for lo, hi in spans)))
++            events = [event(name, *span) for name, span in zip(names, spans)]
++            for mask in range(1 << len(possible_edges)):
++                edges = [edge for bit, edge in enumerate(possible_edges) if mask & (1 << bit)]
++                feasible = any(all(times[a] < times[b] for a, b in edges)
++                               for times in assignments)
++                result = event_order(events, [Before(names[a], names[b], IDS) for a, b in edges], REFS)
++                self.assertEqual(result.status != "CONFLICT", feasible, (spans, edges))
++                if feasible:
++                    positions = {name: i for i, name in enumerate(result.value["linear_extension"])}
++                    self.assertTrue(all(positions[names[a]] < positions[names[b]] for a, b in edges))
++
++
++class PeriodizationQualityTests(unittest.TestCase):
++    def test_final_calendar_day_has_a_half_open_period(self):
++        result = periodization([event("E", LAST_DAY, LAST_DAY, "gregorian_day")],
++                               [Period("P", "Final day", LAST_DAY, LAST_DAY + 1, IDS,
++                                       axis="gregorian_day")], REFS)
++        self.assertEqual(result.status, "RESOLVED")
++        self.assertEqual(result.value["assignments"][0]["definite_period_ids"], ["P"])
++
++    def test_final_calendar_days_allow_uncertain_membership(self):
++        result = periodization([event("E", LAST_DAY - 1, LAST_DAY, "gregorian_day")],
++                               [Period("P", "Final two days", LAST_DAY - 1, LAST_DAY + 1, IDS,
++                                       axis="gregorian_day")], REFS)
++        self.assertEqual(result.value["assignments"][0]["status"], "ASSIGNED")
++
++    def test_exclusive_end_does_not_extend_supported_calendar(self):
++        for start, end in ((LAST_DAY, LAST_DAY + 2), (0, 2), (1, None), (True, 2)):
++            with self.subTest(start=start, end=end), self.assertRaises(ValueError):
++                periodization([event("E", 1, 1, "gregorian_day")],
++                              [Period("P", "Invalid", start, end, IDS, axis="gregorian_day")], REFS)
++
++    def test_membership_against_enumerated_possible_dates(self):
++        periods = [Period("P", "Before transition", -2, 0, IDS),
++                   Period("Q", "After transition", 0, 2, IDS)]
++        for lo in range(-3, 4):
++            for hi in range(lo, 4):
++                dates = set(range(lo, hi + 1))
++                actual = periodization([event("E", lo, hi)], periods, REFS).value["assignments"][0]
++                expected_possible, expected_definite = [], []
++                for p in periods:
++                    period_dates = set(range(p.start, p.end))
++                    if dates & period_dates: expected_possible.append(p.period_id)
++                    if dates <= period_dates: expected_definite.append(p.period_id)
++                self.assertEqual(actual["possible_period_ids"], expected_possible)
++                self.assertEqual(actual["definite_period_ids"], expected_definite)
++
++
++class ChronologyQualityTests(unittest.TestCase):
++    def test_relations_against_enumerated_possible_dates(self):
++        spans = [TimeSpan(lo, hi) for lo in range(3) for hi in range(lo, 3)]
++        for a, b in product(spans, repeat=2):
++            pairs = tuple(product(range(a.earliest, a.latest + 1),
++                                  range(b.earliest, b.latest + 1)))
++            expected = ("before" if all(x < y for x, y in pairs) else
++                        "after" if all(x > y for x, y in pairs) else
++                        "simultaneous" if all(x == y for x, y in pairs) else "indeterminate")
++            self.assertEqual(relation(a, b), expected)
++
++
++class MapQualityTests(unittest.TestCase):
++    def test_routes_against_all_simple_paths_in_small_graphs(self):
++        # 256 graphs, with cycles, unreachable goals and equal-cost routes.
++        names = "ABCD"
++        candidates = (("A", "B", 2), ("A", "C", 1), ("B", "C", 1), ("C", "B", 1),
++                      ("B", "D", 2), ("C", "D", 3), ("D", "A", 1), ("A", "D", 5))
++        frame = MapFrame("f", 1, IDS)
++        locations = [MapLocation(name, i, 0, IDS) for i, name in enumerate(names)]
++        for mask in range(1 << len(candidates)):
++            edges = [MapEdge(a + b, a, b, cost, IDS) for bit, (a, b, cost) in enumerate(candidates)
++                     if mask & (1 << bit)]
++            costs = {(e.source, e.target): e.distance_m for e in edges}
++            routes = []
++            for length in range(3):
++                for middle in permutations("BC", length):
++                    nodes = ("A", *middle, "D")
++                    pairs = tuple(zip(nodes, nodes[1:]))
++                    if all(pair in costs for pair in pairs):
++                        routes.append((sum(costs[pair] for pair in pairs), nodes,
++                                       tuple(a + b for a, b in pairs)))
++            result = shortest_route(frame, locations, edges, "A", "D", REFS)
++            if not routes:
++                self.assertEqual(result.status, "UNREACHABLE")
++            else:
++                cost, nodes, used = min(routes)
++                self.assertEqual(result.value, {"distance_m": cost, "node_ids": list(nodes),
++                                                "edge_ids": list(used)})
++
++
++class QualityIntegrationTests(unittest.TestCase):
++    def test_calendar_domain_conflict_reaches_existing_review_gate(self):
++        run = "00000000-0000-4000-8000-000000000002"
++        source = ArtifactEnvelope.create(
++            "source.document", "1.0.0", run,
++            ProducerIdentity("synthetic.quality.fixture", "1.0.0", "deterministic"), [],
++            ProvenanceSummary(sources=[ProvenanceSource("synthetic:calendar-boundary",
++                                                       {"page": 1, "fixture": True})]), {},
++            {"events": ["A", "B"], "latest_day": "0001-01-01", "assertion": "A before B"})
++        ids = (source.artifact_id,)
++        refs = (EvidenceRef(source.artifact_id, "primary", .9),)
++        events = [Event(x, x, TimeSpan(None, 1, "gregorian_day"), ids) for x in "AB"]
++        result = event_order(events, [Before("A", "B", ids)], refs)
++        decision = result.to_decision(decision_type="teaching_order", subject_id="timeline",
++                                      question="Can this chronology be published?")
++        self.assertTrue(decision.requires_review)
++        artifact = result.to_artifact(run_id=run, parents=(source,))
++        graph = LineageGraph([source, artifact])
++        graph.validate()
++        self.assertEqual(graph.trace_to_sources(artifact.artifact_id), [source])
++        self.assertEqual(artifact.payload["status"], "CONFLICT")
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/validation/canonical_integrity.json b/validation/canonical_integrity.json
+index d66a37c..1b81ff3 100644
+--- a/validation/canonical_integrity.json
++++ b/validation/canonical_integrity.json
+@@ -11,7 +11,7 @@
+     "DUPLICATE_WITH_PROVENANCE": 389
+   },
+   "canonical_destinations_checked": 10942,
+-  "working_python_files_parsed": 844,
++  "working_python_files_parsed": 845,
+   "acceptance": "NOT_ACCEPTED",
+   "scope": "Source preservation, canonical layout, import syntax and manifest integrity; not real-book E2E"
+ }
+diff --git a/validation/integrated_tests.json b/validation/integrated_tests.json
+index 4a2fafc..32a5e6c 100644
+--- a/validation/integrated_tests.json
++++ b/validation/integrated_tests.json
+@@ -2,13 +2,13 @@
+   "summary": {
+     "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+     "python": "3.12.14",
+-    "test_files": 412,
+-    "tests_run": 1654,
++    "test_files": 413,
++    "tests_run": 1672,
+     "failed_files": 0,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+-    "duration_seconds": 2.233,
++    "duration_seconds": 2.776,
+     "passed": true
+   },
+   "results": [
+@@ -3300,6 +3300,14 @@
+       "skipped": 0,
+       "passed": true
+     },
++    {
++      "path": "tests/reasoning/test_section_quality_review.py",
++      "tests": 18,
++      "failures": 0,
++      "errors": 0,
++      "skipped": 0,
++      "passed": true
++    },
+     {
+       "path": "tests/assembly/test_assembly_guards.py",
+       "tests": 12,
+diff --git a/validation/verification_fingerprint.json b/validation/verification_fingerprint.json
+index 46801cc..d42d578 100644
+--- a/validation/verification_fingerprint.json
++++ b/validation/verification_fingerprint.json
+@@ -1,5 +1,7 @@
+ {
+   "verified_files": {
++    "app/__init__.py": "31e43a6ead56343d0256cb7a8f75a72286e3dd52fe73b6726379e45db21cfb87",
++    "app/bie/__init__.py": "c1b2f279e68dda83ce60cf8c1b899f6c03050d540a804b8e5d0d2c3a4e186feb",
+     "bie/__init__.py": "182158b3a3fe1a2e00c6415eff36ad709fb509564841cb97ff6a0976666f9b2a",
+     "bie/animation_intelligence/__init__.py": "734f6b6ed1853106065c3dc5cddc10a9afe280589737c0c6883e29ad2db5d179",
+     "bie/bie_core/artifact_contracts.py": "21d9d1e1c30787e6be0fdca5d88d0d781fbc1d048fa14d6d8c2e8453bfc80d46",
+@@ -405,19 +407,19 @@
+     "bie/reasoning/derivation_decision.py": "04a85ec76b2973a4fee7db31e1e0c52edb68808f325c972dca376548603a772a",
+     "bie/reasoning/downstream_impact.py": "9bb895449a998a9cf876bc178fcc0c90a3a98988d0206b6c355d37d0320e9835",
+     "bie/reasoning/escalation_policy.py": "2b283f701018732cd5fea4c8a499cb8537b667a55feb633a53de126a60d47e94",
+-    "bie/reasoning/event_order_reasoning.py": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
++    "bie/reasoning/event_order_reasoning.py": "2f49eadabebe2dadd68a953aa8bb8fbc496b612f1a928c8e1e6f4997c0986a57",
+     "bie/reasoning/evidence_aggregation.py": "64d8bb20230484fd146abbe76fc8cefa4b922cf5886666c39d1974cf620694a0",
+     "bie/reasoning/evidence_arbitration.py": "51bbe033185d3e91c2b8fd54a4297bba3e9b40246b2696c7f64481a672d65ef1",
+     "bie/reasoning/evidence_conflict.py": "f574d326f38d9073cf433162bbe2aaa06705e32316b04df0e56fa1376fac88db",
+     "bie/reasoning/evidence_ranking.py": "40e30d787e39aa2bb285ee7cf779a868247f8ac4782a68839491137faf2b656d",
+     "bie/reasoning/example_decision.py": "e99a6b1375748bc3b5e5946bd84f8985db29d244ed706f67e1d3a38f7c631f36",
+     "bie/reasoning/game_decision.py": "530d6bed452d79b4069647a69a6badbe4986358747eceabac66b5c2091375a82",
+-    "bie/reasoning/geometry_reasoning.py": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
++    "bie/reasoning/geometry_reasoning.py": "af0f7227565cb9183aa0513f5b867d47e142858b122deea81591010e536c68b4",
+     "bie/reasoning/graph_cycles.py": "ceae8b806c7b8478c91b99ef51b9dbe6c550fbfc552068b448be7c05a98210b2",
+     "bie/reasoning/grounded_result.py": "4b60c02a7201d9b33e9df7cd5615a7d026cdef79b8540b09e48afd78845f0940",
+     "bie/reasoning/map_reasoning.py": "697487ddc9fd5817e33cec9115463e59a0490b2aef78f083ff6ab4c2df1278be",
+     "bie/reasoning/misconception_decision.py": "de1cc33abcb627b84d07470d35f7114f4c3849ea9cc97b4f0b820b7c33fe2f7c",
+-    "bie/reasoning/periodization_reasoning.py": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
++    "bie/reasoning/periodization_reasoning.py": "31c5b2d604b5d70e3af53d79cda3ae632a8e7e7a0698aa9183e451bbd57290da",
+     "bie/reasoning/prerequisite_order.py": "28ea377e79622f614b00a56210a3b60178115639b1dd6173e2f0d27fe144274a",
+     "bie/reasoning/remediation_decision.py": "57f7000846d954faa8d0153ba37914552ab002bc16bed48f5961e82927c2da21",
+     "bie/reasoning/representation_decision.py": "9468cef5076448a9be09272dc33351f209e855c65f590613ca869d13602c2afb",
+@@ -432,6 +434,7 @@
+     "bie/scene_ir/contracts.py": "2a7a7c5ae3f514c49af6eb7b5592ee915dc5e381178c3c1a9257a3a3ebea4a3f",
+     "bie/video_compiler/__init__.py": "734f6b6ed1853106065c3dc5cddc10a9afe280589737c0c6883e29ad2db5d179",
+     "bie/visual_intelligence/__init__.py": "734f6b6ed1853106065c3dc5cddc10a9afe280589737c0c6883e29ad2db5d179",
++    "pyproject.toml": "585e3e6ce85a7d3b5fcf3a2a628e019db4754e852a0bfc0f159122bb6f8ae1b5",
+     "scripts/assemble_canonical.py": "9855a84b9e713e975f52a7358cd50f29b65bfe68c33bf1e08259d2601b979c79",
+     "scripts/assembly_lib.py": "d1b09107d19a6499abe48357a0d720a36505cb3f44c5cfc0539d48484b6672f3",
+     "scripts/audit_canonical.py": "a6428d9a7dfcde50fb78be43f0127995ea67bd14b9270c3648199ac1db390ca7",
+@@ -852,21 +855,22 @@
+     "tests/reasoning/test_grounded_integration.py": "e68a114a7c23b1de6f93d038045863625bf3988e5ab6943960328c213f49d95a",
+     "tests/reasoning/test_map_reasoning.py": "e7cb2d8c6c66f7e2811779a557cd792a68a836645351d090203a56044a00b945",
+     "tests/reasoning/test_periodization_reasoning.py": "64d3299eddd8de055b834e867c1e1054d0b28c7fb101c47fd91b32dbadcfbaea",
+-    "tests/test_repository_integration.py": "1a6ac6c57ddb36d9f1f0b096ca68c1a88345e5701f75a78bedb787b7e2139b21",
+-    "pyproject.toml": "585e3e6ce85a7d3b5fcf3a2a628e019db4754e852a0bfc0f159122bb6f8ae1b5"
++    "tests/reasoning/test_section_quality_review.py": "056ce086960036cd9c26edd3ee9c3be7c6db47454eb8c159dc40b461aa988a4b",
++    "tests/test_repository_integration.py": "1a6ac6c57ddb36d9f1f0b096ca68c1a88345e5701f75a78bedb787b7e2139b21"
+   },
+   "tests": {
+     "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+     "python": "3.12.14",
+-    "test_files": 412,
+-    "tests_run": 1654,
++    "test_files": 413,
++    "tests_run": 1672,
+     "failed_files": 0,
+     "failures": 0,
+     "errors": 0,
+     "skipped": 0,
+-    "duration_seconds": 2.233,
++    "duration_seconds": 2.776,
+     "passed": true
+   },
+   "integrity": "validation/canonical_integrity.json",
+-  "accepted": false
++  "accepted": false,
++  "quality_review": "docs/evidence/reasoning-quality-001/after.json"
+ }

@@ -2,6 +2,7 @@
 from __future__ import annotations
 from collections import deque
 from dataclasses import asdict, dataclass
+from datetime import date
 import heapq
 
 from bie.reasoning.chronology_reasoning import chronology, validate_events
@@ -16,6 +17,14 @@ class Before:
     before: str
     after: str
     evidence_ids: tuple[str, ...]
+
+
+def _effective_bounds(span):
+    """Missing evidence does not remove the declared calendar's limits."""
+    if span.axis == "gregorian_day":
+        return (1 if span.earliest is None else span.earliest,
+                date.max.toordinal() if span.latest is None else span.latest)
+    return span.earliest, span.latest
 
 
 def _cycle(adjacency, remaining):
@@ -42,6 +51,7 @@ def event_order(events, constraints, refs):
     events, refs = validate_events(events, refs)
     constraints = tuple(sorted(constraints, key=lambda c: (c.before, c.after)))
     by_id = {x.event_id: x for x in events}
+    bounds = {x.event_id: _effective_bounds(x.time) for x in events}
     temporal = chronology(events, refs)
     edges = {tuple(x) for x in temporal.value["proven_before"]}
     provenance = {edge: {"kind": "date_bounds", "evidence_ids": sorted(set(by_id[edge[0]].evidence_ids + by_id[edge[1]].evidence_ids))} for edge in edges}
@@ -54,8 +64,8 @@ def event_order(events, constraints, refs):
         if edge in seen:
             raise ValueError("Duplicate explicit order constraint")
         seen.add(edge)
-        a, b = by_id[c.before].time, by_id[c.after].time
-        if a.earliest is not None and b.latest is not None and a.earliest >= b.latest:
+        lower, upper = bounds[c.before][0], bounds[c.after][1]
+        if lower is not None and upper is not None and lower >= upper:
             violations.append({"before": c.before, "after": c.after, "reason": "Strict before relation contradicts date bounds", "evidence_ids": sorted(set(c.evidence_ids + by_id[c.before].evidence_ids + by_id[c.after].evidence_ids))})
         edges.add(edge)
         prior = provenance.get(edge)
@@ -77,11 +87,11 @@ def event_order(events, constraints, refs):
     cycle = _cycle(adjacency, remaining) if remaining else []
     # Propagate all strict constraints through interval lower bounds. This catches
     # contradictions caused by a chain even when every individual edge is feasible.
-    effective_lower = {k: by_id[k].time.earliest for k in by_id}
+    effective_lower = {k: bounds[k][0] for k in by_id}
     if not cycle:
         for node in order:
             lower = effective_lower[node]
-            upper = by_id[node].time.latest
+            upper = bounds[node][1]
             if lower is not None and upper is not None and lower > upper:
                 violations.append({"event_id": node, "reason": "Order chain is infeasible within date bounds", "earliest_required": lower, "latest_allowed": upper})
             if lower is not None:

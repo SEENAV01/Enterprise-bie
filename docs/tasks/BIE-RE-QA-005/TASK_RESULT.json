@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-QA-005",
+  "title": "Decision Reproducibility",
+  "classification": "ORIGINAL ROADMAP L1",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "roadmap_section": "RE \u2014 Central Reasoning Engine",
+  "roadmap_position": "RE-QA-005",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/decision_reproducibility.py",
+  "implementation_sha256": "fab100c89a5e16da84236b320c9a46dab1d82f6b2f7f92bbb127d8fc89f4f40e",
+  "test_path": "tests/reasoning/test_re_qa_005.py",
+  "test_sha256": "769e18283d67831db970c28124f1d4ba233ffb444060d175f909fe87f659829d",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_QA_005.zip",
+    "archive_sha256": "c3847677d4c4f6ccf1a96a61516ff9d496e29a5168c4b7b33ba277aee30faa23",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ORIGINAL ROADMAP L1",
+    "test_result": {
+      "path": "tests/reasoning/test_re_qa_005.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

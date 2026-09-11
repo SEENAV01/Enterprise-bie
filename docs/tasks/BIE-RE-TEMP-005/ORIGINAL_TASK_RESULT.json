@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-RE-TEMP-005",
+  "short_id": "RE-TEMP-005",
+  "title": "Duration and elapsed-time reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "roadmap_status": "GOVERNED_EXTENSION_AFTER_RE_TEMP_003",
+  "dependencies": [
+    "BIE-RE-TEMP-001"
+  ],
+  "implementation_path": "bie/reasoning/duration_reasoning.py",
+  "implementation_sha256": "cc32868dfe74f3759af851b2b8d38e022755d6f5357f59c4121db09369fbc293",
+  "test_path": "tests/reasoning/test_duration_reasoning.py",
+  "tests_run": 7,
+  "tests_passed": true,
+  "regression_tests_after_batch": 1681,
+  "integration": "PENDING_CANONICAL_GITHUB_SESSION",
+  "shared_contract": "bie/reasoning/grounded_result.py",
+  "acceptance_blockers": [
+    "Diverse real-book integrated reasoning evidence pending",
+    "Downstream executable video render and playable game QA evidence pending"
+  ]
+}

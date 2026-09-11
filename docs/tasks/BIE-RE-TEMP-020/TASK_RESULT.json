@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-020",
+  "title": "Temporal Counterfactual Guard",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_counterfactual_guard.py",
+  "implementation_sha256": "3c6af88bd472ac19829a8768cd0436fb40c033cdc4632def3449d9cc39147a13",
+  "test_path": "tests/reasoning/test_re_temp_020.py",
+  "test_sha256": "57972e6aa8c66890c9de0dec4909fca2fa72f37a1637f3794495d62673be1513",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_020.zip",
+    "archive_sha256": "8d246ab06f680d2f0ac49d47fd4da2b4b27d00325245f7a742ca71cb9ec54788",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_020.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

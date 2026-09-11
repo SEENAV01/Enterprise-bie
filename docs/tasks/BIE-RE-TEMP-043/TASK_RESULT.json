@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-043",
+  "title": "Temporal Reproducibility Fingerprint",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_reproducibility_fingerprint.py",
+  "implementation_sha256": "e7dda2493add50177524e9e0fbba4262b5923f24bdbe9d1ed5aa463fe948b3a1",
+  "test_path": "tests/reasoning/test_re_temp_043.py",
+  "test_sha256": "0ab4abead7dc7821d1aca803eb32d839c258c9015da9f3b8173ed9c1c05552f2",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_043.zip",
+    "archive_sha256": "649dc71d68d8f94d7a9ff9b1012c4e38179d0fa63c061e7820744d7e2a6dc510",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_043.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-026",
+  "title": "Timezone and Offset Reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_timezone_reasoning.py",
+  "implementation_sha256": "5e2e9f50e132bdc269bb74046d797a79fc4225c84bd6803dae059498ef703e1f",
+  "test_path": "tests/reasoning/test_re_temp_026.py",
+  "test_sha256": "c63489479921d84efbf6628b26c28a76bbd00285c50f045b0efd14c849cdec08",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_026.zip",
+    "archive_sha256": "355eb78fed299a32ffe3d3843cd7f12c257c6da7cbfceadd1b12f522be183230",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_026.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

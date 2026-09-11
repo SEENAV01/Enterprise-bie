@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-INTEGRATION-HARD-001",
+  "title": "Reasoning Section Integration Gate",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section": "RE \u2014 Central Reasoning Engine",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/reasoning_integration_gate.py",
+  "implementation_sha256": "a3862e095d8d5d149dda8b2b97d916637d3d0152f3d29ff36464595a4b28529d",
+  "test_path": "tests/reasoning/test_integration_hard_001.py",
+  "test_sha256": "0f4ba42ae4b8b12eb6449f746451c3ed13b0a978ef873b15c5f846a3ed89727e",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_INTEGRATION_HARD_001.zip",
+    "archive_sha256": "04ebd01ed50e586128c68e0e60bcb414fca63989db804abecaae94d5925fe7e7",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_integration_hard_001.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

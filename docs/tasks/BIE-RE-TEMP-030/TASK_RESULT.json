@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-030",
+  "title": "Multi-Scale Temporal Reasoning",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_multi_scale_reasoning.py",
+  "implementation_sha256": "5d67f5e6a265ddd6088de9ec6b8d09ded31e16b1bb90208ba28e74ba004ae2e0",
+  "test_path": "tests/reasoning/test_re_temp_030.py",
+  "test_sha256": "6bed1b5fc910677d6b570ccea78001477416c64ce22eb3185eee82dd09e6a268",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_030.zip",
+    "archive_sha256": "ed29b204e0c7f2737a7e6cbe7beaddae8f374e006c0773fa116b021ee3db3e13",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_030.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

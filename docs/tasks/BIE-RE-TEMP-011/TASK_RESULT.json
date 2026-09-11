@@ -1,0 +1,50 @@
+{
+  "task_id": "BIE-RE-TEMP-011",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Cross-scheme period alignment without inventing historical equivalence",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0,
+    "integrated_enterprise_tests": 1706,
+    "integrated_failures": 0,
+    "integrated_errors": 0,
+    "integrated_skipped": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_scheme_alignment.py",
+  "source_sha256": "e35a4175c43e85ac62553003c6f8dcf44e43e0766d24ced34fb38226635b28ac",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Dependency-valid Temporal Reasoning extension after RE-TEMP-008",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_scheme_alignment.py",
+  "implementation_sha256": "e35a4175c43e85ac62553003c6f8dcf44e43e0766d24ced34fb38226635b28ac",
+  "test_path": "tests/reasoning/test_temporal_scheme_alignment.py",
+  "test_sha256": "f3aef273fab3279839e5206bbd99dd556e4c26e436c61d37f476ebed2143ef83",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_011.zip",
+    "archive_sha256": "3e23748621d97eb7bab6cba62d910db4c0cbd26c2e0daaf4a4cd78e0150d4b05",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_scheme_alignment.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

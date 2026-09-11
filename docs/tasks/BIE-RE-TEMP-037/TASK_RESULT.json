@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-037",
+  "title": "Temporal\u2013Causal Order Guard",
+  "classification": "MUST-HAVE HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_causal_order_guard.py",
+  "implementation_sha256": "12c72201c14a266c9d5c76cd72a3c14519b598d8e02e1d0269785332d7319677",
+  "test_path": "tests/reasoning/test_re_temp_037.py",
+  "test_sha256": "879d5d139a98e4556514393378da95b826d24095280fb809673bd2677dfefcc8",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_037.zip",
+    "archive_sha256": "d3ff894ad58642fac1cc21ffc55d73fbce3077e3d719761f2c1544761ea1cac0",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_037.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

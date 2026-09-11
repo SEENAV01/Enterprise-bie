@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-049",
+  "title": "Temporal Cross-Module Integration Contract",
+  "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_integration_contract.py",
+  "implementation_sha256": "7b11ac23c59bab07c8707a5d2b78b1673431d069677a10a309cfd0f07609339d",
+  "test_path": "tests/reasoning/test_re_temp_049.py",
+  "test_sha256": "84c6e547141bdf1201107a95c843ec73fe3f09fc0a2696d73bb83eb61165abb3",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_049.zip",
+    "archive_sha256": "97618ef6fb7f5b3423f3dac40126a5b67d915cbce6b28e65fb0ca5517e7c7ace",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_049.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

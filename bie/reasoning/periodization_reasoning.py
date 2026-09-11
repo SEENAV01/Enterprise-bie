@@ -30,9 +30,11 @@ def periodization(events, periods, refs):
     for p in periods:
         identifier(p.period_id, "period id"); identifier(p.label, "period label"); identifier(p.scheme_id, "scheme id")
         require_refs(p.evidence_ids, refs)
-        TimeSpan(p.start, p.end, p.axis)
-        if p.start is None or p.end is None or p.start >= p.end or p.axis != axis:
+        if type(p.start) is not int or type(p.end) is not int or p.start >= p.end or p.axis != axis:
             raise ValueError("Nonempty half-open period on the event time axis required")
+        # Only included ticks must be valid dates. The exclusive boundary may
+        # be one tick after the calendar's last representable day.
+        TimeSpan(p.start, p.end - 1, p.axis)
         if p.period_id in by_id:
             raise ValueError("Duplicate period id")
         by_id[p.period_id] = p

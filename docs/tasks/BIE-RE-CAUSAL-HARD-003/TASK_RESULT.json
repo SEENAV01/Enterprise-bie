@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-CAUSAL-HARD-003",
+  "title": "Temporal-Causal Safety Guard",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section": "RE \u2014 Central Reasoning Engine",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_causal_guard.py",
+  "implementation_sha256": "dc6f0b925ce03eed9429890cd37a94ada76b1906194e34a0489fc4d486c09d31",
+  "test_path": "tests/reasoning/test_causal_hard_003.py",
+  "test_sha256": "9fd1ad6aba2ddc514891884d00ad4695db4b283cbf6f64f9c618d1cb1e5c14ff",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_CAUSAL_HARD_003.zip",
+    "archive_sha256": "bdab8e6b90b2da521ec30ca5ac292153f0cbfa5e5cf776f92335972f9f247078",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_causal_hard_003.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

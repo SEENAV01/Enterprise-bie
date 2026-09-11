@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-UNC-HARD-001",
+  "title": "Structured Uncertainty Model",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_AUDIT_001",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "section_state": "IMPLEMENTED WITH GAPS",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/structured_uncertainty.py",
+  "implementation_sha256": "204dd1e575616f45e7acac85db90cbae764ae349ded02d1869fa0d62fda3e025",
+  "test_path": "tests/reasoning/test_unc_hard_001.py",
+  "test_sha256": "801b284a848623fb1afb363d2b506470a436af5065b7083a2d676d0cedc62406",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_UNC_HARD_001.zip",
+    "archive_sha256": "5f3ed88213ac40d689e2d8ad5bc8ac70baa11e73bdfda784f8cd27cee24a2cdc",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_unc_hard_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

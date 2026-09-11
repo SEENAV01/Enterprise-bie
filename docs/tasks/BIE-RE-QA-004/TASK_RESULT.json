@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-RE-QA-004",
+  "title": "Contradiction Resolution QA",
+  "classification": "ORIGINAL ROADMAP L1",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "roadmap_section": "RE \u2014 Central Reasoning Engine",
+  "roadmap_position": "RE-QA-004",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/contradiction_resolution_qa.py",
+  "implementation_sha256": "cfd9c5a2541b043da2c67ae0b82492ad8f842536894453a2228c443a0c35fba6",
+  "test_path": "tests/reasoning/test_re_qa_004.py",
+  "test_sha256": "20fd43b0252798b853fcce1adebc03ab847d6b1edb049302769a0d1a86117a76",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_QA_004.zip",
+    "archive_sha256": "375b267570438b5d7e1e821e312a54cb6146676e3eeae29c47908b3d573e7bd9",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ORIGINAL ROADMAP L1",
+    "test_result": {
+      "path": "tests/reasoning/test_re_qa_004.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

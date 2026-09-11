@@ -1,3 +1,5 @@
+> Historical snapshot: this document records the earlier 766-archive / 376-batch assembly. It is preserved as history, not the current canonical state. Read `CURRENT_STATE.md` and `../../task_registry/continuation.json` for the 796-archive canonical state and RE-TEMP-003 checkpoint.
+
 # Repository Assembly 001
 
 ## Scope and evidence

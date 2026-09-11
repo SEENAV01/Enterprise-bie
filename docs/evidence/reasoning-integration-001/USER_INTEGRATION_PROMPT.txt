@@ -1,0 +1,61 @@
+Integrate the completed BIE Central Reasoning Engine development into canonical GitHub repository `SEENAV01/Enterprise-bie`.
+
+SECTION DEVELOPMENT STATE:
+IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED.
+
+INPUT GROUP A — TEMPORAL:
+Integrate BIE_RE_TEMP_004.zip through BIE_RE_TEMP_059.zip inclusive (56 ZIPs).
+These require the previously established Temporal migration discipline: incoming `app/bie/reasoning/` production modules must be normalized to canonical `bie/reasoning/`; TEMP-014..018 must be genuinely discoverable by the canonical unittest runner. Preserve canonical package initializers, metadata, evidence and original ZIP backups. Stop on different-content collisions.
+
+INPUT GROUP B — POST-TEMP003 RE QA/HARDENING (21 tasks):
+- BIE-RE-CAUSAL-HARD-001
+- BIE-RE-CAUSAL-HARD-002
+- BIE-RE-CAUSAL-HARD-003
+- BIE-RE-CAUSAL-HARD-004
+- BIE-RE-CROSS-HARD-001
+- BIE-RE-E2E-HARD-001
+- BIE-RE-GRAPH-HARD-001
+- BIE-RE-GRAPH-HARD-002
+- BIE-RE-GRAPH-HARD-003
+- BIE-RE-INTEGRATION-HARD-001
+- BIE-RE-PROV-HARD-001
+- BIE-RE-QA-001
+- BIE-RE-QA-002
+- BIE-RE-QA-003
+- BIE-RE-QA-004
+- BIE-RE-QA-005
+- BIE-RE-REPLAY-HARD-001
+- BIE-RE-SPATIAL-HARD-001
+- BIE-RE-STATUS-HARD-001
+- BIE-RE-UNC-HARD-001
+- BIE-RE-UNC-HARD-002
+
+Group B is already packaged under canonical `bie/reasoning/`.
+
+MANDATORY PROCESS:
+1. Precheck branch, HEAD SHA, working-tree state, canonical package/test layout and all supplied ZIPs.
+2. Do not simply unzip over the repository. Inspect/migrate each target.
+3. Preserve original ZIPs using the established repository backup/ingested convention.
+4. Keep original roadmap tasks distinguishable from enterprise-hardening additions.
+5. Do not overwrite canonical `bie/reasoning/__init__.py` with empty atomic initializers.
+6. Rewrite only imports required for canonical namespace compatibility.
+7. Preserve TASK_RESULT/SPEC/test evidence using canonical conventions.
+8. Never weaken tests to obtain green status.
+
+MANDATORY VERIFICATION:
+- import-smoke every newly integrated RE production module;
+- all TEMP-004..059 task tests;
+- all RE-QA/hardening tests;
+- complete `tests/reasoning` suite;
+- `python scripts/test_enterprise.py`;
+- report exact testsRun/failures/errors/skipped/failed files;
+- verify: before != causes; non-resolved/conflicting/uncertain reasoning remains reviewable; evidence + derived-parent lineage preserved; temporal axis/precision safety; spatial frame/unit safety; transitive invalidation; contradiction/conflict preservation; deterministic replay/fingerprints; no production dependency on historical/archive-only code.
+
+AFTER GREEN:
+Record `REASONING = IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED`.
+Keep blockers explicit: integrated real-textbook BI/KI/PR/MATH->RE E2E, downstream PED/DIR/QA consumption, benchmark/product acceptance.
+Do not invent another RE task unless integration/E2E exposes a concrete gap.
+
+COMMIT:
+Make one Reasoning integration commit only after all mandatory verification is green, then perform GitHub readback at committed SHA.
+Return pre/post SHA, integrated counts, migration method, exact test counts, warnings/blockers, and final section state.

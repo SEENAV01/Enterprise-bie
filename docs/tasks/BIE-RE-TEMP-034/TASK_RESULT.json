@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-RE-TEMP-034",
+  "title": "Temporal Reasoning Quality Gate",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_quality_gate.py",
+  "implementation_sha256": "defdd457be44a4f73086c1293fdb23a5e706e6b8884ba151a736edb673a3631a",
+  "test_path": "tests/reasoning/test_re_temp_034.py",
+  "test_sha256": "8f672a5dd8db983d9b59d5db3b2669f7c7374d79d78e5051fc8def484f537f84",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_034.zip",
+    "archive_sha256": "e29354aa9ee2dca2efc00cc828d546e04fb7c9d1971d439d6fbb5341270f39e7",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_034.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

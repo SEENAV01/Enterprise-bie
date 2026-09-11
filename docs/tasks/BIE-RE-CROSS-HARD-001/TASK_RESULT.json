@@ -1,0 +1,36 @@
+{
+  "task_id": "BIE-RE-CROSS-HARD-001",
+  "title": "Cross-Family Constraint Arbitration",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_REAUDIT_002",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/cross_family_arbitration.py",
+  "implementation_sha256": "f3254279a9cddd3f078f1ec41f99de40d3183d094ab492295778e30b652e1c39",
+  "test_path": "tests/reasoning/test_cross_hard_001.py",
+  "test_sha256": "6cf7a04da42f3f79b69a1f0e41137ecb36fb57e1b5ae79c832ecad7803120b02",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_CROSS_HARD_001.zip",
+    "archive_sha256": "8cf90ea64f962330126befbbf8d382a9272151a6c7cd4bbf4837f134e055acef",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_cross_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

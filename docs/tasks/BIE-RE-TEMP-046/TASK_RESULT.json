@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-046",
+  "title": "Temporal Contradiction Witness Paths",
+  "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 5,
+  "implementation_path": "bie/reasoning/temporal_contradiction_witness.py",
+  "implementation_sha256": "74ca0214f28fbe83742148f159caebbf1eedaad7614cc87d645940ab36603130",
+  "test_path": "tests/reasoning/test_re_temp_046.py",
+  "test_sha256": "85b0fd699c821aa508c1b9ef55091bebd5f0273fe8a188289311d68e33c4193a",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_046.zip",
+    "archive_sha256": "58929f98a68e7ba44d9d24484909f70d0c2e3a15507ab15c1450228486f6b209",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_046.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "BIE-RE-PROV-HARD-001",
+  "title": "Unified Reasoning Provenance Envelope",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_REASONING_SECTION_ENTERPRISE_REAUDIT_002",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "canonical_namespace": "bie.reasoning",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 3,
+  "implementation_path": "bie/reasoning/reasoning_provenance_envelope.py",
+  "implementation_sha256": "97f6f81b0d5d0546639cdf63f364a5e9db8db543dbcc0abeecec05603b9573d6",
+  "test_path": "tests/reasoning/test_prov_hard_001.py",
+  "test_sha256": "c30c9f74edbc7459b80c5c0cca03b7ffd04e8df33983fd2e718212948e5e8520",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_PROV_HARD_001.zip",
+    "archive_sha256": "dd6623a4f7fb38b390333beb2dc0a4fc3758a58c7c3631bc76ced8309274d059",
+    "group": "RE_QA_HARDENING",
+    "original_classification": "ENTERPRISE HARDENING ADDITION",
+    "test_result": {
+      "path": "tests/reasoning/test_prov_hard_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

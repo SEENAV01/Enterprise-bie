@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-RE-TEMP-048",
+  "title": "Temporal Real-Book Fixture Harness",
+  "classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": true,
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "tests_run": 4,
+  "implementation_path": "bie/reasoning/temporal_realbook_fixture_harness.py",
+  "implementation_sha256": "f1db61282a3ac6df168f62e8b5899985fe42ac6ec4332f093a36dc5ed6223332",
+  "test_path": "tests/reasoning/test_re_temp_048.py",
+  "test_sha256": "bfdd8691b7896fcc215c3c8effe851abcce064605d90011126ec32744bdea32a",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_048.zip",
+    "archive_sha256": "8f52345fb06c75333622a61aedf4cac4ddb7a6452a2a327ad47e1c6dbb810b4a",
+    "group": "TEMPORAL",
+    "original_classification": "MUST-HAVE SECTION-COMPLETION HARDENING",
+    "test_result": {
+      "path": "tests/reasoning/test_re_temp_048.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": false,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}

@@ -23,7 +23,18 @@
       "acceptance_blockers": [
         "Diverse real-book integrated reasoning evidence pending",
         "Downstream executable video render and playable game QA evidence pending"
-      ]
+      ],
+      "implementation_revision": 1,
+      "quality_review": {
+        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
+        "status": "CHECKED",
+        "source_changed": false,
+        "test_path": "tests/reasoning/test_section_quality_review.py",
+        "additional_task_tests": 1,
+        "passed": true,
+        "evidence": "docs/evidence/reasoning-quality-001/after.json"
+      },
+      "verified_total_task_tests": 17
     },
     {
       "task_id": "BIE-RE-SPATIAL-004",
@@ -36,7 +47,7 @@
       ],
       "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
       "implementation_path": "bie/reasoning/geometry_reasoning.py",
-      "implementation_sha256": "75eb6bead5b301ad9d1cf3dc5e744a2e3434427080ee63ccf2f942dd75e3f910",
+      "implementation_sha256": "af0f7227565cb9183aa0513f5b867d47e142858b122deea81591010e536c68b4",
       "test_path": "tests/reasoning/test_geometry_reasoning.py",
       "tests_run": 18,
       "tests_passed": true,
@@ -46,7 +57,18 @@
       "acceptance_blockers": [
         "Diverse real-book integrated reasoning evidence pending",
         "Downstream executable video render and playable game QA evidence pending"
-      ]
+      ],
+      "implementation_revision": 2,
+      "quality_review": {
+        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
+        "status": "CHECKED",
+        "source_changed": true,
+        "test_path": "tests/reasoning/test_section_quality_review.py",
+        "additional_task_tests": 5,
+        "passed": true,
+        "evidence": "docs/evidence/reasoning-quality-001/after.json"
+      },
+      "verified_total_task_tests": 23
     },
     {
       "task_id": "BIE-RE-TEMP-001",
@@ -69,7 +91,18 @@
       "acceptance_blockers": [
         "Diverse real-book integrated reasoning evidence pending",
         "Downstream executable video render and playable game QA evidence pending"
-      ]
+      ],
+      "implementation_revision": 1,
+      "quality_review": {
+        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
+        "status": "CHECKED",
+        "source_changed": false,
+        "test_path": "tests/reasoning/test_section_quality_review.py",
+        "additional_task_tests": 1,
+        "passed": true,
+        "evidence": "docs/evidence/reasoning-quality-001/after.json"
+      },
+      "verified_total_task_tests": 16
     },
     {
       "task_id": "BIE-RE-TEMP-002",
@@ -83,7 +116,7 @@
       ],
       "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
       "implementation_path": "bie/reasoning/event_order_reasoning.py",
-      "implementation_sha256": "1fc7bde301c59bfe8079280714fa3c08f6360da9856e825e2411edf209f82b82",
+      "implementation_sha256": "2f49eadabebe2dadd68a953aa8bb8fbc496b612f1a928c8e1e6f4997c0986a57",
       "test_path": "tests/reasoning/test_event_order_reasoning.py",
       "tests_run": 13,
       "tests_passed": true,
@@ -93,7 +126,18 @@
       "acceptance_blockers": [
         "Diverse real-book integrated reasoning evidence pending",
         "Downstream executable video render and playable game QA evidence pending"
-      ]
+      ],
+      "implementation_revision": 2,
+      "quality_review": {
+        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
+        "status": "CHECKED",
+        "source_changed": true,
+        "test_path": "tests/reasoning/test_section_quality_review.py",
+        "additional_task_tests": 6,
+        "passed": true,
+        "evidence": "docs/evidence/reasoning-quality-001/after.json"
+      },
+      "verified_total_task_tests": 19
     },
     {
       "task_id": "BIE-RE-TEMP-003",
@@ -106,7 +150,7 @@
       ],
       "dependency_check": "PASS: actual restored source and passing regression tests, or preceding task in this batch",
       "implementation_path": "bie/reasoning/periodization_reasoning.py",
-      "implementation_sha256": "4633abc71ef960f702a8bf14be67a07d31855ab9cbf96e21099521ee67855e8c",
+      "implementation_sha256": "31c5b2d604b5d70e3af53d79cda3ae632a8e7e7a0698aa9183e451bbd57290da",
       "test_path": "tests/reasoning/test_periodization_reasoning.py",
       "tests_run": 16,
       "tests_passed": true,
@@ -116,12 +160,25 @@
       "acceptance_blockers": [
         "Diverse real-book integrated reasoning evidence pending",
         "Downstream executable video render and playable game QA evidence pending"
-      ]
+      ],
+      "implementation_revision": 2,
+      "quality_review": {
+        "review_id": "BIE-REASONING-QUALITY-REVIEW-001",
+        "status": "CHECKED",
+        "source_changed": true,
+        "test_path": "tests/reasoning/test_section_quality_review.py",
+        "additional_task_tests": 4,
+        "passed": true,
+        "evidence": "docs/evidence/reasoning-quality-001/after.json"
+      },
+      "verified_total_task_tests": 20
     }
   ],
-  "integration_tests": 13,
+  "integration_tests": 14,
   "historical_regression_tests": 1551,
   "assembly_guard_tests": 12,
-  "total_tests": 1654,
-  "accepted": false
+  "total_tests": 1672,
+  "accepted": false,
+  "additional_quality_task_tests": 17,
+  "quality_review": "docs/evidence/reasoning-quality-001/REVIEW.md"
 }

@@ -1,0 +1,50 @@
+{
+  "task_id": "BIE-RE-TEMP-013",
+  "section": "Reasoning Engine / Temporal Reasoning",
+  "title": "Integrated evidence-grounded timeline synthesis with conflict and ambiguity preservation",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "acceptance_state": "NOT_ACCEPTED",
+  "tests": {
+    "task_tests": 5,
+    "task_failures": 0,
+    "integrated_enterprise_tests": 1706,
+    "integrated_failures": 0,
+    "integrated_errors": 0,
+    "integrated_skipped": 0
+  },
+  "canonical_target": "bie/reasoning/temporal_synthesis_reasoning.py",
+  "source_sha256": "cbb77a35cd160d8931d6b36a1db08ffe3d9168e467c696846b2e17aa34ba5cc4",
+  "github_integration": "ONE_COMMIT_REQUIRED; exact remote readback accompanies delivery",
+  "notes": [
+    "Atomic ZIP backup/evidence package",
+    "Dependency-valid Temporal Reasoning extension after RE-TEMP-008",
+    "No final product or real-book acceptance claimed"
+  ],
+  "tests_run": 5,
+  "tests_passed": true,
+  "implementation_path": "bie/reasoning/temporal_synthesis_reasoning.py",
+  "implementation_sha256": "640ad0234503677cbca34a899ed61db94a82bd6cb760fe4e9d9d7bf6048d7f49",
+  "test_path": "tests/reasoning/test_temporal_synthesis_reasoning.py",
+  "test_sha256": "afa818f9fb42a544a148333203f9444ba52b1823054f11a4ba7d99fddeb8c038",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "canonical_integration": {
+    "batch": "BIE-REASONING-INTEGRATION-001",
+    "archive": "backups/ingested/BIE_RE_TEMP_013.zip",
+    "archive_sha256": "116c4500e06832d472471caaf70ce67716cd9561355258ed4a3a3ba3794ae2bc",
+    "group": "TEMPORAL",
+    "original_classification": "GOVERNED_TEMPORAL_EXTENSION",
+    "test_result": {
+      "path": "tests/reasoning/test_temporal_synthesis_reasoning.py",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "source_corrected_during_integration": true,
+    "evidence": "docs/evidence/reasoning-integration-001",
+    "acceptance": "NOT_ACCEPTED"
+  }
+}
