@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-NARR-001",
+  "title": "Pedagogical Mode Arbitration & Transition Policy",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 2,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 2,
+  "implementation_path": "bie/pedagogy/pedagogy_mode_arbitration.py",
+  "implementation_sha256": "b869bb84aacc1241037168e3d07eeb159708fe2d55f759d78a8691cd5dbcec2a",
+  "test_path": "tests/pedagogy/test_ped_hard_narr_001.py",
+  "test_sha256": "24e7eaf9d3f3e86633f1e1bd6e2f8bd43b7bdf1dedb367250f4bb1fe4c582d94",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_narr_001.py",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": true,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

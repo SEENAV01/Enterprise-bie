@@ -1,0 +1,162 @@
+{
+  "base_commit": "3d44dca1746aef51ca493b7dabf72400cc7c2537",
+  "archives": 58,
+  "original_members_verified": 393,
+  "section_state": "PED = IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
+  "accepted": false,
+  "production_import_smoke": {
+    "checked": 58,
+    "failures": 0
+  },
+  "groups": {
+    "ENTERPRISE FINAL-HARDENING ADDITION": {
+      "archives": 3,
+      "testsRun": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_files": 0,
+      "test_files": 3
+    },
+    "ENTERPRISE HARDENING ADDITION": {
+      "archives": 10,
+      "testsRun": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_files": 0,
+      "test_files": 10
+    },
+    "ORIGINAL ROADMAP L1": {
+      "archives": 45,
+      "testsRun": 72,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failed_files": 0,
+      "test_files": 45
+    }
+  },
+  "task_tests": {
+    "testsRun": 107,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_files": 0,
+    "test_files": 58
+  },
+  "cross_contract_tests": {
+    "path": "tests/pedagogy/test_canonical_ped_integration_002.py",
+    "tests": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "pedagogy": {
+    "testsRun": 141,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_files": 0,
+    "test_files": 59
+  },
+  "reasoning": {
+    "testsRun": 453,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_files": 0,
+    "test_files": 85
+  },
+  "new_integrity_regressions": {
+    "path": "tests/assembly/test_ingested_archive_integrity.py",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "enterprise": {
+    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+    "python": "3.12.14",
+    "test_files": 551,
+    "tests_run": 2160,
+    "failed_files": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 2.948,
+    "passed": true
+  },
+  "source_corrections": [
+    "bie/pedagogy/adaptive_policy_state_machine.py",
+    "bie/pedagogy/assessment_blueprint.py",
+    "bie/pedagogy/book_scale_curriculum_optimizer.py",
+    "bie/pedagogy/domain_pedagogy_policy.py",
+    "bie/pedagogy/pedagogy_section_readiness.py",
+    "bie/pedagogy/uncertainty_aware_mastery.py",
+    "bie/pedagogy/pedagogy_mode_arbitration.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_realbook_fixture.py",
+    "bie/pedagogy/pedagogy_replay_manifest.py",
+    "bie/pedagogy/multi_constraint_sequencer.py",
+    "bie/pedagogy/pedagogy_provenance.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/cognitive_load_qa.py",
+    "bie/pedagogy/lesson_boundary_detection.py"
+  ],
+  "production_purity": {
+    "production_files": 569,
+    "production_archive_imports": [],
+    "runtime_archive_imports": [],
+    "canonical_initializers_preserved": {
+      "bie/__init__.py": "182158b3a3fe1a2e00c6415eff36ad709fb509564841cb97ff6a0976666f9b2a",
+      "bie/pedagogy/__init__.py": "734f6b6ed1853106065c3dc5cddc10a9afe280589737c0c6883e29ad2db5d179"
+    },
+    "passed": true
+  },
+  "original_integrity": {
+    "passed": true,
+    "errors": [],
+    "archive_count": 796,
+    "original_member_files_checked": 12439,
+    "ledger_rows": 12439,
+    "assembly_001_files_checked": 2450,
+    "dispositions": {
+      "ARCHIVED_EVIDENCE": 11226,
+      "MIGRATED": 824,
+      "DUPLICATE_WITH_PROVENANCE": 389
+    },
+    "canonical_destinations_checked": 10942,
+    "working_python_files_parsed": 1118,
+    "acceptance": "NOT_ACCEPTED",
+    "scope": "Source preservation, canonical layout, import syntax and manifest integrity; not real-book E2E"
+  },
+  "supplemental_integrity": {
+    "passed": true,
+    "errors": [],
+    "manifests": 2,
+    "archives_checked": 135,
+    "original_members_checked": 876,
+    "canonical_targets_checked": 662,
+    "acceptance": "NOT_ACCEPTED",
+    "scope": "Original ZIP/member preservation and declared canonical hashes"
+  },
+  "original_test_logs_absent": [
+    "BIE-PED-OBJ-001",
+    "BIE-PED-OBJ-002",
+    "BIE-PED-OBJ-003",
+    "BIE-PED-OBJ-004",
+    "BIE-PED-OBJ-005",
+    "BIE-PED-SEQ-001",
+    "BIE-PED-SEQ-002",
+    "BIE-PED-SEQ-003",
+    "BIE-PED-SEQ-004",
+    "BIE-PED-SEQ-005",
+    "BIE-PED-SEQ-006",
+    "BIE-PED-SEQ-007",
+    "BIE-PED-SEQ-008"
+  ],
+  "scope": "Synthetic contract/regression tests and preservation integrity; no real textbook or product acceptance"
+}

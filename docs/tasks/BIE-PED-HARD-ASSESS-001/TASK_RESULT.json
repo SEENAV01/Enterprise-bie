@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-ASSESS-001",
+  "title": "Assessment Blueprint & Coverage Matrix",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 2,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 2,
+  "implementation_path": "bie/pedagogy/assessment_blueprint.py",
+  "implementation_sha256": "af81c84329e2f5bd089c93ae6b3069fb212c1ecccc689df31f0c66c7d0fa918b",
+  "test_path": "tests/pedagogy/test_ped_hard_assess_001.py",
+  "test_sha256": "8d975c388c372eca5b1b255fafb364f4b8d691b8af633d563ec5ad9489c893b4",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_assess_001.py",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": true,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

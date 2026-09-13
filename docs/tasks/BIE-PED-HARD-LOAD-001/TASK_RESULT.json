@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-LOAD-001",
+  "title": "Pedagogical Cognitive-Load Budget",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 2,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 2,
+  "implementation_path": "bie/pedagogy/pedagogy_load_budget.py",
+  "implementation_sha256": "e7638be09fea46f82532688a637382c3e3da187ab32afc5688937ff9889090ca",
+  "test_path": "tests/pedagogy/test_ped_hard_load_001.py",
+  "test_sha256": "43293810177aaeb8887a813d30d4a677cf19a9216fac8f151803df01b0928970",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_load_001.py",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": false,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

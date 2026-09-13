@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-REPRO-001",
+  "title": "Pedagogy Replay Manifest",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 2,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 2,
+  "implementation_path": "bie/pedagogy/pedagogy_replay_manifest.py",
+  "implementation_sha256": "9356afc89efc74c4460d74dddb58c2c920c97494d4dc0af65e1d4867bea9f085",
+  "test_path": "tests/pedagogy/test_ped_hard_repro_001.py",
+  "test_sha256": "897bb3d0fbf2c878b123364e9426a672f4153289404db5a49bbf1755793ccdba",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_repro_001.py",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": true,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-SEQ-001",
+  "title": "Multi-Constraint Curriculum Sequencer",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 3,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 3,
+  "implementation_path": "bie/pedagogy/multi_constraint_sequencer.py",
+  "implementation_sha256": "b5bc2b4fc65737459ae9bf3a0d7700ac32f512ac2f6b2968e3767df989d08eb9",
+  "test_path": "tests/pedagogy/test_ped_hard_seq_001.py",
+  "test_sha256": "389d35feefd972f9cd3a8c99f232a6de1426f952dd451e7502ab2f2f7efc33bd",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_seq_001.py",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": true,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

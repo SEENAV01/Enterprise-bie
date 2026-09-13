@@ -2,13 +2,13 @@
   "summary": {
     "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
     "python": "3.12.14",
-    "test_files": 491,
-    "tests_run": 2016,
+    "test_files": 551,
+    "tests_run": 2160,
     "failed_files": 0,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "duration_seconds": 3.757,
+    "duration_seconds": 2.948,
     "passed": true
   },
   "results": [
@@ -3933,8 +3933,488 @@
       "passed": true
     },
     {
+      "path": "tests/pedagogy/test_canonical_ped_integration_002.py",
+      "tests": 34,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_adapt_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_adapt_002.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_adapt_003.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_adapt_004.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_adapt_005.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_adapt_006.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_assess_001.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_assess_002.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_assess_003.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_assess_004.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_assess_005.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_assess_006.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_bridge_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_bridge_002.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_bridge_003.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_example_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_example_002.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_example_003.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_example_004.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_adapt_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_assess_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_curriculum_opt_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_domain_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_gate_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_load_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_mastery_unc_001.py",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_narr_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_orch_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_realbook_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_repro_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_seq_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_hard_trace_001.py",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_mis_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_mis_002.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_mis_003.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_narr_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_narr_002.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_narr_003.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_narr_004.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_narr_005.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_obj_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_obj_002.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_obj_003.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_obj_004.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_obj_005.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_qa_001.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_qa_002.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_qa_003.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_qa_004.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_qa_005.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_001.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_002.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_003.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_004.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_005.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_006.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_007.py",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/pedagogy/test_ped_seq_008.py",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
       "path": "tests/assembly/test_assembly_guards.py",
       "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/assembly/test_ingested_archive_integrity.py",
+      "tests": 3,
       "failures": 0,
       "errors": 0,
       "skipped": 0,

@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-TRACE-001",
+  "title": "End-to-End Pedagogy Provenance & Reasoning Lineage",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 3,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 3,
+  "implementation_path": "bie/pedagogy/pedagogy_provenance.py",
+  "implementation_sha256": "17c1b7f1c42e5936c27c3da51a4cf9cdf6d6c4d1a4274e3e9f7b5e998ae692c1",
+  "test_path": "tests/pedagogy/test_ped_hard_trace_001.py",
+  "test_sha256": "3cdbd873156a623d4c2b61fd4ba9a48a3fd2248ab6e3138634f0ed12e4ce327c",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_trace_001.py",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": true,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

@@ -1,0 +1,544 @@
+--- a/bie/pedagogy/adaptive_policy_state_machine.py
++++ b/bie/pedagogy/adaptive_policy_state_machine.py
+@@ -2,6 +2,8 @@
+ from dataclasses import dataclass
+ from typing import Iterable
+ import hashlib, json
++from bie.pedagogy.pedagogy_provenance import _normalize_ids
++from bie.pedagogy.uncertainty_aware_mastery import KnowledgeState
+ 
+ STATES={"BRIDGE","REMEDIATE","PRACTICE","STANDARD","ACCELERATE","MASTERY_CHECK","MASTERED"}
+ 
+@@ -13,6 +15,9 @@
+     mastery: float
+     version: int
+     evidence_ids: tuple[str,...]
++    requires_review: bool = False
++    mastery_confidence: float = 1.0
++    observation_ids: tuple[str,...] = ()
+ 
+ @dataclass(frozen=True)
+ class AdaptiveTransition:
+@@ -20,6 +25,7 @@
+     to_state: str
+     reason: str
+     evidence_ids: tuple[str,...]
++    requires_review: bool = False
+ 
+ def next_state(
+     current: AdaptiveState,
+@@ -29,18 +35,44 @@
+     transfer_passed: bool,
+     new_mastery: float,
+     evidence_ids: Iterable[str],
++    knowledge_state: KnowledgeState | None = None,
+ ) -> tuple[AdaptiveState,AdaptiveTransition]:
+     if current.state not in STATES or not 0<=current.mastery<=1 or current.version<0:
+         raise ValueError("invalid current state")
+     if not 0<=new_mastery<=1:
+         raise ValueError("new_mastery")
+-    ev=tuple(sorted(set(evidence_ids)))
+-    if not ev:
+-        raise ValueError("transition evidence required")
++    if not current.learner_id.strip() or not current.concept_id.strip():
++        raise ValueError("learner/concept identifiers required")
++    if any(type(x) is not bool for x in (prerequisite_ready, misconception_detected, transfer_passed, current.requires_review)):
++        raise ValueError("state gates must be booleans")
++    ev=_normalize_ids(evidence_ids, "transition evidence")
++    prior=_normalize_ids(current.evidence_ids, "prior evidence", required=False)
++    review=current.requires_review
++    confidence=current.mastery_confidence
++    observations=current.observation_ids
++    if not 0<=confidence<=1:
++        raise ValueError("mastery confidence")
++    review=review or confidence<.75
++    if knowledge_state is not None:
++        if not isinstance(knowledge_state, KnowledgeState) or knowledge_state.concept_id != current.concept_id:
++            raise ValueError("knowledge state concept mismatch")
++        if not 0<=knowledge_state.confidence<=1 or not 0<=knowledge_state.lower_bound<=knowledge_state.mean_mastery<=knowledge_state.upper_bound<=1:
++            raise ValueError("invalid knowledge state bounds/confidence")
++        if abs(knowledge_state.mean_mastery-new_mastery)>1e-12:
++            raise ValueError("new_mastery differs from supplied knowledge state")
++        confidence=knowledge_state.confidence
++        review=knowledge_state.requires_review or knowledge_state.conflict or confidence<.75
++        observations=_normalize_ids(knowledge_state.observation_ids, "mastery observations", required=False)
++        prior+=_normalize_ids(knowledge_state.evidence_ids, "mastery evidence", required=False)
++        if not knowledge_state.evidence_ids:
++            review=True
++    ev=tuple(sorted(set(prior+ev)))
+     if not prerequisite_ready:
+         target,reason="BRIDGE","prerequisites not ready"
+     elif misconception_detected:
+         target,reason="REMEDIATE","misconception detected"
++    elif review:
++        target,reason="STANDARD","mastery uncertainty requires review before advancement"
+     elif new_mastery>=.9 and transfer_passed:
+         target,reason="MASTERED","high mastery plus transfer"
+     elif new_mastery>=.85:
+@@ -51,8 +83,8 @@
+         target,reason="PRACTICE","developing mastery"
+     else:
+         target,reason="STANDARD","needs instruction"
+-    nxt=AdaptiveState(current.learner_id,current.concept_id,target,new_mastery,current.version+1,ev)
+-    return nxt,AdaptiveTransition(current.state,target,reason,ev)
++    nxt=AdaptiveState(current.learner_id,current.concept_id,target,new_mastery,current.version+1,ev,review,confidence,observations)
++    return nxt,AdaptiveTransition(current.state,target,reason,ev,review)
+ 
+ def state_fingerprint(state: AdaptiveState) -> str:
+     payload=json.dumps(state.__dict__,sort_keys=True,separators=(",",":"),allow_nan=False)
+--- a/bie/pedagogy/assessment_blueprint.py
++++ b/bie/pedagogy/assessment_blueprint.py
+@@ -1,6 +1,8 @@
+ from __future__ import annotations
+-from dataclasses import dataclass
++from dataclasses import dataclass, replace
+ from typing import Iterable
++from bie.pedagogy.pedagogy_provenance import _normalize_ids
++from bie.pedagogy.objective_taxonomy import LEVELS
+ 
+ @dataclass(frozen=True)
+ class AssessmentCell:
+@@ -23,12 +25,17 @@
+     cells: Iterable[AssessmentCell],
+ ) -> AssessmentBlueprintReport:
+     req=tuple(sorted(set(requirements)))
+-    cs=tuple(sorted(cells,key=lambda x:(x.objective_id,x.concept_id,x.cognitive_level,x.transfer,x.misconception_id or "")))
++    cs=tuple(sorted((replace(c, item_ids=_normalize_ids(c.item_ids,"assessment items"),
++                            evidence_ids=_normalize_ids(c.evidence_ids,"assessment evidence")) for c in cells),
++                    key=lambda x:(x.objective_id,x.concept_id,x.cognitive_level,x.transfer,x.misconception_id or "")))
+     if not req:
+         raise ValueError("requirements")
++    for oid,cid,level,transfer in req:
++        if not oid.strip() or not cid.strip() or level not in LEVELS or type(transfer) is not bool:
++            raise ValueError("invalid requirement")
+     coverage=set()
+     for c in cs:
+-        if not c.objective_id.strip() or not c.concept_id.strip() or not c.cognitive_level.strip():
++        if not c.objective_id.strip() or not c.concept_id.strip() or c.cognitive_level not in LEVELS or type(c.transfer) is not bool:
+             raise ValueError("invalid cell")
+         if not c.item_ids or not c.evidence_ids:
+             raise ValueError("cell requires items and provenance")
+--- a/bie/pedagogy/book_scale_curriculum_optimizer.py
++++ b/bie/pedagogy/book_scale_curriculum_optimizer.py
+@@ -1,5 +1,6 @@
+ from dataclasses import dataclass
+ import heapq
++import math
+ 
+ @dataclass(frozen=True)
+ class CurriculumUnit:
+@@ -13,14 +14,20 @@
+ 
+ def optimize_book_curriculum(units,dependencies,*,max_lesson_minutes=45.0,max_lesson_load=2.2):
+     units=tuple(units); deps=tuple(dependencies)
++    if any(type(x) not in (int,float) or not math.isfinite(x) or x<=0 for x in (max_lesson_minutes,max_lesson_load)):
++        raise ValueError("finite positive lesson budgets required")
+     if not units: raise ValueError("units")
+     ids=[u.unit_id for u in units]
+     if len(ids)!=len(set(ids)): raise ValueError("duplicate")
+     known=set(ids); by={u.unit_id:u for u in units}
+     for u in units:
++        if not u.unit_id.strip() or type(u.source_order) is not int or not math.isfinite(u.estimated_minutes): raise ValueError("unit identifier/order/duration")
+         if u.source_order<0 or u.estimated_minutes<=0 or any(not 0<=x<=1 for x in (u.objective_priority,u.cognitive_load,u.review_weight,u.misconception_risk)): raise ValueError("unit")
++        if u.estimated_minutes>max_lesson_minutes or u.cognitive_load>max_lesson_load:
++            raise ValueError("unit exceeds lesson budget; split upstream before optimization")
+     indeg={i:0 for i in ids}; adj={i:[] for i in ids}; soft=[]
+     for d in deps:
++        if type(d.hard) is not bool: raise ValueError("hard constraint flag must be boolean")
+         if d.before not in known or d.after not in known or not 0<=d.strength<=1: raise ValueError("dep")
+         if d.hard: adj[d.before].append(d.after); indeg[d.after]+=1
+         else: soft.append(d)
+@@ -52,4 +59,4 @@
+         u=by[uid]; need=max(u.review_weight,u.misconception_risk)
+         interval=1 if need>=.75 else 2 if need>=.45 else 4
+         reviews.append((uid,idx+interval))
+-    return CurriculumPlan(tuple(order),tuple(groups),tuple(reviews),violated,sum(u.estimated_minutes for u in units))
++    return CurriculumPlan(tuple(order),tuple(groups),tuple(reviews),violated,math.fsum(u.estimated_minutes for u in units))
+--- a/bie/pedagogy/domain_pedagogy_policy.py
++++ b/bie/pedagogy/domain_pedagogy_policy.py
+@@ -1,4 +1,5 @@
+ from dataclasses import dataclass
++from bie.pedagogy.objective_taxonomy import LEVELS
+ 
+ CONTENT_TYPES={"CONCEPTUAL","PROCEDURAL","QUANTITATIVE","CAUSAL","SPATIAL","TEMPORAL","SOURCE_CRITICISM","INTERPRETIVE","NARRATIVE","LANGUAGE","PROGRAMMING","CASE_BASED","COMPARATIVE","CLASSIFICATION","SYSTEMS","DESIGN"}
+ STRATEGIES={"EXPLANATION","INQUIRY","DERIVATION","SIMULATION","WORKED_EXAMPLE","SOURCE_ANALYSIS","CLOSE_READING","DISCUSSION","CASE_METHOD","TIMELINE","MAP_REASONING","CODE_TRACE","CODE_BUILD","RETRIEVAL","COMPARISON","CLASSIFICATION","MODEL_BUILDING","DEBATE","PRACTICE"}
+@@ -15,6 +16,8 @@
+         if not self.policy_id.strip() or not self.content_types or not self.strategies: raise ValueError("policy")
+         if any(x not in CONTENT_TYPES for x in self.content_types): raise ValueError("content type")
+         if any(x not in STRATEGIES for x in self.strategies): raise ValueError("strategy")
++        if any(x not in LEVELS for x in self.objective_levels): raise ValueError("objective level")
++        if any(not isinstance(x,str) or not x.strip() for x in self.required_evidence_kinds): raise ValueError("required evidence kind")
+         if not 0<=self.priority<=1: raise ValueError("priority")
+ 
+ @dataclass(frozen=True)
+@@ -30,6 +33,7 @@
+         if p.policy_id in self._p: raise ValueError("duplicate")
+         self._p[p.policy_id]=p
+     def match(self,*,content_types,objective_level,available_evidence_kinds=()):
++        if objective_level not in LEVELS: raise ValueError("objective level")
+         cts=set(content_types); ev=set(available_evidence_kinds)
+         if not cts or any(x not in CONTENT_TYPES for x in cts): raise ValueError("content types")
+         out=[]
+@@ -38,7 +42,7 @@
+             ofit=1.0 if not p.objective_levels or objective_level in p.objective_levels else 0.0
+             req=set(p.required_evidence_kinds)
+             efit=1.0 if not req else len(req & ev)/len(req)
+-            if overlap>0 and (not req or efit>0):
++            if overlap>0 and ofit>0 and req.issubset(ev):
+                 score=.55*overlap+.25*ofit+.15*efit+.05*p.priority
+                 out.append(PolicyMatch(p.policy_id,score,p.strategies,f"content={overlap:.3f};objective={ofit:.3f};evidence={efit:.3f}"))
+         return tuple(sorted(out,key=lambda x:(-x.score,x.policy_id)))
+--- a/bie/pedagogy/pedagogy_section_readiness.py
++++ b/bie/pedagogy/pedagogy_section_readiness.py
+@@ -24,6 +24,8 @@
+     missing=required-set(checks)
+     if missing:
+         raise ValueError("missing readiness checks: "+",".join(sorted(missing)))
++    if any(type(v) is not bool for v in checks.values()) or type(provenance_complete) is not bool or type(reproducible) is not bool:
++        raise ValueError("readiness checks must be explicit booleans")
+     failed=tuple(sorted(k for k,v in checks.items() if not bool(v)))
+     reviews=tuple(sorted(set(x for x in review_items if str(x).strip())))
+     passed=not failed and not reviews and provenance_complete and reproducible
+--- a/bie/pedagogy/uncertainty_aware_mastery.py
++++ b/bie/pedagogy/uncertainty_aware_mastery.py
+@@ -1,12 +1,14 @@
+ from dataclasses import dataclass
+ import json,hashlib
++from bie.pedagogy.pedagogy_provenance import _normalize_ids
+ 
+ @dataclass(frozen=True)
+ class MasteryObservation:
+     observation_id:str; concept_id:str; score:float; reliability:float; age_steps:int=0; evidence_ids:tuple[str,...]=()
+     def validate(self):
+         if not self.observation_id.strip() or not self.concept_id.strip() or not self.evidence_ids: raise ValueError("grounding")
+-        if not 0<=self.score<=1 or not 0<=self.reliability<=1 or self.age_steps<0: raise ValueError("values")
++        _normalize_ids(self.evidence_ids,"observation evidence")
++        if not 0<=self.score<=1 or not 0<=self.reliability<=1 or type(self.age_steps) is not int or self.age_steps<0: raise ValueError("values")
+ @dataclass(frozen=True)
+ class KnowledgeState:
+     concept_id:str; mean_mastery:float; lower_bound:float; upper_bound:float; confidence:float; evidence_ids:tuple[str,...]; observation_ids:tuple[str,...]; conflict:bool; requires_review:bool
+@@ -14,7 +16,10 @@
+         return "sha256:"+hashlib.sha256(json.dumps(self.__dict__,sort_keys=True,separators=(",",":"),allow_nan=False).encode()).hexdigest()
+ 
+ def infer_knowledge_state(concept_id,observations,*,recency_decay=.92,conflict_gap=.45,review_confidence_below=.65):
+-    obs=tuple(o for o in observations if o.concept_id==concept_id)
++    if not isinstance(concept_id,str) or not concept_id.strip(): raise ValueError("concept_id")
++    if not 0<recency_decay<=1 or not 0<conflict_gap<=1 or not 0<=review_confidence_below<=1:
++        raise ValueError("mastery policy values")
++    obs=tuple(sorted((o for o in observations if o.concept_id==concept_id),key=lambda o:o.observation_id))
+     if not obs:return KnowledgeState(concept_id,.5,0,1,0,(),(),False,True)
+     ids=[o.observation_id for o in obs]
+     if len(ids)!=len(set(ids)):raise ValueError("duplicate observation")
+--- a/bie/pedagogy/pedagogy_mode_arbitration.py
++++ b/bie/pedagogy/pedagogy_mode_arbitration.py
+@@ -27,6 +27,8 @@
+     switch_margin: float=.08,
+ ) -> ModeTransition:
+     cs=tuple(candidates)
++    if not 0<=switch_margin<=1:
++        raise ValueError("switch margin")
+     if previous_mode is not None and previous_mode not in MODES:
+         raise ValueError("previous_mode")
+     if not cs:
+@@ -35,14 +37,18 @@
+     for c in cs:
+         if c.mode not in MODES or any(not 0<=x<=1 for x in (c.objective_fit,c.evidence_fit,c.readiness_fit,c.misconception_fit)):
+             raise ValueError("candidate")
++        if c.evidence_fit==0:
++            continue
+         score=.35*c.objective_fit+.25*c.evidence_fit+.25*c.readiness_fit+.15*c.misconception_fit
+         scores.append((score,c.mode))
++    if not scores:
++        raise ValueError("no evidence-supported mode candidates")
+     scores.sort(reverse=True)
+     best_score,best_mode=scores[0]
+-    if previous_mode and previous_mode != best_mode:
++    review=(len(scores)>1 and abs(scores[0][0]-scores[1][0])<.02) or best_score<.75
++    if previous_mode and previous_mode != best_mode and any(m==previous_mode for _,m in scores):
+         prev_score=next((s for s,m in scores if m==previous_mode),0)
+         if best_score-prev_score < switch_margin:
+-            return ModeTransition(previous_mode,previous_mode,prev_score,"avoid unnecessary mode churn",False)
+-    review=len(scores)>1 and abs(scores[0][0]-scores[1][0])<.02
++            return ModeTransition(previous_mode,previous_mode,prev_score,"avoid unnecessary mode churn",review or prev_score<.75)
+     reason="highest governed pedagogical fit" if not review else "near-tie between modes"
+     return ModeTransition(best_mode,previous_mode,best_score,reason,review)
+--- a/bie/pedagogy/pedagogy_plan_contract.py
++++ b/bie/pedagogy/pedagogy_plan_contract.py
+@@ -1,9 +1,10 @@
+ from __future__ import annotations
+-from dataclasses import dataclass, asdict
++from dataclasses import dataclass, asdict, replace
+ from typing import Iterable
+ import json, hashlib
++from bie.pedagogy.pedagogy_provenance import _normalize_ids, _cycle_blocked_ids
+ 
+-STATUSES={"RESOLVED","AMBIGUOUS","CONFLICT","ABSTAINED","INSUFFICIENT_EVIDENCE"}
++STATUSES={"RESOLVED","AMBIGUOUS","CONFLICT","ABSTAINED","INSUFFICIENT_EVIDENCE","UNREACHABLE"}
+ 
+ @dataclass(frozen=True)
+ class PedagogyDecision:
+@@ -19,8 +20,10 @@
+     def validate(self):
+         if not self.decision_id.strip() or not self.kind.strip() or not self.payload_id.strip():
+             raise ValueError("decision identifiers required")
+-        if not self.evidence_ids:
+-            raise ValueError("pedagogy decision must be grounded")
++        _normalize_ids(self.evidence_ids, "decision evidence")
++        _normalize_ids(self.parent_decision_ids, "decision parents", required=False)
++        if type(self.requires_review) is not bool:
++            raise ValueError("requires_review must be boolean")
+         if self.status not in STATUSES:
+             raise ValueError("unsupported status")
+         if not 0 <= self.confidence <= 1:
+@@ -57,9 +60,11 @@
+ ) -> UnifiedPedagogyPlan:
+     if not plan_id.strip() or not source_id.strip() or not policy_version.strip():
+         raise ValueError("plan/source/policy required")
+-    objectives=tuple(sorted(set(objective_ids)))
+-    lessons=tuple(sorted(set(lesson_ids)))
+-    ds=tuple(sorted(decisions,key=lambda d:d.decision_id))
++    objectives=_normalize_ids(objective_ids, "objectives")
++    lessons=_normalize_ids(lesson_ids, "lessons")
++    ds=tuple(sorted((replace(d, evidence_ids=_normalize_ids(d.evidence_ids, "decision evidence"),
++                             parent_decision_ids=_normalize_ids(d.parent_decision_ids, "decision parents", required=False))
++                     for d in decisions),key=lambda d:d.decision_id))
+     if not objectives or not lessons or not ds:
+         raise ValueError("objectives, lessons and decisions required")
+     ids=[d.decision_id for d in ds]
+@@ -70,6 +75,8 @@
+         d.validate()
+         if any(p not in known for p in d.parent_decision_ids):
+             raise ValueError("unknown parent decision")
++    if _cycle_blocked_ids({d.decision_id: d.parent_decision_ids for d in ds}):
++        raise ValueError("cyclic decision lineage")
+     return UnifiedPedagogyPlan(
+         plan_id,source_id,objectives,lessons,ds,policy_version,
+         any(d.requires_review for d in ds)
+--- a/bie/pedagogy/pedagogy_realbook_fixture.py
++++ b/bie/pedagogy/pedagogy_realbook_fixture.py
+@@ -1,6 +1,7 @@
+ from __future__ import annotations
+-from dataclasses import dataclass
++from dataclasses import dataclass, replace
+ from typing import Iterable
++from bie.pedagogy.pedagogy_provenance import _normalize_ids, _cycle_blocked_ids
+ 
+ @dataclass(frozen=True)
+ class SourceAnchor:
+@@ -22,6 +23,8 @@
+     missing_anchor_ids: tuple[str,...]
+     dangling_parent_ids: tuple[str,...]
+     passed: bool
++    ungrounded_artifact_ids: tuple[str,...] = ()
++    cycle_blocked_artifact_ids: tuple[str,...] = ()
+ 
+ REQUIRED_STAGES=("objective","sequence","bridge","example","assessment","adaptation","narrative","qa")
+ 
+@@ -32,19 +35,25 @@
+ ) -> RealBookPedagogyReport:
+     if not fixture_id.strip():
+         raise ValueError("fixture_id")
+-    anchors=tuple(anchors); artifacts=tuple(artifacts)
++    anchors=tuple(anchors)
++    artifacts=tuple(replace(a, evidence_ids=_normalize_ids(a.evidence_ids,"artifact evidence",required=False),
++                            parent_ids=_normalize_ids(a.parent_ids,"artifact parents",required=False)) for a in artifacts)
+     if not anchors or not artifacts:
+         raise ValueError("anchors/artifacts required")
+     anchor_ids={a.anchor_id for a in anchors}
+-    if len(anchor_ids)!=len(anchors) or any(a.page<1 or not a.excerpt.strip() for a in anchors):
++    if len(anchor_ids)!=len(anchors) or any(not a.anchor_id.strip() or type(a.page) is not int or a.page<1 or not a.excerpt.strip() for a in anchors):
+         raise ValueError("invalid anchors")
+     ids={a.artifact_id for a in artifacts}
+     if len(ids)!=len(artifacts):
+         raise ValueError("duplicate artifact")
++    if any(not a.artifact_id.strip() or not a.stage.strip() for a in artifacts):
++        raise ValueError("artifact identifiers required")
+     stages={a.stage for a in artifacts}
+     missing_stages=tuple(sorted(set(REQUIRED_STAGES)-stages))
+     referenced={e for a in artifacts for e in a.evidence_ids}
+     missing_anchor_ids=tuple(sorted(referenced-anchor_ids))
+     dangling=tuple(sorted({p for a in artifacts for p in a.parent_ids if p not in ids}))
+-    passed=not missing_stages and not missing_anchor_ids and not dangling
+-    return RealBookPedagogyReport(fixture_id,missing_stages,missing_anchor_ids,dangling,passed)
++    ungrounded=tuple(sorted(a.artifact_id for a in artifacts if not a.evidence_ids))
++    cycle_blocked=_cycle_blocked_ids({a.artifact_id:a.parent_ids for a in artifacts})
++    passed=not missing_stages and not missing_anchor_ids and not dangling and not ungrounded and not cycle_blocked
++    return RealBookPedagogyReport(fixture_id,missing_stages,missing_anchor_ids,dangling,passed,ungrounded,cycle_blocked)
+--- a/bie/pedagogy/pedagogy_replay_manifest.py
++++ b/bie/pedagogy/pedagogy_replay_manifest.py
+@@ -30,6 +30,8 @@
+     if not all(x.strip() for x in (policy_version,learner_state_version,environment_fingerprint)):
+         raise ValueError("versions/environment required")
+     def norm(m):
++        if not m:
++            raise ValueError("input, upstream reasoning and output bindings required")
+         if any(not str(k).strip() or not str(v).strip() for k,v in m.items()):
+             raise ValueError("blank hash binding")
+         return tuple(sorted((str(k),str(v)) for k,v in m.items()))
+--- a/bie/pedagogy/multi_constraint_sequencer.py
++++ b/bie/pedagogy/multi_constraint_sequencer.py
+@@ -2,6 +2,7 @@
+ from dataclasses import dataclass
+ from typing import Iterable
+ import heapq
++import math
+ 
+ @dataclass(frozen=True)
+ class CurriculumNode:
+@@ -31,6 +32,8 @@
+     *,
+     max_adjacent_load: float=1.8,
+ ) -> SequencingResult:
++    if not math.isfinite(max_adjacent_load) or max_adjacent_load<=0:
++        raise ValueError("finite positive adjacent-load budget required")
+     ns=tuple(nodes); cs=tuple(constraints)
+     ids=[n.node_id for n in ns]
+     if len(ids)!=len(set(ids)) or not ids:
+@@ -44,6 +47,7 @@
+     soft=[c for c in cs if not c.hard]
+     indeg={i:0 for i in ids}; adj={i:[] for i in ids}
+     for c in cs:
++        if type(c.hard) is not bool: raise ValueError("hard constraint flag must be boolean")
+         if c.before not in known or c.after not in known or not 0<=c.strength<=1:
+             raise ValueError("invalid constraint")
+     for c in hard:
+--- a/bie/pedagogy/pedagogy_provenance.py
++++ b/bie/pedagogy/pedagogy_provenance.py
+@@ -1,6 +1,38 @@
+ from __future__ import annotations
+ from dataclasses import dataclass
+ from typing import Iterable
++from collections import deque
++
++
++def _normalize_ids(values, label, *, required=True):
++    """Materialize identifiers once; a blank value is not evidence."""
++    if isinstance(values, (str, bytes)):
++        raise ValueError(label + " must be an iterable of identifiers")
++    values = tuple(values)
++    if any(not isinstance(x, str) or not x.strip() for x in values):
++        raise ValueError(label + " contains blank or invalid identifiers")
++    result = tuple(sorted(set(values)))
++    if required and not result:
++        raise ValueError(label + " required")
++    return result
++
++
++def _cycle_blocked_ids(parents):
++    """Return cyclic nodes and their blocked descendants without recursion."""
++    known = set(parents)
++    indegree = {key: 0 for key in parents}
++    children = {key: set() for key in parents}
++    for child, incoming in parents.items():
++        for parent in set(incoming) & known:
++            children[parent].add(child)
++            indegree[child] += 1
++    ready = deque(sorted(key for key in known if indegree[key] == 0))
++    while ready:
++        for child in sorted(children[ready.popleft()]):
++            indegree[child] -= 1
++            if indegree[child] == 0:
++                ready.append(child)
++    return tuple(sorted(key for key in known if indegree[key]))
+ 
+ @dataclass(frozen=True)
+ class PedagogyLineage:
+@@ -26,34 +58,31 @@
+ ) -> PedagogyLineage:
+     if not artifact_id.strip():
+         raise ValueError("artifact_id")
+-    ev=tuple(sorted(set(source_evidence_ids)))
+-    re=tuple(sorted(set(reasoning_parent_ids)))
+-    if not ev or not re:
+-        raise ValueError("source evidence and reasoning lineage required")
++    ev=_normalize_ids(source_evidence_ids, "source evidence")
++    re=_normalize_ids(reasoning_parent_ids, "reasoning lineage")
++    pr=_normalize_ids(prerequisite_parent_ids, "prerequisite lineage", required=False)
++    math=_normalize_ids(math_parent_ids, "math lineage", required=False)
+     if not 0<=confidence<=1:
+         raise ValueError("confidence")
++    if type(requires_review) is not bool:
++        raise ValueError("requires_review must be boolean")
+     assumptions=tuple(a for a in assumptions if str(a).strip())
+     if (confidence<.75 or assumptions) and not requires_review:
+         raise ValueError("uncertain lineage requires review")
+     return PedagogyLineage(
+-        artifact_id,ev,re,tuple(sorted(set(prerequisite_parent_ids))),
+-        tuple(sorted(set(math_parent_ids))),assumptions,confidence,requires_review
++        artifact_id,ev,re,pr,math,assumptions,confidence,requires_review
+     )
+ 
+ def validate_lineage_graph(lineages: Iterable[PedagogyLineage]) -> tuple[str,...]:
+-    ls=tuple(lineages)
++    ls=tuple(build_lineage(x.artifact_id, source_evidence_ids=x.source_evidence_ids,
++                          reasoning_parent_ids=x.reasoning_parent_ids,
++                          prerequisite_parent_ids=x.prerequisite_parent_ids,
++                          math_parent_ids=x.math_parent_ids, assumptions=x.assumptions,
++                          confidence=x.confidence, requires_review=x.requires_review)
++             for x in lineages)
+     ids={x.artifact_id for x in ls}
+     if len(ids)!=len(ls):
+         raise ValueError("duplicate artifact_id")
+     # Parent IDs may be external upstream IDs, but internal cycles are forbidden.
+-    adj={x.artifact_id:[p for p in x.reasoning_parent_ids if p in ids] for x in ls}
+-    visiting=set(); done=set(); cycles=set()
+-    def dfs(n):
+-        if n in visiting:
+-            cycles.add(n); return
+-        if n in done: return
+-        visiting.add(n)
+-        for p in adj[n]: dfs(p)
+-        visiting.remove(n); done.add(n)
+-    for n in sorted(ids): dfs(n)
+-    return tuple(sorted(cycles))
++    return _cycle_blocked_ids({x.artifact_id: x.reasoning_parent_ids + x.prerequisite_parent_ids + x.math_parent_ids
++                               for x in ls})
+--- a/bie/pedagogy/learning_objective_generator.py
++++ b/bie/pedagogy/learning_objective_generator.py
+@@ -1,6 +1,8 @@
+ from dataclasses import dataclass
++from bie.pedagogy.pedagogy_provenance import _normalize_ids
+ @dataclass(frozen=True)
+ class LearningObjective: objective_id:str; concept_id:str; statement:str; evidence_ids:tuple[str,...]
+ def generate_objective(concept_id,label,evidence_ids):
++ evidence_ids=_normalize_ids(evidence_ids,"objective evidence")
+  if not concept_id.strip() or not label.strip() or not evidence_ids: raise ValueError("grounded concept required")
+  return LearningObjective("obj:"+concept_id,concept_id,f"Explain and apply {label}.",tuple(sorted(set(evidence_ids))))
+--- a/bie/pedagogy/cognitive_load_qa.py
++++ b/bie/pedagogy/cognitive_load_qa.py
+@@ -1,5 +1,6 @@
+ from __future__ import annotations
+ from dataclasses import dataclass
++import math
+ 
+ @dataclass(frozen=True)
+ class CognitiveLoadQAReport:
+@@ -8,13 +9,13 @@
+     passed: bool
+ 
+ def cognitive_load_qa(segment_loads, *, max_load:float=1.8, max_jump:float=.7) -> CognitiveLoadQAReport:
+-    if max_load<=0 or max_jump<0:
++    if not math.isfinite(max_load) or not math.isfinite(max_jump) or max_load<=0 or max_jump<0:
+         raise ValueError("thresholds")
+     items=tuple(segment_loads)
+     overload=[]; jumps=[]
+     prev=None
+     for sid,load in items:
+-        if not sid.strip() or load<0:
++        if not sid.strip() or not math.isfinite(load) or load<0:
+             raise ValueError("segment")
+         if load>max_load:
+             overload.append(sid)
+--- a/bie/pedagogy/lesson_boundary_detection.py
++++ b/bie/pedagogy/lesson_boundary_detection.py
+@@ -1,6 +1,10 @@
++import math
++
+ def lesson_boundaries(concepts,max_load=2):
++ if not math.isfinite(max_load) or max_load<=0: raise ValueError("load budget")
+  out=[]; cur=[]; load=0; topic=None
+  for cid,tp,cost in concepts:
++  if not cid.strip() or not tp.strip() or not math.isfinite(cost) or cost<0 or cost>max_load: raise ValueError("concept exceeds load budget or has invalid load")
+   if cur and (tp!=topic or load+cost>max_load): out.append(tuple(cur)); cur=[]; load=0
+   cur.append(cid); load+=cost; topic=tp
+  if cur: out.append(tuple(cur))

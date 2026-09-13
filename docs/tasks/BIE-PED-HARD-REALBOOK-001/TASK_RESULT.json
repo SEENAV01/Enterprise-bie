@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-PED-HARD-REALBOOK-001",
+  "title": "Real-Book Pedagogy Fixture",
+  "classification": "ENTERPRISE HARDENING ADDITION",
+  "trigger_audit": "BIE_PED_ENTERPRISE_AUDIT_001",
+  "section": "PED \u2014 Adaptive Pedagogy / Curriculum",
+  "status": "IMPLEMENTED",
+  "accepted": false,
+  "tests_passed": 2,
+  "canonical_namespace": "bie.pedagogy",
+  "github_integration": "One integration commit required; exact readback in final report/backup manifest",
+  "tests_run": 2,
+  "implementation_path": "bie/pedagogy/pedagogy_realbook_fixture.py",
+  "implementation_sha256": "af08b67d3b0a8a3a5010304d5f9189c5ae8da2840006e1befe236aa0b05ad320",
+  "test_path": "tests/pedagogy/test_ped_hard_realbook_001.py",
+  "test_sha256": "4d208728197fdf5bd3102fcddb8bdb2a968b3a86c46b112335e8bfe7cfbe725f",
+  "canonical_test_result": {
+    "path": "tests/pedagogy/test_ped_hard_realbook_001.py",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true
+  },
+  "original_packaged_task_result": "ORIGINAL_TASK_RESULT.json",
+  "original_packaged_test_log": "ORIGINAL_TEST_RESULT.txt",
+  "original_test_log_status": "PRESERVED",
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "source_corrected_during_integration": true,
+  "integration_evidence": "docs/evidence/pedagogy-integration-002"
+}

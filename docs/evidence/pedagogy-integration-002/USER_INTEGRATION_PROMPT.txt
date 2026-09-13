@@ -1,0 +1,112 @@
+Integrate the completed PED — Adaptive Pedagogy / Curriculum section into canonical repository SEENAV01/Enterprise-bie.
+
+Use current GitHub main as authority; precheck actual HEAD/tree before writing.
+
+SECTION STATE:
+PED = IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED
+
+INPUT: 58 PED atomic ZIPs:
+- BIE_PED_OBJ_001.zip
+- BIE_PED_OBJ_002.zip
+- BIE_PED_OBJ_003.zip
+- BIE_PED_OBJ_004.zip
+- BIE_PED_OBJ_005.zip
+- BIE_PED_SEQ_001.zip
+- BIE_PED_SEQ_002.zip
+- BIE_PED_SEQ_003.zip
+- BIE_PED_SEQ_004.zip
+- BIE_PED_SEQ_005.zip
+- BIE_PED_SEQ_006.zip
+- BIE_PED_SEQ_007.zip
+- BIE_PED_SEQ_008.zip
+- BIE_PED_BRIDGE_001.zip
+- BIE_PED_BRIDGE_002.zip
+- BIE_PED_BRIDGE_003.zip
+- BIE_PED_EXAMPLE_001.zip
+- BIE_PED_EXAMPLE_002.zip
+- BIE_PED_EXAMPLE_003.zip
+- BIE_PED_EXAMPLE_004.zip
+- BIE_PED_MIS_001.zip
+- BIE_PED_MIS_002.zip
+- BIE_PED_MIS_003.zip
+- BIE_PED_ASSESS_001.zip
+- BIE_PED_ASSESS_002.zip
+- BIE_PED_ASSESS_003.zip
+- BIE_PED_ASSESS_004.zip
+- BIE_PED_ASSESS_005.zip
+- BIE_PED_ASSESS_006.zip
+- BIE_PED_ADAPT_001.zip
+- BIE_PED_ADAPT_002.zip
+- BIE_PED_ADAPT_003.zip
+- BIE_PED_ADAPT_004.zip
+- BIE_PED_ADAPT_005.zip
+- BIE_PED_ADAPT_006.zip
+- BIE_PED_NARR_001.zip
+- BIE_PED_NARR_002.zip
+- BIE_PED_NARR_003.zip
+- BIE_PED_NARR_004.zip
+- BIE_PED_NARR_005.zip
+- BIE_PED_QA_001.zip
+- BIE_PED_QA_002.zip
+- BIE_PED_QA_003.zip
+- BIE_PED_QA_004.zip
+- BIE_PED_QA_005.zip
+- BIE_PED_HARD_ADAPT_001.zip
+- BIE_PED_HARD_ASSESS_001.zip
+- BIE_PED_HARD_CURRICULUM_OPT_001.zip
+- BIE_PED_HARD_DOMAIN_001.zip
+- BIE_PED_HARD_GATE_001.zip
+- BIE_PED_HARD_LOAD_001.zip
+- BIE_PED_HARD_MASTERY_UNC_001.zip
+- BIE_PED_HARD_NARR_001.zip
+- BIE_PED_HARD_ORCH_001.zip
+- BIE_PED_HARD_REALBOOK_001.zip
+- BIE_PED_HARD_REPRO_001.zip
+- BIE_PED_HARD_SEQ_001.zip
+- BIE_PED_HARD_TRACE_001.zip
+
+Expected task IDs: 58.
+
+Final vision-level hardening includes:
+- BIE-PED-HARD-DOMAIN-001
+- BIE-PED-HARD-CURRICULUM-OPT-001
+- BIE-PED-HARD-MASTERY-UNC-001
+
+Rules:
+- inspect before overlay; do not blindly unzip
+- canonical production path is bie/pedagogy/
+- preserve canonical initializers
+- preserve original ZIP bytes under backups/ingested/
+- preserve original SPEC/TASK_RESULT/TEST_RESULT as provenance
+- stop/report different-content collisions
+- do not weaken tests
+- integration defects may be corrected under existing task IDs with explicit evidence, not arbitrary new IDs
+
+Mandatory verification:
+- import-smoke all new pedagogy modules
+- all PED task tests
+- complete tests/pedagogy
+- complete tests/reasoning regression
+- python scripts/test_enterprise.py
+- report exact testsRun/failures/errors/skipped/failed files
+
+Cross-contract checks:
+- source/evidence grounding + upstream Reasoning lineage
+- prerequisite gaps block acceleration
+- low-confidence/conflicting mastery remains reviewable
+- hard curriculum constraints preserved
+- book-scale grouping respects time/load budgets
+- pedagogy policy selection based on content type/learning intent, not hard-coded subject name
+- evidence-requiring strategy not selected without required evidence
+- assessment coverage gaps detected
+- deterministic adaptation/replay/fingerprints
+- readiness gate blocks unresolved reviews/incomplete provenance
+- no production import from historical/backups/batches
+
+After green integration record exactly:
+PED = IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED
+
+Acceptance blockers remain:
+real multi-domain textbook BI/KI/PR/MATH/RE→PED E2E, DIR consumption, empirical/benchmark pedagogy validation, final lesson/video/game product E2E.
+
+Make one PED integration commit after green verification, perform GitHub readback, and return pre/post SHA, tree SHA, integrated counts, corrections, exact test counts, warnings/blockers and final state.

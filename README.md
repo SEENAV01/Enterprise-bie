@@ -1,3 +1,11 @@
+# My Book Intelligence Engine — canonical enterprise repository
+
+Current section: **PED = IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED**. All 58 supplied PED archives are integrated alongside the completed Reasoning section. Verification: **2,160 tests passed**, including 141 PED and 453 Reasoning tests; all preservation gates pass.
+
+Run `python scripts/integrated_check.py` for historical preservation, supplemental RE/PED archive integrity and the complete enterprise regression suite. See `BIE_CONTEXT_HANDOFF.md`, `task_registry/continuation.json` and `docs/evidence/pedagogy-integration-002/INTEGRATION.md` for current evidence and acceptance blockers.
+
+The following earlier repository overview is preserved as context for the underlying assembly and Reasoning integration; its earlier test totals describe that checkpoint.
+
 # My Book Intelligence Engine
 
 Continuation of the existing enterprise BIE repository, not a new architecture or product release.

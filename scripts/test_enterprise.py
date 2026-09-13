@@ -22,6 +22,7 @@ def main():
     paths += sorted((ROOT/'tests').glob('test*.py'))
     if not args.batch:
         paths += sorted((ROOT/'tests/reasoning').rglob('test*.py'))
+        paths += sorted((ROOT/'tests/pedagogy').rglob('test*.py'))
         paths += sorted((ROOT/'tests/assembly').rglob('test*.py'))
     if not paths:raise SystemExit('No tests discovered')
     results=[];start=time.monotonic()
