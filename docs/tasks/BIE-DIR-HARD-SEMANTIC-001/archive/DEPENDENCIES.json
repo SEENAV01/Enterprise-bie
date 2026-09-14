@@ -1,0 +1,20 @@
+{
+  "task_id": "BIE-DIR-HARD-SEMANTIC-001",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-CONTRACTS-001",
+    "BIE-DIR-QA-007"
+  ],
+  "canonical_file_dependencies": [
+    "bie/model_gateway/__init__.py",
+    "bie/model_gateway/model_interface.py",
+    "bie/model_gateway/schema_validation.py",
+    "bie/model_gateway/gpt_adapter.py"
+  ],
+  "initializers": [
+    "bie/__init__.py",
+    "bie/director/__init__.py"
+  ],
+  "runtime": "Python 3.10+ standard library, verified on 3.12.14",
+  "recommended_runnable_delivery": "BIE_DIR_HARDENING_BATCH_007_CONTRACTS_SEMANTIC.zip",
+  "ordering": "Extract original task dependency closure first, then each hardening overlay in dependency order; do not overwrite hardening with old originals."
+}

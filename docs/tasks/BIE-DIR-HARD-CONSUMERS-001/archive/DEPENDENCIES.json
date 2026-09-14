@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-DIR-HARD-CONSUMERS-001",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-REPAIR-001",
+    "BIE-DIR-SYNC-002"
+  ],
+  "canonical_file_dependencies": [
+    "bie/__init__.py",
+    "bie/bie_core/artifact_contracts.py",
+    "bie/director/__init__.py",
+    "bie/infrastructure/__init__.py",
+    "bie/infrastructure/artifact_store.py",
+    "bie/infrastructure/execution_graph.py",
+    "bie/infrastructure/idempotency_store.py",
+    "bie/infrastructure/orchestrator.py",
+    "bie/infrastructure/run_state.py",
+    "bie/model_gateway/__init__.py",
+    "bie/model_gateway/model_interface.py",
+    "bie/model_gateway/schema_validation.py",
+    "bie/pedagogy/__init__.py",
+    "bie/pedagogy/assessment_blueprint.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/objective_taxonomy.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_provenance.py",
+    "bie/pedagogy/repetition_policy.py",
+    "bie/pedagogy/teaching_mode_selection.py",
+    "bie/reasoning/__init__.py",
+    "bie/reasoning/chronology_reasoning.py",
+    "bie/reasoning/decision_contracts.py",
+    "bie/reasoning/decision_graph.py",
+    "bie/reasoning/event_order_reasoning.py",
+    "bie/reasoning/grounded_result.py",
+    "bie/reasoning/teaching_order.py",
+    "bie/scene_ir/__init__.py",
+    "bie/scene_ir/contracts.py"
+  ],
+  "initializers": [
+    "bie/__init__.py",
+    "bie/director/__init__.py"
+  ],
+  "runtime": "Python 3.10+ standard library; verified on 3.12.14",
+  "ordering": "Original task closure first, hardening overlays in dependency order. Do not overwrite hardening with originals.",
+  "recommended_runnable_delivery": "BIE_DIR_REPAIR_BATCH_010_CURRENT_CONSUMERS.zip"
+}

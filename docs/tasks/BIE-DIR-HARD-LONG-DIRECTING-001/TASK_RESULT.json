@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+  "title": "Windowed planning/narration with full-scope assembly, complete prerequisite support and persisted replay/consumer revalidation",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_LONG_DIRECTING_001.zip",
+  "archive_sha256": "ca2d04747682cb7f102b51fc88df32055b7647a51bf66b5af271e1db80f610f4",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/grounded_directing.py",
+    "bie/director/narration_annotations.py",
+    "bie/director/recovery_codec.py",
+    "bie/director/windowed_directing.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_long_directing_001.py",
+    "tests/director/test_window_integration.py"
+  ],
+  "declared_atomic_tests": 24,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-TEACHING-001",
+  "title": "Ordered bridge and derivation teaching in actual DIR planning/narration with repair/consumer revalidation",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_TEACHING_001.zip",
+  "archive_sha256": "9ac2c6ca5fcdc136b3065943f8a7ce6bc3f919c2caa4d2b7d3bc290ddc86947b",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/contextual_teaching.py",
+    "bie/director/grounded_directing.py",
+    "bie/director/narration_annotations.py",
+    "bie/director/recovery_codec.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_context_integration.py",
+    "tests/director/test_hard_teaching_001.py"
+  ],
+  "declared_atomic_tests": 25,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

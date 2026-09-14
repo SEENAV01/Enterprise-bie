@@ -1,0 +1,65 @@
+{
+  "task_id": "BIE-DIR-HARD-GLOBAL-REVIEW-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/windowed_annotation_review.py",
+      "sha256": "9ac342faf8169f1d0785138ede7db39080db101cecdd68cbfdf6b4f4b80ebff5"
+    },
+    {
+      "path": "bie/director/annotation_review.py",
+      "sha256": "f3f9d8a86f01a2a408e89ae5db9556730bfd8d2f7c8096312c6a6a620a081a1c"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "sha256": "7349364f495cdf2e012d7630e9e967a5c4e2f13dc1dbe3c3989e60f15a492fec"
+    },
+    {
+      "path": "bie/director/director_consumers.py",
+      "sha256": "2c383964a8d6e7d9c23913187d7608df0436d606b1acc7918db5882cba30b366"
+    },
+    {
+      "path": "tests/director/test_hard_global_review_001.py",
+      "sha256": "95d0bd8fcc565f3c4fad9a36bc4fedf8f8a1d92ee80585a88e577ec7689324ca"
+    },
+    {
+      "path": "tests/director/test_annotation_window_integration.py",
+      "sha256": "fcc335ae91fd3e46e56a33a71a600b641da559dcc683251a76558b53681f9566"
+    },
+    {
+      "path": "examples/annotation_window_walkthrough.py",
+      "sha256": "a221bfe145fc103ac734cc51c83e3931185ba13d66e3b59aedaa9a4dd06fefc1"
+    },
+    {
+      "path": "scripts/check_dir_annotation_windows.py",
+      "sha256": "7a0032dfec8fff4b13e3bc12f3a097264a2c19e9f2aabecbb974963f23a31071"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/annotation_review.py",
+      "before_sha256": "ef38f980d54a5c5e17b347b81078f72d5ca3f3a7e88769102ad526275b4fdb0b",
+      "after_sha256": "f3f9d8a86f01a2a408e89ae5db9556730bfd8d2f7c8096312c6a6a620a081a1c",
+      "before_copy": "verification/before_annotation_windows/bie/director/annotation_review.py",
+      "task_id": "BIE-DIR-HARD-GLOBAL-REVIEW-001",
+      "change_kind": "EXISTING_ANNOTATION_REVIEW_DECODING_AND_CONSUMER_REVALIDATION_EXTENSION"
+    },
+    {
+      "path": "bie/director/director_consumers.py",
+      "before_sha256": "edead3bc17d24c80d7a4ed0838bb79091c21b903476508f203a39682b737b6e0",
+      "after_sha256": "2c383964a8d6e7d9c23913187d7608df0436d606b1acc7918db5882cba30b366",
+      "before_copy": "verification/before_annotation_windows/bie/director/director_consumers.py",
+      "task_id": "BIE-DIR-HARD-GLOBAL-REVIEW-001",
+      "change_kind": "EXISTING_ANNOTATION_REVIEW_DECODING_AND_CONSUMER_REVALIDATION_EXTENSION"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "before_sha256": "8010eebbeb8849ec789208ae9525074413e9aeec44b957c35dd51b104a4bff2e",
+      "after_sha256": "7349364f495cdf2e012d7630e9e967a5c4e2f13dc1dbe3c3989e60f15a492fec",
+      "before_copy": "verification/before_annotation_windows/bie/director/recovery_codec.py",
+      "task_id": "BIE-DIR-HARD-GLOBAL-REVIEW-001",
+      "change_kind": "EXISTING_ANNOTATION_REVIEW_DECODING_AND_CONSUMER_REVALIDATION_EXTENSION"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "task_id": "BIE-DIR-HARD-ANNOTATION-QA-001",
+  "title": "Separate annotation review, actual QA/timing and existing stage integration",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "audit_id": "BIE-DIR-CAPABILITY-AUDIT-001",
+  "audit_revision": "narration-annotations-batch-009",
+  "finding_id": "DIR-AUDIT-ANNOTATIONS",
+  "status": "DOCUMENTED_SUPPORTED_SCOPE_IMPLEMENTED_AND_TESTED",
+  "accepted": false,
+  "DIR_section_implementation_complete": false,
+  "canonical_namespace": "bie.director",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-ANNOTATIONS-001"
+  ],
+  "canonical_file_dependencies": [
+    "bie/__init__.py",
+    "bie/bie_core/artifact_contracts.py",
+    "bie/director/__init__.py",
+    "bie/infrastructure/__init__.py",
+    "bie/infrastructure/artifact_store.py",
+    "bie/infrastructure/execution_graph.py",
+    "bie/infrastructure/idempotency_store.py",
+    "bie/infrastructure/orchestrator.py",
+    "bie/infrastructure/run_state.py",
+    "bie/model_gateway/__init__.py",
+    "bie/model_gateway/model_interface.py",
+    "bie/model_gateway/schema_validation.py",
+    "bie/pedagogy/__init__.py",
+    "bie/pedagogy/assessment_blueprint.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/objective_taxonomy.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_provenance.py",
+    "bie/pedagogy/repetition_policy.py",
+    "bie/pedagogy/teaching_mode_selection.py",
+    "bie/reasoning/__init__.py",
+    "bie/reasoning/chronology_reasoning.py",
+    "bie/reasoning/decision_contracts.py",
+    "bie/reasoning/decision_graph.py",
+    "bie/reasoning/event_order_reasoning.py",
+    "bie/reasoning/grounded_result.py",
+    "bie/reasoning/teaching_order.py"
+  ],
+  "owned_files": [
+    "bie/director/annotation_review.py",
+    "bie/director/annotated_directing.py",
+    "bie/director/director_executor.py",
+    "tests/director/annotation_review_fixtures.py",
+    "tests/director/test_hard_annotation_qa_001.py",
+    "tests/director/test_annotation_integration.py",
+    "examples/annotated_director_walkthrough.py",
+    "scripts/check_dir_annotations.py"
+  ],
+  "source_files": [
+    "bie/director/annotation_review.py",
+    "bie/director/annotated_directing.py",
+    "bie/director/director_executor.py"
+  ],
+  "test_files": [
+    "tests/director/test_hard_annotation_qa_001.py",
+    "tests/director/test_annotation_integration.py"
+  ],
+  "tests_passed": 27,
+  "new_unit_tests": 18,
+  "new_integration_tests": 9,
+  "revises_original_task_ids": [],
+  "extends_additive_task_ids": [
+    "BIE-DIR-HARD-DIRECTOR-001"
+  ],
+  "created_at_utc": "2026-09-13T19:34:38.324870+00:00",
+  "scope_limit": "Documented annotation/review execution scope only. Protocol fixtures are not live quality. Rich context/codecs, broader teaching, selective repair/consumer integration and empirical acceptance remain open."
+}

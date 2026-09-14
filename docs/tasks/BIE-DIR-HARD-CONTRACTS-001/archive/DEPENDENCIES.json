@@ -1,0 +1,34 @@
+{
+  "task_id": "BIE-DIR-HARD-CONTRACTS-001",
+  "depends_on_task_ids": [
+    "BIE-DIR-LESSON-001",
+    "BIE-DIR-LESSON-002",
+    "BIE-DIR-LESSON-003",
+    "BIE-DIR-LESSON-004",
+    "BIE-DIR-LESSON-005",
+    "BIE-DIR-LESSON-006",
+    "BIE-DIR-LESSON-007",
+    "BIE-DIR-LESSON-008",
+    "BIE-DIR-LESSON-009",
+    "BIE-DIR-LESSON-010",
+    "BIE-DIR-SCRIPT-001",
+    "BIE-DIR-SCRIPT-002",
+    "BIE-DIR-SCRIPT-003",
+    "BIE-DIR-SCRIPT-004",
+    "BIE-DIR-SCRIPT-005",
+    "BIE-DIR-SCRIPT-006",
+    "BIE-DIR-SCRIPT-007",
+    "BIE-DIR-SCRIPT-008",
+    "BIE-DIR-SCRIPT-009",
+    "BIE-DIR-SCRIPT-010",
+    "BIE-DIR-TIME-005"
+  ],
+  "canonical_file_dependencies": [],
+  "initializers": [
+    "bie/__init__.py",
+    "bie/director/__init__.py"
+  ],
+  "runtime": "Python 3.10+ standard library, verified on 3.12.14",
+  "recommended_runnable_delivery": "BIE_DIR_HARDENING_BATCH_007_CONTRACTS_SEMANTIC.zip",
+  "ordering": "Extract original task dependency closure first, then each hardening overlay in dependency order; do not overwrite hardening with old originals."
+}

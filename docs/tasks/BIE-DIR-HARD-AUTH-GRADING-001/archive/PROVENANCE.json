@@ -1,0 +1,33 @@
+{
+  "task_id": "BIE-DIR-HARD-AUTH-GRADING-001",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "task_files": [
+    {
+      "path": "bie/director/authenticated_assessment.py",
+      "sha256": "808bc883e389995e345f52843c3ab331a74ee0f0d72411b47dbceea6c1039efb"
+    },
+    {
+      "path": "bie/director/teaching_context.py",
+      "sha256": "3957b9da4ddf8ff142d2519ac515832573bf8ad40c0a4a58fe92e797a4e2dff3"
+    },
+    {
+      "path": "tests/director/test_hard_authenticated_grading_001.py",
+      "sha256": "5ad9a5d8e06338b2cd84c3942ac72939e4c6b20e79079627024c056ef7cd0baa"
+    },
+    {
+      "path": "COMPLETION_CONTRACTS.md",
+      "sha256": "aa19446995c9ba8630cc32ef817443ea38fe1eeae533e86f8b317084726b7397"
+    }
+  ],
+  "intentional_prior_changes": [
+    {
+      "path": "bie/director/teaching_context.py",
+      "task_id": "BIE-DIR-HARD-AUTH-GRADING-001",
+      "before_sha256": "a65062011d98cd1be5ca00eee3f4419408e9d5482e3b423f216210aee4b7cf4f",
+      "after_sha256": "3957b9da4ddf8ff142d2519ac515832573bf8ad40c0a4a58fe92e797a4e2dff3",
+      "before_copy": "before_completion/bie/director/teaching_context.py"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "original_867_ledger_unchanged": true
+}

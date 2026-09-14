@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "file": "tests/director/test_hard_authenticated_grading_001.py",
+      "sha256": "5ad9a5d8e06338b2cd84c3942ac72939e4c6b20e79079627024c056ef7cd0baa",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_context_consumes_authenticated_grade_without_calling_it_mastery_proof (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_context_consumes_authenticated_grade_without_calling_it_mastery_proof) ... ok\ntest_every_signed_payload_field_is_rebound_during_read (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_every_signed_payload_field_is_rebound_during_read) ... ok\ntest_expired_or_future_grade_is_rejected_before_verifier_call (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_expired_or_future_grade_is_rejected_before_verifier_call) ... ok\ntest_identity_subject_grade_and_assurance_must_match (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_identity_subject_grade_and_assurance_must_match) ... ok\ntest_reliability_and_score_are_bounded (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_reliability_and_score_are_bounded) ... ok\ntest_signature_is_binary_and_bounded (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_signature_is_binary_and_bounded) ... ok\ntest_source_run_and_event_ancestry_are_enforced (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_source_run_and_event_ancestry_are_enforced) ... ok\ntest_verified_identity_binds_exact_grade_and_response (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_verified_identity_binds_exact_grade_and_response) ... ok\ntest_wrong_issuer_is_rejected (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_wrong_issuer_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.202s\n\nOK\n"
+    }
+  ],
+  "accepted": false
+}

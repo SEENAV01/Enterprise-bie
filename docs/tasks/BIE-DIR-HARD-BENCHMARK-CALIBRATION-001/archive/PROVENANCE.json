@@ -1,0 +1,61 @@
+{
+  "task_id": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "task_files": [
+    {
+      "path": "bie/director/provider_calibration.py",
+      "sha256": "53adb90db16372ecb3d1ddd8813f52d024203aebcf1eb82f722e4ce4ebaad07f"
+    },
+    {
+      "path": "bie/director/director_benchmark.py",
+      "sha256": "d022e2b5fb980e5da6c3e4fa2fe2f48ee08e3d811faf06c5097a49a452075f07"
+    },
+    {
+      "path": "examples/provider_calibration_plan.py",
+      "sha256": "df91e218416e49d746a9d5087388eefa4135146eec6b701cff55c8105fa1e8f4"
+    },
+    {
+      "path": "examples/director_benchmark.py",
+      "sha256": "484015768bffab865c5b03d204b223c6433c887f157d4b21a81ff984f51386d0"
+    },
+    {
+      "path": "benchmarks/director_controlled_v1.json",
+      "sha256": "a6e908ef33e779c83b6b0cb6adbf4012db0fc91a32341ce381e1d25f6568d6c6"
+    },
+    {
+      "path": "tests/director/test_hard_benchmark_calibration_001.py",
+      "sha256": "bd7b35738f815613ccbd52ae58fb8f5dea6038962a0b1eb1ed644caa5a4278e8"
+    },
+    {
+      "path": "scripts/check_dir_completion.py",
+      "sha256": "8c69f8976f579284a1c278d253c52b772620b0e22e095e2df538c3c81a043469"
+    },
+    {
+      "path": "COMPLETION_CONTRACTS.md",
+      "sha256": "aa19446995c9ba8630cc32ef817443ea38fe1eeae533e86f8b317084726b7397"
+    },
+    {
+      "path": "ADR-DIR-COMPLETION-014.md",
+      "sha256": "0eafc8dc8ccb7259c7a20bd7b9c441a354fe2d1e5f960b2c7964e4ae5fbf0037"
+    },
+    {
+      "path": "CAPABILITY_AUDIT.md",
+      "sha256": "7d75ab22d5894319e420c1458225f7aa75f682017ec53c6b8a2a6504726ab31f"
+    },
+    {
+      "path": "SECTION_EXIT_REVIEW.md",
+      "sha256": "2d8ac114144c60a944edf826fc119f2b288c69dbc0bafd9a595d2f4a8dccac56"
+    }
+  ],
+  "intentional_prior_changes": [
+    {
+      "path": "bie/director/director_benchmark.py",
+      "task_id": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+      "before_sha256": "87156e28cd0f53805a256824fe0eba62c7e5d1868c14e6182628a7000f247b80",
+      "after_sha256": "d022e2b5fb980e5da6c3e4fa2fe2f48ee08e3d811faf06c5097a49a452075f07",
+      "before_copy": "before_completion/bie/director/director_benchmark.py"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "original_867_ledger_unchanged": true
+}

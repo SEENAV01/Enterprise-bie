@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-QA-007",
+  "title": "director benchmark",
+  "classification": "ORIGINAL ROADMAP L1",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_QA_007.zip",
+  "archive_sha256": "8a1f2d564443515c7db556792066564f7ef9f1d9302a647c1923f6bf8a4ba628",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_benchmark.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_qa_007.py"
+  ],
+  "declared_atomic_tests": 22,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

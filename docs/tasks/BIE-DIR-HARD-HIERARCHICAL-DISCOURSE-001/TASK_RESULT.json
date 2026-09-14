@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+  "title": "Hierarchical discourse annotation and independent review",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_HIERARCHICAL_DISCOURSE_001.zip",
+  "archive_sha256": "271946460075276d961023e158faa389b0c13098ced40354dae97488a5c1dfc8",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/annotation_review.py",
+    "bie/director/hierarchical_annotation_review.py",
+    "bie/director/hierarchical_annotations.py",
+    "bie/director/narration_annotations.py",
+    "bie/director/recovery_codec.py",
+    "bie/director/scene_correction.py",
+    "bie/director/windowed_annotation_review.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_hierarchical_discourse_001.py",
+    "tests/director/test_hard_hierarchical_review_001.py"
+  ],
+  "declared_atomic_tests": 18,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

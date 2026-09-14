@@ -1,0 +1,291 @@
+{
+  "task_id": "BIE-DIR-HARD-CONTRACTS-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/assessment_prompts.py",
+      "sha256": "7fd9fe9f2a5241c7785b0c8ec2e061254fca9d6c26b7fa84952e250faa214999"
+    },
+    {
+      "path": "bie/director/curiosity_gaps.py",
+      "sha256": "93878be9c6ae4ca6fd74f2e4b38143633b2d7a712b854945ef1c48dc183a173a"
+    },
+    {
+      "path": "bie/director/demonstration_narration.py",
+      "sha256": "ee2f1d4d69e6d568f64f2a260b81306e8cef28714c5042a1e8abaca294eeb0f2"
+    },
+    {
+      "path": "bie/director/derivation_narration.py",
+      "sha256": "47ce31601f576552f9a8bf95ef565f687aac6e882e4d6d15a30c9178bdb1775d"
+    },
+    {
+      "path": "bie/director/dialogue_generation.py",
+      "sha256": "c8a2b4692d496db6db28d019d7a5375499212d5d4ef874795aa3110ae4c003db"
+    },
+    {
+      "path": "bie/director/emphasis_plan.py",
+      "sha256": "50d2589763934fdc28c9662cb6adb3952c07e7969f1b24f37a532e5a09b9a54a"
+    },
+    {
+      "path": "bie/director/game_handoff.py",
+      "sha256": "28971e6e7b3d3f0b1b23a9e55acc3ac1add1b242290218c790b49ad734804855"
+    },
+    {
+      "path": "bie/director/hook_strategy.py",
+      "sha256": "5d6470da12c0571aa6ee4ab47404ae6358c0de11f2e04115a82316e80039ed6c"
+    },
+    {
+      "path": "bie/director/lesson_architecture_contract.py",
+      "sha256": "7e60312e0c81982b4992d526dc9a78475c5c64a9668787a9919e71d1abbf7778"
+    },
+    {
+      "path": "bie/director/misconception_dialogue.py",
+      "sha256": "88466f27e4522f27f7337634c79607fe3d8d697002d3b8dcf49c275318d09773"
+    },
+    {
+      "path": "bie/director/narrative_arc.py",
+      "sha256": "8f9e484351730e49950500d07c70cb729dce1cacc2dc0928a2579142adf4b84f"
+    },
+    {
+      "path": "bie/director/pacing_plan.py",
+      "sha256": "bbc1bc10926d4f91a23f067798b236893674920e7220e208f0da92cf6f94122c"
+    },
+    {
+      "path": "bie/director/payoff_structure.py",
+      "sha256": "ad1295045402ac4aef0cd7a4dad9b9251d2d30746184becd595c1927b2dfb50c"
+    },
+    {
+      "path": "bie/director/persona_selection.py",
+      "sha256": "f282189bfb588ce218ada78642d57d6208d0477112a80dbbc7ba466a77bd79dd"
+    },
+    {
+      "path": "bie/director/recap_strategy.py",
+      "sha256": "eafae6ecd382324b7154cb0ef708fb5edc889fee73f4afc9a773a65364f81493"
+    },
+    {
+      "path": "bie/director/scene_purpose_planning.py",
+      "sha256": "47b07edd42091a07aba7ebe7c79efde1087ed77f51e3d28d12ebf719239e139d"
+    },
+    {
+      "path": "bie/director/script_plan.py",
+      "sha256": "3e6c1aa63aeb08063012848ec99658e3894fd027a632499f818fa6dd1ad5c3f2"
+    },
+    {
+      "path": "bie/director/socratic_dialogue.py",
+      "sha256": "6e5129b551ab70c1862e3a050b327ebe0b8e5778bfa315ef4518a61153cbf30c"
+    },
+    {
+      "path": "bie/director/transition_strategy.py",
+      "sha256": "58c28e61170cf8f9af6d16b7b9f19c5d9eb2f7593c7d99fbccfa8605f5047f15"
+    },
+    {
+      "path": "bie/director/voiceover_generation.py",
+      "sha256": "f6cc5098c8b896f66af44fdbba54215845bd03db4e55fa748b5cf6519ef1f64e"
+    },
+    {
+      "path": "bie/director/contract_validation.py",
+      "sha256": "ca7ab57f097318a9c79f31d3da49c8c4f3556d023615fdadd0b1819fcccd8e3f"
+    },
+    {
+      "path": "tests/director/test_hard_contracts_001.py",
+      "sha256": "4dd0b67bc44dfeb2b291830fa22abd402d412fc8e32e3fd95fc590c91478d370"
+    },
+    {
+      "path": "tests/director/test_time_contracts.py",
+      "sha256": "87004b2a23ee091a255c85c9e06ace88cf9ec574a2c4a44f08bbacb71e27329d"
+    }
+  ],
+  "intentional_original_changes": [
+    {
+      "path": "bie/director/assessment_prompts.py",
+      "before_sha256": "f7b8316996f10f9d96e338b9e74b51fc6d4d37c36dc4e88e3d2d4771264013a4",
+      "after_sha256": "7fd9fe9f2a5241c7785b0c8ec2e061254fca9d6c26b7fa84952e250faa214999",
+      "before_copy": "verification/before_hardening/bie/director/assessment_prompts.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-009",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/curiosity_gaps.py",
+      "before_sha256": "f16a9def5401216089e590850f98932f79ad5b06e4c163b3350970ff349e19e5",
+      "after_sha256": "93878be9c6ae4ca6fd74f2e4b38143633b2d7a712b854945ef1c48dc183a173a",
+      "before_copy": "verification/before_hardening/bie/director/curiosity_gaps.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-009",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/demonstration_narration.py",
+      "before_sha256": "4ad54c76363b6507fc0807436708ccd51c5680b6bdd55c37e912c0c5d69bc3ff",
+      "after_sha256": "ee2f1d4d69e6d568f64f2a260b81306e8cef28714c5042a1e8abaca294eeb0f2",
+      "before_copy": "verification/before_hardening/bie/director/demonstration_narration.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-006",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/derivation_narration.py",
+      "before_sha256": "7ae05dc639b476e6da4146238af44223622886bde8c901b2858c0f4f43266a01",
+      "after_sha256": "47ce31601f576552f9a8bf95ef565f687aac6e882e4d6d15a30c9178bdb1775d",
+      "before_copy": "verification/before_hardening/bie/director/derivation_narration.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-007",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/dialogue_generation.py",
+      "before_sha256": "1a16e234c5f832437d0ff858a522a09fcce1f41408aba677c6e00ace34cb2e99",
+      "after_sha256": "c8a2b4692d496db6db28d019d7a5375499212d5d4ef874795aa3110ae4c003db",
+      "before_copy": "verification/before_hardening/bie/director/dialogue_generation.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-003",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/emphasis_plan.py",
+      "before_sha256": "5bdbdfb5ee2766fe7e08c373c0757fc92d233e3aa52dd0c02a084fb1bfeee390",
+      "after_sha256": "50d2589763934fdc28c9662cb6adb3952c07e7969f1b24f37a532e5a09b9a54a",
+      "before_copy": "verification/before_hardening/bie/director/emphasis_plan.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-008",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/game_handoff.py",
+      "before_sha256": "c06833239a6b704cae4bb380b5bc96acb4febbfce1e6775382a4e2dc9e8f48f5",
+      "after_sha256": "28971e6e7b3d3f0b1b23a9e55acc3ac1add1b242290218c790b49ad734804855",
+      "before_copy": "verification/before_hardening/bie/director/game_handoff.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-010",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/hook_strategy.py",
+      "before_sha256": "7a9a41ebc53651215f5b251a0603c0d6b38ceaeee0797da55a7591bdef89316f",
+      "after_sha256": "5d6470da12c0571aa6ee4ab47404ae6358c0de11f2e04115a82316e80039ed6c",
+      "before_copy": "verification/before_hardening/bie/director/hook_strategy.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-004",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/lesson_architecture_contract.py",
+      "before_sha256": "fb1cb2456c5e76d2cfe13ed9a7e539e42e5f0d74ac08449da17b6c38ecce8209",
+      "after_sha256": "7e60312e0c81982b4992d526dc9a78475c5c64a9668787a9919e71d1abbf7778",
+      "before_copy": "verification/before_hardening/bie/director/lesson_architecture_contract.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-001",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/misconception_dialogue.py",
+      "before_sha256": "784e66e5340b66d123e76ef8af06f9a72364a515ba7414e6bbe3a795e7804a19",
+      "after_sha256": "88466f27e4522f27f7337634c79607fe3d8d697002d3b8dcf49c275318d09773",
+      "before_copy": "verification/before_hardening/bie/director/misconception_dialogue.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-008",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/narrative_arc.py",
+      "before_sha256": "4d292cd39a78c7e7387a848e3cdcd8c8a1c6a374516718884c38b629e3242bd2",
+      "after_sha256": "8f9e484351730e49950500d07c70cb729dce1cacc2dc0928a2579142adf4b84f",
+      "before_copy": "verification/before_hardening/bie/director/narrative_arc.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-003",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/pacing_plan.py",
+      "before_sha256": "e23dfcd55e3146880750d9484790c7d609835d12e14b51bc89401a726a2afbc3",
+      "after_sha256": "bbc1bc10926d4f91a23f067798b236893674920e7220e208f0da92cf6f94122c",
+      "before_copy": "verification/before_hardening/bie/director/pacing_plan.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-007",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/payoff_structure.py",
+      "before_sha256": "29e7abdbfa080bb4e792ec99e21101d771306a3214c3dd48d85013331d605af9",
+      "after_sha256": "ad1295045402ac4aef0cd7a4dad9b9251d2d30746184becd595c1927b2dfb50c",
+      "before_copy": "verification/before_hardening/bie/director/payoff_structure.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-010",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/persona_selection.py",
+      "before_sha256": "0ba9fe6e318918bb0a8b18394d38e8ab66d232ef9e7b3060a0e4f94b40a8e8e0",
+      "after_sha256": "f282189bfb588ce218ada78642d57d6208d0477112a80dbbc7ba466a77bd79dd",
+      "before_copy": "verification/before_hardening/bie/director/persona_selection.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-004",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/recap_strategy.py",
+      "before_sha256": "a2c625e10a6f87259b4a7af22f78e0d06ba0a18921c22d509f4d6ebb62c9e3e0",
+      "after_sha256": "eafae6ecd382324b7154cb0ef708fb5edc889fee73f4afc9a773a65364f81493",
+      "before_copy": "verification/before_hardening/bie/director/recap_strategy.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-006",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/scene_purpose_planning.py",
+      "before_sha256": "aebd06dd3b38ebf2fa94d340039653bc8815305857758afb5f1230894c7cb984",
+      "after_sha256": "47b07edd42091a07aba7ebe7c79efde1087ed77f51e3d28d12ebf719239e139d",
+      "before_copy": "verification/before_hardening/bie/director/scene_purpose_planning.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-002",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/script_plan.py",
+      "before_sha256": "8e80b9f80028989723c74c78e3e4b451a1fe431d5c4a487dfd08085c883f22c3",
+      "after_sha256": "3e6c1aa63aeb08063012848ec99658e3894fd027a632499f818fa6dd1ad5c3f2",
+      "before_copy": "verification/before_hardening/bie/director/script_plan.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-001",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/socratic_dialogue.py",
+      "before_sha256": "f534ab2edbe0dcfc429d0f22b198f2d70e95258c8e23f56bed5cbfc10313e10b",
+      "after_sha256": "6e5129b551ab70c1862e3a050b327ebe0b8e5778bfa315ef4518a61153cbf30c",
+      "before_copy": "verification/before_hardening/bie/director/socratic_dialogue.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-005",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/transition_strategy.py",
+      "before_sha256": "700a4cc46e61ae89043ab616ba0c7c70615f4642d651cf2dde35323caa488bd6",
+      "after_sha256": "58c28e61170cf8f9af6d16b7b9f19c5d9eb2f7593c7d99fbccfa8605f5047f15",
+      "before_copy": "verification/before_hardening/bie/director/transition_strategy.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-LESSON-005",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "bie/director/voiceover_generation.py",
+      "before_sha256": "465fd22952b9eb457897ed28509923656a3124f60623490625e3f8fbf0765514",
+      "after_sha256": "f6cc5098c8b896f66af44fdbba54215845bd03db4e55fa748b5cf6519ef1f64e",
+      "before_copy": "verification/before_hardening/bie/director/voiceover_generation.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": "BIE-DIR-SCRIPT-002",
+      "change_kind": "PRODUCER_BOUNDARY_HARDENING"
+    },
+    {
+      "path": "tests/director/test_time_contracts.py",
+      "before_sha256": "a3fd068c25993b172fea7f2dae73a064e8ad3eee56d3e3e8efd0c0afb34661f3",
+      "after_sha256": "87004b2a23ee091a255c85c9e06ace88cf9ec574a2c4a44f08bbacb71e27329d",
+      "before_copy": "verification/before_hardening/tests/director/test_time_contracts.py",
+      "hardening_task_id": "BIE-DIR-HARD-CONTRACTS-001",
+      "original_task_id": null,
+      "change_kind": "REGRESSION_FIXTURE_ADAPTED_WITH_DOWNSTREAM_ASSERTION_RETAINED"
+    }
+  ],
+  "canonical_dependencies": [],
+  "original_archives_immutable": true
+}

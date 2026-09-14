@@ -1,0 +1,271 @@
+{
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "original_checkpoint": "BIE-DIR-QA-007",
+  "original_DIR_entries": 37,
+  "prior_hardening_entries": 14,
+  "new_hardening_entries": 8,
+  "hardening_checkpoint": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+  "section_implementation_complete": true,
+  "accepted": false,
+  "tasks": [
+    {
+      "task_id": "BIE-DIR-HARD-RICH-CODECS-001",
+      "title": "Source-bound rich teaching codecs",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-GLOBAL-REVIEW-001"
+      ],
+      "task_files": [
+        "bie/director/rich_teaching.py",
+        "bie/director/teaching_context.py",
+        "bie/director/context_bridges.py",
+        "bie/director/contextual_teaching.py",
+        "tests/director/completion_fixtures.py",
+        "tests/director/test_hard_rich_codecs_001.py",
+        "COMPLETION_CONTRACTS.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_rich_codecs_001.py"
+      ],
+      "tests_passed": 8,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_RICH_CODECS_001.zip",
+      "archive_sha256": "155a3a4a24d27d4501fa076b578b17e2774e58fb3e5632d13949743fcfdfb053",
+      "archive_member_count": 12
+    },
+    {
+      "task_id": "BIE-DIR-HARD-AUTH-GRADING-001",
+      "title": "Authenticated grading receipt boundary",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-RICH-CODECS-001"
+      ],
+      "task_files": [
+        "bie/director/authenticated_assessment.py",
+        "bie/director/teaching_context.py",
+        "tests/director/test_hard_authenticated_grading_001.py",
+        "COMPLETION_CONTRACTS.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_authenticated_grading_001.py"
+      ],
+      "tests_passed": 9,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_AUTH_GRADING_001.zip",
+      "archive_sha256": "1eca33e585395ab24bf26f5cc1d6686375b3932c545270c110bc0ea70455fcbf",
+      "archive_member_count": 10
+    },
+    {
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "title": "Grounded rich teaching realization",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-AUTH-GRADING-001"
+      ],
+      "task_files": [
+        "bie/director/context_bridges.py",
+        "bie/director/context_windows.py",
+        "bie/director/contextual_teaching.py",
+        "bie/director/rich_teaching.py",
+        "bie/director/teaching_context.py",
+        "tests/director/completion_fixtures.py",
+        "tests/director/test_hard_teaching_modes_001.py",
+        "COMPLETION_CONTRACTS.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_teaching_modes_001.py"
+      ],
+      "tests_passed": 8,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_TEACHING_MODES_001.zip",
+      "archive_sha256": "9dd349804b6985dc7a174f3f75e2ce9af01c9f49526dc9a163aee0c78b5bd84e",
+      "archive_member_count": 16
+    },
+    {
+      "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+      "title": "Hierarchical discourse annotation and independent review",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-TEACHING-MODES-001"
+      ],
+      "task_files": [
+        "bie/director/hierarchical_annotations.py",
+        "bie/director/hierarchical_annotation_review.py",
+        "bie/director/narration_annotations.py",
+        "bie/director/annotation_review.py",
+        "bie/director/recovery_codec.py",
+        "bie/director/windowed_annotation_review.py",
+        "bie/director/scene_correction.py",
+        "tests/director/completion_fixtures.py",
+        "tests/director/test_hard_hierarchical_discourse_001.py",
+        "tests/director/test_hard_hierarchical_review_001.py",
+        "COMPLETION_CONTRACTS.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_hierarchical_discourse_001.py",
+        "tests/director/test_hard_hierarchical_review_001.py"
+      ],
+      "tests_passed": 18,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_HIERARCHICAL_DISCOURSE_001.zip",
+      "archive_sha256": "271946460075276d961023e158faa389b0c13098ced40354dae97488a5c1dfc8",
+      "archive_member_count": 18
+    },
+    {
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "title": "Scene-local correction and selective local annotation reuse",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001"
+      ],
+      "task_files": [
+        "bie/director/scene_correction.py",
+        "bie/director/selective_repair.py",
+        "bie/director/annotated_directing.py",
+        "bie/director/narration_annotations.py",
+        "bie/director/recovery_codec.py",
+        "tests/director/completion_fixtures.py",
+        "tests/director/test_hard_scene_correction_001.py",
+        "tests/director/test_hard_selective_annotation_reuse_001.py",
+        "COMPLETION_CONTRACTS.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_scene_correction_001.py",
+        "tests/director/test_hard_selective_annotation_reuse_001.py"
+      ],
+      "tests_passed": 15,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_SCENE_CORRECTION_001.zip",
+      "archive_sha256": "b4367e964ed5c43b720b16776fd13ecd7ab898f594c070659b4ffdfd99469637",
+      "archive_member_count": 18
+    },
+    {
+      "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+      "title": "Durable catalog and fenced crash recovery",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-SCENE-CORRECTION-001"
+      ],
+      "task_files": [
+        "bie/director/director_durable_recovery.py",
+        "bie/director/director_executor.py",
+        "bie/director/director_revisions.py",
+        "tests/director/test_hard_durable_recovery_001.py",
+        "COMPLETION_CONTRACTS.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_durable_recovery_001.py"
+      ],
+      "tests_passed": 8,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_DURABLE_RECOVERY_001.zip",
+      "archive_sha256": "431b1211f080af625c962a949919fa19fafa6b3432faee277ebeedcfab53ebc5",
+      "archive_member_count": 12
+    },
+    {
+      "task_id": "BIE-DIR-HARD-PRODUCTION-ADOPTION-001",
+      "title": "Registered production Director composition",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-DURABLE-RECOVERY-001"
+      ],
+      "task_files": [
+        "bie/director/production_adoption.py",
+        "bie/director/director_durable_recovery.py",
+        "bie/director/director_executor.py",
+        "bie/director/director_revisions.py",
+        "bie/director/selective_repair.py",
+        "bie/director/scene_correction.py",
+        "tests/director/completion_fixtures.py",
+        "tests/director/test_hard_production_adoption_001.py",
+        "COMPLETION_CONTRACTS.md",
+        "ADR-DIR-COMPLETION-014.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_production_adoption_001.py"
+      ],
+      "tests_passed": 8,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_PRODUCTION_ADOPTION_001.zip",
+      "archive_sha256": "dfcc0283280a583576f015805decc903fec4f77f88bbc3680e1b1196fc7b3d88",
+      "archive_member_count": 15
+    },
+    {
+      "task_id": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+      "title": "Independent benchmark release and provider calibration boundary",
+      "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+      "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+      "accepted": false,
+      "DIR_section_implementation_complete": true,
+      "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+      "github_integration": "READY_AFTER_COMBINED_GATE",
+      "depends_on_task_ids": [
+        "BIE-DIR-HARD-PRODUCTION-ADOPTION-001"
+      ],
+      "task_files": [
+        "bie/director/provider_calibration.py",
+        "bie/director/director_benchmark.py",
+        "examples/provider_calibration_plan.py",
+        "examples/director_benchmark.py",
+        "benchmarks/director_controlled_v1.json",
+        "tests/director/test_hard_benchmark_calibration_001.py",
+        "scripts/check_dir_completion.py",
+        "COMPLETION_CONTRACTS.md",
+        "ADR-DIR-COMPLETION-014.md",
+        "CAPABILITY_AUDIT.md",
+        "SECTION_EXIT_REVIEW.md"
+      ],
+      "test_files": [
+        "tests/director/test_hard_benchmark_calibration_001.py"
+      ],
+      "tests_passed": 9,
+      "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+      "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result.",
+      "archive": "BIE_DIR_HARD_BENCHMARK_CALIBRATION_001.zip",
+      "archive_sha256": "5b1a00738cde8db71684d0e837624185f4d93371765cb31b321dba584651709a",
+      "archive_member_count": 17
+    }
+  ]
+}

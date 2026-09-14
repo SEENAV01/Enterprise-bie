@@ -1,0 +1,28 @@
+{
+  "task_id": "BIE-DIR-HARD-RICH-CODECS-001",
+  "title": "Source-bound rich teaching codecs",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "DIR_section_implementation_complete": true,
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "github_integration": "READY_AFTER_COMBINED_GATE",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-GLOBAL-REVIEW-001"
+  ],
+  "task_files": [
+    "bie/director/rich_teaching.py",
+    "bie/director/teaching_context.py",
+    "bie/director/context_bridges.py",
+    "bie/director/contextual_teaching.py",
+    "tests/director/completion_fixtures.py",
+    "tests/director/test_hard_rich_codecs_001.py",
+    "COMPLETION_CONTRACTS.md"
+  ],
+  "test_files": [
+    "tests/director/test_hard_rich_codecs_001.py"
+  ],
+  "tests_passed": 8,
+  "created_at_utc": "2026-09-14T04:39:25.930177+00:00",
+  "scope_limit": "Implemented Director contract only. Live/expert/real-source/learner/render/gameplay evidence remains outside this atomic test result."
+}

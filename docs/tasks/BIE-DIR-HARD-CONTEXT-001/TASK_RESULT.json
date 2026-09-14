@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-CONTEXT-001",
+  "title": "Grounded upstream KI/PR/math/mastery context and explicit PED prerequisite bridges",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_CONTEXT_001.zip",
+  "archive_sha256": "8db6ee0d8beee724387a12cd016d1ce702caeb4d3ce948657c16e875f3aac989",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/context_bridges.py",
+    "bie/director/director_inputs.py",
+    "bie/director/teaching_context.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_context_001.py"
+  ],
+  "declared_atomic_tests": 28,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

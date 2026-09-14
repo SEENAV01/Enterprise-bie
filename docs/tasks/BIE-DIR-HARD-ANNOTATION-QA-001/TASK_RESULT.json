@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-ANNOTATION-QA-001",
+  "title": "Separate annotation review, actual QA/timing and existing stage integration",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_ANNOTATION_QA_001.zip",
+  "archive_sha256": "3191c1b1353cfc8ba293bf1717e6411cc030da694e5d5a188fb004a30b5d6526",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/annotated_directing.py",
+    "bie/director/annotation_review.py",
+    "bie/director/director_executor.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_annotation_integration.py",
+    "tests/director/test_hard_annotation_qa_001.py"
+  ],
+  "declared_atomic_tests": 27,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

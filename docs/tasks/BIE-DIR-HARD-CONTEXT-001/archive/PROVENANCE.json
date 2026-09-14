@@ -1,0 +1,41 @@
+{
+  "task_id": "BIE-DIR-HARD-CONTEXT-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/teaching_context.py",
+      "sha256": "a65062011d98cd1be5ca00eee3f4419408e9d5482e3b423f216210aee4b7cf4f"
+    },
+    {
+      "path": "bie/director/context_bridges.py",
+      "sha256": "27e5fe95cca11c3f0fb8bbf00405c0fa2b854d762ef4c53f5c07ee8151d9c46b"
+    },
+    {
+      "path": "bie/director/director_inputs.py",
+      "sha256": "dbf6706ff33a1749a2c4399707144086ec4fa44724a71fd548889e6cd2cc974e"
+    },
+    {
+      "path": "tests/director/context_fixtures.py",
+      "sha256": "2e4306b57993267836d490c3c6e49a91e703180120ff85df9e811f8aaacc60fe"
+    },
+    {
+      "path": "tests/director/test_hard_context_001.py",
+      "sha256": "318802ebd0172a8b5a899bd4a65929730e328c0d0a764d4c7e7710631dc821b1"
+    },
+    {
+      "path": "ADR-DIR-CONTEXT-011.md",
+      "sha256": "bef1a7c39cbad18fe62896ab57225174d700d00bb4052a8a5098ec912e1bf48a"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/director_inputs.py",
+      "before_sha256": "f380c629dbd78f5a47812de2c4065f97a7cee37c246f2c0aa2e33110ba4795c2",
+      "after_sha256": "dbf6706ff33a1749a2c4399707144086ec4fa44724a71fd548889e6cd2cc974e",
+      "before_copy": "verification/before_context/bie/director/director_inputs.py",
+      "task_id": "BIE-DIR-HARD-CONTEXT-001",
+      "change_kind": "EXISTING_INPUT_GENERATION_ANNOTATION_AND_DECODING_CONTEXT_EXTENSION"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-CONSUMERS-001",
+  "title": "Current typed planning consumers for original DIR timing/sync/game handoff",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_CONSUMERS_001.zip",
+  "archive_sha256": "94473b3f39805ae2da66cf633a7073ea643e8a09956fefdbaa49671b82a0440e",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_consumers.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_consumers_001.py",
+    "tests/director/test_repair_integration.py"
+  ],
+  "declared_atomic_tests": 18,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

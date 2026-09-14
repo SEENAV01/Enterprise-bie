@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+  "title": "Durable catalog and fenced crash recovery",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_DURABLE_RECOVERY_001.zip",
+  "archive_sha256": "431b1211f080af625c962a949919fa19fafa6b3432faee277ebeedcfab53ebc5",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_durable_recovery.py",
+    "bie/director/director_executor.py",
+    "bie/director/director_revisions.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_durable_recovery_001.py"
+  ],
+  "declared_atomic_tests": 8,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

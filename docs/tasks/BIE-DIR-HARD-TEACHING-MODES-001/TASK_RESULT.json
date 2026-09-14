@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+  "title": "Grounded rich teaching realization",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_TEACHING_MODES_001.zip",
+  "archive_sha256": "9dd349804b6985dc7a174f3f75e2ce9af01c9f49526dc9a163aee0c78b5bd84e",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/context_bridges.py",
+    "bie/director/context_windows.py",
+    "bie/director/contextual_teaching.py",
+    "bie/director/rich_teaching.py",
+    "bie/director/teaching_context.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_teaching_modes_001.py"
+  ],
+  "declared_atomic_tests": 8,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

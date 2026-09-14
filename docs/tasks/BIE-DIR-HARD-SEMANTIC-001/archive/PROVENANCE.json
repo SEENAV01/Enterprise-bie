@@ -1,0 +1,46 @@
+{
+  "task_id": "BIE-DIR-HARD-SEMANTIC-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/semantic_execution.py",
+      "sha256": "367bb3d1e52e2c8feee254c18968a4dbd175b0f923b0a6b0e368df28d78c8fe0"
+    },
+    {
+      "path": "tests/director/test_hard_semantic_001.py",
+      "sha256": "d8883412fb2469bfa158dc6139f82132fdf36f2167c0b6b4681c6f29553ce369"
+    },
+    {
+      "path": "tests/director/semantic_fixtures.py",
+      "sha256": "8b3293984bfe8d5e0ddf745d75a55405aa472fa21869391a2f08b03d0707d1ae"
+    },
+    {
+      "path": "tests/director/test_hard_integration.py",
+      "sha256": "36204e379a6f80d0b770b50565bc066b9d2f3f19b889d2321cc0c16f4cbad02d"
+    },
+    {
+      "path": "examples/semantic_qa_walkthrough.py",
+      "sha256": "e56bbf072d712b91aeae082dfcea8a84ccef1c57ad9f0f42e092d4c06a7bc80d"
+    }
+  ],
+  "intentional_original_changes": [],
+  "canonical_dependencies": [
+    {
+      "path": "bie/model_gateway/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "bie/model_gateway/gpt_adapter.py",
+      "sha256": "401f3f5ea77d40a09dc15b18577e6a9645918c4fec2b15cd98b98c080db20a76"
+    },
+    {
+      "path": "bie/model_gateway/model_interface.py",
+      "sha256": "4027061d8d9c1950d76248dbaefffcb1d2039719591b6e565b2fcd0c3a708ff8"
+    },
+    {
+      "path": "bie/model_gateway/schema_validation.py",
+      "sha256": "cf3740af1c6ced8b473a37b6ba8c1afcfe5f8fa679d6e525c7717416d1ebe4b2"
+    }
+  ],
+  "original_archives_immutable": true
+}

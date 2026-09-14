@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "task_id": "BIE-DIR-HARD-RICH-CODECS-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_rich_codecs_001.py",
+          "tests": 8,
+          "exit_code": 0,
+          "log": "test_all_five_typed_codecs_compile_to_exact_obligations (test_hard_rich_codecs_001.RichCodecTests.test_all_five_typed_codecs_compile_to_exact_obligations) ... ok\ntest_each_strategy_and_obligation_has_unique_identity (test_hard_rich_codecs_001.RichCodecTests.test_each_strategy_and_obligation_has_unique_identity) ... ok\ntest_lesson_binding_retains_only_selected_grounded_concepts (test_hard_rich_codecs_001.RichCodecTests.test_lesson_binding_retains_only_selected_grounded_concepts) ... ok\ntest_persisted_rich_compilation_is_recomputed_on_load (test_hard_rich_codecs_001.RichCodecTests.test_persisted_rich_compilation_is_recomputed_on_load) ... ok\ntest_plain_context_bytes_and_schema_remain_backward_compatible (test_hard_rich_codecs_001.RichCodecTests.test_plain_context_bytes_and_schema_remain_backward_compatible) ... ok\ntest_source_offsets_are_revalidated_not_just_quote_matched (test_hard_rich_codecs_001.RichCodecTests.test_source_offsets_are_revalidated_not_just_quote_matched) ... ok\ntest_unknown_concept_is_rejected (test_hard_rich_codecs_001.RichCodecTests.test_unknown_concept_is_rejected) ... ok\ntest_worked_example_cannot_omit_steps (test_hard_rich_codecs_001.RichCodecTests.test_worked_example_cannot_omit_steps) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.282s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-AUTH-GRADING-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_authenticated_grading_001.py",
+          "tests": 9,
+          "exit_code": 0,
+          "log": "test_context_consumes_authenticated_grade_without_calling_it_mastery_proof (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_context_consumes_authenticated_grade_without_calling_it_mastery_proof) ... ok\ntest_every_signed_payload_field_is_rebound_during_read (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_every_signed_payload_field_is_rebound_during_read) ... ok\ntest_expired_or_future_grade_is_rejected_before_verifier_call (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_expired_or_future_grade_is_rejected_before_verifier_call) ... ok\ntest_identity_subject_grade_and_assurance_must_match (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_identity_subject_grade_and_assurance_must_match) ... ok\ntest_reliability_and_score_are_bounded (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_reliability_and_score_are_bounded) ... ok\ntest_signature_is_binary_and_bounded (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_signature_is_binary_and_bounded) ... ok\ntest_source_run_and_event_ancestry_are_enforced (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_source_run_and_event_ancestry_are_enforced) ... ok\ntest_verified_identity_binds_exact_grade_and_response (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_verified_identity_binds_exact_grade_and_response) ... ok\ntest_wrong_issuer_is_rejected (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_wrong_issuer_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.241s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001",
+        "BIE-DIR-HARD-TEACHING-MODES-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_teaching_modes_001.py",
+          "tests": 8,
+          "exit_code": 0,
+          "log": "test_actual_director_realizes_all_grounded_strategies_as_separate_beats (test_hard_teaching_modes_001.RichTeachingModeTests.test_actual_director_realizes_all_grounded_strategies_as_separate_beats) ... ok\ntest_assessment_remains_after_rich_teaching (test_hard_teaching_modes_001.RichTeachingModeTests.test_assessment_remains_after_rich_teaching) ... ok\ntest_every_rich_obligation_kind_maps_to_an_existing_director_move (test_hard_teaching_modes_001.RichTeachingModeTests.test_every_rich_obligation_kind_maps_to_an_existing_director_move) ... ok\ntest_multiple_rich_steps_cannot_share_one_claimed_beat (test_hard_teaching_modes_001.RichTeachingModeTests.test_multiple_rich_steps_cannot_share_one_claimed_beat) ... ok\ntest_narration_cannot_use_the_wrong_teaching_move (test_hard_teaching_modes_001.RichTeachingModeTests.test_narration_cannot_use_the_wrong_teaching_move) ... ok\ntest_plan_cannot_drop_a_rich_obligation (test_hard_teaching_modes_001.RichTeachingModeTests.test_plan_cannot_drop_a_rich_obligation) ... ok\ntest_same_rich_contract_works_on_default_nonwindowed_path (test_hard_teaching_modes_001.RichTeachingModeTests.test_same_rich_contract_works_on_default_nonwindowed_path) ... ok\ntest_source_statement_cannot_be_replaced_by_a_generic_activity (test_hard_teaching_modes_001.RichTeachingModeTests.test_source_statement_cannot_be_replaced_by_a_generic_activity) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 1.639s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001",
+        "BIE-DIR-HARD-TEACHING-MODES-001",
+        "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_hierarchical_discourse_001.py",
+          "tests": 10,
+          "exit_code": 0,
+          "log": "test_boundary_cannot_claim_another_edge (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_boundary_cannot_claim_another_edge) ... ok\ntest_complete_speech_is_covered_without_one_global_speech_request (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_complete_speech_is_covered_without_one_global_speech_request) ... ok\ntest_every_interleaf_boundary_receives_an_exact_scope (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_every_interleaf_boundary_receives_an_exact_scope) ... ok\ntest_host_reassembles_and_runs_original_full_validator (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_host_reassembles_and_runs_original_full_validator) ... ok\ntest_indivisible_leaf_overflow_fails_without_truncating_speech (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_indivisible_leaf_overflow_fails_without_truncating_speech) ... ok\ntest_leaf_cannot_omit_an_utterance (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_leaf_cannot_omit_an_utterance) ... ok\ntest_metadata_stripping_cannot_downgrade_hierarchical_record (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_metadata_stripping_cannot_downgrade_hierarchical_record) ... ok\ntest_persisted_hierarchical_evidence_roundtrips_and_revalidates (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_persisted_hierarchical_evidence_roundtrips_and_revalidates) ... ok\ntest_retrieval_scope_cannot_link_an_unselected_utterance (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_retrieval_scope_cannot_link_an_unselected_utterance) ... ok\ntest_three_scene_lesson_executes_deterministic_nonadjacent_retrieval (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_three_scene_lesson_executes_deterministic_nonadjacent_retrieval) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 9.893s\n\nOK\n"
+        },
+        {
+          "test": "tests/director/test_hard_hierarchical_review_001.py",
+          "tests": 8,
+          "exit_code": 0,
+          "log": "test_all_annotation_and_completeness_subjects_are_aggregated (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_all_annotation_and_completeness_subjects_are_aggregated) ... ok\ntest_failed_scope_remains_evidence_and_prevents_trust (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_failed_scope_remains_evidence_and_prevents_trust) ... ok\ntest_issue_in_one_scope_dominates_supported_observations (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_issue_in_one_scope_dominates_supported_observations) ... ok\ntest_no_review_request_contains_the_whole_spoken_lesson_marker (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_no_review_request_contains_the_whole_spoken_lesson_marker) ... ok\ntest_persisted_review_roundtrips_and_revalidates_schedule (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_persisted_review_roundtrips_and_revalidates_schedule) ... ok\ntest_review_policy_can_trust_only_exact_configured_reviewer_key (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_review_policy_can_trust_only_exact_configured_reviewer_key) ... ok\ntest_source_and_matching_hierarchical_scopes_all_execute (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_source_and_matching_hierarchical_scopes_all_execute) ... ok\ntest_stripped_schedule_or_policy_metadata_is_rejected (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_stripped_schedule_or_policy_metadata_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 15.069s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001",
+        "BIE-DIR-HARD-TEACHING-MODES-001",
+        "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+        "BIE-DIR-HARD-SCENE-CORRECTION-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_scene_correction_001.py",
+          "tests": 8,
+          "exit_code": 0,
+          "log": "test_correction_count_budget_fails_before_provider_calls (test_hard_scene_correction_001.SceneCorrectionTests.test_correction_count_budget_fails_before_provider_calls) ... ok\ntest_correction_retains_review_and_never_claims_acceptance (test_hard_scene_correction_001.SceneCorrectionTests.test_correction_retains_review_and_never_claims_acceptance) ... ok\ntest_noop_correction_is_rejected (test_hard_scene_correction_001.SceneCorrectionTests.test_noop_correction_is_rejected) ... ok\ntest_only_named_scene_is_regenerated_and_all_other_bytes_are_reused (test_hard_scene_correction_001.SceneCorrectionTests.test_only_named_scene_is_regenerated_and_all_other_bytes_are_reused) ... ok\ntest_persisted_correction_roundtrips_and_revalidates_actual_requests (test_hard_scene_correction_001.SceneCorrectionTests.test_persisted_correction_roundtrips_and_revalidates_actual_requests) ... ok\ntest_plan_is_immutable_and_whole_lesson_is_recompiled (test_hard_scene_correction_001.SceneCorrectionTests.test_plan_is_immutable_and_whole_lesson_is_recompiled) ... ok\ntest_tampered_reason_changes_request_fingerprint_and_is_rejected (test_hard_scene_correction_001.SceneCorrectionTests.test_tampered_reason_changes_request_fingerprint_and_is_rejected) ... ok\ntest_wrong_evidence_or_scene_identity_exhausts_bounded_retries (test_hard_scene_correction_001.SceneCorrectionTests.test_wrong_evidence_or_scene_identity_exhausts_bounded_retries) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 5.319s\n\nOK\n"
+        },
+        {
+          "test": "tests/director/test_hard_selective_annotation_reuse_001.py",
+          "tests": 7,
+          "exit_code": 0,
+          "log": "test_changed_scene_and_all_discourse_scopes_execute_fresh (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_changed_scene_and_all_discourse_scopes_execute_fresh) ... ok\ntest_persisted_reuse_receipt_roundtrips_and_revalidates (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_persisted_reuse_receipt_roundtrips_and_revalidates) ... ok\ntest_policy_or_identity_change_disables_reuse_by_failing_closed (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_policy_or_identity_change_disables_reuse_by_failing_closed) ... ok\ntest_reuse_attempts_are_not_falsely_counted_as_new_model_calls (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_reuse_attempts_are_not_falsely_counted_as_new_model_calls) ... ok\ntest_reused_local_data_and_fresh_global_data_pass_full_validator (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_reused_local_data_and_fresh_global_data_pass_full_validator) ... ok\ntest_tampered_prior_payload_or_response_is_rejected (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_tampered_prior_payload_or_response_is_rejected) ... ok\ntest_unchanged_scene_local_annotation_reuses_exact_prior_call (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_unchanged_scene_local_annotation_reuses_exact_prior_call) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 20.395s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001",
+        "BIE-DIR-HARD-TEACHING-MODES-001",
+        "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+        "BIE-DIR-HARD-SCENE-CORRECTION-001",
+        "BIE-DIR-HARD-DURABLE-RECOVERY-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_durable_recovery_001.py",
+          "tests": 8,
+          "exit_code": 0,
+          "log": "test_catalog_insert_rolls_back_when_parent_is_unknown (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_insert_rolls_back_when_parent_is_unknown) ... ok\ntest_catalog_rejects_corrupt_journal_and_missing_cas (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_rejects_corrupt_journal_and_missing_cas) ... ok\ntest_catalog_restarts_with_exact_graph_and_cas_bytes (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_restarts_with_exact_graph_and_cas_bytes) ... ok\ntest_completed_lease_is_replayable_but_immutable (test_hard_durable_recovery_001.DurableRecoveryTests.test_completed_lease_is_replayable_but_immutable) ... ok\ntest_coordinator_and_executor_require_durable_catalog_pairing (test_hard_durable_recovery_001.DurableRecoveryTests.test_coordinator_and_executor_require_durable_catalog_pairing) ... ok\ntest_expired_worker_is_reclaimed_with_higher_epoch_and_fence (test_hard_durable_recovery_001.DurableRecoveryTests.test_expired_worker_is_reclaimed_with_higher_epoch_and_fence) ... ok\ntest_live_foreign_worker_cannot_be_stolen (test_hard_durable_recovery_001.DurableRecoveryTests.test_live_foreign_worker_cannot_be_stolen) ... ok\ntest_only_matching_incomplete_idempotency_claim_is_reclaimed (test_hard_durable_recovery_001.DurableRecoveryTests.test_only_matching_incomplete_idempotency_claim_is_reclaimed) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.009s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-PRODUCTION-ADOPTION-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001",
+        "BIE-DIR-HARD-TEACHING-MODES-001",
+        "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+        "BIE-DIR-HARD-SCENE-CORRECTION-001",
+        "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+        "BIE-DIR-HARD-PRODUCTION-ADOPTION-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_production_adoption_001.py",
+          "tests": 8,
+          "exit_code": 0,
+          "log": "test_composition_root_requires_durable_hierarchical_runtime (test_hard_production_adoption_001.ProductionAdoptionTests.test_composition_root_requires_durable_hierarchical_runtime) ... ok\ntest_durable_restart_replays_without_any_provider_call (test_hard_production_adoption_001.ProductionAdoptionTests.test_durable_restart_replays_without_any_provider_call) ... ok\ntest_expired_crashed_running_revision_is_fenced_reclaimed_and_completed (test_hard_production_adoption_001.ProductionAdoptionTests.test_expired_crashed_running_revision_is_fenced_reclaimed_and_completed) ... ok\ntest_mismatched_run_or_repair_shape_fails_before_provider_calls (test_hard_production_adoption_001.ProductionAdoptionTests.test_mismatched_run_or_repair_shape_fails_before_provider_calls) ... ok\ntest_registered_execution_persists_hierarchical_review_only_output_and_consumes_it (test_hard_production_adoption_001.ProductionAdoptionTests.test_registered_execution_persists_hierarchical_review_only_output_and_consumes_it) ... ok\ntest_request_contains_only_upstream_identity_not_hand_authored_directing (test_hard_production_adoption_001.ProductionAdoptionTests.test_request_contains_only_upstream_identity_not_hand_authored_directing) ... ok\ntest_scene_correction_runs_through_registered_executor_and_reuses_unchanged_local_annotation (test_hard_production_adoption_001.ProductionAdoptionTests.test_scene_correction_runs_through_registered_executor_and_reuses_unchanged_local_annotation) ... ok\ntest_upstream_invalidation_stales_current_output_and_all_descendants (test_hard_production_adoption_001.ProductionAdoptionTests.test_upstream_invalidation_stales_current_output_and_all_descendants) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 25.749s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    },
+    {
+      "task_id": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+      "new_dependency_closure": [
+        "BIE-DIR-HARD-RICH-CODECS-001",
+        "BIE-DIR-HARD-AUTH-GRADING-001",
+        "BIE-DIR-HARD-TEACHING-MODES-001",
+        "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+        "BIE-DIR-HARD-SCENE-CORRECTION-001",
+        "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+        "BIE-DIR-HARD-PRODUCTION-ADOPTION-001",
+        "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001"
+      ],
+      "executions": [
+        {
+          "test": "tests/director/test_hard_benchmark_calibration_001.py",
+          "tests": 9,
+          "exit_code": 0,
+          "log": "test_annotation_and_reviewer_identity_must_be_independent (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_annotation_and_reviewer_identity_must_be_independent) ... ok\ntest_failed_candidate_remains_executed_evidence_not_acceptance (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_failed_candidate_remains_executed_evidence_not_acceptance) ... ok\ntest_missing_external_candidate_is_truthfully_not_run (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_missing_external_candidate_is_truthfully_not_run) ... ok\ntest_policy_and_provider_configuration_change_report_identity (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_policy_and_provider_configuration_change_report_identity) ... ok\ntest_release_binds_exact_suite_oracle_and_source_bytes (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_release_binds_exact_suite_oracle_and_source_bytes) ... ok\ntest_signature_is_bounded_and_authority_verifier_can_reject (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_signature_is_bounded_and_authority_verifier_can_reject) ... ok\ntest_signed_controlled_run_executes_but_is_not_live_or_accepted (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_signed_controlled_run_executes_but_is_not_live_or_accepted) ... ok\ntest_source_tampering_fails_before_oracle_or_candidate_execution (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_source_tampering_fails_before_oracle_or_candidate_execution) ... ok\ntest_verifier_identity_and_assurance_are_exact (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_verifier_identity_and_assurance_are_exact) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.347s\n\nOK\n"
+        }
+      ],
+      "task_file_hashes_match": true
+    }
+  ],
+  "scope": "Each atomic task executed from the batch-013 delivery plus declared new-task overlays; no imports from the authoring workspace.",
+  "accepted": false
+}

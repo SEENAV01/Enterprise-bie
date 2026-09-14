@@ -1,0 +1,11 @@
+{
+  "task_id": "BIE-DIR-TIME-001",
+  "depends_on_task_ids": [
+    "BIE-DIR-SCRIPT-001",
+    "BIE-DIR-SCRIPT-002"
+  ],
+  "runtime": "Python 3.10+ standard library; tested on 3.12.14",
+  "initializers": "Use existing canonical initializers; atomic ZIP deliberately does not overwrite them",
+  "recommended_runnable_delivery": "BIE_DIR_ORIGINAL_BATCH_003_TIME_001_005.zip",
+  "dependency_note": "These are implementation dependencies chosen from recovered contracts, not a PDF-specified dependency graph"
+}

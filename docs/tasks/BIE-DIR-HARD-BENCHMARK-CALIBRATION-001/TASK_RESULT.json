@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+  "title": "Independent benchmark release and provider calibration boundary",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_BENCHMARK_CALIBRATION_001.zip",
+  "archive_sha256": "5b1a00738cde8db71684d0e837624185f4d93371765cb31b321dba584651709a",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_benchmark.py",
+    "bie/director/provider_calibration.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_benchmark_calibration_001.py"
+  ],
+  "declared_atomic_tests": 9,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

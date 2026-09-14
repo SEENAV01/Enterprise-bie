@@ -1,0 +1,44 @@
+{
+  "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "task_files": [
+    {
+      "path": "bie/director/director_durable_recovery.py",
+      "sha256": "a5a68514ee1e5c8be1b1602370bab4b791d8c7a4c5085674b4d27e7d704fd1be"
+    },
+    {
+      "path": "bie/director/director_executor.py",
+      "sha256": "4efab7e440cda1e0ab0dbd49ef65dde5a8b616e6439a93a875e7342e042db293"
+    },
+    {
+      "path": "bie/director/director_revisions.py",
+      "sha256": "1920285d4e4a467ad61568acf8b0d8e119d0aff0d954178fc9818eebfc393453"
+    },
+    {
+      "path": "tests/director/test_hard_durable_recovery_001.py",
+      "sha256": "eb6eeacaffabb634f7fdac6dd0e4ed825869febe1e3a2f0a7d6d139728b22d05"
+    },
+    {
+      "path": "COMPLETION_CONTRACTS.md",
+      "sha256": "aa19446995c9ba8630cc32ef817443ea38fe1eeae533e86f8b317084726b7397"
+    }
+  ],
+  "intentional_prior_changes": [
+    {
+      "path": "bie/director/director_executor.py",
+      "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+      "before_sha256": "e09b11426fe5d4b7c357e199bfc7ce6fe4730e0c24789d9f815f06ce9f9ba3e0",
+      "after_sha256": "4efab7e440cda1e0ab0dbd49ef65dde5a8b616e6439a93a875e7342e042db293",
+      "before_copy": "before_completion/bie/director/director_executor.py"
+    },
+    {
+      "path": "bie/director/director_revisions.py",
+      "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+      "before_sha256": "57ad0878b53707cd3879d6eefeeb09c0de27a0b3ee05ce7c39ed323334f5c556",
+      "after_sha256": "1920285d4e4a467ad61568acf8b0d8e119d0aff0d954178fc9818eebfc393453",
+      "before_copy": "before_completion/bie/director/director_revisions.py"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "original_867_ledger_unchanged": true
+}

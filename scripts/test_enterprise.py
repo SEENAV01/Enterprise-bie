@@ -11,6 +11,10 @@ SOURCE=ROOT/'bie'
 sys.dont_write_bytecode=True
 # Working imports are normalized to bie.*; historical snapshots never enter sys.path.
 sys.path.insert(0, str(ROOT))
+# DIR contract tests intentionally share task-qualified fixture modules.  Only
+# the active canonical test fixture directory is importable; ZIP snapshots are
+# never placed on sys.path.
+sys.path.insert(0, str(ROOT/'tests/director'))
 
 def main():
     parser=argparse.ArgumentParser()
@@ -23,6 +27,7 @@ def main():
     if not args.batch:
         paths += sorted((ROOT/'tests/reasoning').rglob('test*.py'))
         paths += sorted((ROOT/'tests/pedagogy').rglob('test*.py'))
+        paths += sorted((ROOT/'tests/director').rglob('test*.py'))
         paths += sorted((ROOT/'tests/assembly').rglob('test*.py'))
     if not paths:raise SystemExit('No tests discovered')
     results=[];start=time.monotonic()

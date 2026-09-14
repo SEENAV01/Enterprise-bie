@@ -1,0 +1,731 @@
+--- before/bie/director/annotated_directing.py
++++ after/bie/director/annotated_directing.py
+@@ -72,10 +72,10 @@
+         return {'schema_version':'bie.dir.annotation_runtime/1.0.0','annotator':asdict(self.annotator_identity),
+             'reviewer':asdict(self.reviewer_identity),'annotation_policy':asdict(self.policy),'review_policy':asdict(self.review_policy)}
+ 
+-    def enrich(self,io,inputs,base,factual_provider,factual_identity,semantic_policy):
++    def enrich(self,io,inputs,base,factual_provider,factual_identity,semantic_policy,*,reuse=None):
+         self.validate()
+         if base.status=='BLOCKED':raise DirectingFailure('ANNOTATION_REQUIRES_NONBLOCKED_BASE',base.generation_attempts,'DIR_QA')
+-        try:production=produce_annotations(io,inputs,base,self.annotator,self.annotator_identity,self.policy)
++        try:production=produce_annotations(io,inputs,base,self.annotator,self.annotator_identity,self.policy,reuse=reuse)
+         except DirectingFailure as failure:
+             raise DirectingFailure(failure.code,base.generation_attempts+failure.attempts,'DIR_ANNOTATIONS') from None
+         annotations=verify_production(production,inputs,base)
+@@ -115,4 +115,4 @@
+             'Annotation and reviewer responses are model-reported interpretations; policy-listed does not mean authenticated truth or calibrated quality.',
+             'Audience and term/advisory policies are optional curriculum inputs, never inferred learner ages, questionnaire answers or measured mastery.',
+             'Emphasis changes estimated planning events only; actual speech text and assessment response-time requirements are unchanged.',
+-            'Source/voice edits require fresh generation/review and downstream invalidation; selective repair and actual consumer/audio/game verification remain open.'))
++            'Source/voice edits require bounded correction or fresh generation, global review and downstream invalidation; actual audio/game execution remains downstream evidence.'))
+--- before/bie/director/annotation_review.py
++++ after/bie/director/annotation_review.py
+@@ -95,6 +95,10 @@
+ 
+ 
+ def review_annotations(inputs,base,production,provider,identity,policy=AnnotationReviewPolicy()):
++    from .hierarchical_annotation_review import HierarchicalAnnotationReviewPolicy
++    if isinstance(policy,HierarchicalAnnotationReviewPolicy):
++        from .hierarchical_annotation_review import review_hierarchical_annotations
++        return review_hierarchical_annotations(inputs,base,production,provider,identity,policy)
+     from .annotation_window_context import WindowedAnnotationReviewPolicy
+     if isinstance(policy,WindowedAnnotationReviewPolicy):
+         from .windowed_annotation_review import review_windowed_annotations
+--- before/bie/director/context_bridges.py
++++ after/bie/director/context_bridges.py
+@@ -41,6 +41,10 @@
+         data['prerequisite_order'] = [c for c in data['prerequisite_order'] if c in relevant]
+         data['mastery_states'] = [s for s in data['mastery_states'] if s['concept_id'] in relevant]
+         data['math'] = [m for m in data['math'] if m['derivation']['concept_id'] in relevant]
++        if 'rich_teaching' in data:
++            data['rich_teaching']['strategies'] = [row for row in data['rich_teaching']['strategies'] if row['concept_id'] in relevant]
++            data['rich_teaching']['obligations'] = [row for row in data['rich_teaching']['obligations'] if row['concept_id'] in relevant]
++            data['rich_teaching']['coverage'] = {key:value for key,value in data['rich_teaching']['coverage'].items() if key in relevant}
+         return {**data, 'context_ref': asdict(self.profile.context_ref),
+                 'bridge_decision_ids': self.bridge_decision_ids, 'bridge_plan': asdict(self.bridge_plan),
+                 'decision_dependencies': self.decision_dependencies,
+@@ -138,6 +142,31 @@
+     covered_math = {o.decision_id for o in obligations if o.kind=='DERIVATION_STEP'}
+     if any(by_binding[d].mode.mode=='DERIVATION' and d not in covered_math for d in selected):
+         raise ValueError('rich derivation mode needs actual source-bound steps')
++    rich = context.model_data().get('rich_teaching', {})
++    rich_rows = rich.get('obligations', [])
++    rich_ids = {row['obligation_id'] for row in rich_rows}
++    if len(rich_ids) != len(rich_rows):
++        raise ValueError('duplicate rich teaching obligation')
++    for row in rich_rows:
++        concept_id = row['concept_id']
++        if concept_id not in active_concepts:
++            continue
++        choices = [b for b in bindings if b.decision_id in selected and concept_id in binding_concepts[b.decision_id]]
++        if len(choices) != 1:
++            raise ValueError('rich teaching needs one explicit PED decision binding')
++        binding = choices[0]
++        objective_ids = tuple(o for o in binding.objective_ids if by_objective[o].concept_id == concept_id)
++        permitted_evidence = {e for oid in objective_ids for e in by_objective[oid].evidence_ids}
++        if not set(row['evidence_ids']) <= permitted_evidence:
++            raise ValueError('rich teaching evidence outside bound objective')
++        predecessors = list(row['predecessor_obligation_ids'])
++        if not predecessors:
++            predecessors.extend(o.obligation_id for o in obligations if o.concept_id == concept_id)
++        if not set(predecessors) <= ({o.obligation_id for o in obligations} | rich_ids):
++            raise ValueError('rich teaching predecessor outside lesson context')
++        obligations.append(TeachingObligation(row['obligation_id'], row['kind'], binding.decision_id,
++            concept_id, objective_ids, tuple(row['evidence_ids']), tuple(row['required_texts']),
++            row['source_reason'], tuple(dict.fromkeys(predecessors))))
+     selected_bindings = tuple(replace(b, lesson_id=lesson_id) for b in bindings if b.decision_id in selected)
+     selected_objectives = tuple(o for o in objectives if o.objective_id in {o for b in selected_bindings for o in b.objective_ids})
+     lesson_context = LessonTeachingContext(context, tuple(sorted(active_concepts)), tuple(sorted(bridge_ids)),
+--- before/bie/director/context_windows.py
++++ after/bie/director/context_windows.py
+@@ -88,6 +88,10 @@
+         data['prerequisite_order']=[c for c in data['prerequisite_order'] if c in selected]
+         data['mastery_states']=[s for s in data['mastery_states'] if s['concept_id'] in selected]
+         data['math']=[m for m in data['math'] if m['derivation']['concept_id'] in selected]
++        if 'rich_teaching' in data:
++            data['rich_teaching']['strategies']=[row for row in data['rich_teaching']['strategies'] if row['concept_id'] in selected]
++            data['rich_teaching']['obligations']=[row for row in data['rich_teaching']['obligations'] if row['concept_id'] in selected]
++            data['rich_teaching']['coverage']={key:value for key,value in data['rich_teaching']['coverage'].items() if key in selected}
+         data['bridge_decision_ids']=[d for d in data['bridge_decision_ids'] if d in self.decision_ids]
+         bridge_concepts={o.concept_id for o in self.obligations if o.kind=='PREREQUISITE_BRIDGE'}
+         data['bridge_plan']['steps']=[s for s in data['bridge_plan']['steps'] if s['concept_id'] in bridge_concepts]
+--- before/bie/director/contextual_teaching.py
++++ after/bie/director/contextual_teaching.py
+@@ -34,6 +34,30 @@
+     'start_char':{'type':'integer'}, 'end_char':{'type':'integer'}, 'quote':TEXT})
+ 
+ 
++OBLIGATION_MOVES = {
++    'PREREQUISITE_BRIDGE': 'EXPLAIN',
++    'DERIVATION_STEP': 'DERIVE',
++    'WORKED_EXAMPLE_STEP': 'WORKED_EXAMPLE',
++    'DEMONSTRATION_STEP': 'DEMONSTRATE',
++    'SOCRATIC_ELICIT': 'ELICIT',
++    'SOCRATIC_CHALLENGE': 'CONFRONT',
++    'SOCRATIC_PROBE': 'PROBE',
++    'SOCRATIC_CONNECT': 'EXPLAIN',
++    'SOCRATIC_REFINE': 'FEEDBACK',
++    'MISCONCEPTION_ELICIT': 'ELICIT',
++    'MISCONCEPTION_CONFLICT': 'CONFRONT',
++    'MISCONCEPTION_REPLACE': 'FEEDBACK',
++    'MISCONCEPTION_TRANSFER': 'TRANSFER',
++    'NOTATION_EXPLANATION': 'EXPLAIN',
++}
++
++
++def obligation_move(kind):
++    if kind not in OBLIGATION_MOVES:
++        raise ValueError('unsupported grounded teaching obligation kind')
++    return OBLIGATION_MOVES[kind]
++
++
+ def plan_schema(inputs):
+     if inputs.teaching_context is None: return PLAN_SCHEMA
+     scene = _schema({**SCENE_SCHEMA['properties'], 'teaching_obligation_ids':STRINGS})
+@@ -60,7 +84,7 @@
+                     or not set(obligation.objective_ids) <= set(scene.objective_ids)
+                     or not set(obligation.evidence_ids) <= set(scene.evidence_ids)):
+                 raise ValueError('teaching obligation belongs to another decision/objective/source')
+-            move = 'DERIVE' if obligation.kind=='DERIVATION_STEP' else 'EXPLAIN'
++            move = obligation_move(obligation.kind)
+             if move not in scene.teaching_moves:
+                 raise ValueError('required bridge/derivation teaching move missing')
+             assigned[oid] = index
+@@ -98,15 +122,19 @@
+                 or not 0 <= item.start_char < item.end_char <= len(beat.text)
+                 or beat.text[item.start_char:item.end_char] != item.quote):
+             raise ValueError('teaching realization quote/offset mismatch')
+-        move = 'DERIVE' if obligation.kind=='DERIVATION_STEP' else 'EXPLAIN'
++        move = obligation_move(obligation.kind)
+         if beat.move != move or not set(obligation.evidence_ids) <= set(beat.evidence_ids) or not set(obligation.objective_ids) <= set(beat.objective_ids):
+             raise ValueError('realized teaching lacks its actual move/evidence/objective')
+-        if any(not _present(text, item.quote, mathematical=obligation.kind=='DERIVATION_STEP') for text in obligation.required_texts):
++        if any(not _present(text, item.quote, mathematical=obligation.kind in ('DERIVATION_STEP','NOTATION_EXPLANATION')) for text in obligation.required_texts):
+             raise ValueError('bridge label or unchanged upstream math expression missing from speech')
+         # Each math step gets its own spoken beat. This prevents one vague
+         # paragraph receiving every step ID while losing step-by-step teaching.
+         if obligation.kind=='DERIVATION_STEP' and any(known[r.obligation_id].kind=='DERIVATION_STEP' and r.beat_index==item.beat_index for r in results):
+             raise ValueError('separate actual spoken beats required for mathematical steps')
++        if obligation.kind not in ('PREREQUISITE_BRIDGE','DERIVATION_STEP') and any(
++                known[r.obligation_id].kind not in ('PREREQUISITE_BRIDGE','DERIVATION_STEP') and r.beat_index==item.beat_index
++                for r in results):
++            raise ValueError('each rich teaching step needs a separately reviewable spoken beat')
+         seen.add(item.obligation_id); positions[item.obligation_id]=(item.beat_index,item.start_char)
+         results.append(item)
+     if seen != set(scene.teaching_obligation_ids):
+@@ -126,5 +154,9 @@
+ Math steps come from supplied source/RE: do not replace, skip, merge or recompute them. Give
+ each step a separate DERIVE beat, preserve its before/after expression, and explain the supplied
+ rule/justification and conditions in natural teaching language. Numerical probes are not proof.
++Grounded worked examples, demonstrations, Socratic/inquiry steps, misconception conflict/replacement
++and notation records are required DATA, not optional suggestions. Use each obligation's declared
++teaching move, preserve its exact source statements, and give every rich step a separately reviewable
++spoken beat. Do not invent an observation, misconception, pronunciation or learner response.
+ Return exact teaching_realizations binding the assigned obligations to actual spoken beat spans.
+ These bindings do not authorize a QA PASS. No fixed scene count, layout or lesson length is required.'''
+--- before/bie/director/director_benchmark.py
++++ after/bie/director/director_benchmark.py
+@@ -361,7 +361,7 @@
+     return DirectorBenchmarkReport("BIE-DIR-QA-007", suite.fingerprint(), identity, tuple(receipts), tuple(attempts),
+         tuple(unstable), tuple(outcomes), domains,
+         ("Narration expectations are source-referenced lexical checks, not general semantic or teaching-quality judgments.",
+-         "Six QA modules execute, but unimplemented semantic/annotation producers and calibrated audience evaluation remain open.",
++         "This benchmark path executes six QA modules; production semantic/annotation providers and calibrated audience evaluation require separate evidence.",
+          "Candidate identity is declared provenance; the runner is not a sandbox or cryptographic attestation service.",
+          "Repeated exact-output comparison tests deterministic replay; stochastic providers require a governed evaluation policy.",
+          "A handoff is not a playable game, and a timeline is not rendered/audio-verified media.",
+--- before/bie/director/director_executor.py
++++ after/bie/director/director_executor.py
+@@ -1,7 +1,8 @@
+ """BIE-DIR-HARD-DIRECTOR-001: register actual DIR execution in existing INFRA.
+ 
+ SUCCEEDED means a reviewable component result exists. It does not authorize
+-rendering, release, or product acceptance. Catalog-index recovery remains INFRA.
++rendering, release, or product acceptance. Optional durable recovery remains an
++infrastructure mechanism and cannot change the educational result contract.
+ """
+ from dataclasses import asdict
+ from uuid import uuid4
+@@ -18,6 +19,7 @@
+ from .semantic_execution import SemanticExecutionPolicy
+ from .director_revisions import DirectorRevisionStore, RevisionError
+ from .selective_repair import prepare_repair
++from .director_durable_recovery import RecoveryError
+ 
+ 
+ def register_director_stage(definitions, executors, executor):
+@@ -37,7 +39,7 @@
+ 
+ class DirectorStageExecutor:
+     def __init__(self, io, idempotency, generator, generator_identity, critic, critic_identity,
+-                 policy=DirectingPolicy(), semantic_policy=SemanticExecutionPolicy(), annotations=None):
++                 policy=DirectingPolicy(), semantic_policy=SemanticExecutionPolicy(), annotations=None,recovery=None):
+         if not isinstance(io, DirectorArtifactIO) or not isinstance(idempotency, SQLiteIdempotencyStore):
+             raise ValueError("canonical artifact IO and idempotency store required")
+         policy.validate(); semantic_policy.validate()
+@@ -48,7 +50,12 @@
+             from .annotated_directing import AnnotationRuntime
+             if not isinstance(annotations, AnnotationRuntime): raise ValueError("expected AnnotationRuntime")
+             annotations.validate()
++        if recovery is not None:
++            from .director_durable_recovery import DirectorRecoveryCoordinator,SQLiteArtifactCatalog
++            if not isinstance(recovery,DirectorRecoveryCoordinator) or not isinstance(io.catalog,SQLiteArtifactCatalog):
++                raise ValueError('durable recovery requires its coordinator and SQLiteArtifactCatalog')
+         self.annotations = annotations
++        self.recovery = recovery
+         self.io, self.idempotency = io, idempotency
+         self.generator, self.generator_identity = generator, generator_identity
+         self.critic, self.critic_identity = critic, critic_identity
+@@ -98,7 +105,7 @@
+     def __call__(self, context):
+         if not isinstance(context, ExecutionContext): raise ValueError("canonical ExecutionContext required")
+         owner = str(uuid4()); claimed = False; execution_fingerprint = None; phase = "INPUT"
+-        revision = None; repair_parents = (); retained_evidence = []
++        revision = None; repair_parents = (); retained_evidence = [];lease=None;recovered_owner=None
+         try:
+             for value in (context.run_id, context.idempotency_key): nonblank(value, "execution identity")
+             if context.stage_id != "DIRECTOR": raise ValueError("wrong stage")
+@@ -119,21 +126,33 @@
+                 "stage_id": context.stage_id, "attempt": context.attempt, "configuration": context.configuration,
+                 "annotation_runtime": self.annotations.descriptor() if self.annotations is not None else None})
+             phase = "IDEMPOTENCY"
++            if self.recovery is not None:lease=self.recovery.acquire(context.idempotency_key,execution_fingerprint,owner)
+             claim = self.idempotency.claim(context.idempotency_key, execution_fingerprint, owner)
++            if claim.state!='COMPLETED' and claim.owner!=owner and self.recovery is not None:
++                recovered_owner=claim.owner
++                claim=self.recovery.reclaim_claim(self.idempotency,lease,owner)
+             if claim.state == "COMPLETED":
+                 replay = self._replay(claim.result_ref, execution_fingerprint)
+                 for ref in replay.output_artifact_refs: self.revisions.assert_current(self.io.load(ref))
++                if self.recovery is not None:self.recovery.complete(lease,claim.result_ref)
+                 return replay
+             if claim.owner != owner:
+                 raise DirectingFailure("DIRECTOR_IN_FLIGHT_REQUIRES_RECOVERY", owner="INFRA")
+             claimed = True; phase = "EXECUTION"
+-            revision, previous_revision = self.revisions.begin(context.run_id, inputs.lesson_id,
+-                context.attempt, execution_fingerprint, owner, tuple(r.artifact_id for r in inputs.parent_refs),
+-                tuple(self.io.load_graph(inputs.parent_refs)))
+-            result, repair_parents = prepare_repair(self, context, inputs, previous_revision)
++            interrupted=self.revisions.get(context.run_id,inputs.lesson_id) if recovered_owner is not None else None
++            if (interrupted is not None and interrupted.state=='RUNNING' and interrupted.attempt==context.attempt
++                    and interrupted.execution_fingerprint==execution_fingerprint and interrupted.owner==recovered_owner):
++                revision=self.revisions.reclaim_running(context.run_id,inputs.lesson_id,context.attempt,
++                    execution_fingerprint,recovered_owner,owner);previous_revision=None
++            else:
++                revision, previous_revision = self.revisions.begin(context.run_id, inputs.lesson_id,
++                    context.attempt, execution_fingerprint, owner, tuple(r.artifact_id for r in inputs.parent_refs),
++                    tuple(self.io.load_graph(inputs.parent_refs)))
++            result, repair_parents, annotation_reuse = prepare_repair(self, context, inputs, previous_revision)
+             if result is None:
+                 result = execute_grounded_director(self.io, inputs, self.generator, self.generator_identity,
+                     self.critic, self.critic_identity, self.policy, self.semantic_policy)
++            if self.recovery is not None:lease=self.recovery.heartbeat(lease)
+             result_parents = inputs.parent_refs + repair_parents
+             annotated = False
+             if self.annotations is not None and result.status != "BLOCKED":
+@@ -146,7 +165,8 @@
+                         "status": result.status, "execution_fingerprint": execution_fingerprint}, evidence=True)
+                 retained_evidence.append(base_evidence.artifact_id)
+                 try:
+-                    result = self.annotations.enrich(self.io, inputs, result, self.critic, self.critic_identity, self.semantic_policy)
++                    result = self.annotations.enrich(self.io, inputs, result, self.critic, self.critic_identity,
++                        self.semantic_policy,reuse=annotation_reuse)
+                 except DirectingFailure as failure:
+                     raise self._failure(context, failure.code, failure.owner, failure.attempts, (base_evidence.artifact_id,)) from None
+                 except Exception:
+@@ -154,7 +174,9 @@
+                         (base_evidence.artifact_id,)) from None
+                 result_parents += (base_evidence,)
+                 annotated = True
++                if self.recovery is not None:lease=self.recovery.heartbeat(lease)
+             phase = "PERSISTENCE"
++            if self.recovery is not None:lease=self.recovery.heartbeat(lease)
+             metadata = {"requires_review": True, "accepted": False, "release_ready": False,
+                         "status": result.status, "execution_fingerprint": execution_fingerprint}
+             evidence = self.io.derive("evidence.director_execution", context.run_id, result_parents,
+@@ -174,15 +196,21 @@
+                 stage_id="DIRECTOR", metadata=metadata)
+             stage_result = StageExecutionResult([output.artifact_id], [evidence.artifact_id],
+                 ["DIRECTOR_COMPONENT_EXECUTED_REVIEW_REQUIRED"], metadata)
++            if self.recovery is not None:lease=self.recovery.heartbeat(lease)
+             self.revisions.publish(revision, output.artifact_id)
+             self._complete(context, owner, execution_fingerprint, "SUCCEEDED", asdict(stage_result))
++            if self.recovery is not None:self.recovery.complete(lease,self.idempotency.get(context.idempotency_key).result_ref)
+             return stage_result
+         except StageExecutionFailure as failure:
++            if claimed and self.recovery is not None:
++                try:lease=self.recovery.heartbeat(lease)
++                except RecoveryError:raise failure
+             if revision is not None: self.revisions.fail(revision)
+             if claimed:
+                 self._complete(context, owner, execution_fingerprint, "FAILED", {
+                     "diagnostics": failure.diagnostics, "evidence_refs": failure.evidence_refs,
+                     "remediation_owner": failure.remediation_owner})
++                if self.recovery is not None:self.recovery.complete(lease,self.idempotency.get(context.idempotency_key).result_ref)
+             raise
+         except Exception as error:
+             if isinstance(error, DirectingFailure):
+@@ -193,11 +221,15 @@
+                 code, remediation, attempts = "DIRECTOR_REVISION_CONFLICT", "DIR_REPAIR", ()
+             else:
+                 code, remediation, attempts = "DIRECTOR_" + phase + "_INVALID", "DIR_INPUTS" if phase == "INPUT" else "INFRA", ()
+-            if revision is not None: self.revisions.fail(revision)
+             failure = self._failure(context, code, remediation, attempts,
+                 tuple(dict.fromkeys(retained_evidence + [r.artifact_id for r in repair_parents])))
++            if claimed and self.recovery is not None:
++                try:lease=self.recovery.heartbeat(lease)
++                except RecoveryError:raise failure from None
++            if revision is not None: self.revisions.fail(revision)
+             if claimed:
+                 self._complete(context, owner, execution_fingerprint, "FAILED", {
+                     "diagnostics": failure.diagnostics, "evidence_refs": failure.evidence_refs,
+                     "remediation_owner": failure.remediation_owner})
++                if self.recovery is not None:self.recovery.complete(lease,self.idempotency.get(context.idempotency_key).result_ref)
+             raise failure from None
+--- before/bie/director/director_revisions.py
++++ after/bie/director/director_revisions.py
+@@ -64,6 +64,24 @@
+             self.db.execute('INSERT OR REPLACE INTO director_revisions VALUES(?,?,?,?,?,?,?,?,?)',
+                 (run_id, lesson_id, attempt, execution_fingerprint, owner, 'RUNNING', None, canonical(list(input_artifact_ids)), '[]'))
+         return self.get(run_id, lesson_id), prior
++
++    def reclaim_running(self, run_id, lesson_id, attempt, execution_fingerprint, old_owner, new_owner):
++        """Fence-transfer one exact interrupted revision after lease recovery.
++
++        The caller must already own the higher-epoch external lease.  This store
++        only performs the compare-and-swap; it cannot itself decide expiration.
++        """
++        for value in (run_id, lesson_id, execution_fingerprint, old_owner, new_owner):
++            nonblank(value, 'revision recovery identity')
++        with self.db:
++            self.db.execute('BEGIN IMMEDIATE')
++            current = self.get(run_id, lesson_id)
++            if (current is None or current.state != 'RUNNING' or current.attempt != attempt
++                    or current.execution_fingerprint != execution_fingerprint or current.owner != old_owner):
++                raise RevisionError('interrupted revision fence does not match')
++            self.db.execute('UPDATE director_revisions SET owner=? WHERE run_id=? AND lesson_id=? AND owner=?',
++                (new_owner, run_id, lesson_id, old_owner))
++        return self.get(run_id, lesson_id)
+ 
+     def _owned(self, revision):
+         current = self.get(revision.run_id, revision.lesson_id)
+--- before/bie/director/narration_annotations.py
++++ after/bie/director/narration_annotations.py
+@@ -164,6 +164,11 @@
+ 
+ 
+ def verify_base(io,inputs,base):
++    from .scene_correction import SceneCorrectedDirectorResult,verify_scene_correction
++    if isinstance(base,SceneCorrectedDirectorResult):
++        verify_base(io,inputs,base.original_result)
++        verify_scene_correction(inputs,base)
++        return validate_snapshot(base.execution.snapshot)
+     if len(inputs.parent_refs)!=3:raise ValueError('canonical parents required')
+     actual=load_director_inputs(io,inputs.parent_refs[1],inputs.parent_refs[2],lesson_id=inputs.lesson_id,
+         title=inputs.title,language=inputs.language,run_id=io.load(inputs.parent_refs[1]).run_id)
+@@ -303,11 +308,17 @@
+     return result
+ 
+ 
+-def produce_annotations(io,inputs,base,provider,identity,policy=AnnotationPolicy()):
++def produce_annotations(io,inputs,base,provider,identity,policy=AnnotationPolicy(),*,reuse=None):
++    from .hierarchical_annotations import HierarchicalAnnotationPolicy
++    if isinstance(policy,HierarchicalAnnotationPolicy):
++        from .hierarchical_annotations import produce_hierarchical_annotations
++        return produce_hierarchical_annotations(io,inputs,base,provider,identity,policy,reuse)
+     from .annotation_window_context import WindowedAnnotationPolicy
+     if isinstance(policy,WindowedAnnotationPolicy):
++        if reuse is not None:raise ValueError('selective reuse requires hierarchical annotation policy')
+         from .windowed_annotations import produce_windowed_annotations
+         return produce_windowed_annotations(io,inputs,base,provider,identity,policy)
++    if reuse is not None:raise ValueError('selective reuse requires hierarchical annotation policy')
+     policy.validate();verify_base(io,inputs,base)
+     age_level_qa(base.execution.snapshot,policy.audience_target)  # Validate optional curriculum policy before any model call.
+     payload=annotation_payload(inputs,base,policy)
+@@ -318,6 +329,11 @@
+ 
+ 
+ def verify_production(production,inputs,base):
++    from .hierarchical_annotations import (HierarchicalAnnotationPolicy,
++        HierarchicalAnnotationProduction,verify_hierarchical_production)
++    if isinstance(production,HierarchicalAnnotationProduction) or isinstance(
++            getattr(getattr(production,'annotations',None),'policy',None),HierarchicalAnnotationPolicy):
++        return verify_hierarchical_production(production,inputs,base)
+     from .annotation_window_context import WindowedAnnotationPolicy
+     from .windowed_annotations import WindowedAnnotationProduction,verify_windowed_production
+     if isinstance(production,WindowedAnnotationProduction) or isinstance(getattr(getattr(production,'annotations',None),'policy',None),WindowedAnnotationPolicy):
+--- before/bie/director/recovery_codec.py
++++ after/bie/director/recovery_codec.py
+@@ -53,6 +53,16 @@
+ 
+ 
+ def grounded_record(value):
++    if 'correction_calls' in value:
++        from .scene_correction import (SceneCorrectedDirectorResult,SceneCorrectionPolicy,SceneCorrectionCall)
++        fields(value,SceneCorrectedDirectorResult.__dataclass_fields__,'scene corrected result')
++        original=grounded_record(value['original_result'])
++        plain={k:v for k,v in value.items() if k not in ('original_result','correction_policy','correction_calls','reused_scene_ids')}
++        decoded=grounded_record(plain)
++        return SceneCorrectedDirectorResult(**{name:getattr(decoded,name) for name in decoded.__dataclass_fields__},
++            original_result=original,correction_policy=decode(SceneCorrectionPolicy,value['correction_policy']),
++            correction_calls=decode(tuple[SceneCorrectionCall,...],value['correction_calls']),
++            reused_scene_ids=decode(tuple[str,...],value['reused_scene_ids']))
+     from .grounded_directing import GroundedDirectorResult, DirectingPlan, PlannedScene
+     from .contextual_teaching import ContextPlannedScene, ContextNarratedScene
+     from .windowed_directing import WindowedDirectorResult, WindowExecution
+@@ -84,20 +94,27 @@
+ def annotation_production_record(value):
+     from .narration_annotations import AnnotationProduction,NarrationAnnotations,AnnotationPolicy
+     from .windowed_annotations import WindowedAnnotationProduction
++    from .hierarchical_annotations import (HierarchicalAnnotationPolicy,
++        HierarchicalAnnotationProduction,DiscourseScope,ReusedSourceAnnotation)
+     from .annotation_window_context import WindowedAnnotationPolicy,ScopedAnnotationCall
+     from .semantic_execution import EvaluatorIdentity
+     from .director_model import DirectingAttempt
+-    marked='window_version' in value.get('annotations',{}).get('policy',{})
+-    if marked and not {'window_calls','discourse_call'}<=value.keys():raise ValueError('windowed annotation record requires retained scope evidence')
+-    if not marked and ({'window_calls','discourse_call'}&value.keys()):raise ValueError('legacy annotation policy cannot select window record type')
+-    kind=WindowedAnnotationProduction if marked else AnnotationProduction
++    version=value.get('annotations',{}).get('policy',{}).get('window_version')
++    hierarchical=version=='bie-dir-hierarchical-annotations/1.0.0';marked=version is not None
++    if hierarchical and not {'source_calls','discourse_scopes','source_reuses'}<=value.keys():raise ValueError('hierarchical annotation record requires retained scope evidence')
++    if marked and not hierarchical and not {'window_calls','discourse_call'}<=value.keys():raise ValueError('windowed annotation record requires retained scope evidence')
++    scoped={'window_calls','discourse_call','source_calls','discourse_scopes','source_reuses'}
++    if not marked and scoped&value.keys():raise ValueError('legacy annotation policy cannot select scoped record type')
++    kind=HierarchicalAnnotationProduction if hierarchical else (WindowedAnnotationProduction if marked else AnnotationProduction)
+     fields(value,kind.__dataclass_fields__,'annotation production')
+     raw=fields(value['annotations'],NarrationAnnotations.__dataclass_fields__,'annotations')
+-    policy=decode(WindowedAnnotationPolicy if 'window_version' in raw['policy'] else AnnotationPolicy,raw['policy'])
++    policy=decode(HierarchicalAnnotationPolicy if hierarchical else (WindowedAnnotationPolicy if marked else AnnotationPolicy),raw['policy'])
+     hints=get_type_hints(NarrationAnnotations)
+     annotations=NarrationAnnotations(policy=policy,**{k:decode(hints[k],v) for k,v in raw.items() if k!='policy'})
+     types={'attempts':tuple[DirectingAttempt,...],'identity':EvaluatorIdentity,
+-        'window_calls':tuple[ScopedAnnotationCall,...],'discourse_call':ScopedAnnotationCall}
++        'window_calls':tuple[ScopedAnnotationCall,...],'discourse_call':ScopedAnnotationCall,
++        'source_calls':tuple[ScopedAnnotationCall,...],'discourse_scopes':tuple[DiscourseScope,...],
++        'source_reuses':tuple[ReusedSourceAnnotation,...]}
+     return kind(annotations=annotations,**{k:decode(types.get(k,str),v) for k,v in value.items() if k!='annotations'})
+ 
+ 
+@@ -105,14 +122,16 @@
+     from .annotation_review import AnnotationReview,AnnotationReviewPolicy,AnnotationJudgment
+     from .windowed_annotation_review import WindowedAnnotationReview,ReviewWindow
+     from .annotation_window_context import WindowedAnnotationReviewPolicy
++    from .hierarchical_annotation_review import HierarchicalAnnotationReviewPolicy,HierarchicalAnnotationReview
+     from .semantic_execution import EvaluatorIdentity
+     from .director_model import DirectingAttempt
+-    marked='window_version' in value.get('policy',{})
++    version=value.get('policy',{}).get('window_version');hierarchical=version=='bie-dir-hierarchical-review/1.0.0';marked=version is not None
+     if marked and 'review_windows' not in value:raise ValueError('scoped review requires retained window evidence')
+     if not marked and 'review_windows' in value:raise ValueError('legacy review policy cannot select window record type')
+-    kind=WindowedAnnotationReview if marked else AnnotationReview
++    kind=HierarchicalAnnotationReview if hierarchical else (WindowedAnnotationReview if marked else AnnotationReview)
+     fields(value,kind.__dataclass_fields__,'annotation review')
+-    policy=decode(WindowedAnnotationReviewPolicy if 'window_version' in value['policy'] else AnnotationReviewPolicy,value['policy'])
++    policy=decode(HierarchicalAnnotationReviewPolicy if hierarchical else (WindowedAnnotationReviewPolicy if marked else AnnotationReviewPolicy),value['policy'])
+     types={'identity':EvaluatorIdentity,'judgments':tuple[AnnotationJudgment,...],'attempts':tuple[DirectingAttempt,...],
+-        'failures':tuple[str,...],'response_json':str|None,'review_windows':tuple[ReviewWindow,...]}
++        'failures':tuple[str,...],'response_json':str|None,'review_windows':tuple[ReviewWindow,...],
++        'discourse_schedule_fingerprint':str}
+     return kind(policy=policy,**{k:decode(types.get(k,str),v) for k,v in value.items() if k!='policy'})
+--- before/bie/director/selective_repair.py
++++ after/bie/director/selective_repair.py
+@@ -1,8 +1,9 @@
+ """BIE-DIR-HARD-REPAIR-001: bounded phase repair from actual completed evidence.
+ 
+ Reuses exact plan/narration only when their complete inputs, generation policy,
+-generator and code match. Factual QA, annotations and review execute again.
+-Partial-scene checkpointing and scene-local patch synthesis remain separate work.
++generator and code match. Named-scene correction recompiles and rechecks the
++whole lesson; unchanged scene-local annotations may be reused only under the
++hierarchical policy while every global discourse/review scope executes again.
+ """
+ from dataclasses import asdict, replace
+ from .director_artifacts import fields, fingerprint
+@@ -21,8 +22,9 @@
+ def prepare_repair(executor, context, inputs, previous_revision=None):
+     request = context.configuration.get('director_repair')
+     if request is None:
+-        return None, ()
+-    fields(request, ('previous_idempotency_key',), 'director repair')
++        return None, (), None
++    expected=('previous_idempotency_key',)+(('scene_corrections',) if 'scene_corrections' in request else ())
++    fields(request, expected, 'director repair')
+     previous_key = request['previous_idempotency_key']
+     if not isinstance(previous_key, str) or not previous_key.strip() or previous_key == context.idempotency_key or context.attempt < 2:
+         raise DirectingFailure('DIRECTOR_REPAIR_ATTEMPT_INVALID', owner='DIR_REPAIR')
+@@ -41,7 +43,7 @@
+     evidence = [executor.io.load(r) for r in evidence_ids]
+     if any(a.run_id != context.run_id for a in evidence):
+         raise DirectingFailure('DIRECTOR_REPAIR_CROSS_RUN', owner='DIR_REPAIR')
+-    candidates = []
++    candidates = [];prior_annotation_raw=None
+     for artifact in evidence:
+         if (artifact.artifact_type in ('evidence.director_base_execution', 'evidence.director_execution')
+                 and artifact.metadata.get('execution_fingerprint') != prior.fingerprint):
+@@ -52,6 +54,7 @@
+         elif artifact.artifact_type == 'evidence.director_execution':
+             raw = payload['result']
+             candidates.append((artifact, raw.get('base_result', raw)))
++            if 'annotation_production' in raw:prior_annotation_raw=raw['annotation_production']
+         if 'result' in payload and fingerprint(payload['result']) != payload['result_fingerprint']:
+             raise ValueError('retained result fingerprint mismatch')
+     reused = None
+@@ -80,14 +83,36 @@
+         failures = [executor._read_blob(r) for r in record['value']['evidence_refs'] if r.startswith('cas:')]
+         if not failures or any(r.get('run_id') != context.run_id or r.get('stage_id') != 'DIRECTOR' for r in failures):
+             raise ValueError('unbound operational recovery')
++    annotation_reuse=None;corrected=()
++    corrections=request.get('scene_corrections',[])
++    if corrections:
++        if reused is None:raise DirectingFailure('DIRECTOR_SCENE_CORRECTION_REQUIRES_EXACT_BASE',owner='DIR_REPAIR')
++        if type(corrections) is not list or not corrections:raise DirectingFailure('DIRECTOR_SCENE_CORRECTION_INVALID',owner='DIR_REPAIR')
++        scene_ids=[];reasons={}
++        for row in corrections:
++            fields(row,('scene_id','reasons'),'scene correction request')
++            scene=row['scene_id'];reason_values=tuple(row['reasons']) if type(row['reasons']) is list else ()
++            if not isinstance(scene,str) or not scene.strip() or not reason_values:raise DirectingFailure('DIRECTOR_SCENE_CORRECTION_INVALID',owner='DIR_REPAIR')
++            scene_ids.append(scene);reasons[scene]=reason_values
++        from .scene_correction import correct_scenes,SceneCorrectionPolicy
++        reused=correct_scenes(executor.io,inputs,reused,executor.generator,executor.generator_identity,
++            executor.critic,executor.critic_identity,executor.semantic_policy,tuple(scene_ids),reasons,SceneCorrectionPolicy())
++        corrected=tuple(scene_ids)
++        if executor.annotations is not None:
++            from .hierarchical_annotations import HierarchicalAnnotationPolicy
++            if not isinstance(executor.annotations.policy,HierarchicalAnnotationPolicy) or prior_annotation_raw is None:
++                raise DirectingFailure('DIRECTOR_SCENE_CORRECTION_REUSE_POLICY_REQUIRED',owner='DIR_ANNOTATIONS')
++            from .recovery_codec import annotation_production_record
++            annotation_reuse=(annotation_production_record(prior_annotation_raw),reused.original_result)
+     parents = inputs.parent_refs + tuple(a.to_ref() for a in evidence if a.to_ref() not in inputs.parent_refs)
+     receipt = executor.io.derive('evidence.director_repair', context.run_id, parents,
+         {'schema_version': 'bie.dir.phase_repair/1.0.0', 'previous_idempotency_key': previous_key,
+          'previous_execution_fingerprint': prior.fingerprint, 'attempt': context.attempt,
+          'input_fingerprint': inputs.fingerprint(), 'reason': reason,
+-         'action': 'REUSE_PLAN_NARRATION_RECHECK_QA' if reused else 'REGENERATE',
+-         'reused_phases': ['PLAN', 'NARRATE', 'COMPILE'] if reused else [],
++         'action': 'CORRECT_NAMED_SCENES_REUSE_OTHERS_RECHECK_ALL' if corrected else ('REUSE_PLAN_NARRATION_RECHECK_QA' if reused else 'REGENERATE'),
++         'corrected_scene_ids': list(corrected),'annotation_local_reuse_candidate': bool(annotation_reuse),
++         'reused_phases': ['PLAN', 'UNCHANGED_SCENES'] if corrected else (['PLAN', 'NARRATE', 'COMPILE'] if reused else []),
+          'required_phases': ([] if reused else ['PLAN', 'NARRATE', 'COMPILE']) + ['FACTUAL_QA'] +
+             (['ANNOTATE', 'ANNOTATION_REVIEW', 'FINE_FACTUAL_QA', 'COMPOSE_QA_TIMING'] if executor.annotations is not None else []),
+          'accepted': False}, stage_id='DIRECTOR', metadata={'requires_review': True, 'accepted': False}, evidence=True)
+-    return reused, (receipt,)
++    return reused, (receipt,), annotation_reuse
+--- before/bie/director/teaching_context.py
++++ after/bie/director/teaching_context.py
+@@ -80,6 +80,42 @@
+ 
+     def model_data(self):
+         return parse_json(self.compiled_json)
++
++
++def _rich_records(value):
++    """Decode only the compiled-in rich teaching records and SourceExcerpt fields."""
++    from .rich_teaching import (GroundedWorkedExample, GroundedDemonstration, GroundedInquiry,
++        GroundedMisconception, GroundedNotation)
++    known = {kind.__name__: kind for kind in (GroundedWorkedExample, GroundedDemonstration,
++        GroundedInquiry, GroundedMisconception, GroundedNotation)}
++    result = []
++    for row in value:
++        if type(row) is not dict or set(row) != {'type', 'value'} or row['type'] not in known:
++            raise ValueError('known rich teaching record required')
++        kind = known[row['type']]; raw = fields(row['value'], kind.__dataclass_fields__, row['type'])
++        def excerpt(item):
++            return SourceExcerpt(**fields(item, SourceExcerpt.__dataclass_fields__, 'rich source excerpt'))
++        if kind is GroundedWorkedExample:
++            item = kind(raw['example_id'], raw['concept_id'], excerpt(raw['setup']),
++                tuple(excerpt(step) for step in raw['steps']), excerpt(raw['outcome']))
++        elif kind is GroundedDemonstration:
++            item = kind(raw['demonstration_id'], raw['concept_id'], excerpt(raw['setup']),
++                excerpt(raw['action']), excerpt(raw['observation']), excerpt(raw['interpretation']))
++        elif kind is GroundedInquiry:
++            item = kind(raw['inquiry_id'], raw['concept_id'], excerpt(raw['claim']), excerpt(raw['evidence']),
++                excerpt(raw['misconception']) if raw['misconception'] is not None else None)
++        elif kind is GroundedMisconception:
++            item = kind(raw['misconception_id'], raw['concept_id'], excerpt(raw['belief']),
++                excerpt(raw['counterevidence']), excerpt(raw['replacement']))
++        else:
++            item = kind(raw['notation_id'], raw['concept_id'], excerpt(raw['symbol']),
++                raw['spoken_form'], excerpt(raw['meaning']))
++        result.append(item)
++    return tuple(result)
++
++
++def _rich_json(records):
++    return [{'type': type(record).__name__, 'value': asdict(record)} for record in records]
+ 
+ 
+ def excerpt_text(catalog, excerpt):
+@@ -120,15 +156,19 @@
+ def _observations(io, refs, source_ref, concepts, policy):
+     if len(refs) > policy.maximum_observations:
+         raise ValueError('mastery observation resource budget')
+-    observations = []; learner = None
++    observations = []; learner = None; authenticated = 0
+     for ref in refs:
+         event = io.load(ref)
+-        if event.artifact_type != 'evidence.pedagogy_assessment' or event.schema_version != '1.0.0':
+-            raise ValueError('explicit scored assessment event required')
+-        data = fields(event.payload, ('schema_version', 'source_catalog_ref', 'learner_key', 'concept_id',
+-            'item_id', 'response_text', 'score', 'reliability', 'age_steps', 'score_origin'), 'assessment event')
+-        if data['schema_version'] != 'bie.ped.reported_assessment/1.0.0' or reference(data['source_catalog_ref']) != source_ref:
+-            raise ValueError('unsupported or stale scored event')
++        if event.artifact_type == 'evidence.pedagogy_assessment.authenticated':
++            from .authenticated_assessment import validate_authenticated_assessment
++            data = validate_authenticated_assessment(io, event, source_ref); authenticated += 1
++        else:
++            if event.artifact_type != 'evidence.pedagogy_assessment' or event.schema_version != '1.0.0':
++                raise ValueError('explicit scored assessment event required')
++            data = fields(event.payload, ('schema_version', 'source_catalog_ref', 'learner_key', 'concept_id',
++                'item_id', 'response_text', 'score', 'reliability', 'age_steps', 'score_origin'), 'assessment event')
++            if data['schema_version'] != 'bie.ped.reported_assessment/1.0.0' or reference(data['source_catalog_ref']) != source_ref:
++                raise ValueError('unsupported or stale scored event')
+         if source_ref not in event.parent_refs or event.run_id != io.load(source_ref).run_id:
+             raise ValueError('assessment source/run ancestry mismatch')
+         for name in ('learner_key', 'concept_id', 'item_id', 'response_text', 'score_origin'):
+@@ -143,10 +183,11 @@
+         # as evidence that this learner answered an assessment.
+         observations.append(MasteryObservation(event.artifact_id, data['concept_id'], data['score'],
+             data['reliability'], data['age_steps'], (event.artifact_id,)))
+-    return tuple(observations)
+-
+-
+-def _compile_context(io, source_ref, concepts, prerequisites, derivations, observation_refs, policy):
++    return tuple(observations), authenticated
++
++
++def _compile_context(io, source_ref, concepts, prerequisites, derivations, observation_refs, policy,
++                     rich_teaching=()):
+     from .director_inputs import load_source_catalog
+     policy.validate()
+     _, catalog, _, evidence_refs, _ = load_source_catalog(io, source_ref)
+@@ -221,28 +262,40 @@
+             raise ValueError('disconnected source derivation chain')
+         math.append({'derivation': asdict(derivation), 'chain': asdict(chain), 'numerical_probes': probes,
+                      'teaching_steps': teaching, 'proof_status': 'NOT_PROVEN_REVIEW_REQUIRED'})
+-    observations = _observations(io, observation_refs, source_ref, concept_ids, policy)
++    observations, authenticated = _observations(io, observation_refs, source_ref, concept_ids, policy)
+     states = tuple(infer_knowledge_state(c, observations) for c in sorted(concept_ids))
+-    return {'knowledge_graph': knowledge, 'knowledge_graph_checks': kg_qa,
++    result = {'knowledge_graph': knowledge, 'knowledge_graph_checks': kg_qa,
+             'prerequisite_order': order, 'math': math, 'mastery_states': [asdict(s) for s in states],
+-            'mastery_interpretation': 'REPORTED_OBSERVATIONS_NOT_AUTHENTICATED_OR_CALIBRATED; NEVER_WAIVE_PREREQUISITES',
++            'mastery_interpretation': ('IDENTITY_AND_GRADE_RECEIPT_AUTHENTICATED; LEARNING_INFERENCE_STILL_UNCALIBRATED; NEVER_WAIVE_PREREQUISITES'
++                if authenticated else 'REPORTED_OBSERVATIONS_NOT_AUTHENTICATED_OR_CALIBRATED; NEVER_WAIVE_PREREQUISITES'),
+             'review_reasons': ['CONTEXT_SEMANTICS_REVIEW_REQUIRED'] +
+                 (['NUMERICAL_PROBES_ARE_NOT_PROOF'] if math else []) +
+-                (['REPORTED_MASTERY_REQUIRES_REVIEW'] if observations else ['MASTERY_UNKNOWN_NO_OBSERVATIONS'])}
++                (['AUTHENTICATED_GRADE_STILL_REQUIRES_CALIBRATION_REVIEW'] if authenticated else
++                 (['REPORTED_MASTERY_REQUIRES_REVIEW'] if observations else ['MASTERY_UNKNOWN_NO_OBSERVATIONS']))}
++    if rich_teaching:
++        from .rich_teaching import compile_rich_teaching
++        result['rich_teaching'] = compile_rich_teaching(rich_teaching, concept_ids,
++            lambda excerpt: excerpt_text(catalog, excerpt))
++        result['review_reasons'].append('RICH_TEACHING_EFFECTIVENESS_REQUIRES_REVIEW')
++    return result
+ 
+ 
+ def publish_teaching_context(io, run_id, source_ref, concepts, prerequisites=(), derivations=(),
+-                             observation_refs=(), policy=TeachingContextPolicy()):
++                             observation_refs=(), policy=TeachingContextPolicy(), *, rich_teaching=()):
+     concepts = decode(tuple[KnowledgeConcept, ...], parse_json(canonical([asdict(c) for c in concepts])))
+     prerequisites = decode(tuple[GroundedPrerequisite, ...], parse_json(canonical([asdict(p) for p in prerequisites])))
+     derivations = decode(tuple[GroundedDerivation, ...], parse_json(canonical([asdict(d) for d in derivations])))
+     refs = tuple(observation_refs); ids(tuple(r.artifact_id for r in refs), 'observation refs', required=False)
+-    compiled = _compile_context(io, source_ref, concepts, prerequisites, derivations, refs, policy)
+-    return io.derive('pedagogy.teaching_context', run_id, (source_ref,) + refs,
+-        {'schema_version': 'bie.dir.teaching_context/1.0.0', 'source_catalog_ref': asdict(source_ref),
++    rich_teaching = _rich_records(parse_json(canonical(_rich_json(tuple(rich_teaching)))))
++    compiled = _compile_context(io, source_ref, concepts, prerequisites, derivations, refs, policy, rich_teaching)
++    schema = 'bie.dir.teaching_context/1.1.0' if rich_teaching else 'bie.dir.teaching_context/1.0.0'
++    payload = {'schema_version': schema, 'source_catalog_ref': asdict(source_ref),
+          'concepts': [asdict(c) for c in concepts], 'prerequisites': [asdict(p) for p in prerequisites],
+          'derivations': [asdict(d) for d in derivations], 'observation_refs': [asdict(r) for r in refs],
+-         'policy': asdict(policy), 'compiled': compiled}, stage_id='PEDAGOGY',
++         'policy': asdict(policy), 'compiled': compiled}
++    if rich_teaching: payload['rich_teaching'] = _rich_json(rich_teaching)
++    return io.derive('pedagogy.teaching_context', run_id, (source_ref,) + refs,
++        payload, stage_id='PEDAGOGY',
+         metadata={'requires_review': True, 'accepted': False, 'release_ready': False})
+ 
+ 
+@@ -252,9 +305,11 @@
+         raise ValueError('cross-run teaching context ancestry')
+     if artifact.artifact_type != 'pedagogy.teaching_context' or artifact.schema_version != '1.0.0':
+         raise ValueError('typed teaching context required')
+-    p = fields(artifact.payload, ('schema_version', 'source_catalog_ref', 'concepts', 'prerequisites',
+-        'derivations', 'observation_refs', 'policy', 'compiled'), 'teaching context')
+-    if p['schema_version'] != 'bie.dir.teaching_context/1.0.0' or reference(p['source_catalog_ref']) != source_ref:
++    version = artifact.payload.get('schema_version') if type(artifact.payload) is dict else None
++    expected_fields = ('schema_version', 'source_catalog_ref', 'concepts', 'prerequisites',
++        'derivations', 'observation_refs', 'policy', 'compiled') + (('rich_teaching',) if version == 'bie.dir.teaching_context/1.1.0' else ())
++    p = fields(artifact.payload, expected_fields, 'teaching context')
++    if p['schema_version'] not in ('bie.dir.teaching_context/1.0.0', 'bie.dir.teaching_context/1.1.0') or reference(p['source_catalog_ref']) != source_ref:
+         raise ValueError('stale context/source pairing')
+     concepts = decode(tuple[KnowledgeConcept, ...], p['concepts'])
+     prerequisites = decode(tuple[GroundedPrerequisite, ...], p['prerequisites'])
+@@ -263,7 +318,9 @@
+     ids(tuple(r.artifact_id for r in refs), 'observation refs', required=False)
+     if artifact.parent_refs != [source_ref, *refs]:
+         raise ValueError('teaching context parent coverage mismatch')
+-    expected = _compile_context(io, source_ref, concepts, prerequisites, derivations, refs, decode(TeachingContextPolicy, p['policy']))
++    rich_teaching = _rich_records(p['rich_teaching']) if version == 'bie.dir.teaching_context/1.1.0' else ()
++    expected = _compile_context(io, source_ref, concepts, prerequisites, derivations, refs,
++        decode(TeachingContextPolicy, p['policy']), rich_teaching)
+     if (canonical(expected) != canonical(p['compiled']) or artifact.metadata.get('requires_review') is not True
+             or artifact.metadata.get('accepted') is not False or artifact.metadata.get('release_ready') is not False):
+         raise ValueError('context tool output edited or review removed')
+--- before/bie/director/windowed_annotation_review.py
++++ after/bie/director/windowed_annotation_review.py
+@@ -184,7 +184,9 @@
+     from .scene_duration_fit import fit_scene_durations
+     production=annotation_production_record(raw['annotation_production']);review=annotation_review_record(raw['annotation_review'])
+     a=verify_production(production,inputs,base)
+-    if isinstance(review,WindowedAnnotationReview):verify_review_execution(inputs,base,production,review)
++    from .hierarchical_annotation_review import HierarchicalAnnotationReview,verify_hierarchical_review
++    if isinstance(review,HierarchicalAnnotationReview):verify_hierarchical_review(inputs,base,production,review)
++    elif isinstance(review,WindowedAnnotationReview):verify_review_execution(inputs,base,production,review)
+     else:approved_subjects(a,review)
+     checked=annotation_review_qa(base.execution.snapshot,production,review)
+     if checked not in reports or checked.status=='BLOCKED':raise ValueError('persisted annotation review does not match actual execution')

@@ -17,3 +17,5 @@ Previous Reasoning integration authority is `docs/evidence/reasoning-integration
 
 
 Current PED integration authority is `docs/evidence/pedagogy-integration-002/USER_INTEGRATION_PROMPT.txt`. PED is implementation-scope complete and not accepted. Preserve all 58 original PED archives and their task/evidence provenance; source is `bie/pedagogy/`. Run the integrated gate, which includes PED tests and supplemental ingestion integrity. Retain the real multi-domain textbook, DIR, empirical/benchmark and final lesson/video/game acceptance blockers.
+
+Current Director integration authority is `docs/evidence/director-integration-003/USER_INTEGRATION_PROMPT.txt`. DIR is implementation-scope complete and not accepted. Preserve its 37 original tasks, 22 audit-derived hardening tasks, 59 immutable archives and 610 member records; source is `bie/director/`. The enterprise gate includes all 683 DIR tests. Continue with the approved downstream VIS/ANI/Game roadmap or concrete real-source/product acceptance evidence; never infer rendered-media or playable-game acceptance from DIR contract tests.

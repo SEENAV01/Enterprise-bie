@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "file": "tests/director/test_hard_consumers_001.py",
+      "sha256": "77425ec9360fc069af4b34ce164917e1c6fbd957e4a8243dcde7c98a41ccc986",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_time_visual_animation_and_game_handoff_consume_persisted_director (test_hard_consumers_001.ConsumerGateTests.test_actual_time_visual_animation_and_game_handoff_consume_persisted_director) ... ok\ntest_corrupt_source_bytes_block_consumer_even_when_envelopes_are_unchanged (test_hard_consumers_001.ConsumerGateTests.test_corrupt_source_bytes_block_consumer_even_when_envelopes_are_unchanged) ... ok\ntest_edited_candidate_flags_or_type_cannot_remove_review (test_hard_consumers_001.ConsumerGateTests.test_edited_candidate_flags_or_type_cannot_remove_review) ... ok\ntest_failed_annotation_repair_invalidates_all_old_consumer_kinds (test_hard_consumers_001.ConsumerGateTests.test_failed_annotation_repair_invalidates_all_old_consumer_kinds) ... ok\ntest_missing_revision_index_after_restart_fails_closed (test_hard_consumers_001.ConsumerGateTests.test_missing_revision_index_after_restart_fails_closed) ... ok\ntest_no_preview_can_be_used_as_release_render_or_acceptance_authority (test_hard_consumers_001.ConsumerGateTests.test_no_preview_can_be_used_as_release_render_or_acceptance_authority) ... ok\ntest_source_invalidation_blocks_transitive_animation_and_game_candidates (test_hard_consumers_001.ConsumerGateTests.test_source_invalidation_blocks_transitive_animation_and_game_candidates) ... ok\ntest_stale_voice_or_narration_anchor_is_rejected_before_consumer_output (test_hard_consumers_001.ConsumerGateTests.test_stale_voice_or_narration_anchor_is_rejected_before_consumer_output) ... ok\ntest_successful_repair_rejects_old_visual_for_new_animation (test_hard_consumers_001.ConsumerGateTests.test_successful_repair_rejects_old_visual_for_new_animation) ... ok\ntest_sync_conflicts_are_retained_but_cannot_feed_a_next_consumer (test_hard_consumers_001.ConsumerGateTests.test_sync_conflicts_are_retained_but_cannot_feed_a_next_consumer) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 8.547s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_repair_integration.py",
+      "sha256": "e69511abb67e8e646d00a2eba62ee46ee8e25d1aa54b71344d48e45f3a69633f",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_consumer_publication_rechecks_currentness_after_computation (test_repair_integration.RevisionIntegrationTests.test_consumer_publication_rechecks_currentness_after_computation) ... ok\ntest_invalidation_of_unrelated_artifact_preserves_current_lesson (test_repair_integration.RevisionIntegrationTests.test_invalidation_of_unrelated_artifact_preserves_current_lesson) ... ok\ntest_newer_revision_owner_prevents_old_worker_from_publishing_or_failing_it (test_repair_integration.RevisionIntegrationTests.test_newer_revision_owner_prevents_old_worker_from_publishing_or_failing_it) ... ok\ntest_original_registered_orchestrator_retry_resumes_persisted_base (test_repair_integration.RevisionIntegrationTests.test_original_registered_orchestrator_retry_resumes_persisted_base) ... ok\ntest_repeated_invalidation_keeps_original_evidence_without_new_mutation (test_repair_integration.RevisionIntegrationTests.test_repeated_invalidation_keeps_original_evidence_without_new_mutation) ... ok\ntest_retry_cannot_make_the_same_invalidated_source_current_again (test_repair_integration.RevisionIntegrationTests.test_retry_cannot_make_the_same_invalidated_source_current_again) ... ok\ntest_running_revision_invalidated_by_source_change_cannot_publish_late (test_repair_integration.RevisionIntegrationTests.test_running_revision_invalidated_by_source_change_cannot_publish_late) ... ok\ntest_third_repair_cannot_select_a_superseded_first_attempt (test_repair_integration.RevisionIntegrationTests.test_third_repair_cannot_select_a_superseded_first_attempt) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 4.052s\n\nOK\n"
+    }
+  ],
+  "accepted": false
+}

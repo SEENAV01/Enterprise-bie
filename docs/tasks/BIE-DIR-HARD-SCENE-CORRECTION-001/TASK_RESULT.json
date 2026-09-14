@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+  "title": "Scene-local correction and selective local annotation reuse",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_SCENE_CORRECTION_001.zip",
+  "archive_sha256": "b4367e964ed5c43b720b16776fd13ecd7ab898f594c070659b4ffdfd99469637",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/annotated_directing.py",
+    "bie/director/narration_annotations.py",
+    "bie/director/recovery_codec.py",
+    "bie/director/scene_correction.py",
+    "bie/director/selective_repair.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_scene_correction_001.py",
+    "tests/director/test_hard_selective_annotation_reuse_001.py"
+  ],
+  "declared_atomic_tests": 15,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

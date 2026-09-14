@@ -1,0 +1,68 @@
+{
+  "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "task_files": [
+    {
+      "path": "bie/director/hierarchical_annotations.py",
+      "sha256": "9bbf697e6a41b9b87daefdd6a40cb75d0987413fa66578726a969f86256602de"
+    },
+    {
+      "path": "bie/director/hierarchical_annotation_review.py",
+      "sha256": "0757cdea14aec2b936c804513c8395f6e5c6c47b81a6dc0bed08d427138d73fa"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544"
+    },
+    {
+      "path": "bie/director/annotation_review.py",
+      "sha256": "bd4a297b289645e2cc15c96c6cfec869e365600ff8bd660845735c6dad68d7bf"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "sha256": "f7dcbdc81134c8c99a0e6939b542ac13c2d19911badb30b6e75f7af508022cd4"
+    },
+    {
+      "path": "bie/director/windowed_annotation_review.py",
+      "sha256": "cbbea82d650b325dfb3a6e5ae90366e544f43e8657c64801a9b375e65353511e"
+    },
+    {
+      "path": "bie/director/scene_correction.py",
+      "sha256": "5b0275b45aee8011942c4282c87fddce810df38901d100d7190c83043abc6587"
+    },
+    {
+      "path": "tests/director/completion_fixtures.py",
+      "sha256": "4b2bae3c942a44334c2c64deb68f396db360156ff685df91d5acc33712a61c60"
+    },
+    {
+      "path": "tests/director/test_hard_hierarchical_discourse_001.py",
+      "sha256": "5409996f9827c4d767ce427306a6ac9b1e50bad95262327ac55f957b4cd41196"
+    },
+    {
+      "path": "tests/director/test_hard_hierarchical_review_001.py",
+      "sha256": "bb25b8b97a2a030e843625be10a32b80af8fa0513ec08dd776a32612304f7bdd"
+    },
+    {
+      "path": "COMPLETION_CONTRACTS.md",
+      "sha256": "aa19446995c9ba8630cc32ef817443ea38fe1eeae533e86f8b317084726b7397"
+    }
+  ],
+  "intentional_prior_changes": [
+    {
+      "path": "bie/director/annotation_review.py",
+      "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+      "before_sha256": "f3f9d8a86f01a2a408e89ae5db9556730bfd8d2f7c8096312c6a6a620a081a1c",
+      "after_sha256": "bd4a297b289645e2cc15c96c6cfec869e365600ff8bd660845735c6dad68d7bf",
+      "before_copy": "before_completion/bie/director/annotation_review.py"
+    },
+    {
+      "path": "bie/director/windowed_annotation_review.py",
+      "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+      "before_sha256": "9ac342faf8169f1d0785138ede7db39080db101cecdd68cbfdf6b4f4b80ebff5",
+      "after_sha256": "cbbea82d650b325dfb3a6e5ae90366e544f43e8657c64801a9b375e65353511e",
+      "before_copy": "before_completion/bie/director/windowed_annotation_review.py"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "original_867_ledger_unchanged": true
+}

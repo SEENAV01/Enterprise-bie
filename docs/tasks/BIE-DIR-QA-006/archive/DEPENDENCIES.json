@@ -1,0 +1,12 @@
+{
+  "task_id": "BIE-DIR-QA-006",
+  "depends_on_task_ids": [
+    "BIE-DIR-QA-001",
+    "BIE-DIR-TIME-004"
+  ],
+  "canonical_file_dependencies": [],
+  "runtime": "Python 3.10+ standard library; verified on 3.12.14",
+  "initializers": "Use unchanged canonical initializers",
+  "recommended_runnable_delivery": "BIE_DIR_ORIGINAL_BATCH_006_QA_006_007.zip",
+  "dependency_note": "Implementation DAG, not a dependency graph supplied in the old PDF"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-AUTH-GRADING-001",
+  "title": "Authenticated grading receipt boundary",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_AUTH_GRADING_001.zip",
+  "archive_sha256": "1eca33e585395ab24bf26f5cc1d6686375b3932c545270c110bc0ea70455fcbf",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/authenticated_assessment.py",
+    "bie/director/teaching_context.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_authenticated_grading_001.py"
+  ],
+  "declared_atomic_tests": 9,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

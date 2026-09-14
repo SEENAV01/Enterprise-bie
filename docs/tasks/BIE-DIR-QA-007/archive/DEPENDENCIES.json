@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-DIR-QA-007",
+  "depends_on_task_ids": [
+    "BIE-DIR-QA-001",
+    "BIE-DIR-QA-002",
+    "BIE-DIR-QA-003",
+    "BIE-DIR-QA-004",
+    "BIE-DIR-QA-005",
+    "BIE-DIR-QA-006",
+    "BIE-DIR-LESSON-001",
+    "BIE-DIR-SCRIPT-010"
+  ],
+  "canonical_file_dependencies": [
+    "bie/pedagogy/__init__.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_provenance.py"
+  ],
+  "runtime": "Python 3.10+ standard library; verified on 3.12.14",
+  "initializers": "Use unchanged canonical initializers",
+  "recommended_runnable_delivery": "BIE_DIR_ORIGINAL_BATCH_006_QA_006_007.zip",
+  "dependency_note": "Implementation DAG, not a dependency graph supplied in the old PDF"
+}

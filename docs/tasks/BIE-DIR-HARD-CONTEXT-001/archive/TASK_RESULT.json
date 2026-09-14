@@ -1,0 +1,83 @@
+{
+  "task_id": "BIE-DIR-HARD-CONTEXT-001",
+  "title": "Grounded upstream KI/PR/math/mastery context and explicit PED prerequisite bridges",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "audit_id": "BIE-DIR-CAPABILITY-AUDIT-001",
+  "audit_revision": "grounded-context-teaching-batch-011",
+  "finding_id": "DIR-AUDIT-PRODUCTION",
+  "status": "DOCUMENTED_SUPPORTED_SCOPE_IMPLEMENTED_AND_TESTED",
+  "accepted": false,
+  "DIR_section_implementation_complete": false,
+  "canonical_namespace": "bie.director",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-CONSUMERS-001"
+  ],
+  "canonical_file_dependencies": [
+    "bie/__init__.py",
+    "bie/bie_core/artifact_contracts.py",
+    "bie/director/__init__.py",
+    "bie/infrastructure/__init__.py",
+    "bie/infrastructure/artifact_store.py",
+    "bie/knowledge_intelligence/__init__.py",
+    "bie/knowledge_intelligence/applicability_conditions.py",
+    "bie/knowledge_intelligence/concept_definitions.py",
+    "bie/knowledge_intelligence/knowledge_graph_build.py",
+    "bie/knowledge_intelligence/knowledge_graph_validate.py",
+    "bie/math_intelligence/__init__.py",
+    "bie/math_intelligence/derivation_chain.py",
+    "bie/math_intelligence/derivation_step.py",
+    "bie/math_intelligence/symbolic_equivalence.py",
+    "bie/math_intelligence/teachable_math.py",
+    "bie/model_gateway/__init__.py",
+    "bie/model_gateway/model_interface.py",
+    "bie/model_gateway/schema_validation.py",
+    "bie/pedagogy/__init__.py",
+    "bie/pedagogy/assessment_blueprint.py",
+    "bie/pedagogy/bridge_content_scope.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/objective_taxonomy.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_provenance.py",
+    "bie/pedagogy/remedial_bridge_planner.py",
+    "bie/pedagogy/repetition_policy.py",
+    "bie/pedagogy/teaching_mode_selection.py",
+    "bie/pedagogy/uncertainty_aware_mastery.py",
+    "bie/prerequisite_intelligence/__init__.py",
+    "bie/prerequisite_intelligence/graph.py",
+    "bie/prerequisite_intelligence/teaching_order.py",
+    "bie/reasoning/__init__.py",
+    "bie/reasoning/chronology_reasoning.py",
+    "bie/reasoning/decision_contracts.py",
+    "bie/reasoning/decision_graph.py",
+    "bie/reasoning/event_order_reasoning.py",
+    "bie/reasoning/grounded_result.py",
+    "bie/reasoning/teaching_order.py"
+  ],
+  "owned_files": [
+    "bie/director/teaching_context.py",
+    "bie/director/context_bridges.py",
+    "bie/director/director_inputs.py",
+    "tests/director/context_fixtures.py",
+    "tests/director/test_hard_context_001.py",
+    "ADR-DIR-CONTEXT-011.md"
+  ],
+  "source_files": [
+    "bie/director/teaching_context.py",
+    "bie/director/context_bridges.py",
+    "bie/director/director_inputs.py"
+  ],
+  "test_files": [
+    "tests/director/test_hard_context_001.py"
+  ],
+  "tests_passed": 28,
+  "new_unit_tests": 28,
+  "new_integration_tests": 0,
+  "revises_original_task_ids": [],
+  "extends_additive_task_ids": [
+    "BIE-DIR-HARD-INPUTS-001"
+  ],
+  "created_at_utc": "2026-09-14T00:14:39.716677+00:00",
+  "scope_limit": "Documented source-bound definitions/conditions, prerequisites, optional reported-score events, supplied bounded algebraic chains and explicit teaching obligations only. Broad codecs, segmentation, other teaching modes, production scoring/assembly, scene-local repair/catalog recovery and live quality remain open."
+}

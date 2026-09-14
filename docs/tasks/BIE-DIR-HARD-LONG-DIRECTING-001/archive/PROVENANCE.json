@@ -1,0 +1,69 @@
+{
+  "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/windowed_directing.py",
+      "sha256": "3bf7f641db1143b9f6f7d83758c14b132b54aedccccb0774e668a67c71488292"
+    },
+    {
+      "path": "bie/director/grounded_directing.py",
+      "sha256": "72c69aef2eb283d87dc9e8d2953f665975d746f63a63f36cc054c988bff67b5d"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "sha256": "f6abdc90f61191ddc411b9b13891ac9c9c449d7ddfa25feb669b8d1f35b6846a"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "sha256": "8010eebbeb8849ec789208ae9525074413e9aeec44b957c35dd51b104a4bff2e"
+    },
+    {
+      "path": "tests/director/windowed_directing_fixtures.py",
+      "sha256": "52502b601382fc42e4a4af8f9d780a61cb4286861ff4e7f5327c87eec441b4ae"
+    },
+    {
+      "path": "tests/director/test_hard_long_directing_001.py",
+      "sha256": "c3aa3132db4454dbd203eaa126c6291e75558c5de787a10f5b727af9561b6ca6"
+    },
+    {
+      "path": "tests/director/test_window_integration.py",
+      "sha256": "08f23feb0e216005ed32607c3f511a8b2aec4282bbbd146f0769f7d562653b37"
+    },
+    {
+      "path": "examples/windowed_director_walkthrough.py",
+      "sha256": "df7866cf0dfdf5102235d9eef3d81ecf0953ce79d7311587e25e4667a4fe0077"
+    },
+    {
+      "path": "scripts/check_dir_windows.py",
+      "sha256": "74e905f9cd64c110b914f56f2e79f0eb8c2c24dbf6d9f3bfb33e38fc26fe28a1"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/grounded_directing.py",
+      "before_sha256": "8ef9474f6bda151545841bb950da3eeb45f7834717c12c6f44ac6d12717c4ffc",
+      "after_sha256": "72c69aef2eb283d87dc9e8d2953f665975d746f63a63f36cc054c988bff67b5d",
+      "before_copy": "verification/before_windows/bie/director/grounded_directing.py",
+      "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+      "change_kind": "EXISTING_REQUEST_WINDOW_GENERATION_AND_REVALIDATION_EXTENSION"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "before_sha256": "054701ff789a36667c24162c5c74568720e018c23e44e1e3d7b96b2df859ad1c",
+      "after_sha256": "f6abdc90f61191ddc411b9b13891ac9c9c449d7ddfa25feb669b8d1f35b6846a",
+      "before_copy": "verification/before_windows/bie/director/narration_annotations.py",
+      "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+      "change_kind": "EXISTING_REQUEST_WINDOW_GENERATION_AND_REVALIDATION_EXTENSION"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "before_sha256": "6fd4c6d893954998eac8e1c744e86a706d3a550672a88713eaa1ffc4b46d7f92",
+      "after_sha256": "8010eebbeb8849ec789208ae9525074413e9aeec44b957c35dd51b104a4bff2e",
+      "before_copy": "verification/before_windows/bie/director/recovery_codec.py",
+      "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+      "change_kind": "EXISTING_REQUEST_WINDOW_GENERATION_AND_REVALIDATION_EXTENSION"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-LESSON-003",
+  "title": "Narrative Arc",
+  "classification": "ORIGINAL ROADMAP L1",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_LESSON_003.zip",
+  "archive_sha256": "e37938b3833cfcc4ee19720a2f18c19a008b69b5786feff98840ddbd35818ef4",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/__init__.py",
+    "bie/director/narrative_arc.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_lesson_003.py"
+  ],
+  "declared_atomic_tests": 2,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

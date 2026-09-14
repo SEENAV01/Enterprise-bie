@@ -1,0 +1,48 @@
+{
+  "task_id": "BIE-DIR-HARD-SEMANTIC-001",
+  "title": "Contextual factual QA execution through the canonical model gateway",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "audit_id": "BIE-DIR-CAPABILITY-AUDIT-001",
+  "finding_id": "DIR-AUDIT-SEMANTIC-TRANSPORT",
+  "status": "DOCUMENTED_IMPLEMENTATION_SCOPE_IMPLEMENTED_AND_TESTED",
+  "accepted": false,
+  "DIR_section_implementation_complete": false,
+  "canonical_namespace": "bie.director",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-CONTRACTS-001",
+    "BIE-DIR-QA-007"
+  ],
+  "canonical_file_dependencies": [
+    "bie/model_gateway/__init__.py",
+    "bie/model_gateway/model_interface.py",
+    "bie/model_gateway/schema_validation.py",
+    "bie/model_gateway/gpt_adapter.py"
+  ],
+  "owned_files": [
+    "bie/director/semantic_execution.py",
+    "tests/director/test_hard_semantic_001.py",
+    "tests/director/semantic_fixtures.py",
+    "tests/director/test_hard_integration.py",
+    "examples/semantic_qa_walkthrough.py"
+  ],
+  "source_files": [
+    "bie/director/semantic_execution.py"
+  ],
+  "test_files": [
+    "tests/director/test_hard_semantic_001.py",
+    "tests/director/test_hard_integration.py"
+  ],
+  "tests_passed": 26,
+  "new_unit_tests": 23,
+  "new_integration_tests": 3,
+  "rechecked_existing_regression_tests": 0,
+  "revises_original_task_ids": [],
+  "supports_original_task_ids": [
+    "BIE-DIR-QA-001",
+    "BIE-DIR-QA-002"
+  ],
+  "created_at_utc": "2026-09-13T18:38:06.515084+00:00",
+  "scope_limit": "No live-model, semantic accuracy, real-book, media/game or enterprise acceptance claim. Original ZIPs remain immutable."
+}

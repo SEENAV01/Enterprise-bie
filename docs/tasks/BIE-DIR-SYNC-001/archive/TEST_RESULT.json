@@ -1,0 +1,10 @@
+{
+  "file": "tests/director/test_sync_001.py",
+  "sha256": "0fa2838e62f77a58aa8ff5fa2540a23ac23a85b75e9dbab8f2a9a855d8eba474",
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "log": "test_cue_tampering_detected (test_sync_001.VisualSyncTests.test_cue_tampering_detected) ... ok\ntest_duplicate_ids_unknown_kinds_and_non_integer_holds_rejected (test_sync_001.VisualSyncTests.test_duplicate_ids_unknown_kinds_and_non_integer_holds_rejected) ... ok\ntest_edited_timeline_rejected_even_with_old_parent_hashes (test_sync_001.VisualSyncTests.test_edited_timeline_rejected_even_with_old_parent_hashes) ... ok\ntest_empty_plan_abstains_and_no_acceptance_is_claimed (test_sync_001.VisualSyncTests.test_empty_plan_abstains_and_no_acceptance_is_claimed) ... ok\ntest_input_order_and_generators_do_not_change_fingerprint (test_sync_001.VisualSyncTests.test_input_order_and_generators_do_not_change_fingerprint) ... ok\ntest_internal_pause_is_included_in_anchor_duration (test_sync_001.VisualSyncTests.test_internal_pause_is_included_in_anchor_duration) ... ok\ntest_invalid_bounds_and_ids_rejected (test_sync_001.VisualSyncTests.test_invalid_bounds_and_ids_rejected) ... ok\ntest_old_visual_plan_rejected_after_wpm_rebuild (test_sync_001.VisualSyncTests.test_old_visual_plan_rejected_after_wpm_rebuild) ... ok\ntest_overflow_and_negative_lead_block_without_clamping (test_sync_001.VisualSyncTests.test_overflow_and_negative_lead_block_without_clamping) ... ok\ntest_same_target_visibility_overlap_blocks (test_sync_001.VisualSyncTests.test_same_target_visibility_overlap_blocks) ... ok\ntest_stale_voice_or_text_anchor_rejected (test_sync_001.VisualSyncTests.test_stale_voice_or_text_anchor_rejected) ... ok\ntest_word_and_character_anchors_map_to_scene_time (test_sync_001.VisualSyncTests.test_word_and_character_anchors_map_to_scene_time) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.063s\n\nOK\n"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-REPAIR-001",
+  "title": "Bounded phase recovery and durable input revision invalidation",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_REPAIR_001.zip",
+  "archive_sha256": "78f6062fc751bc77a1cf96f2335b1d994908f251ab3f804f7e80887bfe08c396",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_executor.py",
+    "bie/director/director_revisions.py",
+    "bie/director/recovery_codec.py",
+    "bie/director/selective_repair.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_repair_001.py"
+  ],
+  "declared_atomic_tests": 15,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

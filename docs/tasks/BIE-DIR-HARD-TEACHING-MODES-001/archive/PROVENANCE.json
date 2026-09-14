@@ -1,0 +1,63 @@
+{
+  "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "task_files": [
+    {
+      "path": "bie/director/context_bridges.py",
+      "sha256": "6e47dd953e609def3042d57a7df6081f38a3d66d9d683037b63810c5d6bbf5f2"
+    },
+    {
+      "path": "bie/director/context_windows.py",
+      "sha256": "94ca59fb7d3910a53ced9fe7ba4e475a2c3323d2320d778f5126c63f57ee6a4a"
+    },
+    {
+      "path": "bie/director/contextual_teaching.py",
+      "sha256": "915329a7bbf94fd973c1749114d35e0733cd0436308fe99a64643470ec5ba83f"
+    },
+    {
+      "path": "bie/director/rich_teaching.py",
+      "sha256": "40acf1291d1e28ebc6990dc3ef8cfa8f610759d4383ac2d83cc48bfe5649851e"
+    },
+    {
+      "path": "bie/director/teaching_context.py",
+      "sha256": "3957b9da4ddf8ff142d2519ac515832573bf8ad40c0a4a58fe92e797a4e2dff3"
+    },
+    {
+      "path": "tests/director/completion_fixtures.py",
+      "sha256": "4b2bae3c942a44334c2c64deb68f396db360156ff685df91d5acc33712a61c60"
+    },
+    {
+      "path": "tests/director/test_hard_teaching_modes_001.py",
+      "sha256": "4b7e15018c1f80bd3965fa609fa0d9cc51fc1c638420d9fb0f1568602655efa7"
+    },
+    {
+      "path": "COMPLETION_CONTRACTS.md",
+      "sha256": "aa19446995c9ba8630cc32ef817443ea38fe1eeae533e86f8b317084726b7397"
+    }
+  ],
+  "intentional_prior_changes": [
+    {
+      "path": "bie/director/context_bridges.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "before_sha256": "27e5fe95cca11c3f0fb8bbf00405c0fa2b854d762ef4c53f5c07ee8151d9c46b",
+      "after_sha256": "6e47dd953e609def3042d57a7df6081f38a3d66d9d683037b63810c5d6bbf5f2",
+      "before_copy": "before_completion/bie/director/context_bridges.py"
+    },
+    {
+      "path": "bie/director/context_windows.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "before_sha256": "e0653870f36271357cc7393d884d36aeaf5ee7d489e3fb3dbd06fc920fd407da",
+      "after_sha256": "94ca59fb7d3910a53ced9fe7ba4e475a2c3323d2320d778f5126c63f57ee6a4a",
+      "before_copy": "before_completion/bie/director/context_windows.py"
+    },
+    {
+      "path": "bie/director/contextual_teaching.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "before_sha256": "ef090f2922ef2af4b7013c379f1bd693f47865c100f5dc54bfc5d4839c1c1267",
+      "after_sha256": "915329a7bbf94fd973c1749114d35e0733cd0436308fe99a64643470ec5ba83f",
+      "before_copy": "before_completion/bie/director/contextual_teaching.py"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "original_867_ledger_unchanged": true
+}

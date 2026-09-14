@@ -1,0 +1,31 @@
+{
+  "task_id": "BIE-DIR-QA-005",
+  "title": "age/level appropriateness",
+  "classification": "ORIGINAL ROADMAP L1",
+  "source_document": "BIE_ENTERPRISE_V1_MASTER_ATOMIC_TASK_REGISTRY_ORIGINAL_18_SECTIONS.pdf",
+  "source_page": 10,
+  "source_sha256": "d92fb701bf0549014aae9e7b0646c73edd0e7b0c8672b39c329b29bfd59efc43",
+  "status": "IMPLEMENTED_AND_UNIT_TESTED",
+  "accepted": false,
+  "canonical_namespace": "bie.director",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "depends_on_task_ids": [
+    "BIE-DIR-QA-001",
+    "BIE-DIR-SCRIPT-009"
+  ],
+  "canonical_file_dependencies": [],
+  "source_files": [
+    "bie/director/age_level_qa.py"
+  ],
+  "test_files": [
+    "tests/director/test_qa_005.py"
+  ],
+  "owned_files": [
+    "bie/director/age_level_qa.py",
+    "tests/director/test_qa_005.py"
+  ],
+  "tests_passed": 15,
+  "created_at_utc": "2026-09-13T16:51:55.655036+00:00",
+  "scope_note": "New APIs/heuristics under original scope; not recovered historical specifications or acceptance"
+}

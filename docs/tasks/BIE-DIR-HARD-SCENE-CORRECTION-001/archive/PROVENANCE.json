@@ -1,0 +1,74 @@
+{
+  "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "task_files": [
+    {
+      "path": "bie/director/scene_correction.py",
+      "sha256": "5b0275b45aee8011942c4282c87fddce810df38901d100d7190c83043abc6587"
+    },
+    {
+      "path": "bie/director/selective_repair.py",
+      "sha256": "6f00eb5c1357b0ec72c5b1b0fa03b2e43d249d476bb927b18c5a9592cdcef35d"
+    },
+    {
+      "path": "bie/director/annotated_directing.py",
+      "sha256": "29789708190824969d129eef5432b4fd92ef4e04725908e27ddf95c9a45fe620"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "sha256": "f7dcbdc81134c8c99a0e6939b542ac13c2d19911badb30b6e75f7af508022cd4"
+    },
+    {
+      "path": "tests/director/completion_fixtures.py",
+      "sha256": "4b2bae3c942a44334c2c64deb68f396db360156ff685df91d5acc33712a61c60"
+    },
+    {
+      "path": "tests/director/test_hard_scene_correction_001.py",
+      "sha256": "ddef0d6f46ed1629ff1049586988370ed4f61e7500fadcb62965af1eb5bfde54"
+    },
+    {
+      "path": "tests/director/test_hard_selective_annotation_reuse_001.py",
+      "sha256": "f5028d749ea6b29abb230e78db264405b874f7b80244301ac49d9faf6e67aa29"
+    },
+    {
+      "path": "COMPLETION_CONTRACTS.md",
+      "sha256": "aa19446995c9ba8630cc32ef817443ea38fe1eeae533e86f8b317084726b7397"
+    }
+  ],
+  "intentional_prior_changes": [
+    {
+      "path": "bie/director/annotated_directing.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "f49c6efcf5ae9b29d42c5c3decb53e006f7bed28fff4e206c5dad4ee52c49946",
+      "after_sha256": "29789708190824969d129eef5432b4fd92ef4e04725908e27ddf95c9a45fe620",
+      "before_copy": "before_completion/bie/director/annotated_directing.py"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "3cc33758fc975028e49b46c8140313bc943f0d96891b3150c7ee885f970e606f",
+      "after_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+      "before_copy": "before_completion/bie/director/narration_annotations.py"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "7349364f495cdf2e012d7630e9e967a5c4e2f13dc1dbe3c3989e60f15a492fec",
+      "after_sha256": "f7dcbdc81134c8c99a0e6939b542ac13c2d19911badb30b6e75f7af508022cd4",
+      "before_copy": "before_completion/bie/director/recovery_codec.py"
+    },
+    {
+      "path": "bie/director/selective_repair.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "e84774d6e2022d7bcc112bbd8644542917c0572efd63fb7d161f99e8a1b4dbb8",
+      "after_sha256": "6f00eb5c1357b0ec72c5b1b0fa03b2e43d249d476bb927b18c5a9592cdcef35d",
+      "before_copy": "before_completion/bie/director/selective_repair.py"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "original_867_ledger_unchanged": true
+}

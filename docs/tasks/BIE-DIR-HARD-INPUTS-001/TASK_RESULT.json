@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-INPUTS-001",
+  "title": "Verified canonical source, reasoning and pedagogy adapters",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_INPUTS_001.zip",
+  "archive_sha256": "edbe5e82bed0cb0f1742b8c8206f883ffeb81c5b371e26d5c96113cdf7292972",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_artifacts.py",
+    "bie/director/director_inputs.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_hard_inputs_001.py"
+  ],
+  "declared_atomic_tests": 18,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

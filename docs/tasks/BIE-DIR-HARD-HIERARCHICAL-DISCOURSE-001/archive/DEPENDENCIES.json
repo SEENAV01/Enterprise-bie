@@ -1,0 +1,9 @@
+{
+  "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-TEACHING-MODES-001"
+  ],
+  "overlay_base": "BIE_DIR_ANNOTATION_WINDOWS_BATCH_013_RECONCILIATION.zip",
+  "ordering": "Apply dependencies then this archive; never overwrite hardening with older originals.",
+  "recommended_runnable_delivery": "BIE_DIR_COMPLETION_BATCH_014_RECONCILIATION.zip"
+}

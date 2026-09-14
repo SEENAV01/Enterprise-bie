@@ -1,0 +1,74 @@
+{
+  "task_id": "BIE-DIR-HARD-REPAIR-001",
+  "title": "Bounded phase recovery and durable input revision invalidation",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "audit_id": "BIE-DIR-CAPABILITY-AUDIT-001",
+  "audit_revision": "phase-repair-consumers-batch-010",
+  "finding_id": "DIR-AUDIT-REPAIR-HANDOFF",
+  "status": "DOCUMENTED_SUPPORTED_SCOPE_IMPLEMENTED_AND_TESTED",
+  "accepted": false,
+  "DIR_section_implementation_complete": false,
+  "canonical_namespace": "bie.director",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "depends_on_task_ids": [
+    "BIE-DIR-HARD-ANNOTATION-QA-001"
+  ],
+  "canonical_file_dependencies": [
+    "bie/__init__.py",
+    "bie/bie_core/artifact_contracts.py",
+    "bie/director/__init__.py",
+    "bie/infrastructure/__init__.py",
+    "bie/infrastructure/artifact_store.py",
+    "bie/infrastructure/execution_graph.py",
+    "bie/infrastructure/idempotency_store.py",
+    "bie/infrastructure/orchestrator.py",
+    "bie/infrastructure/run_state.py",
+    "bie/model_gateway/__init__.py",
+    "bie/model_gateway/model_interface.py",
+    "bie/model_gateway/schema_validation.py",
+    "bie/pedagogy/__init__.py",
+    "bie/pedagogy/assessment_blueprint.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/objective_taxonomy.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_provenance.py",
+    "bie/pedagogy/repetition_policy.py",
+    "bie/pedagogy/teaching_mode_selection.py",
+    "bie/reasoning/__init__.py",
+    "bie/reasoning/chronology_reasoning.py",
+    "bie/reasoning/decision_contracts.py",
+    "bie/reasoning/decision_graph.py",
+    "bie/reasoning/event_order_reasoning.py",
+    "bie/reasoning/grounded_result.py",
+    "bie/reasoning/teaching_order.py",
+    "bie/scene_ir/__init__.py",
+    "bie/scene_ir/contracts.py"
+  ],
+  "owned_files": [
+    "bie/director/recovery_codec.py",
+    "bie/director/director_revisions.py",
+    "bie/director/selective_repair.py",
+    "bie/director/director_executor.py",
+    "tests/director/repair_fixtures.py",
+    "tests/director/test_hard_repair_001.py"
+  ],
+  "source_files": [
+    "bie/director/recovery_codec.py",
+    "bie/director/director_revisions.py",
+    "bie/director/selective_repair.py",
+    "bie/director/director_executor.py"
+  ],
+  "test_files": [
+    "tests/director/test_hard_repair_001.py"
+  ],
+  "tests_passed": 15,
+  "new_unit_tests": 15,
+  "new_integration_tests": 0,
+  "revises_original_task_ids": [],
+  "extends_additive_task_ids": [
+    "BIE-DIR-HARD-ANNOTATION-QA-001"
+  ],
+  "created_at_utc": "2026-09-13T20:05:47.971016+00:00",
+  "scope_limit": "Documented phase recovery and DIR-side planning preview consumer scope only. Protocol fixtures are not live quality. Rich codecs/context, teaching, scene-local repair, catalog recovery, full downstream adoption and empirical acceptance remain open."
+}

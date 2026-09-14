@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "file": "tests/director/test_hard_durable_recovery_001.py",
+      "sha256": "eb6eeacaffabb634f7fdac6dd0e4ed825869febe1e3a2f0a7d6d139728b22d05",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_catalog_insert_rolls_back_when_parent_is_unknown (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_insert_rolls_back_when_parent_is_unknown) ... ok\ntest_catalog_rejects_corrupt_journal_and_missing_cas (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_rejects_corrupt_journal_and_missing_cas) ... ok\ntest_catalog_restarts_with_exact_graph_and_cas_bytes (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_restarts_with_exact_graph_and_cas_bytes) ... ok\ntest_completed_lease_is_replayable_but_immutable (test_hard_durable_recovery_001.DurableRecoveryTests.test_completed_lease_is_replayable_but_immutable) ... ok\ntest_coordinator_and_executor_require_durable_catalog_pairing (test_hard_durable_recovery_001.DurableRecoveryTests.test_coordinator_and_executor_require_durable_catalog_pairing) ... ok\ntest_expired_worker_is_reclaimed_with_higher_epoch_and_fence (test_hard_durable_recovery_001.DurableRecoveryTests.test_expired_worker_is_reclaimed_with_higher_epoch_and_fence) ... ok\ntest_live_foreign_worker_cannot_be_stolen (test_hard_durable_recovery_001.DurableRecoveryTests.test_live_foreign_worker_cannot_be_stolen) ... ok\ntest_only_matching_incomplete_idempotency_claim_is_reclaimed (test_hard_durable_recovery_001.DurableRecoveryTests.test_only_matching_incomplete_idempotency_claim_is_reclaimed) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nOK\n"
+    }
+  ],
+  "accepted": false
+}

@@ -1,0 +1,69 @@
+{
+  "task_id": "BIE-DIR-HARD-TEACHING-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/contextual_teaching.py",
+      "sha256": "ef090f2922ef2af4b7013c379f1bd693f47865c100f5dc54bfc5d4839c1c1267"
+    },
+    {
+      "path": "bie/director/grounded_directing.py",
+      "sha256": "8ef9474f6bda151545841bb950da3eeb45f7834717c12c6f44ac6d12717c4ffc"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "sha256": "054701ff789a36667c24162c5c74568720e018c23e44e1e3d7b96b2df859ad1c"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "sha256": "6fd4c6d893954998eac8e1c744e86a706d3a550672a88713eaa1ffc4b46d7f92"
+    },
+    {
+      "path": "tests/director/teaching_fixtures.py",
+      "sha256": "11818793ea7c7861f7fa1f203ad7e8725ecb25b88d8ac437e74cf96c09817d68"
+    },
+    {
+      "path": "tests/director/test_hard_teaching_001.py",
+      "sha256": "a0e00014272e322260d99b491d811d9e2c0be4866881fccca1f51c4febc28fd7"
+    },
+    {
+      "path": "tests/director/test_context_integration.py",
+      "sha256": "76f1c729c2356717425bbf29523df183618f058ae6770d55bffaec22ca5b29f4"
+    },
+    {
+      "path": "examples/contextual_director_walkthrough.py",
+      "sha256": "a8e0fd7039fb26f07dbd619ab7c87d4435a6f915f3be094b5178e6a5077f4ef7"
+    },
+    {
+      "path": "scripts/check_dir_context.py",
+      "sha256": "3854a9cb6de1676f682e964cbef2cb29e394858412f45e184c6859bfb8672e09"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/grounded_directing.py",
+      "before_sha256": "ba5b2578d713f4bc463cebe0063683d927b369d261bad75ff7e8e0d47619e861",
+      "after_sha256": "8ef9474f6bda151545841bb950da3eeb45f7834717c12c6f44ac6d12717c4ffc",
+      "before_copy": "verification/before_context/bie/director/grounded_directing.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-001",
+      "change_kind": "EXISTING_INPUT_GENERATION_ANNOTATION_AND_DECODING_CONTEXT_EXTENSION"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "before_sha256": "17c3a8c89e1a5db75d5ac0846157696fd470dd9afe7aa2cd4df8e9024878ad72",
+      "after_sha256": "054701ff789a36667c24162c5c74568720e018c23e44e1e3d7b96b2df859ad1c",
+      "before_copy": "verification/before_context/bie/director/narration_annotations.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-001",
+      "change_kind": "EXISTING_INPUT_GENERATION_ANNOTATION_AND_DECODING_CONTEXT_EXTENSION"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "before_sha256": "953d1c0a680f4c829d1b4ea1da5b056c18fc7f558269d77ca4d4368fb9d1cb10",
+      "after_sha256": "6fd4c6d893954998eac8e1c744e86a706d3a550672a88713eaa1ffc4b46d7f92",
+      "before_copy": "verification/before_context/bie/director/recovery_codec.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-001",
+      "change_kind": "EXISTING_INPUT_GENERATION_ANNOTATION_AND_DECODING_CONTEXT_EXTENSION"
+    }
+  ]
+}

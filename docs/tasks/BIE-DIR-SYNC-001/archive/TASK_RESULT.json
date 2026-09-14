@@ -1,0 +1,39 @@
+{
+  "task_id": "BIE-DIR-SYNC-001",
+  "title": "narration-to-visual intent",
+  "classification": "ORIGINAL ROADMAP L1",
+  "source_document": "BIE_ENTERPRISE_V1_MASTER_ATOMIC_TASK_REGISTRY_ORIGINAL_18_SECTIONS.pdf",
+  "source_page": 10,
+  "source_sha256": "d92fb701bf0549014aae9e7b0646c73edd0e7b0c8672b39c329b29bfd59efc43",
+  "status": "IMPLEMENTED_AND_UNIT_TESTED",
+  "accepted": false,
+  "canonical_namespace": "bie.director",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "depends_on_task_ids": [
+    "BIE-DIR-TIME-001",
+    "BIE-DIR-TIME-002",
+    "BIE-DIR-TIME-003",
+    "BIE-DIR-TIME-004"
+  ],
+  "canonical_file_dependencies": [
+    "bie/scene_ir/__init__.py",
+    "bie/scene_ir/contracts.py"
+  ],
+  "source_files": [
+    "bie/director/sync_contract.py",
+    "bie/director/narration_visual_sync.py"
+  ],
+  "test_files": [
+    "tests/director/test_sync_001.py"
+  ],
+  "owned_files": [
+    "bie/director/sync_contract.py",
+    "bie/director/narration_visual_sync.py",
+    "tests/director/test_sync_001.py",
+    "tests/director/sync_fixtures.py"
+  ],
+  "tests_passed": 12,
+  "scope_note": "API/policy design implemented now under original task scope; not historically recovered API detail",
+  "created_at_utc": "2026-09-13T16:21:23.046290+00:00"
+}

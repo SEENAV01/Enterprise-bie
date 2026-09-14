@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-TIME-002",
+  "title": "pause timing",
+  "classification": "ORIGINAL ROADMAP L1",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_TIME_002.zip",
+  "archive_sha256": "f05e0ae0d02f27bbfc4c0ca49fee23c46d7f9b5455c13d7ecd06f006e25022cc",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/pause_timing.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_time_002.py"
+  ],
+  "declared_atomic_tests": 9,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

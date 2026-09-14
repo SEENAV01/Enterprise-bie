@@ -1,0 +1,49 @@
+{
+  "task_id": "BIE-DIR-HARD-ANNOTATION-QA-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/annotation_review.py",
+      "sha256": "ef38f980d54a5c5e17b347b81078f72d5ca3f3a7e88769102ad526275b4fdb0b"
+    },
+    {
+      "path": "bie/director/annotated_directing.py",
+      "sha256": "f49c6efcf5ae9b29d42c5c3decb53e006f7bed28fff4e206c5dad4ee52c49946"
+    },
+    {
+      "path": "bie/director/director_executor.py",
+      "sha256": "b399f3b63a0fb73220f9f42298ed15c6718ea250a74ef5e2bf997e078e6fe4bb"
+    },
+    {
+      "path": "tests/director/annotation_review_fixtures.py",
+      "sha256": "d93ee29e2e5f43095501280b54d835d33832acb213da88c3a35cc27190d17186"
+    },
+    {
+      "path": "tests/director/test_hard_annotation_qa_001.py",
+      "sha256": "84373b6338254e25d9385a01416b7e1dcd6c563202f2b6c4e47606748d97981f"
+    },
+    {
+      "path": "tests/director/test_annotation_integration.py",
+      "sha256": "7e16283af0dbb05481da85ade8b1252dd17e63afb721caea94d4dba879f202d5"
+    },
+    {
+      "path": "examples/annotated_director_walkthrough.py",
+      "sha256": "df78221c91b8f38624f0d0bc7b434f8d8fb81c6accfee2734169784776406982"
+    },
+    {
+      "path": "scripts/check_dir_annotations.py",
+      "sha256": "4cd4e469eda050e9cb9a9b9c65d3044e80f7343579909b055be4608496b1d05d"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/director_executor.py",
+      "before_sha256": "879726bc7b81feac3de4ef245db8b6b4a050753f1dd5cb013f57df540af72128",
+      "after_sha256": "b399f3b63a0fb73220f9f42298ed15c6718ea250a74ef5e2bf997e078e6fe4bb",
+      "before_copy": "verification/before_annotations/bie/director/director_executor.py",
+      "task_id": "BIE-DIR-HARD-ANNOTATION-QA-001",
+      "change_kind": "EXISTING_STAGE_ANNOTATION_EXTENSION_WITH_PRIOR_API_PRESERVED"
+    }
+  ]
+}

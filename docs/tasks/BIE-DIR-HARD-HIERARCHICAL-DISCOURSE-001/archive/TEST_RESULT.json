@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "file": "tests/director/test_hard_hierarchical_discourse_001.py",
+      "sha256": "5409996f9827c4d767ce427306a6ac9b1e50bad95262327ac55f957b4cd41196",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_boundary_cannot_claim_another_edge (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_boundary_cannot_claim_another_edge) ... ok\ntest_complete_speech_is_covered_without_one_global_speech_request (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_complete_speech_is_covered_without_one_global_speech_request) ... ok\ntest_every_interleaf_boundary_receives_an_exact_scope (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_every_interleaf_boundary_receives_an_exact_scope) ... ok\ntest_host_reassembles_and_runs_original_full_validator (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_host_reassembles_and_runs_original_full_validator) ... ok\ntest_indivisible_leaf_overflow_fails_without_truncating_speech (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_indivisible_leaf_overflow_fails_without_truncating_speech) ... ok\ntest_leaf_cannot_omit_an_utterance (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_leaf_cannot_omit_an_utterance) ... ok\ntest_metadata_stripping_cannot_downgrade_hierarchical_record (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_metadata_stripping_cannot_downgrade_hierarchical_record) ... ok\ntest_persisted_hierarchical_evidence_roundtrips_and_revalidates (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_persisted_hierarchical_evidence_roundtrips_and_revalidates) ... ok\ntest_retrieval_scope_cannot_link_an_unselected_utterance (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_retrieval_scope_cannot_link_an_unselected_utterance) ... ok\ntest_three_scene_lesson_executes_deterministic_nonadjacent_retrieval (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_three_scene_lesson_executes_deterministic_nonadjacent_retrieval) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 9.824s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_hierarchical_review_001.py",
+      "sha256": "bb25b8b97a2a030e843625be10a32b80af8fa0513ec08dd776a32612304f7bdd",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_all_annotation_and_completeness_subjects_are_aggregated (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_all_annotation_and_completeness_subjects_are_aggregated) ... ok\ntest_failed_scope_remains_evidence_and_prevents_trust (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_failed_scope_remains_evidence_and_prevents_trust) ... ok\ntest_issue_in_one_scope_dominates_supported_observations (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_issue_in_one_scope_dominates_supported_observations) ... ok\ntest_no_review_request_contains_the_whole_spoken_lesson_marker (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_no_review_request_contains_the_whole_spoken_lesson_marker) ... ok\ntest_persisted_review_roundtrips_and_revalidates_schedule (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_persisted_review_roundtrips_and_revalidates_schedule) ... ok\ntest_review_policy_can_trust_only_exact_configured_reviewer_key (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_review_policy_can_trust_only_exact_configured_reviewer_key) ... ok\ntest_source_and_matching_hierarchical_scopes_all_execute (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_source_and_matching_hierarchical_scopes_all_execute) ... ok\ntest_stripped_schedule_or_policy_metadata_is_rejected (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_stripped_schedule_or_policy_metadata_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 15.549s\n\nOK\n"
+    }
+  ],
+  "accepted": false
+}

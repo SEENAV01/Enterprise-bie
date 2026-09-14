@@ -1,0 +1,494 @@
+{
+  "passed": true,
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "canonical_files_hash_checked": 13395,
+  "canonical_files_changed_before_integration": [],
+  "previous_bundle": "BIE_DIR_ANNOTATION_WINDOWS_BATCH_013_RECONCILIATION.zip",
+  "previous_bundle_sha256": "93a01fd209c197e4248a75dfb330ee4d048625ee7e8fa5891776c07384ab16ee",
+  "prior_DIR_source_test_files": 140,
+  "unchanged_prior_DIR_source_test_files": 127,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/annotated_directing.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "f49c6efcf5ae9b29d42c5c3decb53e006f7bed28fff4e206c5dad4ee52c49946",
+      "after_sha256": "29789708190824969d129eef5432b4fd92ef4e04725908e27ddf95c9a45fe620",
+      "before_copy": "before_completion/bie/director/annotated_directing.py"
+    },
+    {
+      "path": "bie/director/annotation_review.py",
+      "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+      "before_sha256": "f3f9d8a86f01a2a408e89ae5db9556730bfd8d2f7c8096312c6a6a620a081a1c",
+      "after_sha256": "bd4a297b289645e2cc15c96c6cfec869e365600ff8bd660845735c6dad68d7bf",
+      "before_copy": "before_completion/bie/director/annotation_review.py"
+    },
+    {
+      "path": "bie/director/context_bridges.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "before_sha256": "27e5fe95cca11c3f0fb8bbf00405c0fa2b854d762ef4c53f5c07ee8151d9c46b",
+      "after_sha256": "6e47dd953e609def3042d57a7df6081f38a3d66d9d683037b63810c5d6bbf5f2",
+      "before_copy": "before_completion/bie/director/context_bridges.py"
+    },
+    {
+      "path": "bie/director/context_windows.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "before_sha256": "e0653870f36271357cc7393d884d36aeaf5ee7d489e3fb3dbd06fc920fd407da",
+      "after_sha256": "94ca59fb7d3910a53ced9fe7ba4e475a2c3323d2320d778f5126c63f57ee6a4a",
+      "before_copy": "before_completion/bie/director/context_windows.py"
+    },
+    {
+      "path": "bie/director/contextual_teaching.py",
+      "task_id": "BIE-DIR-HARD-TEACHING-MODES-001",
+      "before_sha256": "ef090f2922ef2af4b7013c379f1bd693f47865c100f5dc54bfc5d4839c1c1267",
+      "after_sha256": "915329a7bbf94fd973c1749114d35e0733cd0436308fe99a64643470ec5ba83f",
+      "before_copy": "before_completion/bie/director/contextual_teaching.py"
+    },
+    {
+      "path": "bie/director/director_benchmark.py",
+      "task_id": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+      "before_sha256": "87156e28cd0f53805a256824fe0eba62c7e5d1868c14e6182628a7000f247b80",
+      "after_sha256": "d022e2b5fb980e5da6c3e4fa2fe2f48ee08e3d811faf06c5097a49a452075f07",
+      "before_copy": "before_completion/bie/director/director_benchmark.py"
+    },
+    {
+      "path": "bie/director/director_executor.py",
+      "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+      "before_sha256": "e09b11426fe5d4b7c357e199bfc7ce6fe4730e0c24789d9f815f06ce9f9ba3e0",
+      "after_sha256": "4efab7e440cda1e0ab0dbd49ef65dde5a8b616e6439a93a875e7342e042db293",
+      "before_copy": "before_completion/bie/director/director_executor.py"
+    },
+    {
+      "path": "bie/director/director_revisions.py",
+      "task_id": "BIE-DIR-HARD-DURABLE-RECOVERY-001",
+      "before_sha256": "57ad0878b53707cd3879d6eefeeb09c0de27a0b3ee05ce7c39ed323334f5c556",
+      "after_sha256": "1920285d4e4a467ad61568acf8b0d8e119d0aff0d954178fc9818eebfc393453",
+      "before_copy": "before_completion/bie/director/director_revisions.py"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "3cc33758fc975028e49b46c8140313bc943f0d96891b3150c7ee885f970e606f",
+      "after_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+      "before_copy": "before_completion/bie/director/narration_annotations.py"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "7349364f495cdf2e012d7630e9e967a5c4e2f13dc1dbe3c3989e60f15a492fec",
+      "after_sha256": "f7dcbdc81134c8c99a0e6939b542ac13c2d19911badb30b6e75f7af508022cd4",
+      "before_copy": "before_completion/bie/director/recovery_codec.py"
+    },
+    {
+      "path": "bie/director/selective_repair.py",
+      "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+      "before_sha256": "e84774d6e2022d7bcc112bbd8644542917c0572efd63fb7d161f99e8a1b4dbb8",
+      "after_sha256": "6f00eb5c1357b0ec72c5b1b0fa03b2e43d249d476bb927b18c5a9592cdcef35d",
+      "before_copy": "before_completion/bie/director/selective_repair.py"
+    },
+    {
+      "path": "bie/director/teaching_context.py",
+      "task_id": "BIE-DIR-HARD-AUTH-GRADING-001",
+      "before_sha256": "a65062011d98cd1be5ca00eee3f4419408e9d5482e3b423f216210aee4b7cf4f",
+      "after_sha256": "3957b9da4ddf8ff142d2519ac515832573bf8ad40c0a4a58fe92e797a4e2dff3",
+      "before_copy": "before_completion/bie/director/teaching_context.py"
+    },
+    {
+      "path": "bie/director/windowed_annotation_review.py",
+      "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+      "before_sha256": "9ac342faf8169f1d0785138ede7db39080db101cecdd68cbfdf6b4f4b80ebff5",
+      "after_sha256": "cbbea82d650b325dfb3a6e5ae90366e544f43e8657c64801a9b375e65353511e",
+      "before_copy": "before_completion/bie/director/windowed_annotation_review.py"
+    }
+  ],
+  "new_DIR_source_test_files": [
+    {
+      "path": "bie/director/authenticated_assessment.py",
+      "sha256": "808bc883e389995e345f52843c3ab331a74ee0f0d72411b47dbceea6c1039efb"
+    },
+    {
+      "path": "bie/director/director_durable_recovery.py",
+      "sha256": "a5a68514ee1e5c8be1b1602370bab4b791d8c7a4c5085674b4d27e7d704fd1be"
+    },
+    {
+      "path": "bie/director/hierarchical_annotation_review.py",
+      "sha256": "0757cdea14aec2b936c804513c8395f6e5c6c47b81a6dc0bed08d427138d73fa"
+    },
+    {
+      "path": "bie/director/hierarchical_annotations.py",
+      "sha256": "9bbf697e6a41b9b87daefdd6a40cb75d0987413fa66578726a969f86256602de"
+    },
+    {
+      "path": "bie/director/production_adoption.py",
+      "sha256": "a19e917acd68e2a6ceab83444d1538bb81b9a806e196c8ae4a96256904ca23f6"
+    },
+    {
+      "path": "bie/director/provider_calibration.py",
+      "sha256": "53adb90db16372ecb3d1ddd8813f52d024203aebcf1eb82f722e4ce4ebaad07f"
+    },
+    {
+      "path": "bie/director/rich_teaching.py",
+      "sha256": "40acf1291d1e28ebc6990dc3ef8cfa8f610759d4383ac2d83cc48bfe5649851e"
+    },
+    {
+      "path": "bie/director/scene_correction.py",
+      "sha256": "5b0275b45aee8011942c4282c87fddce810df38901d100d7190c83043abc6587"
+    },
+    {
+      "path": "tests/director/completion_fixtures.py",
+      "sha256": "4b2bae3c942a44334c2c64deb68f396db360156ff685df91d5acc33712a61c60"
+    },
+    {
+      "path": "tests/director/test_hard_authenticated_grading_001.py",
+      "sha256": "5ad9a5d8e06338b2cd84c3942ac72939e4c6b20e79079627024c056ef7cd0baa"
+    },
+    {
+      "path": "tests/director/test_hard_benchmark_calibration_001.py",
+      "sha256": "bd7b35738f815613ccbd52ae58fb8f5dea6038962a0b1eb1ed644caa5a4278e8"
+    },
+    {
+      "path": "tests/director/test_hard_durable_recovery_001.py",
+      "sha256": "eb6eeacaffabb634f7fdac6dd0e4ed825869febe1e3a2f0a7d6d139728b22d05"
+    },
+    {
+      "path": "tests/director/test_hard_hierarchical_discourse_001.py",
+      "sha256": "5409996f9827c4d767ce427306a6ac9b1e50bad95262327ac55f957b4cd41196"
+    },
+    {
+      "path": "tests/director/test_hard_hierarchical_review_001.py",
+      "sha256": "bb25b8b97a2a030e843625be10a32b80af8fa0513ec08dd776a32612304f7bdd"
+    },
+    {
+      "path": "tests/director/test_hard_production_adoption_001.py",
+      "sha256": "444677d8966a6c18ab70bc1c4bd67d79e62d033e48aa86045a8529e05cd90443"
+    },
+    {
+      "path": "tests/director/test_hard_rich_codecs_001.py",
+      "sha256": "762cccda71a567bcb6f1e75d0a9e02c53d564f1034803513644a531ac2c88b77"
+    },
+    {
+      "path": "tests/director/test_hard_scene_correction_001.py",
+      "sha256": "ddef0d6f46ed1629ff1049586988370ed4f61e7500fadcb62965af1eb5bfde54"
+    },
+    {
+      "path": "tests/director/test_hard_selective_annotation_reuse_001.py",
+      "sha256": "f5028d749ea6b29abb230e78db264405b874f7b80244301ac49d9faf6e67aa29"
+    },
+    {
+      "path": "tests/director/test_hard_teaching_modes_001.py",
+      "sha256": "4b7e15018c1f80bd3965fa609fa0d9cc51fc1c638420d9fb0f1568602655efa7"
+    }
+  ],
+  "original_DIR_archives_preserved": 37,
+  "prior_hardening_archives_preserved": 14,
+  "preserved_archive_hashes": [
+    {
+      "archive": "BIE_DIR_LESSON_001.zip",
+      "sha256": "7442a4bd45b1031998f3f64ed1512044e1c471d899bd736e500039cce9c56f16",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_002.zip",
+      "sha256": "242306d4485e55888692cc694969b0f6f90b052671496d3d1d2ddd008ea388c9",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_003.zip",
+      "sha256": "e37938b3833cfcc4ee19720a2f18c19a008b69b5786feff98840ddbd35818ef4",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_004.zip",
+      "sha256": "18a76d7a8f4f3bed778cbc1053882c953c5b8466fcd8d76aed44a1a42254ecd6",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_005.zip",
+      "sha256": "c96417fcac6a88c200d7117c20d85108739cbb83b63a6adab106dba7d951b931",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_006.zip",
+      "sha256": "bebd743d84b45e9815ff9d491740bda7cfc9a7c4b32f29802ca2267e911c91c9",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_007.zip",
+      "sha256": "10d08413d7c17f5d8454e080b845c8c510d9f509f9498938273e636bd724d52a",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_008.zip",
+      "sha256": "9891af24c5bb0f224c6538c5d8bf50a626704aa0616eef2b394b0e98c0d39804",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_009.zip",
+      "sha256": "25e858138335bfaa8e07b137a9460dd535eedde3d2aff0bf1069840a1fccab48",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_LESSON_010.zip",
+      "sha256": "9ad93ed2f63f1b52656b4235b564c855ee745df6c95bff1c48bdc7b7d50457d8",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_001.zip",
+      "sha256": "bf295f3df677614ad3948c319c9221c6559594c6f96e704413b626b63b64eaaa",
+      "member_count": 9,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_002.zip",
+      "sha256": "13d1304b4c13ab551f6787d15f76bf8bad497d24367c454055d28fe20c75fc89",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_003.zip",
+      "sha256": "33a79abaef5a0b78b77206e8cb62e3b29196808b913ddf573bde7f87edd4ab0b",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_004.zip",
+      "sha256": "87c6c37bc77a280e65b7447e4591015313576924d470dd3b32d6de9356deed7f",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_005.zip",
+      "sha256": "99fffba39d7f49c98890d53b41487f1f6b2a4dd944efcfcf74c02ee969faf6f5",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_006.zip",
+      "sha256": "3bbb20ea60505366d7c770c32c6fad1c8c33311a598536b8995ed03a44a603c4",
+      "member_count": 8,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_QA_007.zip",
+      "sha256": "8a1f2d564443515c7db556792066564f7ef9f1d9302a647c1923f6bf8a4ba628",
+      "member_count": 9,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_001.zip",
+      "sha256": "1767c4411fd31c12c22d0644c541f828f28a11c94e24d7eec6818d69779b61bc",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_002.zip",
+      "sha256": "5ae7df949372b0e17137a56e5ea6f9b164e7ba5e21820fb8dd0cdfc78527d10d",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_003.zip",
+      "sha256": "deb823017a59b6ef9943c7a77ff3d5365fbbdbd2e98b914acb0b12fd2f6c4fcb",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_004.zip",
+      "sha256": "089ef8e803f99049508849a95b134b287441472546ae558c9460f55738e7df32",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_005.zip",
+      "sha256": "8a147c7dbe2cb05149edfbcd77eb83f6b403905b36e23cb8ea2f57a93ea97dfe",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_006.zip",
+      "sha256": "e366dee3ebe9610a2afce0abd7e636104199df140befa014d89220ba53023fcd",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_007.zip",
+      "sha256": "20c4daf591067b78451ca848030a2fe5e89957f536488d4fe48fee6358ed16ca",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_008.zip",
+      "sha256": "29cf31bf9717fa6517cc1ed775f430397e335c6fb245fabe2c2a4de175ab43f1",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_009.zip",
+      "sha256": "ad6fdf99c0c651afb107b93ec539ca855857c3d1e945068ff6de59d50f443f89",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SCRIPT_010.zip",
+      "sha256": "542e9bde104b642c0edc98df9393e4a654a96b9a08e847f478c79ed23a55881c",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SYNC_001.zip",
+      "sha256": "8db2802cf299dce4f0fe1a7779643690b897be6a5defa7b390e75919ec598068",
+      "member_count": 9,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SYNC_002.zip",
+      "sha256": "e7301fa5c6288a4d4bd59da876f785ae3a33cef555a50a77a9b7a9ab0f7a038e",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SYNC_003.zip",
+      "sha256": "c7663661f95cca7bcd713110b9850cc9871fda6f9fd93320440c2801e40fec8d",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SYNC_004.zip",
+      "sha256": "297e1d24f14eb324539e697c7c8f5d2d86067359e746284468e12708ae2a51bc",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_SYNC_005.zip",
+      "sha256": "417b5c6c38f066a9e780a19e1939112ed4c70b1b3e9c4a8f2d51eee85bb77f5f",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_TIME_001.zip",
+      "sha256": "3dc2c0d327276f7ae7affec78bec671fbde039ea29ec519de25bb022e4ad233f",
+      "member_count": 9,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_TIME_002.zip",
+      "sha256": "f05e0ae0d02f27bbfc4c0ca49fee23c46d7f9b5455c13d7ecd06f006e25022cc",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_TIME_003.zip",
+      "sha256": "eeef9c796dc7d792af09ce0ec4124c1d47d90967ccaa27c5ce71c62e94ab39f7",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_TIME_004.zip",
+      "sha256": "4760655c61168525b37a258a7790231b7d1d3d0bef2fc99ddb84dc7d4fddf991",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_TIME_005.zip",
+      "sha256": "4a55d966e1875d296f011cb73e20d0687997df27ba22a970158d32b5a7721f24",
+      "member_count": 7,
+      "kind": "original_DIR_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_ANNOTATIONS_001.zip",
+      "sha256": "364578cc37941fc9a5446071be6b2029ffb51344f75fa0908b26ef474a8fb36c",
+      "member_count": 9,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_ANNOTATION_QA_001.zip",
+      "sha256": "3191c1b1353cfc8ba293bf1717e6411cc030da694e5d5a188fb004a30b5d6526",
+      "member_count": 15,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_ANNOTATION_WINDOWS_001.zip",
+      "sha256": "fbc88705b0932ad3dff0e4b89e2fe9ec582a7f6ad17ef14c4b1cbde79279fce6",
+      "member_count": 13,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_CONSUMERS_001.zip",
+      "sha256": "94473b3f39805ae2da66cf633a7073ea643e8a09956fefdbaa49671b82a0440e",
+      "member_count": 11,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_CONTEXT_001.zip",
+      "sha256": "8db6ee0d8beee724387a12cd016d1ce702caeb4d3ce948657c16e875f3aac989",
+      "member_count": 13,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_CONTRACTS_001.zip",
+      "sha256": "6fd8e887516de12352eff0b26d953157bd59ad74052ee4d921def164b421818e",
+      "member_count": 50,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_DIRECTOR_001.zip",
+      "sha256": "615bf31400603d053ac420c11c36657acb0323e4b35caabf312317641b237990",
+      "member_count": 14,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_GLOBAL_REVIEW_001.zip",
+      "sha256": "76e7be46e81eb2e6089dab2cb0dc2e823d32857b3f22548015905f0f25b6d862",
+      "member_count": 17,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_INPUTS_001.zip",
+      "sha256": "edbe5e82bed0cb0f1742b8c8206f883ffeb81c5b371e26d5c96113cdf7292972",
+      "member_count": 10,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_LONG_DIRECTING_001.zip",
+      "sha256": "ca2d04747682cb7f102b51fc88df32055b7647a51bf66b5af271e1db80f610f4",
+      "member_count": 18,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_REPAIR_001.zip",
+      "sha256": "78f6062fc751bc77a1cf96f2335b1d994908f251ab3f804f7e80887bfe08c396",
+      "member_count": 13,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_SEMANTIC_001.zip",
+      "sha256": "34ca2b197656c9e72ae67ee7d743696c3ffb75290d5b17012884e4ef2fa257eb",
+      "member_count": 11,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_TEACHING_001.zip",
+      "sha256": "9ac2c6ca5fcdc136b3065943f8a7ce6bc3f919c2caa4d2b7d3bc290ddc86947b",
+      "member_count": 18,
+      "kind": "additive_DIR_hardening_archives"
+    },
+    {
+      "archive": "BIE_DIR_HARD_WINDOWS_001.zip",
+      "sha256": "6339810ca55815fbc3e009c0974739e9bf03899e7c0546f6ba24062838b5ea33",
+      "member_count": 12,
+      "kind": "additive_DIR_hardening_archives"
+    }
+  ],
+  "original_867_ledger_sha256": "dae9a9c2d015f443b5d5f2450d869aaeb649de23a6f9f099cf12901f3739386e",
+  "no_prior_source_or_test_deleted": true,
+  "accepted": false
+}

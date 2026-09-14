@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-GLOBAL-REVIEW-001",
+  "title": "Scoped independent source/global annotation review with conservative aggregation and persisted consumer revalidation",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_GLOBAL_REVIEW_001.zip",
+  "archive_sha256": "76e7be46e81eb2e6089dab2cb0dc2e823d32857b3f22548015905f0f25b6d862",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/annotation_review.py",
+    "bie/director/director_consumers.py",
+    "bie/director/recovery_codec.py",
+    "bie/director/windowed_annotation_review.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_annotation_window_integration.py",
+    "tests/director/test_hard_global_review_001.py"
+  ],
+  "declared_atomic_tests": 26,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

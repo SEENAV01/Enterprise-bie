@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "file": "tests/director/test_hard_scene_correction_001.py",
+      "sha256": "ddef0d6f46ed1629ff1049586988370ed4f61e7500fadcb62965af1eb5bfde54",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_correction_count_budget_fails_before_provider_calls (test_hard_scene_correction_001.SceneCorrectionTests.test_correction_count_budget_fails_before_provider_calls) ... ok\ntest_correction_retains_review_and_never_claims_acceptance (test_hard_scene_correction_001.SceneCorrectionTests.test_correction_retains_review_and_never_claims_acceptance) ... ok\ntest_noop_correction_is_rejected (test_hard_scene_correction_001.SceneCorrectionTests.test_noop_correction_is_rejected) ... ok\ntest_only_named_scene_is_regenerated_and_all_other_bytes_are_reused (test_hard_scene_correction_001.SceneCorrectionTests.test_only_named_scene_is_regenerated_and_all_other_bytes_are_reused) ... ok\ntest_persisted_correction_roundtrips_and_revalidates_actual_requests (test_hard_scene_correction_001.SceneCorrectionTests.test_persisted_correction_roundtrips_and_revalidates_actual_requests) ... ok\ntest_plan_is_immutable_and_whole_lesson_is_recompiled (test_hard_scene_correction_001.SceneCorrectionTests.test_plan_is_immutable_and_whole_lesson_is_recompiled) ... ok\ntest_tampered_reason_changes_request_fingerprint_and_is_rejected (test_hard_scene_correction_001.SceneCorrectionTests.test_tampered_reason_changes_request_fingerprint_and_is_rejected) ... ok\ntest_wrong_evidence_or_scene_identity_exhausts_bounded_retries (test_hard_scene_correction_001.SceneCorrectionTests.test_wrong_evidence_or_scene_identity_exhausts_bounded_retries) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 5.502s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_selective_annotation_reuse_001.py",
+      "sha256": "f5028d749ea6b29abb230e78db264405b874f7b80244301ac49d9faf6e67aa29",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_changed_scene_and_all_discourse_scopes_execute_fresh (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_changed_scene_and_all_discourse_scopes_execute_fresh) ... ok\ntest_persisted_reuse_receipt_roundtrips_and_revalidates (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_persisted_reuse_receipt_roundtrips_and_revalidates) ... ok\ntest_policy_or_identity_change_disables_reuse_by_failing_closed (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_policy_or_identity_change_disables_reuse_by_failing_closed) ... ok\ntest_reuse_attempts_are_not_falsely_counted_as_new_model_calls (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_reuse_attempts_are_not_falsely_counted_as_new_model_calls) ... ok\ntest_reused_local_data_and_fresh_global_data_pass_full_validator (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_reused_local_data_and_fresh_global_data_pass_full_validator) ... ok\ntest_tampered_prior_payload_or_response_is_rejected (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_tampered_prior_payload_or_response_is_rejected) ... ok\ntest_unchanged_scene_local_annotation_reuses_exact_prior_call (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_unchanged_scene_local_annotation_reuses_exact_prior_call) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 20.339s\n\nOK\n"
+    }
+  ],
+  "accepted": false
+}

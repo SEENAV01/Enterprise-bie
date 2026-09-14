@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-LESSON-005",
+  "title": "Transition Strategy",
+  "classification": "ORIGINAL ROADMAP L1",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_LESSON_005.zip",
+  "archive_sha256": "c96417fcac6a88c200d7117c20d85108739cbb83b63a6adab106dba7d951b931",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/__init__.py",
+    "bie/director/transition_strategy.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_lesson_005.py"
+  ],
+  "declared_atomic_tests": 2,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

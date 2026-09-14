@@ -1,0 +1,44 @@
+{
+  "task_id": "BIE-DIR-QA-007",
+  "title": "director benchmark",
+  "classification": "ORIGINAL ROADMAP L1",
+  "source_document": "BIE_ENTERPRISE_V1_MASTER_ATOMIC_TASK_REGISTRY_ORIGINAL_18_SECTIONS.pdf",
+  "source_page": 10,
+  "source_sha256": "d92fb701bf0549014aae9e7b0646c73edd0e7b0c8672b39c329b29bfd59efc43",
+  "status": "IMPLEMENTED_AND_UNIT_TESTED",
+  "accepted": false,
+  "canonical_namespace": "bie.director",
+  "github_integration": "PENDING_SECTION_COMPLETION_IN_THIS_CHAT",
+  "base_canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "depends_on_task_ids": [
+    "BIE-DIR-QA-001",
+    "BIE-DIR-QA-002",
+    "BIE-DIR-QA-003",
+    "BIE-DIR-QA-004",
+    "BIE-DIR-QA-005",
+    "BIE-DIR-QA-006",
+    "BIE-DIR-LESSON-001",
+    "BIE-DIR-SCRIPT-010"
+  ],
+  "canonical_file_dependencies": [
+    "bie/pedagogy/__init__.py",
+    "bie/pedagogy/learning_objective_generator.py",
+    "bie/pedagogy/pedagogy_plan_contract.py",
+    "bie/pedagogy/pedagogy_provenance.py"
+  ],
+  "source_files": [
+    "bie/director/director_benchmark.py"
+  ],
+  "test_files": [
+    "tests/director/test_qa_007.py"
+  ],
+  "owned_files": [
+    "bie/director/director_benchmark.py",
+    "tests/director/test_qa_007.py",
+    "examples/director_benchmark.py",
+    "benchmarks/director_controlled_v1.json"
+  ],
+  "tests_passed": 22,
+  "created_at_utc": "2026-09-13T18:06:56.425802+00:00",
+  "scope_note": "Original title implemented; APIs are new choices. Enterprise capability requires section hardening; lexical benchmark is not semantic acceptance."
+}

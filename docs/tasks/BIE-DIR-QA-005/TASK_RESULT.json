@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-QA-005",
+  "title": "age/level appropriateness",
+  "classification": "ORIGINAL ROADMAP L1",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_QA_005.zip",
+  "archive_sha256": "99fffba39d7f49c98890d53b41487f1f6b2a4dd944efcfcf74c02ee969faf6f5",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/age_level_qa.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_qa_005.py"
+  ],
+  "declared_atomic_tests": 15,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}

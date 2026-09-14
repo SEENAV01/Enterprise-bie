@@ -1,0 +1,37 @@
+{
+  "task_id": "BIE-DIR-HARD-WINDOWS-001",
+  "canonical_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "owned_files": [
+    {
+      "path": "bie/director/context_windows.py",
+      "sha256": "e0653870f36271357cc7393d884d36aeaf5ee7d489e3fb3dbd06fc920fd407da"
+    },
+    {
+      "path": "bie/director/director_model.py",
+      "sha256": "02e02a5505a8a718f9d092c1e13a5ec17d3f64fc400dc188d7ce63bb8f6f76c6"
+    },
+    {
+      "path": "tests/director/window_fixtures.py",
+      "sha256": "4219a50ddc5cc8cf2638d1bc97eb93254e02dee4ac41b66cdfb8a97713cc55d6"
+    },
+    {
+      "path": "tests/director/test_hard_windows_001.py",
+      "sha256": "0399ed51ec844fda4abd350cd541ba39771dee8d12b5dc6627b715bd0fcbeeac"
+    },
+    {
+      "path": "ADR-DIR-WINDOWS-012.md",
+      "sha256": "ac5f2477ebbdaa5034e70c3973ee3e4ef2f74128c3d26e8e418787a31ac0c0f8"
+    }
+  ],
+  "original_archives_unchanged": true,
+  "intentional_prior_source_changes": [
+    {
+      "path": "bie/director/director_model.py",
+      "before_sha256": "f62bac0f0dbd69142b642eea93d959b0dad0a0336ff640293fbb6d3f332231dd",
+      "after_sha256": "02e02a5505a8a718f9d092c1e13a5ec17d3f64fc400dc188d7ce63bb8f6f76c6",
+      "before_copy": "verification/before_windows/bie/director/director_model.py",
+      "task_id": "BIE-DIR-HARD-WINDOWS-001",
+      "change_kind": "EXISTING_REQUEST_WINDOW_GENERATION_AND_REVALIDATION_EXTENSION"
+    }
+  ]
+}

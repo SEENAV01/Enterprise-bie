@@ -1,0 +1,749 @@
+{
+  "executed_at_utc": "2026-09-14T04:34:11.732652+00:00",
+  "scope": "All preserved DIR tests plus implementation-completion hardening; authored/protocol fixtures are not live-provider, real-PDF, rendered-media, gameplay or product-acceptance evidence.",
+  "accepted": false,
+  "summary": {
+    "tests": 683,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_files": 72,
+    "passed": true,
+    "python": "3.12.14",
+    "previous_DIR_tests": 600,
+    "new_completion_tests": 83,
+    "new_task_tests": {
+      "BIE-DIR-HARD-RICH-CODECS-001": 8,
+      "BIE-DIR-HARD-TEACHING-MODES-001": 8,
+      "BIE-DIR-HARD-AUTH-GRADING-001": 9,
+      "BIE-DIR-HARD-SCENE-CORRECTION-001": 15,
+      "BIE-DIR-HARD-DURABLE-RECOVERY-001": 8,
+      "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001": 18,
+      "BIE-DIR-HARD-PRODUCTION-ADOPTION-001": 8,
+      "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001": 9
+    },
+    "duration_seconds": 243.86
+  },
+  "files": [
+    {
+      "file": "tests/director/test_annotation_integration.py",
+      "sha256": "7e16283af0dbb05481da85ade8b1252dd17e63afb721caea94d4dba879f202d5",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_annotation_failure_preserves_actual_base_candidate_and_failure_replays (test_annotation_integration.AnnotatedStageTests.test_annotation_failure_preserves_actual_base_candidate_and_failure_replays) ... ok\ntest_corrupt_retained_base_evidence_invalidates_replay_without_regeneration (test_annotation_integration.AnnotatedStageTests.test_corrupt_retained_base_evidence_invalidates_replay_without_regeneration) ... ok\ntest_original_factual_contradiction_prevents_annotations_from_bypassing_guard (test_annotation_integration.AnnotatedStageTests.test_original_factual_contradiction_prevents_annotations_from_bypassing_guard) ... ok\ntest_policy_change_cannot_replay_a_differently_reviewed_result_under_same_key (test_annotation_integration.AnnotatedStageTests.test_policy_change_cannot_replay_a_differently_reviewed_result_under_same_key) ... ok\ntest_refused_review_is_recorded_and_never_marks_audience_review_complete (test_annotation_integration.AnnotatedStageTests.test_refused_review_is_recorded_and_never_marks_audience_review_complete) ... ok\ntest_registered_stage_consumes_annotations_and_emits_versioned_review_candidates (test_annotation_integration.AnnotatedStageTests.test_registered_stage_consumes_annotations_and_emits_versioned_review_candidates) ... ok\ntest_review_issue_blocks_publication_while_retaining_complete_candidate_evidence (test_annotation_integration.AnnotatedStageTests.test_review_issue_blocks_publication_while_retaining_complete_candidate_evidence) ... ok\ntest_success_replay_reuses_all_annotations_and_reviews_without_new_calls (test_annotation_integration.AnnotatedStageTests.test_success_replay_reuses_all_annotations_and_reviews_without_new_calls) ... ok\ntest_unresolved_transition_remains_explicit_review_in_persisted_output (test_annotation_integration.AnnotatedStageTests.test_unresolved_transition_remains_explicit_review_in_persisted_output) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 3.687s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_annotation_window_integration.py",
+      "sha256": "fcc335ae91fd3e46e56a33a71a600b641da559dcc683251a76558b53681f9566",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_annotation_policy_change_reuses_generation_but_creates_new_revision_and_stales_consumers (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_annotation_policy_change_reuses_generation_but_creates_new_revision_and_stales_consumers) ... ok\ntest_failed_review_scope_is_retained_as_review_evidence_and_consumer_revalidates_it (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_failed_review_scope_is_retained_as_review_evidence_and_consumer_revalidates_it) ... ok\ntest_failed_scene_annotation_repair_reuses_exact_narration_and_reruns_scoped_work (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_failed_scene_annotation_repair_reuses_exact_narration_and_reruns_scoped_work) ... ok\ntest_observed_issue_blocks_publication_even_when_other_scopes_support_it (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_observed_issue_blocks_publication_even_when_other_scopes_support_it) ... ok\ntest_persisted_idempotent_replay_adds_no_provider_calls (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_persisted_idempotent_replay_adds_no_provider_calls) ... ok\ntest_registered_large_lesson_runs_annotations_reviews_and_four_original_consumers (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_registered_large_lesson_runs_annotations_reviews_and_four_original_consumers) ... ok\ntest_source_ancestor_invalidation_rejects_scoped_review_output_and_replay_without_calls (test_annotation_window_integration.AnnotationWindowIntegrationTests.test_source_ancestor_invalidation_rejects_scoped_review_output_and_replay_without_calls) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 37.962s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_context_integration.py",
+      "sha256": "76f1c729c2356717425bbf29523df183618f058ae6770d55bffaec22ca5b29f4",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_assessment_event_ancestor_invalidation_reaches_game_candidate (test_context_integration.ContextIntegrationTests.test_assessment_event_ancestor_invalidation_reaches_game_candidate) ... ok\ntest_context_ancestor_invalidation_prevents_old_output_replay (test_context_integration.ContextIntegrationTests.test_context_ancestor_invalidation_prevents_old_output_replay) ... ok\ntest_corrupted_context_envelope_is_detected_before_consumer_use (test_context_integration.ContextIntegrationTests.test_corrupted_context_envelope_is_detected_before_consumer_use) ... ok\ntest_failed_annotation_repair_reuses_rich_narration_but_reexecutes_qa (test_context_integration.ContextIntegrationTests.test_failed_annotation_repair_reuses_rich_narration_but_reexecutes_qa) ... ok\ntest_new_context_forces_generation_and_invalidates_prior_consumers (test_context_integration.ContextIntegrationTests.test_new_context_forces_generation_and_invalidates_prior_consumers) ... ok\ntest_rich_success_replay_performs_no_generation_or_review_again (test_context_integration.ContextIntegrationTests.test_rich_success_replay_performs_no_generation_or_review_again) ... ok\ntest_three_cases_use_registered_stage_and_review_only_consumers (test_context_integration.ContextIntegrationTests.test_three_cases_use_registered_stage_and_review_only_consumers) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 9.324s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_execution_integration.py",
+      "sha256": "87f2bfb5e9eae4949091a4bd4aaff59c6f269b26c482d547389de1c507eb61d0",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_existing_inflight_claim_requires_recovery (test_execution_integration.StageExecutionTests.test_existing_inflight_claim_requires_recovery) ... ok\ntest_idempotent_success_replays_persisted_artifacts_without_provider_calls (test_execution_integration.StageExecutionTests.test_idempotent_success_replays_persisted_artifacts_without_provider_calls) ... ok\ntest_invalid_upstream_input_has_operational_evidence_before_any_model_call (test_execution_integration.StageExecutionTests.test_invalid_upstream_input_has_operational_evidence_before_any_model_call) ... ok\ntest_model_failure_has_real_cas_receipt_and_failed_replay_does_not_repeat_calls (test_execution_integration.StageExecutionTests.test_model_failure_has_real_cas_receipt_and_failed_replay_does_not_repeat_calls) ... ok\ntest_qa_blocker_persists_candidate_evidence_but_publishes_no_director_plan (test_execution_integration.StageExecutionTests.test_qa_blocker_persists_candidate_evidence_but_publishes_no_director_plan) ... ok\ntest_registered_canonical_orchestrator_runs_three_different_teaching_shapes (test_execution_integration.StageExecutionTests.test_registered_canonical_orchestrator_runs_three_different_teaching_shapes) ... ok\ntest_registration_preserves_existing_registry_and_rejects_conflicts (test_execution_integration.StageExecutionTests.test_registration_preserves_existing_registry_and_rejects_conflicts) ... ok\ntest_same_key_different_configuration_fails_without_duplicate_generation (test_execution_integration.StageExecutionTests.test_same_key_different_configuration_fails_without_duplicate_generation) ... ok\ntest_stage_retry_budget_prevents_unbounded_model_execution (test_execution_integration.StageExecutionTests.test_stage_retry_budget_prevents_unbounded_model_execution) ... ok\ntest_success_replay_detects_corrupt_output_bytes (test_execution_integration.StageExecutionTests.test_success_replay_detects_corrupt_output_bytes) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 1.345s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_annotation_qa_001.py",
+      "sha256": "84373b6338254e25d9385a01416b7e1dcd6c563202f2b6c4e47606748d97981f",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_separate_review_covers_each_subject_and_completeness_dimension (test_hard_annotation_qa_001.AnnotationReviewTests.test_actual_separate_review_covers_each_subject_and_completeness_dimension) ... ok\ntest_annotator_cannot_be_its_own_configured_reviewer (test_hard_annotation_qa_001.AnnotationReviewTests.test_annotator_cannot_be_its_own_configured_reviewer) ... ok\ntest_boolean_confidence_or_model_authored_completion_flag_is_rejected (test_hard_annotation_qa_001.AnnotationReviewTests.test_boolean_confidence_or_model_authored_completion_flag_is_rejected) ... ok\ntest_default_policy_does_not_trust_supported_model_judgments (test_hard_annotation_qa_001.AnnotationReviewTests.test_default_policy_does_not_trust_supported_model_judgments) ... ok\ntest_edited_receipt_or_annotations_invalidates_review (test_hard_annotation_qa_001.AnnotationReviewTests.test_edited_receipt_or_annotations_invalidates_review) ... ok\ntest_emphasis_recomposes_estimated_timing_without_changing_text_or_response_pause (test_hard_annotation_qa_001.AnnotationReviewTests.test_emphasis_recomposes_estimated_timing_without_changing_text_or_response_pause) ... ok\ntest_fine_claim_contradiction_cannot_be_cleared_by_annotation_review (test_hard_annotation_qa_001.AnnotationReviewTests.test_fine_claim_contradiction_cannot_be_cleared_by_annotation_review) ... ok\ntest_forward_reference_or_missing_concept_foundation_produces_actual_qa_blocker (test_hard_annotation_qa_001.AnnotationReviewTests.test_forward_reference_or_missing_concept_foundation_produces_actual_qa_blocker) ... ok\ntest_observed_annotation_issue_blocks_even_when_reviewer_is_untrusted (test_hard_annotation_qa_001.AnnotationReviewTests.test_observed_annotation_issue_blocks_even_when_reviewer_is_untrusted) ... ok\ntest_purposeful_repetition_exemption_requires_complete_trusted_review (test_hard_annotation_qa_001.AnnotationReviewTests.test_purposeful_repetition_exemption_requires_complete_trusted_review) ... ok\ntest_review_context_budget_retains_explicit_unverified_completeness (test_hard_annotation_qa_001.AnnotationReviewTests.test_review_context_budget_retains_explicit_unverified_completeness) ... ok\ntest_review_removes_only_verified_audience_completion_flag_and_never_infers_age (test_hard_annotation_qa_001.AnnotationReviewTests.test_review_removes_only_verified_audience_completion_flag_and_never_infers_age) ... ok\ntest_reviewer_can_detect_an_omitted_term_even_when_empty_terms_parse (test_hard_annotation_qa_001.AnnotationReviewTests.test_reviewer_can_detect_an_omitted_term_even_when_empty_terms_parse) ... ok\ntest_source_grounded_advisory_uses_explicit_curriculum_policy_without_guessing_age (test_hard_annotation_qa_001.AnnotationReviewTests.test_source_grounded_advisory_uses_explicit_curriculum_policy_without_guessing_age) ... ok\ntest_stale_missing_or_duplicate_review_subjects_fail_without_partial_support (test_hard_annotation_qa_001.AnnotationReviewTests.test_stale_missing_or_duplicate_review_subjects_fail_without_partial_support) ... ok\ntest_transport_failures_are_bounded_and_details_are_not_copied (test_hard_annotation_qa_001.AnnotationReviewTests.test_transport_failures_are_bounded_and_details_are_not_copied) ... ok\ntest_uncertain_or_low_confidence_is_not_admitted_by_a_trusted_identity (test_hard_annotation_qa_001.AnnotationReviewTests.test_uncertain_or_low_confidence_is_not_admitted_by_a_trusted_identity) ... ok\ntest_wrong_provider_identity_or_refusal_cannot_attest_annotations (test_hard_annotation_qa_001.AnnotationReviewTests.test_wrong_provider_identity_or_refusal_cannot_attest_annotations) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 4.854s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_annotation_windows_001.py",
+      "sha256": "7caa3c50a32f4e33f277f87f1900fc62a4e494af8a0935fb0ff4d8b1fcb6b461",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_complete_global_speech_overflow_fails_without_truncation (test_hard_annotation_windows_001.AnnotationWindowTests.test_complete_global_speech_overflow_fails_without_truncation) ... ok\ntest_corrected_retry_request_reconstructs_without_losing_previous_scenes (test_hard_annotation_windows_001.AnnotationWindowTests.test_corrected_retry_request_reconstructs_without_losing_previous_scenes) ... ok\ntest_distant_question_and_answer_use_actual_full_narration_and_global_ids (test_hard_annotation_windows_001.AnnotationWindowTests.test_distant_question_and_answer_use_actual_full_narration_and_global_ids) ... ok\ntest_each_source_view_keeps_full_pages_and_global_phase_keeps_all_exact_speech (test_hard_annotation_windows_001.AnnotationWindowTests.test_each_source_view_keeps_full_pages_and_global_phase_keeps_all_exact_speech) ... ok\ntest_forward_reference_still_blocks_global_coherence_after_local_success (test_hard_annotation_windows_001.AnnotationWindowTests.test_forward_reference_still_blocks_global_coherence_after_local_success) ... ok\ntest_global_boundary_coverage_cannot_omit_a_transition (test_hard_annotation_windows_001.AnnotationWindowTests.test_global_boundary_coverage_cannot_omit_a_transition) ... ok\ntest_global_disclosure_cannot_omit_an_utterance (test_hard_annotation_windows_001.AnnotationWindowTests.test_global_disclosure_cannot_omit_an_utterance) ... ok\ntest_global_phase_cannot_rewrite_local_claims (test_hard_annotation_windows_001.AnnotationWindowTests.test_global_phase_cannot_rewrite_local_claims) ... ok\ntest_local_claim_coverage_cannot_omit_a_spoken_condition (test_hard_annotation_windows_001.AnnotationWindowTests.test_local_claim_coverage_cannot_omit_a_spoken_condition) ... ok\ntest_local_ids_cannot_collide_across_scene_namespaces (test_hard_annotation_windows_001.AnnotationWindowTests.test_local_ids_cannot_collide_across_scene_namespaces) ... ok\ntest_original_assessment_opening_and_feedback_ids_survive_global_reconciliation (test_hard_annotation_windows_001.AnnotationWindowTests.test_original_assessment_opening_and_feedback_ids_survive_global_reconciliation) ... ok\ntest_policy_and_missing_or_edited_request_evidence_cannot_revalidate (test_hard_annotation_windows_001.AnnotationWindowTests.test_policy_and_missing_or_edited_request_evidence_cannot_revalidate) ... ok\ntest_previously_oversized_annotation_input_executes_with_every_spoken_word (test_hard_annotation_windows_001.AnnotationWindowTests.test_previously_oversized_annotation_input_executes_with_every_spoken_word) ... ok\ntest_scene_window_budget_is_explicit_before_calls (test_hard_annotation_windows_001.AnnotationWindowTests.test_scene_window_budget_is_explicit_before_calls) ... ok\ntest_stale_local_scope_echo_is_rejected (test_hard_annotation_windows_001.AnnotationWindowTests.test_stale_local_scope_echo_is_rejected) ... ok\ntest_supplied_math_steps_keep_operators_offsets_and_assessments (test_hard_annotation_windows_001.AnnotationWindowTests.test_supplied_math_steps_keep_operators_offsets_and_assessments) ... ok\ntest_view_order_and_policy_are_validated (test_hard_annotation_windows_001.AnnotationWindowTests.test_view_order_and_policy_are_validated) ... ok\ntest_views_and_reconciliation_do_not_mutate_the_base_or_upstream_artifacts (test_hard_annotation_windows_001.AnnotationWindowTests.test_views_and_reconciliation_do_not_mutate_the_base_or_upstream_artifacts) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 9.177s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_annotations_001.py",
+      "sha256": "851d8efc940ae17edfa9983e5866cff72689df995a041bc3ce90af558551ea28",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_assessment_opening_answer_and_response_time_are_mandatory (test_hard_annotations_001.AnnotationProductionTests.test_assessment_opening_answer_and_response_time_are_mandatory) ... ok\ntest_bounded_retry_preserves_grounded_payload_and_does_not_return_partial_record (test_hard_annotations_001.AnnotationProductionTests.test_bounded_retry_preserves_grounded_payload_and_does_not_return_partial_record) ... ok\ntest_complete_source_and_actual_assessment_obligations_are_sent_as_data (test_hard_annotations_001.AnnotationProductionTests.test_complete_source_and_actual_assessment_obligations_are_sent_as_data) ... ok\ntest_context_response_and_record_budgets_fail_without_truncation (test_hard_annotations_001.AnnotationProductionTests.test_context_response_and_record_budgets_fail_without_truncation) ... ok\ntest_definition_must_name_actual_term_and_use_matching_evidence (test_hard_annotations_001.AnnotationProductionTests.test_definition_must_name_actual_term_and_use_matching_evidence) ... ok\ntest_invalid_emphasis_strength_or_overlap_is_rejected (test_hard_annotations_001.AnnotationProductionTests.test_invalid_emphasis_strength_or_overlap_is_rejected) ... ok\ntest_invented_evidence_or_concepts_cannot_attach_to_narration (test_hard_annotations_001.AnnotationProductionTests.test_invented_evidence_or_concepts_cannot_attach_to_narration) ... ok\ntest_materialized_annotation_edits_do_not_match_original_response (test_hard_annotations_001.AnnotationProductionTests.test_materialized_annotation_edits_do_not_match_original_response) ... ok\ntest_missing_discourse_or_pacing_record_is_not_complete_annotation (test_hard_annotations_001.AnnotationProductionTests.test_missing_discourse_or_pacing_record_is_not_complete_annotation) ... ok\ntest_model_cannot_set_age_grade_mastery_or_review_completion (test_hard_annotations_001.AnnotationProductionTests.test_model_cannot_set_age_grade_mastery_or_review_completion) ... ok\ntest_narration_or_source_edits_fail_before_provider_execution (test_hard_annotations_001.AnnotationProductionTests.test_narration_or_source_edits_fail_before_provider_execution) ... ok\ntest_omitted_or_overlapping_claims_fail_coverage (test_hard_annotations_001.AnnotationProductionTests.test_omitted_or_overlapping_claims_fail_coverage) ... ok\ntest_partial_token_spans_and_boolean_offsets_are_rejected (test_hard_annotations_001.AnnotationProductionTests.test_partial_token_spans_and_boolean_offsets_are_rejected) ... ok\ntest_provider_produces_fine_claims_and_typed_revision_bound_records (test_hard_annotations_001.AnnotationProductionTests.test_provider_produces_fine_claims_and_typed_revision_bound_records) ... ok\ntest_punctuation_and_quote_cannot_disappear_while_word_coverage_stays_full (test_hard_annotations_001.AnnotationProductionTests.test_punctuation_and_quote_cannot_disappear_while_word_coverage_stays_full) ... ok\ntest_refusal_and_wrong_identity_stop_without_retry (test_hard_annotations_001.AnnotationProductionTests.test_refusal_and_wrong_identity_stop_without_retry) ... ok\ntest_scene_boundary_must_be_annotated_or_explicitly_unresolved (test_hard_annotations_001.AnnotationProductionTests.test_scene_boundary_must_be_annotated_or_explicitly_unresolved) ... ok\ntest_stale_input_snapshot_or_plan_echo_is_rejected (test_hard_annotations_001.AnnotationProductionTests.test_stale_input_snapshot_or_plan_echo_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 4.877s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_authenticated_grading_001.py",
+      "sha256": "5ad9a5d8e06338b2cd84c3942ac72939e4c6b20e79079627024c056ef7cd0baa",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_context_consumes_authenticated_grade_without_calling_it_mastery_proof (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_context_consumes_authenticated_grade_without_calling_it_mastery_proof) ... ok\ntest_every_signed_payload_field_is_rebound_during_read (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_every_signed_payload_field_is_rebound_during_read) ... ok\ntest_expired_or_future_grade_is_rejected_before_verifier_call (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_expired_or_future_grade_is_rejected_before_verifier_call) ... ok\ntest_identity_subject_grade_and_assurance_must_match (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_identity_subject_grade_and_assurance_must_match) ... ok\ntest_reliability_and_score_are_bounded (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_reliability_and_score_are_bounded) ... ok\ntest_signature_is_binary_and_bounded (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_signature_is_binary_and_bounded) ... ok\ntest_source_run_and_event_ancestry_are_enforced (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_source_run_and_event_ancestry_are_enforced) ... ok\ntest_verified_identity_binds_exact_grade_and_response (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_verified_identity_binds_exact_grade_and_response) ... ok\ntest_wrong_issuer_is_rejected (test_hard_authenticated_grading_001.AuthenticatedGradingTests.test_wrong_issuer_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.202s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_benchmark_calibration_001.py",
+      "sha256": "bd7b35738f815613ccbd52ae58fb8f5dea6038962a0b1eb1ed644caa5a4278e8",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_annotation_and_reviewer_identity_must_be_independent (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_annotation_and_reviewer_identity_must_be_independent) ... ok\ntest_failed_candidate_remains_executed_evidence_not_acceptance (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_failed_candidate_remains_executed_evidence_not_acceptance) ... ok\ntest_missing_external_candidate_is_truthfully_not_run (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_missing_external_candidate_is_truthfully_not_run) ... ok\ntest_policy_and_provider_configuration_change_report_identity (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_policy_and_provider_configuration_change_report_identity) ... ok\ntest_release_binds_exact_suite_oracle_and_source_bytes (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_release_binds_exact_suite_oracle_and_source_bytes) ... ok\ntest_signature_is_bounded_and_authority_verifier_can_reject (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_signature_is_bounded_and_authority_verifier_can_reject) ... ok\ntest_signed_controlled_run_executes_but_is_not_live_or_accepted (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_signed_controlled_run_executes_but_is_not_live_or_accepted) ... ok\ntest_source_tampering_fails_before_oracle_or_candidate_execution (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_source_tampering_fails_before_oracle_or_candidate_execution) ... ok\ntest_verifier_identity_and_assurance_are_exact (test_hard_benchmark_calibration_001.ProviderCalibrationTests.test_verifier_identity_and_assurance_are_exact) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.424s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_consumers_001.py",
+      "sha256": "77425ec9360fc069af4b34ce164917e1c6fbd957e4a8243dcde7c98a41ccc986",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_time_visual_animation_and_game_handoff_consume_persisted_director (test_hard_consumers_001.ConsumerGateTests.test_actual_time_visual_animation_and_game_handoff_consume_persisted_director) ... ok\ntest_corrupt_source_bytes_block_consumer_even_when_envelopes_are_unchanged (test_hard_consumers_001.ConsumerGateTests.test_corrupt_source_bytes_block_consumer_even_when_envelopes_are_unchanged) ... ok\ntest_edited_candidate_flags_or_type_cannot_remove_review (test_hard_consumers_001.ConsumerGateTests.test_edited_candidate_flags_or_type_cannot_remove_review) ... ok\ntest_failed_annotation_repair_invalidates_all_old_consumer_kinds (test_hard_consumers_001.ConsumerGateTests.test_failed_annotation_repair_invalidates_all_old_consumer_kinds) ... ok\ntest_missing_revision_index_after_restart_fails_closed (test_hard_consumers_001.ConsumerGateTests.test_missing_revision_index_after_restart_fails_closed) ... ok\ntest_no_preview_can_be_used_as_release_render_or_acceptance_authority (test_hard_consumers_001.ConsumerGateTests.test_no_preview_can_be_used_as_release_render_or_acceptance_authority) ... ok\ntest_source_invalidation_blocks_transitive_animation_and_game_candidates (test_hard_consumers_001.ConsumerGateTests.test_source_invalidation_blocks_transitive_animation_and_game_candidates) ... ok\ntest_stale_voice_or_narration_anchor_is_rejected_before_consumer_output (test_hard_consumers_001.ConsumerGateTests.test_stale_voice_or_narration_anchor_is_rejected_before_consumer_output) ... ok\ntest_successful_repair_rejects_old_visual_for_new_animation (test_hard_consumers_001.ConsumerGateTests.test_successful_repair_rejects_old_visual_for_new_animation) ... ok\ntest_sync_conflicts_are_retained_but_cannot_feed_a_next_consumer (test_hard_consumers_001.ConsumerGateTests.test_sync_conflicts_are_retained_but_cannot_feed_a_next_consumer) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 11.072s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_context_001.py",
+      "sha256": "318802ebd0172a8b5a899bd4a65929730e328c0d0a764d4c7e7710631dc821b1",
+      "tests": 28,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_a_probe_collision_still_has_no_proof_or_acceptance_authority (test_hard_context_001.GroundedContextTests.test_a_probe_collision_still_has_no_proof_or_acceptance_authority) ... ok\ntest_actual_re_derivation_must_equal_the_supplied_source_steps (test_hard_context_001.GroundedContextTests.test_actual_re_derivation_must_equal_the_supplied_source_steps) ... ok\ntest_book_artifact_cannot_pose_as_a_scored_learner_response (test_hard_context_001.GroundedContextTests.test_book_artifact_cannot_pose_as_a_scored_learner_response) ... ok\ntest_conflicting_scores_preserve_original_uncertainty_report (test_hard_context_001.GroundedContextTests.test_conflicting_scores_preserve_original_uncertainty_report) ... ok\ntest_context_cannot_drop_a_selected_ped_concept (test_hard_context_001.GroundedContextTests.test_context_cannot_drop_a_selected_ped_concept) ... ok\ntest_context_resource_budget_fails_without_truncating_concepts (test_hard_context_001.GroundedContextTests.test_context_resource_budget_fails_without_truncating_concepts) ... ok\ntest_cross_lesson_prerequisite_without_context_stays_explicit_error (test_hard_context_001.GroundedContextTests.test_cross_lesson_prerequisite_without_context_stays_explicit_error) ... ok\ntest_cross_run_context_is_rejected (test_hard_context_001.GroundedContextTests.test_cross_run_context_is_rejected) ... ok\ntest_dangling_self_duplicate_and_cyclic_prerequisites_are_rejected (test_hard_context_001.GroundedContextTests.test_dangling_self_duplicate_and_cyclic_prerequisites_are_rejected) ... ok\ntest_derivation_step_cannot_cite_text_absent_from_source (test_hard_context_001.GroundedContextTests.test_derivation_step_cannot_cite_text_absent_from_source) ... ok\ntest_duplicate_concept_ids_and_nonfinite_edges_are_rejected (test_hard_context_001.GroundedContextTests.test_duplicate_concept_ids_and_nonfinite_edges_are_rejected) ... ok\ntest_edited_tool_reports_and_removed_review_cannot_be_loaded (test_hard_context_001.GroundedContextTests.test_edited_tool_reports_and_removed_review_cannot_be_loaded) ... ok\ntest_exact_excerpt_offsets_cannot_be_replaced_by_matching_text_elsewhere (test_hard_context_001.GroundedContextTests.test_exact_excerpt_offsets_cannot_be_replaced_by_matching_text_elsewhere) ... ok\ntest_high_reported_mastery_does_not_waive_prerequisite (test_hard_context_001.GroundedContextTests.test_high_reported_mastery_does_not_waive_prerequisite) ... ok\ntest_math_calls_original_chain_probe_and_teaching_tools_without_claiming_proof (test_hard_context_001.GroundedContextTests.test_math_calls_original_chain_probe_and_teaching_tools_without_claiming_proof) ... ok\ntest_missing_context_parent_is_rejected (test_hard_context_001.GroundedContextTests.test_missing_context_parent_is_rejected) ... ok\ntest_missing_definition_or_unknown_excerpt_evidence_is_rejected (test_hard_context_001.GroundedContextTests.test_missing_definition_or_unknown_excerpt_evidence_is_rejected) ... ok\ntest_mixed_learners_unknown_concepts_and_duplicate_observations_are_rejected (test_hard_context_001.GroundedContextTests.test_mixed_learners_unknown_concepts_and_duplicate_observations_are_rejected) ... ok\ntest_numerical_disagreement_or_disconnected_chain_fails_closed (test_hard_context_001.GroundedContextTests.test_numerical_disagreement_or_disconnected_chain_fails_closed) ... ok\ntest_orphan_prerequisite_has_no_fabricated_ped_bridge (test_hard_context_001.GroundedContextTests.test_orphan_prerequisite_has_no_fabricated_ped_bridge) ... ok\ntest_pr_edge_itself_adds_explicit_bridge_without_a_ped_parent_edge (test_hard_context_001.GroundedContextTests.test_pr_edge_itself_adds_explicit_bridge_without_a_ped_parent_edge) ... ok\ntest_real_canonical_graph_order_and_conditions_are_source_bound (test_hard_context_001.GroundedContextTests.test_real_canonical_graph_order_and_conditions_are_source_bound) ... ok\ntest_rich_derivation_mode_requires_actual_source_steps (test_hard_context_001.GroundedContextTests.test_rich_derivation_mode_requires_actual_source_steps) ... ok\ntest_scored_event_requires_its_actual_source_parent (test_hard_context_001.GroundedContextTests.test_scored_event_requires_its_actual_source_parent) ... ok\ntest_scored_event_requires_response_origin_and_bounded_numeric_values (test_hard_context_001.GroundedContextTests.test_scored_event_requires_response_origin_and_bounded_numeric_values) ... ok\ntest_stale_source_pairing_is_rejected (test_hard_context_001.GroundedContextTests.test_stale_source_pairing_is_rejected) ... ok\ntest_unknown_mastery_keeps_actual_bridge_objective_and_assessment (test_hard_context_001.GroundedContextTests.test_unknown_mastery_keeps_actual_bridge_objective_and_assessment) ... ok\ntest_unsupported_or_unbounded_math_is_rejected_before_probe_execution (test_hard_context_001.GroundedContextTests.test_unsupported_or_unbounded_math_is_rejected_before_probe_execution) ... ok\n\n----------------------------------------------------------------------\nRan 28 tests in 0.726s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_contracts_001.py",
+      "sha256": "4dd0b67bc44dfeb2b291830fa22abd402d412fc8e32e3fd95fc590c91478d370",
+      "tests": 26,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_absent_voiceover_evidence_is_withheld_and_keeps_review (test_hard_contracts_001.HardenedContractsTests.test_absent_voiceover_evidence_is_withheld_and_keeps_review) ... ok\ntest_deep_dag_does_not_depend_on_python_recursion_limit (test_hard_contracts_001.HardenedContractsTests.test_deep_dag_does_not_depend_on_python_recursion_limit) ... ok\ntest_duplicate_scene_and_parent_ids_are_rejected (test_hard_contracts_001.HardenedContractsTests.test_duplicate_scene_and_parent_ids_are_rejected) ... ok\ntest_empty_duplicate_or_malformed_scene_schedule_fails (test_hard_contracts_001.HardenedContractsTests.test_empty_duplicate_or_malformed_scene_schedule_fails) ... ok\ntest_every_scene_objective_belongs_to_and_covers_lesson (test_hard_contracts_001.HardenedContractsTests.test_every_scene_objective_belongs_to_and_covers_lesson) ... ok\ntest_game_deduplication_compatibility_and_no_forced_misconception (test_hard_contracts_001.HardenedContractsTests.test_game_deduplication_compatibility_and_no_forced_misconception) ... ok\ntest_game_required_and_optional_ids_reject_whitespace (test_hard_contracts_001.HardenedContractsTests.test_game_required_and_optional_ids_reject_whitespace) ... ok\ntest_grounded_helpers_never_promote_blank_ids_or_bare_strings_to_evidence (test_hard_contracts_001.HardenedContractsTests.test_grounded_helpers_never_promote_blank_ids_or_bare_strings_to_evidence) ... ok\ntest_helper_text_fields_reject_wrong_types_without_attribute_errors (test_hard_contracts_001.HardenedContractsTests.test_helper_text_fields_reject_wrong_types_without_attribute_errors) ... ok\ntest_lesson_copies_mutable_source_lists (test_hard_contracts_001.HardenedContractsTests.test_lesson_copies_mutable_source_lists) ... ok\ntest_lesson_grounding_and_review_type_are_validated (test_hard_contracts_001.HardenedContractsTests.test_lesson_grounding_and_review_type_are_validated) ... ok\ntest_pacing_keeps_original_formula_and_can_exceed_arbitrary_video_caps (test_hard_contracts_001.HardenedContractsTests.test_pacing_keeps_original_formula_and_can_exceed_arbitrary_video_caps) ... ok\ntest_pacing_load_and_importance_are_real_bounded_numbers (test_hard_contracts_001.HardenedContractsTests.test_pacing_load_and_importance_are_real_bounded_numbers) ... ok\ntest_pacing_requires_finite_positive_duration (test_hard_contracts_001.HardenedContractsTests.test_pacing_requires_finite_positive_duration) ... ok\ntest_payoff_binding_requires_complete_distinct_grounded_resolutions (test_hard_contracts_001.HardenedContractsTests.test_payoff_binding_requires_complete_distinct_grounded_resolutions) ... ok\ntest_scene_cycle_is_rejected_at_producer (test_hard_contracts_001.HardenedContractsTests.test_scene_cycle_is_rejected_at_producer) ... ok\ntest_scene_identifiers_cannot_be_blank_or_nonstring (test_hard_contracts_001.HardenedContractsTests.test_scene_identifiers_cannot_be_blank_or_nonstring) ... ok\ntest_scores_and_flags_cannot_be_coerced_from_booleans_or_nonfinite_numbers (test_hard_contracts_001.HardenedContractsTests.test_scores_and_flags_cannot_be_coerced_from_booleans_or_nonfinite_numbers) ... ok\ntest_script_checks_every_identifier_and_string_field (test_hard_contracts_001.HardenedContractsTests.test_script_checks_every_identifier_and_string_field) ... ok\ntest_script_copies_mutable_fields_and_keeps_explicit_canonical_order (test_hard_contracts_001.HardenedContractsTests.test_script_copies_mutable_fields_and_keeps_explicit_canonical_order) ... ok\ntest_script_duplicate_segment_and_id_are_rejected (test_hard_contracts_001.HardenedContractsTests.test_script_duplicate_segment_and_id_are_rejected) ... ok\ntest_text_collections_cannot_accidentally_become_character_sequences (test_hard_contracts_001.HardenedContractsTests.test_text_collections_cannot_accidentally_become_character_sequences) ... ok\ntest_unknown_and_self_parents_are_rejected (test_hard_contracts_001.HardenedContractsTests.test_unknown_and_self_parents_are_rejected) ... ok\ntest_unresolved_scene_mode_does_not_silently_select_explanation (test_hard_contracts_001.HardenedContractsTests.test_unresolved_scene_mode_does_not_silently_select_explanation) ... ok\ntest_valid_lesson_order_is_canonical_and_review_is_preserved (test_hard_contracts_001.HardenedContractsTests.test_valid_lesson_order_is_canonical_and_review_is_preserved) ... ok\ntest_weakened_game_handoff_is_rejected (test_hard_contracts_001.HardenedContractsTests.test_weakened_game_handoff_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.022s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_director_001.py",
+      "sha256": "1c63742795b51fd6535af6af3bafae1153acc454f10c42385d21982983aecf9d",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_gateway_calls_produce_narration_assessments_and_source_bound_claims (test_hard_director_001.GroundedDirectingTests.test_actual_gateway_calls_produce_narration_assessments_and_source_bound_claims) ... ok\ntest_aggregate_output_budget_is_checked_before_factual_provider (test_hard_director_001.GroundedDirectingTests.test_aggregate_output_budget_is_checked_before_factual_provider) ... ok\ntest_boolean_pause_or_infinite_output_is_rejected (test_hard_director_001.GroundedDirectingTests.test_boolean_pause_or_infinite_output_is_rejected) ... ok\ntest_context_and_output_resource_budgets_fail_without_silent_shrink (test_hard_director_001.GroundedDirectingTests.test_context_and_output_resource_budgets_fail_without_silent_shrink) ... ok\ntest_contradiction_in_feedback_is_evaluated_and_blocks_result (test_hard_director_001.GroundedDirectingTests.test_contradiction_in_feedback_is_evaluated_and_blocks_result) ... ok\ntest_duplicate_json_fields_cannot_select_a_different_lesson (test_hard_director_001.GroundedDirectingTests.test_duplicate_json_fields_cannot_select_a_different_lesson) ... ok\ntest_hand_edited_inputs_fail_before_any_model_call (test_hard_director_001.GroundedDirectingTests.test_hand_edited_inputs_fail_before_any_model_call) ... ok\ntest_malformed_response_gets_bounded_retry_with_same_grounded_payload (test_hard_director_001.GroundedDirectingTests.test_malformed_response_gets_bounded_retry_with_same_grounded_payload) ... ok\ntest_missing_assessment_plan_is_not_a_completed_lesson (test_hard_director_001.GroundedDirectingTests.test_missing_assessment_plan_is_not_a_completed_lesson) ... ok\ntest_missing_spoken_move_or_assessment_answer_retries_and_then_fails (test_hard_director_001.GroundedDirectingTests.test_missing_spoken_move_or_assessment_answer_retries_and_then_fails) ... ok\ntest_model_qa_score_or_unknown_fields_are_rejected (test_hard_director_001.GroundedDirectingTests.test_model_qa_score_or_unknown_fields_are_rejected) ... ok\ntest_ped_mode_and_reasoning_cannot_be_replaced_by_planner (test_hard_director_001.GroundedDirectingTests.test_ped_mode_and_reasoning_cannot_be_replaced_by_planner) ... ok\ntest_provider_identity_mismatch_and_refusal_do_not_retry (test_hard_director_001.GroundedDirectingTests.test_provider_identity_mismatch_and_refusal_do_not_retry) ... ok\ntest_scene_cycles_or_forward_dependencies_are_rejected (test_hard_director_001.GroundedDirectingTests.test_scene_cycles_or_forward_dependencies_are_rejected) ... ok\ntest_source_reasoning_and_previous_narration_reach_generator_without_truncation (test_hard_director_001.GroundedDirectingTests.test_source_reasoning_and_previous_narration_reach_generator_without_truncation) ... ok\ntest_stale_narration_revision_cannot_attach_to_current_plan (test_hard_director_001.GroundedDirectingTests.test_stale_narration_revision_cannot_attach_to_current_plan) ... ok\ntest_transport_error_is_bounded_and_private_details_do_not_enter_receipt (test_hard_director_001.GroundedDirectingTests.test_transport_error_is_bounded_and_private_details_do_not_enter_receipt) ... ok\ntest_upstream_review_is_retained_in_realized_speech (test_hard_director_001.GroundedDirectingTests.test_upstream_review_is_retained_in_realized_speech) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.723s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_durable_recovery_001.py",
+      "sha256": "eb6eeacaffabb634f7fdac6dd0e4ed825869febe1e3a2f0a7d6d139728b22d05",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_catalog_insert_rolls_back_when_parent_is_unknown (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_insert_rolls_back_when_parent_is_unknown) ... ok\ntest_catalog_rejects_corrupt_journal_and_missing_cas (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_rejects_corrupt_journal_and_missing_cas) ... ok\ntest_catalog_restarts_with_exact_graph_and_cas_bytes (test_hard_durable_recovery_001.DurableRecoveryTests.test_catalog_restarts_with_exact_graph_and_cas_bytes) ... ok\ntest_completed_lease_is_replayable_but_immutable (test_hard_durable_recovery_001.DurableRecoveryTests.test_completed_lease_is_replayable_but_immutable) ... ok\ntest_coordinator_and_executor_require_durable_catalog_pairing (test_hard_durable_recovery_001.DurableRecoveryTests.test_coordinator_and_executor_require_durable_catalog_pairing) ... ok\ntest_expired_worker_is_reclaimed_with_higher_epoch_and_fence (test_hard_durable_recovery_001.DurableRecoveryTests.test_expired_worker_is_reclaimed_with_higher_epoch_and_fence) ... ok\ntest_live_foreign_worker_cannot_be_stolen (test_hard_durable_recovery_001.DurableRecoveryTests.test_live_foreign_worker_cannot_be_stolen) ... ok\ntest_only_matching_incomplete_idempotency_claim_is_reclaimed (test_hard_durable_recovery_001.DurableRecoveryTests.test_only_matching_incomplete_idempotency_claim_is_reclaimed) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_global_review_001.py",
+      "sha256": "95d0bd8fcc565f3c4fad9a36bc4fedf8f8a1d92ee80585a88e577ec7689324ca",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_requests_fit_unchanged_review_transport_budget (test_hard_global_review_001.GlobalAnnotationReviewTests.test_actual_requests_fit_unchanged_review_transport_budget) ... ok\ntest_changed_policy_or_input_revision_cannot_revalidate (test_hard_global_review_001.GlobalAnnotationReviewTests.test_changed_policy_or_input_revision_cannot_revalidate) ... ok\ntest_corrected_retry_fingerprints_reconstruct (test_hard_global_review_001.GlobalAnnotationReviewTests.test_corrected_retry_fingerprints_reconstruct) ... ok\ntest_default_trust_boundary_stays_review_required (test_hard_global_review_001.GlobalAnnotationReviewTests.test_default_trust_boundary_stays_review_required) ... ok\ntest_distant_reference_retrieves_complete_antecedent_scene_for_source_review (test_hard_global_review_001.GlobalAnnotationReviewTests.test_distant_reference_retrieves_complete_antecedent_scene_for_source_review) ... ok\ntest_every_annotation_and_completeness_subject_has_scoped_observation (test_hard_global_review_001.GlobalAnnotationReviewTests.test_every_annotation_and_completeness_subject_has_scoped_observation) ... ok\ntest_global_interpretations_are_reviewed_in_global_and_relevant_source_scopes (test_hard_global_review_001.GlobalAnnotationReviewTests.test_global_interpretations_are_reviewed_in_global_and_relevant_source_scopes) ... ok\ntest_global_review_overflow_is_retained_after_all_source_scopes (test_hard_global_review_001.GlobalAnnotationReviewTests.test_global_review_overflow_is_retained_after_all_source_scopes) ... ok\ntest_issue_dominates_supported_observations_from_other_scopes (test_hard_global_review_001.GlobalAnnotationReviewTests.test_issue_dominates_supported_observations_from_other_scopes) ... ok\ntest_known_production_and_review_round_trip_without_class_selection_from_json (test_hard_global_review_001.GlobalAnnotationReviewTests.test_known_production_and_review_round_trip_without_class_selection_from_json) ... ok\ntest_large_annotation_gets_every_source_scene_and_one_global_review (test_hard_global_review_001.GlobalAnnotationReviewTests.test_large_annotation_gets_every_source_scene_and_one_global_review) ... ok\ntest_missing_extra_or_edited_request_evidence_fails_revalidation (test_hard_global_review_001.GlobalAnnotationReviewTests.test_missing_extra_or_edited_request_evidence_fails_revalidation) ... ok\ntest_one_scope_failure_is_retained_and_cannot_create_approval (test_hard_global_review_001.GlobalAnnotationReviewTests.test_one_scope_failure_is_retained_and_cannot_create_approval) ... ok\ntest_review_window_count_budget_fails_before_provider_calls (test_hard_global_review_001.GlobalAnnotationReviewTests.test_review_window_count_budget_fails_before_provider_calls) ... ok\ntest_separate_reviewer_identity_remains_required (test_hard_global_review_001.GlobalAnnotationReviewTests.test_separate_reviewer_identity_remains_required) ... ok\ntest_source_scopes_keep_complete_pages_and_global_scope_keeps_all_speech_without_pages (test_hard_global_review_001.GlobalAnnotationReviewTests.test_source_scopes_keep_complete_pages_and_global_scope_keeps_all_speech_without_pages) ... ok\ntest_stale_scope_echo_and_missing_subject_become_explicit_failed_scope (test_hard_global_review_001.GlobalAnnotationReviewTests.test_stale_scope_echo_and_missing_subject_become_explicit_failed_scope) ... ok\ntest_stripped_window_metadata_cannot_fall_back_to_legacy_review (test_hard_global_review_001.GlobalAnnotationReviewTests.test_stripped_window_metadata_cannot_fall_back_to_legacy_review) ... ok\ntest_unknown_or_duplicate_review_subject_is_rejected_by_bounded_retries (test_hard_global_review_001.GlobalAnnotationReviewTests.test_unknown_or_duplicate_review_subject_is_rejected_by_bounded_retries) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 20.145s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_hierarchical_discourse_001.py",
+      "sha256": "5409996f9827c4d767ce427306a6ac9b1e50bad95262327ac55f957b4cd41196",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_boundary_cannot_claim_another_edge (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_boundary_cannot_claim_another_edge) ... ok\ntest_complete_speech_is_covered_without_one_global_speech_request (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_complete_speech_is_covered_without_one_global_speech_request) ... ok\ntest_every_interleaf_boundary_receives_an_exact_scope (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_every_interleaf_boundary_receives_an_exact_scope) ... ok\ntest_host_reassembles_and_runs_original_full_validator (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_host_reassembles_and_runs_original_full_validator) ... ok\ntest_indivisible_leaf_overflow_fails_without_truncating_speech (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_indivisible_leaf_overflow_fails_without_truncating_speech) ... ok\ntest_leaf_cannot_omit_an_utterance (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_leaf_cannot_omit_an_utterance) ... ok\ntest_metadata_stripping_cannot_downgrade_hierarchical_record (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_metadata_stripping_cannot_downgrade_hierarchical_record) ... ok\ntest_persisted_hierarchical_evidence_roundtrips_and_revalidates (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_persisted_hierarchical_evidence_roundtrips_and_revalidates) ... ok\ntest_retrieval_scope_cannot_link_an_unselected_utterance (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_retrieval_scope_cannot_link_an_unselected_utterance) ... ok\ntest_three_scene_lesson_executes_deterministic_nonadjacent_retrieval (test_hard_hierarchical_discourse_001.HierarchicalDiscourseTests.test_three_scene_lesson_executes_deterministic_nonadjacent_retrieval) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 9.824s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_hierarchical_review_001.py",
+      "sha256": "bb25b8b97a2a030e843625be10a32b80af8fa0513ec08dd776a32612304f7bdd",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_all_annotation_and_completeness_subjects_are_aggregated (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_all_annotation_and_completeness_subjects_are_aggregated) ... ok\ntest_failed_scope_remains_evidence_and_prevents_trust (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_failed_scope_remains_evidence_and_prevents_trust) ... ok\ntest_issue_in_one_scope_dominates_supported_observations (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_issue_in_one_scope_dominates_supported_observations) ... ok\ntest_no_review_request_contains_the_whole_spoken_lesson_marker (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_no_review_request_contains_the_whole_spoken_lesson_marker) ... ok\ntest_persisted_review_roundtrips_and_revalidates_schedule (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_persisted_review_roundtrips_and_revalidates_schedule) ... ok\ntest_review_policy_can_trust_only_exact_configured_reviewer_key (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_review_policy_can_trust_only_exact_configured_reviewer_key) ... ok\ntest_source_and_matching_hierarchical_scopes_all_execute (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_source_and_matching_hierarchical_scopes_all_execute) ... ok\ntest_stripped_schedule_or_policy_metadata_is_rejected (test_hard_hierarchical_review_001.HierarchicalReviewTests.test_stripped_schedule_or_policy_metadata_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 15.549s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_inputs_001.py",
+      "sha256": "3fc781e6d6b764272e3b2df84dd09f2e1828d740d942b27dd63af0b599d7273e",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_inference_result_cannot_be_replaced_by_a_decision_with_same_id (test_hard_inputs_001.UpstreamAdapterTests.test_actual_inference_result_cannot_be_replaced_by_a_decision_with_same_id) ... ok\ntest_actual_temporal_inference_is_preserved_and_assumptions_require_review (test_hard_inputs_001.UpstreamAdapterTests.test_actual_temporal_inference_is_preserved_and_assumptions_require_review) ... ok\ntest_assessment_omission_or_wrong_concept_is_not_a_completed_ped_input (test_hard_inputs_001.UpstreamAdapterTests.test_assessment_omission_or_wrong_concept_is_not_a_completed_ped_input) ... ok\ntest_cross_lesson_prerequisite_is_not_silently_assumed_mastered (test_hard_inputs_001.UpstreamAdapterTests.test_cross_lesson_prerequisite_is_not_silently_assumed_mastered) ... ok\ntest_cross_run_ancestry_cannot_be_implicitly_reused (test_hard_inputs_001.UpstreamAdapterTests.test_cross_run_ancestry_cannot_be_implicitly_reused) ... ok\ntest_nontext_extraction_remains_review_and_utf8_mismatch_fails (test_hard_inputs_001.UpstreamAdapterTests.test_nontext_extraction_remains_review_and_utf8_mismatch_fails) ... ok\ntest_published_artifact_snapshots_mutable_canonical_decision_lists (test_hard_inputs_001.UpstreamAdapterTests.test_published_artifact_snapshots_mutable_canonical_decision_lists) ... ok\ntest_reasoning_alias_cannot_replace_actual_source_artifact_reference (test_hard_inputs_001.UpstreamAdapterTests.test_reasoning_alias_cannot_replace_actual_source_artifact_reference) ... ok\ntest_reasoning_boolean_nonfinite_or_string_sequence_cannot_pass (test_hard_inputs_001.UpstreamAdapterTests.test_reasoning_boolean_nonfinite_or_string_sequence_cannot_pass) ... ok\ntest_reasoning_cycles_and_unresolved_dependencies_fail (test_hard_inputs_001.UpstreamAdapterTests.test_reasoning_cycles_and_unresolved_dependencies_fail) ... ok\ntest_rehashing_an_envelope_does_not_hide_source_provenance_mismatch (test_hard_inputs_001.UpstreamAdapterTests.test_rehashing_an_envelope_does_not_hide_source_provenance_mismatch) ... ok\ntest_review_propagates_and_cannot_be_weakened_by_plan_flag (test_hard_inputs_001.UpstreamAdapterTests.test_review_propagates_and_cannot_be_weakened_by_plan_flag) ... ok\ntest_roundtrip_consumes_actual_canonical_objects_and_verified_source_bytes (test_hard_inputs_001.UpstreamAdapterTests.test_roundtrip_consumes_actual_canonical_objects_and_verified_source_bytes) ... ok\ntest_source_bytes_corruption_is_detected_at_load (test_hard_inputs_001.UpstreamAdapterTests.test_source_bytes_corruption_is_detected_at_load) ... ok\ntest_source_catalog_cannot_substitute_a_rehashed_page_for_original_block (test_hard_inputs_001.UpstreamAdapterTests.test_source_catalog_cannot_substitute_a_rehashed_page_for_original_block) ... ok\ntest_stale_full_reference_is_rejected_even_when_artifact_id_exists (test_hard_inputs_001.UpstreamAdapterTests.test_stale_full_reference_is_rejected_even_when_artifact_id_exists) ... ok\ntest_strict_json_rejects_duplicate_fields_and_nonfinite_exponents (test_hard_inputs_001.UpstreamAdapterTests.test_strict_json_rejects_duplicate_fields_and_nonfinite_exponents) ... ok\ntest_updated_reasoning_requires_matching_pedagogy_revision (test_hard_inputs_001.UpstreamAdapterTests.test_updated_reasoning_requires_matching_pedagogy_revision) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.225s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_integration.py",
+      "sha256": "36204e379a6f80d0b770b50565bc066b9d2f3f19b889d2321cc0c16f4cbad02d",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_example_fixture_retry_is_not_promoted_to_trusted_semantic_evidence (test_hard_integration.HardeningIntegrationTests.test_example_fixture_retry_is_not_promoted_to_trusted_semantic_evidence) ... ok\ntest_narration_edit_invalidates_executed_receipts (test_hard_integration.HardeningIntegrationTests.test_narration_edit_invalidates_executed_receipts) ... ok\ntest_real_canonical_ped_to_hardened_dir_to_semantic_gateway (test_hard_integration.HardeningIntegrationTests.test_real_canonical_ped_to_hardened_dir_to_semantic_gateway) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.015s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_long_directing_001.py",
+      "sha256": "c3aa3132db4454dbd203eaa126c6291e75558c5de787a10f5b727af9561b6ca6",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_all_prior_speech_is_retained_while_transport_uses_a_complete_recent_scene (test_hard_long_directing_001.WindowedExecutionTests.test_all_prior_speech_is_retained_while_transport_uses_a_complete_recent_scene) ... ok\ntest_edited_continuity_policy_or_window_schedule_cannot_revalidate (test_hard_long_directing_001.WindowedExecutionTests.test_edited_continuity_policy_or_window_schedule_cannot_revalidate) ... ok\ntest_every_actual_generation_request_fits_the_unchanged_configured_budget (test_hard_long_directing_001.WindowedExecutionTests.test_every_actual_generation_request_fits_the_unchanged_configured_budget) ... ok\ntest_global_scene_budget_is_enforced_after_individually_valid_windows (test_hard_long_directing_001.WindowedExecutionTests.test_global_scene_budget_is_enforced_after_individually_valid_windows) ... ok\ntest_late_generation_failure_retains_trace_but_returns_no_partial_lesson (test_hard_long_directing_001.WindowedExecutionTests.test_late_generation_failure_retains_trace_but_returns_no_partial_lesson) ... ok\ntest_missing_extra_or_edited_actual_request_evidence_is_rejected (test_hard_long_directing_001.WindowedExecutionTests.test_missing_extra_or_edited_actual_request_evidence_is_rejected) ... ok\ntest_multiple_scenes_per_decision_are_allowed_without_a_fixed_window_layout (test_hard_long_directing_001.WindowedExecutionTests.test_multiple_scenes_per_decision_are_allowed_without_a_fixed_window_layout) ... ok\ntest_old_request_budget_fails_before_transport_and_windows_keep_every_objective (test_hard_long_directing_001.WindowedExecutionTests.test_old_request_budget_fails_before_transport_and_windows_keep_every_objective) ... ok\ntest_omitted_original_assessment_blocks_window_plan (test_hard_long_directing_001.WindowedExecutionTests.test_omitted_original_assessment_blocks_window_plan) ... ok\ntest_oversized_recent_narration_fails_instead_of_silently_cutting_continuity (test_hard_long_directing_001.WindowedExecutionTests.test_oversized_recent_narration_fails_instead_of_silently_cutting_continuity) ... ok\ntest_prerequisite_support_keeps_original_re_and_source_even_without_rich_context (test_hard_long_directing_001.WindowedExecutionTests.test_prerequisite_support_keeps_original_re_and_source_even_without_rich_context) ... ok\ntest_removing_window_metadata_cannot_bypass_the_known_type_gate (test_hard_long_directing_001.WindowedExecutionTests.test_removing_window_metadata_cannot_bypass_the_known_type_gate) ... ok\ntest_retry_request_fingerprints_reconstruct_after_a_corrected_provider_record (test_hard_long_directing_001.WindowedExecutionTests.test_retry_request_fingerprints_reconstruct_after_a_corrected_provider_record) ... ok\ntest_scene_namespace_cannot_escape_its_assigned_window (test_hard_long_directing_001.WindowedExecutionTests.test_scene_namespace_cannot_escape_its_assigned_window) ... ok\ntest_second_plan_window_receives_completed_scene_contracts_and_all_global_goals (test_hard_long_directing_001.WindowedExecutionTests.test_second_plan_window_receives_completed_scene_contracts_and_all_global_goals) ... ok\ntest_stale_global_or_window_binding_is_rejected_with_bounded_retry (test_hard_long_directing_001.WindowedExecutionTests.test_stale_global_or_window_binding_is_rejected_with_bounded_retry) ... ok\ntest_supplied_math_steps_survive_window_generation_and_persistence (test_hard_long_directing_001.WindowedExecutionTests.test_supplied_math_steps_survive_window_generation_and_persistence) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 4.016s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_production_adoption_001.py",
+      "sha256": "444677d8966a6c18ab70bc1c4bd67d79e62d033e48aa86045a8529e05cd90443",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_composition_root_requires_durable_hierarchical_runtime (test_hard_production_adoption_001.ProductionAdoptionTests.test_composition_root_requires_durable_hierarchical_runtime) ... ok\ntest_durable_restart_replays_without_any_provider_call (test_hard_production_adoption_001.ProductionAdoptionTests.test_durable_restart_replays_without_any_provider_call) ... ok\ntest_expired_crashed_running_revision_is_fenced_reclaimed_and_completed (test_hard_production_adoption_001.ProductionAdoptionTests.test_expired_crashed_running_revision_is_fenced_reclaimed_and_completed) ... ok\ntest_mismatched_run_or_repair_shape_fails_before_provider_calls (test_hard_production_adoption_001.ProductionAdoptionTests.test_mismatched_run_or_repair_shape_fails_before_provider_calls) ... ok\ntest_registered_execution_persists_hierarchical_review_only_output_and_consumes_it (test_hard_production_adoption_001.ProductionAdoptionTests.test_registered_execution_persists_hierarchical_review_only_output_and_consumes_it) ... ok\ntest_request_contains_only_upstream_identity_not_hand_authored_directing (test_hard_production_adoption_001.ProductionAdoptionTests.test_request_contains_only_upstream_identity_not_hand_authored_directing) ... ok\ntest_scene_correction_runs_through_registered_executor_and_reuses_unchanged_local_annotation (test_hard_production_adoption_001.ProductionAdoptionTests.test_scene_correction_runs_through_registered_executor_and_reuses_unchanged_local_annotation) ... ok\ntest_upstream_invalidation_stales_current_output_and_all_descendants (test_hard_production_adoption_001.ProductionAdoptionTests.test_upstream_invalidation_stales_current_output_and_all_descendants) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 25.403s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_repair_001.py",
+      "sha256": "08c8da9d45e107e670a03be6cf6793828f02c9285a7bb5d21242f4750827feaa",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_annotation_failure_resumes_exact_narration_with_real_factual_and_review_calls (test_hard_repair_001.PhaseRepairTests.test_annotation_failure_resumes_exact_narration_with_real_factual_and_review_calls) ... ok\ntest_changed_critic_reruns_qa_and_cannot_bypass_a_new_contradiction (test_hard_repair_001.PhaseRepairTests.test_changed_critic_reruns_qa_and_cannot_bypass_a_new_contradiction) ... ok\ntest_changed_generation_policy_rebuilds_instead_of_reusing_narration (test_hard_repair_001.PhaseRepairTests.test_changed_generation_policy_rebuilds_instead_of_reusing_narration) ... ok\ntest_changed_generator_identity_cannot_reuse_old_narration (test_hard_repair_001.PhaseRepairTests.test_changed_generator_identity_cannot_reuse_old_narration) ... ok\ntest_changed_title_is_an_input_dependency_and_regenerates (test_hard_repair_001.PhaseRepairTests.test_changed_title_is_an_input_dependency_and_regenerates) ... ok\ntest_corrupt_saved_narration_fails_before_provider_recovery (test_hard_repair_001.PhaseRepairTests.test_corrupt_saved_narration_fails_before_provider_recovery) ... ok\ntest_decoder_rejects_unknown_fields_boolean_offsets_and_dynamic_class_names (test_hard_repair_001.PhaseRepairTests.test_decoder_rejects_unknown_fields_boolean_offsets_and_dynamic_class_names) ... ok\ntest_failed_repair_receipt_replays_without_consuming_more_budget (test_hard_repair_001.PhaseRepairTests.test_failed_repair_receipt_replays_without_consuming_more_budget) ... ok\ntest_fourth_attempt_is_rejected_before_any_generation (test_hard_repair_001.PhaseRepairTests.test_fourth_attempt_is_rejected_before_any_generation) ... ok\ntest_in_flight_previous_claim_requires_infrastructure_recovery_without_provider_calls (test_hard_repair_001.PhaseRepairTests.test_in_flight_previous_claim_requires_infrastructure_recovery_without_provider_calls) ... ok\ntest_old_success_replay_cannot_restore_superseded_director_output (test_hard_repair_001.PhaseRepairTests.test_old_success_replay_cannot_restore_superseded_director_output) ... ok\ntest_real_source_revision_and_rebuilt_upstream_artifacts_force_regeneration (test_hard_repair_001.PhaseRepairTests.test_real_source_revision_and_rebuilt_upstream_artifacts_force_regeneration) ... ok\ntest_recovery_after_executor_restart_uses_sqlite_and_cas_not_live_python_objects (test_hard_repair_001.PhaseRepairTests.test_recovery_after_executor_restart_uses_sqlite_and_cas_not_live_python_objects) ... ok\ntest_repair_success_replay_makes_no_new_provider_calls (test_hard_repair_001.PhaseRepairTests.test_repair_success_replay_makes_no_new_provider_calls) ... ok\ntest_same_attempt_or_same_key_cannot_start_a_new_repair_revision (test_hard_repair_001.PhaseRepairTests.test_same_attempt_or_same_key_cannot_start_a_new_repair_revision) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 9.556s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_rich_codecs_001.py",
+      "sha256": "762cccda71a567bcb6f1e75d0a9e02c53d564f1034803513644a531ac2c88b77",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_all_five_typed_codecs_compile_to_exact_obligations (test_hard_rich_codecs_001.RichCodecTests.test_all_five_typed_codecs_compile_to_exact_obligations) ... ok\ntest_each_strategy_and_obligation_has_unique_identity (test_hard_rich_codecs_001.RichCodecTests.test_each_strategy_and_obligation_has_unique_identity) ... ok\ntest_lesson_binding_retains_only_selected_grounded_concepts (test_hard_rich_codecs_001.RichCodecTests.test_lesson_binding_retains_only_selected_grounded_concepts) ... ok\ntest_persisted_rich_compilation_is_recomputed_on_load (test_hard_rich_codecs_001.RichCodecTests.test_persisted_rich_compilation_is_recomputed_on_load) ... ok\ntest_plain_context_bytes_and_schema_remain_backward_compatible (test_hard_rich_codecs_001.RichCodecTests.test_plain_context_bytes_and_schema_remain_backward_compatible) ... ok\ntest_source_offsets_are_revalidated_not_just_quote_matched (test_hard_rich_codecs_001.RichCodecTests.test_source_offsets_are_revalidated_not_just_quote_matched) ... ok\ntest_unknown_concept_is_rejected (test_hard_rich_codecs_001.RichCodecTests.test_unknown_concept_is_rejected) ... ok\ntest_worked_example_cannot_omit_steps (test_hard_rich_codecs_001.RichCodecTests.test_worked_example_cannot_omit_steps) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.232s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_scene_correction_001.py",
+      "sha256": "ddef0d6f46ed1629ff1049586988370ed4f61e7500fadcb62965af1eb5bfde54",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_correction_count_budget_fails_before_provider_calls (test_hard_scene_correction_001.SceneCorrectionTests.test_correction_count_budget_fails_before_provider_calls) ... ok\ntest_correction_retains_review_and_never_claims_acceptance (test_hard_scene_correction_001.SceneCorrectionTests.test_correction_retains_review_and_never_claims_acceptance) ... ok\ntest_noop_correction_is_rejected (test_hard_scene_correction_001.SceneCorrectionTests.test_noop_correction_is_rejected) ... ok\ntest_only_named_scene_is_regenerated_and_all_other_bytes_are_reused (test_hard_scene_correction_001.SceneCorrectionTests.test_only_named_scene_is_regenerated_and_all_other_bytes_are_reused) ... ok\ntest_persisted_correction_roundtrips_and_revalidates_actual_requests (test_hard_scene_correction_001.SceneCorrectionTests.test_persisted_correction_roundtrips_and_revalidates_actual_requests) ... ok\ntest_plan_is_immutable_and_whole_lesson_is_recompiled (test_hard_scene_correction_001.SceneCorrectionTests.test_plan_is_immutable_and_whole_lesson_is_recompiled) ... ok\ntest_tampered_reason_changes_request_fingerprint_and_is_rejected (test_hard_scene_correction_001.SceneCorrectionTests.test_tampered_reason_changes_request_fingerprint_and_is_rejected) ... ok\ntest_wrong_evidence_or_scene_identity_exhausts_bounded_retries (test_hard_scene_correction_001.SceneCorrectionTests.test_wrong_evidence_or_scene_identity_exhausts_bounded_retries) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 5.502s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_selective_annotation_reuse_001.py",
+      "sha256": "f5028d749ea6b29abb230e78db264405b874f7b80244301ac49d9faf6e67aa29",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_changed_scene_and_all_discourse_scopes_execute_fresh (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_changed_scene_and_all_discourse_scopes_execute_fresh) ... ok\ntest_persisted_reuse_receipt_roundtrips_and_revalidates (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_persisted_reuse_receipt_roundtrips_and_revalidates) ... ok\ntest_policy_or_identity_change_disables_reuse_by_failing_closed (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_policy_or_identity_change_disables_reuse_by_failing_closed) ... ok\ntest_reuse_attempts_are_not_falsely_counted_as_new_model_calls (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_reuse_attempts_are_not_falsely_counted_as_new_model_calls) ... ok\ntest_reused_local_data_and_fresh_global_data_pass_full_validator (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_reused_local_data_and_fresh_global_data_pass_full_validator) ... ok\ntest_tampered_prior_payload_or_response_is_rejected (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_tampered_prior_payload_or_response_is_rejected) ... ok\ntest_unchanged_scene_local_annotation_reuses_exact_prior_call (test_hard_selective_annotation_reuse_001.SelectiveAnnotationReuseTests.test_unchanged_scene_local_annotation_reuses_exact_prior_call) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 20.339s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_semantic_001.py",
+      "sha256": "d8883412fb2469bfa158dc6139f82132fdf36f2167c0b6b4681c6f29553ce369",
+      "tests": 23,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_canonical_gpt_adapter_envelope_is_consumed (test_hard_semantic_001.SemanticExecutionTests.test_canonical_gpt_adapter_envelope_is_consumed) ... ok\ntest_complete_source_page_context_includes_caveat_outside_quote (test_hard_semantic_001.SemanticExecutionTests.test_complete_source_page_context_includes_caveat_outside_quote) ... ok\ntest_context_over_budget_is_explicit_and_not_silently_shortened (test_hard_semantic_001.SemanticExecutionTests.test_context_over_budget_is_explicit_and_not_silently_shortened) ... ok\ntest_contradicted_and_uncertain_evidence_cannot_be_promoted (test_hard_semantic_001.SemanticExecutionTests.test_contradicted_and_uncertain_evidence_cannot_be_promoted) ... ok\ntest_default_policy_does_not_implicitly_trust_a_configured_provider (test_hard_semantic_001.SemanticExecutionTests.test_default_policy_does_not_implicitly_trust_a_configured_provider) ... ok\ntest_deterministic_numeric_conflict_precedes_semantic_calls (test_hard_semantic_001.SemanticExecutionTests.test_deterministic_numeric_conflict_precedes_semantic_calls) ... ok\ntest_duplicate_json_fields_and_nonfinite_values_are_rejected (test_hard_semantic_001.SemanticExecutionTests.test_duplicate_json_fields_and_nonfinite_values_are_rejected) ... ok\ntest_invalid_json_retries_once_with_same_grounded_payload (test_hard_semantic_001.SemanticExecutionTests.test_invalid_json_retries_once_with_same_grounded_payload) ... ok\ntest_invalid_policy_cannot_weaken_completion_or_retries (test_hard_semantic_001.SemanticExecutionTests.test_invalid_policy_cannot_weaken_completion_or_retries) ... ok\ntest_low_confidence_remains_review (test_hard_semantic_001.SemanticExecutionTests.test_low_confidence_remains_review) ... ok\ntest_missing_claim_coverage_prevents_provider_call (test_hard_semantic_001.SemanticExecutionTests.test_missing_claim_coverage_prevents_provider_call) ... ok\ntest_nonfact_labels_do_not_obtain_supported_receipts (test_hard_semantic_001.SemanticExecutionTests.test_nonfact_labels_do_not_obtain_supported_receipts) ... ok\ntest_partial_failure_does_not_erase_other_claim_results (test_hard_semantic_001.SemanticExecutionTests.test_partial_failure_does_not_erase_other_claim_results) ... ok\ntest_provider_is_actually_invoked_and_bie_produces_bound_receipt (test_hard_semantic_001.SemanticExecutionTests.test_provider_is_actually_invoked_and_bie_produces_bound_receipt) ... ok\ntest_refusal_and_truncation_never_create_supported_receipt (test_hard_semantic_001.SemanticExecutionTests.test_refusal_and_truncation_never_create_supported_receipt) ... ok\ntest_response_budget_is_enforced_without_retry_or_truncation (test_hard_semantic_001.SemanticExecutionTests.test_response_budget_is_enforced_without_retry_or_truncation) ... ok\ntest_schema_failure_is_bounded_and_has_no_receipt (test_hard_semantic_001.SemanticExecutionTests.test_schema_failure_is_bounded_and_has_no_receipt) ... ok\ntest_source_commands_remain_data_and_no_text_is_truncated (test_hard_semantic_001.SemanticExecutionTests.test_source_commands_remain_data_and_no_text_is_truncated) ... ok\ntest_source_hash_mismatch_prevents_any_provider_call (test_hard_semantic_001.SemanticExecutionTests.test_source_hash_mismatch_prevents_any_provider_call) ... ok\ntest_stale_claim_or_passage_response_binding_fails (test_hard_semantic_001.SemanticExecutionTests.test_stale_claim_or_passage_response_binding_fails) ... ok\ntest_transport_errors_do_not_leak_error_details_and_are_bounded (test_hard_semantic_001.SemanticExecutionTests.test_transport_errors_do_not_leak_error_details_and_are_bounded) ... ok\ntest_unexpected_evaluator_identity_stops_without_retry (test_hard_semantic_001.SemanticExecutionTests.test_unexpected_evaluator_identity_stops_without_retry) ... ok\ntest_upstream_review_and_prompt_policy_revisions_survive (test_hard_semantic_001.SemanticExecutionTests.test_upstream_review_and_prompt_policy_revisions_survive) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 0.037s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_teaching_001.py",
+      "sha256": "a0e00014272e322260d99b491d811d9e2c0be4866881fccca1f51c4febc28fd7",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_gateway_receives_full_cited_source_and_compiled_context (test_hard_teaching_001.ContextTeachingTests.test_actual_gateway_receives_full_cited_source_and_compiled_context) ... ok\ntest_beat_index_must_be_an_actual_integer_position (test_hard_teaching_001.ContextTeachingTests.test_beat_index_must_be_an_actual_integer_position) ... ok\ntest_bridge_and_original_assessments_reach_actual_speech (test_hard_teaching_001.ContextTeachingTests.test_bridge_and_original_assessments_reach_actual_speech) ... ok\ntest_context_free_protocol_and_fingerprint_material_remain_unchanged (test_hard_teaching_001.ContextTeachingTests.test_context_free_protocol_and_fingerprint_material_remain_unchanged) ... ok\ntest_declaring_a_bridge_without_explanation_move_is_rejected (test_hard_teaching_001.ContextTeachingTests.test_declaring_a_bridge_without_explanation_move_is_rejected) ... ok\ntest_decoding_extra_fields_or_removing_obligations_cannot_bypass_validation (test_hard_teaching_001.ContextTeachingTests.test_decoding_extra_fields_or_removing_obligations_cannot_bypass_validation) ... ok\ntest_generation_repair_is_bounded_and_cannot_skip_a_required_bridge (test_hard_teaching_001.ContextTeachingTests.test_generation_repair_is_bounded_and_cannot_skip_a_required_bridge) ... ok\ntest_math_step_order_is_enforced_across_scenes (test_hard_teaching_001.ContextTeachingTests.test_math_step_order_is_enforced_across_scenes) ... ok\ntest_math_symbol_case_and_identifier_suffix_cannot_change_silently (test_hard_teaching_001.ContextTeachingTests.test_math_symbol_case_and_identifier_suffix_cannot_change_silently) ... ok\ntest_missing_realization_and_fabricated_offsets_are_rejected (test_hard_teaching_001.ContextTeachingTests.test_missing_realization_and_fabricated_offsets_are_rejected) ... ok\ntest_obligation_cannot_be_reassigned_to_another_ped_decision (test_hard_teaching_001.ContextTeachingTests.test_obligation_cannot_be_reassigned_to_another_ped_decision) ... ok\ntest_one_paragraph_cannot_masquerade_as_every_math_step (test_hard_teaching_001.ContextTeachingTests.test_one_paragraph_cannot_masquerade_as_every_math_step) ... ok\ntest_original_bridge_assessment_cannot_be_dropped (test_hard_teaching_001.ContextTeachingTests.test_original_bridge_assessment_cannot_be_dropped) ... ok\ntest_persisted_rich_result_decodes_and_revalidates_known_types (test_hard_teaching_001.ContextTeachingTests.test_persisted_rich_result_decodes_and_revalidates_known_types) ... ok\ntest_plan_cannot_drop_or_repeat_required_bridge_obligation (test_hard_teaching_001.ContextTeachingTests.test_plan_cannot_drop_or_repeat_required_bridge_obligation) ... ok\ntest_prerequisite_order_is_enforced_even_without_a_ped_parent_edge (test_hard_teaching_001.ContextTeachingTests.test_prerequisite_order_is_enforced_even_without_a_ped_parent_edge) ... ok\ntest_reversed_steps_inside_a_scene_are_rejected (test_hard_teaching_001.ContextTeachingTests.test_reversed_steps_inside_a_scene_are_rejected) ... ok\ntest_steps_can_share_a_scene_when_each_has_its_own_ordered_spoken_beat (test_hard_teaching_001.ContextTeachingTests.test_steps_can_share_a_scene_when_each_has_its_own_ordered_spoken_beat) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.693s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_teaching_modes_001.py",
+      "sha256": "4b7e15018c1f80bd3965fa609fa0d9cc51fc1c638420d9fb0f1568602655efa7",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_director_realizes_all_grounded_strategies_as_separate_beats (test_hard_teaching_modes_001.RichTeachingModeTests.test_actual_director_realizes_all_grounded_strategies_as_separate_beats) ... ok\ntest_assessment_remains_after_rich_teaching (test_hard_teaching_modes_001.RichTeachingModeTests.test_assessment_remains_after_rich_teaching) ... ok\ntest_every_rich_obligation_kind_maps_to_an_existing_director_move (test_hard_teaching_modes_001.RichTeachingModeTests.test_every_rich_obligation_kind_maps_to_an_existing_director_move) ... ok\ntest_multiple_rich_steps_cannot_share_one_claimed_beat (test_hard_teaching_modes_001.RichTeachingModeTests.test_multiple_rich_steps_cannot_share_one_claimed_beat) ... ok\ntest_narration_cannot_use_the_wrong_teaching_move (test_hard_teaching_modes_001.RichTeachingModeTests.test_narration_cannot_use_the_wrong_teaching_move) ... ok\ntest_plan_cannot_drop_a_rich_obligation (test_hard_teaching_modes_001.RichTeachingModeTests.test_plan_cannot_drop_a_rich_obligation) ... ok\ntest_same_rich_contract_works_on_default_nonwindowed_path (test_hard_teaching_modes_001.RichTeachingModeTests.test_same_rich_contract_works_on_default_nonwindowed_path) ... ok\ntest_source_statement_cannot_be_replaced_by_a_generic_activity (test_hard_teaching_modes_001.RichTeachingModeTests.test_source_statement_cannot_be_replaced_by_a_generic_activity) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 1.537s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_hard_windows_001.py",
+      "sha256": "0399ed51ec844fda4abd350cd541ba39771dee8d12b5dc6627b715bd0fcbeeac",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_complete_cited_pages_keep_the_final_source_condition (test_hard_windows_001.ContextWindowTests.test_complete_cited_pages_keep_the_final_source_condition) ... ok\ntest_context_free_inputs_still_have_an_explicit_window_view (test_hard_windows_001.ContextWindowTests.test_context_free_inputs_still_have_an_explicit_window_view) ... ok\ntest_cross_lesson_bridge_keeps_original_objectives_and_assessments (test_hard_windows_001.ContextWindowTests.test_cross_lesson_bridge_keeps_original_objectives_and_assessments) ... ok\ntest_external_prerequisite_support_retains_definitions_conditions_and_source (test_hard_windows_001.ContextWindowTests.test_external_prerequisite_support_retains_definitions_conditions_and_source) ... ok\ntest_large_source_is_partitioned_with_exact_decision_evidence_and_page_coverage (test_hard_windows_001.ContextWindowTests.test_large_source_is_partitioned_with_exact_decision_evidence_and_page_coverage) ... ok\ntest_missing_selected_prerequisite_scope_is_an_explicit_error (test_hard_windows_001.ContextWindowTests.test_missing_selected_prerequisite_scope_is_an_explicit_error) ... ok\ntest_one_oversized_page_is_never_cut_into_unreviewed_fragments (test_hard_windows_001.ContextWindowTests.test_one_oversized_page_is_never_cut_into_unreviewed_fragments) ... ok\ntest_original_dependency_order_wins_over_a_reversed_binding_list (test_hard_windows_001.ContextWindowTests.test_original_dependency_order_wins_over_a_reversed_binding_list) ... ok\ntest_oversized_upstream_reasoning_is_not_replaced_with_a_summary (test_hard_windows_001.ContextWindowTests.test_oversized_upstream_reasoning_is_not_replaced_with_a_summary) ... ok\ntest_planning_contract_keeps_global_goals_and_marks_the_view_boundary (test_hard_windows_001.ContextWindowTests.test_planning_contract_keeps_global_goals_and_marks_the_view_boundary) ... ok\ntest_request_recipe_matches_actual_existing_gateway_material (test_hard_windows_001.ContextWindowTests.test_request_recipe_matches_actual_existing_gateway_material) ... ok\ntest_schedule_is_deterministic_and_binds_the_full_input_revision (test_hard_windows_001.ContextWindowTests.test_schedule_is_deterministic_and_binds_the_full_input_revision) ... ok\ntest_supplied_math_chain_and_its_two_teaching_obligations_stay_together (test_hard_windows_001.ContextWindowTests.test_supplied_math_chain_and_its_two_teaching_obligations_stay_together) ... ok\ntest_view_is_not_a_verified_upstream_artifact_and_cannot_execute_as_one (test_hard_windows_001.ContextWindowTests.test_view_is_not_a_verified_upstream_artifact_and_cannot_execute_as_one) ... ok\ntest_views_do_not_mutate_original_ped_bindings_or_source_artifacts (test_hard_windows_001.ContextWindowTests.test_views_do_not_mutate_original_ped_bindings_or_source_artifacts) ... ok\ntest_window_count_budget_does_not_drop_the_remainder_of_a_lesson (test_hard_windows_001.ContextWindowTests.test_window_count_budget_does_not_drop_the_remainder_of_a_lesson) ... ok\ntest_window_policy_rejects_invalid_budgets_and_unknown_versions (test_hard_windows_001.ContextWindowTests.test_window_policy_rejects_invalid_budgets_and_unknown_versions) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 1.362s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_001.py",
+      "sha256": "d685ae1178c16208b44cccb13aba8958bd1de9aa97a0a9e04a7df0d62b5150e4",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_deterministic (test_lesson_001.T.test_deterministic) ... ok\ntest_parent (test_lesson_001.T.test_parent) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_002.py",
+      "sha256": "f5beb323c2b07bb230e3ec0baa4dcc1af0e279072ed088ae4baa9af21e4b6557",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_bookends (test_lesson_002.T.test_bookends) ... ok\ntest_map (test_lesson_002.T.test_map) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_003.py",
+      "sha256": "f9b2c86982ebddc43a6a3fd905854d9c0276da42633a279f7e6c6795848f80ab",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_conflict (test_lesson_003.T.test_conflict) ... ok\ntest_transfer (test_lesson_003.T.test_transfer) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_004.py",
+      "sha256": "2a6642d89248d37ef2b15c94480e365b737475dbdfe2599cc27a3ae378880d0f",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_misconception (test_lesson_004.T.test_misconception) ... ok\ntest_source (test_lesson_004.T.test_source) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_005.py",
+      "sha256": "8fa2cf20f24e50bc4510afc2c3186f78b8146bf9cc41de87b80e343afa42e5f7",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_causal (test_lesson_005.T.test_causal) ... ok\ntest_self (test_lesson_005.T.test_self) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_006.py",
+      "sha256": "7f080a7fc3ee09b96a29b6d5513e3095c604d4b276ac6d7250c8ca88173e0667",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_retrieval (test_lesson_006.T.test_retrieval) ... ok\ntest_transfer_off (test_lesson_006.T.test_transfer_off) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_007.py",
+      "sha256": "d21065e3896904fbf38e3feda612b3ba6cc414338c2ff6cf8bfb8bb957f4af69",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_load (test_lesson_007.T.test_load) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_008.py",
+      "sha256": "0d390fc8d1e915c56ee266b2b8100bd43afe3a66ee459c82257010b687f5c3ab",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_risk (test_lesson_008.T.test_risk) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_009.py",
+      "sha256": "a4c11bb8113d7a6c4274c89cf06e58b9114f39456791c5ed16a9904309427ce4",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_bad (test_lesson_009.T.test_bad) ... ok\ntest_valid (test_lesson_009.T.test_valid) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_lesson_010.py",
+      "sha256": "694acfd03429f23744c80786201058219ba95b055ed7f0a57fd0c1269c9da301",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_merge (test_lesson_010.T.test_merge) ... ok\ntest_unresolved (test_lesson_010.T.test_unresolved) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_001.py",
+      "sha256": "95563618ea837a9cbc7cb793f31a3d8f8c29fe47adbd4c7bb6dd196f800709a1",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_any_reported_contradiction_blocks (test_qa_001.FactualTests.test_any_reported_contradiction_blocks) ... ok\ntest_claim_coverage_is_word_union_not_sum (test_qa_001.FactualTests.test_claim_coverage_is_word_union_not_sum) ... ok\ntest_duplicate_claim_nan_confidence_and_blank_legacy_ids_rejected (test_qa_001.FactualTests.test_duplicate_claim_nan_confidence_and_blank_legacy_ids_rejected) ... ok\ntest_empty_claims_block_even_with_cited_draft (test_qa_001.FactualTests.test_empty_claims_block_even_with_cited_draft) ... ok\ntest_immutable_snapshot_and_boolean_span_validation (test_qa_001.FactualTests.test_immutable_snapshot_and_boolean_span_validation) ... ok\ntest_keywords_are_not_entailment (test_qa_001.FactualTests.test_keywords_are_not_entailment) ... ok\ntest_missing_and_out_of_lineage_citation (test_qa_001.FactualTests.test_missing_and_out_of_lineage_citation) ... ok\ntest_modified_snapshot_and_old_span_rejected (test_qa_001.FactualTests.test_modified_snapshot_and_old_span_rejected) ... ok\ntest_nonfact_labels_cannot_bypass_review (test_qa_001.FactualTests.test_nonfact_labels_cannot_bypass_review) ... ok\ntest_numeric_conflict_cannot_be_overridden_by_supported_receipt (test_qa_001.FactualTests.test_numeric_conflict_cannot_be_overridden_by_supported_receipt) ... ok\ntest_quote_equality_still_needs_contextual_support (test_qa_001.FactualTests.test_quote_equality_still_needs_contextual_support) ... ok\ntest_receipt_must_bind_exact_claim_and_source (test_qa_001.FactualTests.test_receipt_must_bind_exact_claim_and_source) ... ok\ntest_receipt_only_passes_explicit_policy_scope (test_qa_001.FactualTests.test_receipt_only_passes_explicit_policy_scope) ... ok\ntest_report_replay_detects_tampered_findings_or_policy (test_qa_001.FactualTests.test_report_replay_detects_tampered_findings_or_policy) ... ok\ntest_untrusted_and_low_confidence_and_uncertain_need_review (test_qa_001.FactualTests.test_untrusted_and_low_confidence_and_uncertain_need_review) ... ok\ntest_upstream_review_survives_receipt (test_qa_001.FactualTests.test_upstream_review_survives_receipt) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_002.py",
+      "sha256": "ed5966e026d66ca1ee1ff22ff3adf67500201fcd4ca4ccb21f6be2458d4794ff",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_text_bytes_exact_page_and_quote_pass_scoped_grounding (test_qa_002.GroundingTests.test_actual_text_bytes_exact_page_and_quote_pass_scoped_grounding) ... ok\ntest_changed_extraction_same_source_hash_block (test_qa_002.GroundingTests.test_changed_extraction_same_source_hash_block) ... ok\ntest_changed_source_bytes_block (test_qa_002.GroundingTests.test_changed_source_bytes_block) ... ok\ntest_citation_presence_without_claim_span_is_not_coverage (test_qa_002.GroundingTests.test_citation_presence_without_claim_span_is_not_coverage) ... ok\ntest_duplicate_empty_and_mutable_artifact_bytes_rejected (test_qa_002.GroundingTests.test_duplicate_empty_and_mutable_artifact_bytes_rejected) ... ok\ntest_duplicate_pages_mixed_revisions_and_bool_page_rejected (test_qa_002.GroundingTests.test_duplicate_pages_mixed_revisions_and_bool_page_rejected) ... ok\ntest_edited_quote_and_stale_page_reference_rejected (test_qa_002.GroundingTests.test_edited_quote_and_stale_page_reference_rejected) ... ok\ntest_grounding_report_binds_actual_bytes (test_qa_002.GroundingTests.test_grounding_report_binds_actual_bytes) ... ok\ntest_missing_actual_bytes_block (test_qa_002.GroundingTests.test_missing_actual_bytes_block) ... ok\ntest_overlapping_spans_do_not_inflate_grounding (test_qa_002.GroundingTests.test_overlapping_spans_do_not_inflate_grounding) ... ok\ntest_partial_valid_citations_do_not_hide_missing_reference (test_qa_002.GroundingTests.test_partial_valid_citations_do_not_hide_missing_reference) ... ok\ntest_pdf_hash_is_not_extraction_accuracy (test_qa_002.GroundingTests.test_pdf_hash_is_not_extraction_accuracy) ... ok\ntest_unicode_text_uses_character_spans_and_actual_utf8_hash (test_qa_002.GroundingTests.test_unicode_text_uses_character_spans_and_actual_utf8_hash) ... ok\ntest_unknown_draft_reference_blocks_even_if_claims_are_retagged (test_qa_002.GroundingTests.test_unknown_draft_reference_blocks_even_if_claims_are_retagged) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.005s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_003.py",
+      "sha256": "113270bb82a3a3beecc2434ef93b46468b48b6acd70838960c1a764e8d4ae430",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_architecture_review_propagates (test_qa_003.CoherenceTests.test_architecture_review_propagates) ... ok\ntest_concepts_must_precede_use_unless_source_initial (test_qa_003.CoherenceTests.test_concepts_must_precede_use_unless_source_initial) ... ok\ntest_declared_single_scene_structural_scope_passes (test_qa_003.CoherenceTests.test_declared_single_scene_structural_scope_passes) ... ok\ntest_forward_unknown_reference_and_unanswered_question (test_qa_003.CoherenceTests.test_forward_unknown_reference_and_unanswered_question) ... ok\ntest_intro_then_reference_and_answer_resolve (test_qa_003.CoherenceTests.test_intro_then_reference_and_answer_resolve) ... ok\ntest_lesson_objective_and_evidence_mismatch_block (test_qa_003.CoherenceTests.test_lesson_objective_and_evidence_mismatch_block) ... ok\ntest_missing_and_unplanned_scenes_block (test_qa_003.CoherenceTests.test_missing_and_unplanned_scenes_block) ... ok\ntest_narrated_transition_binds_next_scene_and_actual_cue (test_qa_003.CoherenceTests.test_narrated_transition_binds_next_scene_and_actual_cue) ... ok\ntest_original_architecture_cycle_is_detected_without_mutation (test_qa_003.CoherenceTests.test_original_architecture_cycle_is_detected_without_mutation) ... ok\ntest_realized_order_wins_over_sorted_architecture_ids (test_qa_003.CoherenceTests.test_realized_order_wins_over_sorted_architecture_ids) ... ok\ntest_report_replay_binds_annotations (test_qa_003.CoherenceTests.test_report_replay_binds_annotations) ... ok\ntest_stale_beat_and_duplicate_transition_rejected (test_qa_003.CoherenceTests.test_stale_beat_and_duplicate_transition_rejected) ... ok\ntest_unknown_answer_duplicate_question_and_missing_beat (test_qa_003.CoherenceTests.test_unknown_answer_duplicate_question_and_missing_beat) ... ok\ntest_unknown_parent_and_self_cycle_block (test_qa_003.CoherenceTests.test_unknown_parent_and_self_cycle_block) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_004.py",
+      "sha256": "95a87e8aef5998591ac6d47920f8dec5239ede35cbedd474a73ec8fb804c18b2",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_active_retrieval_can_be_retained (test_qa_004.RepetitionTests.test_active_retrieval_can_be_retained) ... ok\ntest_changed_currency_and_units_cannot_get_unqualified_recap_pass (test_qa_004.RepetitionTests.test_changed_currency_and_units_cannot_get_unqualified_recap_pass) ... ok\ntest_changed_numbers_require_factual_review_even_for_recap (test_qa_004.RepetitionTests.test_changed_numbers_require_factual_review_even_for_recap) ... ok\ntest_decimal_values_are_one_sentence_and_preserved_tokens (test_qa_004.RepetitionTests.test_decimal_values_are_one_sentence_and_preserved_tokens) ... ok\ntest_duplicate_inside_one_utterance_detected (test_qa_004.RepetitionTests.test_duplicate_inside_one_utterance_detected) ... ok\ntest_exact_duplicate_across_utterances_is_candidate (test_qa_004.RepetitionTests.test_exact_duplicate_across_utterances_is_candidate) ... ok\ntest_explicit_recap_is_retained_and_never_rewrites (test_qa_004.RepetitionTests.test_explicit_recap_is_retained_and_never_rewrites) ... ok\ntest_language_and_short_text_limits_explicit (test_qa_004.RepetitionTests.test_language_and_short_text_limits_explicit) ... ok\ntest_negation_difference_preserved (test_qa_004.RepetitionTests.test_negation_difference_preserved) ... ok\ntest_negative_sign_change_is_not_normalized_away (test_qa_004.RepetitionTests.test_negative_sign_change_is_not_normalized_away) ... ok\ntest_no_duplicate_passes_scoped_heuristic (test_qa_004.RepetitionTests.test_no_duplicate_passes_scoped_heuristic) ... ok\ntest_pedagogy_retrieval_only_conflicts_with_repeated_lecture (test_qa_004.RepetitionTests.test_pedagogy_retrieval_only_conflicts_with_repeated_lecture) ... ok\ntest_repeated_active_question_can_support_spaced_retrieval (test_qa_004.RepetitionTests.test_repeated_active_question_can_support_spaced_retrieval) ... ok\ntest_report_replay_and_threshold_validation (test_qa_004.RepetitionTests.test_report_replay_and_threshold_validation) ... ok\ntest_retrieval_label_does_not_exempt_identical_exposition (test_qa_004.RepetitionTests.test_retrieval_label_does_not_exempt_identical_exposition) ... ok\ntest_stale_reverse_and_duplicate_purpose_rejected (test_qa_004.RepetitionTests.test_stale_reverse_and_duplicate_purpose_rejected) ... ok\ntest_unrelated_evidence_invalidates_repeat_exception (test_qa_004.RepetitionTests.test_unrelated_evidence_invalidates_repeat_exception) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.013s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_005.py",
+      "sha256": "4d2f985b1f1f481954b77677a87ae1bee34a9e63ab92c98ddc81917705726990",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_advanced_term_needs_scaffold_at_first_use (test_qa_005.AudienceTests.test_advanced_term_needs_scaffold_at_first_use) ... ok\ntest_age_advisory_checks_youngest_audience_not_oldest (test_qa_005.AudienceTests.test_age_advisory_checks_youngest_audience_not_oldest) ... ok\ntest_content_span_must_be_current (test_qa_005.AudienceTests.test_content_span_must_be_current) ... ok\ntest_decimal_sentence_and_unpunctuated_tail_are_not_lost (test_qa_005.AudienceTests.test_decimal_sentence_and_unpunctuated_tail_are_not_lost) ... ok\ntest_definition_must_name_term_and_match_lineage (test_qa_005.AudienceTests.test_definition_must_name_term_and_match_lineage) ... ok\ntest_explicit_cognitive_policy_and_assessment_lineage_checked (test_qa_005.AudienceTests.test_explicit_cognitive_policy_and_assessment_lineage_checked) ... ok\ntest_higher_order_assessment_allowed_for_young_target (test_qa_005.AudienceTests.test_higher_order_assessment_allowed_for_young_target) ... ok\ntest_invalid_target_boolean_threshold_and_edited_report_rejected (test_qa_005.AudienceTests.test_invalid_target_boolean_threshold_and_edited_report_rejected) ... ok\ntest_later_definition_does_not_cover_earlier_use (test_qa_005.AudienceTests.test_later_definition_does_not_cover_earlier_use) ... ok\ntest_long_sentence_is_review_heuristic_not_grade_or_truncation (test_qa_005.AudienceTests.test_long_sentence_is_review_heuristic_not_grade_or_truncation) ... ok\ntest_missing_annotation_review_is_never_silent_pass (test_qa_005.AudienceTests.test_missing_annotation_review_is_never_silent_pass) ... ok\ntest_reviewed_declared_policy_passes_only_scoped_checks (test_qa_005.AudienceTests.test_reviewed_declared_policy_passes_only_scoped_checks) ... ok\ntest_source_generation_without_audience_or_profile_remains_possible (test_qa_005.AudienceTests.test_source_generation_without_audience_or_profile_remains_possible) ... ok\ntest_term_matching_is_case_insensitive_and_word_bounded (test_qa_005.AudienceTests.test_term_matching_is_case_insensitive_and_word_bounded) ... ok\ntest_unknown_language_keeps_review (test_qa_005.AudienceTests.test_unknown_language_keeps_review) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_006.py",
+      "sha256": "a813cb3502704345e24b4dbd4423ecf05c3f7f42d6f465bd44d18d0001f54e67",
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_abrupt_rate_change (test_qa_006.PacingTests.test_abrupt_rate_change) ... ok\ntest_beat_revision_grounding_overlap_and_types (test_qa_006.PacingTests.test_beat_revision_grounding_overlap_and_types) ... ok\ntest_changed_script_or_timeline_is_rejected (test_qa_006.PacingTests.test_changed_script_or_timeline_is_rejected) ... ok\ntest_estimate_retains_uncertainty_and_full_content (test_qa_006.PacingTests.test_estimate_retains_uncertainty_and_full_content) ... ok\ntest_explicit_reflection_requires_silence_after_that_span (test_qa_006.PacingTests.test_explicit_reflection_requires_silence_after_that_span) ... ok\ntest_long_content_is_retained_without_duration_cap (test_qa_006.PacingTests.test_long_content_is_retained_without_duration_cap) ... ok\ntest_pause_at_wrong_place_does_not_satisfy_reflection (test_qa_006.PacingTests.test_pause_at_wrong_place_does_not_satisfy_reflection) ... ok\ntest_reasoning_rate_and_reflection_heuristics (test_qa_006.PacingTests.test_reasoning_rate_and_reflection_heuristics) ... ok\ntest_reflection_exact_boundary_values (test_qa_006.PacingTests.test_reflection_exact_boundary_values) ... ok\ntest_report_revision_and_policy_are_verified (test_qa_006.PacingTests.test_report_revision_and_policy_are_verified) ... ok\ntest_reported_audio_remains_unverified_even_with_correct_pause (test_qa_006.PacingTests.test_reported_audio_remains_unverified_even_with_correct_pause) ... ok\ntest_reported_pause_shortfall_routes_to_audio (test_qa_006.PacingTests.test_reported_pause_shortfall_routes_to_audio) ... ok\ntest_retrieval_heuristic_is_distinct_from_explicit_contract (test_qa_006.PacingTests.test_retrieval_heuristic_is_distinct_from_explicit_contract) ... ok\ntest_rolling_window_detects_rush_hidden_by_slow_words (test_qa_006.PacingTests.test_rolling_window_detects_rush_hidden_by_slow_words) ... ok\ntest_scene_cut_is_not_an_implicit_pause (test_qa_006.PacingTests.test_scene_cut_is_not_an_implicit_pause) ... ok\ntest_shared_tail_head_pause_not_double_counted (test_qa_006.PacingTests.test_shared_tail_head_pause_not_double_counted) ... ok\ntest_short_gaps_accumulate_as_one_break (test_qa_006.PacingTests.test_short_gaps_accumulate_as_one_break) ... ok\ntest_silence_cannot_hide_excessive_active_rate (test_qa_006.PacingTests.test_silence_cannot_hide_excessive_active_rate) ... ok\ntest_soft_scene_target_routes_to_replanning_not_truncation (test_qa_006.PacingTests.test_soft_scene_target_routes_to_replanning_not_truncation) ... ok\ntest_unannotated_material_is_not_silently_certified (test_qa_006.PacingTests.test_unannotated_material_is_not_silently_certified) ... ok\ntest_within_utterance_reflection (test_qa_006.PacingTests.test_within_utterance_reflection) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.173s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_007.py",
+      "sha256": "1b07990dceffd808598c659b37691ac8393692a82e1116cd2c745140ec7617c5",
+      "tests": 22,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_execution_three_domains_and_retained_qa_review (test_qa_007.DirectorBenchmarkTests.test_actual_execution_three_domains_and_retained_qa_review) ... ok\ntest_blank_game_ids_rejected_despite_shallow_legacy_builder (test_qa_007.DirectorBenchmarkTests.test_blank_game_ids_rejected_despite_shallow_legacy_builder) ... ok\ntest_caller_scores_or_pass_flags_are_not_accepted (test_qa_007.DirectorBenchmarkTests.test_caller_scores_or_pass_flags_are_not_accepted) ... ok\ntest_candidate_exception_remains_in_denominator (test_qa_007.DirectorBenchmarkTests.test_candidate_exception_remains_in_denominator) ... ok\ntest_changed_source_quotes_without_page_revision_are_rejected (test_qa_007.DirectorBenchmarkTests.test_changed_source_quotes_without_page_revision_are_rejected) ... ok\ntest_duplicate_case_and_request_identity_are_rejected (test_qa_007.DirectorBenchmarkTests.test_duplicate_case_and_request_identity_are_rejected) ... ok\ntest_equal_replay_produces_equal_report (test_qa_007.DirectorBenchmarkTests.test_equal_replay_produces_equal_report) ... ok\ntest_expected_negative_qa_case_is_distinct_from_qa_acceptance (test_qa_007.DirectorBenchmarkTests.test_expected_negative_qa_case_is_distinct_from_qa_acceptance) ... ok\ntest_false_substring_does_not_satisfy_expected_word (test_qa_007.DirectorBenchmarkTests.test_false_substring_does_not_satisfy_expected_word) ... ok\ntest_inconsistent_replay_is_a_failure (test_qa_007.DirectorBenchmarkTests.test_inconsistent_replay_is_a_failure) ... ok\ntest_missing_domain_or_empty_suite_rejected_before_execution (test_qa_007.DirectorBenchmarkTests.test_missing_domain_or_empty_suite_rejected_before_execution) ... ok\ntest_missing_expected_finding_fails (test_qa_007.DirectorBenchmarkTests.test_missing_expected_finding_fails) ... ok\ntest_missing_game_learning_model_cannot_be_hidden_by_video_success (test_qa_007.DirectorBenchmarkTests.test_missing_game_learning_model_cannot_be_hidden_by_video_success) ... ok\ntest_oracle_and_pacing_policy_change_invalidate_suite_identity (test_qa_007.DirectorBenchmarkTests.test_oracle_and_pacing_policy_change_invalidate_suite_identity) ... ok\ntest_oracle_is_not_passed_to_candidate (test_qa_007.DirectorBenchmarkTests.test_oracle_is_not_passed_to_candidate) ... ok\ntest_ped_review_propagates_and_cannot_be_erased (test_qa_007.DirectorBenchmarkTests.test_ped_review_propagates_and_cannot_be_erased) ... ok\ntest_positive_order_and_parent_binding_uses_ped_order (test_qa_007.DirectorBenchmarkTests.test_positive_order_and_parent_binding_uses_ped_order) ... ok\ntest_reversed_narration_cannot_pass_by_preserving_parent_annotations (test_qa_007.DirectorBenchmarkTests.test_reversed_narration_cannot_pass_by_preserving_parent_annotations) ... ok\ntest_source_bytes_tampering_missing_and_extra_are_rejected (test_qa_007.DirectorBenchmarkTests.test_source_bytes_tampering_missing_and_extra_are_rejected) ... ok\ntest_source_fact_error_detected_despite_unchanged_evidence_labels (test_qa_007.DirectorBenchmarkTests.test_source_fact_error_detected_despite_unchanged_evidence_labels) ... ok\ntest_stale_timing_fails_candidate_contract (test_qa_007.DirectorBenchmarkTests.test_stale_timing_fails_candidate_contract) ... ok\ntest_suites_cannot_self_declare_enterprise_acceptance_or_weaken_replay (test_qa_007.DirectorBenchmarkTests.test_suites_cannot_self_declare_enterprise_acceptance_or_weaken_replay) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 1.395s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_contracts.py",
+      "sha256": "d25889bf22dbde0ccfcc1dd10ad59022b6ae6af564ae9efade0ba8252425533e",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_existing_ki_metadata_grounded_flag_is_not_semantic_or_byte_proof (test_qa_contracts.QAContractTests.test_existing_ki_metadata_grounded_flag_is_not_semantic_or_byte_proof) ... ok\ntest_grounded_wrong_fact_does_not_pass_factual_qa (test_qa_contracts.QAContractTests.test_grounded_wrong_fact_does_not_pass_factual_qa) ... ok\ntest_narration_edit_invalidates_previous_qa_and_sync (test_qa_contracts.QAContractTests.test_narration_edit_invalidates_previous_qa_and_sync) ... ok\ntest_no_duration_cap_or_profile_needed_to_run_qa_and_timing (test_qa_contracts.QAContractTests.test_no_duration_cap_or_profile_needed_to_run_qa_and_timing) ... ok\ntest_partial_qa_evidence_cannot_satisfy_enterprise_release (test_qa_contracts.QAContractTests.test_partial_qa_evidence_cannot_satisfy_enterprise_release) ... ok\ntest_qa_and_visual_share_actual_realized_narration_spans (test_qa_contracts.QAContractTests.test_qa_and_visual_share_actual_realized_narration_spans) ... ok\ntest_upstream_script_review_survives_all_five_qa_gates (test_qa_contracts.QAContractTests.test_upstream_script_review_survives_all_five_qa_gates) ... ok\ntest_wpm_change_leaves_text_qa_valid_but_requires_sync_rebuild (test_qa_contracts.QAContractTests.test_wpm_change_leaves_text_qa_valid_but_requires_sync_rebuild) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.047s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_qa_exit_contracts.py",
+      "sha256": "dad494e8b8d6ecbdedca3e49631665b0f922f9c5dbec8354662c91520f37bc52",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_reflection_repair_preserves_source_and_rebuilds_sync_context (test_qa_exit_contracts.ExitContractTests.test_reflection_repair_preserves_source_and_rebuilds_sync_context) ... ok\ntest_scene_boundaries_do_not_reset_continuous_speech_measurement (test_qa_exit_contracts.ExitContractTests.test_scene_boundaries_do_not_reset_continuous_speech_measurement) ... ok\ntest_wpm_edit_preserves_text_but_invalidates_pacing_and_sync (test_qa_exit_contracts.ExitContractTests.test_wpm_edit_preserves_text_but_invalidates_pacing_and_sync) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.051s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_repair_integration.py",
+      "sha256": "e69511abb67e8e646d00a2eba62ee46ee8e25d1aa54b71344d48e45f3a69633f",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_consumer_publication_rechecks_currentness_after_computation (test_repair_integration.RevisionIntegrationTests.test_consumer_publication_rechecks_currentness_after_computation) ... ok\ntest_invalidation_of_unrelated_artifact_preserves_current_lesson (test_repair_integration.RevisionIntegrationTests.test_invalidation_of_unrelated_artifact_preserves_current_lesson) ... ok\ntest_newer_revision_owner_prevents_old_worker_from_publishing_or_failing_it (test_repair_integration.RevisionIntegrationTests.test_newer_revision_owner_prevents_old_worker_from_publishing_or_failing_it) ... ok\ntest_original_registered_orchestrator_retry_resumes_persisted_base (test_repair_integration.RevisionIntegrationTests.test_original_registered_orchestrator_retry_resumes_persisted_base) ... ok\ntest_repeated_invalidation_keeps_original_evidence_without_new_mutation (test_repair_integration.RevisionIntegrationTests.test_repeated_invalidation_keeps_original_evidence_without_new_mutation) ... ok\ntest_retry_cannot_make_the_same_invalidated_source_current_again (test_repair_integration.RevisionIntegrationTests.test_retry_cannot_make_the_same_invalidated_source_current_again) ... ok\ntest_running_revision_invalidated_by_source_change_cannot_publish_late (test_repair_integration.RevisionIntegrationTests.test_running_revision_invalidated_by_source_change_cannot_publish_late) ... ok\ntest_third_repair_cannot_select_a_superseded_first_attempt (test_repair_integration.RevisionIntegrationTests.test_third_repair_cannot_select_a_superseded_first_attempt) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 4.112s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_001.py",
+      "sha256": "5b01e839f74d6317c2b5312c540b234b61c674f00bc739765ba8719c82f944f8",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_deterministic (test_script_001.T.test_deterministic) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_002.py",
+      "sha256": "c04d0345c0257fae5a53240bd04ed2ab5817bab3a0bf67054472e442e8d3a793",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_flag (test_script_002.T.test_flag) ... ok\ntest_grounded (test_script_002.T.test_grounded) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_003.py",
+      "sha256": "e68149d38b896c3515c38adf1673464aefd78dcc02d7ce044c245b53e6847ed6",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_ok (test_script_003.T.test_ok) ... ok\ntest_repeat (test_script_003.T.test_repeat) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_004.py",
+      "sha256": "7d0b2a8ebab7959c17c39bc0f1fbfdf54c2a0bb1caaee1c468de445fe3747689",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_derivation (test_script_004.T.test_derivation) ... ok\ntest_source (test_script_004.T.test_source) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_005.py",
+      "sha256": "509a134584d7cdbe777324074ea82588064ce956f74dffdfd4326e3ac173ffde",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_challenge (test_script_005.T.test_challenge) ... ok\ntest_elicit (test_script_005.T.test_elicit) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_006.py",
+      "sha256": "a24e31745ef643351934cade5182344eda83fb65793d62f1b9135ee18f55951d",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_order (test_script_006.T.test_order) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_007.py",
+      "sha256": "9b213836466ac3c3e417d4015fb41578a0d7756b2644d56a0a7710927aba334b",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_steps (test_script_007.T.test_steps) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_008.py",
+      "sha256": "dd3aaecba85202752e51b9f7e8be756af4d6856ea9f1590b4801bd80fbddd42e",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_transfer (test_script_008.T.test_transfer) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_009.py",
+      "sha256": "10371d048e29758f38e1cc98b9ec28a3cecac747630d97d2af7acdeba6ad20e5",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_apply (test_script_009.T.test_apply) ... ok\ntest_bad (test_script_009.T.test_bad) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_script_010.py",
+      "sha256": "0d1b24328d1d5c3d0ec5128684fd99d9f76e1e740fde02804d1e5962a1fd76a3",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_contract (test_script_010.T.test_contract) ... ok\ntest_mastery (test_script_010.T.test_mastery) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_sync_001.py",
+      "sha256": "0fa2838e62f77a58aa8ff5fa2540a23ac23a85b75e9dbab8f2a9a855d8eba474",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_cue_tampering_detected (test_sync_001.VisualSyncTests.test_cue_tampering_detected) ... ok\ntest_duplicate_ids_unknown_kinds_and_non_integer_holds_rejected (test_sync_001.VisualSyncTests.test_duplicate_ids_unknown_kinds_and_non_integer_holds_rejected) ... ok\ntest_edited_timeline_rejected_even_with_old_parent_hashes (test_sync_001.VisualSyncTests.test_edited_timeline_rejected_even_with_old_parent_hashes) ... ok\ntest_empty_plan_abstains_and_no_acceptance_is_claimed (test_sync_001.VisualSyncTests.test_empty_plan_abstains_and_no_acceptance_is_claimed) ... ok\ntest_input_order_and_generators_do_not_change_fingerprint (test_sync_001.VisualSyncTests.test_input_order_and_generators_do_not_change_fingerprint) ... ok\ntest_internal_pause_is_included_in_anchor_duration (test_sync_001.VisualSyncTests.test_internal_pause_is_included_in_anchor_duration) ... ok\ntest_invalid_bounds_and_ids_rejected (test_sync_001.VisualSyncTests.test_invalid_bounds_and_ids_rejected) ... ok\ntest_old_visual_plan_rejected_after_wpm_rebuild (test_sync_001.VisualSyncTests.test_old_visual_plan_rejected_after_wpm_rebuild) ... ok\ntest_overflow_and_negative_lead_block_without_clamping (test_sync_001.VisualSyncTests.test_overflow_and_negative_lead_block_without_clamping) ... ok\ntest_same_target_visibility_overlap_blocks (test_sync_001.VisualSyncTests.test_same_target_visibility_overlap_blocks) ... ok\ntest_stale_voice_or_text_anchor_rejected (test_sync_001.VisualSyncTests.test_stale_voice_or_text_anchor_rejected) ... ok\ntest_word_and_character_anchors_map_to_scene_time (test_sync_001.VisualSyncTests.test_word_and_character_anchors_map_to_scene_time) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.059s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_sync_002.py",
+      "sha256": "206bb55141b01a9101e065a7740b272347b43575a54d129b493baa4d39c67aac",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_blocked_visual_cannot_be_laundered (test_sync_002.AnimationSyncTests.test_blocked_visual_cannot_be_laundered) ... ok\ntest_cycle_and_missing_dependency_rejected (test_sync_002.AnimationSyncTests.test_cycle_and_missing_dependency_rejected) ... ok\ntest_dependency_order_and_visual_lifetime (test_sync_002.AnimationSyncTests.test_dependency_order_and_visual_lifetime) ... ok\ntest_independent_properties_can_overlap (test_sync_002.AnimationSyncTests.test_independent_properties_can_overlap) ... ok\ntest_policy_fingerprint_and_generator_stability (test_sync_002.AnimationSyncTests.test_policy_fingerprint_and_generator_stability) ... ok\ntest_property_conflicts_cannot_hide_behind_different_kinds (test_sync_002.AnimationSyncTests.test_property_conflicts_cannot_hide_behind_different_kinds) ... ok\ntest_too_short_and_outside_visibility_block (test_sync_002.AnimationSyncTests.test_too_short_and_outside_visibility_block) ... ok\ntest_unfinished_dependency_is_explicit_blocker (test_sync_002.AnimationSyncTests.test_unfinished_dependency_is_explicit_blocker) ... ok\ntest_unknown_target_and_wrong_source_fail (test_sync_002.AnimationSyncTests.test_unknown_target_and_wrong_source_fail) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.076s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_sync_003.py",
+      "sha256": "f7585759186e1412bc3a7943bc38afa3685c4dbba528fdc9c68e1aeea44ed757",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_definition_and_intent_order_do_not_change_fingerprint (test_sync_003.EquationSyncTests.test_definition_and_intent_order_do_not_change_fingerprint) ... ok\ntest_math_acceptance_not_inferred_from_aligned_steps (test_sync_003.EquationSyncTests.test_math_acceptance_not_inferred_from_aligned_steps) ... ok\ntest_original_derivation_steps_and_token_highlight (test_sync_003.EquationSyncTests.test_original_derivation_steps_and_token_highlight) ... ok\ntest_source_evidence_and_duplicate_step_ids_rejected (test_sync_003.EquationSyncTests.test_source_evidence_and_duplicate_step_ids_rejected) ... ok\ntest_step_reordering_requires_explicit_revisit (test_sync_003.EquationSyncTests.test_step_reordering_requires_explicit_revisit) ... ok\ntest_token_requires_current_visible_equation_state (test_sync_003.EquationSyncTests.test_token_requires_current_visible_equation_state) ... ok\ntest_token_revision_and_expression_edits_invalidate_old_request (test_sync_003.EquationSyncTests.test_token_revision_and_expression_edits_invalidate_old_request) ... ok\ntest_unknown_tokens_and_bad_expression_spans_rejected (test_sync_003.EquationSyncTests.test_unknown_tokens_and_bad_expression_spans_rejected) ... ok\ntest_wrong_narration_step_binding_rejected (test_sync_003.EquationSyncTests.test_wrong_narration_step_binding_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.211s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_sync_004.py",
+      "sha256": "cc5e6c758571d0f16bddd74c81dfa0d1a971c84893facd5aacc305af16e5fe20",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_axes_must_precede_trace (test_sync_004.GraphSyncTests.test_axes_must_precede_trace) ... ok\ntest_axes_trace_and_point_keep_exact_source_data (test_sync_004.GraphSyncTests.test_axes_trace_and_point_keep_exact_source_data) ... ok\ntest_generators_and_semantic_acceptance_boundary (test_sync_004.GraphSyncTests.test_generators_and_semantic_acceptance_boundary) ... ok\ntest_invalid_axis_and_nonfinite_points_rejected (test_sync_004.GraphSyncTests.test_invalid_axis_and_nonfinite_points_rejected) ... ok\ntest_log_axis_normalization_and_unit_retention (test_sync_004.GraphSyncTests.test_log_axis_normalization_and_unit_retention) ... ok\ntest_range_uses_ordered_source_endpoints (test_sync_004.GraphSyncTests.test_range_uses_ordered_source_endpoints) ... ok\ntest_ungrounded_series_point_rejected (test_sync_004.GraphSyncTests.test_ungrounded_series_point_rejected) ... ok\ntest_units_or_values_revision_invalidates_intent (test_sync_004.GraphSyncTests.test_units_or_values_revision_invalidates_intent) ... ok\ntest_unknown_points_series_and_reverse_trace_rejected (test_sync_004.GraphSyncTests.test_unknown_points_series_and_reverse_trace_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.187s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_sync_005.py",
+      "sha256": "d1759bbce0d0c0be766bebbf46a56fd16955e4c36e027bfacfc3ce0a0d93bf1a",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_action_before_setup_is_blocked (test_sync_005.SimulationSyncTests.test_action_before_setup_is_blocked) ... ok\ntest_determinism_preserves_seed_but_does_not_claim_execution (test_sync_005.SimulationSyncTests.test_determinism_preserves_seed_but_does_not_claim_execution) ... ok\ntest_exact_demonstration_narration_and_evidence_required (test_sync_005.SimulationSyncTests.test_exact_demonstration_narration_and_evidence_required) ... ok\ntest_incomplete_cycle_blocks (test_sync_005.SimulationSyncTests.test_incomplete_cycle_blocks) ... ok\ntest_observation_requires_an_action_and_interpretation_requires_observation (test_sync_005.SimulationSyncTests.test_observation_requires_an_action_and_interpretation_requires_observation) ... ok\ntest_original_demonstration_cycle_schedules_declared_states (test_sync_005.SimulationSyncTests.test_original_demonstration_cycle_schedules_declared_states) ... ok\ntest_parameter_domains_and_missing_values_rejected (test_sync_005.SimulationSyncTests.test_parameter_domains_and_missing_values_rejected) ... ok\ntest_seed_model_or_state_changes_invalidate_old_cues (test_sync_005.SimulationSyncTests.test_seed_model_or_state_changes_invalidate_old_cues) ... ok\ntest_transition_change_set_and_destination_must_match (test_sync_005.SimulationSyncTests.test_transition_change_set_and_destination_must_match) ... ok\ntest_transition_duration_cannot_be_squeezed_into_narration (test_sync_005.SimulationSyncTests.test_transition_duration_cannot_be_squeezed_into_narration) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.261s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_sync_contracts.py",
+      "sha256": "4f6ddabd4aac9db314b1f1b9c0612e5342de1e80b1408f26b029796fa25a0a22",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_all_five_plans_preserve_upstream_review_and_acceptance_boundaries (test_sync_contracts.SyncContractTests.test_all_five_plans_preserve_upstream_review_and_acceptance_boundaries) ... ok\ntest_graph_too_many_samples_for_audio_window_returns_blocker (test_sync_contracts.SyncContractTests.test_graph_too_many_samples_for_audio_window_returns_blocker) ... ok\ntest_multi_scene_times_are_local_and_target_ids_are_scene_scoped (test_sync_contracts.SyncContractTests.test_multi_scene_times_are_local_and_target_ids_are_scene_scoped) ... ok\ntest_reported_audio_pause_shortfall_blocks_sync_without_retiming (test_sync_contracts.SyncContractTests.test_reported_audio_pause_shortfall_blocks_sync_without_retiming) ... ok\ntest_specialized_plans_are_revalidated_against_exact_outputs (test_sync_contracts.SyncContractTests.test_specialized_plans_are_revalidated_against_exact_outputs) ... ok\ntest_visual_and_animation_windows_are_consumable_by_existing_scene_ir (test_sync_contracts.SyncContractTests.test_visual_and_animation_windows_are_consumable_by_existing_scene_ir) ... ok\ntest_wpm_adaptation_invalidates_old_sync_and_explicit_rebuild_uses_new_times (test_sync_contracts.SyncContractTests.test_wpm_adaptation_invalidates_old_sync_and_explicit_rebuild_uses_new_times) ... ok\ntest_wrong_visual_kind_cannot_consume_domain_specific_intents (test_sync_contracts.SyncContractTests.test_wrong_visual_kind_cannot_consume_domain_specific_intents) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.304s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_time_001.py",
+      "sha256": "40d551aa3890f1e18f26d31eb84b35caa6b7b5a5bfacea172ab47b7a795a906a",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_adapter_checks_coverage_and_source_subset (test_time_001.SpeechTimingTests.test_adapter_checks_coverage_and_source_subset) ... ok\ntest_alignment_binds_text_voice_evidence (test_time_001.SpeechTimingTests.test_alignment_binds_text_voice_evidence) ... ok\ntest_alignment_overlap_bounds_and_hashes (test_time_001.SpeechTimingTests.test_alignment_overlap_bounds_and_hashes) ... ok\ntest_bad_grounding_and_unordered_inputs_rejected (test_time_001.SpeechTimingTests.test_bad_grounding_and_unordered_inputs_rejected) ... ok\ntest_bad_rates_and_policy (test_time_001.SpeechTimingTests.test_bad_rates_and_policy) ... ok\ntest_duplicate_and_revisited_scenes_rejected (test_time_001.SpeechTimingTests.test_duplicate_and_revisited_scenes_rejected) ... ok\ntest_edited_result_rejected_at_downstream_boundary (test_time_001.SpeechTimingTests.test_edited_result_rejected_at_downstream_boundary) ... ok\ntest_estimate_is_not_audio_acceptance (test_time_001.SpeechTimingTests.test_estimate_is_not_audio_acceptance) ... ok\ntest_exact_word_math_and_character_anchors (test_time_001.SpeechTimingTests.test_exact_word_math_and_character_anchors) ... ok\ntest_explicit_narrative_order_survives_sorted_script_ids (test_time_001.SpeechTimingTests.test_explicit_narrative_order_survives_sorted_script_ids) ... ok\ntest_generators_and_fingerprints (test_time_001.SpeechTimingTests.test_generators_and_fingerprints) ... ok\ntest_numeric_and_language_realization_review (test_time_001.SpeechTimingTests.test_numeric_and_language_realization_review) ... ok\ntest_reported_audio_is_validated_but_not_certified (test_time_001.SpeechTimingTests.test_reported_audio_is_validated_but_not_certified) ... ok\ntest_script_revision_mixing_rejected (test_time_001.SpeechTimingTests.test_script_revision_mixing_rejected) ... ok\ntest_upstream_unsupported_claim_review_survives (test_time_001.SpeechTimingTests.test_upstream_unsupported_claim_review_survives) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_time_002.py",
+      "sha256": "3e67e9e95e91726414929ef3888f78cbe6922d75bfa7a4f552af50c5ad81ff14",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_coincident_cues_use_max_not_sum (test_time_002.PauseTimingTests.test_coincident_cues_use_max_not_sum) ... ok\ntest_estimated_pause_adds_explicit_duration (test_time_002.PauseTimingTests.test_estimated_pause_adds_explicit_duration) ... ok\ntest_existing_audio_gap_counted_once (test_time_002.PauseTimingTests.test_existing_audio_gap_counted_once) ... ok\ntest_generator_and_input_order_determinism (test_time_002.PauseTimingTests.test_generator_and_input_order_determinism) ... ok\ntest_invalid_duration_and_duplicate_cue (test_time_002.PauseTimingTests.test_invalid_duration_and_duplicate_cue) ... ok\ntest_leading_and_trailing_boundaries (test_time_002.PauseTimingTests.test_leading_and_trailing_boundaries) ... ok\ntest_recorded_gap_shortfall_preserves_audio (test_time_002.PauseTimingTests.test_recorded_gap_shortfall_preserves_audio) ... ok\ntest_stale_or_edited_pause_rejected (test_time_002.PauseTimingTests.test_stale_or_edited_pause_rejected) ... ok\ntest_unknown_outside_and_blank_grounding (test_time_002.PauseTimingTests.test_unknown_outside_and_blank_grounding) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_time_003.py",
+      "sha256": "0c0e0a08658b4d43afede21ea57788880c300a357fa37b69fa0462b3d926f8be",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_fingerprint_tracks_concept_and_order_is_canonical (test_time_003.EmphasisTimingTests.test_fingerprint_tracks_concept_and_order_is_canonical) ... ok\ntest_floor_prevents_unbounded_slowdown (test_time_003.EmphasisTimingTests.test_floor_prevents_unbounded_slowdown) ... ok\ntest_invalid_spans_and_grounding (test_time_003.EmphasisTimingTests.test_invalid_spans_and_grounding) ... ok\ntest_invalid_strength_and_policy (test_time_003.EmphasisTimingTests.test_invalid_strength_and_policy) ... ok\ntest_local_emphasis_math (test_time_003.EmphasisTimingTests.test_local_emphasis_math) ... ok\ntest_overlap_requires_explicit_resolution (test_time_003.EmphasisTimingTests.test_overlap_requires_explicit_resolution) ... ok\ntest_recorded_emphasis_cannot_retime_audio (test_time_003.EmphasisTimingTests.test_recorded_emphasis_cannot_retime_audio) ... ok\ntest_stale_or_edited_plan_rejected (test_time_003.EmphasisTimingTests.test_stale_or_edited_plan_rejected) ... ok\ntest_unanchored_words_unchanged (test_time_003.EmphasisTimingTests.test_unanchored_words_unchanged) ... ok\ntest_zero_strength_does_not_stretch_rounding (test_time_003.EmphasisTimingTests.test_zero_strength_does_not_stretch_rounding) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_time_004.py",
+      "sha256": "3901c6256ff1d532f269ff0ef413108950762adb89eb3a1139f1956d94cac09d",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_bad_and_unknown_targets_rejected (test_time_004.SceneDurationTests.test_bad_and_unknown_targets_rejected) ... ok\ntest_cross_revision_plans_fail_before_composition (test_time_004.SceneDurationTests.test_cross_revision_plans_fail_before_composition) ... ok\ntest_duration_conservation_with_pause_and_emphasis (test_time_004.SceneDurationTests.test_duration_conservation_with_pause_and_emphasis) ... ok\ntest_estimate_margin_is_planning_range_not_confidence_certificate (test_time_004.SceneDurationTests.test_estimate_margin_is_planning_range_not_confidence_certificate) ... ok\ntest_multiple_scenes_keep_order_and_local_zero_origin (test_time_004.SceneDurationTests.test_multiple_scenes_keep_order_and_local_zero_origin) ... ok\ntest_no_arbitrary_scene_duration_cap (test_time_004.SceneDurationTests.test_no_arbitrary_scene_duration_cap) ... ok\ntest_overflow_suggests_extension_or_split_preserving_words (test_time_004.SceneDurationTests.test_overflow_suggests_extension_or_split_preserving_words) ... ok\ntest_recorded_gaps_preserved_and_pause_not_double_counted (test_time_004.SceneDurationTests.test_recorded_gaps_preserved_and_pause_not_double_counted) ... ok\ntest_recorded_pause_shortfall_needs_replan_even_when_budget_fits (test_time_004.SceneDurationTests.test_recorded_pause_shortfall_needs_replan_even_when_budget_fits) ... ok\ntest_target_generators_and_target_policy_provenance (test_time_004.SceneDurationTests.test_target_generators_and_target_policy_provenance) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.056s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_time_005.py",
+      "sha256": "3c2125b3c462aaebae95d91f951799345b034d26a279f60b218a834f9e0675ec",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_acceptance_and_uncertainty_remain_open (test_time_005.WpmAdaptationTests.test_acceptance_and_uncertainty_remain_open) ... ok\ntest_dense_content_ceiling_can_require_extension (test_time_005.WpmAdaptationTests.test_dense_content_ceiling_can_require_extension) ... ok\ntest_feasible_target_selects_bounded_rate (test_time_005.WpmAdaptationTests.test_feasible_target_selects_bounded_rate) ... ok\ntest_generator_targets_and_policy_fingerprints (test_time_005.WpmAdaptationTests.test_generator_targets_and_policy_fingerprints) ... ok\ntest_impossible_budget_keeps_preferred_rate_and_all_words (test_time_005.WpmAdaptationTests.test_impossible_budget_keeps_preferred_rate_and_all_words) ... ok\ntest_invalid_load_and_evidence (test_time_005.WpmAdaptationTests.test_invalid_load_and_evidence) ... ok\ntest_multiple_scene_constraints_each_checked (test_time_005.WpmAdaptationTests.test_multiple_scene_constraints_each_checked) ... ok\ntest_pause_budget_is_not_consumed_by_speedup (test_time_005.WpmAdaptationTests.test_pause_budget_is_not_consumed_by_speedup) ... ok\ntest_rebuilds_emphasis_and_lineage_after_rate_change (test_time_005.WpmAdaptationTests.test_rebuilds_emphasis_and_lineage_after_rate_change) ... ok\ntest_recorded_audio_never_silently_rescaled (test_time_005.WpmAdaptationTests.test_recorded_audio_never_silently_rescaled) ... ok\ntest_repeated_adaptation_does_not_accumulate_slowdown (test_time_005.WpmAdaptationTests.test_repeated_adaptation_does_not_accumulate_slowdown) ... ok\ntest_source_load_slowdown_needs_no_learner_profile (test_time_005.WpmAdaptationTests.test_source_load_slowdown_needs_no_learner_profile) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.095s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_time_contracts.py",
+      "sha256": "87004b2a23ee091a255c85c9e06ace88cf9ec574a2c4a44f08bbacb71e27329d",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_adjacent_recorded_clip_silence_satisfies_one_shared_pause (test_time_contracts.TimingContractTests.test_adjacent_recorded_clip_silence_satisfies_one_shared_pause) ... ok\ntest_all_words_once_across_multiple_utterances_with_adjacent_pauses (test_time_contracts.TimingContractTests.test_all_words_once_across_multiple_utterances_with_adjacent_pauses) ... ok\ntest_grounded_director_to_timeline_end_to_end (test_time_contracts.TimingContractTests.test_grounded_director_to_timeline_end_to_end) ... ok\ntest_known_legacy_blank_id_gap_blocked_at_new_boundary (test_time_contracts.TimingContractTests.test_known_legacy_blank_id_gap_blocked_at_new_boundary) ... ok\ntest_missing_grounded_voiceover_abstains_instead_of_timing_intent (test_time_contracts.TimingContractTests.test_missing_grounded_voiceover_abstains_instead_of_timing_intent) ... ok\ntest_numeric_type_tampering_is_not_equal_to_validated_record (test_time_contracts.TimingContractTests.test_numeric_type_tampering_is_not_equal_to_validated_record) ... ok\ntest_policy_revision_invalidates_dependent_plans (test_time_contracts.TimingContractTests.test_policy_revision_invalidates_dependent_plans) ... ok\ntest_reported_audio_boundaries_do_not_change_through_full_stack (test_time_contracts.TimingContractTests.test_reported_audio_boundaries_do_not_change_through_full_stack) ... ok\ntest_synthetic_duration_grid_conserves_timeline_and_rate_bounds (test_time_contracts.TimingContractTests.test_synthetic_duration_grid_conserves_timeline_and_rate_bounds) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.020s\n\nOK\n"
+    },
+    {
+      "file": "tests/director/test_window_integration.py",
+      "sha256": "08f23feb0e216005ed32607c3f511a8b2aec4282bbbd146f0769f7d562653b37",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "log": "test_actual_source_ancestor_invalidation_reaches_windowed_consumers_and_replay (test_window_integration.WindowIntegrationTests.test_actual_source_ancestor_invalidation_reaches_windowed_consumers_and_replay) ... ok\ntest_changed_window_policy_regenerates_and_invalidates_previous_consumers (test_window_integration.WindowIntegrationTests.test_changed_window_policy_regenerates_and_invalidates_previous_consumers) ... ok\ntest_indivisible_factual_page_budget_cannot_become_an_automatic_pass (test_window_integration.WindowIntegrationTests.test_indivisible_factual_page_budget_cannot_become_an_automatic_pass) ... ok\ntest_original_phase_repair_reuses_exact_windowed_base_and_reruns_factual_qa (test_window_integration.WindowIntegrationTests.test_original_phase_repair_reuses_exact_windowed_base_and_reruns_factual_qa) ... ok\ntest_registered_orchestrator_publishes_all_four_review_only_consumer_candidates (test_window_integration.WindowIntegrationTests.test_registered_orchestrator_publishes_all_four_review_only_consumer_candidates) ... ok\ntest_successful_persisted_replay_performs_no_provider_calls_again (test_window_integration.WindowIntegrationTests.test_successful_persisted_replay_performs_no_provider_calls_again) ... ok\ntest_unsegmented_annotation_budget_remains_explicit_and_retains_complete_window_base (test_window_integration.WindowIntegrationTests.test_unsegmented_annotation_budget_remains_explicit_and_retains_complete_window_base) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 37.770s\n\nOK\n"
+    }
+  ]
+}

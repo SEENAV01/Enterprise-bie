@@ -1,0 +1,16 @@
+{
+  "suite_id": "director-controlled-source-regression",
+  "version": "1.0.0",
+  "provenance": "ENGINEERING_FIXTURES",
+  "oracle_author": "BIE implementation engineering; no independent educator review claimed",
+  "oracle_method": "Expected source facts and order authored separately from candidate execution; exact lexical assertions only",
+  "required_domains": ["MATH", "SCIENCE", "ECONOMICS"],
+  "cases": [
+    {"id": "triangle", "domain": "MATH", "facts": [{"concept": "triangle", "text": "A triangle has three straight sides."}], "checks": [{"id": "sides", "kind": "PRESENT", "phrases": ["three straight sides"]}, {"id": "wrong-sides", "kind": "ABSENT", "phrases": ["four straight sides"]}]},
+    {"id": "rectangle", "domain": "MATH", "facts": [{"concept": "rectangle-area", "text": "The area of a rectangle is length multiplied by width."}], "checks": [{"id": "product", "kind": "PRESENT", "phrases": ["length multiplied by width"]}, {"id": "not-sum", "kind": "ABSENT", "phrases": ["length added to width"]}]},
+    {"id": "circuit", "domain": "SCIENCE", "facts": [{"concept": "closed-circuit", "text": "Electric current requires a closed conducting path."}], "checks": [{"id": "closed-path", "kind": "PRESENT", "phrases": ["closed conducting path"]}, {"id": "open-path", "kind": "ABSENT", "phrases": ["requires an open path"]}]},
+    {"id": "melting", "domain": "SCIENCE", "facts": [{"concept": "melting", "text": "Melting changes a solid into a liquid."}], "checks": [{"id": "direction", "kind": "PRESENT", "phrases": ["solid into a liquid"]}, {"id": "reversed", "kind": "ABSENT", "phrases": ["liquid into a solid"]}]},
+    {"id": "barter", "domain": "ECONOMICS", "facts": [{"concept": "barter", "text": "Barter requires a double coincidence of wants."}], "checks": [{"id": "barter-condition", "kind": "PRESENT", "phrases": ["double coincidence of wants"]}, {"id": "misconception", "kind": "ABSENT", "phrases": ["does not require a double coincidence"]}]},
+    {"id": "money-order", "domain": "ECONOMICS", "facts": [{"concept": "medium", "text": "Money acts as a medium of exchange."}, {"concept": "exchange-bridge", "text": "A medium of exchange removes the need for a double coincidence of wants."}], "checks": [{"id": "definition-before-effect", "kind": "ORDER", "phrases": ["Money acts as a medium of exchange", "removes the need"]}, {"id": "retained-effect", "kind": "PRESENT", "phrases": ["double coincidence of wants"]}]}
+  ]
+}

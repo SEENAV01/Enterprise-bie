@@ -1,0 +1,104 @@
+{
+  "calibration_id": "BIE-DIR-CALIBRATION-PLANNED-001",
+  "status": "NOT_RUN",
+  "suite_fingerprint": "sha256:64dde581bcc064a36382f9537cf103c64addb072eeb03e86ae2b1bae2f893ecc",
+  "source_byte_receipts": [
+    [
+      "source:barter",
+      "sha256:4ec7a8510d59787eedd7bf3ec96adc94e48fa8156ba6591ae2ae44d5170c109c",
+      "text/plain; charset=utf-8",
+      46
+    ],
+    [
+      "source:circuit",
+      "sha256:313e51f163b6956ac24797eab5c38639d002fd5b0be0a008c17d115324be1372",
+      "text/plain; charset=utf-8",
+      51
+    ],
+    [
+      "source:melting",
+      "sha256:47945acbc0b14ea6f58d009af52da4da6fe37f6e7f4098a945cce48a80c3664c",
+      "text/plain; charset=utf-8",
+      38
+    ],
+    [
+      "source:money-order",
+      "sha256:d55c40a0b73047cb20a0fc086df752c16886b4a30421e6b85f8d44aa952ff4e7",
+      "text/plain; charset=utf-8",
+      108
+    ],
+    [
+      "source:rectangle",
+      "sha256:3174e61ff865d0be87bf6f1367fca51e344b20da1c453e26326cddc9952c4cd6",
+      "text/plain; charset=utf-8",
+      54
+    ],
+    [
+      "source:triangle",
+      "sha256:51eeef2787d32d1b70940f5112c89fa340bff265f90d58eff5beec605b641772",
+      "text/plain; charset=utf-8",
+      36
+    ]
+  ],
+  "provider_stack_fingerprint": "sha256:04ab7146d48fbec2f25518b55ac1f8391b81dd53fc16746e8e9cd22830401160",
+  "provider_stack": {
+    "generator": {
+      "provider": "not-configured",
+      "model": "generator",
+      "adapter_version": "not-run"
+    },
+    "critic": {
+      "provider": "not-configured",
+      "model": "critic",
+      "adapter_version": "not-run"
+    },
+    "annotator": {
+      "provider": "not-configured",
+      "model": "annotator",
+      "adapter_version": "not-run"
+    },
+    "reviewer": {
+      "provider": "not-configured",
+      "model": "reviewer",
+      "adapter_version": "not-run"
+    },
+    "candidate": {
+      "name": "bie-production-director",
+      "version": "batch-014",
+      "code_sha256": "sha256:9074b4ed4d8c24bead04e6e6cb777c7710f208cb892208b4cc300488f9bec8be",
+      "configuration_sha256": "sha256:193cd4ae57aed1c43ea296ae7dc80880de9e395baa8d12ee20adc7e11d0971e9"
+    },
+    "execution_mode": "CONTROLLED_PROTOCOL",
+    "deployment_environment": "NOT_CONFIGURED"
+  },
+  "policy": {
+    "version": "bie-dir-provider-calibration/1.0.0",
+    "repetitions": 2,
+    "minimum_case_fraction": 1.0,
+    "maximum_unstable_cases": 0,
+    "required_assurance": "INDEPENDENT_BENCHMARK_AUTHORITY"
+  },
+  "benchmark_release_fingerprint": null,
+  "verification_identity": null,
+  "benchmark_report": null,
+  "gates": [
+    [
+      "EXTERNAL_PROVIDER_EXECUTED",
+      false
+    ]
+  ],
+  "reason": "No external provider credentials, independent expert-signed corpus, real PDFs or learner study were supplied in this build environment.",
+  "limitations": [
+    "A verified benchmark release authenticates its declared oracle payload; it does not prove the oracle is pedagogically sufficient.",
+    "Provider stack identity and execution mode are retained provenance, not remote-code attestation.",
+    "Benchmark success is evidence for governed human acceptance review, never automatic product acceptance.",
+    "Real PDFs, representative learners, rendered media and playable-game outcomes require separate empirical evidence."
+  ],
+  "eligible_for_acceptance_review": false,
+  "accepted": false,
+  "report_fingerprint": "sha256:222debd252f9c42c2901de85f1144fe4063f7caed720aa7034a10a3a3998dd7a",
+  "real_pdf_executed": false,
+  "live_provider_executed": false,
+  "rendered_media_executed": false,
+  "playable_game_executed": false
+}

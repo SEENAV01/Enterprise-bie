@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-DIR-HARD-DIRECTOR-001",
+  "title": "Grounded lesson/narration gateway execution and registered director stage",
+  "classification": "ADDITIVE_AUDIT_DERIVED_HARDENING_NOT_AN_ORIGINAL_867_ROW",
+  "section": "DIR \u2014 Lesson / Script Director Intelligence",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_NOT_ACCEPTED",
+  "accepted": false,
+  "base_commit": "bc3147db408fc5a5d54017c8b907f580477ff2c3",
+  "archive": "BIE_DIR_HARD_DIRECTOR_001.zip",
+  "archive_sha256": "615bf31400603d053ac420c11c36657acb0323e4b35caabf312317641b237990",
+  "original_task_result": "archive/TASK_RESULT.json",
+  "canonical_sources": [
+    "bie/director/director_executor.py",
+    "bie/director/director_model.py",
+    "bie/director/grounded_directing.py"
+  ],
+  "canonical_tests": [
+    "tests/director/test_execution_integration.py",
+    "tests/director/test_hard_director_001.py"
+  ],
+  "declared_atomic_tests": 28,
+  "integration": "CANONICAL_LOCAL_VERIFIED",
+  "github_integration": "Exact remote commit/tree readback is recorded in the final delivery receipt and backup manifest",
+  "scope_limit": "Implementation and synthetic contract evidence only; real-book, live-provider, expert, learner, rendered-media and playable-game acceptance evidence is not claimed."
+}
