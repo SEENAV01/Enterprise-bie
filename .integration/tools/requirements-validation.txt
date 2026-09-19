@@ -1,0 +1,14 @@
+# Compile-time H3 worker profile verified locally; not a universal binary lock.
+# Platform/native/selected dependency contents are additionally hashed at use.
+matplotlib==3.10.8
+numpy==2.3.5
+Pillow==12.3.0
+pyparsing==3.3.2
+cycler==0.12.1
+kiwisolver==1.5.0
+contourpy==1.3.3
+fonttools==4.63.0
+packaging==25.0
+python-dateutil==2.9.0.post0
+# Browser QA only; Chromium binary installed separately and recorded.
+playwright==1.57.0
