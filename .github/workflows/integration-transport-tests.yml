@@ -1,0 +1,36 @@
+name: Binary Integration Transport Tests
+
+on:
+  push:
+    branches: [integration/post-dir-catchup-20260919]
+    paths:
+      - .integration/tools/**
+      - .github/workflows/integration-transport-tests.yml
+      - .github/workflows/apply-post-dir-integration-payload.yml
+
+permissions:
+  contents: read
+
+jobs:
+  control-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Run data integrity, rejection, and Git publication contract tests
+        run: |
+          set -o pipefail
+          python -B .integration/tools/test_transport.py 2>&1 | tee "$RUNNER_TEMP/transport-tests.log"
+      - name: Preserve control-test results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: binary-transport-control-tests
+          path: ${{ runner.temp }}/transport-tests.log
+          if-no-files-found: error
+          retention-days: 14
