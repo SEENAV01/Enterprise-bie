@@ -1,0 +1,79 @@
+name: Integration Recovery Diagnostics
+
+on:
+  push:
+    branches: [integration/post-dir-catchup-20260919]
+    paths: [.github/workflows/integration-recovery-diagnostics.yml]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-integration-recovery-diagnostics
+  cancel-in-progress: false
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          path: staging
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 73840d86a78e5f31438e2a1bad34f3b2a8433eb9
+          path: baseline
+          persist-credentials: false
+      - name: Diagnose stored transfer without extracting or executing it
+        run: |
+          mkdir -p recovery-evidence
+          python - <<'PY'
+          import base64, hashlib, json, re, subprocess
+          from pathlib import Path
+          root = Path('staging/.integration/post-dir-catchup')
+          rows=[]
+          joined=b''
+          for p in sorted((root/'payload-VIS').glob('*.part')):
+              raw=p.read_bytes()
+              invalid=[{'offset':m.start(),'byte':raw[m.start()]} for m in re.finditer(rb'[^A-Za-z0-9+/=\r\n]',raw)]
+              row={'path':str(p.relative_to(Path('staging'))),'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'invalid_bytes':invalid[:20],'invalid_byte_count':len(invalid),'padding_offsets':[i for i,c in enumerate(raw) if c==61]}
+              try:
+                  base64.b64decode(raw,validate=True)
+                  row['individual_strict_decode']='PASS'
+              except Exception as exc:
+                  row['individual_strict_decode']=str(exc)
+              rows.append(row)
+              joined+=raw
+          report={'scope':'Stored transfer bytes only. No source integration or acceptance.','staging_commit':subprocess.check_output(['git','-C','staging','rev-parse','HEAD'],text=True).strip(),'parts':rows,'joined_bytes':len(joined),'joined_sha256':hashlib.sha256(joined).hexdigest()}
+          try:
+              decoded=base64.b64decode(joined,validate=True)
+              report['joined_strict_decode']='PASS'
+              report['decoded_sha256']=hashlib.sha256(decoded).hexdigest()
+          except Exception as exc:
+              report['joined_strict_decode']=str(exc)
+          ready=root/'VIS.ready'
+          if ready.exists(): report['ready']=json.loads(ready.read_text())
+          Path('recovery-evidence/transfer-diagnosis.json').write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps(report,indent=2))
+          PY
+      - name: Export tracked baseline and exact Git tree
+        run: |
+          git -C baseline archive --format=tar.gz -o "$GITHUB_WORKSPACE/recovery-evidence/baseline.tar.gz" HEAD
+          git -C baseline ls-tree -r -z HEAD > recovery-evidence/baseline-tree.z
+          git -C staging archive --format=tar.gz -o "$GITHUB_WORKSPACE/recovery-evidence/failed-transfer.tar.gz" HEAD .integration/post-dir-catchup .github/workflows
+          sha256sum recovery-evidence/*.tar.gz > recovery-evidence/SHA256SUMS.txt
+      - name: Verify existing canonical baseline
+        working-directory: baseline
+        run: |
+          set -o pipefail
+          python -B scripts/integrated_check.py 2>&1 | tee ../recovery-evidence/baseline-regression.log
+      - name: Preserve recovery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: bie-integration-recovery-baseline
+          path: recovery-evidence/
+          if-no-files-found: error
+          retention-days: 14
