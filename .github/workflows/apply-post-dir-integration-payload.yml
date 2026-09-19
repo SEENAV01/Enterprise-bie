@@ -1,0 +1,86 @@
+name: Apply Post-DIR Integration Payload
+
+on:
+  push:
+    branches:
+      - integration/post-dir-catchup-20260919
+    paths:
+      - '.integration/post-dir-catchup/*.ready'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[integration-applier]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: integration/post-dir-catchup-20260919
+          fetch-depth: 0
+      - name: Decode and validate payload
+        id: payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          READY=$(find .integration/post-dir-catchup -maxdepth 1 -name '*.ready' -type f | sort | head -n 1)
+          test -n "$READY"
+          SECTION=$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["section"])' "$READY")
+          EXPECTED=$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["sha256"])' "$READY")
+          PARTDIR=".integration/post-dir-catchup/payload-${SECTION}"
+          test -d "$PARTDIR"
+          cat "$PARTDIR"/*.part | base64 -d > /tmp/payload.tar.gz
+          ACTUAL=$(sha256sum /tmp/payload.tar.gz | awk '{print $1}')
+          test "$ACTUAL" = "$EXPECTED"
+          python - <<'PY' /tmp/payload.tar.gz
+          import sys, tarfile
+          from pathlib import PurePosixPath
+          p=sys.argv[1]
+          with tarfile.open(p,'r:gz') as t:
+              for m in t.getmembers():
+                  q=PurePosixPath(m.name)
+                  if q.is_absolute() or '..' in q.parts or m.issym() or m.islnk():
+                      raise SystemExit(f"unsafe tar member: {m.name}")
+          PY
+          tar -xzf /tmp/payload.tar.gz
+          echo "section=$SECTION" >> "$GITHUB_OUTPUT"
+          echo "ready=$READY" >> "$GITHUB_OUTPUT"
+          echo "partdir=$PARTDIR" >> "$GITHUB_OUTPUT"
+      - name: Syntax gate
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          files=list(Path("bie").rglob("*.py"))
+          for p in files:
+              ast.parse(p.read_text(encoding="utf-8"))
+          print(f"parsed {len(files)} canonical Python files")
+          PY
+      - name: Existing canonical enterprise gate
+        run: python -B scripts/integrated_check.py
+      - name: Section regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "${{ steps.payload.outputs.section }}" in
+            VIS) python -B -m unittest discover -s tests/visual_intelligence -p 'test*.py' ;;
+            ANI) python -B -m unittest discover -s tests/animation_intelligence -p 'test*.py' ;;
+            DSL) python -B -m unittest discover -s tests/scene_ir -p 'test*.py' ;;
+            COMP) python -B -m unittest discover -s tests/compiler -p 'test*.py' ;;
+            *) echo "unknown section"; exit 2 ;;
+          esac
+      - name: Commit canonicalized payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          SECTION="${{ steps.payload.outputs.section }}"
+          rm -rf "${{ steps.payload.outputs.partdir }}"
+          rm -f "${{ steps.payload.outputs.ready }}"
+          git config user.name "BIE Canonical Integration"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "feat(${SECTION,,}): canonical post-DIR integration [integration-applier]"
+          git push origin HEAD:integration/post-dir-catchup-20260919
