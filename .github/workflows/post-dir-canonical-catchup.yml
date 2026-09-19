@@ -1,0 +1,46 @@
+name: Post-DIR Canonical Catch-up Gate
+
+on:
+  push:
+    branches:
+      - integration/post-dir-catchup-20260919
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Canonical Python syntax
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          files=list(Path("bie").rglob("*.py"))
+          for p in files:
+              ast.parse(p.read_text(encoding="utf-8"))
+          print(f"parsed {len(files)} canonical Python files")
+          PY
+      - name: Existing enterprise gate
+        run: python -B scripts/integrated_check.py
+      - name: VIS regression
+        if: ${{ hashFiles('tests/visual_intelligence/test*.py') != '' }}
+        run: python -B -m unittest discover -s tests/visual_intelligence -p 'test*.py'
+      - name: ANI regression
+        if: ${{ hashFiles('tests/animation_intelligence/test*.py') != '' }}
+        run: python -B -m unittest discover -s tests/animation_intelligence -p 'test*.py'
+      - name: DSL regression
+        if: ${{ hashFiles('tests/scene_ir/test*.py') != '' }}
+        run: python -B -m unittest discover -s tests/scene_ir -p 'test*.py'
+      - name: COMP regression
+        if: ${{ hashFiles('tests/compiler/test*.py') != '' }}
+        run: python -B -m unittest discover -s tests/compiler -p 'test*.py'
