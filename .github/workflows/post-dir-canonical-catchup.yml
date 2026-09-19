@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - integration/post-dir-catchup-20260919
+    paths-ignore:
+      - '.integration/post-dir-catchup/**'
   pull_request:
     branches:
       - main
