@@ -136,6 +136,9 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         stage_cfg=json.loads((stage/'tsconfig.json').read_text())
         stage_cfg['compilerOptions'].update(allowJs=True,checkJs=False)
         stage_cfg['include']+=['qa-capture-entry.tsx','qa-paint-helper.js','qa-paint-helper.d.ts']
+        # A same-basename declaration may hide JS discovered only by include.
+        # Explicit membership retains executable-helper coverage and strict TS.
+        stage_cfg['files']=list(dict.fromkeys([*stage_cfg.get('files',[]),'qa-paint-helper.js']))
         (stage/'tsconfig.json').write_bytes(canonical_json(stage_cfg))
         tc=isolated_typecheck(stage,node=node,evidence_directory=out/'typecheck')
         if tc.status!='PASS':raise CompilerQAError('ACTUAL_PAINT_TYPECHECK_BLOCKED:'+tc.status)

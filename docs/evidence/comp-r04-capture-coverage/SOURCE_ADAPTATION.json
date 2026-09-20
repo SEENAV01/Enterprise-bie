@@ -1,0 +1,41 @@
+{
+  "schema_version": "bie.r04.capture-source-adaptation.v1",
+  "parent_commit": "0ebad90c754e6ba500cdb20ed7ab1372603199d7",
+  "historical_main": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "path": "bie/compiler/real_paint.py",
+  "before_git_blob": "d5d076035ca375fa8fae91399c0f0cf1d41e02a2",
+  "after_git_blob": "81c8dd5153182f7158935679ca27d472585c7540",
+  "before_sha256": "fc320220631020b0bc246786e659ea105313e11b6a47ef97b99db6ed043e07bf",
+  "after_sha256": "ab939ee47dc3b4aed58aceab72db8ebdb5d3c42cab77c329ced8630b03f72a86",
+  "reason": "Include executable QA helper explicitly; reproduced actual TypeScript coverage omission",
+  "ledgers": [
+    {
+      "path": "manifests/post_dir_integration_004.json",
+      "before_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+      "after_sha256": "7bc533bf409e3311b35ca65c44d2ef591b4581103b57f8b986ed04aa84ed2ab0",
+      "canonical_hash_rows_updated": 1,
+      "preserved_before_image": "docs/evidence/comp-r04-capture-coverage/original-post_dir_integration_004.json",
+      "only_semantic_change": "canonical_sha256 for bie/compiler/real_paint.py"
+    }
+  ],
+  "source_delta": "        # A same-basename declaration may hide JS discovered only by include.\n        # Explicit membership retains executable-helper coverage and strict TS.\n        stage_cfg['files']=list(dict.fromkeys([*stage_cfg.get('files',[]),'qa-paint-helper.js']))\n",
+  "new_test_file": "tests/compiler/test_r04_capture_coverage.py",
+  "pre_patch_focused_result": {
+    "tests": 8,
+    "failures": 1,
+    "errors": 1,
+    "skips": 0
+  },
+  "post_patch_focused_result": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "real_compile_render": "NOT_RUN_AT_SOURCE_COMMIT",
+  "product_accepted": false,
+  "historical_results_changed": false,
+  "source_coverage_gate_changed": false,
+  "canonical_verifiers_changed": false,
+  "dependency_pins_changed": false
+}
