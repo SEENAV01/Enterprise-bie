@@ -6,15 +6,10 @@ on:
     branches: ['validation/comp-r04-20260920']
     paths: ['tools/comp-r04/**', '.github/workflows/comp-r04-slice.yml']
   workflow_dispatch:
-    inputs:
-      bootstrap_lock:
-        description: 'Allow first lock resolution if tools/comp-r04/package-lock.json is absent'
-        type: boolean
-        default: false
-        required: true
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: comp-r04-slice-${{ github.ref }}
@@ -27,7 +22,6 @@ jobs:
     timeout-minutes: 45
     env:
       PYTHONDONTWRITEBYTECODE: '1'
-      BOOTSTRAP_LOCK: ${{ github.event_name == 'push' || inputs.bootstrap_lock }}
     steps:
       # Driver and tested source are separate: never test a moving main checkout.
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -63,24 +57,31 @@ jobs:
           } > "$RUNNER_TEMP/r04-control/hosted-run.txt"
           python -B -m unittest discover -s driver/tools/comp-r04 -p 'test_validation_driver.py' -v \
             2>&1 | tee "$RUNNER_TEMP/r04-control/helper-checks.txt"
-      - name: First real checked slice
+      - name: Restore the exact observed lock and provision Remotion's managed browser
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          BROWSER="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
-          args=(--repo "$GITHUB_WORKSPACE/canonical" --output "$RUNNER_TEMP/r04-first" --browser "$BROWSER" --allow-network)
-          LOCK="$GITHUB_WORKSPACE/driver/tools/comp-r04/package-lock.json"
-          if [ -f "$LOCK" ]; then
-            test -f "$GITHUB_WORKSPACE/driver/tools/comp-r04/APPROVED_LOCK_SHA256.txt"
-            LOCK_SHA="$(tr -d '\n\r' < "$GITHUB_WORKSPACE/driver/tools/comp-r04/APPROVED_LOCK_SHA256.txt")"
-            args+=(--lockfile "$LOCK" --expected-lock-sha256 "$LOCK_SHA")
-          elif [ "$BOOTSTRAP_LOCK" = true ]; then
-            args+=(--bootstrap-lock)
-          fi
-          python -B driver/tools/comp-r04/run_comp_r04_slice.py "${args[@]}"
+          curl --fail --location --silent --show-error --connect-timeout 20 --max-time 120 \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/SEENAV01/Enterprise-bie/actions/artifacts/10599699753/zip" \
+            --output "$RUNNER_TEMP/r04-lock-origin.zip"
+          python -B driver/tools/comp-r04/provision_managed_browser.py \
+            --artifact "$RUNNER_TEMP/r04-lock-origin.zip" --output "$RUNNER_TEMP/r04-browser" --allow-network
+      - name: First real checked slice with the unchanged captured dependency lock
+        run: |
+          set -euo pipefail
+          BROWSER="$(cat "$RUNNER_TEMP/r04-browser/evidence/BROWSER_PATH.txt")"
+          python -B driver/tools/comp-r04/run_comp_r04_slice.py \
+            --repo "$GITHUB_WORKSPACE/canonical" --output "$RUNNER_TEMP/r04-first" \
+            --browser "$BROWSER" --allow-network \
+            --lockfile "$RUNNER_TEMP/r04-browser/evidence/package-lock.json" \
+            --expected-lock-sha256 e445be44573e1cbac454af2987d84f795c43e8bc826be5e86b754ee42073b1c7
       - name: Clean replay using the exact first-run lock, not a re-resolution
         run: |
           set -euo pipefail
-          BROWSER="$(python -c 'from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print(p.chromium.executable_path); p.stop()')"
+          BROWSER="$(cat "$RUNNER_TEMP/r04-browser/evidence/BROWSER_PATH.txt")"
           LOCK="$RUNNER_TEMP/r04-first/evidence/package-lock.json"
           LOCK_SHA="$(sha256sum "$LOCK" | cut -d ' ' -f 1)"
           python -B driver/tools/comp-r04/run_comp_r04_slice.py \
@@ -115,6 +116,7 @@ jobs:
           name: comp-r04-fixture-evidence-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             ${{ runner.temp }}/r04-control/
+            ${{ runner.temp }}/r04-browser/evidence/
             ${{ runner.temp }}/r04-first/evidence/
             ${{ runner.temp }}/r04-replay/evidence/
             ${{ runner.temp }}/bie-ci-setup/
