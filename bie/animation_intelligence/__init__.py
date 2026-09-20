@@ -1,1 +1,1 @@
-"""Canonical namespace reserved by the existing BIE architecture."""
+"""BIE Animation Intelligence attention-control layer."""
