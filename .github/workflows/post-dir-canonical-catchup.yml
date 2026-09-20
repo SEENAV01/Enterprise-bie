@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -30,14 +31,11 @@ jobs:
         if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
         with:
           node-version: '22.16.0'
-      - name: Install declared compiler test profile when present
+      - name: Install the verified hosted-worker profile when present
         if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
         run: |
-          python -m pip install -r requirements-comp-h3.txt
-          npm install --global typescript@5.8.3
-          python -m playwright install --with-deps chromium
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg bubblewrap libseccomp2
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
       - name: Complete canonical gate
         run: |
           set -o pipefail
@@ -46,11 +44,30 @@ jobs:
       - name: Exact supplied corpus and adoption verification
         if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
         run: python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
+      - name: Require complete passing post-DIR regression, never skipped tests
+        if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence'
+          s=json.loads((root/'integrated_tests.json').read_text())['summary']
+          p=json.loads((root/'post-dir-preservation.json').read_text())
+          if s.get('passed') is not True or s.get('tests_run',0) < 6485:
+              raise SystemExit('INCOMPLETE_REGRESSION: '+str(s))
+          if any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
+              raise SystemExit('FAILURES_ERRORS_OR_SKIPS: '+str(s))
+          if p.get('passed') is not True or p.get('errors') != []:
+              raise SystemExit('PRESERVATION_FAILED: '+str(p))
+          print(json.dumps({'regression':s,'preservation':p,'product_accepted':False},indent=2))
+          PY
       - name: Preserve actual results, including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: canonical-regression-evidence
-          path: ${{ runner.temp }}/canonical-evidence/
+          path: |
+            ${{ runner.temp }}/canonical-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
           if-no-files-found: warn
           retention-days: 14
