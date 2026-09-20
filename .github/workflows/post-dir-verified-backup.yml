@@ -1,0 +1,122 @@
+name: Exact Post-DIR Canonical Backup
+
+on:
+  push:
+    branches: [integration/post-dir-catchup-20260919]
+    paths: [.github/workflows/post-dir-verified-backup.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  exact-backup:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      TARGET: 16d4d87824e77db3565a231a332e7977d39d7117
+      EXPECTED_TREE: 81febee6c9867648b58e0fc16464038b5ac4d12f
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 16d4d87824e77db3565a231a332e7977d39d7117
+          persist-credentials: false
+      - name: Create and verify exact Integrated and Master snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib,json,os,stat,subprocess,zipfile
+          root=Path(os.environ['GITHUB_WORKSPACE']);out=Path(os.environ['RUNNER_TEMP'])/'canonical-delivery';out.mkdir()
+          def git(*args):return subprocess.check_output(['git',*args],cwd=root)
+          target=os.environ['TARGET'];tree=os.environ['EXPECTED_TREE']
+          assert git('rev-parse','HEAD').decode().strip()==target
+          assert git('rev-parse','HEAD^{tree}').decode().strip()==tree
+          observed=git('ls-remote','origin','refs/heads/main').decode().split()[0]
+          assert observed==target,'MAIN_CHANGED_BEFORE_BACKUP'
+          expected={}
+          for row in git('ls-tree','-rz','--full-tree','HEAD').split(b'\0'):
+              if not row:continue
+              info,name=row.split(b'\t',1);mode,kind,sha=info.decode().split();name=name.decode()
+              assert kind=='blob','UNSUPPORTED_GIT_OBJECT'
+              expected[name]=(mode,sha)
+          integrated=out/'BIE_CANONICAL_MAIN_16d4d878_INTEGRATED.zip'
+          subprocess.run(['git','archive','--format=zip','-9','-o',str(integrated),target],cwd=root,check=True)
+          def digest(path):
+              with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
+          records={}
+          with zipfile.ZipFile(integrated) as archive:
+              assert len(archive.namelist())==len(set(archive.namelist())),'DUPLICATE_ZIP_ENTRY'
+              assert archive.comment.decode()==target
+              for info in archive.infolist():
+                  if info.is_dir():continue
+                  name=info.filename;q=PurePosixPath(name)
+                  assert not q.is_absolute() and '..' not in q.parts and '\\' not in name
+                  assert name in expected,'UNEXPECTED_ZIP_FILE'
+                  mode,sha=expected[name];rawmode=info.external_attr>>16
+                  actualmode='120000' if stat.S_ISLNK(rawmode) else ('100755' if rawmode&0o111 else '100644')
+                  assert actualmode==mode,'FILE_MODE_MISMATCH:'+name
+                  blob=hashlib.sha1(b'blob '+str(info.file_size).encode()+b'\0');h=hashlib.sha256();size=0
+                  with archive.open(info) as stream:
+                      for block in iter(lambda:stream.read(1048576),b''):blob.update(block);h.update(block);size+=len(block)
+                  assert size==info.file_size and blob.hexdigest()==sha,'GIT_BLOB_MISMATCH:'+name
+                  records[name]={'bytes':size,'mode':mode,'git_blob_sha1':sha,'sha256':h.hexdigest()}
+              assert set(records)==set(expected),'MISSING_GIT_FILES'
+          receipt=json.loads((root/'docs/evidence/post-dir-integration/REMOTE_VALIDATION.json').read_text())
+          assert receipt['tests']['tests_run']==6485 and receipt['tests']['passed'] is True
+          assert all(receipt['tests'][k]==0 for k in ('failed_files','failures','errors','skipped'))
+          assert receipt['preservation']['passed'] is True and receipt['preservation']['supplied_files_verified']==386
+          (out/'FILES_SHA256.json').write_text(json.dumps(records,indent=2)+'\n')
+          (out/'REMOTE_VALIDATION.json').write_bytes((root/'docs/evidence/post-dir-integration/REMOTE_VALIDATION.json').read_bytes())
+          report={'schema_version':'bie.exact-main-backup.v1','repository':'SEENAV01/Enterprise-bie','branch':'main',
+                  'commit':target,'tree':tree,'remote_main_readback':observed,'all_git_files_present':True,
+                  'all_file_modes_and_blob_hashes_match':True,'file_count':len(records),
+                  'integrated_zip':integrated.name,'integrated_sha256':digest(integrated),'integrated_bytes':integrated.stat().st_size,
+                  'cloud_verification_run':35482769904,'tests':receipt['tests'],'preservation':receipt['preservation'],
+                  'post_promotion_ci':'See the separate main workflow; not inferred from pre-promotion evidence.',
+                  'runtime_accepted':False,'product_accepted':False,
+                  'scope':'Exact canonical working tree, not a git-history mirror; all actually supplied files preserved.'}
+          (out/'BACKUP_MANIFEST.json').write_text(json.dumps(report,indent=2)+'\n')
+          (out/'README.txt').write_text('BIE canonical main snapshot\n\nCommit: '+target+'\nTree: '+tree+'\n\nThe Integrated ZIP contains every tracked file of this exact main commit, verified against Git blob identities and modes. The Master embeds the identical Integrated ZIP plus evidence/checksums. No nested prior Master backup chain was newly introduced.\n\n6485 tests passed on GitHub before promotion. Actual Remotion and real-book/product acceptance are not claimed. Ten older individual VIS LAYOUT ZIPs were referenced but not supplied; their active source is included from supplied cumulative packages. Full Git history remains in GitHub, not in this working-tree ZIP.\n')
+          payloads=[integrated,out/'FILES_SHA256.json',out/'REMOTE_VALIDATION.json',out/'BACKUP_MANIFEST.json',out/'README.txt']
+          sums={p.name:digest(p) for p in payloads}
+          (out/'MASTER_SHA256SUMS.json').write_text(json.dumps(sums,indent=2)+'\n')
+          master=out/'BIE_CANONICAL_MAIN_16d4d878_MASTER_BACKUP.zip'
+          with zipfile.ZipFile(master,'w',allowZip64=True) as z:
+              for p in payloads+[out/'MASTER_SHA256SUMS.json']:
+                  z.write(p,p.name,compress_type=zipfile.ZIP_STORED if p==integrated else zipfile.ZIP_DEFLATED,compresslevel=None if p==integrated else 9)
+          with zipfile.ZipFile(master) as z:
+              for name,expected_hash in sums.items():
+                  with z.open(name) as stream:assert hashlib.file_digest(stream,'sha256').hexdigest()==expected_hash,'MASTER_PAYLOAD_MISMATCH'
+              assert json.loads(z.read('MASTER_SHA256SUMS.json'))==sums
+          report['master_zip']=master.name;report['master_sha256']=digest(master);report['master_bytes']=master.stat().st_size
+          report['master_payloads_verified']=len(sums);report['master_embedded_integrated_identical']=True
+          (out/'FINAL_DELIVERY_VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps(report,indent=2))
+          PY
+      - name: Preserve Integrated snapshot
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: BIE_CANONICAL_MAIN_16d4d878_INTEGRATED
+          path: ${{ runner.temp }}/canonical-delivery/BIE_CANONICAL_MAIN_16d4d878_INTEGRATED.zip
+          compression-level: 0
+          retention-days: 30
+          if-no-files-found: error
+      - name: Preserve Master Backup
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: BIE_CANONICAL_MAIN_16d4d878_MASTER_BACKUP
+          path: ${{ runner.temp }}/canonical-delivery/BIE_CANONICAL_MAIN_16d4d878_MASTER_BACKUP.zip
+          compression-level: 0
+          retention-days: 30
+          if-no-files-found: error
+      - name: Preserve small delivery verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: BIE_CANONICAL_MAIN_16d4d878_VERIFICATION
+          path: |
+            ${{ runner.temp }}/canonical-delivery/*.json
+            ${{ runner.temp }}/canonical-delivery/README.txt
+          compression-level: 9
+          retention-days: 30
+          if-no-files-found: error
