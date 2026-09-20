@@ -51,6 +51,8 @@ def main():
         raise ValueError('VALIDATION_PROFILE_MISMATCH')
     plan=json.loads((work/'capsule/plan.json').read_text());head=git(root,'rev-parse','HEAD')
     evidence=work/'evidence';evidence.mkdir();publish=work/'publish';publish.mkdir()
+    from diagnose_worker import diagnose
+    diagnose(root, evidence)
     # Existing tests only: catch runner misconfiguration before the long suite.
     # Their execution is additional evidence, not counted as new unique tests.
     run_logged([sys.executable,'-B','-m','unittest',
