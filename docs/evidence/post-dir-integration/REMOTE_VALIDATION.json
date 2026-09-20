@@ -1,0 +1,113 @@
+{
+  "schema_version": "bie.github-integration-verification.v1",
+  "trigger_commit": "98951282a941b781194dc53dd033186637f85f09",
+  "candidate_commit": "f5bc6e92189ae79a6d3dd7b3855c1ac8c0e5acda",
+  "candidate_tree": "8a84de7b737b32f96e80aea03522986e2735c25d",
+  "base_commit": "73840d86a78e5f31438e2a1bad34f3b2a8433eb9",
+  "capsule_sha256": "17ce2d9700ccb6227a7fb86a879a5f39c4e5ebec535980a7cdf446a2e961d9b4",
+  "plan_sha256": "63a2596d48b75bf4d9d16d5dd95635b6b557990f3a62b804899e5581e1eb81de",
+  "bundle_sha256": "0b9394f2924ba6060ad44de1e470e0a6eaf6509c80cd4b5353caec814dfbe194",
+  "phases": [
+    {
+      "section": "VIS",
+      "commit": "752dbfca9fbc3d8b97d4ad52eda331a63d8ae130"
+    },
+    {
+      "section": "ANI",
+      "commit": "c0d93b3df5ca5b632ab4775190f3c63f40174520"
+    },
+    {
+      "section": "DSL",
+      "commit": "e696cb5cb795417bf8fadd78dda810e930506f8c"
+    },
+    {
+      "section": "COMP",
+      "commit": "f5bc6e92189ae79a6d3dd7b3855c1ac8c0e5acda"
+    }
+  ],
+  "final_mapped_blobs_verified": 6346,
+  "tests": {
+    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+    "python": "3.13.5",
+    "test_files": 993,
+    "tests_run": 6485,
+    "failed_files": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 724.21,
+    "passed": true
+  },
+  "preservation": {
+    "passed": true,
+    "errors": [],
+    "supplied_files_verified": 386,
+    "source_member_mappings_verified": 6014,
+    "unique_paths_hashed": 6234,
+    "unique_zip_archives_verified": 435,
+    "nested_member_occurrences_verified": 83616,
+    "unavailable_previously_declared_archives": [
+      {
+        "name": "BIE_VIS_LAYOUT_001.zip",
+        "sha256": "1058edfe0f2e029c1c0157fc42356f2f5f6f21b8a6d55dd2435ca332384e0131",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_002.zip",
+        "sha256": "fecef84686477b54aaed5fc3e581f0dcd5b9db825bd14bbc442e748f2ee9e75c",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_003.zip",
+        "sha256": "3a97a5878dfcbea53a3fff4ba40067ee67cdd07a8c803ec967dd741984385e35",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_004.zip",
+        "sha256": "f0507b8d1803afa553f961af8c87aeb0ab20d8ca6e1aa56e25f631e5c723b16d",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_005.zip",
+        "sha256": "202f32933fb6f170351bf4c1bd0d9931d5bec7974fa33f174c3e00150e8051a7",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_006.zip",
+        "sha256": "25f4751ee92f076c5b76caa3f68d62affbebf7931969dad1c468b131ee54395e",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_007.zip",
+        "sha256": "6a802a251dd3262faf4608103a70a675e8aaafe9e60894be0e2b4cdeb19dda17",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_008.zip",
+        "sha256": "1e5e34c7986b2422e251c4626ecd8191dd8840686f5209d922e357d43b8969d2",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_009.zip",
+        "sha256": "d3a1cfe0291043e8182cddb92cddbc29bcda8e0812e19aeff701afde9628196b",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      },
+      {
+        "name": "BIE_VIS_LAYOUT_010.zip",
+        "sha256": "41f6113a0c01d47215e636b2ba0bd43f069c5d8df39bf4787970074bec2d98d9",
+        "status": "REFERENCED_BUT_NOT_SUPPLIED; ACTIVE_SOURCE_SEPARATELY_AVAILABLE"
+      }
+    ],
+    "scope": "All supplied bytes and canonical adoption; no whole-product or real-render acceptance.",
+    "accepted": false,
+    "historical_corpus_completeness": "NOT_CLAIMED"
+  },
+  "run_id": "35482769904",
+  "run_attempt": "1",
+  "historical_corpus_complete": false,
+  "runtime_accepted": false,
+  "product_accepted": false,
+  "scope": "All supplied files and canonical source adoption; not complete historical artifact availability or actual Remotion acceptance.",
+  "publication_scope": "STAGING_ONLY; main requires separate readback/review.",
+  "workflow_url": "https://github.com/SEENAV01/Enterprise-bie/actions/runs/35482769904"
+}
