@@ -119,7 +119,11 @@ def main():
         row['canonical_sha256']=new_sha
     require(len(updated['source_members'])==len(original['source_members']), 'SOURCE_MEMBER_COUNT_CHANGED')
     pattern=rb'("canonical_sha256"\s*:\s*")'+old_sha.encode()+rb'(")'
-    data,count=re.subn(pattern,lambda m:m.group(1)+new_sha.encode()+m.group(2),raw)
+    anchors=list(re.finditer(rb'^  "source_members": \[',raw,re.MULTILINE))
+    require(len(anchors)==1, 'SOURCE_MEMBERS_SECTION_AMBIGUOUS')
+    start=anchors[0].start()
+    tail,count=re.subn(pattern,lambda m:m.group(1)+new_sha.encode()+m.group(2),raw[start:])
+    data=raw[:start]+tail
     require(count==len(rows) and json.loads(data)==updated, 'ONLY_CANONICAL_HASH_EDIT_REQUIRED')
     (root/path).write_bytes(data)
     snapshot=HISTORY+'/original-post_dir_integration_004.json'
