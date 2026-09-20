@@ -49,6 +49,19 @@ def require(ok: bool, message: str) -> None:
         raise ValueError(message)
 
 
+def npm_environment(work: Path) -> dict[str, str]:
+    """Use distinct empty config files: npm rejects double-loading one path."""
+    user_config = work / "npm-user.npmrc"
+    global_config = work / "npm-global.npmrc"
+    for config in (user_config, global_config):
+        with config.open("x", encoding="utf-8"):
+            pass
+    return {"npm_config_registry": "https://registry.npmjs.org/",
+            "npm_config_userconfig": str(user_config),
+            "npm_config_globalconfig": str(global_config),
+            "npm_config_cache": str(work / "npm-cache")}
+
+
 def check_lock(package: dict, lock: dict) -> dict:
     """Validate resolution identities, not the security of third-party source code."""
     require(lock.get("lockfileVersion") == 3, "LOCKFILE_V3_REQUIRED")
@@ -173,8 +186,7 @@ def main() -> int:
     for key in ("NODE_OPTIONS", "NODE_PATH", "TS_NODE_PROJECT"):
         env.pop(key, None)
     env.update({"PYTHONPATH": str(repo), "PYTHONDONTWRITEBYTECODE": "1", "CI": "true",
-                "npm_config_registry": "https://registry.npmjs.org/", "npm_config_userconfig": "/dev/null",
-                "npm_config_globalconfig": "/dev/null", "npm_config_cache": str(work / "npm-cache")})
+                **npm_environment(work)})
     runner = Runner(evidence, env)
     summary: dict = {"schema_version": "bie.r04.fixture-attempt.v1", "expected_repository_sha": SOURCE_SHA,
                     "expected_repository_tree": SOURCE_TREE, "fixture": "examples/comp_h6/scene.json",

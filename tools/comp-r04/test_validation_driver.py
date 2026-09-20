@@ -1,7 +1,11 @@
 """Offline helper contract checks. NOT BIE regression or real-render evidence."""
 import copy
+import os
+from pathlib import Path
+import subprocess
+import tempfile
 import unittest
-from run_comp_r04_slice import REQUIRED, check_lock, check_harness, check_media, exclude_font_binaries
+from run_comp_r04_slice import REQUIRED, check_lock, check_harness, check_media, exclude_font_binaries, npm_environment
 
 
 def lock_fixture():
@@ -24,6 +28,25 @@ def harness_fixture():
 
 
 class DriverChecks(unittest.TestCase):
+    def test_npm_config_files_are_distinct_and_empty(self):
+        with tempfile.TemporaryDirectory() as temp:
+            env = npm_environment(Path(temp))
+            user = Path(env["npm_config_userconfig"])
+            glob = Path(env["npm_config_globalconfig"])
+            self.assertNotEqual(user, glob)
+            self.assertEqual(user.read_bytes(), b"")
+            self.assertEqual(glob.read_bytes(), b"")
+
+    def test_real_npm_version_with_isolated_config(self):
+        # Real offline invocation: regression for hosted failure 35495563384.
+        # No dependency install and no network access are requested.
+        with tempfile.TemporaryDirectory() as temp:
+            env = dict(os.environ, **npm_environment(Path(temp)))
+            result = subprocess.run(["npm", "--version"], env=env,
+                capture_output=True, text=True, timeout=15, check=False)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(result.stdout.strip(), "10.9.2")
+
     def test_font_binaries_are_excluded_from_evidence_exports(self):
         names = ["a.TTF", "b.otf", "c.woff", "d.woff2", "e.ttc", "scene.tsx", "tone.wav"]
         self.assertEqual(exclude_font_binaries("unused", names), names[:5])
