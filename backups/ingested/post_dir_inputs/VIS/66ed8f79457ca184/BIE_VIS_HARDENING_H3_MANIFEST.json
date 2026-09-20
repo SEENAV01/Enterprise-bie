@@ -1,0 +1,29 @@
+{
+  "accepted": false,
+  "atomic_zip_sha256": {
+    "BIE_VIS_HARD_ACCESS_INTEGRATION_001.zip": "c314ed87f7eebbdc673a80749b454b92c0670989e678a4d5597a5201b72a81e6",
+    "BIE_VIS_HARD_ASSET_LIFECYCLE_001.zip": "297308157be80e2f6e778f5fb3199434b8cce81ad4fe6b6080f62d83b26c4822",
+    "BIE_VIS_HARD_QA_TRACE_001.zip": "6957af5cde2c465adc0e4ef792fbd6632547d9f1fd49c4a6fe54b693f5d97c7b",
+    "BIE_VIS_HARD_REPLAY_001.zip": "dffae4deaaae2244a36a4aa66698df93cf4cc8d719be712ccb99793aff7e6b3a",
+    "BIE_VIS_HARD_UNCERTAINTY_001.zip": "1cb6f2ed65c81611838c023dd0fd7477790298413b386d973bb3afdb027478a6"
+  },
+  "batch_id": "BIE-VIS-HARDENING-H3",
+  "hardening_progress": "15/20",
+  "integrated_h1_h2_h3_tests_passed": 98,
+  "next_batch": "H4",
+  "regression_scope": "fresh overlay of H1 + H2 + H3 integrated packages",
+  "tasks": [
+    "BIE-VIS-HARD-UNCERTAINTY-001",
+    "BIE-VIS-HARD-ASSET-LIFECYCLE-001",
+    "BIE-VIS-HARD-ACCESS-INTEGRATION-001",
+    "BIE-VIS-HARD-QA-TRACE-001",
+    "BIE-VIS-HARD-REPLAY-001"
+  ],
+  "test_counts": {
+    "BIE-VIS-HARD-ACCESS-INTEGRATION-001": 6,
+    "BIE-VIS-HARD-ASSET-LIFECYCLE-001": 5,
+    "BIE-VIS-HARD-QA-TRACE-001": 6,
+    "BIE-VIS-HARD-REPLAY-001": 5,
+    "BIE-VIS-HARD-UNCERTAINTY-001": 7
+  }
+}

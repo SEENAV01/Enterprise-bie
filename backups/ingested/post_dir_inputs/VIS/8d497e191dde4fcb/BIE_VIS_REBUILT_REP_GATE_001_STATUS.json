@@ -1,0 +1,71 @@
+{
+  "accepted": false,
+  "canonical_dir_exact_source": "BLOCKED",
+  "gate_id": "BIE-VIS-REBUILT-REP-GATE-001",
+  "historical_rep_hashes_retained_for_provenance": {
+    "BIE_VIS_REP_001.zip": "9a818bff38a86235a2d40e039d35e3db24354da6da769e6183c881d2e233867d",
+    "BIE_VIS_REP_002.zip": "5280828dfb442a728d5504aec23f355d10acc99db8b05ff0e33920e6188f2c31",
+    "BIE_VIS_REP_003.zip": "59d3d6f7bc1fe7612600aaaefd9cf163eaeaa1b41a652546c2854eba6d7d7eca",
+    "BIE_VIS_REP_004.zip": "8393cb8886ed2d0e5d47b60bec1f9429f29f2e31e517eefde7a0941515ecdf75",
+    "BIE_VIS_REP_005.zip": "07eb7dfde8773122b524f63ebb028f8defc4461678cc6551e81da99b74c7bedb",
+    "BIE_VIS_REP_006.zip": "0c5ae1fe989bb108a5c8bb14d0d02996df82475cad8e8d3c45224a18da4dcb75",
+    "BIE_VIS_REP_007.zip": "fbc13e70b2eab37e0ccece48d902ee10e56c4f8dd0524aa16bbe97e5e99de8c8",
+    "BIE_VIS_REP_008.zip": "87ece417e7075744b0f42523d3f83e8e17f68cf4f15f84e4565f1c9c7bdc5e71"
+  },
+  "implementation_scope_complete": false,
+  "local_all_vis_regression": {
+    "errors": 0,
+    "failures": 0,
+    "scope": "rebuilt REP-001..008 + original GRAM/LAYOUT/ASSET/TEXT/ACCESS/QA + H1/H2/H3/H4/H5",
+    "skips": 0,
+    "tests_passed": 694
+  },
+  "next_step": "Mount/fetch canonical DIR source tree, execute canonical DIR\u2192VIS codec against real DIR artifacts, rerun section gate, then VIS final re-audit.",
+  "rebuilt_rep_exact_source": "PASS",
+  "remaining_exact_source_blockers": [
+    "Canonical completed DIR source/artifact tree has not been mounted/executed in this runtime."
+  ],
+  "rep_archives_verified": 8,
+  "rep_hashes": {
+    "BIE_VIS_REP_001.zip": {
+      "actual": "e16246c98c9e27d4b0b5761ab15d05efaf96abc5498e833e1ac30d53eeb81a9f",
+      "expected": "e16246c98c9e27d4b0b5761ab15d05efaf96abc5498e833e1ac30d53eeb81a9f",
+      "match": true
+    },
+    "BIE_VIS_REP_002.zip": {
+      "actual": "60bacbcab47ed1725a06772b75a8ce5eb3a87edb298a80949aea9c731b88d492",
+      "expected": "60bacbcab47ed1725a06772b75a8ce5eb3a87edb298a80949aea9c731b88d492",
+      "match": true
+    },
+    "BIE_VIS_REP_003.zip": {
+      "actual": "eabfe0872416ab7077d6f07698773e3f7d64f4aba7e3ca0e0c3817cee39e35fc",
+      "expected": "eabfe0872416ab7077d6f07698773e3f7d64f4aba7e3ca0e0c3817cee39e35fc",
+      "match": true
+    },
+    "BIE_VIS_REP_004.zip": {
+      "actual": "e88249affc0dc401ca7641ac30aae284a9deb6025cac494c5d25e10f7a896e5c",
+      "expected": "e88249affc0dc401ca7641ac30aae284a9deb6025cac494c5d25e10f7a896e5c",
+      "match": true
+    },
+    "BIE_VIS_REP_005.zip": {
+      "actual": "4f8a5c0a0989bcb6c2bbcf9dd1247a6ebfe11c39edf74e91f9c49442b4d6e942",
+      "expected": "4f8a5c0a0989bcb6c2bbcf9dd1247a6ebfe11c39edf74e91f9c49442b4d6e942",
+      "match": true
+    },
+    "BIE_VIS_REP_006.zip": {
+      "actual": "4e6d8445741b274916b74df577df04541e0dc6992269a8290074c79c7ef574f0",
+      "expected": "4e6d8445741b274916b74df577df04541e0dc6992269a8290074c79c7ef574f0",
+      "match": true
+    },
+    "BIE_VIS_REP_007.zip": {
+      "actual": "14d9670c170822556c76b0f8ca7c76c00f9acd789358bb66a9e2fa976e3eb8c2",
+      "expected": "14d9670c170822556c76b0f8ca7c76c00f9acd789358bb66a9e2fa976e3eb8c2",
+      "match": true
+    },
+    "BIE_VIS_REP_008.zip": {
+      "actual": "017be204a6082e01242b3d4bc60b47b310fe29e2e0b9bebe357e9fc38de32ccf",
+      "expected": "017be204a6082e01242b3d4bc60b47b310fe29e2e0b9bebe357e9fc38de32ccf",
+      "match": true
+    }
+  }
+}
