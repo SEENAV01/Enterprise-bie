@@ -1,0 +1,102 @@
+{
+  "case": {
+    "case_id": "h2-sim-clips",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic simulation compiler fixture",
+            "color_independent_encoding": true,
+            "reduced_motion_variant": "fixture:static"
+          },
+          "element_id": "e0",
+          "element_type": "simulation",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "duration_ms": 2000,
+            "execution_class": "analytic_model",
+            "initial_state": {
+              "vx": 2,
+              "vy": 4,
+              "x": 0,
+              "y": 0
+            },
+            "model_ref": "bie.sim.constant-acceleration-2d@1",
+            "parameters": {
+              "ax": 0,
+              "ay": -2
+            },
+            "start_ms": 0,
+            "title": "Synthetic acceleration model",
+            "units": {
+              "ax": "m/s^2",
+              "ay": "m/s^2",
+              "t": "s",
+              "vx": "m/s",
+              "vy": "m/s",
+              "x": "m",
+              "y": "m"
+            },
+            "view": {
+              "x_max": 5,
+              "x_min": -1,
+              "y_max": 1,
+              "y_min": -1
+            }
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-sim-clips:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-sim-clips:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "7dccca03b60abf0ee252876b84b3a6e3342abeb3637b14f4e3ce7b2e7630aaa3",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-sim-clips",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-sim-clips"
+      ],
+      "review_required": true,
+      "scene_id": "h2-sim-clips",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-sim-clips"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "physics",
+    "expected_error_codes": [
+      "SIMULATION_VIEW_CLIPS_MODEL"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "3755463f2d8a0a047a6a0e19b73078ae7af954998d82c3721026dde6fe7f7b5c"
+}

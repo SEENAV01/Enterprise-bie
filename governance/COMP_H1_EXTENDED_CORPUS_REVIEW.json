@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "case_id": "h1-area-signed",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-pie-native",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-scatter-spacing",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-vector-xz",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-vector-zero",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-isolated-vertices",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-code-as-text",
+      "expected_source_passed": true,
+      "expected_error_codes": []
+    },
+    {
+      "case_id": "h1-negative-pie",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "PIE_NEGATIVE_VALUE_UNSUPPORTED"
+      ]
+    },
+    {
+      "case_id": "h1-zero-total-pie",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "PIE_ZERO_TOTAL"
+      ]
+    },
+    {
+      "case_id": "h1-model-duplicate-edge",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MODEL2D_DUPLICATE_EDGE"
+      ]
+    },
+    {
+      "case_id": "h1-model-self-loop",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MODEL2D_SELF_LOOP_UNSUPPORTED"
+      ]
+    },
+    {
+      "case_id": "h1-vector-hidden-view",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "VECTOR_VIEW_DEGENERATE"
+      ]
+    },
+    {
+      "case_id": "h1-chart-dense",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "UNREVIEWED_COMPILER_WARNING"
+      ]
+    },
+    {
+      "case_id": "h1-scatter-missing-x",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "COLLECTION_SHAPE_INVALID"
+      ]
+    }
+  ],
+  "scope": "Implementation-author synthetic test corpus review, NOT expert/product acceptance",
+  "accepted": false
+}

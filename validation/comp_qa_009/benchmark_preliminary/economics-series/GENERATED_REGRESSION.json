@@ -1,0 +1,154 @@
+{
+  "accepted": false,
+  "baseline_id": "qa009-initial-economics-series",
+  "baseline_status": "MATCH",
+  "compile_verified": false,
+  "current_snapshot": {
+    "bound_sha256": "89e3a183f47f2ef7bda9118524bd19bdc97517a75167368e8f7f280053367018",
+    "context_sha256": "1655c0f16d6d94f38bc383b30e03777fba664f47c2ec76e92177b869e9b09e9a",
+    "files": [
+      [
+        "package.json",
+        "81b146bd2305d7b78a109e111d327de97510f787e70d1c564977d2e03aad0b16",
+        454
+      ],
+      [
+        "remotion.config.ts",
+        "08cf93fd2e8ce6c03eaa25f796a6743237f448da34c691b47a8ee50fe733e9be",
+        80
+      ],
+      [
+        "src/Composition.tsx",
+        "14271d951e3c512ba8d01ea1f13cae73bd6a11f02cdc4aa6b7c951da4f93e411",
+        401
+      ],
+      [
+        "src/Root.tsx",
+        "a9511772762859ce198fb0bb6176be1d5a3dc5c268167b2263c73e1438675e67",
+        152
+      ],
+      [
+        "src/Scene.tsx",
+        "40e946a64caa2a7d3629c934af9d46246c507f37393a1d9bf06d212592524368",
+        411
+      ],
+      [
+        "src/bie-source-identity.json",
+        "7aa6e7b5a976aa49751fe3cd3880ec55f4573a88122b292cd5bc004a3b7d2f9f",
+        529
+      ],
+      [
+        "src/elements/Graph_e0_5c88e7a2.tsx",
+        "085b521e7efa5d4ce53b4125cca64504b0cc7c61a6e6715515b1dc573570a9a5",
+        661
+      ],
+      [
+        "src/index.ts",
+        "855e23f5a7473a90b919295047a8b2a81e9634b68a9893dbb3b7dae377e4687d",
+        105
+      ],
+      [
+        "src/qa-layers/QALayer_e0_5c88e7a2.tsx",
+        "b546f54357de7b322a23ca86fc7052cb81eb38ceaca0215ea0b42eb4f99ccaf7",
+        292
+      ],
+      [
+        "tsconfig.json",
+        "8878b227fa5320198aa221ccbd2b4cea15cd4ed7f18e659aad1390a2b9937384",
+        468
+      ]
+    ],
+    "files_sha256": "02bb5d23abcd86490824215909c1d83014a9f9011169725192b6d371e42a9c6a"
+  },
+  "full_typecheck": {
+    "accepted": false,
+    "diagnostics": [],
+    "execution_kind": "NOT_RUN",
+    "missing_dependencies": [
+      "@remotion/cli",
+      "@types/react",
+      "@types/react-dom",
+      "react",
+      "react-dom",
+      "remotion",
+      "typescript"
+    ],
+    "status": "BLOCKED_DEPENDENCIES",
+    "stderr": "",
+    "stdout": ""
+  },
+  "passed": false,
+  "scope": "GENERATED_CODE_REGRESSION_NOT_RENDER_OR_LEARNING_QUALITY",
+  "source_checks_passed": true,
+  "source_findings": [],
+  "syntax_probe": {
+    "accepted": false,
+    "diagnostics": [],
+    "execution_kind": "REAL_TYPESCRIPT_AST_PARSER",
+    "files_parsed": 7,
+    "findings": [],
+    "full_typecheck": false,
+    "imports": [
+      [
+        "remotion.config.ts",
+        "@remotion/cli/config"
+      ],
+      [
+        "src/Composition.tsx",
+        "./Scene"
+      ],
+      [
+        "src/Composition.tsx",
+        "react"
+      ],
+      [
+        "src/Composition.tsx",
+        "remotion"
+      ],
+      [
+        "src/Root.tsx",
+        "./Composition"
+      ],
+      [
+        "src/Root.tsx",
+        "react"
+      ],
+      [
+        "src/Scene.tsx",
+        "./qa-layers/QALayer_e0_5c88e7a2"
+      ],
+      [
+        "src/Scene.tsx",
+        "react"
+      ],
+      [
+        "src/Scene.tsx",
+        "remotion"
+      ],
+      [
+        "src/elements/Graph_e0_5c88e7a2.tsx",
+        "react"
+      ],
+      [
+        "src/index.ts",
+        "./Root"
+      ],
+      [
+        "src/index.ts",
+        "remotion"
+      ],
+      [
+        "src/qa-layers/QALayer_e0_5c88e7a2.tsx",
+        "../elements/Graph_e0_5c88e7a2"
+      ],
+      [
+        "src/qa-layers/QALayer_e0_5c88e7a2.tsx",
+        "react"
+      ]
+    ],
+    "status": "PASS",
+    "stderr": "",
+    "stdout": "{\"schema_version\":\"bie.typescript-source-probe.v1\",\"typescript_version\":\"5.8.3\",\"files_parsed\":7,\"findings\":[],\"imports\":[{\"file\":\"remotion.config.ts\",\"specifier\":\"@remotion/cli/config\",\"dynamic\":false},{\"file\":\"src/Composition.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/Composition.tsx\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/Composition.tsx\",\"specifier\":\"./Scene\",\"dynamic\":false},{\"file\":\"src/Root.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/Root.tsx\",\"specifier\":\"./Composition\",\"dynamic\":false},{\"file\":\"src/Scene.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/Scene.tsx\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/Scene.tsx\",\"specifier\":\"./qa-layers/QALayer_e0_5c88e7a2\",\"dynamic\":false},{\"file\":\"src/elements/Graph_e0_5c88e7a2.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/index.ts\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/index.ts\",\"specifier\":\"./Root\",\"dynamic\":false},{\"file\":\"src/qa-layers/QALayer_e0_5c88e7a2.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/qa-layers/QALayer_e0_5c88e7a2.tsx\",\"specifier\":\"../elements/Graph_e0_5c88e7a2\",\"dynamic\":false}],\"execution_kind\":\"REAL_TYPESCRIPT_AST_PARSER\",\"full_typecheck\":false,\"request_sha256\":\"40f1c18f83e2c40ed20663efcf047b566a4e7024140c25dcdf28758e00a2d8d3\",\"accepted\":false}",
+    "typescript_version": "5.8.3"
+  }
+}

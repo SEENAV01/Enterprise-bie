@@ -1,0 +1,207 @@
+{
+  "accepted": false,
+  "baseline_id": "qa009-initial-reject-jsx-braces",
+  "baseline_status": "MATCH",
+  "compile_verified": false,
+  "current_snapshot": {
+    "bound_sha256": "17c9204d79ab947a12a00747ee8461d4dbd74af1b13cd2b5054371d57678c236",
+    "context_sha256": "31513864770d913870ba6d5ac03de1ccb7c0b5b78602114c56c323fa0d9ca1e0",
+    "files": [
+      [
+        "package.json",
+        "68263fcd06e7dd267c579298a1fc26cbd14136845658f7cdb87507d6f3d2e552",
+        454
+      ],
+      [
+        "remotion.config.ts",
+        "08cf93fd2e8ce6c03eaa25f796a6743237f448da34c691b47a8ee50fe733e9be",
+        80
+      ],
+      [
+        "src/Composition.tsx",
+        "8abc9b4efc0f0d2766dab3a6e3090ed16032ca80f618ef03d83a7b6f504df5bc",
+        401
+      ],
+      [
+        "src/Root.tsx",
+        "a9511772762859ce198fb0bb6176be1d5a3dc5c268167b2263c73e1438675e67",
+        152
+      ],
+      [
+        "src/Scene.tsx",
+        "40e946a64caa2a7d3629c934af9d46246c507f37393a1d9bf06d212592524368",
+        411
+      ],
+      [
+        "src/bie-source-identity.json",
+        "65f196ae1de15a88e02b09012c6a522018c177343c1680bef605f71f0f59ac2b",
+        533
+      ],
+      [
+        "src/elements/Text_e0_5c88e7a2.tsx",
+        "12a6da2c7a3f567d99ab6e3dd679d62784722d17e25d07ba908e0c8dd7ebb173",
+        321
+      ],
+      [
+        "src/index.ts",
+        "855e23f5a7473a90b919295047a8b2a81e9634b68a9893dbb3b7dae377e4687d",
+        105
+      ],
+      [
+        "src/qa-layers/QALayer_e0_5c88e7a2.tsx",
+        "5b3da731519123b29ec6fad81e001ea37b7a49f9d12fa7c987ff07ba571076c9",
+        289
+      ],
+      [
+        "tsconfig.json",
+        "8878b227fa5320198aa221ccbd2b4cea15cd4ed7f18e659aad1390a2b9937384",
+        468
+      ]
+    ],
+    "files_sha256": "65cb0f07ded2237041960d45b6cba970ceab2ba6ad56c898c2fc32ead147b669"
+  },
+  "full_typecheck": {
+    "accepted": false,
+    "diagnostics": [],
+    "execution_kind": "NOT_RUN",
+    "missing_dependencies": [
+      "@remotion/cli",
+      "@types/react",
+      "@types/react-dom",
+      "react",
+      "react-dom",
+      "remotion",
+      "typescript"
+    ],
+    "status": "BLOCKED_DEPENDENCIES",
+    "stderr": "",
+    "stdout": ""
+  },
+  "passed": false,
+  "scope": "GENERATED_CODE_REGRESSION_NOT_RENDER_OR_LEARNING_QUALITY",
+  "source_checks_passed": false,
+  "source_findings": [
+    {
+      "code": "QA_UNSEEDED_RANDOM",
+      "message": "A reference/alias to unseeded Math.random is nondeterministic.",
+      "owner": "COMP",
+      "path": "src/elements/Text_e0_5c88e7a2.tsx",
+      "severity": "ERROR"
+    },
+    {
+      "code": "QA_UNSEEDED_RANDOM",
+      "message": "Unseeded randomness makes repeat rendering nondeterministic.",
+      "owner": "COMP",
+      "path": "src/elements/Text_e0_5c88e7a2.tsx",
+      "severity": "ERROR"
+    }
+  ],
+  "syntax_probe": {
+    "accepted": false,
+    "diagnostics": [
+      {
+        "code": "QA_UNSEEDED_RANDOM",
+        "column": 8,
+        "file": "src/elements/Text_e0_5c88e7a2.tsx",
+        "line": 12,
+        "message": "Unseeded randomness makes repeat rendering nondeterministic.",
+        "severity": "ERROR",
+        "stage": "typescript-ast"
+      },
+      {
+        "code": "QA_UNSEEDED_RANDOM",
+        "column": 8,
+        "file": "src/elements/Text_e0_5c88e7a2.tsx",
+        "line": 12,
+        "message": "A reference/alias to unseeded Math.random is nondeterministic.",
+        "severity": "ERROR",
+        "stage": "typescript-ast"
+      }
+    ],
+    "execution_kind": "REAL_TYPESCRIPT_AST_PARSER",
+    "files_parsed": 7,
+    "findings": [
+      {
+        "code": "QA_UNSEEDED_RANDOM",
+        "message": "A reference/alias to unseeded Math.random is nondeterministic.",
+        "owner": "COMP",
+        "path": "src/elements/Text_e0_5c88e7a2.tsx",
+        "severity": "ERROR"
+      },
+      {
+        "code": "QA_UNSEEDED_RANDOM",
+        "message": "Unseeded randomness makes repeat rendering nondeterministic.",
+        "owner": "COMP",
+        "path": "src/elements/Text_e0_5c88e7a2.tsx",
+        "severity": "ERROR"
+      }
+    ],
+    "full_typecheck": false,
+    "imports": [
+      [
+        "remotion.config.ts",
+        "@remotion/cli/config"
+      ],
+      [
+        "src/Composition.tsx",
+        "./Scene"
+      ],
+      [
+        "src/Composition.tsx",
+        "react"
+      ],
+      [
+        "src/Composition.tsx",
+        "remotion"
+      ],
+      [
+        "src/Root.tsx",
+        "./Composition"
+      ],
+      [
+        "src/Root.tsx",
+        "react"
+      ],
+      [
+        "src/Scene.tsx",
+        "./qa-layers/QALayer_e0_5c88e7a2"
+      ],
+      [
+        "src/Scene.tsx",
+        "react"
+      ],
+      [
+        "src/Scene.tsx",
+        "remotion"
+      ],
+      [
+        "src/elements/Text_e0_5c88e7a2.tsx",
+        "react"
+      ],
+      [
+        "src/elements/Text_e0_5c88e7a2.tsx",
+        "remotion"
+      ],
+      [
+        "src/index.ts",
+        "./Root"
+      ],
+      [
+        "src/index.ts",
+        "remotion"
+      ],
+      [
+        "src/qa-layers/QALayer_e0_5c88e7a2.tsx",
+        "../elements/Text_e0_5c88e7a2"
+      ],
+      [
+        "src/qa-layers/QALayer_e0_5c88e7a2.tsx",
+        "react"
+      ]
+    ],
+    "status": "FAIL",
+    "stderr": "",
+    "stdout": "{\"schema_version\":\"bie.typescript-source-probe.v1\",\"typescript_version\":\"5.8.3\",\"files_parsed\":7,\"findings\":[{\"code\":\"QA_UNSEEDED_RANDOM\",\"severity\":\"ERROR\",\"path\":\"src/elements/Text_e0_5c88e7a2.tsx\",\"line\":12,\"column\":8,\"message\":\"Unseeded randomness makes repeat rendering nondeterministic.\"},{\"code\":\"QA_UNSEEDED_RANDOM\",\"severity\":\"ERROR\",\"path\":\"src/elements/Text_e0_5c88e7a2.tsx\",\"line\":12,\"column\":8,\"message\":\"A reference/alias to unseeded Math.random is nondeterministic.\"}],\"imports\":[{\"file\":\"remotion.config.ts\",\"specifier\":\"@remotion/cli/config\",\"dynamic\":false},{\"file\":\"src/Composition.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/Composition.tsx\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/Composition.tsx\",\"specifier\":\"./Scene\",\"dynamic\":false},{\"file\":\"src/Root.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/Root.tsx\",\"specifier\":\"./Composition\",\"dynamic\":false},{\"file\":\"src/Scene.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/Scene.tsx\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/Scene.tsx\",\"specifier\":\"./qa-layers/QALayer_e0_5c88e7a2\",\"dynamic\":false},{\"file\":\"src/elements/Text_e0_5c88e7a2.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/elements/Text_e0_5c88e7a2.tsx\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/index.ts\",\"specifier\":\"remotion\",\"dynamic\":false},{\"file\":\"src/index.ts\",\"specifier\":\"./Root\",\"dynamic\":false},{\"file\":\"src/qa-layers/QALayer_e0_5c88e7a2.tsx\",\"specifier\":\"react\",\"dynamic\":false},{\"file\":\"src/qa-layers/QALayer_e0_5c88e7a2.tsx\",\"specifier\":\"../elements/Text_e0_5c88e7a2\",\"dynamic\":false}],\"execution_kind\":\"REAL_TYPESCRIPT_AST_PARSER\",\"full_typecheck\":false,\"request_sha256\":\"3485fc318004333937f7874caa804e713a91352746e69641c30b46c03cd9c74d\",\"accepted\":false}",
+    "typescript_version": "5.8.3"
+  }
+}

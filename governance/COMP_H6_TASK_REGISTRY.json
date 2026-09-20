@@ -1,0 +1,61 @@
+{
+  "schema_version": "bie.comp-hardening-task-registry.v1",
+  "batch_id": "BIE-COMP-HARDENING-H6",
+  "audit_cycle": "COMP_AUDIT_009_H1_H2_H3_CONTINUED",
+  "parent_checkpoint": "BIE-COMP-H5-005",
+  "source_finding": "H3-R02",
+  "not_original_registry_numbers": true,
+  "tasks": [
+    {
+      "task_id": "BIE-COMP-H6-001",
+      "title": "Source-bound frame runtime contracts",
+      "finding_id": "H3-R02",
+      "spec": "docs/COMP_H6_001_SPEC.md",
+      "test_module": "tests.compiler.test_comp_h6_001",
+      "test_count": 23,
+      "status": "BOUNDED_IMPLEMENTED_LOCALLY_TESTED_NOT_ACCEPTED",
+      "requires_implementation_batch": "BIE-COMP-HARDENING-H6"
+    },
+    {
+      "task_id": "BIE-COMP-H6-002",
+      "title": "Pure state/event runtime and visible consumers",
+      "finding_id": "H3-R02",
+      "spec": "docs/COMP_H6_002_SPEC.md",
+      "test_module": "tests.compiler.test_comp_h6_002",
+      "test_count": 18,
+      "status": "BOUNDED_IMPLEMENTED_LOCALLY_TESTED_NOT_ACCEPTED",
+      "requires_implementation_batch": "BIE-COMP-HARDENING-H6"
+    },
+    {
+      "task_id": "BIE-COMP-H6-003",
+      "title": "Verified local PCM narration assets",
+      "finding_id": "H3-R02",
+      "spec": "docs/COMP_H6_003_SPEC.md",
+      "test_module": "tests.compiler.test_comp_h6_003",
+      "test_count": 20,
+      "status": "BOUNDED_IMPLEMENTED_LOCALLY_TESTED_NOT_ACCEPTED",
+      "requires_implementation_batch": "BIE-COMP-HARDENING-H6"
+    },
+    {
+      "task_id": "BIE-COMP-H6-004",
+      "title": "Scheduled narration and synchronized captions",
+      "finding_id": "H3-R02",
+      "spec": "docs/COMP_H6_004_SPEC.md",
+      "test_module": "tests.compiler.test_comp_h6_004",
+      "test_count": 22,
+      "status": "BOUNDED_IMPLEMENTED_LOCALLY_TESTED_NOT_ACCEPTED",
+      "requires_implementation_batch": "BIE-COMP-HARDENING-H6"
+    },
+    {
+      "task_id": "BIE-COMP-H6-005",
+      "title": "Existing checked-pipeline and measurement integration",
+      "finding_id": "H3-R02",
+      "spec": "docs/COMP_H6_005_SPEC.md",
+      "test_module": "tests.compiler.test_comp_h6_005",
+      "test_count": 16,
+      "status": "BOUNDED_IMPLEMENTED_LOCALLY_TESTED_NOT_ACCEPTED",
+      "requires_implementation_batch": "BIE-COMP-HARDENING-H6"
+    }
+  ],
+  "verification_dependency": "Restore all five ordered source deltas before running task suites; cross-task contracts are intentionally integrated. Individual task packages are NOT standalone."
+}

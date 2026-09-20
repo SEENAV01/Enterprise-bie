@@ -1,0 +1,569 @@
+{
+  "schema_version": "bie.comp-final-original-scope-audit.v1",
+  "original_tasks": 55,
+  "families": {
+    "ARCH": 6,
+    "REACT": 7,
+    "ELEM": 13,
+    "ANI": 5,
+    "AUDIO": 5,
+    "ASSET": 4,
+    "BUILD": 10,
+    "QA": 5
+  },
+  "all_sources_present": true,
+  "all_task_tests_present": true,
+  "rows": [
+    {
+      "task_id": "BIE-COMP-ARCH-001",
+      "family": "ARCH",
+      "source": "app/bie/compiler/compiler_architecture.py",
+      "source_exists": true,
+      "source_sha256": "ca66b7bb102f4b5aa5ec2b063e4d63c7353be78a83a48c6316b62df43d27ea71",
+      "test": "tests/compiler/test_comp_arch_arch.py",
+      "test_exists": true,
+      "test_sha256": "ad372435cb9e38e68a25e969feb09f6798db7c5795a3e5f4f6476af9e2a80c42"
+    },
+    {
+      "task_id": "BIE-COMP-ARCH-002",
+      "family": "ARCH",
+      "source": "app/bie/compiler/scene_ir_loader.py",
+      "source_exists": true,
+      "source_sha256": "42f660834d96c3a53eec64f4ccea713453ccb0040adfb59787553813f8993a17",
+      "test": "tests/compiler/test_comp_arch_loader.py",
+      "test_exists": true,
+      "test_sha256": "8b8b10aabadc4db16b141dc6524e6dc30abd01c1ee7523f98c23a896cba3ede2"
+    },
+    {
+      "task_id": "BIE-COMP-ARCH-003",
+      "family": "ARCH",
+      "source": "app/bie/compiler/compiler_capability_registry.py",
+      "source_exists": true,
+      "source_sha256": "db4165e3602d174aadf269890464e0569d51335a0759bda5830d6e34eadad954",
+      "test": "tests/compiler/test_comp_arch_cap.py",
+      "test_exists": true,
+      "test_sha256": "2b8c025ae7154f1cd4251a1c6c87db47381fb200fb0e8212ab01864a6b02219e"
+    },
+    {
+      "task_id": "BIE-COMP-ARCH-004",
+      "family": "ARCH",
+      "source": "app/bie/compiler/component_registry.py",
+      "source_exists": true,
+      "source_sha256": "5c0b532f4cffe9729cb0804a35a03875f030d23c0227de9770c229b7f04b800b",
+      "test": "tests/compiler/test_comp_arch_component.py",
+      "test_exists": true,
+      "test_sha256": "5136675e317d62c352a9817ffd0b320dbc29f63db744aeb9bc8ad3e4a4234f13"
+    },
+    {
+      "task_id": "BIE-COMP-ARCH-005",
+      "family": "ARCH",
+      "source": "app/bie/compiler/compiler_diagnostics.py",
+      "source_exists": true,
+      "source_sha256": "9e711a5c9b521bcbce1ebaa7f06532a9e759b47b86310acd8e592a8d72f2c0a1",
+      "test": "tests/compiler/test_comp_arch_diag.py",
+      "test_exists": true,
+      "test_sha256": "67a95897de5a0fbd54e4902f8b8492fa54bcdf971514b314c3e249c95812cdb7"
+    },
+    {
+      "task_id": "BIE-COMP-ARCH-006",
+      "family": "ARCH",
+      "source": "app/bie/compiler/deterministic_codegen.py",
+      "source_exists": true,
+      "source_sha256": "6221b2c5e08917bf63b6306b78c4443a6878df6692c91e85068ac80e5acccc5d",
+      "test": "tests/compiler/test_comp_arch_codegen.py",
+      "test_exists": true,
+      "test_sha256": "0f9d335bd247bedfcb44c3807ec5c566e5fd803e986c217f96d76588ce7d8aa2"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-001",
+      "family": "REACT",
+      "source": "app/bie/compiler/react_project_emitter.py",
+      "source_exists": true,
+      "source_sha256": "007b9e269f03273439020176aad94cf446deda013ef3bc5debf3609a0da7d70a",
+      "test": "tests/compiler/test_comp_react_project.py",
+      "test_exists": true,
+      "test_sha256": "59339fed79584d86a2d16cdd3dd06ecccce006fdb80eed89ad8bd561995a5f67"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-002",
+      "family": "REACT",
+      "source": "app/bie/compiler/root_emitter.py",
+      "source_exists": true,
+      "source_sha256": "d9e8d731e6ed073207acf6fb09344f2b9159c7605983df47817ee74d882848a4",
+      "test": "tests/compiler/test_comp_react_root.py",
+      "test_exists": true,
+      "test_sha256": "086328d340d26d797a18869892569eafb024c098befc6883d7a6dd167fd407bf"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-003",
+      "family": "REACT",
+      "source": "app/bie/compiler/composition_emitter.py",
+      "source_exists": true,
+      "source_sha256": "9358206728247f60f2b374d7efbf5298f91c14d94f6826130e428ef157c9bd9d",
+      "test": "tests/compiler/test_comp_react_composition.py",
+      "test_exists": true,
+      "test_sha256": "90a7905db44a5b18049b956009d9ec3e8d8560501d012f3a6df50c2c014d8816"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-004",
+      "family": "REACT",
+      "source": "app/bie/compiler/scene_component_emitter.py",
+      "source_exists": true,
+      "source_sha256": "2915346acd6ab37fbf6e4aec133d0ed1bf0b9a0e7246150dd4ef2632b6be9e2b",
+      "test": "tests/compiler/test_comp_react_scene.py",
+      "test_exists": true,
+      "test_sha256": "594ca2b03e5984d0a2097565a1e85781d5500c7ac87ccc72463bb80b32b81aa0"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-005",
+      "family": "REACT",
+      "source": "app/bie/compiler/props_generation.py",
+      "source_exists": true,
+      "source_sha256": "2bd8a2d2cffe0cd0eda140e1f3aa428d5e040dff1c5b4548911984d37b143b8d",
+      "test": "tests/compiler/test_comp_react_props.py",
+      "test_exists": true,
+      "test_sha256": "4353639a9e74ad4730c7d3bda6bb1a5f9a223b75557aadab3be5840659cdcb86"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-006",
+      "family": "REACT",
+      "source": "app/bie/compiler/state_bindings_emitter.py",
+      "source_exists": true,
+      "source_sha256": "29b594b9adc160e32a054feff72f6b802fdb657fdcb1227c511d7bbc908c7212",
+      "test": "tests/compiler/test_comp_react_state.py",
+      "test_exists": true,
+      "test_sha256": "eba630713b87c3a063703adf40329e1281e618723191b115a0a8f54b72a8fac3"
+    },
+    {
+      "task_id": "BIE-COMP-REACT-007",
+      "family": "REACT",
+      "source": "app/bie/compiler/reusable_primitives_emitter.py",
+      "source_exists": true,
+      "source_sha256": "4eac4afab97a23594624907f4b21a3828ea007bdccee5e66c9faf445ad57833e",
+      "test": "tests/compiler/test_comp_react_primitives.py",
+      "test_exists": true,
+      "test_sha256": "ee32927becade4d0af5769527aee1b64b4a27b349d565702e4534b134ca556aa"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-001",
+      "family": "ELEM",
+      "source": "app/bie/compiler/text_compiler.py",
+      "source_exists": true,
+      "source_sha256": "394e69518edc66bd7943c841b5efe87f3ff022769221899ca4968d1aade7a2dd",
+      "test": "tests/compiler/test_comp_elem_001.py",
+      "test_exists": true,
+      "test_sha256": "6e5d386e4ccf99dc7b01aea67fd9626538107fec00fa716b5f4f52030e10d674"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-002",
+      "family": "ELEM",
+      "source": "app/bie/compiler/equation_compiler.py",
+      "source_exists": true,
+      "source_sha256": "0c69a1e1e9021a680663540551f14c4b13ed2ac1704ceca517f1815ad10c16b5",
+      "test": "tests/compiler/test_comp_elem_002.py",
+      "test_exists": true,
+      "test_sha256": "c6b1f600bbe0f2e609f41512059972728b8340fcb9cd3cf83f4f4423fae46bdc"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-003",
+      "family": "ELEM",
+      "source": "app/bie/compiler/vector_compiler.py",
+      "source_exists": true,
+      "source_sha256": "130ca1bdd19027fd929dfe821d538ec8c4771afc81c49faae2923870d92924f2",
+      "test": "tests/compiler/test_comp_elem_003.py",
+      "test_exists": true,
+      "test_sha256": "815b68ff7c8d6840f5820bfbf8a242a9274af42e8b781259de256d7e22a506d6"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-004",
+      "family": "ELEM",
+      "source": "app/bie/compiler/graph_compiler.py",
+      "source_exists": true,
+      "source_sha256": "42ecad3bbdbd67b93b2b9f3e795819629f49c7f7c866466ddd9c553e79fd3368",
+      "test": "tests/compiler/test_comp_elem_004.py",
+      "test_exists": true,
+      "test_sha256": "5d4d44606ddef2f86a719c4f26b2a41ea750ffcc0269ca2570cda3cdb6860de2"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-005",
+      "family": "ELEM",
+      "source": "app/bie/compiler/chart_compiler.py",
+      "source_exists": true,
+      "source_sha256": "7f22f8c7fe1fc51a57ad708e049044d182f4131f252649409d2a61cce9b358d1",
+      "test": "tests/compiler/test_comp_elem_005.py",
+      "test_exists": true,
+      "test_sha256": "015eb7494eddb1c496b7d596caba604d6de72d4186535a0f30719730709b3c4e"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-006",
+      "family": "ELEM",
+      "source": "app/bie/compiler/map_compiler.py",
+      "source_exists": true,
+      "source_sha256": "e123d6716f26811afb18d223584882bb16f1b2b785783ab3a08cd358b1be2666",
+      "test": "tests/compiler/test_comp_elem_006.py",
+      "test_exists": true,
+      "test_sha256": "3f6062577a1aefed27844f19643f96f2c0af0ddeafdeb4c26dd6bdc55629174f"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-007",
+      "family": "ELEM",
+      "source": "app/bie/compiler/timeline_compiler.py",
+      "source_exists": true,
+      "source_sha256": "e15fa89e4fabec4088b8cbbfa0e96a41bdcf6f14e3119ef700827d9744ba0f13",
+      "test": "tests/compiler/test_comp_elem_007.py",
+      "test_exists": true,
+      "test_sha256": "627ff687dd34652b8cd720dddd7843baf4d4129d66ab5077a3fdd952d6de3dcf"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-008",
+      "family": "ELEM",
+      "source": "app/bie/compiler/media_compiler.py",
+      "source_exists": true,
+      "source_sha256": "510d1b7d5d370293131bc570594ad5d585a93d6ecd85349d4b3c096121f5c320",
+      "test": "tests/compiler/test_comp_elem_008.py",
+      "test_exists": true,
+      "test_sha256": "0ba38207fa1db79257d890349125e59d4bd56aa069ff5771bbb28580baa83c1e"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-009",
+      "family": "ELEM",
+      "source": "app/bie/compiler/simulation_compiler.py",
+      "source_exists": true,
+      "source_sha256": "bb4b665e570acff82cf0c5fbc73b13af0bb174ec3f8a5f9f137bc3e1340d184f",
+      "test": "tests/compiler/test_comp_elem_009.py",
+      "test_exists": true,
+      "test_sha256": "1971942da34bea4f0a20a01a0d3068b8ad363ef1713a1c4c5cbeda77c6cae824"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-010",
+      "family": "ELEM",
+      "source": "app/bie/compiler/model2d_compiler.py",
+      "source_exists": true,
+      "source_sha256": "d8dfaf57428cda1fb94dc2ecf6a3bd1a949af26e3c19526ac2fdb2e06542f841",
+      "test": "tests/compiler/test_comp_elem_010.py",
+      "test_exists": true,
+      "test_sha256": "4414e97f8515cb921fa7f5772b221aed41b09eaa8a53ddfbfab2df33904ebfe6"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-011",
+      "family": "ELEM",
+      "source": "app/bie/compiler/model3d_compiler.py",
+      "source_exists": true,
+      "source_sha256": "fa182855b08c647f2769d260c233a52518fb069681423fbcb04210dfea80a5ad",
+      "test": "tests/compiler/test_comp_elem_011.py",
+      "test_exists": true,
+      "test_sha256": "d3678da7e36be2f7f668a936fa4c1600a1d29a4e84bb524f5a72192d689d4129"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-012",
+      "family": "ELEM",
+      "source": "app/bie/compiler/annotation_callout_compiler.py",
+      "source_exists": true,
+      "source_sha256": "65f6897ff9f0c01ea2285b7e3b8ec99cc55de7436502574474c839a635caa712",
+      "test": "tests/compiler/test_comp_elem_012.py",
+      "test_exists": true,
+      "test_sha256": "4d7f282f6cd888e7b80de9fd4f36b1c0285d4376dfbd45de4260ed3593d6fd2e"
+    },
+    {
+      "task_id": "BIE-COMP-ELEM-013",
+      "family": "ELEM",
+      "source": "app/bie/compiler/particle_compiler.py",
+      "source_exists": true,
+      "source_sha256": "2aecad22723346d98ed5db2a20bdcb8ce5d1f10fe9847326c3dd9581d8d51a99",
+      "test": "tests/compiler/test_comp_elem_013.py",
+      "test_exists": true,
+      "test_sha256": "7d4f970d7201ac66879bf53bb9fdb446dea51b6fa5fb7d1764055608cd7b879c"
+    },
+    {
+      "task_id": "BIE-COMP-ANI-001",
+      "family": "ANI",
+      "source": "app/bie/compiler/animation_track_compiler.py",
+      "source_exists": true,
+      "source_sha256": "8d13e691b8a7a6ebb41096859095f8e7adde2105fd3e506fbefa6c8be6ef99e7",
+      "test": "tests/compiler/test_comp_ani_001.py",
+      "test_exists": true,
+      "test_sha256": "8327778bf919966871188b4123326fefafd60b6c8de6a35a6fc1832071bab2ac"
+    },
+    {
+      "task_id": "BIE-COMP-ANI-002",
+      "family": "ANI",
+      "source": "app/bie/compiler/semantic_easing_compiler.py",
+      "source_exists": true,
+      "source_sha256": "bb8199577c0578a81ab92d7cd641cbc9a08e98ba21435ef738bec519c7262f67",
+      "test": "tests/compiler/test_comp_ani_002.py",
+      "test_exists": true,
+      "test_sha256": "1fe032c4160f02f1c8732ed8fab64208a3b27a4c3f09cf908b220a9c7adc1e50"
+    },
+    {
+      "task_id": "BIE-COMP-ANI-003",
+      "family": "ANI",
+      "source": "app/bie/compiler/camera_compiler.py",
+      "source_exists": true,
+      "source_sha256": "573676cdcfc56a294f6b7bf22f7d60433a9556c1d7418862e6588f3b1da0d495",
+      "test": "tests/compiler/test_comp_ani_003.py",
+      "test_exists": true,
+      "test_sha256": "93ab0d43b4487ac920d8c9539d10922bc219bc488b0f4b6155b6e0bcfa048f4b"
+    },
+    {
+      "task_id": "BIE-COMP-ANI-004",
+      "family": "ANI",
+      "source": "app/bie/compiler/equation_morph_compiler.py",
+      "source_exists": true,
+      "source_sha256": "b2155f6a07cb344bb056b805c90cfb24d3f30092975f5c0a900fda59bb31762a",
+      "test": "tests/compiler/test_comp_ani_004.py",
+      "test_exists": true,
+      "test_sha256": "8201eb0de8e7913aa28b0ebeeaacc4abb3da99b6a8f00dcbb62c7524f8c49e1d"
+    },
+    {
+      "task_id": "BIE-COMP-ANI-005",
+      "family": "ANI",
+      "source": "app/bie/compiler/graph_transition_compiler.py",
+      "source_exists": true,
+      "source_sha256": "89a8effef249cba82f138637f3cea1ab33508a5744901b5ce62ede187499a632",
+      "test": "tests/compiler/test_comp_ani_005.py",
+      "test_exists": true,
+      "test_sha256": "0c5906e85376ae5bcf1fd2cc238bdfb62613b3955705c160941e201d88146b71"
+    },
+    {
+      "task_id": "BIE-COMP-AUDIO-001",
+      "family": "AUDIO",
+      "source": "app/bie/compiler/voiceover_compiler.py",
+      "source_exists": true,
+      "source_sha256": "7563056f67685bd7e570a30a0b5ea1f89911ad8c37063c54eea3f52d27bf0940",
+      "test": "tests/compiler/test_comp_audio_001.py",
+      "test_exists": true,
+      "test_sha256": "5e534215a4dfef07570da9e17a929eb013b2a4c7b3f9ce1d74b862d43c16c8ca"
+    },
+    {
+      "task_id": "BIE-COMP-AUDIO-002",
+      "family": "AUDIO",
+      "source": "app/bie/compiler/captions_compiler.py",
+      "source_exists": true,
+      "source_sha256": "1db63a484bf1f7a51b442380afc11c19c9825a282f847df111acd776c7b5871e",
+      "test": "tests/compiler/test_comp_audio_002.py",
+      "test_exists": true,
+      "test_sha256": "695b8d1fc5ef46077aee8009efe0763c350ab0c1d1c60fc58a54bf8ba214a59a"
+    },
+    {
+      "task_id": "BIE-COMP-AUDIO-003",
+      "family": "AUDIO",
+      "source": "app/bie/compiler/subtitle_compiler.py",
+      "source_exists": true,
+      "source_sha256": "c5f674ffe9ccf188bc40a96cd7dd9d41cb9afd6076da3f318777c6124feb624e",
+      "test": "tests/compiler/test_comp_audio_003.py",
+      "test_exists": true,
+      "test_sha256": "2ea361f84cc14da4f3bff6b740a4613731bec3aa4e7df47935fa3a3c74f51fc7"
+    },
+    {
+      "task_id": "BIE-COMP-AUDIO-004",
+      "family": "AUDIO",
+      "source": "app/bie/compiler/audio_cue_sync_compiler.py",
+      "source_exists": true,
+      "source_sha256": "b91a55e88a728cf10ffd27c3fcf6d725e980be4a13db1f3a19b1a937657c9c89",
+      "test": "tests/compiler/test_comp_audio_004.py",
+      "test_exists": true,
+      "test_sha256": "5ac1b05904e1eb354cad8e66743b7545c36fe5e0241cd2dda0bf441bd5bd40e9"
+    },
+    {
+      "task_id": "BIE-COMP-AUDIO-005",
+      "family": "AUDIO",
+      "source": "app/bie/compiler/music_sfx_hooks_compiler.py",
+      "source_exists": true,
+      "source_sha256": "8b1923866baad1281f8429de7893fa272cf52588b24a95e48c4b532eb348e13a",
+      "test": "tests/compiler/test_comp_audio_005.py",
+      "test_exists": true,
+      "test_sha256": "b491573676b2c02723aa1c3ca9033898ad7b228d0c60598c2ef56e3cc34e53fb"
+    },
+    {
+      "task_id": "BIE-COMP-ASSET-001",
+      "family": "ASSET",
+      "source": "app/bie/compiler/asset_bundler.py",
+      "source_exists": true,
+      "source_sha256": "1279373feea8328600f1ec69e73bba7dafbd9dbb0bbd62d978cbd89c9d1a99f7",
+      "test": "tests/compiler/test_comp_asset_001.py",
+      "test_exists": true,
+      "test_sha256": "a728c2dd8d40804dfc6c041d2ee461a0e007f94cf542cefceae95d0d254d4c08"
+    },
+    {
+      "task_id": "BIE-COMP-ASSET-002",
+      "family": "ASSET",
+      "source": "app/bie/compiler/asset_path_resolver.py",
+      "source_exists": true,
+      "source_sha256": "a7edbb19e8e660cb8210daf84cd47cdda4b49e94edecd326e13905f3d9e8a445",
+      "test": "tests/compiler/test_comp_asset_002.py",
+      "test_exists": true,
+      "test_sha256": "3dc6bcbc7a42a794d5643bdc8dc59f84d63d4508745182a65850802353742e11"
+    },
+    {
+      "task_id": "BIE-COMP-ASSET-003",
+      "family": "ASSET",
+      "source": "app/bie/compiler/asset_hash_verifier.py",
+      "source_exists": true,
+      "source_sha256": "fec8cbff3142c35ae277da6220c58d72f1342a875745357eaec0d25b2ea2acb8",
+      "test": "tests/compiler/test_comp_asset_003.py",
+      "test_exists": true,
+      "test_sha256": "46c35a27d288f570747bef8a91faeeb537cd67c10909e6f2dbd40bebd3d87cc0"
+    },
+    {
+      "task_id": "BIE-COMP-ASSET-004",
+      "family": "ASSET",
+      "source": "app/bie/compiler/missing_asset_failure.py",
+      "source_exists": true,
+      "source_sha256": "7287716d58e28afbd84b4a1db48f1235365717cd63d20228c9cd49b75c5ce09c",
+      "test": "tests/compiler/test_comp_asset_004.py",
+      "test_exists": true,
+      "test_sha256": "a7a0d612ba70da98b0cd6422b95d3b98e8561b3965ae751edd9ff1c94678d482"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-001",
+      "family": "BUILD",
+      "source": "app/bie/compiler/npm_workspace_generation.py",
+      "source_exists": true,
+      "source_sha256": "4f5e5f77dd21b4c4539da3e947c030ebbd36db41359603a0e464aef5449fa3c7",
+      "test": "tests/compiler/test_comp_build_001.py",
+      "test_exists": true,
+      "test_sha256": "959cbbf8a386e13e386d3768fed4364da88f9352a8893af1b13d1c27f976f2ea"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-002",
+      "family": "BUILD",
+      "source": "app/bie/compiler/dependency_lock.py",
+      "source_exists": true,
+      "source_sha256": "2737ec3bdbd1d518ca96110766231612d1b01ea87c9179024bf1cadedef2a08f",
+      "test": "tests/compiler/test_comp_build_002.py",
+      "test_exists": true,
+      "test_sha256": "eec52c98ed852327df3a9e2d92d4bda73162a21699462ba8a99aca65cf66fbd5"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-003",
+      "family": "BUILD",
+      "source": "app/bie/compiler/typescript_compile.py",
+      "source_exists": true,
+      "source_sha256": "998669a65574ec56c8f34fcaf70a6077b6f61d5c04449c9c73d5efc54d043d19",
+      "test": "tests/compiler/test_comp_build_003.py",
+      "test_exists": true,
+      "test_sha256": "1ef39f2cb0b3e71029308c3f488715168a29cb1bfdd1b6a2380da5b6f5dd46ff"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-004",
+      "family": "BUILD",
+      "source": "app/bie/compiler/generated_lint.py",
+      "source_exists": true,
+      "source_sha256": "2b50d5adfb680d0f2ea38f2deb892919f067df28b7c258b8d94e5336d16a91b6",
+      "test": "tests/compiler/test_comp_build_004.py",
+      "test_exists": true,
+      "test_sha256": "db0082c11d9c725732ee5fb9bd975b2a09baa1b5cce3e897d534c5bca8a9f972"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-005",
+      "family": "BUILD",
+      "source": "app/bie/compiler/generated_static_analysis.py",
+      "source_exists": true,
+      "source_sha256": "02c15effae45ad2909d33d8c6dba277ecef73f69c5911697c695bceab416c158",
+      "test": "tests/compiler/test_comp_build_005.py",
+      "test_exists": true,
+      "test_sha256": "35595614190bf43329c23f74795ca5d1153d2a2f2296b0e73649b68b67e16dcc"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-006",
+      "family": "BUILD",
+      "source": "app/bie/compiler/remotion_composition_discovery.py",
+      "source_exists": true,
+      "source_sha256": "91af730be1db87a2d66033c91510bf845d3beaf59bb27701f73e69c23503022d",
+      "test": "tests/compiler/test_comp_build_006.py",
+      "test_exists": true,
+      "test_sha256": "e70e08ea7ef41d6d448f1e4fefccc398f598908cfcf1d28368b7d7b3b034527d"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-007",
+      "family": "BUILD",
+      "source": "app/bie/compiler/smoke_render.py",
+      "source_exists": true,
+      "source_sha256": "e961662632042e7fa55d80cb4ccd40ffa2582a0dba7e8aac1fbcf337e393c3cb",
+      "test": "tests/compiler/test_comp_build_007.py",
+      "test_exists": true,
+      "test_sha256": "38199513d8db254c07fecb543f8a058bcba9281d304cbccbe1b97c6a2def2532"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-008",
+      "family": "BUILD",
+      "source": "app/bie/compiler/full_render.py",
+      "source_exists": true,
+      "source_sha256": "38aeee7bc27f3aa1432cbc24e4d8572eabc1b183b63cd7acd09e0ba8e6a2dd2b",
+      "test": "tests/compiler/test_comp_build_008.py",
+      "test_exists": true,
+      "test_sha256": "c4de80744f37fd0e4e45daa4db506608d0b522282f5a5c6eee9d340f526fe67d"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-009",
+      "family": "BUILD",
+      "source": "app/bie/compiler/render_logs.py",
+      "source_exists": true,
+      "source_sha256": "a4c65886aa55247785ffcea40fa3511c1c2204d24ecdcd335f7993961d778b9c",
+      "test": "tests/compiler/test_comp_build_009.py",
+      "test_exists": true,
+      "test_sha256": "0083325886de99471d036fef08edb51bc898ffbd9621f2c519af905935bbce91"
+    },
+    {
+      "task_id": "BIE-COMP-BUILD-010",
+      "family": "BUILD",
+      "source": "app/bie/compiler/artifact_hashing.py",
+      "source_exists": true,
+      "source_sha256": "aed2b46c10ca0f07d6b2c36a0d58c666fa734ddc58729e5f7b35de1310848727",
+      "test": "tests/compiler/test_comp_build_010.py",
+      "test_exists": true,
+      "test_sha256": "e6eb862b77f369430022aa0663788498855693bb7a70245fbffde10130254029"
+    },
+    {
+      "task_id": "BIE-COMP-QA-001",
+      "family": "QA",
+      "source": "app/bie/compiler/compile_diagnostics_mapping.py",
+      "source_exists": true,
+      "source_sha256": "ab8c71d5539097c327bbdb197769ad9869c3f73bcc61971c1c8abe95c869d832",
+      "test": "tests/compiler/test_comp_qa_001.py",
+      "test_exists": true,
+      "test_sha256": "e44c5998b04af0f3fbb5d9d8eca4a445802b2fde4f61359a36dc30eea2a69f44"
+    },
+    {
+      "task_id": "BIE-COMP-QA-002",
+      "family": "QA",
+      "source": "app/bie/compiler/capability_fallback_qa.py",
+      "source_exists": true,
+      "source_sha256": "0056f7ffa16d35d4f0c9eed14d344f9c88f448435987b1189c28155f30287da0",
+      "test": "tests/compiler/test_comp_qa_002.py",
+      "test_exists": true,
+      "test_sha256": "951ef6248e7afda2992d731b8d3fee530b9ef61c9b1be0a3ee4225ba497a97f8"
+    },
+    {
+      "task_id": "BIE-COMP-QA-003",
+      "family": "QA",
+      "source": "app/bie/compiler/deterministic_output_qa.py",
+      "source_exists": true,
+      "source_sha256": "b648dca5c9202e5f7695bca875fb754aa5d06399cae949b5468b621630be525e",
+      "test": "tests/compiler/test_comp_qa_003.py",
+      "test_exists": true,
+      "test_sha256": "c9466bed7f286e0c689c44be5e86ec3cd85452c5ebeb41402ee8cee795c9229c"
+    },
+    {
+      "task_id": "BIE-COMP-QA-004",
+      "family": "QA",
+      "source": "app/bie/compiler/generated_code_regression.py",
+      "source_exists": true,
+      "source_sha256": "633f79a5d18ea04b026e0ae74d239033d482b3433509380303bd93c4f3f1c243",
+      "test": "tests/compiler/test_comp_qa_004.py",
+      "test_exists": true,
+      "test_sha256": "57b65121e33bfd782a1ca0fe576baa5d538a76a9ac7e7d1079fbeba701adffd1"
+    },
+    {
+      "task_id": "BIE-COMP-QA-005",
+      "family": "QA",
+      "source": "app/bie/compiler/multidomain_compile_benchmark.py",
+      "source_exists": true,
+      "source_sha256": "f86643eb57238297c7acfa7e7ffdde21dd5ac9466149c7a416cdb7076e4614b8",
+      "test": "tests/compiler/test_comp_qa_005.py",
+      "test_exists": true,
+      "test_sha256": "fd916e417340c7233e2e0ea62fa930b644e46a2a0d6d09a27019701ded73d66a"
+    }
+  ],
+  "unresolved_implementation_markers": []
+}

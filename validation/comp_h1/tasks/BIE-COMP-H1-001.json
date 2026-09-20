@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-COMP-H1-001",
+  "title": "Literal text safety",
+  "status": "IMPLEMENTED_LOCAL_TESTED_ACTUAL_RENDER_BLOCKED",
+  "accepted": false,
+  "section_exit_permitted": false,
+  "atomic_test_count": 23,
+  "tests_passed": 23,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "test_evidence": "TEST_RESULT.txt",
+  "test_evidence_scope": "ATOMIC_TEST_LINES_FROM_FINAL_CUMULATIVE_RUN; fresh extraction log separately in master",
+  "audit_findings": [
+    "COMP-AUDIT-009-F01"
+  ],
+  "parent_source_sha256": "47afb5d1fbb5265a6b7401177d697f223d4d9a60375a77eebac7077d659377c2",
+  "spec": "docs/SPEC.md",
+  "full_compile_verified": false,
+  "real_remotion_render": "NOT_RUN",
+  "integration_status": "LOCAL_ONLY",
+  "shared_dependencies": "Full current app plus fixtures and required scripts/helpers; not a patch-only ZIP."
+}

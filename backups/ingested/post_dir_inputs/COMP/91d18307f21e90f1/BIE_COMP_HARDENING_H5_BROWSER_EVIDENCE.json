@@ -1,0 +1,249 @@
+{
+  "schema_version": "bie.comp-h5-browser-evidence.v1",
+  "scope": "SYNTHETIC_REAL_CHROMIUM_EXPLICIT_REACT_REMOTION_DOUBLES",
+  "case_count": 6,
+  "cases": [
+    {
+      "case_id": "camera-focus-zoom",
+      "source_gate_passed": true,
+      "manifest_sha256": "0a936ea3ef03c653a14a17c430419c73bf55c9db7020d6bc6f67bd7b7acb2e54",
+      "scene_identity": "beb7a0e2a1486cd680a90ef016622f5bc4203872ebef772cfc7e4810a2423522",
+      "layout_frames": 48,
+      "element_frame_records": 48,
+      "fit_passed": false,
+      "fit_findings": [
+        {
+          "code": "LAYOUT_TEXT_BELOW_MINIMUM",
+          "severity": "ERROR",
+          "message": "Effective text size is below declared technical floor; element=e0, first_frame=0, occurrences=21",
+          "path": "$.measurements",
+          "owner": "COMP"
+        }
+      ],
+      "expected_fit": false,
+      "expected_fit_codes": [
+        "LAYOUT_TEXT_BELOW_MINIMUM"
+      ],
+      "fit_expectation_matched": true,
+      "semantic_frames": 48,
+      "consumer_frame_records": 48,
+      "semantics_passed": true,
+      "semantic_failures": [],
+      "screenshots": [
+        {
+          "path": "camera-focus-zoom/layout/frame-00000.png",
+          "sha256": "260b134a659dfadc9441a4341bd698b728fd4d9afca82320d9fb10664bc0db8f",
+          "frame": 0
+        },
+        {
+          "path": "camera-focus-zoom/layout/frame-00024.png",
+          "sha256": "22170bf73228dfbe32b57c8bc464f1c1a255474fc3aecece9002a63bac9b8795",
+          "frame": 24
+        },
+        {
+          "path": "camera-focus-zoom/layout/frame-00047.png",
+          "sha256": "c609d85834603bac70b46ee0e51d1da0a598acafe777a5137a4325391da167e0",
+          "frame": 47
+        }
+      ]
+    },
+    {
+      "case_id": "equation-typeset-steps",
+      "source_gate_passed": true,
+      "manifest_sha256": "02a38e2624c49e80224de55eb4a3edc0555a9cda315bd14ea3e8d8781d56dcbe",
+      "scene_identity": "b6b7a040be0871574031c99f389d9e5f1af4c41595afaa9c9ba1452423b354a5",
+      "layout_frames": 48,
+      "element_frame_records": 48,
+      "fit_passed": true,
+      "fit_findings": [],
+      "expected_fit": true,
+      "expected_fit_codes": [],
+      "fit_expectation_matched": true,
+      "semantic_frames": 48,
+      "consumer_frame_records": 48,
+      "semantics_passed": true,
+      "semantic_failures": [],
+      "screenshots": [
+        {
+          "path": "equation-typeset-steps/layout/frame-00000.png",
+          "sha256": "6d315b05f9a93b4869fa0763ff1fadfec2b452b1732faf7af693817f031aa560",
+          "frame": 0
+        },
+        {
+          "path": "equation-typeset-steps/layout/frame-00024.png",
+          "sha256": "5448b8affdd574d038b00a2c1db436c078c9c9895c7efd7cec33d84a662f46d1",
+          "frame": 24
+        },
+        {
+          "path": "equation-typeset-steps/layout/frame-00047.png",
+          "sha256": "0ee4718d76858ab1ca442701be5886abcaf81ea3e1a47493294aba1bfead6de8",
+          "frame": 47
+        }
+      ]
+    },
+    {
+      "case_id": "signed-graph-trace",
+      "source_gate_passed": true,
+      "manifest_sha256": "fa34ca6a9e375360121e9a69b5fe4bac2310fb51b6f6fadcf392eef15b38c857",
+      "scene_identity": "009f5dce93a2b0635ce8ec0e0a274f37381a61454e4435009f33bd009e5e30f7",
+      "layout_frames": 48,
+      "element_frame_records": 48,
+      "fit_passed": true,
+      "fit_findings": [],
+      "expected_fit": true,
+      "expected_fit_codes": [],
+      "fit_expectation_matched": true,
+      "semantic_frames": 48,
+      "consumer_frame_records": 48,
+      "semantics_passed": true,
+      "semantic_failures": [],
+      "screenshots": [
+        {
+          "path": "signed-graph-trace/layout/frame-00000.png",
+          "sha256": "745e421fe69ead394836dc4fe6f7cd142a54c706bf91e6259539ba645f7d6233",
+          "frame": 0
+        },
+        {
+          "path": "signed-graph-trace/layout/frame-00024.png",
+          "sha256": "9fdff8bf03a38fc0cbba7f9dd9c1a57f19a56e18cf883a47f4c0ae30e07b689e",
+          "frame": 24
+        },
+        {
+          "path": "signed-graph-trace/layout/frame-00047.png",
+          "sha256": "e7e287fbb10e1fa9f26f151304dea04b147a4485f4f0e5860fafeafa43f10060",
+          "frame": 47
+        }
+      ]
+    },
+    {
+      "case_id": "combined-consumers",
+      "source_gate_passed": true,
+      "manifest_sha256": "dc8eeabf67363a8edc66248c3e12e11899124adad9b9183c8a7f0f34b09ed6e2",
+      "scene_identity": "3e6cf4d8b7755ee77e77646262ea23b58f6ef9508c7d90a82522ea52296d914d",
+      "layout_frames": 48,
+      "element_frame_records": 96,
+      "fit_passed": false,
+      "fit_findings": [
+        {
+          "code": "LAYOUT_TEXT_BELOW_MINIMUM",
+          "severity": "ERROR",
+          "message": "Effective text size is below declared technical floor; element=e0, first_frame=0, occurrences=8",
+          "path": "$.measurements",
+          "owner": "COMP"
+        }
+      ],
+      "expected_fit": false,
+      "expected_fit_codes": [
+        "LAYOUT_TEXT_BELOW_MINIMUM"
+      ],
+      "fit_expectation_matched": true,
+      "semantic_frames": 48,
+      "consumer_frame_records": 144,
+      "semantics_passed": true,
+      "semantic_failures": [],
+      "screenshots": [
+        {
+          "path": "combined-consumers/layout/frame-00000.png",
+          "sha256": "598bab5fb7051c84f4c32c5b4bc98cd645ac889c1ec7372821948d98149d27c3",
+          "frame": 0
+        },
+        {
+          "path": "combined-consumers/layout/frame-00024.png",
+          "sha256": "23ecee22216419927a499221eb50ec18ae475c54beaf5205c55b430080405046",
+          "frame": 24
+        },
+        {
+          "path": "combined-consumers/layout/frame-00047.png",
+          "sha256": "e79a50ba7affe62c7c00a5bbb2523cf21608e5b43471ef77f4751d36939cd65c",
+          "frame": 47
+        }
+      ]
+    },
+    {
+      "case_id": "camera-focus-zoom-readable",
+      "source_gate_passed": true,
+      "manifest_sha256": "40a562805ae64d4893e9ea14f7ba80c446873cbe4b9370c56cbbe3bfce1afc4a",
+      "scene_identity": "f20c8687dba011941129122f66e802847eddbfa609bb3f3d68f7944c0db2356e",
+      "layout_frames": 48,
+      "element_frame_records": 48,
+      "fit_passed": true,
+      "fit_findings": [],
+      "expected_fit": true,
+      "expected_fit_codes": [],
+      "fit_expectation_matched": true,
+      "semantic_frames": 48,
+      "consumer_frame_records": 48,
+      "semantics_passed": true,
+      "semantic_failures": [],
+      "screenshots": [
+        {
+          "path": "camera-focus-zoom-readable/layout/frame-00000.png",
+          "sha256": "3d5e3f808bc8eeb7db947dc78533ebd5c1a8e3fee78ce8919fcc00664928ea4e",
+          "frame": 0
+        },
+        {
+          "path": "camera-focus-zoom-readable/layout/frame-00024.png",
+          "sha256": "010b2112bb7f27e0f38f1535f2340bb69ba1946fa3e7bdc2bf92e93a482e1cc5",
+          "frame": 24
+        },
+        {
+          "path": "camera-focus-zoom-readable/layout/frame-00047.png",
+          "sha256": "86974726308a0983302d16bc0b3a36b27601c3669cc5e036fa91c95f4ff38229",
+          "frame": 47
+        }
+      ]
+    },
+    {
+      "case_id": "combined-consumers-readable",
+      "source_gate_passed": true,
+      "manifest_sha256": "ac9e03ebdfe2fa19da67b57db0c0b1bd82333f9f5b4133707965401d2570c343",
+      "scene_identity": "a965b8d2b81eea887956c0656d2760d1dc5e958413980be1adcb1c3fc96eff9f",
+      "layout_frames": 48,
+      "element_frame_records": 96,
+      "fit_passed": true,
+      "fit_findings": [],
+      "expected_fit": true,
+      "expected_fit_codes": [],
+      "fit_expectation_matched": true,
+      "semantic_frames": 48,
+      "consumer_frame_records": 144,
+      "semantics_passed": true,
+      "semantic_failures": [],
+      "screenshots": [
+        {
+          "path": "combined-consumers-readable/layout/frame-00000.png",
+          "sha256": "3a6bb9240793d6a30dd69ae5ce5d1c8419f63d9883ac624f4324107a146569b3",
+          "frame": 0
+        },
+        {
+          "path": "combined-consumers-readable/layout/frame-00024.png",
+          "sha256": "5f825002b31259666e102fbd560cc8a5ecfdeee9b927e8cc81fdd9b608279396",
+          "frame": 24
+        },
+        {
+          "path": "combined-consumers-readable/layout/frame-00047.png",
+          "sha256": "e79a50ba7affe62c7c00a5bbb2523cf21608e5b43471ef77f4751d36939cd65c",
+          "frame": 47
+        }
+      ]
+    }
+  ],
+  "browser_version": "144.0.7559.96",
+  "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+  "runner_sha256": "2d56574d3f8ca1586c7dc7104c25cc6a4270cda3d34c4a0911ce9883e98a4d83",
+  "corpus_sha256": "dfb16dd04ab8341c8a8a7939f8d41ebf6500fca6f390854a516c06ef27dd0511",
+  "layout_frames": 288,
+  "element_frame_records": 384,
+  "semantic_pass_frames": 288,
+  "consumer_frame_records": 480,
+  "screenshots": 18,
+  "all_fit_passed": false,
+  "fit_expectations_matched": true,
+  "all_semantics_passed": true,
+  "os_sandbox_enabled": false,
+  "real_react": false,
+  "real_remotion": false,
+  "mathematical_equivalence_verified": false,
+  "real_book": false,
+  "accepted": false
+}

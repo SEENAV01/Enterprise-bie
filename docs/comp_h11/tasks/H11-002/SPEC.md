@@ -1,0 +1,11 @@
+# BIE-COMP-H11-002 — Source-faithful image crop and sizing
+
+Explicit crop coordinate units; preserve aspect ratio and alternative text; no silently ignored crop.
+
+Full contract and boundaries: `docs/comp_h11/CONTRACTS.md`. This is an audit-derived implementation task from original asset/media handoff and existing R01/R02, not an invented original-roadmap ID.
+
+Inputs/outputs: existing Scene IR and ASSET bundle contracts; a source-bound visual manifest, generated component/source evidence, and verified bytes on adopted publication paths. Tasks are cross-dependent: restore all four H11 deltas onto exact H10 before testing. Intermediate deltas are source assembly, not runnable releases.
+
+Tests: `PYTHONPATH=app:. PYTHONDONTWRITEBYTECODE=1 python -m unittest tests.compiler.test_comp_h11_002 -v` (18 tests). Actual pre-package execution is in TEST_RESULT.txt; final extracted release execution is bound externally to the integrated archive SHA256.
+
+Success means the bounded implementation and negative tests pass. No full pinned-project compile, actual Remotion render, spoken-audio/transcript verification, license approval, real-book success or product acceptance is implied.

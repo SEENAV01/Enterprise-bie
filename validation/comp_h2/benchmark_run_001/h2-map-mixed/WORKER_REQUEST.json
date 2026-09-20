@@ -1,0 +1,134 @@
+{
+  "document": {
+    "accepted": false,
+    "accessibility_metadata": [],
+    "capability_requests": [],
+    "compiler_capabilities": [],
+    "duration_ms": 3000,
+    "elements": [
+      {
+        "accessibility": {
+          "alt": "Synthetic vector compiler fixture",
+          "color_independent_encoding": true
+        },
+        "element_id": "e0",
+        "element_type": "map",
+        "normalized_box": {
+          "height": 0.95,
+          "width": 0.95,
+          "x": 0.025,
+          "y": 0.025
+        },
+        "props": {
+          "attribution": "Synthetic coordinates; no external map data.",
+          "crs": "EPSG:4326",
+          "layers": [
+            {
+              "kind": "route",
+              "label": "Synthetic route",
+              "points": [
+                [
+                  -8,
+                  25
+                ],
+                [
+                  0,
+                  40
+                ],
+                [
+                  8,
+                  55
+                ]
+              ]
+            },
+            {
+              "kind": "point",
+              "label": "Synthetic point",
+              "points": [
+                [
+                  0,
+                  40
+                ]
+              ]
+            },
+            {
+              "kind": "polygon",
+              "label": "Synthetic area",
+              "points": [
+                [
+                  -5,
+                  30
+                ],
+                [
+                  5,
+                  30
+                ],
+                [
+                  0,
+                  50
+                ],
+                [
+                  -5,
+                  30
+                ]
+              ]
+            }
+          ],
+          "projection": {
+            "axis_order": "lon_lat",
+            "extent": [
+              -10,
+              20,
+              10,
+              60
+            ],
+            "kind": "web_mercator"
+          },
+          "title": "Projection technical fixture"
+        },
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-mixed:e0"
+        ],
+        "source_refs": [
+          "fixture:h2-map-mixed:e0"
+        ]
+      }
+    ],
+    "events": [],
+    "fingerprint": "61dbba9481e409dd59e2ee1a2192a8c1c6507b75d3411df0b24038928e05a2ed",
+    "interaction_bindings": [],
+    "interaction_cues": [],
+    "layout": {},
+    "metadata": {
+      "fixture_id": "h2-map-mixed",
+      "not_textbook": true,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    "narration_cues": [],
+    "planned_fallbacks": [],
+    "reasoning_refs": [
+      "fixture-reasoning:h2-map-mixed"
+    ],
+    "review_required": true,
+    "scene_id": "h2-map-mixed",
+    "schema_version": "1.0.0",
+    "simulation_controls": [],
+    "source_refs": [
+      "fixture:h2-map-mixed"
+    ],
+    "state_bindings": [],
+    "title": "Synthetic H2 technical compiler fixture",
+    "tracks": [],
+    "upstream_revision": 1
+  },
+  "target": {
+    "compiler_version": "1.2.0-comp-h2",
+    "fps": 24,
+    "height": 360,
+    "react_version": "19.0.0",
+    "remotion_version": "4.0.506",
+    "seed": 0,
+    "typescript_version": "5.9.3",
+    "width": 640
+  }
+}

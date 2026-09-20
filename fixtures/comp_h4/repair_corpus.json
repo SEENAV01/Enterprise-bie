@@ -1,0 +1,997 @@
+{
+  "schema_version": "bie.comp-h4-fixtures.v1",
+  "cases": [
+    {
+      "case_id": "paragraph-space-repair",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.06
+            },
+            "props": {
+              "text": "A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. "
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-text-repair",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "31fe5b2d9d365fe8cbd655f10c724525be425e61e50422d2c50c584f4363fa2e",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.8,
+              "height": 0.5
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0
+            }
+          }
+        },
+        "reason": "Synthetic visual-owner permission to use this empty region without changing teaching content.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [
+        "LAYOUT_CONTENT_OVERFLOW"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "long-legend-reflow",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "map",
+            "normalized_box": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.9,
+              "height": 0.9
+            },
+            "props": {
+              "crs": "EPSG:4326",
+              "projection": {
+                "kind": "web_mercator",
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ]
+              },
+              "layers": [
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ],
+                  "label": "Technical route 0",
+                  "layer_id": "route0"
+                },
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ],
+                  "label": "Technical route 1",
+                  "layer_id": "route1"
+                },
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ],
+                  "label": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+                  "layer_id": "route2"
+                }
+              ],
+              "attribution": "Synthetic coordinates; no external map data.",
+              "title": "Projection technical fixture"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-map-reflow",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "f3419aaed91fc8d8e503d82677fc70b00c4fbdeb6e59b1923003140a83c083fc",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "height": 0.9,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0,
+              "legend_columns": 1,
+              "plot_height_px": 180.0
+            }
+          }
+        },
+        "reason": "Reflow inside existing owned boxes only; no new layout space granted.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "equation-space-repair",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "equation",
+            "normalized_box": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.6,
+              "height": 0.018
+            },
+            "props": {
+              "expression": "\\frac{x^2+1}{\\sqrt{y}}",
+              "format": "latex"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-equation-resize",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "39a8778fa2fa7d42dde479360a6976fd385236973dab5d1bf71e3491e87aa6ff",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.7,
+              "height": 0.45
+            },
+            "presentation": null
+          }
+        },
+        "reason": "Reflow inside existing owned boxes only; no new layout space granted.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [
+        "LAYOUT_EQUATION_BELOW_MINIMUM"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "within-owner-legend-collision",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "map",
+            "normalized_box": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.9,
+              "height": 0.9
+            },
+            "props": {
+              "crs": "EPSG:4326",
+              "projection": {
+                "kind": "web_mercator",
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ]
+              },
+              "layers": [
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ],
+                  "label": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+                  "layer_id": "route0"
+                },
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ],
+                  "label": "Technical route 1",
+                  "layer_id": "route1"
+                },
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ],
+                  "label": "Another distinct route",
+                  "layer_id": "route2"
+                }
+              ],
+              "attribution": "Synthetic coordinates; no external map data.",
+              "title": "Projection technical fixture"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-map-reflow",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "646818b7e467ace95840f46dd2d8fa4f8c708492af65142e858df6319abfc3c5",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "height": 0.9,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0,
+              "legend_columns": 1,
+              "plot_height_px": 180.0
+            }
+          }
+        },
+        "reason": "Reflow inside existing owned boxes only; no new layout space granted.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [
+        "LAYOUT_OWNER_TEXT_COLLISION"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "no-space-upstream-revision",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.06
+            },
+            "props": {
+              "text": "Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. Preserve every word. "
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-text-repair",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "7eb10c0e8007e508f3464f74418ff51cbe382dc9c1d188620d06b21f22c26849",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "height": 0.06,
+              "width": 0.18,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0
+            }
+          }
+        },
+        "reason": "Synthetic visual-owner permission to use this empty region without changing teaching content.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "UPSTREAM_REVISION_REQUIRED",
+      "required_codes": [
+        "LAYOUT_CONTENT_OVERFLOW"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "multilingual-literal-content",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.06
+            },
+            "props": {
+              "text": "क्षेत्र = 2 m²\nرقبہ = 2 m²\nLiteral {x} and <tag> remain text."
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-text-repair",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "a93d9b68351c9a2ea234a27bfab976276a64013a98fa31b971f39070490de8fe",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.8,
+              "height": 0.5
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0
+            }
+          }
+        },
+        "reason": "Synthetic visual-owner permission to use this empty region without changing teaching content.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "authorized-owner-relocation",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.3,
+              "height": 0.15
+            },
+            "props": {
+              "text": "First unchanged explanation"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          },
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "second",
+            "element_type": "text",
+            "normalized_box": {
+              "x": 0.3,
+              "y": 0.1,
+              "width": 0.3,
+              "height": 0.15
+            },
+            "props": {
+              "text": "Second unchanged explanation"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-two-owner-relocation",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "91601de85c4988e10fe97397fa10e03a12ba1542b6e415468b8991e250cf4767",
+        "max_candidates": 32,
+        "owners": {
+          "e0": {
+            "region": {
+              "height": 0.15,
+              "width": 0.3,
+              "x": 0.1,
+              "y": 0.1
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0
+            }
+          },
+          "second": {
+            "region": {
+              "x": 0.3,
+              "y": 0.1,
+              "width": 0.65,
+              "height": 0.3
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0
+            }
+          }
+        },
+        "reason": "Reflow inside existing owned boxes only; no new layout space granted.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [
+        "LAYOUT_UNDECLARED_OVERLAP"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    },
+    {
+      "case_id": "frame-driven-repair-preserves-track",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.06
+            },
+            "props": {
+              "text": "A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. "
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-motion-preserved",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [
+          {
+            "track_id": "h4move",
+            "element_id": "e0",
+            "action": "transform",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {
+              "from": {
+                "translate_x": 0
+              },
+              "to": {
+                "translate_x": 40
+              }
+            },
+            "source_refs": [
+              "fixture:h3"
+            ],
+            "reasoning_refs": [
+              "reasoning:h3"
+            ]
+          }
+        ],
+        "upstream_revision": 1
+      },
+      "policy": {
+        "schema_version": "bie.layout-repair-policy.v1",
+        "scene_identity": "cde50dca9b5f59d88a23dd0f75a261c1e2b5248a7fd578c4d900d18cf3220cbc",
+        "max_candidates": 16,
+        "owners": {
+          "e0": {
+            "region": {
+              "x": 0.05,
+              "y": 0.05,
+              "width": 0.8,
+              "height": 0.5
+            },
+            "presentation": {
+              "font_px": 16.0,
+              "line_height": 1.4,
+              "padding_px": 0.0
+            }
+          }
+        },
+        "reason": "Synthetic visual-owner permission to use this empty region without changing teaching content.",
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      },
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "required_codes": [
+        "LAYOUT_CONTENT_OVERFLOW"
+      ],
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      }
+    }
+  ],
+  "accepted": false
+}

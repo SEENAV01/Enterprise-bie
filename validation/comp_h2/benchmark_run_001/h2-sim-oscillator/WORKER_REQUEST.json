@@ -1,0 +1,94 @@
+{
+  "document": {
+    "accepted": false,
+    "accessibility_metadata": [],
+    "capability_requests": [],
+    "compiler_capabilities": [],
+    "duration_ms": 3000,
+    "elements": [
+      {
+        "accessibility": {
+          "alt": "Synthetic simulation compiler fixture",
+          "color_independent_encoding": true,
+          "reduced_motion_variant": "fixture:static"
+        },
+        "element_id": "e0",
+        "element_type": "simulation",
+        "normalized_box": {
+          "height": 0.95,
+          "width": 0.95,
+          "x": 0.025,
+          "y": 0.025
+        },
+        "props": {
+          "duration_ms": 2000,
+          "execution_class": "analytic_model",
+          "initial_state": {
+            "v": 0,
+            "x": 1
+          },
+          "model_ref": "bie.sim.harmonic-oscillator-1d@1",
+          "parameters": {
+            "omega": 3.141592653589793
+          },
+          "start_ms": 0,
+          "title": "Synthetic oscillator model",
+          "units": {
+            "omega": "rad/s",
+            "t": "s",
+            "v": "m/s",
+            "x": "m"
+          },
+          "view": {
+            "x_max": 2,
+            "x_min": 0,
+            "y_max": 1.1,
+            "y_min": -1.1
+          }
+        },
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-oscillator:e0"
+        ],
+        "source_refs": [
+          "fixture:h2-sim-oscillator:e0"
+        ]
+      }
+    ],
+    "events": [],
+    "fingerprint": "5968f53aada44bb3547f6e61a296023be58106389a6e4a1852110dc285f36c2f",
+    "interaction_bindings": [],
+    "interaction_cues": [],
+    "layout": {},
+    "metadata": {
+      "fixture_id": "h2-sim-oscillator",
+      "not_textbook": true,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    "narration_cues": [],
+    "planned_fallbacks": [],
+    "reasoning_refs": [
+      "fixture-reasoning:h2-sim-oscillator"
+    ],
+    "review_required": true,
+    "scene_id": "h2-sim-oscillator",
+    "schema_version": "1.0.0",
+    "simulation_controls": [],
+    "source_refs": [
+      "fixture:h2-sim-oscillator"
+    ],
+    "state_bindings": [],
+    "title": "Synthetic H2 technical compiler fixture",
+    "tracks": [],
+    "upstream_revision": 1
+  },
+  "target": {
+    "compiler_version": "1.2.0-comp-h2",
+    "fps": 24,
+    "height": 360,
+    "react_version": "19.0.0",
+    "remotion_version": "4.0.506",
+    "seed": 0,
+    "typescript_version": "5.9.3",
+    "width": 640
+  }
+}

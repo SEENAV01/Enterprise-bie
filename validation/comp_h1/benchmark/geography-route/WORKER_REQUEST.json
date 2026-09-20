@@ -1,0 +1,89 @@
+{
+  "document": {
+    "accepted": false,
+    "accessibility_metadata": [],
+    "capability_requests": [],
+    "compiler_capabilities": [],
+    "duration_ms": 2000,
+    "elements": [
+      {
+        "accessibility": {
+          "alt": "Synthetic map compiler fixture",
+          "color_independent_encoding": true
+        },
+        "element_id": "e0",
+        "element_type": "map",
+        "normalized_box": {
+          "height": 0.4,
+          "width": 0.9,
+          "x": 0.05,
+          "y": 0.05
+        },
+        "props": {
+          "crs": "BIE:NORMALIZED",
+          "layers": [
+            {
+              "kind": "route",
+              "points": [
+                [
+                  0.1,
+                  0.2
+                ],
+                [
+                  0.5,
+                  0.6
+                ],
+                [
+                  0.9,
+                  0.8
+                ]
+              ]
+            }
+          ]
+        },
+        "reasoning_refs": [
+          "fixture-reasoning:geography-route:e0"
+        ],
+        "source_refs": [
+          "fixture:geography-route:e0"
+        ]
+      }
+    ],
+    "events": [],
+    "fingerprint": "6d806c87bcaa34275b2aee1a74661b7314e26aaca5b5034ea37bbc4a2fb58040",
+    "interaction_bindings": [],
+    "interaction_cues": [],
+    "layout": {},
+    "metadata": {
+      "fixture_id": "geography-route",
+      "not_textbook": true,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    "narration_cues": [],
+    "planned_fallbacks": [],
+    "reasoning_refs": [
+      "fixture-reasoning:geography-route"
+    ],
+    "review_required": true,
+    "scene_id": "geography-route",
+    "schema_version": "1.0.0",
+    "simulation_controls": [],
+    "source_refs": [
+      "fixture:geography-route"
+    ],
+    "state_bindings": [],
+    "title": "Synthetic technical compiler case",
+    "tracks": [],
+    "upstream_revision": 1
+  },
+  "target": {
+    "compiler_version": "1.1.0-comp-h1",
+    "fps": 24,
+    "height": 360,
+    "react_version": "19.0.0",
+    "remotion_version": "4.0.506",
+    "seed": 0,
+    "typescript_version": "5.9.3",
+    "width": 640
+  }
+}

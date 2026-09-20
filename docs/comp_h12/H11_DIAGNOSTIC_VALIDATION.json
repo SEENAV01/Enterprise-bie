@@ -1,0 +1,50 @@
+{
+  "schema_version": "bie.h11-media-diagnostic.v1",
+  "source_cases": [
+    {
+      "case_id": "full-image",
+      "passed": true,
+      "manifest_sha256": "ce3fe48a9ef4ed7ee942b26f7ac2786be308bc16715dffca2b0a956586be668c",
+      "workers": 2
+    },
+    {
+      "case_id": "crop-image",
+      "passed": true,
+      "manifest_sha256": "6a986b9eeaa44160b26018057d4a8968745ff376dc2f1c844c56b9d94c41657f",
+      "workers": 2
+    },
+    {
+      "case_id": "trim-video",
+      "passed": true,
+      "manifest_sha256": "4357b30adaa6ed393a8439054c159cd4d2d556afb613353af64135029474a60e",
+      "workers": 2
+    },
+    {
+      "case_id": "state-video",
+      "passed": true,
+      "manifest_sha256": "25609ef49ab451bd34e35cd16d30aae8da589d04ef59b09c30780ae4560f8f91",
+      "workers": 2
+    },
+    {
+      "case_id": "combined",
+      "passed": true,
+      "manifest_sha256": "512443b84494a56b12a125605ed4dc81334dca19d925155c25e82fcc9cf5f040",
+      "workers": 2
+    }
+  ],
+  "source_processes": 10,
+  "browser_cases": [],
+  "frames": 0,
+  "element_frame_records": 0,
+  "screenshots": 0,
+  "native_video_reference": [],
+  "publication_passed": true,
+  "passed": true,
+  "scope": "REAL_TS_API_DOUBLES_NATIVE_CHROMIUM_AND_ACTUAL_ASSET_BYTES",
+  "react_remotion_doubles": true,
+  "actual_remotion_render": false,
+  "audio_playback": false,
+  "full_pixel_qa": false,
+  "real_book_e2e": false,
+  "accepted": false
+}

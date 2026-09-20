@@ -1,0 +1,162 @@
+{
+  "accepted": false,
+  "accessibility_metadata": [],
+  "capability_requests": [],
+  "compiler_capabilities": [],
+  "duration_ms": 1500,
+  "elements": [
+    {
+      "accessibility": {
+        "alt": "Synthetic vector compiler fixture",
+        "color_independent_encoding": true
+      },
+      "element_id": "e0",
+      "element_type": "text",
+      "normalized_box": {
+        "x": 0.2,
+        "y": 0.2,
+        "width": 0.5,
+        "height": 0.5
+      },
+      "props": {
+        "text": "Bounded H3 technical text"
+      },
+      "reasoning_refs": [
+        "reasoning:h3"
+      ],
+      "source_refs": [
+        "fixture:h3"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event_id": "opacity-1",
+      "at_ms": 500,
+      "event_type": "state.set",
+      "target_ids": [
+        "e0"
+      ],
+      "payload": {
+        "state_path": "lesson.opacity",
+        "value": 0.0,
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      }
+    },
+    {
+      "event_id": "opacity-2",
+      "at_ms": 1000,
+      "event_type": "state.set",
+      "target_ids": [
+        "e0"
+      ],
+      "payload": {
+        "state_path": "lesson.opacity",
+        "value": 0.8,
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      }
+    }
+  ],
+  "interaction_bindings": [],
+  "interaction_cues": [],
+  "layout": {},
+  "metadata": {
+    "fixture": "synthetic-not-real-book",
+    "compiler_h6": {
+      "schema_version": "bie.comp-frame-runtime.v1",
+      "initial_state": {
+        "lesson.opacity": 0.6
+      },
+      "state_lineage": {
+        "lesson.opacity": {
+          "source_refs": [
+            "fixture:h3"
+          ],
+          "reasoning_refs": [
+            "reasoning:h3"
+          ]
+        }
+      }
+    },
+    "state_paths": [
+      "lesson.opacity"
+    ],
+    "compiler_h10": {
+      "schema_version": "bie.comp-state-motion-composition.v1",
+      "compositions": [
+        {
+          "target_id": "e0",
+          "track_ids": [
+            "motion"
+          ],
+          "state_properties": [
+            "opacity"
+          ],
+          "policy": "outer-state-controls",
+          "source_refs": [
+            "fixture:h3"
+          ],
+          "reasoning_refs": [
+            "reasoning:h3"
+          ]
+        }
+      ]
+    }
+  },
+  "narration_cues": [],
+  "planned_fallbacks": [],
+  "reasoning_refs": [
+    "reasoning:h3"
+  ],
+  "review_required": true,
+  "scene_id": "h3-technical-scene",
+  "schema_version": "1.0.0",
+  "simulation_controls": [],
+  "source_refs": [
+    "fixture:h3"
+  ],
+  "state_bindings": [
+    {
+      "binding_id": "bound-opacity",
+      "state_path": "lesson.opacity",
+      "target_id": "e0",
+      "property_name": "opacity",
+      "read_only": true
+    }
+  ],
+  "title": "Synthetic technical compiler case",
+  "tracks": [
+    {
+      "track_id": "motion",
+      "element_id": "e0",
+      "action": "transform",
+      "start_ms": 0,
+      "end_ms": 1500,
+      "parameters": {
+        "from": {
+          "translate_x": 0
+        },
+        "to": {
+          "translate_x": 40
+        }
+      },
+      "source_refs": [
+        "fixture:h3"
+      ],
+      "reasoning_refs": [
+        "reasoning:h3"
+      ]
+    }
+  ],
+  "upstream_revision": 1
+}

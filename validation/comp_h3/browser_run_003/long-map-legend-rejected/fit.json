@@ -1,0 +1,36 @@
+{
+  "schema_version": "bie.content-fit.v1",
+  "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+  "findings": [
+    {
+      "code": "LAYOUT_INK_OUTSIDE_VIEWPORT",
+      "severity": "ERROR",
+      "message": "Measured ink is outside viewport; element=e0, first_frame=0, occurrences=24",
+      "path": "$.measurements",
+      "owner": "COMP"
+    },
+    {
+      "code": "LAYOUT_TEXT_OUTSIDE_OWNER",
+      "severity": "ERROR",
+      "message": "Measured text or legend lies outside its owner; element=e0, first_frame=0, occurrences=24",
+      "path": "$.measurements",
+      "owner": "COMP"
+    },
+    {
+      "code": "LAYOUT_TEXT_OUTSIDE_VIEWPORT",
+      "severity": "ERROR",
+      "message": "Measured text leaves viewport; element=e0, first_frame=0, occurrences=24",
+      "path": "$.measurements",
+      "owner": "COMP"
+    }
+  ],
+  "passed": false,
+  "records_expected": 24,
+  "records_checked": 24,
+  "evidence_sha256": "716e64b8d7314b317f62fe44dbd96bcdab281f47ea0018d64712df04d617eac0",
+  "manifest_sha256": "83c4b9ba3fa53c5c73f34dd7a271fa4a31993eb7b30a01e7791cb295b332a71a",
+  "real_remotion_verified": false,
+  "release_authorized": false,
+  "accepted": false,
+  "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+}

@@ -1,0 +1,78 @@
+{
+  "document": {
+    "accepted": false,
+    "accessibility_metadata": [],
+    "capability_requests": [],
+    "compiler_capabilities": [],
+    "duration_ms": 2000,
+    "elements": [
+      {
+        "accessibility": {
+          "alt": "Synthetic chart compiler fixture",
+          "color_independent_encoding": true
+        },
+        "element_id": "e0",
+        "element_type": "chart",
+        "normalized_box": {
+          "height": 0.4,
+          "width": 0.9,
+          "x": 0.05,
+          "y": 0.05
+        },
+        "props": {
+          "categories": [
+            "Toy debit",
+            "Toy credit"
+          ],
+          "chart_kind": "bar",
+          "values": [
+            5,
+            5
+          ]
+        },
+        "reasoning_refs": [
+          "fixture-reasoning:accountancy-totals:e0"
+        ],
+        "source_refs": [
+          "fixture:accountancy-totals:e0"
+        ]
+      }
+    ],
+    "events": [],
+    "fingerprint": "0890e614818e87b62a0e993bab57e6fb6ea60dc84a9260085c466fb99a416882",
+    "interaction_bindings": [],
+    "interaction_cues": [],
+    "layout": {},
+    "metadata": {
+      "fixture_id": "accountancy-totals",
+      "not_textbook": true,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    "narration_cues": [],
+    "planned_fallbacks": [],
+    "reasoning_refs": [
+      "fixture-reasoning:accountancy-totals"
+    ],
+    "review_required": true,
+    "scene_id": "accountancy-totals",
+    "schema_version": "1.0.0",
+    "simulation_controls": [],
+    "source_refs": [
+      "fixture:accountancy-totals"
+    ],
+    "state_bindings": [],
+    "title": "Synthetic technical compiler case",
+    "tracks": [],
+    "upstream_revision": 1
+  },
+  "target": {
+    "compiler_version": "1.1.0-comp-h1",
+    "fps": 24,
+    "height": 360,
+    "react_version": "19.0.0",
+    "remotion_version": "4.0.506",
+    "seed": 0,
+    "typescript_version": "5.9.3",
+    "width": 640
+  }
+}

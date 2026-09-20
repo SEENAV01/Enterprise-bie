@@ -1,0 +1,85 @@
+{
+  "document": {
+    "accepted": false,
+    "accessibility_metadata": [],
+    "capability_requests": [],
+    "compiler_capabilities": [],
+    "duration_ms": 2000,
+    "elements": [
+      {
+        "accessibility": {
+          "alt": "Synthetic text compiler fixture",
+          "color_independent_encoding": true
+        },
+        "element_id": "e0",
+        "element_type": "text",
+        "normalized_box": {
+          "height": 0.4,
+          "width": 0.9,
+          "x": 0.05,
+          "y": 0.05
+        },
+        "props": {
+          "text": "Static text does not become animation merely through a progress attribute."
+        },
+        "reasoning_refs": [
+          "fixture-reasoning:reject-metadata-animation:e0"
+        ],
+        "source_refs": [
+          "fixture:reject-metadata-animation:e0"
+        ]
+      }
+    ],
+    "events": [],
+    "fingerprint": "06132242c749200f4539d02707a37317efd59a6dd25a7112b9c8c05d78e7c76d",
+    "interaction_bindings": [],
+    "interaction_cues": [],
+    "layout": {},
+    "metadata": {
+      "fixture_id": "reject-metadata-animation",
+      "not_textbook": true,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    "narration_cues": [],
+    "planned_fallbacks": [],
+    "reasoning_refs": [
+      "fixture-reasoning:reject-metadata-animation"
+    ],
+    "review_required": true,
+    "scene_id": "reject-metadata-animation",
+    "schema_version": "1.0.0",
+    "simulation_controls": [],
+    "source_refs": [
+      "fixture:reject-metadata-animation"
+    ],
+    "state_bindings": [],
+    "title": "Synthetic technical compiler case",
+    "tracks": [
+      {
+        "action": "reveal",
+        "element_id": "e0",
+        "end_ms": 1000,
+        "parameters": {},
+        "reasoning_refs": [
+          "fixture:track-reasoning"
+        ],
+        "source_refs": [
+          "fixture:track-source"
+        ],
+        "start_ms": 0,
+        "track_id": "t0"
+      }
+    ],
+    "upstream_revision": 1
+  },
+  "target": {
+    "compiler_version": "1.1.0-comp-h1",
+    "fps": 24,
+    "height": 360,
+    "react_version": "19.0.0",
+    "remotion_version": "4.0.506",
+    "seed": 0,
+    "typescript_version": "5.9.3",
+    "width": 640
+  }
+}

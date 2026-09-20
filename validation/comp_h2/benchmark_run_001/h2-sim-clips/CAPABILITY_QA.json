@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "SIMULATION_VIEW_CLIPS_MODEL",
+      "message": "SIMULATION_VIEW_CLIPS_MODEL: view must contain analytic interval/extrema; clipping is not silently accepted",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "7dccca03b60abf0ee252876b84b3a6e3342abeb3637b14f4e3ce7b2e7630aaa3",
+  "scene_id": "h2-sim-clips",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

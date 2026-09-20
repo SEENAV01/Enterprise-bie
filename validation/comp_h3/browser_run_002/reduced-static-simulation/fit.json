@@ -1,0 +1,22 @@
+{
+  "schema_version": "bie.content-fit.v1",
+  "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+  "findings": [
+    {
+      "code": "LAYOUT_CONTENT_OVERFLOW",
+      "severity": "ERROR",
+      "message": "Content exceeds its layout box; element=e0, first_frame=0, occurrences=72",
+      "path": "$.measurements",
+      "owner": "COMP"
+    }
+  ],
+  "passed": false,
+  "records_expected": 72,
+  "records_checked": 72,
+  "evidence_sha256": "10598fa50d9791dd6f66f839f7e73029d0fa1e334e95254ddfccc25567a9ffe4",
+  "manifest_sha256": "389e689100058c3d5465a0a0db1dc52d4e6c684a8ce259678dde47c79f2d16e0",
+  "real_remotion_verified": false,
+  "release_authorized": false,
+  "accepted": false,
+  "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+}

@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "EQUATION_MATHML_UNSAFE",
+      "message": "EQUATION_MATHML_UNSAFE: unsupported MathML tag",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "d4b0a1c8d53bcf40d920b99d3d5cbe765dff42cf7b930b5941bf9388a7723d5d",
+  "scene_id": "h2-unsafe-mathml",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

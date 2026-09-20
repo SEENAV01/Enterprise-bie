@@ -1,0 +1,160 @@
+{
+  "schema_version": "bie.h11.final-delivery-verification.v1",
+  "parent_archive": "913206a80d4a1d677438df9aa33485745681e132f4011c5919816d9c8ac75733",
+  "integrated_sha256": "7f56278f6c8c797e4a0641a18307859a922decfe695118f0a62dabc61455b1e7",
+  "workspace_files": 5470,
+  "workspace_checksum_entries": 5469,
+  "tests": {
+    "baseline": 2327,
+    "new": 101,
+    "cumulative": 2428,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "fresh_run": {
+      "returncode": 0,
+      "elapsed_s": 359.976629708,
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "PYTHONPATH": "app:.",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "integrated_sha256": "7f56278f6c8c797e4a0641a18307859a922decfe695118f0a62dabc61455b1e7",
+      "workspace_checksum_entries_before": 5469,
+      "workspace_unchanged_after": true,
+      "log_sha256": "11e8261ddc19f0c7cc6acf1790e8694477269377782c23dab81ebdfb59974bae"
+    }
+  },
+  "atomic_tests": [
+    {
+      "task_id": "BIE-COMP-H11-001",
+      "tests": 38,
+      "returncode": 0,
+      "elapsed_s": 7.759647076999954,
+      "scope": "ALL_FOUR_RESTORED_BEFORE_TASK_TESTS",
+      "log_sha256": "136c1ffdcca992ca7351b5dce73f75ad898c08af533878250c361ceaf410171c"
+    },
+    {
+      "task_id": "BIE-COMP-H11-002",
+      "tests": 18,
+      "returncode": 0,
+      "elapsed_s": 2.219312023999919,
+      "scope": "ALL_FOUR_RESTORED_BEFORE_TASK_TESTS",
+      "log_sha256": "bd64d5e484ebb9c8c89d1516f55941bc05e3400137e79a19eb562eecc78f179f"
+    },
+    {
+      "task_id": "BIE-COMP-H11-003",
+      "tests": 25,
+      "returncode": 0,
+      "elapsed_s": 1.5275738360001014,
+      "scope": "ALL_FOUR_RESTORED_BEFORE_TASK_TESTS",
+      "log_sha256": "5ed0ab237185fb910d293d654429e14793eec06cfdbfae30d1524f18e20a84bb"
+    },
+    {
+      "task_id": "BIE-COMP-H11-004",
+      "tests": 20,
+      "returncode": 0,
+      "elapsed_s": 21.94853171199975,
+      "scope": "ALL_FOUR_RESTORED_BEFORE_TASK_TESTS",
+      "log_sha256": "747e54e419533a6616529b37926872b372978b594a1b90b86213bbd6894f64b0"
+    }
+  ],
+  "negative_restore_checks": [
+    {
+      "case": "wrong-order",
+      "returncode": 2,
+      "passed": true,
+      "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES\", \"accepted\": false}\n",
+      "stderr": ""
+    },
+    {
+      "case": "repeat-application",
+      "returncode": 2,
+      "passed": true,
+      "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES\", \"accepted\": false}\n",
+      "stderr": ""
+    },
+    {
+      "case": "tampered-payload",
+      "returncode": 2,
+      "passed": true,
+      "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"PAYLOAD_HASH_MISMATCH\", \"accepted\": false}\n",
+      "stderr": ""
+    },
+    {
+      "case": "symlink-base",
+      "returncode": 2,
+      "passed": true,
+      "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"SYMLINK_REJECTED\", \"accepted\": false}\n",
+      "stderr": ""
+    },
+    {
+      "case": "nonregular-file",
+      "returncode": 2,
+      "passed": true,
+      "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"NONREGULAR_FILE_REJECTED\", \"accepted\": false}\n",
+      "stderr": ""
+    }
+  ],
+  "restored_workspace_exact_match": true,
+  "lineage": {
+    "parent_sha256": "913206a80d4a1d677438df9aa33485745681e132f4011c5919816d9c8ac75733",
+    "parent_member_count": 5407,
+    "all_parent_paths_retained": true,
+    "inherited_active_python_files": 456,
+    "unchanged_active_python_files": 447,
+    "changed_active_python_files": [
+      "app/bie/compiler/frame_layout.py",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/layout_browser.py",
+      "app/bie/compiler/layout_measurements.py",
+      "app/bie/compiler/layout_repair.py",
+      "app/bie/compiler/media_compiler.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/scene_ir/image_element.py",
+      "scripts/compile_scene_checked.py"
+    ],
+    "changed_parent_paths": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "README.md",
+      "app/bie/compiler/frame_layout.py",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/layout_browser.py",
+      "app/bie/compiler/layout_measurements.py",
+      "app/bie/compiler/layout_repair.py",
+      "app/bie/compiler/media_compiler.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/qa_support/layout_measure.js",
+      "app/bie/scene_ir/image_element.py",
+      "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+      "scripts/compile_scene_checked.py",
+      "WORKSPACE_SHA256SUMS.txt"
+    ],
+    "historical_test_files_changed": [],
+    "historical_fixture_files_changed": [],
+    "original_copies_verified": true
+  },
+  "evidence_sha256": "87845e2f59be4903c1c64b1c22ac9a61c0d685bc2a4af28e56717cb32c525285",
+  "evidence_checksum_entries": 189,
+  "release_restoration_evidence_sha256": "4203a9707e4d1cb0f26254b5da2689ab32cc6351aedca17a7200af8f4d71e564",
+  "passed": true,
+  "accepted": false,
+  "full_section_reaudit": false,
+  "github_write": false,
+  "master": {
+    "file": "BIE_COMP_HARDENING_H11_MASTER_BACKUP.zip",
+    "sha256": "1798cb6b6351a98d7774ab315a9e99f080dd2cfdddd0d7b2c47b6c66f14fd9b2",
+    "bytes": 13825865,
+    "payload_checksum_entries": 17,
+    "embedded_archives_exact_match": true,
+    "recursive_previous_master": false,
+    "testzip_passed": true
+  }
+}

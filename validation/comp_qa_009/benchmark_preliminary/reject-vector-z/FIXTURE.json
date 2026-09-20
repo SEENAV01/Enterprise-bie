@@ -1,0 +1,76 @@
+{
+  "case": {
+    "case_id": "reject-vector-z",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "vector",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "components": [
+              1,
+              2,
+              3
+            ]
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:reject-vector-z:e0"
+          ],
+          "source_refs": [
+            "fixture:reject-vector-z:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "67fbe565d89c341ca3da3fbd826a2e9ec057d6a7feb073689ff9f7cab70b4fff",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "reject-vector-z",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:reject-vector-z"
+      ],
+      "review_required": true,
+      "scene_id": "reject-vector-z",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:reject-vector-z"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "physics",
+    "expected_error_codes": [
+      "VECTOR_Z_COMPONENT_DROPPED"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "100e787b4c3ea5a00049c7ae82bc620ab97d8cc294acb0e6ff8ca821371a921a"
+}

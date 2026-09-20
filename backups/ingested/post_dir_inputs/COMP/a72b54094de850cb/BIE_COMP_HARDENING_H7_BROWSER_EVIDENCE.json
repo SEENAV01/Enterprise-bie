@@ -1,0 +1,145 @@
+{
+  "schema_version": "bie.h7.validation.v1",
+  "cases": [
+    {
+      "case_id": "glyph-matched",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 48,
+      "paint_records": 48,
+      "screenshots": 3
+    },
+    {
+      "case_id": "glyph-reduced",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 48,
+      "paint_records": 48,
+      "screenshots": 3
+    },
+    {
+      "case_id": "camera-reduced",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 48,
+      "paint_records": 48,
+      "screenshots": 3
+    },
+    {
+      "case_id": "trace-reduced",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 48,
+      "paint_records": 48,
+      "screenshots": 3
+    },
+    {
+      "case_id": "state-captions",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 96,
+      "paint_records": 96,
+      "screenshots": 3
+    },
+    {
+      "case_id": "combined",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 144,
+      "paint_records": 144,
+      "screenshots": 3
+    },
+    {
+      "case_id": "combined-reduced",
+      "source_passed": true,
+      "fit_passed": true,
+      "paint_passed": true,
+      "fit_findings": [],
+      "paint_findings": [],
+      "frames": 48,
+      "element_frame_records": 144,
+      "paint_records": 144,
+      "screenshots": 3
+    }
+  ],
+  "repair_published": true,
+  "frames": 336,
+  "element_frame_records": 576,
+  "screenshots": 21,
+  "diagnostic_scope": "REAL_CHROMIUM_WITH_EXPLICIT_REACT_REMOTION_API_DOUBLES",
+  "real_react": false,
+  "real_remotion": false,
+  "actual_render_failure": "FULL_TYPECHECK_BLOCKED",
+  "operational_no_proc_verified": true,
+  "private_proc_verified": false,
+  "audio_decoder_actual": true,
+  "audio_mix_samples": 96000,
+  "spoken_audio": false,
+  "accepted": false,
+  "dynamic_asset_repair": {
+    "status": "LOCAL_MEASURED_CANDIDATE",
+    "source_published": true,
+    "attempt_count": 4,
+    "candidate_budget": 16,
+    "attempts": [
+      {
+        "candidate_index": 0,
+        "local_fit_passed": false,
+        "codes": [
+          "LAYOUT_CONTENT_OVERFLOW",
+          "LAYOUT_TEXT_OUTSIDE_OWNER"
+        ],
+        "records_checked": 96
+      },
+      {
+        "candidate_index": 1,
+        "local_fit_passed": false,
+        "codes": [
+          "LAYOUT_CONTENT_OVERFLOW",
+          "LAYOUT_TEXT_OUTSIDE_OWNER"
+        ],
+        "records_checked": 96
+      },
+      {
+        "candidate_index": 2,
+        "local_fit_passed": false,
+        "codes": [
+          "LAYOUT_CONTENT_OVERFLOW",
+          "LAYOUT_TEXT_OUTSIDE_OWNER"
+        ],
+        "records_checked": 96
+      },
+      {
+        "candidate_index": 3,
+        "local_fit_passed": true,
+        "codes": [],
+        "records_checked": 96
+      }
+    ],
+    "separate_from_seven_positive_scene_totals": true
+  }
+}

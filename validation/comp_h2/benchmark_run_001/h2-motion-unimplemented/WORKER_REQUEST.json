@@ -1,0 +1,85 @@
+{
+  "document": {
+    "accepted": false,
+    "accessibility_metadata": [],
+    "capability_requests": [],
+    "compiler_capabilities": [],
+    "duration_ms": 3000,
+    "elements": [
+      {
+        "accessibility": {
+          "alt": "Synthetic vector compiler fixture",
+          "color_independent_encoding": true
+        },
+        "element_id": "e0",
+        "element_type": "text",
+        "normalized_box": {
+          "height": 0.95,
+          "width": 0.95,
+          "x": 0.025,
+          "y": 0.025
+        },
+        "props": {
+          "text": "Unsupported specialized morph must not become metadata."
+        },
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-unimplemented:e0"
+        ],
+        "source_refs": [
+          "fixture:h2-motion-unimplemented:e0"
+        ]
+      }
+    ],
+    "events": [],
+    "fingerprint": "6f45c36ab45083094a6a1316929c06dd8f27549c4fe5a836dc171c5d0b64618f",
+    "interaction_bindings": [],
+    "interaction_cues": [],
+    "layout": {},
+    "metadata": {
+      "fixture_id": "h2-motion-unimplemented",
+      "not_textbook": true,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    "narration_cues": [],
+    "planned_fallbacks": [],
+    "reasoning_refs": [
+      "fixture-reasoning:h2-motion-unimplemented"
+    ],
+    "review_required": true,
+    "scene_id": "h2-motion-unimplemented",
+    "schema_version": "1.0.0",
+    "simulation_controls": [],
+    "source_refs": [
+      "fixture:h2-motion-unimplemented"
+    ],
+    "state_bindings": [],
+    "title": "Synthetic H2 technical compiler fixture",
+    "tracks": [
+      {
+        "action": "morph",
+        "element_id": "e0",
+        "end_ms": 1000,
+        "parameters": {},
+        "reasoning_refs": [
+          "reasoning:h2"
+        ],
+        "source_refs": [
+          "fixture:h2"
+        ],
+        "start_ms": 0,
+        "track_id": "h2-track"
+      }
+    ],
+    "upstream_revision": 1
+  },
+  "target": {
+    "compiler_version": "1.2.0-comp-h2",
+    "fps": 24,
+    "height": 360,
+    "react_version": "19.0.0",
+    "remotion_version": "4.0.506",
+    "seed": 0,
+    "typescript_version": "5.9.3",
+    "width": 640
+  }
+}

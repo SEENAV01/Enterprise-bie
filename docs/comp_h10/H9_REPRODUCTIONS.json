@@ -1,0 +1,18 @@
+{
+  "required_action_without_track": {
+    "source_gate_passed": true,
+    "tracks": 0,
+    "findings": []
+  },
+  "hidden_layer_false_overlap": {
+    "runtime_visible": false,
+    "layout_passed": false,
+    "findings": [
+      "LAYOUT_UNDECLARED_OVERLAP"
+    ]
+  },
+  "state_plus_trace": {
+    "rejected": true,
+    "error": "FRAME_RUNTIME_PROPERTY_CONFLICT: state visibility/opacity plus animation is not silently composed"
+  }
+}

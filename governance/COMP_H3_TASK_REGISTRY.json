@@ -1,0 +1,61 @@
+{
+  "schema_version": "bie.comp-hardening-plan.v1",
+  "batch_id": "BIE-COMP-HARDENING-H3",
+  "delivery_sequence": 12,
+  "authorization": "User requested Next after H2 re-audit. H3 IDs are explicitly derived here before implementation; no new original COMP tasks.",
+  "parent_checkpoint": "BIE-COMP-H2-005",
+  "parent_archive_sha256": "e1846f88439850fa2b0fcea6f40e20e17c511a6db6c5389cfb8980c57acd8174",
+  "basis": [
+    "docs/COMP_H2_REAUDIT.md",
+    "CONTINUATION.json"
+  ],
+  "tasks": [
+    {
+      "task_id": "BIE-COMP-H3-001",
+      "title": "All-frame spatial envelopes",
+      "findings": [
+        "H2-R01_FRAME_AWARE_LAYOUT"
+      ],
+      "required_result": "Evaluate every rendered frame of supported nested 2D tracks, viewport bounds and conservative layer-box overlap; preserve intentional overlap declarations; refuse uncovered/budget-exceeded work. No ink or continuous-time claim.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H3-002",
+      "title": "Content-fit evidence validation",
+      "findings": [
+        "H2-R01_FRAME_AWARE_LAYOUT"
+      ],
+      "required_result": "Consume exhaustive source-bound browser measurements; detect text/legend overflow and below-policy text/equation scale; reject missing frames, forged scope and stale evidence. No automatic shrinking or whole-product acceptance.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H3-003",
+      "title": "Reduced-motion producer/consumer",
+      "findings": [
+        "H2-R02_WHOLE_SCENE_CONSUMERS_ACCESSIBILITY"
+      ],
+      "required_result": "Resolve explicitly referenced source-bound reduced-motion variants into opacity tracks or fixed analytic-model samples; retain original/effective identity and provenance. Refuse unknown variants and dynamic families without adapters.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H3-004",
+      "title": "Isolated mathematical worker and host identity",
+      "findings": [
+        "H2-R03_TOOLCHAIN_IDENTITY_EXECUTION_SAFETY"
+      ],
+      "required_result": "Perform production math typesetting in a bounded sanitized child; bind host Python/backend/native/font and compiler byte identities into cache keys; verify child identity and resource receipt. Not an OS security sandbox.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H3-005",
+      "title": "Hardened source and render-path adoption",
+      "findings": [
+        "H2-R01/H2-R02/H2-R03"
+      ],
+      "required_result": "Adopt H3 in the default publication CLI and mandatory real-render source gate; recompute identity/variant/layout/source checks at use; retain legacy source-only diagnostic APIs, history and exact evidence distinctions.",
+      "accepted": false
+    }
+  ],
+  "section_exit_permitted": false,
+  "accepted": false
+}

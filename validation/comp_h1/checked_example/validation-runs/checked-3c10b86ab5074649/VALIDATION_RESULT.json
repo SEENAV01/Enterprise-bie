@@ -1,0 +1,54 @@
+{
+  "schema_version": "bie.checked-render-validation.v1",
+  "run_id": "checked-3c10b86ab5074649",
+  "scope": "CHECKED_SCENE_IR_TECHNICAL_EXECUTION",
+  "stages": [
+    {
+      "stage": "checked-source",
+      "passed": true,
+      "receipt": {
+        "scene_fingerprint": "794fae104f3dcc5e3fe0cda0b735470af5503cf870e0cc200f0f25860e76ac38",
+        "manifest_sha256": "8dd605056aa934df3c9f02fd2a9e4a2c4217b0ff788c48094dbc4409285744c9",
+        "status": "SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.1.0-comp-h1",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      }
+    },
+    {
+      "stage": "dependency-install",
+      "status": "NOT_REQUESTED"
+    },
+    {
+      "stage": "full-pinned-typecheck",
+      "passed": false,
+      "receipt": {
+        "status": "BLOCKED_DEPENDENCIES",
+        "missing_dependencies": [
+          "@remotion/cli",
+          "@types/react",
+          "@types/react-dom",
+          "react",
+          "react-dom",
+          "remotion",
+          "typescript"
+        ],
+        "diagnostics": [],
+        "stdout": "",
+        "stderr": "",
+        "execution_kind": "NOT_RUN",
+        "accepted": false
+      }
+    }
+  ],
+  "passed": false,
+  "failure": "FULL_TYPECHECK_BLOCKED: BLOCKED_DEPENDENCIES",
+  "accepted": false,
+  "frame_visual_inspection": "NOT_PERFORMED_BY_THIS_HARNESS",
+  "real_book_e2e": "NOT_RUN",
+  "learning_quality": "NOT_EVALUATED"
+}

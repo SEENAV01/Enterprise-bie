@@ -1,0 +1,351 @@
+{
+  "schema_version": "bie.comp-h8-delivery-verification.v1",
+  "status": "VERIFIED_LOCAL_DELIVERY_NOT_PRODUCT_ACCEPTANCE",
+  "baseline_regression": {
+    "tests": 1947,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 275.05201530456543,
+    "log_sha256": "0ca0e5165708544ef2d26f70f532607b3b71e89002510e7993b750b08840a66e"
+  },
+  "fresh_integrated_regression": {
+    "tests": 2108,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "unittest_seconds": 293.426,
+    "outer_seconds": 294.73650741100005,
+    "log_sha256": "72f90088fac0272ea155cc087ee777ab110d4241d7dc2aa4f4cff026a109ffc9",
+    "source_byte_identity_preserved_after_tests": true
+  },
+  "new_test_results": {
+    "atomic": {
+      "BIE-COMP-H8-001": {
+        "tests": 38,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "seconds": 0.06640935100017487,
+        "passed": true,
+        "log_sha256": "2ce00b5180b27c52689b17a15e9c5a2a47ff530028bbddb417350a87842c01ac"
+      },
+      "BIE-COMP-H8-002": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "seconds": 0.002849498999921707,
+        "passed": true,
+        "log_sha256": "8dc8e8d4778e3ce48226b774ce7056b7fbd680d01cb0528b80cd6ad2c9304385"
+      },
+      "BIE-COMP-H8-003": {
+        "tests": 34,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "seconds": 0.09498924400008946,
+        "passed": true,
+        "log_sha256": "094c413a4f1df17fab6a1e1bb9a76d7883ce0533533cc0340de74ee033850689"
+      },
+      "BIE-COMP-H8-004": {
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "seconds": 1.348372012000027,
+        "passed": true,
+        "log_sha256": "f0296963d3464df348c1545564e2ac9fd3f7736017a2c689510152bc143833e2"
+      },
+      "BIE-COMP-H8-005": {
+        "tests": 23,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "seconds": 2.4551578489999883,
+        "passed": true,
+        "log_sha256": "e4728a24a3c1402157e16a1b2b76ded860d5dd26d93b85fc8cbde28498360a27"
+      }
+    },
+    "integration": {
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seconds": 11.668984077999994,
+      "passed": true,
+      "log_sha256": "1898979145cff5a5f5f0334d8917b5aefe9d01f0de3901f10047e27ff8ccaf01"
+    },
+    "accepted": false
+  },
+  "integrated": {
+    "file": "BIE_COMP_HARDENING_H8_INTEGRATED.zip",
+    "bytes": 13017330,
+    "sha256": "bef806de55ebb02ac4eac7ae764ee2e6898f5215a0968caa1ec3df0124205c4b",
+    "members": 5178,
+    "checksum_entries": 5177,
+    "tree_sha256": "9cd41c20c0c9958f2df4f1858b2b3d27f10adc8c0714c1ff9b07efcaa9d2e7e7"
+  },
+  "parent": {
+    "file": "BIE_COMP_HARDENING_H7_INTEGRATED.zip",
+    "sha256": "59835eb595d6cf1e0e5c4b3c3ba1ad252aae41e2cf7c83b3605ca824857ecddc",
+    "members": 5121,
+    "unchanged_members": 5115,
+    "changed_members": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "README.md",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/real_paint.py",
+      "docs/COMP_CONSOLIDATED_GAP_LEDGER.json"
+    ],
+    "all_changed_originals_preserved": true
+  },
+  "active_parent_python": {
+    "total": 415,
+    "changed": [
+      "app/bie/compiler/real_paint.py"
+    ]
+  },
+  "atomic_packages": [
+    {
+      "file": "BIE_COMP_HARDENING_H8_001.zip",
+      "bytes": 183506,
+      "sha256": "80ecd1a87c04a44ef21058162c1dad223564ecdb253ff63858d39a848c4f97bb",
+      "changes": 7,
+      "result_tree_sha256": "fe4beebeadff003ac7084716856d5bc08ca7747434059dd7bc3475e8dbd11657"
+    },
+    {
+      "file": "BIE_COMP_HARDENING_H8_002.zip",
+      "bytes": 178722,
+      "sha256": "b6173405f6993e4aaa1bcbb73314a935a7204045b8b884b6f2e4aef3c1f12fd8",
+      "changes": 6,
+      "result_tree_sha256": "c1ba87b5441abed66f2626f17416b804fb41385a18131e32a6563a9cfa0c750c"
+    },
+    {
+      "file": "BIE_COMP_HARDENING_H8_003.zip",
+      "bytes": 187274,
+      "sha256": "8235053657ba918ff2a4c49c41354ed28213597f135133208a37da6cecfbd611",
+      "changes": 9,
+      "result_tree_sha256": "20fdfbfa64f33612c35e9bdcef0ba1c9f8125e5fa70c2983899aa86fa29c6872"
+    },
+    {
+      "file": "BIE_COMP_HARDENING_H8_004.zip",
+      "bytes": 180017,
+      "sha256": "afdf6dc2a963459b8d1db814fbcbbcdb8bc6836c2305e1651fe7447908fc52d8",
+      "changes": 7,
+      "result_tree_sha256": "2dfe82fff2dca2f83e49cc0da6f2a976a1a0df6d7959b8a1a003bd3287aa9c6c"
+    },
+    {
+      "file": "BIE_COMP_HARDENING_H8_005.zip",
+      "bytes": 588314,
+      "sha256": "6fceb6e0a1fef4930178a7f94dd8d6f7e8ddd8e65a40b671109b5feb49dcc23d",
+      "changes": 38,
+      "result_tree_sha256": "9cd41c20c0c9958f2df4f1858b2b3d27f10adc8c0714c1ff9b07efcaa9d2e7e7"
+    }
+  ],
+  "ordered_restore_verification": {
+    "schema_version": "bie.h8-ordered-restore-verification.v1",
+    "steps": [
+      {
+        "task": 1,
+        "exit_code": 0,
+        "receipt": {
+          "task_id": "BIE-COMP-H8-001",
+          "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+          "base_unchanged": true,
+          "output": "/mnt/data/comp_h8_delta_verification/step-1",
+          "result_tree_sha256": "fe4beebeadff003ac7084716856d5bc08ca7747434059dd7bc3475e8dbd11657",
+          "files_applied": 7,
+          "accepted": false
+        }
+      },
+      {
+        "task": 2,
+        "exit_code": 0,
+        "receipt": {
+          "task_id": "BIE-COMP-H8-002",
+          "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+          "base_unchanged": true,
+          "output": "/mnt/data/comp_h8_delta_verification/step-2",
+          "result_tree_sha256": "c1ba87b5441abed66f2626f17416b804fb41385a18131e32a6563a9cfa0c750c",
+          "files_applied": 6,
+          "accepted": false
+        }
+      },
+      {
+        "task": 3,
+        "exit_code": 0,
+        "receipt": {
+          "task_id": "BIE-COMP-H8-003",
+          "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+          "base_unchanged": true,
+          "output": "/mnt/data/comp_h8_delta_verification/step-3",
+          "result_tree_sha256": "20fdfbfa64f33612c35e9bdcef0ba1c9f8125e5fa70c2983899aa86fa29c6872",
+          "files_applied": 9,
+          "accepted": false
+        }
+      },
+      {
+        "task": 4,
+        "exit_code": 0,
+        "receipt": {
+          "task_id": "BIE-COMP-H8-004",
+          "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+          "base_unchanged": true,
+          "output": "/mnt/data/comp_h8_delta_verification/step-4",
+          "result_tree_sha256": "2dfe82fff2dca2f83e49cc0da6f2a976a1a0df6d7959b8a1a003bd3287aa9c6c",
+          "files_applied": 7,
+          "accepted": false
+        }
+      },
+      {
+        "task": 5,
+        "exit_code": 0,
+        "receipt": {
+          "task_id": "BIE-COMP-H8-005",
+          "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+          "base_unchanged": true,
+          "output": "/mnt/data/comp_h8_delta_verification/step-5",
+          "result_tree_sha256": "9cd41c20c0c9958f2df4f1858b2b3d27f10adc8c0714c1ff9b07efcaa9d2e7e7",
+          "files_applied": 38,
+          "accepted": false
+        }
+      }
+    ],
+    "atomic_tests": [
+      {
+        "task": 1,
+        "exit_code": 0,
+        "seconds": 0.9230232059999253,
+        "log_sha256": "4ed97c2756d55756b95cf6b35fd4012b87217ee3cb871d3befb78ef88c09aace"
+      },
+      {
+        "task": 2,
+        "exit_code": 0,
+        "seconds": 0.7193317210001169,
+        "log_sha256": "8dc8e8d4778e3ce48226b774ce7056b7fbd680d01cb0528b80cd6ad2c9304385"
+      },
+      {
+        "task": 3,
+        "exit_code": 0,
+        "seconds": 0.7698181360001399,
+        "log_sha256": "62a73862828653d2f57fcc6a884b06ddc9eed6ec259cbf8c887b12f0cddc723c"
+      },
+      {
+        "task": 4,
+        "exit_code": 0,
+        "seconds": 2.269021731000066,
+        "log_sha256": "156a6c15556dad0a86ea30154e6420ee25a938752491bcc290d88337b71ffac6"
+      },
+      {
+        "task": 5,
+        "exit_code": 0,
+        "seconds": 4.194643286999963,
+        "log_sha256": "b3f259c7f69889ba3419e6122ab107b3b6d4ee8ba1bf1dc0e48752e4c5885a47"
+      }
+    ],
+    "negative_cases": [
+      {
+        "case": "wrong-order",
+        "exit_code": 2,
+        "receipt": {
+          "status": "RESTORE_BLOCKED",
+          "error": "BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES",
+          "accepted": false
+        }
+      },
+      {
+        "case": "repeat-apply",
+        "exit_code": 2,
+        "receipt": {
+          "status": "RESTORE_BLOCKED",
+          "error": "BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES",
+          "accepted": false
+        }
+      },
+      {
+        "case": "payload-tamper",
+        "exit_code": 2,
+        "receipt": {
+          "status": "RESTORE_BLOCKED",
+          "error": "PAYLOAD_HASH_MISMATCH",
+          "accepted": false
+        }
+      },
+      {
+        "case": "symlink-base",
+        "exit_code": 2,
+        "receipt": {
+          "status": "RESTORE_BLOCKED",
+          "error": "SYMLINK_REJECTED",
+          "accepted": false
+        }
+      },
+      {
+        "case": "nonregular-base",
+        "exit_code": 2,
+        "receipt": {
+          "status": "RESTORE_BLOCKED",
+          "error": "NONREGULAR_FILE_REJECTED",
+          "accepted": false
+        }
+      }
+    ],
+    "final_restored_tree_equals_integrated": true,
+    "tree_sha256": "9cd41c20c0c9958f2df4f1858b2b3d27f10adc8c0714c1ff9b07efcaa9d2e7e7",
+    "all_five_deltas_required_before_tests": true,
+    "accepted": false
+  },
+  "evidence": {
+    "file": "BIE_COMP_HARDENING_H8_EVIDENCE.zip",
+    "bytes": 570402,
+    "sha256": "9255d4478024a53118755efddea36ee4297b42967a18d4d422b717e530ff5ed5",
+    "members": 220,
+    "checksum_entries": 219
+  },
+  "real_execution": {
+    "source_publication_passed": true,
+    "render": {
+      "schema_version": "bie.render-receipt.v1",
+      "run_id": "h8-actual",
+      "mode": "full",
+      "composition_id": "BieQAfa60360f4cd7414d",
+      "passed": false,
+      "failure_code": "FULL_TYPECHECK_BLOCKED",
+      "errors": [
+        "Pinned generated project typecheck did not pass: BLOCKED_DEPENDENCIES"
+      ],
+      "output_path": null,
+      "expected_frames": 2,
+      "media": null,
+      "input_sha256": null,
+      "recipe_sha256": null,
+      "evidence_directory": "render-evidence/h8-actual",
+      "execution_kind": "LOCAL_REMOTION_CLI",
+      "process_started": false,
+      "artifact_sha256": null,
+      "artifact_size_bytes": null,
+      "accepted": false
+    },
+    "seconds": 0.49261245200000303,
+    "real_remotion_verified": false,
+    "accepted": false
+  },
+  "section_exit_permitted": false,
+  "accepted": false,
+  "font_files_distributed": false,
+  "github_write": false,
+  "no_recursive_master": true,
+  "master": {
+    "file": "BIE_COMP_HARDENING_H8_MASTER_BACKUP.zip",
+    "bytes": 12831036,
+    "sha256": "b85138d0e4cc50e7bfc420e977e22dbd7fc55dc547fa458c37fb47befede4d45",
+    "members": 19,
+    "checksum_entries": 18,
+    "all_embedded_archives_match_external": true,
+    "no_recursive_previous_master": true
+  }
+}

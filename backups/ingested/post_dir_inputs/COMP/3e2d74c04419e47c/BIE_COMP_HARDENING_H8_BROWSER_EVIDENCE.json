@@ -1,0 +1,78 @@
+{
+  "schema_version": "bie.comp-h8-browser-evidence.v1",
+  "cases": [
+    {
+      "case": "plain",
+      "passed": true,
+      "frames": 2,
+      "images": 10,
+      "codes": [],
+      "seconds": 2.193061711999917
+    },
+    {
+      "case": "map",
+      "passed": true,
+      "frames": 2,
+      "images": 22,
+      "codes": [],
+      "seconds": 2.529028950000111
+    },
+    {
+      "case": "map-overlap",
+      "passed": false,
+      "frames": 2,
+      "images": 22,
+      "codes": [
+        "MAP_POINTS_VISUALLY_UNRESOLVED",
+        "RASTER_INK_COMPONENT_LOST",
+        "RASTER_PARTIALLY_OCCLUDED"
+      ],
+      "seconds": 2.5641231360000347
+    },
+    {
+      "case": "map-tiny",
+      "passed": false,
+      "frames": 2,
+      "images": 28,
+      "codes": [
+        "MAP_POLYGON_COLLAPSED"
+      ],
+      "seconds": 2.891386646000001
+    },
+    {
+      "case": "fade",
+      "passed": true,
+      "frames": 4,
+      "images": 20,
+      "codes": [],
+      "seconds": 2.796148346999871
+    },
+    {
+      "case": "reveal",
+      "passed": true,
+      "frames": 4,
+      "images": 20,
+      "codes": [],
+      "seconds": 2.3759156070000245
+    },
+    {
+      "case": "multilingual",
+      "passed": true,
+      "frames": 2,
+      "images": 10,
+      "codes": [],
+      "seconds": 1.7878801450001447
+    }
+  ],
+  "expected_outcomes_matched": true,
+  "positive_cases": 5,
+  "expected_negative_cases": 2,
+  "frame_count": 18,
+  "png_count": 132,
+  "target_frame_records": 32,
+  "scope": "REAL_CHROMIUM_PIXELS_EXPLICIT_REACT_REMOTION_API_DOUBLES",
+  "real_remotion": false,
+  "real_react": false,
+  "accepted": false,
+  "pixel_claim": "Every output pixel and frame in these short technical fixtures; not sampled frames, arbitrary image meaning, full lesson readability, or teaching acceptance."
+}

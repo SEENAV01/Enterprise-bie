@@ -1,0 +1,109 @@
+{
+  "findings": [
+    {
+      "capability": "dynamic_asset_repair",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": [
+        "docs/comp_h11/CONTRACTS.md",
+        "tests/compiler/test_comp_h11_004.py"
+      ],
+      "remaining": []
+    },
+    {
+      "capability": "specialized_contracts",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": [
+        "docs/comp_h9/CONTRACTS.md",
+        "docs/comp_h10/CONTRACTS.md"
+      ],
+      "remaining": []
+    },
+    {
+      "capability": "paint_producer",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": [
+        "app/bie/compiler/raster_capture.py",
+        "app/bie/compiler/real_paint.py",
+        "tests/compiler/test_comp_h8_005.py"
+      ],
+      "remaining": []
+    },
+    {
+      "capability": "operational_isolation",
+      "status": "BLOCKED_ENVIRONMENT",
+      "evidence": [
+        "app/bie/compiler/linux_worker.py",
+        "tests/compiler/test_comp_h7_004.py"
+      ],
+      "remaining": [
+        "Strict browser private-proc isolation profile cannot be executed in this container; no unsandboxed production substitution is authorized."
+      ]
+    },
+    {
+      "capability": "installed_identity",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": [
+        "app/bie/compiler/installed_toolchain.py",
+        "tests/compiler/test_comp_h7_003.py"
+      ],
+      "remaining": []
+    },
+    {
+      "capability": "pinned_compile",
+      "status": "BLOCKED_ENVIRONMENT",
+      "evidence": [
+        "BIE_COMP_HARDENING_H11_REAL_VALIDATION.json",
+        "app/bie/compiler/typescript_compile.py"
+      ],
+      "remaining": [
+        "Exact pinned generated-project dependency tree is unavailable; npm registry probe timed out in the current environment."
+      ]
+    },
+    {
+      "capability": "actual_render",
+      "status": "BLOCKED_ENVIRONMENT",
+      "evidence": [
+        "BIE_COMP_HARDENING_H11_REAL_VALIDATION.json",
+        "app/bie/compiler/render_runtime.py"
+      ],
+      "remaining": [
+        "Actual Remotion discovery/smoke/full render cannot run until the exact pinned dependency tree and approved browser runtime are available."
+      ]
+    }
+  ],
+  "legacy_runtime_gate": {
+    "schema_version": "bie.comp-section-audit.v1",
+    "register_sha256": "ef3186ae0b65d1b83944fa974a3076db59335f421a41ce2955409aac62a60fcc",
+    "implementation_complete": true,
+    "open_implementation": [],
+    "blocked_execution": [
+      "operational_isolation",
+      "pinned_compile",
+      "actual_render"
+    ],
+    "section_exit_permitted": false,
+    "status": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+    "actual_render_authorization": false,
+    "product_accepted": false,
+    "note": "Audit register only; cannot substitute process-owned render evidence or downstream real-book acceptance."
+  },
+  "implementation_exit": {
+    "schema_version": "bie.comp-implementation-scope-exit.v2",
+    "register_sha256": "ef3186ae0b65d1b83944fa974a3076db59335f421a41ce2955409aac62a60fcc",
+    "implementation_scope_complete": true,
+    "implementation_scope_exit_permitted": true,
+    "open_implementation": [],
+    "runtime_verification_complete": false,
+    "blocked_execution": [
+      "operational_isolation",
+      "pinned_compile",
+      "actual_render"
+    ],
+    "runtime_gate_status": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+    "status": "IMPLEMENTATION_SCOPE_COMPLETE_RUNTIME_VERIFICATION_PENDING",
+    "actual_render_authorization": false,
+    "product_accepted": false,
+    "accepted": false,
+    "note": "Development exit is distinct from runtime/product acceptance. Blocked execution must be re-run when the required environment is available; any resulting compiler defect reopens COMP narrowly."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "VECTOR_VIEW_DEGENERATE",
+      "message": "VECTOR_VIEW_DEGENERATE: vector is hidden in this view; choose an explicit nondegenerate projection",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "d80c58af6342a27cbf8b5b46002b8948a042135fdebb32c15b4b72eb1143df63",
+  "scene_id": "scene:h1-vector-hidden-view",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

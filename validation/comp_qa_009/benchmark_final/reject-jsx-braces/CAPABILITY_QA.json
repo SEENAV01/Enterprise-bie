@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "TEXT_LITERAL_JSX_INJECTION",
+      "message": "Literal braces are inserted into executable JSX rather than a string binding.",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "c7d4867a6e5f16d572cb8679ee119c769a78e671391cff6b592ad4a16a313553",
+  "scene_id": "reject-jsx-braces",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

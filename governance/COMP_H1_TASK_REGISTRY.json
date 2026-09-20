@@ -1,0 +1,68 @@
+{
+  "schema_version": "bie.comp-hardening-plan.v1",
+  "batch_id": "BIE-COMP-HARDENING-H1",
+  "delivery_sequence": 10,
+  "authorization": "User requested Next phase after Batch 009 capability audit; these are audit-derived hardening IDs, not original registry IDs.",
+  "parent_checkpoint": "BIE-COMP-QA-005",
+  "parent_archive_sha256": "47afb5d1fbb5265a6b7401177d697f223d4d9a60375a77eebac7077d659377c2",
+  "basis": [
+    "docs/COMP_BATCH_009_CAPABILITY_AUDIT.md",
+    "app/bie/compiler/compiler_architecture.py",
+    "docs/QA_001_005_SPEC.md"
+  ],
+  "tasks": [
+    {
+      "task_id": "BIE-COMP-H1-001",
+      "title": "Literal text safety",
+      "findings": [
+        "COMP-AUDIT-009-F01"
+      ],
+      "required_result": "text, annotation and callout literals remain text, including JSX-like and multilingual strings",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H1-002",
+      "title": "Chart semantics and signed geometry",
+      "findings": [
+        "COMP-AUDIT-009-F02",
+        "COMP-AUDIT-009-F03"
+      ],
+      "required_result": "native bar/line/scatter/area/pie dispatch, signed axes and strict data domains",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H1-003",
+      "title": "Dimensional vector contract",
+      "findings": [
+        "COMP-AUDIT-009-F04"
+      ],
+      "required_result": "explicit rank-two 3D projection or fail closed; preserve all components and units",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H1-004",
+      "title": "2D topology validation",
+      "findings": [
+        "COMP-AUDIT-009-F09"
+      ],
+      "required_result": "reject invalid vertex indices, nonfinite coordinates and malformed/duplicate/self-loop edges",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H1-005",
+      "title": "Checked source compilation and render entry adoption",
+      "findings": [],
+      "required_result": "enforce source-contract and real AST gates before source publication; revalidate source at render CLI entry",
+      "accepted": false
+    }
+  ],
+  "deferred_findings": [
+    "COMP-AUDIT-009-F05",
+    "COMP-AUDIT-009-F06",
+    "COMP-AUDIT-009-F07",
+    "COMP-AUDIT-009-F08"
+  ],
+  "section_exit_permitted": false,
+  "accepted": false,
+  "closure_policy": "Local implementation/contract closure is distinct from dependency-verified compilation, real Remotion/frame and educational acceptance. Preserve prior fixtures, source and defect evidence."
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "bie.h6-audio-reference.v1",
+  "scope": "REAL_FFMPEG_PCM_TECHNICAL_REFERENCE_NOT_REMOTION_AUDIO_RENDER",
+  "scene_sha256": "6b6a23d3f4977f7a41ec8de5a6293ff2fd67c4202e3142fe2c4bde071ff0e220",
+  "runner_sha256": "03be94b2bdeadf1b5f1c5c27d867a1304c2f71952f18281b037b7abc367dcd21",
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-nostdin",
+    "-y",
+    "-i",
+    "/mnt/data/h6_evidence/audio_reference_001/technical-tone.wav",
+    "-filter_complex",
+    "[0:a]asplit=3[in0][in1][in2];[in0]atrim=start_sample=0:end_sample=36000,asetpts=PTS-STARTPTS,volume=0.4,adelay=12000S:all=1[a0];[in1]atrim=start_sample=48000:end_sample=60000,asetpts=PTS-STARTPTS,volume=0.2,adelay=24000S:all=1[a1];[in2]atrim=start_sample=12000:end_sample=48000,asetpts=PTS-STARTPTS,volume=0.4,adelay=60000S:all=1[a2];[a0][a1][a2]amix=inputs=3:duration=longest:normalize=0,apad,atrim=end_sample=96000[out]",
+    "-map",
+    "[out]",
+    "-ar",
+    "48000",
+    "-ac",
+    "1",
+    "-c:a",
+    "pcm_s16le",
+    "/mnt/data/h6_evidence/audio_reference_001/REFERENCE_MIX.wav"
+  ],
+  "exit_code": 0,
+  "ffmpeg_version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "clock": {
+    "sample_rate": 48000,
+    "channels": 1,
+    "sample_frames": 96000,
+    "sample_width": 2
+  },
+  "authored_reference_boundaries": [
+    {
+      "from_sample": 12000,
+      "end_sample": 48000,
+      "trim_sample": 0,
+      "gain": 0.4
+    },
+    {
+      "from_sample": 60000,
+      "end_sample": 96000,
+      "trim_sample": 12000,
+      "gain": 0.4
+    },
+    {
+      "from_sample": 24000,
+      "end_sample": 36000,
+      "trim_sample": 48000,
+      "gain": 0.2
+    }
+  ],
+  "absolute_max_error_pcm16": 0,
+  "allowed_rounding_error_pcm16": 1,
+  "silence_windows": {
+    "samples_0_11999": true,
+    "samples_48000_59999": true
+  },
+  "verified_assets": {
+    "schema_version": "bie.audio-asset-check.v1",
+    "assets": {
+      "tone": {
+        "channels": 1,
+        "sample_rate": 48000,
+        "sample_frames": 144000,
+        "byte_length": 288044,
+        "sha256": "24506ac5149221c292fb55998896448cc4f369f28d099b2b97895455a6b498aa",
+        "duration_seconds": 3.0,
+        "format": "PCM_S16LE_WAV",
+        "pcm_sha256": "39eaeceaba72e7cc1e4f0bc909c661ca58649d961f4efaff0dbf717eabd5f8e3",
+        "media_bytes_verified": true,
+        "speech_content_verified": false,
+        "rights_verified": false,
+        "accepted": false
+      }
+    },
+    "plan_sha256": "1c063a042c6d68c51cbc66d1c81760ee0ebf04a7c9f58756ab226bc2a9b816cf",
+    "accepted": false
+  },
+  "output_sha256": "cdfe84654218becca32ea31811857979ee276146caa3eeceb05b83ee8a5f2bb4",
+  "passed": true,
+  "speech": false,
+  "transcript_verified": false,
+  "real_remotion": false,
+  "render_pipeline_adopted": false,
+  "accepted": false
+}

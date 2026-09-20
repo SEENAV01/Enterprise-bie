@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "MAP_ANTIMERIDIAN_UNSUPPORTED",
+      "message": "MAP_ANTIMERIDIAN_UNSUPPORTED: split/unwrap this route upstream with governed provenance; do not draw across the world",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "81cc35700ecd255681076e701b1db306ab17c25d3ecd008ea86349e6c4328919",
+  "scene_id": "h2-map-dateline",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

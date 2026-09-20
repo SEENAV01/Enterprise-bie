@@ -1,0 +1,196 @@
+{
+  "accepted": false,
+  "accessibility_metadata": [],
+  "capability_requests": [],
+  "compiler_capabilities": [],
+  "duration_ms": 2000,
+  "elements": [
+    {
+      "accessibility": {
+        "alt": "Synthetic vector compiler fixture",
+        "color_independent_encoding": true
+      },
+      "element_id": "e0",
+      "element_type": "equation",
+      "normalized_box": {
+        "x": 0.15,
+        "y": 0.2,
+        "width": 0.5,
+        "height": 0.5
+      },
+      "props": {
+        "expression": "2(x+1)=6",
+        "format": "latex",
+        "font_size": 32,
+        "side_conditions": [
+          "x is real"
+        ]
+      },
+      "reasoning_refs": [
+        "reasoning:h5"
+      ],
+      "source_refs": [
+        "fixture:h5"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event_id": "visible-1",
+      "at_ms": 666,
+      "event_type": "state.set",
+      "target_ids": [
+        "e0"
+      ],
+      "payload": {
+        "state_path": "lesson.visible",
+        "value": false,
+        "source_refs": [
+          "fixture:h5"
+        ],
+        "reasoning_refs": [
+          "reasoning:h5"
+        ]
+      }
+    },
+    {
+      "event_id": "visible-2",
+      "at_ms": 1333,
+      "event_type": "state.set",
+      "target_ids": [
+        "e0"
+      ],
+      "payload": {
+        "state_path": "lesson.visible",
+        "value": true,
+        "source_refs": [
+          "fixture:h5"
+        ],
+        "reasoning_refs": [
+          "reasoning:h5"
+        ]
+      }
+    }
+  ],
+  "interaction_bindings": [],
+  "interaction_cues": [],
+  "layout": {},
+  "metadata": {
+    "fixture": "synthetic-not-real-book",
+    "compiler_h6": {
+      "schema_version": "bie.comp-frame-runtime.v1",
+      "initial_state": {
+        "lesson.visible": true
+      },
+      "state_lineage": {
+        "lesson.visible": {
+          "source_refs": [
+            "fixture:h5"
+          ],
+          "reasoning_refs": [
+            "reasoning:h5"
+          ]
+        }
+      }
+    },
+    "state_paths": [
+      "lesson.visible"
+    ],
+    "compiler_h10": {
+      "schema_version": "bie.comp-state-motion-composition.v1",
+      "compositions": [
+        {
+          "target_id": "e0",
+          "track_ids": [
+            "steps"
+          ],
+          "state_properties": [
+            "visible"
+          ],
+          "policy": "outer-state-controls",
+          "source_refs": [
+            "fixture:h5"
+          ],
+          "reasoning_refs": [
+            "reasoning:h5"
+          ]
+        }
+      ]
+    }
+  },
+  "narration_cues": [],
+  "planned_fallbacks": [],
+  "reasoning_refs": [
+    "reasoning:h5"
+  ],
+  "review_required": true,
+  "scene_id": "h5-equation",
+  "schema_version": "1.0.0",
+  "simulation_controls": [],
+  "source_refs": [
+    "fixture:h5"
+  ],
+  "state_bindings": [
+    {
+      "binding_id": "bound-visible",
+      "state_path": "lesson.visible",
+      "target_id": "e0",
+      "property_name": "visible",
+      "read_only": true
+    }
+  ],
+  "title": "Synthetic technical compiler case",
+  "tracks": [
+    {
+      "track_id": "steps",
+      "element_id": "e0",
+      "action": "morph",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "parameters": {
+        "schema_version": "bie.comp-specialized-motion.v1",
+        "mode": "typeset-state-crossfade",
+        "transition_fraction": 0.4,
+        "states": [
+          {
+            "expression": "2(x+1)=6",
+            "alt": "Equation step 1: 2(x+1)=6",
+            "source_refs": [
+              "fixture:h5"
+            ],
+            "reasoning_refs": [
+              "reasoning:h5"
+            ]
+          },
+          {
+            "expression": "x+1=3",
+            "alt": "Equation step 2: x+1=3",
+            "source_refs": [
+              "fixture:h5"
+            ],
+            "reasoning_refs": [
+              "reasoning:h5"
+            ]
+          },
+          {
+            "expression": "x=2",
+            "alt": "Equation step 3: x=2",
+            "source_refs": [
+              "fixture:h5"
+            ],
+            "reasoning_refs": [
+              "reasoning:h5"
+            ]
+          }
+        ]
+      },
+      "source_refs": [
+        "fixture:h5"
+      ],
+      "reasoning_refs": [
+        "reasoning:h5"
+      ]
+    }
+  ],
+  "upstream_revision": 1
+}

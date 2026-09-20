@@ -1,0 +1,67 @@
+{
+  "schema_version": "bie.comp-final-original-test-summary.v1",
+  "scope": "ORIGINAL_COMP_FAMILIES_ONLY_NOT_ALL_HARDENING",
+  "families": [
+    {
+      "family": "ARCH",
+      "tests": 38,
+      "passed": 38,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "REACT",
+      "tests": 45,
+      "passed": 45,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "ELEM",
+      "tests": 68,
+      "passed": 68,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "ANI",
+      "tests": 32,
+      "passed": 32,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "AUDIO",
+      "tests": 32,
+      "passed": 32,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "ASSET",
+      "tests": 26,
+      "passed": 26,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "BUILD",
+      "tests": 118,
+      "passed": 118,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_ORIGINAL_TESTS.txt"
+    },
+    {
+      "family": "QA",
+      "tests": 170,
+      "passed": 170,
+      "source_log": "BIE_COMP_FINAL_REAUDIT_QA_TESTS.txt"
+    }
+  ],
+  "total_tests": 529,
+  "passed": 529,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "notes": [
+    "ARCH through BUILD were rerun from the H12 working tree. QA was rerun separately from the same H12 working tree after the combined loop exceeded the outer command timeout.",
+    "These are original-family tests. H11 parent has a separate bound full 2,428-test release regression."
+  ],
+  "evidence": {
+    "combined_log_sha256": "31f7a3133a9b90104aa172a61f6973dba553e2940e7004ff52bd15b0a2145e17",
+    "qa_log_sha256": "936876017f226a3e8f0ca82fff628598b091518f8e1bd1fbf9089721070bace4"
+  }
+}

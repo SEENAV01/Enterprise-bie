@@ -1,0 +1,442 @@
+{
+  "schema_version": "bie.comp-continuation.v1",
+  "checkpoint": "BIE-COMP-H12-001",
+  "latest_completed_task": "BIE-COMP-H12-001",
+  "last_completed_task": "BIE-COMP-H12-001",
+  "batch_id": "BIE-COMP-HARDENING-H12-FINAL-REAUDIT",
+  "section": "COMP",
+  "section_status": "IMPLEMENTATION_SCOPE_COMPLETE_RUNTIME_PRODUCT_ACCEPTANCE_PENDING",
+  "section_exit_permitted": true,
+  "accepted": false,
+  "completed_original_families": [
+    "ARCH-001..006",
+    "REACT-001..007",
+    "ELEM-001..013",
+    "ANI-001..005",
+    "AUDIO-001..005",
+    "ASSET-001..004",
+    "BUILD-001..010",
+    "QA-001..005"
+  ],
+  "completed_hardening_tasks": [
+    "BIE-COMP-H1-001",
+    "BIE-COMP-H1-002",
+    "BIE-COMP-H1-003",
+    "BIE-COMP-H1-004",
+    "BIE-COMP-H1-005",
+    "BIE-COMP-H2-001",
+    "BIE-COMP-H2-002",
+    "BIE-COMP-H2-003",
+    "BIE-COMP-H2-004",
+    "BIE-COMP-H2-005",
+    "BIE-COMP-H3-001",
+    "BIE-COMP-H3-002",
+    "BIE-COMP-H3-003",
+    "BIE-COMP-H3-004",
+    "BIE-COMP-H3-005",
+    "BIE-COMP-H4-001",
+    "BIE-COMP-H4-002",
+    "BIE-COMP-H4-003",
+    "BIE-COMP-H4-004",
+    "BIE-COMP-H4-005",
+    "BIE-COMP-H5-001",
+    "BIE-COMP-H5-002",
+    "BIE-COMP-H5-003",
+    "BIE-COMP-H5-004",
+    "BIE-COMP-H5-005",
+    "BIE-COMP-H6-001",
+    "BIE-COMP-H6-002",
+    "BIE-COMP-H6-003",
+    "BIE-COMP-H6-004",
+    "BIE-COMP-H6-005",
+    "BIE-COMP-H7-001",
+    "BIE-COMP-H7-002",
+    "BIE-COMP-H7-003",
+    "BIE-COMP-H7-004",
+    "BIE-COMP-H7-005",
+    "BIE-COMP-H7-006",
+    "BIE-COMP-H7-007",
+    "BIE-COMP-H7-008",
+    "BIE-COMP-H8-001",
+    "BIE-COMP-H8-002",
+    "BIE-COMP-H8-003",
+    "BIE-COMP-H8-004",
+    "BIE-COMP-H8-005",
+    "BIE-COMP-H9-001",
+    "BIE-COMP-H9-002",
+    "BIE-COMP-H9-003",
+    "BIE-COMP-H9-004",
+    "BIE-COMP-H9-005",
+    "BIE-COMP-H10-001",
+    "BIE-COMP-H10-002",
+    "BIE-COMP-H10-003",
+    "BIE-COMP-H10-004",
+    "BIE-COMP-H11-001",
+    "BIE-COMP-H11-002",
+    "BIE-COMP-H11-003",
+    "BIE-COMP-H11-004",
+    "BIE-COMP-H12-001"
+  ],
+  "next_original_tasks": [],
+  "next_task_ids": [],
+  "next_action": "EXIT_COMP_IMPLEMENTATION_SCOPE_AND_BEGIN_AUDIO_AT_BIE-AUDIO-VO-001. Re-run blocked COMP pinned compile/render gates when a compliant environment is available; reopen COMP only for reproduced compiler defects.",
+  "next_task_numbering_policy": "Derive any further tasks only from remaining requirement-linked behavior or execution findings. Do not recreate the resolved H8 name-dispatch gaps or invent original IDs.",
+  "remaining_concrete_consumer_gaps": [],
+  "tests": {
+    "parent_h11_bound_full_regression": 2428,
+    "parent_h11_full_regression_passed": 2428,
+    "new_h12_tests": 12,
+    "new_h12_tests_passed": 12,
+    "fresh_original_family_tests": 529,
+    "fresh_original_family_tests_passed": 529,
+    "expected_discovered_test_count_after_h12": 2440,
+    "monolithic_h12_full_regression": "NO_PASS_CLAIM_OUTER_EXECUTION_TIMEOUT",
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE"
+  },
+  "full_generated_project_compiles_verified": 0,
+  "real_remotion_renders_verified": 0,
+  "real_book_e2e": "NOT_RUN",
+  "browser_evidence": {
+    "schema_version": "bie.h11-media-diagnostic.v1",
+    "source_cases": [
+      {
+        "case_id": "full-image",
+        "passed": true,
+        "manifest_sha256": "8c4c02eeb59592c719b8f01dda33476727279e33c4bb21645bd67fad1744d4d7",
+        "workers": 2
+      },
+      {
+        "case_id": "crop-image",
+        "passed": true,
+        "manifest_sha256": "d68ed81b019fcc8900a0fa758ce96b75422bb1d5ab6fe3ed804c60a8611812f5",
+        "workers": 2
+      },
+      {
+        "case_id": "trim-video",
+        "passed": true,
+        "manifest_sha256": "8736368a8bc14c813e451fd0410aee8b1ff6f6d74198dba351dc894e0d25510f",
+        "workers": 2
+      },
+      {
+        "case_id": "state-video",
+        "passed": true,
+        "manifest_sha256": "2b710271d9f31bce2fbcbe326a73070af5945419a575780d73463074812dbc6e",
+        "workers": 2
+      },
+      {
+        "case_id": "combined",
+        "passed": true,
+        "manifest_sha256": "81735cb676dd94d70b22c8e311922277060fbfd28955fe520e1a7444ee29c458",
+        "workers": 2
+      }
+    ],
+    "source_processes": 10,
+    "browser_cases": [
+      {
+        "case_id": "full-image",
+        "fit_passed": true,
+        "findings": [],
+        "frames": 24,
+        "element_frame_records": 24,
+        "screenshots": 3,
+        "errors": [],
+        "native_media_frame_records": 24,
+        "native_reference": [],
+        "producer": {
+          "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+          "browser_version": "144.0.7559.96",
+          "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+          "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+          "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+          "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+          "browser_os_sandbox_enabled": false,
+          "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+          "real_react": false,
+          "real_remotion": false,
+          "media_native_browser_diagnostic": true,
+          "media_audio_played": false,
+          "typescript_parser_version": "5.8.3"
+        }
+      },
+      {
+        "case_id": "crop-image",
+        "fit_passed": true,
+        "findings": [],
+        "frames": 24,
+        "element_frame_records": 24,
+        "screenshots": 3,
+        "errors": [],
+        "native_media_frame_records": 24,
+        "native_reference": [],
+        "producer": {
+          "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+          "browser_version": "144.0.7559.96",
+          "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+          "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+          "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+          "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+          "browser_os_sandbox_enabled": false,
+          "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+          "real_react": false,
+          "real_remotion": false,
+          "media_native_browser_diagnostic": true,
+          "media_audio_played": false,
+          "typescript_parser_version": "5.8.3"
+        }
+      },
+      {
+        "case_id": "trim-video",
+        "fit_passed": true,
+        "findings": [],
+        "frames": 24,
+        "element_frame_records": 24,
+        "screenshots": 3,
+        "errors": [],
+        "native_media_frame_records": 24,
+        "native_reference": [
+          {
+            "element_id": "e0",
+            "sampled_points": 48,
+            "rgb_channel_comparisons": 144,
+            "max_abs_channel_error": 4,
+            "max_seek_time_error_seconds": 6.66666666759852e-07,
+            "threshold_channel_error": 5,
+            "threshold_seek_time_error_seconds": 1e-06,
+            "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+            "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+            "passed": true,
+            "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+          }
+        ],
+        "producer": {
+          "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+          "browser_version": "144.0.7559.96",
+          "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+          "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+          "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+          "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+          "browser_os_sandbox_enabled": false,
+          "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+          "real_react": false,
+          "real_remotion": false,
+          "media_native_browser_diagnostic": true,
+          "media_audio_played": false,
+          "typescript_parser_version": "5.8.3"
+        }
+      },
+      {
+        "case_id": "state-video",
+        "fit_passed": true,
+        "findings": [],
+        "frames": 24,
+        "element_frame_records": 24,
+        "screenshots": 3,
+        "errors": [],
+        "native_media_frame_records": 24,
+        "native_reference": [
+          {
+            "element_id": "e0",
+            "sampled_points": 48,
+            "rgb_channel_comparisons": 144,
+            "max_abs_channel_error": 4,
+            "max_seek_time_error_seconds": 6.66666666759852e-07,
+            "threshold_channel_error": 5,
+            "threshold_seek_time_error_seconds": 1e-06,
+            "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+            "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+            "passed": true,
+            "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+          }
+        ],
+        "producer": {
+          "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+          "browser_version": "144.0.7559.96",
+          "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+          "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+          "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+          "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+          "browser_os_sandbox_enabled": false,
+          "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+          "real_react": false,
+          "real_remotion": false,
+          "media_native_browser_diagnostic": true,
+          "media_audio_played": false,
+          "typescript_parser_version": "5.8.3"
+        }
+      },
+      {
+        "case_id": "combined",
+        "fit_passed": true,
+        "findings": [],
+        "frames": 24,
+        "element_frame_records": 48,
+        "screenshots": 3,
+        "errors": [],
+        "native_media_frame_records": 24,
+        "native_reference": [
+          {
+            "element_id": "video",
+            "sampled_points": 48,
+            "rgb_channel_comparisons": 144,
+            "max_abs_channel_error": 4,
+            "max_seek_time_error_seconds": 6.66666666759852e-07,
+            "threshold_channel_error": 5,
+            "threshold_seek_time_error_seconds": 1e-06,
+            "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+            "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+            "passed": true,
+            "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+          }
+        ],
+        "producer": {
+          "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+          "browser_version": "144.0.7559.96",
+          "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+          "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+          "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+          "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+          "browser_os_sandbox_enabled": false,
+          "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+          "real_react": false,
+          "real_remotion": false,
+          "media_native_browser_diagnostic": true,
+          "media_audio_played": false,
+          "typescript_parser_version": "5.8.3"
+        }
+      }
+    ],
+    "frames": 120,
+    "element_frame_records": 144,
+    "screenshots": 15,
+    "native_video_reference": [
+      {
+        "element_id": "e0",
+        "sampled_points": 48,
+        "rgb_channel_comparisons": 144,
+        "max_abs_channel_error": 4,
+        "max_seek_time_error_seconds": 6.66666666759852e-07,
+        "threshold_channel_error": 5,
+        "threshold_seek_time_error_seconds": 1e-06,
+        "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+        "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+        "passed": true,
+        "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+      },
+      {
+        "element_id": "e0",
+        "sampled_points": 48,
+        "rgb_channel_comparisons": 144,
+        "max_abs_channel_error": 4,
+        "max_seek_time_error_seconds": 6.66666666759852e-07,
+        "threshold_channel_error": 5,
+        "threshold_seek_time_error_seconds": 1e-06,
+        "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+        "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+        "passed": true,
+        "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+      },
+      {
+        "element_id": "video",
+        "sampled_points": 48,
+        "rgb_channel_comparisons": 144,
+        "max_abs_channel_error": 4,
+        "max_seek_time_error_seconds": 6.66666666759852e-07,
+        "threshold_channel_error": 5,
+        "threshold_seek_time_error_seconds": 1e-06,
+        "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+        "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+        "passed": true,
+        "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+      }
+    ],
+    "publication_passed": true,
+    "passed": true,
+    "scope": "REAL_TS_API_DOUBLES_NATIVE_CHROMIUM_AND_ACTUAL_ASSET_BYTES",
+    "react_remotion_doubles": true,
+    "actual_remotion_render": false,
+    "audio_playback": false,
+    "full_pixel_qa": false,
+    "real_book_e2e": false,
+    "accepted": false
+  },
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "full_section_reaudit_performed_this_batch": false,
+  "workflow": "Consolidated findings -> implementation batches/tests/regression -> full section re-audit after backlog addressed. No automatic exit.",
+  "integration_status": "LOCAL_WORKSPACE_ONLY_NO_GITHUB_WRITE",
+  "canonical_repository": "SEENAV01/Enterprise-bie",
+  "lineage": {
+    "parent_archive": "BIE_COMP_HARDENING_H10_INTEGRATED.zip",
+    "parent_sha256": "913206a80d4a1d677438df9aa33485745681e132f4011c5919816d9c8ac75733",
+    "parent_checkpoint": "BIE-COMP-H10-004",
+    "preserved_originals": "lineage/hardening_h10/originals",
+    "inventory": "lineage/hardening_h10/ORIGINAL_MEMBER_HASHES.json"
+  },
+  "current_consumer_coverage": {
+    "registered_elements": 18,
+    "registered_actions": 16,
+    "missing_dispatch_names": [],
+    "bounded_name_dispatch_complete": true,
+    "full_behavior_coverage_complete": false
+  },
+  "h8_recorded_missing_consumer_names": [
+    {
+      "kind": "element",
+      "name": "shape"
+    },
+    {
+      "kind": "element",
+      "name": "diagram"
+    },
+    {
+      "kind": "element",
+      "name": "highlight"
+    },
+    {
+      "kind": "action",
+      "name": "simulation_state"
+    },
+    {
+      "kind": "action",
+      "name": "static_focus"
+    },
+    {
+      "kind": "action",
+      "name": "static_trace"
+    },
+    {
+      "kind": "action",
+      "name": "crossfade_states"
+    },
+    {
+      "kind": "action",
+      "name": "state_snapshots"
+    },
+    {
+      "kind": "action",
+      "name": "progressive_static_trace"
+    },
+    {
+      "kind": "action",
+      "name": "path_endpoints_with_progress_marker"
+    }
+  ],
+  "missing_names_status": "H8 missing names implemented with explicit bounded H9 contracts; general behavior and acceptance gates remain open.",
+  "combination_evidence": {
+    "case_count": 21,
+    "independent_generator_processes": 42,
+    "frame_executions": 840,
+    "control_records": 840,
+    "passed": true,
+    "scope": "REAL_TS_WITH_EXPLICIT_REACT_REMOTION_API_DOUBLES; OPTIONAL_REAL_CHROMIUM"
+  },
+  "implementation_scope_exit_permitted": true,
+  "full_section_reaudit_performed": true,
+  "next_section": "AUDIO",
+  "next_section_original_task": "BIE-AUDIO-VO-001",
+  "runtime_verification_pending": [
+    "operational_isolation",
+    "pinned_compile",
+    "actual_render"
+  ],
+  "final_reaudit": "docs/comp_h12/FINAL_REAUDIT.json"
+}

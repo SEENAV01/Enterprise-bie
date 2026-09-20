@@ -1,0 +1,279 @@
+{
+  "schema_version": "bie.compiler-consumer-coverage.v1",
+  "rows": [
+    {
+      "kind": "element",
+      "name": "text",
+      "dispatch": "bie.compiler.text_compiler:compile_text_element",
+      "source": "app/bie/compiler/text_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "equation",
+      "dispatch": "bie.compiler.equation_compiler:compile_equation_element",
+      "source": "app/bie/compiler/equation_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "shape",
+      "dispatch": "bie.compiler.shape_compiler:compile_shape_element",
+      "source": "app/bie/compiler/shape_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "vector",
+      "dispatch": "bie.compiler.vector_compiler:compile_vector_element",
+      "source": "app/bie/compiler/vector_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "diagram",
+      "dispatch": "bie.compiler.diagram_compiler:compile_diagram_element",
+      "source": "app/bie/compiler/diagram_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "graph",
+      "dispatch": "bie.compiler.graph_compiler:compile_graph_element",
+      "source": "app/bie/compiler/graph_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "chart",
+      "dispatch": "bie.compiler.chart_compiler:compile_chart_element",
+      "source": "app/bie/compiler/chart_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "map",
+      "dispatch": "bie.compiler.map_compiler:compile_map_element",
+      "source": "app/bie/compiler/map_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "timeline",
+      "dispatch": "bie.compiler.timeline_compiler:compile_timeline_element",
+      "source": "app/bie/compiler/timeline_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "image",
+      "dispatch": "bie.compiler.media_compiler:compile_image_or_video_element",
+      "source": "app/bie/compiler/media_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "video",
+      "dispatch": "bie.compiler.media_compiler:compile_image_or_video_element",
+      "source": "app/bie/compiler/media_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "simulation",
+      "dispatch": "bie.compiler.simulation_compiler:compile_simulation_element",
+      "source": "app/bie/compiler/simulation_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "model2d",
+      "dispatch": "bie.compiler.model2d_compiler:compile_model2d_element",
+      "source": "app/bie/compiler/model2d_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "model3d",
+      "dispatch": "bie.compiler.model3d_compiler:compile_model3d_element",
+      "source": "app/bie/compiler/model3d_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "annotation",
+      "dispatch": "bie.compiler.annotation_callout_compiler:compile_annotation_callout_element",
+      "source": "app/bie/compiler/annotation_callout_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "callout",
+      "dispatch": "bie.compiler.annotation_callout_compiler:compile_annotation_callout_element",
+      "source": "app/bie/compiler/annotation_callout_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "highlight",
+      "dispatch": "bie.compiler.highlight_compiler:compile_highlight_element",
+      "source": "app/bie/compiler/highlight_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "element",
+      "name": "particle_system",
+      "dispatch": "bie.compiler.particle_compiler:compile_particle_element",
+      "source": "app/bie/compiler/particle_compiler.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "enter",
+      "dispatch": "bie.compiler.animation_behavior:motion_contract",
+      "source": "app/bie/compiler/animation_behavior.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "exit",
+      "dispatch": "bie.compiler.animation_behavior:motion_contract",
+      "source": "app/bie/compiler/animation_behavior.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "emphasize",
+      "dispatch": "bie.compiler.animation_behavior:motion_contract",
+      "source": "app/bie/compiler/animation_behavior.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "reveal",
+      "dispatch": "bie.compiler.animation_behavior:motion_contract",
+      "source": "app/bie/compiler/animation_behavior.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "transform",
+      "dispatch": "bie.compiler.animation_behavior:motion_contract",
+      "source": "app/bie/compiler/animation_behavior.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "morph",
+      "dispatch": "bie.compiler.specialized_motion:specialized_contract",
+      "source": "app/bie/compiler/specialized_motion.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "trace",
+      "dispatch": "bie.compiler.specialized_motion:specialized_contract",
+      "source": "app/bie/compiler/specialized_motion.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "path_follow",
+      "dispatch": "bie.compiler.animation_behavior:motion_contract",
+      "source": "app/bie/compiler/animation_behavior.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "camera",
+      "dispatch": "bie.compiler.specialized_motion:specialized_contract",
+      "source": "app/bie/compiler/specialized_motion.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "simulation_state",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "static_focus",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "static_trace",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "crossfade_states",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "state_snapshots",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "progressive_static_trace",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    },
+    {
+      "kind": "action",
+      "name": "path_endpoints_with_progress_marker",
+      "dispatch": "bie.compiler.registered_actions:registered_contract",
+      "source": "app/bie/compiler/registered_actions.py",
+      "status": "DISPATCH_PRESENT_BEHAVIOR_NOT_EXHAUSTIVELY_CERTIFIED"
+    }
+  ],
+  "missing": [],
+  "unregistered_dispatch": {
+    "elements": [],
+    "actions": []
+  },
+  "registry_elements": 18,
+  "registry_actions": 16,
+  "source_files": {
+    "app/bie/compiler/animation_behavior.py": "b419fa6f3f266639c87f22732e1b3421217b73719ead4fd52e6fcd3910e38400",
+    "app/bie/compiler/annotation_callout_compiler.py": "65f6897ff9f0c01ea2285b7e3b8ec99cc55de7436502574474c839a635caa712",
+    "app/bie/compiler/chart_compiler.py": "7f22f8c7fe1fc51a57ad708e049044d182f4131f252649409d2a61cce9b358d1",
+    "app/bie/compiler/diagram_compiler.py": "5224c14f82cffaa17b0c0e580f559e9233890255878c6c7dc8f74c22adf2541d",
+    "app/bie/compiler/equation_compiler.py": "0c69a1e1e9021a680663540551f14c4b13ed2ac1704ceca517f1815ad10c16b5",
+    "app/bie/compiler/graph_compiler.py": "42ecad3bbdbd67b93b2b9f3e795819629f49c7f7c866466ddd9c553e79fd3368",
+    "app/bie/compiler/highlight_compiler.py": "bef7be0448f161a597d03cd3235b5ea27aba6ff0a65ba21915c774affbd7a53d",
+    "app/bie/compiler/map_compiler.py": "e123d6716f26811afb18d223584882bb16f1b2b785783ab3a08cd358b1be2666",
+    "app/bie/compiler/media_compiler.py": "510d1b7d5d370293131bc570594ad5d585a93d6ecd85349d4b3c096121f5c320",
+    "app/bie/compiler/model2d_compiler.py": "d8dfaf57428cda1fb94dc2ecf6a3bd1a949af26e3c19526ac2fdb2e06542f841",
+    "app/bie/compiler/model3d_compiler.py": "fa182855b08c647f2769d260c233a52518fb069681423fbcb04210dfea80a5ad",
+    "app/bie/compiler/particle_compiler.py": "2aecad22723346d98ed5db2a20bdcb8ce5d1f10fe9847326c3dd9581d8d51a99",
+    "app/bie/compiler/qa_scene_compile.py": "133f2ea155a395fbc0f9bb7cbe2809359b59bbe923ad7498e84c5df834d13cba",
+    "app/bie/compiler/registered_actions.py": "316f7486016750ff13f3b71a5afb167a8628f5dce79d41b60c1498e4119afaa2",
+    "app/bie/compiler/shape_compiler.py": "c577d507e1b23b63a0c6e168398fcb4cc8e0db24d87d3e41cc3bd086d4b277aa",
+    "app/bie/compiler/simulation_compiler.py": "bb4b665e570acff82cf0c5fbc73b13af0bb174ec3f8a5f9f137bc3e1340d184f",
+    "app/bie/compiler/specialized_motion.py": "e6ef3996b103885ab88f7aa49d5c09c00097f7723f11f29b69ec34d53bf304da",
+    "app/bie/compiler/text_compiler.py": "394e69518edc66bd7943c841b5efe87f3ff022769221899ca4968d1aade7a2dd",
+    "app/bie/compiler/timeline_compiler.py": "e15fa89e4fabec4088b8cbbfa0e96a41bdcf6f14e3119ef700827d9744ba0f13",
+    "app/bie/compiler/vector_compiler.py": "130ca1bdd19027fd929dfe821d538ec8c4771afc81c49faae2923870d92924f2",
+    "app/bie/scene_ir/scene_ir_registry.py": "39110a34191622810460f086ba80f5290136ccf87c987067deb49f9cc1566993"
+  },
+  "dispatch_complete": true,
+  "behavior_coverage_complete": false,
+  "section_exit_permitted": false,
+  "accepted": false,
+  "limits": "Name-level live source inventory only. Missing consumers remain implementation gaps; present entries require property/combination tests and actual execution. Interactive game and speech production belong to their own sections, not silently implemented here.",
+  "inventory_sha256": "48788d534eb1607b386cf20318c4e4de0496f36530afa6b10c3595a26dbb10be"
+}

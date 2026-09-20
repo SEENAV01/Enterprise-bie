@@ -1,36 +1,26 @@
-# BIE current canonical state
+# BIE canonical integration checkpoint
 
-**DIR = IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED.**
+Post-DIR source adoption: VIS → ANI → DSL → COMP through `BIE-COMP-H12-001`.
+Previously integrated infrastructure, document/knowledge, prerequisite, mathematics,
+reasoning, pedagogy and director implementations are retained.
 
-The canonical repository now contains all 59 DIR tasks: 37 original-roadmap tasks,
-14 prior audit-derived hardening tasks and 8 completion hardening tasks. The original
-roadmap checkpoint remains `BIE-DIR-QA-007`; the implementation hardening checkpoint
-is `BIE-DIR-HARD-BENCHMARK-CALIBRATION-001`.
+This checkpoint is published only by the guarded integration workflow after source,
+original-archive, canonical regression and exact file/tree checks pass. A local
+candidate copy of this document does not establish a successful GitHub publication.
 
-Canonical source is `bie/director/`. The registered production composition requires
-durable catalog and fenced recovery, exact RE/PED inputs, rich source-bound teaching,
-authenticated assessment receipts, hierarchical discourse annotation and independent
-review. Scene correction is local, followed by whole-lesson recompilation and QA.
+## Truth boundary
 
-Verification: 683 DIR tests across 72 files plus 5 canonical integration contracts;
-the full enterprise gate passed 2,848 tests across 624 files with zero failures,
-errors or skips. Exact results are in
-`validation/director_integration_003/verification_summary.json`.
-Original ZIP/member preservation is checked through
-`manifests/director_integration_003.json`; archived source is never imported.
+- Supplied active source is adopted; original packages and historical evidence are preserved.
+- The compiler's implementation-scope exit record is retained, not promoted to runtime acceptance.
+- No real Remotion render, real-book product acceptance or finished web application is claimed.
+- Ten historical VIS LAYOUT atomic ZIPs remain referenced but unavailable; their combined source is present.
+- Test counts must be read from the run bound to the resulting commit, not added from old reports.
 
-Preservation totals: 990 archives and 13,925 original member occurrences: historical
-796/12,439, Reasoning 77/483, PED 58/393 and DIR 59/610. Assembly-001 remains immutable.
+## Next development
 
-Read `task_registry/continuation.json`, `task_registry/director_integration_003.json`,
-`manifests/director_integration_003.json` and
-`validation/director_integration_003/verification_summary.json`.
+The prior final COMP continuation selects Section 14 AUDIO, starting with
+`BIE-AUDIO-VO-001`. Do not restart completed sections. Keep runtime/evidence blockers
+separate from new feature work; reopen a component only for a reproduced material defect.
 
-Implementation tests do not establish product acceptance. Required evidence remains:
-real multi-domain textbook BI/KI/PR/MATH/RE/PED → DIR E2E; live provider and independent
-expert-signed benchmark calibration; representative learner/deployed grader evidence;
-and actual downstream lesson, audio/video rendering and playable-game validation.
-
-The next work must follow the approved downstream VIS/ANI/Game roadmap or a concrete
-acceptance gap. Preserve structured book understanding → knowledge/prerequisites/math/
-reasoning → pedagogy/directors → Scene/Game IR → executable outputs → QA/repair.
+Follow the approved full pipeline through usable audio/video, QA/repair and revision
+learning games. The current integration does not erase downstream work or its gates.

@@ -1,0 +1,443 @@
+{
+  "schema_version": "bie.release-verification.v1",
+  "integrated": {
+    "archive": "BIE_COMP_HARDENING_H7_INTEGRATED.zip",
+    "sha256": "59835eb595d6cf1e0e5c4b3c3ba1ad252aae41e2cf7c83b3605ca824857ecddc",
+    "bytes": 12666322,
+    "members": 5121,
+    "payload_checksums": 5120,
+    "tree_sha256": "252425b59b954e8a868cf061d50d4c143d6861ea93b6ac37a1c26d76fb2fffaa",
+    "checksum_entries_verified": 5120
+  },
+  "atomic_packages": [
+    {
+      "task_id": "BIE-COMP-H7-001",
+      "archive": "BIE_COMP_HARDENING_H7_001.zip",
+      "sha256": "4a7f934a65e7ec2333bdf4ba1ad8efb70908c5e96d99c603d94d19ce11fa7fb2",
+      "bytes": 190886,
+      "payload_files": 11,
+      "base_tree_sha256": "2ff9747d0f2a355798040d766dc88729ce301450cecba5ccafe298f4dfa66fb7",
+      "result_tree_sha256": "f1eeb6c2aa67c3ffc4c35fea62ef91386fa16c2cda5c56a4fffe8ad796c12b41",
+      "targeted_tests": 35
+    },
+    {
+      "task_id": "BIE-COMP-H7-002",
+      "archive": "BIE_COMP_HARDENING_H7_002.zip",
+      "sha256": "148c84a88a2deeb6f59fa8d2a173215425c370550b2d3dae8ad5203a3e47457e",
+      "bytes": 194552,
+      "payload_files": 11,
+      "base_tree_sha256": "f1eeb6c2aa67c3ffc4c35fea62ef91386fa16c2cda5c56a4fffe8ad796c12b41",
+      "result_tree_sha256": "1d9a4ebbbf46855005f0b413f34c8186cdab11dfaffcf3b066b311479c9ff825",
+      "targeted_tests": 39
+    },
+    {
+      "task_id": "BIE-COMP-H7-003",
+      "archive": "BIE_COMP_HARDENING_H7_003.zip",
+      "sha256": "c7846d63b9d1bc5158e2deec0646e81e126e0bc30a8ed721a0cc803dd7d3ade9",
+      "bytes": 178501,
+      "payload_files": 5,
+      "base_tree_sha256": "1d9a4ebbbf46855005f0b413f34c8186cdab11dfaffcf3b066b311479c9ff825",
+      "result_tree_sha256": "1d13dcd5c2060f621b2bb88b5364f19a9373d1279a21347311554b194fbc5156",
+      "targeted_tests": 15
+    },
+    {
+      "task_id": "BIE-COMP-H7-004",
+      "archive": "BIE_COMP_HARDENING_H7_004.zip",
+      "sha256": "dbe9b7ba7362585a9b2a7d510fa584342a53ca60e8ddd401982e634ea1531f40",
+      "bytes": 187957,
+      "payload_files": 8,
+      "base_tree_sha256": "1d13dcd5c2060f621b2bb88b5364f19a9373d1279a21347311554b194fbc5156",
+      "result_tree_sha256": "6ec7f72af6720ec3a7e5b5b4e9cc6460357b710e8222eda77b80566886d2df43",
+      "targeted_tests": 22
+    },
+    {
+      "task_id": "BIE-COMP-H7-005",
+      "archive": "BIE_COMP_HARDENING_H7_005.zip",
+      "sha256": "8c79669ce520608d0a721413c854d2b47c8e80ce5fcc9b9b6a68e6308890df92",
+      "bytes": 182094,
+      "payload_files": 6,
+      "base_tree_sha256": "6ec7f72af6720ec3a7e5b5b4e9cc6460357b710e8222eda77b80566886d2df43",
+      "result_tree_sha256": "25da2e395e7773bb7ab0a3d4e225d61df35c08df1f77e79ad3f0ca4b8a51149e",
+      "targeted_tests": 15
+    },
+    {
+      "task_id": "BIE-COMP-H7-006",
+      "archive": "BIE_COMP_HARDENING_H7_006.zip",
+      "sha256": "3ab1a5cc99d625e4710e5ea1ba0a138c50018f9dc2df63529a27a38fb977fb53",
+      "bytes": 186878,
+      "payload_files": 8,
+      "base_tree_sha256": "25da2e395e7773bb7ab0a3d4e225d61df35c08df1f77e79ad3f0ca4b8a51149e",
+      "result_tree_sha256": "9ec90d25cc22f3e2a1730817abd7645761f2970e354d9bc69b404c4276e9d841",
+      "targeted_tests": 35
+    },
+    {
+      "task_id": "BIE-COMP-H7-007",
+      "archive": "BIE_COMP_HARDENING_H7_007.zip",
+      "sha256": "b2dc185bf067aa6f176c82dc32b75667d1b5a898882f33ce0c287e4534fec455",
+      "bytes": 193432,
+      "payload_files": 8,
+      "base_tree_sha256": "9ec90d25cc22f3e2a1730817abd7645761f2970e354d9bc69b404c4276e9d841",
+      "result_tree_sha256": "6369c694f0aea162466547be2f3ea48afe49c2920c94cf742a9b56cd272b5a58",
+      "targeted_tests": 12
+    },
+    {
+      "task_id": "BIE-COMP-H7-008",
+      "archive": "BIE_COMP_HARDENING_H7_008.zip",
+      "sha256": "b153faf97736f1e449539bed1f6ac8f43103a5b830ea0d97c0b0fef649c25f89",
+      "bytes": 703798,
+      "payload_files": 75,
+      "base_tree_sha256": "6369c694f0aea162466547be2f3ea48afe49c2920c94cf742a9b56cd272b5a58",
+      "result_tree_sha256": "252425b59b954e8a868cf061d50d4c143d6861ea93b6ac37a1c26d76fb2fffaa",
+      "targeted_tests": 13
+    }
+  ],
+  "evidence_package": {
+    "archive": "BIE_COMP_HARDENING_H7_EVIDENCE.zip",
+    "sha256": "36580507ee98c39e3ea70593b78e16b4cb7e8c946e4b344ff5cf0b29c78464d2",
+    "bytes": 1428480,
+    "payload_checksums": 402,
+    "members": 403,
+    "no_font_files": true,
+    "checksum_entries_verified": 402
+  },
+  "fresh_full_regression": {
+    "tests": 1947,
+    "duration_seconds": 385.033,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "full_regression_command": [
+    "/opt/pyvenv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "test_scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+  "fresh_package_tree_verified_after_tests": true,
+  "atomic_restored_tests": [
+    {
+      "task_id": "BIE-COMP-H7-001",
+      "returncode": 0,
+      "duration_seconds": 27.409353420000116,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_001",
+        "tests.compiler.test_comp_h7_001_audio",
+        "-v"
+      ],
+      "results": {
+        "tests": 35,
+        "duration_seconds": 25.445,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-002",
+      "returncode": 0,
+      "duration_seconds": 25.034889766000106,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_002",
+        "tests.compiler.test_comp_h7_002_glyph",
+        "-v"
+      ],
+      "results": {
+        "tests": 39,
+        "duration_seconds": 24.06,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-003",
+      "returncode": 0,
+      "duration_seconds": 1.6135731140002463,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_003",
+        "-v"
+      ],
+      "results": {
+        "tests": 15,
+        "duration_seconds": 0.41,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-004",
+      "returncode": 0,
+      "duration_seconds": 19.98976761799986,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_004",
+        "-v"
+      ],
+      "results": {
+        "tests": 22,
+        "duration_seconds": 19.084,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-005",
+      "returncode": 0,
+      "duration_seconds": 7.172836580999956,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_005",
+        "-v"
+      ],
+      "results": {
+        "tests": 15,
+        "duration_seconds": 5.957,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-006",
+      "returncode": 0,
+      "duration_seconds": 5.924157212999944,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_006",
+        "-v"
+      ],
+      "results": {
+        "tests": 35,
+        "duration_seconds": 4.335,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-007",
+      "returncode": 0,
+      "duration_seconds": 27.175920560000122,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_007",
+        "-v"
+      ],
+      "results": {
+        "tests": 12,
+        "duration_seconds": 26.176,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    },
+    {
+      "task_id": "BIE-COMP-H7-008",
+      "returncode": 0,
+      "duration_seconds": 1.0499495999997634,
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h7_008",
+        "-v"
+      ],
+      "results": {
+        "tests": 13,
+        "duration_seconds": 0.001,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0
+      }
+    }
+  ],
+  "delta_roundtrip": {
+    "ordered_restorations": [
+      {
+        "task_id": "BIE-COMP-H7-001",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-001",
+        "result_tree_sha256": "f1eeb6c2aa67c3ffc4c35fea62ef91386fa16c2cda5c56a4fffe8ad796c12b41",
+        "files_applied": 11,
+        "accepted": false,
+        "duration_seconds": 3.1815977689998363
+      },
+      {
+        "task_id": "BIE-COMP-H7-002",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-002",
+        "result_tree_sha256": "1d9a4ebbbf46855005f0b413f34c8186cdab11dfaffcf3b066b311479c9ff825",
+        "files_applied": 11,
+        "accepted": false,
+        "duration_seconds": 2.9100512570003048
+      },
+      {
+        "task_id": "BIE-COMP-H7-003",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-003",
+        "result_tree_sha256": "1d13dcd5c2060f621b2bb88b5364f19a9373d1279a21347311554b194fbc5156",
+        "files_applied": 5,
+        "accepted": false,
+        "duration_seconds": 3.5713783569999578
+      },
+      {
+        "task_id": "BIE-COMP-H7-004",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-004",
+        "result_tree_sha256": "6ec7f72af6720ec3a7e5b5b4e9cc6460357b710e8222eda77b80566886d2df43",
+        "files_applied": 8,
+        "accepted": false,
+        "duration_seconds": 3.2845909960001336
+      },
+      {
+        "task_id": "BIE-COMP-H7-005",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-005",
+        "result_tree_sha256": "25da2e395e7773bb7ab0a3d4e225d61df35c08df1f77e79ad3f0ca4b8a51149e",
+        "files_applied": 6,
+        "accepted": false,
+        "duration_seconds": 2.389823847000116
+      },
+      {
+        "task_id": "BIE-COMP-H7-006",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-006",
+        "result_tree_sha256": "9ec90d25cc22f3e2a1730817abd7645761f2970e354d9bc69b404c4276e9d841",
+        "files_applied": 8,
+        "accepted": false,
+        "duration_seconds": 3.197422942999765
+      },
+      {
+        "task_id": "BIE-COMP-H7-007",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-007",
+        "result_tree_sha256": "6369c694f0aea162466547be2f3ea48afe49c2920c94cf742a9b56cd272b5a58",
+        "files_applied": 8,
+        "accepted": false,
+        "duration_seconds": 3.493839155999922
+      },
+      {
+        "task_id": "BIE-COMP-H7-008",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h7_delta_restore/workspace-008",
+        "result_tree_sha256": "252425b59b954e8a868cf061d50d4c143d6861ea93b6ac37a1c26d76fb2fffaa",
+        "files_applied": 75,
+        "accepted": false,
+        "duration_seconds": 2.39807111600021
+      }
+    ],
+    "negative_cases": [
+      {
+        "case": "wrong_order",
+        "rejected": true,
+        "error": "BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES"
+      },
+      {
+        "case": "repeat_application",
+        "rejected": true,
+        "error": "BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES"
+      },
+      {
+        "case": "tampered_payload",
+        "rejected": true,
+        "error": "PAYLOAD_HASH_MISMATCH"
+      },
+      {
+        "case": "symlink_base",
+        "rejected": true,
+        "error": "SYMLINK_REJECTED"
+      },
+      {
+        "case": "nonregular_fifo",
+        "rejected": true,
+        "error": "NONREGULAR_FILE_REJECTED"
+      }
+    ],
+    "final_tree_equals_integrated": true,
+    "final_tree_sha256": "252425b59b954e8a868cf061d50d4c143d6861ea93b6ac37a1c26d76fb2fffaa",
+    "test_workspace": "/mnt/data/h7_delta_restore/workspace-008",
+    "accepted": false
+  },
+  "lineage": {
+    "parent_members": 5012,
+    "active_parent_python": 390,
+    "unchanged_active_parent_python": 379,
+    "modified_active_parent_python": [
+      "app/bie/compiler/generated_code_regression.py",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/layout_browser.py",
+      "app/bie/compiler/layout_repair.py",
+      "app/bie/compiler/reduced_motion.py",
+      "app/bie/compiler/render_runtime.py",
+      "app/bie/compiler/specialized_camera.py",
+      "app/bie/compiler/specialized_equation.py",
+      "app/bie/compiler/specialized_motion.py",
+      "scripts/compile_scene_checked.py",
+      "scripts/repair_scene_layout.py"
+    ],
+    "modified_parent_members": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "README.md",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/generated_code_regression.py",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/layout_browser.py",
+      "app/bie/compiler/layout_repair.py",
+      "app/bie/compiler/reduced_motion.py",
+      "app/bie/compiler/render_runtime.py",
+      "app/bie/compiler/specialized_camera.py",
+      "app/bie/compiler/specialized_equation.py",
+      "app/bie/compiler/specialized_motion.py",
+      "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+      "scripts/compile_scene_checked.py",
+      "scripts/repair_scene_layout.py"
+    ],
+    "all_changed_original_bytes_preserved": true,
+    "all_inherited_tests_and_fixtures_unchanged": true,
+    "no_parent_deletion": true
+  },
+  "accepted": false,
+  "github_write": false,
+  "section_exit_permitted": false,
+  "master": {
+    "archive": "BIE_COMP_HARDENING_H7_MASTER_BACKUP.zip",
+    "sha256": "5494c7585017e3f7743ba3d55838fea657b254158c3c8d81432a1e3861026ced",
+    "bytes": 14130107,
+    "payload_checksums": 33,
+    "all_entries_verified": true,
+    "embedded_integrated_atomic_evidence_match_external": true,
+    "recursive_previous_masters": false
+  }
+}

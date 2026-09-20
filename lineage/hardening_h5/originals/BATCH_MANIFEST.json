@@ -1,0 +1,95 @@
+{
+  "batch_id": "BIE-COMP-HARDENING-H5",
+  "delivery_sequence": 14,
+  "section": "COMP",
+  "tasks": [
+    "BIE-COMP-H5-001",
+    "BIE-COMP-H5-002",
+    "BIE-COMP-H5-003",
+    "BIE-COMP-H5-004",
+    "BIE-COMP-H5-005"
+  ],
+  "status": "BOUNDED_SPECIALIZED_CONSUMERS_IMPLEMENTED_TESTED_REAL_RENDER_BLOCKED",
+  "accepted": false,
+  "section_exit_permitted": false,
+  "full_section_reaudit_performed": false,
+  "parent_checkpoint": "BIE-COMP-H4-005",
+  "checkpoint": "BIE-COMP-H5-005",
+  "implementation_branch": "VERSIONED_SPECIALIZED_ACTIONS_IN_EXISTING_H3_H4_CHECKED_PATH",
+  "tests": {
+    "baseline_tests": 1527,
+    "atomic_counts": {
+      "BIE-COMP-H5-001": 28,
+      "BIE-COMP-H5-002": 19,
+      "BIE-COMP-H5-003": 20,
+      "BIE-COMP-H5-004": 25,
+      "BIE-COMP-H5-005": 21
+    },
+    "atomic_tests": 113,
+    "integration_tests": 12,
+    "new_tests": 125,
+    "cumulative_tests": 1652,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope": "RESTORED_DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "development_regression_seconds": 388.704,
+    "full_generated_project_compiles_verified": 0,
+    "real_remotion_renders_verified": 0,
+    "accepted": false
+  },
+  "browser_evidence": {
+    "scope": "SYNTHETIC_REAL_CHROMIUM_EXPLICIT_REACT_REMOTION_DOUBLES",
+    "cases": 6,
+    "fit_passes": 4,
+    "expected_font_floor_rejections": 2,
+    "layout_frames": 288,
+    "element_frame_records": 384,
+    "separate_semantic_frames": 288,
+    "consumer_frame_records": 480,
+    "selected_screenshots": 18,
+    "fit_expectations_matched": true,
+    "all_semantics_passed": true,
+    "real_react": false,
+    "real_remotion": false,
+    "accepted": false
+  },
+  "source_repeatability": {
+    "cases": 9,
+    "runs_per_case": 3,
+    "independent_processes": 27,
+    "matched": true,
+    "scope": "SOURCE_ONLY"
+  },
+  "spec": "docs/COMP_H5_SPEC.md",
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "result": "BIE_COMP_HARDENING_H5_RESULT.md",
+  "lineage": {
+    "parent_archive": "BIE_COMP_HARDENING_H4_INTEGRATED.zip",
+    "parent_sha256": "bf81b378b26dd5ae87968ee39bb23c552a6ce3c936c794cbd1c12c3bd1262c2a",
+    "parent_members": 4908,
+    "active_parent_python_files": 363,
+    "unchanged_active_parent_python_files": 356,
+    "modified_active_parent_python_files": 7,
+    "changed_active_files": [
+      "app/bie/compiler/animation_behavior.py",
+      "app/bie/compiler/animation_track_compiler.py",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/reduced_motion.py",
+      "app/bie/compiler/scene_behavior_qa.py",
+      "scripts/compile_scene_checked.py"
+    ],
+    "inventory": "lineage/hardening_h4/ORIGINAL_MEMBER_HASHES.json",
+    "originals": "lineage/hardening_h4/originals/",
+    "history_deleted": false
+  },
+  "github_write_performed": false,
+  "packaging": {
+    "separate_integrated_workspace": true,
+    "atomic_delivery": "ORDERED_VERIFIED_DELTAS_NOT_STANDALONE",
+    "previous_masters_embedded": false,
+    "current_large_browser_evidence": "SEPARATE_EVIDENCE_ZIP",
+    "required_legacy_evidence": "PRESERVED_IN_INTEGRATED_SOURCE_FOR_INHERITED_TESTS"
+  }
+}

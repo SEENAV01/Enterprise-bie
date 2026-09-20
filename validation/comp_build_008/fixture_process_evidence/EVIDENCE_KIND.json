@@ -1,0 +1,68 @@
+{
+  "remotion_executed": false,
+  "producer": "REAL_FFMPEG_TESTSRC2",
+  "probe": "REAL_FFPROBE",
+  "renderer": "INJECTED_TEST_RUNNER",
+  "book_input": false,
+  "accepted": false,
+  "receipts": [
+    {
+      "schema_version": "bie.render-receipt.v1",
+      "run_id": "fixture-smoke",
+      "mode": "smoke",
+      "composition_id": "BieFixture",
+      "passed": true,
+      "failure_code": null,
+      "errors": [],
+      "output_path": "out/smoke-FFMPEG-TEST-PATTERN-NOT-REMOTION.mp4",
+      "expected_frames": 4,
+      "media": {
+        "width": 320,
+        "height": 180,
+        "fps": 12.0,
+        "decoded_frames": 4,
+        "duration_s": 0.333333,
+        "codec_name": "h264",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      "input_sha256": "9a435ef7224b4a55f81824668e61c3fe2f3bed558f1aa7716ee6de740b4bb9ba",
+      "recipe_sha256": "780c645c2444b9ee4b50453be6f0a8f7cdf2027388b6beb119989441f297f9ec",
+      "evidence_directory": "render-evidence/fixture-smoke",
+      "execution_kind": "INJECTED_TEST_RUNNER",
+      "process_started": true,
+      "artifact_sha256": "d854366f17b5283d0ad1262317c43a7dfcc560e004a060ae9249b7211e04bf57",
+      "artifact_size_bytes": 19260,
+      "accepted": false
+    },
+    {
+      "schema_version": "bie.render-receipt.v1",
+      "run_id": "fixture-full",
+      "mode": "full",
+      "composition_id": "BieFixture",
+      "passed": true,
+      "failure_code": null,
+      "errors": [],
+      "output_path": "out/full-FFMPEG-TEST-PATTERN-NOT-REMOTION.mp4",
+      "expected_frames": 12,
+      "media": {
+        "width": 320,
+        "height": 180,
+        "fps": 12.0,
+        "decoded_frames": 12,
+        "duration_s": 1.0,
+        "codec_name": "h264",
+        "pixel_format": "yuv420p",
+        "audio_streams": 0
+      },
+      "input_sha256": "9a435ef7224b4a55f81824668e61c3fe2f3bed558f1aa7716ee6de740b4bb9ba",
+      "recipe_sha256": "aeceba2bed4051442664291a6509689662041cd5a84c11a6a04571fa2bad5e03",
+      "evidence_directory": "render-evidence/fixture-full",
+      "execution_kind": "INJECTED_TEST_RUNNER",
+      "process_started": true,
+      "artifact_sha256": "3d64949afc9163e43288197d0ad89d3c6916a598f5fcd8ef4034a28e2b6a8f66",
+      "artifact_size_bytes": 48679,
+      "accepted": false
+    }
+  ]
+}

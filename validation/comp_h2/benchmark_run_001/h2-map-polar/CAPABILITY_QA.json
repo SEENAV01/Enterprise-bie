@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "MAP_MERCATOR_LATITUDE_LIMIT",
+      "message": "MAP_MERCATOR_LATITUDE_LIMIT: polar coordinates are not silently clamped",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "ba91349daaf280c25dd602a5887009eb3db8238b76718696363c628de7add231",
+  "scene_id": "h2-map-polar",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

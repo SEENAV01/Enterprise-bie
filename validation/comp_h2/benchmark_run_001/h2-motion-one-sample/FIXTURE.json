@@ -1,0 +1,87 @@
+{
+  "case": {
+    "case_id": "h2-motion-one-sample",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "text",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "text": "One sampled frame is not a transition."
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-motion-one-sample:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-motion-one-sample:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "c4a4c70bcd9950c195a6030de658d8b77bc98047d67d3731fd0b7f2faa97bf56",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-motion-one-sample",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-motion-one-sample"
+      ],
+      "review_required": true,
+      "scene_id": "h2-motion-one-sample",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-motion-one-sample"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [
+        {
+          "action": "enter",
+          "element_id": "e0",
+          "end_ms": 40,
+          "parameters": {},
+          "reasoning_refs": [
+            "reasoning:h2"
+          ],
+          "source_refs": [
+            "fixture:h2"
+          ],
+          "start_ms": 0,
+          "track_id": "h2-track"
+        }
+      ],
+      "upstream_revision": 1
+    },
+    "domain": "engineering",
+    "expected_error_codes": [
+      "ANIMATION_FRAME_RANGE_COLLAPSES"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "dfb9f88fa622353eb67726492ad586269ad317bda7ffc7dab1d19ed7a7de037a"
+}

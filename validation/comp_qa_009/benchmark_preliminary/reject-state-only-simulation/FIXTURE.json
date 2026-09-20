@@ -1,0 +1,77 @@
+{
+  "case": {
+    "case_id": "reject-state-only-simulation",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic simulation compiler fixture",
+            "color_independent_encoding": true,
+            "reduced_motion_variant": "fixture:static"
+          },
+          "element_id": "e0",
+          "element_type": "simulation",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "execution_class": "conceptual",
+            "initial_state": {
+              "x": 0
+            },
+            "model_ref": "fixture:toy-model"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:reject-state-only-simulation:e0"
+          ],
+          "source_refs": [
+            "fixture:reject-state-only-simulation:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "4a9c4ddfa587a2802e8c3f7bd9fc13063590c793effd67b7e1f2eb53fad17194",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "reject-state-only-simulation",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:reject-state-only-simulation"
+      ],
+      "review_required": true,
+      "scene_id": "reject-state-only-simulation",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:reject-state-only-simulation"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "physics",
+    "expected_error_codes": [
+      "SIMULATION_STATE_ONLY"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "ab2c16300ce3d758ac375ab83af0696127431b3b9d6144aaf511f1ea740917a4"
+}

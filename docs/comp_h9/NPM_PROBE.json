@@ -1,0 +1,13 @@
+{
+  "command": [
+    "npm",
+    "view",
+    "remotion@4.0.506",
+    "version",
+    "--fetch-retries=0",
+    "--fetch-timeout=5000"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "npm error code EAI_AGAIN\nnpm error syscall getaddrinfo\nnpm error errno EAI_AGAIN\nnpm error request to https://registry.npmjs.org/remotion failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org\nnpm error A complete log of this run can be found in: /home/oai/.npm/_logs/2026-09-19T03_28_30_183Z-debug-0.log\n"
+}

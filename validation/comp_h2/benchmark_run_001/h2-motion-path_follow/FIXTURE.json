@@ -1,0 +1,101 @@
+{
+  "case": {
+    "case_id": "h2-motion-path_follow",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "text",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "text": "Synthetic path_follow behavior"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-motion-path_follow:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-motion-path_follow:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "dc3fd183d4cb6f83f4eebd7de7f323f84bf332b9f9dde70da4e6f88d3e81b07e",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-motion-path_follow",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-motion-path_follow"
+      ],
+      "review_required": true,
+      "scene_id": "h2-motion-path_follow",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-motion-path_follow"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [
+        {
+          "action": "path_follow",
+          "element_id": "e0",
+          "end_ms": 1000,
+          "parameters": {
+            "coordinate_space": "pixels",
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                20,
+                0
+              ],
+              [
+                20,
+                80
+              ]
+            ]
+          },
+          "reasoning_refs": [
+            "reasoning:h2"
+          ],
+          "source_refs": [
+            "fixture:h2"
+          ],
+          "start_ms": 0,
+          "track_id": "h2-track"
+        }
+      ],
+      "upstream_revision": 1
+    },
+    "domain": "engineering",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "4b150ab4d3da111bf59c1ba525be90c6b02fd222edc1ac9e0a6611e41da1f03f"
+}

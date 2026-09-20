@@ -1,0 +1,20 @@
+{
+  "accepted": false,
+  "findings": [
+    {
+      "code": "MODEL2D_EDGE_INDEX_INVALID",
+      "message": "Generated edge reads a nonexistent vertex.",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    },
+    {
+      "code": "MODEL2D_EDGE_INDEX_INVALID",
+      "message": "MODEL2D_EDGE_INDEX_INVALID: edge must contain two in-range integer vertex indices",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "source_contract_passed": false
+}

@@ -1,0 +1,1 @@
+Synthetic source-only fixture copied from the versioned H1 corpus. This is a technical signed-chart example, not a real textbook or accepted lesson. Use the checked source compiler and checked validator; no manually patched scene component is provided.

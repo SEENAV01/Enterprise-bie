@@ -1,0 +1,51 @@
+{
+  "batch_id": "BIE-COMP-ORIGINAL-BATCH-009",
+  "section": "COMP",
+  "family": "QA",
+  "status": "IMPLEMENTED_LOCAL_TESTED_FULL_COMPILE_BLOCKED_AUDIT_OPEN",
+  "accepted": false,
+  "tasks": [
+    "BIE-COMP-QA-001",
+    "BIE-COMP-QA-002",
+    "BIE-COMP-QA-003",
+    "BIE-COMP-QA-004",
+    "BIE-COMP-QA-005"
+  ],
+  "task_counts": {
+    "BIE-COMP-QA-001": 29,
+    "BIE-COMP-QA-002": 34,
+    "BIE-COMP-QA-003": 28,
+    "BIE-COMP-QA-004": 38,
+    "BIE-COMP-QA-005": 25
+  },
+  "atomic_tests_passed": 154,
+  "integration_tests_passed": 16,
+  "new_tests_passed": 170,
+  "cumulative_tests_passed": 921,
+  "baseline_tests_passed": 751,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "original_python_files_preserved": 288,
+  "original_python_files_modified": 0,
+  "parent_source_sha256": "52796ad70976e210f686f86d294706a5ca541ed4534c64c40ec4939cec327202",
+  "source_benchmark": {
+    "cases": 19,
+    "domains": 10,
+    "positive_passes": 10,
+    "expected_negative_rejections": 9,
+    "independent_processes": 57,
+    "full_compile_verified": 0
+  },
+  "real_remotion_render": "NOT_RUN_NPM_EAI_AGAIN",
+  "repository_integration": "NOT_PERFORMED",
+  "section_exit_permitted": false,
+  "next_action": "COMP_SECTION_CAPABILITY_AUDIT_AND_GOVERNED_HARDENING",
+  "atomic_zip_sha256": {
+    "BIE_COMP_QA_001.zip": "e9523f34195eff7d3529483fc0b3532569909011625f848c658e54cff4c874d9",
+    "BIE_COMP_QA_002.zip": "3b6efad5add349a0703bc78560a57e389257d026d69e1011b7e2d629fcadeb0e",
+    "BIE_COMP_QA_003.zip": "59a7316b02c4ecc81a2f2a471ce03d02a464565b32848784b372a1697e017765",
+    "BIE_COMP_QA_004.zip": "13dcb527fbce72fe780476f6195cc66746517eb3cb56bdf0aeec90af5937e4b5",
+    "BIE_COMP_QA_005.zip": "5a9dd584534a42205621de5ae5bc96e43c027be56b2466d6211b7a21d80fb134"
+  }
+}

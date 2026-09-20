@@ -1,0 +1,98 @@
+{
+  "batch_id": "BIE-COMP-HARDENING-H6",
+  "delivery_sequence": 15,
+  "section": "COMP",
+  "tasks": [
+    "BIE-COMP-H6-001",
+    "BIE-COMP-H6-002",
+    "BIE-COMP-H6-003",
+    "BIE-COMP-H6-004",
+    "BIE-COMP-H6-005"
+  ],
+  "status": "BOUNDED_STATE_EVENT_NARRATION_CONSUMERS_IMPLEMENTED_TESTED_REAL_RENDER_BLOCKED",
+  "accepted": false,
+  "section_exit_permitted": false,
+  "full_section_reaudit_performed": false,
+  "parent_checkpoint": "BIE-COMP-H5-005",
+  "checkpoint": "BIE-COMP-H6-005",
+  "implementation_branch": "EXISTING_H3_CHECKED_PATH_WITH_EXPLICIT_H6_FRAME_CONTRACTS",
+  "tests": {
+    "baseline_tests": 1652,
+    "baseline_seconds": 227.323,
+    "atomic_counts": {
+      "BIE-COMP-H6-001": 23,
+      "BIE-COMP-H6-002": 18,
+      "BIE-COMP-H6-003": 20,
+      "BIE-COMP-H6-004": 22,
+      "BIE-COMP-H6-005": 16
+    },
+    "atomic_tests": 99,
+    "integration_tests": 10,
+    "new_tests": 109,
+    "cumulative_tests": 1761,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope": "RESTORED_DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "development_regression_seconds": 234.148,
+    "full_generated_project_compiles_verified": 0,
+    "real_remotion_renders_verified": 0,
+    "accepted": false
+  },
+  "browser_evidence": {
+    "scope": "REAL_CHROMIUM_AND_REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_API_DOUBLES",
+    "cases": 5,
+    "fit_passes": 4,
+    "expected_overflow_rejections": 1,
+    "layout_frames": 240,
+    "element_frame_records": 336,
+    "audio_component_frame_records": 71,
+    "selected_screenshots": 15,
+    "all_expectations_matched": true,
+    "real_react": false,
+    "real_remotion": false,
+    "audio_played": false,
+    "speech_text_alignment": "NOT_VERIFIED",
+    "accepted": false
+  },
+  "spec": "docs/COMP_H6_SPEC.md",
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "result": "BIE_COMP_HARDENING_H6_RESULT.md",
+  "lineage": {
+    "parent_archive": "BIE_COMP_HARDENING_H5_INTEGRATED.zip",
+    "parent_sha256": "137acde102626230e8f96a8a85c1ecd38da148884299c72601f887d962be3a86",
+    "parent_members": 4965,
+    "active_parent_python_files": 377,
+    "unchanged_active_parent_python_files": 372,
+    "modified_active_parent_python_files": 5,
+    "changed_active_python_files": [
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/layout_browser.py",
+      "app/bie/compiler/layout_measurements.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "scripts/compile_scene_checked.py"
+    ],
+    "other_active_change": "app/bie/compiler/qa_support/layout_measure.js",
+    "inventory": "lineage/hardening_h5/ORIGINAL_MEMBER_HASHES.json",
+    "originals": "lineage/hardening_h5/originals/",
+    "history_deleted": false
+  },
+  "github_write_performed": false,
+  "packaging": {
+    "separate_integrated_workspace": true,
+    "atomic_delivery": "ORDERED_VERIFIED_DELTAS_NOT_STANDALONE",
+    "atomic_test_dependency": "ALL_FIVE_DELTAS_RESTORED_BEFORE_TASK_SUITE_EXECUTION",
+    "previous_masters_embedded": false,
+    "current_large_browser_evidence": "SEPARATE_EVIDENCE_ZIP",
+    "required_legacy_evidence": "PRESERVED_FOR_INHERITED_TESTS"
+  },
+  "source_repeatability": {
+    "cases": 10,
+    "runs_per_case": 3,
+    "independent_processes": 30,
+    "matched": true,
+    "scope": "SOURCE_ONLY",
+    "positive_source_cases": 5,
+    "expected_source_rejections": 5
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "scope": "SYNTHETIC_SOURCE_CONTRACTS_NOT_RENDER_OR_SPEECH",
+  "cases": [
+    {
+      "case_id": "state-events",
+      "expected_source_pass": true,
+      "expected_code": null,
+      "outcomes": [
+        {
+          "codes": [],
+          "manifest_sha256": "3fa8e07557b0d79d389efb873bb45eabf7ea3d0c1e4f2eb3541d8d88332c5b49",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "3fa8e07557b0d79d389efb873bb45eabf7ea3d0c1e4f2eb3541d8d88332c5b49",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "3fa8e07557b0d79d389efb873bb45eabf7ea3d0c1e4f2eb3541d8d88332c5b49",
+          "source_passed": true
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": true
+    },
+    {
+      "case_id": "narration-captions",
+      "expected_source_pass": true,
+      "expected_code": null,
+      "outcomes": [
+        {
+          "codes": [],
+          "manifest_sha256": "275b3672187feea3ba0c297d55f3f2ab1c379026bc7631246d4ebad728be2708",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "275b3672187feea3ba0c297d55f3f2ab1c379026bc7631246d4ebad728be2708",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "275b3672187feea3ba0c297d55f3f2ab1c379026bc7631246d4ebad728be2708",
+          "source_passed": true
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": true
+    },
+    {
+      "case_id": "explicit-visibility",
+      "expected_source_pass": true,
+      "expected_code": null,
+      "outcomes": [
+        {
+          "codes": [],
+          "manifest_sha256": "40cca3743fa815a2d5662485976d02c78ebc892dab8a7fbb6012bfa57d406811",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "40cca3743fa815a2d5662485976d02c78ebc892dab8a7fbb6012bfa57d406811",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "40cca3743fa815a2d5662485976d02c78ebc892dab8a7fbb6012bfa57d406811",
+          "source_passed": true
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": true
+    },
+    {
+      "case_id": "shifted-trimmed-narration",
+      "expected_source_pass": true,
+      "expected_code": null,
+      "outcomes": [
+        {
+          "codes": [],
+          "manifest_sha256": "3b1df2c7396fd4189f8e7913348bfa5c68ef5918d8417f48465b4c0348caadb9",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "3b1df2c7396fd4189f8e7913348bfa5c68ef5918d8417f48465b4c0348caadb9",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "3b1df2c7396fd4189f8e7913348bfa5c68ef5918d8417f48465b4c0348caadb9",
+          "source_passed": true
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": true
+    },
+    {
+      "case_id": "late-overflow-negative",
+      "expected_source_pass": true,
+      "expected_code": null,
+      "outcomes": [
+        {
+          "codes": [],
+          "manifest_sha256": "e4c4dd1244c6075873412b8a287688fc689a074beff1bb93ff67b1aef82f2387",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "e4c4dd1244c6075873412b8a287688fc689a074beff1bb93ff67b1aef82f2387",
+          "source_passed": true
+        },
+        {
+          "codes": [],
+          "manifest_sha256": "e4c4dd1244c6075873412b8a287688fc689a074beff1bb93ff67b1aef82f2387",
+          "source_passed": true
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": false
+    },
+    {
+      "case_id": "unknown-event",
+      "expected_source_pass": false,
+      "expected_code": "FRAME_RUNTIME_EVENT_UNSUPPORTED",
+      "outcomes": [
+        {
+          "codes": [
+            "FRAME_RUNTIME_EVENT_UNSUPPORTED"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_EVENT_UNSUPPORTED"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_EVENT_UNSUPPORTED"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": null
+    },
+    {
+      "case_id": "wrong-transcript-hash",
+      "expected_source_pass": false,
+      "expected_code": "FRAME_RUNTIME_TRANSCRIPT_HASH",
+      "outcomes": [
+        {
+          "codes": [
+            "FRAME_RUNTIME_TRANSCRIPT_HASH"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_TRANSCRIPT_HASH"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_TRANSCRIPT_HASH"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": null
+    },
+    {
+      "case_id": "insufficient-trimmed-audio",
+      "expected_source_pass": false,
+      "expected_code": "FRAME_RUNTIME_AUDIO_TOO_SHORT",
+      "outcomes": [
+        {
+          "codes": [
+            "FRAME_RUNTIME_AUDIO_TOO_SHORT"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_AUDIO_TOO_SHORT"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_AUDIO_TOO_SHORT"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": null
+    },
+    {
+      "case_id": "overlapping-voices",
+      "expected_source_pass": false,
+      "expected_code": "FRAME_RUNTIME_NARRATION_OVERLAP",
+      "outcomes": [
+        {
+          "codes": [
+            "FRAME_RUNTIME_NARRATION_OVERLAP"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_NARRATION_OVERLAP"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_NARRATION_OVERLAP"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": null
+    },
+    {
+      "case_id": "unrenderable-event",
+      "expected_source_pass": false,
+      "expected_code": "FRAME_RUNTIME_EVENT_UNSAMPLED",
+      "outcomes": [
+        {
+          "codes": [
+            "FRAME_RUNTIME_EVENT_UNSAMPLED"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_EVENT_UNSAMPLED"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        },
+        {
+          "codes": [
+            "FRAME_RUNTIME_EVENT_UNSAMPLED"
+          ],
+          "manifest_sha256": null,
+          "source_passed": false
+        }
+      ],
+      "matched": true,
+      "expected_content_fit": null
+    }
+  ],
+  "runs_per_case": 3,
+  "independent_processes": 30,
+  "all_matched": true,
+  "source_pass_cases": 5,
+  "expected_source_rejections": 5,
+  "accepted": false
+}

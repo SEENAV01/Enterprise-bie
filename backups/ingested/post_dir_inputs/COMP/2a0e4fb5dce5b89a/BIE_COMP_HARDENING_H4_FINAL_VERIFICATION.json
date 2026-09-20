@@ -1,0 +1,120 @@
+{
+  "schema_version": "bie.comp-h4-final-verification.v1",
+  "package_verification": {
+    "schema_version": "bie.comp-h4-package-verification.v1",
+    "atomic_restore_tests": [
+      {
+        "task_id": "BIE-COMP-H4-001",
+        "tests": 28,
+        "exit_code": 0,
+        "seconds": 0.101,
+        "scope": "FRESH_EXTRACTED_DELTA_APPLIED_IN_ORDER_TO_VERIFIED_H3_BASE"
+      },
+      {
+        "task_id": "BIE-COMP-H4-002",
+        "tests": 22,
+        "exit_code": 0,
+        "seconds": 2.51,
+        "scope": "FRESH_EXTRACTED_DELTA_APPLIED_IN_ORDER_TO_VERIFIED_H3_BASE"
+      },
+      {
+        "task_id": "BIE-COMP-H4-003",
+        "tests": 24,
+        "exit_code": 0,
+        "seconds": 0.12,
+        "scope": "FRESH_EXTRACTED_DELTA_APPLIED_IN_ORDER_TO_VERIFIED_H3_BASE"
+      },
+      {
+        "task_id": "BIE-COMP-H4-004",
+        "tests": 20,
+        "exit_code": 0,
+        "seconds": 20.381,
+        "scope": "FRESH_EXTRACTED_DELTA_APPLIED_IN_ORDER_TO_VERIFIED_H3_BASE"
+      },
+      {
+        "task_id": "BIE-COMP-H4-005",
+        "tests": 16,
+        "exit_code": 0,
+        "seconds": 17.483,
+        "scope": "FRESH_EXTRACTED_DELTA_APPLIED_IN_ORDER_TO_VERIFIED_H3_BASE"
+      }
+    ],
+    "negative_restore_checks": [
+      {
+        "name": "wrong_order",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "name": "reapply",
+        "passed": true,
+        "exit_code": 2
+      },
+      {
+        "name": "payload_tamper",
+        "passed": true,
+        "exit_code": 2
+      }
+    ],
+    "delta_tree_equals_integrated": true,
+    "workspace_hash_entries_verified": 4907,
+    "integrated_regression": {
+      "tests": 1527,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seconds": 177.549,
+      "exit_code": 0,
+      "freshly_extracted": true
+    },
+    "font_binaries_distributed": false,
+    "actual_remotion_render_verified": false,
+    "accepted": false
+  },
+  "lineage": {
+    "all_parent_files_present": true,
+    "parent_members": 4866,
+    "parent_files_identical": 4860,
+    "parent_files_modified": 6,
+    "new_paths": 42,
+    "integrated_members": 4908,
+    "active_parent_python_count": 349,
+    "active_parent_python_modified": [
+      "app/bie/compiler/map_compiler.py",
+      "app/bie/compiler/text_compiler.py",
+      "scripts/compile_scene_checked.py"
+    ],
+    "delta_reconstruction_byte_equal_in_memory": true,
+    "integrated_tree_sha256": "ac051954991e78cd5928ba2fa67039bd28ff142ed39d285352f15c0b9a93c01e",
+    "font_binary_files": 0,
+    "recursive_previous_masters": 0
+  },
+  "atomic_archives_payload_unchanged_after_attaching_test_logs": true,
+  "integrated_archive": {
+    "file": "BIE_COMP_HARDENING_H4_INTEGRATED.zip",
+    "bytes": 11087345,
+    "sha256": "bf81b378b26dd5ae87968ee39bb23c552a6ce3c936c794cbd1c12c3bd1262c2a",
+    "members": 4908
+  },
+  "evidence_archive": {
+    "file": "BIE_COMP_HARDENING_H4_EVIDENCE.zip",
+    "bytes": 4692138,
+    "sha256": "a331e2dfb89014b768ef8335b5007660e1ecc49ebb6c133c63e717deb1dda1c8",
+    "members": 602
+  },
+  "master_archive": {
+    "file": "BIE_COMP_HARDENING_H4_MASTER_BACKUP.zip",
+    "bytes": 13485129,
+    "sha256": "b9e3881d4164bb981108bddc123f9081fc4837ee57012abeec0d16ec4043d9f2",
+    "members": 18
+  },
+  "master_payload_hash_entries_verified": 17,
+  "embedded_artifacts_equal_separate_deliveries": 16,
+  "previous_masters_embedded": false,
+  "font_binary_files_distributed": 0,
+  "real_remotion_renders_verified": 0,
+  "real_book_e2e": "NOT_RUN",
+  "accepted": false,
+  "section_exit_permitted": false,
+  "github_write_performed": false
+}

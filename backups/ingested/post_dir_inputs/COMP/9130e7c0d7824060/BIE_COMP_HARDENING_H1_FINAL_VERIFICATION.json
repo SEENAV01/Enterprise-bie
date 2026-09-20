@@ -1,0 +1,189 @@
+{
+  "schema_version": "bie.comp-h1-final-verification.v1",
+  "fresh_extraction_verifications": [
+    {
+      "archive": "BIE_COMP_HARDENING_H1_001.zip",
+      "archive_sha256": "68ca76323e52ce1d8f133bfe194dba3bb1da0e5a6f46c249228ab0855e29708d",
+      "archive_bytes": 288229,
+      "archive_members": 236,
+      "checksum_entries_verified": 235,
+      "test_count": 23,
+      "expected_test_count": 23,
+      "exit_code": 0,
+      "passed": true,
+      "fresh_log": "H1_001_FRESH_TEST_RESULT.txt",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h1_001",
+        "-v"
+      ],
+      "accepted": false
+    },
+    {
+      "archive": "BIE_COMP_HARDENING_H1_002.zip",
+      "archive_sha256": "4ba5271d6dd9912824516868185cccdd2b3924affda2a989e0d19e46bcbb3bbb",
+      "archive_bytes": 288687,
+      "archive_members": 236,
+      "checksum_entries_verified": 235,
+      "test_count": 34,
+      "expected_test_count": 34,
+      "exit_code": 0,
+      "passed": true,
+      "fresh_log": "H1_002_FRESH_TEST_RESULT.txt",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h1_002",
+        "-v"
+      ],
+      "accepted": false
+    },
+    {
+      "archive": "BIE_COMP_HARDENING_H1_003.zip",
+      "archive_sha256": "a0e1956b85c84bfe4c855bd9ba138235f17b7600795845067ca9f9b6abc858c2",
+      "archive_bytes": 287920,
+      "archive_members": 236,
+      "checksum_entries_verified": 235,
+      "test_count": 23,
+      "expected_test_count": 23,
+      "exit_code": 0,
+      "passed": true,
+      "fresh_log": "H1_003_FRESH_TEST_RESULT.txt",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h1_003",
+        "-v"
+      ],
+      "accepted": false
+    },
+    {
+      "archive": "BIE_COMP_HARDENING_H1_004.zip",
+      "archive_sha256": "93a4d406a0c9615e7a5338b567ad430cfac4e70b4e0708ec09b99bce649814a5",
+      "archive_bytes": 287696,
+      "archive_members": 236,
+      "checksum_entries_verified": 235,
+      "test_count": 23,
+      "expected_test_count": 23,
+      "exit_code": 0,
+      "passed": true,
+      "fresh_log": "H1_004_FRESH_TEST_RESULT.txt",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h1_004",
+        "-v"
+      ],
+      "accepted": false
+    },
+    {
+      "archive": "BIE_COMP_HARDENING_H1_005.zip",
+      "archive_sha256": "c0008c2d69d32ce755237b61c7b834be84b7458230a3cee777af9921a3ca24cc",
+      "archive_bytes": 289187,
+      "archive_members": 236,
+      "checksum_entries_verified": 235,
+      "test_count": 25,
+      "expected_test_count": 25,
+      "exit_code": 0,
+      "passed": true,
+      "fresh_log": "H1_005_FRESH_TEST_RESULT.txt",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_h1_005",
+        "-v"
+      ],
+      "accepted": false
+    },
+    {
+      "archive": "BIE_COMP_HARDENING_H1_SOURCE.zip",
+      "archive_sha256": "635265a7da9ee31504017a95e9aa503d8a25144b4fcdd8ba71911cccc3e37836",
+      "archive_bytes": 2033967,
+      "archive_members": 2051,
+      "checksum_entries_verified": 2050,
+      "test_count": 1068,
+      "expected_test_count": 1068,
+      "exit_code": 0,
+      "passed": true,
+      "fresh_log": "CUMULATIVE_FRESH_TEST_RESULT.txt",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "accepted": false
+    }
+  ],
+  "all_six_archives_passed": true,
+  "test_scope": "RESTORED_DSL_PLUS_COMP",
+  "actual_remotion_render": "NOT_RUN",
+  "full_pinned_compile": "BLOCKED_DEPENDENCIES",
+  "accepted": false,
+  "baseline_tests_rerun": 921,
+  "new_atomic_tests": 128,
+  "new_integration_tests": 19,
+  "cumulative_tests_passed": 1068,
+  "source_benchmark": {
+    "case_count": 33,
+    "domains": 10,
+    "expectation_matches": 33,
+    "positive_passes": 20,
+    "expected_rejections": 13,
+    "independent_generator_runs_verified": 99,
+    "command_exit": 2,
+    "full_project_compiles_verified": 0
+  },
+  "lineage": {
+    "original_members": 1221,
+    "original_python_files": 306,
+    "modified_original_python_files": 15,
+    "unchanged_original_python_files": 291,
+    "changed_original_member_paths": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/annotation_callout_compiler.py",
+      "app/bie/compiler/capability_fallback_qa.py",
+      "app/bie/compiler/chart_compiler.py",
+      "app/bie/compiler/model2d_compiler.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/render_runtime.py",
+      "app/bie/compiler/text_compiler.py",
+      "app/bie/compiler/vector_compiler.py",
+      "scripts/run_comp_render.py",
+      "scripts/run_compiler_qa.py",
+      "tests/compiler/qa_test_support.py",
+      "tests/compiler/test_comp_elem_005.py",
+      "tests/compiler/test_comp_qa_002.py",
+      "tests/compiler/test_comp_qa_005.py",
+      "tests/compiler/test_comp_qa_integration.py"
+    ],
+    "original_bytes_preserved_for_all_changes": true,
+    "missing_original_members": [],
+    "old_qa009_fixture_bytes_unchanged": true,
+    "parent_source_sha256": "47afb5d1fbb5265a6b7401177d697f223d4d9a60375a77eebac7077d659377c2",
+    "parent_master_sha256": "7fa0ea359f89c04a5047414a0e6e424a8a20d50e545cf5e623f08f921d3b6ef5"
+  },
+  "checked_example_source_publication": "PASS",
+  "checked_example_real_validation": "BLOCKED_DEPENDENCIES_BEFORE_RENDERER",
+  "master_backup_verification": {
+    "status": "PASS",
+    "zip_crc_passed": true,
+    "zip_members": 38,
+    "payload_checksum_entries_verified": 37,
+    "all_six_delivery_zip_bytes_matched": true,
+    "parent_master_bytes_unchanged": true
+  },
+  "section_exit_permitted": false,
+  "github_write_performed": false
+}

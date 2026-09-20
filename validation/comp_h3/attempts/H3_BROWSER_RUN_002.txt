@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/mnt/data/h3_work/scripts/validate_comp_h3_browser.py", line 161, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ~~~~^^
+  File "/mnt/data/h3_work/scripts/validate_comp_h3_browser.py", line 160, in main
+    r=run(a.output,a.chromium);print(json.dumps({k:v for k,v in r.items() if k!='cases'},indent=2));return 0 if r['passed'] else 2
+  File "/mnt/data/h3_work/scripts/validate_comp_h3_browser.py", line 101, in run
+    if not r.receipt.source_gate_passed:raise ValueError(case['case_id']+': unexpected source rejection '+str(r.receipt.findings))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: long-map-legend-rejected: unexpected source rejection (QAFinding(code='TEXT_VALUE_INVALID', severity='ERROR', message='TEXT_VALUE_INVALID: map label must be bounded text', path='$.elements[e0]', owner='COMP'),)

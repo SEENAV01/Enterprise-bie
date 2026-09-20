@@ -1,0 +1,100 @@
+{
+  "case": {
+    "case_id": "h2-map-dateline",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "map",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "attribution": "Synthetic coordinates; no external map data.",
+            "crs": "EPSG:4326",
+            "layers": [
+              {
+                "kind": "route",
+                "label": "Synthetic route",
+                "points": [
+                  [
+                    179,
+                    0
+                  ],
+                  [
+                    -179,
+                    0
+                  ]
+                ]
+              }
+            ],
+            "projection": {
+              "axis_order": "lon_lat",
+              "extent": [
+                -180,
+                -60,
+                180,
+                60
+              ],
+              "kind": "web_mercator"
+            },
+            "title": "Projection technical fixture"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-map-dateline:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-map-dateline:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "81cc35700ecd255681076e701b1db306ab17c25d3ecd008ea86349e6c4328919",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-map-dateline",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-map-dateline"
+      ],
+      "review_required": true,
+      "scene_id": "h2-map-dateline",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-map-dateline"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "geography",
+    "expected_error_codes": [
+      "MAP_ANTIMERIDIAN_UNSUPPORTED"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "178317dd62f92d999edfbc0136a50b65bc0c09b52a83eb3476791870bd63c115"
+}

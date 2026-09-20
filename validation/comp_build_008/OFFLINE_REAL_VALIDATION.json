@@ -1,0 +1,21 @@
+{
+  "schema_version": "bie.technical-render-validation.v1",
+  "run_id": "validation-a53db538c46e418a",
+  "passed": false,
+  "accepted": false,
+  "scope": "GENERATED_TECHNICAL_COMPILER_FIXTURE_ONLY",
+  "stages": [
+    {
+      "stage": "dependency-install",
+      "status": "NOT_REQUESTED_EXISTING_LOCAL_DEPENDENCIES_REQUIRED"
+    },
+    {
+      "stage": "typescript",
+      "passed": false,
+      "outcome": "SPAWN_ERROR"
+    }
+  ],
+  "failure": "typescript failed: SPAWN_ERROR",
+  "real_book_e2e": "NOT_RUN",
+  "learning_quality": "NOT_EVALUATED"
+}

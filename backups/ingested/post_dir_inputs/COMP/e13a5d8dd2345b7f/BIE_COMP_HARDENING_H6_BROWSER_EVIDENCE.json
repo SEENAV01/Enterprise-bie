@@ -1,0 +1,120 @@
+{
+  "schema_version": "bie.comp-h6-browser.v1",
+  "scope": "REAL_CHROMIUM_AND_REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_API_DOUBLES",
+  "cases": [
+    {
+      "case_id": "state-events",
+      "source_passed": true,
+      "expected_fit": true,
+      "fit_passed": true,
+      "expectation_matched": true,
+      "findings": [],
+      "frames": 48,
+      "element_frame_records": 48,
+      "audio_component_frame_records": 0,
+      "frame_semantics_match": true,
+      "screenshots": 3,
+      "manifest_sha256": "3fa8e07557b0d79d389efb873bb45eabf7ea3d0c1e4f2eb3541d8d88332c5b49",
+      "plan_sha256": "8bae9495bdc603f93a1006ff63b2ca204c545813cd15991b7be2ed86033b3487"
+    },
+    {
+      "case_id": "narration-captions",
+      "source_passed": true,
+      "expected_fit": true,
+      "fit_passed": true,
+      "expectation_matched": true,
+      "findings": [],
+      "frames": 48,
+      "element_frame_records": 96,
+      "audio_component_frame_records": 36,
+      "frame_semantics_match": true,
+      "screenshots": 3,
+      "manifest_sha256": "275b3672187feea3ba0c297d55f3f2ab1c379026bc7631246d4ebad728be2708",
+      "plan_sha256": "7d3b73fdac7703c34c6c433f906b39c79fccbe8f09d71f1e59d6513a4324a115"
+    },
+    {
+      "case_id": "explicit-visibility",
+      "source_passed": true,
+      "expected_fit": true,
+      "fit_passed": true,
+      "expectation_matched": true,
+      "findings": [],
+      "frames": 48,
+      "element_frame_records": 48,
+      "audio_component_frame_records": 0,
+      "frame_semantics_match": true,
+      "screenshots": 3,
+      "manifest_sha256": "40cca3743fa815a2d5662485976d02c78ebc892dab8a7fbb6012bfa57d406811",
+      "plan_sha256": "24f5cc0442ad1a8176c515d521383924ecf2d4863b01dc6d585b039ecb46e2c2"
+    },
+    {
+      "case_id": "shifted-trimmed-narration",
+      "source_passed": true,
+      "expected_fit": true,
+      "fit_passed": true,
+      "expectation_matched": true,
+      "findings": [],
+      "frames": 48,
+      "element_frame_records": 96,
+      "audio_component_frame_records": 35,
+      "frame_semantics_match": true,
+      "screenshots": 3,
+      "manifest_sha256": "3b1df2c7396fd4189f8e7913348bfa5c68ef5918d8417f48465b4c0348caadb9",
+      "plan_sha256": "cd3473f7fac1d778a29b2a3b9e9088bb628e0f273b3c9ddd8db16515622bd80a"
+    },
+    {
+      "case_id": "late-overflow-negative",
+      "source_passed": true,
+      "expected_fit": false,
+      "fit_passed": false,
+      "expectation_matched": true,
+      "findings": [
+        {
+          "code": "LAYOUT_CONTENT_OVERFLOW",
+          "severity": "ERROR",
+          "message": "Content exceeds its layout box; element=e0, first_frame=12, occurrences=18",
+          "path": "$.measurements",
+          "owner": "COMP"
+        },
+        {
+          "code": "LAYOUT_INK_OUTSIDE_VIEWPORT",
+          "severity": "ERROR",
+          "message": "Measured ink is outside viewport; element=e0, first_frame=12, occurrences=1440",
+          "path": "$.measurements",
+          "owner": "COMP"
+        },
+        {
+          "code": "LAYOUT_TEXT_OUTSIDE_OWNER",
+          "severity": "ERROR",
+          "message": "Measured text or legend lies outside its owner; element=e0, first_frame=12, occurrences=2124",
+          "path": "$.measurements",
+          "owner": "COMP"
+        },
+        {
+          "code": "LAYOUT_TEXT_OUTSIDE_VIEWPORT",
+          "severity": "ERROR",
+          "message": "Measured text leaves viewport; element=e0, first_frame=12, occurrences=1440",
+          "path": "$.measurements",
+          "owner": "COMP"
+        }
+      ],
+      "frames": 48,
+      "element_frame_records": 48,
+      "audio_component_frame_records": 0,
+      "frame_semantics_match": true,
+      "screenshots": 3,
+      "manifest_sha256": "e4c4dd1244c6075873412b8a287688fc689a074beff1bb93ff67b1aef82f2387",
+      "plan_sha256": "54edeb78b2038d05989cd601821df6128405048cc618dd05e9313a7c7815bc33"
+    }
+  ],
+  "all_expectations_matched": true,
+  "frames": 240,
+  "element_frame_records": 336,
+  "audio_component_frame_records": 71,
+  "screenshots": 15,
+  "real_react": false,
+  "real_remotion": false,
+  "audio_played": false,
+  "speech_text_alignment": "NOT_VERIFIED",
+  "accepted": false
+}

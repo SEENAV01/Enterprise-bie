@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "VECTOR_PROJECTION_REQUIRED",
+      "message": "VECTOR_PROJECTION_REQUIRED: 3D vectors require an explicit orthographic_matrix projection",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "67fbe565d89c341ca3da3fbd826a2e9ec057d6a7feb073689ff9f7cab70b4fff",
+  "scene_id": "reject-vector-z",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

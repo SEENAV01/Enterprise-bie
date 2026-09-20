@@ -1,0 +1,298 @@
+{
+  "math-plain": [
+    {
+      "element_id": "e0",
+      "element_type": "equation",
+      "component_name": "Equation_e0_5c88e7a2",
+      "source_path": "src/elements/Equation_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Equation_e0_5c88e7a2: React.FC = () => {\n  const expression = \"x + 1 = 2\";\n  const sideConditions = [];\n  return (\n    <Interactive.Div name={\"e0\"} role=\"math\" aria-label={\"Synthetic equation compiler fixture\"}>\n      <div data-equation-format={\"plain\"}>{expression}</div>\n      {sideConditions.length > 0 ? (\n        <div aria-label=\"side conditions\">{sideConditions.join(\", \")}</div>\n      ) : null}\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "3817054e3a4b67012238b5565944f56f3c03cef4c73a2b3e890677929b33a5f4",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [
+        "equation_renderer_dependency_may_be_required_for_typeset_output"
+      ],
+      "accepted": false
+    }
+  ],
+  "physics-vector": [
+    {
+      "element_id": "e0",
+      "element_type": "vector",
+      "component_name": "Vector_e0_5c88e7a2",
+      "source_path": "src/elements/Vector_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nexport const Vector_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 200 200\" role=\"img\" aria-label={\"Synthetic vector compiler fixture\"}>\n      <defs>\n        <marker id=\"arrow-Vector_e0_5c88e7a2\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"3\" orient=\"auto\">\n          <path d=\"M0,0 L0,6 L9,3 z\" />\n        </marker>\n      </defs>\n      <line x1={100} y1={100} x2={140.0} y2={20.0} stroke=\"currentColor\" strokeWidth={3} markerEnd=\"url(#arrow-Vector_e0_5c88e7a2)\" />\n    </svg>\n  );\n};\n",
+      "source_sha256": "544c7e14b2c415cbc8102dd42d26f9567bf6c9b54a9f39d66535eb324c988f3e",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "chemistry-connectivity": [
+    {
+      "element_id": "e0",
+      "element_type": "model2d",
+      "component_name": "Model2D_e0_5c88e7a2",
+      "source_path": "src/elements/Model2D_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst vertices = [[0.2, 0.2], [0.8, 0.2], [0.5, 0.8]] as const;\nconst edges = [[0, 1], [1, 2], [2, 0]] as const;\n\nexport const Model2D_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 400 300\" role=\"img\" aria-label={\"Synthetic model2d compiler fixture\"}>\n      {edges.map(([a,b],index) => (\n        <line key={index}\n          x1={vertices[a][0] * 400} y1={vertices[a][1] * 300}\n          x2={vertices[b][0] * 400} y2={vertices[b][1] * 300}\n          stroke=\"currentColor\" strokeWidth={2} />\n      ))}\n    </svg>\n  );\n};\n",
+      "source_sha256": "7a0d765d04a509b82f56c813155274aeaa662da3d9cf203457696735f805d1a4",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "biology-structure": [
+    {
+      "element_id": "e0",
+      "element_type": "model2d",
+      "component_name": "Model2D_e0_5c88e7a2",
+      "source_path": "src/elements/Model2D_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst vertices = [[0.2, 0.3], [0.7, 0.3], [0.5, 0.7]] as const;\nconst edges = [[0, 1], [1, 2]] as const;\n\nexport const Model2D_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 400 300\" role=\"img\" aria-label={\"Synthetic model2d compiler fixture\"}>\n      {edges.map(([a,b],index) => (\n        <line key={index}\n          x1={vertices[a][0] * 400} y1={vertices[a][1] * 300}\n          x2={vertices[b][0] * 400} y2={vertices[b][1] * 300}\n          stroke=\"currentColor\" strokeWidth={2} />\n      ))}\n    </svg>\n  );\n};\n",
+      "source_sha256": "8fd2b9404edac74b5f8041dabec5d4594094ff2e3331e3587f42d33986ff8d45",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    },
+    {
+      "element_id": "e1",
+      "element_type": "text",
+      "component_name": "Text_e1_8b5cc4df",
+      "source_path": "src/elements/Text_e1_8b5cc4df.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e1_8b5cc4df: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e1\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n    >\n      Synthetic structure labels — not a validated biology lesson.\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "c5b7ebd746ed7b8b2847fe72e1a7ed4731896fb129f9bb24e283ea97b27384af",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "statistics-counts": [
+    {
+      "element_id": "e0",
+      "element_type": "chart",
+      "component_name": "Chart_e0_5c88e7a2",
+      "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst labels = [\"A\", \"B\", \"C\"];\nconst values = [2.0, 4.0, 3.0];\nconst maxValue = Math.max(1, ...values.map((value) => Math.abs(value)));\n\nexport const Chart_e0_5c88e7a2: React.FC = () => {\n  return (\n    <div role=\"img\" aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"bar\"}\n      style={{display: \"flex\", alignItems: \"end\", gap: 12, height: 240}}>\n      {values.map((value, index) => (\n        <div key={labels[index]} style={{display: \"grid\", gap: 4, justifyItems: \"center\"}}>\n          <div style={{width: 28, height: `${Math.abs(value) / maxValue * 180}px`, background: \"currentColor\"}} />\n          <span>{labels[index]}</span>\n        </div>\n      ))}\n    </div>\n  );\n};\n",
+      "source_sha256": "e1cef6d6c001f3e19edbc97330669ccb1de8eb8792549ab54abd5ceba92866e8",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "economics-series": [
+    {
+      "element_id": "e0",
+      "element_type": "graph",
+      "component_name": "Graph_e0_5c88e7a2",
+      "source_path": "src/elements/Graph_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst series = [[[0.0, 0.1], [0.5, 0.3], [1.0, 0.8]]] as const;\n\nexport const Graph_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 400 240\" role=\"img\" aria-label={\"Synthetic graph compiler fixture\"}>\n      <line x1={40} y1={200} x2={380} y2={200} stroke=\"currentColor\" />\n      <line x1={40} y1={20} x2={40} y2={200} stroke=\"currentColor\" />\n      {series.map((points, index) => {\n        const d = points.map(([x,y],i) => `${i === 0 ? \"M\" : \"L\"} ${40 + x * 300} ${200 - y * 150}`).join(\" \");\n        return <path key={index} d={d} fill=\"none\" stroke=\"currentColor\" strokeWidth={2} />;\n      })}\n    </svg>\n  );\n};\n",
+      "source_sha256": "085b521e7efa5d4ce53b4125cca64504b0cc7c61a6e6715515b1dc573570a9a5",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "accountancy-totals": [
+    {
+      "element_id": "e0",
+      "element_type": "chart",
+      "component_name": "Chart_e0_5c88e7a2",
+      "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst labels = [\"Toy debit\", \"Toy credit\"];\nconst values = [5.0, 5.0];\nconst maxValue = Math.max(1, ...values.map((value) => Math.abs(value)));\n\nexport const Chart_e0_5c88e7a2: React.FC = () => {\n  return (\n    <div role=\"img\" aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"bar\"}\n      style={{display: \"flex\", alignItems: \"end\", gap: 12, height: 240}}>\n      {values.map((value, index) => (\n        <div key={labels[index]} style={{display: \"grid\", gap: 4, justifyItems: \"center\"}}>\n          <div style={{width: 28, height: `${Math.abs(value) / maxValue * 180}px`, background: \"currentColor\"}} />\n          <span>{labels[index]}</span>\n        </div>\n      ))}\n    </div>\n  );\n};\n",
+      "source_sha256": "f1233ef0eb3af5127192f558d6d8f700305e7cbb48d570ffb9466ab337ed2f56",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "history-sequence": [
+    {
+      "element_id": "e0",
+      "element_type": "timeline",
+      "component_name": "Timeline_e0_5c88e7a2",
+      "source_path": "src/elements/Timeline_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst events = [{\"event_id\": \"a\", \"label\": \"Synthetic event A\"}, {\"event_id\": \"b\", \"label\": \"Synthetic event B\"}];\n\nexport const Timeline_e0_5c88e7a2: React.FC = () => {\n  return (\n    <div role=\"img\" aria-label={\"Synthetic timeline compiler fixture\"}\n      style={{display: \"flex\", alignItems: \"center\", gap: 16}}>\n      {events.map((event,index) => (\n        <React.Fragment key={event.event_id}>\n          <div style={{display: \"grid\", justifyItems: \"center\", gap: 6}}>\n            <div style={{width: 12, height: 12, borderRadius: 999, background: \"currentColor\"}} />\n            <span>{event.label}</span>\n          </div>\n          {index < events.length - 1 ? <div style={{height: 2, flex: 1, background: \"currentColor\"}} /> : null}\n        </React.Fragment>\n      ))}\n    </div>\n  );\n};\n",
+      "source_sha256": "2dc3e6a43ee9e46cd798dd3d20a09b0109861025fcda7e5606e2377fbe03ef26",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "geography-route": [
+    {
+      "element_id": "e0",
+      "element_type": "map",
+      "component_name": "Map_e0_5c88e7a2",
+      "source_path": "src/elements/Map_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst routes = [[[0.1, 0.2], [0.5, 0.6], [0.9, 0.8]]] as const;\n\nexport const Map_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 1000 600\" role=\"img\" aria-label={\"Synthetic map compiler fixture\"} data-crs={\"BIE:NORMALIZED\"}>\n      <rect x={0} y={0} width={1000} height={600} fill=\"transparent\" />\n      {routes.map((points,index) => {\n        const d = points.map(([x,y],i) => `${i === 0 ? \"M\" : \"L\"} ${x * 1000} ${(1-y) * 600}`).join(\" \");\n        return <path key={index} d={d} fill=\"none\" stroke=\"currentColor\" strokeWidth={4} />;\n      })}\n    </svg>\n  );\n};\n",
+      "source_sha256": "71eff7b0157f4ac255d0d3b3233a0dcaaea4146d69172f556fd67fdb28d5a55c",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "engineering-labels": [
+    {
+      "element_id": "e0",
+      "element_type": "text",
+      "component_name": "Text_e0_5c88e7a2",
+      "source_path": "src/elements/Text_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e0\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n    >\n      तकनीकी परीक्षण • engineering fixture\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "60dac606087302fe2750a04771388629adde7889db95c439742b231aa54b104b",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    },
+    {
+      "element_id": "e1",
+      "element_type": "vector",
+      "component_name": "Vector_e1_8b5cc4df",
+      "source_path": "src/elements/Vector_e1_8b5cc4df.tsx",
+      "source_text": "import React from \"react\";\n\nexport const Vector_e1_8b5cc4df: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 200 200\" role=\"img\" aria-label={\"Synthetic vector compiler fixture\"}>\n      <defs>\n        <marker id=\"arrow-Vector_e1_8b5cc4df\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"3\" orient=\"auto\">\n          <path d=\"M0,0 L0,6 L9,3 z\" />\n        </marker>\n      </defs>\n      <line x1={100} y1={100} x2={180.0} y2={60.0} stroke=\"currentColor\" strokeWidth={3} markerEnd=\"url(#arrow-Vector_e1_8b5cc4df)\" />\n    </svg>\n  );\n};\n",
+      "source_sha256": "f880a2268ac08e5e3d096b8f89f69d81f3c6b0e5dfcc15163bce3a7f62ac8caf",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-chart-kind": [
+    {
+      "element_id": "e0",
+      "element_type": "chart",
+      "component_name": "Chart_e0_5c88e7a2",
+      "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst labels = [\"A\", \"B\"];\nconst values = [1.0, 2.0];\nconst maxValue = Math.max(1, ...values.map((value) => Math.abs(value)));\n\nexport const Chart_e0_5c88e7a2: React.FC = () => {\n  return (\n    <div role=\"img\" aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"line\"}\n      style={{display: \"flex\", alignItems: \"end\", gap: 12, height: 240}}>\n      {values.map((value, index) => (\n        <div key={labels[index]} style={{display: \"grid\", gap: 4, justifyItems: \"center\"}}>\n          <div style={{width: 28, height: `${Math.abs(value) / maxValue * 180}px`, background: \"currentColor\"}} />\n          <span>{labels[index]}</span>\n        </div>\n      ))}\n    </div>\n  );\n};\n",
+      "source_sha256": "af513d9b3e3d520560769f28d28eb7f0adfa8b154e18cd99f589c6dfa25b1fee",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [
+        "generic_chart_renderer_uses_bar_fallback_for_non_bar_kind"
+      ],
+      "accepted": false
+    }
+  ],
+  "reject-chart-sign": [
+    {
+      "element_id": "e0",
+      "element_type": "chart",
+      "component_name": "Chart_e0_5c88e7a2",
+      "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst labels = [\"A\", \"B\"];\nconst values = [-2.0, 3.0];\nconst maxValue = Math.max(1, ...values.map((value) => Math.abs(value)));\n\nexport const Chart_e0_5c88e7a2: React.FC = () => {\n  return (\n    <div role=\"img\" aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"bar\"}\n      style={{display: \"flex\", alignItems: \"end\", gap: 12, height: 240}}>\n      {values.map((value, index) => (\n        <div key={labels[index]} style={{display: \"grid\", gap: 4, justifyItems: \"center\"}}>\n          <div style={{width: 28, height: `${Math.abs(value) / maxValue * 180}px`, background: \"currentColor\"}} />\n          <span>{labels[index]}</span>\n        </div>\n      ))}\n    </div>\n  );\n};\n",
+      "source_sha256": "6a484dca541393a8b2c25370d0d49f0cf43e1e8d13144d50750a6b8795e20be5",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-vector-z": [
+    {
+      "element_id": "e0",
+      "element_type": "vector",
+      "component_name": "Vector_e0_5c88e7a2",
+      "source_path": "src/elements/Vector_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nexport const Vector_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 200 200\" role=\"img\" aria-label={\"Synthetic vector compiler fixture\"}>\n      <defs>\n        <marker id=\"arrow-Vector_e0_5c88e7a2\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"3\" orient=\"auto\">\n          <path d=\"M0,0 L0,6 L9,3 z\" />\n        </marker>\n      </defs>\n      <line x1={100} y1={100} x2={140.0} y2={20.0} stroke=\"currentColor\" strokeWidth={3} markerEnd=\"url(#arrow-Vector_e0_5c88e7a2)\" />\n    </svg>\n  );\n};\n",
+      "source_sha256": "544c7e14b2c415cbc8102dd42d26f9567bf6c9b54a9f39d66535eb324c988f3e",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-untypeset-equation": [
+    {
+      "element_id": "e0",
+      "element_type": "equation",
+      "component_name": "Equation_e0_5c88e7a2",
+      "source_path": "src/elements/Equation_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Equation_e0_5c88e7a2: React.FC = () => {\n  const expression = \"\\\\frac{1}{2}\";\n  const sideConditions = [];\n  return (\n    <Interactive.Div name={\"e0\"} role=\"math\" aria-label={\"Synthetic equation compiler fixture\"}>\n      <div data-equation-format={\"latex\"}>{expression}</div>\n      {sideConditions.length > 0 ? (\n        <div aria-label=\"side conditions\">{sideConditions.join(\", \")}</div>\n      ) : null}\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "b10c37f6ec02ca13b7ad10e14415182219f2cb91ec05687d1859e5c07318ca91",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [
+        "equation_renderer_dependency_may_be_required_for_typeset_output"
+      ],
+      "accepted": false
+    }
+  ],
+  "reject-jsx-braces": [
+    {
+      "element_id": "e0",
+      "element_type": "text",
+      "component_name": "Text_e0_5c88e7a2",
+      "source_path": "src/elements/Text_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e0\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n    >\n      {Math.random()}\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "12a6da2c7a3f567d99ab6e3dd679d62784722d17e25d07ba908e0c8dd7ebb173",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-state-only-simulation": [
+    {
+      "element_id": "e0",
+      "element_type": "simulation",
+      "component_name": "Simulation_e0_5c88e7a2",
+      "source_path": "src/elements/Simulation_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nconst initialState = {\"x\": 0};\n\nexport const Simulation_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div name={\"e0\"} role=\"region\" aria-label={\"Synthetic simulation compiler fixture\"}>\n      <pre data-model-ref={\"fixture:toy-model\"} data-execution-class={\"conceptual\"}>\n        {JSON.stringify(initialState, null, 2)}\n      </pre>\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "6f43307016fb00c23cfc828c46d2000a568b5ff28438e93e7bc73caeccfc8df7",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-metadata-animation": [
+    {
+      "element_id": "e0",
+      "element_type": "text",
+      "component_name": "Text_e0_5c88e7a2",
+      "source_path": "src/elements/Text_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e0\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n    >\n      Static text does not become animation merely through a progress attribute.\n    </Interactive.Div>\n  );\n};\n",
+      "source_sha256": "14c009344f25d6df4a140e675be0b1ba04dcc245a8e2bbb43baabd8fbd4fd6fe",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-geographic-crs": [
+    {
+      "element_id": "e0",
+      "element_type": "map",
+      "component_name": "Map_e0_5c88e7a2",
+      "source_path": "src/elements/Map_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst routes = [[[0.1, 0.2], [0.3, 0.4]]] as const;\n\nexport const Map_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 1000 600\" role=\"img\" aria-label={\"Synthetic map compiler fixture\"} data-crs={\"EPSG:4326\"}>\n      <rect x={0} y={0} width={1000} height={600} fill=\"transparent\" />\n      {routes.map((points,index) => {\n        const d = points.map(([x,y],i) => `${i === 0 ? \"M\" : \"L\"} ${x * 1000} ${(1-y) * 600}`).join(\" \");\n        return <path key={index} d={d} fill=\"none\" stroke=\"currentColor\" strokeWidth={4} />;\n      })}\n    </svg>\n  );\n};\n",
+      "source_sha256": "c4d0a5514b2304c6afeec4165eabb576d2fb395a3e4be5e0876e80fcacd81bef",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ],
+  "reject-model-edge": [
+    {
+      "element_id": "e0",
+      "element_type": "model2d",
+      "component_name": "Model2D_e0_5c88e7a2",
+      "source_path": "src/elements/Model2D_e0_5c88e7a2.tsx",
+      "source_text": "import React from \"react\";\n\nconst vertices = [[0.1, 0.1], [0.2, 0.2]] as const;\nconst edges = [[0, 5]] as const;\n\nexport const Model2D_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 400 300\" role=\"img\" aria-label={\"Synthetic model2d compiler fixture\"}>\n      {edges.map(([a,b],index) => (\n        <line key={index}\n          x1={vertices[a][0] * 400} y1={vertices[a][1] * 300}\n          x2={vertices[b][0] * 400} y2={vertices[b][1] * 300}\n          stroke=\"currentColor\" strokeWidth={2} />\n      ))}\n    </svg>\n  );\n};\n",
+      "source_sha256": "6cf559bee34d54514073151ddd8701d9307039c26473204c5637030b85585c0a",
+      "required_dependencies": [],
+      "asset_paths": [],
+      "warnings": [],
+      "accepted": false
+    }
+  ]
+}

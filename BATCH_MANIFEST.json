@@ -1,0 +1,43 @@
+{
+  "schema_version": "bie.comp-batch.v1",
+  "batch_id": "BIE-COMP-HARDENING-H12-FINAL-REAUDIT",
+  "delivery_sequence": 21,
+  "tasks": [
+    "BIE-COMP-H12-001"
+  ],
+  "checkpoint": "BIE-COMP-H12-001",
+  "parent_checkpoint": "BIE-COMP-H11-004",
+  "parent_archive": "BIE_COMP_HARDENING_H11_INTEGRATED.zip",
+  "parent_archive_sha256": "7f56278f6c8c797e4a0641a18307859a922decfe695118f0a62dabc61455b1e7",
+  "status": "IMPLEMENTATION_SCOPE_COMPLETE_RUNTIME_PRODUCT_ACCEPTANCE_PENDING",
+  "tests": {
+    "parent_h11_bound_full_regression": 2428,
+    "parent_h11_full_regression_passed": 2428,
+    "new_h12_tests": 12,
+    "new_h12_tests_passed": 12,
+    "fresh_original_family_tests": 529,
+    "fresh_original_family_tests_passed": 529,
+    "expected_discovered_test_count_after_h12": 2440,
+    "monolithic_h12_full_regression": "NO_PASS_CLAIM_OUTER_EXECUTION_TIMEOUT",
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE"
+  },
+  "atomic_counts": {
+    "BIE-COMP-H12-001": 12
+  },
+  "full_section_reaudit_performed": true,
+  "section_exit_permitted": true,
+  "implementation_scope_exit_permitted": true,
+  "accepted": false,
+  "github_write": false,
+  "integrated_is_cumulative": true,
+  "recursive_master_backup": false,
+  "final_reaudit": "docs/comp_h12/FINAL_REAUDIT.json",
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "next_section": "AUDIO",
+  "next_original_task": "BIE-AUDIO-VO-001",
+  "runtime_verification_pending": [
+    "operational_isolation",
+    "pinned_compile",
+    "actual_render"
+  ]
+}

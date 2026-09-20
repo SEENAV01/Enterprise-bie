@@ -1,0 +1,363 @@
+{
+  "math-plain": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "equation",
+        "component_name": "Equation_e0_5c88e7a2",
+        "source_path": "src/elements/Equation_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Equation_e0_5c88e7a2: React.FC = () => {\n  const expression = \"x + 1 = 2\";\n  const sideConditions = [];\n  return (\n    <Interactive.Div name={\"e0\"} role=\"math\" aria-label={\"Synthetic equation compiler fixture\"}>\n      <div data-equation-format={\"plain\"}>{expression}</div>\n      {sideConditions.length > 0 ? (\n        <div aria-label=\"side conditions\">{sideConditions.join(\", \")}</div>\n      ) : null}\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "3817054e3a4b67012238b5565944f56f3c03cef4c73a2b3e890677929b33a5f4",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [
+          "equation_renderer_dependency_may_be_required_for_typeset_output"
+        ],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "physics-vector": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "vector",
+        "component_name": "Vector_e0_5c88e7a2",
+        "source_path": "src/elements/Vector_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nconst vector = {\"components\": [1.0, 2.0], \"dimensions\": 2, \"endpoint\": [250.0, 45.0], \"is_zero\": false, \"label\": \"Synthetic vector\", \"origin\": [200, 145], \"projected\": [1.0, 2.0], \"projection_label\": \"2D Cartesian (x right, y up)\", \"projection_matrix\": null, \"scale_px_per_unit\": 50.0, \"units\": \"\"};\nexport const Vector_e0_5c88e7a2: React.FC = () => (\n  <svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" role=\"img\" aria-label={\"Synthetic vector compiler fixture\"}>\n    <title>{\"components: \" + vector.components.join(\", \") + \" \" + vector.units + \"; \" + vector.projection_label}</title>\n    <defs><marker id=\"arrow-Vector_e0_5c88e7a2\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L6,3 z\" fill=\"currentColor\" /></marker></defs>\n    <line x1={70} y1={145} x2={330} y2={145} stroke=\"currentColor\" strokeOpacity={0.3} />\n    <line x1={200} y1={35} x2={200} y2={255} stroke=\"currentColor\" strokeOpacity={0.3} />\n    {vector.is_zero ? <circle cx={200} cy={145} r={4} fill=\"currentColor\" /> : <line x1={200} y1={145} x2={vector.endpoint[0]} y2={vector.endpoint[1]} stroke=\"currentColor\" strokeWidth={3} markerEnd=\"url(#arrow-Vector_e0_5c88e7a2)\" />}\n    <text x={8} y={274} fontSize={12}>{vector.label + \" (\" + vector.components.join(\", \") + \") \" + vector.units}</text>\n    <text x={8} y={291} fontSize={11}>{vector.projection_label}</text>\n    <text x={8} y={309} fontSize={10}>{\"View scale: \" + vector.scale_px_per_unit + \" px/unit (individual vector)\"}</text>\n  </svg>\n);\n",
+        "source_sha256": "d6f2afbb72d9b62900caa7b4d0373c0aa9d5e4c4e480ff180d80d1af900c5398",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "chemistry-connectivity": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "model2d",
+        "component_name": "Model2D_e0_5c88e7a2",
+        "source_path": "src/elements/Model2D_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nconst vertices: ReadonlyArray<readonly [number, number]> = [[0.2, 0.2], [0.8, 0.2], [0.5, 0.8]];\nconst edges: ReadonlyArray<readonly [number, number]> = [[0, 1], [1, 2], [2, 0]];\nexport const Model2D_e0_5c88e7a2: React.FC = () => (\n  <svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" role=\"img\" aria-label={\"Synthetic model2d compiler fixture\"}>\n    {edges.map(([a,b], index) => <line key={index} x1={8 + vertices[a][0] * 384} y1={8 + vertices[a][1] * 284} x2={8 + vertices[b][0] * 384} y2={8 + vertices[b][1] * 284} stroke=\"currentColor\" strokeWidth={2} />)}\n    {vertices.map(([x,y], index) => <circle key={index} cx={8 + x * 384} cy={8 + y * 284} r={3} fill=\"currentColor\"><title>{\"vertex \" + index}</title></circle>)}\n  </svg>\n);\n",
+        "source_sha256": "294e32c78a0c95fd3f11f7b61b207e032343c2aa7ae535475ab744fb59321b27",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "biology-structure": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "model2d",
+        "component_name": "Model2D_e0_5c88e7a2",
+        "source_path": "src/elements/Model2D_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nconst vertices: ReadonlyArray<readonly [number, number]> = [[0.2, 0.3], [0.7, 0.3], [0.5, 0.7]];\nconst edges: ReadonlyArray<readonly [number, number]> = [[0, 1], [1, 2]];\nexport const Model2D_e0_5c88e7a2: React.FC = () => (\n  <svg viewBox=\"0 0 400 300\" width=\"100%\" height=\"100%\" role=\"img\" aria-label={\"Synthetic model2d compiler fixture\"}>\n    {edges.map(([a,b], index) => <line key={index} x1={8 + vertices[a][0] * 384} y1={8 + vertices[a][1] * 284} x2={8 + vertices[b][0] * 384} y2={8 + vertices[b][1] * 284} stroke=\"currentColor\" strokeWidth={2} />)}\n    {vertices.map(([x,y], index) => <circle key={index} cx={8 + x * 384} cy={8 + y * 284} r={3} fill=\"currentColor\"><title>{\"vertex \" + index}</title></circle>)}\n  </svg>\n);\n",
+        "source_sha256": "f51f5680e87aee1d1af7d8d4757b00c7cf8aa4be79b97fea764693e9614a44c6",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      },
+      {
+        "element_id": "e1",
+        "element_type": "text",
+        "component_name": "Text_e1_8b5cc4df",
+        "source_path": "src/elements/Text_e1_8b5cc4df.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e1_8b5cc4df: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e1\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n      style={{whiteSpace: \"pre-wrap\", overflowWrap: \"anywhere\"}}\n    >\n      {\"Synthetic structure labels \\u2014 not a validated biology lesson\\u002e\"}\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "4729343b449776ca29dc302e7108ad9df897cfe457ba60dc8cfea0bdd8bf2090",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "statistics-counts": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "chart",
+        "component_name": "Chart_e0_5c88e7a2",
+        "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\ntype ChartGeometry = {\n  kind: string; categories: string[]; values: number[]; units: string; x_label: string; y_label: string;\n  width: number; height: number; left: number; right: number; top: number; bottom: number;\n  domain: number[] | null; baseline: number | null;\n  bars: Array<{index: number; label: string; value: number; x: number; y: number; width: number; height: number}>;\n  points: Array<{index: number; label: string; value: number; x: number; y: number}>;\n  slices: Array<{index: number; label: string; value: number; fraction: number; path: string}>;\n  line_points: string; area_points: string; x_values?: number[]; x_domain?: number[];\n};\nconst chart: ChartGeometry = {\"area_points\": \"\", \"bars\": [{\"height\": 142.0, \"index\": 0, \"label\": \"A\", \"value\": 2.0, \"width\": 129.6, \"x\": 89.2, \"y\": 174.0}, {\"height\": 284.0, \"index\": 1, \"label\": \"B\", \"value\": 4.0, \"width\": 129.6, \"x\": 269.2, \"y\": 32.0}, {\"height\": 213.0, \"index\": 2, \"label\": \"C\", \"value\": 3.0, \"width\": 129.6, \"x\": 449.2, \"y\": 103.0}], \"baseline\": 316.0, \"bottom\": 316.0, \"categories\": [\"A\", \"B\", \"C\"], \"domain\": [0.0, 4.0], \"height\": 400, \"kind\": \"bar\", \"left\": 64.0, \"line_points\": \"\", \"points\": [{\"index\": 0, \"label\": \"A\", \"value\": 2.0, \"x\": 154.0, \"y\": 174.0}, {\"index\": 1, \"label\": \"B\", \"value\": 4.0, \"x\": 334.0, \"y\": 32.0}, {\"index\": 2, \"label\": \"C\", \"value\": 3.0, \"x\": 514.0, \"y\": 103.0}], \"right\": 604.0, \"slices\": [], \"top\": 32.0, \"units\": \"\", \"values\": [2.0, 4.0, 3.0], \"width\": 640, \"x_label\": \"\", \"y_label\": \"\"};\nexport const Chart_e0_5c88e7a2: React.FC = () => (\n  <figure style={{margin: 0, width: \"100%\", height: \"100%\", display: \"grid\", gridTemplateRows: \"minmax(0, 1fr) auto\"}}>\n    <svg viewBox=\"0 0 640 400\" width=\"100%\" height=\"100%\" role=\"img\"\n      aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"bar\"}>\n      <title>{chart.categories.map((label, index) => label + \": \" + chart.values[index]).join(\"; \")}</title>\n      {chart.kind !== \"pie\" ? <g data-bie-axis=\"signed-domain\">\n        <line x1={chart.left} x2={chart.right} y1={chart.baseline ?? 0} y2={chart.baseline ?? 0} stroke=\"currentColor\" />\n        <line x1={chart.left} x2={chart.left} y1={chart.top} y2={chart.bottom} stroke=\"currentColor\" />\n        <text x={2} y={chart.top + 12} fontSize={12}>{chart.domain?.[1]}</text>\n        <text x={2} y={chart.bottom} fontSize={12}>{chart.domain?.[0]}</text>\n        <text x={32} y={chart.baseline ?? 0} fontSize={12}>0</text>\n      </g> : null}\n      {chart.bars.map((bar) => <rect key={bar.index} data-value={bar.value}\n        x={bar.x} y={bar.y} width={bar.width} height={bar.height} fill=\"currentColor\"><title>{bar.label + \": \" + bar.value}</title></rect>)}\n      {chart.kind === \"area\" ? <polygon points={chart.area_points} fill=\"currentColor\" fillOpacity={0.18} /> : null}\n      {chart.kind === \"line\" || chart.kind === \"area\" ? <polyline points={chart.line_points} fill=\"none\" stroke=\"currentColor\" strokeWidth={2} /> : null}\n      {chart.kind !== \"bar\" ? chart.points.map((point) => <circle key={point.index} cx={point.x} cy={point.y} r={4} fill=\"currentColor\"><title>{point.label + \": \" + point.value}</title></circle>) : null}\n      {chart.slices.map((slice) => <path key={slice.index} d={slice.path} fill=\"currentColor\" fillOpacity={0.25 + 0.65 * (slice.index + 1) / chart.categories.length} stroke=\"currentColor\"><title>{slice.label + \": \" + slice.value}</title></path>)}\n      {chart.kind !== \"pie\" ? chart.points.map((point) => <text key={point.index} x={point.x} y={340} textAnchor=\"middle\" fontSize={12}>{point.label}</text>) : null}\n      {chart.kind === \"scatter\" ? <text x={320} y={357} textAnchor=\"middle\" fontSize={11}>{\"Numeric x-domain: \" + chart.x_domain?.join(\" to \")}</text> : null}\n      <text x={320} y={375} textAnchor=\"middle\" fontSize={14}>{chart.x_label + (chart.units ? \" | units: \" + chart.units : \"\")}</text>\n    </svg>\n    <figcaption style={{fontSize: 12, overflowWrap: \"anywhere\"}}>{chart.y_label}{chart.categories.map((label, i) => \" | \" + label + \": \" + chart.values[i]).join(\"\")}</figcaption>\n  </figure>\n);\n",
+        "source_sha256": "eb6012fb45cd9cb30d0292bffe2e09fd35cd9a384ab28db93516b2bf07da9483",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "economics-series": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "graph",
+        "component_name": "Graph_e0_5c88e7a2",
+        "source_path": "src/elements/Graph_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\nconst series = [[[0.0, 0.1], [0.5, 0.3], [1.0, 0.8]]] as const;\n\nexport const Graph_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 400 240\" role=\"img\" aria-label={\"Synthetic graph compiler fixture\"}>\n      <line x1={40} y1={200} x2={380} y2={200} stroke=\"currentColor\" />\n      <line x1={40} y1={20} x2={40} y2={200} stroke=\"currentColor\" />\n      {series.map((points, index) => {\n        const d = points.map(([x,y],i) => `${i === 0 ? \"M\" : \"L\"} ${40 + x * 300} ${200 - y * 150}`).join(\" \");\n        return <path key={index} d={d} fill=\"none\" stroke=\"currentColor\" strokeWidth={2} />;\n      })}\n    </svg>\n  );\n};\n",
+        "source_sha256": "085b521e7efa5d4ce53b4125cca64504b0cc7c61a6e6715515b1dc573570a9a5",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "accountancy-totals": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "chart",
+        "component_name": "Chart_e0_5c88e7a2",
+        "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\ntype ChartGeometry = {\n  kind: string; categories: string[]; values: number[]; units: string; x_label: string; y_label: string;\n  width: number; height: number; left: number; right: number; top: number; bottom: number;\n  domain: number[] | null; baseline: number | null;\n  bars: Array<{index: number; label: string; value: number; x: number; y: number; width: number; height: number}>;\n  points: Array<{index: number; label: string; value: number; x: number; y: number}>;\n  slices: Array<{index: number; label: string; value: number; fraction: number; path: string}>;\n  line_points: string; area_points: string; x_values?: number[]; x_domain?: number[];\n};\nconst chart: ChartGeometry = {\"area_points\": \"\", \"bars\": [{\"height\": 284.0, \"index\": 0, \"label\": \"Toy debit\", \"value\": 5.0, \"width\": 194.4, \"x\": 101.8, \"y\": 32.0}, {\"height\": 284.0, \"index\": 1, \"label\": \"Toy credit\", \"value\": 5.0, \"width\": 194.4, \"x\": 371.8, \"y\": 32.0}], \"baseline\": 316.0, \"bottom\": 316.0, \"categories\": [\"Toy debit\", \"Toy credit\"], \"domain\": [0.0, 5.0], \"height\": 400, \"kind\": \"bar\", \"left\": 64.0, \"line_points\": \"\", \"points\": [{\"index\": 0, \"label\": \"Toy debit\", \"value\": 5.0, \"x\": 199.0, \"y\": 32.0}, {\"index\": 1, \"label\": \"Toy credit\", \"value\": 5.0, \"x\": 469.0, \"y\": 32.0}], \"right\": 604.0, \"slices\": [], \"top\": 32.0, \"units\": \"\", \"values\": [5.0, 5.0], \"width\": 640, \"x_label\": \"\", \"y_label\": \"\"};\nexport const Chart_e0_5c88e7a2: React.FC = () => (\n  <figure style={{margin: 0, width: \"100%\", height: \"100%\", display: \"grid\", gridTemplateRows: \"minmax(0, 1fr) auto\"}}>\n    <svg viewBox=\"0 0 640 400\" width=\"100%\" height=\"100%\" role=\"img\"\n      aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"bar\"}>\n      <title>{chart.categories.map((label, index) => label + \": \" + chart.values[index]).join(\"; \")}</title>\n      {chart.kind !== \"pie\" ? <g data-bie-axis=\"signed-domain\">\n        <line x1={chart.left} x2={chart.right} y1={chart.baseline ?? 0} y2={chart.baseline ?? 0} stroke=\"currentColor\" />\n        <line x1={chart.left} x2={chart.left} y1={chart.top} y2={chart.bottom} stroke=\"currentColor\" />\n        <text x={2} y={chart.top + 12} fontSize={12}>{chart.domain?.[1]}</text>\n        <text x={2} y={chart.bottom} fontSize={12}>{chart.domain?.[0]}</text>\n        <text x={32} y={chart.baseline ?? 0} fontSize={12}>0</text>\n      </g> : null}\n      {chart.bars.map((bar) => <rect key={bar.index} data-value={bar.value}\n        x={bar.x} y={bar.y} width={bar.width} height={bar.height} fill=\"currentColor\"><title>{bar.label + \": \" + bar.value}</title></rect>)}\n      {chart.kind === \"area\" ? <polygon points={chart.area_points} fill=\"currentColor\" fillOpacity={0.18} /> : null}\n      {chart.kind === \"line\" || chart.kind === \"area\" ? <polyline points={chart.line_points} fill=\"none\" stroke=\"currentColor\" strokeWidth={2} /> : null}\n      {chart.kind !== \"bar\" ? chart.points.map((point) => <circle key={point.index} cx={point.x} cy={point.y} r={4} fill=\"currentColor\"><title>{point.label + \": \" + point.value}</title></circle>) : null}\n      {chart.slices.map((slice) => <path key={slice.index} d={slice.path} fill=\"currentColor\" fillOpacity={0.25 + 0.65 * (slice.index + 1) / chart.categories.length} stroke=\"currentColor\"><title>{slice.label + \": \" + slice.value}</title></path>)}\n      {chart.kind !== \"pie\" ? chart.points.map((point) => <text key={point.index} x={point.x} y={340} textAnchor=\"middle\" fontSize={12}>{point.label}</text>) : null}\n      {chart.kind === \"scatter\" ? <text x={320} y={357} textAnchor=\"middle\" fontSize={11}>{\"Numeric x-domain: \" + chart.x_domain?.join(\" to \")}</text> : null}\n      <text x={320} y={375} textAnchor=\"middle\" fontSize={14}>{chart.x_label + (chart.units ? \" | units: \" + chart.units : \"\")}</text>\n    </svg>\n    <figcaption style={{fontSize: 12, overflowWrap: \"anywhere\"}}>{chart.y_label}{chart.categories.map((label, i) => \" | \" + label + \": \" + chart.values[i]).join(\"\")}</figcaption>\n  </figure>\n);\n",
+        "source_sha256": "959f32300be7f5a2093c89f9ffd7b45cf230d8f1da384b1bc6699738d7818152",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "history-sequence": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "timeline",
+        "component_name": "Timeline_e0_5c88e7a2",
+        "source_path": "src/elements/Timeline_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\nconst events = [{\"event_id\": \"a\", \"label\": \"Synthetic event A\"}, {\"event_id\": \"b\", \"label\": \"Synthetic event B\"}];\n\nexport const Timeline_e0_5c88e7a2: React.FC = () => {\n  return (\n    <div role=\"img\" aria-label={\"Synthetic timeline compiler fixture\"}\n      style={{display: \"flex\", alignItems: \"center\", gap: 16}}>\n      {events.map((event,index) => (\n        <React.Fragment key={event.event_id}>\n          <div style={{display: \"grid\", justifyItems: \"center\", gap: 6}}>\n            <div style={{width: 12, height: 12, borderRadius: 999, background: \"currentColor\"}} />\n            <span>{event.label}</span>\n          </div>\n          {index < events.length - 1 ? <div style={{height: 2, flex: 1, background: \"currentColor\"}} /> : null}\n        </React.Fragment>\n      ))}\n    </div>\n  );\n};\n",
+        "source_sha256": "2dc3e6a43ee9e46cd798dd3d20a09b0109861025fcda7e5606e2377fbe03ef26",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "geography-route": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "map",
+        "component_name": "Map_e0_5c88e7a2",
+        "source_path": "src/elements/Map_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\nconst routes = [[[0.1, 0.2], [0.5, 0.6], [0.9, 0.8]]] as const;\n\nexport const Map_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 1000 600\" role=\"img\" aria-label={\"Synthetic map compiler fixture\"} data-crs={\"BIE:NORMALIZED\"}>\n      <rect x={0} y={0} width={1000} height={600} fill=\"transparent\" />\n      {routes.map((points,index) => {\n        const d = points.map(([x,y],i) => `${i === 0 ? \"M\" : \"L\"} ${x * 1000} ${(1-y) * 600}`).join(\" \");\n        return <path key={index} d={d} fill=\"none\" stroke=\"currentColor\" strokeWidth={4} />;\n      })}\n    </svg>\n  );\n};\n",
+        "source_sha256": "71eff7b0157f4ac255d0d3b3233a0dcaaea4146d69172f556fd67fdb28d5a55c",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "engineering-labels": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "text",
+        "component_name": "Text_e0_5c88e7a2",
+        "source_path": "src/elements/Text_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e0\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n      style={{whiteSpace: \"pre-wrap\", overflowWrap: \"anywhere\"}}\n    >\n      {\"\\u0924\\u0915\\u0928\\u0940\\u0915\\u0940 \\u092a\\u0930\\u0940\\u0915\\u094d\\u0937\\u0923 \\u2022 engineering fixture\"}\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "1514910bdd4aa8189ab5685be2143f5afa8bb656015743e2080f4492f77913ca",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      },
+      {
+        "element_id": "e1",
+        "element_type": "vector",
+        "component_name": "Vector_e1_8b5cc4df",
+        "source_path": "src/elements/Vector_e1_8b5cc4df.tsx",
+        "source_text": "import React from \"react\";\nconst vector = {\"components\": [2.0, 1.0], \"dimensions\": 2, \"endpoint\": [300.0, 95.0], \"is_zero\": false, \"label\": \"\", \"origin\": [200, 145], \"projected\": [2.0, 1.0], \"projection_label\": \"2D Cartesian (x right, y up)\", \"projection_matrix\": null, \"scale_px_per_unit\": 50.0, \"units\": \"\"};\nexport const Vector_e1_8b5cc4df: React.FC = () => (\n  <svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" role=\"img\" aria-label={\"Synthetic vector compiler fixture\"}>\n    <title>{\"components: \" + vector.components.join(\", \") + \" \" + vector.units + \"; \" + vector.projection_label}</title>\n    <defs><marker id=\"arrow-Vector_e1_8b5cc4df\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L6,3 z\" fill=\"currentColor\" /></marker></defs>\n    <line x1={70} y1={145} x2={330} y2={145} stroke=\"currentColor\" strokeOpacity={0.3} />\n    <line x1={200} y1={35} x2={200} y2={255} stroke=\"currentColor\" strokeOpacity={0.3} />\n    {vector.is_zero ? <circle cx={200} cy={145} r={4} fill=\"currentColor\" /> : <line x1={200} y1={145} x2={vector.endpoint[0]} y2={vector.endpoint[1]} stroke=\"currentColor\" strokeWidth={3} markerEnd=\"url(#arrow-Vector_e1_8b5cc4df)\" />}\n    <text x={8} y={274} fontSize={12}>{vector.label + \" (\" + vector.components.join(\", \") + \") \" + vector.units}</text>\n    <text x={8} y={291} fontSize={11}>{vector.projection_label}</text>\n    <text x={8} y={309} fontSize={10}>{\"View scale: \" + vector.scale_px_per_unit + \" px/unit (individual vector)\"}</text>\n  </svg>\n);\n",
+        "source_sha256": "b0c985f6939be3cf3f18ca1c6f4725d5f112734f7c2b19466897e4ae1a1d1082",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-chart-kind": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "chart",
+        "component_name": "Chart_e0_5c88e7a2",
+        "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\ntype ChartGeometry = {\n  kind: string; categories: string[]; values: number[]; units: string; x_label: string; y_label: string;\n  width: number; height: number; left: number; right: number; top: number; bottom: number;\n  domain: number[] | null; baseline: number | null;\n  bars: Array<{index: number; label: string; value: number; x: number; y: number; width: number; height: number}>;\n  points: Array<{index: number; label: string; value: number; x: number; y: number}>;\n  slices: Array<{index: number; label: string; value: number; fraction: number; path: string}>;\n  line_points: string; area_points: string; x_values?: number[]; x_domain?: number[];\n};\nconst chart: ChartGeometry = {\"area_points\": \"\", \"bars\": [], \"baseline\": 316.0, \"bottom\": 316.0, \"categories\": [\"A\", \"B\"], \"domain\": [0.0, 2.0], \"height\": 400, \"kind\": \"line\", \"left\": 64.0, \"line_points\": \"64,174 604,32\", \"points\": [{\"index\": 0, \"label\": \"A\", \"value\": 1.0, \"x\": 64.0, \"y\": 174.0}, {\"index\": 1, \"label\": \"B\", \"value\": 2.0, \"x\": 604.0, \"y\": 32.0}], \"right\": 604.0, \"slices\": [], \"top\": 32.0, \"units\": \"\", \"values\": [1.0, 2.0], \"width\": 640, \"x_label\": \"\", \"y_label\": \"\"};\nexport const Chart_e0_5c88e7a2: React.FC = () => (\n  <figure style={{margin: 0, width: \"100%\", height: \"100%\", display: \"grid\", gridTemplateRows: \"minmax(0, 1fr) auto\"}}>\n    <svg viewBox=\"0 0 640 400\" width=\"100%\" height=\"100%\" role=\"img\"\n      aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"line\"}>\n      <title>{chart.categories.map((label, index) => label + \": \" + chart.values[index]).join(\"; \")}</title>\n      {chart.kind !== \"pie\" ? <g data-bie-axis=\"signed-domain\">\n        <line x1={chart.left} x2={chart.right} y1={chart.baseline ?? 0} y2={chart.baseline ?? 0} stroke=\"currentColor\" />\n        <line x1={chart.left} x2={chart.left} y1={chart.top} y2={chart.bottom} stroke=\"currentColor\" />\n        <text x={2} y={chart.top + 12} fontSize={12}>{chart.domain?.[1]}</text>\n        <text x={2} y={chart.bottom} fontSize={12}>{chart.domain?.[0]}</text>\n        <text x={32} y={chart.baseline ?? 0} fontSize={12}>0</text>\n      </g> : null}\n      {chart.bars.map((bar) => <rect key={bar.index} data-value={bar.value}\n        x={bar.x} y={bar.y} width={bar.width} height={bar.height} fill=\"currentColor\"><title>{bar.label + \": \" + bar.value}</title></rect>)}\n      {chart.kind === \"area\" ? <polygon points={chart.area_points} fill=\"currentColor\" fillOpacity={0.18} /> : null}\n      {chart.kind === \"line\" || chart.kind === \"area\" ? <polyline points={chart.line_points} fill=\"none\" stroke=\"currentColor\" strokeWidth={2} /> : null}\n      {chart.kind !== \"bar\" ? chart.points.map((point) => <circle key={point.index} cx={point.x} cy={point.y} r={4} fill=\"currentColor\"><title>{point.label + \": \" + point.value}</title></circle>) : null}\n      {chart.slices.map((slice) => <path key={slice.index} d={slice.path} fill=\"currentColor\" fillOpacity={0.25 + 0.65 * (slice.index + 1) / chart.categories.length} stroke=\"currentColor\"><title>{slice.label + \": \" + slice.value}</title></path>)}\n      {chart.kind !== \"pie\" ? chart.points.map((point) => <text key={point.index} x={point.x} y={340} textAnchor=\"middle\" fontSize={12}>{point.label}</text>) : null}\n      {chart.kind === \"scatter\" ? <text x={320} y={357} textAnchor=\"middle\" fontSize={11}>{\"Numeric x-domain: \" + chart.x_domain?.join(\" to \")}</text> : null}\n      <text x={320} y={375} textAnchor=\"middle\" fontSize={14}>{chart.x_label + (chart.units ? \" | units: \" + chart.units : \"\")}</text>\n    </svg>\n    <figcaption style={{fontSize: 12, overflowWrap: \"anywhere\"}}>{chart.y_label}{chart.categories.map((label, i) => \" | \" + label + \": \" + chart.values[i]).join(\"\")}</figcaption>\n  </figure>\n);\n",
+        "source_sha256": "56de8d2cf0985d0e5c5ab7d2652dd65abcec81df07a83ed43ee8e8bdb5243091",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-chart-sign": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "chart",
+        "component_name": "Chart_e0_5c88e7a2",
+        "source_path": "src/elements/Chart_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\ntype ChartGeometry = {\n  kind: string; categories: string[]; values: number[]; units: string; x_label: string; y_label: string;\n  width: number; height: number; left: number; right: number; top: number; bottom: number;\n  domain: number[] | null; baseline: number | null;\n  bars: Array<{index: number; label: string; value: number; x: number; y: number; width: number; height: number}>;\n  points: Array<{index: number; label: string; value: number; x: number; y: number}>;\n  slices: Array<{index: number; label: string; value: number; fraction: number; path: string}>;\n  line_points: string; area_points: string; x_values?: number[]; x_domain?: number[];\n};\nconst chart: ChartGeometry = {\"area_points\": \"\", \"bars\": [{\"height\": 113.60000000000002, \"index\": 0, \"label\": \"A\", \"value\": -2.0, \"width\": 194.4, \"x\": 101.8, \"y\": 202.39999999999998}, {\"height\": 170.39999999999998, \"index\": 1, \"label\": \"B\", \"value\": 3.0, \"width\": 194.4, \"x\": 371.8, \"y\": 32.0}], \"baseline\": 202.39999999999998, \"bottom\": 316.0, \"categories\": [\"A\", \"B\"], \"domain\": [-2.0, 3.0], \"height\": 400, \"kind\": \"bar\", \"left\": 64.0, \"line_points\": \"\", \"points\": [{\"index\": 0, \"label\": \"A\", \"value\": -2.0, \"x\": 199.0, \"y\": 316.0}, {\"index\": 1, \"label\": \"B\", \"value\": 3.0, \"x\": 469.0, \"y\": 32.0}], \"right\": 604.0, \"slices\": [], \"top\": 32.0, \"units\": \"\", \"values\": [-2.0, 3.0], \"width\": 640, \"x_label\": \"\", \"y_label\": \"\"};\nexport const Chart_e0_5c88e7a2: React.FC = () => (\n  <figure style={{margin: 0, width: \"100%\", height: \"100%\", display: \"grid\", gridTemplateRows: \"minmax(0, 1fr) auto\"}}>\n    <svg viewBox=\"0 0 640 400\" width=\"100%\" height=\"100%\" role=\"img\"\n      aria-label={\"Synthetic chart compiler fixture\"} data-chart-kind={\"bar\"}>\n      <title>{chart.categories.map((label, index) => label + \": \" + chart.values[index]).join(\"; \")}</title>\n      {chart.kind !== \"pie\" ? <g data-bie-axis=\"signed-domain\">\n        <line x1={chart.left} x2={chart.right} y1={chart.baseline ?? 0} y2={chart.baseline ?? 0} stroke=\"currentColor\" />\n        <line x1={chart.left} x2={chart.left} y1={chart.top} y2={chart.bottom} stroke=\"currentColor\" />\n        <text x={2} y={chart.top + 12} fontSize={12}>{chart.domain?.[1]}</text>\n        <text x={2} y={chart.bottom} fontSize={12}>{chart.domain?.[0]}</text>\n        <text x={32} y={chart.baseline ?? 0} fontSize={12}>0</text>\n      </g> : null}\n      {chart.bars.map((bar) => <rect key={bar.index} data-value={bar.value}\n        x={bar.x} y={bar.y} width={bar.width} height={bar.height} fill=\"currentColor\"><title>{bar.label + \": \" + bar.value}</title></rect>)}\n      {chart.kind === \"area\" ? <polygon points={chart.area_points} fill=\"currentColor\" fillOpacity={0.18} /> : null}\n      {chart.kind === \"line\" || chart.kind === \"area\" ? <polyline points={chart.line_points} fill=\"none\" stroke=\"currentColor\" strokeWidth={2} /> : null}\n      {chart.kind !== \"bar\" ? chart.points.map((point) => <circle key={point.index} cx={point.x} cy={point.y} r={4} fill=\"currentColor\"><title>{point.label + \": \" + point.value}</title></circle>) : null}\n      {chart.slices.map((slice) => <path key={slice.index} d={slice.path} fill=\"currentColor\" fillOpacity={0.25 + 0.65 * (slice.index + 1) / chart.categories.length} stroke=\"currentColor\"><title>{slice.label + \": \" + slice.value}</title></path>)}\n      {chart.kind !== \"pie\" ? chart.points.map((point) => <text key={point.index} x={point.x} y={340} textAnchor=\"middle\" fontSize={12}>{point.label}</text>) : null}\n      {chart.kind === \"scatter\" ? <text x={320} y={357} textAnchor=\"middle\" fontSize={11}>{\"Numeric x-domain: \" + chart.x_domain?.join(\" to \")}</text> : null}\n      <text x={320} y={375} textAnchor=\"middle\" fontSize={14}>{chart.x_label + (chart.units ? \" | units: \" + chart.units : \"\")}</text>\n    </svg>\n    <figcaption style={{fontSize: 12, overflowWrap: \"anywhere\"}}>{chart.y_label}{chart.categories.map((label, i) => \" | \" + label + \": \" + chart.values[i]).join(\"\")}</figcaption>\n  </figure>\n);\n",
+        "source_sha256": "77cf267727dfead8a2039c03dad859758696c806265a04b4cabcf40ed5fdca6e",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-vector-z": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "vector",
+        "component_name": "BlockedElement_e0_5c88e7a2",
+        "source_path": "src/elements/BlockedElement_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nexport const BlockedElement_e0_5c88e7a2: React.FC = () => { throw new Error(\"VECTOR_PROJECTION_REQUIRED: 3D vectors require an explicit orthographic_matrix projection\"); };\n",
+        "source_sha256": "b39e78cdb338f9430f17d506bc02e8e92f16888e47b58b0b52e026b0d80fc67d",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-untypeset-equation": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "equation",
+        "component_name": "Equation_e0_5c88e7a2",
+        "source_path": "src/elements/Equation_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Equation_e0_5c88e7a2: React.FC = () => {\n  const expression = \"\\\\frac{1}{2}\";\n  const sideConditions = [];\n  return (\n    <Interactive.Div name={\"e0\"} role=\"math\" aria-label={\"Synthetic equation compiler fixture\"}>\n      <div data-equation-format={\"latex\"}>{expression}</div>\n      {sideConditions.length > 0 ? (\n        <div aria-label=\"side conditions\">{sideConditions.join(\", \")}</div>\n      ) : null}\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "b10c37f6ec02ca13b7ad10e14415182219f2cb91ec05687d1859e5c07318ca91",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [
+          "equation_renderer_dependency_may_be_required_for_typeset_output"
+        ],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-jsx-braces": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "text",
+        "component_name": "Text_e0_5c88e7a2",
+        "source_path": "src/elements/Text_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e0\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n      style={{whiteSpace: \"pre-wrap\", overflowWrap: \"anywhere\"}}\n    >\n      {\"{Math\\u002erandom\\u0028)}\"}\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "e208d33474d95ec110d42aa71b8b2236b0f355630ddc2d6a3da39cb788cd9294",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-state-only-simulation": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "simulation",
+        "component_name": "Simulation_e0_5c88e7a2",
+        "source_path": "src/elements/Simulation_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nconst initialState = {\"x\": 0};\n\nexport const Simulation_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div name={\"e0\"} role=\"region\" aria-label={\"Synthetic simulation compiler fixture\"}>\n      <pre data-model-ref={\"fixture:toy-model\"} data-execution-class={\"conceptual\"}>\n        {JSON.stringify(initialState, null, 2)}\n      </pre>\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "6f43307016fb00c23cfc828c46d2000a568b5ff28438e93e7bc73caeccfc8df7",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-metadata-animation": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "text",
+        "component_name": "Text_e0_5c88e7a2",
+        "source_path": "src/elements/Text_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nimport {Interactive} from \"remotion\";\n\nexport const Text_e0_5c88e7a2: React.FC = () => {\n  return (\n    <Interactive.Div\n      name={\"e0\"}\n      role=\"text\"\n      aria-label={\"Synthetic text compiler fixture\"}\n      data-role={\"body\"}\n      style={{whiteSpace: \"pre-wrap\", overflowWrap: \"anywhere\"}}\n    >\n      {\"Static text does not become animation merely through a progress attribute\\u002e\"}\n    </Interactive.Div>\n  );\n};\n",
+        "source_sha256": "d0c68f0131076a63cd52f5272d7ad4d7ed8f999a2e78c1174925691fc6b5e99f",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": [
+      {
+        "track_id": "t0",
+        "action": "reveal",
+        "source_path": "src/animations/Track_t0_512f26ad.tsx",
+        "source_text": "import React from \"react\";\nimport {Easing, interpolate, useCurrentFrame, useVideoConfig} from \"remotion\";\n\nexport const Track_t0_512f26ad: React.FC<React.PropsWithChildren> = ({children}) => {\n  const frame = useCurrentFrame();\n  const {fps} = useVideoConfig();\n  const startFrame = Math.round((0 / 1000) * fps);\n  const endFrame = Math.round((1000 / 1000) * fps);\n  const progress = interpolate(frame, [startFrame, endFrame], [0, 1], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n    easing: Easing.bezier(0.16, 1, 0.3, 1),\n  });\n\n  return (\n    <div\n      data-bie-track-id={\"t0\"}\n      data-bie-element-id={\"e0\"}\n      data-bie-action={\"reveal\"}\n      data-bie-progress={progress}\n    >\n      {children}\n    </div>\n  );\n};\n",
+        "source_sha256": "ffea9a76040828b70e70ce20b73b888def3e40434fa2355e6882685d7f24d0c1",
+        "warnings": [],
+        "accepted": false
+      }
+    ]
+  },
+  "reject-geographic-crs": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "map",
+        "component_name": "Map_e0_5c88e7a2",
+        "source_path": "src/elements/Map_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\n\nconst routes = [[[0.1, 0.2], [0.3, 0.4]]] as const;\n\nexport const Map_e0_5c88e7a2: React.FC = () => {\n  return (\n    <svg viewBox=\"0 0 1000 600\" role=\"img\" aria-label={\"Synthetic map compiler fixture\"} data-crs={\"EPSG:4326\"}>\n      <rect x={0} y={0} width={1000} height={600} fill=\"transparent\" />\n      {routes.map((points,index) => {\n        const d = points.map(([x,y],i) => `${i === 0 ? \"M\" : \"L\"} ${x * 1000} ${(1-y) * 600}`).join(\" \");\n        return <path key={index} d={d} fill=\"none\" stroke=\"currentColor\" strokeWidth={4} />;\n      })}\n    </svg>\n  );\n};\n",
+        "source_sha256": "c4d0a5514b2304c6afeec4165eabb576d2fb395a3e4be5e0876e80fcacd81bef",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  },
+  "reject-model-edge": {
+    "elements": [
+      {
+        "element_id": "e0",
+        "element_type": "model2d",
+        "component_name": "BlockedElement_e0_5c88e7a2",
+        "source_path": "src/elements/BlockedElement_e0_5c88e7a2.tsx",
+        "source_text": "import React from \"react\";\nexport const BlockedElement_e0_5c88e7a2: React.FC = () => { throw new Error(\"MODEL2D_EDGE_INDEX_INVALID: edge must contain two in-range integer vertex indices\"); };\n",
+        "source_sha256": "476f9e9b57cda81a8ba51dc1c58bef0592ee5abfc861a51743ea05dd053537b6",
+        "required_dependencies": [],
+        "asset_paths": [],
+        "warnings": [],
+        "accepted": false
+      }
+    ],
+    "tracks": []
+  }
+}

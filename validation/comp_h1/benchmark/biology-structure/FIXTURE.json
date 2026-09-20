@@ -1,0 +1,116 @@
+{
+  "case": {
+    "case_id": "biology-structure",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic model2d compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "model2d",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertices": [
+              [
+                0.2,
+                0.3
+              ],
+              [
+                0.7,
+                0.3
+              ],
+              [
+                0.5,
+                0.7
+              ]
+            ]
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:biology-structure:e0"
+          ],
+          "source_refs": [
+            "fixture:biology-structure:e0"
+          ]
+        },
+        {
+          "accessibility": {
+            "alt": "Synthetic text compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e1",
+          "element_type": "text",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.5
+          },
+          "props": {
+            "text": "Synthetic structure labels — not a validated biology lesson."
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:biology-structure:e1"
+          ],
+          "source_refs": [
+            "fixture:biology-structure:e1"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "8bf2d6ee7d51ac4afc9692a788b40de50132e547cd8dd3db59d96797fed1126f",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "biology-structure",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:biology-structure"
+      ],
+      "review_required": true,
+      "scene_id": "biology-structure",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:biology-structure"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "biology",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "7f4d46ad605d51c74ba9332f754d11f7d9a918c06496bb0fcbc5b530f3d4409d"
+}

@@ -1,0 +1,646 @@
+{
+  "schema_version": "bie.h3-browser-evidence.v1",
+  "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+  "chromium_version": "144.0.7559.96",
+  "case_count": 10,
+  "cases": [
+    {
+      "case_id": "safe-text",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "f1ae60e6251d73db033650d75929b0b81d338f4fcdb820cdebfd98a4a60df80c",
+        "manifest_sha256": "4fd3400546bbe63a017b04c294d3fee6dfcb8816c75ea9c762c1849104b4eb4c",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "827705e59c74c27b1734e6ad8782471f40aa435632aa481281e1e4a244c9345d",
+        "manifest_sha256": "4fd3400546bbe63a017b04c294d3fee6dfcb8816c75ea9c762c1849104b4eb4c",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.0,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/safe-text-f0.png",
+          "sha256": "6a549edf8e0d3e5e80720ff9e88a7609c7c50bcc9f45747cd2f62989e909996e"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/safe-text-f12.png",
+          "sha256": "6a549edf8e0d3e5e80720ff9e88a7609c7c50bcc9f45747cd2f62989e909996e"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/safe-text-f23.png",
+          "sha256": "6a549edf8e0d3e5e80720ff9e88a7609c7c50bcc9f45747cd2f62989e909996e"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "safe-rotation",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "d516de9bf863315b1bb5009db5a8a71a5592818511228f9bd31d7cc620de9d47",
+        "manifest_sha256": "6c4392b1b87141aaf091807a191be9002c4e9af408e5b13dffbeab40e41f58c2",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "d595edac9eae0a78597a61d409401c96a79336c4d1b0377cf2bf472a066beee5",
+        "manifest_sha256": "6c4392b1b87141aaf091807a191be9002c4e9af408e5b13dffbeab40e41f58c2",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.0031250000000113687,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/safe-rotation-f0.png",
+          "sha256": "55cc33857542454cfd3a5de57ea048e8c00c5ee96b8942e4cb3ac8d566b34fb9"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/safe-rotation-f12.png",
+          "sha256": "fa05be2dec84f561ac1a6882877461adb448798d399f0a122060cc785f26783f"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/safe-rotation-f23.png",
+          "sha256": "053bebfd43029e24e9a99d319d996d5d5295c4428dbea0dbd639ef3d30af293e"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "standard-translation",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "a8aec614e406bd60d576051b31b00255a3da0d2e815fa5bf7bfaa3cfff60ad8b",
+        "manifest_sha256": "512b97e371b7a01011513db899d9738fd144f68da057a6dca10518c561cd86b6",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "ddf6dfaff2836204e12c6ba4afbd0740f5cd85ad82b110702e45ee58bf7fa451",
+        "manifest_sha256": "512b97e371b7a01011513db899d9738fd144f68da057a6dca10518c561cd86b6",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 2.885901409399594e-05,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/standard-translation-f0.png",
+          "sha256": "6a549edf8e0d3e5e80720ff9e88a7609c7c50bcc9f45747cd2f62989e909996e"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/standard-translation-f12.png",
+          "sha256": "1256ed1d506fba2c5d85ba16e879573c1659fb108aa03c74d207ca3810ae2e1c"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/standard-translation-f23.png",
+          "sha256": "31c79031bec1898c3c669c0c88232c7a73062ce8c9f63d6f7aaf282b7cb9e1d3"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "reduced-opacity",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "9dceeb6b679e42ed6592c714aaa7f390c5b54bf45b9a20f025ee6b00149d4c5f",
+        "manifest_sha256": "4bc75aacbd8b5ecc06f4431411bdea06e0dcf02a5e7dde6d534e49fc7d782a9e",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "5e5159c1e0c9eb7bc7210ed59bf0e955ec26fb1eeb55c211004ab2688a78810c",
+        "manifest_sha256": "4bc75aacbd8b5ecc06f4431411bdea06e0dcf02a5e7dde6d534e49fc7d782a9e",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.0,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/reduced-opacity-f0.png",
+          "sha256": "0b1fde1ed5c6ae65b27b7823dc167362753f333d5737940da9a278701eaefcfe"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/reduced-opacity-f12.png",
+          "sha256": "0a8e1b806f38ac536390e0761446f72d82232d8868a9d8be87c779f2fce52d9b"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/reduced-opacity-f23.png",
+          "sha256": "6a549edf8e0d3e5e80720ff9e88a7609c7c50bcc9f45747cd2f62989e909996e"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "safe-equation",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "01ef0d717635a2afff9df831548123eb3a8c935522036b751e2b1d5bac4f6f7c",
+        "manifest_sha256": "bc2f1385d83d068c45182b816f113ee0465f7da1cdf73eb59887db10d70dfb91",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "89ea8bb5e80333c61372bff4f8353f23eb415caf8e60d61100ec958c0290d4d4",
+        "manifest_sha256": "bc2f1385d83d068c45182b816f113ee0465f7da1cdf73eb59887db10d70dfb91",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.0,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/safe-equation-f0.png",
+          "sha256": "853d49bc475744450e1115c22d8560a2c5f57cd73ce3e9681eb99e3f487329e2"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/safe-equation-f12.png",
+          "sha256": "853d49bc475744450e1115c22d8560a2c5f57cd73ce3e9681eb99e3f487329e2"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/safe-equation-f23.png",
+          "sha256": "853d49bc475744450e1115c22d8560a2c5f57cd73ce3e9681eb99e3f487329e2"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "tiny-equation-rejected",
+      "expected_fit": false,
+      "expected_codes": [
+        "LAYOUT_EQUATION_BELOW_MINIMUM"
+      ],
+      "source_receipt": {
+        "scene_fingerprint": "2fc908ac36c2b3fcf290be6d1265d8871d3e640c63c3f9e7e2cd3dcc50b007d8",
+        "manifest_sha256": "37d476d799736610568a34f3e40b71832e025ae0708fad54671b6da87fb06e46",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [
+          {
+            "code": "LAYOUT_EQUATION_BELOW_MINIMUM",
+            "severity": "ERROR",
+            "message": "Equation effective em is below declared technical floor; element=e0, first_frame=0, occurrences=24",
+            "path": "$.measurements",
+            "owner": "COMP"
+          }
+        ],
+        "passed": false,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "dfcffe1d22a49b3e9feb1aebbd518ba9475c0b2fee66c5e56a018cde3e7d50c3",
+        "manifest_sha256": "37d476d799736610568a34f3e40b71832e025ae0708fad54671b6da87fb06e46",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.011250000000003979,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/tiny-equation-rejected-f0.png",
+          "sha256": "86b77384e258e723d5b62e2af3e33f6ec8320366f4a1bf5c0543ecebbaed469b"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/tiny-equation-rejected-f12.png",
+          "sha256": "86b77384e258e723d5b62e2af3e33f6ec8320366f4a1bf5c0543ecebbaed469b"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/tiny-equation-rejected-f23.png",
+          "sha256": "86b77384e258e723d5b62e2af3e33f6ec8320366f4a1bf5c0543ecebbaed469b"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "dense-text-rejected",
+      "expected_fit": false,
+      "expected_codes": [
+        "LAYOUT_CONTENT_OVERFLOW",
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "source_receipt": {
+        "scene_fingerprint": "c0281e8e0bdc0f45562b11d355dc91bd35a2f91dbf6851a5e2a9ef7f26eb2fd1",
+        "manifest_sha256": "6856018724898a26f66f774bd2c9584caac7b563cb5fef83672a2404a1aaa445",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [
+          {
+            "code": "LAYOUT_CONTENT_OVERFLOW",
+            "severity": "ERROR",
+            "message": "Content exceeds its layout box; element=e0, first_frame=0, occurrences=24",
+            "path": "$.measurements",
+            "owner": "COMP"
+          },
+          {
+            "code": "LAYOUT_INK_OUTSIDE_VIEWPORT",
+            "severity": "ERROR",
+            "message": "Measured ink is outside viewport; element=e0, first_frame=0, occurrences=3480",
+            "path": "$.measurements",
+            "owner": "COMP"
+          },
+          {
+            "code": "LAYOUT_TEXT_OUTSIDE_OWNER",
+            "severity": "ERROR",
+            "message": "Measured text or legend lies outside its owner; element=e0, first_frame=0, occurrences=4296",
+            "path": "$.measurements",
+            "owner": "COMP"
+          },
+          {
+            "code": "LAYOUT_TEXT_OUTSIDE_VIEWPORT",
+            "severity": "ERROR",
+            "message": "Measured text leaves viewport; element=e0, first_frame=0, occurrences=3480",
+            "path": "$.measurements",
+            "owner": "COMP"
+          }
+        ],
+        "passed": false,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "5eccdb1d78b25888c86809c6f7ab8be2d51ba826fa626e1e3464baa8dfa69aad",
+        "manifest_sha256": "6856018724898a26f66f774bd2c9584caac7b563cb5fef83672a2404a1aaa445",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.012500000000002842,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/dense-text-rejected-f0.png",
+          "sha256": "1180c7355778f1f78eb90034c54b02d44cc40d6f481cecae328b38816ea1ad81"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/dense-text-rejected-f12.png",
+          "sha256": "1180c7355778f1f78eb90034c54b02d44cc40d6f481cecae328b38816ea1ad81"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/dense-text-rejected-f23.png",
+          "sha256": "1180c7355778f1f78eb90034c54b02d44cc40d6f481cecae328b38816ea1ad81"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "analytic-simulation",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "2262f9547bf5d1e37ed2f4d8b9d58dac6cec1e25d547bcd393ab76b71504967b",
+        "manifest_sha256": "9afb48fccdb05e1eaae3495d9dacd6506d2eb8d75b95e9d6b7f30c4c351288da",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 72,
+        "records_checked": 72,
+        "evidence_sha256": "1404382547b9c9e023e0ac7defee54b7baf6a791a8a5cc5ef0e10482d0a70142",
+        "manifest_sha256": "9afb48fccdb05e1eaae3495d9dacd6506d2eb8d75b95e9d6b7f30c4c351288da",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 72,
+      "observations": 72,
+      "max_box_oracle_delta_px": 0.0,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/analytic-simulation-f0.png",
+          "sha256": "1ee98f191a3247c2c21ca37dc23a6a9254af877e4d1dc2ed196f3b0d1435e3c0"
+        },
+        {
+          "frame": 36,
+          "path": "screenshots/analytic-simulation-f36.png",
+          "sha256": "b07d24ef71b46068f76516d30bb97efdd7ebf90ada4e77f386107887c26fec58"
+        },
+        {
+          "frame": 71,
+          "path": "screenshots/analytic-simulation-f71.png",
+          "sha256": "9d3d4ff6e8ee556e25194efa52dd714342cbba3c2d359e408a7cb848eaee586a"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "reduced-static-simulation",
+      "expected_fit": true,
+      "expected_codes": [],
+      "source_receipt": {
+        "scene_fingerprint": "acd889b80c251fbc6c10e9c36034e1fd3ad273ada5f61082d8e8d27d3dcd1004",
+        "manifest_sha256": "702b3f324fa905a23a620a621008a4a2e629bbfeb96cd9d99c276f678e30bf19",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [],
+        "passed": true,
+        "records_expected": 72,
+        "records_checked": 72,
+        "evidence_sha256": "fa8abda2ca31414e0637c5b7897ee821cce41dd7d76f3c7f09b80ad5436ec1a5",
+        "manifest_sha256": "702b3f324fa905a23a620a621008a4a2e629bbfeb96cd9d99c276f678e30bf19",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 72,
+      "observations": 72,
+      "max_box_oracle_delta_px": 0.0,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/reduced-static-simulation-f0.png",
+          "sha256": "9d3d4ff6e8ee556e25194efa52dd714342cbba3c2d359e408a7cb848eaee586a"
+        },
+        {
+          "frame": 36,
+          "path": "screenshots/reduced-static-simulation-f36.png",
+          "sha256": "9d3d4ff6e8ee556e25194efa52dd714342cbba3c2d359e408a7cb848eaee586a"
+        },
+        {
+          "frame": 71,
+          "path": "screenshots/reduced-static-simulation-f71.png",
+          "sha256": "9d3d4ff6e8ee556e25194efa52dd714342cbba3c2d359e408a7cb848eaee586a"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    },
+    {
+      "case_id": "long-map-legend-rejected",
+      "expected_fit": false,
+      "expected_codes": [
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "source_receipt": {
+        "scene_fingerprint": "f68b9f84e952f8584a50637d82a8f04f6e3d50710cc01604083433d36698c2bb",
+        "manifest_sha256": "83c4b9ba3fa53c5c73f34dd7a271fa4a31993eb7b30a01e7791cb295b332a71a",
+        "status": "H3_SOURCE_GATE_PASS_NOT_PRODUCT_ACCEPTED",
+        "source_gate_passed": true,
+        "findings": [],
+        "parser_status": "PASS",
+        "compiler_version": "1.3.0-comp-h3",
+        "full_compile_verified": false,
+        "real_render_status": "NOT_RUN",
+        "accepted": false
+      },
+      "fit": {
+        "schema_version": "bie.content-fit.v1",
+        "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+        "findings": [
+          {
+            "code": "LAYOUT_INK_OUTSIDE_VIEWPORT",
+            "severity": "ERROR",
+            "message": "Measured ink is outside viewport; element=e0, first_frame=0, occurrences=24",
+            "path": "$.measurements",
+            "owner": "COMP"
+          },
+          {
+            "code": "LAYOUT_TEXT_OUTSIDE_OWNER",
+            "severity": "ERROR",
+            "message": "Measured text or legend lies outside its owner; element=e0, first_frame=0, occurrences=24",
+            "path": "$.measurements",
+            "owner": "COMP"
+          },
+          {
+            "code": "LAYOUT_TEXT_OUTSIDE_VIEWPORT",
+            "severity": "ERROR",
+            "message": "Measured text leaves viewport; element=e0, first_frame=0, occurrences=24",
+            "path": "$.measurements",
+            "owner": "COMP"
+          }
+        ],
+        "passed": false,
+        "records_expected": 24,
+        "records_checked": 24,
+        "evidence_sha256": "716e64b8d7314b317f62fe44dbd96bcdab281f47ea0018d64712df04d617eac0",
+        "manifest_sha256": "83c4b9ba3fa53c5c73f34dd7a271fa4a31993eb7b30a01e7791cb295b332a71a",
+        "real_remotion_verified": false,
+        "release_authorized": false,
+        "accepted": false,
+        "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+      },
+      "expectation_matched": true,
+      "frame_count": 24,
+      "observations": 24,
+      "max_box_oracle_delta_px": 0.0,
+      "geometry_oracle_matched": true,
+      "screenshots": [
+        {
+          "frame": 0,
+          "path": "screenshots/long-map-legend-rejected-f0.png",
+          "sha256": "3c4653dc988c696036b054599b30d8f17f4f776a9b7a750a2d7adff4ccebbafe"
+        },
+        {
+          "frame": 12,
+          "path": "screenshots/long-map-legend-rejected-f12.png",
+          "sha256": "3c4653dc988c696036b054599b30d8f17f4f776a9b7a750a2d7adff4ccebbafe"
+        },
+        {
+          "frame": 23,
+          "path": "screenshots/long-map-legend-rejected-f23.png",
+          "sha256": "3c4653dc988c696036b054599b30d8f17f4f776a9b7a750a2d7adff4ccebbafe"
+        }
+      ],
+      "host_identity": "33cb60daf58bc22fbba4a4d4581a28a987601c3d2a2c68043c8ac8738955e391",
+      "typescript_version": "5.8.3",
+      "accepted": false
+    }
+  ],
+  "measured_frame_count": 336,
+  "saved_screenshot_count": 30,
+  "failures": [],
+  "passed": true,
+  "real_react": false,
+  "actual_remotion": false,
+  "sandbox_disabled_for_local_fixture_browser": true,
+  "evidence_harness_sha256": "ad1d68b6ba67bbe0b52b5ed925be99cc8482bac06216c0a291742ba1c80fadde",
+  "explicit_runtime_double_sha256": "09aebfd7d2d4d74ef185330e9a8a46df68fbc7fae47c2803d0013dbdc7860ce9",
+  "content_fit_negative_cases_are_expected_rejections": true,
+  "real_book_e2e": "NOT_RUN",
+  "accepted": false
+}

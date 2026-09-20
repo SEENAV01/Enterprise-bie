@@ -1,0 +1,73 @@
+{
+  "case": {
+    "case_id": "h2-unsupported-latex",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "equation",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "expression": "\\notKnown{x}",
+            "format": "latex"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-unsupported-latex:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-unsupported-latex:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "56c9b458f97ab03fba005834ca6ce4fa702f50117672cb0e765a6a2ce7c5e3a3",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-unsupported-latex",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-unsupported-latex"
+      ],
+      "review_required": true,
+      "scene_id": "h2-unsupported-latex",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-unsupported-latex"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "mathematics",
+    "expected_error_codes": [
+      "EQUATION_LATEX_UNSUPPORTED"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "2fe39c660638ef5edaf1141c530b8951476b086398b26aa782d44ad4e773ac0a"
+}

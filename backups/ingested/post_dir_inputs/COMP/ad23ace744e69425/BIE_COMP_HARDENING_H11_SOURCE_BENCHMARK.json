@@ -1,0 +1,39 @@
+{
+  "schema_version": "bie.h11-source-repeatability.v1",
+  "cases": [
+    {
+      "case_id": "full-image",
+      "passed": true,
+      "manifest_sha256": "8c4c02eeb59592c719b8f01dda33476727279e33c4bb21645bd67fad1744d4d7",
+      "workers": 2
+    },
+    {
+      "case_id": "crop-image",
+      "passed": true,
+      "manifest_sha256": "d68ed81b019fcc8900a0fa758ce96b75422bb1d5ab6fe3ed804c60a8611812f5",
+      "workers": 2
+    },
+    {
+      "case_id": "trim-video",
+      "passed": true,
+      "manifest_sha256": "8736368a8bc14c813e451fd0410aee8b1ff6f6d74198dba351dc894e0d25510f",
+      "workers": 2
+    },
+    {
+      "case_id": "state-video",
+      "passed": true,
+      "manifest_sha256": "2b710271d9f31bce2fbcbe326a73070af5945419a575780d73463074812dbc6e",
+      "workers": 2
+    },
+    {
+      "case_id": "combined",
+      "passed": true,
+      "manifest_sha256": "81735cb676dd94d70b22c8e311922277060fbfd28955fe520e1a7444ee29c458",
+      "workers": 2
+    }
+  ],
+  "independent_generator_processes": 10,
+  "passed": true,
+  "scope": "SOURCE_BYTES_ONLY_NOT_RENDERED_VIDEO",
+  "accepted": false
+}

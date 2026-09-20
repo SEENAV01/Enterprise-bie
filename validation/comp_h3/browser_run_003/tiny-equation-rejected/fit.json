@@ -1,0 +1,22 @@
+{
+  "schema_version": "bie.content-fit.v1",
+  "scope": "REAL_CHROMIUM_WHOLE_SCENE_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+  "findings": [
+    {
+      "code": "LAYOUT_EQUATION_BELOW_MINIMUM",
+      "severity": "ERROR",
+      "message": "Equation effective em is below declared technical floor; element=e0, first_frame=0, occurrences=24",
+      "path": "$.measurements",
+      "owner": "COMP"
+    }
+  ],
+  "passed": false,
+  "records_expected": 24,
+  "records_checked": 24,
+  "evidence_sha256": "dfcffe1d22a49b3e9feb1aebbd518ba9475c0b2fee66c5e56a018cde3e7d50c3",
+  "manifest_sha256": "37d476d799736610568a34f3e40b71832e025ae0708fad54671b6da87fb06e46",
+  "real_remotion_verified": false,
+  "release_authorized": false,
+  "accepted": false,
+  "limits": "Measured DOM/geometry checks; no automatic text rewriting, universal contrast, pedagogy or ink segmentation claim."
+}

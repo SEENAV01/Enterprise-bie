@@ -1,0 +1,87 @@
+{
+  "batch_id": "BIE-COMP-HARDENING-H4",
+  "delivery_sequence": 13,
+  "section": "COMP",
+  "tasks": [
+    "BIE-COMP-H4-001",
+    "BIE-COMP-H4-002",
+    "BIE-COMP-H4-003",
+    "BIE-COMP-H4-004",
+    "BIE-COMP-H4-005"
+  ],
+  "status": "BOUNDED_LOCAL_LAYOUT_REPAIR_IMPLEMENTED_TESTED_ACTUAL_RENDER_BLOCKED",
+  "accepted": false,
+  "section_exit_permitted": false,
+  "full_section_reaudit_performed": false,
+  "parent_checkpoint": "BIE-COMP-H3-005",
+  "checkpoint": "BIE-COMP-H4-005",
+  "implementation_branch": "H4_LAYOUT_REPAIR_WITH_H3_SOURCE_GATE_VERSION_PRESERVED",
+  "tests": {
+    "baseline_tests": 1409,
+    "atomic_counts": {
+      "BIE-COMP-H4-001": 28,
+      "BIE-COMP-H4-002": 22,
+      "BIE-COMP-H4-003": 24,
+      "BIE-COMP-H4-004": 20,
+      "BIE-COMP-H4-005": 16
+    },
+    "atomic_tests": 110,
+    "integration_tests": 8,
+    "new_tests": 118,
+    "cumulative_tests": 1527,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "scope": "RESTORED_DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "development_regression_seconds": 179.335,
+    "full_generated_project_compiles_verified": 0,
+    "real_remotion_renders_verified": 0,
+    "accepted": false
+  },
+  "browser_evidence": {
+    "scope": "REAL_CHROMIUM_DIAGNOSTIC_REPAIR_WITH_EXPLICIT_REACT_REMOTION_DOUBLES",
+    "cases": 8,
+    "local_source_repairs": 7,
+    "upstream_revision_cases": 1,
+    "measured_frames": 528,
+    "element_frame_records": 552,
+    "selected_screenshots": 66,
+    "expectations_matched": true,
+    "actual_react": false,
+    "actual_remotion": false,
+    "accepted": false
+  },
+  "source_repeatability": {
+    "cases": 7,
+    "runs_per_case": 3,
+    "independent_processes": 21,
+    "matched": true,
+    "scope": "SOURCE_ONLY"
+  },
+  "spec": "docs/COMP_H4_SPEC.md",
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "result": "BIE_COMP_HARDENING_H4_RESULT.md",
+  "lineage": {
+    "parent_archive": "BIE_COMP_HARDENING_H3_SOURCE.zip",
+    "parent_sha256": "ee6f0b94a472e13bf5c2e3fc80b9372440f26fca12ad5605baee6ef56245f27d",
+    "parent_members": 4866,
+    "active_parent_python_files": 349,
+    "unchanged_active_parent_python_files": 346,
+    "modified_active_parent_python_files": 3,
+    "inventory": "lineage/hardening_h3/ORIGINAL_MEMBER_HASHES.json",
+    "changed_active_files": [
+      "app/bie/compiler/text_compiler.py",
+      "app/bie/compiler/map_compiler.py",
+      "scripts/compile_scene_checked.py"
+    ],
+    "history_deleted": false
+  },
+  "github_write_performed": false,
+  "packaging": {
+    "separate_integrated_workspace": true,
+    "atomic_delivery": "ORDERED_VERIFIED_DELTAS_NOT_STANDALONE",
+    "previous_masters_embedded": false,
+    "current_large_browser_evidence": "SEPARATE_EVIDENCE_ZIP",
+    "required_legacy_evidence": "PRESERVED_IN_INTEGRATED_SOURCE_FOR_INHERITED_TESTS"
+  }
+}

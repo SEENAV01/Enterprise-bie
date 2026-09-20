@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "PIE_NEGATIVE_VALUE_UNSUPPORTED",
+      "message": "PIE_NEGATIVE_VALUE_UNSUPPORTED: signed quantities must not be represented as pie slices",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "ec16b7e9f18d76d5a7a6d62c7db70b777945b7f8cf802c42b2eedd19876f8391",
+  "scene_id": "scene:h1-negative-pie",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

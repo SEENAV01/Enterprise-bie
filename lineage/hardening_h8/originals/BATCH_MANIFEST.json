@@ -1,0 +1,40 @@
+{
+  "schema_version": "bie.comp-batch.v1",
+  "batch_id": "BIE-COMP-HARDENING-H8",
+  "delivery_sequence": 17,
+  "tasks": [
+    "BIE-COMP-H8-001",
+    "BIE-COMP-H8-002",
+    "BIE-COMP-H8-003",
+    "BIE-COMP-H8-004",
+    "BIE-COMP-H8-005"
+  ],
+  "checkpoint": "BIE-COMP-H8-005",
+  "parent_checkpoint": "BIE-COMP-H7-008",
+  "parent_archive_sha256": "59835eb595d6cf1e0e5c4b3c3ba1ad252aae41e2cf7c83b3605ca824857ecddc",
+  "status": "FIVE_BOUNDED_CONTRACTS_IMPLEMENTED_TESTED_SECTION_STILL_OPEN",
+  "tests": {
+    "inherited_tests": 1947,
+    "new_tests": 161,
+    "atomic_tests": 143,
+    "integration_tests": 18,
+    "collected_cumulative_tests": 2108,
+    "release_execution_record": "BIE_COMP_HARDENING_H8_FINAL_VERIFICATION.json (external, bound to Integrated ZIP SHA256)",
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE"
+  },
+  "atomic_counts": {
+    "BIE-COMP-H8-001": 38,
+    "BIE-COMP-H8-002": 29,
+    "BIE-COMP-H8-003": 34,
+    "BIE-COMP-H8-004": 19,
+    "BIE-COMP-H8-005": 23
+  },
+  "full_section_reaudit_performed": false,
+  "section_exit_permitted": false,
+  "accepted": false,
+  "github_write": false,
+  "integrated_is_cumulative": true,
+  "recursive_master_backup": false,
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "evidence": "Separate current evidence archive in Master; no original font files distributed."
+}

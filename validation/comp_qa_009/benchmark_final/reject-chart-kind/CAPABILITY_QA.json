@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "CHART_KIND_DOWNGRADE",
+      "message": "Non-bar chart is emitted as bars; this is not an equivalent fallback.",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "1923e2516d14031a9269e0d64e4bc1e64a1e7ae5a8e064831d7228a66db08bf0",
+  "scene_id": "reject-chart-kind",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

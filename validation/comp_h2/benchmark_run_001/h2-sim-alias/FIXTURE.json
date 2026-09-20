@@ -1,0 +1,96 @@
+{
+  "case": {
+    "case_id": "h2-sim-alias",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic simulation compiler fixture",
+            "color_independent_encoding": true,
+            "reduced_motion_variant": "fixture:static"
+          },
+          "element_id": "e0",
+          "element_type": "simulation",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "duration_ms": 2000,
+            "execution_class": "analytic_model",
+            "initial_state": {
+              "v": 0,
+              "x": 1
+            },
+            "model_ref": "bie.sim.harmonic-oscillator-1d@1",
+            "parameters": {
+              "omega": 40
+            },
+            "start_ms": 0,
+            "title": "Synthetic oscillator model",
+            "units": {
+              "omega": "rad/s",
+              "t": "s",
+              "v": "m/s",
+              "x": "m"
+            },
+            "view": {
+              "x_max": 2,
+              "x_min": 0,
+              "y_max": 1.1,
+              "y_min": -1.1
+            }
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-sim-alias:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-sim-alias:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "116fca55fafd258da6cfbf4718f029e675f82599cad095773c4bbb27ea2bff37",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-sim-alias",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-sim-alias"
+      ],
+      "review_required": true,
+      "scene_id": "h2-sim-alias",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-sim-alias"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "physics",
+    "expected_error_codes": [
+      "SIMULATION_FRAME_ALIASING"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "bf7cb17cdc98aa6181e3a9f98b11eb9bd513feffabcac87c97a4713855642e8d"
+}

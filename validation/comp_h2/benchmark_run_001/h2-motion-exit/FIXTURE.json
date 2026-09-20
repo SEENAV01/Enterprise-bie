@@ -1,0 +1,85 @@
+{
+  "case": {
+    "case_id": "h2-motion-exit",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "text",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "text": "Synthetic exit behavior"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-motion-exit:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-motion-exit:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "25660e064cdc85dae12b41ccaeb1874ac8839cdadf4361ddd9a648d8d66fb19f",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-motion-exit",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-motion-exit"
+      ],
+      "review_required": true,
+      "scene_id": "h2-motion-exit",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-motion-exit"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [
+        {
+          "action": "exit",
+          "element_id": "e0",
+          "end_ms": 1000,
+          "parameters": {},
+          "reasoning_refs": [
+            "reasoning:h2"
+          ],
+          "source_refs": [
+            "fixture:h2"
+          ],
+          "start_ms": 0,
+          "track_id": "h2-track"
+        }
+      ],
+      "upstream_revision": 1
+    },
+    "domain": "engineering",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "2121ea031a50419a3922f1f86001e736fc690bc985d4ef20100c191d814e19b4"
+}

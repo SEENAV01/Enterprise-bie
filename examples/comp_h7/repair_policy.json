@@ -1,0 +1,40 @@
+{
+  "schema_version": "bie.layout-repair-policy.v1",
+  "scene_identity": "4b250d105f50f0dc97c595132d1f051708b421f4ae86d1c8a7efe1909b873467",
+  "max_candidates": 16,
+  "owners": {
+    "e0": {
+      "region": {
+        "x": 0.1,
+        "y": 0.1,
+        "width": 0.8,
+        "height": 0.45
+      },
+      "presentation": {
+        "font_px": 16.0,
+        "line_height": 1.4,
+        "padding_px": 0.0
+      }
+    },
+    "captions": {
+      "region": {
+        "height": 0.25,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.65
+      },
+      "presentation": {
+        "font_px": 16.0,
+        "line_height": 1.4,
+        "padding_px": 0.0
+      }
+    }
+  },
+  "reason": "Reflow inside existing owned boxes only; no new layout space granted.",
+  "source_refs": [
+    "fixture:h6"
+  ],
+  "reasoning_refs": [
+    "reasoning:h6"
+  ]
+}

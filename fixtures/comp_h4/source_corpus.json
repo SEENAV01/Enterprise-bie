@@ -1,0 +1,725 @@
+{
+  "schema_version": "bie.comp-h4-source-corpus.v1",
+  "scope": "SYNTHETIC_LOCAL_REPAIRED_SOURCE_NOT_ACCEPTED",
+  "cases": [
+    {
+      "case_id": "paragraph-space-repair",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.5,
+              "width": 0.18,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "compiler_layout": {
+                "font_px": 16.0,
+                "line_height": 1.4,
+                "padding_px": 0.0
+              },
+              "text": "A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. "
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-text-repair",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    },
+    {
+      "case_id": "long-legend-reflow",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "map",
+            "normalized_box": {
+              "height": 0.9,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "compiler_layout": {
+                "font_px": 16.0,
+                "legend_columns": 1,
+                "line_height": 1.4,
+                "padding_px": 0.0,
+                "plot_height_px": 180.0
+              },
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Technical route 0",
+                  "layer_id": "route0",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                },
+                {
+                  "kind": "route",
+                  "label": "Technical route 1",
+                  "layer_id": "route1",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                },
+                {
+                  "kind": "route",
+                  "label": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+                  "layer_id": "route2",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-map-reflow",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    },
+    {
+      "case_id": "equation-space-repair",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "equation",
+            "normalized_box": {
+              "height": 0.45000000000000007,
+              "width": 0.6,
+              "x": 0.1,
+              "y": 0.1
+            },
+            "props": {
+              "expression": "\\frac{x^2+1}{\\sqrt{y}}",
+              "format": "latex"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-equation-resize",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    },
+    {
+      "case_id": "within-owner-legend-collision",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "map",
+            "normalized_box": {
+              "height": 0.9,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "compiler_layout": {
+                "font_px": 16.0,
+                "legend_columns": 1,
+                "line_height": 1.4,
+                "padding_px": 0.0,
+                "plot_height_px": 180.0
+              },
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+                  "layer_id": "route0",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                },
+                {
+                  "kind": "route",
+                  "label": "Technical route 1",
+                  "layer_id": "route1",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                },
+                {
+                  "kind": "route",
+                  "label": "Another distinct route",
+                  "layer_id": "route2",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-map-reflow",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    },
+    {
+      "case_id": "multilingual-literal-content",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.5,
+              "width": 0.18,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "compiler_layout": {
+                "font_px": 16.0,
+                "line_height": 1.4,
+                "padding_px": 0.0
+              },
+              "text": "क्षेत्र = 2 m²\nرقبہ = 2 m²\nLiteral {x} and <tag> remain text."
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-text-repair",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    },
+    {
+      "case_id": "authorized-owner-relocation",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.15,
+              "width": 0.3,
+              "x": 0.1,
+              "y": 0.1
+            },
+            "props": {
+              "text": "First unchanged explanation"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          },
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "second",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.15,
+              "width": 0.3,
+              "x": 0.6499999999999999,
+              "y": 0.1
+            },
+            "props": {
+              "compiler_layout": {
+                "font_px": 16.0,
+                "line_height": 1.4,
+                "padding_px": 0.0
+              },
+              "text": "Second unchanged explanation"
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-two-owner-relocation",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    },
+    {
+      "case_id": "frame-driven-repair-preserves-track",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 1000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.5,
+              "width": 0.18,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "compiler_layout": {
+                "font_px": 16.0,
+                "line_height": 1.4,
+                "padding_px": 0.0
+              },
+              "text": "A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. A clear explanation preserves each word and its source. "
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ]
+          }
+        ],
+        "events": [],
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture": "synthetic-not-real-book"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ],
+        "review_required": true,
+        "scene_id": "h4-motion-preserved",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [
+          {
+            "action": "transform",
+            "element_id": "e0",
+            "end_ms": 1000,
+            "parameters": {
+              "from": {
+                "translate_x": 0
+              },
+              "to": {
+                "translate_x": 40
+              }
+            },
+            "reasoning_refs": [
+              "reasoning:h3"
+            ],
+            "source_refs": [
+              "fixture:h3"
+            ],
+            "start_ms": 0,
+            "track_id": "h4move"
+          }
+        ],
+        "upstream_revision": 1
+      },
+      "target": {
+        "width": 1280,
+        "height": 720,
+        "fps": 24,
+        "remotion_version": "4.0.506",
+        "react_version": "19.0.0",
+        "typescript_version": "5.9.3",
+        "compiler_version": "1.3.0-comp-h3",
+        "seed": 0
+      },
+      "preference": "standard",
+      "expected_source_pass": true,
+      "expected_codes": []
+    }
+  ]
+}

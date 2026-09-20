@@ -1,0 +1,71 @@
+{
+  "actual_execution": {
+    "schema_version": "bie.render-receipt.v1",
+    "run_id": "h7-real",
+    "mode": "full",
+    "composition_id": "BieQAe3a124a0e0a338d7",
+    "passed": false,
+    "failure_code": "FULL_TYPECHECK_BLOCKED",
+    "errors": [
+      "Pinned generated project typecheck did not pass: BLOCKED_DEPENDENCIES"
+    ],
+    "output_path": null,
+    "expected_frames": 48,
+    "media": null,
+    "input_sha256": null,
+    "recipe_sha256": null,
+    "evidence_directory": "render-evidence/h7-real",
+    "execution_kind": "LOCAL_REMOTION_CLI",
+    "process_started": false,
+    "artifact_sha256": null,
+    "artifact_size_bytes": null,
+    "accepted": false
+  },
+  "npm_probe": {
+    "command": [
+      "npm",
+      "view",
+      "remotion@4.0.506",
+      "version",
+      "--fetch-retries=0",
+      "--fetch-timeout=8000"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "npm error code EAI_AGAIN\nnpm error syscall getaddrinfo\nnpm error errno EAI_AGAIN\nnpm error request to https://registry.npmjs.org/remotion failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org\nnpm error A complete log of this run can be found in: /home/oai/.npm/_logs/2026-09-18T13_07_02_796Z-debug-0.log\n"
+  },
+  "private_proc_browser_profile": {
+    "process": {
+      "command": [
+        "/usr/bin/unshare",
+        "--user",
+        "--map-root-user",
+        "--mount",
+        "--net",
+        "--pid",
+        "--fork",
+        "--kill-child=SIGKILL",
+        "/opt/pyvenv/bin/python",
+        "-I",
+        "/mnt/data/h7_work/app/bie/compiler/namespace_launcher.py",
+        "/tmp/bie-worker-control-kh1xcztf/config.json"
+      ],
+      "cwd": "/tmp/bie-worker-control-kh1xcztf",
+      "exit_code": 125,
+      "stdout": "",
+      "stderr": "WORKER_SETUP_FAILED: [Errno 1] mount /tmp/bie-worker-control-kh1xcztf/root/proc\n",
+      "duration_ms": 774,
+      "passed": false,
+      "accepted": false
+    },
+    "outcome": "FAILED",
+    "started": true,
+    "stdout_bytes": 0,
+    "stderr_bytes": 80,
+    "accepted": false
+  },
+  "no_implicit_fallback": true,
+  "actual_remotion_renders_verified": 0,
+  "full_pinned_generated_project_compiles_verified": 0,
+  "accepted": false
+}

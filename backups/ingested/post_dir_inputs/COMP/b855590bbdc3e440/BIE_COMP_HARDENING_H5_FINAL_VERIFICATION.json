@@ -1,0 +1,229 @@
+{
+  "schema_version": "bie.comp-h5-final-verification.v1",
+  "integrated_archive": "BIE_COMP_HARDENING_H5_INTEGRATED.zip",
+  "integrated_sha256": "137acde102626230e8f96a8a85c1ecd38da148884299c72601f887d962be3a86",
+  "workspace_tree_sha256": "5864cb61fddfb4e28a67ce10b4456d3c4474cef43c516bd01489457ac3ee28ff",
+  "workspace_files": 4965,
+  "checksum_entries_verified": 4964,
+  "ordered_atomic_restores": [
+    {
+      "task_id": "BIE-COMP-H5-001",
+      "restore": {
+        "command": [
+          "python",
+          "/mnt/data/h5_verify/package_001/APPLY_DELTA.py",
+          "--base",
+          "/mnt/data/h5_verify/baseline",
+          "--output",
+          "/mnt/data/h5_verify/stage_001"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 1.683197378999921,
+        "log": "/mnt/data/h5_verify/restore_001.log"
+      },
+      "tests": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.compiler.test_comp_h5_001",
+          "-v"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 1.3624664469998606,
+        "log": "/mnt/data/h5_verify/atomic_001_fresh.log"
+      },
+      "test_count": 28,
+      "checksum_entries": 4936
+    },
+    {
+      "task_id": "BIE-COMP-H5-002",
+      "restore": {
+        "command": [
+          "python",
+          "/mnt/data/h5_verify/package_002/APPLY_DELTA.py",
+          "--base",
+          "/mnt/data/h5_verify/stage_001",
+          "--output",
+          "/mnt/data/h5_verify/stage_002"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 2.3481489549999424,
+        "log": "/mnt/data/h5_verify/restore_002.log"
+      },
+      "tests": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.compiler.test_comp_h5_002",
+          "-v"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 1.2753755469998396,
+        "log": "/mnt/data/h5_verify/atomic_002_fresh.log"
+      },
+      "test_count": 19,
+      "checksum_entries": 4939
+    },
+    {
+      "task_id": "BIE-COMP-H5-003",
+      "restore": {
+        "command": [
+          "python",
+          "/mnt/data/h5_verify/package_003/APPLY_DELTA.py",
+          "--base",
+          "/mnt/data/h5_verify/stage_002",
+          "--output",
+          "/mnt/data/h5_verify/stage_003"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 1.680843381999921,
+        "log": "/mnt/data/h5_verify/restore_003.log"
+      },
+      "tests": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.compiler.test_comp_h5_003",
+          "-v"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 2.7987438410000323,
+        "log": "/mnt/data/h5_verify/atomic_003_fresh.log"
+      },
+      "test_count": 20,
+      "checksum_entries": 4942
+    },
+    {
+      "task_id": "BIE-COMP-H5-004",
+      "restore": {
+        "command": [
+          "python",
+          "/mnt/data/h5_verify/package_004/APPLY_DELTA.py",
+          "--base",
+          "/mnt/data/h5_verify/stage_003",
+          "--output",
+          "/mnt/data/h5_verify/stage_004"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 2.1352464060000784,
+        "log": "/mnt/data/h5_verify/restore_004.log"
+      },
+      "tests": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.compiler.test_comp_h5_004",
+          "-v"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 2.6293094669999846,
+        "log": "/mnt/data/h5_verify/atomic_004_fresh.log"
+      },
+      "test_count": 25,
+      "checksum_entries": 4945
+    },
+    {
+      "task_id": "BIE-COMP-H5-005",
+      "restore": {
+        "command": [
+          "python",
+          "/mnt/data/h5_verify/package_005/APPLY_DELTA.py",
+          "--base",
+          "/mnt/data/h5_verify/stage_004",
+          "--output",
+          "/mnt/data/h5_verify/stage_005"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 2.058631074999994,
+        "log": "/mnt/data/h5_verify/restore_005.log"
+      },
+      "tests": {
+        "command": [
+          "python",
+          "-m",
+          "unittest",
+          "tests.compiler.test_comp_h5_005",
+          "-v"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 45.4636606900001,
+        "log": "/mnt/data/h5_verify/atomic_005_fresh.log"
+      },
+      "test_count": 21,
+      "checksum_entries": 4964
+    }
+  ],
+  "negative_restore_tests": [
+    {
+      "case": "wrong-order",
+      "blocked": true,
+      "log": "/mnt/data/h5_verify/wrong-order.log"
+    },
+    {
+      "case": "repeat",
+      "blocked": true,
+      "log": "/mnt/data/h5_verify/repeat.log"
+    },
+    {
+      "case": "payload-tampering",
+      "blocked": true,
+      "log": "/mnt/data/h5_verify/tamper.log"
+    }
+  ],
+  "baseline_unchanged": true,
+  "ordered_final_equals_integrated": true,
+  "fresh_integrated_tests": 1652,
+  "fresh_integrated_test_exit": 0,
+  "fresh_integrated_elapsed_seconds": 308.71837048,
+  "fresh_integrated_regression_log": "BIE_COMP_HARDENING_H5_FRESH_REGRESSION.txt",
+  "all_passed": true,
+  "real_remotion_verified": false,
+  "accepted": false,
+  "master_archive": "BIE_COMP_HARDENING_H5_MASTER_BACKUP.zip",
+  "master_sha256": "f6314b29fde5e03d1d87a9217ce8cacd2426f15dfdd168fdf3ff18be6041c597",
+  "master_bytes": 12476896,
+  "master_checksum_entries_verified": 23,
+  "evidence_checksum_entries_verified": 224,
+  "master_integrated_and_atomics_match_separate_downloads": true,
+  "recursive_previous_master_present": false,
+  "active_parent_preservation": {
+    "parent_archive": "BIE_COMP_HARDENING_H4_INTEGRATED.zip",
+    "parent_sha256": "bf81b378b26dd5ae87968ee39bb23c552a6ce3c936c794cbd1c12c3bd1262c2a",
+    "parent_members": 4908,
+    "active_parent_python_files": 363,
+    "unchanged_active_parent_python_files": 356,
+    "modified_active_parent_python_files": 7,
+    "changed_active_files": [
+      "app/bie/compiler/animation_behavior.py",
+      "app/bie/compiler/animation_track_compiler.py",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/reduced_motion.py",
+      "app/bie/compiler/scene_behavior_qa.py",
+      "scripts/compile_scene_checked.py"
+    ],
+    "inventory": "lineage/hardening_h4/ORIGINAL_MEMBER_HASHES.json",
+    "originals": "lineage/hardening_h4/originals/",
+    "history_deleted": false
+  },
+  "changed_parent_files": [
+    "BATCH_MANIFEST.json",
+    "CONTINUATION.json",
+    "WORKSPACE_SHA256SUMS.txt",
+    "app/bie/compiler/animation_behavior.py",
+    "app/bie/compiler/animation_track_compiler.py",
+    "app/bie/compiler/hardened_scene_compile.py",
+    "app/bie/compiler/qa_scene_compile.py",
+    "app/bie/compiler/qa_support/layout_dom_host.js",
+    "app/bie/compiler/reduced_motion.py",
+    "app/bie/compiler/scene_behavior_qa.py",
+    "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+    "scripts/compile_scene_checked.py"
+  ],
+  "github_write_performed": false,
+  "product_accepted": false
+}

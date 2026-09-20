@@ -1,44 +1,51 @@
-# My Book Intelligence Engine — canonical enterprise repository
+# My Book Intelligence Engine — canonical enterprise workspace
 
-Current section: **PED = IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED**. All 58 supplied PED archives are integrated alongside the completed Reasoning section. Verification: **2,160 tests passed**, including 141 PED and 453 Reasoning tests; all preservation gates pass.
+This is a continuation of the existing BIE architecture, not a replacement project.
 
-Run `python scripts/integrated_check.py` for historical preservation, supplemental RE/PED archive integrity and the complete enterprise regression suite. See `BIE_CONTEXT_HANDOFF.md`, `task_registry/continuation.json` and `docs/evidence/pedagogy-integration-002/INTEGRATION.md` for current evidence and acceptance blockers.
+The post-DIR adoption adds the supplied VIS, ANI, DSL and COMP source through
+`BIE-COMP-H12-001`. Production code lives in `bie/`. Original supplied packages,
+including intermediate batches and Master Backups, remain immutable evidence.
+`app/bie` is a compatibility layer, never a second production implementation.
 
-The following earlier repository overview is preserved as context for the underlying assembly and Reasoning integration; its earlier test totals describe that checkpoint.
+## Run the source/integrity gates
 
-# My Book Intelligence Engine
-
-Continuation of the existing enterprise BIE repository, not a new architecture or product release.
-
-Working Python source lives in `bie/`, following `schemas/canonical-monorepo.json`. Existing Prerequisite, Math, Document, Knowledge, model gateway and infrastructure implementations are retained. Supported `app.bie.*` imports resolve to the same canonical module identities.
-
-## Current checkpoint
-
-Central Reasoning Engine: **IMPLEMENTATION-SCOPE COMPLETE — NOT ACCEPTED**. This includes the prior checkpoint, TEMP-004 through TEMP-059, and 21 additional Reasoning QA/hardening tasks. See `task_registry/continuation.json` and `docs/tasks/`.
-
-- 796 original archives and 12,439 historical member files accounted for.
-- All 273 Assembly-001 archive hashes and 2,450 member records match the recovered originals.
-- 2,016 passing enterprise tests, including 453 Reasoning tests. All 77 newly integrated production modules import successfully.
-- 77 additional original archives / 483 members are preserved under `backups/ingested/` and reconciled in `manifests/reasoning_integration_001.json`.
-- IMPLEMENTED, **NOT ACCEPTED**. Real-book reasoning and rendered-video/playable-game acceptance remain pending.
-
-## Run
-
-Python 3.11+; validated on Python 3.12.14. The current enterprise Python distribution needs no third-party runtime packages.
-
-```bash
-python scripts/integrated_check.py
-python -m pip install .
+```sh
+python -B scripts/integrated_check.py --output-dir /tmp/bie-verification
+python -B scripts/verify_post_dir.py --output /tmp/bie-verification/post-dir.json
 ```
 
-The packaging version denotes this canonical distribution, not a reset of historical product versions.
+The compiler's test workers require the pinned Python packages in
+`requirements-comp-h3.txt`, Node/TypeScript and FFmpeg/ffprobe. The canonical CI
+workflow installs its explicitly pinned test-tool profile. That profile is NOT
+the full generated Remotion project runtime and must not be advertised as one.
 
-## Preservation and development
+## Source and history
 
-`bie/` is the development source. `tests/` contains normalized working tests. `batches/`, `historical/` and `backups/` retain original bytes and evidence; they are not imported by the production package.
+- `bie/visual_intelligence`: the supplied final VIS overlay, including governed rebuilt REP.
+- `bie/animation_intelligence`: the supplied ANI H4 implementation.
+- `bie/scene_ir`: final DSL with the two documented COMP-owned element amendments.
+- `bie/compiler`: the implemented compiler; `bie/video_compiler` is an older reserved namespace.
+- `backups/ingested/post_dir_inputs`: every supplied section-labelled artifact plus both supplied integration-instruction files, unchanged.
+- `manifests/post_dir_supplied_inputs.json`: 386 supplied filenames and their exact hashes.
+- `manifests/post_dir_integration_004.json`: archive/member accounting, source adoption, collisions and explicit canonical path adaptations.
 
-`manifests/lossless_migration.csv` documents every original file. The 390 older M-series/historical packages remain preserved for governed characterization and later wiring; this migration does not claim all legacy features are already integrated into the enterprise pipeline.
+Ten original VIS LAYOUT atomic ZIP hashes are referenced but those individual ZIP
+bytes were not supplied. Their combined source is available and integrated. This
+absence is recorded rather than filled with recreated archives. Preservation of
+all supplied inputs does not imply that every historical delivery ever made is available.
 
-See `docs/adr/ADR-canonical-assembly-002.md`, `docs/GITHUB_SYNC.md` and `docs/REASONING_BATCH_SPATIAL_TEMPORAL.md` for scope and evidence.
+## Product direction and acceptance boundary
 
-Current quality review: [spatial/temporal review 001](docs/evidence/reasoning-quality-001/REVIEW.md). That earlier review is preserved. The current section state and remaining acceptance blockers are in `docs/bie/CURRENT_STATE.md`; integration evidence is in `docs/evidence/reasoning-integration-001/INTEGRATION.md`.
+BIE must autonomously understand a book, derive concepts/prerequisites/reasoning,
+choose pedagogy, direct a lesson, plan meaningful visuals and animation, compile
+and render actual animated and real-footage teaching, and support revision games.
+Source files or validated supplied plans are not substitutes for those capabilities.
+No generic slide-template or direct raw-book-to-Remotion shortcut is introduced here.
+
+This adoption verifies source/provenance and technical integration contracts.
+Real pinned Remotion compilation, actual rendering, trusted frame/audio inspection,
+real-book end-to-end teaching quality, the downstream AUDIO/game work and final
+enterprise acceptance remain open. No finished application or cinematic-quality
+video is claimed merely because the repository and component tests pass.
+
+See `docs/bie/CURRENT_STATE.md` and `task_registry/continuation.json`.

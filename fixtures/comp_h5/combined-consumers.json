@@ -1,0 +1,234 @@
+{
+  "accepted": false,
+  "accessibility_metadata": [],
+  "capability_requests": [],
+  "compiler_capabilities": [],
+  "duration_ms": 2000,
+  "elements": [
+    {
+      "accessibility": {
+        "alt": "Synthetic vector compiler fixture",
+        "color_independent_encoding": true
+      },
+      "element_id": "e0",
+      "element_type": "equation",
+      "normalized_box": {
+        "x": 0.55,
+        "y": 0.2,
+        "width": 0.4,
+        "height": 0.3
+      },
+      "props": {
+        "expression": "2(x+1)=6",
+        "format": "latex",
+        "font_size": 32,
+        "side_conditions": [
+          "x is real"
+        ]
+      },
+      "reasoning_refs": [
+        "reasoning:h5"
+      ],
+      "source_refs": [
+        "fixture:h5"
+      ]
+    },
+    {
+      "accessibility": {
+        "alt": "Synthetic vector compiler fixture",
+        "color_independent_encoding": true
+      },
+      "element_id": "plot",
+      "element_type": "graph",
+      "normalized_box": {
+        "x": 0.05,
+        "y": 0.12,
+        "width": 0.45,
+        "height": 0.7
+      },
+      "props": {
+        "series": [
+          {
+            "series_id": "signal",
+            "label": "Displacement",
+            "points": [
+              [
+                -2,
+                -1
+              ],
+              [
+                -1,
+                2
+              ],
+              [
+                1,
+                -2
+              ],
+              [
+                2,
+                1
+              ]
+            ]
+          },
+          {
+            "series_id": "reference",
+            "label": "Zero reference",
+            "points": [
+              [
+                -2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ]
+          }
+        ],
+        "x_domain": [
+          -2,
+          2
+        ],
+        "y_domain": [
+          -3,
+          3
+        ],
+        "x_label": "Time",
+        "y_label": "Position",
+        "x_unit": "s",
+        "y_unit": "m"
+      },
+      "reasoning_refs": [
+        "reasoning:h5"
+      ],
+      "source_refs": [
+        "fixture:h5"
+      ]
+    }
+  ],
+  "events": [],
+  "interaction_bindings": [],
+  "interaction_cues": [],
+  "layout": {},
+  "metadata": {
+    "fixture": "synthetic-not-real-book"
+  },
+  "narration_cues": [],
+  "planned_fallbacks": [],
+  "reasoning_refs": [
+    "reasoning:h5"
+  ],
+  "review_required": true,
+  "scene_id": "h5-combined-technical",
+  "schema_version": "1.0.0",
+  "simulation_controls": [],
+  "source_refs": [
+    "fixture:h5"
+  ],
+  "state_bindings": [],
+  "title": "Synthetic technical compiler case",
+  "tracks": [
+    {
+      "track_id": "steps",
+      "element_id": "e0",
+      "action": "morph",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "parameters": {
+        "schema_version": "bie.comp-specialized-motion.v1",
+        "mode": "typeset-state-crossfade",
+        "transition_fraction": 0.4,
+        "states": [
+          {
+            "expression": "2(x+1)=6",
+            "alt": "Equation step 1: 2(x+1)=6",
+            "source_refs": [
+              "fixture:h5"
+            ],
+            "reasoning_refs": [
+              "reasoning:h5"
+            ]
+          },
+          {
+            "expression": "x+1=3",
+            "alt": "Equation step 2: x+1=3",
+            "source_refs": [
+              "fixture:h5"
+            ],
+            "reasoning_refs": [
+              "reasoning:h5"
+            ]
+          },
+          {
+            "expression": "x=2",
+            "alt": "Equation step 3: x=2",
+            "source_refs": [
+              "fixture:h5"
+            ],
+            "reasoning_refs": [
+              "reasoning:h5"
+            ]
+          }
+        ]
+      },
+      "source_refs": [
+        "fixture:h5"
+      ],
+      "reasoning_refs": [
+        "reasoning:h5"
+      ]
+    },
+    {
+      "track_id": "trace",
+      "element_id": "plot",
+      "action": "trace",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "parameters": {
+        "schema_version": "bie.comp-specialized-motion.v1",
+        "series_id": "signal",
+        "progress_model": "screen-arc-length",
+        "head_marker": true
+      },
+      "source_refs": [
+        "fixture:h5"
+      ],
+      "reasoning_refs": [
+        "reasoning:h5"
+      ]
+    },
+    {
+      "track_id": "camera",
+      "element_id": "e0",
+      "action": "camera",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "parameters": {
+        "schema_version": "bie.comp-specialized-motion.v1",
+        "projection": "orthographic-2d",
+        "coordinate_space": "element-pixels",
+        "viewport": {
+          "width": 512,
+          "height": 216
+        },
+        "from": {
+          "focus_x": 256,
+          "focus_y": 108,
+          "zoom": 0.7
+        },
+        "to": {
+          "focus_x": 256,
+          "focus_y": 108,
+          "zoom": 1
+        }
+      },
+      "source_refs": [
+        "fixture:h5"
+      ],
+      "reasoning_refs": [
+        "reasoning:h5"
+      ]
+    }
+  ],
+  "upstream_revision": 1
+}

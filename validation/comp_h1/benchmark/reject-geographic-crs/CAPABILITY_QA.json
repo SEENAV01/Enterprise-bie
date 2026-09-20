@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "MAP_PROJECTION_UNVERIFIED",
+      "message": "The emitter expects normalized coordinates, not a geographic CRS.",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "d4e4f6de1ce0c2b7080724e5c5bc6040f0b38113344a73b615da107628148a86",
+  "scene_id": "reject-geographic-crs",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

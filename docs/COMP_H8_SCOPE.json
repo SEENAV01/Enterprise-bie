@@ -1,0 +1,76 @@
+{
+  "batch": "H8",
+  "parent": "BIE-COMP-H7-008",
+  "derivation": "Existing R01 full-raster/cartographic checks and R02 finite declared-DSL coverage; not a new original section task family.",
+  "tasks": [
+    {
+      "task_id": "BIE-COMP-H8-001",
+      "title": "Full-raster contribution and connected-ink analysis",
+      "finding": "H3-R01"
+    },
+    {
+      "task_id": "BIE-COMP-H8-002",
+      "title": "Projected map feature resolution and ambiguity",
+      "finding": "H3-R01"
+    },
+    {
+      "task_id": "BIE-COMP-H8-003",
+      "title": "Bound frame-complete counterfactual capture",
+      "finding": "H3-R01"
+    },
+    {
+      "task_id": "BIE-COMP-H8-004",
+      "title": "Finite live DSL-to-consumer coverage reconciliation",
+      "finding": "H3-R02"
+    },
+    {
+      "task_id": "BIE-COMP-H8-005",
+      "title": "Actual-producer adoption and witness integration",
+      "finding": "H3-R01/H3-R02"
+    }
+  ],
+  "full_section_reaudit": false,
+  "remaining_required_consumers_not_implemented_by_inventory": [
+    {
+      "kind": "element",
+      "name": "shape"
+    },
+    {
+      "kind": "element",
+      "name": "diagram"
+    },
+    {
+      "kind": "element",
+      "name": "highlight"
+    },
+    {
+      "kind": "action",
+      "name": "simulation_state"
+    },
+    {
+      "kind": "action",
+      "name": "static_focus"
+    },
+    {
+      "kind": "action",
+      "name": "static_trace"
+    },
+    {
+      "kind": "action",
+      "name": "crossfade_states"
+    },
+    {
+      "kind": "action",
+      "name": "state_snapshots"
+    },
+    {
+      "kind": "action",
+      "name": "progressive_static_trace"
+    },
+    {
+      "kind": "action",
+      "name": "path_endpoints_with_progress_marker"
+    }
+  ],
+  "accepted": false
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": "bie.comp-h4-repair-benchmark.v1",
+  "scope": "REAL_CHROMIUM_DIAGNOSTIC_REPAIR_WITH_EXPLICIT_REACT_REMOTION_DOUBLES",
+  "case_count": 8,
+  "cases": [
+    {
+      "case_id": "paragraph-space-repair",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_CONTENT_OVERFLOW"
+      ],
+      "observed_codes": [
+        "LAYOUT_CONTENT_OVERFLOW",
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "selected_index": 3,
+      "attempts": 4,
+      "measured_frames": 96,
+      "element_frame_records": 96,
+      "screenshots": 12,
+      "selected_source_manifest": "a3b70d9257cff93485e765301722ac47a56876e3ec4ee52f66e5a23b52ee640c"
+    },
+    {
+      "case_id": "long-legend-reflow",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "observed_codes": [
+        "LAYOUT_INK_OUTSIDE_VIEWPORT",
+        "LAYOUT_TEXT_OUTSIDE_OWNER",
+        "LAYOUT_TEXT_OUTSIDE_VIEWPORT"
+      ],
+      "selected_index": 1,
+      "attempts": 2,
+      "measured_frames": 48,
+      "element_frame_records": 48,
+      "screenshots": 6,
+      "selected_source_manifest": "00c40f5157b35766d239e17c1a85045e8fee269da423c4f3c8bac67a5992ed0e"
+    },
+    {
+      "case_id": "equation-space-repair",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_EQUATION_BELOW_MINIMUM"
+      ],
+      "observed_codes": [
+        "LAYOUT_EQUATION_BELOW_MINIMUM"
+      ],
+      "selected_index": 2,
+      "attempts": 3,
+      "measured_frames": 72,
+      "element_frame_records": 72,
+      "screenshots": 9,
+      "selected_source_manifest": "0db8a6e16a234270e13f5b3b8b25a2486b768e5a3bf29f9e9ed853d58645f99b"
+    },
+    {
+      "case_id": "within-owner-legend-collision",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_OWNER_TEXT_COLLISION"
+      ],
+      "observed_codes": [
+        "LAYOUT_OWNER_TEXT_COLLISION"
+      ],
+      "selected_index": 1,
+      "attempts": 2,
+      "measured_frames": 48,
+      "element_frame_records": 48,
+      "screenshots": 6,
+      "selected_source_manifest": "f7b79bc4e279ff93cae87799e91eb52f1b83fa5816db4c975ad24646416a9c4c"
+    },
+    {
+      "case_id": "no-space-upstream-revision",
+      "expected_status": "UPSTREAM_REVISION_REQUIRED",
+      "observed_status": "UPSTREAM_REVISION_REQUIRED",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_CONTENT_OVERFLOW"
+      ],
+      "observed_codes": [
+        "LAYOUT_CONTENT_OVERFLOW",
+        "LAYOUT_INK_OUTSIDE_VIEWPORT",
+        "LAYOUT_TEXT_OUTSIDE_OWNER",
+        "LAYOUT_TEXT_OUTSIDE_VIEWPORT"
+      ],
+      "selected_index": null,
+      "attempts": 2,
+      "measured_frames": 48,
+      "element_frame_records": 48,
+      "screenshots": 6,
+      "selected_source_manifest": null
+    },
+    {
+      "case_id": "multilingual-literal-content",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [],
+      "observed_codes": [
+        "LAYOUT_CONTENT_OVERFLOW",
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "selected_index": 3,
+      "attempts": 4,
+      "measured_frames": 96,
+      "element_frame_records": 96,
+      "screenshots": 12,
+      "selected_source_manifest": "27c87b7feeaa61f44bf33014fecc575c96117d2d99e07fb70b445b05c9a31485"
+    },
+    {
+      "case_id": "authorized-owner-relocation",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_UNDECLARED_OVERLAP"
+      ],
+      "observed_codes": [
+        "LAYOUT_UNDECLARED_OVERLAP"
+      ],
+      "selected_index": 11,
+      "attempts": 12,
+      "measured_frames": 24,
+      "element_frame_records": 48,
+      "screenshots": 3,
+      "selected_source_manifest": "803810a3771a45fd2f819ebda9f8fecbfaa08eaa211f96c806f5459cf83e3fef"
+    },
+    {
+      "case_id": "frame-driven-repair-preserves-track",
+      "expected_status": "LOCAL_MEASURED_CANDIDATE",
+      "observed_status": "LOCAL_MEASURED_CANDIDATE",
+      "expectation_matched": true,
+      "required_codes": [
+        "LAYOUT_CONTENT_OVERFLOW"
+      ],
+      "observed_codes": [
+        "LAYOUT_CONTENT_OVERFLOW",
+        "LAYOUT_TEXT_OUTSIDE_OWNER"
+      ],
+      "selected_index": 3,
+      "attempts": 4,
+      "measured_frames": 96,
+      "element_frame_records": 96,
+      "screenshots": 12,
+      "selected_source_manifest": "7101b84bb867dac3700cfc8bb5c95398200ac9b1e4f7f63812d528d4c1282006"
+    }
+  ],
+  "expectations_matched": true,
+  "measured_frames": 528,
+  "element_frame_records": 552,
+  "screenshots": 66,
+  "source_repair_cases": 7,
+  "upstream_revision_cases": 1,
+  "real_react": false,
+  "real_remotion": false,
+  "real_book_e2e": "NOT_RUN",
+  "release_authorized": false,
+  "accepted": false
+}

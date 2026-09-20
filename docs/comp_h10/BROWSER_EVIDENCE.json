@@ -1,0 +1,63 @@
+{
+  "schema_version": "bie.h10-browser-diagnostic.v1",
+  "cases": [
+    {
+      "case_id": "trace",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "records": 24,
+      "screenshots": 3,
+      "errors": []
+    },
+    {
+      "case_id": "morph",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "records": 24,
+      "screenshots": 3,
+      "errors": []
+    },
+    {
+      "case_id": "trace-opacity",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "records": 24,
+      "screenshots": 3,
+      "errors": []
+    },
+    {
+      "case_id": "text-and-controls",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 18,
+      "records": 18,
+      "screenshots": 3,
+      "errors": []
+    },
+    {
+      "case_id": "highlight-and-motion",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 12,
+      "records": 24,
+      "screenshots": 3,
+      "errors": []
+    }
+  ],
+  "case_count": 5,
+  "all_fit_passed": true,
+  "frames": 102,
+  "element_frame_records": 114,
+  "screenshots": 15,
+  "scope": "ACTUAL_CHROMIUM_WITH_EXPLICIT_REACT_REMOTION_API_DOUBLES",
+  "actual_remotion_render": false,
+  "speech_audio_verified": false,
+  "pixel_qa_complete": false,
+  "educational_equivalence_verified": false,
+  "accepted": false,
+  "initial_observation": "Two moving-text scenes failed LAYOUT_CONTENT_OVERFLOW before wrapper-placement correction. Initial artifacts retained in evidence/matrix; final artifacts in evidence/matrix_final.",
+  "correction": "State controls now wrap content replacement but sit inside geometry-only motion wrappers. No overflow threshold loosened, no content hidden to force fit."
+}

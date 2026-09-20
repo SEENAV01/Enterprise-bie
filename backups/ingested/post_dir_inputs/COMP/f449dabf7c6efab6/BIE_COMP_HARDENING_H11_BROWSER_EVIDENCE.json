@@ -1,0 +1,263 @@
+{
+  "schema_version": "bie.h11-media-diagnostic.v1",
+  "source_cases": [
+    {
+      "case_id": "full-image",
+      "passed": true,
+      "manifest_sha256": "8c4c02eeb59592c719b8f01dda33476727279e33c4bb21645bd67fad1744d4d7",
+      "workers": 2
+    },
+    {
+      "case_id": "crop-image",
+      "passed": true,
+      "manifest_sha256": "d68ed81b019fcc8900a0fa758ce96b75422bb1d5ab6fe3ed804c60a8611812f5",
+      "workers": 2
+    },
+    {
+      "case_id": "trim-video",
+      "passed": true,
+      "manifest_sha256": "8736368a8bc14c813e451fd0410aee8b1ff6f6d74198dba351dc894e0d25510f",
+      "workers": 2
+    },
+    {
+      "case_id": "state-video",
+      "passed": true,
+      "manifest_sha256": "2b710271d9f31bce2fbcbe326a73070af5945419a575780d73463074812dbc6e",
+      "workers": 2
+    },
+    {
+      "case_id": "combined",
+      "passed": true,
+      "manifest_sha256": "81735cb676dd94d70b22c8e311922277060fbfd28955fe520e1a7444ee29c458",
+      "workers": 2
+    }
+  ],
+  "source_processes": 10,
+  "browser_cases": [
+    {
+      "case_id": "full-image",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "element_frame_records": 24,
+      "screenshots": 3,
+      "errors": [],
+      "native_media_frame_records": 24,
+      "native_reference": [],
+      "producer": {
+        "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+        "browser_version": "144.0.7559.96",
+        "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+        "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+        "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+        "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+        "browser_os_sandbox_enabled": false,
+        "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+        "real_react": false,
+        "real_remotion": false,
+        "media_native_browser_diagnostic": true,
+        "media_audio_played": false,
+        "typescript_parser_version": "5.8.3"
+      }
+    },
+    {
+      "case_id": "crop-image",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "element_frame_records": 24,
+      "screenshots": 3,
+      "errors": [],
+      "native_media_frame_records": 24,
+      "native_reference": [],
+      "producer": {
+        "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+        "browser_version": "144.0.7559.96",
+        "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+        "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+        "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+        "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+        "browser_os_sandbox_enabled": false,
+        "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+        "real_react": false,
+        "real_remotion": false,
+        "media_native_browser_diagnostic": true,
+        "media_audio_played": false,
+        "typescript_parser_version": "5.8.3"
+      }
+    },
+    {
+      "case_id": "trim-video",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "element_frame_records": 24,
+      "screenshots": 3,
+      "errors": [],
+      "native_media_frame_records": 24,
+      "native_reference": [
+        {
+          "element_id": "e0",
+          "sampled_points": 48,
+          "rgb_channel_comparisons": 144,
+          "max_abs_channel_error": 4,
+          "max_seek_time_error_seconds": 6.66666666759852e-07,
+          "threshold_channel_error": 5,
+          "threshold_seek_time_error_seconds": 1e-06,
+          "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+          "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+          "passed": true,
+          "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+        }
+      ],
+      "producer": {
+        "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+        "browser_version": "144.0.7559.96",
+        "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+        "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+        "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+        "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+        "browser_os_sandbox_enabled": false,
+        "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+        "real_react": false,
+        "real_remotion": false,
+        "media_native_browser_diagnostic": true,
+        "media_audio_played": false,
+        "typescript_parser_version": "5.8.3"
+      }
+    },
+    {
+      "case_id": "state-video",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "element_frame_records": 24,
+      "screenshots": 3,
+      "errors": [],
+      "native_media_frame_records": 24,
+      "native_reference": [
+        {
+          "element_id": "e0",
+          "sampled_points": 48,
+          "rgb_channel_comparisons": 144,
+          "max_abs_channel_error": 4,
+          "max_seek_time_error_seconds": 6.66666666759852e-07,
+          "threshold_channel_error": 5,
+          "threshold_seek_time_error_seconds": 1e-06,
+          "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+          "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+          "passed": true,
+          "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+        }
+      ],
+      "producer": {
+        "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+        "browser_version": "144.0.7559.96",
+        "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+        "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+        "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+        "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+        "browser_os_sandbox_enabled": false,
+        "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+        "real_react": false,
+        "real_remotion": false,
+        "media_native_browser_diagnostic": true,
+        "media_audio_played": false,
+        "typescript_parser_version": "5.8.3"
+      }
+    },
+    {
+      "case_id": "combined",
+      "fit_passed": true,
+      "findings": [],
+      "frames": 24,
+      "element_frame_records": 48,
+      "screenshots": 3,
+      "errors": [],
+      "native_media_frame_records": 24,
+      "native_reference": [
+        {
+          "element_id": "video",
+          "sampled_points": 48,
+          "rgb_channel_comparisons": 144,
+          "max_abs_channel_error": 4,
+          "max_seek_time_error_seconds": 6.66666666759852e-07,
+          "threshold_channel_error": 5,
+          "threshold_seek_time_error_seconds": 1e-06,
+          "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+          "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+          "passed": true,
+          "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+        }
+      ],
+      "producer": {
+        "browser_executable_sha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+        "browser_version": "144.0.7559.96",
+        "producer_source_sha256": "0a0b8f023d6e808c1b3c266a82cc89819a671ad491022f55a62cfaa0f65158d8",
+        "bridge_sha256": "f22c0e6df13b32888752d71235e379f837d7b7903f39595b50e305418ab515cd",
+        "dom_host_sha256": "779ce9bf9299859191b07aea55d3a45605d27c60cde6d5b84b1153bd84e02eaf",
+        "measurement_program_sha256": "c3beee51a1f1b31e50b3c8ab1d1481ebcf7e80998bf6eb18e6f2ac8f2e6caf67",
+        "browser_os_sandbox_enabled": false,
+        "network_request_policy": "EXACT_VERIFIED_MEMORY_ASSET_ALLOWLIST_NO_EXTERNAL_NETWORK",
+        "real_react": false,
+        "real_remotion": false,
+        "media_native_browser_diagnostic": true,
+        "media_audio_played": false,
+        "typescript_parser_version": "5.8.3"
+      }
+    }
+  ],
+  "frames": 120,
+  "element_frame_records": 144,
+  "screenshots": 15,
+  "native_video_reference": [
+    {
+      "element_id": "e0",
+      "sampled_points": 48,
+      "rgb_channel_comparisons": 144,
+      "max_abs_channel_error": 4,
+      "max_seek_time_error_seconds": 6.66666666759852e-07,
+      "threshold_channel_error": 5,
+      "threshold_seek_time_error_seconds": 1e-06,
+      "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+      "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+      "passed": true,
+      "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+    },
+    {
+      "element_id": "e0",
+      "sampled_points": 48,
+      "rgb_channel_comparisons": 144,
+      "max_abs_channel_error": 4,
+      "max_seek_time_error_seconds": 6.66666666759852e-07,
+      "threshold_channel_error": 5,
+      "threshold_seek_time_error_seconds": 1e-06,
+      "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+      "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+      "passed": true,
+      "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+    },
+    {
+      "element_id": "video",
+      "sampled_points": 48,
+      "rgb_channel_comparisons": 144,
+      "max_abs_channel_error": 4,
+      "max_seek_time_error_seconds": 6.66666666759852e-07,
+      "threshold_channel_error": 5,
+      "threshold_seek_time_error_seconds": 1e-06,
+      "ffmpeg_decoded_rgb_sha256": "13949e87703acfe1a570bb4e8245ae3a20f89bd479f69a2377471fee7eb928e0",
+      "asset_sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+      "passed": true,
+      "scope": "NATIVE_BROWSER_VS_FFMPEG_FIXED_FIXTURE_POINTS_NOT_REMOTION_OR_WHOLE_FRAME_QUALITY"
+    }
+  ],
+  "publication_passed": true,
+  "passed": true,
+  "scope": "REAL_TS_API_DOUBLES_NATIVE_CHROMIUM_AND_ACTUAL_ASSET_BYTES",
+  "react_remotion_doubles": true,
+  "actual_remotion_render": false,
+  "audio_playback": false,
+  "full_pixel_qa": false,
+  "real_book_e2e": false,
+  "accepted": false
+}

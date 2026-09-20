@@ -1,0 +1,95 @@
+{
+  "findings": [
+    {
+      "capability": "dynamic_asset_repair",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": [
+        "validation/comp_h7/SUMMARY.json",
+        "tests/compiler/test_comp_h7_001.py",
+        "tests/compiler/test_comp_h7_001_audio.py"
+      ],
+      "remaining": []
+    },
+    {
+      "capability": "specialized_contracts",
+      "status": "OPEN_IMPLEMENTATION",
+      "evidence": [
+        "tests/compiler/test_comp_h7_002.py",
+        "tests/compiler/test_comp_h7_002_glyph.py",
+        "validation/comp_h7/SUMMARY.json"
+      ],
+      "remaining": [
+        "The delivered camera/equation/trace/state/audio contracts are bounded. The inherited phrase broader specialized consumers/state transforms has no exhaustive acceptance matrix; it is not silently closed by these fixtures. Learning-equivalence review remains a distinct upstream/downstream acceptance requirement."
+      ]
+    },
+    {
+      "capability": "paint_producer",
+      "status": "OPEN_IMPLEMENTATION",
+      "evidence": [
+        "tests/compiler/test_comp_h7_005.py",
+        "tests/compiler/test_comp_h7_006.py"
+      ],
+      "remaining": [
+        "Real pinned producer has not executed. Text/vector bounds and finite occlusion probes are not whole-raster-ink segmentation or cartographic-feature readability; those inherited broader visual QA findings remain unresolved."
+      ]
+    },
+    {
+      "capability": "operational_isolation",
+      "status": "BLOCKED_ENVIRONMENT",
+      "evidence": [
+        "tests/compiler/test_comp_h7_004.py",
+        "validation/comp_h7/EXECUTION_ENVIRONMENT.json"
+      ],
+      "remaining": [
+        "Actual no-proc namespace/seccomp profile passes; private-proc browser profile is denied by this outer container. No fallback to host procfs or unsandboxed rendering."
+      ]
+    },
+    {
+      "capability": "installed_identity",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": [
+        "tests/compiler/test_comp_h7_003.py"
+      ],
+      "remaining": []
+    },
+    {
+      "capability": "pinned_compile",
+      "status": "BLOCKED_ENVIRONMENT",
+      "evidence": [
+        "validation/comp_h7/REAL_VALIDATION.json"
+      ],
+      "remaining": [
+        "Pinned generated dependency tree unavailable; npm EAI_AGAIN. Global TypeScript with test declarations is not a substitute."
+      ]
+    },
+    {
+      "capability": "actual_render",
+      "status": "BLOCKED_ENVIRONMENT",
+      "evidence": [
+        "validation/comp_h7/REAL_VALIDATION.json"
+      ],
+      "remaining": [
+        "No real composition discovery, smoke/full render or actual rendered-frame QA was executed. Both pinned dependencies and the strict browser-worker profile are required."
+      ]
+    }
+  ],
+  "decision": {
+    "schema_version": "bie.comp-section-audit.v1",
+    "register_sha256": "df069ee57667fb73665d42546692815e738abd4df9d19d47d0bebd1f16db768e",
+    "implementation_complete": false,
+    "open_implementation": [
+      "specialized_contracts",
+      "paint_producer"
+    ],
+    "blocked_execution": [
+      "operational_isolation",
+      "pinned_compile",
+      "actual_render"
+    ],
+    "section_exit_permitted": false,
+    "status": "OPEN_IMPLEMENTATION",
+    "actual_render_authorization": false,
+    "product_accepted": false,
+    "note": "Audit register only; cannot substitute process-owned render evidence or downstream real-book acceptance."
+  }
+}

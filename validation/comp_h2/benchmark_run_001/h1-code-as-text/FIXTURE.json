@@ -1,0 +1,70 @@
+{
+  "case": {
+    "case_id": "h1-code-as-text",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic technical fixture h1-code-as-text",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "text",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "text": "{Math.random()} eval(1); process.env; document.write()"
+          },
+          "reasoning_refs": [
+            "reasoning:h1-code-as-text"
+          ],
+          "source_refs": [
+            "fixture:h1-code-as-text"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "f8310e512e95f2cfab8608c1eb1bd8f1a349a30a814bf843a8f49d764e6d27dd",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h1-code-as-text",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "reasoning:h1-code-as-text"
+      ],
+      "review_required": true,
+      "scene_id": "scene:h1-code-as-text",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h1-code-as-text"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "engineering",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "d9cc8fa6222f704a147cf54789ca18fccbc462015c8a6c3b32eafaca68cbf0cc"
+}

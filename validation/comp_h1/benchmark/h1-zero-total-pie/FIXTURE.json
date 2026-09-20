@@ -1,0 +1,80 @@
+{
+  "case": {
+    "case_id": "h1-zero-total-pie",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic technical fixture h1-zero-total-pie",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "chart",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "categories": [
+              "A",
+              "B"
+            ],
+            "chart_kind": "pie",
+            "values": [
+              0,
+              0
+            ]
+          },
+          "reasoning_refs": [
+            "reasoning:h1-zero-total-pie"
+          ],
+          "source_refs": [
+            "fixture:h1-zero-total-pie"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "0ab01f7ba9853724b73677d4d3d8bc6ac0a4321c12b1d1bfecf09b309501e28d",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h1-zero-total-pie",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "reasoning:h1-zero-total-pie"
+      ],
+      "review_required": true,
+      "scene_id": "scene:h1-zero-total-pie",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h1-zero-total-pie"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "statistics",
+    "expected_error_codes": [
+      "PIE_ZERO_TOTAL"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "0da9f63f7f0ece305b4d9d9a72d16ee1ecb52486557df77edb00f3c0aaaf8809"
+}

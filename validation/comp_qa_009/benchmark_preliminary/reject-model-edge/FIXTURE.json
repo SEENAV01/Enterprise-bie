@@ -1,0 +1,87 @@
+{
+  "case": {
+    "case_id": "reject-model-edge",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic model2d compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "model2d",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "edges": [
+              [
+                0,
+                5
+              ]
+            ],
+            "vertices": [
+              [
+                0.1,
+                0.1
+              ],
+              [
+                0.2,
+                0.2
+              ]
+            ]
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:reject-model-edge:e0"
+          ],
+          "source_refs": [
+            "fixture:reject-model-edge:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "e81bcc51bcbb8f268a5405d7361dc3af465f8d3399406d68e8a27ad9d4c7199d",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "reject-model-edge",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:reject-model-edge"
+      ],
+      "review_required": true,
+      "scene_id": "reject-model-edge",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:reject-model-edge"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "chemistry",
+    "expected_error_codes": [
+      "MODEL2D_EDGE_INDEX_INVALID"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "fb8b702a1d976d540da38f424549f89460452df9015ac0f7c83e88e8a237b4c1"
+}

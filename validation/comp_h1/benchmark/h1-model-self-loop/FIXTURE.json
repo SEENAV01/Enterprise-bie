@@ -1,0 +1,87 @@
+{
+  "case": {
+    "case_id": "h1-model-self-loop",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic technical fixture h1-model-self-loop",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "model2d",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "edges": [
+              [
+                0,
+                0
+              ]
+            ],
+            "vertices": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          "reasoning_refs": [
+            "reasoning:h1-model-self-loop"
+          ],
+          "source_refs": [
+            "fixture:h1-model-self-loop"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "3718a46b2353ad73da5c38708049f7e376a3229072c29e1c77cf37fb32e533cd",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h1-model-self-loop",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "reasoning:h1-model-self-loop"
+      ],
+      "review_required": true,
+      "scene_id": "scene:h1-model-self-loop",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h1-model-self-loop"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "biology",
+    "expected_error_codes": [
+      "MODEL2D_SELF_LOOP_UNSUPPORTED"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "9104d229e859298cd8827a82cb6c42c545fd795fc4c762ae68568829abb524bc"
+}

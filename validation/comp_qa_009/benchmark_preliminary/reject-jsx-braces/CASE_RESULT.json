@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "budget_passed": true,
+  "case_id": "reject-jsx-braces",
+  "codegen_samples_ms": [
+    1.086029,
+    0.977139,
+    0.867729,
+    1.057146
+  ],
+  "compile_verified": false,
+  "determinism_passed": true,
+  "diagnostic_mapping_count": 1,
+  "domain": "engineering",
+  "error_codes": [
+    "QA_UNSEEDED_RANDOM",
+    "TEXT_LITERAL_JSX_INJECTION"
+  ],
+  "evidence_directory": "reject-jsx-braces",
+  "expectation_matched": true,
+  "expected_source_passed": false,
+  "failure": null,
+  "fixture_sha256": "7348fa63efabe4ea3814e44a135b5b643609afa4460e6e5f8eef0fe812ff03c6",
+  "full_typecheck_status": "BLOCKED_DEPENDENCIES",
+  "generated_regression_status": "FAIL",
+  "median_codegen_ms": 1.017142,
+  "p95_codegen_ms": 1.086029,
+  "source_bytes": 3214,
+  "source_gate_passed": false,
+  "subprocess_determinism_status": "PASS"
+}

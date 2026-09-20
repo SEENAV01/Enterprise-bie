@@ -1,0 +1,58 @@
+{
+  "accepted": false,
+  "diagnostics": [
+    {
+      "code": "QA_UNSEEDED_RANDOM",
+      "column": 8,
+      "diagnostic_id": "8b539c9da97643067f0ca626efe077971b81d6167d10e9cdad666c36d8e3294e",
+      "file": "src/elements/Text_e0_5c88e7a2.tsx",
+      "line": 12,
+      "mapping_status": "MAPPED",
+      "message": "A reference/alias to unseeded Math.random is nondeterministic.",
+      "origin": {
+        "element_id": "e0",
+        "owner": "COMP",
+        "reasoning_refs": [
+          "fixture-reasoning:reject-jsx-braces:e0"
+        ],
+        "scene_id": "reject-jsx-braces",
+        "scene_path": "$.elements[0]",
+        "source_refs": [
+          "fixture:reject-jsx-braces:e0"
+        ],
+        "track_id": null
+      },
+      "severity": "ERROR",
+      "stage": "typescript-ast"
+    },
+    {
+      "code": "QA_UNSEEDED_RANDOM",
+      "column": 8,
+      "diagnostic_id": "d594e2782e66ab1697c9176eaaa110b6734fc97f0b6c937693a5c86ef9490459",
+      "file": "src/elements/Text_e0_5c88e7a2.tsx",
+      "line": 12,
+      "mapping_status": "MAPPED",
+      "message": "Unseeded randomness makes repeat rendering nondeterministic.",
+      "origin": {
+        "element_id": "e0",
+        "owner": "COMP",
+        "reasoning_refs": [
+          "fixture-reasoning:reject-jsx-braces:e0"
+        ],
+        "scene_id": "reject-jsx-braces",
+        "scene_path": "$.elements[0]",
+        "source_refs": [
+          "fixture:reject-jsx-braces:e0"
+        ],
+        "track_id": null
+      },
+      "severity": "ERROR",
+      "stage": "typescript-ast"
+    }
+  ],
+  "error_count": 2,
+  "passed": false,
+  "source_map_sha256": "3f95400c7404926ff101d86dfe6e6205f19025083c5f3f280e590d20626b1844",
+  "unmapped_count": 0,
+  "warning_count": 0
+}

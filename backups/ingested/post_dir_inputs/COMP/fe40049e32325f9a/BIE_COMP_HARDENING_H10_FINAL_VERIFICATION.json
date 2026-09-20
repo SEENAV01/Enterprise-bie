@@ -1,0 +1,196 @@
+{
+  "schema_version": "bie.h10.final-delivery-verification.v1",
+  "integrated": {
+    "name": "BIE_COMP_HARDENING_H10_INTEGRATED.zip",
+    "sha256": "913206a80d4a1d677438df9aa33485745681e132f4011c5919816d9c8ac75733",
+    "bytes": 14147644,
+    "file_members": 5407,
+    "verified_payload_checksums": 5406
+  },
+  "fresh_cumulative_regression": {
+    "schema_version": "bie.h10.fresh-release-regression.v1",
+    "integrated_sha256": "913206a80d4a1d677438df9aa33485745681e132f4011c5919816d9c8ac75733",
+    "returncode": 0,
+    "tests": 2327,
+    "test_runtime_seconds": 334.566,
+    "total_elapsed_seconds": 336.8136568320001,
+    "checksum_entries_before_run": 5406,
+    "modified_indexed_files_after_run": [],
+    "log_sha256": "155ec3384679352cfb5880847a6888d5bb1ce63cc5bd29515eae0df69ddb37b7",
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "product_accepted": false
+  },
+  "ordered_atomic_restoration": {
+    "schema_version": "bie.h10.fresh-atomic-restoration.v1",
+    "parent_unchanged": true,
+    "restored_final_matches_integrated": true,
+    "final_file_count": 5407,
+    "stages": [
+      {
+        "task_id": "BIE-COMP-H10-001",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h10_atomic_restore_final/stage1",
+        "result_tree_sha256": "f6e724b1b64fcc74c747a41acc6a5071c55732b6da24e0d02c638ea781fc0f58",
+        "files_applied": 7,
+        "accepted": false
+      },
+      {
+        "task_id": "BIE-COMP-H10-002",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h10_atomic_restore_final/stage2",
+        "result_tree_sha256": "58e97f25ad0790feb6ac684980b39d8f0c6e08ac9b33b7b51662b709fc13b172",
+        "files_applied": 6,
+        "accepted": false
+      },
+      {
+        "task_id": "BIE-COMP-H10-003",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h10_atomic_restore_final/stage3",
+        "result_tree_sha256": "c24df4592c60fee4f5f99ba33862382606230a6a96008be0f9260912dd144b6a",
+        "files_applied": 5,
+        "accepted": false
+      },
+      {
+        "task_id": "BIE-COMP-H10-004",
+        "status": "RESTORED_SOURCE_NOT_EXECUTION_ACCEPTANCE",
+        "base_unchanged": true,
+        "output": "/mnt/data/h10_atomic_restore_final/stage4",
+        "result_tree_sha256": "d0a748228772e084ef10326830803b501a928a50d433ccf07e61014dbfd875bc",
+        "files_applied": 78,
+        "accepted": false
+      }
+    ],
+    "task_results": [
+      {
+        "task_id": "BIE-COMP-H10-001",
+        "returncode": 0,
+        "tests": 24,
+        "elapsed_s": 0.7888206420000188,
+        "log_sha256": "50eaf63d8b459d36d98b15c8a4d0ce815f99e78afa9639bba7cc599a40d3c98b"
+      },
+      {
+        "task_id": "BIE-COMP-H10-002",
+        "returncode": 0,
+        "tests": 20,
+        "elapsed_s": 15.311252573000047,
+        "log_sha256": "2aade69dd16d080726a96499fb92d0a8d9dc3fa3216cbf30c1e0b709405b721e"
+      },
+      {
+        "task_id": "BIE-COMP-H10-003",
+        "returncode": 0,
+        "tests": 19,
+        "elapsed_s": 1.5576799010000286,
+        "log_sha256": "e439ba8d486b213b5b863c07b4d0f437a4f5a995ff0dd8af10b4503076a8ba08"
+      },
+      {
+        "task_id": "BIE-COMP-H10-004",
+        "returncode": 0,
+        "tests": 20,
+        "elapsed_s": 5.582553641000004,
+        "log_sha256": "1053d0ba2d7d341ded4814e428bda078a244af5e9a7118be9527f793672dcca0"
+      }
+    ],
+    "negative_restore_tests": [
+      {
+        "case": "wrong-order",
+        "returncode": 2,
+        "result": {
+          "status": "RESTORE_BLOCKED",
+          "error": "BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES",
+          "accepted": false
+        }
+      },
+      {
+        "case": "repeat",
+        "returncode": 2,
+        "result": {
+          "status": "RESTORE_BLOCKED",
+          "error": "BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES",
+          "accepted": false
+        }
+      },
+      {
+        "case": "tampered-payload",
+        "returncode": 2,
+        "result": {
+          "status": "RESTORE_BLOCKED",
+          "error": "PAYLOAD_HASH_MISMATCH",
+          "accepted": false
+        }
+      },
+      {
+        "case": "symlink-base",
+        "returncode": 2,
+        "result": {
+          "status": "RESTORE_BLOCKED",
+          "error": "SYMLINK_REJECTED",
+          "accepted": false
+        }
+      },
+      {
+        "case": "nonregular-base",
+        "returncode": 2,
+        "result": {
+          "status": "RESTORE_BLOCKED",
+          "error": "NONREGULAR_FILE_REJECTED",
+          "accepted": false
+        }
+      }
+    ],
+    "all_passed": true,
+    "accepted": false
+  },
+  "preservation": {
+    "parent_archive": "BIE_COMP_HARDENING_H9_INTEGRATED.zip",
+    "parent_sha256": "295628ff2a5d076117a6e87aad66536962a32f7beb28c43673390fe2017e5d4e",
+    "parent_files": 5320,
+    "parent_paths_preserved": true,
+    "changed_parent_paths": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "README.md",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/frame_layout.py",
+      "app/bie/compiler/frame_runtime_contract.py",
+      "app/bie/compiler/frame_state_consumer.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "docs/COMP_CONSOLIDATED_GAP_LEDGER.json"
+    ],
+    "active_parent_python_files": 446,
+    "active_parent_python_modified": 4,
+    "active_parent_python_unchanged": 442,
+    "historical_tests_modified": [],
+    "no_font_files_distributed": true,
+    "accepted": false
+  },
+  "evidence": {
+    "name": "BIE_COMP_HARDENING_H10_EVIDENCE.zip",
+    "sha256": "945dcc77a31d98c27e3cade07692d1efb079e31dffce89b8e7a637c58b6256a0",
+    "bytes": 711602,
+    "verified_payload_checksums": 261
+  },
+  "full_section_reaudit": false,
+  "section_exit_permitted": false,
+  "actual_remotion_renders": 0,
+  "product_accepted": false,
+  "github_write": false,
+  "master": {
+    "name": "BIE_COMP_HARDENING_H10_MASTER_BACKUP.zip",
+    "sha256": "02b6854f136a239a0677e025c6de7884c662db09522a5811ba0fe77ded5c859c",
+    "bytes": 13610389,
+    "verified_payload_checksums": 16,
+    "embedded_archives_exact": {
+      "BIE_COMP_HARDENING_H10_INTEGRATED.zip": true,
+      "BIE_COMP_HARDENING_H10_EVIDENCE.zip": true,
+      "BIE_COMP_HARDENING_H10_001.zip": true,
+      "BIE_COMP_HARDENING_H10_002.zip": true,
+      "BIE_COMP_HARDENING_H10_003.zip": true,
+      "BIE_COMP_HARDENING_H10_004.zip": true
+    },
+    "recursive_prior_master": false
+  },
+  "status": "LOCAL_IMPLEMENTATION_PACKAGING_AND_REGRESSION_VERIFIED_NOT_PRODUCT_ACCEPTED"
+}

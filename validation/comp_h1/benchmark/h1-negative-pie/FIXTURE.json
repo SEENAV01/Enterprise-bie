@@ -1,0 +1,80 @@
+{
+  "case": {
+    "case_id": "h1-negative-pie",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic technical fixture h1-negative-pie",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "chart",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "categories": [
+              "A",
+              "B"
+            ],
+            "chart_kind": "pie",
+            "values": [
+              -1,
+              3
+            ]
+          },
+          "reasoning_refs": [
+            "reasoning:h1-negative-pie"
+          ],
+          "source_refs": [
+            "fixture:h1-negative-pie"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "ec16b7e9f18d76d5a7a6d62c7db70b777945b7f8cf802c42b2eedd19876f8391",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h1-negative-pie",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "reasoning:h1-negative-pie"
+      ],
+      "review_required": true,
+      "scene_id": "scene:h1-negative-pie",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h1-negative-pie"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "accountancy",
+    "expected_error_codes": [
+      "PIE_NEGATIVE_VALUE_UNSUPPORTED"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "16e4bc69ecbf526b0494aa141c1513721f38d60cc896de44dea0295169925732"
+}

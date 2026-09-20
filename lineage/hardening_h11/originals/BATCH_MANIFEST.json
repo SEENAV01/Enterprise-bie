@@ -1,0 +1,47 @@
+{
+  "schema_version": "bie.comp-batch.v1",
+  "batch_id": "BIE-COMP-HARDENING-H11",
+  "delivery_sequence": 20,
+  "tasks": [
+    "BIE-COMP-H11-001",
+    "BIE-COMP-H11-002",
+    "BIE-COMP-H11-003",
+    "BIE-COMP-H11-004"
+  ],
+  "checkpoint": "BIE-COMP-H11-004",
+  "parent_checkpoint": "BIE-COMP-H10-004",
+  "parent_archive_sha256": "913206a80d4a1d677438df9aa33485745681e132f4011c5919816d9c8ac75733",
+  "status": "FOUR_BOUNDED_CONTRACTS_IMPLEMENTED_TESTED_SECTION_STILL_OPEN",
+  "tests": {
+    "inherited_tests": 2327,
+    "new_tests": 101,
+    "collected_cumulative_tests": 2428,
+    "task_unit_integration_conformance_tests": 101,
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "release_execution_record": "BIE_COMP_HARDENING_H11_FINAL_VERIFICATION.json external bound to final ZIP SHA256",
+    "execution_note": "Task tests executed before packaging; final full release execution recorded externally."
+  },
+  "atomic_counts": {
+    "BIE-COMP-H11-001": 38,
+    "BIE-COMP-H11-002": 18,
+    "BIE-COMP-H11-003": 25,
+    "BIE-COMP-H11-004": 20
+  },
+  "full_section_reaudit_performed": false,
+  "section_exit_permitted": false,
+  "accepted": false,
+  "github_write": false,
+  "integrated_is_cumulative": true,
+  "recursive_master_backup": false,
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "evidence": "Separate current evidence archive in Master; no original font files distributed.",
+  "parent_archive": "BIE_COMP_HARDENING_H10_INTEGRATED.zip",
+  "current_consumer_coverage": {
+    "registered_elements": 18,
+    "registered_actions": 16,
+    "missing_dispatch_names": [],
+    "bounded_name_dispatch_complete": true,
+    "full_behavior_coverage_complete": false
+  },
+  "batch_scope": "Original media/ASSET adoption, H3-R01/R02 verified byte handoff, source-faithful crop/trim and existing-path integration"
+}

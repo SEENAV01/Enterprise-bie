@@ -1,0 +1,78 @@
+{
+  "case": {
+    "case_id": "reject-chart-sign",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic chart compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "chart",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "categories": [
+              "A",
+              "B"
+            ],
+            "chart_kind": "bar",
+            "values": [
+              -2,
+              3
+            ]
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:reject-chart-sign:e0"
+          ],
+          "source_refs": [
+            "fixture:reject-chart-sign:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "794fae104f3dcc5e3fe0cda0b735470af5503cf870e0cc200f0f25860e76ac38",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "reject-chart-sign",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:reject-chart-sign"
+      ],
+      "review_required": true,
+      "scene_id": "reject-chart-sign",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:reject-chart-sign"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "accountancy",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "e06a8e72fcb5a8d0e9c5c851007b0613f2e2f69c65cee4fcd88320714f4deaf6"
+}

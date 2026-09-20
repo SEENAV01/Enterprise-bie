@@ -1,0 +1,206 @@
+{
+  "accepted": false,
+  "accessibility_metadata": [],
+  "capability_requests": [],
+  "compiler_capabilities": [],
+  "duration_ms": 1000,
+  "elements": [
+    {
+      "accessibility": {
+        "alt": "Source polyline",
+        "color_independent_encoding": true
+      },
+      "element_id": "e0",
+      "element_type": "shape",
+      "normalized_box": {
+        "x": 0.1,
+        "y": 0.1,
+        "width": 0.75,
+        "height": 0.8
+      },
+      "props": {
+        "shape_kind": "polyline",
+        "geometry": {
+          "view_box": [
+            0,
+            0,
+            960.0,
+            576.0
+          ],
+          "points": [
+            [
+              144.0,
+              172.79999999999998
+            ],
+            [
+              480.0,
+              288.0
+            ],
+            [
+              768.0,
+              172.79999999999998
+            ]
+          ]
+        },
+        "style": {
+          "stroke": "blue",
+          "stroke_width": 2,
+          "fill": "none"
+        }
+      },
+      "reasoning_refs": [
+        "reasoning:h3"
+      ],
+      "source_refs": [
+        "fixture:h3"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event_id": "visible-1",
+      "at_ms": 333,
+      "event_type": "state.set",
+      "target_ids": [
+        "e0"
+      ],
+      "payload": {
+        "state_path": "lesson.visible",
+        "value": false,
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      }
+    },
+    {
+      "event_id": "visible-2",
+      "at_ms": 666,
+      "event_type": "state.set",
+      "target_ids": [
+        "e0"
+      ],
+      "payload": {
+        "state_path": "lesson.visible",
+        "value": true,
+        "source_refs": [
+          "fixture:h3"
+        ],
+        "reasoning_refs": [
+          "reasoning:h3"
+        ]
+      }
+    }
+  ],
+  "interaction_bindings": [],
+  "interaction_cues": [],
+  "layout": {},
+  "metadata": {
+    "fixture": "synthetic-not-real-book",
+    "compiler_h6": {
+      "schema_version": "bie.comp-frame-runtime.v1",
+      "initial_state": {
+        "lesson.visible": true
+      },
+      "state_lineage": {
+        "lesson.visible": {
+          "source_refs": [
+            "fixture:h3"
+          ],
+          "reasoning_refs": [
+            "reasoning:h3"
+          ]
+        }
+      }
+    },
+    "state_paths": [
+      "lesson.visible"
+    ],
+    "compiler_h10": {
+      "schema_version": "bie.comp-state-motion-composition.v1",
+      "compositions": [
+        {
+          "target_id": "e0",
+          "track_ids": [
+            "h9-action"
+          ],
+          "state_properties": [
+            "visible"
+          ],
+          "policy": "outer-state-controls",
+          "source_refs": [
+            "fixture:h3"
+          ],
+          "reasoning_refs": [
+            "reasoning:h3"
+          ]
+        }
+      ]
+    }
+  },
+  "narration_cues": [],
+  "planned_fallbacks": [],
+  "reasoning_refs": [
+    "reasoning:h3"
+  ],
+  "review_required": true,
+  "scene_id": "h9-shape-polyline",
+  "schema_version": "1.0.0",
+  "simulation_controls": [],
+  "source_refs": [
+    "fixture:h3"
+  ],
+  "state_bindings": [
+    {
+      "binding_id": "bound-visible",
+      "state_path": "lesson.visible",
+      "target_id": "e0",
+      "property_name": "visible",
+      "read_only": true
+    }
+  ],
+  "title": "Synthetic technical compiler case",
+  "tracks": [
+    {
+      "track_id": "h9-action",
+      "element_id": "e0",
+      "action": "path_endpoints_with_progress_marker",
+      "start_ms": 0,
+      "end_ms": 1000,
+      "parameters": {
+        "schema_version": "bie.comp-registered-action.v1",
+        "coordinate_space": "element-pixels",
+        "viewport": {
+          "width": 960.0,
+          "height": 576.0
+        },
+        "points": [
+          [
+            144.0,
+            172.79999999999998
+          ],
+          [
+            480.0,
+            288.0
+          ],
+          [
+            768.0,
+            172.79999999999998
+          ]
+        ],
+        "start_label": "Start",
+        "end_label": "End",
+        "marker_mode": "stationary-numeric"
+      },
+      "source_refs": [
+        "fixture:h3"
+      ],
+      "reasoning_refs": [
+        "reasoning:h3"
+      ]
+    }
+  ],
+  "upstream_revision": 1
+}

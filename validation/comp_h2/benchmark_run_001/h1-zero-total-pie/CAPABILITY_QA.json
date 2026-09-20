@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "PIE_ZERO_TOTAL",
+      "message": "PIE_ZERO_TOTAL: pie requires a positive total",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "0ab01f7ba9853724b73677d4d3d8bc6ac0a4321c12b1d1bfecf09b309501e28d",
+  "scene_id": "scene:h1-zero-total-pie",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

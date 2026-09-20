@@ -1,0 +1,245 @@
+{
+  "schema_version": "bie.h7.source-benchmark.v1",
+  "cases": [
+    {
+      "case_id": "state",
+      "expected_source_pass": true,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "state",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "97ff481292550337ac38c7ab07f8de9fe3ec45754ebc3d18a6c49633373f4bc6"
+        },
+        {
+          "case_id": "state",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "97ff481292550337ac38c7ab07f8de9fe3ec45754ebc3d18a6c49633373f4bc6"
+        },
+        {
+          "case_id": "state",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "97ff481292550337ac38c7ab07f8de9fe3ec45754ebc3d18a6c49633373f4bc6"
+        }
+      ]
+    },
+    {
+      "case_id": "narration",
+      "expected_source_pass": true,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "narration",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "556567429a2b362d4a676ae44e25bbc8400f51532a9ac026522a96c853add168"
+        },
+        {
+          "case_id": "narration",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "556567429a2b362d4a676ae44e25bbc8400f51532a9ac026522a96c853add168"
+        },
+        {
+          "case_id": "narration",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "556567429a2b362d4a676ae44e25bbc8400f51532a9ac026522a96c853add168"
+        }
+      ]
+    },
+    {
+      "case_id": "glyph",
+      "expected_source_pass": true,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "glyph",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "2c00854b460de76407ae620bed56a1d2e133d04d988f479db28fd29cdaf675c2"
+        },
+        {
+          "case_id": "glyph",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "2c00854b460de76407ae620bed56a1d2e133d04d988f479db28fd29cdaf675c2"
+        },
+        {
+          "case_id": "glyph",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "2c00854b460de76407ae620bed56a1d2e133d04d988f479db28fd29cdaf675c2"
+        }
+      ]
+    },
+    {
+      "case_id": "glyph-reduced",
+      "expected_source_pass": true,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "glyph-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "5fc187b0adf8736cc16d1bac4db48fd46fbd8fd0f6cad8969cfffcd44992761d"
+        },
+        {
+          "case_id": "glyph-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "5fc187b0adf8736cc16d1bac4db48fd46fbd8fd0f6cad8969cfffcd44992761d"
+        },
+        {
+          "case_id": "glyph-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "5fc187b0adf8736cc16d1bac4db48fd46fbd8fd0f6cad8969cfffcd44992761d"
+        }
+      ]
+    },
+    {
+      "case_id": "trace-reduced",
+      "expected_source_pass": true,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "trace-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "6c88f46c6986d3eaa939c170cd1c94d727bae443b27153d7d0623a28df2922a3"
+        },
+        {
+          "case_id": "trace-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "6c88f46c6986d3eaa939c170cd1c94d727bae443b27153d7d0623a28df2922a3"
+        },
+        {
+          "case_id": "trace-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "6c88f46c6986d3eaa939c170cd1c94d727bae443b27153d7d0623a28df2922a3"
+        }
+      ]
+    },
+    {
+      "case_id": "camera-reduced",
+      "expected_source_pass": true,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "camera-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "9507d7104357997ba95fa080653bd3ba38781ba922d04db61629711f839eaa90"
+        },
+        {
+          "case_id": "camera-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "9507d7104357997ba95fa080653bd3ba38781ba922d04db61629711f839eaa90"
+        },
+        {
+          "case_id": "camera-reduced",
+          "findings": [],
+          "passed": true,
+          "source_sha256": "9507d7104357997ba95fa080653bd3ba38781ba922d04db61629711f839eaa90"
+        }
+      ]
+    },
+    {
+      "case_id": "bad-glyph-pair",
+      "expected_source_pass": false,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "bad-glyph-pair",
+          "findings": [
+            "GLYPH_OUTLINE_MISMATCH"
+          ],
+          "passed": false,
+          "source_sha256": "ff611ada6bf2ba05fa92a02afba09f1ec55fd52e8ba2713a1d35dc5920b78e23"
+        },
+        {
+          "case_id": "bad-glyph-pair",
+          "findings": [
+            "GLYPH_OUTLINE_MISMATCH"
+          ],
+          "passed": false,
+          "source_sha256": "ff611ada6bf2ba05fa92a02afba09f1ec55fd52e8ba2713a1d35dc5920b78e23"
+        },
+        {
+          "case_id": "bad-glyph-pair",
+          "findings": [
+            "GLYPH_OUTLINE_MISMATCH"
+          ],
+          "passed": false,
+          "source_sha256": "ff611ada6bf2ba05fa92a02afba09f1ec55fd52e8ba2713a1d35dc5920b78e23"
+        }
+      ]
+    },
+    {
+      "case_id": "missing-milestone",
+      "expected_source_pass": false,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "missing-milestone",
+          "error_code": "H7_VARIANT_REQUIRED_STATE_MISSING",
+          "passed": false
+        },
+        {
+          "case_id": "missing-milestone",
+          "error_code": "H7_VARIANT_REQUIRED_STATE_MISSING",
+          "passed": false
+        },
+        {
+          "case_id": "missing-milestone",
+          "error_code": "H7_VARIANT_REQUIRED_STATE_MISSING",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "case_id": "wrong-state-type",
+      "expected_source_pass": false,
+      "expectation_matched": true,
+      "repeatable": true,
+      "runs": [
+        {
+          "case_id": "wrong-state-type",
+          "error_code": "FRAME_RUNTIME_TYPE",
+          "passed": false
+        },
+        {
+          "case_id": "wrong-state-type",
+          "error_code": "FRAME_RUNTIME_TYPE",
+          "passed": false
+        },
+        {
+          "case_id": "wrong-state-type",
+          "error_code": "FRAME_RUNTIME_TYPE",
+          "passed": false
+        }
+      ]
+    }
+  ],
+  "processes": 27,
+  "all_matched": true,
+  "scope": "INDEPENDENT_PROCESS_SOURCE_GENERATION_ONLY",
+  "real_remotion": false,
+  "full_project_compiled": false,
+  "accepted": false
+}

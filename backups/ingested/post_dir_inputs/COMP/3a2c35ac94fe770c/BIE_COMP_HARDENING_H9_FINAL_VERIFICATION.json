@@ -1,0 +1,122 @@
+{
+  "schema_version": "bie.h9.final-extracted-package-verification.v1",
+  "integrated": {
+    "filename": "BIE_COMP_HARDENING_H9_INTEGRATED.zip",
+    "sha256": "295628ff2a5d076117a6e87aad66536962a32f7beb28c43673390fe2017e5d4e",
+    "bytes": 13629217,
+    "entries": 5320
+  },
+  "workspace_checksums_verified": 5319,
+  "source_unchanged_after_fresh_tests": true,
+  "fresh_regression": {
+    "tests": 2244,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 506.604,
+    "exit_code": 0,
+    "log_sha256": "2da6219ce99af372fa79de73da44f53da7eca69a13eb4f5e08ae704380574b88"
+  },
+  "atomic_packages": [
+    {
+      "filename": "BIE_COMP_HARDENING_H9_001.zip",
+      "sha256": "3a0e201e25c4f5e0ac72e66c80e46de5bf792a166fdbfa1f8ce0ad728eda8bd0",
+      "bytes": 185355,
+      "entries": 13
+    },
+    {
+      "filename": "BIE_COMP_HARDENING_H9_002.zip",
+      "sha256": "0f23bcb4715da1c84a357251acdfe3fb05fe9da234570c7a4b08f134bf9463e7",
+      "bytes": 183412,
+      "entries": 12
+    },
+    {
+      "filename": "BIE_COMP_HARDENING_H9_003.zip",
+      "sha256": "84f32bf13c9b1b6e4d53879bb2bdadf397f372e52cb24345b432b2d30587820a",
+      "bytes": 182372,
+      "entries": 11
+    },
+    {
+      "filename": "BIE_COMP_HARDENING_H9_004.zip",
+      "sha256": "832a13d303ed311c672253cfc9999d66fbc33be9d1659a5a28ceddd71be73f1d",
+      "bytes": 188998,
+      "entries": 12
+    },
+    {
+      "filename": "BIE_COMP_HARDENING_H9_005.zip",
+      "sha256": "e8afddf53170d6c325d6f416e3993a1cea41fb6b52d89baa9d23840ae006b25d",
+      "bytes": 793413,
+      "entries": 138
+    }
+  ],
+  "restored_atomic_tests": 128,
+  "restored_workspace_byte_equal_to_integrated": true,
+  "restore_controls_passed": [
+    "wrong-order",
+    "repeat-application",
+    "tampered-payload",
+    "symlink-base",
+    "nonregular-file"
+  ],
+  "parent_preservation": {
+    "parent_archive": "BIE_COMP_HARDENING_H8_INTEGRATED.zip",
+    "parent_sha256": "bef806de55ebb02ac4eac7ae764ee2e6898f5215a0968caa1ec3df0124205c4b",
+    "parent_files": 5178,
+    "parent_files_deleted": [],
+    "parent_files_modified": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/animation_behavior.py",
+      "app/bie/compiler/animation_track_compiler.py",
+      "app/bie/compiler/capability_fallback_qa.py",
+      "app/bie/compiler/consumer_coverage.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/reduced_motion.py",
+      "app/bie/compiler/scene_behavior_qa.py",
+      "app/bie/scene_ir/diagram_element.py",
+      "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+      "tests/compiler/qa_test_support.py",
+      "tests/compiler/test_comp_h8_004.py",
+      "tests/compiler/test_comp_qa_integration.py"
+    ],
+    "parent_active_python_files": 430,
+    "parent_active_python_files_unchanged": 419,
+    "parent_active_python_modified": [
+      "app/bie/compiler/animation_behavior.py",
+      "app/bie/compiler/animation_track_compiler.py",
+      "app/bie/compiler/capability_fallback_qa.py",
+      "app/bie/compiler/consumer_coverage.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/reduced_motion.py",
+      "app/bie/compiler/scene_behavior_qa.py",
+      "app/bie/scene_ir/diagram_element.py",
+      "tests/compiler/qa_test_support.py",
+      "tests/compiler/test_comp_h8_004.py",
+      "tests/compiler/test_comp_qa_integration.py"
+    ]
+  },
+  "section_exit_permitted": false,
+  "accepted": false,
+  "github_write": false,
+  "master": {
+    "filename": "BIE_COMP_HARDENING_H9_MASTER_BACKUP.zip",
+    "sha256": "5dbc13a7326b5cf8335fc1deded171199c8fe777bedf94b8b99b276bbc9cf8c5",
+    "bytes": 15269887,
+    "entries": 22
+  },
+  "master_payload_checksums_verified": 21,
+  "master_integrated_copy_byte_identical": true,
+  "master_atomic_copies_byte_identical": true,
+  "recursive_prior_master_embedded": false,
+  "evidence": {
+    "filename": "BIE_COMP_HARDENING_H9_EVIDENCE.zip",
+    "sha256": "7e4a187cab433c4a894b13a86d2feb2603342cdd9df6afeefeefd45fbc3944e5",
+    "bytes": 2596473,
+    "entries": 627
+  },
+  "evidence_checksums_verified": 626,
+  "font_files_distributed": false,
+  "runtime_scope": "actual Chromium diagnostics with explicit API doubles; real Remotion and full pinned compile blocked",
+  "documentation": "docs/comp_h9/CONTRACTS.md in Integrated ZIP"
+}

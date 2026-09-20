@@ -1,0 +1,92 @@
+{
+  "case": {
+    "case_id": "h1-vector-hidden-view",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic technical fixture h1-vector-hidden-view",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "vector",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "components": [
+              0,
+              1,
+              0
+            ],
+            "projection": {
+              "kind": "orthographic_matrix",
+              "label": "XZ view",
+              "matrix": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  1
+                ]
+              ]
+            }
+          },
+          "reasoning_refs": [
+            "reasoning:h1-vector-hidden-view"
+          ],
+          "source_refs": [
+            "fixture:h1-vector-hidden-view"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "d80c58af6342a27cbf8b5b46002b8948a042135fdebb32c15b4b72eb1143df63",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h1-vector-hidden-view",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "reasoning:h1-vector-hidden-view"
+      ],
+      "review_required": true,
+      "scene_id": "scene:h1-vector-hidden-view",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h1-vector-hidden-view"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "physics",
+    "expected_error_codes": [
+      "VECTOR_VIEW_DEGENERATE"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "36f76708f870e8cb55e1a92f2aa57deb0fd333967ee18288749f7a16e705eab3"
+}

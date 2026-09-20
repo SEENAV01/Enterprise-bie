@@ -1,0 +1,47 @@
+{
+  "schema_version": "bie.comp-batch.v1",
+  "batch_id": "BIE-COMP-HARDENING-H10",
+  "delivery_sequence": 19,
+  "tasks": [
+    "BIE-COMP-H10-001",
+    "BIE-COMP-H10-002",
+    "BIE-COMP-H10-003",
+    "BIE-COMP-H10-004"
+  ],
+  "checkpoint": "BIE-COMP-H10-004",
+  "parent_checkpoint": "BIE-COMP-H9-005",
+  "parent_archive_sha256": "295628ff2a5d076117a6e87aad66536962a32f7beb28c43673390fe2017e5d4e",
+  "status": "FOUR_BOUNDED_CONTRACTS_IMPLEMENTED_TESTED_SECTION_STILL_OPEN",
+  "tests": {
+    "inherited_tests": 2244,
+    "new_tests": 83,
+    "task_unit_integration_conformance_tests": 83,
+    "collected_cumulative_tests": 2327,
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "release_execution_record": "BIE_COMP_HARDENING_H10_FINAL_VERIFICATION.json (external, bound to the final Integrated ZIP SHA256)",
+    "execution_note": "83 task tests executed before packaging; final whole-suite release execution is recorded externally to avoid changing the ZIP under test."
+  },
+  "atomic_counts": {
+    "BIE-COMP-H10-001": 24,
+    "BIE-COMP-H10-002": 20,
+    "BIE-COMP-H10-003": 19,
+    "BIE-COMP-H10-004": 20
+  },
+  "full_section_reaudit_performed": false,
+  "section_exit_permitted": false,
+  "accepted": false,
+  "github_write": false,
+  "integrated_is_cumulative": true,
+  "recursive_master_backup": false,
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "evidence": "Separate current evidence archive in Master; no original font files distributed.",
+  "parent_archive": "BIE_COMP_HARDENING_H9_INTEGRATED.zip",
+  "current_consumer_coverage": {
+    "registered_elements": 18,
+    "registered_actions": 16,
+    "missing_dispatch_names": [],
+    "bounded_name_dispatch_complete": true,
+    "full_behavior_coverage_complete": false
+  },
+  "batch_scope": "Existing H3-R01/H3-R02: required-action realization and supported state/motion compositions, not extra original roadmap tasks."
+}

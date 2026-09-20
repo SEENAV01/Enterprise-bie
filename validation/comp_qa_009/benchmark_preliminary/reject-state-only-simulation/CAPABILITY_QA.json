@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "SIMULATION_STATE_ONLY",
+      "message": "Initial-state JSON is not an executed simulation.",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "4a9c4ddfa587a2802e8c3f7bd9fc13063590c793effd67b7e1f2eb53fad17194",
+  "scene_id": "reject-state-only-simulation",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

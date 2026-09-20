@@ -1,0 +1,215 @@
+{
+  "schema_version": "bie.comp-continuation.v1",
+  "checkpoint": "BIE-COMP-H8-005",
+  "latest_completed_task": "BIE-COMP-H8-005",
+  "last_completed_task": "BIE-COMP-H8-005",
+  "batch_id": "BIE-COMP-HARDENING-H8",
+  "section": "COMP",
+  "section_status": "IN_PROGRESS_CONCRETE_CONSUMER_GAPS_AND_RUNTIME_BLOCKERS",
+  "section_exit_permitted": false,
+  "accepted": false,
+  "completed_original_families": [
+    "ARCH-001..006",
+    "REACT-001..007",
+    "ELEM-001..013",
+    "ANI-001..005",
+    "AUDIO-001..005",
+    "ASSET-001..004",
+    "BUILD-001..010",
+    "QA-001..005"
+  ],
+  "completed_hardening_tasks": [
+    "BIE-COMP-H1-001",
+    "BIE-COMP-H1-002",
+    "BIE-COMP-H1-003",
+    "BIE-COMP-H1-004",
+    "BIE-COMP-H1-005",
+    "BIE-COMP-H2-001",
+    "BIE-COMP-H2-002",
+    "BIE-COMP-H2-003",
+    "BIE-COMP-H2-004",
+    "BIE-COMP-H2-005",
+    "BIE-COMP-H3-001",
+    "BIE-COMP-H3-002",
+    "BIE-COMP-H3-003",
+    "BIE-COMP-H3-004",
+    "BIE-COMP-H3-005",
+    "BIE-COMP-H4-001",
+    "BIE-COMP-H4-002",
+    "BIE-COMP-H4-003",
+    "BIE-COMP-H4-004",
+    "BIE-COMP-H4-005",
+    "BIE-COMP-H5-001",
+    "BIE-COMP-H5-002",
+    "BIE-COMP-H5-003",
+    "BIE-COMP-H5-004",
+    "BIE-COMP-H5-005",
+    "BIE-COMP-H6-001",
+    "BIE-COMP-H6-002",
+    "BIE-COMP-H6-003",
+    "BIE-COMP-H6-004",
+    "BIE-COMP-H6-005",
+    "BIE-COMP-H7-001",
+    "BIE-COMP-H7-002",
+    "BIE-COMP-H7-003",
+    "BIE-COMP-H7-004",
+    "BIE-COMP-H7-005",
+    "BIE-COMP-H7-006",
+    "BIE-COMP-H7-007",
+    "BIE-COMP-H7-008",
+    "BIE-COMP-H8-001",
+    "BIE-COMP-H8-002",
+    "BIE-COMP-H8-003",
+    "BIE-COMP-H8-004",
+    "BIE-COMP-H8-005"
+  ],
+  "next_original_tasks": [],
+  "next_task_ids": [],
+  "next_action": "IMPLEMENT_OR_VALIDATE_ADOPTED_LOWERING_FOR_EXACT_REGISTRY_MISMATCHES; CONTINUE_PINNED_RUNTIME_VERIFICATION_WITHOUT_BYPASS",
+  "next_task_numbering_policy": "Derive concrete next contracts from the recorded 3 element / 7 action mismatches; do not invent original IDs or mark inventory as consumer implementation.",
+  "remaining_concrete_consumer_gaps": [
+    {
+      "kind": "element",
+      "name": "shape"
+    },
+    {
+      "kind": "element",
+      "name": "diagram"
+    },
+    {
+      "kind": "element",
+      "name": "highlight"
+    },
+    {
+      "kind": "action",
+      "name": "simulation_state"
+    },
+    {
+      "kind": "action",
+      "name": "static_focus"
+    },
+    {
+      "kind": "action",
+      "name": "static_trace"
+    },
+    {
+      "kind": "action",
+      "name": "crossfade_states"
+    },
+    {
+      "kind": "action",
+      "name": "state_snapshots"
+    },
+    {
+      "kind": "action",
+      "name": "progressive_static_trace"
+    },
+    {
+      "kind": "action",
+      "name": "path_endpoints_with_progress_marker"
+    }
+  ],
+  "tests": {
+    "inherited_tests": 1947,
+    "new_tests": 161,
+    "atomic_tests": 143,
+    "integration_tests": 18,
+    "collected_cumulative_tests": 2108,
+    "release_execution_record": "BIE_COMP_HARDENING_H8_FINAL_VERIFICATION.json (external, bound to Integrated ZIP SHA256)",
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE"
+  },
+  "full_generated_project_compiles_verified": 0,
+  "real_remotion_renders_verified": 0,
+  "real_book_e2e": "NOT_RUN",
+  "browser_evidence": {
+    "schema_version": "bie.comp-h8-browser-evidence.v1",
+    "cases": [
+      {
+        "case": "plain",
+        "passed": true,
+        "frames": 2,
+        "images": 10,
+        "codes": [],
+        "seconds": 2.193061711999917
+      },
+      {
+        "case": "map",
+        "passed": true,
+        "frames": 2,
+        "images": 22,
+        "codes": [],
+        "seconds": 2.529028950000111
+      },
+      {
+        "case": "map-overlap",
+        "passed": false,
+        "frames": 2,
+        "images": 22,
+        "codes": [
+          "MAP_POINTS_VISUALLY_UNRESOLVED",
+          "RASTER_INK_COMPONENT_LOST",
+          "RASTER_PARTIALLY_OCCLUDED"
+        ],
+        "seconds": 2.5641231360000347
+      },
+      {
+        "case": "map-tiny",
+        "passed": false,
+        "frames": 2,
+        "images": 28,
+        "codes": [
+          "MAP_POLYGON_COLLAPSED"
+        ],
+        "seconds": 2.891386646000001
+      },
+      {
+        "case": "fade",
+        "passed": true,
+        "frames": 4,
+        "images": 20,
+        "codes": [],
+        "seconds": 2.796148346999871
+      },
+      {
+        "case": "reveal",
+        "passed": true,
+        "frames": 4,
+        "images": 20,
+        "codes": [],
+        "seconds": 2.3759156070000245
+      },
+      {
+        "case": "multilingual",
+        "passed": true,
+        "frames": 2,
+        "images": 10,
+        "codes": [],
+        "seconds": 1.7878801450001447
+      }
+    ],
+    "expected_outcomes_matched": true,
+    "positive_cases": 5,
+    "expected_negative_cases": 2,
+    "frame_count": 18,
+    "png_count": 132,
+    "target_frame_records": 32,
+    "scope": "REAL_CHROMIUM_PIXELS_EXPLICIT_REACT_REMOTION_API_DOUBLES",
+    "real_remotion": false,
+    "real_react": false,
+    "accepted": false,
+    "pixel_claim": "Every output pixel and frame in these short technical fixtures; not sampled frames, arbitrary image meaning, full lesson readability, or teaching acceptance."
+  },
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "full_section_reaudit_performed_this_batch": false,
+  "workflow": "Consolidated findings -> implementation batches/tests/regression -> full section re-audit after backlog addressed. No automatic exit.",
+  "integration_status": "LOCAL_WORKSPACE_ONLY_NO_GITHUB_WRITE",
+  "canonical_repository": "SEENAV01/Enterprise-bie",
+  "lineage": {
+    "parent_archive": "BIE_COMP_HARDENING_H7_INTEGRATED.zip",
+    "parent_sha256": "59835eb595d6cf1e0e5c4b3c3ba1ad252aae41e2cf7c83b3605ca824857ecddc",
+    "parent_members": 5121,
+    "originals": "lineage/hardening_h7/originals",
+    "inventory": "lineage/hardening_h7/ORIGINAL_MEMBER_HASHES.json",
+    "history_deleted": false
+  }
+}

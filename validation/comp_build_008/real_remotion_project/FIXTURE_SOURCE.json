@@ -1,0 +1,70 @@
+{
+  "kind": "TECHNICAL_COMPILER_FIXTURE_NOT_A_LESSON",
+  "composition_id": "BieBuildFixture",
+  "width": 640,
+  "height": 360,
+  "fps": 24,
+  "duration_in_frames": 48,
+  "description": "Frame-driven primitive reveal and position change",
+  "scene_fingerprint": "91079ed9d5b0443cda99d74e7a88197e55b0f32cd37f727cd1840e1d18e3207e",
+  "codegen": {
+    "scene_fingerprint": "91079ed9d5b0443cda99d74e7a88197e55b0f32cd37f727cd1840e1d18e3207e",
+    "compiler_version": "1.0.0",
+    "deterministic_seed": 0,
+    "component_snapshot": [
+      [
+        "TechnicalFixture",
+        "./TechnicalFixture"
+      ]
+    ],
+    "files": [
+      {
+        "path": "package.json",
+        "content": "{\n  \"dependencies\": {\n    \"react\": \"19.0.0\",\n    \"react-dom\": \"19.0.0\",\n    \"remotion\": \"4.0.506\"\n  },\n  \"devDependencies\": {\n    \"@remotion/cli\": \"4.0.506\",\n    \"@types/react\": \"^19.0.0\",\n    \"@types/react-dom\": \"^19.0.0\",\n    \"typescript\": \"5.9.3\"\n  },\n  \"name\": \"bie-build-render-fixture\",\n  \"private\": true,\n  \"scripts\": {\n    \"build\": \"tsc --noEmit\",\n    \"render\": \"remotion render\",\n    \"studio\": \"remotion studio --no-open\"\n  },\n  \"version\": \"0.0.0\"\n}\n",
+        "sha256": "c209ea61660c0c0e455ca0b8c0eb4b21457cff28a8edbc157d6486c22e661946"
+      },
+      {
+        "path": "remotion.config.ts",
+        "content": "import {Config} from \"@remotion/cli/config\";\n\nConfig.setPixelFormat(\"yuv420p\");\n",
+        "sha256": "08cf93fd2e8ce6c03eaa25f796a6743237f448da34c691b47a8ee50fe733e9be"
+      },
+      {
+        "path": "src/Composition.tsx",
+        "content": "import React from \"react\";\nimport {Composition} from \"remotion\";\nimport {Scene} from \"./Scene\";\n\nconst defaultProps = {} as const;\n\nexport const BieComposition: React.FC = () => {\n  return (\n    <Composition\n      id={\"BieBuildFixture\"}\n      component={Scene}\n      width={640}\n      height={360}\n      fps={24}\n      durationInFrames={48}\n      defaultProps={{...defaultProps}}\n    />\n  );\n};\n",
+        "sha256": "c2b250cecc7016cb51e0b54737da627a84aa434a473ec627082bd5f78a9b2951"
+      },
+      {
+        "path": "src/Root.tsx",
+        "content": "import React from \"react\";\nimport {BieComposition} from \"./Composition\";\n\nexport const RemotionRoot: React.FC = () => {\n  return <BieComposition />;\n};\n",
+        "sha256": "a9511772762859ce198fb0bb6176be1d5a3dc5c268167b2263c73e1438675e67"
+      },
+      {
+        "path": "src/Scene.tsx",
+        "content": "import React from \"react\";\nimport {AbsoluteFill, Sequence} from \"remotion\";\nimport {TechnicalFixture} from \"./TechnicalFixture\";\n\nexport const Scene: React.FC = () => {\n  return (\n    <AbsoluteFill name=\"Scene\" style={{backgroundColor: \"white\"}}>\n      <Sequence name={\"technical\"} from={0} durationInFrames={48}>\n        <TechnicalFixture {...({})} />\n      </Sequence>\n    </AbsoluteFill>\n  );\n};\n",
+        "sha256": "3f0ead0fb13e28596357839889ee777b0dd03a3793344d424e84808c156d1df8"
+      },
+      {
+        "path": "src/TechnicalFixture.tsx",
+        "content": "import React from \"react\";\nimport {useCurrentFrame, interpolate} from \"remotion\";\nimport {BieReveal} from \"./primitives\";\n\nexport const TechnicalFixture: React.FC = () => {\n  const frame = useCurrentFrame();\n  const x = interpolate(frame, [0, 47], [50, 490], {extrapolateRight: \"clamp\"});\n  return <BieReveal durationInFrames={12}>\n    <div style={{fontFamily: \"sans-serif\", padding: 24, color: \"black\"}}>\n      <h2>BIE compiler execution fixture</h2>\n      <p>Technical test only \u2014 not an accepted learning video.</p>\n      <div style={{position: \"absolute\", left: x, top: 195, width: 64, height: 64,\n                   border: \"4px solid black\", transform: `rotate(${frame * 3}deg)`}} />\n      <p style={{position: \"absolute\", bottom: 20}}>Frame {frame} / 47</p>\n    </div>\n  </BieReveal>;\n};\n",
+        "sha256": "756c579de1544afa750e2784bf734de78870d6931e9f4708d5623375f8ab306e"
+      },
+      {
+        "path": "src/index.ts",
+        "content": "import {registerRoot} from \"remotion\";\nimport {RemotionRoot} from \"./Root\";\n\nregisterRoot(RemotionRoot);\n",
+        "sha256": "855e23f5a7473a90b919295047a8b2a81e9634b68a9893dbb3b7dae377e4687d"
+      },
+      {
+        "path": "src/primitives/index.tsx",
+        "content": "import React from \"react\";\nimport {\n  AbsoluteFill,\n  Easing,\n  interpolate,\n  useCurrentFrame,\n  useVideoConfig,\n} from \"remotion\";\n\nexport const BieAbsoluteScene: React.FC<React.PropsWithChildren<{\n  backgroundColor?: string;\n}>> = ({backgroundColor = \"white\", children}) => {\n  return (\n    <AbsoluteFill style={{backgroundColor}}>\n      {children}\n    </AbsoluteFill>\n  );\n};\n\nexport const BieReveal: React.FC<React.PropsWithChildren<{\n  fromFrame?: number;\n  durationInFrames?: number;\n}>> = ({fromFrame = 0, durationInFrames = 15, children}) => {\n  const frame = useCurrentFrame();\n  const {fps} = useVideoConfig();\n  const safeDuration = Math.max(1, durationInFrames);\n\n  return (\n    <div\n      style={{\n        opacity: interpolate(\n          frame,\n          [fromFrame, fromFrame + safeDuration],\n          [0, 1],\n          {\n            extrapolateLeft: \"clamp\",\n            extrapolateRight: \"clamp\",\n            easing: Easing.bezier(0.16, 1, 0.3, 1),\n          },\n        ),\n      }}\n      data-bie-fps={fps}\n    >\n      {children}\n    </div>\n  );\n};\n",
+        "sha256": "be8e7d60ccd771f09210f8db3ad65b68ff2b17278b32181da030eae52de90ea4"
+      },
+      {
+        "path": "tsconfig.json",
+        "content": "{\n  \"compilerOptions\": {\n    \"allowJs\": false,\n    \"esModuleInterop\": true,\n    \"isolatedModules\": true,\n    \"jsx\": \"react-jsx\",\n    \"lib\": [\n      \"DOM\",\n      \"DOM.Iterable\",\n      \"ES2022\"\n    ],\n    \"module\": \"ESNext\",\n    \"moduleResolution\": \"Bundler\",\n    \"noEmit\": true,\n    \"resolveJsonModule\": true,\n    \"skipLibCheck\": true,\n    \"strict\": true,\n    \"target\": \"ES2022\"\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"src/**/*.tsx\",\n    \"remotion.config.ts\"\n  ]\n}\n",
+        "sha256": "8878b227fa5320198aa221ccbd2b4cea15cd4ed7f18e659aad1390a2b9937384"
+      }
+    ],
+    "manifest_sha256": "453ef20c394410d5a1f0c29263f2c9825d528ddfb555c2251a1b06e13d0d2c71",
+    "accepted": false
+  }
+}

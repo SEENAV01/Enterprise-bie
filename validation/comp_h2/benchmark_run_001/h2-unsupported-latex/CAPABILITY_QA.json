@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "EQUATION_LATEX_UNSUPPORTED",
+      "message": "EQUATION_LATEX_UNSUPPORTED: \\u000a\\notKnown{x}\\u000a^\\u000aParseFatalException: Unknown symbol: \\notKnown, found '\\'  (at char 0), (line:1, col:1)",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "56c9b458f97ab03fba005834ca6ce4fa702f50117672cb0e765a6a2ce7c5e3a3",
+  "scene_id": "h2-unsupported-latex",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

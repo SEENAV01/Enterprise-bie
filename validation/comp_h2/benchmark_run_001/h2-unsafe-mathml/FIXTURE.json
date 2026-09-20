@@ -1,0 +1,73 @@
+{
+  "case": {
+    "case_id": "h2-unsafe-mathml",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "equation",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "expression": "<math><script>x</script></math>",
+            "format": "mathml"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-unsafe-mathml:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-unsafe-mathml:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "d4b0a1c8d53bcf40d920b99d3d5cbe765dff42cf7b930b5941bf9388a7723d5d",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-unsafe-mathml",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-unsafe-mathml"
+      ],
+      "review_required": true,
+      "scene_id": "h2-unsafe-mathml",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-unsafe-mathml"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "mathematics",
+    "expected_error_codes": [
+      "EQUATION_MATHML_UNSAFE"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "9e085abfec74a789e39e158ca9ee3b5f7295463eb76facf644613f5c7a63e7ed"
+}

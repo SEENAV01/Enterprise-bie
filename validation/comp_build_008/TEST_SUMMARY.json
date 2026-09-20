@@ -1,0 +1,135 @@
+{
+  "baseline_tests": 657,
+  "atomic_tests": 81,
+  "integration_tests": 13,
+  "new_tests": 94,
+  "cumulative_tests": 751,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "accepted": false,
+  "suites": {
+    "BIE_COMP_BUILD_007": {
+      "suite": "BIE_COMP_BUILD_007",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_build_007",
+        "-v"
+      ],
+      "cwd": "/mnt/data/bie_build_008/workspace",
+      "tests": 21,
+      "duration_s": 0.579,
+      "returncode": 0,
+      "passed": true,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "785d9d622fa62d431617e5889dfd7773f548ebbeacad295841317238bc6a29e3",
+      "accepted": false
+    },
+    "BIE_COMP_BUILD_008": {
+      "suite": "BIE_COMP_BUILD_008",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_build_008",
+        "-v"
+      ],
+      "cwd": "/mnt/data/bie_build_008/workspace",
+      "tests": 19,
+      "duration_s": 1.312,
+      "returncode": 0,
+      "passed": true,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "e2fa3a464742d837952edfe4bc03a0182daf4d30919d3acb01253fc6cf97b23d",
+      "accepted": false
+    },
+    "BIE_COMP_BUILD_009": {
+      "suite": "BIE_COMP_BUILD_009",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_build_009",
+        "-v"
+      ],
+      "cwd": "/mnt/data/bie_build_008/workspace",
+      "tests": 22,
+      "duration_s": 0.772,
+      "returncode": 0,
+      "passed": true,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "081a2e932481a45be6edb4892d6f4dad6360852cce24de4b61b9cd9cd7a47c74",
+      "accepted": false
+    },
+    "BIE_COMP_BUILD_010": {
+      "suite": "BIE_COMP_BUILD_010",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_build_010",
+        "-v"
+      ],
+      "cwd": "/mnt/data/bie_build_008/workspace",
+      "tests": 19,
+      "duration_s": 0.011,
+      "returncode": 0,
+      "passed": true,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "acd883e6e6f043cba08fe68fa9adc62dddbfa87705eeaf5d5b55520b9b2f39b5",
+      "accepted": false
+    },
+    "integration": {
+      "suite": "RENDER_INTEGRATION",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.compiler.test_comp_render_integration",
+        "-v"
+      ],
+      "cwd": "/mnt/data/bie_build_008/workspace",
+      "tests": 13,
+      "duration_s": 1.831,
+      "returncode": 0,
+      "passed": true,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "4da188051aba16e2ef4455d356f4d2ed1d7f60f2d8f93dbdbe15187d246932c8",
+      "accepted": false
+    },
+    "cumulative": {
+      "suite": "CUMULATIVE_REGRESSION",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/mnt/data/bie_build_008/workspace",
+      "tests": 751,
+      "duration_s": 7.509,
+      "returncode": 0,
+      "passed": true,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log_sha256": "0f2b6d1b02862f215908b8c747660c301aaf7b685009e5218154ff121c7ba26e",
+      "accepted": false
+    }
+  }
+}

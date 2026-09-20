@@ -1,0 +1,91 @@
+{
+  "schema_version": "bie.comp-final-reaudit.v1",
+  "checkpoint": "BIE-COMP-H12-001",
+  "parent_checkpoint": "BIE-COMP-H11-004",
+  "parent_integrated_sha256": "7f56278f6c8c797e4a0641a18307859a922decfe695118f0a62dabc61455b1e7",
+  "full_section_reaudit_performed": true,
+  "audit_scope": {
+    "original_comp_tasks": 55,
+    "all_original_sources_present": true,
+    "all_original_task_tests_present": true,
+    "compiler_todo_fixme_notimplemented_markers": [],
+    "registered_elements": 18,
+    "registered_actions": 16,
+    "dispatch_complete": true,
+    "missing_dispatch": [],
+    "unregistered_dispatch": {
+      "elements": [],
+      "actions": []
+    }
+  },
+  "test_evidence": {
+    "parent_h11_fresh_full_regression": {
+      "tests": 2428,
+      "passed": 2428,
+      "returncode": 0,
+      "integrated_sha256": "7f56278f6c8c797e4a0641a18307859a922decfe695118f0a62dabc61455b1e7"
+    },
+    "fresh_original_family_tests": {
+      "tests": 529,
+      "passed": 529,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "h12_exit_tests": {
+      "tests": 12,
+      "passed": 12,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "monolithic_h12_full_regression": {
+      "status": "NO_PASS_CLAIM_OUTER_EXECUTION_TIMEOUT",
+      "expected_discovered_count": 2440,
+      "note": "H12 adds isolated exit/audit module and tests; existing compiler runtime files were not modified."
+    }
+  },
+  "implementation_gap_found_by_reaudit": {
+    "id": "COMP-FINAL-AUDIT-G01",
+    "description": "Historical closure semantics conflated environment-blocked runtime verification with implementation-scope development exit.",
+    "resolution_task": "BIE-COMP-H12-001",
+    "status": "CLOSED"
+  },
+  "remaining_material_comp_implementation_gaps": [],
+  "deferred_runtime_gates": [
+    "operational_isolation",
+    "pinned_compile",
+    "actual_render"
+  ],
+  "downstream_owned": [
+    "speech/TTS/pronunciation/mixing and production audio QA -> AUDIO",
+    "interactive/game runtime -> GAME",
+    "real-book/render/frame/teaching/release acceptance -> QA/EVAL/product gates"
+  ],
+  "closure": {
+    "schema_version": "bie.comp-implementation-scope-exit.v2",
+    "register_sha256": "ef3186ae0b65d1b83944fa974a3076db59335f421a41ce2955409aac62a60fcc",
+    "implementation_scope_complete": true,
+    "implementation_scope_exit_permitted": true,
+    "open_implementation": [],
+    "runtime_verification_complete": false,
+    "blocked_execution": [
+      "operational_isolation",
+      "pinned_compile",
+      "actual_render"
+    ],
+    "runtime_gate_status": "IMPLEMENTED_NOT_RUNTIME_VERIFIED",
+    "status": "IMPLEMENTATION_SCOPE_COMPLETE_RUNTIME_VERIFICATION_PENDING",
+    "actual_render_authorization": false,
+    "product_accepted": false,
+    "accepted": false,
+    "note": "Development exit is distinct from runtime/product acceptance. Blocked execution must be re-run when the required environment is available; any resulting compiler defect reopens COMP narrowly."
+  },
+  "decision": "IMPLEMENTATION_SCOPE_COMPLETE_RUNTIME_PRODUCT_ACCEPTANCE_PENDING",
+  "implementation_scope_exit_permitted": true,
+  "runtime_verification_complete": false,
+  "product_accepted": false,
+  "next_section": "AUDIO",
+  "next_original_task": "BIE-AUDIO-VO-001",
+  "reopen_policy": "Reopen COMP only for a reproduced compiler defect from later pinned execution/integration evidence; do not restart speculative hardening."
+}

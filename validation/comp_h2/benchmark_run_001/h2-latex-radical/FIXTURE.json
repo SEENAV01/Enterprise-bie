@@ -1,0 +1,71 @@
+{
+  "case": {
+    "case_id": "h2-latex-radical",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "equation",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "expression": "\\frac{x^2}{\\sqrt{y}}",
+            "format": "latex"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-latex-radical:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-latex-radical:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "5221b769d84573d8eddd42de8ee17956abe50e1e51e883d6be18f252f2a8b11d",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-latex-radical",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-latex-radical"
+      ],
+      "review_required": true,
+      "scene_id": "h2-latex-radical",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-latex-radical"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "mathematics",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "5fa0df2267e07588ad4dbf1c8d23a7bdadba203fadd1fdfdb5595fb959f7f828"
+}

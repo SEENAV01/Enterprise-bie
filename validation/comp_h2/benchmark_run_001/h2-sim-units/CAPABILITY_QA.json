@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "SIMULATION_UNITS_MISMATCH",
+      "message": "SIMULATION_UNITS_MISMATCH: supply the registry's explicit SI/dimensionless units",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "29bd3d3ea4015b349cd61d471b7389c1eb59578bb19f8bfec98b4c22013c4f7d",
+  "scene_id": "h2-sim-units",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

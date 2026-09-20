@@ -1,0 +1,102 @@
+{
+  "case": {
+    "case_id": "h2-map-web_mercator",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 3000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic vector compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "map",
+          "normalized_box": {
+            "height": 0.95,
+            "width": 0.95,
+            "x": 0.025,
+            "y": 0.025
+          },
+          "props": {
+            "attribution": "Synthetic coordinates; no external map data.",
+            "crs": "EPSG:4326",
+            "layers": [
+              {
+                "kind": "route",
+                "label": "Synthetic route",
+                "points": [
+                  [
+                    -8,
+                    25
+                  ],
+                  [
+                    0,
+                    40
+                  ],
+                  [
+                    8,
+                    55
+                  ]
+                ]
+              }
+            ],
+            "projection": {
+              "axis_order": "lon_lat",
+              "extent": [
+                -10,
+                20,
+                10,
+                60
+              ],
+              "kind": "web_mercator"
+            },
+            "title": "Projection technical fixture"
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:h2-map-web_mercator:e0"
+          ],
+          "source_refs": [
+            "fixture:h2-map-web_mercator:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "3502803009cb934d360cbdbd9e4068bfe6524d8f87389cbc15441fe944ec2c99",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "h2-map-web_mercator",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:h2-map-web_mercator"
+      ],
+      "review_required": true,
+      "scene_id": "h2-map-web_mercator",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:h2-map-web_mercator"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic H2 technical compiler fixture",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "geography",
+    "expected_error_codes": [],
+    "expected_source_passed": true,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 700000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "2c5eece472e69e3ba343005c3c54ab6d31f592f28cd80f6850937e21f25ed2c5"
+}

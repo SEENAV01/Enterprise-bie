@@ -1,0 +1,91 @@
+{
+  "accepted": false,
+  "accessibility_metadata": [],
+  "capability_requests": [],
+  "compiler_capabilities": [],
+  "duration_ms": 2000,
+  "elements": [
+    {
+      "accessibility": {
+        "alt": "Synthetic media technical fixture, not a lesson",
+        "transcript_ref": "fixture:h11-silent-visual-transcript"
+      },
+      "element_id": "e0",
+      "element_type": "video",
+      "normalized_box": {
+        "x": 0.15,
+        "y": 0.1,
+        "width": 0.6,
+        "height": 0.7
+      },
+      "props": {
+        "asset_ref": "asset://video",
+        "rights_ref": "rights:synthetic-test",
+        "resolved_asset_path": "assets/49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af.mp4",
+        "trim_start_ms": 1000,
+        "trim_end_ms": 2000,
+        "timeline_start_ms": 500,
+        "audio_policy": "preserve"
+      },
+      "reasoning_refs": [
+        "reasoning:h11"
+      ],
+      "source_refs": [
+        "fixture:h11"
+      ]
+    }
+  ],
+  "events": [],
+  "interaction_bindings": [],
+  "interaction_cues": [],
+  "layout": {},
+  "metadata": {
+    "fixture": "synthetic-not-real-book",
+    "compiler_media_v1": {
+      "schema_version": "bie.comp-visual-assets.v1",
+      "assets": [
+        {
+          "asset_id": "video",
+          "public_path": "assets/49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af.mp4",
+          "sha256": "49535c15beb6ae5d0ddec4a6707d583a1b2201e55097a48be65418b0a1e913af",
+          "byte_length": 3904,
+          "media_type": "video/mp4",
+          "media": {
+            "kind": "video",
+            "width": 96,
+            "height": 64,
+            "codec": "h264",
+            "pixel_format": "yuv420p",
+            "frame_count": 36,
+            "fps_num": 12,
+            "fps_den": 1,
+            "audio_streams": 0
+          },
+          "rights_ref": "rights:synthetic-test",
+          "source_refs": [
+            "fixture:h11"
+          ],
+          "reasoning_refs": [
+            "reasoning:h11"
+          ]
+        }
+      ]
+    }
+  },
+  "narration_cues": [],
+  "planned_fallbacks": [],
+  "reasoning_refs": [
+    "reasoning:h11"
+  ],
+  "review_required": true,
+  "scene_id": "h11-trim-video",
+  "schema_version": "1.0.0",
+  "simulation_controls": [],
+  "source_refs": [
+    "fixture:h11"
+  ],
+  "state_bindings": [],
+  "title": "Synthetic technical compiler case",
+  "tracks": [],
+  "upstream_revision": 1
+}

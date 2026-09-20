@@ -1,0 +1,1894 @@
+{
+  "scope": "REAL_CHROMIUM_COMPONENT_PAINT_WITH_EXPLICIT_TEST_REACT_REMOTION_BRIDGE",
+  "versions": {
+    "chromium": "144.0.7559.96",
+    "typescript": "5.8.3"
+  },
+  "cases": [
+    {
+      "case_id": "latex-fraction-radical",
+      "source_sha256": "5cb05139a1b289c1b44fd5d21cc357e999ef405c665cbaf256842ab98d568f85",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/latex-fraction-radical-f0.png",
+          "sha256": "50580151a44e032313197a47367beff61168e509808fd9408627c29a4fb51cbf",
+          "nonwhite_bbox": [
+            188,
+            11,
+            434,
+            213
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 220
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 220
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 220
+            },
+            "glyphs": [
+              {
+                "x": 188.7529754638672,
+                "y": 39.87681198120117,
+                "width": 51.015045166015625,
+                "height": 44.5601921081543
+              },
+              {
+                "x": 246.9057159423828,
+                "y": 10.912690162658691,
+                "width": 26.397445678710938,
+                "height": 42.33218002319336
+              },
+              {
+                "x": 305.74920654296875,
+                "y": 33.34556198120117,
+                "width": 51.0023193359375,
+                "height": 51.0914421081543
+              },
+              {
+                "x": 390.214599609375,
+                "y": 25.031909942626953,
+                "width": 35.36810302734375,
+                "height": 59.405094146728516
+              },
+              {
+                "x": 257.8345947265625,
+                "y": 125.9691390991211,
+                "width": 46.00421142578125,
+                "height": 86.96875762939453
+              },
+              {
+                "x": 310.4580993652344,
+                "y": 151.51373291015625,
+                "width": 51.155120849609375,
+                "height": 61.50578308105469
+              }
+            ],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "actual_svg_glyph_geometry_visible",
+          "passed": true
+        },
+        {
+          "check": "glyphs_inside_frame",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "native-mathml-fraction",
+      "source_sha256": "4c91a934203ec2218fd91be478935d2278fcc35d97a13a48bd9e2c23efb7ccd3",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/native-mathml-fraction-f0.png",
+          "sha256": "553770beef30413243171c349960dfcd3dc59934294cbde4278f000a3d0cecd6",
+          "nonwhite_bbox": [
+            293,
+            59,
+            346,
+            163
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 220
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 220
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [
+              {
+                "x": 293.609375,
+                "y": 59.109375,
+                "width": 52.78125,
+                "height": 44.03125
+              },
+              {
+                "x": 295.609375,
+                "y": 119.546875,
+                "width": 48.765625,
+                "height": 41.34375
+              }
+            ],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "native_fraction_layout",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "simulation-acceleration",
+      "source_sha256": "04eb78735c460375cd53a1694aff3a6d4dfed9119e1d542da24dcc3e63fcea50",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/simulation-acceleration-f0.png",
+          "sha256": "d1c39c11f83332fe9e7a03271dd7fcacb122047aa48ca1633001435457eb48e7",
+          "nonwhite_bbox": [
+            69,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 206.3333282470703,
+              "y": 248,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic acceleration model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 255.703125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "y (m) [-1, 5]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 81.78125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "x (m) [-1, 5]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 81.78125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=0.00000 s; x=0.00000 m; y=0.00000 m; vx=2.00000 m/s; vy=4.00000 m/s",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 465.796875,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 24,
+          "screenshot": "screenshots/simulation-acceleration-f24.png",
+          "sha256": "7d45c9897b9cb0f23403812f586887d22df7abd3440637e52102baf207cb2c6e",
+          "nonwhite_bbox": [
+            69,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 493,
+              "y": 143,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic acceleration model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 255.703125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "y (m) [-1, 5]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 81.78125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "x (m) [-1, 5]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 81.78125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=1.00000 s; x=2.00000 m; y=3.00000 m; vx=2.00000 m/s; vy=2.00000 m/s",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 465.796875,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 48,
+          "screenshot": "screenshots/simulation-acceleration-f48.png",
+          "sha256": "caf02a922515df5c3abb1dfe1d5c313e918059c83c1e1a7d61867ccdb11ad9fa",
+          "nonwhite_bbox": [
+            69,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 779.6666870117188,
+              "y": 108,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic acceleration model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 255.703125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "y (m) [-1, 5]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 81.78125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "x (m) [-1, 5]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 81.78125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=2.00000 s; x=4.00000 m; y=4.00000 m; vx=2.00000 m/s; vy=0.00000 m/s",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 465.796875,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "visible_markers_exist",
+          "passed": true
+        },
+        {
+          "check": "state_marker_moves",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "simulation-oscillator",
+      "source_sha256": "f36afd4dad2f7164dba98d8c78dcadbe644b6691dbae6339acd4848ad397bf9d",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/simulation-oscillator-f0.png",
+          "sha256": "94fec180b1f9b8ff1244ec989ee8619b7bbab16cbfab37c4a958ce53fab71393",
+          "nonwhite_bbox": [
+            63,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 63,
+              "y": 82.54545593261719,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic oscillator model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 226.78125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "x (m) [-1.1, 1.1]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 108.46875,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t (s) [0, 2]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 67.578125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=0.00000 s; x=1.00000 m; v=0.00000 m/s",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 262.6875,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 24,
+          "screenshot": "screenshots/simulation-oscillator-f24.png",
+          "sha256": "59c1583bbfadc0f3cd0830500a4f721dac3c0d86a39852437c85d16874774861",
+          "nonwhite_bbox": [
+            69,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 493,
+              "y": 273.4545593261719,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic oscillator model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 226.78125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "x (m) [-1.1, 1.1]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 108.46875,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t (s) [0, 2]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 67.578125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=1.00000 s; x=-1.00000 m; v=-3.84734e-16 m/s",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 300.03125,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 48,
+          "screenshot": "screenshots/simulation-oscillator-f48.png",
+          "sha256": "de7d7b3831de85cc838b0b7192d8448f3e8a05d5319072cbe05657438f554bd2",
+          "nonwhite_bbox": [
+            69,
+            13,
+            937,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 923,
+              "y": 82.54545593261719,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic oscillator model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 226.78125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "x (m) [-1.1, 1.1]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 108.46875,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t (s) [0, 2]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 67.578125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=2.00000 s; x=1.00000 m; v=7.69468e-16 m/s",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 290.703125,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "visible_markers_exist",
+          "passed": true
+        },
+        {
+          "check": "state_marker_moves",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "simulation-decay",
+      "source_sha256": "23a8479df091efe9b0db2474b3bccaac0e9dad562035eff82d0961c1f0641d81",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/simulation-decay-f0.png",
+          "sha256": "ed7e6102ddb89352cd6af5285b22748d5d1a805a99dd400dd88ead50a22551c4",
+          "nonwhite_bbox": [
+            63,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 63,
+              "y": 92.09091186523438,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic decay model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 201.234375,
+                  "height": 22
+                }
+              },
+              {
+                "text": "n (dimensionless) [0, 11]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 173.125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t (s) [0, 2]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 67.578125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=0.00000 s; n=10.0000 1",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 159.798828125,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 24,
+          "screenshot": "screenshots/simulation-decay-f24.png",
+          "sha256": "324e0cccdadf21d7d0eb25189b3ec631c1c3069bea7afd0781f2bee78c51382f",
+          "nonwhite_bbox": [
+            69,
+            13,
+            930,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 493,
+              "y": 167.20777893066406,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic decay model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 201.234375,
+                  "height": 22
+                }
+              },
+              {
+                "text": "n (dimensionless) [0, 11]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 173.125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t (s) [0, 2]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 67.578125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=1.00000 s; n=6.06531 1",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 159.798828125,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 48,
+          "screenshot": "screenshots/simulation-decay-f48.png",
+          "sha256": "2453fc73256bfa78e118a09b1313a52303a051b8d07b74813bcfe00d439b60e1",
+          "nonwhite_bbox": [
+            69,
+            13,
+            937,
+            378
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "marker": {
+              "x": 923,
+              "y": 212.76846313476562,
+              "width": 14,
+              "height": 14
+            },
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Synthetic decay model",
+                "box": {
+                  "x": 70,
+                  "y": 10,
+                  "width": 201.234375,
+                  "height": 22
+                }
+              },
+              {
+                "text": "n (dimensionless) [0, 11]",
+                "box": {
+                  "x": 70,
+                  "y": 41,
+                  "width": 173.125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t (s) [0, 2]",
+                "box": {
+                  "x": 70,
+                  "y": 301,
+                  "width": 67.578125,
+                  "height": 17
+                }
+              },
+              {
+                "text": "t=2.00000 s; n=3.67879 1",
+                "box": {
+                  "x": 70,
+                  "y": 330,
+                  "width": 159.798828125,
+                  "height": 16
+                }
+              },
+              {
+                "text": "Analytic model; not an observed measurement. Dashed curve: full model trajectory.",
+                "box": {
+                  "x": 70,
+                  "y": 363,
+                  "width": 478.109375,
+                  "height": 15
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 400
+            },
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "visible_markers_exist",
+          "passed": true
+        },
+        {
+          "check": "state_marker_moves",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "motion-enter",
+      "source_sha256": "8702bd1fdadeec4c65b9d8ef93f1a858fa8d82824486bdd77cc2141ca2e54eb1",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/motion-enter-f0.png",
+          "sha256": "27a5c8a4400b33545b9bd8e09fa288530465cd18b73f51f275bd56ad2089770f",
+          "nonwhite_bbox": null,
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "0",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 12,
+          "screenshot": "screenshots/motion-enter-f12.png",
+          "sha256": "f10d9200f6f2722c682a60e319c5f468c9532286308b34443bc0bd0c10726cfc",
+          "nonwhite_bbox": [
+            60,
+            60,
+            420,
+            180
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "0.521739",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 23,
+          "screenshot": "screenshots/motion-enter-f23.png",
+          "sha256": "b5a63936137d78a12b676848d75b358247409a47ebb8703a13511bd6e1180a6f",
+          "nonwhite_bbox": [
+            60,
+            60,
+            420,
+            180
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "final_frame_paints_content",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        },
+        {
+          "check": "opacity_reaches_endpoints",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "motion-reveal",
+      "source_sha256": "63616bb75fe5910a518289220e76be99a15188d5758bce36a2be964edacc0e04",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/motion-reveal-f0.png",
+          "sha256": "27a5c8a4400b33545b9bd8e09fa288530465cd18b73f51f275bd56ad2089770f",
+          "nonwhite_bbox": null,
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "inset(0% 100% 0% 0%)",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 12,
+          "screenshot": "screenshots/motion-reveal-f12.png",
+          "sha256": "d5a0105038f86e4df97f73aa6a1bd3e8b2822a82a63cdc6ffc0177585a440f09",
+          "nonwhite_bbox": [
+            60,
+            60,
+            261,
+            180
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "inset(0% 47.8261% 0% 0%)",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 23,
+          "screenshot": "screenshots/motion-reveal-f23.png",
+          "sha256": "b5a63936137d78a12b676848d75b358247409a47ebb8703a13511bd6e1180a6f",
+          "nonwhite_bbox": [
+            60,
+            60,
+            420,
+            180
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "inset(0%)",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "final_frame_paints_content",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        },
+        {
+          "check": "clip_reaches_full_visibility",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "motion-transform",
+      "source_sha256": "8135101ea790e08feb83039ece038e7705dbd8be639d160804f1a997275a490c",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/motion-transform-f0.png",
+          "sha256": "b5a63936137d78a12b676848d75b358247409a47ebb8703a13511bd6e1180a6f",
+          "nonwhite_bbox": [
+            60,
+            60,
+            420,
+            180
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "0px",
+              "rotate": "0deg"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 12,
+          "screenshot": "screenshots/motion-transform-f12.png",
+          "sha256": "1268172bfe62b20ff89452451c087f0187bced721ebff7828e2daa6d473856bb",
+          "nonwhite_bbox": [
+            149,
+            21,
+            500,
+            219
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 50.85753631591797,
+              "y": 7.447544097900391,
+              "width": 554.806640625,
+              "height": 405.10491943359375
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "78.2609px",
+              "rotate": "13.0435deg"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 23,
+          "screenshot": "screenshots/motion-transform-f23.png",
+          "sha256": "4a86c3ae581bc5ad2f928c3d930f9ecd44a67eec743d8c1b193ecd78c3827bcc",
+          "nonwhite_bbox": [
+            240,
+            0,
+            500,
+            224
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 110.03031158447266,
+              "y": -31.600730895996094,
+              "width": 579.9393310546875,
+              "height": 483.20147705078125
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "150px",
+              "rotate": "25deg"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "final_frame_paints_content",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "motion-path_follow",
+      "source_sha256": "7ee41c1523096bcc00a33fd64488bbf55b76946a8cdffe47471bb9a3e728ca0d",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/motion-path_follow-f0.png",
+          "sha256": "b5a63936137d78a12b676848d75b358247409a47ebb8703a13511bd6e1180a6f",
+          "nonwhite_bbox": [
+            60,
+            60,
+            420,
+            180
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "0px",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 12,
+          "screenshot": "screenshots/motion-path_follow-f12.png",
+          "sha256": "5e862e58ef65217eaa78047bdd155e6125b9b3d82703a56d3851e96e371947d4",
+          "nonwhite_bbox": [
+            160,
+            64,
+            500,
+            185
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 100,
+              "y": 64.34782409667969,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "100px 4.34783px",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        },
+        {
+          "frame": 23,
+          "screenshot": "screenshots/motion-path_follow-f23.png",
+          "sha256": "4265f9cb4346232928cb0a90b7ebaecb57b09543f1468fe829fafe09562d69fe",
+          "nonwhite_bbox": [
+            160,
+            160,
+            500,
+            280
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 60,
+              "width": 500,
+              "height": 300
+            },
+            "first": {
+              "x": 100,
+              "y": 160,
+              "width": 500,
+              "height": 300
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "100px 100px",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [],
+            "svgBox": null,
+            "glyphs": [],
+            "routes": []
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "final_frame_paints_content",
+          "passed": true
+        },
+        {
+          "check": "frame_pixels_change",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "map-web_mercator",
+      "source_sha256": "f2b55e0f297622b5997a86c8b72cf25fe7ce967fb9d5c10c66659a0423305e1c",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/map-web_mercator-f0.png",
+          "sha256": "8d182e4d408ccb4c524a3f3032648def8396b07242174c308c314c3857917eb0",
+          "nonwhite_bbox": [
+            50,
+            13,
+            750,
+            589
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 600
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 600
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Projection technical fixture",
+                "box": {
+                  "x": 50,
+                  "y": 10,
+                  "width": 233.453125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "web_mercator; axes=lon_lat; extent=-10, 20, 10, 60",
+                "box": {
+                  "x": 49,
+                  "y": 38,
+                  "width": 298.03125,
+                  "height": 15
+                }
+              },
+              {
+                "text": "route: Synthetic route",
+                "box": {
+                  "x": 50,
+                  "y": 503,
+                  "width": 123.578125,
+                  "height": 15
+                }
+              },
+              {
+                "text": "point: Point",
+                "box": {
+                  "x": 360,
+                  "y": 503,
+                  "width": 65.4326171875,
+                  "height": 15
+                }
+              },
+              {
+                "text": "polygon: Area",
+                "box": {
+                  "x": 670,
+                  "y": 503,
+                  "width": 80.2744140625,
+                  "height": 15
+                }
+              },
+              {
+                "text": "Synthetic coordinates; no external map data.",
+                "box": {
+                  "x": 50,
+                  "y": 555,
+                  "width": 237.484375,
+                  "height": 14
+                }
+              },
+              {
+                "text": "Inline geometry only; no basemap. Projected segments are not geodesic paths or distance/area measurements.",
+                "box": {
+                  "x": 50,
+                  "y": 575,
+                  "width": 593,
+                  "height": 14
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 600
+            },
+            "glyphs": [],
+            "routes": [
+              "438.9503217087785,443.6825754146798 500,307.2499011845423 561.0496782912215,136.14852218112503"
+            ]
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "projected_route_painted",
+          "passed": true
+        },
+        {
+          "check": "representative_labels_within_frame",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    },
+    {
+      "case_id": "map-equirectangular",
+      "source_sha256": "a5a19232ee5a0a755fffcd9e651623c15ec1acd30cd6a8df48bb60cd45fd307e",
+      "bridge_kind": "REAL_TS_EXECUTION_WITH_EXPLICIT_REACT_REMOTION_TEST_DOUBLES",
+      "frames": [
+        {
+          "frame": 0,
+          "screenshot": "screenshots/map-equirectangular-f0.png",
+          "sha256": "447c332bd2ffa03d2415ff9007beb5510ad108dbc99da75bf8ecb28835e27cf1",
+          "nonwhite_bbox": [
+            50,
+            13,
+            750,
+            589
+          ],
+          "measurements": {
+            "root": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 600
+            },
+            "first": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 600
+            },
+            "marker": null,
+            "style": {
+              "opacity": "1",
+              "clipPath": "none",
+              "translate": "none",
+              "rotate": "none"
+            },
+            "fraction": [],
+            "labels": [
+              {
+                "text": "Projection technical fixture",
+                "box": {
+                  "x": 50,
+                  "y": 10,
+                  "width": 233.453125,
+                  "height": 22
+                }
+              },
+              {
+                "text": "equirectangular; axes=lon_lat; extent=-10, 20, 10, 60",
+                "box": {
+                  "x": 50,
+                  "y": 38,
+                  "width": 304.28125,
+                  "height": 15
+                }
+              },
+              {
+                "text": "route: Synthetic route",
+                "box": {
+                  "x": 50,
+                  "y": 503,
+                  "width": 123.578125,
+                  "height": 15
+                }
+              },
+              {
+                "text": "point: Point",
+                "box": {
+                  "x": 360,
+                  "y": 503,
+                  "width": 65.4326171875,
+                  "height": 15
+                }
+              },
+              {
+                "text": "polygon: Area",
+                "box": {
+                  "x": 670,
+                  "y": 503,
+                  "width": 80.2744140625,
+                  "height": 15
+                }
+              },
+              {
+                "text": "Synthetic coordinates; no external map data.",
+                "box": {
+                  "x": 50,
+                  "y": 555,
+                  "width": 237.484375,
+                  "height": 14
+                }
+              },
+              {
+                "text": "Inline geometry only; no basemap. Projected segments are not geodesic paths or distance/area measurements.",
+                "box": {
+                  "x": 50,
+                  "y": 575,
+                  "width": 593,
+                  "height": 14
+                }
+              }
+            ],
+            "svgBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1000,
+              "height": 600
+            },
+            "glyphs": [],
+            "routes": [
+              "416,432.50000000000006 500,275 584,117.50000000000003"
+            ]
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check": "component_painted_in_real_chromium",
+          "passed": true
+        },
+        {
+          "check": "projected_route_painted",
+          "passed": true
+        },
+        {
+          "check": "representative_labels_within_frame",
+          "passed": true
+        }
+      ],
+      "accepted": false
+    }
+  ],
+  "case_count": 11,
+  "screenshot_count": 25,
+  "projection_changes_geometry": true,
+  "browser_errors": [],
+  "failures": [],
+  "passed": true,
+  "real_react": "NOT_USED_TEST_BRIDGE",
+  "actual_remotion_render": "NOT_RUN",
+  "full_dependency_typecheck": "NOT_RUN",
+  "real_book_e2e": "NOT_RUN",
+  "accepted": false
+}

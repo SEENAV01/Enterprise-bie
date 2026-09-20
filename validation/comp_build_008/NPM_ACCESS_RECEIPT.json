@@ -1,0 +1,24 @@
+{
+  "process": {
+    "command": [
+      "npm",
+      "view",
+      "remotion@4.0.506",
+      "version",
+      "--fetch-retries=0",
+      "--fetch-timeout=7000"
+    ],
+    "cwd": "/mnt/data/bie_build_008/workspace/validation/comp_build_008/real_remotion_project",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "npm error code EAI_AGAIN\nnpm error syscall getaddrinfo\nnpm error errno EAI_AGAIN\nnpm error request to https://registry.npmjs.org/remotion failed, reason: getaddrinfo EAI_AGAIN registry.npmjs.org\nnpm error A complete log of this run can be found in: /home/oai/.npm/_logs/2026-09-17T21_00_01_514Z-debug-0.log\n",
+    "duration_ms": 195,
+    "passed": false,
+    "accepted": false
+  },
+  "outcome": "FAILED",
+  "started": true,
+  "stdout_bytes": 0,
+  "stderr_bytes": 307,
+  "accepted": false
+}

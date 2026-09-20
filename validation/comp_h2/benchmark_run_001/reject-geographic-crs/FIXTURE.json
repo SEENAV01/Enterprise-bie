@@ -1,0 +1,87 @@
+{
+  "case": {
+    "case_id": "reject-geographic-crs",
+    "document": {
+      "accepted": false,
+      "accessibility_metadata": [],
+      "capability_requests": [],
+      "compiler_capabilities": [],
+      "duration_ms": 2000,
+      "elements": [
+        {
+          "accessibility": {
+            "alt": "Synthetic map compiler fixture",
+            "color_independent_encoding": true
+          },
+          "element_id": "e0",
+          "element_type": "map",
+          "normalized_box": {
+            "height": 0.4,
+            "width": 0.9,
+            "x": 0.05,
+            "y": 0.05
+          },
+          "props": {
+            "crs": "EPSG:4326",
+            "layers": [
+              {
+                "kind": "route",
+                "points": [
+                  [
+                    0.1,
+                    0.2
+                  ],
+                  [
+                    0.3,
+                    0.4
+                  ]
+                ]
+              }
+            ]
+          },
+          "reasoning_refs": [
+            "fixture-reasoning:reject-geographic-crs:e0"
+          ],
+          "source_refs": [
+            "fixture:reject-geographic-crs:e0"
+          ]
+        }
+      ],
+      "events": [],
+      "fingerprint": "d4e4f6de1ce0c2b7080724e5c5bc6040f0b38113344a73b615da107628148a86",
+      "interaction_bindings": [],
+      "interaction_cues": [],
+      "layout": {},
+      "metadata": {
+        "fixture_id": "reject-geographic-crs",
+        "not_textbook": true,
+        "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+      },
+      "narration_cues": [],
+      "planned_fallbacks": [],
+      "reasoning_refs": [
+        "fixture-reasoning:reject-geographic-crs"
+      ],
+      "review_required": true,
+      "scene_id": "reject-geographic-crs",
+      "schema_version": "1.0.0",
+      "simulation_controls": [],
+      "source_refs": [
+        "fixture:reject-geographic-crs"
+      ],
+      "state_bindings": [],
+      "title": "Synthetic technical compiler case",
+      "tracks": [],
+      "upstream_revision": 1
+    },
+    "domain": "geography",
+    "expected_error_codes": [
+      "MAP_PROJECTION_REQUIRED"
+    ],
+    "expected_source_passed": false,
+    "max_codegen_ms": 5000,
+    "max_source_bytes": 500000,
+    "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+  },
+  "fixture_sha256": "4e89674cfbd379b762a21b7c69eb37b7addfb3d20e086281597db2e86b3a262a"
+}

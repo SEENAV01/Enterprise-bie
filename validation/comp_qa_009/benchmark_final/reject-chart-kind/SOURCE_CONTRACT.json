@@ -1,0 +1,13 @@
+{
+  "accepted": false,
+  "findings": [
+    {
+      "code": "CHART_KIND_DOWNGRADE",
+      "message": "Non-bar chart is emitted as bars; this is not an equivalent fallback.",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "source_contract_passed": false
+}

@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "MODEL2D_SELF_LOOP_UNSUPPORTED",
+      "message": "MODEL2D_SELF_LOOP_UNSUPPORTED: self loops are not line segments",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "3718a46b2353ad73da5c38708049f7e376a3229072c29e1c77cf37fb32e533cd",
+  "scene_id": "scene:h1-model-self-loop",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

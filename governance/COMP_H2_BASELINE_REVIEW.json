@@ -1,0 +1,523 @@
+{
+  "kind": "DEVELOPMENT_EXPECTATION_REVIEW_NOT_PRODUCT_OR_EXPERT_APPROVAL",
+  "preserved_parent_corpus": "fixtures/comp_h1",
+  "source_documents_changed": false,
+  "changes": {
+    "reject-untypeset-equation": [
+      true,
+      [],
+      "Actual pinned Mathtext SVG replaces raw LaTeX text."
+    ],
+    "reject-metadata-animation": [
+      true,
+      [],
+      "Reveal track applies sampled clipPath and reaches its final included frame."
+    ],
+    "reject-state-only-simulation": [
+      false,
+      [
+        "SIMULATION_MODEL_UNSUPPORTED"
+      ],
+      "Unregistered conceptual model explicitly rejected; no substitute state dump."
+    ],
+    "reject-geographic-crs": [
+      false,
+      [
+        "MAP_PROJECTION_REQUIRED"
+      ],
+      "Missing declared geographic projection explicitly rejected."
+    ]
+  },
+  "new_synthetic_case_ids": [
+    "h2-latex-radical",
+    "h2-native-mathml",
+    "h2-sim-acceleration",
+    "h2-sim-oscillator",
+    "h2-sim-decay",
+    "h2-motion-enter",
+    "h2-motion-exit",
+    "h2-motion-emphasize",
+    "h2-motion-transform",
+    "h2-motion-path_follow",
+    "h2-map-web_mercator",
+    "h2-map-equirectangular",
+    "h2-map-mixed",
+    "h2-unsupported-latex",
+    "h2-unsafe-mathml",
+    "h2-sim-units",
+    "h2-sim-observation",
+    "h2-sim-clips",
+    "h2-sim-alias",
+    "h2-sim-end-truncated",
+    "h2-motion-unimplemented",
+    "h2-motion-conflict",
+    "h2-motion-one-sample",
+    "h2-map-polar",
+    "h2-map-dateline",
+    "h2-map-external-layer"
+  ],
+  "reviewed_baselines": [
+    {
+      "case_id": "math-plain",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "38ab43aa4ea00eb29f4196a80b55ae69d5f95d8b4479eb1ff37f4b70a1ff0bdc",
+      "source_manifest_sha256": "5d597964514f73e8a341e554a216397935df5e876dc92c0c58e4c47a3e332e7d"
+    },
+    {
+      "case_id": "physics-vector",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "5e4b6cec456788f12f8c17a32ec6a60314eb38dfeb31f47eefdb223952cb238d",
+      "source_manifest_sha256": "7e849a3983c56efd228520b321f42948ae2407e19a2a8a378f23c3a5991dc1a4"
+    },
+    {
+      "case_id": "chemistry-connectivity",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "1bac2bd8b18d4bbe5e3f5e60d967dc814c80a3c8cac10bfe7bac5c2e9e89bc08",
+      "source_manifest_sha256": "61df73cd07064bebd6b3135e588d65901917c8291ad54b3f8bbd9797ccc656f9"
+    },
+    {
+      "case_id": "biology-structure",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "fa3079506cdde975a89f338a000f2897d59bb7780de2a052d5a2014c1b2a91f6",
+      "source_manifest_sha256": "287457f74abf60ac15ab312a716ad6355336a0abd43441c9e2c1acd6563dc265"
+    },
+    {
+      "case_id": "statistics-counts",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "fcb4f605c0d3c7613dd706922156beeaad4ce9ceb9eb0368ffde68cb2c2d785f",
+      "source_manifest_sha256": "0b703b1c0a3b48810e85123163bccde08600a3d67cd97625abd496a852c7f684"
+    },
+    {
+      "case_id": "economics-series",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "7f85245d13c7ca8f285793854a71975c5b7bf19031290470f07587c93b8b5e89",
+      "source_manifest_sha256": "3523c7760f113b5b81b8a094a2cb19586df3d2879bffafa4def912975ed77a2f"
+    },
+    {
+      "case_id": "accountancy-totals",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "e85487111c7981c9397f35e71e568567e4364398d727d27901efd20073f1da56",
+      "source_manifest_sha256": "41a9fa8d68cc675b756178a88e46622f4b83f54bfdfe0a87c1cb2bc3333f0b40"
+    },
+    {
+      "case_id": "history-sequence",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "12d3d32ac541949fc10e3d7cd235abd7cdad9ca97f4cf0569b71df697a9f1e98",
+      "source_manifest_sha256": "8c611af5fdc7a23086831f8a47dfce40d416be39f1f1c89052cd91b96c7840c4"
+    },
+    {
+      "case_id": "geography-route",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "aa2157453852f0d075db09eb177715b0c08669c8bf56c65264246e81ba08f5ae",
+      "source_manifest_sha256": "8d874b88f047233206794989fd6764adfa2cefe6fbbbba8682e45fa958ad6776"
+    },
+    {
+      "case_id": "engineering-labels",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "a02f652903f87cbd984eac5586172ef31e4da8644d1616cd93034a4ba1745c21",
+      "source_manifest_sha256": "79112ed28679ec9c815ac827d170db3f9c64b3cb6a123f1b0d2f8ff703add7dd"
+    },
+    {
+      "case_id": "reject-chart-kind",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "6b68a78677e91e5a366814847a07ca00ae94c7243d64c1726fd61f048ba8a069",
+      "source_manifest_sha256": "4870657a20b74f7a8b5fdcfd81635f8ee68613f053392f7d651f65cd677a1ca3"
+    },
+    {
+      "case_id": "reject-chart-sign",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "e2379b838ba379976dd3a79c98d3b1d3975c4b43aa15c0cede7ee278dc2f798b",
+      "source_manifest_sha256": "8c826eadcdba8af3b6e51d690f8c6ff60862fc01c40c3383170625c6a6003154"
+    },
+    {
+      "case_id": "reject-vector-z",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "VECTOR_PROJECTION_REQUIRED"
+      ],
+      "baseline_sha256": "78194c6999a5a790226061e461edce0fe91f008041b73005bd6778b09d80d01d",
+      "source_manifest_sha256": "65a15248b853306a10c2ed36c9e555229cb4fa2f54f986068e68224e80bd0f85"
+    },
+    {
+      "case_id": "reject-untypeset-equation",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "3b21fdd3a03991a4dc93c4b95ba2147d7dae586dbd2a63092217f2fc060dc290",
+      "source_manifest_sha256": "cc9afb3f348e60e5a166deb4756ad73d32ec80618b74cce0d1b36f823362c52d"
+    },
+    {
+      "case_id": "reject-jsx-braces",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "b9c1e629ca8e37ab64cc76834d8b7c4552cdf740128261f2140a0e199875aa14",
+      "source_manifest_sha256": "772d14b087a273463da4603064a112c1c921fcf0acf429298eb90ff50e5b6d7c"
+    },
+    {
+      "case_id": "reject-state-only-simulation",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_MODEL_UNSUPPORTED"
+      ],
+      "baseline_sha256": "a92d4194315526df3d04c9d2d9332de8f18410ead23779b672f2b6649a25ae06",
+      "source_manifest_sha256": "48eabb409594a5815c250195a94abb7ba7cef4e825dc1ece79ab6cb0201109ae"
+    },
+    {
+      "case_id": "reject-metadata-animation",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "3b46b71b7a193c76cea3a0acbd3eb84725b0fb340a456b3f4c99fb322fb14d79",
+      "source_manifest_sha256": "e982c260e4db801df2eb2c1cc3e4294d48ff30b21fef073c58f2155c99b8433a"
+    },
+    {
+      "case_id": "reject-geographic-crs",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_PROJECTION_REQUIRED"
+      ],
+      "baseline_sha256": "49e4429591788033e8aac8bab15082785e40d9c1c641d0d85cfd00aff5eee5c6",
+      "source_manifest_sha256": "7ea4d49d8fa4da2d99eb27ab6006eb604e8b87c4952aa1cec8406142c695941e"
+    },
+    {
+      "case_id": "reject-model-edge",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MODEL2D_EDGE_INDEX_INVALID"
+      ],
+      "baseline_sha256": "517bcf4a60a08ed56d681449bfced0024b5b49b91a93d825eff25d37f7b65ff3",
+      "source_manifest_sha256": "fc0c237f9c55a7620f41c916240cbee5d9a7888d958739c0adab8fcde8235999"
+    },
+    {
+      "case_id": "h1-area-signed",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "c6ee6d3d5319e5f1a44a55154b52b0c160d874e6a9717906ff947dc3fcb79dd7",
+      "source_manifest_sha256": "26da4b3a90e835d7423a123962a03c887a4bcbeb26e5664cb936ba77688f444e"
+    },
+    {
+      "case_id": "h1-pie-native",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "97bdadc70fec5432ad98e4430c13359af06447d63e1d2647c83a56962fa15dc5",
+      "source_manifest_sha256": "0b9635805ce0342bdf76dcf1c92bd7a38ef3926942171847a9e031a4251757c2"
+    },
+    {
+      "case_id": "h1-scatter-spacing",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "5e20be615aae1f582a0930102ce932bfa1544961362f7079a30e9d3b97a98dd2",
+      "source_manifest_sha256": "c44ab30fb994b94c52c3548542b0e4e8a1b0e25d7476f790721d6890af6d2e36"
+    },
+    {
+      "case_id": "h1-vector-xz",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "994a2f899f7491827a2cf837efc561e20850671752e44f1fea4fd8fda60f2acb",
+      "source_manifest_sha256": "bf2f68ea26555f92aaf552bcaa522012e12660e7a7f02e5e79d88347f6b2604a"
+    },
+    {
+      "case_id": "h1-vector-zero",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "0628be38201f7f1b6f81ad4a8deaedadf559bab6aa0af484dda086a6ea9d0458",
+      "source_manifest_sha256": "c00858b53f3803ad58c7be675152b000f1638e6661395a287a6b0294ea7169a1"
+    },
+    {
+      "case_id": "h1-isolated-vertices",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "74fbdf93c26ca601835e6ad7be865b638ce799770279b93cc7b1f3bb57dfa629",
+      "source_manifest_sha256": "06c975dc67886dbb240d7ae7f2e41fd4317aa750774a12c2c2d8cef05ed53a86"
+    },
+    {
+      "case_id": "h1-code-as-text",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "16faf278b36507227700e65d651ae39bd3403ee9565a2f7b1df992b24f563d80",
+      "source_manifest_sha256": "6bcc34c0bbc724f9fcf26e7fa7d76d893797f72f9e91cb59159362b8da01dbd4"
+    },
+    {
+      "case_id": "h1-negative-pie",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "PIE_NEGATIVE_VALUE_UNSUPPORTED"
+      ],
+      "baseline_sha256": "1a684783a9999999cb48948bd55b0d2ae47c09d32826b7ea1ab1dbe7f78657a7",
+      "source_manifest_sha256": "8af4de8c6198c8568741014266b9675f477e23433887c9cfcf355a40c4e9cee9"
+    },
+    {
+      "case_id": "h1-zero-total-pie",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "PIE_ZERO_TOTAL"
+      ],
+      "baseline_sha256": "ca15e435c4456ef0aac4b5d9279424580764cbb79073b33a9844191ab2b91756",
+      "source_manifest_sha256": "3079b76d6901499e24b60c8329bac40b291e9dada95d92da7dccad8638f04f6d"
+    },
+    {
+      "case_id": "h1-model-duplicate-edge",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MODEL2D_DUPLICATE_EDGE"
+      ],
+      "baseline_sha256": "a04f50a1d99e9efd30892ba37fe134a2e8937d8d8c6411f1c2d3d06987a115d9",
+      "source_manifest_sha256": "0ba349557ec99691a2438764818e953a5c43aba8f3e6f08066c69123104c374c"
+    },
+    {
+      "case_id": "h1-model-self-loop",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MODEL2D_SELF_LOOP_UNSUPPORTED"
+      ],
+      "baseline_sha256": "d154fee78a7687af5959085b9b8eca4acb54bd210e65352b3e8cfd47e5fd9686",
+      "source_manifest_sha256": "9dbb90f1939d099710d45fa64e41db888ec7b0004d286bf0a092709b910cda83"
+    },
+    {
+      "case_id": "h1-vector-hidden-view",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "VECTOR_VIEW_DEGENERATE"
+      ],
+      "baseline_sha256": "7a7b4fac486a3401a9bdc0143ed1448efdff4b718217e161eaacbb7411b16ecc",
+      "source_manifest_sha256": "07f25a2fc099bd086dfc9402ea74d337a55c82bef17a6b3a14d34238aa5cf06b"
+    },
+    {
+      "case_id": "h1-chart-dense",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "UNREVIEWED_COMPILER_WARNING"
+      ],
+      "baseline_sha256": "194aae9ae118d47dce1bb0f43e061cc2b1ed35573eadc7812ed83d96bcbf9123",
+      "source_manifest_sha256": "7da1c08918b698bf15be83692e992b0abcd22c35d27539abb67a799023ba9af9"
+    },
+    {
+      "case_id": "h1-scatter-missing-x",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "COLLECTION_SHAPE_INVALID"
+      ],
+      "baseline_sha256": "dd03c9c43a4f5ce6e362832f4418d17a82b6473746eac3cca143b700f812d6de",
+      "source_manifest_sha256": "5f7906d546349f1b04d43b5079b314c02c68a54076070ff793983d3aa38c9459"
+    },
+    {
+      "case_id": "h2-latex-radical",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "4190be18bcda3ccef00b9f607159f4fa091b01066b4d0e723c881bbb755a8682",
+      "source_manifest_sha256": "feaddf8180d6baa96702f2345b34ebcac3313ec47511bd33b70ab30756ef6f66"
+    },
+    {
+      "case_id": "h2-native-mathml",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "56ff6cb3864284555efbc1588988ab5b705479174c3460307afda750af77145a",
+      "source_manifest_sha256": "c72eb89a7755354e0b28aca5db55f1baa08ec04f55eab31a7ef3cd8c694087c0"
+    },
+    {
+      "case_id": "h2-sim-acceleration",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "9708576e770fd8da6230e4e8198b33c737a9e1db80ac5eb4db4761f90e1148c6",
+      "source_manifest_sha256": "6fa2b680e451baf641f9bd37d52dba93ef76d9c4a0aeb7b5b7ff6c0664af28b3"
+    },
+    {
+      "case_id": "h2-sim-oscillator",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "ddfa262b8aaee39ed6eca757dbe887095ba0556dfe67bc7113e83ff79dbb2168",
+      "source_manifest_sha256": "f949e33aade0c24d022f7cbe13eb51bd54ea84790614eb892e2cd1e305bfc592"
+    },
+    {
+      "case_id": "h2-sim-decay",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "838773bf0488d851d85a1b60d4648330be6a4ab0253db56f79c58b363f08f2c6",
+      "source_manifest_sha256": "f8a29fa0aef6a40173de3b60aaf26d723fc491a1d4d676415aafa9d87f0e4ffe"
+    },
+    {
+      "case_id": "h2-motion-enter",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "d09843a10940dcee126f66cd04a9a190278d185b192ecd09227097df14bd1c4f",
+      "source_manifest_sha256": "8d84ddeab9ceb13ddd3069b56e71e126f16d96453508f34426b76c78b64851c7"
+    },
+    {
+      "case_id": "h2-motion-exit",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "c4452f65d21f97114debd1c38db154b5e99659ecb388c152c8180efd79c20156",
+      "source_manifest_sha256": "35c5115ecac7ee43c1df46cb7046feae88bcabcb49e3fff5f5a175e6291b9343"
+    },
+    {
+      "case_id": "h2-motion-emphasize",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "e8b8f72f43d9609d056ef261138b9bab5443b8b88e963707b66555c58cc39764",
+      "source_manifest_sha256": "c2e2a2c026e0e98e3e328b250fef8a0a3172e4e9aa944626c301449530087f64"
+    },
+    {
+      "case_id": "h2-motion-transform",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "e034e4d782797bc7c970b5f148a1a71c59ff0410dd41bd0d224fe66fe977a49a",
+      "source_manifest_sha256": "79cda2b3a6c4a8da51705607b056620ea181698df43876572e800d1f7d41f6e6"
+    },
+    {
+      "case_id": "h2-motion-path_follow",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "c3761606d3217dfcb5638635aab030d305b8709c331da2ae410cdda84921a5b7",
+      "source_manifest_sha256": "0cd34486772687a9e8f9c4ca7cf94edf3e07aa76f25e20f63af6bad4bc34400e"
+    },
+    {
+      "case_id": "h2-map-web_mercator",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "0f46cfe59f2efecc02e0d6e72f4054ce7990bfa3288e5f82da4fc3f7763ecde4",
+      "source_manifest_sha256": "fa967f5fc8011d6e96ba17a3366e122cd5ad6d35375ffebd7053b3e377d49228"
+    },
+    {
+      "case_id": "h2-map-equirectangular",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "41ec809947cc075d97aa9e0917cf84a105ca3aba8f30918171902223754c6fe6",
+      "source_manifest_sha256": "8ff6bbb5b351e6d1d85cbfe2064ca8ef36b251c0862a4eab74f41912ae16e6ec"
+    },
+    {
+      "case_id": "h2-map-mixed",
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "baseline_sha256": "971c05fc06ece7c484f0038685c0c6c86588474379619c8b99d078effa8e753d",
+      "source_manifest_sha256": "90411b8658d183cfc4531154c3f94d377d36cd047bdac0d34f1f261482b6c6e3"
+    },
+    {
+      "case_id": "h2-unsupported-latex",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "EQUATION_LATEX_UNSUPPORTED"
+      ],
+      "baseline_sha256": "7ad0789b8a3e0d1510672cba2688628743cf63cc67fc906837de78e4114bac41",
+      "source_manifest_sha256": "2dcf9889de402b411806c2abff94625496adc95ef4b9d4cc7cfa053016fd715b"
+    },
+    {
+      "case_id": "h2-unsafe-mathml",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "EQUATION_MATHML_UNSAFE"
+      ],
+      "baseline_sha256": "ce0652d63093b2c28a0c8fbe3831de41546b6533beddd36b414395c6e15f6c01",
+      "source_manifest_sha256": "b2dd82e041268fd4775ba40e063103a60b8ac7c6bd38660f7d289fe8bee72895"
+    },
+    {
+      "case_id": "h2-sim-units",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_UNITS_MISMATCH"
+      ],
+      "baseline_sha256": "5f989bba41c4002ec3ee62ce0d92214fc43298d4dbf5dae603342d5db3c11864",
+      "source_manifest_sha256": "6377a7631656c6cfd2642224a73730ae39f68feef09bc2cc988282431c70cfd7"
+    },
+    {
+      "case_id": "h2-sim-observation",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_OBSERVATION_NOT_VERIFIED"
+      ],
+      "baseline_sha256": "e9585f0dfd36d5d70db7929ef3999682e03c74948edc30b4fdd8a7f9c6200d00",
+      "source_manifest_sha256": "80388ff0bb50f9b82f9d01c865a47e70e4d58065cfcebe6128661921a94fb003"
+    },
+    {
+      "case_id": "h2-sim-clips",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_VIEW_CLIPS_MODEL"
+      ],
+      "baseline_sha256": "8aaf1af37458a0bbf3da4860ace91034e438926b44227414d7b7d8417917f329",
+      "source_manifest_sha256": "6a3edaca6c9d785cc87c72ba83280a86660f7a579a15961e40c58b3236c3a094"
+    },
+    {
+      "case_id": "h2-sim-alias",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_FRAME_ALIASING"
+      ],
+      "baseline_sha256": "dec282154ceced179df71cad61740e389c486a34b5e3b7c242bacf81908565af",
+      "source_manifest_sha256": "b17f7fb0b02ce1c66ee895a6a18002f7336c778c3c5b0b5d496e2a1043afa3e7"
+    },
+    {
+      "case_id": "h2-sim-end-truncated",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_FINAL_STATE_NOT_VISIBLE"
+      ],
+      "baseline_sha256": "66595d2177423a89387d3d35d85e026a0b308c9f3d5e00995e19979ef4ad601f",
+      "source_manifest_sha256": "d1f7671fd58ef50e8ec87b94440dce8abfa91b5cee932d237f7ccfebfc37a944"
+    },
+    {
+      "case_id": "h2-motion-unimplemented",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "ANIMATION_ACTION_UNSUPPORTED"
+      ],
+      "baseline_sha256": "b3516148179c2a07cfab4234021552bac2ef85416d16e0a995e712c4caf1c5e2",
+      "source_manifest_sha256": "e0664edf2bd622b992f77577b80c447b863d4547ae9414d0701f7b8068f6c337"
+    },
+    {
+      "case_id": "h2-motion-conflict",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "ANIMATION_PROPERTY_OWNERSHIP_CONFLICT"
+      ],
+      "baseline_sha256": "e6fee65174fb0d4b5325e260888c4409de9293331df38b1aea435de26f316c57",
+      "source_manifest_sha256": "9cce76470526ebe091eaca255bc38b25d36d6e31545f75c601e6a0e3cd708e20"
+    },
+    {
+      "case_id": "h2-motion-one-sample",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "ANIMATION_FRAME_RANGE_COLLAPSES"
+      ],
+      "baseline_sha256": "88d91fd08a31d1309491c756860c533080aa2910aa0ebda5c3721f4f9f70241c",
+      "source_manifest_sha256": "3f9e70483afff53b33165ec69e6bd288c1b96b039e3d7bdc812fee4a5b07f12c"
+    },
+    {
+      "case_id": "h2-map-polar",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_MERCATOR_LATITUDE_LIMIT"
+      ],
+      "baseline_sha256": "1f6b7518ba447decb6e7e05b567df333e6df38b28db947a59d69e7652cdc74d0",
+      "source_manifest_sha256": "11466971ac08562188300110b73cbf1f92c0fcf7e9fb62a39b3a3c075f4c0da5"
+    },
+    {
+      "case_id": "h2-map-dateline",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_ANTIMERIDIAN_UNSUPPORTED"
+      ],
+      "baseline_sha256": "a8d008b5c6156a0b46d2fe1f751e0da956ab7c84b7ae15daaadd76f86bb11114",
+      "source_manifest_sha256": "5c324382ab9b352ec933f94859785efaa8cc22d6c46efac8c2dfba4e4b03faf2"
+    },
+    {
+      "case_id": "h2-map-external-layer",
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_LAYER_UNSUPPORTED"
+      ],
+      "baseline_sha256": "5a4564e1fd68318840c657799dc465deadd2a60d2cfc9af4678cfa64d8b30147",
+      "source_manifest_sha256": "6720e0e87c1f118ac09fa2ff2e0e3943898c1b6e0501aea479b7d1a2189a7474"
+    }
+  ],
+  "accepted": false
+}

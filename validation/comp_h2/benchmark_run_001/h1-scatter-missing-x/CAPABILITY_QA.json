@@ -1,0 +1,20 @@
+{
+  "acceptance_scope": "SOURCE_CONTRACT_ONLY",
+  "accepted": false,
+  "findings": [
+    {
+      "code": "COLLECTION_SHAPE_INVALID",
+      "message": "COLLECTION_SHAPE_INVALID: x_values must contain 1..2000 entries",
+      "owner": "COMP",
+      "path": "$.elements[e0]",
+      "severity": "ERROR"
+    }
+  ],
+  "profile": "web",
+  "scene_fingerprint": "b446358d08879cdffaa8391d07f83d1b38c71d5fc5f9d6d4e14c9622ac5cda6b",
+  "scene_id": "scene:h1-scatter-missing-x",
+  "source_contract_passed": false,
+  "supported_requests": [],
+  "verified_fallback_ids": [],
+  "visual_semantic_validation": "NOT_RUN"
+}

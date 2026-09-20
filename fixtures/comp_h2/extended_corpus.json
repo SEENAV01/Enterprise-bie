@@ -1,0 +1,5038 @@
+{
+  "accepted": false,
+  "cases": [
+    {
+      "case_id": "math-plain",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic equation compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "equation",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "expression": "x + 1 = 2",
+              "format": "plain"
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:math-plain:e0"
+            ],
+            "source_refs": [
+              "fixture:math-plain:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "5cb9806d518d68fdc4482ff36a373b58699eb0f705bda21f919c1e732d00c7bf",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "math-plain",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:math-plain"
+        ],
+        "review_required": true,
+        "scene_id": "math-plain",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:math-plain"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "mathematics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "physics-vector",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "vector",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "components": [
+                1,
+                2
+              ],
+              "label": "Synthetic vector"
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:physics-vector:e0"
+            ],
+            "source_refs": [
+              "fixture:physics-vector:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "63f2f981ea6d71264a632be39d59b44573cdebdb9ca175fe8e5491f0c1e2960e",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "physics-vector",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:physics-vector"
+        ],
+        "review_required": true,
+        "scene_id": "physics-vector",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:physics-vector"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "physics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "chemistry-connectivity",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic model2d compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "model2d",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  0.2,
+                  0.2
+                ],
+                [
+                  0.8,
+                  0.2
+                ],
+                [
+                  0.5,
+                  0.8
+                ]
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:chemistry-connectivity:e0"
+            ],
+            "source_refs": [
+              "fixture:chemistry-connectivity:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "3c542411b4546c1d4de333f29d2d8d8c70ad335a765ad6f91b84c1bb9244ddec",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "chemistry-connectivity",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:chemistry-connectivity"
+        ],
+        "review_required": true,
+        "scene_id": "chemistry-connectivity",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:chemistry-connectivity"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "chemistry",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "biology-structure",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic model2d compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "model2d",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ]
+              ],
+              "vertices": [
+                [
+                  0.2,
+                  0.3
+                ],
+                [
+                  0.7,
+                  0.3
+                ],
+                [
+                  0.5,
+                  0.7
+                ]
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:biology-structure:e0"
+            ],
+            "source_refs": [
+              "fixture:biology-structure:e0"
+            ]
+          },
+          {
+            "accessibility": {
+              "alt": "Synthetic text compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e1",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.5
+            },
+            "props": {
+              "text": "Synthetic structure labels — not a validated biology lesson."
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:biology-structure:e1"
+            ],
+            "source_refs": [
+              "fixture:biology-structure:e1"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "8bf2d6ee7d51ac4afc9692a788b40de50132e547cd8dd3db59d96797fed1126f",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "biology-structure",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:biology-structure"
+        ],
+        "review_required": true,
+        "scene_id": "biology-structure",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:biology-structure"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "biology",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "statistics-counts",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic chart compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "chart",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "categories": [
+                "A",
+                "B",
+                "C"
+              ],
+              "chart_kind": "bar",
+              "values": [
+                2,
+                4,
+                3
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:statistics-counts:e0"
+            ],
+            "source_refs": [
+              "fixture:statistics-counts:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "0c611d61daa2b50694f5575e05b0056e184c0ceb48ef8b0b75fcb85e63826e5e",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "statistics-counts",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:statistics-counts"
+        ],
+        "review_required": true,
+        "scene_id": "statistics-counts",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:statistics-counts"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "statistics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "economics-series",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic graph compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "graph",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "series": [
+                {
+                  "points": [
+                    [
+                      0,
+                      0.1
+                    ],
+                    [
+                      0.5,
+                      0.3
+                    ],
+                    [
+                      1,
+                      0.8
+                    ]
+                  ]
+                }
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:economics-series:e0"
+            ],
+            "source_refs": [
+              "fixture:economics-series:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "131133efececf7859efbdb8434d966f67cc33df652d3ae6f1666aa22119b45fd",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "economics-series",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:economics-series"
+        ],
+        "review_required": true,
+        "scene_id": "economics-series",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:economics-series"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "economics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "accountancy-totals",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic chart compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "chart",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "categories": [
+                "Toy debit",
+                "Toy credit"
+              ],
+              "chart_kind": "bar",
+              "values": [
+                5,
+                5
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:accountancy-totals:e0"
+            ],
+            "source_refs": [
+              "fixture:accountancy-totals:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "0890e614818e87b62a0e993bab57e6fb6ea60dc84a9260085c466fb99a416882",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "accountancy-totals",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:accountancy-totals"
+        ],
+        "review_required": true,
+        "scene_id": "accountancy-totals",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:accountancy-totals"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "accountancy",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "history-sequence",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic timeline compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "timeline",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "events": [
+                {
+                  "event_id": "a",
+                  "label": "Synthetic event A"
+                },
+                {
+                  "event_id": "b",
+                  "label": "Synthetic event B"
+                }
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:history-sequence:e0"
+            ],
+            "source_refs": [
+              "fixture:history-sequence:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "9550a0b75eca9223a15bc61b43b6cdb303c3da39e0678ae3d9175875968911bc",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "history-sequence",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:history-sequence"
+        ],
+        "review_required": true,
+        "scene_id": "history-sequence",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:history-sequence"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "history",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "geography-route",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic map compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "map",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "crs": "BIE:NORMALIZED",
+              "layers": [
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      0.1,
+                      0.2
+                    ],
+                    [
+                      0.5,
+                      0.6
+                    ],
+                    [
+                      0.9,
+                      0.8
+                    ]
+                  ]
+                }
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:geography-route:e0"
+            ],
+            "source_refs": [
+              "fixture:geography-route:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "6d806c87bcaa34275b2aee1a74661b7314e26aaca5b5034ea37bbc4a2fb58040",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "geography-route",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:geography-route"
+        ],
+        "review_required": true,
+        "scene_id": "geography-route",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:geography-route"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "geography",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "engineering-labels",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic text compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "text": "तकनीकी परीक्षण • engineering fixture"
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:engineering-labels:e0"
+            ],
+            "source_refs": [
+              "fixture:engineering-labels:e0"
+            ]
+          },
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e1",
+            "element_type": "vector",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.5
+            },
+            "props": {
+              "components": [
+                2,
+                1
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:engineering-labels:e1"
+            ],
+            "source_refs": [
+              "fixture:engineering-labels:e1"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "f34137a46f81bcfc00f42ad013b348b5ebb24901f9b35732016c0d065f829b20",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "engineering-labels",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:engineering-labels"
+        ],
+        "review_required": true,
+        "scene_id": "engineering-labels",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:engineering-labels"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "engineering",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-chart-kind",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic chart compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "chart",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "categories": [
+                "A",
+                "B"
+              ],
+              "chart_kind": "line",
+              "values": [
+                1,
+                2
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-chart-kind:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-chart-kind:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "1923e2516d14031a9269e0d64e4bc1e64a1e7ae5a8e064831d7228a66db08bf0",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-chart-kind",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-chart-kind"
+        ],
+        "review_required": true,
+        "scene_id": "reject-chart-kind",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-chart-kind"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "statistics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-chart-sign",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic chart compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "chart",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "categories": [
+                "A",
+                "B"
+              ],
+              "chart_kind": "bar",
+              "values": [
+                -2,
+                3
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-chart-sign:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-chart-sign:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "794fae104f3dcc5e3fe0cda0b735470af5503cf870e0cc200f0f25860e76ac38",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-chart-sign",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-chart-sign"
+        ],
+        "review_required": true,
+        "scene_id": "reject-chart-sign",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-chart-sign"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "accountancy",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-vector-z",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "vector",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "components": [
+                1,
+                2,
+                3
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-vector-z:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-vector-z:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "67fbe565d89c341ca3da3fbd826a2e9ec057d6a7feb073689ff9f7cab70b4fff",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-vector-z",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-vector-z"
+        ],
+        "review_required": true,
+        "scene_id": "reject-vector-z",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-vector-z"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "physics",
+      "expected_error_codes": [
+        "VECTOR_PROJECTION_REQUIRED"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-untypeset-equation",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic equation compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "equation",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "expression": "\\frac{1}{2}",
+              "format": "latex"
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-untypeset-equation:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-untypeset-equation:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "4d0840d726bd9ff1acc5cd579086280b34214143d86837fda243a427d6c196d0",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-untypeset-equation",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-untypeset-equation"
+        ],
+        "review_required": true,
+        "scene_id": "reject-untypeset-equation",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-untypeset-equation"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "mathematics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-jsx-braces",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic text compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "text": "{Math.random()}"
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-jsx-braces:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-jsx-braces:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "c7d4867a6e5f16d572cb8679ee119c769a78e671391cff6b592ad4a16a313553",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-jsx-braces",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-jsx-braces"
+        ],
+        "review_required": true,
+        "scene_id": "reject-jsx-braces",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-jsx-braces"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "engineering",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-state-only-simulation",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "element_id": "e0",
+            "element_type": "simulation",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "execution_class": "conceptual",
+              "initial_state": {
+                "x": 0
+              },
+              "model_ref": "fixture:toy-model"
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-state-only-simulation:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-state-only-simulation:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "4a9c4ddfa587a2802e8c3f7bd9fc13063590c793effd67b7e1f2eb53fad17194",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-state-only-simulation",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-state-only-simulation"
+        ],
+        "review_required": true,
+        "scene_id": "reject-state-only-simulation",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-state-only-simulation"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "physics",
+      "expected_error_codes": [
+        "SIMULATION_MODEL_UNSUPPORTED"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-metadata-animation",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic text compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "text",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "text": "Static text does not become animation merely through a progress attribute."
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-metadata-animation:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-metadata-animation:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "06132242c749200f4539d02707a37317efd59a6dd25a7112b9c8c05d78e7c76d",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-metadata-animation",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-metadata-animation"
+        ],
+        "review_required": true,
+        "scene_id": "reject-metadata-animation",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-metadata-animation"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [
+          {
+            "action": "reveal",
+            "element_id": "e0",
+            "end_ms": 1000,
+            "parameters": {},
+            "reasoning_refs": [
+              "fixture:track-reasoning"
+            ],
+            "source_refs": [
+              "fixture:track-source"
+            ],
+            "start_ms": 0,
+            "track_id": "t0"
+          }
+        ],
+        "upstream_revision": 1
+      },
+      "domain": "biology",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-geographic-crs",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic map compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "map",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "points": [
+                    [
+                      0.1,
+                      0.2
+                    ],
+                    [
+                      0.3,
+                      0.4
+                    ]
+                  ]
+                }
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-geographic-crs:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-geographic-crs:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "d4e4f6de1ce0c2b7080724e5c5bc6040f0b38113344a73b615da107628148a86",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-geographic-crs",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-geographic-crs"
+        ],
+        "review_required": true,
+        "scene_id": "reject-geographic-crs",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-geographic-crs"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "geography",
+      "expected_error_codes": [
+        "MAP_PROJECTION_REQUIRED"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "reject-model-edge",
+      "document": {
+        "accepted": false,
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "compiler_capabilities": [],
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "accessibility": {
+              "alt": "Synthetic model2d compiler fixture",
+              "color_independent_encoding": true
+            },
+            "element_id": "e0",
+            "element_type": "model2d",
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            },
+            "props": {
+              "edges": [
+                [
+                  0,
+                  5
+                ]
+              ],
+              "vertices": [
+                [
+                  0.1,
+                  0.1
+                ],
+                [
+                  0.2,
+                  0.2
+                ]
+              ]
+            },
+            "reasoning_refs": [
+              "fixture-reasoning:reject-model-edge:e0"
+            ],
+            "source_refs": [
+              "fixture:reject-model-edge:e0"
+            ]
+          }
+        ],
+        "events": [],
+        "fingerprint": "e81bcc51bcbb8f268a5405d7361dc3af465f8d3399406d68e8a27ad9d4c7199d",
+        "interaction_bindings": [],
+        "interaction_cues": [],
+        "layout": {},
+        "metadata": {
+          "fixture_id": "reject-model-edge",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "narration_cues": [],
+        "planned_fallbacks": [],
+        "reasoning_refs": [
+          "fixture-reasoning:reject-model-edge"
+        ],
+        "review_required": true,
+        "scene_id": "reject-model-edge",
+        "schema_version": "1.0.0",
+        "simulation_controls": [],
+        "source_refs": [
+          "fixture:reject-model-edge"
+        ],
+        "state_bindings": [],
+        "title": "Synthetic technical compiler case",
+        "tracks": [],
+        "upstream_revision": 1
+      },
+      "domain": "chemistry",
+      "expected_error_codes": [
+        "MODEL2D_EDGE_INDEX_INVALID"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-area-signed",
+      "document": {
+        "scene_id": "scene:h1-area-signed",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "A",
+                "B",
+                "C"
+              ],
+              "chart_kind": "area",
+              "values": [
+                -3,
+                1,
+                4
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-area-signed"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-area-signed"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-area-signed",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-area-signed"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-area-signed"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-area-signed",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "1e8eb01d798dd2c7cbd44ec5db9a63e27245dae008916edad02e5986c10d37a9"
+      },
+      "domain": "statistics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-pie-native",
+      "document": {
+        "scene_id": "scene:h1-pie-native",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "A",
+                "B",
+                "C"
+              ],
+              "chart_kind": "pie",
+              "values": [
+                2,
+                3,
+                0
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-pie-native"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-pie-native"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-pie-native",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-pie-native"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-pie-native"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-pie-native",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "cdae3edb9c6ae17c0d411c1b44c16e735ae7e300814524fd155bbe86d9e30c79"
+      },
+      "domain": "accountancy",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-scatter-spacing",
+      "document": {
+        "scene_id": "scene:h1-scatter-spacing",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "P",
+                "Q",
+                "R"
+              ],
+              "chart_kind": "scatter",
+              "values": [
+                -1,
+                3,
+                0
+              ],
+              "x_values": [
+                0,
+                2,
+                10
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-scatter-spacing"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-scatter-spacing"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-scatter-spacing",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-scatter-spacing"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-scatter-spacing"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-scatter-spacing",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "95dd38d7f10819a295fa7fd9dadbcb4027d6d6b64696244f3ec18bfe009ef3b3"
+      },
+      "domain": "physics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-vector-xz",
+      "document": {
+        "scene_id": "scene:h1-vector-xz",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "vector",
+            "props": {
+              "components": [
+                1,
+                2,
+                3
+              ],
+              "projection": {
+                "kind": "orthographic_matrix",
+                "label": "XZ orthographic view",
+                "matrix": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "units": "m/s"
+            },
+            "source_refs": [
+              "fixture:h1-vector-xz"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-vector-xz"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-vector-xz",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-vector-xz"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-vector-xz"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-vector-xz",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "a75831ea75f50764f9206e43f0e3543737136a35e37e7815b9b68a7f59de99a3"
+      },
+      "domain": "physics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-vector-zero",
+      "document": {
+        "scene_id": "scene:h1-vector-zero",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "vector",
+            "props": {
+              "components": [
+                0,
+                0
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-vector-zero"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-vector-zero"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-vector-zero",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-vector-zero"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-vector-zero"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-vector-zero",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "25a8a53713f962ffe977deb41d027f2e1f3f2a80ebb91ecda0ee1fbf5fcc18ea"
+      },
+      "domain": "mathematics",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-isolated-vertices",
+      "document": {
+        "scene_id": "scene:h1-isolated-vertices",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "model2d",
+            "props": {
+              "edges": [],
+              "vertices": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-isolated-vertices"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-isolated-vertices"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-isolated-vertices",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-isolated-vertices"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-isolated-vertices"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-isolated-vertices",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "39601c0bba3bfaab2567bff5173f4acea92f1e6530a00791f250454bef5d26d2"
+      },
+      "domain": "chemistry",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-code-as-text",
+      "document": {
+        "scene_id": "scene:h1-code-as-text",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "{Math.random()} eval(1); process.env; document.write()"
+            },
+            "source_refs": [
+              "fixture:h1-code-as-text"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-code-as-text"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-code-as-text",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-code-as-text"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-code-as-text"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-code-as-text",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "f8310e512e95f2cfab8608c1eb1bd8f1a349a30a814bf843a8f49d764e6d27dd"
+      },
+      "domain": "engineering",
+      "expected_error_codes": [],
+      "expected_source_passed": true,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-negative-pie",
+      "document": {
+        "scene_id": "scene:h1-negative-pie",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "A",
+                "B"
+              ],
+              "chart_kind": "pie",
+              "values": [
+                -1,
+                3
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-negative-pie"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-negative-pie"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-negative-pie",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-negative-pie"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-negative-pie"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-negative-pie",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "ec16b7e9f18d76d5a7a6d62c7db70b777945b7f8cf802c42b2eedd19876f8391"
+      },
+      "domain": "accountancy",
+      "expected_error_codes": [
+        "PIE_NEGATIVE_VALUE_UNSUPPORTED"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-zero-total-pie",
+      "document": {
+        "scene_id": "scene:h1-zero-total-pie",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "A",
+                "B"
+              ],
+              "chart_kind": "pie",
+              "values": [
+                0,
+                0
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-zero-total-pie"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-zero-total-pie"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-zero-total-pie",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-zero-total-pie"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-zero-total-pie"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-zero-total-pie",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "0ab01f7ba9853724b73677d4d3d8bc6ac0a4321c12b1d1bfecf09b309501e28d"
+      },
+      "domain": "statistics",
+      "expected_error_codes": [
+        "PIE_ZERO_TOTAL"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-model-duplicate-edge",
+      "document": {
+        "scene_id": "scene:h1-model-duplicate-edge",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "model2d",
+            "props": {
+              "edges": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-model-duplicate-edge"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-model-duplicate-edge"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-model-duplicate-edge",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-model-duplicate-edge"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-model-duplicate-edge"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-model-duplicate-edge",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "f74cff99849ecb0bdede7b138708581c16d6a7edaa53653d48ce80d32dc01766"
+      },
+      "domain": "chemistry",
+      "expected_error_codes": [
+        "MODEL2D_DUPLICATE_EDGE"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-model-self-loop",
+      "document": {
+        "scene_id": "scene:h1-model-self-loop",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "model2d",
+            "props": {
+              "edges": [
+                [
+                  0,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-model-self-loop"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-model-self-loop"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-model-self-loop",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-model-self-loop"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-model-self-loop"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-model-self-loop",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "3718a46b2353ad73da5c38708049f7e376a3229072c29e1c77cf37fb32e533cd"
+      },
+      "domain": "biology",
+      "expected_error_codes": [
+        "MODEL2D_SELF_LOOP_UNSUPPORTED"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-vector-hidden-view",
+      "document": {
+        "scene_id": "scene:h1-vector-hidden-view",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "vector",
+            "props": {
+              "components": [
+                0,
+                1,
+                0
+              ],
+              "projection": {
+                "kind": "orthographic_matrix",
+                "label": "XZ view",
+                "matrix": [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              }
+            },
+            "source_refs": [
+              "fixture:h1-vector-hidden-view"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-vector-hidden-view"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-vector-hidden-view",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-vector-hidden-view"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-vector-hidden-view"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-vector-hidden-view",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "d80c58af6342a27cbf8b5b46002b8948a042135fdebb32c15b4b72eb1143df63"
+      },
+      "domain": "physics",
+      "expected_error_codes": [
+        "VECTOR_VIEW_DEGENERATE"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-chart-dense",
+      "document": {
+        "scene_id": "scene:h1-chart-dense",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "C0",
+                "C1",
+                "C2",
+                "C3",
+                "C4",
+                "C5",
+                "C6",
+                "C7",
+                "C8",
+                "C9",
+                "C10",
+                "C11",
+                "C12"
+              ],
+              "chart_kind": "bar",
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-chart-dense"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-chart-dense"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-chart-dense",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-chart-dense"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-chart-dense"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-chart-dense",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "d05d12160949e33a24f830f127d3330a5aa38dbd91c8640ccd5329649fd3da45"
+      },
+      "domain": "statistics",
+      "expected_error_codes": [
+        "UNREVIEWED_COMPILER_WARNING"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h1-scatter-missing-x",
+      "document": {
+        "scene_id": "scene:h1-scatter-missing-x",
+        "schema_version": "1.0.0",
+        "title": "Synthetic technical compiler case",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "chart",
+            "props": {
+              "categories": [
+                "A",
+                "B"
+              ],
+              "chart_kind": "scatter",
+              "values": [
+                1,
+                2
+              ]
+            },
+            "source_refs": [
+              "fixture:h1-scatter-missing-x"
+            ],
+            "reasoning_refs": [
+              "reasoning:h1-scatter-missing-x"
+            ],
+            "accessibility": {
+              "alt": "Synthetic technical fixture h1-scatter-missing-x",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.4,
+              "width": 0.9,
+              "x": 0.05,
+              "y": 0.05
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h1-scatter-missing-x"
+        ],
+        "reasoning_refs": [
+          "reasoning:h1-scatter-missing-x"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h1-scatter-missing-x",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "b446358d08879cdffaa8391d07f83d1b38c71d5fc5f9d6d4e14c9622ac5cda6b"
+      },
+      "domain": "statistics",
+      "expected_error_codes": [
+        "COLLECTION_SHAPE_INVALID"
+      ],
+      "expected_source_passed": false,
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 500000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-latex-radical",
+      "domain": "mathematics",
+      "document": {
+        "scene_id": "h2-latex-radical",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "equation",
+            "props": {
+              "expression": "\\frac{x^2}{\\sqrt{y}}",
+              "format": "latex"
+            },
+            "source_refs": [
+              "fixture:h2-latex-radical:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-latex-radical:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-latex-radical"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-latex-radical"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-latex-radical",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "5221b769d84573d8eddd42de8ee17956abe50e1e51e883d6be18f252f2a8b11d"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-native-mathml",
+      "domain": "mathematics",
+      "document": {
+        "scene_id": "h2-native-mathml",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "equation",
+            "props": {
+              "expression": "<math><mfrac><msup><mi>x</mi><mn>2</mn></msup><msqrt><mi>y</mi></msqrt></mfrac></math>",
+              "format": "mathml"
+            },
+            "source_refs": [
+              "fixture:h2-native-mathml:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-native-mathml:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-native-mathml"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-native-mathml"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-native-mathml",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "7aed8c014ed34acb7d8191091a5288a931306208c2748865c589f34c93a85967"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-acceleration",
+      "domain": "physics",
+      "document": {
+        "scene_id": "h2-sim-acceleration",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "vx": 2,
+                "vy": 4,
+                "x": 0,
+                "y": 0
+              },
+              "model_ref": "bie.sim.constant-acceleration-2d@1",
+              "parameters": {
+                "ax": 0,
+                "ay": -2
+              },
+              "start_ms": 0,
+              "title": "Synthetic acceleration model",
+              "units": {
+                "ax": "m/s^2",
+                "ay": "m/s^2",
+                "t": "s",
+                "vx": "m/s",
+                "vy": "m/s",
+                "x": "m",
+                "y": "m"
+              },
+              "view": {
+                "x_max": 5,
+                "x_min": -1,
+                "y_max": 5,
+                "y_min": -1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-acceleration:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-acceleration:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-acceleration"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-acceleration"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-acceleration",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "62021f92c3ce1ddaa2961f957cc0afac4c567f0a06a473b6dbfa6ca94baefff5"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-oscillator",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-sim-oscillator",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "v": 0,
+                "x": 1
+              },
+              "model_ref": "bie.sim.harmonic-oscillator-1d@1",
+              "parameters": {
+                "omega": 3.141592653589793
+              },
+              "start_ms": 0,
+              "title": "Synthetic oscillator model",
+              "units": {
+                "omega": "rad/s",
+                "t": "s",
+                "v": "m/s",
+                "x": "m"
+              },
+              "view": {
+                "x_max": 2,
+                "x_min": 0,
+                "y_max": 1.1,
+                "y_min": -1.1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-oscillator:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-oscillator:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-oscillator"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-oscillator"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-oscillator",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "5968f53aada44bb3547f6e61a296023be58106389a6e4a1852110dc285f36c2f"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-decay",
+      "domain": "chemistry",
+      "document": {
+        "scene_id": "h2-sim-decay",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "n": 10
+              },
+              "model_ref": "bie.sim.exponential-decay@1",
+              "parameters": {
+                "rate": 0.5
+              },
+              "start_ms": 0,
+              "title": "Synthetic decay model",
+              "units": {
+                "n": "1",
+                "rate": "1/s",
+                "t": "s"
+              },
+              "view": {
+                "x_max": 2,
+                "x_min": 0,
+                "y_max": 11,
+                "y_min": 0
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-decay:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-decay:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-decay"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-decay"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-decay",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "c9c923d37c3d98925aed7ad0b490f1174d1c3845ac8f62bb3b11120f2a47f1ac"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-enter",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-enter",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Synthetic enter behavior"
+            },
+            "source_refs": [
+              "fixture:h2-motion-enter:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-enter:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "enter",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-enter"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-enter"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-enter",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "e74cbd79ffea63d7b53adeab60e6e56d55b5f2a74bb76428e2c034ea3c61e7ba"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-exit",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-exit",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Synthetic exit behavior"
+            },
+            "source_refs": [
+              "fixture:h2-motion-exit:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-exit:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "exit",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-exit"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-exit"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-exit",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "25660e064cdc85dae12b41ccaeb1874ac8839cdadf4361ddd9a648d8d66fb19f"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-emphasize",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-emphasize",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Synthetic emphasize behavior"
+            },
+            "source_refs": [
+              "fixture:h2-motion-emphasize:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-emphasize:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "emphasize",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-emphasize"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-emphasize"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-emphasize",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "91e644351f8395b7d8199cb83cbdd54fe58a674da8b2789306fa4bdabd1186ad"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-transform",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-transform",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Synthetic transform behavior"
+            },
+            "source_refs": [
+              "fixture:h2-motion-transform:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-transform:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "transform",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {
+              "from": {
+                "rotate": 0,
+                "translate_x": 0
+              },
+              "to": {
+                "rotate": 30,
+                "translate_x": 100
+              }
+            },
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-transform"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-transform"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-transform",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "84f1755c73b486a914edff96991de271a74bc5860c6662fff1792e3a38a2b6a9"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-path_follow",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-path_follow",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Synthetic path_follow behavior"
+            },
+            "source_refs": [
+              "fixture:h2-motion-path_follow:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-path_follow:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "path_follow",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {
+              "coordinate_space": "pixels",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  20,
+                  0
+                ],
+                [
+                  20,
+                  80
+                ]
+              ]
+            },
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-path_follow"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-path_follow"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-path_follow",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "dc3fd183d4cb6f83f4eebd7de7f323f84bf332b9f9dde70da4e6f88d3e81b07e"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-map-web_mercator",
+      "domain": "geography",
+      "document": {
+        "scene_id": "h2-map-web_mercator",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "map",
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Synthetic route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "source_refs": [
+              "fixture:h2-map-web_mercator:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-map-web_mercator:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-map-web_mercator"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-web_mercator"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-map-web_mercator",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "3502803009cb934d360cbdbd9e4068bfe6524d8f87389cbc15441fe944ec2c99"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-map-equirectangular",
+      "domain": "geography",
+      "document": {
+        "scene_id": "h2-map-equirectangular",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "map",
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Synthetic route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ],
+                "kind": "equirectangular"
+              },
+              "title": "Projection technical fixture"
+            },
+            "source_refs": [
+              "fixture:h2-map-equirectangular:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-map-equirectangular:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-map-equirectangular"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-equirectangular"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-map-equirectangular",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "fa41b2de9dd4d6febd8c5b9f7f08c0f29e35ebba31ce767752da97da9b426e1b"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-map-mixed",
+      "domain": "geography",
+      "document": {
+        "scene_id": "h2-map-mixed",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "map",
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Synthetic route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                },
+                {
+                  "kind": "point",
+                  "label": "Synthetic point",
+                  "points": [
+                    [
+                      0,
+                      40
+                    ]
+                  ]
+                },
+                {
+                  "kind": "polygon",
+                  "label": "Synthetic area",
+                  "points": [
+                    [
+                      -5,
+                      30
+                    ],
+                    [
+                      5,
+                      30
+                    ],
+                    [
+                      0,
+                      50
+                    ],
+                    [
+                      -5,
+                      30
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "source_refs": [
+              "fixture:h2-map-mixed:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-map-mixed:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-map-mixed"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-mixed"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-map-mixed",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "61dbba9481e409dd59e2ee1a2192a8c1c6507b75d3411df0b24038928e05a2ed"
+      },
+      "expected_source_passed": true,
+      "expected_error_codes": [],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-unsupported-latex",
+      "domain": "mathematics",
+      "document": {
+        "scene_id": "h2-unsupported-latex",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "equation",
+            "props": {
+              "expression": "\\notKnown{x}",
+              "format": "latex"
+            },
+            "source_refs": [
+              "fixture:h2-unsupported-latex:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-unsupported-latex:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-unsupported-latex"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-unsupported-latex"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-unsupported-latex",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "56c9b458f97ab03fba005834ca6ce4fa702f50117672cb0e765a6a2ce7c5e3a3"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "EQUATION_LATEX_UNSUPPORTED"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-unsafe-mathml",
+      "domain": "mathematics",
+      "document": {
+        "scene_id": "h2-unsafe-mathml",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "equation",
+            "props": {
+              "expression": "<math><script>x</script></math>",
+              "format": "mathml"
+            },
+            "source_refs": [
+              "fixture:h2-unsafe-mathml:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-unsafe-mathml:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-unsafe-mathml"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-unsafe-mathml"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-unsafe-mathml",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "d4b0a1c8d53bcf40d920b99d3d5cbe765dff42cf7b930b5941bf9388a7723d5d"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "EQUATION_MATHML_UNSAFE"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-units",
+      "domain": "physics",
+      "document": {
+        "scene_id": "h2-sim-units",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "vx": 2,
+                "vy": 4,
+                "x": 0,
+                "y": 0
+              },
+              "model_ref": "bie.sim.constant-acceleration-2d@1",
+              "parameters": {
+                "ax": 0,
+                "ay": -2
+              },
+              "start_ms": 0,
+              "title": "Synthetic acceleration model",
+              "units": {
+                "ax": "m/s^2",
+                "ay": "m/s^2",
+                "t": "s",
+                "vx": "m/s",
+                "vy": "m/s",
+                "x": "cm",
+                "y": "m"
+              },
+              "view": {
+                "x_max": 5,
+                "x_min": -1,
+                "y_max": 5,
+                "y_min": -1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-units:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-units:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-units"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-units"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-units",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "29bd3d3ea4015b349cd61d471b7389c1eb59578bb19f8bfec98b4c22013c4f7d"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_UNITS_MISMATCH"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-observation",
+      "domain": "physics",
+      "document": {
+        "scene_id": "h2-sim-observation",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "vx": 2,
+                "vy": 4,
+                "x": 0,
+                "y": 0
+              },
+              "model_ref": "bie.sim.constant-acceleration-2d@1",
+              "parameters": {
+                "ax": 0,
+                "ay": -2
+              },
+              "receipt_ref": "forged:observed",
+              "start_ms": 0,
+              "title": "Synthetic acceleration model",
+              "units": {
+                "ax": "m/s^2",
+                "ay": "m/s^2",
+                "t": "s",
+                "vx": "m/s",
+                "vy": "m/s",
+                "x": "m",
+                "y": "m"
+              },
+              "view": {
+                "x_max": 5,
+                "x_min": -1,
+                "y_max": 5,
+                "y_min": -1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-observation:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-observation:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-observation"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-observation"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-observation",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "79e603345cbf593c7a7c82c417b957031adcb12c4ec7fd3dc95b75ee67035f34"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_OBSERVATION_NOT_VERIFIED"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-clips",
+      "domain": "physics",
+      "document": {
+        "scene_id": "h2-sim-clips",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "vx": 2,
+                "vy": 4,
+                "x": 0,
+                "y": 0
+              },
+              "model_ref": "bie.sim.constant-acceleration-2d@1",
+              "parameters": {
+                "ax": 0,
+                "ay": -2
+              },
+              "start_ms": 0,
+              "title": "Synthetic acceleration model",
+              "units": {
+                "ax": "m/s^2",
+                "ay": "m/s^2",
+                "t": "s",
+                "vx": "m/s",
+                "vy": "m/s",
+                "x": "m",
+                "y": "m"
+              },
+              "view": {
+                "x_max": 5,
+                "x_min": -1,
+                "y_max": 1,
+                "y_min": -1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-clips:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-clips:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-clips"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-clips"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-clips",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "7dccca03b60abf0ee252876b84b3a6e3342abeb3637b14f4e3ce7b2e7630aaa3"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_VIEW_CLIPS_MODEL"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-alias",
+      "domain": "physics",
+      "document": {
+        "scene_id": "h2-sim-alias",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "v": 0,
+                "x": 1
+              },
+              "model_ref": "bie.sim.harmonic-oscillator-1d@1",
+              "parameters": {
+                "omega": 40
+              },
+              "start_ms": 0,
+              "title": "Synthetic oscillator model",
+              "units": {
+                "omega": "rad/s",
+                "t": "s",
+                "v": "m/s",
+                "x": "m"
+              },
+              "view": {
+                "x_max": 2,
+                "x_min": 0,
+                "y_max": 1.1,
+                "y_min": -1.1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-alias:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-alias:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-alias"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-alias"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-alias",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "116fca55fafd258da6cfbf4718f029e675f82599cad095773c4bbb27ea2bff37"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_FRAME_ALIASING"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-sim-end-truncated",
+      "domain": "physics",
+      "document": {
+        "scene_id": "h2-sim-end-truncated",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 2000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "simulation",
+            "props": {
+              "duration_ms": 2000,
+              "execution_class": "analytic_model",
+              "initial_state": {
+                "vx": 2,
+                "vy": 4,
+                "x": 0,
+                "y": 0
+              },
+              "model_ref": "bie.sim.constant-acceleration-2d@1",
+              "parameters": {
+                "ax": 0,
+                "ay": -2
+              },
+              "start_ms": 0,
+              "title": "Synthetic acceleration model",
+              "units": {
+                "ax": "m/s^2",
+                "ay": "m/s^2",
+                "t": "s",
+                "vx": "m/s",
+                "vy": "m/s",
+                "x": "m",
+                "y": "m"
+              },
+              "view": {
+                "x_max": 5,
+                "x_min": -1,
+                "y_max": 5,
+                "y_min": -1
+              }
+            },
+            "source_refs": [
+              "fixture:h2-sim-end-truncated:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-sim-end-truncated:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic simulation compiler fixture",
+              "color_independent_encoding": true,
+              "reduced_motion_variant": "fixture:static"
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-sim-end-truncated"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-sim-end-truncated"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-sim-end-truncated",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "3fd2df053792729803e0629487a976f8593f4b48fe3a197cefa4b20029678b36"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "SIMULATION_FINAL_STATE_NOT_VISIBLE"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-unimplemented",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-unimplemented",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Unsupported specialized morph must not become metadata."
+            },
+            "source_refs": [
+              "fixture:h2-motion-unimplemented:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-unimplemented:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "morph",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-unimplemented"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-unimplemented"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-unimplemented",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "6f45c36ab45083094a6a1316929c06dd8f27549c4fe5a836dc171c5d0b64618f"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "ANIMATION_ACTION_UNSUPPORTED"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-conflict",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-conflict",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "Conflicting persistent opacity owners."
+            },
+            "source_refs": [
+              "fixture:h2-motion-conflict:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-conflict:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "enter",
+            "start_ms": 0,
+            "end_ms": 1000,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          },
+          {
+            "track_id": "second",
+            "element_id": "e0",
+            "action": "enter",
+            "start_ms": 500,
+            "end_ms": 1500,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-conflict"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-conflict"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-conflict",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "c8eed24d0672744909b11d8c0f7b55c617fa92e23bae702452311271acd9b0a1"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "ANIMATION_PROPERTY_OWNERSHIP_CONFLICT"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-motion-one-sample",
+      "domain": "engineering",
+      "document": {
+        "scene_id": "h2-motion-one-sample",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "text",
+            "props": {
+              "text": "One sampled frame is not a transition."
+            },
+            "source_refs": [
+              "fixture:h2-motion-one-sample:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-motion-one-sample:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [
+          {
+            "track_id": "h2-track",
+            "element_id": "e0",
+            "action": "enter",
+            "start_ms": 0,
+            "end_ms": 40,
+            "parameters": {},
+            "source_refs": [
+              "fixture:h2"
+            ],
+            "reasoning_refs": [
+              "reasoning:h2"
+            ]
+          }
+        ],
+        "source_refs": [
+          "fixture:h2-motion-one-sample"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-motion-one-sample"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-motion-one-sample",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "c4a4c70bcd9950c195a6030de658d8b77bc98047d67d3731fd0b7f2faa97bf56"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "ANIMATION_FRAME_RANGE_COLLAPSES"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-map-polar",
+      "domain": "geography",
+      "document": {
+        "scene_id": "h2-map-polar",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "map",
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Synthetic route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  90
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "source_refs": [
+              "fixture:h2-map-polar:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-map-polar:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-map-polar"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-polar"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-map-polar",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "ba91349daaf280c25dd602a5887009eb3db8238b76718696363c628de7add231"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_MERCATOR_LATITUDE_LIMIT"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-map-dateline",
+      "domain": "geography",
+      "document": {
+        "scene_id": "h2-map-dateline",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "map",
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Synthetic route",
+                  "points": [
+                    [
+                      179,
+                      0
+                    ],
+                    [
+                      -179,
+                      0
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -180,
+                  -60,
+                  180,
+                  60
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "source_refs": [
+              "fixture:h2-map-dateline:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-map-dateline:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-map-dateline"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-dateline"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-map-dateline",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "81cc35700ecd255681076e701b1db306ab17c25d3ecd008ea86349e6c4328919"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_ANTIMERIDIAN_UNSUPPORTED"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    },
+    {
+      "case_id": "h2-map-external-layer",
+      "domain": "geography",
+      "document": {
+        "scene_id": "h2-map-external-layer",
+        "schema_version": "1.0.0",
+        "title": "Synthetic H2 technical compiler fixture",
+        "duration_ms": 3000,
+        "elements": [
+          {
+            "element_id": "e0",
+            "element_type": "map",
+            "props": {
+              "attribution": "Synthetic coordinates; no external map data.",
+              "crs": "EPSG:4326",
+              "layers": [
+                {
+                  "kind": "route",
+                  "label": "Synthetic route",
+                  "points": [
+                    [
+                      -8,
+                      25
+                    ],
+                    [
+                      0,
+                      40
+                    ],
+                    [
+                      8,
+                      55
+                    ]
+                  ]
+                },
+                {
+                  "kind": "raster",
+                  "points": [
+                    [
+                      0,
+                      40
+                    ]
+                  ]
+                }
+              ],
+              "projection": {
+                "axis_order": "lon_lat",
+                "extent": [
+                  -10,
+                  20,
+                  10,
+                  60
+                ],
+                "kind": "web_mercator"
+              },
+              "title": "Projection technical fixture"
+            },
+            "source_refs": [
+              "fixture:h2-map-external-layer:e0"
+            ],
+            "reasoning_refs": [
+              "fixture-reasoning:h2-map-external-layer:e0"
+            ],
+            "accessibility": {
+              "alt": "Synthetic vector compiler fixture",
+              "color_independent_encoding": true
+            },
+            "normalized_box": {
+              "height": 0.95,
+              "width": 0.95,
+              "x": 0.025,
+              "y": 0.025
+            }
+          }
+        ],
+        "tracks": [],
+        "source_refs": [
+          "fixture:h2-map-external-layer"
+        ],
+        "reasoning_refs": [
+          "fixture-reasoning:h2-map-external-layer"
+        ],
+        "layout": {},
+        "events": [],
+        "narration_cues": [],
+        "interaction_cues": [],
+        "interaction_bindings": [],
+        "state_bindings": [],
+        "simulation_controls": [],
+        "accessibility_metadata": [],
+        "capability_requests": [],
+        "planned_fallbacks": [],
+        "compiler_capabilities": [],
+        "metadata": {
+          "fixture_id": "h2-map-external-layer",
+          "not_textbook": true,
+          "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+        },
+        "upstream_revision": 1,
+        "review_required": true,
+        "accepted": false,
+        "fingerprint": "deccc38799f6d8d569c4655fe910f9c54fc6bfdf6cd78ea8b40d08bd93614fb6"
+      },
+      "expected_source_passed": false,
+      "expected_error_codes": [
+        "MAP_LAYER_UNSUPPORTED"
+      ],
+      "max_codegen_ms": 5000,
+      "max_source_bytes": 700000,
+      "source_kind": "SYNTHETIC_TECHNICAL_FIXTURE_NOT_TEXTBOOK"
+    }
+  ],
+  "schema_version": "bie.comp-qa-corpus.v1",
+  "governance": "COMP H1 versioned corpus. Original comp_qa_009 corpus/goldens remain immutable.",
+  "corpus_id": "bie-comp-h2-extended_corpus",
+  "compiler_version": "1.2.0-comp-h2"
+}

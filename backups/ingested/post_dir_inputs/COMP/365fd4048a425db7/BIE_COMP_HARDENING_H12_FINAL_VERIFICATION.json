@@ -1,0 +1,80 @@
+{
+  "schema_version": "bie.h12.release-verification.v1",
+  "checkpoint": "BIE-COMP-H12-001",
+  "parent_h11": {
+    "integrated_sha256": "7f56278f6c8c797e4a0641a18307859a922decfe695118f0a62dabc61455b1e7",
+    "fresh_full_regression_tests": 2428,
+    "fresh_full_regression_passed": 2428,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "release_verification_sha256": "f622ecbb6d956b157601b9e27a9a77ea9204da4eb2b1b3fc1b669ec6afef4d39"
+  },
+  "h12": {
+    "task_id": "BIE-COMP-H12-001",
+    "tests": 12,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "atomic_zip": "BIE_COMP_HARDENING_H12_001.zip",
+    "atomic_sha256": "b4c3b2e5e7ec1d8e8f53e154a60ccf2cdc7a36d81626eb5580cc90bd4b44b4a9",
+    "atomic_bytes": 620995,
+    "integrated_zip": "BIE_COMP_HARDENING_H12_INTEGRATED.zip",
+    "integrated_sha256": "96044db24b5d466dbc5e8c1136865dccece705c4d8ea71ce41b6c4265ce1c0d5",
+    "integrated_bytes": 15029949,
+    "workspace_files": 5494,
+    "workspace_checksum_entries": 5493,
+    "workspace_checksum_bad": [],
+    "workspace_sums_sha256": "21775cba1a0dc87435fd9ee2b0040f5deda1360c6b7ccc8bfc1cfb8fbdf255b3",
+    "atomic_restored_workspace_exact_match": true,
+    "final_tree_id": "4cc5fe8c4bdd47e6a4063a7d644dddf16e754123494f737d945cbe5d3fe6413f"
+  },
+  "reaudit": {
+    "full_section_reaudit_performed": true,
+    "original_registry_tasks": 55,
+    "original_sources_present": 55,
+    "original_task_tests_present": 55,
+    "fresh_original_family_tests": 529,
+    "fresh_original_family_passed": 529,
+    "registered_elements": 18,
+    "registered_actions": 16,
+    "missing_dispatch": [],
+    "remaining_material_comp_implementation_gaps": [],
+    "implementation_gap_found_and_closed": "COMP-FINAL-AUDIT-G01 -> BIE-COMP-H12-001"
+  },
+  "truth_boundary": {
+    "monolithic_h12_2440_test_run": "NO_PASS_CLAIM_OUTER_EXECUTION_TIMEOUT",
+    "full_generated_project_compiles_verified": 0,
+    "real_remotion_renders_verified": 0,
+    "runtime_verification_complete": false,
+    "blocked_runtime_gates": [
+      "operational_isolation",
+      "pinned_compile",
+      "actual_render"
+    ],
+    "product_accepted": false
+  },
+  "decision": {
+    "implementation_scope_complete": true,
+    "implementation_scope_exit_permitted": true,
+    "status": "IMPLEMENTATION_SCOPE_COMPLETE_RUNTIME_PRODUCT_ACCEPTANCE_PENDING",
+    "next_section": "AUDIO",
+    "next_original_task": "BIE-AUDIO-VO-001",
+    "reopen_policy": "Reopen COMP only for a reproduced compiler defect from later pinned execution/integration evidence."
+  },
+  "github_write": false,
+  "passed": true,
+  "accepted": false,
+  "master": {
+    "file": "BIE_COMP_HARDENING_H12_MASTER_BACKUP.zip",
+    "sha256": "b886837bab63a8215ae261221f79460f2703e47ab3d5bd40bee0c6a8300c2320",
+    "bytes": 13663362,
+    "payload_checksum_entries": 17,
+    "testzip_passed": true,
+    "checksum_bad": [],
+    "embedded_integrated_exact_match": true,
+    "embedded_atomic_exact_match": true,
+    "recursive_previous_master": false
+  }
+}

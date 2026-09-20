@@ -1,0 +1,64 @@
+{
+  "schema_version": "bie.comp-hardening-plan.v1",
+  "batch_id": "BIE-COMP-HARDENING-H2",
+  "delivery_sequence": 11,
+  "authorization": "User requested Next after H1 re-audit. These audit-derived H2 IDs are scoped here before implementation; no invented original task IDs.",
+  "parent_checkpoint": "BIE-COMP-H1-005",
+  "parent_archive_sha256": "635265a7da9ee31504017a95e9aa503d8a25144b4fcdd8ba71911cccc3e37836",
+  "basis": [
+    "docs/COMP_H1_REAUDIT.md",
+    "CONTINUATION.json",
+    "app/bie/compiler/qa_scene_compile.py",
+    "app/bie/compiler/compiler_architecture.py"
+  ],
+  "tasks": [
+    {
+      "task_id": "BIE-COMP-H2-001",
+      "title": "Equation typesetting adapter",
+      "findings": [
+        "COMP-AUDIT-009-F05"
+      ],
+      "required_result": "Pinned compile-time Mathtext SVG for a bounded LaTeX subset, safe native MathML tree, plain literal support; no raw markup injection, no silent error fallback.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H2-002",
+      "title": "Deterministic executable simulations",
+      "findings": [
+        "COMP-AUDIT-009-F06"
+      ],
+      "required_result": "Versioned analytic model registry with explicit units, initial state, parameters, time/view bounds, frame-evaluated geometry and observed-versus-simulated evidence separation.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H2-003",
+      "title": "Frame-driven visual motion",
+      "findings": [
+        "COMP-AUDIT-009-F07"
+      ],
+      "required_result": "Apply supported tracks to visible styles and path position as pure frame functions; refuse unsupported actions/params, zero frame windows and conflicting property owners.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H2-004",
+      "title": "Declared geographic projection",
+      "findings": [
+        "COMP-AUDIT-009-F08"
+      ],
+      "required_result": "Explicit lon/lat axis order and projection, bounds/antimeridian policy, inline route/point/simple polygon geometry, provenance/attribution, no remote tiles or invented base map.",
+      "accepted": false
+    },
+    {
+      "task_id": "BIE-COMP-H2-005",
+      "title": "Behavior gate adoption and frame evidence",
+      "findings": [
+        "H1-R03_WHOLE_SCENE_ADOPTION"
+      ],
+      "required_result": "Adopt H2 into checked source path, validate animation ownership/time/simulation coverage, preserve historical regression, report actual browser component evidence separately from Remotion and book acceptance.",
+      "accepted": false
+    }
+  ],
+  "section_exit_permitted": false,
+  "accepted": false,
+  "limits": "Supported bounded contracts only; preserve original negative evidence; no broad subject, real Remotion, security sandbox, real-book or product acceptance claim."
+}

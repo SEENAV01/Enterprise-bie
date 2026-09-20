@@ -1,0 +1,47 @@
+{
+  "schema_version": "bie.comp-batch.v1",
+  "batch_id": "BIE-COMP-HARDENING-H7",
+  "delivery_sequence": 16,
+  "tasks": [
+    "BIE-COMP-H7-001",
+    "BIE-COMP-H7-002",
+    "BIE-COMP-H7-003",
+    "BIE-COMP-H7-004",
+    "BIE-COMP-H7-005",
+    "BIE-COMP-H7-006",
+    "BIE-COMP-H7-007",
+    "BIE-COMP-H7-008"
+  ],
+  "checkpoint": "BIE-COMP-H7-008",
+  "parent_checkpoint": "BIE-COMP-H6-005",
+  "parent_archive_sha256": "8d15febd32b776ab578a865396863f890d5c6a6ac18a98b872a45a085f048adf",
+  "status": "EIGHT_BOUNDED_TASKS_IMPLEMENTED_REAUDIT_OPEN",
+  "tests": {
+    "inherited_tests": 1761,
+    "new_H7_tests": 186,
+    "suite_case_count": 1947,
+    "H7_targeted_result": "186 PASS",
+    "release_full_execution_record": "BIE_COMP_HARDENING_H7_FINAL_VERIFICATION.json (external; bound to integrated archive hash)",
+    "scope": "DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "accepted": false
+  },
+  "atomic_counts": {
+    "BIE-COMP-H7-001": 35,
+    "BIE-COMP-H7-002": 39,
+    "BIE-COMP-H7-003": 15,
+    "BIE-COMP-H7-004": 22,
+    "BIE-COMP-H7-005": 15,
+    "BIE-COMP-H7-006": 35,
+    "BIE-COMP-H7-007": 12,
+    "BIE-COMP-H7-008": 13
+  },
+  "full_section_reaudit_performed": true,
+  "section_exit_permitted": false,
+  "accepted": false,
+  "github_write": false,
+  "integrated_is_cumulative": true,
+  "recursive_master_backup": false,
+  "scope": "DSL_PLUS_COMP",
+  "gap_ledger": "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+  "audit": "docs/COMP_H7_REAUDIT.md"
+}

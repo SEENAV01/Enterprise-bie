@@ -29,6 +29,8 @@ def main():
         paths += sorted((ROOT/'tests/pedagogy').rglob('test*.py'))
         paths += sorted((ROOT/'tests/director').rglob('test*.py'))
         paths += sorted((ROOT/'tests/assembly').rglob('test*.py'))
+        for family in ('visual_intelligence', 'animation_intelligence', 'scene_ir', 'compiler', 'post_dir'):
+            paths += sorted((ROOT/'tests'/family).rglob('test*.py'))
     if not paths:raise SystemExit('No tests discovered')
     results=[];start=time.monotonic()
     for path in paths:
@@ -38,6 +40,8 @@ def main():
         try:
             spec=importlib.util.spec_from_file_location(name,path)
             module=importlib.util.module_from_spec(spec)
+            if path.is_relative_to(ROOT / "tests/compiler"):
+                module.__package__ = "tests.compiler"
             sys.modules[name]=module
             spec.loader.exec_module(module)
             suite=unittest.defaultTestLoader.loadTestsFromModule(module)

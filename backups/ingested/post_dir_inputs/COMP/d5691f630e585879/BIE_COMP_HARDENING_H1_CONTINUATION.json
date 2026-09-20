@@ -1,0 +1,112 @@
+{
+  "checkpoint": "H1_001_005_IMPLEMENTED_LOCAL_TESTED_REAL_RENDER_BLOCKED",
+  "latest_completed_task": "BIE-COMP-H1-005",
+  "batch_id": "BIE-COMP-HARDENING-H1",
+  "section": "COMP",
+  "section_status": "IN_PROGRESS_FURTHER_HARDENING_REQUIRED",
+  "section_exit_permitted": false,
+  "accepted": false,
+  "completed_original_families": [
+    "ARCH-001..006",
+    "REACT-001..007",
+    "ELEM-001..013",
+    "ANI-001..005",
+    "AUDIO-001..005",
+    "ASSET-001..004",
+    "BUILD-001..010",
+    "QA-001..005"
+  ],
+  "completed_hardening_tasks": [
+    "BIE-COMP-H1-001",
+    "BIE-COMP-H1-002",
+    "BIE-COMP-H1-003",
+    "BIE-COMP-H1-004",
+    "BIE-COMP-H1-005"
+  ],
+  "next_original_tasks": [],
+  "next_task_ids": [],
+  "next_action": "COMP_HARDENING_H2_SCOPE_AND_IMPLEMENT_F05_F06_F07_F08_WITH_RESIDUAL_REVIEW",
+  "next_task_numbering_policy": "Derive H2 atomic IDs from actual architecture and hardening contracts before implementation; no invented original QA-006 and no automatic section exit.",
+  "addressed_under_declared_local_contracts": [
+    "COMP-AUDIT-009-F01",
+    "COMP-AUDIT-009-F02",
+    "COMP-AUDIT-009-F03",
+    "COMP-AUDIT-009-F04",
+    "COMP-AUDIT-009-F09"
+  ],
+  "remaining_original_implementation_findings": [
+    "COMP-AUDIT-009-F05",
+    "COMP-AUDIT-009-F06",
+    "COMP-AUDIT-009-F07",
+    "COMP-AUDIT-009-F08"
+  ],
+  "additional_review_items": [
+    "H1-R01_RENDER_LAYOUT",
+    "H1-R02_NUMERIC_VISUAL_RESOLUTION",
+    "H1-R03_WHOLE_SCENE_ADOPTION",
+    "H1-R04_DEPENDENCY_EXECUTION_TRUST",
+    "H1-R05_EDUCATIONAL_ACCEPTANCE"
+  ],
+  "audit": "docs/COMP_H1_REAUDIT.md",
+  "tests": {
+    "baseline_tests": 921,
+    "atomic_counts": {
+      "BIE-COMP-H1-001": 23,
+      "BIE-COMP-H1-002": 34,
+      "BIE-COMP-H1-003": 23,
+      "BIE-COMP-H1-004": 23,
+      "BIE-COMP-H1-005": 25
+    },
+    "atomic_tests": 128,
+    "integration_tests": 19,
+    "new_tests": 147,
+    "cumulative_tests": 1068,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "test_scope": "RESTORED_DSL_PLUS_COMP_NOT_CANONICAL_ENTERPRISE",
+    "full_generated_project_compiles_verified": 0,
+    "real_remotion_renders_verified": 0,
+    "accepted": false
+  },
+  "full_generated_project_compiles_verified": 0,
+  "real_remotion_composition_discovery": "NOT_RUN_DEPENDENCIES_UNAVAILABLE",
+  "real_remotion_smoke_render": "NOT_RUN_DEPENDENCIES_UNAVAILABLE",
+  "real_remotion_full_render": "NOT_RUN_DEPENDENCIES_UNAVAILABLE",
+  "real_book_e2e": "NOT_RUN",
+  "integration_status": "LOCAL_WORKSPACE_ONLY_NO_GITHUB_WRITE",
+  "canonical_repository": "SEENAV01/Enterprise-bie",
+  "lineage": {
+    "original_members": 1221,
+    "original_python_files": 306,
+    "modified_original_python_files": 15,
+    "unchanged_original_python_files": 291,
+    "changed_original_member_paths": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/annotation_callout_compiler.py",
+      "app/bie/compiler/capability_fallback_qa.py",
+      "app/bie/compiler/chart_compiler.py",
+      "app/bie/compiler/model2d_compiler.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/render_runtime.py",
+      "app/bie/compiler/text_compiler.py",
+      "app/bie/compiler/vector_compiler.py",
+      "scripts/run_comp_render.py",
+      "scripts/run_compiler_qa.py",
+      "tests/compiler/qa_test_support.py",
+      "tests/compiler/test_comp_elem_005.py",
+      "tests/compiler/test_comp_qa_002.py",
+      "tests/compiler/test_comp_qa_005.py",
+      "tests/compiler/test_comp_qa_integration.py"
+    ],
+    "original_bytes_preserved_for_all_changes": true,
+    "missing_original_members": [],
+    "old_qa009_fixture_bytes_unchanged": true,
+    "parent_source_sha256": "47afb5d1fbb5265a6b7401177d697f223d4d9a60375a77eebac7077d659377c2",
+    "parent_master_sha256": "7fa0ea359f89c04a5047414a0e6e424a8a20d50e545cf5e623f08f921d3b6ef5"
+  },
+  "workflow": "Implementation -> capability audit -> justified hardening -> regression -> re-audit. Exit only after in-scope gaps close; no automatic exit.",
+  "render_gate": "Real render API now requires a checked Scene-IR source envelope plus matching bytes/request and full pinned-project typecheck; older generated technical fixture is not eligible."
+}

@@ -1,0 +1,196 @@
+{
+  "schema_version": "bie.comp-h6-delivery-verification.v1",
+  "status": "VERIFIED_LOCAL_DELIVERY_NOT_PRODUCT_ACCEPTANCE",
+  "accepted": false,
+  "baseline_regression": {
+    "tests": 1652,
+    "seconds": 227.323,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "log_sha256": "d369a30bac4568168d42ddb79cdf221debc7c196ae0c8523efb8672240c31a1e"
+  },
+  "development_regression": {
+    "tests": 1761,
+    "seconds": 234.148,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "log_sha256": "7c79fd7199f8b2539cde572a957d7e44d2bd4d709090134e74cff4d1c109c8c3"
+  },
+  "fresh_integrated_regression": {
+    "tests": 1761,
+    "seconds": 236.345,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "log_sha256": "555251f8446dfbef3cb5741ad6fffd6327c20ec68ecdb7830660f9a6a819512b"
+  },
+  "integrated": {
+    "file": "BIE_COMP_HARDENING_H6_INTEGRATED.zip",
+    "bytes": 12002995,
+    "sha256": "8d15febd32b776ab578a865396863f890d5c6a6ac18a98b872a45a085f048adf",
+    "members": 5012,
+    "checksum_entries": 5011,
+    "fresh_extraction_tested": true
+  },
+  "atomic_delivery": {
+    "not_standalone": true,
+    "all_five_required_before_task_test_execution": true,
+    "ordered_reconstruction_matches_integrated": true,
+    "negative_restore_checks": [
+      {
+        "case": "wrong-order",
+        "passed": true,
+        "exit_code": 2,
+        "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES\", \"accepted\": false}\n"
+      },
+      {
+        "case": "repeat-apply",
+        "passed": true,
+        "exit_code": 2,
+        "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"BASE_TREE_MISMATCH_WRONG_ORDER_OR_CHANGED_FILES\", \"accepted\": false}\n"
+      },
+      {
+        "case": "tampered-payload",
+        "passed": true,
+        "exit_code": 2,
+        "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"PAYLOAD_HASH_MISMATCH\", \"accepted\": false}\n"
+      },
+      {
+        "case": "symlink-base",
+        "passed": true,
+        "exit_code": 2,
+        "stdout": "{\"status\": \"RESTORE_BLOCKED\", \"error\": \"SYMLINK_REJECTED\", \"accepted\": false}\n"
+      }
+    ],
+    "packages": [
+      {
+        "file": "BIE_COMP_HARDENING_H6_001.zip",
+        "bytes": 179063,
+        "sha256": "3caf749b1b3bdd072209601792862d9e76f4bc663dcedb22ff4b8746d662b203",
+        "checksum_entries": 11,
+        "payload_members": 5,
+        "payload_unchanged_after_execution": true,
+        "test_run": {
+          "task_id": "BIE-COMP-H6-001",
+          "tests": 23,
+          "seconds": 0.005,
+          "passed": true,
+          "execution_scope": "SEPARATE_TASK_SUITE_ON_COMPLETE_RESTORED_H6"
+        }
+      },
+      {
+        "file": "BIE_COMP_HARDENING_H6_002.zip",
+        "bytes": 174082,
+        "sha256": "4f23730835e76bee969d5c3dea256ed9b5a237640f4c58385a941bd10f391be9",
+        "checksum_entries": 10,
+        "payload_members": 4,
+        "payload_unchanged_after_execution": true,
+        "test_run": {
+          "task_id": "BIE-COMP-H6-002",
+          "tests": 18,
+          "seconds": 3.22,
+          "passed": true,
+          "execution_scope": "SEPARATE_TASK_SUITE_ON_COMPLETE_RESTORED_H6"
+        }
+      },
+      {
+        "file": "BIE_COMP_HARDENING_H6_003.zip",
+        "bytes": 173210,
+        "sha256": "172470deee21ef9e8df345737ac176d14cef7b0bd19c21fd5c823e1bbb1052cd",
+        "checksum_entries": 10,
+        "payload_members": 4,
+        "payload_unchanged_after_execution": true,
+        "test_run": {
+          "task_id": "BIE-COMP-H6-003",
+          "tests": 20,
+          "seconds": 0.617,
+          "passed": true,
+          "execution_scope": "SEPARATE_TASK_SUITE_ON_COMPLETE_RESTORED_H6"
+        }
+      },
+      {
+        "file": "BIE_COMP_HARDENING_H6_004.zip",
+        "bytes": 172948,
+        "sha256": "2e469f62d45c0bf9808e020d66ef34824af9c7c8a55e3c2ddfd09a921ec79223",
+        "checksum_entries": 10,
+        "payload_members": 4,
+        "payload_unchanged_after_execution": true,
+        "test_run": {
+          "task_id": "BIE-COMP-H6-004",
+          "tests": 22,
+          "seconds": 1.094,
+          "passed": true,
+          "execution_scope": "SEPARATE_TASK_SUITE_ON_COMPLETE_RESTORED_H6"
+        }
+      },
+      {
+        "file": "BIE_COMP_HARDENING_H6_005.zip",
+        "bytes": 635150,
+        "sha256": "8ef36ed4b47a5628c88d992cdb1caa57da6878c5ca39f9668ae42e345e1509ad",
+        "checksum_entries": 50,
+        "payload_members": 44,
+        "payload_unchanged_after_execution": true,
+        "test_run": {
+          "task_id": "BIE-COMP-H6-005",
+          "tests": 16,
+          "seconds": 11.162,
+          "passed": true,
+          "execution_scope": "SEPARATE_TASK_SUITE_ON_COMPLETE_RESTORED_H6"
+        }
+      }
+    ]
+  },
+  "lineage": {
+    "parent_file": "BIE_COMP_HARDENING_H5_INTEGRATED.zip",
+    "parent_sha256": "137acde102626230e8f96a8a85c1ecd38da148884299c72601f887d962be3a86",
+    "parent_members": 4965,
+    "all_paths_preserved": true,
+    "changed_parent_members": [
+      "BATCH_MANIFEST.json",
+      "CONTINUATION.json",
+      "WORKSPACE_SHA256SUMS.txt",
+      "app/bie/compiler/hardened_scene_compile.py",
+      "app/bie/compiler/layout_browser.py",
+      "app/bie/compiler/layout_measurements.py",
+      "app/bie/compiler/qa_scene_compile.py",
+      "app/bie/compiler/qa_support/layout_measure.js",
+      "docs/COMP_CONSOLIDATED_GAP_LEDGER.json",
+      "scripts/compile_scene_checked.py"
+    ],
+    "changed_originals_escrowed": true,
+    "parent_python_files": 377,
+    "unchanged_parent_python_files": 372,
+    "modified_parent_python_files": 5,
+    "historical_fixtures_unchanged": true
+  },
+  "evidence": {
+    "file": "BIE_COMP_HARDENING_H6_EVIDENCE.zip",
+    "bytes": 593477,
+    "sha256": "d49d8553e22338f48470013930daf9eba7acfe630d9eb91ef065328456a4633d",
+    "members": 189,
+    "checksum_entries": 188
+  },
+  "real_execution": {
+    "full_generated_project_compile_verified": false,
+    "real_remotion_render_verified": false,
+    "actual_audio_played": false,
+    "speech_alignment_verified": false,
+    "blocker": "FULL_TYPECHECK_BLOCKED: BLOCKED_DEPENDENCIES",
+    "npm_probe": "EAI_AGAIN"
+  },
+  "github_write_performed": false,
+  "full_section_reaudit_performed": false,
+  "font_files_distributed": false,
+  "master": {
+    "file": "BIE_COMP_HARDENING_H6_MASTER_BACKUP.zip",
+    "payload_checksum_entries": 26,
+    "previous_masters_embedded": false,
+    "integrated_and_atomic_evidence_zip_bytes_match_separate_deliveries": true,
+    "payload_checksums_verified": true
+  }
+}
