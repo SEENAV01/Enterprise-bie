@@ -3,7 +3,11 @@ name: Apply Sealed Post-DIR Integration
 on:
   push:
     branches: [integration/post-dir-catchup-20260919]
-    paths: [.integration/post-dir-catchup/BIE_POST_DIR_CANONICAL_TRANSFER.tar.xz]
+    paths:
+      - .integration/post-dir-catchup/BIE_POST_DIR_CANONICAL_TRANSFER.tar.xz
+      - .github/workflows/apply-post-dir-integration-payload.yml
+      - .integration/tools/setup_ci_environment.sh
+      - .integration/tools/ci_import.py
 
 permissions:
   contents: read
@@ -35,15 +39,8 @@ jobs:
           node-version: '22.16.0'
       - name: Verify importer control contracts
         run: python -B .integration/tools/test_transport.py
-      - name: Install exact declared validation profile
-        run: |
-          set -o pipefail
-          mkdir -p "$RUNNER_TEMP/bie-ci-setup"
-          python -m pip install -r .integration/tools/requirements-validation.txt 2>&1 | tee "$RUNNER_TEMP/bie-ci-setup/python-install.log"
-          npm install --global typescript@5.8.3 2>&1 | tee "$RUNNER_TEMP/bie-ci-setup/typescript-install.log"
-          python -m playwright install --with-deps chromium
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg bubblewrap libseccomp2
+      - name: Install declared profile and scoped namespace policy
+        run: bash .integration/tools/setup_ci_environment.sh
       - name: Restore exact bytes, apply four phases, and run all gates
         id: verify
         env:
