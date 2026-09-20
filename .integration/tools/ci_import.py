@@ -51,6 +51,11 @@ def main():
         raise ValueError('VALIDATION_PROFILE_MISMATCH')
     plan=json.loads((work/'capsule/plan.json').read_text());head=git(root,'rev-parse','HEAD')
     evidence=work/'evidence';evidence.mkdir();publish=work/'publish';publish.mkdir()
+    # Existing tests only: catch runner misconfiguration before the long suite.
+    # Their execution is additional evidence, not counted as new unique tests.
+    run_logged([sys.executable,'-B','-m','unittest',
+                'tests.compiler.test_comp_h7_004','tests.compiler.test_comp_h2_004',
+                'tests.compiler.test_comp_h9_005'],root,evidence/'runner-preflight.log')
     run_logged([sys.executable,'-B','scripts/integrated_check.py','--output-dir',str(evidence)],root,evidence/'integrated-gate.log')
     run_logged([sys.executable,'-B','scripts/verify_post_dir.py','--output',str(evidence/'post-dir-preservation.json')],root,evidence/'post-dir-preservation.log')
     tests=json.loads((evidence/'integrated_tests.json').read_text())
