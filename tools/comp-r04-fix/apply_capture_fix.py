@@ -15,6 +15,7 @@ import importlib.util
 import io
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -117,7 +118,9 @@ def main():
         require(row['canonical_sha256']==old_sha, 'ACTIVE_SOURCE_LEDGER_HASH_MISMATCH')
         row['canonical_sha256']=new_sha
     require(len(updated['source_members'])==len(original['source_members']), 'SOURCE_MEMBER_COUNT_CHANGED')
-    data=(json.dumps(updated,indent=2,ensure_ascii=False)+'\n').encode()
+    pattern=rb'("canonical_sha256"\s*:\s*")'+old_sha.encode()+rb'(")'
+    data,count=re.subn(pattern,lambda m:m.group(1)+new_sha.encode()+m.group(2),raw)
+    require(count==len(rows) and json.loads(data)==updated, 'ONLY_CANONICAL_HASH_EDIT_REQUIRED')
     (root/path).write_bytes(data)
     snapshot=HISTORY+'/original-post_dir_integration_004.json'
     (root/snapshot).write_bytes(raw); changed += [path,snapshot]
@@ -163,24 +166,39 @@ def main():
     result={'source_tree':local_tree,'parent_commit':a.expected_parent,'changed_files':changed,
             'published':False,'accepted':False,'render_verified':False}
     if a.publish_review_branch:
-        entries=[]
-        for path in changed:
-            data=(root/path).read_bytes()
-            b=request('POST','/git/blobs',{'content':base64.b64encode(data).decode(),'encoding':'base64'})
-            require(b['sha']==blob(data),'REMOTE_BLOB_MISMATCH:'+path)
-            entries.append({'path':path,'mode':'100644','type':'blob','sha':b['sha']})
-        tree=request('POST','/git/trees',{'base_tree':git(root,'rev-parse','HEAD^{tree}'),'tree':entries})
-        require(tree['sha']==local_tree,'REMOTE_TREE_MISMATCH')
-        commit=request('POST','/git/commits',{'message':'fix(comp): retain executable capture helper in pinned TypeScript program\n\nR04 reproduced coverage defect only. Eight focused tests; original source and adoption ledgers preserved; active canonical hashes traceably updated. No coverage-gate changes, dependency downgrade, main merge, or acceptance promotion. Full compile/render and regression require separate receipts.',
-                                         'tree':tree['sha'],'parents':[a.expected_parent]})
         require(request('GET','/git/ref/heads/'+BRANCH)['object']['sha']==a.expected_parent,'REVIEW_BRANCH_MOVED_BEFORE_PUBLISH')
-        ref=request('PATCH','/git/refs/heads/'+BRANCH,{'sha':commit['sha'],'force':False})
-        require(ref['object']['sha']==commit['sha'],'REMOTE_REF_READBACK_MISMATCH')
+        # Git's pack/delta transport avoids resending the large adoption ledger
+        # through a JSON blob API. Existing exact before-image blobs are reused.
+        token=os.environ.get('GH_TOKEN'); require(bool(token),'EXPLICIT_GITHUB_TOKEN_REQUIRED')
+        env=dict(os.environ, GIT_AUTHOR_NAME='BIE R04 validation',
+                 GIT_AUTHOR_EMAIL='noreply@users.noreply.github.com',
+                 GIT_COMMITTER_NAME='BIE R04 validation',
+                 GIT_COMMITTER_EMAIL='noreply@users.noreply.github.com')
+        message=('fix(comp): retain executable capture helper in pinned TypeScript program\n\n'
+                 'R04 reproduced coverage defect only. Eight focused tests; original source '
+                 'and adoption ledgers preserved; active canonical hashes traceably updated. '
+                 'No guard weakening, dependency downgrade, main merge, or acceptance promotion.\n')
+        source_sha=subprocess.check_output(['git','commit-tree',local_tree,'-p',a.expected_parent],
+                 cwd=root,env=env,input=message,text=True).strip()
+        require(re.fullmatch('[0-9a-f]{40}',source_sha) is not None,'INVALID_SOURCE_COMMIT')
+        auth=base64.b64encode(('x-access-token:'+token).encode()).decode()
+        env.update(GIT_CONFIG_COUNT='2',GIT_CONFIG_KEY_0='http.https://github.com/.extraheader',
+                   GIT_CONFIG_VALUE_0='AUTHORIZATION: basic '+auth,
+                   GIT_CONFIG_KEY_1='credential.helper',GIT_CONFIG_VALUE_1='',GIT_TERMINAL_PROMPT='0')
+        process=subprocess.run(['git','push','https://github.com/'+REPO+'.git',
+                                source_sha+':refs/heads/'+BRANCH],cwd=root,env=env,
+                               capture_output=True,text=True,timeout=180,check=False)
+        log=(process.stdout+process.stderr).replace(token,'[REDACTED]').replace(auth,'[REDACTED]')
+        (out/'git-publication.log').write_text(log)
+        require(process.returncode==0,'NONFORCED_REVIEW_BRANCH_PUBLICATION_FAILED')
+        require(request('GET','/git/ref/heads/'+BRANCH)['object']['sha']==source_sha,'REMOTE_REF_READBACK_MISMATCH')
+        remote=request('GET','/git/commits/'+source_sha)
+        require(remote['tree']['sha']==local_tree,'REMOTE_TREE_MISMATCH')
         require(request('GET','/git/ref/heads/main')['object']['sha']==MAIN,'MAIN_CHANGED_EXTERNALLY')
-        result.update(source_sha=commit['sha'],published=True,branch=BRANCH)
+        result.update(source_sha=source_sha,published=True,branch=BRANCH)
         output=os.environ.get('GITHUB_OUTPUT')
         if output:
-            with open(output,'a') as f: f.write('source_sha='+commit['sha']+'\nsource_tree='+tree['sha']+'\n')
+            with open(output,'a') as f: f.write('source_sha='+source_sha+'\nsource_tree='+local_tree+'\n')
     save(out/'SOURCE_PUBLICATION.json',result)
     print(json.dumps(result,indent=2))
 
