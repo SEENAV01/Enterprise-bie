@@ -13,8 +13,8 @@ test "$(id -u)" -ne 0
 EVIDENCE="$RUNNER_TEMP/bie-ci-setup"
 mkdir -p "$EVIDENCE"
 
-# The shipped worker intentionally does not expose arbitrary /opt paths.
-# Copy the exact setup-action distributions into its already declared roots.
+# Copy the setup-action runtime bytes into the existing sandbox allowlist.
+# Record the necessary installation-prefix metadata change separately below.
 PY_SOURCE="$(realpath "$pythonLocation")"
 NODE_SOURCE="$(dirname "$(dirname "$(realpath "$(command -v node)")")")"
 PY_DEST=/opt/pyvenv
@@ -29,19 +29,42 @@ sudo cp -a "$NODE_SOURCE/." "$NODE_DEST/"
 cmp "$PY_SOURCE/bin/python3.13" "$PY_DEST/bin/python3.13"
 cmp "$NODE_SOURCE/bin/node" "$NODE_DEST/bin/node"
 sudo chown -R "$(id -u):$(id -g)" "$PY_DEST" "$NODE_DEST"
+# CPython's copied sysconfig data contains absolute installation paths. Leaving
+# LIBDIR at hostedtoolcache makes the unchanged identity gate omit libpython
+# inside the namespace, despite the library being present at the new prefix.
+# Fix that metadata, not the identity checker, executable or library bytes.
+python - "$PY_SOURCE" "$PY_DEST" "$EVIDENCE/sysconfig-relocation.json" <<'PY'
+from pathlib import Path
+import hashlib,json,sys
+old,new,receipt=sys.argv[1:]
+files=sorted((Path(new)/'lib/python3.13').glob('_sysconfigdata*.py'))
+if not files:raise SystemExit('COPIED_SYSCONFIG_NOT_FOUND')
+records=[]
+for path in files:
+    before=path.read_bytes()
+    after=before.replace(old.encode(),new.encode())
+    if before==after:raise SystemExit('EXPECTED_INSTALL_PREFIX_NOT_FOUND: '+str(path))
+    path.write_bytes(after)
+    for cache in (path.parent/'__pycache__').glob(path.stem+'*.pyc'):cache.unlink()
+    records.append({'path':str(path),'before_sha256':hashlib.sha256(before).hexdigest(),
+                    'after_sha256':hashlib.sha256(after).hexdigest(),
+                    'replacement_count':before.count(old.encode())})
+Path(receipt).write_text(json.dumps({'old_prefix':old,'new_prefix':new,'metadata_only':True,'files':records},indent=2)+'\n')
+PY
+cmp "$PY_SOURCE/lib/libpython3.13.so.1.0" "$PY_DEST/lib/libpython3.13.so.1.0"
 printf '/opt/pyvenv/lib\n' | sudo tee /etc/ld.so.conf.d/bie-validation-python.conf >/dev/null
 sudo ldconfig
 export PATH="$PY_DEST/bin:$NODE_DEST/bin:$PATH"
 export LD_LIBRARY_PATH="$PY_DEST/lib"
 export PYTHONPATH="$GITHUB_WORKSPACE"
-python -c 'import sys; assert sys.version_info[:3] == (3, 13, 5); assert sys.prefix == "/opt/pyvenv"; print(sys.executable)'
+python -c 'import sys,sysconfig; assert sys.version_info[:3] == (3,13,5); assert sys.prefix == "/opt/pyvenv"; assert sysconfig.get_config_var("LIBDIR") == "/opt/pyvenv/lib"; print(sys.executable)'
 # A sanitized worker does not inherit LD_LIBRARY_PATH. Test that exact condition.
-env -u LD_LIBRARY_PATH /opt/pyvenv/bin/python3.13 -I -c 'import ssl, ctypes, sys; assert sys.version_info[:3] == (3,13,5)'
+env -u LD_LIBRARY_PATH /opt/pyvenv/bin/python3.13 -I -c 'import ssl,ctypes,sys,sysconfig; assert sys.version_info[:3] == (3,13,5); assert sysconfig.get_config_var("LIBDIR") == "/opt/pyvenv/lib"'
 test "$(node --version)" = v22.16.0
 printf '%s\n' "$PY_DEST/bin" "$NODE_DEST/bin" >> "$GITHUB_PATH"
 printf 'LD_LIBRARY_PATH=%s\nPYTHONPATH=%s\n' "$PY_DEST/lib" "$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
 printf 'python_source=%s\nnode_source=%s\n' "$PY_SOURCE" "$NODE_SOURCE" > "$EVIDENCE/runtime-layout.txt"
-sha256sum "$PY_SOURCE/bin/python3.13" "$PY_DEST/bin/python3.13" "$NODE_SOURCE/bin/node" "$NODE_DEST/bin/node" >> "$EVIDENCE/runtime-layout.txt"
+sha256sum "$PY_SOURCE/bin/python3.13" "$PY_DEST/bin/python3.13" "$PY_SOURCE/lib/libpython3.13.so.1.0" "$PY_DEST/lib/libpython3.13.so.1.0" "$NODE_SOURCE/bin/node" "$NODE_DEST/bin/node" >> "$EVIDENCE/runtime-layout.txt"
 
 python -m pip install -r .integration/tools/requirements-validation.txt 2>&1 | tee "$EVIDENCE/python-install.log"
 # Independent projection-reference tests require this declared test-only extra.
