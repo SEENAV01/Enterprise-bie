@@ -42,8 +42,51 @@ jobs:
         with:
           gradle-version: '9.6.0'
 
-      - name: Install required Android SDK components
-        run: sdkmanager 'platform-tools' 'platforms;android-37' 'build-tools;36.0.0'
+      - name: Verify required Android SDK components
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          : "${ANDROID_HOME:?ANDROID_HOME is not set}"
+          test -d "$ANDROID_HOME"
+
+          echo "Android SDK root: $ANDROID_HOME"
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          required=(
+            "$ANDROID_HOME/platform-tools"
+            "$ANDROID_HOME/platforms/android-37"
+            "$ANDROID_HOME/build-tools/36.0.0"
+          )
+
+          missing=0
+          for path in "${required[@]}"; do
+            if [ ! -d "$path" ]; then
+              echo "Missing Android SDK component path: $path"
+              missing=1
+            fi
+          done
+
+          if [ "$missing" -ne 0 ]; then
+            if [ ! -x "$SDKMANAGER" ]; then
+              echo "Android SDK manager is not executable: $SDKMANAGER" >&2
+              exit 1
+            fi
+            "$SDKMANAGER" \
+              'platform-tools' \
+              'platforms;android-37' \
+              'build-tools;36.0.0'
+          else
+            echo "Required Android SDK components are already installed."
+          fi
+
+          for path in "${required[@]}"; do
+            if [ ! -d "$path" ]; then
+              echo "Required Android SDK component path is unavailable: $path" >&2
+              exit 1
+            fi
+          done
+
+          echo "Required Android SDK components verified."
 
       - name: Verify Android foundation
         working-directory: apps/android
