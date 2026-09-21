@@ -52,19 +52,23 @@ jobs:
 
           echo "Android SDK root: $ANDROID_HOME"
           SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          required=(
+          required_directories=(
             "$ANDROID_HOME/platform-tools"
-            "$ANDROID_HOME/platforms/android-37"
             "$ANDROID_HOME/build-tools/36.0.0"
           )
+          platform_jar="$ANDROID_HOME/platforms/android-37.0/android.jar"
 
           missing=0
-          for path in "${required[@]}"; do
+          for path in "${required_directories[@]}"; do
             if [ ! -d "$path" ]; then
               echo "Missing Android SDK component path: $path"
               missing=1
             fi
           done
+          if [ ! -f "$platform_jar" ]; then
+            echo "Missing Android SDK platform artifact: $platform_jar"
+            missing=1
+          fi
 
           if [ "$missing" -ne 0 ]; then
             if [ ! -x "$SDKMANAGER" ]; then
@@ -73,18 +77,22 @@ jobs:
             fi
             "$SDKMANAGER" \
               'platform-tools' \
-              'platforms;android-37' \
+              'platforms;android-37.0' \
               'build-tools;36.0.0'
           else
             echo "Required Android SDK components are already installed."
           fi
 
-          for path in "${required[@]}"; do
+          for path in "${required_directories[@]}"; do
             if [ ! -d "$path" ]; then
               echo "Required Android SDK component path is unavailable: $path" >&2
               exit 1
             fi
           done
+          if [ ! -f "$platform_jar" ]; then
+            echo "Required Android SDK platform artifact is unavailable: $platform_jar" >&2
+            exit 1
+          fi
 
           echo "Required Android SDK components verified."
 

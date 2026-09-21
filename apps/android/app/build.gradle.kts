@@ -5,7 +5,11 @@ plugins {
 
 android {
     namespace = "com.seenav.bie"
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 0
+        }
+    }
     buildToolsVersion = "36.0.0"
 
     defaultConfig {

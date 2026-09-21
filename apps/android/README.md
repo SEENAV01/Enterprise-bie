@@ -32,7 +32,7 @@ Physical-device launch remains pending until a user installs the CI-built APK.
 - CI Gradle: 9.6.0 (installed by the official Gradle GitHub Action)
 - CI JDK: Temurin 17
 - Kotlin/Compose Compiler plugin: 2.4.10
-- `compileSdk`: 37
+- Compile SDK: API 37.0
 - `targetSdk`: 37
 - `minSdk`: 26
 - Compose BOM: 2026.09.00
