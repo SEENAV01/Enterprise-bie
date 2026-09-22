@@ -9,6 +9,11 @@ description = "Canonical continuation of the BIE enterprise implementation; not 
 requires-python = ">=3.11"
 dependencies = []
 
+[project.optional-dependencies]
+document-intelligence = [
+    "pypdf==6.19.0",
+]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["bie*", "app", "app.bie"]

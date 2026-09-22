@@ -1,0 +1,106 @@
+name: BIE DI Real PDF Runtime
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - product/di-real-pdf-runtime-001
+    paths:
+      - 'pyproject.toml'
+      - 'bie/document_intelligence/pdf_ingest.py'
+      - 'bie/document_intelligence/real_pdf_contract.py'
+      - 'bie/document_intelligence/source_hash.py'
+      - 'bie/document_intelligence/pypdf_adapter.py'
+      - 'bie/document_intelligence/real_pdf_runtime.py'
+      - 'scripts/inspect_real_pdf.py'
+      - 'tests/productization/document_intelligence/**'
+      - '.github/workflows/di-real-pdf-runtime.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'pyproject.toml'
+      - 'bie/document_intelligence/pdf_ingest.py'
+      - 'bie/document_intelligence/real_pdf_contract.py'
+      - 'bie/document_intelligence/source_hash.py'
+      - 'bie/document_intelligence/pypdf_adapter.py'
+      - 'bie/document_intelligence/real_pdf_runtime.py'
+      - 'scripts/inspect_real_pdf.py'
+      - 'tests/productization/document_intelligence/**'
+      - '.github/workflows/di-real-pdf-runtime.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-di-real-pdf-runtime-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+
+    steps:
+      # actions/checkout v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      # actions/setup-python v6.0.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+
+      - name: Install genuine PDF runtime
+        run: python -m pip install -e ".[document-intelligence]"
+
+      - name: Record runtime versions
+        run: |
+          mkdir -p "$RUNNER_TEMP/di-real-pdf-runtime-evidence"
+          python --version 2>&1 | tee "$RUNNER_TEMP/di-real-pdf-runtime-evidence/python-version.txt"
+          python -c "import pypdf; print(pypdf.__version__)" | tee "$RUNNER_TEMP/di-real-pdf-runtime-evidence/pypdf-version.txt"
+
+      - name: Run targeted PDF contracts and structural runtime tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            python tests/imported/BIE_BI_INGEST_002/tests/book_intelligence/test_pdf_ingest.py
+            python tests/imported/BIE_BI_DOCINT_E2E_002/tests/test_real_pdf_contract.py
+            python -m unittest discover -s tests/productization/document_intelligence -p 'test*.py' -v
+          } 2>&1 | tee "$RUNNER_TEMP/di-real-pdf-runtime-evidence/test-output.log"
+
+      - name: Generate deterministic structural CLI evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from pypdf import PdfWriter
+
+          evidence = Path(os.environ["RUNNER_TEMP"]) / "di-real-pdf-runtime-evidence"
+          fixture = evidence / "structural-fixture.pdf"
+          writer = PdfWriter()
+          writer.add_blank_page(width=612, height=792)
+          writer.add_metadata({"/Title": "BIE Structural CI Fixture"})
+          with fixture.open("wb") as stream:
+              writer.write(stream)
+          PY
+          python scripts/inspect_real_pdf.py \
+            "$RUNNER_TEMP/di-real-pdf-runtime-evidence/structural-fixture.pdf" \
+            > "$RUNNER_TEMP/di-real-pdf-runtime-evidence/structural-inspection.json"
+          rm "$RUNNER_TEMP/di-real-pdf-runtime-evidence/structural-fixture.pdf"
+
+      # actions/upload-artifact v7.0.1
+      - name: Upload DI runtime evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-di-real-pdf-runtime-evidence
+          path: ${{ runner.temp }}/di-real-pdf-runtime-evidence/
+          if-no-files-found: warn
+          retention-days: 14
