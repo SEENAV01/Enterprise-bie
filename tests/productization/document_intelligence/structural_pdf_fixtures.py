@@ -85,3 +85,56 @@ def positioned_text_pdf(
     output = BytesIO()
     writer.write(output)
     return output.getvalue()
+
+
+def styled_text_pdf(
+    pages: list[list[tuple[float, float, str, float, bool]]],
+    *,
+    width: float = 612,
+    height: float = 792,
+) -> bytes:
+    """Create deterministic native text with position, font size, and bold style."""
+
+    writer = PdfWriter()
+    for styled_lines in pages:
+        page = writer.add_blank_page(width=width, height=height)
+        if not styled_lines:
+            continue
+        regular_font = DictionaryObject(
+            {
+                NameObject("/Type"): NameObject("/Font"),
+                NameObject("/Subtype"): NameObject("/Type1"),
+                NameObject("/BaseFont"): NameObject("/Helvetica"),
+            }
+        )
+        bold_font = DictionaryObject(
+            {
+                NameObject("/Type"): NameObject("/Font"),
+                NameObject("/Subtype"): NameObject("/Type1"),
+                NameObject("/BaseFont"): NameObject("/Helvetica-Bold"),
+            }
+        )
+        page[NameObject("/Resources")] = DictionaryObject(
+            {
+                NameObject("/Font"): DictionaryObject(
+                    {
+                        NameObject("/F1"): writer._add_object(regular_font),
+                        NameObject("/F2"): writer._add_object(bold_font),
+                    }
+                )
+            }
+        )
+        commands: list[str] = []
+        for x, y, text, font_size, bold in styled_lines:
+            escaped = text.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+            font = "/F2" if bold else "/F1"
+            commands.append(
+                f"BT {font} {font_size:g} Tf {x:g} {y:g} Td ({escaped}) Tj ET"
+            )
+        stream = DecodedStreamObject()
+        stream.set_data("\n".join(commands).encode("latin-1"))
+        page[NameObject("/Contents")] = writer._add_object(stream)
+
+    output = BytesIO()
+    writer.write(output)
+    return output.getvalue()
