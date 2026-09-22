@@ -1,0 +1,127 @@
+name: BIE Android Foundation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - product/android-foundation-001
+    paths:
+      - 'apps/android/**'
+      - '.github/workflows/android-foundation.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'apps/android/**'
+      - '.github/workflows/android-foundation.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-android-foundation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      # actions/checkout v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      # actions/setup-java v6.0.1
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # gradle/actions/setup-gradle v4.4.2
+      - uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3
+        with:
+          gradle-version: '9.6.0'
+
+      - name: Verify required Android SDK components
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          : "${ANDROID_HOME:?ANDROID_HOME is not set}"
+          test -d "$ANDROID_HOME"
+
+          echo "Android SDK root: $ANDROID_HOME"
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          required_directories=(
+            "$ANDROID_HOME/platform-tools"
+            "$ANDROID_HOME/build-tools/36.0.0"
+          )
+          platform_jar="$ANDROID_HOME/platforms/android-37.0/android.jar"
+
+          missing=0
+          for path in "${required_directories[@]}"; do
+            if [ ! -d "$path" ]; then
+              echo "Missing Android SDK component path: $path"
+              missing=1
+            fi
+          done
+          if [ ! -f "$platform_jar" ]; then
+            echo "Missing Android SDK platform artifact: $platform_jar"
+            missing=1
+          fi
+
+          if [ "$missing" -ne 0 ]; then
+            if [ ! -x "$SDKMANAGER" ]; then
+              echo "Android SDK manager is not executable: $SDKMANAGER" >&2
+              exit 1
+            fi
+            "$SDKMANAGER" \
+              'platform-tools' \
+              'platforms;android-37.0' \
+              'build-tools;36.0.0'
+          else
+            echo "Required Android SDK components are already installed."
+          fi
+
+          for path in "${required_directories[@]}"; do
+            if [ ! -d "$path" ]; then
+              echo "Required Android SDK component path is unavailable: $path" >&2
+              exit 1
+            fi
+          done
+          if [ ! -f "$platform_jar" ]; then
+            echo "Required Android SDK platform artifact is unavailable: $platform_jar" >&2
+            exit 1
+          fi
+
+          echo "Required Android SDK components verified."
+
+      - name: Verify Android foundation
+        working-directory: apps/android
+        run: gradle --no-daemon lintDebug testDebugUnitTest assembleDebug
+
+      - name: Generate APK SHA-256 receipt
+        working-directory: apps/android
+        run: |
+          apk='app/build/outputs/apk/debug/app-debug.apk'
+          test -f "$apk"
+          sha256sum "$apk" | tee "$apk.sha256"
+
+      # actions/upload-artifact v7.0.1
+      - name: Upload debug APK evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-android-foundation-debug-apk
+          path: |
+            apps/android/app/build/outputs/apk/debug/app-debug.apk
+            apps/android/app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+
+      # actions/upload-artifact v7.0.1
+      - name: Upload lint and unit test reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-android-foundation-reports
+          path: apps/android/app/build/reports/
+          if-no-files-found: warn
