@@ -1,0 +1,111 @@
+name: BIE DI Text Anchors
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/di-text-anchors-001]
+    paths:
+      - "pyproject.toml"
+      - "bie/document_intelligence/layout_segmentation.py"
+      - "bie/document_intelligence/page_mapping.py"
+      - "bie/document_intelligence/pypdf_adapter.py"
+      - "bie/document_intelligence/pdfplumber_text_adapter.py"
+      - "bie/document_intelligence/reading_order.py"
+      - "bie/document_intelligence/real_pdf_runtime.py"
+      - "bie/document_intelligence/real_pdf_text_runtime.py"
+      - "bie/document_intelligence/source_anchors.py"
+      - "bie/document_intelligence/text_blocks.py"
+      - "scripts/inspect_real_pdf_text.py"
+      - "tests/imported/BIE_BI_LAYOUT_001/**"
+      - "tests/imported/BIE_BI_LAYOUT_002/**"
+      - "tests/imported/BIE_BI_LAYOUT_006/**"
+      - "tests/imported/BIE_BI_LAYOUT_014/**"
+      - "tests/imported/BIE_BI_PROV_001/**"
+      - "tests/productization/document_intelligence/**"
+      - ".github/workflows/di-text-anchors.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "pyproject.toml"
+      - "bie/document_intelligence/layout_segmentation.py"
+      - "bie/document_intelligence/page_mapping.py"
+      - "bie/document_intelligence/pypdf_adapter.py"
+      - "bie/document_intelligence/pdfplumber_text_adapter.py"
+      - "bie/document_intelligence/reading_order.py"
+      - "bie/document_intelligence/real_pdf_runtime.py"
+      - "bie/document_intelligence/real_pdf_text_runtime.py"
+      - "bie/document_intelligence/source_anchors.py"
+      - "bie/document_intelligence/text_blocks.py"
+      - "scripts/inspect_real_pdf_text.py"
+      - "tests/imported/BIE_BI_LAYOUT_001/**"
+      - "tests/imported/BIE_BI_LAYOUT_002/**"
+      - "tests/imported/BIE_BI_LAYOUT_006/**"
+      - "tests/imported/BIE_BI_LAYOUT_014/**"
+      - "tests/imported/BIE_BI_PROV_001/**"
+      - "tests/productization/document_intelligence/**"
+      - ".github/workflows/di-text-anchors.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: di-text-anchors-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        # actions/checkout v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Set up Python 3.13.5
+        # actions/setup-python v6.0.0
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: 3.13.5
+          cache: pip
+      - name: Install scoped Document Intelligence dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[document-intelligence,document-intelligence-layout]"
+          python -m pip check
+      - name: Record runtime versions
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/di-text-anchors-evidence"
+          mkdir -p "$evidence"
+          python --version > "$evidence/python-version.txt" 2>&1
+          python -c "import pypdf; print(pypdf.__version__)" > "$evidence/pypdf-version.txt"
+          python -c "import pdfplumber; print(pdfplumber.__version__)" > "$evidence/pdfplumber-version.txt"
+      - name: Run targeted canonical and productization tests
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/di-text-anchors-evidence"
+          {
+            python tests/imported/BIE_BI_LAYOUT_001/tests/book_intelligence/test_layout_segmentation.py
+            python tests/imported/BIE_BI_LAYOUT_002/tests/book_intelligence/test_reading_order.py
+            python tests/imported/BIE_BI_LAYOUT_006/tests/book_intelligence/test_text_blocks.py
+            python tests/imported/BIE_BI_LAYOUT_014/tests/book_intelligence/test_page_mapping.py
+            python tests/imported/BIE_BI_PROV_001/tests/test_source_anchors.py
+            python -m unittest discover -s tests/productization/document_intelligence -p 'test*.py' -v
+          } 2>&1 | tee "$evidence/targeted-tests.log"
+      - name: Generate safe structural CLI evidence
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/di-text-anchors-evidence"
+          fixture="$RUNNER_TEMP/di-text-anchors-structural.pdf"
+          python -c "import sys; from pathlib import Path; sys.path.insert(0, str(Path.cwd() / 'tests' / 'productization' / 'document_intelligence')); from structural_pdf_fixtures import positioned_text_pdf; Path(r'$fixture').write_bytes(positioned_text_pdf([[(72, 720, 'Structural evidence only')]]))"
+          python scripts/inspect_real_pdf_text.py "$fixture" > "$evidence/safe-structural-inspection.json"
+          rm "$fixture"
+      - name: Upload DI text-anchor evidence
+        if: always()
+        # actions/upload-artifact v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-di-text-anchors-evidence
+          path: ${{ runner.temp }}/di-text-anchors-evidence
+          if-no-files-found: error
+          retention-days: 14

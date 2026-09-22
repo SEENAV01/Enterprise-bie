@@ -13,7 +13,8 @@ on:
       - 'bie/document_intelligence/pypdf_adapter.py'
       - 'bie/document_intelligence/real_pdf_runtime.py'
       - 'scripts/inspect_real_pdf.py'
-      - 'tests/productization/document_intelligence/**'
+      - 'tests/productization/document_intelligence/structural_pdf_fixtures.py'
+      - 'tests/productization/document_intelligence/test_real_pdf_runtime.py'
       - '.github/workflows/di-real-pdf-runtime.yml'
   pull_request:
     branches:
@@ -26,7 +27,8 @@ on:
       - 'bie/document_intelligence/pypdf_adapter.py'
       - 'bie/document_intelligence/real_pdf_runtime.py'
       - 'scripts/inspect_real_pdf.py'
-      - 'tests/productization/document_intelligence/**'
+      - 'tests/productization/document_intelligence/structural_pdf_fixtures.py'
+      - 'tests/productization/document_intelligence/test_real_pdf_runtime.py'
       - '.github/workflows/di-real-pdf-runtime.yml'
 
 permissions:
@@ -70,7 +72,7 @@ jobs:
           {
             python tests/imported/BIE_BI_INGEST_002/tests/book_intelligence/test_pdf_ingest.py
             python tests/imported/BIE_BI_DOCINT_E2E_002/tests/test_real_pdf_contract.py
-            python -m unittest discover -s tests/productization/document_intelligence -p 'test*.py' -v
+            python tests/productization/document_intelligence/test_real_pdf_runtime.py
           } 2>&1 | tee "$RUNNER_TEMP/di-real-pdf-runtime-evidence/test-output.log"
 
       - name: Generate deterministic structural CLI evidence

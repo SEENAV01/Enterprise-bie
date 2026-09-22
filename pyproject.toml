@@ -13,6 +13,9 @@ dependencies = []
 document-intelligence = [
     "pypdf==6.19.0",
 ]
+document-intelligence-layout = [
+    "pdfplumber==0.11.10",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
