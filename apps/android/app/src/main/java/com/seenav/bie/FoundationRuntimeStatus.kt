@@ -1,7 +1,10 @@
 package com.seenav.bie
 
+import com.seenav.bie.api.ConnectionCheckResult
+
 enum class FoundationStage {
     ANDROID_FOUNDATION,
+    API_CONNECTIVITY,
 }
 
 data class FoundationRuntimeStatus(
@@ -15,5 +18,12 @@ data class FoundationRuntimeStatus(
             documentIntelligenceConnected = false,
             stage = FoundationStage.ANDROID_FOUNDATION,
         )
+
+        fun fromConnectionResult(result: ConnectionCheckResult): FoundationRuntimeStatus =
+            if (result.backendConnected && result.documentIntelligenceConnected && result.error == null) {
+                FoundationRuntimeStatus(true, true, FoundationStage.API_CONNECTIVITY)
+            } else {
+                initial()
+            }
     }
 }
