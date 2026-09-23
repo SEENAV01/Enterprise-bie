@@ -25,8 +25,8 @@ android {
         applicationId = "com.seenav.bie"
         minSdk = 26
         targetSdk = 37
-        versionCode = 3
-        versionName = "0.3.0-pdf-submit"
+        versionCode = 4
+        versionName = "0.4.0-job-results"
         buildConfigField("String", "BIE_API_BASE_URL", "\"$escapedApiBaseUrl\"")
     }
 
