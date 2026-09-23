@@ -42,10 +42,15 @@ import com.seenav.bie.document.PdfSubmissionStage
 import com.seenav.bie.document.PdfSubmissionState
 import com.seenav.bie.document.PreparationResult
 import com.seenav.bie.document.PreparedPdf
+import com.seenav.bie.job.JobMonitor
+import com.seenav.bie.job.JobTrackingStage
+import com.seenav.bie.job.JobTrackingState
 import java.util.concurrent.Executors
+import java.util.concurrent.Future
 
 class MainActivity : ComponentActivity() {
     private val connectionExecutor = Executors.newSingleThreadExecutor()
+    private val monitorExecutor = Executors.newSingleThreadExecutor()
     private val apiConfig by lazy {
         BieApiConfig.from(BuildConfig.BIE_API_BASE_URL, allowDebugHttp = BuildConfig.DEBUG)
     }
@@ -53,6 +58,12 @@ class MainActivity : ComponentActivity() {
     private var checking by mutableStateOf(false)
     private var failure by mutableStateOf<ApiClientErrorCode?>(null)
     private var submission by mutableStateOf(PdfSubmissionState())
+    private var tracking by mutableStateOf(JobTrackingState())
+    private var monitorBusy by mutableStateOf(false)
+    private var jobMonitor: JobMonitor? = null
+    private var monitorFuture: Future<*>? = null
+    @Volatile private var monitorGeneration = 0
+    @Volatile private var foreground = false
     private val preparer by lazy { PdfUploadPreparer(cacheDir) }
     private val pdfPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
         if (uri != null) prepareSelection(uri)
@@ -69,13 +80,18 @@ class MainActivity : ComponentActivity() {
                 failure = failure,
                 onCheckConnection = ::checkConnection,
                 submission = submission,
+                tracking = tracking,
+                monitorBusy = monitorBusy,
                 onChoosePdf = { pdfPicker.launch(arrayOf("application/pdf")) },
                 onSubmitPdf = ::submitPdf,
+                onRefreshJob = ::refreshJob,
             )
         }
     }
 
     private fun prepareSelection(uri: Uri) {
+        cancelMonitoring()
+        tracking = JobTrackingState()
         val previous = submission.prepared
         submission = submission.preparing()
         connectionExecutor.execute {
@@ -112,8 +128,67 @@ class MainActivity : ComponentActivity() {
             if (result.job != null) preparer.remove(prepared)
             runOnUiThread {
                 if (isDestroyed) preparer.remove(prepared)
-                else submission = if (result.job != null) submission.submitted(result.job)
-                else submission.failed(result.error ?: ApiClientErrorCode.INTERNAL_CLIENT_ERROR)
+                else if (result.job != null) {
+                    submission = submission.submitted(result.job)
+                    tracking = JobTrackingState.submitted(result.job)
+                    startMonitoring()
+                } else submission = submission.failed(result.error ?: ApiClientErrorCode.INTERNAL_CLIENT_ERROR)
+            }
+        }
+    }
+
+    private fun cancelMonitoring() {
+        monitorGeneration++
+        jobMonitor?.cancel()
+        monitorFuture?.cancel(true)
+        jobMonitor = null
+        monitorFuture = null
+        monitorBusy = false
+    }
+
+    private fun startMonitoring() {
+        if (monitorBusy || tracking.jobId == null) return
+        if (!foreground) {
+            tracking = tracking.paused()
+            return
+        }
+        val generation = ++monitorGeneration
+        val monitor = JobMonitor(BieApiClient(apiConfig))
+        jobMonitor = monitor
+        monitorBusy = true
+        val initial = tracking
+        monitorFuture = monitorExecutor.submit {
+            try {
+                monitor.monitor(initial) { update ->
+                    runOnUiThread {
+                        if (!isDestroyed && monitorGeneration == generation) tracking = update
+                    }
+                }
+            } finally {
+                runOnUiThread {
+                    if (!isDestroyed && monitorGeneration == generation) monitorBusy = false
+                }
+            }
+        }
+    }
+
+    private fun refreshJob() {
+        if (!foreground || monitorBusy || tracking.jobId == null) return
+        val generation = monitorGeneration
+        val monitor = jobMonitor ?: JobMonitor(BieApiClient(apiConfig)).also { jobMonitor = it }
+        val initial = tracking
+        monitorBusy = true
+        monitorFuture = monitorExecutor.submit {
+            try {
+                monitor.refresh(initial) { update ->
+                    runOnUiThread {
+                        if (!isDestroyed && monitorGeneration == generation) tracking = update
+                    }
+                }
+            } finally {
+                runOnUiThread {
+                    if (!isDestroyed && monitorGeneration == generation) monitorBusy = false
+                }
             }
         }
     }
@@ -139,9 +214,27 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        foreground = true
+    }
+
+    override fun onStop() {
+        foreground = false
+        if (monitorBusy) {
+            cancelMonitoring()
+            if (tracking.jobId != null && tracking.stage in setOf(
+                    JobTrackingStage.POLLING, JobTrackingStage.READY, JobTrackingStage.RUNNING,
+                )) tracking = tracking.paused()
+        }
+        super.onStop()
+    }
+
     override fun onDestroy() {
+        cancelMonitoring()
         preparer.remove(submission.prepared)
         connectionExecutor.shutdownNow()
+        monitorExecutor.shutdownNow()
         super.onDestroy()
     }
 }
@@ -154,8 +247,11 @@ fun BieFoundationApp(
     failure: ApiClientErrorCode? = null,
     onCheckConnection: () -> Unit = {},
     submission: PdfSubmissionState = PdfSubmissionState(),
+    tracking: JobTrackingState = JobTrackingState(),
+    monitorBusy: Boolean = false,
     onChoosePdf: () -> Unit = {},
     onSubmitPdf: () -> Unit = {},
+    onRefreshJob: () -> Unit = {},
 ) {
     val colors = lightColorScheme(
         primary = Color(0xFF1F4E5F),
@@ -275,6 +371,45 @@ fun BieFoundationApp(
                 submission.job?.let { job ->
                     Text(stringResource(R.string.pdf_job_submitted, job.jobId.take(12), job.status),
                         style = MaterialTheme.typography.bodyMedium)
+                }
+                if (tracking.jobId != null) {
+                    Text(
+                        text = when (tracking.stage) {
+                            JobTrackingStage.POLLING -> stringResource(R.string.job_polling)
+                            JobTrackingStage.READY -> stringResource(R.string.job_ready)
+                            JobTrackingStage.RUNNING -> stringResource(R.string.job_running)
+                            JobTrackingStage.SUCCEEDED -> stringResource(R.string.job_succeeded)
+                            JobTrackingStage.FAILED -> stringResource(R.string.job_failed)
+                            JobTrackingStage.TIMED_OUT -> stringResource(R.string.job_polling_paused)
+                            JobTrackingStage.PAUSED -> stringResource(R.string.job_polling_paused)
+                            JobTrackingStage.ERROR -> stringResource(R.string.job_monitor_error)
+                            JobTrackingStage.IDLE -> stringResource(R.string.job_ready)
+                        },
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                    tracking.error?.let { code ->
+                        Text(stringResource(R.string.job_error_code, code.name),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.error)
+                    }
+                    Button(
+                        onClick = onRefreshJob,
+                        enabled = !monitorBusy && tracking.stage != JobTrackingStage.SUCCEEDED,
+                    ) { Text(stringResource(R.string.refresh_job_action)) }
+                }
+                tracking.safeResultSummary?.let { summary ->
+                    Text(stringResource(R.string.job_safe_summary_heading),
+                        style = MaterialTheme.typography.titleMedium)
+                    Text(stringResource(R.string.job_page_count, summary.pageCount))
+                    Text(stringResource(R.string.job_total_blocks, summary.totalBlocks))
+                    Text(stringResource(R.string.job_chapters, summary.materializedChapterCount))
+                    Text(stringResource(R.string.job_sections, summary.materializedSectionCount))
+                    Text(stringResource(R.string.job_subsections, summary.materializedSubsectionCount))
+                    Text(stringResource(R.string.job_outline_count, summary.nativeOutlineEntryCount))
+                    Text(stringResource(R.string.job_outline_status,
+                        if (summary.outlineStatus == "no_native_outline") {
+                            stringResource(R.string.job_no_native_outline)
+                        } else stringResource(R.string.job_native_outline_reconciled)))
                 }
                 submission.error?.let { code ->
                     Text(stringResource(R.string.pdf_submission_error, code.name),

@@ -1,4 +1,4 @@
-# BIE Android PDF submission foundation
+# BIE Android PDF job results foundation
 
 This directory contains the first Android productization foundation for My Book
 Intelligence Engine. Canonical BIE engines remain under `bie/`; this application
@@ -34,13 +34,29 @@ the staged file. Failed network attempts can be retried within the Activity
 session with the same idempotency key; selecting a new file creates a new key.
 No restart-resumable upload is claimed. Android does not run backend workers.
 
+After an accepted submission, Android checks `GET /v1/jobs/{job_id}` during the
+foreground Activity session. It validates the returned job ID, source hash,
+status, queue state, and result availability. Checks are bounded to 30 attempts
+at two-second intervals. READY and RUNNING remain pending; a polling timeout
+pauses checks and does not mark the server-side job failed. The **Refresh job**
+action makes one status request after a timeout or network failure. When the
+governed status is SUCCEEDED, Android fetches `GET /v1/jobs/{job_id}/result`
+once and displays safe page, block, hierarchy-candidate, and native-outline
+counts. FAILED stops monitoring without fetching a result. Neither response
+JSON nor book text is displayed or retained by the monitor.
+
+The backend worker must run separately. Android never starts or controls it.
+Monitoring is cancelled when a new PDF replaces the active document or the
+Activity is destroyed. The Android session does not restore its active job
+identity after Android process death; the server-side job remains persistent.
+
 ## What this milestone can prove
 
 - Android source and resource structure
 - GitHub CI compilation with lint and JVM unit tests
 - Debug APK creation and an APK SHA-256 receipt
 - A launchable foundation with an explicit health and capability check
-- PDF selection, bounded staging, and persistent-job submission contracts
+- PDF selection, bounded staging, persistent-job submission, and safe result contracts
 
 The earlier Android foundation was physically launch-validated. Network
 connectivity on a physical device remains a separate acceptance step.
@@ -48,7 +64,7 @@ connectivity on a physical device remains a separate acceptance step.
 ## What this milestone does not prove
 
 - Document Intelligence runtime or real-book processing
-- Automatic job polling, result retrieval/display, or backend worker control
+- Automatic backend worker execution or Android process-death job restoration
 - Physical-device network connectivity
 - Physical-device PDF upload acceptance
 - Authentication or public backend deployment
@@ -72,8 +88,8 @@ connectivity on a physical device remains a separate acceptance step.
 No Gradle wrapper is committed in this milestone. The separate Android CI
 workflow installs the pinned Gradle version explicitly.
 
-The dedicated PDF submission workflow builds a debug APK, runs lint and JVM
+The dedicated job results workflow builds a debug APK, runs lint and JVM
 tests, checks merged debug/release manifest policies, and exercises synthetic
-persistent-job submission, idempotent replay, and conflict over a local loopback
-API. Authentication and public deployment remain absent. No product acceptance
-is claimed.
+success and failure lifecycles over a local loopback API with a separate backend
+worker process. Authentication and public deployment remain absent. Physical
+device full-lifecycle acceptance and product acceptance remain open.
