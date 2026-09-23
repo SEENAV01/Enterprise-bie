@@ -16,6 +16,13 @@ document-intelligence = [
 document-intelligence-layout = [
     "pdfplumber==0.11.10",
 ]
+api = [
+    "fastapi==0.141.1",
+    "uvicorn==0.53.0",
+]
+api-test = [
+    "httpx==0.28.1",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
