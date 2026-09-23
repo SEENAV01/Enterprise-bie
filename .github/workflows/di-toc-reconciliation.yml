@@ -1,0 +1,129 @@
+name: BIE DI TOC Reconciliation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/di-toc-reconciliation-001]
+    paths:
+      - "pyproject.toml"
+      - "bie/document_intelligence/toc_reconciliation.py"
+      - "bie/document_intelligence/pypdf_outline_adapter.py"
+      - "bie/document_intelligence/real_pdf_toc_runtime.py"
+      - "bie/document_intelligence/real_pdf_hierarchy_runtime.py"
+      - "bie/document_intelligence/real_pdf_structure_runtime.py"
+      - "bie/document_intelligence/real_pdf_text_runtime.py"
+      - "scripts/inspect_real_pdf_toc.py"
+      - "tests/imported/BIE_BI_DOCINT_TOC_001/tests/test_toc_reconciliation.py"
+      - "tests/imported/BIE_BI_STRUCT_001/tests/book_intelligence/test_chapter_structure.py"
+      - "tests/imported/BIE_BI_STRUCT_002/tests/book_intelligence/test_section_structure.py"
+      - "tests/imported/BIE_BI_STRUCT_003/tests/book_intelligence/test_subsection_structure.py"
+      - "tests/productization/document_intelligence/structural_pdf_fixtures.py"
+      - "tests/productization/document_intelligence/test_real_pdf_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_text_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_structure_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_hierarchy_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_toc_runtime.py"
+      - ".github/workflows/di-toc-reconciliation.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "pyproject.toml"
+      - "bie/document_intelligence/toc_reconciliation.py"
+      - "bie/document_intelligence/pypdf_outline_adapter.py"
+      - "bie/document_intelligence/real_pdf_toc_runtime.py"
+      - "bie/document_intelligence/real_pdf_hierarchy_runtime.py"
+      - "bie/document_intelligence/real_pdf_structure_runtime.py"
+      - "bie/document_intelligence/real_pdf_text_runtime.py"
+      - "scripts/inspect_real_pdf_toc.py"
+      - "tests/imported/BIE_BI_DOCINT_TOC_001/tests/test_toc_reconciliation.py"
+      - "tests/imported/BIE_BI_STRUCT_001/tests/book_intelligence/test_chapter_structure.py"
+      - "tests/imported/BIE_BI_STRUCT_002/tests/book_intelligence/test_section_structure.py"
+      - "tests/imported/BIE_BI_STRUCT_003/tests/book_intelligence/test_subsection_structure.py"
+      - "tests/productization/document_intelligence/structural_pdf_fixtures.py"
+      - "tests/productization/document_intelligence/test_real_pdf_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_text_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_structure_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_hierarchy_runtime.py"
+      - "tests/productization/document_intelligence/test_real_pdf_toc_runtime.py"
+      - ".github/workflows/di-toc-reconciliation.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-di-toc-reconciliation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
+    steps:
+      - name: Check out repository
+        # actions/checkout v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.13.5
+        # actions/setup-python v6.0.0
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: 3.13.5
+          cache: pip
+
+      - name: Install scoped Document Intelligence dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[document-intelligence,document-intelligence-layout]"
+          python -m pip check
+
+      - name: Record runtime versions
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/di-toc-reconciliation-evidence"
+          mkdir -p "$evidence"
+          python --version > "$evidence/python-version.txt" 2>&1
+          python -c "import pypdf; print(pypdf.__version__)" > "$evidence/pypdf-version.txt"
+          python -c "import pdfplumber; print(pdfplumber.__version__)" > "$evidence/pdfplumber-version.txt"
+
+      - name: Run targeted native-outline reconciliation tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/di-toc-reconciliation-evidence"
+          {
+            python tests/imported/BIE_BI_DOCINT_TOC_001/tests/test_toc_reconciliation.py
+            python tests/imported/BIE_BI_STRUCT_001/tests/book_intelligence/test_chapter_structure.py
+            python tests/imported/BIE_BI_STRUCT_002/tests/book_intelligence/test_section_structure.py
+            python tests/imported/BIE_BI_STRUCT_003/tests/book_intelligence/test_subsection_structure.py
+            python tests/productization/document_intelligence/test_real_pdf_runtime.py
+            python tests/productization/document_intelligence/test_real_pdf_text_runtime.py
+            python tests/productization/document_intelligence/test_real_pdf_structure_runtime.py
+            python tests/productization/document_intelligence/test_real_pdf_hierarchy_runtime.py
+            python tests/productization/document_intelligence/test_real_pdf_toc_runtime.py
+          } 2>&1 | tee "$evidence/targeted-tests.log"
+
+      - name: Generate safe synthetic TOC reconciliation evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/di-toc-reconciliation-evidence"
+          fixture="$RUNNER_TEMP/di-toc-reconciliation-fixture.pdf"
+          python -c "import sys; from pathlib import Path; sys.path.insert(0, str(Path.cwd() / 'tests' / 'productization' / 'document_intelligence')); from structural_pdf_fixtures import hierarchy_pdf_with_outline; Path(r'$fixture').write_bytes(hierarchy_pdf_with_outline())"
+          python scripts/inspect_real_pdf_toc.py "$fixture" > "$evidence/safe-toc-reconciliation.json"
+          rm "$fixture"
+
+      - name: Upload DI TOC reconciliation evidence
+        if: always()
+        # actions/upload-artifact v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-di-toc-reconciliation-evidence
+          path: ${{ runner.temp }}/di-toc-reconciliation-evidence
+          if-no-files-found: error
+          retention-days: 14

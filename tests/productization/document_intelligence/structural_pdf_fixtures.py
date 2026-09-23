@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from io import BytesIO
 
-from pypdf import PdfWriter
+from pypdf import PdfReader, PdfWriter
 from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
 
 
@@ -161,3 +161,38 @@ def hierarchy_pdf() -> bytes:
             for heading in headings
         ]
     )
+
+
+def hierarchy_pdf_with_outline(
+    entries: tuple[tuple[str, int | None, int | None], ...] | None = None,
+) -> bytes:
+    """Add deterministic native bookmarks to the hierarchy structural fixture.
+
+    Each tuple is ``(title, zero_based_page, parent_entry_index)``. A ``None``
+    page intentionally creates a valid bookmark with an unresolved destination.
+    """
+
+    if entries is None:
+        entries = (
+            ("CHAPTER 1 Foundation", 0, None),
+            ("1.1 First Section", 1, 0),
+            ("1.1.1 First Subsection", 2, 1),
+            ("CHAPTER 2 Continuation", 3, None),
+            ("2.1 Second Section", 4, 3),
+        )
+
+    reader = PdfReader(BytesIO(hierarchy_pdf()))
+    writer = PdfWriter()
+    writer.append_pages_from_reader(reader)
+    outline_objects: list[object] = []
+    for index, (title, page_index, parent_index) in enumerate(entries):
+        if parent_index is not None and not 0 <= parent_index < index:
+            raise ValueError("outline parent must reference an earlier entry")
+        parent = outline_objects[parent_index] if parent_index is not None else None
+        outline_objects.append(
+            writer.add_outline_item(title, page_index, parent=parent)
+        )
+
+    output = BytesIO()
+    writer.write(output)
+    return output.getvalue()
