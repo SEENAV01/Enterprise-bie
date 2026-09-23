@@ -138,3 +138,26 @@ def styled_text_pdf(
     output = BytesIO()
     writer.write(output)
     return output.getvalue()
+
+
+def hierarchy_pdf() -> bytes:
+    """Create a deterministic five-page numbered hierarchy fixture."""
+
+    headings = (
+        "CHAPTER 1 Foundation",
+        "1.1 First Section",
+        "1.1.1 First Subsection",
+        "CHAPTER 2 Continuation",
+        "2.1 Second Section",
+    )
+    return styled_text_pdf(
+        [
+            [
+                (72, 740, heading, 22, True),
+                (72, 680, "Ordinary hierarchy fixture body line one.", 12, False),
+                (72, 660, "Ordinary hierarchy fixture body line two.", 12, False),
+                (72, 640, "Ordinary hierarchy fixture body line three.", 12, False),
+            ]
+            for heading in headings
+        ]
+    )
