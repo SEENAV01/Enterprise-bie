@@ -2,11 +2,14 @@ package com.seenav.bie.api
 
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.io.FileInputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.ByteBuffer
 import java.nio.charset.CodingErrorAction
 import java.nio.charset.StandardCharsets
+import com.seenav.bie.document.PreparedPdf
+import com.seenav.bie.document.MAX_PDF_BYTES
 
 enum class ApiClientErrorCode {
     API_NOT_CONFIGURED,
@@ -19,6 +22,19 @@ enum class ApiClientErrorCode {
     HEALTH_CONTRACT_MISMATCH,
     CAPABILITY_CONTRACT_MISMATCH,
     INTERNAL_CLIENT_ERROR,
+    INVALID_DOCUMENT_TYPE,
+    EMPTY_DOCUMENT,
+    DOCUMENT_TOO_LARGE,
+    DOCUMENT_READ_FAILED,
+    IDEMPOTENCY_CONFLICT,
+    SUBMISSION_CONTRACT_MISMATCH,
+    SOURCE_HASH_MISMATCH,
+}
+
+data class SubmissionResult(val job: ApiJob? = null, val error: ApiClientErrorCode? = null) {
+    companion object {
+        fun failed(code: ApiClientErrorCode) = SubmissionResult(error = code)
+    }
 }
 
 data class ConnectionCheckResult(
@@ -38,6 +54,67 @@ class BieApiClient(
     private val readTimeoutMillis: Int = 10_000,
     private val maximumResponseBytes: Int = 256 * 1024,
 ) {
+    fun submitDocument(prepared: PreparedPdf): SubmissionResult {
+        config.error?.let { return SubmissionResult.failed(it) }
+        val base = config.baseUrl ?: return SubmissionResult.failed(ApiClientErrorCode.API_NOT_CONFIGURED)
+        if (prepared.byteLength > MAX_PDF_BYTES) return SubmissionResult.failed(ApiClientErrorCode.DOCUMENT_TOO_LARGE)
+        if (prepared.byteLength <= 0L || !prepared.cacheFile.isFile ||
+            prepared.cacheFile.length() != prepared.byteLength
+        ) return SubmissionResult.failed(ApiClientErrorCode.DOCUMENT_READ_FAILED)
+        return try {
+            val body = postPdf(base, prepared)
+            val response = ApiJson.jobSubmission(body)
+            if (!response.matchesContract()) SubmissionResult.failed(ApiClientErrorCode.SUBMISSION_CONTRACT_MISMATCH)
+            else if (response.job.sourceHash != prepared.sourceSha256) {
+                SubmissionResult.failed(ApiClientErrorCode.SOURCE_HASH_MISMATCH)
+            } else SubmissionResult(job = response.job)
+        } catch (error: SafeClientFailure) {
+            SubmissionResult.failed(error.code)
+        } catch (_: InvalidApiJson) {
+            SubmissionResult.failed(ApiClientErrorCode.SUBMISSION_CONTRACT_MISMATCH)
+        } catch (_: IOException) {
+            SubmissionResult.failed(ApiClientErrorCode.NETWORK_UNAVAILABLE)
+        } catch (_: Exception) {
+            SubmissionResult.failed(ApiClientErrorCode.INTERNAL_CLIENT_ERROR)
+        }
+    }
+
+    private fun postPdf(base: String, prepared: PreparedPdf): String {
+        val connection = URL(base + "/v1/jobs/document-inspection").openConnection() as HttpURLConnection
+        try {
+            connection.requestMethod = "POST"
+            connection.connectTimeout = connectTimeoutMillis
+            connection.readTimeout = readTimeoutMillis
+            connection.instanceFollowRedirects = false
+            connection.doOutput = true
+            connection.setRequestProperty("Content-Type", "application/pdf")
+            connection.setRequestProperty("Accept", "application/json")
+            connection.setRequestProperty("Idempotency-Key", prepared.idempotencyKey)
+            connection.setFixedLengthStreamingMode(prepared.byteLength)
+            FileInputStream(prepared.cacheFile).use { input ->
+                connection.outputStream.use { output ->
+                    val buffer = ByteArray(8 * 1024)
+                    var sent = 0L
+                    while (true) {
+                        val count = input.read(buffer)
+                        if (count < 0) break
+                        sent += count
+                        if (sent > prepared.byteLength) throw SafeClientFailure(ApiClientErrorCode.DOCUMENT_READ_FAILED)
+                        output.write(buffer, 0, count)
+                    }
+                    if (sent != prepared.byteLength) throw SafeClientFailure(ApiClientErrorCode.DOCUMENT_READ_FAILED)
+                }
+            }
+            return when (connection.responseCode) {
+                202 -> readJson(connection)
+                409 -> throw SafeClientFailure(ApiClientErrorCode.IDEMPOTENCY_CONFLICT)
+                413 -> throw SafeClientFailure(ApiClientErrorCode.DOCUMENT_TOO_LARGE)
+                else -> throw SafeClientFailure(ApiClientErrorCode.HTTP_ERROR)
+            }
+        } finally {
+            connection.disconnect()
+        }
+    }
     fun checkConnection(): ConnectionCheckResult {
         config.error?.let { return ConnectionCheckResult.failed(it) }
         val base = config.baseUrl ?: return ConnectionCheckResult.failed(ApiClientErrorCode.API_NOT_CONFIGURED)
@@ -73,9 +150,16 @@ class BieApiClient(
             if (connection.responseCode != HttpURLConnection.HTTP_OK) {
                 throw SafeClientFailure(ApiClientErrorCode.HTTP_ERROR)
             }
+            return readJson(connection)
+        } finally {
+            connection.disconnect()
+        }
+    }
+
+    private fun readJson(connection: HttpURLConnection): String {
             val mediaType = connection.contentType?.substringBefore(';')?.trim()?.lowercase()
-            if (mediaType != null && mediaType != "application/json" &&
-                !(mediaType.startsWith("application/") && mediaType.endsWith("+json"))
+            if (mediaType != "application/json" &&
+                mediaType?.let { it.startsWith("application/") && it.endsWith("+json") } != true
             ) {
                 throw SafeClientFailure(ApiClientErrorCode.INVALID_CONTENT_TYPE)
             }
@@ -100,9 +184,6 @@ class BieApiClient(
             } catch (_: Exception) {
                 throw SafeClientFailure(ApiClientErrorCode.INVALID_JSON)
             }
-        } finally {
-            connection.disconnect()
-        }
     }
 
     private class SafeClientFailure(val code: ApiClientErrorCode) : Exception()
