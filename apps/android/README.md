@@ -1,4 +1,4 @@
-# BIE Android foundation and API connectivity
+# BIE Android PDF submission foundation
 
 This directory contains the first Android productization foundation for My Book
 Intelligence Engine. Canonical BIE engines remain under `bie/`; this application
@@ -22,12 +22,25 @@ local development through loopback, ADB reverse, or a development LAN. The
 manifest requests `INTERNET` and no Android runtime permissions. This is not a
 public deployment configuration.
 
+The app now offers **Choose PDF** through Android's system document picker
+(`OpenDocument`, `application/pdf`). It requests no storage permission. A selected
+file is streamed into a temporary app-cache file with a strict 25 MiB limit;
+SHA-256 and size are computed during that pass. The original filename is never
+used as the cache filename. The user can submit only after both backend and
+Document Intelligence connectivity checks pass. The app streams the raw PDF to
+`POST /v1/jobs/document-inspection`, validates the persistent job response and
+source hash, and shows the returned job ID/status. An accepted submission removes
+the staged file. Failed network attempts can be retried within the Activity
+session with the same idempotency key; selecting a new file creates a new key.
+No restart-resumable upload is claimed. Android does not run backend workers.
+
 ## What this milestone can prove
 
 - Android source and resource structure
 - GitHub CI compilation with lint and JVM unit tests
 - Debug APK creation and an APK SHA-256 receipt
 - A launchable foundation with an explicit health and capability check
+- PDF selection, bounded staging, and persistent-job submission contracts
 
 The earlier Android foundation was physically launch-validated. Network
 connectivity on a physical device remains a separate acceptance step.
@@ -35,8 +48,9 @@ connectivity on a physical device remains a separate acceptance step.
 ## What this milestone does not prove
 
 - Document Intelligence runtime or real-book processing
-- PDF selection, upload, job submission/polling, or result display on Android
+- Automatic job polling, result retrieval/display, or backend worker control
 - Physical-device network connectivity
+- Physical-device PDF upload acceptance
 - Authentication or public backend deployment
 - Media or video generation
 - Audio generation or playback
@@ -58,8 +72,8 @@ connectivity on a physical device remains a separate acceptance step.
 No Gradle wrapper is committed in this milestone. The separate Android CI
 workflow installs the pinned Gradle version explicitly.
 
-The dedicated connectivity workflow builds a debug APK, runs lint and JVM
-tests, checks merged debug/release manifest policies, and compares the live
-canonical API responses to the shared Android contract fixture over loopback.
-The backend remains a local-development service. No product acceptance is
-claimed.
+The dedicated PDF submission workflow builds a debug APK, runs lint and JVM
+tests, checks merged debug/release manifest policies, and exercises synthetic
+persistent-job submission, idempotent replay, and conflict over a local loopback
+API. Authentication and public deployment remain absent. No product acceptance
+is claimed.

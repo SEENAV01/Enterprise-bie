@@ -1,7 +1,10 @@
 package com.seenav.bie
 
 import android.os.Bundle
+import android.net.Uri
+import android.provider.OpenableColumns
 import androidx.activity.ComponentActivity
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -32,6 +37,11 @@ import androidx.compose.ui.unit.dp
 import com.seenav.bie.api.ApiClientErrorCode
 import com.seenav.bie.api.BieApiClient
 import com.seenav.bie.api.BieApiConfig
+import com.seenav.bie.document.PdfUploadPreparer
+import com.seenav.bie.document.PdfSubmissionStage
+import com.seenav.bie.document.PdfSubmissionState
+import com.seenav.bie.document.PreparationResult
+import com.seenav.bie.document.PreparedPdf
 import java.util.concurrent.Executors
 
 class MainActivity : ComponentActivity() {
@@ -42,9 +52,15 @@ class MainActivity : ComponentActivity() {
     private var runtimeStatus by mutableStateOf(FoundationRuntimeStatus.initial())
     private var checking by mutableStateOf(false)
     private var failure by mutableStateOf<ApiClientErrorCode?>(null)
+    private var submission by mutableStateOf(PdfSubmissionState())
+    private val preparer by lazy { PdfUploadPreparer(cacheDir) }
+    private val pdfPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
+        if (uri != null) prepareSelection(uri)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        connectionExecutor.execute { preparer.cleanStale() }
         setContent {
             BieFoundationApp(
                 status = runtimeStatus,
@@ -52,7 +68,53 @@ class MainActivity : ComponentActivity() {
                 checking = checking,
                 failure = failure,
                 onCheckConnection = ::checkConnection,
+                submission = submission,
+                onChoosePdf = { pdfPicker.launch(arrayOf("application/pdf")) },
+                onSubmitPdf = ::submitPdf,
             )
+        }
+    }
+
+    private fun prepareSelection(uri: Uri) {
+        val previous = submission.prepared
+        submission = submission.preparing()
+        connectionExecutor.execute {
+            preparer.remove(previous)
+            val result = try {
+                val mime = contentResolver.getType(uri)
+                if (mime != null && mime != "application/pdf") {
+                    PreparationResult(error = ApiClientErrorCode.INVALID_DOCUMENT_TYPE)
+                } else {
+                    val name = contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { cursor ->
+                        if (cursor.moveToFirst()) cursor.getString(0) else null
+                    }
+                    val stream = contentResolver.openInputStream(uri)
+                    if (stream == null) PreparationResult(error = ApiClientErrorCode.DOCUMENT_READ_FAILED)
+                    else preparer.prepare(stream, name)
+                }
+            } catch (_: Exception) {
+                PreparationResult(error = ApiClientErrorCode.DOCUMENT_READ_FAILED)
+            }
+            runOnUiThread {
+                if (isDestroyed) preparer.remove(result.prepared)
+                else submission = if (result.prepared != null) submission.ready(result.prepared)
+                else submission.failed(result.error ?: ApiClientErrorCode.DOCUMENT_READ_FAILED)
+            }
+        }
+    }
+
+    private fun submitPdf() {
+        if (!submission.canSubmit(runtimeStatus.backendConnected, runtimeStatus.documentIntelligenceConnected)) return
+        val prepared = submission.prepared ?: return
+        submission = submission.submitting()
+        connectionExecutor.execute {
+            val result = BieApiClient(apiConfig).submitDocument(prepared)
+            if (result.job != null) preparer.remove(prepared)
+            runOnUiThread {
+                if (isDestroyed) preparer.remove(prepared)
+                else submission = if (result.job != null) submission.submitted(result.job)
+                else submission.failed(result.error ?: ApiClientErrorCode.INTERNAL_CLIENT_ERROR)
+            }
         }
     }
 
@@ -78,6 +140,7 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onDestroy() {
+        preparer.remove(submission.prepared)
         connectionExecutor.shutdownNow()
         super.onDestroy()
     }
@@ -90,6 +153,9 @@ fun BieFoundationApp(
     checking: Boolean = false,
     failure: ApiClientErrorCode? = null,
     onCheckConnection: () -> Unit = {},
+    submission: PdfSubmissionState = PdfSubmissionState(),
+    onChoosePdf: () -> Unit = {},
+    onSubmitPdf: () -> Unit = {},
 ) {
     val colors = lightColorScheme(
         primary = Color(0xFF1F4E5F),
@@ -106,8 +172,9 @@ fun BieFoundationApp(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
                     .padding(horizontal = 24.dp, vertical = 40.dp),
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.Top,
             ) {
                 Text(
                     text = stringResource(R.string.app_name),
@@ -191,6 +258,29 @@ fun BieFoundationApp(
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.secondary,
                 )
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(onClick = onChoosePdf, enabled = submission.stage !in setOf(
+                    PdfSubmissionStage.PREPARING, PdfSubmissionStage.SUBMITTING,
+                )) { Text(stringResource(R.string.choose_pdf_action)) }
+                submission.prepared?.let { document ->
+                    Text(document.displayName, style = MaterialTheme.typography.bodyMedium)
+                    Text(stringResource(R.string.pdf_size_bytes, document.byteLength),
+                        style = MaterialTheme.typography.bodySmall)
+                }
+                Text(submission.stage.name, style = MaterialTheme.typography.bodySmall)
+                Button(
+                    onClick = onSubmitPdf,
+                    enabled = submission.canSubmit(status.backendConnected, status.documentIntelligenceConnected),
+                ) { Text(stringResource(R.string.submit_pdf_action)) }
+                submission.job?.let { job ->
+                    Text(stringResource(R.string.pdf_job_submitted, job.jobId.take(12), job.status),
+                        style = MaterialTheme.typography.bodyMedium)
+                }
+                submission.error?.let { code ->
+                    Text(stringResource(R.string.pdf_submission_error, code.name),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error)
+                }
             }
         }
     }

@@ -36,6 +36,16 @@ data class ApiCapabilities(
         persistenceBackend == EXPECTED_PERSISTENCE_BACKEND && workerMode == EXPECTED_WORKER_MODE
 }
 
+data class ApiJob(val jobId: String, val status: String, val sourceHash: String, val resultAvailable: Boolean)
+
+data class ApiJobSubmission(val apiSchemaVersion: String, val job: ApiJob) {
+    fun matchesContract(): Boolean = apiSchemaVersion == "1.0" &&
+        Regex("job-[0-9a-f]{64}").matches(job.jobId) &&
+        Regex("[0-9a-f]{64}").matches(job.sourceHash) &&
+        job.status in setOf("READY", "RUNNING", "SUCCEEDED", "FAILED") &&
+        job.resultAvailable == (job.status == "SUCCEEDED")
+}
+
 internal class InvalidApiJson : Exception()
 
 internal object ApiJson {
@@ -62,6 +72,16 @@ internal object ApiJson {
             productAccepted = fields.requiredBoolean("product_accepted"),
             persistenceBackend = fields.requiredString("persistence_backend"),
             workerMode = fields.requiredString("worker_mode"),
+        )
+    }
+
+    fun jobSubmission(body: String): ApiJobSubmission {
+        val fields = objectFields(body)
+        val job = fields["job"] as? JsonObject ?: throw InvalidApiJson()
+        return ApiJobSubmission(
+            apiSchemaVersion = fields.requiredString("api_schema_version"),
+            job = ApiJob(job.requiredString("job_id"), job.requiredString("status"),
+                job.requiredString("source_hash"), job.requiredBoolean("result_available")),
         )
     }
 
