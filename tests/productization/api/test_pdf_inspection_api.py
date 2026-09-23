@@ -54,14 +54,14 @@ class PdfInspectionApiTests(unittest.TestCase):
             {"status": "ok", "service": "bie-api", "api_version": "v1"},
         )
 
-    def test_03_capabilities_report_unimplemented_boundaries(self):
+    def test_03_capabilities_report_local_persistent_jobs_truthfully(self):
         response = self.client.get("/v1/capabilities")
         self.assertEqual(response.status_code, 200)
         capabilities = response.json()
-        self.assertTrue(capabilities["stateless"])
-        self.assertFalse(capabilities["persistence"])
+        self.assertFalse(capabilities["stateless"])
+        self.assertTrue(capabilities["persistence"])
         self.assertFalse(capabilities["authentication"])
-        self.assertFalse(capabilities["async_jobs"])
+        self.assertTrue(capabilities["async_jobs"])
         self.assertFalse(capabilities["product_accepted"])
 
     def test_04_wrong_content_type_is_rejected(self):
