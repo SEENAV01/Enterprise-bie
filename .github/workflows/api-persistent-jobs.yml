@@ -1,0 +1,114 @@
+name: BIE API Persistent Jobs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/api-persistent-jobs-001]
+    paths:
+      - "apps/api/**"
+      - "scripts/run_bie_pdf_worker.py"
+      - "scripts/smoke_bie_pdf_worker.py"
+      - "tests/productization/api/test_pdf_inspection_api.py"
+      - "tests/productization/api/test_persistent_pdf_jobs.py"
+      - "bie/infrastructure/persistence.py"
+      - "bie/infrastructure/idempotency_store.py"
+      - "bie/infrastructure/durable_task_queue.py"
+      - "bie/infrastructure/artifact_store.py"
+      - "bie/document_intelligence/real_pdf_toc_runtime.py"
+      - "pyproject.toml"
+      - ".github/workflows/api-persistent-jobs.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/api/**"
+      - "scripts/run_bie_pdf_worker.py"
+      - "scripts/smoke_bie_pdf_worker.py"
+      - "tests/productization/api/test_pdf_inspection_api.py"
+      - "tests/productization/api/test_persistent_pdf_jobs.py"
+      - "bie/infrastructure/persistence.py"
+      - "bie/infrastructure/idempotency_store.py"
+      - "bie/infrastructure/durable_task_queue.py"
+      - "bie/infrastructure/artifact_store.py"
+      - "bie/document_intelligence/real_pdf_toc_runtime.py"
+      - "pyproject.toml"
+      - ".github/workflows/api-persistent-jobs.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-api-persistent-jobs-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
+    steps:
+      - name: Check out repository
+        # actions/checkout v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.13.5
+        # actions/setup-python v6.0.0
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: 3.13.5
+          cache: pip
+
+      - name: Install scoped API and Document Intelligence dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[document-intelligence,document-intelligence-layout,api,api-test]"
+          python -m pip check
+
+      - name: Record runtime versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/api-persistent-jobs-evidence"
+          mkdir -p "$evidence"
+          python --version > "$evidence/python-version.txt" 2>&1
+          python -c "import fastapi; print(fastapi.__version__)" > "$evidence/fastapi-version.txt"
+          python -c "import uvicorn; print(uvicorn.__version__)" > "$evidence/uvicorn-version.txt"
+          python -c "import pypdf; print(pypdf.__version__)" > "$evidence/pypdf-version.txt"
+          python -c "import pdfplumber; print(pdfplumber.__version__)" > "$evidence/pdfplumber-version.txt"
+
+      - name: Run explicit infrastructure and API tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/api-persistent-jobs-evidence"
+          {
+            python tests/imported/BIE_INFRA_PERSIST_001/tests/enterprise/test_persistence.py
+            python tests/imported/BIE_INFRA_IDEMP_001/tests/enterprise/test_idempotency_store.py
+            python tests/imported/BIE_INFRA_QUEUE_PERSIST_001/tests/enterprise/test_durable_task_queue.py
+            python tests/imported/BIE_INFRA_ARTIFACT_STORE_001/tests/enterprise/test_artifact_store.py
+            python tests/productization/document_intelligence/test_real_pdf_toc_runtime.py
+            python tests/productization/api/test_pdf_inspection_api.py
+            python tests/productization/api/test_persistent_pdf_jobs.py
+          } 2>&1 | tee "$evidence/targeted-tests.log"
+
+      - name: Run separate worker process and record safe evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/api-persistent-jobs-evidence"
+          python scripts/smoke_bie_pdf_worker.py --evidence-dir "$evidence" \
+            > "$evidence/worker-process-smoke.json"
+
+      - name: Upload persistent job evidence
+        if: always()
+        # actions/upload-artifact v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-api-persistent-jobs-evidence
+          path: ${{ runner.temp }}/api-persistent-jobs-evidence
+          if-no-files-found: error
+          retention-days: 14
