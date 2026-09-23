@@ -14,30 +14,82 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.seenav.bie.api.ApiClientErrorCode
+import com.seenav.bie.api.BieApiClient
+import com.seenav.bie.api.BieApiConfig
+import java.util.concurrent.Executors
 
 class MainActivity : ComponentActivity() {
+    private val connectionExecutor = Executors.newSingleThreadExecutor()
+    private val apiConfig by lazy {
+        BieApiConfig.from(BuildConfig.BIE_API_BASE_URL, allowDebugHttp = BuildConfig.DEBUG)
+    }
+    private var runtimeStatus by mutableStateOf(FoundationRuntimeStatus.initial())
+    private var checking by mutableStateOf(false)
+    private var failure by mutableStateOf<ApiClientErrorCode?>(null)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BieFoundationApp()
+            BieFoundationApp(
+                status = runtimeStatus,
+                configured = apiConfig.error != ApiClientErrorCode.API_NOT_CONFIGURED,
+                checking = checking,
+                failure = failure,
+                onCheckConnection = ::checkConnection,
+            )
         }
+    }
+
+    private fun checkConnection() {
+        if (checking) return
+        runtimeStatus = FoundationRuntimeStatus.initial()
+        apiConfig.error?.let {
+            failure = it
+            return
+        }
+        failure = null
+        checking = true
+        connectionExecutor.execute {
+            val result = BieApiClient(apiConfig).checkConnection()
+            runOnUiThread {
+                if (!isDestroyed) {
+                    runtimeStatus = FoundationRuntimeStatus.fromConnectionResult(result)
+                    failure = result.error
+                    checking = false
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        connectionExecutor.shutdownNow()
+        super.onDestroy()
     }
 }
 
 @Composable
 fun BieFoundationApp(
     status: FoundationRuntimeStatus = FoundationRuntimeStatus.initial(),
+    configured: Boolean = false,
+    checking: Boolean = false,
+    failure: ApiClientErrorCode? = null,
+    onCheckConnection: () -> Unit = {},
 ) {
     val colors = lightColorScheme(
         primary = Color(0xFF1F4E5F),
@@ -84,6 +136,11 @@ fun BieFoundationApp(
                         StatusRow(
                             label = stringResource(R.string.engine_connection_label),
                             connected = status.backendConnected,
+                            disconnectedLabel = if (!configured) {
+                                stringResource(R.string.not_configured_status)
+                            } else {
+                                stringResource(R.string.not_connected_status)
+                            },
                         )
                         StatusRow(
                             label = stringResource(R.string.document_intelligence_label),
@@ -103,6 +160,9 @@ fun BieFoundationApp(
                                     FoundationStage.ANDROID_FOUNDATION -> {
                                         stringResource(R.string.foundation_stage_status)
                                     }
+                                    FoundationStage.API_CONNECTIVITY -> {
+                                        stringResource(R.string.api_connectivity_stage_status)
+                                    }
                                 },
                                 style = MaterialTheme.typography.bodyMedium,
                                 fontWeight = FontWeight.SemiBold,
@@ -112,6 +172,20 @@ fun BieFoundationApp(
                     }
                 }
                 Spacer(modifier = Modifier.height(20.dp))
+                Button(onClick = onCheckConnection, enabled = !checking) {
+                    Text(
+                        if (checking) stringResource(R.string.checking_connection_status)
+                        else stringResource(R.string.check_connection_action),
+                    )
+                }
+                if (failure != null) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = stringResource(R.string.connection_failure_code, failure.name),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error,
+                    )
+                }
                 Text(
                     text = stringResource(R.string.connection_notice),
                     style = MaterialTheme.typography.bodySmall,
@@ -126,6 +200,7 @@ fun BieFoundationApp(
 private fun StatusRow(
     label: String,
     connected: Boolean,
+    disconnectedLabel: String? = null,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -140,7 +215,7 @@ private fun StatusRow(
             text = if (connected) {
                 stringResource(R.string.connected_status)
             } else {
-                stringResource(R.string.not_connected_status)
+                disconnectedLabel ?: stringResource(R.string.not_connected_status)
             },
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.SemiBold,

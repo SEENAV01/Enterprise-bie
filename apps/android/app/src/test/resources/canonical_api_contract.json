@@ -1,0 +1,14 @@
+{
+  "health": {"status": "ok", "service": "bie-api", "api_version": "v1"},
+  "capabilities": {
+    "api_version": "v1",
+    "document_inspection": "native_pdf_toc_v1",
+    "stateless": false,
+    "persistence": true,
+    "async_jobs": true,
+    "authentication": false,
+    "product_accepted": false,
+    "persistence_backend": "local_sqlite_cas_v1",
+    "worker_mode": "local_manual_run_once_v1"
+  }
+}
