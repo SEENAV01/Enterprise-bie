@@ -1,0 +1,18 @@
+{
+  "scope": "Primary implementation references; not evidence of BIE execution",
+  "references": [
+    {
+      "url": "https://espeak.sourceforge.net/ssml.html",
+      "use": "supported source MARK tag and voice markup"
+    },
+    {
+      "url": "https://sources.debian.org/src/espeak/1.48.15%2Bdfsg-2/src/speak_lib.h",
+      "use": "installed legacy public callback ABI, synchronous PCM, public integer millisecond audio position"
+    },
+    {
+      "url": "https://www.w3.org/TR/2026/CRD-webvtt1-20260520/",
+      "use": "UTF-8 cue syntax, escaped literal text, ordered start/positive end timestamps"
+    }
+  ],
+  "verification_method": "Local implementation and tests; external source statements do not establish acoustic or product acceptance"
+}

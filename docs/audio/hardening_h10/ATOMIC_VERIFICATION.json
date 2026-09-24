@@ -1,0 +1,58 @@
+{
+  "caption_stream_roundtrip_verified": true,
+  "combined_targeted": 145,
+  "compatibility_tests": 83,
+  "errors": 0,
+  "failures": 0,
+  "focused_tests": 62,
+  "full_audio_regression_completed": false,
+  "parent_integrated_sha256": "ffbc7c9d8fd1c2e4cd78a49e3b9872e7cccbc57266e9bb13b20a5571bb1ace60",
+  "product_accepted": false,
+  "real_ffmpeg_av_render_verified": true,
+  "real_remotion_render_verified": false,
+  "schema_version": "bie.audio.h10-atomic-verification/1",
+  "section_exit_permitted": false,
+  "skips": 0,
+  "tasks": [
+    {
+      "focused_tests": 12,
+      "passed": true,
+      "source": "bie/audio/dir_audio_handoff.py",
+      "task_id": "BIE-AUDIO-H10-001",
+      "task_result": "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-001/TASK_RESULT.json",
+      "test": "tests/audio/test_audio_h10_001_dir_handoff.py"
+    },
+    {
+      "focused_tests": 16,
+      "passed": true,
+      "source": "bie/audio/compiler_handoff.py",
+      "task_id": "BIE-AUDIO-H10-002",
+      "task_result": "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-002/TASK_RESULT.json",
+      "test": "tests/audio/test_audio_h10_002_compiler_handoff.py"
+    },
+    {
+      "focused_tests": 12,
+      "passed": true,
+      "source": "bie/audio/repair_dispatch.py",
+      "task_id": "BIE-AUDIO-H10-003",
+      "task_result": "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-003/TASK_RESULT.json",
+      "test": "tests/audio/test_audio_h10_003_repair_invalidation.py"
+    },
+    {
+      "focused_tests": 10,
+      "passed": true,
+      "source": "bie/audio/render_evidence.py",
+      "task_id": "BIE-AUDIO-H10-004",
+      "task_result": "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-004/TASK_RESULT.json",
+      "test": "tests/audio/test_audio_h10_004_render_evidence.py"
+    },
+    {
+      "focused_tests": 12,
+      "passed": true,
+      "source": "bie/audio/f04_gate.py",
+      "task_id": "BIE-AUDIO-H10-005",
+      "task_result": "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-005/TASK_RESULT.json",
+      "test": "tests/audio/test_audio_h10_005_f04_gate.py"
+    }
+  ]
+}

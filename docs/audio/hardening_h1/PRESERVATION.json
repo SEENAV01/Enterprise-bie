@@ -1,0 +1,1925 @@
+{
+  "schema_version": "bie.audio.h1-preservation/1",
+  "parent_file": "BIE_AUDIO_ORIGINAL_BATCH_005_QA_001_005_INTEGRATED.zip",
+  "parent_sha256": "87c295e3ed54a22c2b04609453c2922e25126e0c23e8bf80b5ba3e600ae33ac1",
+  "parent_files_accounted": 316,
+  "unchanged_current_files": 309,
+  "deliberate_changes_with_exact_originals": [
+    "CONTINUATION.json",
+    "INTEGRATION_PLAN.json",
+    "PACKAGE_MANIFEST.json",
+    "README.md",
+    "bie/audio/sync_contract.py",
+    "bie/audio/sync_pipeline.py",
+    "docs/audio/AUDIO_CONSOLIDATED_HARDENING_BACKLOG.json"
+  ],
+  "inherited_source_files_checked": 80,
+  "modified_inherited_source_files": [
+    "bie/audio/sync_contract.py",
+    "bie/audio/sync_pipeline.py"
+  ],
+  "inherited_test_files_checked": 47,
+  "inherited_test_file_changes": [],
+  "pinned_DIR_dependency_files_unchanged": true,
+  "both_batch001_lineages_retained": true,
+  "rows": [
+    {
+      "parent_path": "AUDIO_BATCH_001_CONTINUATION.json",
+      "parent_sha256": "9bc9afc022b3573488a309438bcb062d477e90c4327b85b228409d1a3f539b18",
+      "original_bytes_at": "AUDIO_BATCH_001_CONTINUATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "BIE_AUDIO_ORIGINAL_BATCH_002_RESULT.md",
+      "parent_sha256": "f9f4f5cc1b0f8c3646e9d39d534ef209201cddd177c405c388dbf64021b4d227",
+      "original_bytes_at": "BIE_AUDIO_ORIGINAL_BATCH_002_RESULT.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "BIE_AUDIO_ORIGINAL_BATCH_003_RESULT.md",
+      "parent_sha256": "9375ac05c13e4f9d8d6ca2b42b5b763e53a0b57f80702a9d2da7f12fe0d643d6",
+      "original_bytes_at": "BIE_AUDIO_ORIGINAL_BATCH_003_RESULT.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "BIE_AUDIO_ORIGINAL_BATCH_004_RESULT.md",
+      "parent_sha256": "dc9d7c9513d3c82932d2e4dfc999e54c60955d66e386fa0dbd95d5a51137d4e5",
+      "original_bytes_at": "BIE_AUDIO_ORIGINAL_BATCH_004_RESULT.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "CONTINUATION.json",
+      "parent_sha256": "71247be5c66c26f74e9e434d163fc75a4154c23d556d35efd64864e74e62a1b5",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/CONTINUATION.json",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "DEPENDENCY_SNAPSHOT.json",
+      "parent_sha256": "f1820cc59312882e4671cfbc6900753012b6c343334aa864ddd5dcc29143a9d7",
+      "original_bytes_at": "DEPENDENCY_SNAPSHOT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "INTEGRATION_PLAN.json",
+      "parent_sha256": "9a8ffe6125d79b456fb4cd2489178574c006ae3c325ec2148800a21a09326642",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/INTEGRATION_PLAN.json",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "PACKAGE_MANIFEST.json",
+      "parent_sha256": "08c77842ce25770cfbe77b43bfb427d663f56651aa6f6540e3c93407c34f7403",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/PACKAGE_MANIFEST.json",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "README.md",
+      "parent_sha256": "045cdf03cc8fb0a21813eddc1c1f5fc7a21064db6fa2e332d5551bfa58591388",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/README.md",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "README_AUDIO_BATCH_001.md",
+      "parent_sha256": "0ca32bb6271d169e248a14ab77c0c4f0929859d633a82f47fe817f7e5e4d00a2",
+      "original_bytes_at": "README_AUDIO_BATCH_001.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/__init__.py",
+      "parent_sha256": "229dc23d93544b366d9d755dcd66eb35cc942f65f5a4f9532dfb2a3e0af4aba2",
+      "original_bytes_at": "bie/audio/__init__.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/acronym_pronunciation.py",
+      "parent_sha256": "875e4aa26fedfab32f06fad4fc496f76319981e3b06c08523050cfc4fbf9715f",
+      "original_bytes_at": "bie/audio/acronym_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/animation_sync.py",
+      "parent_sha256": "116031763a1fd3c06bd3c969b0cdefc5014edc143c3eebcea0525cfceb3d421b",
+      "original_bytes_at": "bie/audio/animation_sync.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/caption_alignment.py",
+      "parent_sha256": "f80394cfa19e252a905458d708c389f45e0387281b11270e3b7077972283a047",
+      "original_bytes_at": "bie/audio/caption_alignment.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/common.py",
+      "parent_sha256": "3e69165fdd9c35b8a3ece7d9d20d40a88d30c5ec067a9523e6ab63ae912a8c14",
+      "original_bytes_at": "bie/audio/common.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/__init__.py",
+      "parent_sha256": "782fa95beaea7805007d0f221024a59ed0d7dddd918fdf0a6d2ffaf7132c5e96",
+      "original_bytes_at": "bie/audio/compat204/__init__.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/__main__.py",
+      "parent_sha256": "d3d02422d38cf7e317b3fcf0a058bab5ebe11546ae0c796a1730c4a6206a1c15",
+      "original_bytes_at": "bie/audio/compat204/__main__.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/acronym_pronunciation.py",
+      "parent_sha256": "d77a65c453da43e24885ee896fa062c9d3618e2afe9a0c2a1b0604a44b831643",
+      "original_bytes_at": "bie/audio/compat204/acronym_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/contracts.py",
+      "parent_sha256": "77c1b5a43f7b908818979b691e9120378cb52a5b42ead85994a7f92a29bc620d",
+      "original_bytes_at": "bie/audio/compat204/contracts.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/math_pronunciation.py",
+      "parent_sha256": "bf955724d23b59b78fdaf71ced1d5f8cd5ed9e806072aab524fc31f6145df9fb",
+      "original_bytes_at": "bie/audio/compat204/math_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/narration_segmentation.py",
+      "parent_sha256": "39b00e1f24c8092402c338ec54c94d0c3f581e26c5449ebc22b66f3f66792a3f",
+      "original_bytes_at": "bie/audio/compat204/narration_segmentation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/pronunciation_lexicon.py",
+      "parent_sha256": "c0c5de58ae2e2c7d6f5e6607b784fa6701860b57c84ec4efa39837aaea32da54",
+      "original_bytes_at": "bie/audio/compat204/pronunciation_lexicon.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/symbol_pronunciation.py",
+      "parent_sha256": "c3261d09afebb518b9a7e7681e26866eb45ef8f97675651307b4f6be2f7ba327",
+      "original_bytes_at": "bie/audio/compat204/symbol_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/compat204/voiceover_preparation.py",
+      "parent_sha256": "b67d615484ac3ac21c182a14b97bc6e6043ef5fe25d80876f6c266b51bc35b59",
+      "original_bytes_at": "bie/audio/compat204/voiceover_preparation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/dir_sync_adapter.py",
+      "parent_sha256": "5681015c07f11c35eefe294d23f4efbc2380ccad3c03f96d0a324a5a946b3314",
+      "original_bytes_at": "bie/audio/dir_sync_adapter.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/espeak_provider.py",
+      "parent_sha256": "4594e22424ced82794d353d693cb23e7307e3de6354dab96162b472dd1e272fc",
+      "original_bytes_at": "bie/audio/espeak_provider.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/espeak_timing_worker.py",
+      "parent_sha256": "ba1e547f60dab3b88dd8eefbbe468b447c9b6c537791e156e3e57ed543ed875e",
+      "original_bytes_at": "bie/audio/espeak_timing_worker.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/lexicon.py",
+      "parent_sha256": "3129ddb3c1cbd241c4796b8c80eb78597ff3893fd61f9ebe64407af4846aeecf",
+      "original_bytes_at": "bie/audio/lexicon.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/loudness_normalization.py",
+      "parent_sha256": "41e0c6d1b90e4943fde95d22fc6786585447b4101e2d828465c997a96e3d5c4a",
+      "original_bytes_at": "bie/audio/loudness_normalization.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/math_pronunciation.py",
+      "parent_sha256": "02cb0ffaf0b10718fbcef3b8f12a727fab967f5961a979ac66c0e7e93c1eb108",
+      "original_bytes_at": "bie/audio/math_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/mix_clock.py",
+      "parent_sha256": "0c6e5eef136976f9da59c7869ab5e538e0dd278aaaf9fd0c3b5cab1ed0efee67",
+      "original_bytes_at": "bie/audio/mix_clock.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/mix_contract.py",
+      "parent_sha256": "720a4a63edef115b2810eee4a26db0320f5dd3de4701d9633a7f1600a16373e2",
+      "original_bytes_at": "bie/audio/mix_contract.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/mix_io.py",
+      "parent_sha256": "1f2c4966feb422b57a42194a130bf7d03aa953faf2f97bd70a2c109a54d6f572",
+      "original_bytes_at": "bie/audio/mix_io.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/mix_meter.py",
+      "parent_sha256": "153ffd43bd6fa32f9c89ae8de6e642a412609eb94d9a415ee5e127bdd53aa919",
+      "original_bytes_at": "bie/audio/mix_meter.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/mix_pipeline.py",
+      "parent_sha256": "a96309713ed5fa1b00b51873cfa522e64b1c76f96d1234cb66d8941ce0245cf6",
+      "original_bytes_at": "bie/audio/mix_pipeline.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/multilingual_terms.py",
+      "parent_sha256": "dbfa27b7befa2ea2d163c15bcad8f149b6d30bc5bf98e396252115f60a0f7973",
+      "original_bytes_at": "bie/audio/multilingual_terms.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/music_ducking.py",
+      "parent_sha256": "089e6888e31a5db9d4709d642c86f4599f141a91cfed5832917e85c9245fa137",
+      "original_bytes_at": "bie/audio/music_ducking.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/pause_sync.py",
+      "parent_sha256": "b9dd69b77b89ba6174d8dac1958b7c4d9e9126b24cc70245a12a4dc8da08f2d4",
+      "original_bytes_at": "bie/audio/pause_sync.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/pcm_audio.py",
+      "parent_sha256": "8f0b718f72dd3467f52dda643b71489163c687b6b2efa8cc9771957acbcfd299",
+      "original_bytes_at": "bie/audio/pcm_audio.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/peak_control.py",
+      "parent_sha256": "6f5206b350dd8d7fed90e0a5b9403a735b672b1c8c844db2799a439cde828602",
+      "original_bytes_at": "bie/audio/peak_control.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/preparation.py",
+      "parent_sha256": "23ea3a356a6bbcf24959eaaeb69d3e46d4092befdefc3dbf101086c00919826f",
+      "original_bytes_at": "bie/audio/preparation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/preparation_bridge.py",
+      "parent_sha256": "55ca085241ecfb8f4f81472df544145e4bc75964e8b61f0185f4a0d89612102a",
+      "original_bytes_at": "bie/audio/preparation_bridge.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_accessibility.py",
+      "parent_sha256": "ae489414846f5f7c804d11d74814695bb772a587ccd684b5b4ad5f68d35c8719",
+      "original_bytes_at": "bie/audio/qa_accessibility.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_clipping.py",
+      "parent_sha256": "c96b0bd3a4573d5f9deabf60a88e1bf4e304dfb40e9ec8c7631077b13e48e484",
+      "original_bytes_at": "bie/audio/qa_clipping.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_contract.py",
+      "parent_sha256": "280540c9f99966e439e0197640fe9b71ac9cd0e99144fdb692417251538fe786",
+      "original_bytes_at": "bie/audio/qa_contract.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_io.py",
+      "parent_sha256": "8c5c932932eef1c144f08368cde80516a82a18267c75606715010889c2608f34",
+      "original_bytes_at": "bie/audio/qa_io.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_missing_audio.py",
+      "parent_sha256": "51dcb12b641fa665cddf8e451660d4736bfe429d5b71c0b243f5c4be3f375a04",
+      "original_bytes_at": "bie/audio/qa_missing_audio.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_pipeline.py",
+      "parent_sha256": "885d27e0dace46f0b6c3f0c4f68221cd9c1347770622ced02ed614eb900fb14c",
+      "original_bytes_at": "bie/audio/qa_pipeline.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_pronunciation.py",
+      "parent_sha256": "5578ac525721b1f8e0e7dc28ae218e4fed503f88b0c05647f2202ea32d7f5135",
+      "original_bytes_at": "bie/audio/qa_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_signal_replay.py",
+      "parent_sha256": "d9cdc8ea9f0d04281c243fa85420a72d664bab7a8ac0478e713c6cb11c18252d",
+      "original_bytes_at": "bie/audio/qa_signal_replay.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_source.py",
+      "parent_sha256": "be282181169a6298b0c44447bfe3820274c582e9c44d8bcf1c2cc2a74e914f11",
+      "original_bytes_at": "bie/audio/qa_source.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/qa_sync.py",
+      "parent_sha256": "7bc87c2362dcd1acc52ed09217bc61bfc75d5f578c69a9b52c77d248c217145e",
+      "original_bytes_at": "bie/audio/qa_sync.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/scene_sync.py",
+      "parent_sha256": "51d9d3d3e2967f5d9ee2e73006dddd3482821b03ca76fa7bfbf762fd5c54a334",
+      "original_bytes_at": "bie/audio/scene_sync.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/segmentation.py",
+      "parent_sha256": "ddca984de3de6e8762ea7ae2e33c7f32f469ec4e79de005ddef6f7c3b5c64865",
+      "original_bytes_at": "bie/audio/segmentation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/sfx_mixing.py",
+      "parent_sha256": "deb072167e9ad87a9ff6872baaeaafbce2de619c2a52edb9f85b652c8c45b7a6",
+      "original_bytes_at": "bie/audio/sfx_mixing.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/silence_trim.py",
+      "parent_sha256": "baba6dcc435e92e600fe517956ba5ca81eb14035a19365551d3b9c2ad401e907",
+      "original_bytes_at": "bie/audio/silence_trim.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/speech_contract.py",
+      "parent_sha256": "00c4fe0fc2ea2c0cc2cd48e514bf2d3693d38d66e0ca237e1245226fdae3aea9",
+      "original_bytes_at": "bie/audio/speech_contract.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/symbol_pronunciation.py",
+      "parent_sha256": "369ec9afe244b9067dc745dc5ed454e3be5c1bbdbdfce997b67b6beb6b80b04d",
+      "original_bytes_at": "bie/audio/symbol_pronunciation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/sync_contract.py",
+      "parent_sha256": "9d4acb6d727409d2d98cbeb53bd59e71420946d189ff19f9e142b6d15e95d0de",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/bie/audio/sync_contract.py",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "bie/audio/sync_pipeline.py",
+      "parent_sha256": "354017b9a3da9ad30d15b9337cbd3008cd93647e44b3076b703bccb729e9aad9",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/bie/audio/sync_pipeline.py",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "bie/audio/timed_espeak_provider.py",
+      "parent_sha256": "7ba7f127930844dbef528741bf15051fdd6e145a6f50fe28dffa010fac47a614",
+      "original_bytes_at": "bie/audio/timed_espeak_provider.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/tts_cache.py",
+      "parent_sha256": "806db0ea0763093c858dd4b2a3e1037a8a50ad44ba40f21f7ece91fa804dec90",
+      "original_bytes_at": "bie/audio/tts_cache.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/tts_contract.py",
+      "parent_sha256": "bc4450fe563757a97efcca1ea2d7b4d45a0b23117282a31f38ae5258b0f67b73",
+      "original_bytes_at": "bie/audio/tts_contract.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/tts_generation.py",
+      "parent_sha256": "b4af13a2e5dcfb2e9b7d3176710f50823ef2dfe2654859e1a30c177afa924e61",
+      "original_bytes_at": "bie/audio/tts_generation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/voice_selection.py",
+      "parent_sha256": "3fcfae51f89aa1c382f4188d9f54616e30897f147061a810a9630c5467dc63ae",
+      "original_bytes_at": "bie/audio/voice_selection.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "bie/audio/word_timestamps.py",
+      "parent_sha256": "a707b581095a1cc4c2fbc7556d69f0cc1f8dee24eaa3c11c06a275e1fc464e45",
+      "original_bytes_at": "bie/audio/word_timestamps.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "dependency_snapshot/bie/director/contract_validation.py",
+      "parent_sha256": "ca7ab57f097318a9c79f31d3da49c8c4f3556d023615fdadd0b1819fcccd8e3f",
+      "original_bytes_at": "dependency_snapshot/bie/director/contract_validation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "dependency_snapshot/bie/director/script_plan.py",
+      "parent_sha256": "3e6c1aa63aeb08063012848ec99658e3894fd027a632499f818fa6dd1ad5c3f2",
+      "original_bytes_at": "dependency_snapshot/bie/director/script_plan.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "dependency_snapshot/bie/director/speech_timing.py",
+      "parent_sha256": "f6f42b0446b60039200c1c3aade400ced63e856069b16de257e3db54d5d29066",
+      "original_bytes_at": "dependency_snapshot/bie/director/speech_timing.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "dependency_snapshot/bie/director/timing_contract.py",
+      "parent_sha256": "7529ff9b63e9223c7eb4306dc712756e58416cf5b66dc4b5f076750f0f03ae58",
+      "original_bytes_at": "dependency_snapshot/bie/director/timing_contract.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "dependency_snapshot/bie/director/voiceover_generation.py",
+      "parent_sha256": "f6cc5098c8b896f66af44fdbba54215845bd03db4e55fa748b5cf6519ef1f64e",
+      "original_bytes_at": "dependency_snapshot/bie/director/voiceover_generation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/AUDIO_CAPABILITY_AUDIT_001.json",
+      "parent_sha256": "fbfecbb8b37ec57a17edfaa6e8a39e9e90f7c8c88225db73804ad6c3e24d30db",
+      "original_bytes_at": "docs/audio/AUDIO_CAPABILITY_AUDIT_001.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/AUDIO_CAPABILITY_AUDIT_001.md",
+      "parent_sha256": "5b56757275373d5abce0bef31df3fa5a5c43dfc488745dc459360218644f29f2",
+      "original_bytes_at": "docs/audio/AUDIO_CAPABILITY_AUDIT_001.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/AUDIO_CONSOLIDATED_HARDENING_BACKLOG.json",
+      "parent_sha256": "0e504594516ad3ae0ba3e3e18407daa2f12844f4cda0cb14572512a3b32b729b",
+      "original_bytes_at": "lineage/audio_hardening_h1/originals/docs/audio/AUDIO_CONSOLIDATED_HARDENING_BACKLOG.json",
+      "disposition": "DELIBERATE_AMENDMENT_OR_MANIFEST_REGENERATION"
+    },
+    {
+      "parent_path": "docs/audio/BATCH001_RECONCILIATION.json",
+      "parent_sha256": "d8e11de58b44c7040f20845987b89c0fd86225a8b1209e2cdb9476434f598869",
+      "original_bytes_at": "docs/audio/BATCH001_RECONCILIATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH001_RECONCILIATION.md",
+      "parent_sha256": "71321ad35c6c0ea548f336f60f2b7fc975388e81f9a06eef0f5c03a29aff9e23",
+      "original_bytes_at": "docs/audio/BATCH001_RECONCILIATION.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH002_CONTRACTS.md",
+      "parent_sha256": "f46ea055c1c82107fc60e1680e82f659e671d6f4c711de7851bff7e0b4975a9f",
+      "original_bytes_at": "docs/audio/BATCH002_CONTRACTS.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH002_EXECUTION_NOTES.json",
+      "parent_sha256": "2d8b5b119f370b06d67c975ead4d5086ff6181728f9c68b4d220407d1f8ccf59",
+      "original_bytes_at": "docs/audio/BATCH002_EXECUTION_NOTES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH002_GAP_LEDGER.json",
+      "parent_sha256": "479674999e2e1333e20181048b69ba522052394cd9e08008edbf0b99c1b1936d",
+      "original_bytes_at": "docs/audio/BATCH002_GAP_LEDGER.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH002_PRESERVATION.json",
+      "parent_sha256": "d02c5fc058dedc204e03525715baf8e752c8489d2f9cb8a3c209f22d2645e68e",
+      "original_bytes_at": "docs/audio/BATCH002_PRESERVATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH002_SOURCES.json",
+      "parent_sha256": "86193c042dabaddb2807a0ab3fba8f54cca54602f04a2c1489d446d1cdfc8f74",
+      "original_bytes_at": "docs/audio/BATCH002_SOURCES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH003_BROWSER_SUMMARY.json",
+      "parent_sha256": "456893474d5e67c8bffe454caa4c2c216a4c7fe10efc06adf533593266caf9a4",
+      "original_bytes_at": "docs/audio/BATCH003_BROWSER_SUMMARY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH003_CONTRACTS.md",
+      "parent_sha256": "713714625f0286722e26d59566740047a2e380abebd4b2467ee2effea418311f",
+      "original_bytes_at": "docs/audio/BATCH003_CONTRACTS.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH003_GAP_LEDGER.json",
+      "parent_sha256": "46449586d1353b06e19fd2eacd4cde63575c306a8d43b4a215a06d05e21c6712",
+      "original_bytes_at": "docs/audio/BATCH003_GAP_LEDGER.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH003_PRESERVATION.json",
+      "parent_sha256": "fa619ef95be1fa95b16e8f327fd6fdc9402001e33d750f17460a542959cebdcf",
+      "original_bytes_at": "docs/audio/BATCH003_PRESERVATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH003_REAL_TIMING_BENCHMARK.json",
+      "parent_sha256": "98c20e7c0cc78a3e83fb2fc6177ac267ab6d8c28e09705ac33b142c71d2ae6f8",
+      "original_bytes_at": "docs/audio/BATCH003_REAL_TIMING_BENCHMARK.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH003_SOURCES.json",
+      "parent_sha256": "5e4e0b412ab8611363c69eea115db689b1e776dc10d9484829d6cf6ec4102b54",
+      "original_bytes_at": "docs/audio/BATCH003_SOURCES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_BROWSER_SUMMARY.json",
+      "parent_sha256": "88e1daf3237c0d3ed6232aba930be3734269b700349c28e3a610908e7956ca5e",
+      "original_bytes_at": "docs/audio/BATCH004_BROWSER_SUMMARY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_COMPLETION_CORRECTIONS.json",
+      "parent_sha256": "369e96ab0b5dd5cba45ef600fecd365441494fd5534663a0ddb0eb340f582196",
+      "original_bytes_at": "docs/audio/BATCH004_COMPLETION_CORRECTIONS.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_CONTRACTS.md",
+      "parent_sha256": "b09578b16b701de74c7382be9c241a09cb38c9d32af5a06cbc37a6f1da58a334",
+      "original_bytes_at": "docs/audio/BATCH004_CONTRACTS.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_GAP_LEDGER.json",
+      "parent_sha256": "36c7ae19700b9dbc140ed3fed9873f86d287f63b5ad6d023ed0488a932647cf8",
+      "original_bytes_at": "docs/audio/BATCH004_GAP_LEDGER.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_NATIVE_SUMMARY.json",
+      "parent_sha256": "87bf33f1217ec68435cbfaa000343a531f6f30d121079a65d86df4a92c76c74a",
+      "original_bytes_at": "docs/audio/BATCH004_NATIVE_SUMMARY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_PRESERVATION.json",
+      "parent_sha256": "7d602b3f4a323bd4e90d93c1272bd75d6b6c377ec3a6c819417ac6406f619314",
+      "original_bytes_at": "docs/audio/BATCH004_PRESERVATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH004_SOURCES.json",
+      "parent_sha256": "f67ccbe34bff6b87686d298df242e53bb58c203bb92ea156f3ca4294489b4ef4",
+      "original_bytes_at": "docs/audio/BATCH004_SOURCES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_BROWSER_EVIDENCE.json",
+      "parent_sha256": "43f53c715c67b9d35f35df3ae9c27c54b24d51a6297f8a47a05a9c7fcab772b0",
+      "original_bytes_at": "docs/audio/BATCH005_BROWSER_EVIDENCE.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_CONTRACTS.md",
+      "parent_sha256": "d4f76b200597128d9baf2fe063db4dff83ea2c47225a1186146f1db12bc9f392",
+      "original_bytes_at": "docs/audio/BATCH005_CONTRACTS.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_NATIVE_QA_SUMMARY.json",
+      "parent_sha256": "29fbf9adf8aa6a11ea9eb3069262e2e880e898adadf532c92ef6db0ae2f6d6db",
+      "original_bytes_at": "docs/audio/BATCH005_NATIVE_QA_SUMMARY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_PRESERVATION.json",
+      "parent_sha256": "cfad7d1612897128547844c45494cfdc60aa111550f4dab386f8fc43acd05b56",
+      "original_bytes_at": "docs/audio/BATCH005_PRESERVATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_RECOVERY.json",
+      "parent_sha256": "0ca6b9a1bb75ea01bb8ad5d00b6d4b66bbef5892805a82717aa6723a42161df4",
+      "original_bytes_at": "docs/audio/BATCH005_RECOVERY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_RECOVERY.md",
+      "parent_sha256": "4a201f5ba1a97184f45c9bd9202554f407de7739610e657f849eb84027fc74d0",
+      "original_bytes_at": "docs/audio/BATCH005_RECOVERY.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_SOURCES.json",
+      "parent_sha256": "d64d87754e809094de25b31690829e6f36b58d219fa92b01097ff56f85864a7f",
+      "original_bytes_at": "docs/audio/BATCH005_SOURCES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH005_SOURCE_MAP.json",
+      "parent_sha256": "ef4030495ff2ae50ce3d3b573c49603efa56dba340a8d6f210344fe0c9484b1b",
+      "original_bytes_at": "docs/audio/BATCH005_SOURCE_MAP.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/BATCH_VERIFICATION_NOTES.md",
+      "parent_sha256": "6e6f5bf44571256252ca0900d0c70ac4bdedf89ef7223674f0c4d21edc893b62",
+      "original_bytes_at": "docs/audio/BATCH_VERIFICATION_NOTES.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/CONTRACTS.md",
+      "parent_sha256": "52973096fb66a0754be01eed08ee1f83737e0218651056938f615168168fc327",
+      "original_bytes_at": "docs/audio/CONTRACTS.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/ORIGINAL_REGISTRY.json",
+      "parent_sha256": "b45d0b52478a3a2d9a65c5701389622da229a54583833150adc5e767825410b6",
+      "original_bytes_at": "docs/audio/ORIGINAL_REGISTRY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/RECONCILIATION_FILE_MAP.json",
+      "parent_sha256": "06ac5cf3c68cd721d58757274812798681785f8f368d8f69f7f4199fced42022",
+      "original_bytes_at": "docs/audio/RECONCILIATION_FILE_MAP.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/SOURCES.json",
+      "parent_sha256": "b0e6334f15a01a52358bf30d50b2d9579bc580c12dbdeae006778642620e1673",
+      "original_bytes_at": "docs/audio/SOURCES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-001/SPEC.md",
+      "parent_sha256": "6aa434dbe447d522596e40534f7da3f6a30ed813e927922f43ef2f2b0ee3ab82",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-001/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-001/TASK_RESULT.json",
+      "parent_sha256": "834cbd92c47e2882e83a295ac9df51793a985c7fdeddd55382bfc202ff70cfd1",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-001/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-001/TEST_RESULT.txt",
+      "parent_sha256": "2db214163aa533892302e13e1dabd5d9b3af4ec442d1aee49ad240bcbf2bf889",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-001/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-002/SPEC.md",
+      "parent_sha256": "7de8ec7f230eed869266684713ec53dc44b23b6215fdb57d66dd8764cac0fb7b",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-002/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-002/TASK_RESULT.json",
+      "parent_sha256": "e67c0b395598ce2b6a41c8f3fbb5a42423cf420ff86b2da0fd284558df4830e5",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-002/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-002/TEST_RESULT.txt",
+      "parent_sha256": "09084155c874bfb3b24255908811bf943d725f800813f74fd4a33b9658d794d6",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-002/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-003/SPEC.md",
+      "parent_sha256": "7cfe5bbdc792213c59639e3cfb0cb43616f7fb9ede6bd3e296de35ac2d10ebef",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-003/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-003/TASK_RESULT.json",
+      "parent_sha256": "9c34ad7b2f641e60d396b377fc9852e2b4df1b47f59a6cc18261c7c2d4a5b2b9",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-003/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-003/TEST_RESULT.txt",
+      "parent_sha256": "f8289f1bfc5ec26cb5ee9aa1c6963bc5c5a8867c9de0940bd876464ede441484",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-003/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-004/SPEC.md",
+      "parent_sha256": "62a86da67175ae2ce1e368a34e49ad8d92301ba3745d8093ef4db53ef94ca8f8",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-004/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-004/TASK_RESULT.json",
+      "parent_sha256": "eef556b75ef64c9e787db9eb17ee28f3824eec3c9359da9e3dee588ae373197d",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-004/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-004/TEST_RESULT.txt",
+      "parent_sha256": "584b66b3e39b530fac6ef366ca73f2577f52ef2fe085f1e73fb6199174712027",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-004/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-005/SPEC.md",
+      "parent_sha256": "05fb3fed0576d7a264de6697d343dc5a3a3b1ef4083d15cf22877d3d0458b974",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-005/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-005/TASK_RESULT.json",
+      "parent_sha256": "c57b8742741d0eae58a7c3e23c2d803099a8e20bb9ca0a4f0a53955760cb355e",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-005/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-QA-005/TEST_RESULT.txt",
+      "parent_sha256": "4341df3cf4ae12f27282ab44e5d5ad628a1865e3b2d9e89e166f3d6df9018f10",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-QA-005/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-001/SPEC.md",
+      "parent_sha256": "881d2d1ee903887b48ce5b2bb35252fe5e4be0c304e7422edb2a0b434c7e1039",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-001/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-001/TASK_RESULT.json",
+      "parent_sha256": "06df82be06d041d2f61de8ff0beb50b6e8fe2e077f4cf78d87636b8435b0ed49",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-001/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-001/TEST_RESULT.txt",
+      "parent_sha256": "d6f4c14e8bbf1b7f3ffa78078eae75e849b9f1ea61d1770d346830e25434a97d",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-001/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-002/SPEC.md",
+      "parent_sha256": "f217df62ab616fbaf17908a0733e372b531ffd610966f4ac9d1d2af4bd0aa349",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-002/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-002/TASK_RESULT.json",
+      "parent_sha256": "9b8a77497b6bab346e2b789e539a476bbcb096785571c57422041e3beaa2f7c3",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-002/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-002/TEST_RESULT.txt",
+      "parent_sha256": "82586390ecedf077578fa3ca89e3b027bf8723ce9df45d3f00b3963f971a2ee3",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-002/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-003/SPEC.md",
+      "parent_sha256": "31f8a9a87342073c96262bda0635c1c6302c1a30a3b4408fce00ca96dac29fa0",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-003/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-003/TASK_RESULT.json",
+      "parent_sha256": "abe60f4ffa2c7955a4a9be03259edb0f92420a99c2b1363fe972d0f6b8d8cd98",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-003/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-003/TEST_RESULT.txt",
+      "parent_sha256": "5223323b4806341b8306e3c095b23f664d4fef1e4cb06cb0972cdbf08ff381f0",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-003/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-004/SPEC.md",
+      "parent_sha256": "57efa20f2e2f64d6d1e3db96cb7c2ae7133ecd2596c3f827c90cf980fc6084b3",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-004/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-004/TASK_RESULT.json",
+      "parent_sha256": "5c4eb355086c99a3e99f6c94898fb30dbbffb359952bdbab380c286e5f9b3dfb",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-004/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-004/TEST_RESULT.txt",
+      "parent_sha256": "82af294585f12986493cea108834f5e97524cea4f1b962447d6219fea37d6e84",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-004/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-005/SPEC.md",
+      "parent_sha256": "4af19127f61a1a0d6c26f648252e12634f3ba22777d2ef32664ad2cc5b13c87f",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-005/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-005/TASK_RESULT.json",
+      "parent_sha256": "30806db9f2ecd2e56f5d5bff782cc4a0c2127a7beda4e8aab62720ce777d591c",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-005/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-SYNC-005/TEST_RESULT.txt",
+      "parent_sha256": "7d87dc554164de76a0a1add7404d8a5092d88545801991e08452e59714cef5ab",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-SYNC-005/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-001/SPEC.md",
+      "parent_sha256": "93860c754cb984d342775505e802847466487e659047c5d7c22215eafe672b5e",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-001/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-001/TASK_RESULT.json",
+      "parent_sha256": "f78cd7406b515c054a87837e7206b60ea0a26604bf71ebe52950fad4ba2af464",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-001/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-002/SPEC.md",
+      "parent_sha256": "e383a8636d8513ed0ce764948292f51b960d2ae9660c79e144d2d4dc7cb122da",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-002/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-002/TASK_RESULT.json",
+      "parent_sha256": "241afbffcada16771c3a9d1523450cc017010d04c7c98fb0553d4a5086815b7b",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-002/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-003/SPEC.md",
+      "parent_sha256": "de6c75e1fa921d915a53f2fc9a96c9e340e7e0cdba901c589b474fa1cfde1e4d",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-003/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-003/TASK_RESULT.json",
+      "parent_sha256": "3d65abf1afdce7ceb54846ff3ae2ab01903f51d8ea630c61f65348ac630f1c97",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-003/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-004/SPEC.md",
+      "parent_sha256": "5cba905b01e6f1549d7a927ac2586fa967d256fd0cb9de0c96e6a864dac305a0",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-004/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-004/TASK_RESULT.json",
+      "parent_sha256": "1cacd93c2abde4bb0274b1766b777544d9785b7502e6a5f746d31d19b3dab815",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-004/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-005/SPEC.md",
+      "parent_sha256": "91ab7ad142c6a15cb31e378603760e4bababc6bd8c2e97dfc10f49c32e5d2a27",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-005/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-005/TASK_RESULT.json",
+      "parent_sha256": "c91c14077eb33f0f7955ba4ee6d13e17eb1dd0afcb76498d8c0af03a14fe6a6a",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-005/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-006/SPEC.md",
+      "parent_sha256": "db218d590aac3c692292ad143c5039c13175640005d9f48098b4e96c7dc7f60d",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-006/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-006/TASK_RESULT.json",
+      "parent_sha256": "72fe38737e831542f42e6ffcb797e511b8f17b4b82ce8c4a02204ba502170ea3",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-006/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-007/SPEC.md",
+      "parent_sha256": "7ba03d8bd38f5034297e533234d43ad99933d477f9396ecb5503e75ccdba5d2a",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-007/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-007/TASK_RESULT.json",
+      "parent_sha256": "af686bf71afd49d74b2d37d6d5beb24099b4ea9a33cf004f377c8dea49386edd",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-007/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-008/SPEC.md",
+      "parent_sha256": "229b476c14457486a117f41502403a1bdcf6a996ed2bae00cbd1f71a0d207dda",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-008/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-008/TASK_RESULT.json",
+      "parent_sha256": "3a212ac5f0a234dcb7cebf057f5c537e202a719fa2439a88bcffc09547b271e2",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-008/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-009/SPEC.md",
+      "parent_sha256": "236c8537429c52d1e0ceaa6b18dc26db6d11e97ebb20249b15515fc34d89c60e",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-009/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-009/TASK_RESULT.json",
+      "parent_sha256": "2b643362de61263ef0b5993185eded23177eaec39fceebe02678f1e54df0d89b",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-009/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-010/SPEC.md",
+      "parent_sha256": "c9043f6cb52e8a21fe98ea1aa23708cc8e0648b3662f22d19b4ad5623e527eb0",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-010/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/BIE-AUDIO-VO-010/TASK_RESULT.json",
+      "parent_sha256": "0467ec4f60167d863e5b917f85dfbea94ba9ffe439ac17ccee5d5245efc9f6cd",
+      "original_bytes_at": "docs/audio/tasks/BIE-AUDIO-VO-010/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-001/SPEC.md",
+      "parent_sha256": "748230bc560ae20effad73a200174fe1cb65791bac1e1b1231c07fb96bdf4853",
+      "original_bytes_at": "docs/audio/tasks/MIX-001/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-001/TASK_RESULT.json",
+      "parent_sha256": "a4d795ae97e2d0460c3965e434b04ebe9a07862337bf42e31b9e74480adf42d6",
+      "original_bytes_at": "docs/audio/tasks/MIX-001/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-001/TEST_RESULT.txt",
+      "parent_sha256": "928736dd102260e2eb22f867c0e89dea3da1076f5aab56c9ffe6dc726eb3915d",
+      "original_bytes_at": "docs/audio/tasks/MIX-001/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-002/SPEC.md",
+      "parent_sha256": "224aec34f3fc580c72244e5f23549380164eb38db9e84213ea40af361ab3908e",
+      "original_bytes_at": "docs/audio/tasks/MIX-002/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-002/TASK_RESULT.json",
+      "parent_sha256": "db75a5f976335629c60d1ad3dc733c01ed1dd60c2bb818b27038f0bd61121727",
+      "original_bytes_at": "docs/audio/tasks/MIX-002/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-002/TEST_RESULT.txt",
+      "parent_sha256": "e7e7a93b4d2034c7e6ac20b6bac79cacddbb8f8e05af7d99952941a62952f179",
+      "original_bytes_at": "docs/audio/tasks/MIX-002/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-003/SPEC.md",
+      "parent_sha256": "ce1a3faf18a78ad2899f31b9d1d979fa891a89a8f4dc3c46128b65e93c02d71d",
+      "original_bytes_at": "docs/audio/tasks/MIX-003/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-003/TASK_RESULT.json",
+      "parent_sha256": "4b1c0adf2f66449abae0f0cc4a0a137a7458504edd8d94c4224075e47a4a0f91",
+      "original_bytes_at": "docs/audio/tasks/MIX-003/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-003/TEST_RESULT.txt",
+      "parent_sha256": "ea4075d947ac5bc9573ae351ac7d5689c4617add520089c43ee13a943eed489c",
+      "original_bytes_at": "docs/audio/tasks/MIX-003/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-004/SPEC.md",
+      "parent_sha256": "9524307cb49ee905252b32e59f157a967d4c15c7c3e9d199380d86d99232eb2c",
+      "original_bytes_at": "docs/audio/tasks/MIX-004/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-004/TASK_RESULT.json",
+      "parent_sha256": "77dc94d43354c3219b1b4c70ca833cee40276d7c61db8e708b3e5c3fc6e4fa07",
+      "original_bytes_at": "docs/audio/tasks/MIX-004/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-004/TEST_RESULT.txt",
+      "parent_sha256": "c8c34512f3f832708fa4d4e8834807cfe117a6b474ad22a2d7fe51b2589352e6",
+      "original_bytes_at": "docs/audio/tasks/MIX-004/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-005/SPEC.md",
+      "parent_sha256": "0777e5589cfba72798140060c95a0931c9a2a5c823bdf98aa160351aacf2f13d",
+      "original_bytes_at": "docs/audio/tasks/MIX-005/SPEC.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-005/TASK_RESULT.json",
+      "parent_sha256": "ccb67d075ea410edb3cee80c251291604bbcbb779cefd092f614b6760f82ca81",
+      "original_bytes_at": "docs/audio/tasks/MIX-005/TASK_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "docs/audio/tasks/MIX-005/TEST_RESULT.txt",
+      "parent_sha256": "49ff4e4adacc270144ec9efa25a6bcbf9052375cad6f1318c03174462520e7af",
+      "original_bytes_at": "docs/audio/tasks/MIX-005/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/BATCH002_PREPACKAGE_TESTS.json",
+      "parent_sha256": "3976f9f2b82e9de7d086f8b2c3b57c1f4127d069d42fba220fcd6352883e5795",
+      "original_bytes_at": "evidence/BATCH002_PREPACKAGE_TESTS.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/BATCH002_PREPACKAGE_TESTS.txt",
+      "parent_sha256": "b16a6b7237e20590a94a8b6539aa579bda28907dba8ea8ff77517de4b85efe15",
+      "original_bytes_at": "evidence/BATCH002_PREPACKAGE_TESTS.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/BATCH002_REAL_SPEECH_BENCHMARK.json",
+      "parent_sha256": "fc9a2546d696f5cbf46e1c2fc43178d443c8f256b9777d884a7bfe3de72d549a",
+      "original_bytes_at": "evidence/BATCH002_REAL_SPEECH_BENCHMARK.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/PREPARATION_PREVIEW.txt",
+      "parent_sha256": "a75ab4910435a23133614521c8e1dc852a9f07ff66827b9b7a1be257ca5fe5f2",
+      "original_bytes_at": "evidence/PREPARATION_PREVIEW.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/SOURCE_BENCHMARK.json",
+      "parent_sha256": "b7ca4631581301d9f1392b479126ab28ce6bb4f85aacbc1643ae9ad9b84d6f32",
+      "original_bytes_at": "evidence/SOURCE_BENCHMARK.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/TEST_RESULT.json",
+      "parent_sha256": "718bd466f223a991146b16c415fe0125fb48cb7f15645f7b6704f2e1975df989",
+      "original_bytes_at": "evidence/TEST_RESULT.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/TEST_RESULT.txt",
+      "parent_sha256": "15bf84ebe357a616df513e1ecbbac5f3ff347fd91ee916ba96662c62bd0fe80f",
+      "original_bytes_at": "evidence/TEST_RESULT.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/audio_batch004/PARENT_REGRESSION.json",
+      "parent_sha256": "6bdd57e67ec32f2da832d3e0b3c94cbda8430a9d160464a33078124150755cc4",
+      "original_bytes_at": "evidence/audio_batch004/PARENT_REGRESSION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/audio_batch004/PREPACKAGE_TESTS.json",
+      "parent_sha256": "bdd7723dade90742dc4aea149eeeff0365d9eaeb49994ee162958fb1059a22d3",
+      "original_bytes_at": "evidence/audio_batch004/PREPACKAGE_TESTS.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/audio_batch004/PREPACKAGE_TESTS.txt",
+      "parent_sha256": "cd981c61e4f0fc4fd2933ad01fe88580597459876341f3f88ebeeb4ef56651a5",
+      "original_bytes_at": "evidence/audio_batch004/PREPACKAGE_TESTS.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/audio_batch004/RECOVERY_TASK_TESTS.json",
+      "parent_sha256": "4644091c7269765c63d320f3829c20e2c708f2890b5335b8a0c574333289e977",
+      "original_bytes_at": "evidence/audio_batch004/RECOVERY_TASK_TESTS.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/english_prepared.json",
+      "parent_sha256": "0da35691e469db166dd85f07b40ab33b4e77155f5e4f19196a0397becd0af365",
+      "original_bytes_at": "evidence/english_prepared.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "evidence/hindi_prepared.json",
+      "parent_sha256": "038e295357cbdfddfad257e0e4159050d406b6c2320166f46c4aa13568b4599b",
+      "original_bytes_at": "evidence/hindi_prepared.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio/english.json",
+      "parent_sha256": "54fc023606d95e6fc0370da6628b638830581e927b2f11904a82598693f03e21",
+      "original_bytes_at": "examples/audio/english.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio/hindi.json",
+      "parent_sha256": "2c1b2781c0c39b7ee5495d9cde4048b432a28f6c0fc1aedcc1aaa0ece0fa6dea",
+      "original_bytes_at": "examples/audio/hindi.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio/needs_review.json",
+      "parent_sha256": "718175bfa40322cdd881c0f3901ec39abf1949ec7f9dfe2b4ebfc5ff7dd51a2c",
+      "original_bytes_at": "examples/audio/needs_review.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch002/compat204.json",
+      "parent_sha256": "4d0865f73b7ad07b996bcf40511ea8f5d40ef0009fe06729c245956bc84084ab",
+      "original_bytes_at": "examples/audio_batch002/compat204.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch002/english.json",
+      "parent_sha256": "c245d63602abb44cff89beb5a4d27962f4897855be636382e2bc3ec3c1885a42",
+      "original_bytes_at": "examples/audio_batch002/english.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch002/hindi.json",
+      "parent_sha256": "2c1b2781c0c39b7ee5495d9cde4048b432a28f6c0fc1aedcc1aaa0ece0fa6dea",
+      "original_bytes_at": "examples/audio_batch002/hindi.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch002/mixed.json",
+      "parent_sha256": "5082c81f72854bfbaadefb5066dfd9d81fd4c7b28493a76a889b37f976f58976",
+      "original_bytes_at": "examples/audio_batch002/mixed.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch002/mixed_terms.json",
+      "parent_sha256": "7e4b35c9068d763e1aacc5c29da8d62d10fc21eb57ff86dd792973dd0f37796b",
+      "original_bytes_at": "examples/audio_batch002/mixed_terms.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch002/review_required.json",
+      "parent_sha256": "718175bfa40322cdd881c0f3901ec39abf1949ec7f9dfe2b4ebfc5ff7dd51a2c",
+      "original_bytes_at": "examples/audio_batch002/review_required.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch003/scene_animation_pause.json",
+      "parent_sha256": "76c5e3a32d8829fa5085bb44891e568a74c2f6f594101938e2172dcd914e4957",
+      "original_bytes_at": "examples/audio_batch003/scene_animation_pause.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch003/scene_animation_pause.spec.json",
+      "parent_sha256": "cbc8e03d23509b6856887273ff49ff04413e72072434132b55295b609b745e2c",
+      "original_bytes_at": "examples/audio_batch003/scene_animation_pause.spec.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/CASES.json",
+      "parent_sha256": "6fceae87823aa9bb2054cbb711f21e0362a94d65db373b25b35c918e61234aad",
+      "original_bytes_at": "examples/audio_batch004/CASES.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/compat204-mix/bed.wav",
+      "parent_sha256": "ba083d56702bf223ad1763fa183082a60783cfbf1a316e333b09a0028db8ca54",
+      "original_bytes_at": "examples/audio_batch004/compat204-mix/bed.wav",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/compat204-mix/cue.wav",
+      "parent_sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1",
+      "original_bytes_at": "examples/audio_batch004/compat204-mix/cue.wav",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/compat204-mix/mix.json",
+      "parent_sha256": "d29ce8a091d5d66b6b9b555ef9ed36f98a174cb4aa7051f801e98b8898275053",
+      "original_bytes_at": "examples/audio_batch004/compat204-mix/mix.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/compat204-mix/narration.json",
+      "parent_sha256": "4d0865f73b7ad07b996bcf40511ea8f5d40ef0009fe06729c245956bc84084ab",
+      "original_bytes_at": "examples/audio_batch004/compat204-mix/narration.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-dry/mix.json",
+      "parent_sha256": "cde292c8104ff19b13ba22fbfc40f6409f26c6060ff06ce6bb639075ec34715c",
+      "original_bytes_at": "examples/audio_batch004/english-dry/mix.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-dry/narration.json",
+      "parent_sha256": "76c5e3a32d8829fa5085bb44891e568a74c2f6f594101938e2172dcd914e4957",
+      "original_bytes_at": "examples/audio_batch004/english-dry/narration.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-dry/sync.json",
+      "parent_sha256": "cbc8e03d23509b6856887273ff49ff04413e72072434132b55295b609b745e2c",
+      "original_bytes_at": "examples/audio_batch004/english-dry/sync.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-mix/bed.wav",
+      "parent_sha256": "96d24bbec8d106ed4892d92e55b03a1172b23738bb351e86ac8ab4f6325dae80",
+      "original_bytes_at": "examples/audio_batch004/english-mix/bed.wav",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-mix/cue.wav",
+      "parent_sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1",
+      "original_bytes_at": "examples/audio_batch004/english-mix/cue.wav",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-mix/mix.json",
+      "parent_sha256": "0675e095e9ef6883e44596ab583dada0b239ffed4ad13bc7f25ca45d04a69b90",
+      "original_bytes_at": "examples/audio_batch004/english-mix/mix.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-mix/narration.json",
+      "parent_sha256": "76c5e3a32d8829fa5085bb44891e568a74c2f6f594101938e2172dcd914e4957",
+      "original_bytes_at": "examples/audio_batch004/english-mix/narration.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/english-mix/sync.json",
+      "parent_sha256": "cbc8e03d23509b6856887273ff49ff04413e72072434132b55295b609b745e2c",
+      "original_bytes_at": "examples/audio_batch004/english-mix/sync.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/hindi-mix/bed.wav",
+      "parent_sha256": "4e69b109d48411870024c5dfc647e622609c396028fe6f2f288aebfe9cc5fb05",
+      "original_bytes_at": "examples/audio_batch004/hindi-mix/bed.wav",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/hindi-mix/cue.wav",
+      "parent_sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1",
+      "original_bytes_at": "examples/audio_batch004/hindi-mix/cue.wav",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/hindi-mix/mix.json",
+      "parent_sha256": "7aad574252574f7475e76437335cffb01b254cfe5abc7a1ee6b9f83dc3504d4a",
+      "original_bytes_at": "examples/audio_batch004/hindi-mix/mix.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch004/hindi-mix/narration.json",
+      "parent_sha256": "2c1b2781c0c39b7ee5495d9cde4048b432a28f6c0fc1aedcc1aaa0ece0fa6dea",
+      "original_bytes_at": "examples/audio_batch004/hindi-mix/narration.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "examples/audio_batch005/README.md",
+      "parent_sha256": "b6fb1593a366efe11e6e72e88df7ba10572a9e62a6718b880ba26f7dff154bd7",
+      "original_bytes_at": "examples/audio_batch005/README.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005.zip",
+      "parent_sha256": "dc57574f8656daec035090bf4229f8394bca6456492f0044ddf66773a110b489",
+      "original_bytes_at": "lineage/audio_batch001/BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005.zip",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005_INTEGRATED.zip",
+      "parent_sha256": "f0a8ae7fb4cc75d28c380612d56dfa9ee16d3bdd15b3a2b85cf764cfb07acfe9",
+      "original_bytes_at": "lineage/audio_batch001/BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005_INTEGRATED.zip",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/PACKAGE_MANIFEST_144_ORIGINAL.json",
+      "parent_sha256": "29cdf205a7b793925903538834c71fcc9a0777ce68ab83de0528d71b5dcdd5b5",
+      "original_bytes_at": "lineage/audio_batch001/PACKAGE_MANIFEST_144_ORIGINAL.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/a204_baseline.json",
+      "parent_sha256": "78667f2bf06d487cfba4697dae72434e1556af7da40beaf4d9ef9f23806c2bf3",
+      "original_bytes_at": "lineage/audio_batch001/a204_baseline.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/a204_baseline.txt",
+      "parent_sha256": "7d4cbc1ae35b8b21fef764503ee5f6f2f8597f7c220487e0763ae4c48857e778",
+      "original_bytes_at": "lineage/audio_batch001/a204_baseline.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/b144_baseline.json",
+      "parent_sha256": "28930c9087235e7ac08ab223696304172d355ee9fe2fce586b8b1b13300aa588",
+      "original_bytes_at": "lineage/audio_batch001/b144_baseline.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/b144_baseline.txt",
+      "parent_sha256": "99490e9953756ca70aac6676703877504c120b4b2f91db040b2c8e9b6aa7a497",
+      "original_bytes_at": "lineage/audio_batch001/b144_baseline.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/bridge_fixed.json",
+      "parent_sha256": "51cc7f3d2b01050addab237e5d0afca23d01a76aff8ad2d0d1e6b31e18f1294d",
+      "original_bytes_at": "lineage/audio_batch001/bridge_fixed.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/bridge_initial.json",
+      "parent_sha256": "8fad12e2cf98ea61e6d66490ce4ba3ffea335bfcbdec4c4e372aa04de03a18f0",
+      "original_bytes_at": "lineage/audio_batch001/bridge_initial.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/bridge_initial.txt",
+      "parent_sha256": "9ee393f10406e4eaaf1598f0f4823e1d417d5b80a4fe5f9b265b6f96032ed850",
+      "original_bytes_at": "lineage/audio_batch001/bridge_initial.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/prepackage.json",
+      "parent_sha256": "b336d2febfd2fd716d6240ca65bd761406028194b120943a1c0c7a8b03b7edca",
+      "original_bytes_at": "lineage/audio_batch001/prepackage.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/prepackage.txt",
+      "parent_sha256": "2fabde2434bfcf54a349e5961fc883421b8fa434255d0d7ff5838f056c411e0b",
+      "original_bytes_at": "lineage/audio_batch001/prepackage.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/reconciled348.json",
+      "parent_sha256": "136b05dcd7c5bab0a32513683420e8e5d12c84d36de4ad6c456f354f943e405b",
+      "original_bytes_at": "lineage/audio_batch001/reconciled348.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch001/timeout_fixed.json",
+      "parent_sha256": "aa4ea088b1c787897e7485bfc9a18caff304c5f64aff2efbf3c77073a445d1a2",
+      "original_bytes_at": "lineage/audio_batch001/timeout_fixed.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch002/metadata/CONTINUATION.json",
+      "parent_sha256": "abfe9ca02cffa0ac318a73fd68ef4335320ecbf73e995d7a8106bdee5ce1221b",
+      "original_bytes_at": "lineage/audio_batch002/metadata/CONTINUATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch002/metadata/PACKAGE_MANIFEST.json",
+      "parent_sha256": "8a2292017ba2c90c81ec74fcca4895f046523db5dda664c63a9cc658eb8799bc",
+      "original_bytes_at": "lineage/audio_batch002/metadata/PACKAGE_MANIFEST.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch002/metadata/README.md",
+      "parent_sha256": "ddd3eecd896913c580ba357f8b1debceaca866bc89b7d42106994fb1e47ad0bf",
+      "original_bytes_at": "lineage/audio_batch002/metadata/README.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch002/metadata/docs/audio/ORIGINAL_REGISTRY.json",
+      "parent_sha256": "a62d73057214a186d61cb6a2ad0fcfe1e246dca015c1cacdbdf5b7d8ecae6f56",
+      "original_bytes_at": "lineage/audio_batch002/metadata/docs/audio/ORIGINAL_REGISTRY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/parent_metadata/CONTINUATION.json",
+      "parent_sha256": "c6ab888ca9ff2c32f052159712c309f696c753083be341f73fdc2003110fb51a",
+      "original_bytes_at": "lineage/audio_batch004/parent_metadata/CONTINUATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/parent_metadata/INTEGRATION_PLAN.json",
+      "parent_sha256": "516d13fe4258eb7e9fe71cd72af963a59ed19d10b7d5ad00810ec783bab2e41f",
+      "original_bytes_at": "lineage/audio_batch004/parent_metadata/INTEGRATION_PLAN.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/parent_metadata/PACKAGE_MANIFEST.json",
+      "parent_sha256": "3dca12a6f6c42f6dd336adf4f466e1fda5aeab0696feeb7cfe1639310ef22e4c",
+      "original_bytes_at": "lineage/audio_batch004/parent_metadata/PACKAGE_MANIFEST.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/parent_metadata/README.md",
+      "parent_sha256": "fc41c48f078d46e77207af9543e114672768fda270925565f042c078d2a73459",
+      "original_bytes_at": "lineage/audio_batch004/parent_metadata/README.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/parent_metadata/docs/audio/ORIGINAL_REGISTRY.json",
+      "parent_sha256": "074660a8e8546c673013bbed66bd960e5b86eb9142f757f056d3e832aa3cb692",
+      "original_bytes_at": "lineage/audio_batch004/parent_metadata/docs/audio/ORIGINAL_REGISTRY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/CONTINUATION.json",
+      "parent_sha256": "c6ab888ca9ff2c32f052159712c309f696c753083be341f73fdc2003110fb51a",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/CONTINUATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/INTEGRATION_PLAN.json",
+      "parent_sha256": "516d13fe4258eb7e9fe71cd72af963a59ed19d10b7d5ad00810ec783bab2e41f",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/INTEGRATION_PLAN.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/PACKAGE_MANIFEST.json",
+      "parent_sha256": "3dca12a6f6c42f6dd336adf4f466e1fda5aeab0696feeb7cfe1639310ef22e4c",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/PACKAGE_MANIFEST.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/README.md",
+      "parent_sha256": "fc41c48f078d46e77207af9543e114672768fda270925565f042c078d2a73459",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/README.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/bie/audio/mix_io.py",
+      "parent_sha256": "b47a8851fd8d9dbc37aa285e2678309065ed98bcf85009fdd2a2c23aa93a8cac",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/bie/audio/mix_io.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/bie/audio/mix_pipeline.py",
+      "parent_sha256": "1b621168da2971e1b562f6521922043a9a136c72aa38370a3245266f0b5cdf2c",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/bie/audio/mix_pipeline.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/docs/audio/ORIGINAL_REGISTRY.json",
+      "parent_sha256": "074660a8e8546c673013bbed66bd960e5b86eb9142f757f056d3e832aa3cb692",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/docs/audio/ORIGINAL_REGISTRY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch004/recovery_originals/scripts/audio_mix.py",
+      "parent_sha256": "4b8e79d432a32018b1f37bcd267e50c6debd3b43278d59f2c1170fabdf9504ba",
+      "original_bytes_at": "lineage/audio_batch004/recovery_originals/scripts/audio_mix.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch005/predecessors/CONTINUATION.json",
+      "parent_sha256": "b192f5616f2e123a5041d010afe246c558bd4b78bb19103f1db580b8159f28b3",
+      "original_bytes_at": "lineage/audio_batch005/predecessors/CONTINUATION.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch005/predecessors/PACKAGE_MANIFEST.json",
+      "parent_sha256": "96f222dd1aebe41ef4c317a1ca6026f8ed0db99694398175fa0321ffcbb6770c",
+      "original_bytes_at": "lineage/audio_batch005/predecessors/PACKAGE_MANIFEST.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch005/predecessors/README.md",
+      "parent_sha256": "6abe955957c3989bd5ac636b90504f9d4f4dc0acbae0aa5f1d638a3f9d090b9a",
+      "original_bytes_at": "lineage/audio_batch005/predecessors/README.md",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "lineage/audio_batch005/predecessors/docs/audio/ORIGINAL_REGISTRY.json",
+      "parent_sha256": "5cd429bb32966c7061482062dbf71cb1968a7e40c05a34d249f97275b5429af9",
+      "original_bytes_at": "lineage/audio_batch005/predecessors/docs/audio/ORIGINAL_REGISTRY.json",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "requirements-audio-mix.txt",
+      "parent_sha256": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7",
+      "original_bytes_at": "requirements-audio-mix.txt",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/audio_mix.py",
+      "parent_sha256": "72acbd36c7ca7f22a57285175f72037d7c244ccd763258096e4fa6ba48e3331d",
+      "original_bytes_at": "scripts/audio_mix.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/audio_prepare.py",
+      "parent_sha256": "d325a8a31089dd7d8cb4d501da6232f5f6bfcd972383b3a3404b25d3d010661c",
+      "original_bytes_at": "scripts/audio_prepare.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/audio_qa.py",
+      "parent_sha256": "b17a83fbf0619596a65847f680e841ec20a281baa1aabfd3e66cb02aab7af540",
+      "original_bytes_at": "scripts/audio_qa.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/audio_sync.py",
+      "parent_sha256": "88178af35595447fbca03d14da725424658a4eac13617d6a5f310f57b0459761",
+      "original_bytes_at": "scripts/audio_sync.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/audio_synthesize.py",
+      "parent_sha256": "c470607694e0c94aaedbac84db2c9b69153f487673b5575acc53eff97c832b10",
+      "original_bytes_at": "scripts/audio_synthesize.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/benchmark_audio_batch002.py",
+      "parent_sha256": "daf2f3ac6141baa03a1c71d464800c10d28c8dae844b6850d1410d12aeadad76",
+      "original_bytes_at": "scripts/benchmark_audio_batch002.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/benchmark_audio_batch003.py",
+      "parent_sha256": "f80478901dac585d54838391e4efea79a6e79613f00095d759190acafd18e685",
+      "original_bytes_at": "scripts/benchmark_audio_batch003.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/benchmark_audio_batch004.py",
+      "parent_sha256": "70988cc2ffba49bc5155a6fbffad274a7cc1d35f0d331f5142ccd63301a40bea",
+      "original_bytes_at": "scripts/benchmark_audio_batch004.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/benchmark_audio_preparation.py",
+      "parent_sha256": "78ba799130b769067991f4b65a9eb77da1c330d2da652813e9eb094eaa66a6f9",
+      "original_bytes_at": "scripts/benchmark_audio_preparation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_audio_batch002_examples.py",
+      "parent_sha256": "b8d938cb3985a6e425c9f98ddb3b9bf619f2f12ed321bf3036ca1304c45b51a5",
+      "original_bytes_at": "scripts/build_audio_batch002_examples.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_audio_batch003_examples.py",
+      "parent_sha256": "5ba10c70911f2d807a13a18fa3d2e5cc8b139ccf6fd6d35c66f161896ae5fb9b",
+      "original_bytes_at": "scripts/build_audio_batch003_examples.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_audio_batch004_examples.py",
+      "parent_sha256": "1f7fd3fe8ffea83042883861b76898d4e7ccf49d597651f12ac7a375ab2f6470",
+      "original_bytes_at": "scripts/build_audio_batch004_examples.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_audio_batch005_examples.py",
+      "parent_sha256": "3bc6988a3a298d4d424192c999a4dbf843488107c25ef732e0ddbfde43e78975",
+      "original_bytes_at": "scripts/build_audio_batch005_examples.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_audio_example.py",
+      "parent_sha256": "da641836635ea12b74a12300de2c54f1cfca5c54acb7cc2b61df2d72dad42ff2",
+      "original_bytes_at": "scripts/build_audio_example.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_mix_preview.py",
+      "parent_sha256": "937bb0a633e2a638e84ca824b103b2c381ef6954be7771f60d70bc495939c45e",
+      "original_bytes_at": "scripts/build_mix_preview.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/build_sync_preview.py",
+      "parent_sha256": "ed922745e4e02bb1a18b969d44ba8cd86d6a6f48f44cd686fb782e84964e37bb",
+      "original_bytes_at": "scripts/build_sync_preview.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/run_audio_tests.py",
+      "parent_sha256": "020fe7ac6762c56faf08318bb89f7ce96dbccdd2ff258180e38e25aab27f9edb",
+      "original_bytes_at": "scripts/run_audio_tests.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/verify_audio_mix_output.py",
+      "parent_sha256": "3635dc6859db639a7161c1a19e2d72418c6a2e5227ab5655af7be9cc00266c6d",
+      "original_bytes_at": "scripts/verify_audio_mix_output.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "scripts/verify_audio_package.py",
+      "parent_sha256": "9039d85f840b2ca0d02f3d747a631b666d9b17b6632a10e999fa3dda8d396406",
+      "original_bytes_at": "scripts/verify_audio_package.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/__init__.py",
+      "parent_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes_at": "tests/__init__.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/__init__.py",
+      "parent_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes_at": "tests/audio/__init__.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/audio_test_support.py",
+      "parent_sha256": "341377a74c9a0c4c47523710b10a2cbbbf2b5a03bad0240045c2faa0e234992b",
+      "original_bytes_at": "tests/audio/audio_test_support.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/compat204_support.py",
+      "parent_sha256": "3a4d1915b5786cd7ad361d1c46d10120a034cb34a356c8f0ae1d7872b3b9d4d0",
+      "original_bytes_at": "tests/audio/compat204_support.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/mix_test_support.py",
+      "parent_sha256": "461a6fe16a3ef6d4da6d0f5c6c86898e7557cbe9a0113bcfa23b3f718f1577a5",
+      "original_bytes_at": "tests/audio/mix_test_support.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/qa_test_support.py",
+      "parent_sha256": "f6ade8b69f82a12915c9ab40c6a7224832483001332b766a3c553e3ee0ca946e",
+      "original_bytes_at": "tests/audio/qa_test_support.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/sync_test_support.py",
+      "parent_sha256": "7d90d9930c645c5ce3c96aaca42acb121c815b7d7cf8eab291a9fe181a0a11f2",
+      "original_bytes_at": "tests/audio/sync_test_support.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_batch001_integration.py",
+      "parent_sha256": "8895fb17bb413e356e54d2952337cc8c9bc51ae7e0d9672200b17e46af093433",
+      "original_bytes_at": "tests/audio/test_audio_batch001_integration.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_batch002_integration.py",
+      "parent_sha256": "df1cd62950c49e2bbdca6c40191979b598130ad8ddf733a07c98f81cadde7b5d",
+      "original_bytes_at": "tests/audio/test_audio_batch002_integration.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_batch003_integration.py",
+      "parent_sha256": "117b278ca274d2826206236137156a20f0279dca3137d3b2356877b1bde128f2",
+      "original_bytes_at": "tests/audio/test_audio_batch003_integration.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_batch004_integration.py",
+      "parent_sha256": "5d67b79fa1702fd12e726dbe579e565d1e0bdca8f54e8e458fad3ff051a95596",
+      "original_bytes_at": "tests/audio/test_audio_batch004_integration.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_batch005_integration.py",
+      "parent_sha256": "712556c105f8b8bd9627a491fc59171405e139cf25919c255ed764b7e0379cab",
+      "original_bytes_at": "tests/audio/test_audio_batch005_integration.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_mix_001.py",
+      "parent_sha256": "30d12f44f41cd491ba05777128e313d32e229d1675d354a6b8fe1a594d67a259",
+      "original_bytes_at": "tests/audio/test_audio_mix_001.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_mix_002.py",
+      "parent_sha256": "05caef8bc01a280d5b79eac3c0e2546f111d78358e6ec591871faeefb550a748",
+      "original_bytes_at": "tests/audio/test_audio_mix_002.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_mix_003.py",
+      "parent_sha256": "8bf91db1e8e30fa504cb3eab812e347ca3f057f159f6ec90b47bf90699ed8172",
+      "original_bytes_at": "tests/audio/test_audio_mix_003.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_mix_004.py",
+      "parent_sha256": "bfbbebe580860cb2794eb1464e252f42b95d31331d43885548262f5a50852dab",
+      "original_bytes_at": "tests/audio/test_audio_mix_004.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_mix_005.py",
+      "parent_sha256": "8a113b51450c46624a11b5e576b47e47b34a2c5b42f4ee664e4c08dfbb56a1e0",
+      "original_bytes_at": "tests/audio/test_audio_mix_005.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_mix_io.py",
+      "parent_sha256": "26faccddfa31a91d57bebd11c51203929e3e07550785d00c991ef854004d4801",
+      "original_bytes_at": "tests/audio/test_audio_mix_io.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_qa_001.py",
+      "parent_sha256": "29a2a2fe520530b2c26b12c42133864802dffaabf5928ad55d285301055aeeae",
+      "original_bytes_at": "tests/audio/test_audio_qa_001.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_qa_002.py",
+      "parent_sha256": "67c5eee5828831129c05aafd2222b96a4b98403ba77d41e5f0ebc62d79383502",
+      "original_bytes_at": "tests/audio/test_audio_qa_002.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_qa_003.py",
+      "parent_sha256": "3b138fa9ed43dc884242140b2384f2fa0fe3bf3b3dbffac1b5c80a7aedfcee26",
+      "original_bytes_at": "tests/audio/test_audio_qa_003.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_qa_004.py",
+      "parent_sha256": "e6e4f6d48c614ba5e115b99efb4497dd212b9c8d206523a0999fd201189dd982",
+      "original_bytes_at": "tests/audio/test_audio_qa_004.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_qa_005.py",
+      "parent_sha256": "919ee6ddaea807f7d02b45269528f5770edd2d038e515f5cec900595adf8ab47",
+      "original_bytes_at": "tests/audio/test_audio_qa_005.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_reconciliation.py",
+      "parent_sha256": "99e7fb42c78d3f8bbc18d7131a6ce50a724a058181def7155b0f1fca4c141127",
+      "original_bytes_at": "tests/audio/test_audio_reconciliation.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_sync_001.py",
+      "parent_sha256": "22da0773e38b05d2763cfa9d47f9f2b16a7a08db758df5ce740a08be180914cd",
+      "original_bytes_at": "tests/audio/test_audio_sync_001.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_sync_002.py",
+      "parent_sha256": "829b6e4699ea65ad11ca5af78a55ad65ff79255818d5ad56545df4592f7803fd",
+      "original_bytes_at": "tests/audio/test_audio_sync_002.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_sync_003.py",
+      "parent_sha256": "fdc5431df0ee6c15262dd9476611345006f5811b88c325af5d0d6e15e944da4d",
+      "original_bytes_at": "tests/audio/test_audio_sync_003.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_sync_004.py",
+      "parent_sha256": "f86b020e5d86f738f2bc18d84522a1b598fd649c4e8d2acf4a0c8cd61429fc44",
+      "original_bytes_at": "tests/audio/test_audio_sync_004.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_sync_005.py",
+      "parent_sha256": "a7fa967cefe6b3b8f142d5db1ac3f0c13c4ac4ef76aee13c21e8d1218146535f",
+      "original_bytes_at": "tests/audio/test_audio_sync_005.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_001.py",
+      "parent_sha256": "ee667f57a007889dad14ea9bfa924e12c5507a5c8a4c840ffea3b14b55465c6c",
+      "original_bytes_at": "tests/audio/test_audio_vo_001.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_002.py",
+      "parent_sha256": "327529dcaf0dcd66255ff7748b17577d5602baf254d8960e69abd4380c78932c",
+      "original_bytes_at": "tests/audio/test_audio_vo_002.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_003.py",
+      "parent_sha256": "8c08aa654f2135a0e3e7999875f18611b98633fb14600e89ac93da87d872d239",
+      "original_bytes_at": "tests/audio/test_audio_vo_003.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_004.py",
+      "parent_sha256": "0e5b0cc7fda75290215645d81b4a2467c548085cde0313ad7a6249c34aab9826",
+      "original_bytes_at": "tests/audio/test_audio_vo_004.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_005.py",
+      "parent_sha256": "bbb0e94dd113a2bde0d1d6a60fe6463efc5c95c658c6d5b47c73306b3500f92d",
+      "original_bytes_at": "tests/audio/test_audio_vo_005.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_006.py",
+      "parent_sha256": "ab0d3419e6c7d63a5082263869664fc4db70eef9cd9005846f178f217ce4e6ae",
+      "original_bytes_at": "tests/audio/test_audio_vo_006.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_007.py",
+      "parent_sha256": "93205116c7c29c8f2a2ad85f26edfbb03824eaffcfe2b0714f19f14a3d3dc34c",
+      "original_bytes_at": "tests/audio/test_audio_vo_007.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_008.py",
+      "parent_sha256": "730bfa0fb2a9ca2ff2e74f014b45c16e7b47def54df3bc36551cbbf94aeda242",
+      "original_bytes_at": "tests/audio/test_audio_vo_008.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_009.py",
+      "parent_sha256": "7709fb3174e38dbffb453475b1b8feeb4f13224f644b61a8c1a352ba8c2dd8df",
+      "original_bytes_at": "tests/audio/test_audio_vo_009.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_009_real.py",
+      "parent_sha256": "09b6f7c5d285b9d9ff3693eeaf4979d4e1680b65a0825f99e1b9c6e5b5d26c78",
+      "original_bytes_at": "tests/audio/test_audio_vo_009_real.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_audio_vo_010.py",
+      "parent_sha256": "8d7b749145d84a4ee59d41b2ba0b208adfa623bad357ec656f9e28150bde1307",
+      "original_bytes_at": "tests/audio/test_audio_vo_010.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_compat204_integration_001.py",
+      "parent_sha256": "e62ae2fa90cec52918b3118db403f5a154d7db7838b4f9659f1d92d850508b7f",
+      "original_bytes_at": "tests/audio/test_compat204_integration_001.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_compat204_vo_001.py",
+      "parent_sha256": "e5715d93b6c7998e6d0959fdbc3ab6dfddf4964c0606a6cfd8b54310ae5929b9",
+      "original_bytes_at": "tests/audio/test_compat204_vo_001.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_compat204_vo_002.py",
+      "parent_sha256": "b59d458e834398c341531c7ac8d216a2ef409985bc702105fe5de2704fea18c3",
+      "original_bytes_at": "tests/audio/test_compat204_vo_002.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_compat204_vo_003.py",
+      "parent_sha256": "9d405597d0da03a94bf3033804bd7a8d691cfb7b457e72fe7e577f0910650e94",
+      "original_bytes_at": "tests/audio/test_compat204_vo_003.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_compat204_vo_004.py",
+      "parent_sha256": "266be0732b7087bea072b2e7852cf33a11be053991ae0822f8f701f2395b9ee6",
+      "original_bytes_at": "tests/audio/test_compat204_vo_004.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/test_compat204_vo_005.py",
+      "parent_sha256": "d52c80ccefcfb9081e1dc6248672c2292ca9c41d7510ad04f888ca3e8f450a62",
+      "original_bytes_at": "tests/audio/test_compat204_vo_005.py",
+      "disposition": "UNCHANGED_CURRENT"
+    },
+    {
+      "parent_path": "tests/audio/tts_test_support.py",
+      "parent_sha256": "5f4dce114094574b4bbf6c62eff5a2abb83af17b5ad77285ae3f78fa63c2b21d",
+      "original_bytes_at": "tests/audio/tts_test_support.py",
+      "disposition": "UNCHANGED_CURRENT"
+    }
+  ],
+  "passed": true,
+  "github_write_performed": false
+}

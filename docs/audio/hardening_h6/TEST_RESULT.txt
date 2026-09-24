@@ -1,0 +1,30 @@
+RUN test_audio_h6_stems.py
+FINISHED test_audio_h6_stems.py: 8 tests, 0 failures, 0 errors
+test_base64 (tests.audio.test_audio_h6_stems.T.test_base64) ... ok
+test_duplicate (tests.audio.test_audio_h6_stems.T.test_duplicate) ... ok
+test_hash_tamper (tests.audio.test_audio_h6_stems.T.test_hash_tamper) ... ok
+test_refs_required (tests.audio.test_audio_h6_stems.T.test_refs_required) ... ok
+test_rights_required (tests.audio.test_audio_h6_stems.T.test_rights_required) ... ok
+test_role (tests.audio.test_audio_h6_stems.T.test_role) ... ok
+test_stable (tests.audio.test_audio_h6_stems.T.test_stable) ... ok
+test_valid (tests.audio.test_audio_h6_stems.T.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 0.0298,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

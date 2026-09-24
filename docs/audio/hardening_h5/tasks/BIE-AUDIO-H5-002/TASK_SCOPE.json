@@ -1,0 +1,14 @@
+{
+  "task_id": "BIE-AUDIO-H5-002",
+  "title": "Actual isolated local TTS, SYNC and dry MIX",
+  "finding": "AUDIO-AUDIT-001-F03",
+  "sources": [
+    "bie/audio/pipeline_worker.py",
+    "bie/audio/pipeline_runtime.py",
+    "bie/audio/pipeline_bundle.py",
+    "scripts/audio_pipeline_worker.py"
+  ],
+  "focused_test": "tests/audio/test_audio_h5_002.py",
+  "implementation_not_acceptance": true,
+  "product_accepted": false
+}

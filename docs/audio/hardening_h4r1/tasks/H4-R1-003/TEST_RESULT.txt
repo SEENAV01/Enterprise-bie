@@ -1,0 +1,50 @@
+RUN test_audio_h4r_003.py
+FINISHED test_audio_h4r_003.py: 28 tests, 0 failures, 0 errors
+test_actual_signature (tests.audio.test_audio_h4r_003.SignatureTests.test_actual_signature) ... ok
+test_bit_flip_signature (tests.audio.test_audio_h4r_003.SignatureTests.test_bit_flip_signature) ... ok
+test_current_trust_revision_allowed (tests.audio.test_audio_h4r_003.SignatureTests.test_current_trust_revision_allowed) ... ok
+test_exact_signed_request (tests.audio.test_audio_h4r_003.SignatureTests.test_exact_signed_request) ... ok
+test_expired_receipt (tests.audio.test_audio_h4r_003.SignatureTests.test_expired_receipt) ... ok
+test_future_receipt (tests.audio.test_audio_h4r_003.SignatureTests.test_future_receipt) ... ok
+test_legacy_receipt_rejected (tests.audio.test_audio_h4r_003.SignatureTests.test_legacy_receipt_rejected) ... ok
+test_other_key_signature (tests.audio.test_audio_h4r_003.SignatureTests.test_other_key_signature) ... ok
+test_outer_issued_inner_binding (tests.audio.test_audio_h4r_003.SignatureTests.test_outer_issued_inner_binding) ... ok
+test_profile_removed (tests.audio.test_audio_h4r_003.SignatureTests.test_profile_removed) ... ok
+test_request_replay_rejected (tests.audio.test_audio_h4r_003.SignatureTests.test_request_replay_rejected) ... ok
+test_resigned_fabricated_namespace (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_fabricated_namespace) ... ok
+test_resigned_reject_alignment (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_alignment) ... ok
+test_resigned_reject_boolean_int (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_boolean_int) ... ok
+test_resigned_reject_calibration (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_calibration) ... ok
+test_resigned_reject_new_field (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_new_field) ... ok
+test_resigned_reject_product (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_product) ... ok
+test_resigned_reject_profile (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_profile) ... ok
+test_resigned_reject_pronunciation (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_pronunciation) ... ok
+test_resigned_reject_request_type (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_request_type) ... ok
+test_resigned_reject_schema (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_schema) ... ok
+test_resigned_reject_scope (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_scope) ... ok
+test_resigned_reject_time_boolean (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_time_boolean) ... ok
+test_resigned_result_hash_invalid (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_result_hash_invalid) ... ok
+test_revoked_issuer (tests.audio.test_audio_h4r_003.SignatureTests.test_revoked_issuer) ... ok
+test_runtime_removed (tests.audio.test_audio_h4r_003.SignatureTests.test_runtime_removed) ... ok
+test_signer_not_injected (tests.audio.test_audio_h4r_003.SignatureTests.test_signer_not_injected) ... ok
+test_signer_unknown_key_id (tests.audio.test_audio_h4r_003.SignatureTests.test_signer_unknown_key_id) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 81.502s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 28,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 81.8505,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

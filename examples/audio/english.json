@@ -1,0 +1,147 @@
+{
+  "schema_version": "bie.audio.input/1",
+  "lesson_id": "lesson:audio-fixture",
+  "voice_profile": "voice:unselected",
+  "language": "en",
+  "segments": [
+    {
+      "segment_id": "narration:1",
+      "scene_id": "scene:1",
+      "purpose": "EXPLAIN",
+      "text_intent": "Synthetic pronunciation fixture, not a completed book lesson",
+      "evidence_ids": [
+        "synthetic:audio-fixture:1"
+      ],
+      "objective_ids": [
+        "objective:exact-reading"
+      ]
+    }
+  ],
+  "drafts": [
+    {
+      "segment_id": "narration:1",
+      "text": "Dr. Rao reads \\(\\frac{x+2}{y}\\). Keep the denominator nonzero. DNA is read as separate letters here.",
+      "evidence_ids": [
+        "synthetic:audio-fixture:1"
+      ],
+      "unsupported_claims": [],
+      "requires_review": false
+    }
+  ],
+  "segment_order": [
+    "narration:1"
+  ],
+  "lexicon": {
+    "version": "synthetic-lexicon/1",
+    "entries": [
+      {
+        "entry_id": "lex:doctor",
+        "surface": "Dr.",
+        "language": "en",
+        "pronunciation": "doctor",
+        "evidence_refs": [
+          "synthetic:lexicon:1"
+        ],
+        "domain": "*",
+        "sense": "*",
+        "mode": "ALIAS",
+        "alphabet": null,
+        "case_sensitive": true
+      }
+    ]
+  },
+  "symbols": [
+    {
+      "symbol": "%",
+      "language": "en",
+      "sense": "percent",
+      "spoken": "percent",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "±",
+      "language": "en",
+      "sense": "uncertainty",
+      "spoken": "plus or minus",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≈",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "approximately equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≠",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "not equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≤",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "less than or equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≥",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "greater than or equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    }
+  ],
+  "acronyms": [
+    {
+      "surface": "DNA",
+      "language": "en",
+      "mode": "LETTERS",
+      "evidence_refs": [
+        "synthetic:lexicon:1"
+      ],
+      "reading": null,
+      "domain": "*"
+    }
+  ],
+  "readings": [],
+  "pauses": [],
+  "policy": {
+    "version": "bie-audio-segmentation/1",
+    "max_chars": 800,
+    "max_utf8_bytes": 3200,
+    "max_segments": 10000,
+    "abbreviations": [
+      "Dr.",
+      "Mr.",
+      "Mrs.",
+      "Ms.",
+      "Prof.",
+      "e.g.",
+      "i.e.",
+      "vs.",
+      "Fig."
+    ]
+  },
+  "domain": "technical-fixture"
+}

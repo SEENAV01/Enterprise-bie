@@ -1,0 +1,2554 @@
+{
+  "canonical_dependencies_to_preserve": [
+    "bie/director/**",
+    "bie/compiler/**",
+    "bie/infrastructure/**",
+    "bie/bie_core/**"
+  ],
+  "canonical_files_to_modify_during_integration": [
+    "scripts/test_enterprise.py",
+    "CI environment/workflow only as required to install AUDIO test dependencies"
+  ],
+  "canonical_main_last_verified": "dfc1ef9b59bf7d3a8f099a8ad2fb4a93895257e8",
+  "checkpoint": "BIE-AUDIO-H11-001",
+  "exclusions": [
+    "__pycache__",
+    "*.pyc",
+    "lineage/**",
+    "history/**",
+    "dependency_snapshot/**",
+    "standalone evidence media not required by canonical tests"
+  ],
+  "files": {
+    "bie/audio/__init__.py": {
+      "bytes": 108,
+      "sha256": "229dc23d93544b366d9d755dcd66eb35cc942f65f5a4f9532dfb2a3e0af4aba2"
+    },
+    "bie/audio/acoustic_assessment.py": {
+      "bytes": 8364,
+      "sha256": "72a9ad15de1c7a59451316b4542e61cef71b3a2b0c42e97408de6074229bc336"
+    },
+    "bie/audio/acoustic_calibration.py": {
+      "bytes": 7864,
+      "sha256": "28e7bcb5b058b7d67bd5ae491d6c6e7d83813b513eb5fe083622c9e639e2cbf7"
+    },
+    "bie/audio/acoustic_contract.py": {
+      "bytes": 11720,
+      "sha256": "c5fefb4171ba1519baa5c70358f60ab80a64992b56439d683254eb70f770a135"
+    },
+    "bie/audio/acoustic_evidence.py": {
+      "bytes": 14752,
+      "sha256": "63a40c06c2378251c114d170ecf6b2c6e58ac3b0872b4b5c260ad05d0b899cf1"
+    },
+    "bie/audio/acoustic_io.py": {
+      "bytes": 5829,
+      "sha256": "60794f74862d309cba0abb7ebe27a0b262da7fdc515f0b169b12ef40790ef74c"
+    },
+    "bie/audio/acoustic_repair.py": {
+      "bytes": 4567,
+      "sha256": "fa89fbfd2edf2e6907e060d5f21471c021782ba2479b168d37f6f87c75917745"
+    },
+    "bie/audio/acoustic_runtime.py": {
+      "bytes": 7782,
+      "sha256": "9b33dd1776cf983999feb02839e556814eb8dbf86580b0cc021126ea55f075ac"
+    },
+    "bie/audio/acoustic_worker.py": {
+      "bytes": 10556,
+      "sha256": "e2a675057db7cae6f4411f819a4f471cb8f825cb486ceacacb06d81c37917b07"
+    },
+    "bie/audio/acronym_pronunciation.py": {
+      "bytes": 2906,
+      "sha256": "875e4aa26fedfab32f06fad4fc496f76319981e3b06c08523050cfc4fbf9715f"
+    },
+    "bie/audio/animation_sync.py": {
+      "bytes": 7357,
+      "sha256": "116031763a1fd3c06bd3c969b0cdefc5014edc143c3eebcea0525cfceb3d421b"
+    },
+    "bie/audio/caption_alignment.py": {
+      "bytes": 8787,
+      "sha256": "f80394cfa19e252a905458d708c389f45e0387281b11270e3b7077972283a047"
+    },
+    "bie/audio/common.py": {
+      "bytes": 5085,
+      "sha256": "3e69165fdd9c35b8a3ece7d9d20d40a88d30c5ec067a9523e6ab63ae912a8c14"
+    },
+    "bie/audio/compat204/__init__.py": {
+      "bytes": 83,
+      "sha256": "782fa95beaea7805007d0f221024a59ed0d7dddd918fdf0a6d2ffaf7132c5e96"
+    },
+    "bie/audio/compat204/__main__.py": {
+      "bytes": 4004,
+      "sha256": "d3d02422d38cf7e317b3fcf0a058bab5ebe11546ae0c796a1730c4a6206a1c15"
+    },
+    "bie/audio/compat204/acronym_pronunciation.py": {
+      "bytes": 2660,
+      "sha256": "d77a65c453da43e24885ee896fa062c9d3618e2afe9a0c2a1b0604a44b831643"
+    },
+    "bie/audio/compat204/contracts.py": {
+      "bytes": 11090,
+      "sha256": "77c1b5a43f7b908818979b691e9120378cb52a5b42ead85994a7f92a29bc620d"
+    },
+    "bie/audio/compat204/math_pronunciation.py": {
+      "bytes": 13700,
+      "sha256": "bf955724d23b59b78fdaf71ced1d5f8cd5ed9e806072aab524fc31f6145df9fb"
+    },
+    "bie/audio/compat204/narration_segmentation.py": {
+      "bytes": 10178,
+      "sha256": "39b00e1f24c8092402c338ec54c94d0c3f581e26c5449ebc22b66f3f66792a3f"
+    },
+    "bie/audio/compat204/pronunciation_lexicon.py": {
+      "bytes": 7296,
+      "sha256": "c0c5de58ae2e2c7d6f5e6607b784fa6701860b57c84ec4efa39837aaea32da54"
+    },
+    "bie/audio/compat204/symbol_pronunciation.py": {
+      "bytes": 3195,
+      "sha256": "c3261d09afebb518b9a7e7681e26866eb45ef8f97675651307b4f6be2f7ba327"
+    },
+    "bie/audio/compat204/voiceover_preparation.py": {
+      "bytes": 11287,
+      "sha256": "b67d615484ac3ac21c182a14b97bc6e6043ef5fe25d80876f6c266b51bc35b59"
+    },
+    "bie/audio/compiler_handoff.py": {
+      "bytes": 8138,
+      "sha256": "f3d3669d3d5c8b1fb795e376d247457b476b8873106dac2ce8921647560aea3b"
+    },
+    "bie/audio/dir_audio_handoff.py": {
+      "bytes": 3491,
+      "sha256": "50867157911165d2dd83eb7ac0e36d905a7aa848a7b0f96e9b4c0d28e71f64b7"
+    },
+    "bie/audio/dir_sync_adapter.py": {
+      "bytes": 1644,
+      "sha256": "5681015c07f11c35eefe294d23f4efbc2380ccad3c03f96d0a324a5a946b3314"
+    },
+    "bie/audio/durable_contract.py": {
+      "bytes": 4386,
+      "sha256": "7726a054509a7fce86cd0b2380d5d5594d307e1271d1e846e692c0407d170c05"
+    },
+    "bie/audio/durable_jobs.py": {
+      "bytes": 6034,
+      "sha256": "8e99ac204f8862a1d35b574a3262ebc7b0c6fc1b5e95ea37adece086ff6f1ce3"
+    },
+    "bie/audio/durable_pipeline.py": {
+      "bytes": 6016,
+      "sha256": "a04ad9b79aa0653c0841ecce6a25233d8f4a44a73e9187fe03dd38c027447b43"
+    },
+    "bie/audio/durable_store.py": {
+      "bytes": 11254,
+      "sha256": "bc8ba6eabe026efdf85592bfefb880b9c27066f2c333d416e879ea17187a43be"
+    },
+    "bie/audio/elevenlabs_provider.py": {
+      "bytes": 14524,
+      "sha256": "67c6be51aa59a11d5b3fdff6adc716fa78c157921b9ffbe3c56f126ee8479c1c"
+    },
+    "bie/audio/espeak_provider.py": {
+      "bytes": 9080,
+      "sha256": "4594e22424ced82794d353d693cb23e7307e3de6354dab96162b472dd1e272fc"
+    },
+    "bie/audio/espeak_timing_worker.py": {
+      "bytes": 5129,
+      "sha256": "ba1e547f60dab3b88dd8eefbbe468b447c9b6c537791e156e3e57ed543ed875e"
+    },
+    "bie/audio/evaluator_authority.py": {
+      "bytes": 5268,
+      "sha256": "7e82028fce72a52e39c0a4362324520ed433d458b5b42b60ada91832ea5b6a1f"
+    },
+    "bie/audio/evaluator_capability.py": {
+      "bytes": 6724,
+      "sha256": "757a9247a1fc96e96594a04df39f0fb9229f911667a1a6657de0d16a6a84392f"
+    },
+    "bie/audio/evaluator_contract.py": {
+      "bytes": 8982,
+      "sha256": "37ed3e836eceee6912268ca4fb817258423b8bb1d7f92889b8920c89d2c1319b"
+    },
+    "bie/audio/f04_gate.py": {
+      "bytes": 2246,
+      "sha256": "9c1b0bc32ff329c4a4be7bde0b9a1b4508cf691b97e40a6ef92f5fbc62a4257a"
+    },
+    "bie/audio/fixture_scope.py": {
+      "bytes": 750,
+      "sha256": "c1c7fae738bcd7da4ef399629f6dbb4ac108d70102e9847468d42aa25d9237ed"
+    },
+    "bie/audio/kernel_durable.py": {
+      "bytes": 9709,
+      "sha256": "b0cb5df4e684c5127693d30cdec36261731bb189eb8adcbbe023d22510c1d676"
+    },
+    "bie/audio/kernel_entry.py": {
+      "bytes": 2056,
+      "sha256": "3ccf53baeb43116f9c1c07b5e3e76218e4eefc2b37dd6370e52b0688ad254998"
+    },
+    "bie/audio/kernel_evidence.py": {
+      "bytes": 6753,
+      "sha256": "1664c14a08e971836457b4e3d355e1d75d036d3c6b8511172bbf78fe5958bd3d"
+    },
+    "bie/audio/kernel_io.py": {
+      "bytes": 7010,
+      "sha256": "c1420e64107c8f963a190a1d8328b0a51c3cac9398fd489fb13599c015b34ca2"
+    },
+    "bie/audio/kernel_profile.py": {
+      "bytes": 6129,
+      "sha256": "e8c6f6fb62750699777858dabbf9e5ed32a26d04cbdd36200ba04ad34cc14c1e"
+    },
+    "bie/audio/kernel_runtime.py": {
+      "bytes": 10338,
+      "sha256": "ae7e26acc68ddf99a6586210c08945dffd192b597df84fd262fec8e3fd5e1f7d"
+    },
+    "bie/audio/lexicon.py": {
+      "bytes": 6396,
+      "sha256": "3129ddb3c1cbd241c4796b8c80eb78597ff3893fd61f9ebe64407af4846aeecf"
+    },
+    "bie/audio/long_book.py": {
+      "bytes": 6022,
+      "sha256": "d536d163357403c4d0753671387a5233964edb4870ac0335949b90b7a1340f6a"
+    },
+    "bie/audio/loudness_normalization.py": {
+      "bytes": 2560,
+      "sha256": "41e0c6d1b90e4943fde95d22fc6786585447b4101e2d828465c997a96e3d5c4a"
+    },
+    "bie/audio/math_pronunciation.py": {
+      "bytes": 13095,
+      "sha256": "02cb0ffaf0b10718fbcef3b8f12a727fab967f5961a979ac66c0e7e93c1eb108"
+    },
+    "bie/audio/mix_clock.py": {
+      "bytes": 6172,
+      "sha256": "0c6e5eef136976f9da59c7869ab5e538e0dd278aaaf9fd0c3b5cab1ed0efee67"
+    },
+    "bie/audio/mix_contract.py": {
+      "bytes": 4481,
+      "sha256": "720a4a63edef115b2810eee4a26db0320f5dd3de4701d9633a7f1600a16373e2"
+    },
+    "bie/audio/mix_io.py": {
+      "bytes": 4753,
+      "sha256": "1f2c4966feb422b57a42194a130bf7d03aa953faf2f97bd70a2c109a54d6f572"
+    },
+    "bie/audio/mix_meter.py": {
+      "bytes": 5295,
+      "sha256": "153ffd43bd6fa32f9c89ae8de6e642a412609eb94d9a415ee5e127bdd53aa919"
+    },
+    "bie/audio/mix_pipeline.py": {
+      "bytes": 15078,
+      "sha256": "a96309713ed5fa1b00b51873cfa522e64b1c76f96d1234cb66d8941ce0245cf6"
+    },
+    "bie/audio/multilingual_terms.py": {
+      "bytes": 4322,
+      "sha256": "dbfa27b7befa2ea2d163c15bcad8f149b6d30bc5bf98e396252115f60a0f7973"
+    },
+    "bie/audio/music_ducking.py": {
+      "bytes": 3126,
+      "sha256": "089e6888e31a5db9d4709d642c86f4599f141a91cfed5832917e85c9245fa137"
+    },
+    "bie/audio/neural_authority.py": {
+      "bytes": 6718,
+      "sha256": "c24b17b068eb86d95923075e820899ef25d967d9994b108bbcd86b6bfc44a0e7"
+    },
+    "bie/audio/neural_call_journal.py": {
+      "bytes": 11944,
+      "sha256": "712da7fcbaa93b77ab429f63250a3ed1d1cc246b2c744a152f2bfb35af2a2289"
+    },
+    "bie/audio/neural_pipeline.py": {
+      "bytes": 3798,
+      "sha256": "e97c213fb2ab7afbcc266e8d62bb496d1faf9a2898dc66319f1c3054f9adb0d8"
+    },
+    "bie/audio/neural_policy.py": {
+      "bytes": 7665,
+      "sha256": "5555a829cc142d5cae9d1a2742da089f2ad0c2d67a22db080a680948bab80402"
+    },
+    "bie/audio/neural_response.py": {
+      "bytes": 5116,
+      "sha256": "fb1e0a11993c98f8f844492148ce2b1fb17879cd2960fd9bd485d55b3a6cc596"
+    },
+    "bie/audio/neural_scheduler.py": {
+      "bytes": 3140,
+      "sha256": "fbebe1392cc87e732a38d210d45877782b906850a041da256553b430c30499d8"
+    },
+    "bie/audio/neural_store.py": {
+      "bytes": 4554,
+      "sha256": "8bfaa576cbb19b321c9b302be5d5d5a43207db5335bd208f0206003a23efaef0"
+    },
+    "bie/audio/neural_transport.py": {
+      "bytes": 6959,
+      "sha256": "34779c5a9a072dee1b884208c47232fba1b10160b4443880337dce1611ed83b1"
+    },
+    "bie/audio/pause_sync.py": {
+      "bytes": 3217,
+      "sha256": "b9dd69b77b89ba6174d8dac1958b7c4d9e9126b24cc70245a12a4dc8da08f2d4"
+    },
+    "bie/audio/pcm_audio.py": {
+      "bytes": 2840,
+      "sha256": "8f0b718f72dd3467f52dda643b71489163c687b6b2efa8cc9771957acbcfd299"
+    },
+    "bie/audio/peak_control.py": {
+      "bytes": 2062,
+      "sha256": "6f5206b350dd8d7fed90e0a5b9403a735b672b1c8c844db2799a439cde828602"
+    },
+    "bie/audio/pipeline_bundle.py": {
+      "bytes": 4587,
+      "sha256": "50ee6eded4eafa07b2620112486b7229cdd5928ced65244a718e19507de79329"
+    },
+    "bie/audio/pipeline_contract.py": {
+      "bytes": 5904,
+      "sha256": "b66b9b220b99d6a07939e67fcbab1df3cf4ffe0638166555231f083473e0a819"
+    },
+    "bie/audio/pipeline_discovery.py": {
+      "bytes": 643,
+      "sha256": "99a99f86ee184b1282ac8c164edfd58689a34e35fa8104ada0ebd91618fca26b"
+    },
+    "bie/audio/pipeline_durable.py": {
+      "bytes": 11520,
+      "sha256": "8598b73d2554f012ad54f5ca754e36711ca8545a7c3310c1ff410cbc1fb2c204"
+    },
+    "bie/audio/pipeline_evidence.py": {
+      "bytes": 6922,
+      "sha256": "290ef61e749288c1cea3275741199c4a89d07a5de33afcdd9c94ae35724feda4"
+    },
+    "bie/audio/pipeline_io.py": {
+      "bytes": 4531,
+      "sha256": "3822b62585cdd0c2207a57d1548a2dce37c3a76d377ae3d7e4591c4b06c7cea1"
+    },
+    "bie/audio/pipeline_profile.py": {
+      "bytes": 8591,
+      "sha256": "0191ad3a936f8a03270845e9a54c57b1aba554a2e37d0da3cc1d71a1bdec856a"
+    },
+    "bie/audio/pipeline_runtime.py": {
+      "bytes": 7557,
+      "sha256": "3a65b0a372f0da11b4e7bc8a8a3284afb34f51b11125e67a03efda1cd4c591ee"
+    },
+    "bie/audio/pipeline_stems.py": {
+      "bytes": 2549,
+      "sha256": "def2b1f5e41707d1ae67e2bec995b81f3deea04aea9bd7db1a9214e92bf1efd9"
+    },
+    "bie/audio/pipeline_worker.py": {
+      "bytes": 4338,
+      "sha256": "8c4dc5f2c7364af085b4a65f36ce0e2e60b14fcb403740c39a9f948f55fbc3ba"
+    },
+    "bie/audio/preparation.py": {
+      "bytes": 9978,
+      "sha256": "23ea3a356a6bbcf24959eaaeb69d3e46d4092befdefc3dbf101086c00919826f"
+    },
+    "bie/audio/preparation_bridge.py": {
+      "bytes": 3214,
+      "sha256": "55ca085241ecfb8f4f81472df544145e4bc75964e8b61f0185f4a0d89612102a"
+    },
+    "bie/audio/pronunciation_governance.py": {
+      "bytes": 5778,
+      "sha256": "49938d907b63528f5b528a99d2f1dc806c1bbfd152d587e0d91ebcd76a9b9556"
+    },
+    "bie/audio/qa_accessibility.py": {
+      "bytes": 10503,
+      "sha256": "ae489414846f5f7c804d11d74814695bb772a587ccd684b5b4ad5f68d35c8719"
+    },
+    "bie/audio/qa_clipping.py": {
+      "bytes": 2513,
+      "sha256": "c96b0bd3a4573d5f9deabf60a88e1bf4e304dfb40e9ec8c7631077b13e48e484"
+    },
+    "bie/audio/qa_contract.py": {
+      "bytes": 4860,
+      "sha256": "280540c9f99966e439e0197640fe9b71ac9cd0e99144fdb692417251538fe786"
+    },
+    "bie/audio/qa_io.py": {
+      "bytes": 1939,
+      "sha256": "8c5c932932eef1c144f08368cde80516a82a18267c75606715010889c2608f34"
+    },
+    "bie/audio/qa_missing_audio.py": {
+      "bytes": 1380,
+      "sha256": "51dcb12b641fa665cddf8e451660d4736bfe429d5b71c0b243f5c4be3f375a04"
+    },
+    "bie/audio/qa_pipeline.py": {
+      "bytes": 3316,
+      "sha256": "4b98c63e7e6f9d45eb3ad14fbdba8aa406e65c09d1d6466f79c4bd7607f65039"
+    },
+    "bie/audio/qa_pronunciation.py": {
+      "bytes": 4077,
+      "sha256": "5578ac525721b1f8e0e7dc28ae218e4fed503f88b0c05647f2202ea32d7f5135"
+    },
+    "bie/audio/qa_signal_replay.py": {
+      "bytes": 5254,
+      "sha256": "d9cdc8ea9f0d04281c243fa85420a72d664bab7a8ac0478e713c6cb11c18252d"
+    },
+    "bie/audio/qa_source.py": {
+      "bytes": 6945,
+      "sha256": "be282181169a6298b0c44447bfe3820274c582e9c44d8bcf1c2cc2a74e914f11"
+    },
+    "bie/audio/qa_sync.py": {
+      "bytes": 1675,
+      "sha256": "7bc87c2362dcd1acc52ed09217bc61bfc75d5f578c69a9b52c77d248c217145e"
+    },
+    "bie/audio/render_evidence.py": {
+      "bytes": 5073,
+      "sha256": "d38256de60aca36c5b53b03a61b1ada221fd529cf733aab76f9381ffe4b051fe"
+    },
+    "bie/audio/repair_dispatch.py": {
+      "bytes": 3371,
+      "sha256": "1d322786a7cd8adb7745b8607ca5f36629ca4ea892936cd8f148e2210257100d"
+    },
+    "bie/audio/scene_sync.py": {
+      "bytes": 7509,
+      "sha256": "51d9d3d3e2967f5d9ee2e73006dddd3482821b03ca76fa7bfbf762fd5c54a334"
+    },
+    "bie/audio/segment_cache.py": {
+      "bytes": 18825,
+      "sha256": "0c8cf24067ec9a4e9946a34aaf3976bf79a48f3c87147c230960129a8421810b"
+    },
+    "bie/audio/segmentation.py": {
+      "bytes": 9841,
+      "sha256": "ddca984de3de6e8762ea7ae2e33c7f32f469ec4e79de005ddef6f7c3b5c64865"
+    },
+    "bie/audio/sfx_mixing.py": {
+      "bytes": 4865,
+      "sha256": "deb072167e9ad87a9ff6872baaeaafbce2de619c2a52edb9f85b652c8c45b7a6"
+    },
+    "bie/audio/silence_trim.py": {
+      "bytes": 2834,
+      "sha256": "baba6dcc435e92e600fe517956ba5ca81eb14035a19365551d3b9c2ad401e907"
+    },
+    "bie/audio/speech_contract.py": {
+      "bytes": 5528,
+      "sha256": "00c4fe0fc2ea2c0cc2cd48e514bf2d3693d38d66e0ca237e1245226fdae3aea9"
+    },
+    "bie/audio/symbol_pronunciation.py": {
+      "bytes": 3204,
+      "sha256": "369ec9afe244b9067dc745dc5ed454e3be5c1bbdbdfce997b67b6beb6b80b04d"
+    },
+    "bie/audio/sync_contract.py": {
+      "bytes": 10056,
+      "sha256": "2e688b95e4afe184cb34780aab717ba3b7df57d11c83ddd7501151589d082f4a"
+    },
+    "bie/audio/sync_pipeline.py": {
+      "bytes": 5146,
+      "sha256": "c3c78ad24a0a0d5fd3d76fec2bd8d58a9806cb65fcf723b9f4e0155bd2d40ecd"
+    },
+    "bie/audio/timed_espeak_provider.py": {
+      "bytes": 10949,
+      "sha256": "7ba7f127930844dbef528741bf15051fdd6e145a6f50fe28dffa010fac47a614"
+    },
+    "bie/audio/tts_cache.py": {
+      "bytes": 6863,
+      "sha256": "806db0ea0763093c858dd4b2a3e1037a8a50ad44ba40f21f7ece91fa804dec90"
+    },
+    "bie/audio/tts_contract.py": {
+      "bytes": 6055,
+      "sha256": "bc4450fe563757a97efcca1ea2d7b4d45a0b23117282a31f38ae5258b0f67b73"
+    },
+    "bie/audio/tts_generation.py": {
+      "bytes": 3262,
+      "sha256": "b4af13a2e5dcfb2e9b7d3176710f50823ef2dfe2654859e1a30c177afa924e61"
+    },
+    "bie/audio/voice_selection.py": {
+      "bytes": 4104,
+      "sha256": "3fcfae51f89aa1c382f4188d9f54616e30897f147061a810a9630c5467dc63ae"
+    },
+    "bie/audio/word_timestamps.py": {
+      "bytes": 9992,
+      "sha256": "a707b581095a1cc4c2fbc7556d69f0cc1f8dee24eaa3c11c06a275e1fc464e45"
+    },
+    "docs/audio/AUDIO_CAPABILITY_AUDIT_001.json": {
+      "bytes": 13318,
+      "sha256": "fbfecbb8b37ec57a17edfaa6e8a39e9e90f7c8c88225db73804ad6c3e24d30db"
+    },
+    "docs/audio/AUDIO_CAPABILITY_AUDIT_001.md": {
+      "bytes": 7023,
+      "sha256": "5b56757275373d5abce0bef31df3fa5a5c43dfc488745dc459360218644f29f2"
+    },
+    "docs/audio/AUDIO_CONSOLIDATED_HARDENING_BACKLOG.json": {
+      "bytes": 13800,
+      "sha256": "935062709f34d3d467796564d6d8e7d2bf4577c9d0e0f87f666a0afc0f9815ac"
+    },
+    "docs/audio/AUDIO_FINAL_SECTION_REAUDIT.json": {
+      "bytes": 3605,
+      "sha256": "afee01506273507a0cf9ca20680d556914777b0fd9013c310857103a4d9f3500"
+    },
+    "docs/audio/AUDIO_FINAL_SECTION_REAUDIT.md": {
+      "bytes": 2978,
+      "sha256": "912f9b96b9a0f571e259d4276cf9387805ef5d13a1c671cb0f3c0fe6f1f87ff7"
+    },
+    "docs/audio/BATCH001_RECONCILIATION.json": {
+      "bytes": 2437,
+      "sha256": "d8e11de58b44c7040f20845987b89c0fd86225a8b1209e2cdb9476434f598869"
+    },
+    "docs/audio/BATCH001_RECONCILIATION.md": {
+      "bytes": 1691,
+      "sha256": "71321ad35c6c0ea548f336f60f2b7fc975388e81f9a06eef0f5c03a29aff9e23"
+    },
+    "docs/audio/BATCH002_CONTRACTS.md": {
+      "bytes": 7537,
+      "sha256": "f46ea055c1c82107fc60e1680e82f659e671d6f4c711de7851bff7e0b4975a9f"
+    },
+    "docs/audio/BATCH002_EXECUTION_NOTES.json": {
+      "bytes": 1068,
+      "sha256": "2d8b5b119f370b06d67c975ead4d5086ff6181728f9c68b4d220407d1f8ccf59"
+    },
+    "docs/audio/BATCH002_GAP_LEDGER.json": {
+      "bytes": 1974,
+      "sha256": "479674999e2e1333e20181048b69ba522052394cd9e08008edbf0b99c1b1936d"
+    },
+    "docs/audio/BATCH002_PRESERVATION.json": {
+      "bytes": 521,
+      "sha256": "d02c5fc058dedc204e03525715baf8e752c8489d2f9cb8a3c209f22d2645e68e"
+    },
+    "docs/audio/BATCH002_SOURCES.json": {
+      "bytes": 941,
+      "sha256": "86193c042dabaddb2807a0ab3fba8f54cca54602f04a2c1489d446d1cdfc8f74"
+    },
+    "docs/audio/BATCH003_BROWSER_SUMMARY.json": {
+      "bytes": 2644,
+      "sha256": "456893474d5e67c8bffe454caa4c2c216a4c7fe10efc06adf533593266caf9a4"
+    },
+    "docs/audio/BATCH003_CONTRACTS.md": {
+      "bytes": 7014,
+      "sha256": "713714625f0286722e26d59566740047a2e380abebd4b2467ee2effea418311f"
+    },
+    "docs/audio/BATCH003_GAP_LEDGER.json": {
+      "bytes": 3626,
+      "sha256": "46449586d1353b06e19fd2eacd4cde63575c306a8d43b4a215a06d05e21c6712"
+    },
+    "docs/audio/BATCH003_PRESERVATION.json": {
+      "bytes": 1894,
+      "sha256": "fa619ef95be1fa95b16e8f327fd6fdc9402001e33d750f17460a542959cebdcf"
+    },
+    "docs/audio/BATCH003_REAL_TIMING_BENCHMARK.json": {
+      "bytes": 20936,
+      "sha256": "98c20e7c0cc78a3e83fb2fc6177ac267ab6d8c28e09705ac33b142c71d2ae6f8"
+    },
+    "docs/audio/BATCH003_SOURCES.json": {
+      "bytes": 750,
+      "sha256": "5e4e0b412ab8611363c69eea115db689b1e776dc10d9484829d6cf6ec4102b54"
+    },
+    "docs/audio/BATCH004_BROWSER_SUMMARY.json": {
+      "bytes": 1629,
+      "sha256": "88e1daf3237c0d3ed6232aba930be3734269b700349c28e3a610908e7956ca5e"
+    },
+    "docs/audio/BATCH004_COMPLETION_CORRECTIONS.json": {
+      "bytes": 2116,
+      "sha256": "369e96ab0b5dd5cba45ef600fecd365441494fd5534663a0ddb0eb340f582196"
+    },
+    "docs/audio/BATCH004_CONTRACTS.md": {
+      "bytes": 8986,
+      "sha256": "b09578b16b701de74c7382be9c241a09cb38c9d32af5a06cbc37a6f1da58a334"
+    },
+    "docs/audio/BATCH004_GAP_LEDGER.json": {
+      "bytes": 1828,
+      "sha256": "36c7ae19700b9dbc140ed3fed9873f86d287f63b5ad6d023ed0488a932647cf8"
+    },
+    "docs/audio/BATCH004_NATIVE_SUMMARY.json": {
+      "bytes": 1656,
+      "sha256": "87bf33f1217ec68435cbfaa000343a531f6f30d121079a65d86df4a92c76c74a"
+    },
+    "docs/audio/BATCH004_PRESERVATION.json": {
+      "bytes": 60091,
+      "sha256": "7d602b3f4a323bd4e90d93c1272bd75d6b6c377ec3a6c819417ac6406f619314"
+    },
+    "docs/audio/BATCH004_SOURCES.json": {
+      "bytes": 719,
+      "sha256": "f67ccbe34bff6b87686d298df242e53bb58c203bb92ea156f3ca4294489b4ef4"
+    },
+    "docs/audio/BATCH005_BROWSER_EVIDENCE.json": {
+      "bytes": 2526,
+      "sha256": "43f53c715c67b9d35f35df3ae9c27c54b24d51a6297f8a47a05a9c7fcab772b0"
+    },
+    "docs/audio/BATCH005_CONTRACTS.md": {
+      "bytes": 7605,
+      "sha256": "d4f76b200597128d9baf2fe063db4dff83ea2c47225a1186146f1db12bc9f392"
+    },
+    "docs/audio/BATCH005_NATIVE_QA_SUMMARY.json": {
+      "bytes": 6950,
+      "sha256": "29fbf9adf8aa6a11ea9eb3069262e2e880e898adadf532c92ef6db0ae2f6d6db"
+    },
+    "docs/audio/BATCH005_PRESERVATION.json": {
+      "bytes": 31170,
+      "sha256": "cfad7d1612897128547844c45494cfdc60aa111550f4dab386f8fc43acd05b56"
+    },
+    "docs/audio/BATCH005_RECOVERY.json": {
+      "bytes": 729,
+      "sha256": "0ca6b9a1bb75ea01bb8ad5d00b6d4b66bbef5892805a82717aa6723a42161df4"
+    },
+    "docs/audio/BATCH005_RECOVERY.md": {
+      "bytes": 1000,
+      "sha256": "4a201f5ba1a97184f45c9bd9202554f407de7739610e657f849eb84027fc74d0"
+    },
+    "docs/audio/BATCH005_SOURCES.json": {
+      "bytes": 840,
+      "sha256": "d64d87754e809094de25b31690829e6f36b58d219fa92b01097ff56f85864a7f"
+    },
+    "docs/audio/BATCH005_SOURCE_MAP.json": {
+      "bytes": 6482,
+      "sha256": "ef4030495ff2ae50ce3d3b573c49603efa56dba340a8d6f210344fe0c9484b1b"
+    },
+    "docs/audio/BATCH_VERIFICATION_NOTES.md": {
+      "bytes": 1168,
+      "sha256": "6e6f5bf44571256252ca0900d0c70ac4bdedf89ef7223674f0c4d21edc893b62"
+    },
+    "docs/audio/CONTRACTS.md": {
+      "bytes": 6356,
+      "sha256": "52973096fb66a0754be01eed08ee1f83737e0218651056938f615168168fc327"
+    },
+    "docs/audio/ORIGINAL_REGISTRY.json": {
+      "bytes": 5959,
+      "sha256": "b45d0b52478a3a2d9a65c5701389622da229a54583833150adc5e767825410b6"
+    },
+    "docs/audio/RECONCILIATION_FILE_MAP.json": {
+      "bytes": 4936,
+      "sha256": "06ac5cf3c68cd721d58757274812798681785f8f368d8f69f7f4199fced42022"
+    },
+    "docs/audio/SOURCES.json": {
+      "bytes": 1498,
+      "sha256": "b0e6334f15a01a52358bf30d50b2d9579bc580c12dbdeae006778642620e1673"
+    },
+    "docs/audio/hardening_h1/ADR-H1-NEURAL-PROVIDER.md": {
+      "bytes": 1686,
+      "sha256": "51fdbd03177afd4976c32a7ce1b3c2abe6fb9934b5d191d9fff93dce04e7fb39"
+    },
+    "docs/audio/hardening_h1/CONTRACTS.md": {
+      "bytes": 9265,
+      "sha256": "825778d250b55af4654177f7b591facb45152a2e74941d9944c558ca785a215e"
+    },
+    "docs/audio/hardening_h1/CONTRACT_PIPELINE_BENCHMARK.json": {
+      "bytes": 9431,
+      "sha256": "ee5a52e4d2331bc377a71df3f9cdabc6fd2d5b2b7342f49ab109de5f0bd11562"
+    },
+    "docs/audio/hardening_h1/DIAGNOSTIC_BOUNDARY_REPRODUCTION.json": {
+      "bytes": 515,
+      "sha256": "2456a88b0ab7079b776099f8bd0926cfc030aacbea24a4ac20ad7d602a1c96dc"
+    },
+    "docs/audio/hardening_h1/INHERITED_RUNTIME_CHANGES.patch": {
+      "bytes": 4436,
+      "sha256": "fe187c11d90c02d1b74fdca2dce419a253ff31749fc15c178b7997d048181abb"
+    },
+    "docs/audio/hardening_h1/LIVE_PROVIDER_STATUS.json": {
+      "bytes": 1088,
+      "sha256": "34b74f219cf51506a37311a26098609767944dcc3bbfeb22e6bf6f05dd26e22d"
+    },
+    "docs/audio/hardening_h1/PARENT_SOURCE_HASHES.json": {
+      "bytes": 13437,
+      "sha256": "f44cf7eda8fa9ea02ebfc73f4c724fb8e26bd045f4b650ec405dbcb479cc2f05"
+    },
+    "docs/audio/hardening_h1/PRESERVATION.json": {
+      "bytes": 89100,
+      "sha256": "5ab085d41c4d70a13b6ed34b2728c1546417e69adb295ecacae6da4bcaa06d44"
+    },
+    "docs/audio/hardening_h1/RUNBOOK.md": {
+      "bytes": 4158,
+      "sha256": "5ded110ef90216556a6e7e8520eb763116faf6f239e792142d7ba3bad3bf070f"
+    },
+    "docs/audio/hardening_h1/SCOPE.json": {
+      "bytes": 1249,
+      "sha256": "17a6d83d6f143f9bca309399e7948535efcae8ed3f9066ad3de04d0f65fb2c2c"
+    },
+    "docs/audio/hardening_h1/SOURCES.json": {
+      "bytes": 1317,
+      "sha256": "099a6360fe8a247e9b95c38a8ca7daeffe835b91d34bab3dc5c012f97dd36bae"
+    },
+    "docs/audio/hardening_h1/TASK_REGISTRY.json": {
+      "bytes": 1284,
+      "sha256": "880de40a2f7138fa41c67e07555037c69a56b621fb6a8d88e7d015143864b481"
+    },
+    "docs/audio/hardening_h1/tasks/H1-001/SPEC.md": {
+      "bytes": 922,
+      "sha256": "d66a481682b4f03ca629c2480828b283b3592d64d2e60d4e5e8d9048462a7822"
+    },
+    "docs/audio/hardening_h1/tasks/H1-002/SPEC.md": {
+      "bytes": 926,
+      "sha256": "9c8789579bce6ca01d3407b702d3752fe316eb67ec296d4fdb25af19313f4cd1"
+    },
+    "docs/audio/hardening_h1/tasks/H1-003/SPEC.md": {
+      "bytes": 920,
+      "sha256": "bd2b7fa4f38066689da4d2401b0c6864429ef58cf3542ef5441a4dfbe3295110"
+    },
+    "docs/audio/hardening_h1/tasks/H1-004/SPEC.md": {
+      "bytes": 965,
+      "sha256": "a813796c4791751e5a788b6a56deb553338edf3982205c72ee5d320278635e77"
+    },
+    "docs/audio/hardening_h1/tasks/H1-005/SPEC.md": {
+      "bytes": 955,
+      "sha256": "bd4ab52e10f2beccadfb4ca717066ed27e7da0fd6e3cfc31492576686a4ef259"
+    },
+    "docs/audio/hardening_h10/ATOMIC_VERIFICATION.json": {
+      "bytes": 2050,
+      "sha256": "8d5fa7f844fd9d71b7438737169bbdaebaf2cc85d35c7bfeca3c4d1b71ce8209"
+    },
+    "docs/audio/hardening_h10/CANONICAL_COMP_CONTRACT.json": {
+      "bytes": 1223,
+      "sha256": "68d87bb1eb19febb8d29e0752ffe9fb587cf3861e85bf6d5b7da1d528b8c8aee"
+    },
+    "docs/audio/hardening_h10/COMPATIBILITY_TESTS.txt": {
+      "bytes": 182,
+      "sha256": "6e45357b24cfd138f23ba9afd2472fdcf8a044c92ffee03851ea6b366904eead"
+    },
+    "docs/audio/hardening_h10/CONTRACTS.md": {
+      "bytes": 1746,
+      "sha256": "4d6a866c2804964f8519a7bf139b9e3bee9c9eab74295f29a59f188eea35c6ad"
+    },
+    "docs/audio/hardening_h10/GAP_LEDGER.json": {
+      "bytes": 2273,
+      "sha256": "3c1264cccdd4d6d4cdfee3920c781e6a929947b3ef6fa4e626ad4fddece02dcb"
+    },
+    "docs/audio/hardening_h10/H10_COMPATIBILITY_EXECUTION.json": {
+      "bytes": 33292,
+      "sha256": "363712c01abdc931b1b8e1f4d01f76d7ebeb07e42ddcd5051577640728776f96"
+    },
+    "docs/audio/hardening_h10/H10_COMPATIBILITY_EXECUTION.log": {
+      "bytes": 12725,
+      "sha256": "00d75b65d6dd15a756418083b8bad1bb7213408dc5c514bbab6bce189187eebe"
+    },
+    "docs/audio/hardening_h10/H10_FOCUSED_EXECUTION.json": {
+      "bytes": 33137,
+      "sha256": "5b82dc30cc5a022a666584c9e6ee0ed5611e3f10de808e107086122265063070"
+    },
+    "docs/audio/hardening_h10/H10_FOCUSED_EXECUTION.log": {
+      "bytes": 10334,
+      "sha256": "c798dec0cb97567c7727d2940c2415985c35360375af8e73a52691049e825b45"
+    },
+    "docs/audio/hardening_h10/H10_FOCUSED_TESTS.txt": {
+      "bytes": 161,
+      "sha256": "236c3b50176b79c75c6f49630260277bd25bb773aea7ba2ea5f63fe4174988b8"
+    },
+    "docs/audio/hardening_h10/PRESERVATION.json": {
+      "bytes": 678,
+      "sha256": "d609fbce6219cb69b6fff2444b6d22c00245e05e10cc350944ca414af24da33e"
+    },
+    "docs/audio/hardening_h10/REAUDIT.md": {
+      "bytes": 1873,
+      "sha256": "4519a55e410635b869d1c12b574f58f8130ac10d150c8f1d842d89eff481930f"
+    },
+    "docs/audio/hardening_h10/RESULT.md": {
+      "bytes": 2279,
+      "sha256": "87c20a900304e6f0803a88e32fe0bc4b656a0159ed4d029707b9be0bd225a157"
+    },
+    "docs/audio/hardening_h10/TEST_RESULT.json": {
+      "bytes": 833,
+      "sha256": "d27113e2436383f40cecc7794ba79822e3db111887e1df7e0b5dccc3e4420043"
+    },
+    "docs/audio/hardening_h10/TEST_RESULT.txt": {
+      "bytes": 263,
+      "sha256": "cdc80afff1e78d3a71c3666e8d846e72a25bb177be2624e2d4ebd5e9c8059086"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-001/SPEC.md": {
+      "bytes": 460,
+      "sha256": "22e7a9bac92539ee2a89a9b665fc63c72f0d8595c21d90fce57ec796860d0eaf"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-001/TASK_RESULT.json": {
+      "bytes": 337,
+      "sha256": "3f725f9a70f93a71da0ed1c09e04a7474fcf4c4f49e75d0c76ae5d986c0255a1"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-002/SPEC.md": {
+      "bytes": 472,
+      "sha256": "04bd5abc02720d0fc21178350829d29d186b5b1fdad139647f829a2b891e81e2"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-002/TASK_RESULT.json": {
+      "bytes": 353,
+      "sha256": "dad5d83b4147ef339c0492ce6653e214a2a89fe4cec256de458cbe0bf9141a7d"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-003/SPEC.md": {
+      "bytes": 456,
+      "sha256": "da8713a62c4549e4df42f29c93c28f1de688b99c8fa4e29099be72d4b0a3095c"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-003/TASK_RESULT.json": {
+      "bytes": 339,
+      "sha256": "350df4a428d9f66f712771b63878b1508e285e8b6eac904464fbfd7520cd0f9b"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-004/SPEC.md": {
+      "bytes": 471,
+      "sha256": "ad5405c8c994cf466c2a55fa597bb720830fc5b2bb8f495e4df8d02782c58354"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-004/TASK_RESULT.json": {
+      "bytes": 479,
+      "sha256": "52611551260a3fcd5dfae3fb034901f4f6c7f493ee55eb353786f378700e8954"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-005/SPEC.md": {
+      "bytes": 452,
+      "sha256": "7e781eb8c435e0bec8d0cfde02773c6a6cf3025a2f8059041f035cd4dd235f1c"
+    },
+    "docs/audio/hardening_h10/tasks/BIE-AUDIO-H10-005/TASK_RESULT.json": {
+      "bytes": 396,
+      "sha256": "db25adbbde2791e1a519690ef958e98c7cb625ce5f1963142ac2287b2bf4da95"
+    },
+    "docs/audio/hardening_h11/CONTRACTS.md": {
+      "bytes": 1509,
+      "sha256": "3e2395244d144f8f1563653381865d852d91233407e908f16a1e7290551edb60"
+    },
+    "docs/audio/hardening_h11/FINAL_FULL_AUDIO_REGRESSION.json": {
+      "bytes": 40202,
+      "sha256": "6946824a1d8fbbdcf22d3ac55a068033ee65cdfd5180961fb27f229a2d1e2ade"
+    },
+    "docs/audio/hardening_h11/GAP_LEDGER.json": {
+      "bytes": 2710,
+      "sha256": "4e9263dd1ed735263d2971502088d97503ca01a16ded0317b626d1d80ce03c4b"
+    },
+    "docs/audio/hardening_h11/PRESERVATION.json": {
+      "bytes": 602,
+      "sha256": "6da78eaa162f21de375f7816fb3f94ecc2510200373d63a2be0fb3e22bdd5ec5"
+    },
+    "docs/audio/hardening_h11/PRE_REPAIR_FULL_REGRESSION_FAILURE.json": {
+      "bytes": 40203,
+      "sha256": "08d2f49b1d2a84ab0ee77108ddd3e6adfce641b081e5b5fbf21815df4f2ea80b"
+    },
+    "docs/audio/hardening_h11/REAUDIT.md": {
+      "bytes": 964,
+      "sha256": "25226486280d5e3577d4197fc644ed690f5d6dbfd30c5455d44fd40fb5ccb235"
+    },
+    "docs/audio/hardening_h11/TEST_RESULT.json": {
+      "bytes": 890,
+      "sha256": "2280f393a014a35cd7387605b7e9b2232173dc52af013f0de23c1843c73ac72c"
+    },
+    "docs/audio/hardening_h11/TEST_RESULT.txt": {
+      "bytes": 284,
+      "sha256": "1e70fd467d12e33381f3a03a6d7354e9e0eb6aaebd31130bf3c4902049744e00"
+    },
+    "docs/audio/hardening_h11/tasks/BIE-AUDIO-H11-001/SPEC.md": {
+      "bytes": 876,
+      "sha256": "bf8f234a0c40db5c642e4acee793a92dfa0db601d6ff9b967412b95ce26d5763"
+    },
+    "docs/audio/hardening_h11/tasks/BIE-AUDIO-H11-001/TASK_RESULT.json": {
+      "bytes": 829,
+      "sha256": "bb16736bfa0ccf484410b9b5a214b2f44fdacbacd396a72018d125c41df2a242"
+    },
+    "docs/audio/hardening_h11/tasks/BIE-AUDIO-H11-001/TEST_RESULT.txt": {
+      "bytes": 165,
+      "sha256": "200978750a8c1bd71906d6db62695fbb14cef31cd1ea71789eac74022c93f29c"
+    },
+    "docs/audio/hardening_h2/BASELINE_TEST_RESULT.json": {
+      "bytes": 22069,
+      "sha256": "a71678b727154fcf148d3d172e8f3beff77db2d0bb2616cda89f8fb283e7ae18"
+    },
+    "docs/audio/hardening_h2/CONTRACTS.md": {
+      "bytes": 9617,
+      "sha256": "575c9743019858fb2fe9dbf867c22d0c3a15b9e5990bc7b0adcf63be2189fec8"
+    },
+    "docs/audio/hardening_h2/ENVIRONMENT.json": {
+      "bytes": 564,
+      "sha256": "5d7be98f2d83a525aca95d50c2d4c839a4e4441c060c1ff6a9d201df329a8546"
+    },
+    "docs/audio/hardening_h2/FOCUSED_REAUDIT.md": {
+      "bytes": 2293,
+      "sha256": "640fcf2cb4545396247058c2f24487169298c6b2a4bc4f1ba95e1c7ee4d1055e"
+    },
+    "docs/audio/hardening_h2/GAP_LEDGER.json": {
+      "bytes": 9358,
+      "sha256": "311b7eb51aa7c824e3f24c52b39df6f8cf6d6dbf932d65876f46038362e35d45"
+    },
+    "docs/audio/hardening_h2/INHERITED_RUNTIME_CHANGES.patch": {
+      "bytes": 1913,
+      "sha256": "6ef892ea7bbdfd282b029edc50683de27254f5b630688af792cbdf1d4d006ae7"
+    },
+    "docs/audio/hardening_h2/NATIVE_BENCHMARK.json": {
+      "bytes": 18220,
+      "sha256": "e5764a7a85962be5efc944284da70502cf8cf1b8f2455b2ffc725114cc4f24b4"
+    },
+    "docs/audio/hardening_h2/PRESERVATION.json": {
+      "bytes": 102736,
+      "sha256": "b8113f507bb16e0eaca61205d5d85f789d070ca2f91e76bf9cfc24d8d52ec8ad"
+    },
+    "docs/audio/hardening_h2/RESULT.md": {
+      "bytes": 5273,
+      "sha256": "db8fea75d998431b95ab1ec93bf5094e61389b31eeb3e18c1ab35d452d70c670"
+    },
+    "docs/audio/hardening_h2/RUNBOOK.md": {
+      "bytes": 5035,
+      "sha256": "64cbf9d9a21710efbe99d74a5ed9068fcc7ecfd6e22d0518f7842d3e1759bbd1"
+    },
+    "docs/audio/hardening_h2/SCOPE.json": {
+      "bytes": 2466,
+      "sha256": "3c05ae1068942f3b7c9e9f1f5f5caecb7f440cc6bc4f9dee9b1ffc8d69baed1a"
+    },
+    "docs/audio/hardening_h2/SOURCES.json": {
+      "bytes": 1402,
+      "sha256": "91debb87d227de74059c0cb4217d7a35d126a72865ba540e138690a5f57839c2"
+    },
+    "docs/audio/hardening_h2/TASK_REGISTRY.json": {
+      "bytes": 2299,
+      "sha256": "fae0d331dda6f258976a61d3434f311dc6b1e03f2726131af8501e3c65524f51"
+    },
+    "docs/audio/hardening_h2/TEST_RESULT.json": {
+      "bytes": 24463,
+      "sha256": "20839cf6bb5d4e6a919fd8805517f1426cf5e75b32d371e17ec7540dc73ea50b"
+    },
+    "docs/audio/hardening_h2/TEST_RESULT.txt": {
+      "bytes": 146321,
+      "sha256": "88c572286a34d876999af03ab389ed033da38a5df0ca072b56814c43871b224e"
+    },
+    "docs/audio/hardening_h2/VERIFICATION_SCOPE.json": {
+      "bytes": 573,
+      "sha256": "e29b15b31d195d6de487db715b9b0d4c6ce8620a55c58a9a54e2948b4bcdd5b8"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-001/SPEC.md": {
+      "bytes": 735,
+      "sha256": "17492b1a90f4409ad9ec85fd04fd4774e9d9e9305f090624e9a425368b605059"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-001/TASK_RESULT.json": {
+      "bytes": 909,
+      "sha256": "59c498f8e33c28a5f6b3611d94521cceb0ca21dbf2bae4438b2fc1650cd2a1ea"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-001/TEST_RESULT.json": {
+      "bytes": 110,
+      "sha256": "abef57e47b205ca0b6411169c57a22e1382dab626ee5610184885d3b91681555"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-001/TEST_RESULT.txt": {
+      "bytes": 177,
+      "sha256": "f8da9b395cb9ed6d4035fd6dbb9ee7fb74fb25d59b72349d1db8fe1540557691"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-002/SPEC.md": {
+      "bytes": 799,
+      "sha256": "a6e2ab53c12323d89bbdb34d6312540c2f10756e31a2b2675a3b79ab7b5e94ca"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-002/TASK_RESULT.json": {
+      "bytes": 1195,
+      "sha256": "eddf1931c65a532bdad569bfbdd36f7c906a0612b2b09bbbef8c80f90696d865"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-002/TEST_RESULT.json": {
+      "bytes": 110,
+      "sha256": "4dc9a9b0031bd15f014c8e928843889b231b97d16c0dd51673f0838c0295dfc4"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-002/TEST_RESULT.txt": {
+      "bytes": 177,
+      "sha256": "e6eda3b51f6f0875b14df3526eafc75f93c542e5d43a163f50e9305ce316413b"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-003/SPEC.md": {
+      "bytes": 741,
+      "sha256": "fd0a44b3d093c227c2f983bf4f0c1243994c878e84da3dd44a133e09024b880e"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-003/TASK_RESULT.json": {
+      "bytes": 909,
+      "sha256": "d14ce55e3fff18a7eeadc74a421ee8caf14de0aef9063b9511c2f9e9403068d3"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-003/TEST_RESULT.json": {
+      "bytes": 110,
+      "sha256": "811cd55292558a00d1922e7bb7cb0576b8db76691163718589816c9f748e9b20"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-003/TEST_RESULT.txt": {
+      "bytes": 177,
+      "sha256": "0ff705eb11306f4eaa82bdbeb3da484cbc4a2606868758d3152fb0d6090cefcb"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-004/SPEC.md": {
+      "bytes": 811,
+      "sha256": "ba8e717ee554854335ec3cede8e0c1338efc4066bddf6e76a1a8eb14fed47cc1"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-004/TASK_RESULT.json": {
+      "bytes": 1185,
+      "sha256": "9bb694b5e84c4804eafb50738ef9c49989b365b6508c7544576ad3573edc48ab"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-004/TEST_RESULT.json": {
+      "bytes": 110,
+      "sha256": "da9a6ccc825afc5da63245cbd883a7f313b08c74f18fa6ad1e3095d52990d0aa"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-004/TEST_RESULT.txt": {
+      "bytes": 177,
+      "sha256": "4e27281f5202240c4084ccdd5694f248a42b22ebdf0e57a0e474adcb98654dd5"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-005/SPEC.md": {
+      "bytes": 801,
+      "sha256": "4ee202c9b54ac7b45cfeb518e3bf6b28edf5f1d62f9392f707be43816271a758"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-005/TASK_RESULT.json": {
+      "bytes": 1173,
+      "sha256": "c2078118c01488fe8ca92c25012f086d7902c7e302807a6dd7024fef6b26bbab"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-005/TEST_RESULT.json": {
+      "bytes": 110,
+      "sha256": "792b573882dd1cf730da83fef62ad232bb5234f1120bc001f408f0efc51a3d56"
+    },
+    "docs/audio/hardening_h2/tasks/BIE-AUDIO-H2-005/TEST_RESULT.txt": {
+      "bytes": 177,
+      "sha256": "39d7e308c34a35ca2252629607dc3215a66bf180ff997042bb9937bbbf82658e"
+    },
+    "docs/audio/hardening_h3/CONTRACTS.md": {
+      "bytes": 7952,
+      "sha256": "a60b2ac429d28f5ef1d1a14ce0c2fd7c118951f07ce11be766f6a7905ec2711a"
+    },
+    "docs/audio/hardening_h3/CORRECTIONS.md": {
+      "bytes": 1553,
+      "sha256": "b938d3b29e4f7e9e515d670a9ba1d9defbcc5b5094043d601d4234f91a1e025f"
+    },
+    "docs/audio/hardening_h3/EVIDENCE_README.md": {
+      "bytes": 480,
+      "sha256": "c142ac412e82f1b42ea88087f71b40f8967923ec645c62eaf19fbf31487cdd72"
+    },
+    "docs/audio/hardening_h3/NATIVE_BENCHMARK.json": {
+      "bytes": 17506,
+      "sha256": "09a762f7516261f90da42f15b68d1cb99878585217bb67e1820c580182c3ae98"
+    },
+    "docs/audio/hardening_h3/PARENT_TEST_SUMMARY.json": {
+      "bytes": 510,
+      "sha256": "021e35c8b9689240be4c7a5c9db907126c9fb5fc7f5619fe47d58cbc9b47a881"
+    },
+    "docs/audio/hardening_h3/PRESERVATION.json": {
+      "bytes": 141023,
+      "sha256": "2f462856cd5a2da6a4386d20b1cd9d53ff7aec03841f3fe690da5f067858b5e9"
+    },
+    "docs/audio/hardening_h3/RESULT.md": {
+      "bytes": 3220,
+      "sha256": "77c3cb0798b1564e514fb99853e1e2b0f71d3008ed040d37b9efc95cfaeeff80"
+    },
+    "docs/audio/hardening_h3/RUNBOOK.md": {
+      "bytes": 4451,
+      "sha256": "e2e331c87cbf17262bf7358851a10b8d12646608a0307a6203f0d21fa99f586e"
+    },
+    "docs/audio/hardening_h3/SCOPE.json": {
+      "bytes": 1305,
+      "sha256": "abffac49a2f5ce4af148cd531574d1208a13cb36c288d4e31195bb1951789a14"
+    },
+    "docs/audio/hardening_h3/TASK_TEST_RESULT.json": {
+      "bytes": 20151,
+      "sha256": "2818890d0fb3cf86229c852038403152e84598aeaebd765f85c2ea70f3d9d16e"
+    },
+    "docs/audio/hardening_h3/tasks/H3-001/SPEC.md": {
+      "bytes": 943,
+      "sha256": "8e7b85214da81f6e24f936520e92e6c40baa3860fe7c2d482a26fc096063e499"
+    },
+    "docs/audio/hardening_h3/tasks/H3-002/SPEC.md": {
+      "bytes": 927,
+      "sha256": "f2aa7c092062b51d80266f179db5bd9c0d0d55d67daba84f71dc341171550222"
+    },
+    "docs/audio/hardening_h3/tasks/H3-003/SPEC.md": {
+      "bytes": 914,
+      "sha256": "0c2a04e5727b9de829883fada219d5f684f296942fbe93c9cdcf804dd6098e96"
+    },
+    "docs/audio/hardening_h3/tasks/H3-004/SPEC.md": {
+      "bytes": 908,
+      "sha256": "fcbafb312a01fee304ef79f5bcb85562028a4cb4b37428cbe4c6c3821e6eced4"
+    },
+    "docs/audio/hardening_h3/tasks/H3-005/SPEC.md": {
+      "bytes": 937,
+      "sha256": "b085f60d87f08a52ab2e768107fe07fd2ad9414fd4d7bc73794c44c783f7a87f"
+    },
+    "docs/audio/hardening_h4r1/CONTRACTS.md": {
+      "bytes": 9263,
+      "sha256": "0e775f93c3008c141dfb7a41a056871d3bf808d965f717e1fecfb392012a3062"
+    },
+    "docs/audio/hardening_h4r1/CORRECTIONS.md": {
+      "bytes": 2061,
+      "sha256": "a2856615f576c4d03f271e2d3758a7ec358f2ce09cfa6edc7b9562552eda6751"
+    },
+    "docs/audio/hardening_h4r1/DISTRIBUTION_INVENTORY_SCAN.json": {
+      "bytes": 467,
+      "sha256": "6849225a1fc989d20fe2693493b7401eaaf14d41a3e8a7b51368b9c26113cb8c"
+    },
+    "docs/audio/hardening_h4r1/FRESH_ATOMIC_VERIFICATION.json": {
+      "bytes": 1656,
+      "sha256": "c6708e166edc907eeff15e76ecc93fcd4ebae72fadff47d63bff7819135f271a"
+    },
+    "docs/audio/hardening_h4r1/FRESH_COMPLETE_REGRESSION.json": {
+      "bytes": 31828,
+      "sha256": "1591390a618f9f5ac2b1abdbf2b0f0bbf1a5820ccc5c36d845907b42ccc1b597"
+    },
+    "docs/audio/hardening_h4r1/HOST_RESOLUTION.json": {
+      "bytes": 473,
+      "sha256": "52629f89de4ffc8a5b0995b60fb7f16534cf749c51b71348c219e0fab87afaeb"
+    },
+    "docs/audio/hardening_h4r1/NATIVE_BENCHMARK.json": {
+      "bytes": 31418,
+      "sha256": "718223bc743172c02c4814710e2a2ec519e5899c0d8843f1051921adc43337e5"
+    },
+    "docs/audio/hardening_h4r1/PARENT_TEST_SUMMARY.json": {
+      "bytes": 8166,
+      "sha256": "259d4efa22f4fd880e88b3f216c14424669237788c289f96e4e12705f5fa3137"
+    },
+    "docs/audio/hardening_h4r1/PRESERVATION.json": {
+      "bytes": 86371,
+      "sha256": "5e3e20ebe68f8d9bae8c1ab551b26a337ac3b26690cfefd385b96078b91f2ece"
+    },
+    "docs/audio/hardening_h4r1/REAUDIT.md": {
+      "bytes": 3303,
+      "sha256": "3500a6be4797fdd66a75b3516f3534148a28e35c533fb5dd9f61fe24bf9e3c56"
+    },
+    "docs/audio/hardening_h4r1/RESULT.md": {
+      "bytes": 4457,
+      "sha256": "c6244623078696ef18d951095a82302dba09f47a3bfe28454e72847c0e5777e7"
+    },
+    "docs/audio/hardening_h4r1/RUNBOOK.md": {
+      "bytes": 3485,
+      "sha256": "975a75494428d5f1b511677cc049e09061981dee10d3c02c644f82a7c08b9866"
+    },
+    "docs/audio/hardening_h4r1/SCOPE.json": {
+      "bytes": 3052,
+      "sha256": "241fb65376456cfb74c07730a55487b0e3596393e816fd8ba9be0b2285bffb5a"
+    },
+    "docs/audio/hardening_h4r1/SYNTAX_VERIFICATION.json": {
+      "bytes": 8188,
+      "sha256": "670e1a26c450807546c3d49a4a457866c8bae47c2cfe8d74331edefb5dc19f0f"
+    },
+    "docs/audio/hardening_h4r1/TASK_TEST_RESULT.json": {
+      "bytes": 1665,
+      "sha256": "eea37f23740d432b002471e93ce7374678a686ee4ef4c79556695672afa3220a"
+    },
+    "docs/audio/hardening_h4r1/WORKFLOW_EVIDENCE.md": {
+      "bytes": 965,
+      "sha256": "0c89a23ac305225844e8aa2e366f52f56944616a23876d553bd88ae107005a81"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-001/SPEC.md": {
+      "bytes": 1531,
+      "sha256": "c2b3a416ac277cdba8680d50830208987c8d9bc5dc75bc22c7bf2f3ea1986188"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-001/TASK_RESULT.json": {
+      "bytes": 540,
+      "sha256": "18ae37c3c4a3620c730b5602aba04cdc6d9d13efff87b2c72aa0962d150d4544"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-001/TEST_RESULT.txt": {
+      "bytes": 3068,
+      "sha256": "2de1a95222cdc86bbceb509aadff27a9603091ba8feeab54753c76940e9b92aa"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-002/SPEC.md": {
+      "bytes": 1599,
+      "sha256": "3f40400bbedbdb0cd5511cb8a472d4c2ffd03227b52fb9f2d05b9f38596a3640"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-002/TASK_RESULT.json": {
+      "bytes": 540,
+      "sha256": "a8be9a1dba2bc71fd67710932db16854b0b1491011bc92825e81fe7f3978b961"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-002/TEST_RESULT.txt": {
+      "bytes": 3415,
+      "sha256": "69d735efe4b68fab2791d08cd0a17c36b903e9a61d3fe368491b42c79aa10d17"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-003/SPEC.md": {
+      "bytes": 1570,
+      "sha256": "c7987652a8e194ebbdb772e565ac1c606fe26bb983edfd8989df2c1a5af8043f"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-003/TASK_RESULT.json": {
+      "bytes": 540,
+      "sha256": "b1ea9eb76acea34ed8e630b70c679c3f67f913392e42f31724e4e49cee4beec9"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-003/TEST_RESULT.txt": {
+      "bytes": 3818,
+      "sha256": "d098c9d24d3de531fd053e3775c75d4705fe80dea6f9e09ee3bb8336ecbe9500"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-004/SPEC.md": {
+      "bytes": 1577,
+      "sha256": "649cb30162ee33f16ac895e2b46a6998ed4a653cfc01596a91bc4e37dfebccd5"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-004/TASK_RESULT.json": {
+      "bytes": 540,
+      "sha256": "4c4e60eee53a99d648b75ced9001b7995271632a1daa22b95dc75d0924dfe1bb"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-004/TEST_RESULT.txt": {
+      "bytes": 2862,
+      "sha256": "f48a993580bab86cf58c5b1a52bfd0d1ebf192aa2abcd371bcbb30db3e951e08"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-005/SPEC.md": {
+      "bytes": 1645,
+      "sha256": "40611317bc90eadd9d0b4b2be58f865568e9f4f8c3cb0bd59b7ca0463eee1ef9"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-005/TASK_RESULT.json": {
+      "bytes": 540,
+      "sha256": "61cb1382ce978a10bb570b20e70a9499deeaec68711731050b8bf31baff5f99a"
+    },
+    "docs/audio/hardening_h4r1/tasks/H4-R1-005/TEST_RESULT.txt": {
+      "bytes": 2132,
+      "sha256": "dcddad62680922b32d6d37fbd9b72219157480467afc00f13483517f2cfee5af"
+    },
+    "docs/audio/hardening_h5/ATOMIC_VERIFICATION.json": {
+      "bytes": 3853,
+      "sha256": "1874c5c467865183455bc849bf4faf403573ac09b72587870028c2e2433b4737"
+    },
+    "docs/audio/hardening_h5/CONTRACTS.md": {
+      "bytes": 9060,
+      "sha256": "d9de7991639852185c5c584ab398b6731787fd1a7852a404131e1bc850d81036"
+    },
+    "docs/audio/hardening_h5/ENVIRONMENT.json": {
+      "bytes": 307,
+      "sha256": "4ba5093a2ff49d45f05ecb21cc6441c2d90228accf9a90d5a7915fcadb0b2e30"
+    },
+    "docs/audio/hardening_h5/EXPLORATORY_CORRECTIONS.json": {
+      "bytes": 648,
+      "sha256": "c4771a2e8af71afb02b61137fd1f9eb0afdf06e488f3b60b1ec1b2d9154243b6"
+    },
+    "docs/audio/hardening_h5/FRESH_COMPLETE_REGRESSION.json": {
+      "bytes": 38480,
+      "sha256": "1e2b679487c959dc0361c3c0eb15dcdb2bcf51c751d127d6b8afde7ce2191d84"
+    },
+    "docs/audio/hardening_h5/NATIVE_BENCHMARK.json": {
+      "bytes": 7845,
+      "sha256": "75f1571c53056fbb6beaf65536bab6068199434c1660ab089f0f77fece4f60a7"
+    },
+    "docs/audio/hardening_h5/NATIVE_CALL_INVENTORY.json": {
+      "bytes": 5165,
+      "sha256": "d38c9f1fb911298134b92a56350b82a7b7473b7e8c1a1d689d5080e41cf7fc91"
+    },
+    "docs/audio/hardening_h5/PRESERVATION.json": {
+      "bytes": 1770,
+      "sha256": "b1da0438e19f43b61e74c28a1e7d7a6d689bd3ff7e616d2c372cb09a6e71cc22"
+    },
+    "docs/audio/hardening_h5/REAUDIT.md": {
+      "bytes": 3962,
+      "sha256": "36452c9ae5b1bf72fc2dbef92a59c075bb83b9973cc7d435201d0ad63ae97705"
+    },
+    "docs/audio/hardening_h5/RESULT.md": {
+      "bytes": 3875,
+      "sha256": "e5152408116aead577006cfc2512bdf78ecae9a58a886a2609eeb30bb0deda50"
+    },
+    "docs/audio/hardening_h5/RUNBOOK.md": {
+      "bytes": 3612,
+      "sha256": "ea8648970d7591c5b8c78875ea2e0f8f1d865733fc2195ac624efa6198c54ec2"
+    },
+    "docs/audio/hardening_h5/SCOPE.md": {
+      "bytes": 1194,
+      "sha256": "6bfe40ef734b81978f9095b5df07aed0d029fd6af71155597582a3cf6fef98e2"
+    },
+    "docs/audio/hardening_h5/SYNTAX_VERIFICATION.json": {
+      "bytes": 132,
+      "sha256": "b15fa682228f0e1fc9ab859067f14b6d0284645cbf697639ae890364bf7456bb"
+    },
+    "docs/audio/hardening_h5/WORKFLOW_EVIDENCE.md": {
+      "bytes": 1860,
+      "sha256": "35dfd9533d72a6f72832a0781056a3122f7d99dca0960295efd808792ae6fcd6"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_1.json": {
+      "bytes": 29732,
+      "sha256": "383d40c923933768075bda0dea015261f38480f90a0c5086d7e85a0e7d65280c"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_1.log": {
+      "bytes": 29022,
+      "sha256": "0b6377e6f0e579cc90a5d1098fffd897b8d430f1ede283e75637b34faa40d323"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_2.json": {
+      "bytes": 31074,
+      "sha256": "f597c8231e004aba8e452f8428d6546e7a2e08e1185831cfbb5c85fedfe48773"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_2.log": {
+      "bytes": 49148,
+      "sha256": "df3d637e6718ebc1ad1e1b6602c8f37fe25ee0f3269f467bf8876289f1e6b5de"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_3.json": {
+      "bytes": 31244,
+      "sha256": "6cb9a811dacb807744ec74a97e0411d1f7aee2f2e330e5627927c2ec986aadce"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_3.log": {
+      "bytes": 53955,
+      "sha256": "6b70fcea6ced20d972893cc3310e680106591988fd6ac13711d1ca10c329727a"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_4.json": {
+      "bytes": 30514,
+      "sha256": "9335e342029bd4953d7ea6d2acfc3f025c7dee21ff259c85a47d0220a6cfa718"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_4.log": {
+      "bytes": 46768,
+      "sha256": "f4b119a09b6de761c5a802e51d3d30219c59fba641062ace4b4197da04fe574c"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_5.json": {
+      "bytes": 28711,
+      "sha256": "7cadad57b29db8fbf3d3f6487468d7f17cf3e55318f9e47866a3419d44e73b38"
+    },
+    "docs/audio/hardening_h5/execution_logs/GROUP_5.log": {
+      "bytes": 14600,
+      "sha256": "3ebd75dc576655556932e3d16caade973a1a3ecb295ed03dab0d549dc90cb5f0"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-001/SPEC.md": {
+      "bytes": 1592,
+      "sha256": "1096685c80628514e1d57e910332b81845437668c605531bd12ccf9e53674179"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-001/TASK_RESULT.json": {
+      "bytes": 624,
+      "sha256": "e1dd6d75ee5281547e79663ba1dd905f0ea8aaec4142c0fa60af406d56508d3f"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-001/TASK_SCOPE.json": {
+      "bytes": 437,
+      "sha256": "16c91c861a77da7b894baa6014acf3256a67d4ade0f07ec1b9429be04ac7fe8a"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-001/TEST_RESULT.json": {
+      "bytes": 27939,
+      "sha256": "6267ac19e2942f3d01e0db4873e8babdcf898bb979f5617fc63a5daf18c0d1fb"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-001/TEST_RESULT.txt": {
+      "bytes": 3685,
+      "sha256": "91714aff9c10b301863bcab6dc5b7fdec397929f5f001aea38b32a57cc823c6e"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-002/SPEC.md": {
+      "bytes": 1581,
+      "sha256": "8e5187f4a78417583352e41efb4532576ac120f43de5d5f010027a11a2816ef3"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-002/TASK_RESULT.json": {
+      "bytes": 624,
+      "sha256": "48df5eadf720d0504c37143e54370e7cf903608d354a459d7c5358222804e3ca"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-002/TASK_SCOPE.json": {
+      "bytes": 422,
+      "sha256": "636def67591dee5395c372cac4aee096cdf035678e0da316a542f7d679976910"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-002/TEST_RESULT.json": {
+      "bytes": 27939,
+      "sha256": "ad49b29f99509ec99fc0fdb2817b5ec94c771df887b03c2dc1f8be67646272ce"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-002/TEST_RESULT.txt": {
+      "bytes": 3174,
+      "sha256": "48cf251c5c7bdd60c9d84062a1171313c622ead7357123e3226de39ac09cc2a4"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-003/SPEC.md": {
+      "bytes": 1517,
+      "sha256": "fc75dee40f0c4a7ea4215906fcd57d5684654e036b1df72a7913a5b0fc98f80e"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-003/TASK_RESULT.json": {
+      "bytes": 624,
+      "sha256": "9032a7a0cafebf975feabf593dc23d849efe8ac98f5515ecf88c48f1557ca6fd"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-003/TASK_SCOPE.json": {
+      "bytes": 314,
+      "sha256": "942e7ca499a0ab97d865d571c4d441cb73bbc362d5512ce8ba1fc2557e152f96"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-003/TEST_RESULT.json": {
+      "bytes": 27941,
+      "sha256": "e607234d69e2b11e2a1f4b76ad2a885b54267275e36a0ed290b8e25f0651d6b6"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-003/TEST_RESULT.txt": {
+      "bytes": 3563,
+      "sha256": "138e2eadf46a4f5e5f1593afc313d0812367474b3380e035ef99c4bd29de24b1"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-004/SPEC.md": {
+      "bytes": 1525,
+      "sha256": "4771cd906fb1600a64c26edf7b5f0911beb991297d942ea6fdda02af1415d719"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-004/TASK_RESULT.json": {
+      "bytes": 624,
+      "sha256": "47be5d614ece05150f721c67cc7ea5792c2164beec98e36e386c6b590ab6b0a0"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-004/TASK_SCOPE.json": {
+      "bytes": 313,
+      "sha256": "c40950f02a996b393833b0db7141db407254604f0e0fa3e368bfe48eb432f2cf"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-004/TEST_RESULT.json": {
+      "bytes": 27941,
+      "sha256": "f48c197c037bccf40a38b4ff6714ebaf0415e1fcc6b315a4be2d425e23e7bba3"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-004/TEST_RESULT.txt": {
+      "bytes": 3074,
+      "sha256": "465e05a27b8ce0afc8f762ccc69d96bd311fb922a604203baf6b88621d9d094c"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-005/SPEC.md": {
+      "bytes": 1616,
+      "sha256": "6d196cb56343a1f78dc7a4520c6a9bff0c798e7e4350847a18161f33a29b2926"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-005/TASK_RESULT.json": {
+      "bytes": 624,
+      "sha256": "b04807881c2a828a5acae2f99f550012ac172b25a931b0165c50404281c054e6"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-005/TASK_SCOPE.json": {
+      "bytes": 423,
+      "sha256": "411e773a4ffddb9efe4cf436d7dae82f0bd414894d64fc70415f7492a7e37499"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-005/TEST_RESULT.json": {
+      "bytes": 27941,
+      "sha256": "529f9a37dd891e863d79737f50a227e84f804c5e4c5551f2362a076bab34246f"
+    },
+    "docs/audio/hardening_h5/tasks/BIE-AUDIO-H5-005/TEST_RESULT.txt": {
+      "bytes": 2967,
+      "sha256": "f3e9f0e2a08a6beec3457484bdee24909033a9d12ed06cb6e119ec2d88d10ce9"
+    },
+    "docs/audio/hardening_h6/RESULT.md": {
+      "bytes": 314,
+      "sha256": "f1edcc61e2c82193002f0c1de1dc860f0a10138b78f44c7d2b1df8e34adb3f5d"
+    },
+    "docs/audio/hardening_h6/TEST_RESULT.json": {
+      "bytes": 24515,
+      "sha256": "88f312cb35d3904f002ce8750d0b2d3df0369997ebd9aaf8a66031ca998f01c5"
+    },
+    "docs/audio/hardening_h6/TEST_RESULT.txt": {
+      "bytes": 1271,
+      "sha256": "56685e0703b88545ca855577721d174cd917bb3ee58380a9bac2d143a9a54299"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-001/SPEC.md": {
+      "bytes": 224,
+      "sha256": "8db7d09847b62a3e935e598f93f2796394cccab6a35be479618355cfe18fb7d4"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-001/TASK_RESULT.json": {
+      "bytes": 137,
+      "sha256": "1e1738e33b4cc41b687fde9e02f8a89d93fe412deb675006090f15061fef6478"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-002/SPEC.md": {
+      "bytes": 252,
+      "sha256": "50bbbb1236487757db4d4df6165f39cbb1674eabb4a632abaaa3bbf0008b233a"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-002/TASK_RESULT.json": {
+      "bytes": 132,
+      "sha256": "876e34bd88b57f98b50bc8d24390aad7644c69d2618e59b6305b2c6c982b5a32"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-003/SPEC.md": {
+      "bytes": 220,
+      "sha256": "4870a68b08e9247a5c703f6ac519139c46b1039176b2eaf7aab3115b3f12513d"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-003/TASK_RESULT.json": {
+      "bytes": 137,
+      "sha256": "16f6961e6cdf31b8418a6edfa9334ad8ae7b131c4f1f607ab9bb9cd9df9a64c2"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-004/SPEC.md": {
+      "bytes": 272,
+      "sha256": "11010c83b7453b20fae15ea9799ae69a95ce8c7b9be7ff41f14e7fabf25ebbfe"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-004/TASK_RESULT.json": {
+      "bytes": 141,
+      "sha256": "da4acddfdc6fd08af98e5f43e0934b559eed88eb2429cf8eee2ef98dd37b3ad0"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-005/SPEC.md": {
+      "bytes": 262,
+      "sha256": "8a7e4b8429b6870917e9c6b20d14270da56c92a1014ba71b222212cda094f700"
+    },
+    "docs/audio/hardening_h6/tasks/BIE-AUDIO-H6-005/TASK_RESULT.json": {
+      "bytes": 143,
+      "sha256": "df650554158d16ac8b6a071475eee3568afa45c63eb776510d7731c5a89da42b"
+    },
+    "docs/audio/hardening_h7/CONTRACTS.md": {
+      "bytes": 1221,
+      "sha256": "5caea05b87d42f6688366ffc3d7506d2dad8e7c8895317c7078927e99c913a02"
+    },
+    "docs/audio/hardening_h7/GAP_LEDGER.json": {
+      "bytes": 1461,
+      "sha256": "35e4989839a3c0902a5d91f148c25ab80cbd7febbff239719c47f5472735e238"
+    },
+    "docs/audio/hardening_h7/PRESERVATION.json": {
+      "bytes": 1222,
+      "sha256": "f3112719039f87400a03490c042cfc8ef1341bb9c3c8dc12fff2c7e5a51a10b7"
+    },
+    "docs/audio/hardening_h7/REAUDIT.md": {
+      "bytes": 888,
+      "sha256": "cd513a01ae0bc6cee7820bc77067295dc2d18f66263abc3c612037d062d50438"
+    },
+    "docs/audio/hardening_h7/RESULT.md": {
+      "bytes": 1252,
+      "sha256": "4e3d5d268736dbecfbc64bb294fbd4310d517e24260724f619bc494949b669cf"
+    },
+    "docs/audio/hardening_h7/TEST_RESULT.json": {
+      "bytes": 1428,
+      "sha256": "bc8ca14e158677f13cc8157b6d66a2ff5debabf42b695b01fb1d66259977f2d6"
+    },
+    "docs/audio/hardening_h7/TEST_RESULT.txt": {
+      "bytes": 156,
+      "sha256": "9dfe85893ae791999c9c7b9e4dcdec524d5ae61ace6309be9cb4ca3cc043c58b"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-001/SPEC.md": {
+      "bytes": 341,
+      "sha256": "ec7e6f10300ba31e60c0d4a031ac0ecbb638cda0b5316371e5619cf95ceb3892"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-001/TASK_RESULT.json": {
+      "bytes": 149,
+      "sha256": "1b5fe6af9f472b073e53ae1c36a531a41f84e373b01f7ab408f71479c1a7a1cc"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-002/SPEC.md": {
+      "bytes": 272,
+      "sha256": "aa2183ecb140d5c212b5019d366f5e0380e83e435a12c034a17db3ebbbed5a5e"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-002/TASK_RESULT.json": {
+      "bytes": 138,
+      "sha256": "17cb851b7db2ba8a96545409dc5579366688c2f2ec06d7b4d3a307ac36acab7f"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-003/SPEC.md": {
+      "bytes": 296,
+      "sha256": "941a627b942b6c6d738fd2525444b04a4c664bce52f271c9d5922aa82277e1f8"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-003/TASK_RESULT.json": {
+      "bytes": 150,
+      "sha256": "26e65612e2b188125baf1de6a70cb763c220a4e8c2f533c7fd0d40129cf2504b"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-004/SPEC.md": {
+      "bytes": 272,
+      "sha256": "be08be70881f81b710221d336088b12933c67159502d235b6221ab63134d0c99"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-004/TASK_RESULT.json": {
+      "bytes": 144,
+      "sha256": "047f0b9ca16c317140a0749d9ae802136edb5034b7f20adee1db48062f000708"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-005/SPEC.md": {
+      "bytes": 276,
+      "sha256": "fe22816453d2b64d3caa248bea186c8ab97fb22a131ff77eccf004286657cee0"
+    },
+    "docs/audio/hardening_h7/tasks/BIE-AUDIO-H7-005/TASK_RESULT.json": {
+      "bytes": 157,
+      "sha256": "1779517dc2020691dcce2be4691bc1423b852aa65cb5ecd5e4982b6cec2d5746"
+    },
+    "docs/audio/hardening_h8/ATOMIC_VERIFICATION.json": {
+      "bytes": 1265,
+      "sha256": "ad443abaf9a10498c15a9b31166cd1939cc3437907bdd3cce2172300e80dc2c1"
+    },
+    "docs/audio/hardening_h8/CONTRACTS.md": {
+      "bytes": 1565,
+      "sha256": "0bfda54733457c759504f4fe32e8d47ee80a33983a1a4a51d456a5a6ce28702c"
+    },
+    "docs/audio/hardening_h8/GAP_LEDGER.json": {
+      "bytes": 2000,
+      "sha256": "f46db8ed15624672a0c10d125556f7124297e06ecf084281baa9cc0bb9e52e38"
+    },
+    "docs/audio/hardening_h8/PRESERVATION.json": {
+      "bytes": 2162,
+      "sha256": "19c822346080ab0960014394360d8f62e6f7e9db30d79ad36d188c10114261ac"
+    },
+    "docs/audio/hardening_h8/REAUDIT.md": {
+      "bytes": 1432,
+      "sha256": "002fe861d86b1b2022bdb4655a9f69e6e42997f61562b7ba2d3b0d209e088e05"
+    },
+    "docs/audio/hardening_h8/RESULT.md": {
+      "bytes": 2101,
+      "sha256": "35197374d976c9fb04c1d650b09b7192858e490dd58e87e8dc8d5bff01583402"
+    },
+    "docs/audio/hardening_h8/TEST_RESULT.json": {
+      "bytes": 3398,
+      "sha256": "7fd16b7e649998fbb48aabed030c553939d6d5427330b8ba2a7337267fe1caf0"
+    },
+    "docs/audio/hardening_h8/TEST_RESULT.txt": {
+      "bytes": 191,
+      "sha256": "94f2779e2432ba3d5cfb7119fcf342884eb22bb1effa8ee9a9b379e8b69dce1f"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-001/SPEC.md": {
+      "bytes": 296,
+      "sha256": "378c6c9541d373654bc735ac942e1889af99c007feb56314ee9490705487ef6d"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-001/TASK_RESULT.json": {
+      "bytes": 541,
+      "sha256": "0ecef1020442ba59fe94d9d1426422b0a40eeab7e5a59d4dbba1c5094e873946"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-002/SPEC.md": {
+      "bytes": 304,
+      "sha256": "2d5ad44dc2c6d84b746fb90dcb70b41e3d9de03966809f0125ac58b65c0d3665"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-002/TASK_RESULT.json": {
+      "bytes": 549,
+      "sha256": "0b8015fb665b69e88464c9bf1a2176d33cd703578c84e4ad9f88ea071782c8fe"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-003/SPEC.md": {
+      "bytes": 285,
+      "sha256": "24b7faaf203c0269ee4de156fefafc56252d2a0ddce75558d9fa8f242edf0998"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-003/TASK_RESULT.json": {
+      "bytes": 541,
+      "sha256": "b72c4f278c040e217465a27c9ccabd771657bb6fe463a066ee7e93a0a8a2f666"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-004/SPEC.md": {
+      "bytes": 342,
+      "sha256": "2f61c31491ed78bbea1390c07ece73ed95f0258f6bf6d43523bfbdfc7d19dde2"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-004/TASK_RESULT.json": {
+      "bytes": 791,
+      "sha256": "ae285d7e5a06a6225ce48d61e8ba979228ba0cc9cb81ab5803ba3e8bcd253bba"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-005/SPEC.md": {
+      "bytes": 342,
+      "sha256": "b71a3c0104bb7ea45998c6ca46d77fe5133368691f3f8a1a03e548e6f5b38c15"
+    },
+    "docs/audio/hardening_h8/tasks/BIE-AUDIO-H8-005/TASK_RESULT.json": {
+      "bytes": 602,
+      "sha256": "5e1fe80d0db786a0fe82c0c4cfceac6ff1dfaf9805e50a3823529ffec7ddf868"
+    },
+    "docs/audio/hardening_h9/ATOMIC_VERIFICATION.json": {
+      "bytes": 1266,
+      "sha256": "08be9514613dcebad8ba0536bd2fb13f49886481c1e1ff4fd51c40cba94f4b82"
+    },
+    "docs/audio/hardening_h9/CONTRACTS.md": {
+      "bytes": 1868,
+      "sha256": "7dd92b883b2e99fa0ebc9406bdffd7bb409764896b69786c79c463aeee48634f"
+    },
+    "docs/audio/hardening_h9/GAP_LEDGER.json": {
+      "bytes": 2475,
+      "sha256": "3bc0ad8b15e80e02cc5f80ed508c49a3e7c6e72421235d3d672166c695902126"
+    },
+    "docs/audio/hardening_h9/PRESERVATION.json": {
+      "bytes": 2139,
+      "sha256": "e445137435e78361b376554555a7ca545329826abeb594975d119a38a3cb4244"
+    },
+    "docs/audio/hardening_h9/REAUDIT.md": {
+      "bytes": 1816,
+      "sha256": "6fb4244e5db11573d40c1bf6e0bad8eaf669eb70621d321dde21efa051d10686"
+    },
+    "docs/audio/hardening_h9/RESULT.md": {
+      "bytes": 1508,
+      "sha256": "c132d486dc3524abdfc62a356bc8a9795e80190989d8f3983d4c0f1e7524a778"
+    },
+    "docs/audio/hardening_h9/TEST_RESULT.json": {
+      "bytes": 701,
+      "sha256": "5f42a8d45108fb901a381ae7fc539ef0b88f933f8ec6ada89218753cdabe3f32"
+    },
+    "docs/audio/hardening_h9/TEST_RESULT.txt": {
+      "bytes": 236,
+      "sha256": "b1372edcfabc8e7c04b5feacef53c7772c1049b0c293d37084df8e16c8dc79bc"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-001/SPEC.md": {
+      "bytes": 406,
+      "sha256": "b81b8734eef87996bf69564fdaab266480bd710523f1395e382c2278b93a9e72"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-001/TASK_RESULT.json": {
+      "bytes": 557,
+      "sha256": "b42bdaff2340eda0d2e8a365fd11fa0427cdcd63bbc8baeec03b9f286efa4564"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-002/SPEC.md": {
+      "bytes": 441,
+      "sha256": "ba05ad019494aac2891139a45a78398d14f3c0794622bb1228217410e1692af2"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-002/TASK_RESULT.json": {
+      "bytes": 635,
+      "sha256": "f1aeaefb6bff3909a586352bada4daf9f3fcd9f961015eb195d30a66e82c99c2"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-003/SPEC.md": {
+      "bytes": 443,
+      "sha256": "3f6f0a2e871d7498c3d6e3d030b056a2345e3f1d0de3db53356355721d10b6d7"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-003/TASK_RESULT.json": {
+      "bytes": 596,
+      "sha256": "1213ab5a6ce185282ec34e0da12a0a46ff4db2351ab4005c96ac386f5943b3ec"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-004/SPEC.md": {
+      "bytes": 477,
+      "sha256": "75a21ab9a7c98b0cb84a8380d31df173bc11c60e56c331a393a216db55993e89"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-004/TASK_RESULT.json": {
+      "bytes": 684,
+      "sha256": "306df849bf68d728303e31b91d25810f9735da669ed4e3819ccf06e445df2dce"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-005/SPEC.md": {
+      "bytes": 500,
+      "sha256": "5a1234617807ff4e07038641a9b2a3657b2920db8f3a87b2f7e587dae84d8974"
+    },
+    "docs/audio/hardening_h9/tasks/BIE-AUDIO-H9-005/TASK_RESULT.json": {
+      "bytes": 766,
+      "sha256": "78ba6ae5ef40852b7be629c241c496a5c0547d7ada196d23425d581ab3d20cb5"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-001/SPEC.md": {
+      "bytes": 1532,
+      "sha256": "6aa434dbe447d522596e40534f7da3f6a30ed813e927922f43ef2f2b0ee3ab82"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-001/TASK_RESULT.json": {
+      "bytes": 485,
+      "sha256": "834cbd92c47e2882e83a295ac9df51793a985c7fdeddd55382bfc202ff70cfd1"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-001/TEST_RESULT.txt": {
+      "bytes": 326,
+      "sha256": "2db214163aa533892302e13e1dabd5d9b3af4ec442d1aee49ad240bcbf2bf889"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-002/SPEC.md": {
+      "bytes": 1485,
+      "sha256": "7de8ec7f230eed869266684713ec53dc44b23b6215fdb57d66dd8764cac0fb7b"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-002/TASK_RESULT.json": {
+      "bytes": 475,
+      "sha256": "e67c0b395598ce2b6a41c8f3fbb5a42423cf420ff86b2da0fd284558df4830e5"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-002/TEST_RESULT.txt": {
+      "bytes": 326,
+      "sha256": "09084155c874bfb3b24255908811bf943d725f800813f74fd4a33b9658d794d6"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-003/SPEC.md": {
+      "bytes": 1501,
+      "sha256": "7cfe5bbdc792213c59639e3cfb0cb43616f7fb9ede6bd3e296de35ac2d10ebef"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-003/TASK_RESULT.json": {
+      "bytes": 482,
+      "sha256": "9c34ad7b2f641e60d396b377fc9852e2b4df1b47f59a6cc18261c7c2d4a5b2b9"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-003/TEST_RESULT.txt": {
+      "bytes": 326,
+      "sha256": "f8289f1bfc5ec26cb5ee9aa1c6963bc5c5a8867c9de0940bd876464ede441484"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-004/SPEC.md": {
+      "bytes": 1475,
+      "sha256": "62a86da67175ae2ce1e368a34e49ad8d92301ba3745d8093ef4db53ef94ca8f8"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-004/TASK_RESULT.json": {
+      "bytes": 467,
+      "sha256": "eef556b75ef64c9e787db9eb17ee28f3824eec3c9359da9e3dee588ae373197d"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-004/TEST_RESULT.txt": {
+      "bytes": 326,
+      "sha256": "584b66b3e39b530fac6ef366ca73f2577f52ef2fe085f1e73fb6199174712027"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-005/SPEC.md": {
+      "bytes": 1591,
+      "sha256": "05fb3fed0576d7a264de6697d343dc5a3a3b1ef4083d15cf22877d3d0458b974"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-005/TASK_RESULT.json": {
+      "bytes": 494,
+      "sha256": "c57b8742741d0eae58a7c3e23c2d803099a8e20bb9ca0a4f0a53955760cb355e"
+    },
+    "docs/audio/tasks/BIE-AUDIO-QA-005/TEST_RESULT.txt": {
+      "bytes": 326,
+      "sha256": "4341df3cf4ae12f27282ab44e5d5ad628a1865e3b2d9e89e166f3d6df9018f10"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-001/SPEC.md": {
+      "bytes": 806,
+      "sha256": "881d2d1ee903887b48ce5b2bb35252fe5e4be0c304e7422edb2a0b434c7e1039"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-001/TASK_RESULT.json": {
+      "bytes": 403,
+      "sha256": "06df82be06d041d2f61de8ff0beb50b6e8fe2e077f4cf78d87636b8435b0ed49"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-001/TEST_RESULT.txt": {
+      "bytes": 4239,
+      "sha256": "d6f4c14e8bbf1b7f3ffa78078eae75e849b9f1ea61d1770d346830e25434a97d"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-002/SPEC.md": {
+      "bytes": 808,
+      "sha256": "f217df62ab616fbaf17908a0733e372b531ffd610966f4ac9d1d2af4bd0aa349"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-002/TASK_RESULT.json": {
+      "bytes": 405,
+      "sha256": "9b8a77497b6bab346e2b789e539a476bbcb096785571c57422041e3beaa2f7c3"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-002/TEST_RESULT.txt": {
+      "bytes": 3324,
+      "sha256": "82586390ecedf077578fa3ca89e3b027bf8723ce9df45d3f00b3963f971a2ee3"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-003/SPEC.md": {
+      "bytes": 801,
+      "sha256": "31f8a9a87342073c96262bda0635c1c6302c1a30a3b4408fce00ca96dac29fa0"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-003/TASK_RESULT.json": {
+      "bytes": 398,
+      "sha256": "abe60f4ffa2c7955a4a9be03259edb0f92420a99c2b1363fe972d0f6b8d8cd98"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-003/TEST_RESULT.txt": {
+      "bytes": 2998,
+      "sha256": "5223323b4806341b8306e3c095b23f664d4fef1e4cb06cb0972cdbf08ff381f0"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-004/SPEC.md": {
+      "bytes": 805,
+      "sha256": "57efa20f2e2f64d6d1e3db96cb7c2ae7133ecd2596c3f827c90cf980fc6084b3"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-004/TASK_RESULT.json": {
+      "bytes": 402,
+      "sha256": "5c4eb355086c99a3e99f6c94898fb30dbbffb359952bdbab380c286e5f9b3dfb"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-004/TEST_RESULT.txt": {
+      "bytes": 3774,
+      "sha256": "82af294585f12986493cea108834f5e97524cea4f1b962447d6219fea37d6e84"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-005/SPEC.md": {
+      "bytes": 801,
+      "sha256": "4af19127f61a1a0d6c26f648252e12634f3ba22777d2ef32664ad2cc5b13c87f"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-005/TASK_RESULT.json": {
+      "bytes": 398,
+      "sha256": "30806db9f2ecd2e56f5d5bff782cc4a0c2127a7beda4e8aab62720ce777d591c"
+    },
+    "docs/audio/tasks/BIE-AUDIO-SYNC-005/TEST_RESULT.txt": {
+      "bytes": 2790,
+      "sha256": "7d87dc554164de76a0a1add7404d8a5092d88545801991e08452e59714cef5ab"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-001/SPEC.md": {
+      "bytes": 618,
+      "sha256": "93860c754cb984d342775505e802847466487e659047c5d7c22215eafe672b5e"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-001/TASK_RESULT.json": {
+      "bytes": 301,
+      "sha256": "f78cd7406b515c054a87837e7206b60ea0a26604bf71ebe52950fad4ba2af464"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-002/SPEC.md": {
+      "bytes": 589,
+      "sha256": "e383a8636d8513ed0ce764948292f51b960d2ae9660c79e144d2d4dc7cb122da"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-002/TASK_RESULT.json": {
+      "bytes": 300,
+      "sha256": "241afbffcada16771c3a9d1523450cc017010d04c7c98fb0553d4a5086815b7b"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-003/SPEC.md": {
+      "bytes": 597,
+      "sha256": "de6c75e1fa921d915a53f2fc9a96c9e340e7e0cdba901c589b474fa1cfde1e4d"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-003/TASK_RESULT.json": {
+      "bytes": 297,
+      "sha256": "3d65abf1afdce7ceb54846ff3ae2ab01903f51d8ea630c61f65348ac630f1c97"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-004/SPEC.md": {
+      "bytes": 601,
+      "sha256": "5cba905b01e6f1549d7a927ac2586fa967d256fd0cb9de0c96e6a864dac305a0"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-004/TASK_RESULT.json": {
+      "bytes": 299,
+      "sha256": "1cacd93c2abde4bb0274b1766b777544d9785b7502e6a5f746d31d19b3dab815"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-005/SPEC.md": {
+      "bytes": 631,
+      "sha256": "91ab7ad142c6a15cb31e378603760e4bababc6bd8c2e97dfc10f49c32e5d2a27"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-005/TASK_RESULT.json": {
+      "bytes": 300,
+      "sha256": "c91c14077eb33f0f7955ba4ee6d13e17eb1dd0afcb76498d8c0af03a14fe6a6a"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-006/SPEC.md": {
+      "bytes": 859,
+      "sha256": "db218d590aac3c692292ad143c5039c13175640005d9f48098b4e96c7dc7f60d"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-006/TASK_RESULT.json": {
+      "bytes": 407,
+      "sha256": "72fe38737e831542f42e6ffcb797e511b8f17b4b82ce8c4a02204ba502170ea3"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-007/SPEC.md": {
+      "bytes": 870,
+      "sha256": "7ba03d8bd38f5034297e533234d43ad99933d477f9396ecb5503e75ccdba5d2a"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-007/TASK_RESULT.json": {
+      "bytes": 418,
+      "sha256": "af686bf71afd49d74b2d37d6d5beb24099b4ea9a33cf004f377c8dea49386edd"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-008/SPEC.md": {
+      "bytes": 856,
+      "sha256": "229b476c14457486a117f41502403a1bdcf6a996ed2bae00cbd1f71a0d207dda"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-008/TASK_RESULT.json": {
+      "bytes": 404,
+      "sha256": "3a212ac5f0a234dcb7cebf057f5c537e202a719fa2439a88bcffc09547b271e2"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-009/SPEC.md": {
+      "bytes": 901,
+      "sha256": "236c8537429c52d1e0ceaa6b18dc26db6d11e97ebb20249b15515fc34d89c60e"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-009/TASK_RESULT.json": {
+      "bytes": 554,
+      "sha256": "2b643362de61263ef0b5993185eded23177eaec39fceebe02678f1e54df0d89b"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-010/SPEC.md": {
+      "bytes": 859,
+      "sha256": "c9043f6cb52e8a21fe98ea1aa23708cc8e0648b3662f22d19b4ad5623e527eb0"
+    },
+    "docs/audio/tasks/BIE-AUDIO-VO-010/TASK_RESULT.json": {
+      "bytes": 407,
+      "sha256": "0467ec4f60167d863e5b917f85dfbea94ba9ffe439ac17ccee5d5245efc9f6cd"
+    },
+    "docs/audio/tasks/MIX-001/SPEC.md": {
+      "bytes": 1079,
+      "sha256": "748230bc560ae20effad73a200174fe1cb65791bac1e1b1231c07fb96bdf4853"
+    },
+    "docs/audio/tasks/MIX-001/TASK_RESULT.json": {
+      "bytes": 345,
+      "sha256": "a4d795ae97e2d0460c3965e434b04ebe9a07862337bf42e31b9e74480adf42d6"
+    },
+    "docs/audio/tasks/MIX-001/TEST_RESULT.txt": {
+      "bytes": 2713,
+      "sha256": "928736dd102260e2eb22f867c0e89dea3da1076f5aab56c9ffe6dc726eb3915d"
+    },
+    "docs/audio/tasks/MIX-002/SPEC.md": {
+      "bytes": 1030,
+      "sha256": "224aec34f3fc580c72244e5f23549380164eb38db9e84213ea40af361ab3908e"
+    },
+    "docs/audio/tasks/MIX-002/TASK_RESULT.json": {
+      "bytes": 345,
+      "sha256": "db75a5f976335629c60d1ad3dc733c01ed1dd60c2bb818b27038f0bd61121727"
+    },
+    "docs/audio/tasks/MIX-002/TEST_RESULT.txt": {
+      "bytes": 2145,
+      "sha256": "e7e7a93b4d2034c7e6ac20b6bac79cacddbb8f8e05af7d99952941a62952f179"
+    },
+    "docs/audio/tasks/MIX-003/SPEC.md": {
+      "bytes": 1052,
+      "sha256": "ce1a3faf18a78ad2899f31b9d1d979fa891a89a8f4dc3c46128b65e93c02d71d"
+    },
+    "docs/audio/tasks/MIX-003/TASK_RESULT.json": {
+      "bytes": 345,
+      "sha256": "4b1c0adf2f66449abae0f0cc4a0a137a7458504edd8d94c4224075e47a4a0f91"
+    },
+    "docs/audio/tasks/MIX-003/TEST_RESULT.txt": {
+      "bytes": 2541,
+      "sha256": "ea4075d947ac5bc9573ae351ac7d5689c4617add520089c43ee13a943eed489c"
+    },
+    "docs/audio/tasks/MIX-004/SPEC.md": {
+      "bytes": 1059,
+      "sha256": "9524307cb49ee905252b32e59f157a967d4c15c7c3e9d199380d86d99232eb2c"
+    },
+    "docs/audio/tasks/MIX-004/TASK_RESULT.json": {
+      "bytes": 345,
+      "sha256": "77dc94d43354c3219b1b4c70ca833cee40276d7c61db8e708b3e5c3fc6e4fa07"
+    },
+    "docs/audio/tasks/MIX-004/TEST_RESULT.txt": {
+      "bytes": 2109,
+      "sha256": "c8c34512f3f832708fa4d4e8834807cfe117a6b474ad22a2d7fe51b2589352e6"
+    },
+    "docs/audio/tasks/MIX-005/SPEC.md": {
+      "bytes": 1045,
+      "sha256": "0777e5589cfba72798140060c95a0931c9a2a5c823bdf98aa160351aacf2f13d"
+    },
+    "docs/audio/tasks/MIX-005/TASK_RESULT.json": {
+      "bytes": 345,
+      "sha256": "ccb67d075ea410edb3cee80c251291604bbcbb779cefd092f614b6760f82ca81"
+    },
+    "docs/audio/tasks/MIX-005/TEST_RESULT.txt": {
+      "bytes": 1713,
+      "sha256": "49ff4e4adacc270144ec9efa25a6bcbf9052375cad6f1318c03174462520e7af"
+    },
+    "docs/evidence/audio-integration-001/AUDIO_SECTION_EXIT.json": {
+      "bytes": 435,
+      "sha256": "7d781125f49c1a61eb17f3402855b8dc7a5cfde62a8579bac8aea088c670f23e"
+    },
+    "docs/evidence/audio-integration-001/BIE_AUDIO_FINAL_FULL_REGRESSION.json": {
+      "bytes": 40202,
+      "sha256": "b6759391e3d04e58e71d5167e109031439b8cfe2d823485222bc19e55b204370"
+    },
+    "docs/evidence/audio-integration-001/BIE_AUDIO_HARDENING_H11_CONTRACTS.md": {
+      "bytes": 1509,
+      "sha256": "3e2395244d144f8f1563653381865d852d91233407e908f16a1e7290551edb60"
+    },
+    "docs/evidence/audio-integration-001/BIE_AUDIO_HARDENING_H11_FINAL_VERIFICATION.json": {
+      "bytes": 1039,
+      "sha256": "a59ef8dad1e71b9aafe7103faec4f4026c7011c0f1bc912b66995f7fd21e0e01"
+    },
+    "docs/evidence/audio-integration-001/BIE_AUDIO_HARDENING_H11_REAUDIT.md": {
+      "bytes": 964,
+      "sha256": "25226486280d5e3577d4197fc644ed690f5d6dbfd30c5455d44fd40fb5ccb235"
+    },
+    "docs/evidence/audio-integration-001/BIE_AUDIO_HARDENING_H11_RESULT.md": {
+      "bytes": 2978,
+      "sha256": "912f9b96b9a0f571e259d4276cf9387805ef5d13a1c671cb0f3c0fe6f1f87ff7"
+    },
+    "docs/evidence/audio-integration-001/BIE_AUDIO_HARDENING_H11_SHA256SUMS.json": {
+      "bytes": 1186,
+      "sha256": "80cfc0e87c72ad01920c79506d67e8732f6697bb0bcbf2b860f7a279f39407e8"
+    },
+    "docs/evidence/audio-integration-001/README.md": {
+      "bytes": 997,
+      "sha256": "b021aa2ce0764465c2a452606c8bae009886c2b94ad68fe6afc79c124bd11086"
+    },
+    "examples/audio/english.json": {
+      "bytes": 3179,
+      "sha256": "54fc023606d95e6fc0370da6628b638830581e927b2f11904a82598693f03e21"
+    },
+    "examples/audio/hindi.json": {
+      "bytes": 2967,
+      "sha256": "2c1b2781c0c39b7ee5495d9cde4048b432a28f6c0fc1aedcc1aaa0ece0fa6dea"
+    },
+    "examples/audio/needs_review.json": {
+      "bytes": 3130,
+      "sha256": "718175bfa40322cdd881c0f3901ec39abf1949ec7f9dfe2b4ebfc5ff7dd51a2c"
+    },
+    "examples/audio_batch002/compat204.json": {
+      "bytes": 1084,
+      "sha256": "4d0865f73b7ad07b996bcf40511ea8f5d40ef0009fe06729c245956bc84084ab"
+    },
+    "examples/audio_batch002/english.json": {
+      "bytes": 3346,
+      "sha256": "c245d63602abb44cff89beb5a4d27962f4897855be636382e2bc3ec3c1885a42"
+    },
+    "examples/audio_batch002/hindi.json": {
+      "bytes": 2967,
+      "sha256": "2c1b2781c0c39b7ee5495d9cde4048b432a28f6c0fc1aedcc1aaa0ece0fa6dea"
+    },
+    "examples/audio_batch002/mixed.json": {
+      "bytes": 2967,
+      "sha256": "5082c81f72854bfbaadefb5066dfd9d81fd4c7b28493a76a889b37f976f58976"
+    },
+    "examples/audio_batch002/mixed_terms.json": {
+      "bytes": 393,
+      "sha256": "7e4b35c9068d763e1aacc5c29da8d62d10fc21eb57ff86dd792973dd0f37796b"
+    },
+    "examples/audio_batch002/review_required.json": {
+      "bytes": 3130,
+      "sha256": "718175bfa40322cdd881c0f3901ec39abf1949ec7f9dfe2b4ebfc5ff7dd51a2c"
+    },
+    "examples/audio_batch003/scene_animation_pause.json": {
+      "bytes": 4582,
+      "sha256": "76c5e3a32d8829fa5085bb44891e568a74c2f6f594101938e2172dcd914e4957"
+    },
+    "examples/audio_batch003/scene_animation_pause.spec.json": {
+      "bytes": 892,
+      "sha256": "cbc8e03d23509b6856887273ff49ff04413e72072434132b55295b609b745e2c"
+    },
+    "examples/audio_batch004/CASES.json": {
+      "bytes": 1652,
+      "sha256": "6fceae87823aa9bb2054cbb711f21e0362a94d65db373b25b35c918e61234aad"
+    },
+    "examples/audio_batch004/compat204-mix/bed.wav": {
+      "bytes": 332340,
+      "sha256": "ba083d56702bf223ad1763fa183082a60783cfbf1a316e333b09a0028db8ca54"
+    },
+    "examples/audio_batch004/compat204-mix/cue.wav": {
+      "bytes": 3718,
+      "sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1"
+    },
+    "examples/audio_batch004/compat204-mix/mix.json": {
+      "bytes": 2129,
+      "sha256": "d29ce8a091d5d66b6b9b555ef9ed36f98a174cb4aa7051f801e98b8898275053"
+    },
+    "examples/audio_batch004/compat204-mix/narration.json": {
+      "bytes": 1084,
+      "sha256": "4d0865f73b7ad07b996bcf40511ea8f5d40ef0009fe06729c245956bc84084ab"
+    },
+    "examples/audio_batch004/english-dry/mix.json": {
+      "bytes": 990,
+      "sha256": "cde292c8104ff19b13ba22fbfc40f6409f26c6060ff06ce6bb639075ec34715c"
+    },
+    "examples/audio_batch004/english-dry/narration.json": {
+      "bytes": 4582,
+      "sha256": "76c5e3a32d8829fa5085bb44891e568a74c2f6f594101938e2172dcd914e4957"
+    },
+    "examples/audio_batch004/english-dry/sync.json": {
+      "bytes": 892,
+      "sha256": "cbc8e03d23509b6856887273ff49ff04413e72072434132b55295b609b745e2c"
+    },
+    "examples/audio_batch004/english-mix/bed.wav": {
+      "bytes": 314842,
+      "sha256": "96d24bbec8d106ed4892d92e55b03a1172b23738bb351e86ac8ab4f6325dae80"
+    },
+    "examples/audio_batch004/english-mix/cue.wav": {
+      "bytes": 3718,
+      "sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1"
+    },
+    "examples/audio_batch004/english-mix/mix.json": {
+      "bytes": 2129,
+      "sha256": "0675e095e9ef6883e44596ab583dada0b239ffed4ad13bc7f25ca45d04a69b90"
+    },
+    "examples/audio_batch004/english-mix/narration.json": {
+      "bytes": 4582,
+      "sha256": "76c5e3a32d8829fa5085bb44891e568a74c2f6f594101938e2172dcd914e4957"
+    },
+    "examples/audio_batch004/english-mix/sync.json": {
+      "bytes": 892,
+      "sha256": "cbc8e03d23509b6856887273ff49ff04413e72072434132b55295b609b745e2c"
+    },
+    "examples/audio_batch004/hindi-mix/bed.wav": {
+      "bytes": 301138,
+      "sha256": "4e69b109d48411870024c5dfc647e622609c396028fe6f2f288aebfe9cc5fb05"
+    },
+    "examples/audio_batch004/hindi-mix/cue.wav": {
+      "bytes": 3718,
+      "sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1"
+    },
+    "examples/audio_batch004/hindi-mix/mix.json": {
+      "bytes": 2129,
+      "sha256": "7aad574252574f7475e76437335cffb01b254cfe5abc7a1ee6b9f83dc3504d4a"
+    },
+    "examples/audio_batch004/hindi-mix/narration.json": {
+      "bytes": 2967,
+      "sha256": "2c1b2781c0c39b7ee5495d9cde4048b432a28f6c0fc1aedcc1aaa0ece0fa6dea"
+    },
+    "examples/audio_batch005/README.md": {
+      "bytes": 598,
+      "sha256": "b6fb1593a366efe11e6e72e88df7ba10572a9e62a6718b880ba26f7dff154bd7"
+    },
+    "examples/audio_h5/english.json": {
+      "bytes": 3136,
+      "sha256": "360656f63f2036f20fb0e2d8206c49d4af58bce0fbe6826843ee0c4f2d0bd807"
+    },
+    "examples/audio_h5/two_scenes.json": {
+      "bytes": 3730,
+      "sha256": "f7eecfb6831ad32720e5c138cbda16bc179104f58602a5ad474c7983cec10e0e"
+    },
+    "requirements-audio-acoustic.txt": {
+      "bytes": 352,
+      "sha256": "d374fb7de0d58e12575b8aef279ab0a6ee5a254b5559d8b32a85c487d8b94988"
+    },
+    "requirements-audio-mix.txt": {
+      "bytes": 13,
+      "sha256": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7"
+    },
+    "scripts/audio_acoustic.py": {
+      "bytes": 5178,
+      "sha256": "98dff464ae19dbc028579ba9ccce7801c0b49e64c5e08eebb84dd139bee20260"
+    },
+    "scripts/audio_acoustic_worker.py": {
+      "bytes": 1590,
+      "sha256": "b3b8e5ed79a4fef90fba8ea30713676821de1679c7d368507c896cfbf3a25834"
+    },
+    "scripts/audio_durable.py": {
+      "bytes": 4387,
+      "sha256": "37fb95c649571469b9a0dac605998c6118ae8a0b1f7b5bb0e653614a7f4905e2"
+    },
+    "scripts/audio_kernel.py": {
+      "bytes": 4965,
+      "sha256": "ec78cfd02e22064793a7e1517616b3e71a4903351edc991229600ecbd80b3fd3"
+    },
+    "scripts/audio_kernel_worker.py": {
+      "bytes": 509,
+      "sha256": "3e0a84a85d6ca993586ce66e578e2c11c2850a71c343cc6efa6e3b04863ca036"
+    },
+    "scripts/audio_mix.py": {
+      "bytes": 3192,
+      "sha256": "72acbd36c7ca7f22a57285175f72037d7c244ccd763258096e4fa6ba48e3331d"
+    },
+    "scripts/audio_neural.py": {
+      "bytes": 8885,
+      "sha256": "d709e68049e3f0b0169ca419dc855cae15f39f2a6a89d8ad85e047e9f321ce44"
+    },
+    "scripts/audio_neural_recovery.py": {
+      "bytes": 1854,
+      "sha256": "12307fca8328ca870c0f95b71aacf2b69860f5783f3d670a9a95b96bbf25ed1f"
+    },
+    "scripts/audio_pipeline.py": {
+      "bytes": 4344,
+      "sha256": "767e6e5675c3db3cd725d6e5e2bfe31c13ad1fbb7930ad33444fa4f26b3d1ea5"
+    },
+    "scripts/audio_pipeline_discover.py": {
+      "bytes": 282,
+      "sha256": "65bd98389f0d4d83966dfae9604a48f04f15b649455cdeccc3fc2473996e4e0c"
+    },
+    "scripts/audio_pipeline_worker.py": {
+      "bytes": 362,
+      "sha256": "354fb75851884994b02eb7d8b9a6bbd346420ff6bcb4e271c72b6d65ff6ffaf0"
+    },
+    "scripts/audio_prepare.py": {
+      "bytes": 4891,
+      "sha256": "d325a8a31089dd7d8cb4d501da6232f5f6bfcd972383b3a3404b25d3d010661c"
+    },
+    "scripts/audio_qa.py": {
+      "bytes": 1928,
+      "sha256": "b17a83fbf0619596a65847f680e841ec20a281baa1aabfd3e66cb02aab7af540"
+    },
+    "scripts/audio_sync.py": {
+      "bytes": 6178,
+      "sha256": "88178af35595447fbca03d14da725424658a4eac13617d6a5f310f57b0459761"
+    },
+    "scripts/audio_synthesize.py": {
+      "bytes": 6845,
+      "sha256": "c470607694e0c94aaedbac84db2c9b69153f487673b5575acc53eff97c832b10"
+    },
+    "scripts/benchmark_audio_batch002.py": {
+      "bytes": 3062,
+      "sha256": "daf2f3ac6141baa03a1c71d464800c10d28c8dae844b6850d1410d12aeadad76"
+    },
+    "scripts/benchmark_audio_batch003.py": {
+      "bytes": 3104,
+      "sha256": "f80478901dac585d54838391e4efea79a6e79613f00095d759190acafd18e685"
+    },
+    "scripts/benchmark_audio_batch004.py": {
+      "bytes": 5219,
+      "sha256": "70988cc2ffba49bc5155a6fbffad274a7cc1d35f0d331f5142ccd63301a40bea"
+    },
+    "scripts/benchmark_audio_durable.py": {
+      "bytes": 6689,
+      "sha256": "3e2d2cc74714cc00378e6cb59330ea8eb9f8301845aa6085a842a4b4aaecc74f"
+    },
+    "scripts/benchmark_audio_h1.py": {
+      "bytes": 4113,
+      "sha256": "456d7767e96c47bc076cad02f8e5178d01fef5d3675afcf015215e79c34770d1"
+    },
+    "scripts/benchmark_audio_h10.py": {
+      "bytes": 2671,
+      "sha256": "448d9e0d1df0a490faaca395595c058d49729c9a5170f1d9692d29fa1544b116"
+    },
+    "scripts/benchmark_audio_h2.py": {
+      "bytes": 11599,
+      "sha256": "82eaf7852009868fff7db3b7dc4241712ca703874b6ba40d465b3cb88ef44444"
+    },
+    "scripts/benchmark_audio_h5.py": {
+      "bytes": 6168,
+      "sha256": "831112e31c176d351b412fcd54e1584004437d539a9f505033882e7bfc84ff64"
+    },
+    "scripts/benchmark_audio_kernel.py": {
+      "bytes": 8324,
+      "sha256": "61b50baa411697c573bfad939bc7efbc3b41d3c96fd87bfb7b9cca30d55aa542"
+    },
+    "scripts/benchmark_audio_preparation.py": {
+      "bytes": 2255,
+      "sha256": "78ba799130b769067991f4b65a9eb77da1c330d2da652813e9eb094eaa66a6f9"
+    },
+    "scripts/build_audio_batch002_examples.py": {
+      "bytes": 2241,
+      "sha256": "b8d938cb3985a6e425c9f98ddb3b9bf619f2f12ed321bf3036ca1304c45b51a5"
+    },
+    "scripts/build_audio_batch003_examples.py": {
+      "bytes": 2220,
+      "sha256": "5ba10c70911f2d807a13a18fa3d2e5cc8b139ccf6fd6d35c66f161896ae5fb9b"
+    },
+    "scripts/build_audio_batch004_examples.py": {
+      "bytes": 4438,
+      "sha256": "1f7fd3fe8ffea83042883861b76898d4e7ccf49d597651f12ac7a375ab2f6470"
+    },
+    "scripts/build_audio_batch005_examples.py": {
+      "bytes": 3954,
+      "sha256": "3bc6988a3a298d4d424192c999a4dbf843488107c25ef732e0ddbfde43e78975"
+    },
+    "scripts/build_audio_example.py": {
+      "bytes": 2482,
+      "sha256": "da641836635ea12b74a12300de2c54f1cfca5c54acb7cc2b61df2d72dad42ff2"
+    },
+    "scripts/build_mix_preview.py": {
+      "bytes": 7274,
+      "sha256": "937bb0a633e2a638e84ca824b103b2c381ef6954be7771f60d70bc495939c45e"
+    },
+    "scripts/build_sync_preview.py": {
+      "bytes": 5386,
+      "sha256": "ed922745e4e02bb1a18b969d44ba8cd86d6a6f48f44cd686fb782e84964e37bb"
+    },
+    "scripts/run_audio_module_set.py": {
+      "bytes": 3223,
+      "sha256": "7992e34a009c0df54062a1fd72fb5e8673665ccd05d779b40fc666f26e8b6203"
+    },
+    "scripts/run_audio_tests.py": {
+      "bytes": 3266,
+      "sha256": "020fe7ac6762c56faf08318bb89f7ce96dbccdd2ff258180e38e25aab27f9edb"
+    },
+    "scripts/verify_audio_mix_output.py": {
+      "bytes": 6972,
+      "sha256": "3635dc6859db639a7161c1a19e2d72418c6a2e5227ab5655af7be9cc00266c6d"
+    },
+    "scripts/verify_audio_package.py": {
+      "bytes": 1495,
+      "sha256": "9039d85f840b2ca0d02f3d747a631b666d9b17b6632a10e999fa3dda8d396406"
+    },
+    "tests/audio/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tests/audio/acoustic_test_support.py": {
+      "bytes": 2411,
+      "sha256": "61ced78a57efd871980c9650332841bff86dc9ac7f670a88396bcd5829385147"
+    },
+    "tests/audio/audio_test_support.py": {
+      "bytes": 1092,
+      "sha256": "341377a74c9a0c4c47523710b10a2cbbbf2b5a03bad0240045c2faa0e234992b"
+    },
+    "tests/audio/compat204_support.py": {
+      "bytes": 1196,
+      "sha256": "3a4d1915b5786cd7ad361d1c46d10120a034cb34a356c8f0ae1d7872b3b9d4d0"
+    },
+    "tests/audio/durable_test_support.py": {
+      "bytes": 1566,
+      "sha256": "fa9a88f5924735d32336e44769e39bd6c68a06fbaf2ee2b37df9be55dadadb62"
+    },
+    "tests/audio/h10_test_support.py": {
+      "bytes": 2763,
+      "sha256": "93731a0cf7bfbfb8613375db4a5f2c51593ea76b04ea3a2773dae3d12ca22d45"
+    },
+    "tests/audio/h9_test_support.py": {
+      "bytes": 4433,
+      "sha256": "632d2f061f449b5642908c6338c19ee34be57a63b3182d182f94e30c07918369"
+    },
+    "tests/audio/kernel_test_support.py": {
+      "bytes": 3540,
+      "sha256": "3adfb115b0a433184938cdb0751e6ea9617a5dabc5f1da7dd4bd5497dbcc3753"
+    },
+    "tests/audio/mix_test_support.py": {
+      "bytes": 2038,
+      "sha256": "461a6fe16a3ef6d4da6d0f5c6c86898e7557cbe9a0113bcfa23b3f718f1577a5"
+    },
+    "tests/audio/neural_test_support.py": {
+      "bytes": 4661,
+      "sha256": "430d1bbad949cddaa7b51aa546f61502261d3051b236cb07b51e07b46af95707"
+    },
+    "tests/audio/pipeline_test_support.py": {
+      "bytes": 2982,
+      "sha256": "9ee5d457dc5d8a9f1f4d1b635860bd1c87927901230e1d845fee9ae8975695bf"
+    },
+    "tests/audio/qa_test_support.py": {
+      "bytes": 2590,
+      "sha256": "f6ade8b69f82a12915c9ab40c6a7224832483001332b766a3c553e3ee0ca946e"
+    },
+    "tests/audio/sync_test_support.py": {
+      "bytes": 3062,
+      "sha256": "7d90d9930c645c5ce3c96aaca42acb121c815b7d7cf8eab291a9fe181a0a11f2"
+    },
+    "tests/audio/test_audio_batch001_integration.py": {
+      "bytes": 11484,
+      "sha256": "8895fb17bb413e356e54d2952337cc8c9bc51ae7e0d9672200b17e46af093433"
+    },
+    "tests/audio/test_audio_batch002_integration.py": {
+      "bytes": 3922,
+      "sha256": "df1cd62950c49e2bbdca6c40191979b598130ad8ddf733a07c98f81cadde7b5d"
+    },
+    "tests/audio/test_audio_batch003_integration.py": {
+      "bytes": 7341,
+      "sha256": "117b278ca274d2826206236137156a20f0279dca3137d3b2356877b1bde128f2"
+    },
+    "tests/audio/test_audio_batch004_integration.py": {
+      "bytes": 12487,
+      "sha256": "5d67b79fa1702fd12e726dbe579e565d1e0bdca8f54e8e458fad3ff051a95596"
+    },
+    "tests/audio/test_audio_batch005_integration.py": {
+      "bytes": 10389,
+      "sha256": "712556c105f8b8bd9627a491fc59171405e139cf25919c255ed764b7e0379cab"
+    },
+    "tests/audio/test_audio_h10_001_dir_handoff.py": {
+      "bytes": 2686,
+      "sha256": "b87d734c012739bc4fa50e14670b90aadf3f568b2d5994fc0ea73b90660dd466"
+    },
+    "tests/audio/test_audio_h10_002_compiler_handoff.py": {
+      "bytes": 3716,
+      "sha256": "ec49861e4cd8eee492c8a4012bb117cff3bd252cd8325192669539abe671dfce"
+    },
+    "tests/audio/test_audio_h10_003_repair_invalidation.py": {
+      "bytes": 2160,
+      "sha256": "bef296366d99c7fdddd3697d808e84dd8f074b7d8cae5d935bccf780bc775fc7"
+    },
+    "tests/audio/test_audio_h10_004_render_evidence.py": {
+      "bytes": 1394,
+      "sha256": "49b8854b6a142b11d1d8d75514c38086423447b0d8df27065889a12fcfc0a260"
+    },
+    "tests/audio/test_audio_h10_005_f04_gate.py": {
+      "bytes": 1945,
+      "sha256": "5f9933fb4e5ef855939b5e5a46febfb6fbe19b43e7430655749cb38da857a91e"
+    },
+    "tests/audio/test_audio_h1_001.py": {
+      "bytes": 5183,
+      "sha256": "e170ba4f4d0ca096a596a03a6e8aef1197d51748c1e9bed9501b1607f97facb6"
+    },
+    "tests/audio/test_audio_h1_002.py": {
+      "bytes": 5644,
+      "sha256": "1891b4fc3fae46fdb5179abec353c491672c38e5d6426c47b0ecd805139aefc2"
+    },
+    "tests/audio/test_audio_h1_003.py": {
+      "bytes": 6717,
+      "sha256": "3a9701065eccb306834fcd4a3636046e1145843d767f42b20728b88da746606b"
+    },
+    "tests/audio/test_audio_h1_004.py": {
+      "bytes": 10071,
+      "sha256": "cb1d4a663d02a6a027d5f1c9c31bb117492ec33b07d5fe10f2f34b77d49a11c9"
+    },
+    "tests/audio/test_audio_h1_005.py": {
+      "bytes": 7511,
+      "sha256": "e8ad4ed48400aeda6e3094fcf6b5d85fbf59d2f741535b6c81452a7baa1583cd"
+    },
+    "tests/audio/test_audio_h2_001.py": {
+      "bytes": 4506,
+      "sha256": "cdc1d20c9e12cd4860efca7a9b2e6d0d907466d41442a8b554378b4e3c45d2ef"
+    },
+    "tests/audio/test_audio_h2_002.py": {
+      "bytes": 4988,
+      "sha256": "8284beca6cbdca6681577cddd2d520fc2f26cb5813d0e34db3f261dd023b0a3a"
+    },
+    "tests/audio/test_audio_h2_003.py": {
+      "bytes": 7279,
+      "sha256": "a931bbdbac89ff28ccab4c72045890dcd269172374da6a08c11d65ab2364e0f5"
+    },
+    "tests/audio/test_audio_h2_004.py": {
+      "bytes": 4895,
+      "sha256": "cd152cb828eeb0aa129e2bc49135b3862e6719d40118c0f8a15ad813b5721ed4"
+    },
+    "tests/audio/test_audio_h2_005.py": {
+      "bytes": 6379,
+      "sha256": "f50531ebad45561ff85d42c7ee31f04153d238517f319e13508dc21001672566"
+    },
+    "tests/audio/test_audio_h3_001.py": {
+      "bytes": 4232,
+      "sha256": "69135bd50646776b3321e05c88bc37afc029694bc0bd2592e0b05dc7ed3ed20e"
+    },
+    "tests/audio/test_audio_h3_002.py": {
+      "bytes": 6512,
+      "sha256": "1dddeedc36ad0fbccc896f0ecef475f4cd01de1d0fa9506eaa564eec1986e475"
+    },
+    "tests/audio/test_audio_h3_003.py": {
+      "bytes": 6351,
+      "sha256": "a35910bd42028b779d8935e13812c4333abcd29bf646b158bf6459fb61da0860"
+    },
+    "tests/audio/test_audio_h3_004.py": {
+      "bytes": 7659,
+      "sha256": "71e4f6bc289985bad81847e2eee5e5e2def1ce84bf15254f6bd6e3499c602507"
+    },
+    "tests/audio/test_audio_h3_005.py": {
+      "bytes": 5954,
+      "sha256": "999aa0f83dd13d93bb011d480daf52397ed55ab78105ee1109d25346dc37eeed"
+    },
+    "tests/audio/test_audio_h4r_001.py": {
+      "bytes": 3853,
+      "sha256": "43de79d6899c324e137cadf03ace54b4468fdf52b6205ba6a4456d7543c89150"
+    },
+    "tests/audio/test_audio_h4r_002.py": {
+      "bytes": 5529,
+      "sha256": "138cccc15743218ef49390b40a5c58f3b61d0facfb965c784a374aa7c43cb790"
+    },
+    "tests/audio/test_audio_h4r_003.py": {
+      "bytes": 4242,
+      "sha256": "510d63ad0959814dcaacf2fcac281c56360590b57f9830a5ef0de09c1e04bdbe"
+    },
+    "tests/audio/test_audio_h4r_004.py": {
+      "bytes": 7238,
+      "sha256": "43747d5db31871fe82d4cfae4eb2304fbbff39792ae8ccb74f6ba7a574826e11"
+    },
+    "tests/audio/test_audio_h4r_005.py": {
+      "bytes": 4835,
+      "sha256": "dece9fc6076cced35603067df592bb4748ac57a42ef9fb1478963631380fae0c"
+    },
+    "tests/audio/test_audio_h5_001.py": {
+      "bytes": 4997,
+      "sha256": "063bf06dcedcc6a3586ad0c8e331d8754a6319493fd3bc5900eb1ad0d2fabd7c"
+    },
+    "tests/audio/test_audio_h5_002.py": {
+      "bytes": 5508,
+      "sha256": "aba10cc638cf3e3808e21fb52a5467632c235d30574afdcafde43608fb96243b"
+    },
+    "tests/audio/test_audio_h5_003.py": {
+      "bytes": 5382,
+      "sha256": "d77db20496a1ae26320c4fd600bdc85b914cc7131385f97e4e9af76007c162ce"
+    },
+    "tests/audio/test_audio_h5_004.py": {
+      "bytes": 7352,
+      "sha256": "709afb9568ce7b667c2d73c9cf23f1b743108be16274c9a5c51a2db0b69165bf"
+    },
+    "tests/audio/test_audio_h5_005.py": {
+      "bytes": 5583,
+      "sha256": "3374d597e7ef460a3d84f12a22bc3ccd66079852ed52c7b3e3f4e2fbd0066c4d"
+    },
+    "tests/audio/test_audio_h6_stems.py": {
+      "bytes": 1776,
+      "sha256": "689dc91e67b360b1ff1aa54a47400a2ff6e0b8172aaa36fbc98e72ea52961f53"
+    },
+    "tests/audio/test_audio_h7_cache_lifecycle.py": {
+      "bytes": 7943,
+      "sha256": "de1feb180b18bb72fdf695e2e9b6267d946245eec4c6b49eb9f4f55b8e6bdc1d"
+    },
+    "tests/audio/test_audio_h7_long_book.py": {
+      "bytes": 5259,
+      "sha256": "a3f3dbbb53e4d3d0f9a07f6c6a6d58cd1bcc11f288a91fabe0a3a659adf61894"
+    },
+    "tests/audio/test_audio_h8_001_authority.py": {
+      "bytes": 4095,
+      "sha256": "2a43985b018b132f0633cc3879c78f5efa1fce2a5ec46f1e0141cf095dbfd625"
+    },
+    "tests/audio/test_audio_h8_002_paid_call_journal.py": {
+      "bytes": 4754,
+      "sha256": "ef2bd42fa30d948350cf1adccdcfccbcee91fbc1055e036c32b3dbbcd402b351"
+    },
+    "tests/audio/test_audio_h8_003_scheduler.py": {
+      "bytes": 3213,
+      "sha256": "8b6910cc38f246d10c5495b42bc4a5dc3e41682cdefd507f7c20597a709f77a7"
+    },
+    "tests/audio/test_audio_h8_004_provider_integration.py": {
+      "bytes": 7864,
+      "sha256": "77bfebc9c13284261edc6117f862827d1ceeda259b763f7d674c21effc050fd6"
+    },
+    "tests/audio/test_audio_h8_005_cli_recovery.py": {
+      "bytes": 4081,
+      "sha256": "d923c05477688a9738b26eebc29336067e3c36d1b6712dd9636ad5074fce8a56"
+    },
+    "tests/audio/test_audio_h9_001_capability.py": {
+      "bytes": 2276,
+      "sha256": "6f91f1e6234a57b21205479e928fe1adcaeb81b5adcfd659682a9a4b5ccc1c48"
+    },
+    "tests/audio/test_audio_h9_002_contract.py": {
+      "bytes": 3284,
+      "sha256": "d71b7ecf67487bf5504f29b020762a5ca43143ca5234eb46df7ec357934f982b"
+    },
+    "tests/audio/test_audio_h9_003_calibration.py": {
+      "bytes": 3300,
+      "sha256": "bcf27127c54f529b797b62c9474b4da830b6d0411245b8c5f506f2314a83e741"
+    },
+    "tests/audio/test_audio_h9_004_authority.py": {
+      "bytes": 3972,
+      "sha256": "bd657937007884ca9cbb45b0d50ec942f8a799cbded4b45d5ade078fa11eeb85"
+    },
+    "tests/audio/test_audio_h9_005_governance.py": {
+      "bytes": 4098,
+      "sha256": "840e11a925c951bc736beff32cb660b46f5bc67097f26ba27bb81217ed8d6029"
+    },
+    "tests/audio/test_audio_mix_001.py": {
+      "bytes": 5110,
+      "sha256": "30d12f44f41cd491ba05777128e313d32e229d1675d354a6b8fe1a594d67a259"
+    },
+    "tests/audio/test_audio_mix_002.py": {
+      "bytes": 3561,
+      "sha256": "05caef8bc01a280d5b79eac3c0e2546f111d78358e6ec591871faeefb550a748"
+    },
+    "tests/audio/test_audio_mix_003.py": {
+      "bytes": 4496,
+      "sha256": "8bf91db1e8e30fa504cb3eab812e347ca3f057f159f6ec90b47bf90699ed8172"
+    },
+    "tests/audio/test_audio_mix_004.py": {
+      "bytes": 3803,
+      "sha256": "bfbbebe580860cb2794eb1464e252f42b95d31331d43885548262f5a50852dab"
+    },
+    "tests/audio/test_audio_mix_005.py": {
+      "bytes": 3469,
+      "sha256": "8a113b51450c46624a11b5e576b47e47b34a2c5b42f4ee664e4c08dfbb56a1e0"
+    },
+    "tests/audio/test_audio_mix_io.py": {
+      "bytes": 7962,
+      "sha256": "26faccddfa31a91d57bebd11c51203929e3e07550785d00c991ef854004d4801"
+    },
+    "tests/audio/test_audio_qa_001.py": {
+      "bytes": 3858,
+      "sha256": "29a2a2fe520530b2c26b12c42133864802dffaabf5928ad55d285301055aeeae"
+    },
+    "tests/audio/test_audio_qa_002.py": {
+      "bytes": 4217,
+      "sha256": "67c5eee5828831129c05aafd2222b96a4b98403ba77d41e5f0ebc62d79383502"
+    },
+    "tests/audio/test_audio_qa_003.py": {
+      "bytes": 3842,
+      "sha256": "3b138fa9ed43dc884242140b2384f2fa0fe3bf3b3dbffac1b5c80a7aedfcee26"
+    },
+    "tests/audio/test_audio_qa_004.py": {
+      "bytes": 3071,
+      "sha256": "e6e4f6d48c614ba5e115b99efb4497dd212b9c8d206523a0999fd201189dd982"
+    },
+    "tests/audio/test_audio_qa_005.py": {
+      "bytes": 5134,
+      "sha256": "919ee6ddaea807f7d02b45269528f5770edd2d038e515f5cec900595adf8ab47"
+    },
+    "tests/audio/test_audio_reconciliation.py": {
+      "bytes": 4088,
+      "sha256": "99e7fb42c78d3f8bbc18d7131a6ce50a724a058181def7155b0f1fca4c141127"
+    },
+    "tests/audio/test_audio_sync_001.py": {
+      "bytes": 8388,
+      "sha256": "22da0773e38b05d2763cfa9d47f9f2b16a7a08db758df5ce740a08be180914cd"
+    },
+    "tests/audio/test_audio_sync_002.py": {
+      "bytes": 4834,
+      "sha256": "829b6e4699ea65ad11ca5af78a55ad65ff79255818d5ad56545df4592f7803fd"
+    },
+    "tests/audio/test_audio_sync_003.py": {
+      "bytes": 4738,
+      "sha256": "fdc5431df0ee6c15262dd9476611345006f5811b88c325af5d0d6e15e944da4d"
+    },
+    "tests/audio/test_audio_sync_004.py": {
+      "bytes": 5629,
+      "sha256": "f86b020e5d86f738f2bc18d84522a1b598fd649c4e8d2acf4a0c8cd61429fc44"
+    },
+    "tests/audio/test_audio_sync_005.py": {
+      "bytes": 4091,
+      "sha256": "a7fa967cefe6b3b8f142d5db1ac3f0c13c4ac4ef76aee13c21e8d1218146535f"
+    },
+    "tests/audio/test_audio_vo_001.py": {
+      "bytes": 6545,
+      "sha256": "ee667f57a007889dad14ea9bfa924e12c5507a5c8a4c840ffea3b14b55465c6c"
+    },
+    "tests/audio/test_audio_vo_002.py": {
+      "bytes": 4690,
+      "sha256": "327529dcaf0dcd66255ff7748b17577d5602baf254d8960e69abd4380c78932c"
+    },
+    "tests/audio/test_audio_vo_003.py": {
+      "bytes": 4303,
+      "sha256": "8c08aa654f2135a0e3e7999875f18611b98633fb14600e89ac93da87d872d239"
+    },
+    "tests/audio/test_audio_vo_004.py": {
+      "bytes": 3436,
+      "sha256": "0e5b0cc7fda75290215645d81b4a2467c548085cde0313ad7a6249c34aab9826"
+    },
+    "tests/audio/test_audio_vo_005.py": {
+      "bytes": 3609,
+      "sha256": "bbb0e94dd113a2bde0d1d6a60fe6463efc5c95c658c6d5b47c73306b3500f92d"
+    },
+    "tests/audio/test_audio_vo_006.py": {
+      "bytes": 3931,
+      "sha256": "ab0d3419e6c7d63a5082263869664fc4db70eef9cd9005846f178f217ce4e6ae"
+    },
+    "tests/audio/test_audio_vo_007.py": {
+      "bytes": 3372,
+      "sha256": "93205116c7c29c8f2a2ad85f26edfbb03824eaffcfe2b0714f19f14a3d3dc34c"
+    },
+    "tests/audio/test_audio_vo_008.py": {
+      "bytes": 3758,
+      "sha256": "730bfa0fb2a9ca2ff2e74f014b45c16e7b47def54df3bc36551cbbf94aeda242"
+    },
+    "tests/audio/test_audio_vo_009.py": {
+      "bytes": 3715,
+      "sha256": "7709fb3174e38dbffb453475b1b8feeb4f13224f644b61a8c1a352ba8c2dd8df"
+    },
+    "tests/audio/test_audio_vo_009_real.py": {
+      "bytes": 5676,
+      "sha256": "09b6f7c5d285b9d9ff3693eeaf4979d4e1680b65a0825f99e1b9c6e5b5d26c78"
+    },
+    "tests/audio/test_audio_vo_010.py": {
+      "bytes": 4777,
+      "sha256": "8d7b749145d84a4ee59d41b2ba0b208adfa623bad357ec656f9e28150bde1307"
+    },
+    "tests/audio/test_compat204_integration_001.py": {
+      "bytes": 12326,
+      "sha256": "e62ae2fa90cec52918b3118db403f5a154d7db7838b4f9659f1d92d850508b7f"
+    },
+    "tests/audio/test_compat204_vo_001.py": {
+      "bytes": 8812,
+      "sha256": "e5715d93b6c7998e6d0959fdbc3ab6dfddf4964c0606a6cfd8b54310ae5929b9"
+    },
+    "tests/audio/test_compat204_vo_002.py": {
+      "bytes": 5749,
+      "sha256": "b59d458e834398c341531c7ac8d216a2ef409985bc702105fe5de2704fea18c3"
+    },
+    "tests/audio/test_compat204_vo_003.py": {
+      "bytes": 6151,
+      "sha256": "9d405597d0da03a94bf3033804bd7a8d691cfb7b457e72fe7e577f0910650e94"
+    },
+    "tests/audio/test_compat204_vo_004.py": {
+      "bytes": 3589,
+      "sha256": "266be0732b7087bea072b2e7852cf33a11be053991ae0822f8f701f2395b9ee6"
+    },
+    "tests/audio/test_compat204_vo_005.py": {
+      "bytes": 4392,
+      "sha256": "d52c80ccefcfb9081e1dc6248672c2292ca9c41d7510ad04f888ca3e8f450a62"
+    },
+    "tests/audio/tts_test_support.py": {
+      "bytes": 1917,
+      "sha256": "5f4dce114094574b4bbf6c62eff5a2abb83af17b5ad77285ae3f78fa63c2b21d"
+    }
+  },
+  "implementation_scope_complete": true,
+  "name": "AUDIO",
+  "product_accepted": false,
+  "schema_version": "bie.audio.canonical-integration-bundle/1",
+  "section": 14,
+  "source_integrated_sha256": "24a69a257b426ac260599589aa0124b3f0d57b9aed0e5e39d1670da9cc6c6a48"
+}

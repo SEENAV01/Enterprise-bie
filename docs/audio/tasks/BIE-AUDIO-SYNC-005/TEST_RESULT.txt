@@ -1,0 +1,40 @@
+RUN test_audio_sync_005.py
+FINISHED test_audio_sync_005.py: 18 tests, 0 failures, 0 errors
+test_actual_samples_not_float_ms_accumulation (tests.audio.test_audio_sync_005.PauseSyncTests.test_actual_samples_not_float_ms_accumulation) ... ok
+test_changed_waveform_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_changed_waveform_rejected) ... ok
+test_exact_additional_pause_count (tests.audio.test_audio_sync_005.PauseSyncTests.test_exact_additional_pause_count) ... ok
+test_exact_sample_count (tests.audio.test_audio_sync_005.PauseSyncTests.test_exact_sample_count) ... ok
+test_fake_count_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_fake_count_rejected) ... ok
+test_missing_asset_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_missing_asset_rejected) ... ok
+test_missing_caption_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_missing_caption_rejected) ... ok
+test_no_caption_on_pause (tests.audio.test_audio_sync_005.PauseSyncTests.test_no_caption_on_pause) ... ok
+test_original_pause_refs_retained (tests.audio.test_audio_sync_005.PauseSyncTests.test_original_pause_refs_retained) ... ok
+test_pause_is_half_open (tests.audio.test_audio_sync_005.PauseSyncTests.test_pause_is_half_open) ... ok
+test_pause_starts_after_provider_samples (tests.audio.test_audio_sync_005.PauseSyncTests.test_pause_starts_after_provider_samples) ... ok
+test_seek_replay (tests.audio.test_audio_sync_005.PauseSyncTests.test_seek_replay) ... ok
+test_segment_pause_tamper_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_segment_pause_tamper_rejected) ... ok
+test_stale_caption_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_stale_caption_rejected) ... ok
+test_stale_request_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_stale_request_rejected) ... ok
+test_unmeasured_rejected (tests.audio.test_audio_sync_005.PauseSyncTests.test_unmeasured_rejected) ... ok
+test_zero_pcm_hash (tests.audio.test_audio_sync_005.PauseSyncTests.test_zero_pcm_hash) ... ok
+test_zero_requested_pause_does_not_invent_window (tests.audio.test_audio_sync_005.PauseSyncTests.test_zero_requested_pause_does_not_invent_window) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.582s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 1.6805,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

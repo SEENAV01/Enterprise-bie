@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-09-21",
+  "source_type": "Official primary documentation; no external code vendored",
+  "sources": [
+    {
+      "id": "speech_with_timing",
+      "url": "https://elevenlabs.io/docs/api-reference/text-to-speech/convert-with-timestamps",
+      "used_for": "Official route, raw response fields, original/normalized character times, language limitation, normalization and adjacent context. Seed is best effort, not a reproducibility guarantee."
+    },
+    {
+      "id": "models",
+      "url": "https://elevenlabs.io/docs/overview/models",
+      "used_for": "Supported model identities; model choice is explicit, not proof of observed cinematic quality."
+    },
+    {
+      "id": "model_metadata",
+      "url": "https://elevenlabs.io/docs/api-reference/models/list",
+      "used_for": "Model identity, TTS/language/style/boost capability metadata."
+    },
+    {
+      "id": "voice_metadata",
+      "url": "https://elevenlabs.io/docs/api-reference/voices/get",
+      "used_for": "Voice identity snapshot."
+    },
+    {
+      "id": "default_settings",
+      "url": "https://elevenlabs.io/docs/api-reference/voices/settings/get-default",
+      "used_for": "Per-request voice setting vocabulary."
+    }
+  ],
+  "implementation_bounds_are_engineering_choices": true,
+  "live_provider_called": false
+}

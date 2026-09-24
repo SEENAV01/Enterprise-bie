@@ -1,0 +1,20 @@
+{
+  "schema_version": "bie.audio.preservation/1",
+  "parent_archive": "BIE_AUDIO_HARDENING_H6_INTEGRATED.zip",
+  "parent_sha256": "fe07fd1fdec1536a31780d81d05f777c7e64bdb542d5d98bedbc65477c39eb7b",
+  "parent_file_count": 694,
+  "parent_lineage_verified_against_uploaded_master": true,
+  "h5_parent_sha256_verified": "d7b6f05488ce307d061a78d35f506f9ad969a4135a8c59cbe0a1242393928ed3",
+  "parent_files_modified_before_metadata": 0,
+  "new_production_files": [
+    "bie/audio/segment_cache.py",
+    "bie/audio/long_book.py"
+  ],
+  "new_test_files": [
+    "tests/audio/test_audio_h7_cache_lifecycle.py",
+    "tests/audio/test_audio_h7_long_book.py"
+  ],
+  "inherited_generated_bytecode_retained": true,
+  "note": "H6 parent contains inherited __pycache__/pyc members; H7 does not treat them as canonical source authority and did not generate new bytecode during tests.",
+  "h6_continuation_lineage_metadata_note": "H6 CONTINUATION.json retained parent_integrated_sha256 from an older H4-R1 lineage field; H6 Master Backup independently contains the exact H5 parent SHA256 d7b6... and exact H6 integrated SHA256 fe07.... H7 corrects parent_integrated_sha256 to the actual H6 archive without rewriting the H6 parent archive."
+}

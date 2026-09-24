@@ -1,0 +1,45 @@
+RUN test_audio_h5_004.py
+test_01_actual_bundle_cas_roundtrip (tests.audio.test_audio_h5_004.Durable.test_01_actual_bundle_cas_roundtrip) ... ok
+test_02_cold_store_instance_reopens (tests.audio.test_audio_h5_004.Durable.test_02_cold_store_instance_reopens) ... ok
+test_03_completed_run_reuse_has_no_native_call (tests.audio.test_audio_h5_004.Durable.test_03_completed_run_reuse_has_no_native_call) ... ok
+test_04_revocation_blocks_stored_reuse (tests.audio.test_audio_h5_004.Durable.test_04_revocation_blocks_stored_reuse) ... ok
+test_05_changed_job_revision_not_accepted_for_ref (tests.audio.test_audio_h5_004.Durable.test_05_changed_job_revision_not_accepted_for_ref) ... ok
+test_06_same_job_input_conflict (tests.audio.test_audio_h5_004.Durable.test_06_same_job_input_conflict) ... ok
+test_07_live_duplicate_rejected (tests.audio.test_audio_h5_004.Durable.test_07_live_duplicate_rejected) ... ok
+test_08_expired_owner_cannot_heartbeat (tests.audio.test_audio_h5_004.Durable.test_08_expired_owner_cannot_heartbeat) ... ok
+test_09_expired_owner_cannot_complete (tests.audio.test_audio_h5_004.Durable.test_09_expired_owner_cannot_complete) ... ok
+test_10_attempt_limit (tests.audio.test_audio_h5_004.Durable.test_10_attempt_limit) ... ok
+test_11_claim_complete_lease_incomplete_recovery (tests.audio.test_audio_h5_004.Durable.test_11_claim_complete_lease_incomplete_recovery) ... ok
+test_12_concurrent_acquire_one_live_owner (tests.audio.test_audio_h5_004.Durable.test_12_concurrent_acquire_one_live_owner) ... ok
+test_13_wrong_ticket_request (tests.audio.test_audio_h5_004.Durable.test_13_wrong_ticket_request) ... ok
+test_14_namespace_separate_from_acoustic (tests.audio.test_audio_h5_004.Durable.test_14_namespace_separate_from_acoustic) ... ok
+test_15_tampered_catalog_blob (tests.audio.test_audio_h5_004.Durable.test_15_tampered_catalog_blob) ... ok
+test_16_same_actual_receipt_idempotent_put (tests.audio.test_audio_h5_004.Durable.test_16_same_actual_receipt_idempotent_put) ... ok
+test_17_artifact_parent_provenance (tests.audio.test_audio_h5_004.Durable.test_17_artifact_parent_provenance) ... ok
+test_18_pre_cancel_no_store_completion (tests.audio.test_audio_h5_004.Durable.test_18_pre_cancel_no_store_completion) ... ok
+test_19_expiry_exact_boundary_blocked (tests.audio.test_audio_h5_004.Durable.test_19_expiry_exact_boundary_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 153.777s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h5_004.py", "tests": 19, "failures": 0, "errors": 0, "skips": 0, "seconds": 154.288}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h5_004.py"
+  ],
+  "tests": 19,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 154.343
+}

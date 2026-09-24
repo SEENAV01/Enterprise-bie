@@ -1,0 +1,9 @@
+# BIE-AUDIO-H2-005 — Verified publication, diagnostic CLI and real-audio benchmark
+
+Engineering subdivision of existing F02, not an original registry addition.
+
+Owned implementation: `bie/audio/acoustic_io.py`, `scripts/audio_acoustic.py`, `scripts/benchmark_audio_h2.py`.
+
+Verification: `python -B scripts/run_audio_tests.py --pattern test_audio_h2_005.py --output /tmp/BIE-AUDIO-H2-005.json`.
+
+Use the exact policy, failure behavior, source/evidence/authority boundaries in ../../CONTRACTS.md and ../../RUNBOOK.md. Native results are local diagnostics. No calibrated pronunciation, production trust, actual kernel repair dispatch, section exit or product acceptance is authorized by this task's pass. Its source is preserved with the cumulative package and all inherited source remains available.

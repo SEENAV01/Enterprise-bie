@@ -1,0 +1,25 @@
+{
+  "schema_version": "bie.audio.references/1",
+  "references": [
+    {
+      "url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "role": "Primary FFmpeg loudnorm/ebur128 documentation; actual installed binary identity is separately recorded by metering."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html",
+      "role": "Speech, speaker and meaningful sound information in captions; not a claim of rendered accessibility compliance."
+    },
+    {
+      "url": "https://www.w3.org/TR/webvtt1/",
+      "role": "WebVTT timed-text serialization reference."
+    }
+  ],
+  "authored_engineering_policies_not_standard_requirements": [
+    "42 characters per line",
+    "2 lines",
+    "22 characters per second",
+    "400 ms minimum",
+    "-1 dBTP ceiling",
+    "3 consecutive rail samples"
+  ]
+}

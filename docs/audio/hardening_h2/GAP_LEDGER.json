@@ -1,0 +1,138 @@
+{
+  "schema_version": "bie.audio.hardening-backlog/1",
+  "audit": "docs/audio/AUDIO_CAPABILITY_AUDIT_001.json",
+  "findings": [
+    {
+      "id": "AUDIO-AUDIT-001-F01",
+      "category": "IMPLEMENTATION_AND_PROVIDER_VALIDATION",
+      "owner": "AUDIO VO/SYNC",
+      "requirement": "Production-quality cinematic speech without replacing the existing provider-neutral architecture or silently downgrading voice.",
+      "observation": "The H1 executable ElevenLabs neural adapter is adopted into the existing TTS/cache/SYNC/MIX/QA path. Offline conformance and native processing are verified; live service execution and listening have not run. Original local providers remain unchanged.",
+      "evidence": [
+        "bie/audio/espeak_provider.py",
+        "bie/audio/timed_espeak_provider.py",
+        "bie/audio/tts_generation.py",
+        "bie/audio/voice_selection.py",
+        "docs/audio/BATCH004_GAP_LEDGER.json",
+        "docs/audio/hardening_h1/CONTRACTS.md",
+        "docs/audio/hardening_h1/LIVE_PROVIDER_STATUS.json",
+        "docs/audio/hardening_h1/CONTRACT_PIPELINE_BENCHMARK.json"
+      ],
+      "closure": [
+        "Adopt at least one real production-quality provider through existing contracts, with explicit voice/model/settings identity, pronunciation capability negotiation, cancellation, time/output bounds and rights/usage provenance.",
+        "Feed the same byte-verified speech outputs through cache, SYNC and MIX without silent capability loss. Preserve local technical providers for explicit diagnostics.",
+        "Live provider execution evidence and independent representative listening remain distinct from offline contract tests; missing credentials are a separate execution blocker, not proof of implementation."
+      ],
+      "status": "ADAPTER_IMPLEMENTED_CONTRACT_TESTED_LIVE_AND_LISTENING_PENDING",
+      "original_observation_retained": "Only executable eSpeak and timed-eSpeak local technical adapters are present. Provider-neutral contracts and deterministic voice selection exist; a production neural provider implementation/capability adoption is not present.",
+      "h1_task_ids": [
+        "BIE-AUDIO-H1-001",
+        "BIE-AUDIO-H1-002",
+        "BIE-AUDIO-H1-003",
+        "BIE-AUDIO-H1-004",
+        "BIE-AUDIO-H1-005"
+      ],
+      "remaining": [
+        "Approved live account/voice/model metadata and source-data-transfer deployment; execute real synthesis and retain exact media/timing evidence.",
+        "Representative independent pronunciation, prosody, cinematic voice listening and real-book validation.",
+        "Within-utterance code-switch/IPA/other expressive provider controls are not adopted by this neural adapter; reject rather than silent capability loss."
+      ]
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F02",
+      "category": "IMPLEMENTATION_AND_INDEPENDENT_ACOUSTIC_EVIDENCE",
+      "owner": "AUDIO QA/SYNC",
+      "requirement": "Pronunciation and word alignment must be assessed against actual delivered sound, not only expected text, same-engine events or caller claims.",
+      "observation": "H2 adds actual independent legacy English word/phone/N-gram diagnostics on delivered PCM, externally configured Ed25519 evaluator receipts, current-source QA integration and owned repair/recheck. This is local diagnostic execution, not calibrated multilingual pronunciation/alignment acceptance or production evaluator authority.",
+      "evidence": [
+        "bie/audio/qa_pronunciation.py",
+        "bie/audio/qa_contract.py",
+        "bie/audio/word_timestamps.py",
+        "bie/audio/qa_sync.py",
+        "docs/audio/BATCH005_NATIVE_QA_SUMMARY.json",
+        "docs/audio/hardening_h2/CONTRACTS.md",
+        "docs/audio/hardening_h2/NATIVE_BENCHMARK.json",
+        "docs/audio/hardening_h2/TEST_RESULT.json"
+      ],
+      "closure": [
+        "Implement independent acoustic/alignment evaluation against current WAV, expected readings and exact source spans, with model/provider identity and uncertainty. ASR lexical match alone cannot prove pronunciation.",
+        "Validate evaluator provenance/authenticity and bind all reports to current audio, pronunciation, voice, policy and timeline. Rehashed caller JSON must not authorize acceptance.",
+        "Produce owned repair requests for actual failures and recheck resynthesized media without changing source content. Calibrate acoustic/listening thresholds on held-out evidence before acceptance."
+      ],
+      "status": "LOCAL_DIAGNOSTIC_IMPLEMENTED_EXECUTED_PRODUCTION_CAPABILITY_AND_ACCEPTANCE_OPEN",
+      "observation_before_h2": "Current QA-001 provides exact media/source-bound review targets and processes reported observations. It intentionally never declares phonetic correctness. SYNC uses public eSpeak marker timing; independent phonetic offsets/forced alignment and authenticated evaluator evidence are not implemented here.",
+      "h2_task_ids": [
+        "BIE-AUDIO-H2-001",
+        "BIE-AUDIO-H2-002",
+        "BIE-AUDIO-H2-003",
+        "BIE-AUDIO-H2-004",
+        "BIE-AUDIO-H2-005"
+      ],
+      "remaining_implementation": [
+        "Production-quality multilingual/accent/IPA/OOV evaluator capabilities; legacy en-US diagnostic is not a substitute.",
+        "Production evaluator identity/trust bootstrap, signing-key custody and deployment authority; coordinate canonical F03.",
+        "Actual owned repair dispatch and dependent invalidation through canonical F03/F04, not only local intents."
+      ],
+      "remaining_validation": [
+        "Held-out labelled word/phoneme boundaries and pronunciation calibration; false-positive/false-negative assessment.",
+        "Representative independent human listening, neural speech and real-book/multidomain evaluation."
+      ]
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F03",
+      "category": "PRODUCTION_INTEGRATION",
+      "owner": "AUDIO / existing INFRA",
+      "requirement": "Deployable, bounded native execution and durable source/evidence/cache lifecycle using existing BIE infrastructure.",
+      "observation": "Current standalone scripts use bounded local subprocesses, filesystem publication and local cache/locks. No adoption of the canonical kernel worker, durable artifact catalog and governed job lifecycle is included in this AUDIO workspace.",
+      "evidence": [
+        "bie/audio/espeak_provider.py",
+        "bie/audio/timed_espeak_provider.py",
+        "bie/audio/mix_meter.py",
+        "bie/audio/tts_cache.py",
+        "bie/audio/qa_io.py",
+        "docs/audio/BATCH004_GAP_LEDGER.json"
+      ],
+      "closure": [
+        "Integrate current AUDIO native calls with the existing approved execution/secret/network/resource policy; do not introduce an unrelated second orchestrator.",
+        "Use canonical durable artifact/evidence storage and verified cache identities with interruption/retry/recovery/concurrency tests. Hashes alone do not establish publisher/evaluator authenticity.",
+        "Use bounded scene/segment jobs for long books with preserved ordering and no truncation; distinguish production deployment evidence from local fixtures."
+      ],
+      "status": "OPEN"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F04",
+      "category": "PRODUCTION_HANDOFF_AND_RUNTIME_VALIDATION",
+      "owner": "AUDIO / DIR / ANI / COMP / QA",
+      "requirement": "Real lectures consume generated narration, mixed waveform, speech/display/sound captions and derived sample/frame clocks through existing production contracts.",
+      "observation": "Standalone source-to-mix-to-QA CLI works. Current technical preview is not adoption into canonical DIR artifact results or production ANI/COMP media/audio consumers, and no real Remotion rendering has been run.",
+      "evidence": [
+        "bie/audio/dir_sync_adapter.py",
+        "bie/audio/mix_clock.py",
+        "bie/audio/qa_accessibility.py",
+        "scripts/audio_qa.py",
+        "docs/audio/BATCH004_GAP_LEDGER.json"
+      ],
+      "closure": [
+        "Implement actual canonical adapters for realized DIR narration and downstream COMP media/timeline/animation/caption contracts, retaining source identity and invalidation. No manual recreation of a representative Scene IR may substitute for adoption.",
+        "Ensure QA findings map to owning stage and repaired media invalidates every dependent clock/caption/render receipt. Do not weaken fail-closed release rules.",
+        "Run pinned generated-project compile/discovery/smoke/full render and inspect actual video/audio/captions on an approved browser runtime. Reopen COMP only for a reproduced defect."
+      ],
+      "status": "OPEN"
+    }
+  ],
+  "status": "OPEN",
+  "inherited_gap_ledger": "docs/audio/BATCH004_GAP_LEDGER.json",
+  "old_unavailable_hardening_task_ids_assumed": false,
+  "next_work_item_ids": [
+    "AUDIO-AUDIT-001-F01",
+    "AUDIO-AUDIT-001-F02",
+    "AUDIO-AUDIT-001-F03",
+    "AUDIO-AUDIT-001-F04"
+  ],
+  "section_exit_permitted": false,
+  "github_write_performed": false,
+  "product_accepted": false,
+  "latest_hardening_batch": "BIE-AUDIO-HARDENING-H2",
+  "full_section_reaudit_performed": false,
+  "next_action": "Preserve H2 implementation and actual native evidence. Scope the remaining F02 production/multilingual/evaluator-authority corrections, alongside F03/F04 canonical adoption; retain F01 live/listening gates and perform one consolidated section re-audit before exit."
+}

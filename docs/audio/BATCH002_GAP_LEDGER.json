@@ -1,0 +1,43 @@
+{
+  "schema_version": "bie.audio.implementation-backlog/1",
+  "full_section_audit_performed": false,
+  "product_accepted": false,
+  "items": [
+    {
+      "id": "AUDIO-ORIGINAL-SYNC",
+      "owner": "BIE-AUDIO-SYNC-001..005",
+      "status": "NEXT_ORIGINAL_TASKS",
+      "detail": "Word timestamps, caption alignment, scene/animation/pause sync; measured segment PCM positions do not close these."
+    },
+    {
+      "id": "AUDIO-ORIGINAL-MIX-QA",
+      "owner": "AUDIO-MIX/QA",
+      "status": "NOT_YET_IMPLEMENTED",
+      "detail": "Loudness, ducking, SFX, silence trim, peaks and acoustic/accessibility QA."
+    },
+    {
+      "id": "AUDIO-PRODUCTION-VOICE",
+      "owner": "BIE-AUDIO-VO-007..009 / section audit",
+      "status": "PRODUCTION_PROFILE_OPEN",
+      "detail": "Only the real local technical eSpeak adapter is shipped. A cinematic/neural production profile requires a real provider adapter and deployment, consent/rights as applicable, listening and pronunciation evidence; cannot be closed by the technical WAV."
+    },
+    {
+      "id": "AUDIO-MULTILINGUAL-ACOUSTIC",
+      "owner": "BIE-AUDIO-VO-006 / QA-001",
+      "status": "EXPLICIT_LANGUAGE_CONTRACT_IMPLEMENTED_ACOUSTIC_ACCEPTANCE_OPEN",
+      "detail": "English/Hindi and explicit code-switch fixtures exercised; seamless timbre, general languages, and IPA-capable provider behavior not verified."
+    },
+    {
+      "id": "AUDIO-DEPLOYMENT-ISOLATION",
+      "owner": "AUDIO production adapter / existing INFRA",
+      "status": "PRODUCTION_ADOPTION_PENDING",
+      "detail": "Current local adapter has process time/output/cancellation controls, not a complete hostile-code sandbox or distributed service/cache."
+    },
+    {
+      "id": "AUDIO-COMP-MEDIA-HANDOFF",
+      "owner": "AUDIO SYNC / section integration",
+      "status": "PENDING",
+      "detail": "WAV bytes/source receipts exist; canonical COMP asset/cue handoff and actual audiovisual sync must be tested, not inferred."
+    }
+  ]
+}

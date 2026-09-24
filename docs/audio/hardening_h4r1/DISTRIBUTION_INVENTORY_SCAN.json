@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "findings": [],
+  "forbidden_binary_font_key_file_suffixes": [
+    ".dll",
+    ".dylib",
+    ".otf",
+    ".p12",
+    ".pem",
+    ".pfx",
+    ".pyd",
+    ".so",
+    ".ttf",
+    ".woff",
+    ".woff2"
+  ],
+  "scope": "Archive-member inventory scan; not a universal secret-content detector",
+  "ancestor_zip_scan": {
+    "archives": 11,
+    "members": 2225,
+    "total_expanded_bytes": 26249053
+  },
+  "private_key_export_in_new_benchmark": false
+}

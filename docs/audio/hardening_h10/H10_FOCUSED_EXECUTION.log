@@ -1,0 +1,120 @@
+RUN test_audio_h10_001_dir_handoff.py
+test_01_exact_binding_passes (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_01_exact_binding_passes) ... ok
+test_02_utterance_fingerprint_is_exact (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_02_utterance_fingerprint_is_exact) ... ok
+test_03_script_fingerprint_preserved (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_03_script_fingerprint_preserved) ... ok
+test_04_source_refs_preserved (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_04_source_refs_preserved) ... ok
+test_05_objectives_preserved (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_05_objectives_preserved) ... ok
+test_06_text_mutation_rejected (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_06_text_mutation_rejected) ... ok
+test_07_voice_mutation_rejected (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_07_voice_mutation_rejected) ... ok
+test_08_source_mutation_rejected (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_08_source_mutation_rejected) ... ok
+test_09_review_blocks (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_09_review_blocks) ... ok
+test_10_coverage_required (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_10_coverage_required) ... ok
+test_11_receipt_tamper_rejected (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_11_receipt_tamper_rejected) ... ok
+test_12_never_accepts_product (tests.audio.test_audio_h10_001_dir_handoff.DirAudioHandoffTests.test_12_never_accepts_product) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.363s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h10_001_dir_handoff.py", "tests": 12, "failures": 0, "errors": 0, "skips": 0, "seconds": 6.438}
+RUN test_audio_h10_002_compiler_handoff.py
+test_01_pinned_canonical_main (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_01_pinned_canonical_main) ... ok
+test_02_pinned_blob_inventory (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_02_pinned_blob_inventory) ... ok
+test_03_compiler_schema (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_03_compiler_schema) ... ok
+test_04_asset_content_addressed (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_04_asset_content_addressed) ... ok
+test_05_pcm_contract (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_05_pcm_contract) ... ok
+test_06_source_refs_preserved (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_06_source_refs_preserved) ... ok
+test_07_reasoning_refs_explicit (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_07_reasoning_refs_explicit) ... ok
+test_08_transcript_hash_exact (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_08_transcript_hash_exact) ... ok
+test_09_padding_never_truncates (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_09_padding_never_truncates) ... ok
+test_10_caption_target_explicit (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_10_caption_target_explicit) ... ok
+test_11_scene_targets_explicit (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_11_scene_targets_explicit) ... ok
+test_12_missing_target_fails (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_12_missing_target_fails) ... ok
+test_13_wrong_master_fails (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_13_wrong_master_fails) ... ok
+test_14_wrong_clock_fails (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_14_wrong_clock_fails) ... ok
+test_15_tampered_asset_fails (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_15_tampered_asset_fails) ... ok
+test_16_no_remotion_acceptance_claim (tests.audio.test_audio_h10_002_compiler_handoff.CompilerHandoffTests.test_16_no_remotion_acceptance_claim) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.163s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h10_002_compiler_handoff.py", "tests": 16, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.164}
+RUN test_audio_h10_003_repair_invalidation.py
+test_01_canonical_main_bound (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_01_canonical_main_bound) ... ok
+test_02_every_graph_node_invalidated (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_02_every_graph_node_invalidated) ... ok
+test_03_render_invalidated (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_03_render_invalidated) ... ok
+test_04_comp_generated_source_invalidated (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_04_comp_generated_source_invalidated) ... ok
+test_05_original_dir_not_invalidated (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_05_original_dir_not_invalidated) ... ok
+test_06_reading_not_mutated (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_06_reading_not_mutated) ... ok
+test_07_repository_not_mutated (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_07_repository_not_mutated) ... ok
+test_08_previous_status_preserved (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_08_previous_status_preserved) ... ok
+test_09_already_invalidated_fails (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_09_already_invalidated_fails) ... ok
+test_10_missing_declared_invalidation_fails (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_10_missing_declared_invalidation_fails) ... ok
+test_11_tamper_rejected (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_11_tamper_rejected) ... ok
+test_12_no_product_acceptance (tests.audio.test_audio_h10_003_repair_invalidation.RepairInvalidationTests.test_12_no_product_acceptance) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h10_003_repair_invalidation.py", "tests": 12, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.002}
+RUN test_audio_h10_004_render_evidence.py
+test_01_real_ffmpeg_run (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_01_real_ffmpeg_run) ... ok
+test_02_has_video (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_02_has_video) ... ok
+test_03_has_audio (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_03_has_audio) ... ok
+test_04_has_caption_stream (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_04_has_caption_stream) ... ok
+test_05_nonempty_mp4 (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_05_nonempty_mp4) ... ok
+test_06_receipt_validates (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_06_receipt_validates) ... ok
+test_07_tampered_bytes_fail (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_07_tampered_bytes_fail) ... ok
+test_08_not_remotion (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_08_not_remotion) ... ok
+test_09_not_human_listening (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_09_not_human_listening) ... ok
+test_10_not_product_acceptance (tests.audio.test_audio_h10_004_render_evidence.RenderEvidenceTests.test_10_not_product_acceptance) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.343s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h10_004_render_evidence.py", "tests": 10, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.343}
+RUN test_audio_h10_005_f04_gate.py
+test_01_gate_implemented (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_01_gate_implemented) ... ok
+test_02_dir_bound (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_02_dir_bound) ... ok
+test_03_compiler_bound (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_03_compiler_bound) ... ok
+test_04_invalidation_bound (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_04_invalidation_bound) ... ok
+test_05_render_bound (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_05_render_bound) ... ok
+test_06_real_ffmpeg_is_true (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_06_real_ffmpeg_is_true) ... ok
+test_07_real_remotion_is_false (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_07_real_remotion_is_false) ... ok
+test_08_full_regression_still_open (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_08_full_regression_still_open) ... ok
+test_09_section_exit_still_false (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_09_section_exit_still_false) ... ok
+test_10_gate_tamper_fails (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_10_gate_tamper_fails) ... ok
+test_11_gate_self_validates (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_11_gate_self_validates) ... ok
+test_12_no_product_acceptance (tests.audio.test_audio_h10_005_f04_gate.F04GateTests.test_12_no_product_acceptance) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.010s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h10_005_f04_gate.py", "tests": 12, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.012}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h10_001_dir_handoff.py",
+    "test_audio_h10_002_compiler_handoff.py",
+    "test_audio_h10_003_repair_invalidation.py",
+    "test_audio_h10_004_render_evidence.py",
+    "test_audio_h10_005_f04_gate.py"
+  ],
+  "tests": 62,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 6.971
+}

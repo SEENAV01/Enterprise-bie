@@ -1,0 +1,25 @@
+{
+  "task_id": "BIE-AUDIO-H2-005",
+  "source_finding": "AUDIO-AUDIT-001-F02",
+  "status": "IMPLEMENTED_LOCAL_TESTED_NOT_PRODUCT_ACCEPTED",
+  "owned_source_files": [
+    "bie/audio/acoustic_io.py",
+    "scripts/audio_acoustic.py",
+    "scripts/benchmark_audio_h2.py"
+  ],
+  "shared_dependencies": "The declared atomic package includes unchanged AUDIO runtime/source helpers and exact pinned DIR closure, plus all H2 runtime modules.",
+  "command": "python -B scripts/run_audio_tests.py --pattern test_audio_h2_005.py --output /tmp/BIE-AUDIO-H2-005.json",
+  "tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "executed_source_hashes": {
+    "bie/audio/acoustic_io.py": "60794f74862d309cba0abb7ebe27a0b262da7fdc515f0b169b12ef40790ef74c",
+    "scripts/audio_acoustic.py": "98dff464ae19dbc028579ba9ccce7801c0b49e64c5e08eebb84dd139bee20260",
+    "scripts/benchmark_audio_h2.py": "82eaf7852009868fff7db3b7dc4241712ca703874b6ba40d465b3cb88ef44444",
+    "tests/audio/test_audio_h2_005.py": "f50531ebad45561ff85d42c7ee31f04153d238517f319e13508dc21001672566"
+  },
+  "full_enterprise_regression_rerun": false,
+  "section_exit_permitted": false,
+  "product_accepted": false
+}

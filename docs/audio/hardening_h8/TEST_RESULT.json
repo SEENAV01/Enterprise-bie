@@ -1,0 +1,78 @@
+{
+  "acceptance": {
+    "full_audio_regression_completed": false,
+    "live_provider_executed": false,
+    "product_accepted": false,
+    "section_accepted": false
+  },
+  "commands": [
+    "PYTHONPATH=.:dependency_snapshot PYTHONDONTWRITEBYTECODE=1 python -m unittest tests.audio.test_audio_h8_001_authority tests.audio.test_audio_h8_002_paid_call_journal tests.audio.test_audio_h8_003_scheduler tests.audio.test_audio_h8_004_provider_integration tests.audio.test_audio_h8_005_cli_recovery",
+    "PYTHONPATH=.:dependency_snapshot PYTHONDONTWRITEBYTECODE=1 python -m unittest tests.audio.test_audio_h1_001 tests.audio.test_audio_h1_002 tests.audio.test_audio_h1_003 tests.audio.test_audio_h1_004 tests.audio.test_audio_h1_005",
+    "PYTHONPATH=.:dependency_snapshot PYTHONDONTWRITEBYTECODE=1 python -m unittest tests.audio.test_audio_h6_stems tests.audio.test_audio_h7_cache_lifecycle tests.audio.test_audio_h7_long_book"
+  ],
+  "errors": 0,
+  "failures": 0,
+  "h1_compatibility_tests": 108,
+  "h6_h7_compatibility_tests": 57,
+  "h8_tests": 64,
+  "passed": true,
+  "python": "3.13.5",
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "H8 focused remote-call/live-authority/scheduler hardening + H1 neural compatibility + H6/H7 compatibility; NOT full AUDIO/enterprise regression",
+  "skips": 0,
+  "targeted_executions": 229,
+  "tested_source": {
+    "bie/audio/elevenlabs_provider.py": {
+      "bytes": 14524,
+      "sha256": "67c6be51aa59a11d5b3fdff6adc716fa78c157921b9ffbe3c56f126ee8479c1c"
+    },
+    "bie/audio/neural_authority.py": {
+      "bytes": 6718,
+      "sha256": "c24b17b068eb86d95923075e820899ef25d967d9994b108bbcd86b6bfc44a0e7"
+    },
+    "bie/audio/neural_call_journal.py": {
+      "bytes": 11944,
+      "sha256": "712da7fcbaa93b77ab429f63250a3ed1d1cc246b2c744a152f2bfb35af2a2289"
+    },
+    "bie/audio/neural_pipeline.py": {
+      "bytes": 3798,
+      "sha256": "e97c213fb2ab7afbcc266e8d62bb496d1faf9a2898dc66319f1c3054f9adb0d8"
+    },
+    "bie/audio/neural_scheduler.py": {
+      "bytes": 3140,
+      "sha256": "fbebe1392cc87e732a38d210d45877782b906850a041da256553b430c30499d8"
+    },
+    "bie/audio/pipeline_bundle.py": {
+      "bytes": 4587,
+      "sha256": "50ee6eded4eafa07b2620112486b7229cdd5928ced65244a718e19507de79329"
+    },
+    "scripts/audio_neural.py": {
+      "bytes": 8885,
+      "sha256": "d709e68049e3f0b0169ca419dc855cae15f39f2a6a89d8ad85e047e9f321ce44"
+    },
+    "scripts/audio_neural_recovery.py": {
+      "bytes": 1854,
+      "sha256": "12307fca8328ca870c0f95b71aacf2b69860f5783f3d670a9a95b96bbf25ed1f"
+    },
+    "tests/audio/test_audio_h8_001_authority.py": {
+      "bytes": 4095,
+      "sha256": "2a43985b018b132f0633cc3879c78f5efa1fce2a5ec46f1e0141cf095dbfd625"
+    },
+    "tests/audio/test_audio_h8_002_paid_call_journal.py": {
+      "bytes": 4754,
+      "sha256": "ef2bd42fa30d948350cf1adccdcfccbcee91fbc1055e036c32b3dbbcd402b351"
+    },
+    "tests/audio/test_audio_h8_003_scheduler.py": {
+      "bytes": 3213,
+      "sha256": "8b6910cc38f246d10c5495b42bc4a5dc3e41682cdefd507f7c20597a709f77a7"
+    },
+    "tests/audio/test_audio_h8_004_provider_integration.py": {
+      "bytes": 7864,
+      "sha256": "77bfebc9c13284261edc6117f862827d1ceeda259b763f7d674c21effc050fd6"
+    },
+    "tests/audio/test_audio_h8_005_cli_recovery.py": {
+      "bytes": 4081,
+      "sha256": "d923c05477688a9738b26eebc29336067e3c36d1b6712dd9636ad5074fce8a56"
+    }
+  }
+}

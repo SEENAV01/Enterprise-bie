@@ -1,0 +1,38 @@
+{
+  "document": {
+    "document_id": "compat:lesson",
+    "lesson_id": "lesson:audio-fixture",
+    "script_fingerprint": "sha256:c5376554fcfdf81955407d8e2f73076ab8c41a828ddab3079089d2e001a1f7ad",
+    "blocks": [
+      {
+        "block_id": "narration:1",
+        "scene_id": "scene:1",
+        "segment_id": "narration:1",
+        "voice_id": "voice:unselected",
+        "language": "en",
+        "domain": "math",
+        "raw_text": "Read the sum carefully: \\(\\sum_{i=1}^{n}{i}\\). The lower and upper limits remain explicit.",
+        "evidence_ids": [
+          "synthetic:audio-fixture:1"
+        ],
+        "objective_ids": [
+          "objective:exact-reading"
+        ],
+        "upstream_fingerprint": "sha256:df2e32adbbacef78237ba101ff84e4a031d29372c190b56b0f0869f014e2bd64",
+        "annotations": [],
+        "review_reasons": []
+      }
+    ],
+    "revision": 1
+  },
+  "lexicon": {
+    "lexicon_id": "compat:empty",
+    "version": "1",
+    "rules": []
+  },
+  "policy": {
+    "max_chars": 280,
+    "max_utf8_bytes": 1200,
+    "version": "bie-audio-segmentation/1"
+  }
+}

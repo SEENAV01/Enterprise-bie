@@ -1,0 +1,37 @@
+{
+  "schema_version": "bie.audio.gap-ledger/1",
+  "batch": "BIE-AUDIO-HARDENING-H7",
+  "section_status": "HARDENING_IN_PROGRESS_NOT_ACCEPTED",
+  "section_exit_permitted": false,
+  "closed_or_hardened": [
+    {
+      "id": "AUDIO-AUDIT-001-F03-H7-SEGMENT-CACHE",
+      "status": "IMPLEMENTED_FOCUSED_TESTED",
+      "detail": "segment-level content/config identity, CAS/lease/idempotency lifecycle, restart/stale-claim recovery and bounded orphan cleanup"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F03-H7-LONG-BOOK",
+      "status": "IMPLEMENTED_FOCUSED_TESTED",
+      "detail": "deterministic bounded batching/resume/selective invalidation decisions; not a production fleet scheduler"
+    }
+  ],
+  "remaining": [
+    {
+      "id": "AUDIO-AUDIT-001-F03",
+      "detail": "paid/remote provider uncertain-call recovery, production network/secret/key custody, production host scheduling/workload validation"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F02",
+      "detail": "production multilingual/accent/IPA/OOV evaluator authority, held-out calibration and independent listening"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F04",
+      "detail": "canonical DIR/ANI/COMP handoff, owned repair invalidation, pinned compile/render and rendered AV/caption evidence"
+    },
+    {
+      "id": "AUDIO-FINAL-REGRESSION",
+      "detail": "fresh complete AUDIO regression and final section re-audit after remaining implementation work"
+    }
+  ],
+  "product_accepted": false
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "bie.audio.batch001-reconciliation/1",
+  "status": "BOTH_SOURCE_VARIANTS_PRESERVED_AND_EXECUTABLE",
+  "inputs": [
+    {
+      "profile": "batch001-204",
+      "archive": "BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005.zip",
+      "sha256": "dc57574f8656daec035090bf4229f8394bca6456492f0044ddf66773a110b489",
+      "baseline_tests": 204
+    },
+    {
+      "profile": "batch001-144",
+      "archive": "BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005_INTEGRATED.zip",
+      "sha256": "f0a8ae7fb4cc75d28c380612d56dfa9ee16d3bdd15b3a2b85cf764cfb07acfe9",
+      "baseline_tests": 144
+    }
+  ],
+  "decision": "Keep latest 144-profile API unchanged as default; relocate 204-profile modules byte-for-byte to bie.audio.compat204. Both profiles feed one source-bound SpeechPlan and the same VO-006..010 provider/cache pipeline.",
+  "prohibited": "No automatic parser fallback, no guessed API equivalence, no deletion/recreation of original ZIP bytes, no task-ID renumbering.",
+  "testing": {
+    "inherited_tests_retained": 348,
+    "fresh_original204_baseline": true,
+    "fresh_original144_baseline": true,
+    "new_reconciliation_tests": 14
+  },
+  "differences": [
+    {
+      "area": "math",
+      "profile204": "bounded sums/products, all 24 Greek names, English-scoped parser; explicit preserved API",
+      "profile144": "documented English/Hindi parser and reading API; no automatic sum/product fallback"
+    },
+    {
+      "area": "timing",
+      "profile204": "source-block segmentation and review issues retained; no invented pauses",
+      "profile144": "canonical SpeechUtterance input and explicit source-bound Pause records"
+    },
+    {
+      "area": "pronunciation",
+      "profile204": "versioned role/domain lexicon and named pronunciation APIs",
+      "profile144": "separate lexicon/symbol/acronym tables, IPA metadata, PLS export"
+    },
+    {
+      "area": "CLI",
+      "profile204": "python -m bie.audio.compat204; synthesis CLI --profile batch001-204",
+      "profile144": "scripts/audio_prepare.py; synthesis CLI default --profile batch001-144"
+    }
+  ],
+  "original_archives_location": "lineage/audio_batch001; not on production import path",
+  "open_note": "These are two explicit compatibility APIs, not proof their algorithms are semantically identical. Original test assertions are unchanged; relocated 204 tests only change imports/CLI module names.",
+  "github_writes": false,
+  "product_accepted": false
+}

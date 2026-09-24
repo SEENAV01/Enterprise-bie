@@ -1,0 +1,81 @@
+{
+  "schema_version": "bie.audio.mix-spec/1",
+  "plan_fingerprint": "sha256:d28833d33c73f286f35229355b6f03d1c73d7b3caedcb97b1aa9a36fccf80df7",
+  "timeline_fingerprint": "sha256:e97fd7308686c14956dd15b9ef45aa01775fbbeed2af6e7b40ca12cc192c313e",
+  "policy": {
+    "loudness": {
+      "target_lufs": -23.0,
+      "tolerance_lu": 0.5,
+      "true_peak_ceiling_dbtp": -1.0,
+      "max_boost_db": 18.0,
+      "max_attenuation_db": 60.0,
+      "unreachable": "review",
+      "dual_mono": false
+    },
+    "ducking": {
+      "reduction_db": -15.0,
+      "threshold_dbfs": -42.0,
+      "window_ms": 10,
+      "attack_ms": 60,
+      "hold_ms": 160,
+      "release_ms": 300
+    },
+    "trim": {
+      "enabled": true,
+      "padding_ms": 20,
+      "minimum_silence_ms": 40,
+      "max_edge_ms": 2000
+    },
+    "peaks": {
+      "ceiling_dbtp": -1.0,
+      "guard_db": 0.15,
+      "maximum_attenuation_db": 60.0
+    },
+    "pause_mode": "all_stems_silent",
+    "pause_fade_ms": 30
+  },
+  "stems": [
+    {
+      "asset_id": "bed",
+      "role": "music",
+      "start_sample": 0,
+      "trim_start": 0,
+      "trim_end": 166148,
+      "source_refs": [
+        "synthetic:original-bed"
+      ],
+      "rights_ref": "synthetic:self-generated-technical-tone",
+      "gain_db": 0.0,
+      "channel_map": "identity",
+      "pan": 0.0,
+      "repeat": 1,
+      "fade_in_samples": 0,
+      "fade_out_samples": 0,
+      "path": "bed.wav",
+      "sha256": "ba083d56702bf223ad1763fa183082a60783cfbf1a316e333b09a0028db8ca54",
+      "sample_rate": 22050,
+      "channels": 1
+    },
+    {
+      "asset_id": "cue",
+      "role": "sfx",
+      "start_sample": 5512,
+      "trim_start": 0,
+      "trim_end": 1837,
+      "source_refs": [
+        "synthetic:original-cue"
+      ],
+      "rights_ref": "synthetic:self-generated-technical-tone",
+      "gain_db": 0.0,
+      "channel_map": "identity",
+      "pan": 0.0,
+      "repeat": 1,
+      "fade_in_samples": 0,
+      "fade_out_samples": 0,
+      "path": "cue.wav",
+      "sha256": "c9a3a7b30fc5a4705bdefb1a8bb97059beb5b632757bc00b8217caf816d3d0c1",
+      "sample_rate": 22050,
+      "channels": 1
+    }
+  ]
+}

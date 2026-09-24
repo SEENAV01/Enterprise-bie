@@ -1,0 +1,18 @@
+{
+  "schema_version": "bie.audio.h10-canonical-comp-contract/1",
+  "canonical_repository": "SEENAV01/Enterprise-bie",
+  "canonical_main": "dfc1ef9b59bf7d3a8f099a8ad2fb4a93895257e8",
+  "observed_files": {
+    "bie/compiler/frame_runtime_contract.py": "e8a713f05fe6042b02b712f6f99d1e400d168ab9",
+    "bie/compiler/narration_consumer.py": "63ce70dc16b304f7c4051bcbd624efda81015e33",
+    "bie/compiler/qa_scene_compile.py": "10ecd8e7485256b8b3e313c2b4935543544f487c",
+    "bie/compiler/media_presentation.py": "30f4ce61b968886be4c7b3b540bb8fc92447615e"
+  },
+  "compiler_h6_required": ["schema_version", "narration_revision", "narration_texts", "audio_assets", "audio_segments", "caption_target_id"],
+  "audio_asset_required": ["asset_id", "public_path", "sha256", "byte_length", "sample_rate", "channels", "sample_width", "frame_count", "rights_ref", "source_refs", "reasoning_refs"],
+  "audio_segment_required": ["cue_id", "asset_id", "trim_before_frames", "volume", "transcript_sha256"],
+  "narration_cue_required": ["cue_id", "start_ms", "end_ms", "text_ref", "narration_revision", "target_ids"],
+  "public_path_rule": "narration/<sha256>.wav",
+  "real_remotion_render_verified_in_h10": false,
+  "product_accepted": false
+}

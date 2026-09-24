@@ -1,0 +1,48 @@
+RUN test_audio_h5_002.py
+test_01_actual_native_artifacts (tests.audio.test_audio_h5_002.Execution.test_01_actual_native_artifacts) ... ok
+test_02_canonical_namespaces_enforced (tests.audio.test_audio_h5_002.Execution.test_02_canonical_namespaces_enforced) ... ok
+test_03_actual_source_clock_replay (tests.audio.test_audio_h5_002.Execution.test_03_actual_source_clock_replay) ... ok
+test_04_precancel_no_native_execution (tests.audio.test_audio_h5_002.Execution.test_04_precancel_no_native_execution) ... ok
+test_05_unsupported_command_field (tests.audio.test_audio_h5_002.Execution.test_05_unsupported_command_field) ... ok
+test_06_caption_modification (tests.audio.test_audio_h5_002.Execution.test_06_caption_modification) ... ok
+test_07_master_modification (tests.audio.test_audio_h5_002.Execution.test_07_master_modification) ... ok
+test_08_missing_file (tests.audio.test_audio_h5_002.Execution.test_08_missing_file) ... ok
+test_09_extra_file (tests.audio.test_audio_h5_002.Execution.test_09_extra_file) ... ok
+test_10_empty_file (tests.audio.test_audio_h5_002.Execution.test_10_empty_file) ... ok
+test_11_file_byte_budget (tests.audio.test_audio_h5_002.Execution.test_11_file_byte_budget) ... ok
+test_12_execution_nonce_rehash (tests.audio.test_audio_h5_002.Execution.test_12_execution_nonce_rehash) ... ok
+test_13_execution_capability_proof (tests.audio.test_audio_h5_002.Execution.test_13_execution_capability_proof) ... ok
+test_14_process_exit_type (tests.audio.test_audio_h5_002.Execution.test_14_process_exit_type) ... ok
+test_15_result_file_symlink (tests.audio.test_audio_h5_002.Execution.test_15_result_file_symlink) ... ok
+test_16_result_file_hardlink (tests.audio.test_audio_h5_002.Execution.test_16_result_file_hardlink) ... ok
+test_17_result_fifo_nonblocking (tests.audio.test_audio_h5_002.Execution.test_17_result_fifo_nonblocking) ... ok
+test_18_result_directory_rejected (tests.audio.test_audio_h5_002.Execution.test_18_result_directory_rejected) ... ok
+test_19_result_regular_file (tests.audio.test_audio_h5_002.Execution.test_19_result_regular_file) ... ok
+test_20_engine_evidence_changed (tests.audio.test_audio_h5_002.Execution.test_20_engine_evidence_changed) ... ok
+test_21_native_deadline_fails_closed (tests.audio.test_audio_h5_002.Execution.test_21_native_deadline_fails_closed) ... ok
+test_22_native_duration_budget_not_truncation (tests.audio.test_audio_h5_002.Execution.test_22_native_duration_budget_not_truncation) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 75.435s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h5_002.py", "tests": 22, "failures": 0, "errors": 0, "skips": 0, "seconds": 76.144}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h5_002.py"
+  ],
+  "tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 76.211
+}

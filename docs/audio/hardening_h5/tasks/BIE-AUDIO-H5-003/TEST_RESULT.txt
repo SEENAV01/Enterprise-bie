@@ -1,0 +1,51 @@
+RUN test_audio_h5_003.py
+test_01_current_signature_valid (tests.audio.test_audio_h5_003.Evidence.test_01_current_signature_valid) ... ok
+test_02_wrong_signature (tests.audio.test_audio_h5_003.Evidence.test_02_wrong_signature) ... ok
+test_03_wrong_signature_domain (tests.audio.test_audio_h5_003.Evidence.test_03_wrong_signature_domain) ... ok
+test_04_algorithm_relabel (tests.audio.test_audio_h5_003.Evidence.test_04_algorithm_relabel) ... ok
+test_05_revoked_executor (tests.audio.test_audio_h5_003.Evidence.test_05_revoked_executor) ... ok
+test_06_unapproved_profile (tests.audio.test_audio_h5_003.Evidence.test_06_unapproved_profile) ... ok
+test_07_wrong_role (tests.audio.test_audio_h5_003.Evidence.test_07_wrong_role) ... ok
+test_08_wrong_issuer_key (tests.audio.test_audio_h5_003.Evidence.test_08_wrong_issuer_key) ... ok
+test_09_expired_receipt (tests.audio.test_audio_h5_003.Evidence.test_09_expired_receipt) ... ok
+test_10_future_issue_time (tests.audio.test_audio_h5_003.Evidence.test_10_future_issue_time) ... ok
+test_11_signature_cannot_escalate_product_acceptance (tests.audio.test_audio_h5_003.Evidence.test_11_signature_cannot_escalate_product_acceptance) ... ok
+test_12_signature_cannot_escalate_pronunciation (tests.audio.test_audio_h5_003.Evidence.test_12_signature_cannot_escalate_pronunciation) ... ok
+test_13_run_label_bound (tests.audio.test_audio_h5_003.Evidence.test_13_run_label_bound) ... ok
+test_14_job_label_bound (tests.audio.test_audio_h5_003.Evidence.test_14_job_label_bound) ... ok
+test_15_revision_bound (tests.audio.test_audio_h5_003.Evidence.test_15_revision_bound) ... ok
+test_16_duplicate_issuer (tests.audio.test_audio_h5_003.Evidence.test_16_duplicate_issuer) ... ok
+test_17_malformed_public_key (tests.audio.test_audio_h5_003.Evidence.test_17_malformed_public_key) ... ok
+test_18_wrong_signer_rejected_before_execution (tests.audio.test_audio_h5_003.Evidence.test_18_wrong_signer_rejected_before_execution) ... ok
+test_19_current_policy_age_rechecked (tests.audio.test_audio_h5_003.Evidence.test_19_current_policy_age_rechecked) ... ok
+test_20_issuer_expiry_rechecked (tests.audio.test_audio_h5_003.Evidence.test_20_issuer_expiry_rechecked) ... ok
+test_21_signature_not_inferred_from_hash (tests.audio.test_audio_h5_003.Evidence.test_21_signature_not_inferred_from_hash) ... ok
+test_22_boolean_issue_time_rejected (tests.audio.test_audio_h5_003.Evidence.test_22_boolean_issue_time_rejected) ... ok
+test_23_fractional_lease_clock_supported (tests.audio.test_audio_h5_003.Evidence.test_23_fractional_lease_clock_supported) ... ok
+test_24_invalid_verification_clocks_rejected (tests.audio.test_audio_h5_003.Evidence.test_24_invalid_verification_clocks_rejected) ... ok
+test_25_fractional_after_expiry_is_rejected (tests.audio.test_audio_h5_003.Evidence.test_25_fractional_after_expiry_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 117.286s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h5_003.py", "tests": 25, "failures": 0, "errors": 0, "skips": 0, "seconds": 117.692}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h5_003.py"
+  ],
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 117.748
+}

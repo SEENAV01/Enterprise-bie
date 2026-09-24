@@ -1,0 +1,35 @@
+{
+  "source_basis": [
+    {
+      "kind": "user_project_registry",
+      "title": "BIE_ENTERPRISE_V1_MASTER_ATOMIC_TASK_REGISTRY_ORIGINAL_18_SECTIONS.pdf, original Section 14; task titles transcribed, not inferred"
+    },
+    {
+      "kind": "connected_repository",
+      "repo": "SEENAV01/Enterprise-bie",
+      "commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+      "read_paths": [
+        "bie/director/script_plan.py",
+        "bie/director/voiceover_generation.py",
+        "bie/director/speech_timing.py",
+        "bie/director/timing_contract.py",
+        "bie/director/contract_validation.py",
+        "bie/director/grounded_directing.py",
+        "bie/director/rich_teaching.py",
+        "bie/director/qa_contract.py",
+        "schemas/canonical-monorepo.json"
+      ]
+    },
+    {
+      "kind": "external_primary_reference",
+      "url": "https://www.w3.org/TR/pronunciation-lexicon/",
+      "used_for": "PLS alias/grapheme/IPA export structure only; not evidence of pronunciation accuracy or a full PLS implementation"
+    },
+    {
+      "kind": "external_primary_reference",
+      "url": "https://www.w3.org/TR/speech-synthesis11/",
+      "used_for": "separating display text, pronunciation hints, language and subsequent speech synthesis; SSML provider rendering is not implemented by this batch"
+    }
+  ],
+  "design_boundary": "The registry supplies task IDs/titles. Detailed contracts and tests in this delivery are implementation choices, not quoted registry requirements."
+}

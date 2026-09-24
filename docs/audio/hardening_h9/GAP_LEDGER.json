@@ -1,0 +1,56 @@
+{
+  "batch": "BIE-AUDIO-HARDENING-H9",
+  "closed_or_hardened": [
+    {
+      "detail": "provider-neutral multilingual/accent/IPA/OOV capability negotiation and explicit budgets",
+      "id": "AUDIO-AUDIT-001-F02-H9-CAPABILITY",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "exact delivered media/source/reading/voice/model/runtime/uncertainty report binding and complete target coverage",
+      "id": "AUDIO-AUDIT-001-F02-H9-REPORT-BINDING",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "held-out calibration mechanics with deterministic FPR/FNR thresholds, uncertainty exclusion and language coverage",
+      "id": "AUDIO-AUDIT-001-F02-H9-CALIBRATION",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "signed release authority separated from evaluator output; production requires trusted production role, EXTERNAL_KMS_HSM custody claim and independent calibration",
+      "id": "AUDIO-AUDIT-001-F02-H9-AUTHORITY",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "calibrated pass/fail only under production authority; uncertainty review/blocking and unchanged-reading repair/invalidation intent",
+      "id": "AUDIO-AUDIT-001-F02-H9-GOVERNED-DECISION",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    }
+  ],
+  "product_accepted": false,
+  "remaining": [
+    {
+      "detail": "authorized live production neural provider execution and representative independent listening remain external validation",
+      "id": "AUDIO-AUDIT-001-F01"
+    },
+    {
+      "detail": "real multilingual/accent/IPA/OOV evaluator, held-out labelled audio/phoneme boundaries, independent listening and real-book/multidomain calibration remain unexecuted",
+      "id": "AUDIO-F02-EXTERNAL-VALIDATION"
+    },
+    {
+      "detail": "canonical DIR/ANI/COMP handoff, owned repair dispatch and invalidation, pinned compile/render and rendered AV/caption evidence",
+      "id": "AUDIO-AUDIT-001-F04"
+    },
+    {
+      "detail": "real provider plus external secret-manager/HSM and distributed/multi-host deployment validation remains external",
+      "id": "AUDIO-F03-DEPLOYMENT-VALIDATION"
+    },
+    {
+      "detail": "fresh complete AUDIO regression and final section re-audit after F04 implementation",
+      "id": "AUDIO-FINAL-REGRESSION"
+    }
+  ],
+  "schema_version": "bie.audio.gap-ledger/1",
+  "section_exit_permitted": false,
+  "section_status": "HARDENING_IN_PROGRESS_NOT_ACCEPTED"
+}

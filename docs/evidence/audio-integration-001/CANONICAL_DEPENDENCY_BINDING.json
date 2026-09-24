@@ -1,0 +1,162 @@
+{
+  "canonical_main": "dfc1ef9b59bf7d3a8f099a8ad2fb4a93895257e8",
+  "canonical_repository": "SEENAV01/Enterprise-bie",
+  "checkpoint": "BIE-AUDIO-H11-001",
+  "files": [
+    {
+      "bytes": 2386,
+      "expected_git_blob": "efd4ac7cb2667f5f67e8b0ae9bc62b0a60e06004",
+      "group": "dir_inherited",
+      "path": "bie/director/contract_validation.py",
+      "sha256": "ca7ab57f097318a9c79f31d3da49c8c4f3556d023615fdadd0b1819fcccd8e3f"
+    },
+    {
+      "bytes": 1813,
+      "expected_git_blob": "93d5920d20535ea9a7727add67789e70fc84ba96",
+      "group": "dir_inherited",
+      "path": "bie/director/script_plan.py",
+      "sha256": "3e6c1aa63aeb08063012848ec99658e3894fd027a632499f818fa6dd1ad5c3f2"
+    },
+    {
+      "bytes": 9326,
+      "expected_git_blob": "cb8f894868bafa41e32a7d7f20bc24b6348f7400",
+      "group": "dir_inherited",
+      "path": "bie/director/speech_timing.py",
+      "sha256": "f6f42b0446b60039200c1c3aade400ced63e856069b16de257e3db54d5d29066"
+    },
+    {
+      "bytes": 3833,
+      "expected_git_blob": "fb2935e52c6939412a38fed5b5e785a885be79f5",
+      "group": "dir_inherited",
+      "path": "bie/director/timing_contract.py",
+      "sha256": "7529ff9b63e9223c7eb4306dc712756e58416cf5b66dc4b5f076750f0f03ae58"
+    },
+    {
+      "bytes": 985,
+      "expected_git_blob": "de36162cc46a5451f5bac7085daa3fdd9cb1369b",
+      "group": "dir_inherited",
+      "path": "bie/director/voiceover_generation.py",
+      "sha256": "f6cc5098c8b896f66af44fdbba54215845bd03db4e55fa748b5cf6519ef1f64e"
+    },
+    {
+      "bytes": 9000,
+      "expected_git_blob": "a06ca9bb25fd3492e1d053fcc88f97449675c646",
+      "group": "durable_canonical",
+      "path": "bie/director/director_durable_recovery.py",
+      "sha256": "a5a68514ee1e5c8be1b1602370bab4b791d8c7a4c5085674b4d27e7d704fd1be"
+    },
+    {
+      "bytes": 8086,
+      "expected_git_blob": "441a0948319ff331e4218670cb11259f1296139a",
+      "group": "durable_canonical",
+      "path": "bie/director/director_artifacts.py",
+      "sha256": "44069a1c4e7ce32f6ad492f791cf75e6f594a116476b51076314f2929f991e32"
+    },
+    {
+      "bytes": 10732,
+      "expected_git_blob": "7d7bf7944ff2f3cb1121b38399652a968b89a0b5",
+      "group": "durable_canonical",
+      "path": "bie/bie_core/artifact_contracts.py",
+      "sha256": "21d9d1e1c30787e6be0fdca5d88d0d781fbc1d048fa14d6d8c2e8453bfc80d46"
+    },
+    {
+      "bytes": 6320,
+      "expected_git_blob": "5ab0fbf90e6981585fdd4dfbe6aa6ddc6ebfa2f4",
+      "group": "durable_canonical",
+      "path": "bie/infrastructure/artifact_store.py",
+      "sha256": "e1c92bbdd9bebf8d7dda4aa8b78c5585a12d48d80e74606c51675f0ceaa57c91"
+    },
+    {
+      "bytes": 1787,
+      "expected_git_blob": "bbfa38c261e67d142ad96ee96baebdc211b21507",
+      "group": "durable_canonical",
+      "path": "bie/infrastructure/idempotency_store.py",
+      "sha256": "24c487468513ed3565361f77ea457b472e273ea82722155ab144eea5449c4661"
+    },
+    {
+      "bytes": 7862,
+      "expected_git_blob": "50303c4228dc0d5388928f0240206000f44f45d8",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/artifact_hashing.py",
+      "sha256": "aed2b46c10ca0f07d6b2c36a0d58c666fa734ddc58729e5f7b35de1310848727"
+    },
+    {
+      "bytes": 945,
+      "expected_git_blob": "574b1a26dc3a3eb6dbd6a58eb8b70f721e72b305",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/build_common.py",
+      "sha256": "af3a4c57db2c9935904cfc13f069cc180c3dd21337cab2296a0aecc6d3a55196"
+    },
+    {
+      "bytes": 4779,
+      "expected_git_blob": "9c113ec948a9324cf76032f2de937a6ae27e8cf5",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/host_toolchain.py",
+      "sha256": "e47487b4da089b9a28570dce6b0aca84ed4dfa6a5c39ef825595d7bf17e45918"
+    },
+    {
+      "bytes": 6713,
+      "expected_git_blob": "c73f537dc0945bb691d40b75a68d7dafa55928ab",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/linux_worker.py",
+      "sha256": "c9098dd2df3dfbe5d249304c0d1cb1281662df50744814bdc50d158ce1957d3a"
+    },
+    {
+      "bytes": 6613,
+      "expected_git_blob": "c2c7fd2a52682aca5af8cc1e333d8402e80cf32c",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/namespace_launcher.py",
+      "sha256": "b1e29fb4f256e74e7bcb748e964240ac8381f9b43aa0aaa1110024a4271d8d31"
+    },
+    {
+      "bytes": 3783,
+      "expected_git_blob": "94f6ac7c55d5ba4752c65fc0c1e0dbb27d91a6be",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/qa_common.py",
+      "sha256": "4d73bf34cfd5d66138eac7df14fc677d674188a7ca191e4b5448a7fc4c2ed150"
+    },
+    {
+      "bytes": 5924,
+      "expected_git_blob": "d92d279094d9aedd34792525875c1f3d11710165",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/render_logs.py",
+      "sha256": "a4c65886aa55247785ffcea40fa3511c1c2204d24ecdcd335f7993961d778b9c"
+    },
+    {
+      "bytes": 5820,
+      "expected_git_blob": "b140256eb6eb62cfc4d18dc7142911a5d356020d",
+      "group": "compiler_canonical",
+      "path": "bie/compiler/render_process.py",
+      "sha256": "d1667999c2bab9ab84de84817984eb20b833282307738970fff527e7d7492b67"
+    }
+  ],
+  "h10_compatibility_files": [
+    {
+      "bytes": 18311,
+      "expected_git_blob": "e8a713f05fe6042b02b712f6f99d1e400d168ab9",
+      "path": "bie/compiler/frame_runtime_contract.py",
+      "sha256": "adeb62415009f10f3d7470252ea3b047fe14366ce82dfdb9f09f91548bcd0711"
+    },
+    {
+      "bytes": 2241,
+      "expected_git_blob": "63ce70dc16b304f7c4051bcbd624efda81015e33",
+      "path": "bie/compiler/narration_consumer.py",
+      "sha256": "530318024ac12c698ae57eaeda21c4715e74f23b50f283ae85612985877589b0"
+    },
+    {
+      "bytes": 21185,
+      "expected_git_blob": "10ecd8e7485256b8b3e313c2b4935543544f487c",
+      "path": "bie/compiler/qa_scene_compile.py",
+      "sha256": "133f2ea155a395fbc0f9bb7cbe2809359b59bbe923ad7498e84c5df834d13cba"
+    },
+    {
+      "bytes": 6326,
+      "expected_git_blob": "30f4ce61b968886be4c7b3b540bb8fc92447615e",
+      "path": "bie/compiler/media_presentation.py",
+      "sha256": "80864e42e879d025fec007f53c62b0a968f667d5903a0b374c9884d26a5603d9"
+    }
+  ],
+  "product_accepted": false,
+  "schema_version": "bie.audio.canonical-dependency-binding/1",
+  "standalone_dependency_snapshot_copied": false
+}

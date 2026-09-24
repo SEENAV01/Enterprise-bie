@@ -1,0 +1,35 @@
+RUN test_audio_h4r_005.py
+FINISHED test_audio_h4r_005.py: 13 tests, 0 failures, 0 errors
+test_all_18_dependencies_checked (tests.audio.test_audio_h4r_005.DeliveryTests.test_all_18_dependencies_checked) ... ok
+test_changed_file (tests.audio.test_audio_h4r_005.DeliveryTests.test_changed_file) ... ok
+test_changed_receipt_and_manifest (tests.audio.test_audio_h4r_005.DeliveryTests.test_changed_receipt_and_manifest) ... ok
+test_cli_arguments_not_guessed (tests.audio.test_audio_h4r_005.DeliveryTests.test_cli_arguments_not_guessed) ... ok
+test_explicit_cli_opt_in (tests.audio.test_audio_h4r_005.DeliveryTests.test_explicit_cli_opt_in) ... ok
+test_export_never_accepted (tests.audio.test_audio_h4r_005.DeliveryTests.test_export_never_accepted) ... ok
+test_extra_file (tests.audio.test_audio_h4r_005.DeliveryTests.test_extra_file) ... ok
+test_fresh_export_verified (tests.audio.test_audio_h4r_005.DeliveryTests.test_fresh_export_verified) ... ok
+test_missing_receipt (tests.audio.test_audio_h4r_005.DeliveryTests.test_missing_receipt) ... ok
+test_public_key_permissions_not_accepted_for_signer (tests.audio.test_audio_h4r_005.DeliveryTests.test_public_key_permissions_not_accepted_for_signer) ... ok
+test_request_relabel_and_rehash (tests.audio.test_audio_h4r_005.DeliveryTests.test_request_relabel_and_rehash) ... ok
+test_revocation_after_export (tests.audio.test_audio_h4r_005.DeliveryTests.test_revocation_after_export) ... ok
+test_symlink_payload (tests.audio.test_audio_h4r_005.DeliveryTests.test_symlink_payload) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 105.405s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 105.8175,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

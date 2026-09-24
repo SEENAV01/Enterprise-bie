@@ -1,0 +1,47 @@
+{
+  "batch": "BIE-AUDIO-HARDENING-H8",
+  "closed_or_hardened": [
+    {
+      "detail": "durable paid-call intent; ambiguous completion blocks reissue; explicit resolution required; confirmed cache reconciliation",
+      "id": "AUDIO-AUDIT-001-F03-H8-PAID-CALL-RECOVERY",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "exact-origin/path egress authority, request-time environment secret binding, redacted receipts and whole-workload budget preflight",
+      "id": "AUDIO-AUDIT-001-F03-H8-LIVE-AUTHORITY",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "bounded host-local cross-process provider-call slots with crash-release semantics; not distributed fleet scheduling",
+      "id": "AUDIO-AUDIT-001-F03-H8-HOST-SCHEDULER",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "pipeline summary validator now validates H6 mix_stems and mix_stems_fingerprint fields emitted by worker",
+      "id": "AUDIO-H6-H5-SUMMARY-COMPAT",
+      "status": "REPAIRED_FOCUSED_TESTED"
+    }
+  ],
+  "product_accepted": false,
+  "remaining": [
+    {
+      "detail": "production multilingual/accent/IPA/OOV evaluator authority, held-out calibration and independent listening/live evidence",
+      "id": "AUDIO-AUDIT-001-F02"
+    },
+    {
+      "detail": "canonical DIR/ANI/COMP handoff, owned repair invalidation, pinned compile/render and rendered AV/caption evidence",
+      "id": "AUDIO-AUDIT-001-F04"
+    },
+    {
+      "detail": "real provider execution plus external secret-manager/HSM and distributed/multi-host deployment validation; not an implementation acceptance claim",
+      "id": "AUDIO-F03-DEPLOYMENT-VALIDATION"
+    },
+    {
+      "detail": "fresh complete AUDIO regression and final section re-audit after remaining implementation work",
+      "id": "AUDIO-FINAL-REGRESSION"
+    }
+  ],
+  "schema_version": "bie.audio.gap-ledger/1",
+  "section_exit_permitted": false,
+  "section_status": "HARDENING_IN_PROGRESS_NOT_ACCEPTED"
+}

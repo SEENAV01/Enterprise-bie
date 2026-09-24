@@ -1,0 +1,56 @@
+{
+  "batch": "BIE-AUDIO-HARDENING-H10",
+  "closed_or_hardened": [
+    {
+      "detail": "exact DIR SpeechUtterance to AUDIO SpeechPlan identity/source/objective/voice/text binding",
+      "id": "AUDIO-AUDIT-001-F04-H10-DIR-HANDOFF",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "canonical-main-pinned COMP compiler_h6 narration/media/frame/caption adapter over final mixed PCM",
+      "id": "AUDIO-AUDIT-001-F04-H10-COMP-HANDOFF",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "unchanged-reading repair invalidates dependent AUDIO clocks/captions/QA, COMP generated source and render",
+      "id": "AUDIO-AUDIT-001-F04-H10-INVALIDATION",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    },
+    {
+      "detail": "bounded FFmpeg technical H.264/AAC/mov_text output with non-empty caption roundtrip",
+      "id": "AUDIO-AUDIT-001-F04-H10-RENDER-EVIDENCE",
+      "status": "REAL_FFMPEG_TECHNICAL_AV_CAPTION_VERIFIED"
+    },
+    {
+      "detail": "F04 evidence gate binds handoffs, invalidation and render while refusing section/product acceptance",
+      "id": "AUDIO-AUDIT-001-F04-H10-GATE",
+      "status": "IMPLEMENTED_FOCUSED_TESTED"
+    }
+  ],
+  "product_accepted": false,
+  "remaining": [
+    {
+      "detail": "fresh complete AUDIO regression and final section re-audit",
+      "id": "AUDIO-FINAL-REGRESSION"
+    },
+    {
+      "detail": "pinned canonical React/Remotion compile/discovery/smoke/full render remains downstream environment/integration validation",
+      "id": "AUDIO-F04-REMOTION-VALIDATION"
+    },
+    {
+      "detail": "authorized live production neural provider and representative independent listening remain external validation",
+      "id": "AUDIO-AUDIT-001-F01"
+    },
+    {
+      "detail": "real multilingual/accent/IPA/OOV evaluator, held-out labelled audio/phoneme boundaries and independent listening remain unexecuted",
+      "id": "AUDIO-F02-EXTERNAL-VALIDATION"
+    },
+    {
+      "detail": "actual production KMS/HSM and distributed/multi-host deployment validation remains external",
+      "id": "AUDIO-F03-DEPLOYMENT-VALIDATION"
+    }
+  ],
+  "schema_version": "bie.audio.gap-ledger/1",
+  "section_exit_permitted": false,
+  "section_status": "HARDENING_IN_PROGRESS_NOT_ACCEPTED"
+}

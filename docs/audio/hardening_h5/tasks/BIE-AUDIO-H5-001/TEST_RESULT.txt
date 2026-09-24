@@ -1,0 +1,51 @@
+RUN test_audio_h5_001.py
+test_01_source_preparation_preserved (tests.audio.test_audio_h5_001.Contracts.test_01_source_preparation_preserved) ... ok
+test_02_declared_provenance (tests.audio.test_audio_h5_001.Contracts.test_02_declared_provenance) ... ok
+test_03_stable_request_identity (tests.audio.test_audio_h5_001.Contracts.test_03_stable_request_identity) ... ok
+test_04_modified_source_does_not_validate (tests.audio.test_audio_h5_001.Contracts.test_04_modified_source_does_not_validate) ... ok
+test_05_same_job_revision_changed_source_conflicts (tests.audio.test_audio_h5_001.Contracts.test_05_same_job_revision_changed_source_conflicts) ... ok
+test_06_new_revision_new_key (tests.audio.test_audio_h5_001.Contracts.test_06_new_revision_new_key) ... ok
+test_07_unknown_fields (tests.audio.test_audio_h5_001.Contracts.test_07_unknown_fields) ... ok
+test_08_acceptance_escalation (tests.audio.test_audio_h5_001.Contracts.test_08_acceptance_escalation) ... ok
+test_09_rehashed_prepared_plan (tests.audio.test_audio_h5_001.Contracts.test_09_rehashed_prepared_plan) ... ok
+test_10_bad_uuid (tests.audio.test_audio_h5_001.Contracts.test_10_bad_uuid) ... ok
+test_11_empty_key_id (tests.audio.test_audio_h5_001.Contracts.test_11_empty_key_id) ... ok
+test_12_segment_char_budget (tests.audio.test_audio_h5_001.Contracts.test_12_segment_char_budget) ... ok
+test_13_boolean_limits_rejected (tests.audio.test_audio_h5_001.Contracts.test_13_boolean_limits_rejected) ... ok
+test_14_duration_limits_rejected (tests.audio.test_audio_h5_001.Contracts.test_14_duration_limits_rejected) ... ok
+test_15_invalid_bundle_policy (tests.audio.test_audio_h5_001.Contracts.test_15_invalid_bundle_policy) ... ok
+test_16_storage_budget_binding (tests.audio.test_audio_h5_001.Contracts.test_16_storage_budget_binding) ... ok
+test_17_unknown_preparation_profile (tests.audio.test_audio_h5_001.Contracts.test_17_unknown_preparation_profile) ... ok
+test_18_review_input_blocked (tests.audio.test_audio_h5_001.Contracts.test_18_review_input_blocked) ... ok
+test_19_profile_exact_reprobe (tests.audio.test_audio_h5_001.Contracts.test_19_profile_exact_reprobe) ... ok
+test_20_profile_runtime_tamper (tests.audio.test_audio_h5_001.Contracts.test_20_profile_runtime_tamper) ... ok
+test_21_shadowed_launcher_rejected (tests.audio.test_audio_h5_001.Contracts.test_21_shadowed_launcher_rejected) ... ok
+test_22_engine_closure_has_unchanged_dsp_and_native_child (tests.audio.test_audio_h5_001.Contracts.test_22_engine_closure_has_unchanged_dsp_and_native_child) ... ok
+test_23_host_and_namespace_identities_explicit (tests.audio.test_audio_h5_001.Contracts.test_23_host_and_namespace_identities_explicit) ... ok
+test_24_segment_count_not_truncated (tests.audio.test_audio_h5_001.Contracts.test_24_segment_count_not_truncated) ... ok
+test_25_canonical_api_sources_resolve_from_installed_modules (tests.audio.test_audio_h5_001.Contracts.test_25_canonical_api_sources_resolve_from_installed_modules) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 17.547s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h5_001.py", "tests": 25, "failures": 0, "errors": 0, "skips": 0, "seconds": 18.253}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h5_001.py"
+  ],
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 18.304
+}

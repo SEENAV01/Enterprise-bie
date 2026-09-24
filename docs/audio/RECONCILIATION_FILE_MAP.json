@@ -1,0 +1,105 @@
+[
+  {
+    "from": "a204/bie/audio/__init__.py",
+    "to": "bie/audio/compat204/__init__.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "782fa95beaea7805007d0f221024a59ed0d7dddd918fdf0a6d2ffaf7132c5e96"
+  },
+  {
+    "from": "a204/bie/audio/__main__.py",
+    "to": "bie/audio/compat204/__main__.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "d3d02422d38cf7e317b3fcf0a058bab5ebe11546ae0c796a1730c4a6206a1c15"
+  },
+  {
+    "from": "a204/bie/audio/acronym_pronunciation.py",
+    "to": "bie/audio/compat204/acronym_pronunciation.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "d77a65c453da43e24885ee896fa062c9d3618e2afe9a0c2a1b0604a44b831643"
+  },
+  {
+    "from": "a204/bie/audio/contracts.py",
+    "to": "bie/audio/compat204/contracts.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "77c1b5a43f7b908818979b691e9120378cb52a5b42ead85994a7f92a29bc620d"
+  },
+  {
+    "from": "a204/bie/audio/math_pronunciation.py",
+    "to": "bie/audio/compat204/math_pronunciation.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "bf955724d23b59b78fdaf71ced1d5f8cd5ed9e806072aab524fc31f6145df9fb"
+  },
+  {
+    "from": "a204/bie/audio/narration_segmentation.py",
+    "to": "bie/audio/compat204/narration_segmentation.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "39b00e1f24c8092402c338ec54c94d0c3f581e26c5449ebc22b66f3f66792a3f"
+  },
+  {
+    "from": "a204/bie/audio/pronunciation_lexicon.py",
+    "to": "bie/audio/compat204/pronunciation_lexicon.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "c0c5de58ae2e2c7d6f5e6607b784fa6701860b57c84ec4efa39837aaea32da54"
+  },
+  {
+    "from": "a204/bie/audio/symbol_pronunciation.py",
+    "to": "bie/audio/compat204/symbol_pronunciation.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "c3261d09afebb518b9a7e7681e26866eb45ef8f97675651307b4f6be2f7ba327"
+  },
+  {
+    "from": "a204/bie/audio/voiceover_preparation.py",
+    "to": "bie/audio/compat204/voiceover_preparation.py",
+    "transformation": "namespace relocation only; file bytes unchanged",
+    "sha256": "b67d615484ac3ac21c182a14b97bc6e6043ef5fe25d80876f6c266b51bc35b59"
+  },
+  {
+    "from": "a204/tests/audio/support.py",
+    "to": "tests/audio/compat204_support.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "9dbee480dce6f8746ac109e3f6efe1de31dc1f2fb15d8cf695deaf129b2f55ec",
+    "after_sha256": "3a4d1915b5786cd7ad361d1c46d10120a034cb34a356c8f0ae1d7872b3b9d4d0"
+  },
+  {
+    "from": "a204/tests/audio/test_audio_integration_001.py",
+    "to": "tests/audio/test_compat204_integration_001.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "4d903e1b5eeda21c971227bc1c43ffd2c9fc494b4ef42c438f3608624a691666",
+    "after_sha256": "e62ae2fa90cec52918b3118db403f5a154d7db7838b4f9659f1d92d850508b7f"
+  },
+  {
+    "from": "a204/tests/audio/test_audio_vo_001.py",
+    "to": "tests/audio/test_compat204_vo_001.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "f83e2e9c1b373cf5cad21bc0ba282e626c646ac1f70d8cb48d5396a950ea9c92",
+    "after_sha256": "e5715d93b6c7998e6d0959fdbc3ab6dfddf4964c0606a6cfd8b54310ae5929b9"
+  },
+  {
+    "from": "a204/tests/audio/test_audio_vo_002.py",
+    "to": "tests/audio/test_compat204_vo_002.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "6a01d03e8962b6feaae553abe419d198fb84f2b4f8d572000a0ba50d4419e1ac",
+    "after_sha256": "b59d458e834398c341531c7ac8d216a2ef409985bc702105fe5de2704fea18c3"
+  },
+  {
+    "from": "a204/tests/audio/test_audio_vo_003.py",
+    "to": "tests/audio/test_compat204_vo_003.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "da54ef99fecce4acb97739c7ad0b54cb556706d71958e712533d207aa3c854c6",
+    "after_sha256": "9d405597d0da03a94bf3033804bd7a8d691cfb7b457e72fe7e577f0910650e94"
+  },
+  {
+    "from": "a204/tests/audio/test_audio_vo_004.py",
+    "to": "tests/audio/test_compat204_vo_004.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "11a549e90afed595a2e0587db4dfe56abb4f5b90ff21a47830604b1fa9a479e6",
+    "after_sha256": "266be0732b7087bea072b2e7852cf33a11be053991ae0822f8f701f2395b9ee6"
+  },
+  {
+    "from": "a204/tests/audio/test_audio_vo_005.py",
+    "to": "tests/audio/test_compat204_vo_005.py",
+    "transformation": "import/CLI namespace only; assertions unchanged",
+    "before_sha256": "1822cdba63c86b13fe30df0cf9b792384198aae1e5142cef2a07e9d50072ad62",
+    "after_sha256": "d52c80ccefcfb9081e1dc6248672c2292ca9c41d7510ad04f888ca3e8f450a62"
+  }
+]

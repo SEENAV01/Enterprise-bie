@@ -1,0 +1,47 @@
+{
+  "schema_version": "bie.audio.batch004-completion-corrections/1",
+  "full_section_reaudit_performed": false,
+  "inherited_batch003_code_modified": false,
+  "items": [
+    {
+      "issue": "MIX publication used inherited key_lock without required timeout",
+      "evidence": "IO_INITIAL.txt",
+      "fix": "Use exact existing lock helper with explicit 30-second timeout; exclusive publication tests and actual CLI rerun"
+    },
+    {
+      "issue": "Derived-clock frame state did not expose animation progress",
+      "evidence": "INTEGRATION_INITIAL.txt",
+      "fix": "Sample/frame evaluator includes preserved holds and rational progress; compare every forward/reverse state"
+    },
+    {
+      "issue": "Rehashed contradictory caption interval or meter binding could pass structural validation",
+      "evidence": "INTEGRATION_INITIAL.txt",
+      "fix": "Validate PCM identity, source projection, clock coverage and bounds; source-aware publication revalidation"
+    },
+    {
+      "issue": "Rehashed policy/review/ceiling inconsistency not rejected",
+      "evidence": "INTEGRATION_REVIEW_INITIAL.txt",
+      "fix": "Revalidate policy and output meter relationships; preserve fail/review distinction after quantization"
+    },
+    {
+      "issue": "CLI did not preserve supplied animation spec in published inputs",
+      "fix": "Store exact sync.json alongside narration and mix source; CLI coverage verifies the file"
+    },
+    {
+      "issue": "Initial newly added caption-tamper fixture was invalid before invocation",
+      "evidence": "INTEGRATION_INITIAL.txt",
+      "fix": "Use same-length edited caption; upstream/current source validation must reject it"
+    },
+    {
+      "issue": "Technical preview JS newline and automation DOM/CSP errors",
+      "fix": "Raw HTML template; source textContent assertion and direct CSP-compatible automation; not a mixer/audio algorithm change"
+    }
+  ],
+  "not_claimed": [
+    "all potential defects eliminated",
+    "independent listening or acoustic validation",
+    "full operating-system sandbox",
+    "actual Remotion rendering",
+    "section exit"
+  ]
+}

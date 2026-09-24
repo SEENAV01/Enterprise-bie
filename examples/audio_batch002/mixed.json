@@ -1,0 +1,132 @@
+{
+  "schema_version": "bie.audio.input/1",
+  "lesson_id": "lesson:audio-fixture",
+  "voice_profile": "voice:unselected",
+  "language": "hi",
+  "segments": [
+    {
+      "segment_id": "narration:1",
+      "scene_id": "scene:1",
+      "purpose": "EXPLAIN",
+      "text_intent": "Synthetic pronunciation fixture, not a completed book lesson",
+      "evidence_ids": [
+        "synthetic:audio-fixture:1"
+      ],
+      "objective_ids": [
+        "objective:exact-reading"
+      ]
+    }
+  ],
+  "drafts": [
+    {
+      "segment_id": "narration:1",
+      "text": "यह photosynthesis का उदाहरण है। यह केवल आवाज़ की तकनीकी जाँच है।",
+      "evidence_ids": [
+        "synthetic:audio-fixture:1"
+      ],
+      "unsupported_claims": [],
+      "requires_review": false
+    }
+  ],
+  "segment_order": [
+    "narration:1"
+  ],
+  "lexicon": {
+    "version": "synthetic-lexicon/1",
+    "entries": []
+  },
+  "symbols": [
+    {
+      "symbol": "%",
+      "language": "hi",
+      "sense": "percent",
+      "spoken": "प्रतिशत",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "±",
+      "language": "hi",
+      "sense": "uncertainty",
+      "spoken": "धन या ऋण",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≈",
+      "language": "hi",
+      "sense": "comparison",
+      "spoken": "लगभग बराबर",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≠",
+      "language": "hi",
+      "sense": "comparison",
+      "spoken": "के बराबर नहीं",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≤",
+      "language": "hi",
+      "sense": "comparison",
+      "spoken": "से छोटा या बराबर",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "≥",
+      "language": "hi",
+      "sense": "comparison",
+      "spoken": "से बड़ा या बराबर",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    }
+  ],
+  "acronyms": [
+    {
+      "surface": "AI",
+      "language": "hi",
+      "mode": "LETTERS",
+      "evidence_refs": [
+        "synthetic:lexicon:1"
+      ],
+      "reading": null,
+      "domain": "*"
+    }
+  ],
+  "readings": [],
+  "pauses": [],
+  "policy": {
+    "version": "bie-audio-segmentation/1",
+    "max_chars": 800,
+    "max_utf8_bytes": 3200,
+    "max_segments": 10000,
+    "abbreviations": [
+      "Dr.",
+      "Mr.",
+      "Mrs.",
+      "Ms.",
+      "Prof.",
+      "e.g.",
+      "i.e.",
+      "vs.",
+      "Fig."
+    ]
+  },
+  "domain": "technical-fixture"
+}

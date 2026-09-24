@@ -1,0 +1,35 @@
+{
+  "schema_version": "bie.audio.live-neural-verification/1",
+  "checked_at_utc": "2026-09-20T19:38:17.817166+00:00",
+  "environment_credential_present": false,
+  "secret_values_recorded": false,
+  "live_status": "NOT_RUN",
+  "live_http_requests": 0,
+  "neural_speech_generated": false,
+  "reasons": [
+    "No approved live voice/deployment/source-transfer configuration provided in this task",
+    "No live provider execution or independent listening performed"
+  ],
+  "cli_guard_probes": {
+    "missing_credentials": {
+      "exit_code": 2,
+      "stderr": {
+        "status": "BLOCKED",
+        "error_code": "NEURAL_CREDENTIALS_NOT_CONFIGURED",
+        "product_accepted": false
+      }
+    },
+    "missing_opt_in": {
+      "exit_code": 2,
+      "stderr": {
+        "status": "BLOCKED",
+        "error_code": "NEURAL_LIVE_OPT_IN_REQUIRED",
+        "product_accepted": false
+      }
+    }
+  },
+  "probe_environment": "Explicitly unset API-key variable; no requests are sent",
+  "cinematic_quality_verified": false,
+  "acoustic_alignment_verified": false,
+  "product_accepted": false
+}

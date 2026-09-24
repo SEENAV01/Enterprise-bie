@@ -1,0 +1,453 @@
+{
+  "schema_version": "bie.audio.sync-benchmark/1",
+  "cases": [
+    {
+      "case": "english",
+      "scope": "SYNTHETIC_TEXT_REAL_NATIVE_SPEECH",
+      "repeatability_passed": true,
+      "runs": [
+        {
+          "run": 1,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/english-1",
+            "segments": 1,
+            "words": 26,
+            "captions": 2,
+            "scene_frames": 323,
+            "animation_tracks": 0,
+            "pause_windows": 1,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 6,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "7e7f510c879802e7da06cc6d419b87af662bb25b2feedd7aeb6787d19de47270",
+            "captions.vtt": "3597b326b06558899e25577fbc26d21c8f48335a4e43f2fdd844b40e6683eec8",
+            "captions.srt": "cec8d0779f40572d09002db8801bbfee2fe84fc7fe855011fad50e4c0fde2210",
+            "WORD_TIMINGS.json": "7fcc11f466bdbbe73e342fc8afd7f3aef5bd3b7f6e8dd0ce8198d2b42285c5cd",
+            "SCENE_SYNC.json": "da918fc1e26b4b4e43b9597823c0787979c77106dac02a5f5ebb1240e4238436",
+            "PAUSE_SYNC.json": "3c05058c68739c8531feec8cdf8379396304d493797046ed07d93d6616c4172f",
+            "ANIMATION_SYNC.json": "40756892838310b5c26054a65a9a550658dabc44b0d715807c4aa6d117f8beca"
+          }
+        },
+        {
+          "run": 2,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/english-2",
+            "segments": 1,
+            "words": 26,
+            "captions": 2,
+            "scene_frames": 323,
+            "animation_tracks": 0,
+            "pause_windows": 1,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 6,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "7e7f510c879802e7da06cc6d419b87af662bb25b2feedd7aeb6787d19de47270",
+            "captions.vtt": "3597b326b06558899e25577fbc26d21c8f48335a4e43f2fdd844b40e6683eec8",
+            "captions.srt": "cec8d0779f40572d09002db8801bbfee2fe84fc7fe855011fad50e4c0fde2210",
+            "WORD_TIMINGS.json": "7fcc11f466bdbbe73e342fc8afd7f3aef5bd3b7f6e8dd0ce8198d2b42285c5cd",
+            "SCENE_SYNC.json": "da918fc1e26b4b4e43b9597823c0787979c77106dac02a5f5ebb1240e4238436",
+            "PAUSE_SYNC.json": "3c05058c68739c8531feec8cdf8379396304d493797046ed07d93d6616c4172f",
+            "ANIMATION_SYNC.json": "40756892838310b5c26054a65a9a550658dabc44b0d715807c4aa6d117f8beca"
+          }
+        },
+        {
+          "run": 3,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/english-3",
+            "segments": 1,
+            "words": 26,
+            "captions": 2,
+            "scene_frames": 323,
+            "animation_tracks": 0,
+            "pause_windows": 1,
+            "cache_hits": 1,
+            "tts_generation_calls": 0,
+            "native_synthesis_calls_including_replay": 3,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "7e7f510c879802e7da06cc6d419b87af662bb25b2feedd7aeb6787d19de47270",
+            "captions.vtt": "3597b326b06558899e25577fbc26d21c8f48335a4e43f2fdd844b40e6683eec8",
+            "captions.srt": "cec8d0779f40572d09002db8801bbfee2fe84fc7fe855011fad50e4c0fde2210",
+            "WORD_TIMINGS.json": "7fcc11f466bdbbe73e342fc8afd7f3aef5bd3b7f6e8dd0ce8198d2b42285c5cd",
+            "SCENE_SYNC.json": "da918fc1e26b4b4e43b9597823c0787979c77106dac02a5f5ebb1240e4238436",
+            "PAUSE_SYNC.json": "3c05058c68739c8531feec8cdf8379396304d493797046ed07d93d6616c4172f",
+            "ANIMATION_SYNC.json": "40756892838310b5c26054a65a9a550658dabc44b0d715807c4aa6d117f8beca"
+          }
+        }
+      ]
+    },
+    {
+      "case": "hindi",
+      "scope": "SYNTHETIC_TEXT_REAL_NATIVE_SPEECH",
+      "repeatability_passed": true,
+      "runs": [
+        {
+          "run": 1,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/hindi-1",
+            "segments": 1,
+            "words": 18,
+            "captions": 2,
+            "scene_frames": 205,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 4,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "284013a13d9ce074e819fbb48481bfa1d9daf478c8a81bd5dae7f83b86e10b49",
+            "captions.vtt": "d95e1dd85e7162d9265447def589d3af050b017d980e502ca00877dc4d1a404a",
+            "captions.srt": "d018498f279c7eb7add2c30da0500b03c8a17f6b63222e4a0553761e4cc8e5b4",
+            "WORD_TIMINGS.json": "ccc11ea63e863bc07568d1f357768c6f7e2a117703bc647e63e1c4227cf0f5be",
+            "SCENE_SYNC.json": "4ff0aa513b21705ecc884ba01a621fae6d9e584bb1c72605391f9419e2a7e3a9",
+            "PAUSE_SYNC.json": "34478fa3041270c977261fcdeae728a43eaebab587daf81fa27b87f97622ad46",
+            "ANIMATION_SYNC.json": "9d3ea7cfe2b5e67d25db433dc51007ac8f827e31993afdaa05212570effb8d17"
+          }
+        },
+        {
+          "run": 2,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/hindi-2",
+            "segments": 1,
+            "words": 18,
+            "captions": 2,
+            "scene_frames": 205,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 4,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "284013a13d9ce074e819fbb48481bfa1d9daf478c8a81bd5dae7f83b86e10b49",
+            "captions.vtt": "d95e1dd85e7162d9265447def589d3af050b017d980e502ca00877dc4d1a404a",
+            "captions.srt": "d018498f279c7eb7add2c30da0500b03c8a17f6b63222e4a0553761e4cc8e5b4",
+            "WORD_TIMINGS.json": "ccc11ea63e863bc07568d1f357768c6f7e2a117703bc647e63e1c4227cf0f5be",
+            "SCENE_SYNC.json": "4ff0aa513b21705ecc884ba01a621fae6d9e584bb1c72605391f9419e2a7e3a9",
+            "PAUSE_SYNC.json": "34478fa3041270c977261fcdeae728a43eaebab587daf81fa27b87f97622ad46",
+            "ANIMATION_SYNC.json": "9d3ea7cfe2b5e67d25db433dc51007ac8f827e31993afdaa05212570effb8d17"
+          }
+        },
+        {
+          "run": 3,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/hindi-3",
+            "segments": 1,
+            "words": 18,
+            "captions": 2,
+            "scene_frames": 205,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 1,
+            "tts_generation_calls": 0,
+            "native_synthesis_calls_including_replay": 2,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "284013a13d9ce074e819fbb48481bfa1d9daf478c8a81bd5dae7f83b86e10b49",
+            "captions.vtt": "d95e1dd85e7162d9265447def589d3af050b017d980e502ca00877dc4d1a404a",
+            "captions.srt": "d018498f279c7eb7add2c30da0500b03c8a17f6b63222e4a0553761e4cc8e5b4",
+            "WORD_TIMINGS.json": "ccc11ea63e863bc07568d1f357768c6f7e2a117703bc647e63e1c4227cf0f5be",
+            "SCENE_SYNC.json": "4ff0aa513b21705ecc884ba01a621fae6d9e584bb1c72605391f9419e2a7e3a9",
+            "PAUSE_SYNC.json": "34478fa3041270c977261fcdeae728a43eaebab587daf81fa27b87f97622ad46",
+            "ANIMATION_SYNC.json": "9d3ea7cfe2b5e67d25db433dc51007ac8f827e31993afdaa05212570effb8d17"
+          }
+        }
+      ]
+    },
+    {
+      "case": "mixed",
+      "scope": "SYNTHETIC_TEXT_REAL_NATIVE_SPEECH",
+      "repeatability_passed": true,
+      "runs": [
+        {
+          "run": 1,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/mixed-1",
+            "segments": 1,
+            "words": 12,
+            "captions": 1,
+            "scene_frames": 177,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 4,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "42cea29ea5620d5481d1d3f7e31ec357c0de421177ebd98a8dcc0f17c128f19b",
+            "captions.vtt": "61e3af04973b2184e27b4eb9f1fa9eec4ec4d0cbcb39f33e3d732c50ddd0c8ab",
+            "captions.srt": "91263f10edba85ab13f7336f4029645174ba19afbe381bce5e240d5fcd2acd44",
+            "WORD_TIMINGS.json": "04bf2dd9164427ca7777291a42a2571728f2871007c7189fb626478489d73aeb",
+            "SCENE_SYNC.json": "ce9839c5672941e9ac1c562b8cecb0c3b918aa6fcea073d555f9bf9c2c6f690e",
+            "PAUSE_SYNC.json": "8d28fb6f2e3ead643fa4bb7ca6bd13535e8d19c07f2f2646772d7e065b8da228",
+            "ANIMATION_SYNC.json": "d650ca821c8c2de1f3bac34d040dca856fcab328b23c49751faed8c335d3f438"
+          }
+        },
+        {
+          "run": 2,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/mixed-2",
+            "segments": 1,
+            "words": 12,
+            "captions": 1,
+            "scene_frames": 177,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 4,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "42cea29ea5620d5481d1d3f7e31ec357c0de421177ebd98a8dcc0f17c128f19b",
+            "captions.vtt": "61e3af04973b2184e27b4eb9f1fa9eec4ec4d0cbcb39f33e3d732c50ddd0c8ab",
+            "captions.srt": "91263f10edba85ab13f7336f4029645174ba19afbe381bce5e240d5fcd2acd44",
+            "WORD_TIMINGS.json": "04bf2dd9164427ca7777291a42a2571728f2871007c7189fb626478489d73aeb",
+            "SCENE_SYNC.json": "ce9839c5672941e9ac1c562b8cecb0c3b918aa6fcea073d555f9bf9c2c6f690e",
+            "PAUSE_SYNC.json": "8d28fb6f2e3ead643fa4bb7ca6bd13535e8d19c07f2f2646772d7e065b8da228",
+            "ANIMATION_SYNC.json": "d650ca821c8c2de1f3bac34d040dca856fcab328b23c49751faed8c335d3f438"
+          }
+        },
+        {
+          "run": 3,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/mixed-3",
+            "segments": 1,
+            "words": 12,
+            "captions": 1,
+            "scene_frames": 177,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 1,
+            "tts_generation_calls": 0,
+            "native_synthesis_calls_including_replay": 2,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "42cea29ea5620d5481d1d3f7e31ec357c0de421177ebd98a8dcc0f17c128f19b",
+            "captions.vtt": "61e3af04973b2184e27b4eb9f1fa9eec4ec4d0cbcb39f33e3d732c50ddd0c8ab",
+            "captions.srt": "91263f10edba85ab13f7336f4029645174ba19afbe381bce5e240d5fcd2acd44",
+            "WORD_TIMINGS.json": "04bf2dd9164427ca7777291a42a2571728f2871007c7189fb626478489d73aeb",
+            "SCENE_SYNC.json": "ce9839c5672941e9ac1c562b8cecb0c3b918aa6fcea073d555f9bf9c2c6f690e",
+            "PAUSE_SYNC.json": "8d28fb6f2e3ead643fa4bb7ca6bd13535e8d19c07f2f2646772d7e065b8da228",
+            "ANIMATION_SYNC.json": "d650ca821c8c2de1f3bac34d040dca856fcab328b23c49751faed8c335d3f438"
+          }
+        }
+      ]
+    },
+    {
+      "case": "compat204",
+      "scope": "SYNTHETIC_TEXT_REAL_NATIVE_SPEECH",
+      "repeatability_passed": true,
+      "runs": [
+        {
+          "run": 1,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/compat204-1",
+            "segments": 1,
+            "words": 22,
+            "captions": 2,
+            "scene_frames": 227,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 4,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "5a4b5f445a2b0f47aae7b4c6aad9c2e9649c5ff9c18e0ba9987b6a79bfc6c745",
+            "captions.vtt": "aefedac353a778007be6081a34dab93b623f191f2612cd7332c076746980143c",
+            "captions.srt": "a65b80a6da7c6950f34cb1e6661dcd02532dd272afcfd1e6170172a0e126c14a",
+            "WORD_TIMINGS.json": "718c058bb824c743a9d11cb5c27e1d28420f4d818bf7ba6fc21f7b15b539d1c5",
+            "SCENE_SYNC.json": "719d7d50ae15f8a147a333bf3aa5a1e629b2ef9d07b74993ee637e4c860f08f6",
+            "PAUSE_SYNC.json": "a8ebaf90f90faeb320e44867a54bfdff315d9ac939666ccfaf7edad5718f4946",
+            "ANIMATION_SYNC.json": "ef78e304a59610d0c05946089130022d6d456568903d3eedef12f9a839785961"
+          }
+        },
+        {
+          "run": 2,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/compat204-2",
+            "segments": 1,
+            "words": 22,
+            "captions": 2,
+            "scene_frames": 227,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 0,
+            "tts_generation_calls": 1,
+            "native_synthesis_calls_including_replay": 4,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "5a4b5f445a2b0f47aae7b4c6aad9c2e9649c5ff9c18e0ba9987b6a79bfc6c745",
+            "captions.vtt": "aefedac353a778007be6081a34dab93b623f191f2612cd7332c076746980143c",
+            "captions.srt": "a65b80a6da7c6950f34cb1e6661dcd02532dd272afcfd1e6170172a0e126c14a",
+            "WORD_TIMINGS.json": "718c058bb824c743a9d11cb5c27e1d28420f4d818bf7ba6fc21f7b15b539d1c5",
+            "SCENE_SYNC.json": "719d7d50ae15f8a147a333bf3aa5a1e629b2ef9d07b74993ee637e4c860f08f6",
+            "PAUSE_SYNC.json": "a8ebaf90f90faeb320e44867a54bfdff315d9ac939666ccfaf7edad5718f4946",
+            "ANIMATION_SYNC.json": "ef78e304a59610d0c05946089130022d6d456568903d3eedef12f9a839785961"
+          }
+        },
+        {
+          "run": 3,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/compat204-3",
+            "segments": 1,
+            "words": 22,
+            "captions": 2,
+            "scene_frames": 227,
+            "animation_tracks": 0,
+            "pause_windows": 0,
+            "cache_hits": 1,
+            "tts_generation_calls": 0,
+            "native_synthesis_calls_including_replay": 2,
+            "timing_replay_calls": 1,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "5a4b5f445a2b0f47aae7b4c6aad9c2e9649c5ff9c18e0ba9987b6a79bfc6c745",
+            "captions.vtt": "aefedac353a778007be6081a34dab93b623f191f2612cd7332c076746980143c",
+            "captions.srt": "a65b80a6da7c6950f34cb1e6661dcd02532dd272afcfd1e6170172a0e126c14a",
+            "WORD_TIMINGS.json": "718c058bb824c743a9d11cb5c27e1d28420f4d818bf7ba6fc21f7b15b539d1c5",
+            "SCENE_SYNC.json": "719d7d50ae15f8a147a333bf3aa5a1e629b2ef9d07b74993ee637e4c860f08f6",
+            "PAUSE_SYNC.json": "a8ebaf90f90faeb320e44867a54bfdff315d9ac939666ccfaf7edad5718f4946",
+            "ANIMATION_SYNC.json": "ef78e304a59610d0c05946089130022d6d456568903d3eedef12f9a839785961"
+          }
+        }
+      ]
+    },
+    {
+      "case": "multiscene",
+      "scope": "SYNTHETIC_TEXT_REAL_NATIVE_SPEECH",
+      "repeatability_passed": true,
+      "runs": [
+        {
+          "run": 1,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/multiscene-1",
+            "segments": 3,
+            "words": 15,
+            "captions": 3,
+            "scene_frames": 215,
+            "animation_tracks": 1,
+            "pause_windows": 2,
+            "cache_hits": 0,
+            "tts_generation_calls": 3,
+            "native_synthesis_calls_including_replay": 6,
+            "timing_replay_calls": 3,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "72fb2f1e5fcb3c798d14c26e70bc8a4a69444d235c49d3d467ad6bbcc6317ac8",
+            "captions.vtt": "59eed6387450788442861b3c89ae30b65f0a2c51d2df8f7582b214d73b79c5d5",
+            "captions.srt": "58c2378f40da4936921dc7618d21b2d8c88eda1504f276eba13ce02de8d33b47",
+            "WORD_TIMINGS.json": "13cf1671bfe5d7eae20049d2600f7a8970ff43798a0d965672204b333f45d9e4",
+            "SCENE_SYNC.json": "238db43543fef810ad1a77fa8e1db07a3f72df2039c3ee40a063877e55195675",
+            "PAUSE_SYNC.json": "ac74496d1829617c03450aa9100480411de175691be22349ef3182ddc56e7c3c",
+            "ANIMATION_SYNC.json": "26316634267e143eb1cbe6ec38c3020aafad5731891eabc9ef45f2453795a48f"
+          }
+        },
+        {
+          "run": 2,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/multiscene-2",
+            "segments": 3,
+            "words": 15,
+            "captions": 3,
+            "scene_frames": 215,
+            "animation_tracks": 1,
+            "pause_windows": 2,
+            "cache_hits": 0,
+            "tts_generation_calls": 3,
+            "native_synthesis_calls_including_replay": 6,
+            "timing_replay_calls": 3,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "72fb2f1e5fcb3c798d14c26e70bc8a4a69444d235c49d3d467ad6bbcc6317ac8",
+            "captions.vtt": "59eed6387450788442861b3c89ae30b65f0a2c51d2df8f7582b214d73b79c5d5",
+            "captions.srt": "58c2378f40da4936921dc7618d21b2d8c88eda1504f276eba13ce02de8d33b47",
+            "WORD_TIMINGS.json": "13cf1671bfe5d7eae20049d2600f7a8970ff43798a0d965672204b333f45d9e4",
+            "SCENE_SYNC.json": "238db43543fef810ad1a77fa8e1db07a3f72df2039c3ee40a063877e55195675",
+            "PAUSE_SYNC.json": "ac74496d1829617c03450aa9100480411de175691be22349ef3182ddc56e7c3c",
+            "ANIMATION_SYNC.json": "26316634267e143eb1cbe6ec38c3020aafad5731891eabc9ef45f2453795a48f"
+          }
+        },
+        {
+          "run": 3,
+          "result": {
+            "output": "/mnt/data/audio_batch003_evidence/benchmark_final/multiscene-3",
+            "segments": 3,
+            "words": 15,
+            "captions": 3,
+            "scene_frames": 215,
+            "animation_tracks": 1,
+            "pause_windows": 2,
+            "cache_hits": 3,
+            "tts_generation_calls": 0,
+            "native_synthesis_calls_including_replay": 3,
+            "timing_replay_calls": 3,
+            "timing_basis": "ESPEAK_MARK_EVENTS_SAME_PCM",
+            "product_accepted": false
+          },
+          "hashes": {
+            "speech.wav": "72fb2f1e5fcb3c798d14c26e70bc8a4a69444d235c49d3d467ad6bbcc6317ac8",
+            "captions.vtt": "59eed6387450788442861b3c89ae30b65f0a2c51d2df8f7582b214d73b79c5d5",
+            "captions.srt": "58c2378f40da4936921dc7618d21b2d8c88eda1504f276eba13ce02de8d33b47",
+            "WORD_TIMINGS.json": "13cf1671bfe5d7eae20049d2600f7a8970ff43798a0d965672204b333f45d9e4",
+            "SCENE_SYNC.json": "238db43543fef810ad1a77fa8e1db07a3f72df2039c3ee40a063877e55195675",
+            "PAUSE_SYNC.json": "ac74496d1829617c03450aa9100480411de175691be22349ef3182ddc56e7c3c",
+            "ANIMATION_SYNC.json": "26316634267e143eb1cbe6ec38c3020aafad5731891eabc9ef45f2453795a48f"
+          }
+        }
+      ]
+    }
+  ],
+  "case_count": 5,
+  "independent_cli_processes": 15,
+  "all_selected_media_timing_hashes_equal": true,
+  "cache_hit_timing_replay_still_performed": true,
+  "seconds": 82.006,
+  "acoustic_alignment_verified": false,
+  "real_remotion_render_verified": false,
+  "product_accepted": false
+}
