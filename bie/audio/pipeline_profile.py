@@ -79,8 +79,11 @@ def probe_profile(*, concurrent_jobs=2):
     integer(concurrent_jobs,'concurrent jobs',1,8)
     selected_unshare=shutil.which('unshare')
     if not selected_unshare:raise AudioError('PIPELINE_LAUNCHER_PATH')
-    launcher=Path(selected_unshare).resolve(strict=True)
-    system_launcher=Path('/usr/bin/unshare').resolve(strict=True)
+    try:
+        launcher=Path(selected_unshare).resolve(strict=True)
+        system_launcher=Path('/usr/bin/unshare').resolve(strict=True)
+    except OSError as exc:
+        raise AudioError('PIPELINE_LAUNCHER_PATH') from exc
     allowed={system_launcher}
     ci_launcher=Path('/usr/local/libexec/bie-integration/unshare')
     if ci_launcher.exists():allowed.add(ci_launcher.resolve(strict=True))
