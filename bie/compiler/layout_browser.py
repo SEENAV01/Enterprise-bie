@@ -8,6 +8,7 @@ from dataclasses import asdict
 from pathlib import Path
 import json
 import tempfile
+import time
 
 from .content_fit_qa import BRIDGE_SCOPE
 from .frame_layout import dimensions
@@ -18,6 +19,8 @@ from .render_process import run_bounded_process
 SUPPORT = Path(__file__).parent/'qa_support'
 MAX_FRAMES = 2400
 MAX_LAYER_FRAMES = 12000
+MAX_BROWSER_LAUNCH_ATTEMPTS = 2
+BROWSER_LAUNCH_RETRY_DELAY_SECONDS = 0.25
 
 
 class ChromiumLayoutProbe:
@@ -36,15 +39,24 @@ class ChromiumLayoutProbe:
         self.playwright = None
 
     def __enter__(self):
-        from playwright.sync_api import sync_playwright
-        self.playwright = sync_playwright().start()
-        try:
-            self.browser = self.playwright.chromium.launch(executable_path=self.executable, headless=True,
-                args=['--no-sandbox', '--disable-dev-shm-usage'], timeout=self.timeout_ms)
-        except BaseException:
-            self.playwright.stop(); self.playwright = None
-            raise
-        return self
+        from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
+        self.browser = None
+        for attempt in range(MAX_BROWSER_LAUNCH_ATTEMPTS):
+            self.playwright = sync_playwright().start()
+            try:
+                self.browser = self.playwright.chromium.launch(executable_path=self.executable, headless=True,
+                    args=['--no-sandbox', '--disable-dev-shm-usage'], timeout=self.timeout_ms)
+                return self
+            except PlaywrightTimeoutError:
+                self.playwright.stop(); self.playwright = None; self.browser = None
+                if attempt + 1 < MAX_BROWSER_LAUNCH_ATTEMPTS:
+                    time.sleep(BROWSER_LAUNCH_RETRY_DELAY_SECONDS)
+                    continue
+                raise
+            except BaseException:
+                self.playwright.stop(); self.playwright = None; self.browser = None
+                raise
+        raise RuntimeError('UNREACHABLE_BROWSER_LAUNCH_STATE')
 
     def __exit__(self, *args):
         try:
