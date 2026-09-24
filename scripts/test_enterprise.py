@@ -35,7 +35,10 @@ def main():
     results=[];start=time.monotonic()
     for path in paths:
         rel=path.relative_to(ROOT).as_posix()
-        name='bie_test_'+hashlib.sha256(rel.encode()).hexdigest()[:20]
+        if path.is_relative_to(ROOT / "tests/audio"):
+            name='.'.join(path.relative_to(ROOT).with_suffix('').parts)
+        else:
+            name='bie_test_'+hashlib.sha256(rel.encode()).hexdigest()[:20]
         log=io.StringIO()
         try:
             spec=importlib.util.spec_from_file_location(name,path)

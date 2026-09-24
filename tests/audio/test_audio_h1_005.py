@@ -78,10 +78,10 @@ class NeuralEndToEndTests(unittest.TestCase):
         out=self.root/'publish';m=mix_synchronized(s);publish_mix(m,out,sync=s,inputs=files,allow_review=True)
         _,_,restored=load_published_mix(out);self.assertEqual(restored['inputs/neural-response-00000.json'],files['neural-response-00000.json'])
 
-    def test_standalone_dependency_missing_has_stable_error(self):
+    def test_canonical_cli_without_opt_in_has_stable_error(self):
         env={k:v for k,v in os.environ.items() if k not in ('PYTHONPATH','ELEVENLABS_API_KEY')}
         r=subprocess.run([sys.executable,'-B',str(ROOT/'scripts/audio_neural.py')],env=env,text=True,capture_output=True,timeout=15)
-        self.assertEqual(r.returncode,2);self.assertEqual(json.loads(r.stderr)['error_code'],'NEURAL_CANONICAL_DEPENDENCY_MISSING')
+        self.assertEqual(r.returncode,2);self.assertEqual(json.loads(r.stderr)['error_code'],'NEURAL_LIVE_OPT_IN_REQUIRED')
         self.assertNotIn('Traceback',r.stderr)
 
     def test_fixture_publication_reload_requires_diagnostic_scope(self):

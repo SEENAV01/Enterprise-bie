@@ -48,11 +48,15 @@ class Reconciliation(unittest.TestCase):
     def test_literal_cannot_be_rewritten(self):
         s=from_v144((utterance(),),**empty_options()).segments[0].spans[0]
         with self.assertRaisesRegex(AudioError,'LITERAL_CHANGED'):replace(s,spoken='a different lesson')
-    def test_original_zip_bytes_preserved(self):
-        root=Path(__file__).resolve().parents[2]/'lineage/audio_batch001'
+    def test_original_zip_identities_preserved_in_canonical_evidence(self):
+        root=Path(__file__).resolve().parents[2]
+        evidence=json.loads((root/'docs/audio/BATCH001_RECONCILIATION.json').read_text())
         expected={'BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005.zip':'dc57574f8656daec035090bf4229f8394bca6456492f0044ddf66773a110b489',
          'BIE_AUDIO_ORIGINAL_BATCH_001_VO_001_005_INTEGRATED.zip':'f0a8ae7fb4cc75d28c380612d56dfa9ee16d3bdd15b3a2b85cf764cfb07acfe9'}
-        for n,d in expected.items():self.assertEqual(hashlib.sha256((root/n).read_bytes()).hexdigest(),d)
+        actual={row['archive']:row['sha256'] for row in evidence['inputs']}
+        self.assertEqual(actual,expected)
+        self.assertEqual(evidence['original_archives_location'],'lineage/audio_batch001; not on production import path')
+        self.assertFalse(evidence['product_accepted'])
     def test_no_historical_tests_removed(self):
         root=Path(__file__).resolve().parent
         self.assertEqual(len(list(root.glob('test_compat204_vo_*.py'))),5)

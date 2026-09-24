@@ -77,8 +77,18 @@ def identities(paths):
 def probe_profile(*, concurrent_jobs=2):
     if sys.platform!='linux':raise AudioError('PIPELINE_LINUX_REQUIRED')
     integer(concurrent_jobs,'concurrent jobs',1,8)
-    if not shutil.which('unshare') or Path(shutil.which('unshare')).resolve()!=Path('/usr/bin/unshare').resolve():
-        raise AudioError('PIPELINE_LAUNCHER_PATH')
+    selected_unshare=shutil.which('unshare')
+    if not selected_unshare:raise AudioError('PIPELINE_LAUNCHER_PATH')
+    launcher=Path(selected_unshare).resolve(strict=True)
+    system_launcher=Path('/usr/bin/unshare').resolve(strict=True)
+    allowed={system_launcher}
+    ci_launcher=Path('/usr/local/libexec/bie-integration/unshare')
+    if ci_launcher.exists():allowed.add(ci_launcher.resolve(strict=True))
+    if launcher not in allowed:raise AudioError('PIPELINE_LAUNCHER_PATH')
+    st=launcher.stat()
+    if st.st_uid!=0 or st.st_mode & 0o022:raise AudioError('PIPELINE_LAUNCHER_PATH')
+    if launcher!=system_launcher and file_identity(launcher)['sha256']!=file_identity(system_launcher)['sha256']:
+        raise AudioError('PIPELINE_LAUNCHER_IDENTITY')
     from bie.compiler.linux_worker import WorkerPolicy
     from .timed_espeak_provider import TimedEspeakProvider
     from .mix_meter import FFmpegMeter
@@ -89,7 +99,7 @@ def probe_profile(*, concurrent_jobs=2):
         address_space_bytes=2*1024**3,file_bytes=64_000_000,descriptors=128,
         processes=64,tmpfs_bytes=256*1024**2)
     runtime_files={n:file_identity(p) for n,p in (
-        ('python',sys.executable),('unshare','/usr/bin/unshare'),('espeak','/usr/bin/espeak'),
+        ('python',sys.executable),('unshare',launcher),('espeak','/usr/bin/espeak'),
         ('ffmpeg','/usr/bin/ffmpeg'),('numpy_init',np.__file__),
         ('numpy_core',importlib.import_module('numpy._core._multiarray_umath').__file__))}
     host_identity={'provider_runtime_fingerprint':provider.runtime,'catalog_fingerprint':provider.catalog().fingerprint(),
