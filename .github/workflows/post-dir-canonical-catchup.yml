@@ -36,9 +36,20 @@ jobs:
         run: |
           cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
           bash .integration/tools/setup_ci_environment.sh
+      - name: Install AUDIO validation profile when present
+        if: ${{ hashFiles('requirements-audio-mix.txt') != '' && hashFiles('requirements-audio-acoustic.txt') != '' }}
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-audio-mix.txt -r requirements-audio-acoustic.txt
+          python -m pip check
+          sudo apt-get update
+          sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
+          /usr/bin/espeak --version 2>&1 | head -n 2
+          ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
       - name: Complete canonical gate
         run: |
-          set -o pipefail
+          set -euo pipefail
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS
           mkdir -p "$RUNNER_TEMP/canonical-evidence"
           python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
       - name: Exact supplied corpus and adoption verification
@@ -51,15 +62,20 @@ jobs:
           import json, os
           from pathlib import Path
           root=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence'
-          s=json.loads((root/'integrated_tests.json').read_text())['summary']
+          data=json.loads((root/'integrated_tests.json').read_text())
+          s=data['summary'];rows=data['results']
           p=json.loads((root/'post-dir-preservation.json').read_text())
-          if s.get('passed') is not True or s.get('tests_run',0) < 6485:
+          if s.get('passed') is not True or s.get('tests_run',0) < 8169:
               raise SystemExit('INCOMPLETE_REGRESSION: '+str(s))
           if any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
               raise SystemExit('FAILURES_ERRORS_OR_SKIPS: '+str(s))
+          audio=[r for r in rows if r['path'].startswith('tests/audio/')]
+          counts=(len(audio),sum(r['tests'] for r in audio),sum(r['failures'] for r in audio),sum(r['errors'] for r in audio),sum(r['skipped'] for r in audio))
+          if counts != (82,1684,0,0,0):
+              raise SystemExit('AUDIO_GATE_FAILED: '+str(counts))
           if p.get('passed') is not True or p.get('errors') != []:
               raise SystemExit('PRESERVATION_FAILED: '+str(p))
-          print(json.dumps({'regression':s,'preservation':p,'product_accepted':False},indent=2))
+          print(json.dumps({'regression':s,'audio':counts,'preservation':p,'product_accepted':False},indent=2))
           PY
       - name: Preserve actual results, including failures
         if: always()
