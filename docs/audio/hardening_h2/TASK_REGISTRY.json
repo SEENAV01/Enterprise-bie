@@ -1,0 +1,65 @@
+{
+  "batch": "BIE-AUDIO-HARDENING-H2",
+  "source_finding": "AUDIO-AUDIT-001-F02",
+  "authority": "New engineering subdivisions of the existing user-approved consolidated finding; not original roadmap IDs or recovered missing archives.",
+  "tasks": [
+    {
+      "id": "BIE-AUDIO-H2-001",
+      "title": "Exact source/media/voice/policy evaluation identity",
+      "owned_source_files": [
+        "bie/audio/acoustic_contract.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_001.py",
+      "declared_tests": 28,
+      "status": "IMPLEMENTED_LOCAL_TESTED_NOT_PRODUCT_ACCEPTED"
+    },
+    {
+      "id": "BIE-AUDIO-H2-002",
+      "title": "Independent bounded native acoustic measurements",
+      "owned_source_files": [
+        "bie/audio/acoustic_runtime.py",
+        "bie/audio/acoustic_worker.py",
+        "scripts/audio_acoustic_worker.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_002.py",
+      "declared_tests": 21,
+      "status": "IMPLEMENTED_LOCAL_TESTED_NOT_PRODUCT_ACCEPTED"
+    },
+    {
+      "id": "BIE-AUDIO-H2-003",
+      "title": "Externally configured evaluator trust and signed receipts",
+      "owned_source_files": [
+        "bie/audio/acoustic_evidence.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_003.py",
+      "declared_tests": 31,
+      "status": "IMPLEMENTED_LOCAL_TESTED_NOT_PRODUCT_ACCEPTED"
+    },
+    {
+      "id": "BIE-AUDIO-H2-004",
+      "title": "QA ownership, source-preserving repair intents and fresh rechecks",
+      "owned_source_files": [
+        "bie/audio/acoustic_assessment.py",
+        "bie/audio/acoustic_repair.py",
+        "bie/audio/qa_pipeline.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_004.py",
+      "declared_tests": 19,
+      "status": "IMPLEMENTED_LOCAL_TESTED_NOT_PRODUCT_ACCEPTED"
+    },
+    {
+      "id": "BIE-AUDIO-H2-005",
+      "title": "Verified publication, diagnostic CLI and real-audio benchmark",
+      "owned_source_files": [
+        "bie/audio/acoustic_io.py",
+        "scripts/audio_acoustic.py",
+        "scripts/benchmark_audio_h2.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_005.py",
+      "declared_tests": 21,
+      "status": "IMPLEMENTED_LOCAL_TESTED_NOT_PRODUCT_ACCEPTED"
+    }
+  ],
+  "original_registry_modified": false,
+  "section_exit_permitted": false
+}

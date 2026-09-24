@@ -1,0 +1,47 @@
+RUN test_audio_sync_002.py
+FINISHED test_audio_sync_002.py: 25 tests, 0 failures, 0 errors
+test_cue_edit_rejected (tests.audio.test_audio_sync_002.Captions.test_cue_edit_rejected) ... ok
+test_display_channel (tests.audio.test_audio_sync_002.Captions.test_display_channel) ... ok
+test_duration_can_split (tests.audio.test_audio_sync_002.Captions.test_duration_can_split) ... ok
+test_every_word_once (tests.audio.test_audio_sync_002.Captions.test_every_word_once) ... ok
+test_exact_text_coverage (tests.audio.test_audio_sync_002.Captions.test_exact_text_coverage) ... ok
+test_export_mixed_sample_clocks_rejected (tests.audio.test_audio_sync_002.Captions.test_export_mixed_sample_clocks_rejected) ... ok
+test_export_out_of_order_rejected (tests.audio.test_audio_sync_002.Captions.test_export_out_of_order_rejected) ... ok
+test_hindi_codepoints_not_split (tests.audio.test_audio_sync_002.Captions.test_hindi_codepoints_not_split) ... ok
+test_invalid_format (tests.audio.test_audio_sync_002.Captions.test_invalid_format) ... ok
+test_literal_markup_escaped (tests.audio.test_audio_sync_002.Captions.test_literal_markup_escaped) ... ok
+test_long_indivisible_token_rejected (tests.audio.test_audio_sync_002.Captions.test_long_indivisible_token_rejected) ... ok
+test_measured_required_default (tests.audio.test_audio_sync_002.Captions.test_measured_required_default) ... ok
+test_minimum_duration_gate (tests.audio.test_audio_sync_002.Captions.test_minimum_duration_gate) ... ok
+test_missing_final_character_rejected (tests.audio.test_audio_sync_002.Captions.test_missing_final_character_rejected) ... ok
+test_no_empty_export (tests.audio.test_audio_sync_002.Captions.test_no_empty_export) ... ok
+test_reading_speed_not_forcefit (tests.audio.test_audio_sync_002.Captions.test_reading_speed_not_forcefit) ... ok
+test_srt_timestamp (tests.audio.test_audio_sync_002.Captions.test_srt_timestamp) ... ok
+test_timing_outside_provider_rejected (tests.audio.test_audio_sync_002.Captions.test_timing_outside_provider_rejected) ... ok
+test_timings_from_words (tests.audio.test_audio_sync_002.Captions.test_timings_from_words) ... ok
+test_unknown_channel_rejected (tests.audio.test_audio_sync_002.Captions.test_unknown_channel_rejected) ... ok
+test_vtt_header (tests.audio.test_audio_sync_002.Captions.test_vtt_header) ... ok
+test_vtt_offset (tests.audio.test_audio_sync_002.Captions.test_vtt_offset) ... ok
+test_word_ordinal_coverage_rejected (tests.audio.test_audio_sync_002.Captions.test_word_ordinal_coverage_rejected) ... ok
+test_wrap_does_not_truncate (tests.audio.test_audio_sync_002.Captions.test_wrap_does_not_truncate) ... ok
+test_wrong_layout_rejected (tests.audio.test_audio_sync_002.Captions.test_wrong_layout_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.590s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 0.6805,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

@@ -1,0 +1,142 @@
+{
+  "section": 14,
+  "title": "AUDIO - Speech / Audio Production",
+  "source": "BIE_ENTERPRISE_V1_MASTER_ATOMIC_TASK_REGISTRY_ORIGINAL_18_SECTIONS.pdf, original Section 14; task titles transcribed, not inferred",
+  "tasks": [
+    {
+      "task_id": "BIE-AUDIO-VO-001",
+      "original_capability": "narration segmentation",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-002",
+      "original_capability": "pronunciation lexicon",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-003",
+      "original_capability": "math pronunciation",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-004",
+      "original_capability": "symbol pronunciation",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-005",
+      "original_capability": "acronym pronunciation",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-006",
+      "original_capability": "multilingual terms",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-007",
+      "original_capability": "TTS provider-neutral contract",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-008",
+      "original_capability": "voice selection",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-009",
+      "original_capability": "TTS generation",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-VO-010",
+      "original_capability": "TTS cache",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-SYNC-001",
+      "original_capability": "word timestamps",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-SYNC-002",
+      "original_capability": "caption alignment",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-SYNC-003",
+      "original_capability": "scene sync",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-SYNC-004",
+      "original_capability": "animation sync",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-SYNC-005",
+      "original_capability": "pause sync",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-MIX-001",
+      "original_capability": "loudness normalization",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-MIX-002",
+      "original_capability": "music ducking",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-MIX-003",
+      "original_capability": "SFX mixing",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-MIX-004",
+      "original_capability": "silence trim",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-MIX-005",
+      "original_capability": "peak control",
+      "state": "IMPLEMENTED_DOCUMENTED_COMPONENT_SCOPE_NOT_ACCEPTED"
+    },
+    {
+      "task_id": "BIE-AUDIO-QA-001",
+      "original_capability": "pronunciation QA",
+      "state": "IMPLEMENTED_BOUNDED_QA_COMPONENT_WITH_HARDENING_GAPS_NOT_ACCEPTED",
+      "implementation_boundary": "Exact source/rule/voice/media-bound pronunciation targets and reported-observation processing. Mismatches block; positive reported text is not authenticated phonetic evidence. Independent pronunciation remains REVIEW."
+    },
+    {
+      "task_id": "BIE-AUDIO-QA-002",
+      "original_capability": "clipping QA",
+      "state": "IMPLEMENTED_BOUNDED_QA_COMPONENT_WITH_HARDENING_GAPS_NOT_ACCEPTED",
+      "implementation_boundary": "Decode actual PCM; measure per-channel rail runs and sample peaks; remeasure actual output with FFmpeg true-peak meter. Explicit thresholds; unavailable meter is BLOCKED, not PASS."
+    },
+    {
+      "task_id": "BIE-AUDIO-QA-003",
+      "original_capability": "missing audio",
+      "state": "IMPLEMENTED_BOUNDED_QA_COMPONENT_WITH_HARDENING_GAPS_NOT_ACCEPTED",
+      "implementation_boundary": "Verify every original speech segment and independently replay sample equations using actual source/stem WAVs; detect deleted or replaced narration even if another nonzero signal is present."
+    },
+    {
+      "task_id": "BIE-AUDIO-QA-004",
+      "original_capability": "sync QA",
+      "state": "IMPLEMENTED_BOUNDED_QA_COMPONENT_WITH_HARDENING_GAPS_NOT_ACCEPTED",
+      "implementation_boundary": "Rebuild source-to-derived clock and verify words, captions, scenes, pauses and animation states. Technical timing invariants do not prove acoustic boundaries or rendered AV sync."
+    },
+    {
+      "task_id": "BIE-AUDIO-QA-005",
+      "original_capability": "accessibility/captions QA",
+      "state": "IMPLEMENTED_BOUNDED_QA_COMPONENT_WITH_HARDENING_GAPS_NOT_ACCEPTED",
+      "implementation_boundary": "Produce a separate spoken-caption channel with explicit speaker labels and authored meaningful-sound descriptions. Check coverage, timing, density and source-bound meaning records; preserve old display captions unchanged. Actual rendered accessibility remains REVIEW."
+    }
+  ],
+  "current_batch": "BIE-AUDIO-ORIGINAL-BATCH-005",
+  "source_registry_unchanged_titles": true,
+  "capability_audit": "docs/audio/AUDIO_CAPABILITY_AUDIT_001.json",
+  "all_original_ids_accounted": true,
+  "enterprise_complete": false
+}

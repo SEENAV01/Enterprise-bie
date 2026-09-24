@@ -1,0 +1,151 @@
+{
+  "schema_version": "bie.audio.native-adoption-inventory/1",
+  "finding": "AUDIO-AUDIT-001-F03",
+  "adopted": [
+    {
+      "path": "bie/audio/pipeline_runtime.py",
+      "function": "read_output",
+      "start_line": 21,
+      "end_line": 33,
+      "lane": "NEW_CANONICAL_LOCAL_PIPELINE",
+      "sha256": "3a65b0a372f0da11b4e7bc8a8a3284afb34f51b11125e67a03efda1cd4c591ee"
+    },
+    {
+      "path": "bie/audio/pipeline_runtime.py",
+      "function": "run_local_pipeline",
+      "start_line": 41,
+      "end_line": 90,
+      "lane": "NEW_CANONICAL_LOCAL_PIPELINE",
+      "sha256": "3a65b0a372f0da11b4e7bc8a8a3284afb34f51b11125e67a03efda1cd4c591ee"
+    },
+    {
+      "path": "bie/audio/pipeline_runtime.py",
+      "function": "validate_execution",
+      "start_line": 93,
+      "end_line": 115,
+      "lane": "NEW_CANONICAL_LOCAL_PIPELINE",
+      "sha256": "3a65b0a372f0da11b4e7bc8a8a3284afb34f51b11125e67a03efda1cd4c591ee"
+    },
+    {
+      "path": "bie/audio/pipeline_profile.py",
+      "function": "probe_profile",
+      "start_line": 77,
+      "end_line": 108,
+      "lane": "TRUSTED_PROFILE_DISCOVERY",
+      "sha256": "0191ad3a936f8a03270845e9a54c57b1aba554a2e37d0da3cc1d71a1bdec856a"
+    },
+    {
+      "path": "bie/audio/pipeline_profile.py",
+      "function": "validate_profile",
+      "start_line": 111,
+      "end_line": 116,
+      "lane": "TRUSTED_PROFILE_DISCOVERY",
+      "sha256": "0191ad3a936f8a03270845e9a54c57b1aba554a2e37d0da3cc1d71a1bdec856a"
+    },
+    {
+      "path": "bie/audio/pipeline_profile.py",
+      "function": "_discover",
+      "start_line": 120,
+      "end_line": 153,
+      "lane": "TRUSTED_PROFILE_DISCOVERY",
+      "sha256": "0191ad3a936f8a03270845e9a54c57b1aba554a2e37d0da3cc1d71a1bdec856a"
+    },
+    {
+      "path": "bie/audio/pipeline_worker.py",
+      "function": "main",
+      "start_line": 15,
+      "end_line": 62,
+      "lane": "FIXED_WORKER_TTS_SYNC_DRY_MIX",
+      "sha256": "3a4e5096561506cc7e695af418c147dfc26916579d938e6dcfb782456dd7e422"
+    },
+    {
+      "path": "bie/audio/timed_espeak_provider.py",
+      "function": "align_timed_asset",
+      "start_line": 153,
+      "end_line": 169,
+      "lane": "UNCHANGED_PROVIDER_INSIDE_NEW_WORKER",
+      "sha256": "7ba7f127930844dbef528741bf15051fdd6e145a6f50fe28dffa010fac47a614"
+    },
+    {
+      "path": "bie/audio/timed_espeak_provider.py",
+      "function": "_native",
+      "start_line": 85,
+      "end_line": 127,
+      "lane": "UNCHANGED_PROVIDER_INSIDE_NEW_WORKER",
+      "sha256": "7ba7f127930844dbef528741bf15051fdd6e145a6f50fe28dffa010fac47a614"
+    },
+    {
+      "path": "bie/audio/timed_espeak_provider.py",
+      "function": "synthesize",
+      "start_line": 128,
+      "end_line": 132,
+      "lane": "UNCHANGED_PROVIDER_INSIDE_NEW_WORKER",
+      "sha256": "7ba7f127930844dbef528741bf15051fdd6e145a6f50fe28dffa010fac47a614"
+    },
+    {
+      "path": "bie/audio/mix_meter.py",
+      "function": "_run",
+      "start_line": 39,
+      "end_line": 62,
+      "lane": "UNCHANGED_METER_INSIDE_NEW_WORKER",
+      "sha256": "153ffd43bd6fa32f9c89ae8de6e642a412609eb94d9a415ee5e127bdd53aa919"
+    },
+    {
+      "path": "bie/audio/mix_meter.py",
+      "function": "measure",
+      "start_line": 63,
+      "end_line": 85,
+      "lane": "UNCHANGED_METER_INSIDE_NEW_WORKER",
+      "sha256": "153ffd43bd6fa32f9c89ae8de6e642a412609eb94d9a415ee5e127bdd53aa919"
+    },
+    {
+      "path": "bie/audio/pipeline_durable.py",
+      "function": "execute_durable",
+      "start_line": 154,
+      "end_line": 178,
+      "lane": "CANONICAL_HOST_ARTIFACT_LEASE_ADAPTER",
+      "sha256": "8598b73d2554f012ad54f5ca754e36711ca8545a7c3310c1ff410cbc1fb2c204"
+    },
+    {
+      "path": "bie/audio/pipeline_durable.py",
+      "function": "put",
+      "start_line": 46,
+      "end_line": 68,
+      "lane": "CANONICAL_HOST_ARTIFACT_LEASE_ADAPTER",
+      "sha256": "8598b73d2554f012ad54f5ca754e36711ca8545a7c3310c1ff410cbc1fb2c204"
+    },
+    {
+      "path": "bie/audio/pipeline_durable.py",
+      "function": "load",
+      "start_line": 70,
+      "end_line": 101,
+      "lane": "CANONICAL_HOST_ARTIFACT_LEASE_ADAPTER",
+      "sha256": "8598b73d2554f012ad54f5ca754e36711ca8545a7c3310c1ff410cbc1fb2c204"
+    },
+    {
+      "path": "bie/audio/pipeline_durable.py",
+      "function": "acquire",
+      "start_line": 106,
+      "end_line": 124,
+      "lane": "CANONICAL_HOST_ARTIFACT_LEASE_ADAPTER",
+      "sha256": "8598b73d2554f012ad54f5ca754e36711ca8545a7c3310c1ff410cbc1fb2c204"
+    },
+    {
+      "path": "bie/audio/pipeline_durable.py",
+      "function": "complete",
+      "start_line": 126,
+      "end_line": 143,
+      "lane": "CANONICAL_HOST_ARTIFACT_LEASE_ADAPTER",
+      "sha256": "8598b73d2554f012ad54f5ca754e36711ca8545a7c3310c1ff410cbc1fb2c204"
+    }
+  ],
+  "not_adopted": [
+    "Paid/neural transport and uncertain external-call recovery",
+    "General music/SFX and arbitrary animation anchors",
+    "Durable segment-level cache lifecycle/GC",
+    "Actual canonical DIR/ANI/COMP adoption and real render",
+    "Fleet/long-book scheduling and production credentials"
+  ],
+  "source_kind": "ACTUAL_LOCAL_SOURCE_AST_AND_INTERFACE_REVIEW",
+  "section_exit_permitted": false
+}

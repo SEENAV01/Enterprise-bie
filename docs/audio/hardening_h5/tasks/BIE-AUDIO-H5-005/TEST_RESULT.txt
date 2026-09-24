@@ -1,0 +1,45 @@
+RUN test_audio_h5_005.py
+test_01_independent_export_verification (tests.audio.test_audio_h5_005.Export.test_01_independent_export_verification) ... ok
+test_02_existing_mix_reader_interoperability (tests.audio.test_audio_h5_005.Export.test_02_existing_mix_reader_interoperability) ... ok
+test_03_explicit_technical_voice_opt_in (tests.audio.test_audio_h5_005.Export.test_03_explicit_technical_voice_opt_in) ... ok
+test_04_explicit_review_opt_in (tests.audio.test_audio_h5_005.Export.test_04_explicit_review_opt_in) ... ok
+test_05_output_not_overwritten (tests.audio.test_audio_h5_005.Export.test_05_output_not_overwritten) ... ok
+test_06_hash_only_manifest_repair_is_insufficient (tests.audio.test_audio_h5_005.Export.test_06_hash_only_manifest_repair_is_insufficient) ... ok
+test_07_missing_export_file (tests.audio.test_audio_h5_005.Export.test_07_missing_export_file) ... ok
+test_08_extra_export_file (tests.audio.test_audio_h5_005.Export.test_08_extra_export_file) ... ok
+test_09_symlink_export_file (tests.audio.test_audio_h5_005.Export.test_09_symlink_export_file) ... ok
+test_10_external_expected_request_required (tests.audio.test_audio_h5_005.Export.test_10_external_expected_request_required) ... ok
+test_11_current_external_trust_required (tests.audio.test_audio_h5_005.Export.test_11_current_external_trust_required) ... ok
+test_12_private_key_exact_bytes (tests.audio.test_audio_h5_005.Export.test_12_private_key_exact_bytes) ... ok
+test_13_key_group_readable_rejected (tests.audio.test_audio_h5_005.Export.test_13_key_group_readable_rejected) ... ok
+test_14_key_symlink_rejected (tests.audio.test_audio_h5_005.Export.test_14_key_symlink_rejected) ... ok
+test_15_key_hardlink_rejected (tests.audio.test_audio_h5_005.Export.test_15_key_hardlink_rejected) ... ok
+test_16_key_invalid_size_rejected (tests.audio.test_audio_h5_005.Export.test_16_key_invalid_size_rejected) ... ok
+test_17_no_private_key_exported (tests.audio.test_audio_h5_005.Export.test_17_no_private_key_exported) ... ok
+test_18_receipt_acceptance_remains_false (tests.audio.test_audio_h5_005.Export.test_18_receipt_acceptance_remains_false) ... ok
+test_19_symlink_output_root_rejected (tests.audio.test_audio_h5_005.Export.test_19_symlink_output_root_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 149.830s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h5_005.py", "tests": 19, "failures": 0, "errors": 0, "skips": 0, "seconds": 150.152}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h5_005.py"
+  ],
+  "tests": 19,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 150.177
+}

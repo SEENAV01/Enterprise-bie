@@ -1,0 +1,47 @@
+RUN test_audio_h4r_002.py
+FINISHED test_audio_h4r_002.py: 25 tests, 0 failures, 0 errors
+test_actual_namespace_execution (tests.audio.test_audio_h4r_002.RuntimeTests.test_actual_namespace_execution) ... ok
+test_actual_native_passes (tests.audio.test_audio_h4r_002.RuntimeTests.test_actual_native_passes) ... ok
+test_actual_unsupported_hindi_not_pass (tests.audio.test_audio_h4r_002.RuntimeTests.test_actual_unsupported_hindi_not_pass) ... ok
+test_actual_wall_timeout (tests.audio.test_audio_h4r_002.RuntimeTests.test_actual_wall_timeout) ... ok
+test_execution_hash_tamper (tests.audio.test_audio_h4r_002.RuntimeTests.test_execution_hash_tamper) ... ok
+test_false_success_proof_rejected (tests.audio.test_audio_h4r_002.RuntimeTests.test_false_success_proof_rejected) ... ok
+test_live_host_boundaries (tests.audio.test_audio_h4r_002.RuntimeTests.test_live_host_boundaries) ... ok
+test_media_unmodified (tests.audio.test_audio_h4r_002.RuntimeTests.test_media_unmodified) ... ok
+test_namespace_setup_failure_no_fallback (tests.audio.test_audio_h4r_002.RuntimeTests.test_namespace_setup_failure_no_fallback) ... ok
+test_pre_cancel_no_worker (tests.audio.test_audio_h4r_002.RuntimeTests.test_pre_cancel_no_worker) ... ok
+test_proof_reject_acceptance (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_acceptance) ... ok
+test_proof_reject_caps (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_caps) ... ok
+test_proof_reject_kernel_false (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_kernel_false) ... ok
+test_proof_reject_kernel_int (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_kernel_int) ... ok
+test_proof_reject_launcher (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_launcher) ... ok
+test_proof_reject_limits (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_limits) ... ok
+test_proof_reject_namespace_format (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_namespace_format) ... ok
+test_proof_reject_network (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_network) ... ok
+test_proof_reject_no_new_privs (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_no_new_privs) ... ok
+test_proof_reject_procfs (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_procfs) ... ok
+test_proof_reject_seccomp (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_seccomp) ... ok
+test_proof_reject_write_root (tests.audio.test_audio_h4r_002.RuntimeTests.test_proof_reject_write_root) ... ok
+test_result_hardlink (tests.audio.test_audio_h4r_002.RuntimeTests.test_result_hardlink) ... ok
+test_result_oversize (tests.audio.test_audio_h4r_002.RuntimeTests.test_result_oversize) ... ok
+test_result_symlink (tests.audio.test_audio_h4r_002.RuntimeTests.test_result_symlink) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 121.895s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 25,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 122.4072,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

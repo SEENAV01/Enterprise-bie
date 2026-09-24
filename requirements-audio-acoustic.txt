@@ -1,0 +1,5 @@
+# Optional H2 signing dependency. H1 requirements/native tools remain unchanged.
+cryptography==46.0.4
+# Native Linux runtime: explicitly pinned libpocketsphinx.so.3 + libsphinxbase.so.3,
+# pocketsphinx-en-us acoustic/dictionary/phone+word language models, existing FFmpeg.
+# See docs/audio/hardening_h2/RUNBOOK.md. No automatic package/model download.

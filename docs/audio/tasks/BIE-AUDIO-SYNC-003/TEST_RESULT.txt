@@ -1,0 +1,44 @@
+RUN test_audio_sync_003.py
+FINISHED test_audio_sync_003.py: 22 tests, 0 failures, 0 errors
+test_actual_pcm_concatenation (tests.audio.test_audio_sync_003.Scenes.test_actual_pcm_concatenation) ... ok
+test_alignment_stale_rejected (tests.audio.test_audio_sync_003.Scenes.test_alignment_stale_rejected) ... ok
+test_assets_missing_rejected (tests.audio.test_audio_sync_003.Scenes.test_assets_missing_rejected) ... ok
+test_assets_reordered_rejected (tests.audio.test_audio_sync_003.Scenes.test_assets_reordered_rejected) ... ok
+test_audio_cannot_be_speeded_to_fit (tests.audio.test_audio_sync_003.Scenes.test_audio_cannot_be_speeded_to_fit) ... ok
+test_complete_segment_coverage (tests.audio.test_audio_sync_003.Scenes.test_complete_segment_coverage) ... ok
+test_duplicate_scene_budget (tests.audio.test_audio_sync_003.Scenes.test_duplicate_scene_budget) ... ok
+test_explicit_hold_required (tests.audio.test_audio_sync_003.Scenes.test_explicit_hold_required) ... ok
+test_float_fps_rejected (tests.audio.test_audio_sync_003.Scenes.test_float_fps_rejected) ... ok
+test_fraction_boundary_never_early (tests.audio.test_audio_sync_003.Scenes.test_fraction_boundary_never_early) ... ok
+test_integer_fps (tests.audio.test_audio_sync_003.Scenes.test_integer_fps) ... ok
+test_media_edit_rejected (tests.audio.test_audio_sync_003.Scenes.test_media_edit_rejected) ... ok
+test_no_pause_loss (tests.audio.test_audio_sync_003.Scenes.test_no_pause_loss) ... ok
+test_nonreduced_fraction_rejected (tests.audio.test_audio_sync_003.Scenes.test_nonreduced_fraction_rejected) ... ok
+test_rational_fps (tests.audio.test_audio_sync_003.Scenes.test_rational_fps) ... ok
+test_repeated_scene_noncontiguous_rejected (tests.audio.test_audio_sync_003.Scenes.test_repeated_scene_noncontiguous_rejected) ... ok
+test_reverse_seek_same_scene (tests.audio.test_audio_sync_003.Scenes.test_reverse_seek_same_scene) ... ok
+test_shared_frame_boundaries (tests.audio.test_audio_sync_003.Scenes.test_shared_frame_boundaries) ... ok
+test_timeline_media_hash (tests.audio.test_audio_sync_003.Scenes.test_timeline_media_hash) ... ok
+test_unknown_scene_budget (tests.audio.test_audio_sync_003.Scenes.test_unknown_scene_budget) ... ok
+test_unmeasured_default_rejected (tests.audio.test_audio_sync_003.Scenes.test_unmeasured_default_rejected) ... ok
+test_zero_fps_rejected (tests.audio.test_audio_sync_003.Scenes.test_zero_fps_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.299s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 1.4052,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

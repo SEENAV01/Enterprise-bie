@@ -1,0 +1,53 @@
+RUN test_audio_sync_001.py
+FINISHED test_audio_sync_001.py: 31 tests, 0 failures, 0 errors
+test_actual_hindi (tests.audio.test_audio_sync_001.RealTimedSpeech.test_actual_hindi) ... ok
+test_cache_waveform_and_timing_bind (tests.audio.test_audio_sync_001.RealTimedSpeech.test_cache_waveform_and_timing_bind) ... ok
+test_cancellation_no_timing (tests.audio.test_audio_sync_001.RealTimedSpeech.test_cancellation_no_timing) ... ok
+test_corrupt_pcm_cannot_take_other_timings (tests.audio.test_audio_sync_001.RealTimedSpeech.test_corrupt_pcm_cannot_take_other_timings) ... ok
+test_mark_positions_are_not_claimed_as_phonetic_offsets (tests.audio.test_audio_sync_001.RealTimedSpeech.test_mark_positions_are_not_claimed_as_phonetic_offsets) ... ok
+test_missing_mark_rejected (tests.audio.test_audio_sync_001.RealTimedSpeech.test_missing_mark_rejected) ... ok
+test_native_speech_and_all_marks (tests.audio.test_audio_sync_001.RealTimedSpeech.test_native_speech_and_all_marks) ... ok
+test_old_provider_not_silently_replaced (tests.audio.test_audio_sync_001.RealTimedSpeech.test_old_provider_not_silently_replaced) ... ok
+test_reordered_marks_rejected (tests.audio.test_audio_sync_001.RealTimedSpeech.test_reordered_marks_rejected) ... ok
+test_same_pcm_replay (tests.audio.test_audio_sync_001.RealTimedSpeech.test_same_pcm_replay) ... ok
+test_unknown_mark_rejected (tests.audio.test_audio_sync_001.RealTimedSpeech.test_unknown_mark_rejected) ... ok
+test_worker_deadline_enforced (tests.audio.test_audio_sync_001.RealTimedSpeech.test_worker_deadline_enforced) ... ok
+test_bad_schema_rejected (tests.audio.test_audio_sync_001.WordContracts.test_bad_schema_rejected) ... ok
+test_bool_time_rejected (tests.audio.test_audio_sync_001.WordContracts.test_bool_time_rejected) ... ok
+test_changed_word_rejected (tests.audio.test_audio_sync_001.WordContracts.test_changed_word_rejected) ... ok
+test_media_edit_rejected (tests.audio.test_audio_sync_001.WordContracts.test_media_edit_rejected) ... ok
+test_missing_word_rejected (tests.audio.test_audio_sync_001.WordContracts.test_missing_word_rejected) ... ok
+test_negative_time_rejected (tests.audio.test_audio_sync_001.WordContracts.test_negative_time_rejected) ... ok
+test_no_acoustic_acceptance (tests.audio.test_audio_sync_001.WordContracts.test_no_acoustic_acceptance) ... ok
+test_ordinal_rejected (tests.audio.test_audio_sync_001.WordContracts.test_ordinal_rejected) ... ok
+test_outside_audio_rejected (tests.audio.test_audio_sync_001.WordContracts.test_outside_audio_rejected) ... ok
+test_overlap_rejected (tests.audio.test_audio_sync_001.WordContracts.test_overlap_rejected) ... ok
+test_reported_never_measured (tests.audio.test_audio_sync_001.WordContracts.test_reported_never_measured) ... ok
+test_reported_rows_typed (tests.audio.test_audio_sync_001.WordContracts.test_reported_rows_typed) ... ok
+test_reported_validates_source (tests.audio.test_audio_sync_001.WordContracts.test_reported_validates_source) ... ok
+test_request_revision_rejected (tests.audio.test_audio_sync_001.WordContracts.test_request_revision_rejected) ... ok
+test_sample_round_half_up (tests.audio.test_audio_sync_001.WordContracts.test_sample_round_half_up) ... ok
+test_source_refs_preserved (tests.audio.test_audio_sync_001.WordContracts.test_source_refs_preserved) ... ok
+test_source_rule_edit_rejected (tests.audio.test_audio_sync_001.WordContracts.test_source_rule_edit_rejected) ... ok
+test_unicode_combining_preserved (tests.audio.test_audio_sync_001.WordContracts.test_unicode_combining_preserved) ... ok
+test_zero_duration_rejected (tests.audio.test_audio_sync_001.WordContracts.test_zero_duration_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 23.135s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 31,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 23.2169,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

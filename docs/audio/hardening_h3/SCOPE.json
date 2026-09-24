@@ -1,0 +1,40 @@
+{
+  "schema_version": "bie.audio.h3-scope/1",
+  "parent_sha256": "964507584467e83a4c6b22ff40a6d612d9a3b21ba0f66d3c81d9c505b89d7494",
+  "finding": "AUDIO-AUDIT-001-F03",
+  "tasks": [
+    {
+      "task_id": "BIE-AUDIO-H3-001",
+      "title": "Exact canonical durable dependency and request identity"
+    },
+    {
+      "task_id": "BIE-AUDIO-H3-002",
+      "title": "Signed acoustic artifacts in existing CAS/SQLite with every-read authentication"
+    },
+    {
+      "task_id": "BIE-AUDIO-H3-003",
+      "title": "Fenced local claims, heartbeat, bounded attempts and crash recovery"
+    },
+    {
+      "task_id": "BIE-AUDIO-H3-004",
+      "title": "Existing H2 native evaluation and current-source QA reuse"
+    },
+    {
+      "task_id": "BIE-AUDIO-H3-005",
+      "title": "End-to-end durable CLI and restart/tampering evidence"
+    }
+  ],
+  "not_closed": [
+    "F01 live neural/listening",
+    "F02 multilingual/phonetic calibration/production evaluator authority",
+    "F03 canonical kernel adoption across native AUDIO calls; paid TTS recovery; distributed operation",
+    "F04 canonical DIR/ANI/COMP artifact and AV handoff"
+  ],
+  "not_authorized": [
+    "GitHub write",
+    "section exit",
+    "whole-product acceptance",
+    "source narration rewrite",
+    "replacement orchestration framework"
+  ]
+}

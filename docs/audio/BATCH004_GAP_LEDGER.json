@@ -1,0 +1,43 @@
+{
+  "schema_version": "bie.audio.batch-gap-ledger/4",
+  "batch": "BIE-AUDIO-ORIGINAL-BATCH-004",
+  "full_section_reaudit_performed": false,
+  "previous_ledger": "docs/audio/BATCH003_GAP_LEDGER.json",
+  "implemented_this_batch": [
+    "Measured constant-gain loudness normalization",
+    "Narration-sidechain duck envelope",
+    "Explicit stem placement/mix and protected pauses",
+    "Exact-zero edge trim with derived clock",
+    "Measured linked peak attenuation and PCM16 checks"
+  ],
+  "open": [
+    {
+      "owner": "QA-001..005",
+      "detail": "Pronunciation, clipping QA, missing audio, sync QA, accessibility/captions QA \u2014 next original tasks"
+    },
+    {
+      "owner": "AUDIO production voice",
+      "detail": "Real neural voice/provider deployment and independent listening; technical eSpeak is not the final cinematic profile"
+    },
+    {
+      "owner": "AUDIO/ANI/COMP",
+      "detail": "Adopt derived MIX media/clocks into production COMP assets and prove actual rendered AV sync"
+    },
+    {
+      "owner": "INFRA",
+      "detail": "Adopt existing operational worker/isolation + durable evidence/cache to these native AUDIO operations; bounded local subprocesses are not the production sandbox"
+    },
+    {
+      "owner": "QA/EVAL",
+      "detail": "Real books, voice pronunciation/acoustic/semantic quality, broad locale calibration, cinematic and learner acceptance"
+    },
+    {
+      "owner": "AUDIO section audit",
+      "detail": "Assess bounded mixer against approved requirements; high crest factor needs explicit dynamics/mastering decision, not hidden compression; long books use bounded nontruncating scene jobs"
+    }
+  ],
+  "historical_backlog_statuses_are_not_current_completion": true,
+  "github_write_performed": false,
+  "section_exit_permitted": false,
+  "product_accepted": false
+}

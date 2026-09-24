@@ -1,0 +1,14 @@
+{
+  "task_id": "BIE-AUDIO-H5-005",
+  "title": "Technical CLI, interoperable export and cold restart",
+  "finding": "AUDIO-AUDIT-001-F03",
+  "sources": [
+    "bie/audio/pipeline_io.py",
+    "scripts/audio_pipeline.py",
+    "scripts/benchmark_audio_h5.py",
+    "scripts/run_audio_module_set.py"
+  ],
+  "focused_test": "tests/audio/test_audio_h5_005.py",
+  "implementation_not_acceptance": true,
+  "product_accepted": false
+}

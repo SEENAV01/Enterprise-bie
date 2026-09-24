@@ -1,0 +1,55 @@
+{
+  "schema_version": "bie.audio.h4-recovery-scope/1",
+  "batch": "AUDIO-H4-R1",
+  "source_parent": "BIE-AUDIO-H3-005",
+  "parent_archive_sha256": "1e6caf0ead0e760baaa7fa71eeac6df0b61b6842a4403ec395a494be9ed017e5",
+  "documented_original_h4": "BIE-AUDIO-H4-005",
+  "original_h4_source_available": false,
+  "implementation_identity": "NEW_EXPLICIT_RECOVERY_REVISION_NOT_BYTE_IDENTICAL_ORIGINAL_H4",
+  "task_numbering": "Engineering subdivisions mapped one-to-one to documented H4 capabilities; not new original roadmap tasks.",
+  "findings": [
+    "AUDIO-AUDIT-001-F03",
+    "AUDIO-AUDIT-001-F02"
+  ],
+  "tasks": [
+    {
+      "id": "BIE-AUDIO-H4-R1-001",
+      "maps_documented_task": "BIE-AUDIO-H4-001",
+      "title": "Canonical worker profile and exact dependency identities",
+      "source": "kernel_profile.py",
+      "requirement": "Approve a bounded Linux/no-proc profile only after exact canonical source, acoustic engine, selected runtime and adapter identities match. Profile discovery is not approval."
+    },
+    {
+      "id": "BIE-AUDIO-H4-R1-002",
+      "maps_documented_task": "BIE-AUDIO-H4-002",
+      "title": "Fixed acoustic operation in the existing Linux worker",
+      "source": "kernel_runtime.py and kernel_entry.py",
+      "requirement": "Execute only the fixed measurement operation. Private namespaces, explicit read-only mounts, seccomp, resource limits, nonce and input/output hashes are checked. No key or durable store is mounted. No bounded-local fallback."
+    },
+    {
+      "id": "BIE-AUDIO-H4-R1-003",
+      "maps_documented_task": "BIE-AUDIO-H4-003",
+      "title": "Signed v2 execution and exact request provenance",
+      "source": "kernel_evidence.py",
+      "requirement": "Require independent issuer and profile approval. Sign media, job, selected profile, native execution and optional exact durable-request fingerprint; reject legacy-only, replayed, revoked, expired or relabelled evidence."
+    },
+    {
+      "id": "BIE-AUDIO-H4-R1-004",
+      "maps_documented_task": "BIE-AUDIO-H4-004",
+      "title": "Canonical H3 durable reuse with kernel-required evidence",
+      "source": "kernel_durable.py",
+      "requirement": "Extend the unchanged H3 three-envelope chain with a fourth signed-kernel envelope. Reuse canonical CAS/catalog/lease/claim APIs. Reverify current authority and source before cache use and both fenced completion markers."
+    },
+    {
+      "id": "BIE-AUDIO-H4-R1-005",
+      "maps_documented_task": "BIE-AUDIO-H4-005",
+      "title": "CLI, reverified publication and actual native evidence",
+      "source": "kernel_io.py; scripts/audio_kernel.py; scripts/benchmark_audio_kernel.py",
+      "requirement": "Expose explicit diagnostic-only execution, required configured authority, path separation, bounded input and protected signing keys. Reverify v2 plus inherited QA before atomic publication. Execute cold/warm CLI and boundary fixtures."
+    }
+  ],
+  "whole_section_reaudit": false,
+  "product_accepted": false,
+  "github_write_performed": false,
+  "codex_track_modified": false
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": "bie.audio.qa-native-benchmark/1",
+  "cases": [
+    {
+      "case": "english",
+      "expected_status": "REVIEW",
+      "audio_sha256": "df9d606c2b75e50a3c05ccd3e40f3edb958980c0dae556036d483e2057e1c372",
+      "checks": {
+        "BIE-AUDIO-QA-001": "REVIEW",
+        "BIE-AUDIO-QA-002": "PASS",
+        "BIE-AUDIO-QA-003": "PASS",
+        "BIE-AUDIO-QA-004": "REVIEW",
+        "BIE-AUDIO-QA-005": "REVIEW"
+      },
+      "total_samples": 149264,
+      "sample_rate": 22050,
+      "speech_profile": "REAL_LOCAL_ESPEAK_TECHNICAL_SYNTHETIC_TEXT",
+      "process_runs": [
+        {
+          "exit_code": 3,
+          "report_fingerprint": "sha256:581f50abb9a00799189b61682551339c76606fcfd8bb65d773918f2d03db8cb6",
+          "sha256": {
+            "QA_REPORT.json": "91678d7f927069162373c0119c177347a3e10498715ab985e98ee804d9aa4baa",
+            "accessible.srt": "58c2378f40da4936921dc7618d21b2d8c88eda1504f276eba13ce02de8d33b47",
+            "accessible.vtt": "59eed6387450788442861b3c89ae30b65f0a2c51d2df8f7582b214d73b79c5d5",
+            "ACCESSIBLE_CAPTIONS.json": "a75417b15e9627aa352d2d0a0e15e35f8b8bae5f3437ee7a74d335abc015eeaf",
+            "OUTPUT_SHA256.json": "2056b8af702299987867242fdc3e83f040bd0f6a917fa35aaeef419c01d9e2e6"
+          }
+        },
+        {
+          "exit_code": 3,
+          "report_fingerprint": "sha256:581f50abb9a00799189b61682551339c76606fcfd8bb65d773918f2d03db8cb6",
+          "sha256": {
+            "QA_REPORT.json": "91678d7f927069162373c0119c177347a3e10498715ab985e98ee804d9aa4baa",
+            "accessible.srt": "58c2378f40da4936921dc7618d21b2d8c88eda1504f276eba13ce02de8d33b47",
+            "accessible.vtt": "59eed6387450788442861b3c89ae30b65f0a2c51d2df8f7582b214d73b79c5d5",
+            "ACCESSIBLE_CAPTIONS.json": "a75417b15e9627aa352d2d0a0e15e35f8b8bae5f3437ee7a74d335abc015eeaf",
+            "OUTPUT_SHA256.json": "2056b8af702299987867242fdc3e83f040bd0f6a917fa35aaeef419c01d9e2e6"
+          }
+        }
+      ],
+      "byte_repeatable": true
+    },
+    {
+      "case": "english-sound",
+      "expected_status": "REVIEW",
+      "audio_sha256": "5b00bedc15c833e81d15201af0ac15486805fc426bcf0515da8babf61106f279",
+      "checks": {
+        "BIE-AUDIO-QA-001": "REVIEW",
+        "BIE-AUDIO-QA-002": "PASS",
+        "BIE-AUDIO-QA-003": "PASS",
+        "BIE-AUDIO-QA-004": "REVIEW",
+        "BIE-AUDIO-QA-005": "REVIEW"
+      },
+      "total_samples": 149264,
+      "sample_rate": 22050,
+      "speech_profile": "REAL_LOCAL_ESPEAK_TECHNICAL_SYNTHETIC_TEXT",
+      "process_runs": [
+        {
+          "exit_code": 3,
+          "report_fingerprint": "sha256:10930aa9590452dd94f4dfd19ccaddf06c2e68f370d92c38d91c53edf891ec23",
+          "sha256": {
+            "QA_REPORT.json": "be2d12ee6ecd9a27787905bec971c786531344fba71f63b8e6052d8bb3e1545f",
+            "accessible.srt": "379ee8f5d6d20488e3e0d47bb339c16c17b46065f32e8a987a00b1fa9840c5d6",
+            "accessible.vtt": "cfd18945275a1d1cc58391524ac66a3b43afa90d800d294ff101f6371648b5b2",
+            "ACCESSIBLE_CAPTIONS.json": "189e610d36829d95124f94d4429518cea5c2d2f16e11517e230cc337b510eebc",
+            "OUTPUT_SHA256.json": "c62554741a04a51d052747b51247c4d39802ae52482eba783283c0b016eaab0c"
+          }
+        },
+        {
+          "exit_code": 3,
+          "report_fingerprint": "sha256:10930aa9590452dd94f4dfd19ccaddf06c2e68f370d92c38d91c53edf891ec23",
+          "sha256": {
+            "QA_REPORT.json": "be2d12ee6ecd9a27787905bec971c786531344fba71f63b8e6052d8bb3e1545f",
+            "accessible.srt": "379ee8f5d6d20488e3e0d47bb339c16c17b46065f32e8a987a00b1fa9840c5d6",
+            "accessible.vtt": "cfd18945275a1d1cc58391524ac66a3b43afa90d800d294ff101f6371648b5b2",
+            "ACCESSIBLE_CAPTIONS.json": "189e610d36829d95124f94d4429518cea5c2d2f16e11517e230cc337b510eebc",
+            "OUTPUT_SHA256.json": "c62554741a04a51d052747b51247c4d39802ae52482eba783283c0b016eaab0c"
+          }
+        }
+      ],
+      "byte_repeatable": true
+    },
+    {
+      "case": "hindi",
+      "expected_status": "REVIEW",
+      "audio_sha256": "2daebbbcd064ab916b677b0e11a0d8d89787fbe32f766e60e0d7c432b14f64b2",
+      "checks": {
+        "BIE-AUDIO-QA-001": "REVIEW",
+        "BIE-AUDIO-QA-002": "PASS",
+        "BIE-AUDIO-QA-003": "PASS",
+        "BIE-AUDIO-QA-004": "REVIEW",
+        "BIE-AUDIO-QA-005": "REVIEW"
+      },
+      "total_samples": 142126,
+      "sample_rate": 22050,
+      "speech_profile": "REAL_LOCAL_ESPEAK_TECHNICAL_SYNTHETIC_TEXT",
+      "process_runs": [
+        {
+          "exit_code": 3,
+          "report_fingerprint": "sha256:53b5b22fe5249b2171ddf9e5ef9b9c2641ce74ebadf0d28ccf7651fad4e8f731",
+          "sha256": {
+            "QA_REPORT.json": "655de8105ecb6dc3d8c00a313f730df207816cb4181f84ec977e04002331ea2f",
+            "accessible.srt": "43b6656f6c15d7b84a0bfd247d4424fc8becf4dc2d6961a613ba86f23ece2a6c",
+            "accessible.vtt": "912f1f810b3f6c44abb70c1b5920470887075d2ef1eb576a5636c99d79d12f34",
+            "ACCESSIBLE_CAPTIONS.json": "5b5690b79d99e9ba10aa32e57a8b12e17a122496492aafe8c1f455a43e3a53cc",
+            "OUTPUT_SHA256.json": "6fd8d9058979cad05536137171600775b3b293dca9fff9d404514ce9c348fac3"
+          }
+        },
+        {
+          "exit_code": 3,
+          "report_fingerprint": "sha256:53b5b22fe5249b2171ddf9e5ef9b9c2641ce74ebadf0d28ccf7651fad4e8f731",
+          "sha256": {
+            "QA_REPORT.json": "655de8105ecb6dc3d8c00a313f730df207816cb4181f84ec977e04002331ea2f",
+            "accessible.srt": "43b6656f6c15d7b84a0bfd247d4424fc8becf4dc2d6961a613ba86f23ece2a6c",
+            "accessible.vtt": "912f1f810b3f6c44abb70c1b5920470887075d2ef1eb576a5636c99d79d12f34",
+            "ACCESSIBLE_CAPTIONS.json": "5b5690b79d99e9ba10aa32e57a8b12e17a122496492aafe8c1f455a43e3a53cc",
+            "OUTPUT_SHA256.json": "6fd8d9058979cad05536137171600775b3b293dca9fff9d404514ce9c348fac3"
+          }
+        }
+      ],
+      "byte_repeatable": true
+    }
+  ],
+  "independent_qa_cli_processes": 6,
+  "negative_controls": [
+    {
+      "case": "tampered-master",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "{\"status\": \"BLOCKED\", \"error\": \"QA_FILE_HASH_CHANGED: master.wav\", \"product_accepted\": false}\n",
+      "diagnostic_output_written": false
+    },
+    {
+      "case": "stale-intent",
+      "exit_code": 2,
+      "stdout": "{\n  \"status\": \"FAIL\",\n  \"checks\": {\n    \"BIE-AUDIO-QA-001\": \"REVIEW\",\n    \"BIE-AUDIO-QA-002\": \"PASS\",\n    \"BIE-AUDIO-QA-003\": \"PASS\",\n    \"BIE-AUDIO-QA-004\": \"REVIEW\",\n    \"BIE-AUDIO-QA-005\": \"FAIL\"\n  },\n  \"report_fingerprint\": \"sha256:78c41389bd815193326baa566b514f4a116247b288549615dff6b9cb0f0c45cd\",\n  \"product_accepted\": false\n}\n",
+      "stderr": "",
+      "diagnostic_output_written": true
+    }
+  ],
+  "all_declared_expectations_matched": true,
+  "live_neural_provider_called": false,
+  "human_listening_performed": false,
+  "real_remotion_render": false,
+  "product_accepted": false
+}

@@ -29,7 +29,7 @@ def main():
         paths += sorted((ROOT/'tests/pedagogy').rglob('test*.py'))
         paths += sorted((ROOT/'tests/director').rglob('test*.py'))
         paths += sorted((ROOT/'tests/assembly').rglob('test*.py'))
-        for family in ('visual_intelligence', 'animation_intelligence', 'scene_ir', 'compiler', 'post_dir'):
+        for family in ('visual_intelligence', 'animation_intelligence', 'scene_ir', 'compiler', 'post_dir', 'audio'):
             paths += sorted((ROOT/'tests'/family).rglob('test*.py'))
     if not paths:raise SystemExit('No tests discovered')
     results=[];start=time.monotonic()
@@ -42,6 +42,8 @@ def main():
             module=importlib.util.module_from_spec(spec)
             if path.is_relative_to(ROOT / "tests/compiler"):
                 module.__package__ = "tests.compiler"
+            if path.is_relative_to(ROOT / "tests/audio"):
+                module.__package__ = "tests.audio"
             sys.modules[name]=module
             spec.loader.exec_module(module)
             suite=unittest.defaultTestLoader.loadTestsFromModule(module)

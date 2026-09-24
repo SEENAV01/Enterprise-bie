@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.audio.mix-spec/1",
+  "plan_fingerprint": "sha256:018c3c85ab5fe8ca90e11c3c82270791a207c9f9a1a90a1344a81eaa13a85fb5",
+  "timeline_fingerprint": "sha256:ea7b97ce439e3395fa0d2c3df799d9db39932b3aaf9894461b7a65d075d877d4",
+  "policy": {
+    "loudness": {
+      "target_lufs": -23.0,
+      "tolerance_lu": 0.5,
+      "true_peak_ceiling_dbtp": -1.0,
+      "max_boost_db": 18.0,
+      "max_attenuation_db": 60.0,
+      "unreachable": "review",
+      "dual_mono": false
+    },
+    "ducking": {
+      "reduction_db": -15.0,
+      "threshold_dbfs": -42.0,
+      "window_ms": 10,
+      "attack_ms": 60,
+      "hold_ms": 160,
+      "release_ms": 300
+    },
+    "trim": {
+      "enabled": true,
+      "padding_ms": 20,
+      "minimum_silence_ms": 40,
+      "max_edge_ms": 2000
+    },
+    "peaks": {
+      "ceiling_dbtp": -1.0,
+      "guard_db": 0.15,
+      "maximum_attenuation_db": 60.0
+    },
+    "pause_mode": "all_stems_silent",
+    "pause_fade_ms": 30
+  },
+  "stems": []
+}

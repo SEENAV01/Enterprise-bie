@@ -1,0 +1,28 @@
+{
+  "schema_version": "bie.audio.word-anchor-input/1",
+  "plan_fingerprint": "sha256:018c3c85ab5fe8ca90e11c3c82270791a207c9f9a1a90a1344a81eaa13a85fb5",
+  "bindings": [
+    {
+      "binding_id": "trace:1",
+      "target_id": "technical:graph",
+      "action": "graph_trace",
+      "start_segment_id": "audio-segment:2655c4bfb07043b0404a2ca44e69fd18afa80a88c27a92f796f936c3c5e641e9",
+      "first_word": 0,
+      "end_segment_id": "audio-segment:2dde50e093447a561f25a5224f8c764605ac13d246798d89902e21bdb3c65f4f",
+      "last_word": 3,
+      "source_refs": [
+        "synthetic:audio-fixture:1"
+      ],
+      "reasoning_refs": [
+        "synthetic:trace-after-observe"
+      ],
+      "start_offset_ms": 0,
+      "end_offset_ms": 0,
+      "minimum_frames": 12,
+      "pause_mode": "hold",
+      "after": [],
+      "expected_first_word": "First",
+      "expected_last_word": "change"
+    }
+  ]
+}

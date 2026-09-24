@@ -1,0 +1,582 @@
+RUN test_audio_h1_001.py
+test_allowlist_no_quality_fallback (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_allowlist_no_quality_fallback) ... ok
+test_config_roundtrip (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_config_roundtrip) ... ok
+test_context_identity_invalidates_cache (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_context_identity_invalidates_cache) ... ok
+test_context_never_truncated (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_context_never_truncated) ... ok
+test_dialect_not_falsely_enforced (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_dialect_not_falsely_enforced) ... ok
+test_every_expressive_setting_changes_identity (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_every_expressive_setting_changes_identity) ... ok
+test_explicit_supported_model (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_explicit_supported_model) ... ok
+test_fixture_cannot_share_runtime_identity (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_fixture_cannot_share_runtime_identity) ... ok
+test_generic_wpm_not_silently_mapped (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_generic_wpm_not_silently_mapped) ... ok
+test_multilingual_cannot_claim_forced_language (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_multilingual_cannot_claim_forced_language) ... ok
+test_multilingual_v2_auto_language_explicit (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_multilingual_v2_auto_language_explicit) ... ok
+test_no_production_quality_claim (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_no_production_quality_claim) ... ok
+test_nonfinite_and_bool_setting_rejected (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_nonfinite_and_bool_setting_rejected) ... ok
+test_phoneme_forcing_not_advertised (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_phoneme_forcing_not_advertised) ... ok
+test_prepared_text_exact_wire_payload (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_prepared_text_exact_wire_payload) ... ok
+test_privacy_policy_in_cache_identity (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_privacy_policy_in_cache_identity) ... ok
+test_rights_revision_changes_identity (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_rights_revision_changes_identity) ... ok
+test_source_bound_neighbor_context (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_source_bound_neighbor_context) ... ok
+test_source_markup_not_instructions (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_source_markup_not_instructions) ... ok
+test_speed_bounds (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_speed_bounds) ... ok
+test_unknown_config_field_rejected (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_unknown_config_field_rejected) ... ok
+test_voice_id_not_path (tests.audio.test_audio_h1_001.NeuralPolicyTests.test_voice_id_not_path) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.077s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h1_001.py", "tests": 22, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.202}
+RUN test_audio_h2_001.py
+test_analysis_tokens_keep_codepoint_offsets (tests.audio.test_audio_h2_001.AcousticContractTests.test_analysis_tokens_keep_codepoint_offsets) ... ok
+test_bad_hash_without_reseal (tests.audio.test_audio_h2_001.AcousticContractTests.test_bad_hash_without_reseal) ... ok
+test_bool_clock_rejected (tests.audio.test_audio_h2_001.AcousticContractTests.test_bool_clock_rejected) ... ok
+test_changed_prepared_text (tests.audio.test_audio_h2_001.AcousticContractTests.test_changed_prepared_text) ... ok
+test_current_mix_builds_exact_job (tests.audio.test_audio_h2_001.AcousticContractTests.test_current_mix_builds_exact_job) ... ok
+test_dry_source_bool_exact (tests.audio.test_audio_h2_001.AcousticContractTests.test_dry_source_bool_exact) ... ok
+test_dry_source_signal_is_measured (tests.audio.test_audio_h2_001.AcousticContractTests.test_dry_source_signal_is_measured) ... ok
+test_duplicate_segment (tests.audio.test_audio_h2_001.AcousticContractTests.test_duplicate_segment) ... ok
+test_edit_distance_repeated_words (tests.audio.test_audio_h2_001.AcousticContractTests.test_edit_distance_repeated_words) ... ok
+test_inputs_unchanged (tests.audio.test_audio_h2_001.AcousticContractTests.test_inputs_unchanged) ... ok
+test_invalid_source_offset (tests.audio.test_audio_h2_001.AcousticContractTests.test_invalid_source_offset) ... ok
+test_job_binds_current_media (tests.audio.test_audio_h2_001.AcousticContractTests.test_job_binds_current_media) ... ok
+test_missing_source_binding (tests.audio.test_audio_h2_001.AcousticContractTests.test_missing_source_binding) ... ok
+test_missing_source_refs (tests.audio.test_audio_h2_001.AcousticContractTests.test_missing_source_refs) ... ok
+test_no_silent_symbol_or_hindi_drop (tests.audio.test_audio_h2_001.AcousticContractTests.test_no_silent_symbol_or_hindi_drop) ... ok
+test_non_pcm16_rejected (tests.audio.test_audio_h2_001.AcousticContractTests.test_non_pcm16_rejected) ... ok
+test_outside_crop (tests.audio.test_audio_h2_001.AcousticContractTests.test_outside_crop) ... ok
+test_policy_bounds (tests.audio.test_audio_h2_001.AcousticContractTests.test_policy_bounds) ... ok
+test_policy_change_invalidates_identity (tests.audio.test_audio_h2_001.AcousticContractTests.test_policy_change_invalidates_identity) ... ok
+test_same_engine_producer_rejected (tests.audio.test_audio_h2_001.AcousticContractTests.test_same_engine_producer_rejected) ... ok
+test_segment_budget_rejected_not_truncated (tests.audio.test_audio_h2_001.AcousticContractTests.test_segment_budget_rejected_not_truncated) ... ok
+test_source_spans_preserved (tests.audio.test_audio_h2_001.AcousticContractTests.test_source_spans_preserved) ... ok
+test_trailing_wav_bytes_rejected (tests.audio.test_audio_h2_001.AcousticContractTests.test_trailing_wav_bytes_rejected) ... ok
+test_unknown_job_field (tests.audio.test_audio_h2_001.AcousticContractTests.test_unknown_job_field) ... ok
+test_voice_and_request_identity (tests.audio.test_audio_h2_001.AcousticContractTests.test_voice_and_request_identity) ... ok
+test_word_changed (tests.audio.test_audio_h2_001.AcousticContractTests.test_word_changed) ... ok
+test_word_zero_window (tests.audio.test_audio_h2_001.AcousticContractTests.test_word_zero_window) ... ok
+test_wrong_media (tests.audio.test_audio_h2_001.AcousticContractTests.test_wrong_media) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 59.404s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h2_001.py", "tests": 28, "failures": 0, "errors": 0, "skips": 0, "seconds": 59.567}
+RUN test_audio_h2_004.py
+test_blocked_new_evaluation_never_closes_previous_failure (tests.audio.test_audio_h2_004.AcousticRepairTests.test_blocked_new_evaluation_never_closes_previous_failure) ... ok
+test_changed_source_refs_cannot_satisfy_repair (tests.audio.test_audio_h2_004.AcousticRepairTests.test_changed_source_refs_cannot_satisfy_repair) ... ok
+test_downstream_invalidation_targets_present (tests.audio.test_audio_h2_004.AcousticRepairTests.test_downstream_invalidation_targets_present) ... ok
+test_exact_final_silence_fails (tests.audio.test_audio_h2_004.AcousticRepairTests.test_exact_final_silence_fails) ... ok
+test_expired_new_evidence_rejected (tests.audio.test_audio_h2_004.AcousticRepairTests.test_expired_new_evidence_rejected) ... ok
+test_intact_dry_speech_routes_silence_to_mix (tests.audio.test_audio_h2_004.AcousticRepairTests.test_intact_dry_speech_routes_silence_to_mix) ... ok
+test_lexical_disagreement_not_mispronunciation_verdict (tests.audio.test_audio_h2_004.AcousticRepairTests.test_lexical_disagreement_not_mispronunciation_verdict) ... ok
+test_measured_result_is_review_not_pronunciation_pass (tests.audio.test_audio_h2_004.AcousticRepairTests.test_measured_result_is_review_not_pronunciation_pass) ... ok
+test_no_automatic_source_edit_or_kernel_claim (tests.audio.test_audio_h2_004.AcousticRepairTests.test_no_automatic_source_edit_or_kernel_claim) ... ok
+test_old_receipt_on_new_media_rejected (tests.audio.test_audio_h2_004.AcousticRepairTests.test_old_receipt_on_new_media_rejected) ... ok
+test_owned_remix_intent (tests.audio.test_audio_h2_004.AcousticRepairTests.test_owned_remix_intent) ... ok
+test_recheck_no_false_durable_invalidation (tests.audio.test_audio_h2_004.AcousticRepairTests.test_recheck_no_false_durable_invalidation) ... ok
+test_rehashed_repair_tampering_rejected (tests.audio.test_audio_h2_004.AcousticRepairTests.test_rehashed_repair_tampering_rejected) ... ok
+test_repair_identity_deterministic (tests.audio.test_audio_h2_004.AcousticRepairTests.test_repair_identity_deterministic) ... ok
+test_repair_preserves_source_and_reading (tests.audio.test_audio_h2_004.AcousticRepairTests.test_repair_preserves_source_and_reading) ... ok
+test_same_media_recheck_rejected (tests.audio.test_audio_h2_004.AcousticRepairTests.test_same_media_recheck_rejected) ... ok
+test_timing_disagreement_does_not_rewrite_clock (tests.audio.test_audio_h2_004.AcousticRepairTests.test_timing_disagreement_does_not_rewrite_clock) ... ok
+test_uncalibrated_phone_disagreement_review_only (tests.audio.test_audio_h2_004.AcousticRepairTests.test_uncalibrated_phone_disagreement_review_only) ... ok
+test_valid_fresh_recheck_resolves_exact_silence_not_acceptance (tests.audio.test_audio_h2_004.AcousticRepairTests.test_valid_fresh_recheck_resolves_exact_silence_not_acceptance) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 8.597s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h2_004.py", "tests": 19, "failures": 0, "errors": 0, "skips": 0, "seconds": 8.629}
+RUN test_audio_h3_003.py
+test_attempt_limit (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_attempt_limit) ... ok
+test_changed_same_revision_conflict (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_changed_same_revision_conflict) ... ok
+test_completed_claim_reused_after_restart (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_completed_claim_reused_after_restart) ... ok
+test_completion_has_actual_verified_reference (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_completion_has_actual_verified_reference) ... ok
+test_concurrent_process_connections_only_one_claims (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_concurrent_process_connections_only_one_claims) ... ok
+test_crash_between_two_completion_markers_recovers (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_crash_between_two_completion_markers_recovers) ... ok
+test_exact_expiry_cannot_heartbeat_or_complete (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_exact_expiry_cannot_heartbeat_or_complete) ... ok
+test_expired_claim_reclaimed (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_expired_claim_reclaimed) ... ok
+test_expired_heartbeat_fails (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_expired_heartbeat_fails) ... ok
+test_fake_callback_cannot_authorize_completion (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_fake_callback_cannot_authorize_completion) ... ok
+test_heartbeat_extends_live_lease (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_heartbeat_extends_live_lease) ... ok
+test_live_job_cannot_be_stolen (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_live_job_cannot_be_stolen) ... ok
+test_new_invocation_has_unique_owner (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_new_invocation_has_unique_owner) ... ok
+test_new_revision_can_run (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_new_revision_can_run) ... ok
+test_old_heartbeat_ticket_cannot_complete (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_old_heartbeat_ticket_cannot_complete) ... ok
+test_old_worker_cannot_complete (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_old_worker_cannot_complete) ... ok
+test_recovery_still_rechecks_signature (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_recovery_still_rechecks_signature) ... ok
+test_stale_result_reference_cannot_complete (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_stale_result_reference_cannot_complete) ... ok
+test_wrong_ticket_request (tests.audio.test_audio_h3_003.FencedLifecycleTests.test_wrong_ticket_request) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.502s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h3_003.py", "tests": 19, "failures": 0, "errors": 0, "skips": 0, "seconds": 2.662}
+RUN test_audio_h3_004.py
+test_actual_native_evaluation_and_cold_reuse (tests.audio.test_audio_h3_004.DurablePipelineTests.test_actual_native_evaluation_and_cold_reuse) ... ok
+test_cancel_before_storage (tests.audio.test_audio_h3_004.DurablePipelineTests.test_cancel_before_storage) ... ok
+test_cancel_running_work_leaves_no_completed_receipt (tests.audio.test_audio_h3_004.DurablePipelineTests.test_cancel_running_work_leaves_no_completed_receipt) ... ok
+test_current_evidence_publication_connected (tests.audio.test_audio_h3_004.DurablePipelineTests.test_current_evidence_publication_connected) ... ok
+test_native_worker_boundary_label_honest (tests.audio.test_audio_h3_004.DurablePipelineTests.test_native_worker_boundary_label_honest) ... ok
+test_new_revision_explicitly_runs_again (tests.audio.test_audio_h3_004.DurablePipelineTests.test_new_revision_explicitly_runs_again) ... ok
+test_original_upstream_review_findings_survive (tests.audio.test_audio_h3_004.DurablePipelineTests.test_original_upstream_review_findings_survive) ... ok
+test_qa_adopts_actual_signed_result (tests.audio.test_audio_h3_004.DurablePipelineTests.test_qa_adopts_actual_signed_result) ... ok
+test_revoked_signer_rejected_before_worker (tests.audio.test_audio_h3_004.DurablePipelineTests.test_revoked_signer_rejected_before_worker) ... ok
+test_runtime_drift_rejected (tests.audio.test_audio_h3_004.DurablePipelineTests.test_runtime_drift_rejected) ... ok
+test_same_revision_changed_key_refuses_alias (tests.audio.test_audio_h3_004.DurablePipelineTests.test_same_revision_changed_key_refuses_alias) ... ok
+test_signer_rejected_before_worker (tests.audio.test_audio_h3_004.DurablePipelineTests.test_signer_rejected_before_worker) ... ok
+test_still_not_release_authority (tests.audio.test_audio_h3_004.DurablePipelineTests.test_still_not_release_authority) ... ok
+test_trust_revision_reverified_without_rerun (tests.audio.test_audio_h3_004.DurablePipelineTests.test_trust_revision_reverified_without_rerun) ... ok
+test_worker_failure_not_cached_as_success (tests.audio.test_audio_h3_004.DurablePipelineTests.test_worker_failure_not_cached_as_success) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 85.472s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h3_004.py", "tests": 15, "failures": 0, "errors": 0, "skips": 0, "seconds": 85.534}
+RUN test_audio_h4r_001.py
+test_actual_dependency_change_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_actual_dependency_change_rejected) ... ok
+test_current_profile_equal (tests.audio.test_audio_h4r_001.ProfileTests.test_current_profile_equal) ... ok
+test_discovery_not_acceptance (tests.audio.test_audio_h4r_001.ProfileTests.test_discovery_not_acceptance) ... ok
+test_eight_original_git_blobs (tests.audio.test_audio_h4r_001.ProfileTests.test_eight_original_git_blobs) ... ok
+test_narrow_policy (tests.audio.test_audio_h4r_001.ProfileTests.test_narrow_policy) ... ok
+test_no_signer_or_store_mounted (tests.audio.test_audio_h4r_001.ProfileTests.test_no_signer_or_store_mounted) ... ok
+test_profile_reproducible (tests.audio.test_audio_h4r_001.ProfileTests.test_profile_reproducible) ... ok
+test_reject_acceptance (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_acceptance) ... ok
+test_reject_concurrency_bool (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_concurrency_bool) ... ok
+test_reject_fingerprint (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_fingerprint) ... ok
+test_reject_operation (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_operation) ... ok
+test_reject_output_budget (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_output_budget) ... ok
+test_reject_procfs (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_procfs) ... ok
+test_reject_runtime (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_runtime) ... ok
+test_reject_selected_python (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_selected_python) ... ok
+test_reject_unbounded_cpu (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_unbounded_cpu) ... ok
+test_reject_unknown_field (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_unknown_field) ... ok
+test_source_budget_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_source_budget_rejected) ... ok
+test_source_symlink_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_source_symlink_rejected) ... ok
+test_trust_duplicate_profiles_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_trust_duplicate_profiles_rejected) ... ok
+test_trust_empty_profiles_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_trust_empty_profiles_rejected) ... ok
+test_unsupported_platform (tests.audio.test_audio_h4r_001.ProfileTests.test_unsupported_platform) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 5.687s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h4r_001.py", "tests": 22, "failures": 0, "errors": 0, "skips": 0, "seconds": 5.719}
+RUN test_audio_h4r_003.py
+test_actual_signature (tests.audio.test_audio_h4r_003.SignatureTests.test_actual_signature) ... ok
+test_bit_flip_signature (tests.audio.test_audio_h4r_003.SignatureTests.test_bit_flip_signature) ... ok
+test_current_trust_revision_allowed (tests.audio.test_audio_h4r_003.SignatureTests.test_current_trust_revision_allowed) ... ok
+test_exact_signed_request (tests.audio.test_audio_h4r_003.SignatureTests.test_exact_signed_request) ... ok
+test_expired_receipt (tests.audio.test_audio_h4r_003.SignatureTests.test_expired_receipt) ... ok
+test_future_receipt (tests.audio.test_audio_h4r_003.SignatureTests.test_future_receipt) ... ok
+test_legacy_receipt_rejected (tests.audio.test_audio_h4r_003.SignatureTests.test_legacy_receipt_rejected) ... ok
+test_other_key_signature (tests.audio.test_audio_h4r_003.SignatureTests.test_other_key_signature) ... ok
+test_outer_issued_inner_binding (tests.audio.test_audio_h4r_003.SignatureTests.test_outer_issued_inner_binding) ... ok
+test_profile_removed (tests.audio.test_audio_h4r_003.SignatureTests.test_profile_removed) ... ok
+test_request_replay_rejected (tests.audio.test_audio_h4r_003.SignatureTests.test_request_replay_rejected) ... ok
+test_resigned_fabricated_namespace (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_fabricated_namespace) ... ok
+test_resigned_reject_alignment (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_alignment) ... ok
+test_resigned_reject_boolean_int (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_boolean_int) ... ok
+test_resigned_reject_calibration (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_calibration) ... ok
+test_resigned_reject_new_field (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_new_field) ... ok
+test_resigned_reject_product (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_product) ... ok
+test_resigned_reject_profile (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_profile) ... ok
+test_resigned_reject_pronunciation (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_pronunciation) ... ok
+test_resigned_reject_request_type (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_request_type) ... ok
+test_resigned_reject_schema (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_schema) ... ok
+test_resigned_reject_scope (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_scope) ... ok
+test_resigned_reject_time_boolean (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_reject_time_boolean) ... ok
+test_resigned_result_hash_invalid (tests.audio.test_audio_h4r_003.SignatureTests.test_resigned_result_hash_invalid) ... ok
+test_revoked_issuer (tests.audio.test_audio_h4r_003.SignatureTests.test_revoked_issuer) ... ok
+test_runtime_removed (tests.audio.test_audio_h4r_003.SignatureTests.test_runtime_removed) ... ok
+test_signer_not_injected (tests.audio.test_audio_h4r_003.SignatureTests.test_signer_not_injected) ... ok
+test_signer_unknown_key_id (tests.audio.test_audio_h4r_003.SignatureTests.test_signer_unknown_key_id) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 35.208s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h4r_003.py", "tests": 28, "failures": 0, "errors": 0, "skips": 0, "seconds": 35.21}
+RUN test_audio_mix_001.py
+test_actual_input_meter (tests.audio.test_audio_mix_001.LoudnessTests.test_actual_input_meter) ... ok
+test_attenuation_limit (tests.audio.test_audio_mix_001.LoudnessTests.test_attenuation_limit) ... ok
+test_bad_report (tests.audio.test_audio_mix_001.LoudnessTests.test_bad_report) ... ok
+test_cancellation (tests.audio.test_audio_mix_001.LoudnessTests.test_cancellation) ... ok
+test_changed_executable (tests.audio.test_audio_mix_001.LoudnessTests.test_changed_executable) ... ok
+test_constant_gain_no_time_change (tests.audio.test_audio_mix_001.LoudnessTests.test_constant_gain_no_time_change) ... ok
+test_deadline (tests.audio.test_audio_mix_001.LoudnessTests.test_deadline) ... ok
+test_double_amplitude_six_lu (tests.audio.test_audio_mix_001.LoudnessTests.test_double_amplitude_six_lu) ... ok
+test_dual_mono_stereo_rejected (tests.audio.test_audio_mix_001.LoudnessTests.test_dual_mono_stereo_rejected) ... ok
+test_explicit_dual_mono (tests.audio.test_audio_mix_001.LoudnessTests.test_explicit_dual_mono) ... ok
+test_immutable_source (tests.audio.test_audio_mix_001.LoudnessTests.test_immutable_source) ... ok
+test_input_fields_not_filter_output (tests.audio.test_audio_mix_001.LoudnessTests.test_input_fields_not_filter_output) ... ok
+test_meter_is_not_acceptance (tests.audio.test_audio_mix_001.LoudnessTests.test_meter_is_not_acceptance) ... ok
+test_missing_executable (tests.audio.test_audio_mix_001.LoudnessTests.test_missing_executable) ... ok
+test_pcm_finite (tests.audio.test_audio_mix_001.LoudnessTests.test_pcm_finite) ... ok
+test_pcm_no_silent_clipping (tests.audio.test_audio_mix_001.LoudnessTests.test_pcm_no_silent_clipping) ... ok
+test_pcm_roundtrip (tests.audio.test_audio_mix_001.LoudnessTests.test_pcm_roundtrip) ... ok
+test_pcm_shape (tests.audio.test_audio_mix_001.LoudnessTests.test_pcm_shape) ... ok
+test_policy_nonfinite (tests.audio.test_audio_mix_001.LoudnessTests.test_policy_nonfinite) ... ok
+test_policy_unsupported (tests.audio.test_audio_mix_001.LoudnessTests.test_policy_unsupported) ... ok
+test_quiet_constrained_review (tests.audio.test_audio_mix_001.LoudnessTests.test_quiet_constrained_review) ... ok
+test_quiet_fail_policy (tests.audio.test_audio_mix_001.LoudnessTests.test_quiet_fail_policy) ... ok
+test_short_audio_not_fake_loudness (tests.audio.test_audio_mix_001.LoudnessTests.test_short_audio_not_fake_loudness) ... ok
+test_silence_unmeasurable (tests.audio.test_audio_mix_001.LoudnessTests.test_silence_unmeasurable) ... ok
+test_target_reached (tests.audio.test_audio_mix_001.LoudnessTests.test_target_reached) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 20.102s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_mix_001.py", "tests": 25, "failures": 0, "errors": 0, "skips": 0, "seconds": 20.106}
+RUN test_audio_mix_io.py
+test_actual_wav_loaded_with_exact_bytes (tests.audio.test_audio_mix_io.MixIOTests.test_actual_wav_loaded_with_exact_bytes) ... ok
+test_changed_file_hash (tests.audio.test_audio_mix_io.MixIOTests.test_changed_file_hash) ... ok
+test_cli_malformed_spec_blocked (tests.audio.test_audio_mix_io.MixIOTests.test_cli_malformed_spec_blocked) ... ok
+test_cli_real_speech_and_spec_to_master (tests.audio.test_audio_mix_io.MixIOTests.test_cli_real_speech_and_spec_to_master) ... ok
+test_cli_requires_technical_voice_opt_in (tests.audio.test_audio_mix_io.MixIOTests.test_cli_requires_technical_voice_opt_in) ... ok
+test_existing_output_not_overwritten (tests.audio.test_audio_mix_io.MixIOTests.test_existing_output_not_overwritten) ... ok
+test_invalid_copy_path (tests.audio.test_audio_mix_io.MixIOTests.test_invalid_copy_path) ... ok
+test_malformed_media (tests.audio.test_audio_mix_io.MixIOTests.test_malformed_media) ... ok
+test_missing_file (tests.audio.test_audio_mix_io.MixIOTests.test_missing_file) ... ok
+test_missing_source_and_rights (tests.audio.test_audio_mix_io.MixIOTests.test_missing_source_and_rights) ... ok
+test_output_symlink_rejected (tests.audio.test_audio_mix_io.MixIOTests.test_output_symlink_rejected) ... ok
+test_path_traversal (tests.audio.test_audio_mix_io.MixIOTests.test_path_traversal) ... ok
+test_publish_source_master_captions_and_hashes (tests.audio.test_audio_mix_io.MixIOTests.test_publish_source_master_captions_and_hashes) ... ok
+test_rehashed_unbound_caption_text_publication_blocked (tests.audio.test_audio_mix_io.MixIOTests.test_rehashed_unbound_caption_text_publication_blocked) ... ok
+test_review_needs_explicit_opt_in (tests.audio.test_audio_mix_io.MixIOTests.test_review_needs_explicit_opt_in) ... ok
+test_stale_plan (tests.audio.test_audio_mix_io.MixIOTests.test_stale_plan) ... ok
+test_stale_timeline (tests.audio.test_audio_mix_io.MixIOTests.test_stale_timeline) ... ok
+test_symlink_file (tests.audio.test_audio_mix_io.MixIOTests.test_symlink_file) ... ok
+test_symlink_parent (tests.audio.test_audio_mix_io.MixIOTests.test_symlink_parent) ... ok
+test_undeclared_fields (tests.audio.test_audio_mix_io.MixIOTests.test_undeclared_fields) ... ok
+test_wrong_decoded_format (tests.audio.test_audio_mix_io.MixIOTests.test_wrong_decoded_format) ... ok
+test_wrong_source_never_published (tests.audio.test_audio_mix_io.MixIOTests.test_wrong_source_never_published) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 167.861s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_mix_io.py", "tests": 22, "failures": 0, "errors": 0, "skips": 0, "seconds": 167.878}
+RUN test_audio_reconciliation.py
+test_both_feed_same_request_contract (tests.audio.test_audio_reconciliation.Reconciliation.test_both_feed_same_request_contract) ... ok
+test_compat_unknown_review_not_erased (tests.audio.test_audio_reconciliation.Reconciliation.test_compat_unknown_review_not_erased) ... ok
+test_current_unknown_review_not_erased (tests.audio.test_audio_reconciliation.Reconciliation.test_current_unknown_review_not_erased) ... ok
+test_different_profiles_explicit (tests.audio.test_audio_reconciliation.Reconciliation.test_different_profiles_explicit) ... ok
+test_extended_sum_still_executable (tests.audio.test_audio_reconciliation.Reconciliation.test_extended_sum_still_executable) ... ok
+test_hindi_still_executable (tests.audio.test_audio_reconciliation.Reconciliation.test_hindi_still_executable) ... ok
+test_literal_cannot_be_rewritten (tests.audio.test_audio_reconciliation.Reconciliation.test_literal_cannot_be_rewritten) ... ok
+test_no_automatic_math_fallback (tests.audio.test_audio_reconciliation.Reconciliation.test_no_automatic_math_fallback) ... ok
+test_no_historical_tests_removed (tests.audio.test_audio_reconciliation.Reconciliation.test_no_historical_tests_removed) ... ok
+test_original_zip_bytes_preserved (tests.audio.test_audio_reconciliation.Reconciliation.test_original_zip_bytes_preserved) ... ok
+test_source_refs_preserved (tests.audio.test_audio_reconciliation.Reconciliation.test_source_refs_preserved) ... ok
+test_upstream_revision_preserved (tests.audio.test_audio_reconciliation.Reconciliation.test_upstream_revision_preserved) ... ok
+test_v144_original_text_lossless (tests.audio.test_audio_reconciliation.Reconciliation.test_v144_original_text_lossless) ... ok
+test_v204_original_text_lossless (tests.audio.test_audio_reconciliation.Reconciliation.test_v204_original_text_lossless) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.070s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_reconciliation.py", "tests": 14, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.087}
+RUN test_audio_sync_001.py
+test_actual_hindi (tests.audio.test_audio_sync_001.RealTimedSpeech.test_actual_hindi) ... ok
+test_cache_waveform_and_timing_bind (tests.audio.test_audio_sync_001.RealTimedSpeech.test_cache_waveform_and_timing_bind) ... ok
+test_cancellation_no_timing (tests.audio.test_audio_sync_001.RealTimedSpeech.test_cancellation_no_timing) ... ok
+test_corrupt_pcm_cannot_take_other_timings (tests.audio.test_audio_sync_001.RealTimedSpeech.test_corrupt_pcm_cannot_take_other_timings) ... ok
+test_mark_positions_are_not_claimed_as_phonetic_offsets (tests.audio.test_audio_sync_001.RealTimedSpeech.test_mark_positions_are_not_claimed_as_phonetic_offsets) ... ok
+test_missing_mark_rejected (tests.audio.test_audio_sync_001.RealTimedSpeech.test_missing_mark_rejected) ... ok
+test_native_speech_and_all_marks (tests.audio.test_audio_sync_001.RealTimedSpeech.test_native_speech_and_all_marks) ... ok
+test_old_provider_not_silently_replaced (tests.audio.test_audio_sync_001.RealTimedSpeech.test_old_provider_not_silently_replaced) ... ok
+test_reordered_marks_rejected (tests.audio.test_audio_sync_001.RealTimedSpeech.test_reordered_marks_rejected) ... ok
+test_same_pcm_replay (tests.audio.test_audio_sync_001.RealTimedSpeech.test_same_pcm_replay) ... ok
+test_unknown_mark_rejected (tests.audio.test_audio_sync_001.RealTimedSpeech.test_unknown_mark_rejected) ... ok
+test_worker_deadline_enforced (tests.audio.test_audio_sync_001.RealTimedSpeech.test_worker_deadline_enforced) ... ok
+test_bad_schema_rejected (tests.audio.test_audio_sync_001.WordContracts.test_bad_schema_rejected) ... ok
+test_bool_time_rejected (tests.audio.test_audio_sync_001.WordContracts.test_bool_time_rejected) ... ok
+test_changed_word_rejected (tests.audio.test_audio_sync_001.WordContracts.test_changed_word_rejected) ... ok
+test_media_edit_rejected (tests.audio.test_audio_sync_001.WordContracts.test_media_edit_rejected) ... ok
+test_missing_word_rejected (tests.audio.test_audio_sync_001.WordContracts.test_missing_word_rejected) ... ok
+test_negative_time_rejected (tests.audio.test_audio_sync_001.WordContracts.test_negative_time_rejected) ... ok
+test_no_acoustic_acceptance (tests.audio.test_audio_sync_001.WordContracts.test_no_acoustic_acceptance) ... ok
+test_ordinal_rejected (tests.audio.test_audio_sync_001.WordContracts.test_ordinal_rejected) ... ok
+test_outside_audio_rejected (tests.audio.test_audio_sync_001.WordContracts.test_outside_audio_rejected) ... ok
+test_overlap_rejected (tests.audio.test_audio_sync_001.WordContracts.test_overlap_rejected) ... ok
+test_reported_never_measured (tests.audio.test_audio_sync_001.WordContracts.test_reported_never_measured) ... ok
+test_reported_rows_typed (tests.audio.test_audio_sync_001.WordContracts.test_reported_rows_typed) ... ok
+test_reported_validates_source (tests.audio.test_audio_sync_001.WordContracts.test_reported_validates_source) ... ok
+test_request_revision_rejected (tests.audio.test_audio_sync_001.WordContracts.test_request_revision_rejected) ... ok
+test_sample_round_half_up (tests.audio.test_audio_sync_001.WordContracts.test_sample_round_half_up) ... ok
+test_source_refs_preserved (tests.audio.test_audio_sync_001.WordContracts.test_source_refs_preserved) ... ok
+test_source_rule_edit_rejected (tests.audio.test_audio_sync_001.WordContracts.test_source_rule_edit_rejected) ... ok
+test_unicode_combining_preserved (tests.audio.test_audio_sync_001.WordContracts.test_unicode_combining_preserved) ... ok
+test_zero_duration_rejected (tests.audio.test_audio_sync_001.WordContracts.test_zero_duration_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 52.395s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_sync_001.py", "tests": 31, "failures": 0, "errors": 0, "skips": 0, "seconds": 52.4}
+RUN test_audio_sync_003.py
+test_actual_pcm_concatenation (tests.audio.test_audio_sync_003.Scenes.test_actual_pcm_concatenation) ... ok
+test_alignment_stale_rejected (tests.audio.test_audio_sync_003.Scenes.test_alignment_stale_rejected) ... ok
+test_assets_missing_rejected (tests.audio.test_audio_sync_003.Scenes.test_assets_missing_rejected) ... ok
+test_assets_reordered_rejected (tests.audio.test_audio_sync_003.Scenes.test_assets_reordered_rejected) ... ok
+test_audio_cannot_be_speeded_to_fit (tests.audio.test_audio_sync_003.Scenes.test_audio_cannot_be_speeded_to_fit) ... ok
+test_complete_segment_coverage (tests.audio.test_audio_sync_003.Scenes.test_complete_segment_coverage) ... ok
+test_duplicate_scene_budget (tests.audio.test_audio_sync_003.Scenes.test_duplicate_scene_budget) ... ok
+test_explicit_hold_required (tests.audio.test_audio_sync_003.Scenes.test_explicit_hold_required) ... ok
+test_float_fps_rejected (tests.audio.test_audio_sync_003.Scenes.test_float_fps_rejected) ... ok
+test_fraction_boundary_never_early (tests.audio.test_audio_sync_003.Scenes.test_fraction_boundary_never_early) ... ok
+test_integer_fps (tests.audio.test_audio_sync_003.Scenes.test_integer_fps) ... ok
+test_media_edit_rejected (tests.audio.test_audio_sync_003.Scenes.test_media_edit_rejected) ... ok
+test_no_pause_loss (tests.audio.test_audio_sync_003.Scenes.test_no_pause_loss) ... ok
+test_nonreduced_fraction_rejected (tests.audio.test_audio_sync_003.Scenes.test_nonreduced_fraction_rejected) ... ok
+test_rational_fps (tests.audio.test_audio_sync_003.Scenes.test_rational_fps) ... ok
+test_repeated_scene_noncontiguous_rejected (tests.audio.test_audio_sync_003.Scenes.test_repeated_scene_noncontiguous_rejected) ... ok
+test_reverse_seek_same_scene (tests.audio.test_audio_sync_003.Scenes.test_reverse_seek_same_scene) ... ok
+test_shared_frame_boundaries (tests.audio.test_audio_sync_003.Scenes.test_shared_frame_boundaries) ... ok
+test_timeline_media_hash (tests.audio.test_audio_sync_003.Scenes.test_timeline_media_hash) ... ok
+test_unknown_scene_budget (tests.audio.test_audio_sync_003.Scenes.test_unknown_scene_budget) ... ok
+test_unmeasured_default_rejected (tests.audio.test_audio_sync_003.Scenes.test_unmeasured_default_rejected) ... ok
+test_zero_fps_rejected (tests.audio.test_audio_sync_003.Scenes.test_zero_fps_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.199s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_sync_003.py", "tests": 22, "failures": 0, "errors": 0, "skips": 0, "seconds": 1.202}
+RUN test_audio_vo_002.py
+test_alias_applies (tests.audio.test_audio_vo_002.LexiconTests.test_alias_applies) ... ok
+test_case_insensitive_explicit (tests.audio.test_audio_vo_002.LexiconTests.test_case_insensitive_explicit) ... ok
+test_case_rule_ambiguity (tests.audio.test_audio_vo_002.LexiconTests.test_case_rule_ambiguity) ... ok
+test_case_sensitive_default (tests.audio.test_audio_vo_002.LexiconTests.test_case_sensitive_default) ... ok
+test_domain_override (tests.audio.test_audio_vo_002.LexiconTests.test_domain_override) ... ok
+test_duplicate_id_reject (tests.audio.test_audio_vo_002.LexiconTests.test_duplicate_id_reject) ... ok
+test_duplicate_scope_reject (tests.audio.test_audio_vo_002.LexiconTests.test_duplicate_scope_reject) ... ok
+test_evidence_required (tests.audio.test_audio_vo_002.LexiconTests.test_evidence_required) ... ok
+test_frozen_data (tests.audio.test_audio_vo_002.LexiconTests.test_frozen_data) ... ok
+test_hindi_offsets (tests.audio.test_audio_vo_002.LexiconTests.test_hindi_offsets) ... ok
+test_homograph_requires_sense (tests.audio.test_audio_vo_002.LexiconTests.test_homograph_requires_sense) ... ok
+test_language_no_silent_fallback (tests.audio.test_audio_vo_002.LexiconTests.test_language_no_silent_fallback) ... ok
+test_longest_phrase (tests.audio.test_audio_vo_002.LexiconTests.test_longest_phrase) ... ok
+test_no_blank_pronunciation (tests.audio.test_audio_vo_002.LexiconTests.test_no_blank_pronunciation) ... ok
+test_no_subword (tests.audio.test_audio_vo_002.LexiconTests.test_no_subword) ... ok
+test_order_independent_identity (tests.audio.test_audio_vo_002.LexiconTests.test_order_independent_identity) ... ok
+test_phonemes_preserved_as_requirement (tests.audio.test_audio_vo_002.LexiconTests.test_phonemes_preserved_as_requirement) ... ok
+test_pls_ambiguous_export_reject (tests.audio.test_audio_vo_002.LexiconTests.test_pls_ambiguous_export_reject) ... ok
+test_pls_xml_escape (tests.audio.test_audio_vo_002.LexiconTests.test_pls_xml_escape) ... ok
+test_primary_fallback_explicit (tests.audio.test_audio_vo_002.LexiconTests.test_primary_fallback_explicit) ... ok
+test_regional_precedence (tests.audio.test_audio_vo_002.LexiconTests.test_regional_precedence) ... ok
+test_unicode_combining_boundary (tests.audio.test_audio_vo_002.LexiconTests.test_unicode_combining_boundary) ... ok
+test_unknown_alphabet (tests.audio.test_audio_vo_002.LexiconTests.test_unknown_alphabet) ... ok
+test_version_invalidates_identity (tests.audio.test_audio_vo_002.LexiconTests.test_version_invalidates_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.005s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_vo_002.py", "tests": 24, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.007}
+RUN test_audio_vo_008.py
+test_boolean_policy (tests.audio.test_audio_vo_008.VoiceSelection.test_boolean_policy) ... ok
+test_default_choice_is_declared (tests.audio.test_audio_vo_008.VoiceSelection.test_default_choice_is_declared) ... ok
+test_deterministic_selection (tests.audio.test_audio_vo_008.VoiceSelection.test_deterministic_selection) ... ok
+test_edited_selection_count (tests.audio.test_audio_vo_008.VoiceSelection.test_edited_selection_count) ... ok
+test_missing_prior_voice_blocked (tests.audio.test_audio_vo_008.VoiceSelection.test_missing_prior_voice_blocked) ... ok
+test_neural_quality_not_downgraded (tests.audio.test_audio_vo_008.VoiceSelection.test_neural_quality_not_downgraded) ... ok
+test_one_voice_for_persona (tests.audio.test_audio_vo_008.VoiceSelection.test_one_voice_for_persona) ... ok
+test_phoneme_requirements_no_fallback (tests.audio.test_audio_vo_008.VoiceSelection.test_phoneme_requirements_no_fallback) ... ok
+test_preferred_voice (tests.audio.test_audio_vo_008.VoiceSelection.test_preferred_voice) ... ok
+test_prior_voice_continuity (tests.audio.test_audio_vo_008.VoiceSelection.test_prior_voice_continuity) ... ok
+test_provider_allowlist (tests.audio.test_audio_vo_008.VoiceSelection.test_provider_allowlist) ... ok
+test_selection_records_catalog (tests.audio.test_audio_vo_008.VoiceSelection.test_selection_records_catalog) ... ok
+test_stale_catalog_selection (tests.audio.test_audio_vo_008.VoiceSelection.test_stale_catalog_selection) ... ok
+test_stale_source_selection (tests.audio.test_audio_vo_008.VoiceSelection.test_stale_source_selection) ... ok
+test_unknown_primary_language_not_guessed (tests.audio.test_audio_vo_008.VoiceSelection.test_unknown_primary_language_not_guessed) ... ok
+test_upstream_review_not_waived (tests.audio.test_audio_vo_008.VoiceSelection.test_upstream_review_not_waived) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.031s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_vo_008.py", "tests": 16, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.033}
+RUN test_audio_vo_010.py
+test_acceptance_flag_tamper (tests.audio.test_audio_vo_010.Caching.test_acceptance_flag_tamper) ... ok
+test_cache_returns_verified_sample_metadata (tests.audio.test_audio_vo_010.Caching.test_cache_returns_verified_sample_metadata) ... ok
+test_cancelled_cache_hit_respected (tests.audio.test_audio_vo_010.Caching.test_cancelled_cache_hit_respected) ... ok
+test_concurrent_single_generation (tests.audio.test_audio_vo_010.Caching.test_concurrent_single_generation) ... ok
+test_extra_file_blocked (tests.audio.test_audio_vo_010.Caching.test_extra_file_blocked) ... ok
+test_failed_provider_not_cached (tests.audio.test_audio_vo_010.Caching.test_failed_provider_not_cached) ... ok
+test_first_miss (tests.audio.test_audio_vo_010.Caching.test_first_miss) ... ok
+test_lock_timeout (tests.audio.test_audio_vo_010.Caching.test_lock_timeout) ... ok
+test_media_tamper (tests.audio.test_audio_vo_010.Caching.test_media_tamper) ... ok
+test_missing_media_rejected (tests.audio.test_audio_vo_010.Caching.test_missing_media_rejected) ... ok
+test_rate_key_changes (tests.audio.test_audio_vo_010.Caching.test_rate_key_changes) ... ok
+test_reload_on_new_cache_instance (tests.audio.test_audio_vo_010.Caching.test_reload_on_new_cache_instance) ... ok
+test_request_identity_tamper (tests.audio.test_audio_vo_010.Caching.test_request_identity_tamper) ... ok
+test_runtime_metadata_tamper (tests.audio.test_audio_vo_010.Caching.test_runtime_metadata_tamper) ... ok
+test_second_hit_no_call (tests.audio.test_audio_vo_010.Caching.test_second_hit_no_call) ... ok
+test_source_revision_miss (tests.audio.test_audio_vo_010.Caching.test_source_revision_miss) ... ok
+test_symlink_media_rejected (tests.audio.test_audio_vo_010.Caching.test_symlink_media_rejected) ... ok
+test_symlink_root_rejected (tests.audio.test_audio_vo_010.Caching.test_symlink_root_rejected) ... ok
+test_tenant_isolation (tests.audio.test_audio_vo_010.Caching.test_tenant_isolation) ... ok
+test_voice_model_key_changes (tests.audio.test_audio_vo_010.Caching.test_voice_model_key_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.247s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_vo_010.py", "tests": 20, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.25}
+RUN test_compat204_vo_001.py
+test_abbreviation_not_sentence (tests.audio.test_compat204_vo_001.SegmentationTests.test_abbreviation_not_sentence) ... ok
+test_annotation_must_not_split_combining_cluster (tests.audio.test_compat204_vo_001.SegmentationTests.test_annotation_must_not_split_combining_cluster) ... ok
+test_annotation_must_not_split_zwj_sequence (tests.audio.test_compat204_vo_001.SegmentationTests.test_annotation_must_not_split_zwj_sequence) ... ok
+test_annotations_protect_phrases (tests.audio.test_compat204_vo_001.SegmentationTests.test_annotations_protect_phrases) ... ok
+test_control_character_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_control_character_rejected) ... ok
+test_decimal_not_cut (tests.audio.test_compat204_vo_001.SegmentationTests.test_decimal_not_cut) ... ok
+test_duplicate_block (tests.audio.test_compat204_vo_001.SegmentationTests.test_duplicate_block) ... ok
+test_empty_math (tests.audio.test_compat204_vo_001.SegmentationTests.test_empty_math) ... ok
+test_evidence_required (tests.audio.test_compat204_vo_001.SegmentationTests.test_evidence_required) ... ok
+test_exact_director_adoption (tests.audio.test_compat204_vo_001.SegmentationTests.test_exact_director_adoption) ... ok
+test_fingerprint_changes_on_voice_revision (tests.audio.test_compat204_vo_001.SegmentationTests.test_fingerprint_changes_on_voice_revision) ... ok
+test_hindi_marks_not_cut (tests.audio.test_compat204_vo_001.SegmentationTests.test_hindi_marks_not_cut) ... ok
+test_immutable_source (tests.audio.test_compat204_vo_001.SegmentationTests.test_immutable_source) ... ok
+test_input_order_not_sorted_by_id (tests.audio.test_compat204_vo_001.SegmentationTests.test_input_order_not_sorted_by_id) ... ok
+test_json_roundtrip_exact (tests.audio.test_compat204_vo_001.SegmentationTests.test_json_roundtrip_exact) ... ok
+test_literal_price_annotation (tests.audio.test_compat204_vo_001.SegmentationTests.test_literal_price_annotation) ... ok
+test_long_atomic_expression_blocks_without_loss (tests.audio.test_compat204_vo_001.SegmentationTests.test_long_atomic_expression_blocks_without_loss) ... ok
+test_math_expression_is_not_split (tests.audio.test_compat204_vo_001.SegmentationTests.test_math_expression_is_not_split) ... ok
+test_never_merges_scenes_or_voices (tests.audio.test_compat204_vo_001.SegmentationTests.test_never_merges_scenes_or_voices) ... ok
+test_no_dict_as_director_object (tests.audio.test_compat204_vo_001.SegmentationTests.test_no_dict_as_director_object) ... ok
+test_noncontiguous_scenes_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_noncontiguous_scenes_rejected) ... ok
+test_overlap_annotations_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_overlap_annotations_rejected) ... ok
+test_parenthesis_math_delimiters (tests.audio.test_compat204_vo_001.SegmentationTests.test_parenthesis_math_delimiters) ... ok
+test_policy_bool_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_policy_bool_rejected) ... ok
+test_roundtrip_all_whitespace (tests.audio.test_compat204_vo_001.SegmentationTests.test_roundtrip_all_whitespace) ... ok
+test_stale_annotated_text_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_stale_annotated_text_rejected) ... ok
+test_surrogate_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_surrogate_rejected) ... ok
+test_tampered_acceptance (tests.audio.test_compat204_vo_001.SegmentationTests.test_tampered_acceptance) ... ok
+test_tampered_segment_source (tests.audio.test_compat204_vo_001.SegmentationTests.test_tampered_segment_source) ... ok
+test_unclosed_math (tests.audio.test_compat204_vo_001.SegmentationTests.test_unclosed_math) ... ok
+test_unknown_json_key (tests.audio.test_compat204_vo_001.SegmentationTests.test_unknown_json_key) ... ok
+test_unknown_policy_rejected (tests.audio.test_compat204_vo_001.SegmentationTests.test_unknown_policy_rejected) ... ok
+test_upstream_review_retained (tests.audio.test_compat204_vo_001.SegmentationTests.test_upstream_review_retained) ... ok
+test_utf8_byte_budget (tests.audio.test_compat204_vo_001.SegmentationTests.test_utf8_byte_budget) ... ok
+test_wrong_director_revision (tests.audio.test_compat204_vo_001.SegmentationTests.test_wrong_director_revision) ... ok
+test_zwj_emoji_not_cut (tests.audio.test_compat204_vo_001.SegmentationTests.test_zwj_emoji_not_cut) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.009s
+
+OK
+FINISHED {"file": "tests/audio/test_compat204_vo_001.py", "tests": 36, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.012}
+RUN test_compat204_vo_002.py
+test_blank_alias_for_term_rejected (tests.audio.test_compat204_vo_002.LexiconTests.test_blank_alias_for_term_rejected) ... ok
+test_case_is_not_collapsed (tests.audio.test_compat204_vo_002.LexiconTests.test_case_is_not_collapsed) ... ok
+test_combining_mark_boundary (tests.audio.test_compat204_vo_002.LexiconTests.test_combining_mark_boundary) ... ok
+test_cross_kind_ambiguity (tests.audio.test_compat204_vo_002.LexiconTests.test_cross_kind_ambiguity) ... ok
+test_domain_specific_over_global (tests.audio.test_compat204_vo_002.LexiconTests.test_domain_specific_over_global) ... ok
+test_duplicate_id_rejected (tests.audio.test_compat204_vo_002.LexiconTests.test_duplicate_id_rejected) ... ok
+test_duplicate_selector_rejected (tests.audio.test_compat204_vo_002.LexiconTests.test_duplicate_selector_rejected) ... ok
+test_empty_lexicon_allowed (tests.audio.test_compat204_vo_002.LexiconTests.test_empty_lexicon_allowed) ... ok
+test_exact_locale_only (tests.audio.test_compat204_vo_002.LexiconTests.test_exact_locale_only) ... ok
+test_excluded_math_not_changed (tests.audio.test_compat204_vo_002.LexiconTests.test_excluded_math_not_changed) ... ok
+test_explicit_rule_must_match_domain (tests.audio.test_compat204_vo_002.LexiconTests.test_explicit_rule_must_match_domain) ... ok
+test_explicit_rule_must_match_source (tests.audio.test_compat204_vo_002.LexiconTests.test_explicit_rule_must_match_source) ... ok
+test_immutable_rules (tests.audio.test_compat204_vo_002.LexiconTests.test_immutable_rules) ... ok
+test_ipa_preserved_not_verified (tests.audio.test_compat204_vo_002.LexiconTests.test_ipa_preserved_not_verified) ... ok
+test_ipa_requires_alphabet (tests.audio.test_compat204_vo_002.LexiconTests.test_ipa_requires_alphabet) ... ok
+test_list_rules_rejected (tests.audio.test_compat204_vo_002.LexiconTests.test_list_rules_rejected) ... ok
+test_literal_match (tests.audio.test_compat204_vo_002.LexiconTests.test_literal_match) ... ok
+test_longest_phrase (tests.audio.test_compat204_vo_002.LexiconTests.test_longest_phrase) ... ok
+test_no_substring_word_match (tests.audio.test_compat204_vo_002.LexiconTests.test_no_substring_word_match) ... ok
+test_no_unknown_phoneme_alphabet (tests.audio.test_compat204_vo_002.LexiconTests.test_no_unknown_phoneme_alphabet) ... ok
+test_order_invariant_fingerprint (tests.audio.test_compat204_vo_002.LexiconTests.test_order_invariant_fingerprint) ... ok
+test_other_domain_no_implicit_match (tests.audio.test_compat204_vo_002.LexiconTests.test_other_domain_no_implicit_match) ... ok
+test_revision_changes_identity (tests.audio.test_compat204_vo_002.LexiconTests.test_revision_changes_identity) ... ok
+test_role_ambiguity (tests.audio.test_compat204_vo_002.LexiconTests.test_role_ambiguity) ... ok
+test_serialization_roundtrip (tests.audio.test_compat204_vo_002.LexiconTests.test_serialization_roundtrip) ... ok
+test_source_refs_change_identity (tests.audio.test_compat204_vo_002.LexiconTests.test_source_refs_change_identity) ... ok
+test_stale_identity (tests.audio.test_compat204_vo_002.LexiconTests.test_stale_identity) ... ok
+test_symbol_needs_role (tests.audio.test_compat204_vo_002.LexiconTests.test_symbol_needs_role) ... ok
+test_two_occurrences_offsets (tests.audio.test_compat204_vo_002.LexiconTests.test_two_occurrences_offsets) ... ok
+test_unknown_serialized_fields (tests.audio.test_compat204_vo_002.LexiconTests.test_unknown_serialized_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.003s
+
+OK
+FINISHED {"file": "tests/audio/test_compat204_vo_002.py", "tests": 30, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.006}
+RUN test_compat204_vo_004.py
+test_arrow_direction (tests.audio.test_compat204_vo_004.SymbolTests.test_arrow_direction) ... ok
+test_arrow_limit (tests.audio.test_compat204_vo_004.SymbolTests.test_arrow_limit) ... ok
+test_blank_role_rejected (tests.audio.test_compat204_vo_004.SymbolTests.test_blank_role_rejected) ... ok
+test_delta_change (tests.audio.test_compat204_vo_004.SymbolTests.test_delta_change) ... ok
+test_delta_name (tests.audio.test_compat204_vo_004.SymbolTests.test_delta_name) ... ok
+test_dimension (tests.audio.test_compat204_vo_004.SymbolTests.test_dimension) ... ok
+test_division (tests.audio.test_compat204_vo_004.SymbolTests.test_division) ... ok
+test_exact_locale_rule_supported (tests.audio.test_compat204_vo_004.SymbolTests.test_exact_locale_rule_supported) ... ok
+test_explicit_unknown_rule_does_not_fallback (tests.audio.test_compat204_vo_004.SymbolTests.test_explicit_unknown_rule_does_not_fallback) ... ok
+test_locale_no_silent_fallback (tests.audio.test_compat204_vo_004.SymbolTests.test_locale_no_silent_fallback) ... ok
+test_micro_sign (tests.audio.test_compat204_vo_004.SymbolTests.test_micro_sign) ... ok
+test_minus (tests.audio.test_compat204_vo_004.SymbolTests.test_minus) ... ok
+test_mu_name (tests.audio.test_compat204_vo_004.SymbolTests.test_mu_name) ... ok
+test_mu_prefix (tests.audio.test_compat204_vo_004.SymbolTests.test_mu_prefix) ... ok
+test_multiplication (tests.audio.test_compat204_vo_004.SymbolTests.test_multiplication) ... ok
+test_no_audio (tests.audio.test_compat204_vo_004.SymbolTests.test_no_audio) ... ok
+test_omega_name (tests.audio.test_compat204_vo_004.SymbolTests.test_omega_name) ... ok
+test_omega_unit (tests.audio.test_compat204_vo_004.SymbolTests.test_omega_unit) ... ok
+test_policy_identity_separates_meanings (tests.audio.test_compat204_vo_004.SymbolTests.test_policy_identity_separates_meanings) ... ok
+test_pronunciation_not_semantic_verification (tests.audio.test_compat204_vo_004.SymbolTests.test_pronunciation_not_semantic_verification) ... ok
+test_range (tests.audio.test_compat204_vo_004.SymbolTests.test_range) ... ok
+test_rule_identity_source_preserved (tests.audio.test_compat204_vo_004.SymbolTests.test_rule_identity_source_preserved) ... ok
+test_rupee (tests.audio.test_compat204_vo_004.SymbolTests.test_rupee) ... ok
+test_temperature (tests.audio.test_compat204_vo_004.SymbolTests.test_temperature) ... ok
+test_unit_per (tests.audio.test_compat204_vo_004.SymbolTests.test_unit_per) ... ok
+test_unknown_symbol_rejected (tests.audio.test_compat204_vo_004.SymbolTests.test_unknown_symbol_rejected) ... ok
+test_wrong_role_rejected (tests.audio.test_compat204_vo_004.SymbolTests.test_wrong_role_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.002s
+
+OK
+FINISHED {"file": "tests/audio/test_compat204_vo_004.py", "tests": 27, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.003}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h1_001.py",
+    "test_audio_h2_001.py",
+    "test_audio_h2_004.py",
+    "test_audio_h3_003.py",
+    "test_audio_h3_004.py",
+    "test_audio_h4r_001.py",
+    "test_audio_h4r_003.py",
+    "test_audio_mix_001.py",
+    "test_audio_mix_io.py",
+    "test_audio_reconciliation.py",
+    "test_audio_sync_001.py",
+    "test_audio_sync_003.py",
+    "test_audio_vo_002.py",
+    "test_audio_vo_008.py",
+    "test_audio_vo_010.py",
+    "test_compat204_vo_001.py",
+    "test_compat204_vo_002.py",
+    "test_compat204_vo_004.py"
+  ],
+  "tests": 420,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 439.549
+}

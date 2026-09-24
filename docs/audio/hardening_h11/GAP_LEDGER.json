@@ -1,0 +1,79 @@
+{
+  "checkpoint": "BIE-AUDIO-H11-001",
+  "closed_residuals": [
+    {
+      "detail": "H5-003 future-receipt regression now uses explicit receipt-relative verification clock; production code unchanged",
+      "id": "AUDIO-FINAL-REGRESSION-R01",
+      "status": "CLOSED"
+    }
+  ],
+  "github_integration_permitted": true,
+  "implementation_findings": [
+    {
+      "id": "AUDIO-AUDIT-001-F01",
+      "implemented_by": [
+        "H1-001..005",
+        "H8 live authority adoption"
+      ],
+      "open_evidence": [
+        "authorized live production neural execution",
+        "representative independent listening/cinematic quality"
+      ],
+      "status": "IMPLEMENTATION_SIDE_COMPLETE_EXTERNAL_VALIDATION_OPEN"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F02",
+      "implemented_by": [
+        "H2-001..005",
+        "H4-R1 signed acoustic authority",
+        "H9-001..005"
+      ],
+      "open_evidence": [
+        "real multilingual/accent/IPA/OOV evaluator",
+        "held-out labelled speech/phonetic boundaries",
+        "independent human listening/calibration"
+      ],
+      "status": "IMPLEMENTATION_SIDE_COMPLETE_EXTERNAL_CALIBRATION_OPEN"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F03",
+      "implemented_by": [
+        "H3-001..005",
+        "H4-R1-001..005",
+        "H5-001..005",
+        "H6-001..005",
+        "H7-001..005",
+        "H8-001..005"
+      ],
+      "open_evidence": [
+        "production KMS/HSM",
+        "distributed multi-host/fleet deployment validation"
+      ],
+      "status": "IMPLEMENTATION_SIDE_COMPLETE_DEPLOYMENT_VALIDATION_OPEN"
+    },
+    {
+      "id": "AUDIO-AUDIT-001-F04",
+      "implemented_by": [
+        "H10-001..005"
+      ],
+      "open_evidence": [
+        "pinned canonical React/Remotion full compile/discovery/smoke/render",
+        "real-book rendered AV/caption inspection"
+      ],
+      "status": "IMPLEMENTATION_SIDE_COMPLETE_DOWNSTREAM_RENDER_VALIDATION_OPEN"
+    }
+  ],
+  "product_accepted": false,
+  "remaining_implementation_gaps": [],
+  "remaining_validation_acceptance_gates": [
+    "Authorized live production neural provider execution and representative independent listening",
+    "Real held-out multilingual/accent/IPA/OOV evaluator calibration and independent listening evidence",
+    "Production KMS/HSM and distributed/multi-host deployment/fleet validation",
+    "Pinned canonical React/Remotion generated-project compile/discovery/smoke/full render",
+    "Real multi-domain book end-to-end rendered AV/caption/learning-quality acceptance",
+    "Full canonical enterprise regression and integration CI at current main"
+  ],
+  "schema_version": "bie.audio.final-gap-ledger/1",
+  "section": "AUDIO",
+  "section_exit_permitted": true
+}

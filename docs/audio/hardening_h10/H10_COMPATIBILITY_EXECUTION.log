@@ -1,0 +1,149 @@
+RUN test_audio_h9_001_capability.py
+test_accent_blocked (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_accent_blocked) ... ok
+test_accent_language_must_exist (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_accent_language_must_exist) ... ok
+test_audio_budget (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_audio_budget) ... ok
+test_code_switch_blocked (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_code_switch_blocked) ... ok
+test_decision_is_not_accuracy_claim (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_decision_is_not_accuracy_claim) ... ok
+test_duplicate_language (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_duplicate_language) ... ok
+test_ipa_blocked (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_ipa_blocked) ... ok
+test_language_blocked (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_language_blocked) ... ok
+test_oov_blocked (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_oov_blocked) ... ok
+test_required_outputs (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_required_outputs) ... ok
+test_requirements_fingerprint_changes (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_requirements_fingerprint_changes) ... ok
+test_supported_profile (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_supported_profile) ... ok
+test_target_budget (tests.audio.test_audio_h9_001_capability.CapabilityTests.test_target_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.002s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h9_001_capability.py", "tests": 13, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.029}
+RUN test_audio_h9_002_contract.py
+test_blocked_capability_rejects_request (tests.audio.test_audio_h9_002_contract.ContractTests.test_blocked_capability_rejects_request) ... ok
+test_coverage_missing (tests.audio.test_audio_h9_002_contract.ContractTests.test_coverage_missing) ... ok
+test_duplicate_target_rejected (tests.audio.test_audio_h9_002_contract.ContractTests.test_duplicate_target_rejected) ... ok
+test_identity_tamper (tests.audio.test_audio_h9_002_contract.ContractTests.test_identity_tamper) ... ok
+test_ipa_needs_phone_evidence (tests.audio.test_audio_h9_002_contract.ContractTests.test_ipa_needs_phone_evidence) ... ok
+test_measured_needs_score_and_bounds (tests.audio.test_audio_h9_002_contract.ContractTests.test_measured_needs_score_and_bounds) ... ok
+test_media_tamper (tests.audio.test_audio_h9_002_contract.ContractTests.test_media_tamper) ... ok
+test_oov_must_be_handled (tests.audio.test_audio_h9_002_contract.ContractTests.test_oov_must_be_handled) ... ok
+test_report_outside_media_rejected (tests.audio.test_audio_h9_002_contract.ContractTests.test_report_outside_media_rejected) ... ok
+test_report_validates (tests.audio.test_audio_h9_002_contract.ContractTests.test_report_validates) ... ok
+test_request_binding_tamper (tests.audio.test_audio_h9_002_contract.ContractTests.test_request_binding_tamper) ... ok
+test_request_builds (tests.audio.test_audio_h9_002_contract.ContractTests.test_request_builds) ... ok
+test_target_count_binding (tests.audio.test_audio_h9_002_contract.ContractTests.test_target_count_binding) ... ok
+test_unmeasured_cannot_carry_score (tests.audio.test_audio_h9_002_contract.ContractTests.test_unmeasured_cannot_carry_score) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.005s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h9_002_contract.py", "tests": 14, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.009}
+RUN test_audio_h9_003_calibration.py
+test_duplicate_case_rejected (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_duplicate_case_rejected) ... ok
+test_independent_scope_requires_heldout (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_independent_scope_requires_heldout) ... ok
+test_insufficient_correct_blocks (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_insufficient_correct_blocks) ... ok
+test_insufficient_error_blocks (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_insufficient_error_blocks) ... ok
+test_language_coverage_can_be_relaxed_explicitly (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_language_coverage_can_be_relaxed_explicitly) ... ok
+test_language_label_coverage (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_language_label_coverage) ... ok
+test_no_threshold_blocks (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_no_threshold_blocks) ... ok
+test_policy_fingerprint_changes (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_policy_fingerprint_changes) ... ok
+test_profile_mix_rejected (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_profile_mix_rejected) ... ok
+test_separated_dataset_calibrates (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_separated_dataset_calibrates) ... ok
+test_test_fixture_can_calibrate_mechanics_but_scope_retained (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_test_fixture_can_calibrate_mechanics_but_scope_retained) ... ok
+test_threshold_is_deterministic (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_threshold_is_deterministic) ... ok
+test_too_many_uncertain_blocks (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_too_many_uncertain_blocks) ... ok
+test_uncertainty_excluded (tests.audio.test_audio_h9_003_calibration.CalibrationTests.test_uncertainty_excluded) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.025s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h9_003_calibration.py", "tests": 14, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.026}
+RUN test_audio_h9_004_authority.py
+test_calibration_binding (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_calibration_binding) ... ok
+test_expired_rejected (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_expired_rejected) ... ok
+test_future_rejected (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_future_rejected) ... ok
+test_local_file_custody_not_production (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_local_file_custody_not_production) ... ok
+test_payload_requires_external_custody_literal (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_payload_requires_external_custody_literal) ... ok
+test_production_authority (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_production_authority) ... ok
+test_profile_binding (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_profile_binding) ... ok
+test_signature_tamper_rejected (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_signature_tamper_rejected) ... ok
+test_test_fixture_calibration_not_production (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_test_fixture_calibration_not_production) ... ok
+test_test_role_not_production (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_test_role_not_production) ... ok
+test_trust_must_allow_production (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_trust_must_allow_production) ... ok
+test_verified_nonproduction_scope (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_verified_nonproduction_scope) ... ok
+test_wrong_issuer_rejected (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_wrong_issuer_rejected) ... ok
+test_wrong_key_rejected (tests.audio.test_audio_h9_004_authority.AuthorityTests.test_wrong_key_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.035s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h9_004_authority.py", "tests": 14, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.036}
+RUN test_audio_h9_005_governance.py
+test_all_good_passes_under_production_authority (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_all_good_passes_under_production_authority) ... ok
+test_calibration_profile_mismatch_rejected (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_calibration_profile_mismatch_rejected) ... ok
+test_fail_creates_repair_intent (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_fail_creates_repair_intent) ... ok
+test_high_uncertainty_reviews (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_high_uncertainty_reviews) ... ok
+test_mismatch_fails (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_mismatch_fails) ... ok
+test_no_repair_for_pass (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_no_repair_for_pass) ... ok
+test_product_never_accepted (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_product_never_accepted) ... ok
+test_repair_declares_downstream_invalidation (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_repair_declares_downstream_invalidation) ... ok
+test_repair_preserves_reading (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_repair_preserves_reading) ... ok
+test_repair_request_binding_required (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_repair_request_binding_required) ... ok
+test_stale_report_rejected (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_stale_report_rejected) ... ok
+test_test_authority_blocks (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_test_authority_blocks) ... ok
+test_test_fixture_calibration_blocks (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_test_fixture_calibration_blocks) ... ok
+test_unmeasured_blocks (tests.audio.test_audio_h9_005_governance.GovernanceTests.test_unmeasured_blocks) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.040s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_h9_005_governance.py", "tests": 14, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.044}
+RUN test_audio_reconciliation.py
+test_both_feed_same_request_contract (tests.audio.test_audio_reconciliation.Reconciliation.test_both_feed_same_request_contract) ... ok
+test_compat_unknown_review_not_erased (tests.audio.test_audio_reconciliation.Reconciliation.test_compat_unknown_review_not_erased) ... ok
+test_current_unknown_review_not_erased (tests.audio.test_audio_reconciliation.Reconciliation.test_current_unknown_review_not_erased) ... ok
+test_different_profiles_explicit (tests.audio.test_audio_reconciliation.Reconciliation.test_different_profiles_explicit) ... ok
+test_extended_sum_still_executable (tests.audio.test_audio_reconciliation.Reconciliation.test_extended_sum_still_executable) ... ok
+test_hindi_still_executable (tests.audio.test_audio_reconciliation.Reconciliation.test_hindi_still_executable) ... ok
+test_literal_cannot_be_rewritten (tests.audio.test_audio_reconciliation.Reconciliation.test_literal_cannot_be_rewritten) ... ok
+test_no_automatic_math_fallback (tests.audio.test_audio_reconciliation.Reconciliation.test_no_automatic_math_fallback) ... ok
+test_no_historical_tests_removed (tests.audio.test_audio_reconciliation.Reconciliation.test_no_historical_tests_removed) ... ok
+test_original_zip_bytes_preserved (tests.audio.test_audio_reconciliation.Reconciliation.test_original_zip_bytes_preserved) ... ok
+test_source_refs_preserved (tests.audio.test_audio_reconciliation.Reconciliation.test_source_refs_preserved) ... ok
+test_upstream_revision_preserved (tests.audio.test_audio_reconciliation.Reconciliation.test_upstream_revision_preserved) ... ok
+test_v144_original_text_lossless (tests.audio.test_audio_reconciliation.Reconciliation.test_v144_original_text_lossless) ... ok
+test_v204_original_text_lossless (tests.audio.test_audio_reconciliation.Reconciliation.test_v204_original_text_lossless) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.033s
+
+OK
+FINISHED {"file": "tests/audio/test_audio_reconciliation.py", "tests": 14, "failures": 0, "errors": 0, "skips": 0, "seconds": 0.058}
+{
+  "schema_version": "bie.audio.explicit-module-test/1",
+  "complete": true,
+  "passed": true,
+  "scope": "AUDIO_MODULES_ONLY_NOT_FULL_ENTERPRISE",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "selected_modules": [
+    "test_audio_h9_001_capability.py",
+    "test_audio_h9_002_contract.py",
+    "test_audio_h9_003_calibration.py",
+    "test_audio_h9_004_authority.py",
+    "test_audio_h9_005_governance.py",
+    "test_audio_reconciliation.py"
+  ],
+  "tests": 83,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "python": "3.13.5",
+  "product_accepted": false,
+  "full_enterprise_regression": false,
+  "source_unchanged_during_tests": true,
+  "duration_seconds": 0.215
+}

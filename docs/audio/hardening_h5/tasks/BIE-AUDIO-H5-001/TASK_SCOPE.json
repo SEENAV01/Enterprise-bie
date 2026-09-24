@@ -1,0 +1,14 @@
+{
+  "task_id": "BIE-AUDIO-H5-001",
+  "title": "Source-bound request and approved execution profile",
+  "finding": "AUDIO-AUDIT-001-F03",
+  "sources": [
+    "bie/audio/pipeline_contract.py",
+    "bie/audio/pipeline_profile.py",
+    "bie/audio/pipeline_discovery.py",
+    "scripts/audio_pipeline_discover.py"
+  ],
+  "focused_test": "tests/audio/test_audio_h5_001.py",
+  "implementation_not_acceptance": true,
+  "product_accepted": false
+}

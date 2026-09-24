@@ -1,0 +1,19 @@
+{
+  "scope": "Pre-release H1 correction, not a defect in the parent Batch005",
+  "cases": [
+    {
+      "implementation": "PRE_RELEASE_BEFORE_EXPLICIT_GUARD",
+      "fixture_default_measured_gate": "ACCEPTED",
+      "live_calls": 0
+    },
+    {
+      "implementation": "CORRECTED_CURRENT_CODE",
+      "fixture_default_measured_gate": "REJECTED",
+      "code": "SYNTHETIC_TIMING_DIAGNOSTIC_OPT_IN_REQUIRED",
+      "live_calls": 0
+    }
+  ],
+  "fixed": true,
+  "live_provider_calls": 0,
+  "product_accepted": false
+}

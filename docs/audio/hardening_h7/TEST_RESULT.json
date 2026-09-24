@@ -1,0 +1,39 @@
+{
+  "acceptance": {
+    "full_audio_regression_completed": false,
+    "product_accepted": false,
+    "section_accepted": false
+  },
+  "combined_tests": 57,
+  "commands": [
+    "PYTHONPATH=.:dependency_snapshot python -m unittest tests.audio.test_audio_h7_cache_lifecycle tests.audio.test_audio_h7_long_book",
+    "PYTHONPATH=.:dependency_snapshot python -m unittest tests.audio.test_audio_h6_stems tests.audio.test_audio_h7_cache_lifecycle tests.audio.test_audio_h7_long_book"
+  ],
+  "errors": 0,
+  "failures": 0,
+  "h6_compatibility_tests": 8,
+  "h7_tests": 49,
+  "passed": true,
+  "python": "3.13.5",
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "H7 focused segment-cache/long-book hardening plus H6 stem compatibility; NOT full AUDIO/enterprise regression",
+  "skips": 0,
+  "tested_source": {
+    "bie/audio/long_book.py": {
+      "bytes": 6022,
+      "sha256": "d536d163357403c4d0753671387a5233964edb4870ac0335949b90b7a1340f6a"
+    },
+    "bie/audio/segment_cache.py": {
+      "bytes": 18825,
+      "sha256": "0c8cf24067ec9a4e9946a34aaf3976bf79a48f3c87147c230960129a8421810b"
+    },
+    "tests/audio/test_audio_h7_cache_lifecycle.py": {
+      "bytes": 7943,
+      "sha256": "de1feb180b18bb72fdf695e2e9b6267d946245eec4c6b49eb9f4f55b8e6bdc1d"
+    },
+    "tests/audio/test_audio_h7_long_book.py": {
+      "bytes": 5259,
+      "sha256": "a3f3dbbb53e4d3d0f9a07f6c6a6d58cd1bcc11f288a91fabe0a3a659adf61894"
+    }
+  }
+}

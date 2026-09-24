@@ -1,0 +1,22 @@
+{
+  "source_inspection": [
+    "original Batch 003 Integrated ZIP and continuation",
+    "Batch 004 WORKING_RECOVERY archive"
+  ],
+  "external_primary_references": [
+    {
+      "url": "https://ffmpeg.org/ffmpeg-filters.html#loudnorm",
+      "used_for": "INPUT metering, linear/dynamic distinction and explicit dual-mono policy"
+    },
+    {
+      "url": "https://ffmpeg.org/ffmpeg-filters.html#ebur128",
+      "used_for": "separate native metering pathway"
+    },
+    {
+      "url": "https://tech.ebu.ch/publications/r128",
+      "used_for": "context for a configurable -23 LUFS target, not a conformity claim"
+    }
+  ],
+  "defaults_are_engineering_policy_not_platform_mandate": true,
+  "source_date": "2026-09-20"
+}

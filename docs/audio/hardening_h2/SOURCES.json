@@ -1,0 +1,27 @@
+{
+  "access_date": "2026-09-21",
+  "kind": "Primary documentation used for implementation research; installed runtime files remain actual execution authority",
+  "sources": [
+    {
+      "url": "https://pocketsphinx.readthedocs.io/en/latest/",
+      "use": "Documentation and model/language limitations; these are modern docs, not a claim that version 5.1.1 executed."
+    },
+    {
+      "url": "https://pocketsphinx.readthedocs.io/en/latest/pocketsphinx.html",
+      "use": "Distinction between constrained alignment and allphone/recognition; legacy symbols separately probed on installed runtime."
+    },
+    {
+      "url": "https://cmusphinx.github.io/doc/pocketsphinx/structfsg__model__t.html",
+      "use": "Explicit finite-state grammar format."
+    },
+    {
+      "url": "https://github.com/cmusphinx/pocketsphinx",
+      "use": "Primary PocketSphinx project context; no source from the user repository fetched through web."
+    },
+    {
+      "url": "https://cryptography.io/en/latest/hazmat/primitives/asymmetric/ed25519/",
+      "use": "Ed25519 signing and verification APIs; actual installed cryptography version recorded."
+    }
+  ],
+  "network_note": "Attempted optional modern Python package acquisition failed due to network/DNS. The implemented adapter explicitly targets the actual installed legacy native ABI, not a fake modern dependency. No inference downloads occur in runtime."
+}

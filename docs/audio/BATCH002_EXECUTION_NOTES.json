@@ -1,0 +1,21 @@
+{
+  "corrected_during_batch": [
+    {
+      "kind": "new bridge test fixture error",
+      "detail": "Earlier 204 Lexicon takes lexicon_id, version, rules. New comparison fixtures initially omitted version; corrected fixture construction, not original source or assertions."
+    },
+    {
+      "kind": "new provider deadline defect",
+      "detail": "A fixed 50ms wait could accept completion past an extremely small configured deadline. Process clock now starts before spawn, wait is capped by remaining time and completion is checked again. Actual timeout test passed after fix."
+    }
+  ],
+  "interrupted_run": "One combined tool call reached the outer tool timeout without a terminal full-suite result; no PASS was attributed to it. A separate complete rerun is required.",
+  "past_reports": "144 and 204 are both real distinct baseline suites. They are not a corrected single count.",
+  "not_run": [
+    "full 6485-test enterprise regression",
+    "neural provider API",
+    "human listening/ASR alignment",
+    "actual Remotion video",
+    "real-book E2E"
+  ]
+}

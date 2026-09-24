@@ -1,0 +1,24 @@
+--- a/bie/audio/qa_pipeline.py
++++ b/bie/audio/qa_pipeline.py
+@@ -20,7 +20,7 @@
+     return fingerprint({p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob('*.py'))})
+ 
+ 
+-def audit_mix(mixed,sync,*,asset_wavs=(),intent=None,observations=(),clipping_policy=ClippingPolicy(),caption_policy=CaptionQAPolicy(),meter=None,cancellation=None):
++def audit_mix(mixed,sync,*,asset_wavs=(),intent=None,observations=(),clipping_policy=ClippingPolicy(),caption_policy=CaptionQAPolicy(),meter=None,cancellation=None,acoustic_receipt=None,evaluator_trust=None,acoustic_policy=None,acoustic_now=None):
+     c=mixed.clock();artifact=None;results=[]
+     functions=(lambda:pronunciation_qa(mixed,sync,observations),
+         lambda:clipping_qa(mixed.wav_bytes,AudioFormat(c['sample_rate'],c['channels']),clipping_policy,meter=meter,cancellation=cancellation),
+@@ -41,4 +41,12 @@
+              'clock_fingerprint':fingerprint(c),'source_sync_fingerprint':fingerprint(sync.receipt()),
+              'qa_implementation_fingerprint':implementation_identity(),'clipping_policy':asdict(clipping_policy),'caption_policy':asdict(caption_policy),
+              'caption_intent_fingerprint':fingerprint(intent),'observation_fingerprint':fingerprint(observations)}
++    if acoustic_receipt is not None or evaluator_trust is not None or acoustic_policy is not None:
++        if acoustic_receipt is None or evaluator_trust is None:
++            raise AudioError('ACOUSTIC_RECEIPT_AND_TRUST_REQUIRED')
++        from .acoustic_contract import AcousticPolicy
++        from .acoustic_assessment import adopt_into_qa
++        policy=AcousticPolicy() if acoustic_policy is None else acoustic_policy
++        results,binding=adopt_into_qa(tuple(results),binding,mixed,sync,acoustic_receipt,
++            evaluator_trust,policy,now=acoustic_now)
+     return aggregate(tuple(results),binding),artifact

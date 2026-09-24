@@ -1,0 +1,169 @@
+{
+  "schema_version": "bie.audio.input/1",
+  "lesson_id": "lesson:synthetic-h5",
+  "voice_profile": "voice:unselected",
+  "language": "en",
+  "segments": [
+    {
+      "segment_id": "narration:1",
+      "scene_id": "scene:1",
+      "purpose": "EXPLAIN",
+      "text_intent": "Synthetic local worker test; not textbook validation",
+      "evidence_ids": [
+        "synthetic:audio-fixture:1"
+      ],
+      "objective_ids": [
+        "objective:exact-reading"
+      ]
+    },
+    {
+      "segment_id": "narration:2",
+      "scene_id": "scene:2",
+      "purpose": "EXPLAIN",
+      "text_intent": "Synthetic local worker test; not textbook validation",
+      "evidence_ids": [
+        "synthetic:audio-fixture:2"
+      ],
+      "objective_ids": [
+        "objective:exact-reading"
+      ]
+    }
+  ],
+  "drafts": [
+    {
+      "segment_id": "narration:1",
+      "text": "Electric charge produces a force. Like charges repel.",
+      "evidence_ids": [
+        "synthetic:audio-fixture:1"
+      ],
+      "unsupported_claims": [],
+      "requires_review": false
+    },
+    {
+      "segment_id": "narration:2",
+      "text": "Unlike charges attract. This is a technical narration test.",
+      "evidence_ids": [
+        "synthetic:audio-fixture:2"
+      ],
+      "unsupported_claims": [],
+      "requires_review": false
+    }
+  ],
+  "segment_order": [
+    "narration:1",
+    "narration:2"
+  ],
+  "lexicon": {
+    "version": "synthetic-lexicon/1",
+    "entries": [
+      {
+        "entry_id": "lex:doctor",
+        "surface": "Dr.",
+        "language": "en",
+        "pronunciation": "doctor",
+        "evidence_refs": [
+          "synthetic:lexicon:1"
+        ],
+        "domain": "*",
+        "sense": "*",
+        "mode": "ALIAS",
+        "alphabet": null,
+        "case_sensitive": true
+      }
+    ]
+  },
+  "symbols": [
+    {
+      "symbol": "%",
+      "language": "en",
+      "sense": "percent",
+      "spoken": "percent",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "\u00b1",
+      "language": "en",
+      "sense": "uncertainty",
+      "spoken": "plus or minus",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "\u2248",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "approximately equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "\u2260",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "not equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "\u2264",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "less than or equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    },
+    {
+      "symbol": "\u2265",
+      "language": "en",
+      "sense": "comparison",
+      "spoken": "greater than or equal to",
+      "evidence_refs": [
+        "bie:audio:reading-conventions:1"
+      ],
+      "domain": "*"
+    }
+  ],
+  "acronyms": [
+    {
+      "surface": "DNA",
+      "language": "en",
+      "mode": "LETTERS",
+      "evidence_refs": [
+        "synthetic:lexicon:1"
+      ],
+      "reading": null,
+      "domain": "*"
+    }
+  ],
+  "readings": [],
+  "pauses": [],
+  "policy": {
+    "version": "bie-audio-segmentation/1",
+    "max_chars": 800,
+    "max_utf8_bytes": 3200,
+    "max_segments": 10000,
+    "abbreviations": [
+      "Dr.",
+      "Mr.",
+      "Mrs.",
+      "Ms.",
+      "Prof.",
+      "e.g.",
+      "i.e.",
+      "vs.",
+      "Fig."
+    ]
+  },
+  "domain": "technical-fixture"
+}

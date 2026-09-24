@@ -1,0 +1,57 @@
+--- parent/bie/audio/sync_contract.py
++++ current/bie/audio/sync_contract.py
+@@ -130,7 +130,7 @@
+         integer(self.provider_samples, 'provider samples', 1, MAX_SAMPLES)
+         integer(self.pause_samples, 'pause samples', 0, MAX_SAMPLES)
+         records(self.words, WordStamp, 'words', limit=20000)
+-        if self.basis not in ('ESPEAK_ENGINE_EVENTS_PCM_REPLAY', 'ESPEAK_MARK_EVENTS_SAME_PCM', 'REPORTED_UNVERIFIED', 'SYNTHETIC_TEST_DOUBLE'):
++        if self.basis not in ('ESPEAK_ENGINE_EVENTS_PCM_REPLAY', 'ESPEAK_MARK_EVENTS_SAME_PCM', 'REPORTED_UNVERIFIED', 'SYNTHETIC_TEST_DOUBLE', 'ELEVENLABS_CHARACTER_EVENTS_SAME_RESPONSE', 'NEURAL_CHARACTER_FIXTURE_SAME_PCM'):
+             raise AudioError('TIMING_BASIS')
+         if self.schema_version != 'bie.audio.word-timing/1': raise AudioError('TIMING_SCHEMA')
+         end = -1; char_end = 0
+@@ -143,8 +143,14 @@
+     def total_samples(self): return self.provider_samples + self.pause_samples
+     def receipt(self):
+         return {**asdict(self), 'fingerprint': self.fingerprint(),
+-                'timing_resolution': 'provider public integer milliseconds converted half-up to samples',
+-                'word_end_semantics': 'engine source-boundary/display window, NOT independently detected phonetic offset',
++                'timing_resolution': ('provider decimal seconds converted half-up to samples'
++                    if self.basis == 'ELEVENLABS_CHARACTER_EVENTS_SAME_RESPONSE' else
++                    'synthetic response fixture seconds converted half-up to samples, NOT live speech'
++                    if self.basis == 'NEURAL_CHARACTER_FIXTURE_SAME_PCM' else
++                    'provider public integer milliseconds converted half-up to samples'),
++                'word_end_semantics': 'provider boundary/display window, NOT independently detected phonetic offset'
++                    if 'NEURAL_' in self.basis or self.basis.startswith('ELEVENLABS_') else
++                    'engine source-boundary/display window, NOT independently detected phonetic offset',
+                 'acoustic_alignment_verified': False, 'pronunciation_verified': False,
+                 'product_accepted': False}
+ 
+@@ -171,7 +177,16 @@
+     actual = (aligned.request_fingerprint, aligned.media_sha256, aligned.segment_fingerprint,
+               aligned.runtime_fingerprint, aligned.sample_rate, aligned.provider_samples, aligned.pause_samples)
+     if expected != actual: raise AudioError('STALE_TIMING_BINDING')
+-    if require_measured and aligned.basis not in ('ESPEAK_ENGINE_EVENTS_PCM_REPLAY','ESPEAK_MARK_EVENTS_SAME_PCM'):
++    if aligned.basis == 'ELEVENLABS_CHARACTER_EVENTS_SAME_RESPONSE' and r.voice.provider_id != 'elevenlabs-neural-v1':
++        raise AudioError('TIMING_PROVIDER_IDENTITY_MISMATCH')
++    if aligned.basis == 'NEURAL_CHARACTER_FIXTURE_SAME_PCM':
++        from .fixture_scope import synthetic_timing_allowed
++        if r.voice.provider_id != 'elevenlabs-contract-fixture-v1':
++            raise AudioError('TIMING_PROVIDER_IDENTITY_MISMATCH')
++        if require_measured and not synthetic_timing_allowed():
++            raise AudioError('SYNTHETIC_TIMING_DIAGNOSTIC_OPT_IN_REQUIRED')
++    elif require_measured and aligned.basis not in ('ESPEAK_ENGINE_EVENTS_PCM_REPLAY','ESPEAK_MARK_EVENTS_SAME_PCM',
++            'ELEVENLABS_CHARACTER_EVENTS_SAME_RESPONSE'):
+         raise AudioError('MEASURED_WORD_TIMING_REQUIRED')
+     spoken = s.spoken_text; covered = set()
+     for w in aligned.words:
+--- parent/bie/audio/sync_pipeline.py
++++ current/bie/audio/sync_pipeline.py
+@@ -33,7 +33,7 @@
+                 'word_timings':[a.receipt() for a in self.alignments],
+                 'caption_tracks':[asdict(c) for c in self.captions], 'pause_sync':asdict(self.pauses),
+                 'speech_receipts':[a.receipt() for a in self.assets],'cache_hits':list(self.cache_hits),
+-                'timing_basis':self.alignments[0].basis,'engine_replay_calls':len(self.alignments),
++                'timing_basis':self.alignments[0].basis,'engine_replay_calls':0 if self.alignments[0].basis in ('ELEVENLABS_CHARACTER_EVENTS_SAME_RESPONSE','NEURAL_CHARACTER_FIXTURE_SAME_PCM') else len(self.alignments),
+                 'scene_clock_verified':True,'pause_samples_verified':True,
+                 'acoustic_alignment_verified':False,'real_video_render_verified':False,
+                 'cinematic_quality_verified':False,'product_accepted':False}

@@ -1,0 +1,11 @@
+# H2 focused pre-release review — not the full AUDIO section re-audit
+
+The implementation was reviewed against the finite F02 scope while preserving the original section-exit rule. Development evidence is retained separately from final delivered-source evidence.
+
+1. Ownership correction: final delivered silence with a non-silent original speech asset is a MIX failure. Source PCM is independently inspected before choosing MIX versus VO. Tests and the actual controlled-silence benchmark exercise the MIX case and a real remix recheck.
+2. Recheck correction: disappearance of an old finding is insufficient when the new evaluator is blocked. Resolution requires a genuinely MEASURED corresponding segment and new signed media. A negative test preserves the old unresolved item when the replacement evaluator is unsupported.
+3. Typed evidence: Python boolean values cannot pass as integer phone/word metrics or timestamps. Strict signed-schema validation rejects manipulated values, even if a test signer re-signs them.
+4. Export tamper: altered caption VTT exports with recomputed public manifests are rejected against the bound caption artifact. This is not a general proof of independent caption authorship or rendered accessibility.
+5. Existing architecture guard: the first combined 1,129-test development run found the new native module bootstrapping the archival DIR snapshot. The original inherited test correctly failed. Bootstrap was removed from production modules, placed in a fixed standalone launcher, and the launcher was included in the runtime identity. The inherited test was not modified. All 34 original Batch001 integration tests were then rerun and passed; final cumulative evidence is reported separately.
+
+Retained design boundaries: English-only legacy diagnostic acoustics, uncalibrated dictionary/phone/time metrics, local configured issuer rather than production evaluator authority, declared but not executed durable invalidation, no source rewriting, and no automatic section exit. A constrained word alignment or recognizer text match is never a pronunciation certificate. Unsupported languages are not silently passed. F02 retains production/multilingual/IPA/calibration/listening/trust work, and F03/F04 retain their original material implementation scope.

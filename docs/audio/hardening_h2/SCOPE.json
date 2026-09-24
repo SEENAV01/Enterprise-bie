@@ -1,0 +1,67 @@
+{
+  "schema_version": "bie.audio.hardening-scope/1",
+  "batch_id": "BIE-AUDIO-HARDENING-H2",
+  "section_number": 14,
+  "parent_integrated_sha256": "b75e4e8e5ae0a291581098e411f0151b812748bc5a2788ece111c010bbcb2624",
+  "source_finding": "AUDIO-AUDIT-001-F02",
+  "tasks": [
+    {
+      "id": "BIE-AUDIO-H2-001",
+      "title": "Exact source/media/voice/policy evaluation identity",
+      "owned_source_files": [
+        "bie/audio/acoustic_contract.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_001.py"
+    },
+    {
+      "id": "BIE-AUDIO-H2-002",
+      "title": "Independent bounded native acoustic measurements",
+      "owned_source_files": [
+        "bie/audio/acoustic_runtime.py",
+        "bie/audio/acoustic_worker.py",
+        "scripts/audio_acoustic_worker.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_002.py"
+    },
+    {
+      "id": "BIE-AUDIO-H2-003",
+      "title": "Externally configured evaluator trust and signed receipts",
+      "owned_source_files": [
+        "bie/audio/acoustic_evidence.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_003.py"
+    },
+    {
+      "id": "BIE-AUDIO-H2-004",
+      "title": "QA ownership, source-preserving repair intents and fresh rechecks",
+      "owned_source_files": [
+        "bie/audio/acoustic_assessment.py",
+        "bie/audio/acoustic_repair.py",
+        "bie/audio/qa_pipeline.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_004.py"
+    },
+    {
+      "id": "BIE-AUDIO-H2-005",
+      "title": "Verified publication, diagnostic CLI and real-audio benchmark",
+      "owned_source_files": [
+        "bie/audio/acoustic_io.py",
+        "scripts/audio_acoustic.py",
+        "scripts/benchmark_audio_h2.py"
+      ],
+      "test_file": "tests/audio/test_audio_h2_005.py"
+    }
+  ],
+  "implementation_scope": "Actual independent local en-US acoustic diagnostics, external-trust signed evidence, current-source QA and repair/recheck integration.",
+  "excluded": [
+    "No production or calibrated pronunciation/alignment acceptance",
+    "No Hindi/other-language or IPA evaluator capability substitution",
+    "No canonical INFRA worker or durable artifact adoption",
+    "No canonical DIR/ANI/COMP adoption or real Remotion rendering",
+    "No paid API calls or GitHub writes",
+    "No rewriting source readings or altering existing voices/clocks to pass"
+  ],
+  "section_exit_permitted": false,
+  "full_section_reaudit_performed": false,
+  "product_accepted": false
+}

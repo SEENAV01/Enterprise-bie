@@ -1,0 +1,48 @@
+{
+  "positive_cases": 4,
+  "independent_cli_processes": 12,
+  "expected_negative_cases": 3,
+  "all_expectations_matched": true,
+  "audio_and_clock_repeatable": true,
+  "examples": [
+    {
+      "case": "english-dry",
+      "audio_sha256": "df9d606c2b75e50a3c05ccd3e40f3edb958980c0dae556036d483e2057e1c372",
+      "samples_compared_per_channel": 149264,
+      "ebur128_integrated_lufs": -22.8,
+      "ebur128_true_peak_dbtp": -4.9,
+      "sample_reference_max_error_pcm16": 0.0,
+      "removed_trailing_samples": 8135
+    },
+    {
+      "case": "english-mix",
+      "audio_sha256": "078bd1d2698ed7dbb1525c6e315ac1eb785fe6482bbeb27ddd6691e09f16742c",
+      "samples_compared_per_channel": 157399,
+      "ebur128_integrated_lufs": -22.9,
+      "ebur128_true_peak_dbtp": -4.8,
+      "sample_reference_max_error_pcm16": 0.0,
+      "removed_trailing_samples": 0
+    },
+    {
+      "case": "hindi-mix",
+      "audio_sha256": "982642fa14a719f7650848dda4c571bb5f93b82ab2210a25899d6ae09da2b502",
+      "samples_compared_per_channel": 150547,
+      "ebur128_integrated_lufs": -22.9,
+      "ebur128_true_peak_dbtp": -4.5,
+      "sample_reference_max_error_pcm16": 0.0,
+      "removed_trailing_samples": 0
+    },
+    {
+      "case": "compat204-mix",
+      "audio_sha256": "39a7f3af9f6241fdfb4aaa6ca018be9a294506adf4553762f7d1f696e9d92ba4",
+      "samples_compared_per_channel": 166148,
+      "ebur128_integrated_lufs": -22.8,
+      "ebur128_true_peak_dbtp": -4.9,
+      "sample_reference_max_error_pcm16": 0.0,
+      "removed_trailing_samples": 0
+    }
+  ],
+  "human_listening_verified": false,
+  "actual_remotion_render_verified": false,
+  "product_accepted": false
+}

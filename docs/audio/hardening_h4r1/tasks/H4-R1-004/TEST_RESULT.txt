@@ -1,0 +1,40 @@
+RUN test_audio_h4r_004.py
+FINISHED test_audio_h4r_004.py: 18 tests, 0 failures, 0 errors
+test_active_fence_completes (tests.audio.test_audio_h4r_004.DurableTests.test_active_fence_completes) ... ok
+test_actual_cold_then_zero_native_reuse (tests.audio.test_audio_h4r_004.DurableTests.test_actual_cold_then_zero_native_reuse) ... ok
+test_canonical_four_envelopes (tests.audio.test_audio_h4r_004.DurableTests.test_canonical_four_envelopes) ... ok
+test_claim_complete_crash_recovered (tests.audio.test_audio_h4r_004.DurableTests.test_claim_complete_crash_recovered) ... ok
+test_corrupt_cas_media (tests.audio.test_audio_h4r_004.DurableTests.test_corrupt_cas_media) ... ok
+test_direct_legacy_receipt_cannot_be_put (tests.audio.test_audio_h4r_004.DurableTests.test_direct_legacy_receipt_cannot_be_put) ... ok
+test_expired_fence_blocked (tests.audio.test_audio_h4r_004.DurableTests.test_expired_fence_blocked) ... ok
+test_expired_stored_receipt (tests.audio.test_audio_h4r_004.DurableTests.test_expired_stored_receipt) ... ok
+test_idempotent_artifact_put (tests.audio.test_audio_h4r_004.DurableTests.test_idempotent_artifact_put) ... ok
+test_legacy_envelope_rejected (tests.audio.test_audio_h4r_004.DurableTests.test_legacy_envelope_rejected) ... ok
+test_legacy_request_policy_rejected (tests.audio.test_audio_h4r_004.DurableTests.test_legacy_request_policy_rejected) ... ok
+test_native_failure_never_marks_completed (tests.audio.test_audio_h4r_004.DurableTests.test_native_failure_never_marks_completed) ... ok
+test_new_revision_requires_new_signature (tests.audio.test_audio_h4r_004.DurableTests.test_new_revision_requires_new_signature) ... ok
+test_precancel_creates_no_durable_root (tests.audio.test_audio_h4r_004.DurableTests.test_precancel_creates_no_durable_root) ... ok
+test_profile_approval_rechecked (tests.audio.test_audio_h4r_004.DurableTests.test_profile_approval_rechecked) ... ok
+test_receipt_revocation_rechecked_on_load (tests.audio.test_audio_h4r_004.DurableTests.test_receipt_revocation_rechecked_on_load) ... ok
+test_signed_durable_request (tests.audio.test_audio_h4r_004.DurableTests.test_signed_durable_request) ... ok
+test_stale_owner_cannot_complete (tests.audio.test_audio_h4r_004.DurableTests.test_stale_owner_cannot_complete) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 111.328s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 111.8085,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}

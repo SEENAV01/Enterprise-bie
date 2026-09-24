@@ -1,0 +1,44 @@
+RUN test_audio_h4r_001.py
+FINISHED test_audio_h4r_001.py: 22 tests, 0 failures, 0 errors
+test_actual_dependency_change_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_actual_dependency_change_rejected) ... ok
+test_current_profile_equal (tests.audio.test_audio_h4r_001.ProfileTests.test_current_profile_equal) ... ok
+test_discovery_not_acceptance (tests.audio.test_audio_h4r_001.ProfileTests.test_discovery_not_acceptance) ... ok
+test_eight_original_git_blobs (tests.audio.test_audio_h4r_001.ProfileTests.test_eight_original_git_blobs) ... ok
+test_narrow_policy (tests.audio.test_audio_h4r_001.ProfileTests.test_narrow_policy) ... ok
+test_no_signer_or_store_mounted (tests.audio.test_audio_h4r_001.ProfileTests.test_no_signer_or_store_mounted) ... ok
+test_profile_reproducible (tests.audio.test_audio_h4r_001.ProfileTests.test_profile_reproducible) ... ok
+test_reject_acceptance (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_acceptance) ... ok
+test_reject_concurrency_bool (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_concurrency_bool) ... ok
+test_reject_fingerprint (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_fingerprint) ... ok
+test_reject_operation (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_operation) ... ok
+test_reject_output_budget (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_output_budget) ... ok
+test_reject_procfs (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_procfs) ... ok
+test_reject_runtime (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_runtime) ... ok
+test_reject_selected_python (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_selected_python) ... ok
+test_reject_unbounded_cpu (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_unbounded_cpu) ... ok
+test_reject_unknown_field (tests.audio.test_audio_h4r_001.ProfileTests.test_reject_unknown_field) ... ok
+test_source_budget_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_source_budget_rejected) ... ok
+test_source_symlink_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_source_symlink_rejected) ... ok
+test_trust_duplicate_profiles_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_trust_duplicate_profiles_rejected) ... ok
+test_trust_empty_profiles_rejected (tests.audio.test_audio_h4r_001.ProfileTests.test_trust_empty_profiles_rejected) ... ok
+test_unsupported_platform (tests.audio.test_audio_h4r_001.ProfileTests.test_unsupported_platform) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 57.550s
+
+OK
+{
+  "schema_version": "bie.audio.batch-test/1",
+  "scope": "AUDIO batch tests with exact DIR dependency closure, NOT the full enterprise regression",
+  "baseline_commit": "16d4d87824e77db3565a231a332e7977d39d7117",
+  "tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "python": "3.13.5",
+  "duration_seconds": 58.0725,
+  "audio_generation_scope": "see test cases; real local TTS is separately reported",
+  "full_enterprise_regression_rerun": false,
+  "product_accepted": false
+}
