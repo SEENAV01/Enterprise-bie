@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   integrate-and-verify:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.head_commit.message != 'feat(audio): integrate completed section 14' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     env:

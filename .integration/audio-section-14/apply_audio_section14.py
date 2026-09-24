@@ -247,9 +247,10 @@ def write_binding(binding: dict) -> None:
 
 
 def finalize_workflow_and_remove_transport() -> None:
-    if not FINAL_WORKFLOW_TEMPLATE.is_file():
-        fail("FINAL_WORKFLOW_TEMPLATE_MISSING")
-    FINAL_WORKFLOW.write_bytes(FINAL_WORKFLOW_TEMPLATE.read_bytes())
+    # Keep the already-tracked workflow unchanged. GitHub's in-workflow token
+    # cannot create/update workflow files without workflows permission.
+    # Removing the staging transport is safe; the workflow job guard prevents
+    # the resulting integration commit from re-applying the payload.
     shutil.rmtree(STAGE)
 
 
