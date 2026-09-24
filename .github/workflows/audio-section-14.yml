@@ -1,0 +1,140 @@
+name: BIE Audio Section 14 Bootstrap
+
+on:
+  push:
+    branches: [integrate/audio-section-14-001]
+    paths:
+      - '.integration/audio-section-14/**'
+      - '.github/workflows/audio-section-14.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bie-audio-section-14-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  integrate-and-verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      BIE_CANONICAL_AUDIO_INTEGRATION: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+
+      - name: Apply verified AUDIO payload
+        run: python -B .integration/audio-section-14/apply_audio_section14.py | tee "$RUNNER_TEMP/audio14-apply.json"
+
+      - name: Scoped pre-publish checks
+        run: |
+          set -euo pipefail
+          python -m compileall -q bie/audio tests/audio scripts/audio_*.py scripts/benchmark_audio_*.py
+          git diff --check
+          test -z "$(git diff --name-only -- apps/android apps/api)"
+
+      - name: Publish focused integration commit to feature branch
+        env:
+          BRANCH: integrate/audio-section-14-001
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git status --short
+          git commit -m 'feat(audio): integrate completed section 14'
+          git push origin "HEAD:$BRANCH"
+          git rev-parse HEAD | tee "$RUNNER_TEMP/audio14-integration-commit.txt"
+
+      - name: Install canonical hosted verification environment
+        run: |
+          set -euo pipefail
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+
+      - name: Install AUDIO Python and native verification dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-audio-mix.txt -r requirements-audio-acoustic.txt
+          python -m pip check
+          sudo apt-get update
+          sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
+          /usr/bin/espeak --version 2>&1 | head -n 2 | tee "$RUNNER_TEMP/audio14-espeak.txt"
+          ffmpeg -version | head -n 1 | tee "$RUNNER_TEMP/audio14-ffmpeg.txt"
+          ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3' | tee "$RUNNER_TEMP/audio14-pocketsphinx-libs.txt"
+          dpkg-query -W -f='${Package}=${Version}\n' espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx | tee "$RUNNER_TEMP/audio14-native-packages.txt"
+
+      - name: Verify all AUDIO modules import from canonical source
+        run: |
+          python - <<'PY'
+          import importlib, pathlib
+          mods=[]
+          for p in sorted(pathlib.Path('bie/audio').rglob('*.py')):
+              if p.name == '__init__.py':
+                  continue
+              mods.append('.'.join(p.with_suffix('').parts))
+          for name in mods:
+              importlib.import_module(name)
+          print(f'imported {len(mods)} bie.audio modules')
+          PY
+
+      - name: Complete canonical regression including AUDIO
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/audio14-evidence"
+          python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/audio14-evidence" 2>&1 | tee "$RUNNER_TEMP/audio14-evidence/run.log"
+
+      - name: Require complete AUDIO discovery and zero skips
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'audio14-evidence'
+          data=json.loads((root/'integrated_tests.json').read_text())
+          s=data['summary']; rows=data['results']
+          audio=[r for r in rows if r['path'].startswith('tests/audio/')]
+          audio_tests=sum(r['tests'] for r in audio)
+          audio_fail=sum(r['failures'] for r in audio)
+          audio_err=sum(r['errors'] for r in audio)
+          audio_skip=sum(r['skipped'] for r in audio)
+          if len(audio) != 82:
+              raise SystemExit(f'AUDIO_TEST_FILE_COUNT_MISMATCH:{len(audio)}')
+          if audio_tests != 1684 or any((audio_fail,audio_err,audio_skip)):
+              raise SystemExit(f'AUDIO_REGRESSION_MISMATCH:{audio_tests}/{audio_fail}/{audio_err}/{audio_skip}')
+          if s.get('passed') is not True or any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
+              raise SystemExit('CANONICAL_REGRESSION_FAILED:'+str(s))
+          if s.get('tests_run',0) < 6485 + 1684:
+              raise SystemExit('CANONICAL_TEST_COUNT_DID_NOT_GROW:'+str(s))
+          receipt={'integration_commit':Path(os.environ['RUNNER_TEMP'],'audio14-integration-commit.txt').read_text().strip(),
+                   'audio_test_files':len(audio),'audio_tests':audio_tests,'canonical_summary':s,
+                   'product_accepted':False,'task_028_started':False,'section_15_game_started':False}
+          (root/'AUDIO_SECTION_14_CI_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+
+      - name: Preserve AUDIO integration evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: bie-audio-section-14-integration-evidence
+          path: |
+            ${{ runner.temp }}/audio14-apply.json
+            ${{ runner.temp }}/audio14-integration-commit.txt
+            ${{ runner.temp }}/audio14-evidence/
+            ${{ runner.temp }}/audio14-espeak.txt
+            ${{ runner.temp }}/audio14-ffmpeg.txt
+            ${{ runner.temp }}/audio14-pocketsphinx-libs.txt
+            ${{ runner.temp }}/audio14-native-packages.txt
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: warn
+          retention-days: 14
