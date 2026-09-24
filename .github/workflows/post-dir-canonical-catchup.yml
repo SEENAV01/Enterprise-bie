@@ -46,12 +46,46 @@ jobs:
           sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
           /usr/bin/espeak --version 2>&1 | head -n 2
           ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
-      - name: Complete canonical gate
+      - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail
-          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS
-          mkdir -p "$RUNNER_TEMP/canonical-evidence"
+          command -v dbus-run-session
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS DBUS_STARTER_ADDRESS DBUS_STARTER_BUS_TYPE
+          mkdir -p "$RUNNER_TEMP/canonical-evidence" "$RUNNER_TEMP/bie-ci-setup"
+          dbus-run-session -- bash -s <<'BASH'
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json, os, time
+          from playwright.sync_api import sync_playwright
+
+          address=os.environ.get('DBUS_SESSION_BUS_ADDRESS','')
+          if not address.startswith('unix:'):
+              raise SystemExit('INVALID_DBUS_SESSION_ADDRESS:'+address)
+          started=time.monotonic()
+          with sync_playwright() as p:
+              browser=p.chromium.launch(
+                  executable_path='/usr/bin/chromium',
+                  headless=True,
+                  args=['--no-sandbox','--disable-dev-shm-usage'],
+                  timeout=120000,
+              )
+              receipt={
+                  'schema_version':'bie.ci.chromium-session-preflight/1',
+                  'dbus_session_address_kind':'unix',
+                  'chromium_version':browser.version,
+                  'startup_seconds':round(time.monotonic()-started,3),
+                  'node_version':os.popen('node --version').read().strip(),
+                  'preflight_passed':True,
+                  'product_accepted':False,
+              }
+              browser.close()
+          out=Path(os.environ['RUNNER_TEMP'])/'bie-ci-setup/chromium-session-preflight.json'
+          out.write_text(json.dumps(receipt,indent=2)+'\\n')
+          print(json.dumps(receipt,indent=2))
+          PY
           python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
+          BASH
       - name: Exact supplied corpus and adoption verification
         if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
         run: python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
