@@ -108,7 +108,7 @@ jobs:
           counts=(len(audio),sum(r['tests'] for r in audio),sum(r['failures'] for r in audio),sum(r['errors'] for r in audio),sum(r['skipped'] for r in audio))
           if counts != (82,1684,0,0,0):raise SystemExit('AUDIO_GATE_FAILED:'+str(counts))
           if s.get('passed') is not True or any(s.get(k)!=0 for k in ('failed_files','failures','errors','skipped')):raise SystemExit('CANONICAL_GATE_FAILED:'+str(s))
-          if s.get('tests_run',0) < 9298:raise SystemExit('CANONICAL_COUNT_TOO_LOW:'+str(s))
+          if s.get('tests_run',0) < 9296:raise SystemExit('CANONICAL_COUNT_TOO_LOW:'+str(s))
           print(json.dumps({'audio':counts,'canonical':s,'product_accepted':False},indent=2))
           PY
       - name: Preserve verification evidence

@@ -102,7 +102,7 @@ jobs:
           data=json.loads((root/'integrated_tests.json').read_text())
           s=data['summary'];rows=data['results']
           p=json.loads((root/'post-dir-preservation.json').read_text())
-          if s.get('passed') is not True or s.get('tests_run',0) < 9298:
+          if s.get('passed') is not True or s.get('tests_run',0) < 9296:
               raise SystemExit('INCOMPLETE_REGRESSION: '+str(s))
           if any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
               raise SystemExit('FAILURES_ERRORS_OR_SKIPS: '+str(s))

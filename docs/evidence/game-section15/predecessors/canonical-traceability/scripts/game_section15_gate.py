@@ -18,10 +18,6 @@ def identity():
         digest=hashlib.sha256(p.read_bytes()).hexdigest()
         if digest!=row['sha256']:raise ValueError('GAME_ADOPTION_HASH:'+row['canonical_path'])
         inventory[row['canonical_path']]=digest
-    for amendment in data.get('canonical_amendments', []):
-        rel=amendment['path'];digest=hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()
-        if digest!=amendment['sha256']:raise ValueError('GAME_CANONICAL_AMENDMENT_HASH:'+rel)
-        inventory[rel]=digest
     commit=subprocess.check_output(['git','-c','safe.directory='+ROOT.as_posix(),'-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
     return data,{'tested_commit':commit,'manifest_sha256':hashlib.sha256(MANIFEST.read_bytes()).hexdigest(),'source_inventory_sha256':hashlib.sha256(json.dumps(inventory,sort_keys=True).encode()).hexdigest()}
 

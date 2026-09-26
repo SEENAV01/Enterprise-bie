@@ -29,8 +29,6 @@ def destination(member):
     if not member.startswith(ARCHIVE_PREFIX):
         raise TraceabilityError('ARCHIVE_PREFIX')
     rel = member[len(ARCHIVE_PREFIX):]
-    if rel == 'bie/__init__.py':
-        return 'docs/evidence/game-section15/checkpoint/bie/__init__.py', 'preserved_original_package_initializer_canonical_package_retained'
     if rel.startswith('bie/'):
         if rel in AMENDMENTS:
             return rel, 'h7_amended_active_source_original_archive_preserved'
