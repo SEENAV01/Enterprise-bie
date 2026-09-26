@@ -66,11 +66,26 @@ jobs:
             "$(command -v python)" -X utf8 -B .validation/h6-handoff/verify_native_origin.py \
             --source-root "$GITHUB_WORKSPACE/.validation/game-section15" \
             --output "$RUNNER_TEMP/h6-native-evidence/proof"
+      - name: Export evidence without changing runtime file permissions
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/h6-native-evidence" "$RUNNER_TEMP/h6-native-export"
+          if test ! -f "$RUNNER_TEMP/h6-native-evidence/COMMIT.txt"; then
+            git rev-parse HEAD > "$RUNNER_TEMP/h6-native-evidence/COMMIT.txt"
+            printf 'Proof step was not reached; this is not a passing receipt.\n' > "$RUNNER_TEMP/h6-native-evidence/NOT_EXECUTED.txt"
+          fi
+          # Root reads the restricted evidence; the invoking runner owns stdout.
+          # No chmod or weakening of the generated runtime package is performed.
+          sudo tar -C "$RUNNER_TEMP/h6-native-evidence" -czf - . > "$RUNNER_TEMP/h6-native-export/evidence.tar.gz"
+          sha256sum "$RUNNER_TEMP/h6-native-export/evidence.tar.gz" > "$RUNNER_TEMP/h6-native-export/SHA256SUMS.txt"
+          cp .validation/h6-handoff/verify_native_origin.py "$RUNNER_TEMP/h6-native-export/"
+          cp .github/workflows/section15-h6-native-origin.yml "$RUNNER_TEMP/h6-native-export/"
       - name: Preserve proof and failed attempts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: section15-h6-native-origin-evidence
-          path: ${{ runner.temp }}/h6-native-evidence/
+          path: ${{ runner.temp }}/h6-native-export/
           retention-days: 14
           if-no-files-found: error

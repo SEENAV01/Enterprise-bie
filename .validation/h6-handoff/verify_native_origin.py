@@ -1,7 +1,7 @@
-"""GAME-AUD-009/024: strict native-origin proof of the actual packaged runtime.
+"""Strict GAME-AUD-009/024 proof using actual packaged ESM and React.
 
-No smoke-bundle injection, CSP weakening, unsandboxed browser, or production
-acceptance inference is allowed. All failures are retained in the receipt.
+No smoke-bundle injection or relaxation of the application's CSP/sandbox.
+This is a synthetic fixture integration check, not product acceptance.
 """
 from pathlib import Path
 from dataclasses import asdict
@@ -15,10 +15,11 @@ def main():
     ap.add_argument('--source-root',required=True,type=Path)
     ap.add_argument('--output',required=True,type=Path)
     args=ap.parse_args(); source=args.source_root.resolve(); out=args.output.resolve()
-    if out.exists(): raise SystemExit('Output must be fresh; failed attempts must not be overwritten')
+    if out.exists(): raise SystemExit('Output must be fresh; preserve failed attempts')
     out.mkdir(parents=True); sys.path.insert(0,str(source))
-    report={'schema_version':'bie.game.h6.native-origin/1','audit_ids':['GAME-AUD-009','GAME-AUD-024'],
-            'checks':{},'passed':False,'product_accepted':False,'fixture_kind':'synthetic contract fixture; actual generated WAV tone',
+    report={'schema_version':'bie.game.h6.native-origin/2','audit_ids':['GAME-AUD-009','GAME-AUD-024'],
+            'checks':{},'passed':False,'product_accepted':False,
+            'fixture_kind':'synthetic contract fixture; actual generated WAV tone',
             'page_errors':[],'console_errors':[],'served_sha256':{},'platform':platform.platform(),
             'workflow_commit':os.environ.get('GITHUB_SHA'),'workflow_run_id':os.environ.get('GITHUB_RUN_ID'),
             'verifier_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
@@ -53,12 +54,19 @@ def main():
         origin=f'http://127.0.0.1:{server.server_address[1]}'
         with sandboxed_chromium(BuildPolicy(),allow_loopback=True) as (browser,profile,worker):
             page=browser.new_page();page.set_viewport_size({'width':360,'height':740});page.emulate_media(reduced_motion='reduce')
+            def wait(predicate):
+                # Host-side bounded polling avoids wait_for_function's page-side
+                # string eval. The original CSP remains installed and unchanged.
+                for _ in range(200):
+                    if page.evaluate(predicate): return
+                    page.wait_for_timeout(50)
+                raise AssertionError('Timed out waiting for '+predicate)
             page.on('pageerror',lambda error:report['page_errors'].append(str(error)))
             page.on('console',lambda message:report['console_errors'].append(message.text) if message.type=='error' else None)
             responses=[]; page.on('response',lambda response:responses.append(response))
             browser.add_init_script("""globalThis.__probeTelemetry=[];globalThis.__BIE_GAME_TELEMETRY_CONFIG__={enabled:true,policy_id:'policy:probe',session_id:'session:probe:1'};globalThis.__BIE_GAME_TELEMETRY_SINK__=event=>__probeTelemetry.push(event);globalThis.__probeAudio={playing:0,ended:0,errors:[]};document.addEventListener('playing',()=>__probeAudio.playing++,true);document.addEventListener('ended',()=>__probeAudio.ended++,true);document.addEventListener('error',event=>{if(event.target instanceof HTMLMediaElement)__probeAudio.errors.push('media error');},true);""")
             response=page.goto(origin+'/runtime/index.html',wait_until='load',timeout=20000)
-            page.wait_for_function('globalThis.__BIE_GAME_RUNTIME__?.booted === true',timeout=10000)
+            wait('()=>globalThis.__BIE_GAME_RUNTIME__?.booted === true')
             check('actual_packaged_native_origin',response.status==200 and page.url==origin+'/runtime/index.html')
             check('unmodified_csp_header',response.headers.get('content-security-policy')==headers['Content-Security-Policy'])
             framework=page.evaluate('__BIE_GAME_RUNTIME__.framework')
@@ -74,7 +82,7 @@ def main():
             check('one_bound_telemetry_event',len(after['events'])==1 and after['events'][0]['session_id']=='session:probe:1')
             check('unknown_action_rejected',page.evaluate("()=>{try{__BIE_GAME_RUNTIME__.dispatch('unknown:action');return false}catch(e){return String(e.message).includes('ACTION_UNKNOWN')}}"))
             check('rejected_action_preserves_state',page.evaluate('__BIE_GAME_RUNTIME__.getState()')==after['state'])
-            page.locator('[data-audio-control="play"]').click();page.wait_for_function('__probeAudio.ended>0',timeout=10000)
+            page.locator('[data-audio-control="play"]').click();wait('()=>__probeAudio.ended>0')
             audio_result=page.evaluate('__probeAudio');check('packaged_native_audio',audio_result['playing']>0 and not audio_result['errors'],audio_result)
             check('caption_cue_bound',page.locator('#bie-game-captions').get_attribute('data-cue-id')=='cue:narration:1')
             check('rights_visible','CC0-1.0' in page.locator('[data-rights-attribution]').inner_text())
