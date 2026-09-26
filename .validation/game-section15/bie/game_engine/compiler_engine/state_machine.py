@@ -8,7 +8,7 @@ def compile_state_machine(ctx:CompilerContext):
     for exp in ctx.document.experiences:
         levels=[]
         for level in exp.levels:
-            vars=[{'id':v.variable_id,'type':v.value_type.value,'initial':v.initial_value,'min':v.min_value,'max':v.max_value,'units':v.units,'role':v.semantic_role} for v in level.state.variables]
+            vars=[{'id':v.variable_id,'type':v.value_type.value,'initial':v.initial_value,'min':v.min_value,'max':v.max_value,'units':v.units,'role':v.semantic_role,'enum_values':list(v.enum_values)} for v in level.state.variables]
             levels.append({'level_id':level.level_id,'reset_policy':level.state.reset_policy,'variables':vars,'state_ids':sorted(v['id'] for v in vars)})
         games.append({'game_id':exp.game_id,'levels':levels})
     data={'schema_version':'bie.game.state-machine/1','games':games,'deterministic':True,'product_accepted':False}

@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Mapping
+import math
 from .errors import GameContractError
 from .ids import require_id
 
@@ -34,6 +35,7 @@ def validate_expr(expr: Expr, variables: Mapping[str,ValueType]|None=None, depth
     variables=variables or {}
     if isinstance(expr,Literal):
         if type(expr.value) not in _ALLOWED_LITERAL: raise GameContractError('GAME_EXPR_LITERAL_TYPE')
+        if type(expr.value) is float and not math.isfinite(expr.value):raise GameContractError('GAME_EXPR_NONFINITE')
     elif isinstance(expr,Variable):
         require_id(expr.name,'GAME_EXPR_VARIABLE')
         if variables and expr.name not in variables: raise GameContractError('GAME_EXPR_UNKNOWN_VARIABLE',expr.name)
@@ -64,7 +66,14 @@ def evaluate(expr: Expr, state: Mapping[str,Any]):
             return a/b
     if isinstance(expr,Compare):
         a,b=evaluate(expr.left,state),evaluate(expr.right,state)
-        return {CompareOp.EQ:a==b,CompareOp.NE:a!=b,CompareOp.LT:a<b,CompareOp.LE:a<=b,CompareOp.GT:a>b,CompareOp.GE:a>=b}[expr.op]
+        if expr.op==CompareOp.EQ:return a==b
+        if expr.op==CompareOp.NE:return a!=b
+        try:
+            if expr.op==CompareOp.LT:return a<b
+            if expr.op==CompareOp.LE:return a<=b
+            if expr.op==CompareOp.GT:return a>b
+            if expr.op==CompareOp.GE:return a>=b
+        except TypeError as exc:raise GameContractError('GAME_EXPR_COMPARABLE_REQUIRED') from exc
     if isinstance(expr,Boolean):
         vals=[bool(evaluate(v,state)) for v in expr.values];return all(vals) if expr.op==BoolOp.AND else any(vals)
     if isinstance(expr,Not):return not bool(evaluate(expr.value,state))

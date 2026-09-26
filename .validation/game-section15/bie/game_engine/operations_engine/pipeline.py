@@ -22,7 +22,9 @@ def _artifact_payload(store,artifact_id):
 def _request_fp(ctx,asset_blobs,req):
     return fingerprint({'compiler':fingerprint(ctx),'assets':tuple((k,hashlib.sha256(v).hexdigest()) for k,v in sorted(asset_blobs.items())),'run_id':req.run_context.run_id,'session_id':req.session_id,'learner':req.learner_key_hash,'outcomes':req.outcomes,'consent':req.consent})
 def _telemetry_event(ctx,outcome):
-    game=ctx.document.experiences[0];level=game.levels[0]
+    matches=[(g,l) for g in ctx.document.experiences for l in g.levels for ch in l.challenges if ch.challenge_id==outcome.challenge_id and ch.learning.objective_id==outcome.objective_id and (outcome.game_id is None or (outcome.game_id==g.game_id and outcome.level_id==l.level_id))]
+    if len(matches)!=1:raise GameOperationsError('GAME_OPS_OUTCOME_SCOPE_AMBIGUOUS_OR_MISSING')
+    game,level=matches[0]
     return {'event':outcome.event_type,'game_id':game.game_id,'level_id':level.level_id,'challenge_id':outcome.challenge_id,'attempt_number':outcome.attempt_number,'outcome_code':outcome.outcome_code,'mechanic_id':outcome.mechanic_id,'objective_id':outcome.objective_id,'adaptation_id':outcome.adaptation_ids[0] if outcome.adaptation_ids else ''}
 def _target(document,objective_id):
     for exp in document.experiences:
@@ -35,7 +37,9 @@ def _result_from_payload(run_id,session_id,result_id,payload,idempotent,resumed)
     return EnterpriseSessionResult(run_id,session_id,result_id,payload['build_artifact_id'],payload.get('telemetry_artifact_id'),payload['learning_artifact_id'],mastery,tuple(tuple(x) for x in payload['adaptation_actions']),idempotent,resumed,False).validate()
 
 def run_enterprise_session(ctx,asset_blobs,root:Path,request:EnterpriseSessionRequest,build_policy=None,fail_after_checkpoint:str|None=None):
-    ctx.validate();request.validate();verify_canonical_bindings(Path(__file__).resolve().parents[3])
+    ctx.validate();request.validate()
+    for outcome in request.outcomes:_telemetry_event(ctx,outcome)
+    verify_canonical_bindings(Path(__file__).resolve().parents[3])
     store=DurableGameStore(Path(root)/'operations');fp=_request_fp(ctx,asset_blobs,request)
     job=store.begin_job(request.idempotency_key,fp,request.run_context.run_id,request.session_id,request.owner)
     try:
@@ -60,7 +64,7 @@ def run_enterprise_session(ctx,asset_blobs,root:Path,request:EnterpriseSessionRe
         if 'telemetry_processed' not in cp:
             tele_rows=[]
             for outcome in request.outcomes:
-                tr=tele.record(request.session_id,_telemetry_event(ctx,outcome),request.consent,ctx.telemetry_allowlist)
+                tr=tele.record(request.session_id,_telemetry_event(ctx,outcome),request.consent,ctx.telemetry_allowlist,event_key=fingerprint(_telemetry_event(ctx,outcome)))
                 if tr:tele_rows.append(tr)
             if tele_rows:
                 _,tref=store.derive('game.telemetry.events',request.run_context.run_id,[build_ref],{'session_id':request.session_id,'events':tele_rows,'raw_text':False,'consent_policy':request.consent.policy_id},'BIE-GAME-OPS-TELEMETRY',_source_provenance(ctx.document),{'retention_days':request.consent.retention_days},True)
@@ -72,7 +76,7 @@ def run_enterprise_session(ctx,asset_blobs,root:Path,request:EnterpriseSessionRe
             mastery_rows=[];adapt=[]
             for outcome in request.outcomes:
                 tr=tele_by_attempt.get((outcome.challenge_id,outcome.attempt_number))
-                eid=tr['event_id'] if tr else 'telemetry:consent-disabled:'+hashlib.sha256((request.session_id+outcome.challenge_id+str(outcome.attempt_number)).encode()).hexdigest()[:16]
+                eid='learning:'+hashlib.sha256((request.session_id+'|'+fingerprint({'game_id':_telemetry_event(ctx,outcome)['game_id'],'level_id':_telemetry_event(ctx,outcome)['level_id'],'challenge_id':outcome.challenge_id,'attempt':outcome.attempt_number})).encode()).hexdigest()[:24]
                 rec=mastery_store.update(request.learner_key_hash,outcome.objective_id,outcome.outcome_code,outcome.mastery_weight,outcome.evidence_strength,eid);mastery_rows.append(rec)
                 target,mis=_target(ctx.document,outcome.objective_id);adapt.append((outcome.objective_id,mastery_store.adaptation_for(rec,target,mis)))
             by={r.objective_id:r for r in mastery_rows};mastery_rows=tuple(by[k] for k in sorted(by))

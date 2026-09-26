@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
-import ctypes, os, resource, subprocess, shutil
+import ctypes, os, resource, subprocess, shutil, selectors, signal, time
 from .errors import GameBuildError
 @dataclass(frozen=True)
 class ProcessResult:
@@ -39,10 +39,30 @@ def run_bounded(cmd,*,cwd=None,timeout=30,max_output=1_000_000,env=None,cpu_seco
     cmd=list(cmd)
     if not cmd:raise GameBuildError('GAME_BUILD_PROCESS_COMMAND_REQUIRED')
     clean=sanitized_environment(cmd[0],env)
+    if timeout<=0 or max_output<0:raise GameBuildError('GAME_BUILD_PROCESS_BOUNDS')
     try:
-        p=subprocess.run(cmd,cwd=cwd,text=True,capture_output=True,timeout=timeout,env=clean,start_new_session=True,
+        p=subprocess.Popen(cmd,cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=clean,start_new_session=True,
              preexec_fn=_limits(cpu_seconds,memory_bytes,max_processes,max_open_files,max_file_bytes))
-    except subprocess.TimeoutExpired as e:raise GameBuildError('GAME_BUILD_PROCESS_TIMEOUT',str(cmd[0])) from e
     except OSError as e:raise GameBuildError('GAME_BUILD_PROCESS_LAUNCH',str(cmd[0])) from e
-    if len(p.stdout.encode())+len(p.stderr.encode())>max_output:raise GameBuildError('GAME_BUILD_PROCESS_OUTPUT_LIMIT')
-    return ProcessResult(p.returncode,p.stdout,p.stderr)
+    streams=selectors.DefaultSelector();chunks={'stdout':[],'stderr':[]};total=0;deadline=time.monotonic()+timeout
+    def stop_group():
+        try:os.killpg(p.pid,signal.SIGKILL)
+        except ProcessLookupError:pass
+    try:
+        for stream,name in ((p.stdout,'stdout'),(p.stderr,'stderr')):
+            os.set_blocking(stream.fileno(),False);streams.register(stream,selectors.EVENT_READ,name)
+        while streams.get_map():
+            remaining=deadline-time.monotonic()
+            if remaining<=0:raise GameBuildError('GAME_BUILD_PROCESS_TIMEOUT',str(cmd[0]))
+            for key,_ in streams.select(min(.1,remaining)):
+                data=os.read(key.fileobj.fileno(),min(65536,max_output-total+1))
+                if not data:streams.unregister(key.fileobj);continue
+                total+=len(data)
+                if total>max_output:raise GameBuildError('GAME_BUILD_PROCESS_OUTPUT_LIMIT')
+                chunks[key.data].append(data)
+        try:p.wait(timeout=max(.001,deadline-time.monotonic()))
+        except subprocess.TimeoutExpired as e:raise GameBuildError('GAME_BUILD_PROCESS_TIMEOUT',str(cmd[0])) from e
+        return ProcessResult(p.returncode,b''.join(chunks['stdout']).decode('utf-8','replace'),b''.join(chunks['stderr']).decode('utf-8','replace'))
+    finally:
+        # The process group belongs to this invocation; descendants cannot outlive it.
+        stop_group();p.wait();streams.close();p.stdout.close();p.stderr.close()

@@ -1,0 +1,31 @@
+{
+  "findings": [
+    "Repeated rule/adaptation IDs collide across levels during compilation.",
+    "Punctuation-distinct identifiers can collapse into one generated function.",
+    "Numeric string effects are silently coerced instead of rejecting like the authoritative state engine."
+  ],
+  "counterexample_log": "evidence/residual_audit/SECOND_AUDIT_INITIAL_FAILURES.log",
+  "records": [
+    {
+      "path": "bie/game_engine/compiler_engine/identifiers.py",
+      "before_sha256": "cdc34b62e56b90d95222387910fad83ef8155a06b618a6ebc516faa9be8a3bad",
+      "after_sha256": "87dfaf8dfa02dffa3d0ab2f3066ff06024e03735345c656ea4753e86dcdea26b"
+    },
+    {
+      "path": "bie/game_engine/compiler_engine/rule_compiler.py",
+      "before_sha256": "b48e1ec8277d1d72dc4e3beed308e5fe5b6dca5c64ccdc08ba0ffbd009c69f07",
+      "after_sha256": "96b4b8d3d5e2fd2865ed9a8b090cf7bb17dbb64ee16fbe71156411b688e79a30"
+    },
+    {
+      "path": "bie/game_engine/compiler_engine/adaptation_compiler.py",
+      "before_sha256": "c8adf7fc76897f6b27aa752bc596326b67039f298731cb982fc889062a8ba271",
+      "after_sha256": "8f9bc1c17e01f1c52bdc43deb3b5b360a907ff8c6afd52f8b48a736c505953b6"
+    },
+    {
+      "path": "bie/game_engine/compiler_engine/runtime_controller.py",
+      "before_sha256": "75ac7cbe84196e0b51c972dcc1c0466b80babf4af3e8a802dd50a315deafb6ee",
+      "after_sha256": "7982a3c3544f0b1d80008f4f65f16aede940bd5015d744db9e9c2ca07b02ffda"
+    }
+  ],
+  "product_accepted": false
+}

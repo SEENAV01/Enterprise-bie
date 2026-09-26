@@ -32,9 +32,16 @@ def evaluate_typed(expr:Expr,state:Mapping[str,Any],type_map:Mapping[str,ValueTy
                 return a/b
         if isinstance(n,Compare):
             a,b=ev(n.left),ev(n.right)
+            if n.op==CompareOp.EQ:return a==b
+            if n.op==CompareOp.NE:return a!=b
             if n.op in {CompareOp.LT,CompareOp.LE,CompareOp.GT,CompareOp.GE}:
                 if type(a) not in (int,float,str) or type(b) not in (int,float,str):raise GameContractError('GAME_STATE_EXPR_COMPARABLE_REQUIRED')
-            return {CompareOp.EQ:a==b,CompareOp.NE:a!=b,CompareOp.LT:a<b,CompareOp.LE:a<=b,CompareOp.GT:a>b,CompareOp.GE:a>=b}[n.op]
+            try:
+                if n.op==CompareOp.LT:return a<b
+                if n.op==CompareOp.LE:return a<=b
+                if n.op==CompareOp.GT:return a>b
+                if n.op==CompareOp.GE:return a>=b
+            except TypeError as exc:raise GameContractError('GAME_STATE_EXPR_COMPARABLE_REQUIRED') from exc
         if isinstance(n,Boolean):
             vals=[ev(x) for x in n.values]
             if any(type(v) is not bool for v in vals):raise GameContractError('GAME_STATE_EXPR_BOOL_REQUIRED')

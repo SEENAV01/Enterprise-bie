@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import Any,Mapping
+import math
 from ..canonical import fingerprint
 from ..errors import GameContractError
 from ..state import StateModel,StateVariableSpec
@@ -10,6 +11,7 @@ def schema_fingerprint(model:StateModel)->str:
     model.validate();return fingerprint(model)
 
 def _validate_value(spec:StateVariableSpec,value:Any):
+    if type(value) is float and not math.isfinite(value):raise GameContractError('GAME_STATE_VALUE_NONFINITE',spec.variable_id)
     if spec.value_type==ValueType.NUMBER:
         if type(value) not in (int,float) or isinstance(value,bool):raise GameContractError('GAME_STATE_VALUE_TYPE',spec.variable_id)
     elif spec.value_type==ValueType.INTEGER:

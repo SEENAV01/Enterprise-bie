@@ -15,9 +15,12 @@ class TelemetryConsent:
 
 @dataclass(frozen=True)
 class SessionOutcome:
-    objective_id:str; challenge_id:str; event_type:str; outcome_code:str; mechanic_id:str; attempt_number:int; mastery_weight:float; evidence_strength:float; adaptation_ids:tuple[str,...]=()
+    objective_id:str; challenge_id:str; event_type:str; outcome_code:str; mechanic_id:str; attempt_number:int; mastery_weight:float; evidence_strength:float; adaptation_ids:tuple[str,...]=(); game_id:str|None=None; level_id:str|None=None
     def validate(self):
         for v,c in ((self.objective_id,'GAME_OPS_OBJECTIVE'),(self.challenge_id,'GAME_OPS_CHALLENGE'),(self.event_type,'GAME_OPS_EVENT'),(self.outcome_code,'GAME_OPS_OUTCOME'),(self.mechanic_id,'GAME_OPS_MECHANIC')):require_id(v,c)
+        if (self.game_id is None)!=(self.level_id is None):raise GameOperationsError('GAME_OPS_OUTCOME_SCOPE_PARTIAL')
+        if self.game_id is not None:require_id(self.game_id,'GAME_OPS_GAME');require_id(self.level_id,'GAME_OPS_LEVEL')
+        if self.outcome_code not in {'applied','correct','success','mastered','succeeded','incorrect','failed','failure'}:raise GameOperationsError('GAME_OPS_TERMINAL_OUTCOME_REQUIRED')
         if type(self.attempt_number) is not int or self.attempt_number<1:raise GameOperationsError('GAME_OPS_ATTEMPT')
         for v in (self.mastery_weight,self.evidence_strength):
             if type(v) not in (int,float) or not 0<v<=1:raise GameOperationsError('GAME_OPS_EVIDENCE_WEIGHT')
@@ -32,7 +35,7 @@ class EnterpriseSessionRequest:
         if not _SHA.fullmatch(self.learner_key_hash):raise GameOperationsError('GAME_OPS_LEARNER_HASH')
         if not self.outcomes:raise GameOperationsError('GAME_OPS_OUTCOMES_REQUIRED')
         for x in self.outcomes:x.validate()
-        if len({(x.challenge_id,x.attempt_number) for x in self.outcomes})!=len(self.outcomes):raise GameOperationsError('GAME_OPS_DUPLICATE_OUTCOME')
+        if len({(x.game_id,x.level_id,x.challenge_id,x.attempt_number) for x in self.outcomes})!=len(self.outcomes):raise GameOperationsError('GAME_OPS_DUPLICATE_OUTCOME')
         return self
 
 @dataclass(frozen=True)

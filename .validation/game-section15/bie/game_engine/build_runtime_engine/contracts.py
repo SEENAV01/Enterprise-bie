@@ -13,6 +13,7 @@ def _sha(v):
 def safe_relative(path):
     if not isinstance(path,str) or not path or '\\' in path or path.startswith('/') or any(ord(c)<32 for c in path):raise GameBuildError('GAME_BUILD_PATH')
     p=PurePosixPath(path)
+    if ':' in path or path!=p.as_posix():raise GameBuildError('GAME_BUILD_PATH')
     if p.is_absolute() or any(x in ('','.','..') for x in p.parts):raise GameBuildError('GAME_BUILD_PATH')
     return p.as_posix()
 

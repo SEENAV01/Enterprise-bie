@@ -1,0 +1,15 @@
+{
+  "path": "bie/game_engine/compiler_engine/expression_codegen.py",
+  "before_sha256": "043b8f23e3ee49eb9644362789ba3dc705be29e81d2c0d91b2e24db80c0b7cbe",
+  "after_sha256": "53750c702199c70049515f943a8e4c1145cf78634327b12e7bf3bf4f3a1e553e",
+  "counterexamples": "evidence/residual_audit/EXPRESSION_PARITY_INITIAL_FAILURES.log",
+  "changes": [
+    "Separate arithmetic tokens so negative subtraction cannot emit decrement syntax.",
+    "Preserve numeric enum primitive identity.",
+    "Preserve authoritative boolean/numeric equality semantics.",
+    "Raise on dynamic division by zero and retain eager Boolean operand errors.",
+    "Reject statically nonnumeric arithmetic before emission."
+  ],
+  "verification": "Six differential tests, including 512 seeded numeric trees, compile with strict TypeScript and execute under Node.",
+  "product_accepted": false
+}

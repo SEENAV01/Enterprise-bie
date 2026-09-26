@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import Enum
+import math
 from typing import Mapping
 from ..canonical import fingerprint
 from ..document import GameDocument
@@ -17,7 +18,7 @@ class ScoringPolicy:
     def validate(self):
         require_id(self.policy_id,'GAME_COMP_SCORING_ID')
         for x in (self.correct_points,self.incorrect_points,self.hint_cost,self.floor):
-            if type(x) not in (int,float):raise GameCompilerError('GAME_COMP_SCORING_NUMBER')
+            if type(x) not in (int,float) or not math.isfinite(x):raise GameCompilerError('GAME_COMP_SCORING_NUMBER')
         if self.correct_points<=0 or self.hint_cost<0 or self.floor<0:raise GameCompilerError('GAME_COMP_SCORING_RANGE')
         if self.speed_pressure:raise GameCompilerError('GAME_COMP_SPEED_PRESSURE_FORBIDDEN')
         if self.mastery_weighted is not True:raise GameCompilerError('GAME_COMP_MASTERY_WEIGHTING_REQUIRED')
@@ -112,5 +113,9 @@ class CompiledBundle:
         paths=[a.path for a in self.artifacts]
         if len(paths)!=len(set(paths)):raise GameCompilerError('GAME_COMP_ARTIFACT_DUPLICATE_PATH')
         [a.validate() for a in self.artifacts];self.receipt.validate()
+        hashes=tuple(sorted((a.path,a.sha256) for a in self.artifacts))
+        if self.receipt.artifact_hashes!=hashes:raise GameCompilerError('GAME_COMP_RECEIPT_ARTIFACT_MISMATCH')
+        expected=fingerprint({'input':self.receipt.input_fingerprint,'hashes':hashes,'profile':self.receipt.compiler_profile})
+        if self.receipt.bundle_fingerprint!=expected or self.receipt.receipt_id!='compile:'+expected[7:31]:raise GameCompilerError('GAME_COMP_RECEIPT_BINDING')
         if self.product_accepted:raise GameCompilerError('GAME_PRODUCT_ACCEPTANCE_FORBIDDEN')
         return self
