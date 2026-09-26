@@ -1,0 +1,74 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-001",
+  "capability": "learning coverage and active-interaction/mastery coverage",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 8,
+  "cumulative_checkpoint": {
+    "ordinal": 1,
+    "task_id": "BIE-GAME-QA-001",
+    "cumulative_task_tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "misconception:strategy",
+      "objective:strategy",
+      "reason:strategy",
+      "source:book"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:ca3a4624ba4149981393e2ed9a7c61f93b10c8c0cca93f1d3aca88ada49ef367",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1.0,
+        "name": "learning_coverage",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": 1,
+        "minimum": 1.0,
+        "name": "interactive_coverage",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": 1,
+        "minimum": 1.0,
+        "name": "mastery_coverage",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": null,
+        "minimum": 1,
+        "name": "strategy_diversity",
+        "unit": "count",
+        "value": 9.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:2853b4f4f4f37675975ecac970efa4e336a895ddc7230e90a27c087149221998",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-001"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:39bd9a10823965949bd6d9fbeb924feff266f4e69a6f0ed2d2707f90d75560cc",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:585805928f607a254984c141",
+    "result_fingerprint": "sha256:2853b4f4f4f37675975ecac970efa4e336a895ddc7230e90a27c087149221998",
+    "task_id": "BIE-GAME-QA-001"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

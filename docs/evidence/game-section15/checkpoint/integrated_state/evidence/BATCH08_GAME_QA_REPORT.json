@@ -1,0 +1,372 @@
+{
+  "all_passed": true,
+  "implementation_scope_only": true,
+  "product_accepted": false,
+  "report_fingerprint": "sha256:0a6e16703141dbdb801cbd90711c2e2fa586efd623845be1e34a6900dec6f6ac",
+  "results": [
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "misconception:strategy",
+        "objective:strategy",
+        "reason:strategy",
+        "source:book"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:ca3a4624ba4149981393e2ed9a7c61f93b10c8c0cca93f1d3aca88ada49ef367",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1.0,
+          "name": "learning_coverage",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": 1,
+          "minimum": 1.0,
+          "name": "interactive_coverage",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": 1,
+          "minimum": 1.0,
+          "name": "mastery_coverage",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": null,
+          "minimum": 1,
+          "name": "strategy_diversity",
+          "unit": "count",
+          "value": 9.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:2853b4f4f4f37675975ecac970efa4e336a895ddc7230e90a27c087149221998",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-001"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "objective:motion",
+        "reason:game",
+        "source:book"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:9925935235b1954bf461b28bb32fa879133e9d6eb3af62eaf2108fb22105fc48",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1,
+          "name": "rule_compile_coverage",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "unsafe_dynamic_execution",
+          "unit": "ratio",
+          "value": 0.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "ungrounded_rules",
+          "unit": "count",
+          "value": 0.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:0cbaa6fa1c8dab5c5da7be1fcf4d58c977ba88e375dc4a6fffe2c45db0ea272b",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-002"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "state-graph"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:3c7be62bd0253294f86ac62f7b038ef58ecaf303742e1d635d352c258f103101",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1,
+          "name": "challenge_reachability",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": null,
+          "minimum": 1,
+          "name": "visited_states",
+          "unit": "count",
+          "value": 3.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:624b8157080f0be06de929d2bfdd5c329b05db55174f1e09577b47b07f582d76",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-003"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "state-graph"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:aa5dbe22949d3fb3658f823585564e9d20947c3810db191536da8deba6a074ee",
+      "metrics": [
+        {
+          "maximum": 0.0,
+          "minimum": 0,
+          "name": "nonterminal_dead_ends",
+          "unit": "count",
+          "value": 0.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "unreachable_states",
+          "unit": "count",
+          "value": 0.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "nonterminal_cycles",
+          "unit": "count",
+          "value": 0.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:d979836afcbab897e7139c6975c386c1383d1be165eeb60f06d284179b256fe5",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-004"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "misconception:strategy",
+        "objective:strategy",
+        "reason:strategy",
+        "source:book"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:952f6bdbd5a10631dbc72ddb7713ac0b3f3a04a56d6565299f59d7dbdd25f151",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1,
+          "name": "misconception_alignment",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": null,
+          "minimum": 1,
+          "name": "remediation_objectives",
+          "unit": "count",
+          "value": 1.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:329a3aa0be6c3a3c4f8f0c4f1118b9165628854d0973ee9fd201832c9f074ecf",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-005"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "objective:motion",
+        "reason:game",
+        "source:book"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:9925935235b1954bf461b28bb32fa879133e9d6eb3af62eaf2108fb22105fc48",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1,
+          "name": "feedback_compile_coverage",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "blocking_feedback_findings",
+          "unit": "count",
+          "value": 0.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:67c3e40ad6bafd0c757a0b4a40fcf7721438e52f72685ef067b6d4e2c64c9667",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-006"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "objective:motion",
+        "reason:game",
+        "source:book"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:de617a0ce368409139b54f1a926642018a10917a1554ec568b70a282a3ff7b63",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1.0,
+          "name": "accessibility_contract_coverage",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": null,
+          "minimum": 1,
+          "name": "semantic_entities",
+          "unit": "count",
+          "value": 2.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:33a2d44a9b40c3e079cd78174b3b17e8d437dfdd39b525eee01d9db1afba3c93",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-007"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "build:483255e2932a0243258b22be",
+        "build:4d5e10438d3543373e50c666",
+        "build:57df591a2460554bc7fa9dbd",
+        "build:c84ac8b4829046542b5d1e5a",
+        "build:ddf8ac02bd6c61225d9f4ddb"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:44504212c0ad1b2dd01ce664a87d9560da06023dd762b2c030da1b9de8aae2d1",
+      "metrics": [
+        {
+          "maximum": 5.0,
+          "minimum": 5.0,
+          "name": "runtime_evidence_components",
+          "unit": "count",
+          "value": 5.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "external_requests",
+          "unit": "count",
+          "value": 0.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "runtime_errors",
+          "unit": "count",
+          "value": 0.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:b911b6109257a933d186571a4e38579ec1d827bdc2001e617605bbc16aac6284",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-008"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "synthetic-multidomain-contract-benchmark"
+      ],
+      "findings": [],
+      "input_fingerprint": "sha256:38a2ee8bd7c255928eb747835357727702f38cb806172330bade7fbf4f4d6148",
+      "metrics": [
+        {
+          "maximum": 1,
+          "minimum": 1,
+          "name": "domain_match",
+          "unit": "ratio",
+          "value": 1.0
+        },
+        {
+          "maximum": null,
+          "minimum": 7.0,
+          "name": "strategy_kinds",
+          "unit": "count",
+          "value": 9.0
+        },
+        {
+          "maximum": 0.34,
+          "minimum": 0,
+          "name": "clone_ratio",
+          "unit": "ratio",
+          "value": 0.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:13deb0946ceaf80435d4191a6835d40e12fe1996553c1d4618817560b4cfe49f",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-009"
+    },
+    {
+      "deterministic": true,
+      "evidence_refs": [
+        "source-scan"
+      ],
+      "findings": [
+        {
+          "blocking": false,
+          "code": "STATIC_IMPORT_HARDENING_OBSERVATION",
+          "evidence_refs": [],
+          "finding_id": "BIE-GAME-QA-010:finding:950",
+          "message": "browser_runtime.py",
+          "severity": "warning"
+        }
+      ],
+      "input_fingerprint": "sha256:62490acf08dd1110ef4d9bf701412fbe7c172fa75212abebd36f57cf02bfb829",
+      "metrics": [
+        {
+          "maximum": null,
+          "minimum": 1,
+          "name": "source_files_scanned",
+          "unit": "count",
+          "value": 172.0
+        },
+        {
+          "maximum": 0,
+          "minimum": 0,
+          "name": "blocking_legacy_findings",
+          "unit": "count",
+          "value": 0.0
+        },
+        {
+          "maximum": null,
+          "minimum": 0,
+          "name": "dynamic_import_observations",
+          "unit": "count",
+          "value": 1.0
+        }
+      ],
+      "product_accepted": false,
+      "result_fingerprint": "sha256:ac678fa49e4fe96931f7b64c9cbc58893c11e002403d0fc1394b9ed338f3037c",
+      "score": 1.0,
+      "status": "pass",
+      "task_id": "BIE-GAME-QA-010"
+    }
+  ]
+}

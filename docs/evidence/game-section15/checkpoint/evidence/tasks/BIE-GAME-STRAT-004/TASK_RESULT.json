@@ -1,0 +1,105 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-004",
+  "ordinal_in_batch": 4,
+  "capability": "Simulation strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/simulation.py",
+    "sha256": "ac818991db4334cdc50e471ac58f023357bd92ca4b2114fe2524a8be1b566884",
+    "metrics": {
+      "bytes": 2429,
+      "loc": 14,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_simulation_strategy.py",
+    "sha256": "9758ab4a82af80b222b920af482334ca92c7f53e809150708670d160de180fdd",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-004/SPEC.md",
+    "sha256": "c811e2428145c6e683d4dab2f7fdaf133ef79730b11ab032715288123d42160f"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:13b1e5c0dddd56eac325d67f8846e253593880e150228635ed95d975727b165c",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of model/system objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "parameter_richness",
+          "rationale": "Model exposes meaningful learner-controllable parameters",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "observable_outputs",
+          "rationale": "Model exposes measurable outputs",
+          "value": 1.0,
+          "weight": 3
+        },
+        {
+          "name": "scope_truthfulness",
+          "rationale": "Each model declares its evidence-bounded scope",
+          "value": 1.0,
+          "weight": 2
+        }
+      ],
+      "confidence": 0.75,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:sim"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "semantic_motion",
+        "simulation_runtime",
+        "parameter_controls",
+        "purposeful_camera"
+      ],
+      "score": 100.0,
+      "strategy": "simulation",
+      "strengths": [
+        "declared_model_scope",
+        "observable_model_response",
+        "parameter_experimentation"
+      ],
+      "studio_design_requirements": [
+        "visualize_model_state_continuously",
+        "show_parameter_to_output_causality",
+        "label_model_limits_and_assumptions",
+        "camera_tracks_semantic_change_not_random_motion",
+        "never_present_simulation_as_unqualified_ground_truth"
+      ]
+    },
+    "output_fingerprint": "sha256:4996f5630c4d63dd5a5b5620d92e187ee693c3cd2bebe6943726fe67739cade0"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

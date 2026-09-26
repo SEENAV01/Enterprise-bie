@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-003",
+  "ordinal": 3,
+  "capability": "spatial arrangement",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 30,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/spatial_arrangement.py",
+    "sha256": "9808cb9493eb1d7358ec448d55bbc642adfde5528806c57d85b93dc21bbd6fde",
+    "definition_fingerprint": "sha256:d3db9b5d1b78fbe24a717946407d5566840ea75ae77d15e883c6b57ca1dedae3"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-003/SPEC.md",
+    "spec_sha256": "59fccad5e3f44e310b6bbbca96de7734b627a8d061ced15406ca41d3f77a0a45",
+    "test": "tests/mechanics_engine/test_bie_game_mech_003.py",
+    "test_sha256": "cce30fd2305ea9e324e4ea4715e55a5a003bc7b8de680a4ac0d329b5a6889341"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:fc2ae3bd0e7d19588e9fba5d96b96b8f8df6c5dcdc4a1fc34a021cc7a7bb906d",
+    "outcome_fingerprint": "sha256:3d2115e8c4d56eae8c06464bc5076ff43110d8c55338a48a02f504c4184c6437",
+    "receipt_id": "mechanic:ec32343118b5f7b08d6e8d89",
+    "receipt_fingerprint": "sha256:adf5ee09e0fbd295daf5e1fb1c8d961a4e0d6105c000e3feaf90b82b24b96f73"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

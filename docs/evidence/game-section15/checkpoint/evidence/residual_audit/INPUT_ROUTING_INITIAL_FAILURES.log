@@ -1,0 +1,56 @@
+test_dispose_removes_all_input_handlers (tests.test_input_routing_audit.InputRoutingAudit.test_dispose_removes_all_input_handlers) ... ok
+test_enter_runs_one_authored_action_on_shared_target (tests.test_input_routing_audit.InputRoutingAudit.test_enter_runs_one_authored_action_on_shared_target) ... FAIL
+test_pointer_release_and_following_click_are_one_gesture (tests.test_input_routing_audit.InputRoutingAudit.test_pointer_release_and_following_click_are_one_gesture) ... FAIL
+test_screen_reader_click_runs_one_action (tests.test_input_routing_audit.InputRoutingAudit.test_screen_reader_click_runs_one_action) ... FAIL
+test_secondary_action_has_its_own_accessible_control (tests.test_input_routing_audit.InputRoutingAudit.test_secondary_action_has_its_own_accessible_control) ... FAIL
+test_selected_challenge_and_objective_are_preserved (tests.test_input_routing_audit.InputRoutingAudit.test_selected_challenge_and_objective_are_preserved) ... FAIL
+
+======================================================================
+FAIL: test_enter_runs_one_authored_action_on_shared_target (tests.test_input_routing_audit.InputRoutingAudit.test_enter_runs_one_authored_action_on_shared_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 37, in test_enter_runs_one_authored_action_on_shared_target
+    self.assertEqual(r['state']['x'],2);self.assertEqual(len(r['events']),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_pointer_release_and_following_click_are_one_gesture (tests.test_input_routing_audit.InputRoutingAudit.test_pointer_release_and_following_click_are_one_gesture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 41, in test_pointer_release_and_following_click_are_one_gesture
+    self.assertEqual(r['state']['x'],2);self.assertEqual(len(r['events']),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 4 != 2
+
+======================================================================
+FAIL: test_screen_reader_click_runs_one_action (tests.test_input_routing_audit.InputRoutingAudit.test_screen_reader_click_runs_one_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 45, in test_screen_reader_click_runs_one_action
+    self.assertEqual(r['state']['x'],2);self.assertEqual(len(r['events']),1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_secondary_action_has_its_own_accessible_control (tests.test_input_routing_audit.InputRoutingAudit.test_secondary_action_has_its_own_accessible_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 49, in test_secondary_action_has_its_own_accessible_control
+    self.assertTrue(r['found']);self.assertEqual(r['label'],'Submit answer')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_selected_challenge_and_objective_are_preserved (tests.test_input_routing_audit.InputRoutingAudit.test_selected_challenge_and_objective_are_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 54, in test_selected_challenge_and_objective_are_preserved
+    self.assertTrue(r['found']);self.assertEqual(r['state']['x'],2)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 6 tests in 23.615s
+
+FAILED (failures=5)

@@ -1,0 +1,53 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-006",
+  "engineering_ordinal": 5,
+  "capability": "level sequencing",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/level_sequencing.py",
+    "sha256": "e14c26d50d276fa82a5939dddfa5057b8c3f3904c73d505caea96df4ed64cbeb"
+  },
+  "test": {
+    "path": "tests/test_director_level_sequencing.py",
+    "sha256": "913b9c5d40509545dc5f824c79a0787e7446a28f6ff7b4d451f24049d77d0a95"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-006/SPEC.md",
+    "sha256": "3220ccbe00d57c9d56d0fdf48eca5ad9582e021a51d78adf8ff3c905daf10988"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:9ef3c408fcc7531dc120a997d41a47f458005ad6391cda454e9de31706f7da3b",
+    "output_summary": [
+      {
+        "estimated_seconds": 114,
+        "level_id": "level:01",
+        "mechanic": "manipulate_parameter",
+        "objective_ids": [
+          "obj:manip"
+        ],
+        "pedagogical_purpose": "Close mastery gap 0.450 through active manipulate_parameter interaction.",
+        "prerequisite_level_ids": [],
+        "role": "practice"
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 5,
+    "task_id": "BIE-GAME-DIR-006",
+    "capability": "level sequencing",
+    "cumulative_tests_run": 33,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:74bae1c094c13e8cadc8ad12ea73edbcea2af5030752b61244da58ffebcda8a1"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

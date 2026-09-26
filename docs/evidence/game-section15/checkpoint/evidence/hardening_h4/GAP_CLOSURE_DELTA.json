@@ -1,0 +1,117 @@
+{
+  "closed_in_h4": [
+    {
+      "evidence": [
+        "bie/game_engine/runtime_quality_engine/audio_bridge.py",
+        "bie/game_engine/compiler_engine/runtime_controller.py",
+        "evidence/hardening_h4/REAL_BROWSER_H4_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-013",
+      "note": "Canonical AUDIO handoff hash/timing/rights are validated; runtime has user-activated playback, captions, cue identity, sync-drift check, and narration duck/restore path.",
+      "status": "CLOSED_IN_H4"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/runtime_quality_engine/runtime_audit.py",
+        "evidence/hardening_h4/RUNTIME_QUALITY_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-014",
+      "note": "Real Chromium verifies keyboard activation, focus, polite live region, reduced-motion support, minimum touch target geometry, and responsive interaction.",
+      "status": "CLOSED_IN_H4"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/runtime_quality_engine/contracts.py",
+        "bie/game_engine/compiler_engine/react_runtime.py",
+        "bie/game_engine/compiler_engine/html_runtime.py",
+        "evidence/hardening_h4/REAL_BROWSER_H4_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-015",
+      "note": "BCP-47 catalog contract, RTL direction enforcement, localized runtime UI, and HTML/application lang/dir binding are implemented; Urdu RTL runtime is browser-verified.",
+      "status": "CLOSED_IN_H4"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/compiler_engine/contracts.py",
+        "bie/game_engine/compiler_engine/asset_manifest.py",
+        "evidence/hardening_h4/RIGHTS_ATTRIBUTION_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-016",
+      "note": "AssetDescriptor now carries rights_ref/license/attribution/source lineage; H4 profile requires exact rights matching, compiler manifest preserves it, final runtime package renders attribution.",
+      "status": "CLOSED_IN_H4"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/runtime_quality_engine/contracts.py",
+        "bie/game_engine/runtime_quality_engine/runtime_audit.py",
+        "evidence/hardening_h4/RUNTIME_QUALITY_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-017",
+      "note": "Mobile/tablet overflow, touch geometry, first-render, interaction latency, JS size, package size and DOM budgets are governed and real-browser verified.",
+      "status": "CLOSED_IN_H4"
+    }
+  ],
+  "product_accepted": false,
+  "remaining": [
+    {
+      "category": "runtime_loader",
+      "id": "GAME-AUD-009",
+      "severity": "high",
+      "status": "PARTIALLY_HARDENED_ENVIRONMENT_BLOCKED",
+      "title": "Native deployed ESM origin/module-loader combined navigation remains host-policy blocked"
+    },
+    {
+      "category": "durability_enterprise",
+      "id": "GAME-AUD-018",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "GAME artifacts/runs are not integrated with canonical ArtifactEnvelope/CAS/idempotency/durable execution"
+    },
+    {
+      "category": "telemetry_runtime",
+      "id": "GAME-AUD-020",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Telemetry compiler sanitizes data but live runtime emits no governed telemetry sink/export path"
+    },
+    {
+      "category": "learning_loop",
+      "id": "GAME-AUD-021",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Mastery/scoring/adaptation do not form a persistent closed learning loop"
+    },
+    {
+      "category": "traceability_packaging",
+      "id": "GAME-AUD-022",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Consolidated ORIGINAL omits BIE-GAME-DSL-001 own test/spec/task-result payload"
+    },
+    {
+      "category": "legacy_compatibility",
+      "id": "GAME-AUD-023",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "New modular GAME DSL has no explicit compatibility shim for current canonical bie.game_engine.contracts legacy API"
+    },
+    {
+      "category": "react_runtime",
+      "id": "GAME-AUD-024",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Build runtime still uses a custom DOM createElement shim instead of actual React/ReactDOM runtime"
+    },
+    {
+      "category": "adversarial_testing",
+      "id": "GAME-AUD-026",
+      "severity": "medium",
+      "status": "OPEN",
+      "title": "No property-based/fuzz testing for codec/expression/path/input state spaces"
+    }
+  ],
+  "remaining_count": 8,
+  "remaining_critical": 0,
+  "remaining_high": 7,
+  "remaining_medium": 1
+}

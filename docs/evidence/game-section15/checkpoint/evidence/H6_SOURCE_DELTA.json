@@ -1,0 +1,74 @@
+{
+  "baseline_archive_sha256": "ec55b5bba5183bc091db5b68ac890b1640c0689446d8e228ef4d195c206ff848",
+  "modified_existing_sources": [
+    {
+      "path": "bie/game_engine/build_runtime_engine/__init__.py",
+      "h5_sha256": "bf275a92856094d54e07bc3579b93988891db592d75af9b781cfa0d4d7c80092",
+      "h6_sha256": "988976b6e0216421211d57fdaf7965f1fb8f1d76edcae40836f6f5f1305c0a42",
+      "reason": "Lazy exports permit artifact-only imports; actual process execution retains the inherited Linux backend.",
+      "original_preserved_at": "lineage/h5_source_before_h6/bie/game_engine/build_runtime_engine/__init__.py"
+    },
+    {
+      "path": "bie/game_engine/build_runtime_engine/entrypoint.py",
+      "h5_sha256": "cd965a1b7ebe7a84226728ce6f85f1cadea61ac44ca4047cf1314245363a61c0",
+      "h6_sha256": "e61c6f35fdf9dcd8d8d243acf9c45e1be9c400b9bb8498bdf4c02e8dc3a6c318",
+      "reason": "Replace the DOM adapter with real pinned ReactDOM mounting and lifecycle.",
+      "original_preserved_at": "lineage/h5_source_before_h6/bie/game_engine/build_runtime_engine/entrypoint.py"
+    },
+    {
+      "path": "bie/game_engine/build_runtime_engine/smoke_bundle.py",
+      "h5_sha256": "43d91a950dd7d5cc456894ca01506963d74dbe5d249b98e2bbe6568a5d443281",
+      "h6_sha256": "8bff3ca3dbb5ab8cb15451461f79cc7085f35b193b3e017dc040f45a579f3e0c",
+      "reason": "Include the verified React vendor in offline smoke materialization.",
+      "original_preserved_at": "lineage/h5_source_before_h6/bie/game_engine/build_runtime_engine/smoke_bundle.py"
+    },
+    {
+      "path": "bie/game_engine/build_runtime_engine/workspace.py",
+      "h5_sha256": "6001345da8713b36c076d2bbd4af3bd8ebe274554a5b9afc617992441907351c",
+      "h6_sha256": "949e2c1d9dc110d2b4297183c59b537779bdd852ba6e2f2132c9b6071f8e968a",
+      "reason": "Verify and materialize the pinned vendor before module linking.",
+      "original_preserved_at": "lineage/h5_source_before_h6/bie/game_engine/build_runtime_engine/workspace.py"
+    },
+    {
+      "path": "bie/game_engine/compiler_engine/runtime_controller.py",
+      "h5_sha256": "a91a07084a40019448b7fc7907346eb906ff63458d61923d5618d776b4573649",
+      "h6_sha256": "66f15efc7847a8ebd4bb529bae1fc63df2c267c3f458e0ee16f3a6cd096606af",
+      "reason": "Remove listeners and stop audio on disposal; scope telemetry sequences to each controller.",
+      "original_preserved_at": "lineage/h5_source_before_h6/bie/game_engine/compiler_engine/runtime_controller.py"
+    },
+    {
+      "path": "bie/game_engine/runtime_quality_engine/runtime_audit.py",
+      "h5_sha256": "c981559be6e54c45e5f5c32769dd954e592643bb9a569455d1b967c3faf30e1e",
+      "h6_sha256": "7da34e4fb181987bc869869c8694573090de83c37b9422246d85e6707344a550",
+      "reason": "Defer Linux sandbox import until actual execution; no change to sandbox verification.",
+      "original_preserved_at": "lineage/h5_source_before_h6/bie/game_engine/runtime_quality_engine/runtime_audit.py"
+    }
+  ],
+  "added_sources": [
+    {
+      "path": "bie/game_engine/contracts.py",
+      "sha256": "c3d6dabba6a1b4ff172d8ce7ada10d21d8911206cf45b11e4a3e4ff2e57e5b05"
+    },
+    {
+      "path": "bie/game_engine/legacy_codec.py",
+      "sha256": "aea3d3be1b8c1de4978cae1c2317ea5ef17d14a9f1a118b4955792a089c022fd"
+    },
+    {
+      "path": "bie/game_engine/legacy_migration.py",
+      "sha256": "1d59a1c1031a12b8e95dd86e8e401044b56faa96d075347464cb9ce77027fa49"
+    },
+    {
+      "path": "bie/game_engine/react_runtime_engine/__init__.py",
+      "sha256": "9a832e7af4957f98feba7028b56d25a03d578d5950327bd3f0e86781cc6e2799"
+    },
+    {
+      "path": "bie/game_engine/react_runtime_engine/pins.py",
+      "sha256": "818b0db44a852c6533d9562a354611d9a86ed12e22302c4325cf047d20bb71f3"
+    },
+    {
+      "path": "bie/game_engine/react_runtime_engine/vendor.py",
+      "sha256": "47bfb7be06a60e46847d8693cd9107a68fc8ce867aa76a80e740e01f549af90b"
+    }
+  ],
+  "removed_sources": []
+}

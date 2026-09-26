@@ -1,0 +1,33 @@
+{
+  "schema_version": "bie.game.build-task-result/1",
+  "section": 15,
+  "batch": 7,
+  "task_id": "BIE-GAME-BUILD-004",
+  "capability": "deterministic authoritative state replay",
+  "status": "PASS",
+  "atomic_tests": 6,
+  "cumulative_checkpoint": {
+    "ordinal": 4,
+    "task_id": "BIE-GAME-BUILD-004",
+    "atomic_tests": 6,
+    "cumulative_build_task_tests": 29,
+    "passed": true
+  },
+  "receipt": {
+    "receipt_id": "build:ddf8ac02bd6c61225d9f4ddb",
+    "task_id": "BIE-GAME-BUILD-004",
+    "input_fingerprint": "sha256:f8a807d43818701cafde4fdbcd3fabdef183ed24dd05b9c2f6074510fb1a0d97",
+    "output_fingerprint": "sha256:1688c04b7003dcdbbb4ff2a6c45a9fefae3d2355ef76f2cbccaf42777a8f3768",
+    "toolchain_fingerprint": "sha256:437994247409775502533478f95eb75bf3c188187eb56ef3258e6e857c251b54",
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "deterministic": true,
+    "product_accepted": false
+  },
+  "output_fingerprint": "sha256:1688c04b7003dcdbbb4ff2a6c45a9fefae3d2355ef76f2cbccaf42777a8f3768",
+  "product_accepted": false,
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

@@ -1,0 +1,549 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-001",
+  "ordinal_in_batch": 1,
+  "capability": "Revision strategy selector",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/selector.py",
+    "sha256": "813a7fee3ffd08559896429900ef79c3f52a9028ed9d46354efa530e61daf0f0",
+    "metrics": {
+      "bytes": 3298,
+      "loc": 35,
+      "functions": 3,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_selector.py",
+    "sha256": "58f396fde15ee72d466827bf3c543700ec228d35b3cd2ccbbddb80c2ac30903d",
+    "test_methods": 12
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-001/SPEC.md",
+    "sha256": "0c42ca4f934327b1f921ba1f0318daa0b640037a7b4a13fbf3ff78c9e589d33d"
+  },
+  "execution": {
+    "result": {
+      "decision_fingerprint": "sha256:ed2411b8de5be1a427db3348c34e49bd6dcc1474d8cfa14d09984f4d167631f4",
+      "primary": "manipulation",
+      "product_accepted": false,
+      "ranked": [
+        {
+          "assessment_fingerprint": "sha256:8c2800629f3917fa81d545efc4abc33d45163eff816b5b1dc10135750aec62d4",
+          "blockers": [],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of manipulation/procedure objectives",
+              "value": 1.0,
+              "weight": 4
+            },
+            {
+              "name": "state_action_density",
+              "rationale": "Grounded controllable state per target objective",
+              "value": 1.0,
+              "weight": 2
+            },
+            {
+              "name": "observable_causality",
+              "rationale": "Learner actions produce observable semantic effects",
+              "value": 1.0,
+              "weight": 3
+            },
+            {
+              "name": "safety_resetability",
+              "rationale": "All manipulations are bounded and reversible",
+              "value": 1.0,
+              "weight": 2
+            }
+          ],
+          "confidence": 0.73,
+          "eligible": true,
+          "evidence_refs": [
+            "misconception:strategy@mis:1:misconception",
+            "objective:strategy@lo:1:objective",
+            "reason:strategy@decision:1:reasoning",
+            "source:book@page:10:source"
+          ],
+          "objective_coverage": [
+            "obj:manip"
+          ],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "semantic_motion",
+            "drag_drop",
+            "parameter_controls",
+            "accessibility_keyboard"
+          ],
+          "score": 100.0,
+          "strategy": "manipulation",
+          "strengths": [
+            "direct_state_control",
+            "resettable_experiment",
+            "visible_cause_effect"
+          ],
+          "studio_design_requirements": [
+            "learner_controls_semantic_objects_not_ui_chrome",
+            "state_change_must_be_visually_observable",
+            "motion_explains_cause_effect",
+            "keyboard_equivalent_for_spatial_actions",
+            "no_drag_for_decoration_only"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:14851215c04035749a2f884da7fa72f13a11c2164be9fe558a5c43d2e2e45480",
+          "blockers": [
+            "no_causal_or_intervention_objective",
+            "no_grounded_causal_edges"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of causal/intervention objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "graph_depth",
+              "rationale": "Causal graph has enough directed structure",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "evidence_strength",
+              "rationale": "Average evidence strength on causal edges",
+              "value": 0,
+              "weight": 4
+            },
+            {
+              "name": "intervention_support",
+              "rationale": "Edges are valid for learner interventions",
+              "value": 0.0,
+              "weight": 3
+            }
+          ],
+          "confidence": 0.55,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "semantic_motion",
+            "graph_runtime",
+            "branching_runtime",
+            "purposeful_camera"
+          ],
+          "score": 0.0,
+          "strategy": "causal_system",
+          "strengths": [],
+          "studio_design_requirements": [
+            "animate_propagation_of_interventions",
+            "distinguish_correlation_from_causation",
+            "camera_follows_relevant_causal_path",
+            "show_delays_or_feedback_only_when_modelled",
+            "never_infer_unproven_causal_edge"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:73f04667f95aefdab7556029c493b8280c7c949fc4a7dc9f8e235603b8666ca5",
+          "blockers": [
+            "no_diagnostic_or_misconception_objective",
+            "no_grounded_diagnostic_cases"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of diagnostic objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "misconception_coverage",
+              "rationale": "Known misconceptions have grounded diagnostic cases",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "explanation_availability",
+              "rationale": "Each case binds to a corrective explanation",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "case_diversity",
+              "rationale": "Distinct incorrect states avoid repetitive traps",
+              "value": 0.0,
+              "weight": 1
+            }
+          ],
+          "confidence": 0.55,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "accessibility_keyboard",
+            "audio_feedback"
+          ],
+          "score": 0.0,
+          "strategy": "diagnostic",
+          "strengths": [],
+          "studio_design_requirements": [
+            "show_learner_the_error_state_semantically",
+            "ask_for_diagnosis_before_correction",
+            "feedback_names_reasoning_error_not_person",
+            "never_use_gotcha_traps_without_explanation"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:c535060b092b27bd25bee2e95f3efb5380e0b485c0b9375752cc5292c1d23df0",
+          "blockers": [
+            "no_structured_equations",
+            "no_symbolic_or_solving_objective"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of symbolic/solve objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "symbolic_structure",
+              "rationale": "Equations expose structured variables and operations",
+              "value": 0.0,
+              "weight": 3
+            },
+            {
+              "name": "invariant_preservation",
+              "rationale": "Every equation declares balance/equivalence invariant",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "manipulation_potential",
+              "rationale": "Operations support learner transformation steps",
+              "value": 0.0,
+              "weight": 1
+            }
+          ],
+          "confidence": 0.52,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "symbolic_math_runtime",
+            "accessibility_keyboard"
+          ],
+          "score": 0.0,
+          "strategy": "equation",
+          "strengths": [],
+          "studio_design_requirements": [
+            "render_equation_as_semantic_objects_not_flat_text",
+            "animate_balance_preserving_operations",
+            "never_use_eval_or_string_execution",
+            "explain_why_each_operation_preserves_equivalence"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:cbc4ee70caed8c216fc8a4aefab7707a425f827f66cd61a1898de0021723b4c9",
+          "blockers": [
+            "no_grounded_simulation_model",
+            "no_model_or_system_objective"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of model/system objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "parameter_richness",
+              "rationale": "Model exposes meaningful learner-controllable parameters",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "observable_outputs",
+              "rationale": "Model exposes measurable outputs",
+              "value": 0.0,
+              "weight": 3
+            },
+            {
+              "name": "scope_truthfulness",
+              "rationale": "Each model declares its evidence-bounded scope",
+              "value": 0.0,
+              "weight": 2
+            }
+          ],
+          "confidence": 0.52,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "semantic_motion",
+            "simulation_runtime",
+            "parameter_controls",
+            "purposeful_camera"
+          ],
+          "score": 0.0,
+          "strategy": "simulation",
+          "strengths": [],
+          "studio_design_requirements": [
+            "visualize_model_state_continuously",
+            "show_parameter_to_output_causality",
+            "label_model_limits_and_assumptions",
+            "camera_tracks_semantic_change_not_random_motion",
+            "never_present_simulation_as_unqualified_ground_truth"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:49eb8303b4681621878941bab9d7a9de0e35d2fe8feb2e25df82d28360d4cb38",
+          "blockers": [
+            "insufficient_geospatial_entities",
+            "no_spatial_or_location_objective"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of spatial/location objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "spatial_distinctness",
+              "rationale": "Distinct grounded locations",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "interaction_density",
+              "rationale": "Enough entities for comparison/location tasks",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "coordinate_grounding",
+              "rationale": "Coordinates are bound to evidence locators",
+              "value": 0.0,
+              "weight": 3
+            }
+          ],
+          "confidence": 0.5,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "map_runtime",
+            "accessibility_keyboard",
+            "purposeful_camera"
+          ],
+          "score": 0.0,
+          "strategy": "map",
+          "strengths": [],
+          "studio_design_requirements": [
+            "map_is_semantic_workspace_not_background_image",
+            "camera_zoom_has_learning_purpose",
+            "provide_non_pointer_navigation",
+            "distinguish_distance_direction_region_and_scale"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:f354931494d1523321bfa67970390ae11cf20fcb91a63684e908ae05e630ea48",
+          "blockers": [
+            "no_prediction_objective",
+            "no_prediction_targets"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of explicit prediction objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "precommit_integrity",
+              "rationale": "Predictions are committed before observations",
+              "value": 0.0,
+              "weight": 3
+            },
+            {
+              "name": "comparison_quality",
+              "rationale": "Explicit comparison metric per prediction target",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "observable_outcome",
+              "rationale": "Outcomes are observable and independently identified",
+              "value": 0.0,
+              "weight": 2
+            }
+          ],
+          "confidence": 0.5,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "semantic_motion",
+            "audio_feedback"
+          ],
+          "score": 0.0,
+          "strategy": "prediction",
+          "strengths": [],
+          "studio_design_requirements": [
+            "capture_prediction_before_reveal",
+            "animate_observation_after_commit",
+            "compare_prediction_vs_outcome_visually",
+            "feedback_explains_model_not_just_correctness"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:f76ff592e55c8109901e89f1ba0fed6b86f9cb7233e39139b52e49c1d783e4f1",
+          "blockers": [
+            "insufficient_temporal_events",
+            "no_temporal_or_ordering_objective"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of temporal/order objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "sequence_depth",
+              "rationale": "Enough events to support reconstruction rather than trivial ordering",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "temporal_resolution",
+              "rationale": "Distinct temporal anchors support meaningful ordering",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "grounded_anchors",
+              "rationale": "Every event has an evidence-backed anchor",
+              "value": 0.0,
+              "weight": 2
+            }
+          ],
+          "confidence": 0.5,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "semantic_motion",
+            "timeline_runtime",
+            "accessibility_keyboard"
+          ],
+          "score": 0.0,
+          "strategy": "timeline",
+          "strengths": [],
+          "studio_design_requirements": [
+            "represent_time_spatially_and_semantically",
+            "animate_reordering_as_state_change",
+            "support_keyboard_reordering",
+            "show_causal_links_separately_from_chronology"
+          ]
+        },
+        {
+          "assessment_fingerprint": "sha256:0bfcf9202c7946da428acaa853d0f6758308665a61d52e22fa46a01e548fc1ed",
+          "blockers": [
+            "no_recall_or_fact_objective",
+            "no_retrieval_items"
+          ],
+          "components": [
+            {
+              "name": "objective_fit",
+              "rationale": "Coverage of recall/fact objectives",
+              "value": 0.0,
+              "weight": 4
+            },
+            {
+              "name": "item_diversity",
+              "rationale": "Distinct grounded prompts and answers",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "spacing_support",
+              "rationale": "Items expose deterministic spacing keys",
+              "value": 0.0,
+              "weight": 2
+            },
+            {
+              "name": "misconception_targeting",
+              "rationale": "Retrieval can target known misconceptions",
+              "value": 0.0,
+              "weight": 1
+            }
+          ],
+          "confidence": 0.45,
+          "eligible": false,
+          "evidence_refs": [],
+          "objective_coverage": [],
+          "product_accepted": false,
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "accessibility_keyboard",
+            "audio_feedback"
+          ],
+          "score": 0.0,
+          "strategy": "retrieval",
+          "strengths": [],
+          "studio_design_requirements": [
+            "active_recall_before_answer_reveal",
+            "spaced_or_interleaved_prompt_selection",
+            "semantic_feedback_not_flashcard_slides",
+            "no_mcq_only_core_gameplay"
+          ]
+        }
+      ],
+      "rationale": [
+        "Selected manipulation using structured capability/evidence scoring.",
+        "Primary score=100.0000, confidence=0.7300."
+      ],
+      "secondary": null,
+      "status": "selected"
+    },
+    "output_fingerprint": "sha256:640efdf22a7d8f3b8868b7befdc630acca2f216ee06193d3521fb361b70b7f53"
+  },
+  "quality": {
+    "independent_strategy_logic": false,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

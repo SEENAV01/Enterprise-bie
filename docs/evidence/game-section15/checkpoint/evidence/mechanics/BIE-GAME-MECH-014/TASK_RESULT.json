@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-014",
+  "ordinal": 14,
+  "capability": "diagnose error",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 140,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/diagnose_error.py",
+    "sha256": "e4f2735bd9103b1b09f0d4d468ab207d1a60d2edc9ba49836a50948878819336",
+    "definition_fingerprint": "sha256:5e1c4818b2aa7ceaca79af8a194e23913eb0838f7a682e1127780b1b2d9c4254"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-014/SPEC.md",
+    "spec_sha256": "7f2e567e14f7f61dc52ffad2b3bb969575ca308b3ec57c217c0b0bec17bf6cc8",
+    "test": "tests/mechanics_engine/test_bie_game_mech_014.py",
+    "test_sha256": "86dcffdda8e20fe4536df8e2622fe72ee2540e88eb244105cf2c4a3bbcbdf654"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:6a6e94f6ea371c03ca6e3605e64ffd0a4b71288c0b0fa6790262c9d873137802",
+    "outcome_fingerprint": "sha256:fccf58a1b95836fdef77b73ac73443353719b454041a6be1ac1cf441a5946c65",
+    "receipt_id": "mechanic:3e71518c70e8172058650cb6",
+    "receipt_fingerprint": "sha256:551534b74c141bc7a5e2278c36bd99e71e16ced3e0f0972119ef8d910c67ee67"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-007",
+  "capability": "accessibility across contracts, compiled interactions and browser runtime",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 7,
+    "task_id": "BIE-GAME-QA-007",
+    "cumulative_task_tests": 49,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:de617a0ce368409139b54f1a926642018a10917a1554ec568b70a282a3ff7b63",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1.0,
+        "name": "accessibility_contract_coverage",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": null,
+        "minimum": 1,
+        "name": "semantic_entities",
+        "unit": "count",
+        "value": 2.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:33a2d44a9b40c3e079cd78174b3b17e8d437dfdd39b525eee01d9db1afba3c93",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-007"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:42f81793d9a8a08041583f32b219526c6bf14f68ad3197677fc0cb05f0b38703",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:8103f6fffc1233c2435ff305",
+    "result_fingerprint": "sha256:33a2d44a9b40c3e079cd78174b3b17e8d437dfdd39b525eee01d9db1afba3c93",
+    "task_id": "BIE-GAME-QA-007"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

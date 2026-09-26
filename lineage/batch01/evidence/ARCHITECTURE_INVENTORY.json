@@ -1,0 +1,159 @@
+{
+  "schema_version": "bie.game.batch01.architecture-inventory/1",
+  "task_id": "BIE-GAME-DSL-001",
+  "source_modules": 21,
+  "source_loc": 607,
+  "functions": 49,
+  "classes": 46,
+  "modules": [
+    {
+      "path": "bie/game_engine/__init__.py",
+      "loc": 3,
+      "functions": 0,
+      "classes": 0,
+      "sha256": "01217f6b6ac880365e261d336883cd6ac63ba4bdebbb89e6fa70bf8b9b1be160"
+    },
+    {
+      "path": "bie/game_engine/adaptation.py",
+      "loc": 26,
+      "functions": 2,
+      "classes": 3,
+      "sha256": "65671c744b2400866aa1650417a199a50617893bdd1a515522d217fdb6cb3de2"
+    },
+    {
+      "path": "bie/game_engine/audio.py",
+      "loc": 23,
+      "functions": 2,
+      "classes": 3,
+      "sha256": "1a525807046499fca8f6bc402fe05fb2ae600cf36e925881b2e26a02ae5a7615"
+    },
+    {
+      "path": "bie/game_engine/canonical.py",
+      "loc": 22,
+      "functions": 3,
+      "classes": 0,
+      "sha256": "d976742213d839c98cdf41745a2093a0066a43d7fbd3a4877e803aba7b467d62"
+    },
+    {
+      "path": "bie/game_engine/codec.py",
+      "loc": 54,
+      "functions": 4,
+      "classes": 0,
+      "sha256": "0daccf425ec904705513bd9319c718ed762f122837d24b2995339eaf50b9708d"
+    },
+    {
+      "path": "bie/game_engine/compatibility.py",
+      "loc": 21,
+      "functions": 2,
+      "classes": 1,
+      "sha256": "3300fc7604cdc5621bbe4dd25eb4717ce01e99bb911ec86e48d7a74ac4573e70"
+    },
+    {
+      "path": "bie/game_engine/document.py",
+      "loc": 62,
+      "functions": 5,
+      "classes": 4,
+      "sha256": "860349f49aaff8f5d4755b8ae35301b936196b586e890d7974bdf87c14c89eb4"
+    },
+    {
+      "path": "bie/game_engine/errors.py",
+      "loc": 7,
+      "functions": 1,
+      "classes": 1,
+      "sha256": "40750029590fa524080f708cdce463e7e597d920e4e88c214cc2b36f2c29ac11"
+    },
+    {
+      "path": "bie/game_engine/expressions.py",
+      "loc": 65,
+      "functions": 2,
+      "classes": 11,
+      "sha256": "cd2a06b633e4d0505a510ab6ec21547051f1fb190b19ad1a9132f2b91e5fe641"
+    },
+    {
+      "path": "bie/game_engine/feedback.py",
+      "loc": 17,
+      "functions": 1,
+      "classes": 1,
+      "sha256": "cea8c39394a15a602307fe57db7ae55a5bf5787ca93664bf9393b831ac4c49c8"
+    },
+    {
+      "path": "bie/game_engine/fixtures.py",
+      "loc": 28,
+      "functions": 2,
+      "classes": 0,
+      "sha256": "a9733edcf028b6799238dfa0c8625312a2047b926b26bccfe0a01bcac45c8e28"
+    },
+    {
+      "path": "bie/game_engine/ids.py",
+      "loc": 23,
+      "functions": 5,
+      "classes": 0,
+      "sha256": "3b803926c2b66512f88dbe8ca9fe47f4e8b1c26ff53ed8eafce231d9c15954f2"
+    },
+    {
+      "path": "bie/game_engine/interaction.py",
+      "loc": 49,
+      "functions": 4,
+      "classes": 6,
+      "sha256": "3a770c8b548b6622ff8b2666f9abf5d3c8142e4816c1dc5d3149cbdd3c9f5cae"
+    },
+    {
+      "path": "bie/game_engine/learning.py",
+      "loc": 22,
+      "functions": 1,
+      "classes": 1,
+      "sha256": "d830f948f1404404a6a365721e88c8124693ff1167c594bc7f64642462361778"
+    },
+    {
+      "path": "bie/game_engine/provenance.py",
+      "loc": 29,
+      "functions": 2,
+      "classes": 2,
+      "sha256": "27d183bbbd67c71eee701b9cb81d37bb8d47ad71aeab500cf5b9eb5bcaa3f0e0"
+    },
+    {
+      "path": "bie/game_engine/quality_intent.py",
+      "loc": 21,
+      "functions": 1,
+      "classes": 2,
+      "sha256": "e82b0c3c715547ce930f065aefe1c02369c0487b6336966ee93d9da5c1b8c094"
+    },
+    {
+      "path": "bie/game_engine/receipts.py",
+      "loc": 17,
+      "functions": 2,
+      "classes": 1,
+      "sha256": "ebe42ecfdb0085a79d4de42d8a784a81b241d8d4c27bce9564e307c0d130dd2f"
+    },
+    {
+      "path": "bie/game_engine/schema_registry.py",
+      "loc": 21,
+      "functions": 2,
+      "classes": 1,
+      "sha256": "597a0c2d88f900e749d909f167272ccd583dd55ee67630f82bccf72d1e145b91"
+    },
+    {
+      "path": "bie/game_engine/state.py",
+      "loc": 35,
+      "functions": 3,
+      "classes": 2,
+      "sha256": "8740dfa17223e62547ea30047b56c2d47c130cfbf2d03e1ff6eec588371842a0"
+    },
+    {
+      "path": "bie/game_engine/validation.py",
+      "loc": 13,
+      "functions": 1,
+      "classes": 0,
+      "sha256": "e2d7b0741743def0b07ce17ef0cd6a549c7021bc3a7d378cc5c92de90a83d2b1"
+    },
+    {
+      "path": "bie/game_engine/visual.py",
+      "loc": 49,
+      "functions": 4,
+      "classes": 7,
+      "sha256": "22f2d10243787fd7d19833db5409c6ac40e923e1887c57cf65f36d828dfa0c84"
+    }
+  ],
+  "quality_position": "FOUNDATIONAL_DSL_CORE_NOT_SECTION_ACCEPTANCE",
+  "product_accepted": false
+}

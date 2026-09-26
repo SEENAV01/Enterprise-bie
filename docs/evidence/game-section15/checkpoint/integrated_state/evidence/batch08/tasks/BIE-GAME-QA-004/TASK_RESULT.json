@@ -1,0 +1,64 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-004",
+  "capability": "impossible/dead-state and nonterminal-cycle detection",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 4,
+    "task_id": "BIE-GAME-QA-004",
+    "cumulative_task_tests": 29,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "state-graph"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:aa5dbe22949d3fb3658f823585564e9d20947c3810db191536da8deba6a074ee",
+    "metrics": [
+      {
+        "maximum": 0.0,
+        "minimum": 0,
+        "name": "nonterminal_dead_ends",
+        "unit": "count",
+        "value": 0.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "unreachable_states",
+        "unit": "count",
+        "value": 0.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "nonterminal_cycles",
+        "unit": "count",
+        "value": 0.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:d979836afcbab897e7139c6975c386c1383d1be165eeb60f06d284179b256fe5",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-004"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:7068eca441766fe032f7dff1536d6d1457605b9c7852ef69964ee4f8d7ceebc3",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:700eb4c1cdf70bad50837434",
+    "result_fingerprint": "sha256:d979836afcbab897e7139c6975c386c1383d1be165eeb60f06d284179b256fe5",
+    "task_id": "BIE-GAME-QA-004"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

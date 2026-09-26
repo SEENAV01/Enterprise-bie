@@ -1,0 +1,30 @@
+{
+  "known_limitations": [
+    {
+      "id": "L1_NATIVE_ORIGIN_LOADER",
+      "status": "OPEN_DOWNSTREAM",
+      "detail": "Inherited Batch07 sandbox Chromium administrator policy blocks native http/https/file origin navigation; self-contained real Chromium runtime is verified, deployment/native-origin loader remains canonical/deployment follow-up."
+    },
+    {
+      "id": "L2_MULTIDOMAIN_BENCHMARK_SCOPE",
+      "status": "OPEN_FOR_REAL_BOOK_AUDIT",
+      "detail": "QA-009 uses structured synthetic multi-domain/multi-strategy contract fixtures. It does not establish real textbook/domain-fidelity acceptance."
+    },
+    {
+      "id": "L3_ASSISTIVE_TECH_RUNTIME",
+      "status": "OPEN_FOR_REAL_DEVICE_VALIDATION",
+      "detail": "QA-007 verifies accessibility contracts, keyboard parity, compiled interaction policy and browser semantic runtime, but not a real screen-reader/device matrix."
+    },
+    {
+      "id": "L4_STATIC_IMPORT_HARDENING",
+      "status": "NON_BLOCKING_AUDIT_OBSERVATION",
+      "detail": "QA-010 observed an inherited __import__(json) use in Batch07 browser_runtime.py. It is not user-controlled keyword routing and did not block GAME-QA, but should be reviewed in Step 2 full audit."
+    },
+    {
+      "id": "L5_REAL_BOOK_E2E",
+      "status": "OPEN",
+      "detail": "No real-book end-to-end GAME acceptance is claimed in Step 1."
+    }
+  ],
+  "product_accepted": false
+}

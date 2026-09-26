@@ -1,0 +1,32 @@
+{
+  "event": {
+    "adaptation_id": "",
+    "attempt_number": 1,
+    "challenge_id": "challenge:motion",
+    "event": "mechanic_completed",
+    "game_id": "game:motion",
+    "level_id": "level:1",
+    "mechanic_id": "drag_and_drop",
+    "objective_id": "obj:motion",
+    "outcome_code": "applied",
+    "policy_id": "policy:telemetry:v1",
+    "sequence_id": 1,
+    "session_id": "session:browser-evidence"
+  },
+  "objective_id": "obj:motion",
+  "product_accepted": false,
+  "raw_text_present": false,
+  "sandbox": {
+    "canonical_main": "375d99af0edd0086206817dae932156ddf61c569",
+    "canonical_worker_blob": "1e177160c85e5d53e148d6116a454bf7c230bf36",
+    "canonical_worker_path": "bie/infrastructure/browser_game_worker.py",
+    "network_default": "deny",
+    "sandbox": true,
+    "tools": [
+      "chromium",
+      "node",
+      "playwright"
+    ]
+  },
+  "sequence_id": 1
+}

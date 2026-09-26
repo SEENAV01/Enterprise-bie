@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-010",
+  "ordinal": 10,
+  "capability": "map interaction",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 100,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/map_interaction.py",
+    "sha256": "23cebe637175961ab0a8fc23960588296b703a093c5041e7c8c825270f66cb4c",
+    "definition_fingerprint": "sha256:f0d933e8f7944a69ce5ca96aed573a179061454ab795c4a6a37742ff6c7b5853"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-010/SPEC.md",
+    "spec_sha256": "88bf255784bb2238be28e3141a9ea8528bf4728293b175f8836fa9250c8f2a85",
+    "test": "tests/mechanics_engine/test_bie_game_mech_010.py",
+    "test_sha256": "f05f0896a184382b1418308e007ef375457e2917ee7ce4efdfe90a976cd882f5"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:a1cae8142bfe68775480129e8640dd10463c751e2079d66c97b92d4abe766235",
+    "outcome_fingerprint": "sha256:cefb588d51cdb81e62a43a5fd6d4753b64bd93d8b1a9ac08ea16d69c08791468",
+    "receipt_id": "mechanic:0728174196cac3cc59aed370",
+    "receipt_fingerprint": "sha256:a73d82675581be81930e46f808b97d931cb37b4a0063c27c47e8a69cea54c310"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

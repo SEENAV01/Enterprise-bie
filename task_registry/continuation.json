@@ -5,20 +5,18 @@
   "branch": "main",
   "canonical_root": "bie",
   "completed_this_batch": [],
-  "latest_implemented": "BIE-COMP-H12-001",
+  "latest_implemented": "Section 15 H7 and full re-audit repairs",
   "prerequisite_scope": "Previously implemented; preserved, do not restart",
   "math_scope": "Previously implemented/hardened substantially; preserved, do not restart",
   "reasoning_scope": "IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
   "pedagogy_scope": "IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
   "director_scope": "IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
-  "current_subsystem": "POST-DIR CANONICAL SOURCE ADOPTION",
-  "section_status": "IMPLEMENTATION_RECORD_RETAINED_RUNTIME_ACCEPTANCE_PENDING",
+  "current_subsystem": "SECTION 15 GAME CANONICAL INTEGRATION",
+  "section_status": "IMPLEMENTATION_SCOPE_COMPLETE_CANONICAL_GATE_REQUIRED_NOT_ACCEPTED",
   "original_roadmap_checkpoint": "BIE-DIR-QA-007",
   "hardening_checkpoint": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
-  "next_task_ids": [
-    "BIE-AUDIO-VO-001"
-  ],
-  "next_task_note": "After post-DIR integration has actually passed and been read back, continue the existing AUDIO registry. Do not invent further compiler hardening absent a reproduced defect.",
+  "next_task_ids": [],
+  "next_task_note": "After passing canonical integration, merge/readback and final backups, recover Section 16 actual registry; then Sections 17 and 18. Task 028 remains deferred.",
   "acceptance": {
     "reasoning": "NOT_ACCEPTED",
     "pedagogy": "NOT_ACCEPTED",
@@ -33,7 +31,9 @@
     "visual": "NOT_ACCEPTED",
     "animation": "NOT_ACCEPTED",
     "scene_ir": "NOT_ACCEPTED",
-    "compiler": "NOT_ACCEPTED"
+    "compiler": "NOT_ACCEPTED",
+    "audio": "NOT_ACCEPTED",
+    "game": "NOT_ACCEPTED"
   },
   "tests": {
     "historical_DIR_base": {
@@ -54,7 +54,14 @@
         "passed": true
       }
     },
-    "post_dir": "Use current commit-bound integration run; no unexecuted full suite claimed."
+    "post_dir": "Use current commit-bound integration run; no unexecuted full suite claimed.",
+    "section15_isolated": {
+      "tested_commit": "f7593135b83580a9674abcc7cd350b8d8b37bd4e",
+      "tests_run": 1123,
+      "passed": true,
+      "source_inventory_sha256": "e744b8efd5651cd2524197987032319907a01ac0d94c0c1b4a4803f6c8f9586b"
+    },
+    "canonical": "Use the complete workflow result bound to this integration commit; no unexecuted canonical success is claimed."
   },
   "integration_manifest": "manifests/director_integration_003.json",
   "preservation_totals": {
@@ -94,8 +101,16 @@
   "runtime_verified": false,
   "product_accepted": false,
   "previous_checkpoint": {
-    "latest_implemented": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
-    "current_subsystem": "DIR \u2014 Lesson / Script Director Intelligence",
-    "evidence": "docs/evidence/post-dir-integration/predecessors/task_registry/continuation.json"
-  }
+    "latest_implemented": "BIE-COMP-H12-001",
+    "current_subsystem": "POST-DIR CANONICAL SOURCE ADOPTION",
+    "evidence": "docs/evidence/game-section15/predecessors/task_registry/continuation.json"
+  },
+  "game_integration_manifest": "manifests/game_section15_adoption.json",
+  "section_sequence": [
+    15,
+    16,
+    17,
+    18
+  ],
+  "task_028_deferred": true
 }

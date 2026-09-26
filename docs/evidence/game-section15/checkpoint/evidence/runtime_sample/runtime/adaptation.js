@@ -1,0 +1,2 @@
+export function adapt_adapt_hint(state) { return Boolean((Number(state["attempts"]) >= 2)); }
+export const adaptationMetadata = { "deterministic_priority": true, "product_accepted": false, "rules": [{ "action": "unlock_hint", "adaptation_id": "adapt:hint", "function_name": "adapt_adapt_hint", "level_id": "level:1", "priority": 1, "target_id": "hint:2" }], "schema_version": "bie.game.adaptation-program/2" };

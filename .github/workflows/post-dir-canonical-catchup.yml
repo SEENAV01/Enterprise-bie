@@ -20,6 +20,7 @@ jobs:
     timeout-minutes: 45
     env:
       PYTHONDONTWRITEBYTECODE: '1'
+      BIE_GAME_CI_SUPERVISOR: '1'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -46,6 +47,8 @@ jobs:
           sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
           /usr/bin/espeak --version 2>&1 | head -n 2
           ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
+      - name: Install approved Section 15 isolated browser profile
+        run: bash .integration/tools/setup_game_ci.sh
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail
@@ -99,7 +102,7 @@ jobs:
           data=json.loads((root/'integrated_tests.json').read_text())
           s=data['summary'];rows=data['results']
           p=json.loads((root/'post-dir-preservation.json').read_text())
-          if s.get('passed') is not True or s.get('tests_run',0) < 8169:
+          if s.get('passed') is not True or s.get('tests_run',0) < 9298:
               raise SystemExit('INCOMPLETE_REGRESSION: '+str(s))
           if any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
               raise SystemExit('FAILURES_ERRORS_OR_SKIPS: '+str(s))
@@ -107,6 +110,10 @@ jobs:
           counts=(len(audio),sum(r['tests'] for r in audio),sum(r['failures'] for r in audio),sum(r['errors'] for r in audio),sum(r['skipped'] for r in audio))
           if counts != (82,1684,0,0,0):
               raise SystemExit('AUDIO_GATE_FAILED: '+str(counts))
+          manifest=json.loads(Path('manifests/game_section15_adoption.json').read_text())
+          expected=set(manifest['test_paths']);game=[r for r in rows if r['path'] in expected]
+          if len(game)!=len(expected) or sum(r['tests'] for r in game)!=1123:
+              raise SystemExit('GAME_GATE_COVERAGE_FAILED')
           if p.get('passed') is not True or p.get('errors') != []:
               raise SystemExit('PRESERVATION_FAILED: '+str(p))
           print(json.dumps({'regression':s,'audio':counts,'preservation':p,'product_accepted':False},indent=2))

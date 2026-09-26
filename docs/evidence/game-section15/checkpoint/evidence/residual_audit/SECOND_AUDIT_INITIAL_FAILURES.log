@@ -1,0 +1,59 @@
+test_numeric_string_effect_is_not_silently_coerced (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_numeric_string_effect_is_not_silently_coerced) ... FAIL
+test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates) ... FAIL
+test_punctuation_distinct_ids_do_not_collide_in_generated_functions (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_punctuation_distinct_ids_do_not_collide_in_generated_functions) ... FAIL
+
+======================================================================
+FAIL: test_numeric_string_effect_is_not_silently_coerced (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_numeric_string_effect_is_not_silently_coerced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 66, in test_numeric_string_effect_is_not_silently_coerced
+    self.assertIn('GAME_RUNTIME_EFFECT_NUMERIC',r.get('error',''))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'GAME_RUNTIME_EFFECT_NUMERIC' not found in ''
+
+======================================================================
+FAIL: test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 74, in test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates
+    r=self.run_runtime(custom_context=ctx,level_id='level:2')
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 32, in run_runtime
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : ../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/adaptation.ts(2,17): error TS2323: Cannot redeclare exported variable 'adapt_adapt_hint'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/adaptation.ts(2,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/adaptation.ts(3,17): error TS2323: Cannot redeclare exported variable 'adapt_adapt_hint'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/adaptation.ts(3,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/adaptation.ts(5,114): error TS1117: An object literal cannot have multiple properties with the same name.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/rules.ts(2,17): error TS2323: Cannot redeclare exported variable 'rule_rule_move'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/rules.ts(2,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/rules.ts(3,17): error TS2323: Cannot redeclare exported variable 'rule_rule_move'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/rules.ts(3,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-ar8mnklo/rules.ts(5,105): error TS1117: An object literal cannot have multiple properties with the same name.
+
+
+======================================================================
+FAIL: test_punctuation_distinct_ids_do_not_collide_in_generated_functions (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_punctuation_distinct_ids_do_not_collide_in_generated_functions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 81, in test_punctuation_distinct_ids_do_not_collide_in_generated_functions
+    r=self.run_runtime(custom_context=ctx,level_id='level_1')
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 32, in run_runtime
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : ../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/adaptation.ts(2,17): error TS2323: Cannot redeclare exported variable 'adapt_adapt_hint'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/adaptation.ts(2,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/adaptation.ts(3,17): error TS2323: Cannot redeclare exported variable 'adapt_adapt_hint'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/adaptation.ts(3,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/adaptation.ts(5,114): error TS1117: An object literal cannot have multiple properties with the same name.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/rules.ts(2,17): error TS2323: Cannot redeclare exported variable 'rule_rule_move'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/rules.ts(2,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/rules.ts(3,17): error TS2323: Cannot redeclare exported variable 'rule_rule_move'.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/rules.ts(3,17): error TS2393: Duplicate function implementation.
+../../../../../../AppData/Local/Temp/bie-runtime-audit-hzrkhvmo/rules.ts(5,105): error TS1117: An object literal cannot have multiple properties with the same name.
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 14.584s
+
+FAILED (failures=3)

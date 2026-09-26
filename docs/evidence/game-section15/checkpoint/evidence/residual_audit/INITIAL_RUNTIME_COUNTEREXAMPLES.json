@@ -1,0 +1,56 @@
+[
+  {
+    "case": "incomplete_challenge",
+    "actual": {
+      "applied": true,
+      "action_id": "drag:mover",
+      "rule_id": "rule:move",
+      "mechanic_id": "drag_and_drop",
+      "state": {
+        "x": 2,
+        "attempts": 0
+      },
+      "score": 10,
+      "feedback": "Correct. The object reached the target because the state changed to x equals 2.",
+      "adaptations": [],
+      "telemetry": {
+        "event": "mechanic_completed",
+        "game_id": "game:motion",
+        "level_id": "level:1",
+        "challenge_id": "challenge:motion",
+        "attempt_number": 1,
+        "outcome_code": "applied",
+        "mechanic_id": "drag_and_drop",
+        "objective_id": "obj:motion",
+        "adaptation_id": ""
+      }
+    }
+  },
+  {
+    "case": "state_overflow",
+    "actual": {
+      "applied": true,
+      "action_id": "drag:mover",
+      "rule_id": "rule:move",
+      "mechanic_id": "drag_and_drop",
+      "state": {
+        "x": 101,
+        "attempts": 0
+      },
+      "score": 10,
+      "feedback": "Correct. The object reached the target because the state changed to x equals 2.",
+      "adaptations": [],
+      "telemetry": {
+        "event": "mechanic_completed",
+        "game_id": "game:motion",
+        "level_id": "level:1",
+        "challenge_id": "challenge:motion",
+        "attempt_number": 1,
+        "outcome_code": "applied",
+        "mechanic_id": "drag_and_drop",
+        "objective_id": "obj:motion",
+        "adaptation_id": ""
+      }
+    }
+  }
+]

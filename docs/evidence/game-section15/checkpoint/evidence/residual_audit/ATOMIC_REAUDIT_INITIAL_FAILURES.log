@@ -1,0 +1,35 @@
+test_adaptation_error_rolls_back_state_score_and_events (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_adaptation_error_rolls_back_state_score_and_events) ... FAIL
+test_ambiguous_level_requires_game_instead_of_first_match (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_ambiguous_level_requires_game_instead_of_first_match) ... ok
+test_dispatch_result_cannot_mutate_stored_telemetry (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_dispatch_result_cannot_mutate_stored_telemetry) ... ok
+test_disposed_controller_cannot_play_audio (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_disposed_controller_cannot_play_audio) ... ok
+test_disposing_one_controller_preserves_another_controllers_audio (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_disposing_one_controller_preserves_another_controllers_audio) ... ok
+test_mixed_ordering_rejected_before_javascript_coercion (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_mixed_ordering_rejected_before_javascript_coercion) ... ok
+test_non_boolean_boolean_operand_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_non_boolean_boolean_operand_rejected) ... ok
+test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) ... ok
+test_receipt_cannot_attest_different_artifact_bytes (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_receipt_cannot_attest_different_artifact_bytes) ... ok
+test_same_level_id_in_different_games_resolves_explicit_game (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_same_level_id_in_different_games_resolves_explicit_game) ... ok
+test_telemetry_readout_does_not_expose_mutable_internal_events (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_telemetry_readout_does_not_expose_mutable_internal_events) ... ok
+test_unsafe_integer_literal_rejected_before_precision_loss (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_unsafe_integer_literal_rejected_before_precision_loss) ... FAIL
+
+======================================================================
+FAIL: test_adaptation_error_rolls_back_state_score_and_events (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_adaptation_error_rolls_back_state_score_and_events)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 27, in test_adaptation_error_rolls_back_state_score_and_events
+    self.assertIn('GAME_EXPR_DIV_ZERO',r['error']);self.assertEqual(r['state']['x'],1)
+                                                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_unsafe_integer_literal_rejected_before_precision_loss (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_unsafe_integer_literal_rejected_before_precision_loss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 18, in test_unsafe_integer_literal_rejected_before_precision_loss
+    with self.assertRaises(Exception):compile_expr(Literal(2**53+1))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+----------------------------------------------------------------------
+Ran 12 tests in 21.903s
+
+FAILED (failures=2)

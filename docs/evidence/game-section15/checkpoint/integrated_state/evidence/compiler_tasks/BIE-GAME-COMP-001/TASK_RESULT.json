@@ -1,0 +1,22 @@
+{
+  "schema_version": "bie.game.comp-task-result/1",
+  "task_id": "BIE-GAME-COMP-001",
+  "capability": "Game IR compiler",
+  "status": "PASS",
+  "atomic_tests": 5,
+  "cumulative_task_tests": 5,
+  "source": {
+    "path": "bie/game_engine/compiler_engine/game_ir.py",
+    "sha256": "715e871a6a48b32cdd9c7610738ceb26da4f6e6cf31fe30d01f4138ef9834658"
+  },
+  "test": {
+    "path": "tests/compiler_engine/test_bie_game_comp_001.py",
+    "sha256": "a6908c43a95895bee4117825744c550603086bcb7edb00f04c65168e6c91ff23"
+  },
+  "spec": {
+    "path": "docs/compiler_tasks/BIE-GAME-COMP-001.md",
+    "sha256": "c67eaf80108f9cb1e5e6a4c59bc11bb7965b586b35514d44d8281798fcf53167"
+  },
+  "dependency_source_identity_preserved": true,
+  "product_accepted": false
+}

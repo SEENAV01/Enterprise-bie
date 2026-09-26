@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-011",
+  "ordinal": 11,
+  "capability": "equation balance",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 110,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/equation_balance.py",
+    "sha256": "fe249cdbdce215a73c8e8bd28321e27bd9f8a133d61280609926bb13fe391c1d",
+    "definition_fingerprint": "sha256:b3993a2787f2810500161be61ecbb6a8c2cb9ccf3d8ec085905892145d959d84"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-011/SPEC.md",
+    "spec_sha256": "63c8a419b6bef731b2554d0d592007b0edf09c725340172d1cae0990ce4cfeac",
+    "test": "tests/mechanics_engine/test_bie_game_mech_011.py",
+    "test_sha256": "981f27f7c9628efa24732cbb5d9273165f8e3add13b67028a13eba1384f85de2"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:d67f5aec2581d50e2873365a6f9ba9a68a9259f9ffe5b4a8fe54948c745d3551",
+    "outcome_fingerprint": "sha256:ccceb3fc38bcc5ed6b99ddd8ad3cbc58944a693cc6f069f3d83d8d3bc09b1d5e",
+    "receipt_id": "mechanic:1fe02595bc939941d5b50688",
+    "receipt_fingerprint": "sha256:1a2d538dba8cc9cbfcaeccbc5a6456d56e27d08fde758759d485e5b85ac950f3"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

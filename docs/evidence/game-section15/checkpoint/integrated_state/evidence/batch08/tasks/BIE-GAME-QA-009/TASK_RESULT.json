@@ -1,0 +1,64 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-009",
+  "capability": "multi-domain/multi-strategy anti-template benchmark",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 9,
+    "task_id": "BIE-GAME-QA-009",
+    "cumulative_task_tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "synthetic-multidomain-contract-benchmark"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:38a2ee8bd7c255928eb747835357727702f38cb806172330bade7fbf4f4d6148",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1,
+        "name": "domain_match",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": null,
+        "minimum": 7.0,
+        "name": "strategy_kinds",
+        "unit": "count",
+        "value": 9.0
+      },
+      {
+        "maximum": 0.34,
+        "minimum": 0,
+        "name": "clone_ratio",
+        "unit": "ratio",
+        "value": 0.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:13deb0946ceaf80435d4191a6835d40e12fe1996553c1d4618817560b4cfe49f",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-009"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:89a17d104750ab4b842703a6d06f89021382229d23ad8407cf1a2f7e180af9d8",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:13a4ed176f8e457dc2d761dd",
+    "result_fingerprint": "sha256:13deb0946ceaf80435d4191a6835d40e12fe1996553c1d4618817560b4cfe49f",
+    "task_id": "BIE-GAME-QA-009"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

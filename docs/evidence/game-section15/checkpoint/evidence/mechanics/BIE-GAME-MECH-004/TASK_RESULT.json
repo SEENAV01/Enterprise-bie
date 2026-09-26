@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-004",
+  "ordinal": 4,
+  "capability": "sequencing",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 40,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/sequencing.py",
+    "sha256": "1737e1446ecececd6547bb094bbb12e217c0ca23042834c78a4c932ce50b3f5c",
+    "definition_fingerprint": "sha256:1d343040ac24d9f16f60bfbe5edecac8917685741f657907d3e2b75482c3fe49"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-004/SPEC.md",
+    "spec_sha256": "8edd2f113bfd12c46b6b1246f00760c590c016ace746a195a98d310cff5480dd",
+    "test": "tests/mechanics_engine/test_bie_game_mech_004.py",
+    "test_sha256": "762b8a417f9d4a1edd5d5cbf4eac24f1ee5746c1150eda89e8ec3a68a625baa4"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:7217ba8f96e96aed439b6c3cafc0a0bf67d6ee3c8f7c7a4af34d8d50ba5b79ef",
+    "outcome_fingerprint": "sha256:fa22e19f6d1d64e876002cdb6cacc1f0c5ce71016d2319bdd9baf906f4352609",
+    "receipt_id": "mechanic:0049669d813aa5e840491e59",
+    "receipt_fingerprint": "sha256:39e49da985d44f82009c8e4cf167fb3f52751d057f1f1c0c04a5df34e886c8ab"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

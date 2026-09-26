@@ -1,0 +1,69 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-011",
+  "engineering_ordinal": 10,
+  "capability": "adaptation strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/adaptation.py",
+    "sha256": "bad608a3e9c0923426fe300d7ff51d3d5ae005db9ff4a18acb7462223bf4bc95"
+  },
+  "test": {
+    "path": "tests/test_director_adaptation.py",
+    "sha256": "80199c0f13a9f9587a70cb712215ac7533709fc3195045bb3e3e41c481cf7234"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-011/SPEC.md",
+    "sha256": "a2e34bdf1388af6dc610d62df62b7120923b7bdc836d0bbf98bbd4861421078d"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:aeb24a031aee0d82fa405a98f2fbc1d34793091e29bc0adb3ca74b8ac0fc9f55",
+    "output_summary": [
+      {
+        "action": "remediate",
+        "condition": "attempts >= 3 and mastery < target",
+        "objective_id": "obj:manip",
+        "priority": 10,
+        "rationale": "Repeated unsuccessful attempts require explicit remediation rather than hidden difficulty manipulation.",
+        "rule_id": "adapt:remediate:obj:manip",
+        "target_level_id": "remediation:obj:manip"
+      },
+      {
+        "action": "easier_variant",
+        "condition": "mastery < 0.5 and confidence >= 0.5",
+        "objective_id": "obj:manip",
+        "priority": 20,
+        "rationale": "High mastery gap receives a simpler variant without removing the learning objective.",
+        "rule_id": "adapt:easier:obj:manip",
+        "target_level_id": "easier:obj:manip"
+      },
+      {
+        "action": "advance",
+        "condition": "mastery >= target",
+        "objective_id": "obj:manip",
+        "priority": 30,
+        "rationale": "Advance only after evidence meets the objective mastery target.",
+        "rule_id": "adapt:advance:obj:manip",
+        "target_level_id": null
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 10,
+    "task_id": "BIE-GAME-DIR-011",
+    "capability": "adaptation strategy",
+    "cumulative_tests_run": 58,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:83ced9fef0d31bcc94fe98378fd3ca7ff922c3d6d3f019df825057f91d4167eb"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

@@ -1,0 +1,40 @@
+{
+  "section": 15,
+  "checkpoint": "SECTION15_AUDIT_ROUND4_INPUT_ROUTING_LOCAL_AND_WINDOWS_BROWSER_VERIFIED",
+  "canonical_repository": "SEENAV01/Enterprise-bie",
+  "canonical_main": "375d99af0edd0086206817dae932156ddf61c569",
+  "validation_branch": "validation/game-section15-h6",
+  "validation_commit": "dd75dd9a3070383cb0a8cbfc4d24d1b04cb6aad6",
+  "validation_tree": "f7a23521b5fd00e99450b2b635929590fa1eb15f",
+  "h6_linux_tests": 1062,
+  "candidate_local_tests": 580,
+  "candidate_local_result": "evidence/residual_audit/RESULT.json",
+  "permission_boundary": "Automatic approval review rejected public validation source upload. Isolated CI security setup already approved. Old frozen payloads are preserved; current candidate upload requires an explicitly reviewed current payload.",
+  "reopened_finding": "GAME-AUD-002: generated runtime awarded success before challenge success and permitted out-of-range state. Repaired locally with seven emitted-TypeScript/Node regression checks; full Linux/browser revalidation pending.",
+  "remaining": [
+    "Complete full specification/registry re-audit and justified residual hardening.",
+    "Prepare and explicitly authorize current candidate public validation upload; run exact revised Linux regression including strict combined-origin sandbox gate GAME-AUD-009.",
+    "Reconcile consumer migration and section exit evidence, without claiming universal legacy equivalence or real-book acceptance.",
+    "Refresh canonical main; selectively adopt GAME without replacing shared core/Android files; full enterprise regression; governed PR/checks/merge.",
+    "Verify exact post-merge remote commit/tree; deliver final Integrated and Master Backup ZIPs."
+  ],
+  "implementation_scope_complete": false,
+  "github_integrated": false,
+  "product_accepted": false,
+  "task028": "PAUSED_UNCHANGED",
+  "section16_started": false,
+  "new_runtime_regressions": 11,
+  "latest_source_amendments": "RESIDUAL_ROUND4_AMENDMENTS.json",
+  "supplied_latest_archives_identified_as": "Section 14 AUDIO H6-005, not Section 15 GAME",
+  "source_replacement_from_audio_archives": false,
+  "remaining_local_audit_focus": [
+    "Finish full registry/specification and representative consumer re-audit.",
+    "Audit remaining multi-game identifier scope and controller lifecycle boundaries; hypotheses are not recorded as confirmed defects."
+  ],
+  "differential_expression_tests": 6,
+  "generated_expression_cases": 512,
+  "legacy_consumer_evidence": "Reviewed legacy fixture migrated with its explicit enrichment, strictly compiled, executed in generated controller; expected state, score, feedback and preserved legacy wire verified. Synthetic supported-subset evidence only; no universal migration-equivalence claim.",
+  "input_routing_regressions": 6,
+  "native_browser_gestures_verified": 5,
+  "native_browser_evidence": "evidence/residual_audit/native_input_round4/OBSERVATION_RECEIPT.json"
+}

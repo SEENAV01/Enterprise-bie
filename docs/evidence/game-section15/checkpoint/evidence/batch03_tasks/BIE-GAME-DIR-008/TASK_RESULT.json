@@ -1,0 +1,50 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-008",
+  "engineering_ordinal": 7,
+  "capability": "feedback design",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/feedback_design.py",
+    "sha256": "2ab3a3a66aa5a9756bd9b4b5d41c547ad1761a3120b69df009bf21f2e1187941"
+  },
+  "test": {
+    "path": "tests/test_director_feedback_design.py",
+    "sha256": "9b2fd2ba4fff71cbc9caf2481dffa81665fd3fafce473b93063f3d5e3ac1bf82"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-008/SPEC.md",
+    "sha256": "38d17328412b4915d5c2c12f38fcfb8868353c2e0e23e9e937c0828655fc0dd1"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:5c30189b325fbf7d6b4487362a874ec236b312e86dc323478ec7689d0638a96d",
+    "output_summary": [
+      {
+        "answer_reveal_before_attempt": false,
+        "explanation_ref": "explanation:obj:manip",
+        "misconception_refs": [],
+        "objective_id": "obj:manip",
+        "retry_ref": "feedback:retry:obj:manip",
+        "success_ref": "feedback:success:obj:manip"
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 7,
+    "task_id": "BIE-GAME-DIR-008",
+    "capability": "feedback design",
+    "cumulative_tests_run": 43,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:39e3e21d8302ce546f78f12e9492ae4bde3021a2c28c7e9c62807f0a344c2273"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

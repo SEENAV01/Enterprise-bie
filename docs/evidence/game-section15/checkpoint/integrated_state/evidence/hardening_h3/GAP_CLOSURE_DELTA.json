@@ -1,0 +1,164 @@
+{
+  "closed_in_h3": [
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/sandbox.py",
+        "evidence/hardening_h3/SANDBOX_BROWSER_EVIDENCE.json",
+        "evidence/hardening_h3/CANONICAL_BROWSER_WORKER_BINDING.json"
+      ],
+      "id": "GAME-AUD-008",
+      "note": "Chromium now launches as unprivileged UID/GID with NoNewPrivs=1, renderer seccomp=2, no --no-sandbox flag, deny-by-default network routing, and is structurally bound to canonical browser_game_worker contract/blob.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/workspace.py",
+        "evidence/hardening_h3/ASSET_COLLISION_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-010",
+      "note": "Asset filenames include content-addressed SHA suffixes and duplicate materialized paths with conflicting hashes fail closed.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/workspace.py",
+        "bie/game_engine/build_runtime_engine/integrity.py",
+        "evidence/hardening_h3/MANIFEST_INTEGRITY_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-011",
+      "note": "RuntimePackageManifest v2 binds a canonical self-hash for build-manifest.json; verifier rejects manifest tamper and untracked package files.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/process.py",
+        "evidence/hardening_h3/PROCESS_ISOLATION_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-012",
+      "note": "Build subprocesses use a minimal deterministic environment, no-new-privileges, new session, and RLIMIT CPU/address-space/process/open-file/file-size confinement.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/browser_runtime.py",
+        "evidence/hardening_h3/SECURITY_SCAN.json"
+      ],
+      "id": "GAME-AUD-025",
+      "note": "Inherited dynamic __import__(json) was removed while browser sandbox code was rewritten; direct json import is used and AST scan reports no unsafe dynamic calls in H3 delta.",
+      "status": "INCIDENTALLY_CLOSED_IN_H3"
+    }
+  ],
+  "partial_in_h3": [
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/deployment.py",
+        "evidence/hardening_h3/DEPLOYMENT_ESM_EVIDENCE.json",
+        "evidence/hardening_h3/HOST_CHROMIUM_POLICY_BLOCKER.json"
+      ],
+      "id": "GAME-AUD-009",
+      "note": "Static deployment origin with production security headers is verified and exact built module graph boots through native Chromium type=module loader. Combined browser navigation to the loopback origin cannot be proven in this host because managed Chromium URLBlocklist=[\"*\"] returns ERR_BLOCKED_BY_ADMINISTRATOR; no false closure claimed.",
+      "status": "PARTIALLY_HARDENED_ENVIRONMENT_BLOCKED"
+    }
+  ],
+  "product_accepted": false,
+  "remaining": [
+    {
+      "category": "runtime_loader",
+      "id": "GAME-AUD-009",
+      "severity": "high",
+      "status": "PARTIALLY_HARDENED_ENVIRONMENT_BLOCKED",
+      "title": "Native deployed ESM origin/module-loader path remains unverified"
+    },
+    {
+      "category": "audio_runtime",
+      "id": "GAME-AUD-013",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Audio cues/assets are manifest-only; live runtime playback/sync/ducking path is absent"
+    },
+    {
+      "category": "accessibility",
+      "id": "GAME-AUD-014",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Accessibility validation is contract-level, not full runtime interaction accessibility"
+    },
+    {
+      "category": "localization",
+      "id": "GAME-AUD-015",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Runtime language is hard-coded to English and GAME contracts lack locale/RTL/multilingual text policy"
+    },
+    {
+      "category": "rights_assets",
+      "id": "GAME-AUD-016",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "AssetDescriptor has no rights/license/attribution/source-lineage contract"
+    },
+    {
+      "category": "performance_responsive",
+      "id": "GAME-AUD-017",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "No runtime performance, responsive layout or mobile interaction budgets/tests"
+    },
+    {
+      "category": "durability_enterprise",
+      "id": "GAME-AUD-018",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "GAME artifacts/runs are not integrated with canonical ArtifactEnvelope/CAS/idempotency/durable execution"
+    },
+    {
+      "category": "telemetry_runtime",
+      "id": "GAME-AUD-020",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Telemetry compiler sanitizes data but live runtime emits no governed telemetry events"
+    },
+    {
+      "category": "learning_loop",
+      "id": "GAME-AUD-021",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Mastery/scoring/adaptation do not form a persistent closed learning loop"
+    },
+    {
+      "category": "traceability_packaging",
+      "id": "GAME-AUD-022",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "Consolidated ORIGINAL omits BIE-GAME-DSL-001 own test/spec/task-result payload"
+    },
+    {
+      "category": "legacy_compatibility",
+      "id": "GAME-AUD-023",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "New modular GAME DSL has no explicit compatibility shim for current canonical bie.game_engine.contracts legacy API"
+    },
+    {
+      "category": "react_runtime",
+      "id": "GAME-AUD-024",
+      "severity": "high",
+      "status": "OPEN",
+      "title": "COMP-002 is React-shaped but Build runtime uses a custom DOM createElement shim instead of an actual React/ReactDOM runtime"
+    },
+    {
+      "category": "adversarial_testing",
+      "id": "GAME-AUD-026",
+      "severity": "medium",
+      "status": "OPEN",
+      "title": "No property-based/fuzz testing for codec/expression/path/input state spaces"
+    }
+  ],
+  "remaining_count": 13,
+  "remaining_critical": 0,
+  "remaining_high": 12,
+  "remaining_medium": 1,
+  "source_audit_zip_sha256": "2a8e12efdad199e195572bfa32a596c26c442d3d9b7309bf62e3cd5571a48f0e",
+  "source_h1_zip_sha256": "809cf32d6e31512fdcb08efa1e017544a08df629ee92f817947ac6f48ed9f481",
+  "source_h2_zip_sha256": "d07e219781131b0e6ab6a146dddfb5af58d3e52b4096f433b9e033fc520078fc"
+}

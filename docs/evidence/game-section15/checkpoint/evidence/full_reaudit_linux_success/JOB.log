@@ -1,0 +1,793 @@
+﻿2026-09-26T14:32:45.3442100Z Current runner version: '2.337.0'
+2026-09-26T14:32:45.3468510Z ##[group]Runner Image Provisioner
+2026-09-26T14:32:45.3469529Z Hosted Compute Agent
+2026-09-26T14:32:45.3470138Z Version: 20260828.587
+2026-09-26T14:32:45.3470880Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-26T14:32:45.3471656Z Build Date: 2026-08-28T16:44:25Z
+2026-09-26T14:32:45.3472754Z Worker ID: {83db1b2f-2d84-43ad-9cfe-0af3a4338066}
+2026-09-26T14:32:45.3473619Z Azure Region: westus
+2026-09-26T14:32:45.3474208Z ##[endgroup]
+2026-09-26T14:32:45.3476085Z ##[group]Operating System
+2026-09-26T14:32:45.3476834Z Ubuntu
+2026-09-26T14:32:45.3477360Z 24.04.5
+2026-09-26T14:32:45.3477940Z LTS
+2026-09-26T14:32:45.3478455Z ##[endgroup]
+2026-09-26T14:32:45.3479074Z ##[group]Runner Image
+2026-09-26T14:32:45.3479716Z Image: ubuntu-24.04
+2026-09-26T14:32:45.3480279Z Version: 20260920.314.1
+2026-09-26T14:32:45.3481581Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-26T14:32:45.3483783Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+2026-09-26T14:32:45.3484829Z ##[endgroup]
+2026-09-26T14:32:45.3485877Z ##[group]GITHUB_TOKEN Permissions
+2026-09-26T14:32:45.3488133Z Contents: read
+2026-09-26T14:32:45.3488752Z Metadata: read
+2026-09-26T14:32:45.3489426Z ##[endgroup]
+2026-09-26T14:32:45.3491589Z Secret source: Actions
+2026-09-26T14:32:45.3492879Z Cache mode: write
+2026-09-26T14:32:45.3493626Z Prepare workflow directory
+2026-09-26T14:32:45.3915344Z Prepare all required actions
+2026-09-26T14:32:45.3965731Z Getting action download info
+2026-09-26T14:32:45.7995202Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-26T14:32:45.9106761Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-09-26T14:32:45.9900314Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-09-26T14:32:46.0724041Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-26T14:32:46.2909849Z Complete job name: section
+2026-09-26T14:32:46.3703067Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-09-26T14:32:46.3704209Z with:
+2026-09-26T14:32:46.3704659Z   persist-credentials: false
+2026-09-26T14:32:46.3705205Z   repository: SEENAV01/Enterprise-bie
+2026-09-26T14:32:46.3709139Z   token: ***
+2026-09-26T14:32:46.3709569Z   ssh-strict: true
+2026-09-26T14:32:46.3710003Z   ssh-user: git
+2026-09-26T14:32:46.3710408Z   clean: true
+2026-09-26T14:32:46.3710849Z   sparse-checkout-cone-mode: true
+2026-09-26T14:32:46.3711367Z   fetch-depth: 1
+2026-09-26T14:32:46.3711834Z   fetch-tags: false
+2026-09-26T14:32:46.3712474Z   show-progress: true
+2026-09-26T14:32:46.3712926Z   lfs: false
+2026-09-26T14:32:46.3713354Z   submodules: false
+2026-09-26T14:32:46.3713792Z   set-safe-directory: true
+2026-09-26T14:32:46.3714293Z   allow-unsafe-pr-checkout: false
+2026-09-26T14:32:46.3715047Z env:
+2026-09-26T14:32:46.3715475Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-26T14:32:46.3715963Z ##[endgroup]
+2026-09-26T14:32:46.4716570Z Syncing repository: SEENAV01/Enterprise-bie
+2026-09-26T14:32:46.4719403Z ##[group]Getting Git version info
+2026-09-26T14:32:46.4720827Z Working directory is '/home/runner/work/Enterprise-bie/Enterprise-bie'
+2026-09-26T14:32:46.4722852Z [command]/usr/bin/git version
+2026-09-26T14:32:46.4783363Z git version 2.55.0
+2026-09-26T14:32:46.4806436Z ##[endgroup]
+2026-09-26T14:32:46.4833004Z Temporarily overriding HOME='/home/runner/work/_temp/f63d01df-3dae-41bf-91e2-16476fca5b00' before making global git config changes
+2026-09-26T14:32:46.4835482Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-26T14:32:46.4836747Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Enterprise-bie/Enterprise-bie
+2026-09-26T14:32:46.4894566Z Deleting the contents of '/home/runner/work/Enterprise-bie/Enterprise-bie'
+2026-09-26T14:32:46.4900150Z ##[group]Initializing the repository
+2026-09-26T14:32:46.4915247Z [command]/usr/bin/git init /home/runner/work/Enterprise-bie/Enterprise-bie
+2026-09-26T14:32:46.5018702Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-26T14:32:46.5020595Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-26T14:32:46.5022554Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-26T14:32:46.5023988Z hint: call:
+2026-09-26T14:32:46.5024794Z hint:
+2026-09-26T14:32:46.5025788Z hint: 	git config --global init.defaultBranch <name>
+2026-09-26T14:32:46.5026924Z hint:
+2026-09-26T14:32:46.5028002Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-26T14:32:46.5029719Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-26T14:32:46.5031164Z hint:
+2026-09-26T14:32:46.5031889Z hint: 	git branch -m <name>
+2026-09-26T14:32:46.5033082Z hint:
+2026-09-26T14:32:46.5034188Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-26T14:32:46.5036146Z Initialized empty Git repository in /home/runner/work/Enterprise-bie/Enterprise-bie/.git/
+2026-09-26T14:32:46.5039319Z [command]/usr/bin/git remote add origin https://github.com/SEENAV01/Enterprise-bie
+2026-09-26T14:32:46.5090340Z ##[endgroup]
+2026-09-26T14:32:46.5091674Z ##[group]Disabling automatic garbage collection
+2026-09-26T14:32:46.5103289Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-26T14:32:46.5131727Z ##[endgroup]
+2026-09-26T14:32:46.5133523Z ##[group]Setting up auth
+2026-09-26T14:32:46.5140623Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-26T14:32:46.5176337Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-26T14:32:46.5543899Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-26T14:32:46.5584722Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-26T14:32:46.5820246Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-26T14:32:46.5860097Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-26T14:32:46.6088496Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-26T14:32:46.6141577Z ##[endgroup]
+2026-09-26T14:32:46.6143998Z ##[group]Fetching the repository
+2026-09-26T14:32:46.6153571Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f7593135b83580a9674abcc7cd350b8d8b37bd4e:refs/remotes/origin/validation/game-section15-h6
+2026-09-26T14:32:57.7847872Z From https://github.com/SEENAV01/Enterprise-bie
+2026-09-26T14:32:57.7849120Z  * [new ref]           f7593135b83580a9674abcc7cd350b8d8b37bd4e -> origin/validation/game-section15-h6
+2026-09-26T14:32:57.7862026Z ##[endgroup]
+2026-09-26T14:32:57.7863062Z ##[group]Determining the checkout info
+2026-09-26T14:32:57.7874908Z ##[endgroup]
+2026-09-26T14:32:57.7875577Z [command]/usr/bin/git sparse-checkout disable
+2026-09-26T14:32:57.7942706Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-26T14:32:57.7982415Z ##[group]Checking out the ref
+2026-09-26T14:32:57.7988138Z [command]/usr/bin/git checkout --progress --force -B validation/game-section15-h6 refs/remotes/origin/validation/game-section15-h6
+2026-09-26T14:32:58.8277934Z Updating files:  47% (10406/21719)
+2026-09-26T14:32:58.8391732Z Updating files:  48% (10426/21719)
+2026-09-26T14:32:58.8512527Z Updating files:  49% (10643/21719)
+2026-09-26T14:32:58.8623661Z Updating files:  50% (10860/21719)
+2026-09-26T14:32:58.8729097Z Updating files:  51% (11077/21719)
+2026-09-26T14:32:58.8835992Z Updating files:  52% (11294/21719)
+2026-09-26T14:32:58.8941216Z Updating files:  53% (11512/21719)
+2026-09-26T14:32:58.9045521Z Updating files:  54% (11729/21719)
+2026-09-26T14:32:58.9148997Z Updating files:  55% (11946/21719)
+2026-09-26T14:32:58.9261104Z Updating files:  56% (12163/21719)
+2026-09-26T14:32:58.9389169Z Updating files:  57% (12380/21719)
+2026-09-26T14:32:58.9504933Z Updating files:  58% (12598/21719)
+2026-09-26T14:32:58.9621794Z Updating files:  59% (12815/21719)
+2026-09-26T14:32:58.9741244Z Updating files:  60% (13032/21719)
+2026-09-26T14:32:58.9845420Z Updating files:  61% (13249/21719)
+2026-09-26T14:32:58.9939049Z Updating files:  62% (13466/21719)
+2026-09-26T14:32:59.0029720Z Updating files:  63% (13683/21719)
+2026-09-26T14:32:59.0117286Z Updating files:  64% (13901/21719)
+2026-09-26T14:32:59.0207561Z Updating files:  65% (14118/21719)
+2026-09-26T14:32:59.0293703Z Updating files:  66% (14335/21719)
+2026-09-26T14:32:59.0380643Z Updating files:  67% (14552/21719)
+2026-09-26T14:32:59.0497819Z Updating files:  68% (14769/21719)
+2026-09-26T14:32:59.0585360Z Updating files:  69% (14987/21719)
+2026-09-26T14:32:59.0674509Z Updating files:  70% (15204/21719)
+2026-09-26T14:32:59.0764062Z Updating files:  71% (15421/21719)
+2026-09-26T14:32:59.0931210Z Updating files:  72% (15638/21719)
+2026-09-26T14:32:59.1108138Z Updating files:  73% (15855/21719)
+2026-09-26T14:32:59.2729418Z Updating files:  74% (16073/21719)
+2026-09-26T14:32:59.2831351Z Updating files:  75% (16290/21719)
+2026-09-26T14:32:59.2981298Z Updating files:  76% (16507/21719)
+2026-09-26T14:32:59.3230514Z Updating files:  77% (16724/21719)
+2026-09-26T14:32:59.3421810Z Updating files:  78% (16941/21719)
+2026-09-26T14:32:59.3502742Z Updating files:  79% (17159/21719)
+2026-09-26T14:32:59.3622616Z Updating files:  80% (17376/21719)
+2026-09-26T14:32:59.3719995Z Updating files:  81% (17593/21719)
+2026-09-26T14:32:59.3811216Z Updating files:  82% (17810/21719)
+2026-09-26T14:32:59.3909735Z Updating files:  83% (18027/21719)
+2026-09-26T14:32:59.4000551Z Updating files:  84% (18244/21719)
+2026-09-26T14:32:59.4091623Z Updating files:  85% (18462/21719)
+2026-09-26T14:32:59.4182831Z Updating files:  86% (18679/21719)
+2026-09-26T14:32:59.4274970Z Updating files:  87% (18896/21719)
+2026-09-26T14:32:59.4367622Z Updating files:  88% (19113/21719)
+2026-09-26T14:32:59.4458523Z Updating files:  89% (19330/21719)
+2026-09-26T14:32:59.4656744Z Updating files:  90% (19548/21719)
+2026-09-26T14:32:59.4858755Z Updating files:  91% (19765/21719)
+2026-09-26T14:32:59.4997472Z Updating files:  92% (19982/21719)
+2026-09-26T14:32:59.5120326Z Updating files:  93% (20199/21719)
+2026-09-26T14:32:59.5245699Z Updating files:  94% (20416/21719)
+2026-09-26T14:32:59.5371659Z Updating files:  95% (20634/21719)
+2026-09-26T14:32:59.5470383Z Updating files:  96% (20851/21719)
+2026-09-26T14:32:59.5779799Z Updating files:  97% (21068/21719)
+2026-09-26T14:32:59.5870095Z Updating files:  98% (21285/21719)
+2026-09-26T14:32:59.5969358Z Updating files:  99% (21502/21719)
+2026-09-26T14:32:59.5970074Z Updating files: 100% (21719/21719)
+2026-09-26T14:32:59.5970728Z Updating files: 100% (21719/21719), done.
+2026-09-26T14:32:59.6290647Z Switched to a new branch 'validation/game-section15-h6'
+2026-09-26T14:32:59.6297110Z branch 'validation/game-section15-h6' set up to track 'origin/validation/game-section15-h6'.
+2026-09-26T14:32:59.6367842Z ##[endgroup]
+2026-09-26T14:32:59.6416962Z [command]/usr/bin/git log -1 --format=%H
+2026-09-26T14:32:59.6448620Z f7593135b83580a9674abcc7cd350b8d8b37bd4e
+2026-09-26T14:32:59.6463950Z ##[group]Removing auth
+2026-09-26T14:32:59.6465019Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-26T14:32:59.6506531Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-26T14:32:59.6773276Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-26T14:32:59.6806943Z http.https://github.com/.extraheader
+2026-09-26T14:32:59.6815860Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-26T14:32:59.6851574Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-26T14:32:59.7101494Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-26T14:32:59.7136778Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-26T14:32:59.7384380Z ##[endgroup]
+2026-09-26T14:32:59.7639101Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-09-26T14:32:59.7639537Z with:
+2026-09-26T14:32:59.7639745Z   python-version: 3.13.5
+2026-09-26T14:32:59.7639985Z   check-latest: false
+2026-09-26T14:32:59.7642947Z   token: ***
+2026-09-26T14:32:59.7643179Z   update-environment: true
+2026-09-26T14:32:59.7643430Z   allow-prereleases: false
+2026-09-26T14:32:59.7643665Z   freethreaded: false
+2026-09-26T14:32:59.7643878Z env:
+2026-09-26T14:32:59.7644084Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-26T14:32:59.7644327Z ##[endgroup]
+2026-09-26T14:32:59.8973228Z ##[group]Installed versions
+2026-09-26T14:32:59.8992923Z Version 3.13.5 was not found in the local cache
+2026-09-26T14:32:59.9126043Z (node:2314) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-26T14:32:59.9127713Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:33:00.5598945Z Version 3.13.5 is available for downloading
+2026-09-26T14:33:00.5600949Z Download from "https://github.com/actions/python-versions/releases/download/3.13.5-15601068749/python-3.13.5-linux-24.04-x64.tar.gz"
+2026-09-26T14:33:01.3843973Z Extract downloaded archive
+2026-09-26T14:33:01.3989539Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ab868c2e-9d32-4382-afad-0d7f441c2e3c -f /home/runner/work/_temp/41d278be-8c87-4f48-bee1-0c011d219295
+2026-09-26T14:33:03.5917529Z Execute installation script
+2026-09-26T14:33:03.6031284Z Check if Python hostedtoolcache folder exist...
+2026-09-26T14:33:03.6031863Z Create Python 3.13.5 folder
+2026-09-26T14:33:03.6044632Z Copy Python binaries to hostedtoolcache folder
+2026-09-26T14:33:04.0773732Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-09-26T14:33:04.0815625Z Upgrading pip...
+2026-09-26T14:33:06.7801733Z Looking in links: /tmp/tmppe5e2afc
+2026-09-26T14:33:06.7823790Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/site-packages (25.1.1)
+2026-09-26T14:33:08.9571994Z Collecting pip
+2026-09-26T14:33:08.9885489Z Downloading pip-26.2.1-py3-none-any.whl.metadata (4.6 kB)
+2026-09-26T14:33:08.9976448Z Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+2026-09-26T14:33:09.0374263Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 85.2 MB/s eta 0:00:00
+2026-09-26T14:33:09.0374946Z 
+2026-09-26T14:33:09.0625787Z Installing collected packages: pip
+2026-09-26T14:33:09.0626471Z Attempting uninstall: pip
+2026-09-26T14:33:09.0655170Z Found existing installation: pip 25.1.1
+2026-09-26T14:33:09.0997306Z Uninstalling pip-25.1.1:
+2026-09-26T14:33:09.1049918Z Successfully uninstalled pip-25.1.1
+2026-09-26T14:33:09.9997520Z Successfully installed pip-26.2.1
+2026-09-26T14:33:10.0533669Z Create complete file
+2026-09-26T14:33:10.0573288Z Successfully set up CPython (3.13.5)
+2026-09-26T14:33:10.0574457Z ##[endgroup]
+2026-09-26T14:33:10.0817947Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-09-26T14:33:10.0818549Z with:
+2026-09-26T14:33:10.0818754Z   node-version: 22.16.0
+2026-09-26T14:33:10.0818985Z   always-auth: false
+2026-09-26T14:33:10.0819212Z   check-latest: false
+2026-09-26T14:33:10.0821824Z   token: ***
+2026-09-26T14:33:10.0822026Z env:
+2026-09-26T14:33:10.0822548Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-26T14:33:10.0822875Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:10.0823338Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib/pkgconfig
+2026-09-26T14:33:10.0823768Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:10.0824138Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:10.0824505Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:10.0824883Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib
+2026-09-26T14:33:10.0825205Z ##[endgroup]
+2026-09-26T14:33:10.2261235Z Attempting to download 22.16.0...
+2026-09-26T14:33:10.2373258Z (node:2415) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-26T14:33:10.2374572Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:33:10.8289060Z Acquiring 22.16.0 - x64 from https://github.com/actions/node-versions/releases/download/22.16.0-15177438473/node-22.16.0-linux-x64.tar.gz
+2026-09-26T14:33:11.3019915Z Extracting ...
+2026-09-26T14:33:11.3150031Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/093cfaac-94be-47d9-b1df-d15e0b420216 -f /home/runner/work/_temp/15d59702-6d42-40e1-8f20-5f5122e02ef5
+2026-09-26T14:33:12.5036551Z Adding to the cache ...
+2026-09-26T14:33:14.4921679Z ##[group]Environment details
+2026-09-26T14:33:14.7266637Z node: v22.16.0
+2026-09-26T14:33:14.7267089Z npm: 10.9.2
+2026-09-26T14:33:14.7267427Z yarn: 1.22.22
+2026-09-26T14:33:14.7268195Z ##[endgroup]
+2026-09-26T14:33:14.7441533Z ##[group]Run set -euo pipefail
+2026-09-26T14:33:14.7441914Z [36;1mset -euo pipefail[0m
+2026-09-26T14:33:14.7442573Z [36;1mpython -m pip install playwright==1.57.0[0m
+2026-09-26T14:33:14.7442997Z [36;1mpython -m playwright install --with-deps chromium[0m
+2026-09-26T14:33:14.7443374Z [36;1mnpm install --global typescript@5.8.3[0m
+2026-09-26T14:33:14.7443680Z [36;1mpython - <<'PY'[0m
+2026-09-26T14:33:14.7443985Z [36;1mfrom playwright.sync_api import sync_playwright[0m
+2026-09-26T14:33:14.7444323Z [36;1mfrom pathlib import Path[0m
+2026-09-26T14:33:14.7444580Z [36;1mimport subprocess[0m
+2026-09-26T14:33:14.7444826Z [36;1mwith sync_playwright() as pw:[0m
+2026-09-26T14:33:14.7445139Z [36;1m    binary=Path(pw.chromium.executable_path)[0m
+2026-09-26T14:33:14.7445640Z [36;1msubprocess.run(['sudo','cp','-a',str(binary.parent),'/opt/bie-game-chromium'],check=True)[0m
+2026-09-26T14:33:14.7446354Z [36;1msubprocess.run(['sudo','ln','-s','/opt/bie-game-chromium/chrome','/usr/local/bin/chromium'],check=True)[0m
+2026-09-26T14:33:14.7446835Z [36;1mPY[0m
+2026-09-26T14:33:14.7447181Z [36;1m# User-approved disposable-runner setup; no global sandbox setting changes.[0m
+2026-09-26T14:33:14.7447743Z [36;1msudo tee /etc/apparmor.d/bie-game-validation-chromium >/dev/null <<'PROFILE'[0m
+2026-09-26T14:33:14.7448161Z [36;1mabi <abi/4.0>,[0m
+2026-09-26T14:33:14.7448395Z [36;1minclude <tunables/global>[0m
+2026-09-26T14:33:14.7448819Z [36;1mprofile bie-game-validation /opt/bie-game-chromium/chrome flags=(unconfined) {[0m
+2026-09-26T14:33:14.7449249Z [36;1m  userns,[0m
+2026-09-26T14:33:14.7449447Z [36;1m}[0m
+2026-09-26T14:33:14.7449631Z [36;1mPROFILE[0m
+2026-09-26T14:33:14.7449975Z [36;1msudo apparmor_parser -r /etc/apparmor.d/bie-game-validation-chromium[0m
+2026-09-26T14:33:14.7450390Z [36;1mchromium --version[0m
+2026-09-26T14:33:14.7729344Z shell: /usr/bin/bash -e {0}
+2026-09-26T14:33:14.7729661Z env:
+2026-09-26T14:33:14.7729915Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-26T14:33:14.7730323Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:14.7731053Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib/pkgconfig
+2026-09-26T14:33:14.7731565Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:14.7732028Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:14.7732782Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:14.7733242Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib
+2026-09-26T14:33:14.7733628Z ##[endgroup]
+2026-09-26T14:33:16.2285577Z Collecting playwright==1.57.0
+2026-09-26T14:33:16.2772881Z   Downloading playwright-1.57.0-py3-none-manylinux1_x86_64.whl.metadata (3.5 kB)
+2026-09-26T14:33:16.2918591Z Collecting pyee<14,>=13 (from playwright==1.57.0)
+2026-09-26T14:33:16.2943960Z   Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+2026-09-26T14:33:16.4374711Z Collecting greenlet<4.0.0,>=3.1.1 (from playwright==1.57.0)
+2026-09-26T14:33:16.4400888Z   Downloading greenlet-3.5.6-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-09-26T14:33:16.4557949Z Collecting typing-extensions (from pyee<14,>=13->playwright==1.57.0)
+2026-09-26T14:33:16.4586663Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-09-26T14:33:16.4646113Z Downloading playwright-1.57.0-py3-none-manylinux1_x86_64.whl (46.0 MB)
+2026-09-26T14:33:16.6397673Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 MB 296.0 MB/s  0:00:00
+2026-09-26T14:33:16.6429304Z Downloading greenlet-3.5.6-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (623 kB)
+2026-09-26T14:33:16.6481621Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 623.8/623.8 kB 115.8 MB/s  0:00:00
+2026-09-26T14:33:16.6509054Z Downloading pyee-13.0.1-py3-none-any.whl (15 kB)
+2026-09-26T14:33:16.6550434Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-09-26T14:33:16.7459644Z Installing collected packages: typing-extensions, greenlet, pyee, playwright
+2026-09-26T14:33:17.7061978Z 
+2026-09-26T14:33:17.7078334Z Successfully installed greenlet-3.5.6 playwright-1.57.0 pyee-13.0.1 typing-extensions-4.16.0
+2026-09-26T14:33:18.2608084Z Installing dependencies...
+2026-09-26T14:33:18.2683910Z Switching to root user to install dependencies...
+2026-09-26T14:33:18.7123870Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-09-26T14:33:18.8095533Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-09-26T14:33:18.8101682Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-09-26T14:33:18.8107841Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-09-26T14:33:18.8127984Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-09-26T14:33:18.8153846Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-09-26T14:33:18.9196287Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [498 kB]
+2026-09-26T14:33:18.9367696Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [446 kB]
+2026-09-26T14:33:18.9681045Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1318 kB]
+2026-09-26T14:33:18.9744990Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [299 kB]
+2026-09-26T14:33:18.9774281Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [181 kB]
+2026-09-26T14:33:18.9803847Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1697 kB]
+2026-09-26T14:33:18.9866147Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [340 kB]
+2026-09-26T14:33:18.9886485Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+2026-09-26T14:33:18.9910150Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1654 kB]
+2026-09-26T14:33:18.9989233Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [377 kB]
+2026-09-26T14:33:19.0012581Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2026-09-26T14:33:19.0270989Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [40.6 kB]
+2026-09-26T14:33:19.0712816Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5796 B]
+2026-09-26T14:33:19.0716102Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]
+2026-09-26T14:33:19.0726030Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]
+2026-09-26T14:33:19.0735284Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]
+2026-09-26T14:33:19.0834546Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1053 kB]
+2026-09-26T14:33:19.0894941Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [219 kB]
+2026-09-26T14:33:19.0909260Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [46.3 kB]
+2026-09-26T14:33:19.0919163Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1220 kB]
+2026-09-26T14:33:19.0982306Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [245 kB]
+2026-09-26T14:33:19.0998586Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.3 kB]
+2026-09-26T14:33:19.1008566Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1535 kB]
+2026-09-26T14:33:19.1088992Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [353 kB]
+2026-09-26T14:33:23.3913632Z Fetched 12.4 MB in 1s (8338 kB/s)
+2026-09-26T14:33:24.2567240Z Reading package lists...
+2026-09-26T14:33:24.2809436Z Reading package lists...
+2026-09-26T14:33:24.4675869Z Building dependency tree...
+2026-09-26T14:33:24.4683482Z Reading state information...
+2026-09-26T14:33:24.6087396Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-09-26T14:33:24.6089076Z libasound2t64 set to manually installed.
+2026-09-26T14:33:24.6110266Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-09-26T14:33:24.6111222Z libatk-bridge2.0-0t64 set to manually installed.
+2026-09-26T14:33:24.6111707Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-09-26T14:33:24.6112261Z libatk1.0-0t64 set to manually installed.
+2026-09-26T14:33:24.6112716Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-09-26T14:33:24.6113138Z libatspi2.0-0t64 set to manually installed.
+2026-09-26T14:33:24.6113552Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-09-26T14:33:24.6113937Z libcairo2 set to manually installed.
+2026-09-26T14:33:24.6114440Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-09-26T14:33:24.6114848Z libcups2t64 set to manually installed.
+2026-09-26T14:33:24.6115275Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-09-26T14:33:24.6115712Z libdbus-1-3 set to manually installed.
+2026-09-26T14:33:24.6116127Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-09-26T14:33:24.6116535Z libdrm2 set to manually installed.
+2026-09-26T14:33:24.6116926Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.2).
+2026-09-26T14:33:24.6117306Z libgbm1 set to manually installed.
+2026-09-26T14:33:24.6117695Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-09-26T14:33:24.6118090Z libnspr4 set to manually installed.
+2026-09-26T14:33:24.6118479Z libnss3 is already the newest version (2:3.98-1ubuntu0.2).
+2026-09-26T14:33:24.6118854Z libnss3 set to manually installed.
+2026-09-26T14:33:24.6119252Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-09-26T14:33:24.6119660Z libpango-1.0-0 set to manually installed.
+2026-09-26T14:33:24.6120059Z libx11-6 is already the newest version (2:1.8.7-1build1).
+2026-09-26T14:33:24.6120432Z libx11-6 set to manually installed.
+2026-09-26T14:33:24.6121078Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-09-26T14:33:24.6121451Z libxcb1 set to manually installed.
+2026-09-26T14:33:24.6121863Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-09-26T14:33:24.6122420Z libxcomposite1 set to manually installed.
+2026-09-26T14:33:24.6122831Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-09-26T14:33:24.6123219Z libxdamage1 set to manually installed.
+2026-09-26T14:33:24.6123612Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-09-26T14:33:24.6123980Z libxext6 set to manually installed.
+2026-09-26T14:33:24.6124364Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-09-26T14:33:24.6124747Z libxfixes3 set to manually installed.
+2026-09-26T14:33:24.6125139Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-09-26T14:33:24.6125527Z libxkbcommon0 set to manually installed.
+2026-09-26T14:33:24.6125932Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-09-26T14:33:24.6126316Z libxrandr2 set to manually installed.
+2026-09-26T14:33:24.6126806Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-09-26T14:33:24.6127375Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-09-26T14:33:24.6127792Z libfontconfig1 set to manually installed.
+2026-09-26T14:33:24.6128233Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.1).
+2026-09-26T14:33:24.6128667Z libfreetype6 set to manually installed.
+2026-09-26T14:33:24.6129077Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-09-26T14:33:24.6129485Z fonts-liberation set to manually installed.
+2026-09-26T14:33:24.6129891Z The following additional packages will be installed:
+2026-09-26T14:33:24.6130422Z   gir1.2-glib-2.0 libglib2.0-bin libglib2.0-data xfonts-encodings xfonts-utils
+2026-09-26T14:33:24.6130838Z   xserver-common
+2026-09-26T14:33:24.6131211Z Suggested packages:
+2026-09-26T14:33:24.6131446Z   low-memory-monitor
+2026-09-26T14:33:24.6131681Z Recommended packages:
+2026-09-26T14:33:24.6131989Z   fonts-ipafont-mincho fonts-tlwg-loma xfonts-base
+2026-09-26T14:33:24.6335721Z The following NEW packages will be installed:
+2026-09-26T14:33:24.6336590Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-09-26T14:33:24.6344559Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-09-26T14:33:24.6345315Z   xfonts-utils
+2026-09-26T14:33:24.6348924Z The following packages will be upgraded:
+2026-09-26T14:33:24.6356763Z   gir1.2-glib-2.0 libglib2.0-0t64 libglib2.0-bin libglib2.0-data
+2026-09-26T14:33:24.6357506Z   xserver-common xvfb
+2026-09-26T14:33:24.6529613Z 6 upgraded, 9 newly installed, 0 to remove and 26 not upgraded.
+2026-09-26T14:33:24.6530241Z Need to get 23.9 MB of archives.
+2026-09-26T14:33:24.6530708Z After this operation, 79.6 MB of additional disk space will be used.
+2026-09-26T14:33:24.6531243Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-09-26T14:33:24.7269774Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-09-26T14:33:24.8636380Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-data all 2.80.0-6ubuntu3.9 [50.1 kB]
+2026-09-26T14:33:24.9237111Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-bin amd64 2.80.0-6ubuntu3.9 [97.9 kB]
+2026-09-26T14:33:24.9839237Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 gir1.2-glib-2.0 amd64 2.80.0-6ubuntu3.9 [183 kB]
+2026-09-26T14:33:25.0454616Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-0t64 amd64 2.80.0-6ubuntu3.9 [1547 kB]
+2026-09-26T14:33:25.1208793Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-09-26T14:33:25.3588625Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-09-26T14:33:25.4194765Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-09-26T14:33:25.5503428Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-09-26T14:33:25.8080341Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-09-26T14:33:25.8728791Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-09-26T14:33:25.9333362Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-09-26T14:33:25.9962748Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-09-26T14:33:26.0581465Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 xserver-common all 2:21.1.12-1ubuntu1.8 [34.8 kB]
+2026-09-26T14:33:26.1183726Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 xvfb amd64 2:21.1.12-1ubuntu1.8 [877 kB]
+2026-09-26T14:33:26.3992957Z Fetched 23.9 MB in 1s (16.1 MB/s)
+2026-09-26T14:33:26.4219320Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-09-26T14:33:26.4499355Z (Reading database ... 
+2026-09-26T14:33:26.4499989Z (Reading database ... 5%
+2026-09-26T14:33:26.4500631Z (Reading database ... 10%
+2026-09-26T14:33:26.4501173Z (Reading database ... 15%
+2026-09-26T14:33:26.4501714Z (Reading database ... 20%
+2026-09-26T14:33:26.4502719Z (Reading database ... 25%
+2026-09-26T14:33:26.4503324Z (Reading database ... 30%
+2026-09-26T14:33:26.4503729Z (Reading database ... 35%
+2026-09-26T14:33:26.4504151Z (Reading database ... 40%
+2026-09-26T14:33:26.4504547Z (Reading database ... 45%
+2026-09-26T14:33:26.4504941Z (Reading database ... 50%
+2026-09-26T14:33:26.4549935Z (Reading database ... 55%
+2026-09-26T14:33:26.5597184Z (Reading database ... 60%
+2026-09-26T14:33:26.7647466Z (Reading database ... 65%
+2026-09-26T14:33:26.9544257Z (Reading database ... 70%
+2026-09-26T14:33:27.1221421Z (Reading database ... 75%
+2026-09-26T14:33:27.2854881Z (Reading database ... 80%
+2026-09-26T14:33:27.5102440Z (Reading database ... 85%
+2026-09-26T14:33:27.7218431Z (Reading database ... 90%
+2026-09-26T14:33:27.9268538Z (Reading database ... 95%
+2026-09-26T14:33:27.9268953Z (Reading database ... 100%
+2026-09-26T14:33:27.9269528Z (Reading database ... 202190 files and directories currently installed.)
+2026-09-26T14:33:27.9311952Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-09-26T14:33:27.9401957Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-09-26T14:33:28.1816604Z Preparing to unpack .../01-libglib2.0-data_2.80.0-6ubuntu3.9_all.deb ...
+2026-09-26T14:33:28.1835979Z Unpacking libglib2.0-data (2.80.0-6ubuntu3.9) over (2.80.0-6ubuntu3.8) ...
+2026-09-26T14:33:28.2209885Z Preparing to unpack .../02-libglib2.0-bin_2.80.0-6ubuntu3.9_amd64.deb ...
+2026-09-26T14:33:28.2226696Z Unpacking libglib2.0-bin (2.80.0-6ubuntu3.9) over (2.80.0-6ubuntu3.8) ...
+2026-09-26T14:33:28.2792966Z Preparing to unpack .../03-gir1.2-glib-2.0_2.80.0-6ubuntu3.9_amd64.deb ...
+2026-09-26T14:33:28.2811270Z Unpacking gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.9) over (2.80.0-6ubuntu3.8) ...
+2026-09-26T14:33:28.3238567Z Preparing to unpack .../04-libglib2.0-0t64_2.80.0-6ubuntu3.9_amd64.deb ...
+2026-09-26T14:33:28.3341132Z Unpacking libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) over (2.80.0-6ubuntu3.8) ...
+2026-09-26T14:33:28.3765301Z Selecting previously unselected package fonts-freefont-ttf.
+2026-09-26T14:33:28.3893100Z Preparing to unpack .../05-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-09-26T14:33:28.3899240Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-09-26T14:33:28.4660015Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-09-26T14:33:28.4784466Z Preparing to unpack .../06-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-09-26T14:33:28.4812159Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-09-26T14:33:28.5012459Z Selecting previously unselected package fonts-unifont.
+2026-09-26T14:33:28.5135166Z Preparing to unpack .../07-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-09-26T14:33:28.5141481Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-09-26T14:33:28.6193512Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-09-26T14:33:28.6318750Z Preparing to unpack .../08-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-09-26T14:33:28.6413656Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-09-26T14:33:29.1057262Z Selecting previously unselected package xfonts-encodings.
+2026-09-26T14:33:29.1187024Z Preparing to unpack .../09-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-09-26T14:33:29.1195174Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-09-26T14:33:29.1488611Z Selecting previously unselected package xfonts-utils.
+2026-09-26T14:33:29.1615468Z Preparing to unpack .../10-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-09-26T14:33:29.1623013Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-09-26T14:33:29.2068075Z Selecting previously unselected package xfonts-cyrillic.
+2026-09-26T14:33:29.2193558Z Preparing to unpack .../11-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-09-26T14:33:29.2200375Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-09-26T14:33:29.2537072Z Selecting previously unselected package xfonts-scalable.
+2026-09-26T14:33:29.2663553Z Preparing to unpack .../12-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-09-26T14:33:29.2671211Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-09-26T14:33:29.3033205Z Preparing to unpack .../13-xserver-common_2%3a21.1.12-1ubuntu1.8_all.deb ...
+2026-09-26T14:33:29.3050935Z Unpacking xserver-common (2:21.1.12-1ubuntu1.8) over (2:21.1.12-1ubuntu1.6) ...
+2026-09-26T14:33:29.3394657Z Preparing to unpack .../14-xvfb_2%3a21.1.12-1ubuntu1.8_amd64.deb ...
+2026-09-26T14:33:29.3414687Z Unpacking xvfb (2:21.1.12-1ubuntu1.8) over (2:21.1.12-1ubuntu1.6) ...
+2026-09-26T14:33:29.4026780Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-09-26T14:33:29.4165436Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-09-26T14:33:29.4184161Z Setting up libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.9) ...
+2026-09-26T14:33:29.4384500Z Setting up libglib2.0-data (2.80.0-6ubuntu3.9) ...
+2026-09-26T14:33:29.4403143Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-09-26T14:33:29.4421842Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-09-26T14:33:29.4439590Z Setting up gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.9) ...
+2026-09-26T14:33:29.4456762Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-09-26T14:33:29.4522047Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-09-26T14:33:29.4542016Z Setting up xserver-common (2:21.1.12-1ubuntu1.8) ...
+2026-09-26T14:33:29.4561260Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-09-26T14:33:29.4580160Z Setting up xvfb (2:21.1.12-1ubuntu1.8) ...
+2026-09-26T14:33:29.4596644Z Setting up libglib2.0-bin (2.80.0-6ubuntu3.9) ...
+2026-09-26T14:33:29.4613986Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-09-26T14:33:29.4651703Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-09-26T14:33:29.4979901Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-09-26T14:33:29.5259642Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-09-26T14:33:29.5568506Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-09-26T14:33:29.5587769Z Not building database; man-db/auto-update is not 'true'.
+2026-09-26T14:33:29.5598515Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-09-26T14:33:30.1958500Z 
+2026-09-26T14:33:30.1959334Z Running kernel seems to be up-to-date.
+2026-09-26T14:33:30.1959750Z 
+2026-09-26T14:33:30.1959952Z Restarting services...
+2026-09-26T14:33:30.2429512Z  systemctl restart packagekit.service php8.3-fpm.service polkit.service udisks2.service
+2026-09-26T14:33:30.3913812Z 
+2026-09-26T14:33:30.3914708Z Service restarts being deferred:
+2026-09-26T14:33:30.3915397Z  systemctl restart ModemManager.service
+2026-09-26T14:33:30.3916418Z  systemctl restart networkd-dispatcher.service
+2026-09-26T14:33:30.3916933Z 
+2026-09-26T14:33:30.3917230Z No containers need to be restarted.
+2026-09-26T14:33:30.3917552Z 
+2026-09-26T14:33:30.3917873Z No user sessions are running outdated binaries.
+2026-09-26T14:33:30.3918298Z 
+2026-09-26T14:33:30.3918937Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-09-26T14:33:31.3398288Z Downloading Chromium 143.0.7499.4 (playwright build v1200) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1200/chromium-linux.zip
+2026-09-26T14:33:31.4371093Z (node:3172) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-26T14:33:31.4373234Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:33:31.5542465Z |                                                                                |   0% of 164.7 MiB
+2026-09-26T14:33:31.7051652Z |■■■■■■■■                                                                        |  10% of 164.7 MiB
+2026-09-26T14:33:31.7943338Z |■■■■■■■■■■■■■■■■                                                                |  20% of 164.7 MiB
+2026-09-26T14:33:31.8735369Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 164.7 MiB
+2026-09-26T14:33:31.9583801Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 164.7 MiB
+2026-09-26T14:33:32.0509512Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 164.7 MiB
+2026-09-26T14:33:32.1376585Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 164.7 MiB
+2026-09-26T14:33:32.2414613Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 164.7 MiB
+2026-09-26T14:33:32.3424054Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 164.7 MiB
+2026-09-26T14:33:32.4494443Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 164.7 MiB
+2026-09-26T14:33:32.5534822Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 164.7 MiB
+2026-09-26T14:33:35.3955637Z Chromium 143.0.7499.4 (playwright build v1200) downloaded to /home/runner/.cache/ms-playwright/chromium-1200
+2026-09-26T14:33:35.3960027Z Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2026-09-26T14:33:35.4983483Z (node:3183) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-26T14:33:35.4985675Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:33:35.5408887Z |                                                                                |   0% of 2.3 MiB
+2026-09-26T14:33:35.5445177Z |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2026-09-26T14:33:35.5465766Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2026-09-26T14:33:35.5496511Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2026-09-26T14:33:35.5518185Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2026-09-26T14:33:35.5543228Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2026-09-26T14:33:35.5556394Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2026-09-26T14:33:35.5584159Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2026-09-26T14:33:35.5608368Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2026-09-26T14:33:35.5625005Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2026-09-26T14:33:35.5641387Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2026-09-26T14:33:35.6243981Z FFMPEG playwright build v1011 downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1011
+2026-09-26T14:33:35.6251554Z Downloading Chromium Headless Shell 143.0.7499.4 (playwright build v1200) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1200/chromium-headless-shell-linux.zip
+2026-09-26T14:33:35.7278912Z (node:3194) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-26T14:33:35.7281108Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:33:35.8263746Z |                                                                                |   0% of 109.7 MiB
+2026-09-26T14:33:35.9502529Z |■■■■■■■■                                                                        |  10% of 109.7 MiB
+2026-09-26T14:33:36.0179844Z |■■■■■■■■■■■■■■■■                                                                |  20% of 109.7 MiB
+2026-09-26T14:33:36.0853658Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 109.7 MiB
+2026-09-26T14:33:36.1595433Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 109.7 MiB
+2026-09-26T14:33:36.2137945Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 109.7 MiB
+2026-09-26T14:33:36.2834329Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 109.7 MiB
+2026-09-26T14:33:36.3333211Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 109.7 MiB
+2026-09-26T14:33:36.3949803Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 109.7 MiB
+2026-09-26T14:33:36.4506675Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 109.7 MiB
+2026-09-26T14:33:36.5179151Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 109.7 MiB
+2026-09-26T14:33:38.4791794Z Chromium Headless Shell 143.0.7499.4 (playwright build v1200) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1200
+2026-09-26T14:33:39.4876713Z 
+2026-09-26T14:33:39.4877665Z added 1 package in 943ms
+2026-09-26T14:33:40.4415152Z Google Chrome for Testing 143.0.7499.4 
+2026-09-26T14:33:40.4490095Z ##[group]Run set -euo pipefail
+2026-09-26T14:33:40.4490593Z [36;1mset -euo pipefail[0m
+2026-09-26T14:33:40.4491055Z [36;1mmkdir -p "$RUNNER_TEMP/game15-evidence"[0m
+2026-09-26T14:33:40.4491731Z [36;1mgit rev-parse HEAD > "$RUNNER_TEMP/game15-evidence/COMMIT.txt"[0m
+2026-09-26T14:33:40.4492655Z [36;1mcd .validation/game-section15[0m
+2026-09-26T14:33:40.4493357Z [36;1m# Supervisor switches Chromium to the existing unprivileged worker account.[0m
+2026-09-26T14:33:40.4494603Z [36;1msudo env PATH="$PATH" GITHUB_SHA="$GITHUB_SHA" BIE_GAME_EVIDENCE="$RUNNER_TEMP/game15-evidence" PYTHONDONTWRITEBYTECODE=1 \[0m
+2026-09-26T14:33:40.4495743Z [36;1m  "$(command -v python)" -X utf8 -B scripts/verify_h6_linux.py[0m
+2026-09-26T14:33:40.4580521Z shell: /usr/bin/bash -e {0}
+2026-09-26T14:33:40.4580783Z env:
+2026-09-26T14:33:40.4580999Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-26T14:33:40.4581327Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:40.4581851Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib/pkgconfig
+2026-09-26T14:33:40.4582574Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:40.4582959Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:40.4583343Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:33:40.4583738Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib
+2026-09-26T14:33:40.4584062Z ##[endgroup]
+2026-09-26T14:33:43.9114468Z {"module": "tests.build_runtime_engine.test_browser_quality", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 3.11}
+2026-09-26T14:33:50.9385727Z {"module": "tests.build_runtime_engine.test_build_001", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 7.027}
+2026-09-26T14:33:52.7712439Z {"module": "tests.build_runtime_engine.test_build_002", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.832}
+2026-09-26T14:33:52.7901397Z {"module": "tests.build_runtime_engine.test_build_003", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.019}
+2026-09-26T14:33:52.8187395Z {"module": "tests.build_runtime_engine.test_build_004", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.028}
+2026-09-26T14:33:54.6558780Z {"module": "tests.build_runtime_engine.test_build_005", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.837}
+2026-09-26T14:33:56.4809366Z {"module": "tests.build_runtime_engine.test_exception_security", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.824}
+2026-09-26T14:34:02.1899133Z {"module": "tests.build_runtime_engine.test_module_graph", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 5.708}
+2026-09-26T14:34:05.0536550Z {"module": "tests.build_runtime_engine.test_package_integrity", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 2.863}
+2026-09-26T14:34:09.3005290Z {"module": "tests.build_runtime_engine.test_pipeline", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 4.246}
+2026-09-26T14:34:10.3439929Z {"module": "tests.build_runtime_engine.test_process_bounds", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.043}
+2026-09-26T14:34:10.3457041Z {"module": "tests.build_runtime_engine.test_toolchain", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:10.3469738Z {"module": "tests.build_runtime_engine.test_workspace_security", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:10.3498299Z {"module": "tests.compiler_engine.test_asset_manifest", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.002}
+2026-09-26T14:34:10.3595745Z {"module": "tests.compiler_engine.test_bie_game_comp_001", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.009}
+2026-09-26T14:34:10.3718325Z {"module": "tests.compiler_engine.test_bie_game_comp_002", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.012}
+2026-09-26T14:34:10.3773056Z {"module": "tests.compiler_engine.test_bie_game_comp_003", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.3824692Z {"module": "tests.compiler_engine.test_bie_game_comp_004", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.3879236Z {"module": "tests.compiler_engine.test_bie_game_comp_005", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.3946481Z {"module": "tests.compiler_engine.test_bie_game_comp_006", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.006}
+2026-09-26T14:34:10.3997486Z {"module": "tests.compiler_engine.test_bie_game_comp_007", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.4054133Z {"module": "tests.compiler_engine.test_bie_game_comp_008", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.4136834Z {"module": "tests.compiler_engine.test_bie_game_comp_009", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.4194749Z {"module": "tests.compiler_engine.test_bie_game_comp_010", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:10.4218534Z {"module": "tests.compiler_engine.test_bootstrap", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.002}
+2026-09-26T14:34:10.4242679Z {"module": "tests.compiler_engine.test_bootstrap_full_bindings", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.002}
+2026-09-26T14:34:10.4546535Z {"module": "tests.compiler_engine.test_compiler_adversarial", "run": 20, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.03}
+2026-09-26T14:34:10.5364982Z {"module": "tests.compiler_engine.test_compiler_architecture", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.081}
+2026-09-26T14:34:10.5379187Z {"module": "tests.compiler_engine.test_expression_codegen", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:10.5616988Z {"module": "tests.compiler_engine.test_pipeline_security", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.023}
+2026-09-26T14:34:11.2854491Z {"module": "tests.compiler_engine.test_real_html_browser_smoke", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.723}
+2026-09-26T14:34:12.7230798Z {"module": "tests.compiler_engine.test_real_typescript_compile", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.437}
+2026-09-26T14:34:12.7903154Z {"module": "tests.compiler_engine.test_runtime_dependency_graph", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.066}
+2026-09-26T14:34:12.7920104Z {"module": "tests.compiler_engine.test_source_map", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.7977145Z {"module": "tests.dsl_core.test_codec", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:34:12.8015857Z {"module": "tests.dsl_core.test_document_quality", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:34:12.8031847Z {"module": "tests.dsl_core.test_expressions", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8046291Z {"module": "tests.dsl_core.test_feedback_adaptation", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8062844Z {"module": "tests.dsl_core.test_ids_canonical", "run": 11, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8079023Z {"module": "tests.dsl_core.test_interaction", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8094293Z {"module": "tests.dsl_core.test_learning_state", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8107465Z {"module": "tests.dsl_core.test_provenance", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8147041Z {"module": "tests.dsl_core.test_registry_compat_receipt", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:34:12.8233457Z {"module": "tests.dsl_core.test_validation", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.008}
+2026-09-26T14:34:12.8250013Z {"module": "tests.dsl_core.test_visual_audio", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:34:12.8297068Z {"module": "tests.hardening_h1.test_action_router", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:34:12.8419918Z {"module": "tests.hardening_h1.test_compiled_runtime_controller", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.012}
+2026-09-26T14:34:12.8917766Z {"module": "tests.hardening_h1.test_generic_candidate_build", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.049}
+2026-09-26T14:34:15.7613272Z {"module": "tests.hardening_h1.test_real_browser_gameplay", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 2.869}
+2026-09-26T14:34:17.4640607Z {"module": "tests.hardening_h1.test_rich_semantic_visuals", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.702}
+2026-09-26T14:34:22.1079201Z {"module": "tests.hardening_h2.test_candidate_qa", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 4.643}
+2026-09-26T14:34:22.1177841Z {"module": "tests.hardening_h2.test_canonical_adapters", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.009}
+2026-09-26T14:34:22.1320662Z {"module": "tests.hardening_h2.test_h2_architecture", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.014}
+2026-09-26T14:34:22.1597257Z {"module": "tests.hardening_h2.test_materializer", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.027}
+2026-09-26T14:34:24.0877799Z {"module": "tests.hardening_h3.test_h3_assets", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.927}
+2026-09-26T14:34:26.4099234Z {"module": "tests.hardening_h3.test_h3_deployment", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 2.321}
+2026-09-26T14:34:30.2782445Z {"module": "tests.hardening_h3.test_h3_manifest", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 3.868}
+2026-09-26T14:34:30.4486305Z {"module": "tests.hardening_h3.test_h3_process", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.17}
+2026-09-26T14:34:32.2554219Z {"module": "tests.hardening_h3.test_h3_sandbox", "run": 9, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.806}
+2026-09-26T14:34:32.2754604Z {"module": "tests.hardening_h4.test_accessibility_localization", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.019}
+2026-09-26T14:34:32.2828618Z {"module": "tests.hardening_h4.test_architecture", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.007}
+2026-09-26T14:34:34.0902399Z {"module": "tests.hardening_h4.test_audio_runtime", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.807}
+2026-09-26T14:34:37.7749307Z {"module": "tests.hardening_h4.test_performance_runtime", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 3.684}
+2026-09-26T14:34:38.7304295Z {"module": "tests.hardening_h4.test_rights", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.955}
+2026-09-26T14:34:38.7459859Z {"module": "tests.hardening_h5.test_architecture", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.015}
+2026-09-26T14:34:38.7580517Z {"module": "tests.hardening_h5.test_canonical_bindings", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:34:38.8224923Z {"module": "tests.hardening_h5.test_durable_store", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.064}
+2026-09-26T14:34:38.8284083Z {"module": "tests.hardening_h5.test_mastery", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:35:02.8989017Z {"module": "tests.hardening_h5.test_pipeline", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 24.07}
+2026-09-26T14:35:06.6899472Z {"module": "tests.hardening_h5.test_runtime_telemetry_callback", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 3.79}
+2026-09-26T14:35:06.6947995Z {"module": "tests.hardening_h5.test_telemetry", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:06.8620432Z {"module": "tests.hardening_h6.test_dsl_traceability", "run": 11, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.166}
+2026-09-26T14:35:06.8787074Z {"module": "tests.hardening_h6.test_legacy_canonical_contracts", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.016}
+2026-09-26T14:35:07.1543516Z {"module": "tests.hardening_h6.test_legacy_migration", "run": 23, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.275}
+2026-09-26T14:35:08.5128926Z {"module": "tests.hardening_h6.test_legacy_properties", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.358}
+2026-09-26T14:35:08.5300387Z {"module": "tests.hardening_h6.test_react_vendor", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.016}
+2026-09-26T14:35:08.5347902Z {"module": "tests.mechanics_engine.test_bie_game_mech_001", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:08.5388222Z {"module": "tests.mechanics_engine.test_bie_game_mech_002", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5425894Z {"module": "tests.mechanics_engine.test_bie_game_mech_003", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5461472Z {"module": "tests.mechanics_engine.test_bie_game_mech_004", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5500960Z {"module": "tests.mechanics_engine.test_bie_game_mech_005", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5566221Z {"module": "tests.mechanics_engine.test_bie_game_mech_006", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5606859Z {"module": "tests.mechanics_engine.test_bie_game_mech_007", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5643451Z {"module": "tests.mechanics_engine.test_bie_game_mech_008", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5681058Z {"module": "tests.mechanics_engine.test_bie_game_mech_009", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5719922Z {"module": "tests.mechanics_engine.test_bie_game_mech_010", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5756919Z {"module": "tests.mechanics_engine.test_bie_game_mech_011", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5793426Z {"module": "tests.mechanics_engine.test_bie_game_mech_012", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5828994Z {"module": "tests.mechanics_engine.test_bie_game_mech_013", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5865545Z {"module": "tests.mechanics_engine.test_bie_game_mech_014", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5900947Z {"module": "tests.mechanics_engine.test_bie_game_mech_015", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5938627Z {"module": "tests.mechanics_engine.test_bie_game_mech_016", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5977039Z {"module": "tests.mechanics_engine.test_bie_game_mech_017", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.5996394Z {"module": "tests.mechanics_engine.test_input_contracts", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:35:08.6278493Z {"module": "tests.mechanics_engine.test_mechanics_architecture", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.027}
+2026-09-26T14:35:08.6298562Z {"module": "tests.mechanics_engine.test_mechanics_receipts", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:35:08.6327171Z {"module": "tests.mechanics_engine.test_reset", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.002}
+2026-09-26T14:35:08.6344375Z {"module": "tests.mechanics_engine.test_retrieval_answer_safety", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:35:08.6363761Z {"module": "tests.mechanics_engine.test_semantic_events", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:35:08.6401558Z {"module": "tests.mechanics_engine.test_state_bridge", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.6420779Z {"module": "tests.qa_engine.test_contracts_policy", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.001}
+2026-09-26T14:35:08.9127780Z {"module": "tests.qa_engine.test_qa_001_learning_coverage", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.27}
+2026-09-26T14:35:08.9323361Z {"module": "tests.qa_engine.test_qa_002_rule_correctness", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.019}
+2026-09-26T14:35:08.9362630Z {"module": "tests.qa_engine.test_qa_003_reachability", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.9403049Z {"module": "tests.qa_engine.test_qa_004_impossible_states", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:08.9723529Z {"module": "tests.qa_engine.test_qa_005_misconception", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.031}
+2026-09-26T14:35:08.9795199Z {"module": "tests.qa_engine.test_qa_006_feedback", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.006}
+2026-09-26T14:35:13.0495030Z {"module": "tests.qa_engine.test_qa_007_accessibility", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 4.069}
+2026-09-26T14:35:13.0603945Z {"module": "tests.qa_engine.test_qa_008_runtime", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.01}
+2026-09-26T14:35:13.0953786Z {"module": "tests.qa_engine.test_qa_009_multidomain", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.034}
+2026-09-26T14:35:14.4527550Z {"module": "tests.qa_engine.test_qa_010_legacy_retirement", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.357}
+2026-09-26T14:35:14.4724647Z {"module": "tests.qa_engine.test_qa_architecture", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.019}
+2026-09-26T14:35:15.0494236Z {"module": "tests.qa_engine.test_receipts_pipeline", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.576}
+2026-09-26T14:35:15.0521988Z {"module": "tests.state_engine.test_expression_runtime", "run": 9, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.002}
+2026-09-26T14:35:15.0592823Z {"module": "tests.state_engine.test_replay_invariants", "run": 7, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.006}
+2026-09-26T14:35:15.0636597Z {"module": "tests.state_engine.test_state_001_state_variables", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:15.0678281Z {"module": "tests.state_engine.test_state_002_manipulables", "run": 11, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:15.0731233Z {"module": "tests.state_engine.test_state_003_rules", "run": 10, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:15.0771593Z {"module": "tests.state_engine.test_state_004_effects", "run": 14, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:15.0820080Z {"module": "tests.state_engine.test_state_005_challenge_state", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:15.0861903Z {"module": "tests.state_engine.test_state_006_success_conditions", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:15.0901688Z {"module": "tests.state_engine.test_state_007_failure_conditions", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:15.0939215Z {"module": "tests.state_engine.test_state_008_reachability", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:15.1128190Z {"module": "tests.state_engine.test_state_architecture_security", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.018}
+2026-09-26T14:35:15.1225038Z {"module": "tests.state_engine.test_transition_engine", "run": 9, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.008}
+2026-09-26T14:35:15.1454281Z {"module": "tests.test_batch02_architecture", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.022}
+2026-09-26T14:35:15.1506029Z {"module": "tests.test_causal_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:15.1550244Z {"module": "tests.test_diagnostic_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:15.1675162Z {"module": "tests.test_director_adaptation", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.012}
+2026-09-26T14:35:15.1804050Z {"module": "tests.test_director_adversarial", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.012}
+2026-09-26T14:35:15.1890273Z {"module": "tests.test_director_contracts", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.008}
+2026-09-26T14:35:15.2623288Z {"module": "tests.test_director_cross_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.072}
+2026-09-26T14:35:15.2752707Z {"module": "tests.test_director_difficulty", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.012}
+2026-09-26T14:35:15.2869079Z {"module": "tests.test_director_feedback_design", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.2986334Z {"module": "tests.test_director_graph", "run": 4, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.3105520Z {"module": "tests.test_director_hint_strategy", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.3249053Z {"module": "tests.test_director_level_sequencing", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.013}
+2026-09-26T14:35:15.3364223Z {"module": "tests.test_director_mastery_mapping", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.3638730Z {"module": "tests.test_director_mechanic_selection", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.026}
+2026-09-26T14:35:15.3782503Z {"module": "tests.test_director_misconception_mapping", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.3900222Z {"module": "tests.test_director_objective_mapping", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.4033067Z {"module": "tests.test_director_pipeline", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.012}
+2026-09-26T14:35:15.4461722Z {"module": "tests.test_director_plan_consistency", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.042}
+2026-09-26T14:35:15.4722373Z {"module": "tests.test_director_planner", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.025}
+2026-09-26T14:35:15.4861935Z {"module": "tests.test_director_receipts", "run": 3, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.013}
+2026-09-26T14:35:15.4982688Z {"module": "tests.test_director_scoring", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.011}
+2026-09-26T14:35:15.5202097Z {"module": "tests.test_director_studio_policy", "run": 5, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.021}
+2026-09-26T14:35:15.5244820Z {"module": "tests.test_equation_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:22.5114169Z {"module": "tests.test_expression_runtime_parity", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 6.986}
+2026-09-26T14:35:29.3791943Z {"module": "tests.test_full_reaudit_boundaries", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 6.867}
+2026-09-26T14:35:31.7566505Z {"module": "tests.test_h7_deployed_origin", "run": 1, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 2.376}
+2026-09-26T14:35:31.7840682Z {"module": "tests.test_h7_lineage", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.026}
+2026-09-26T14:35:31.8242832Z {"module": "tests.test_h7_properties", "run": 11, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.039}
+2026-09-26T14:35:37.7291395Z {"module": "tests.test_input_routing_audit", "run": 6, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 5.904}
+2026-09-26T14:35:37.7340013Z {"module": "tests.test_manipulation_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:37.7385409Z {"module": "tests.test_map_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:37.7429876Z {"module": "tests.test_prediction_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:37.7968675Z {"module": "tests.test_reaudit_learning_and_qa", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.053}
+2026-09-26T14:35:37.8007219Z {"module": "tests.test_reaudit_outcome_scope", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.003}
+2026-09-26T14:35:38.8261005Z {"module": "tests.test_reaudit_process_confinement", "run": 2, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 1.024}
+2026-09-26T14:35:38.8329320Z {"module": "tests.test_retrieval_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:49.5500229Z {"module": "tests.test_runtime_audit_regressions", "run": 11, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 10.716}
+2026-09-26T14:35:49.5906261Z {"module": "tests.test_selector", "run": 12, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.04}
+2026-09-26T14:35:49.5949131Z {"module": "tests.test_simulation_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:49.6003033Z {"module": "tests.test_strategy_contracts", "run": 17, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.005}
+2026-09-26T14:35:49.6049358Z {"module": "tests.test_timeline_strategy", "run": 8, "failures": 0, "errors": 0, "skips": 0, "passed": true, "seconds": 0.004}
+2026-09-26T14:35:49.6069192Z {"schema_version": "bie.game.section15.linux-verification/1", "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "tested_commit": "f7593135b83580a9674abcc7cd350b8d8b37bd4e", "source_inventory_sha256": "e744b8efd5651cd2524197987032319907a01ac0d94c0c1b4a4803f6c8f9586b", "product_accepted": false, "tests_run": 1123, "passed": true, "seconds": 128.807}
+2026-09-26T14:35:49.6805068Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-26T14:35:49.6805507Z with:
+2026-09-26T14:35:49.6805723Z   name: game-section15-linux-evidence
+2026-09-26T14:35:49.6806039Z   path: /home/runner/work/_temp/game15-evidence/
+2026-09-26T14:35:49.6806349Z   retention-days: 14
+2026-09-26T14:35:49.6806572Z   if-no-files-found: error
+2026-09-26T14:35:49.6806808Z   compression-level: 6
+2026-09-26T14:35:49.6807023Z   overwrite: false
+2026-09-26T14:35:49.6807234Z   include-hidden-files: false
+2026-09-26T14:35:49.6807462Z env:
+2026-09-26T14:35:49.6807656Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-26T14:35:49.6807954Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:35:49.6808375Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib/pkgconfig
+2026-09-26T14:35:49.6808811Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:35:49.6809200Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:35:49.6809613Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.5/x64
+2026-09-26T14:35:49.6809989Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.5/x64/lib
+2026-09-26T14:35:49.6810311Z ##[endgroup]
+2026-09-26T14:35:49.8563076Z (node:8654) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-26T14:35:49.8564526Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:35:49.8921678Z With the provided path, there will be 170 files uploaded
+2026-09-26T14:35:49.8928099Z Artifact name is valid!
+2026-09-26T14:35:49.8928597Z Root directory input is valid!
+2026-09-26T14:35:50.2802392Z Beginning upload of artifact content to blob storage
+2026-09-26T14:35:50.4427838Z (node:8654) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-26T14:35:50.8318716Z Uploaded bytes 88522
+2026-09-26T14:35:50.9039556Z Finished uploading artifact content to blob storage!
+2026-09-26T14:35:50.9040514Z SHA256 digest of uploaded artifact zip is f550d2a8c67cff82a8208722da34e509377c57a510bc029375d902d366b83469
+2026-09-26T14:35:50.9042396Z Finalizing artifact upload
+2026-09-26T14:35:51.1659309Z Artifact game-section15-linux-evidence.zip successfully finalized. Artifact ID 10907693840
+2026-09-26T14:35:51.1661749Z Artifact game-section15-linux-evidence has been successfully uploaded! Final size is 88522 bytes. Artifact ID is 10907693840
+2026-09-26T14:35:51.1667705Z Artifact download URL: https://github.com/SEENAV01/Enterprise-bie/actions/runs/36248866407/artifacts/10907693840
+2026-09-26T14:35:51.1851538Z Post job cleanup.
+2026-09-26T14:35:51.3123642Z (node:8668) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-26T14:35:51.3124646Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:35:51.3343030Z Post job cleanup.
+2026-09-26T14:35:51.4650879Z (node:8676) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-26T14:35:51.4651990Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-26T14:35:51.4835100Z Post job cleanup.
+2026-09-26T14:35:51.5759608Z [command]/usr/bin/git version
+2026-09-26T14:35:51.5806871Z git version 2.55.0
+2026-09-26T14:35:51.5847444Z Temporarily overriding HOME='/home/runner/work/_temp/e78325bd-6282-4637-bdfb-e78b409256df' before making global git config changes
+2026-09-26T14:35:51.5848983Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-26T14:35:51.5854725Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Enterprise-bie/Enterprise-bie
+2026-09-26T14:35:51.5925026Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-26T14:35:51.5981299Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-26T14:35:51.6296885Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-26T14:35:51.6343882Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-26T14:35:51.6696850Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-26T14:35:51.6795178Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-26T14:35:51.7350473Z Cleaning up orphan processes
+2026-09-26T14:35:51.7805799Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

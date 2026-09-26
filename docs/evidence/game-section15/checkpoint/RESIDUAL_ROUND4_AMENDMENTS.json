@@ -1,0 +1,21 @@
+{
+  "scope": "Per-action accessible controls, pointer/click deduplication, explicit challenge selection and matched learning objective",
+  "counterexamples": "evidence/residual_audit/INPUT_ROUTING_INITIAL_FAILURES.log",
+  "records": [
+    {
+      "path": "bie/game_engine/compiler_engine/react_runtime.py",
+      "before_sha256": "5b2eb0f23b369551c8c5a98a48c9b33363cf1d47938afed63f5c9d2c2db55be6",
+      "after_sha256": "998236c80e344a03fa13cb029781d528ccffbb33d7545e4e8f2fc4816ff2721a"
+    },
+    {
+      "path": "bie/game_engine/compiler_engine/runtime_controller.py",
+      "before_sha256": "7982a3c3544f0b1d80008f4f65f16aede940bd5015d744db9e9c2ca07b02ffda",
+      "after_sha256": "1397364e3a81d655a3bee9c73fc6ad7766d0b6c0d56814b4131438009adb3e1f"
+    }
+  ],
+  "browser_native_validation_pending": false,
+  "product_accepted": false,
+  "browser_native_validation_scope": "Windows native Enter, click, separate Submit, selected second challenge and Space; five gestures, six snapshots, zero observed page errors.",
+  "browser_native_evidence": "evidence/residual_audit/native_input_round4/OBSERVATION_RECEIPT.json",
+  "linux_browser_validation_pending": true
+}

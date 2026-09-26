@@ -19,6 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 def audit(root=ROOT):
     errors = []
     rows = list(csv.DictReader((root / "manifests/lossless_migration.csv").open()))
+    from game_initializer_amendment import resolve
+    try: rows = resolve(root, rows)
+    except (ValueError, OSError, KeyError) as exc: errors.append(str(exc))
     original = json.loads((root / "manifests/archive_inventory.json").read_text())["archives"]
     supplemental = json.loads((root / "manifests/supplemental_archives.json").read_text())
     expected_members = json.loads((root / "manifests/file_inventory.json").read_text())["files"] + [f for a in supplemental for f in a["files"]]

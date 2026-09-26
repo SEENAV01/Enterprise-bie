@@ -1,0 +1,50 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-005",
+  "engineering_ordinal": 2,
+  "capability": "mastery mapping",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/mastery_mapping.py",
+    "sha256": "485967405bda61702b37af69db4017d52bfedc780ff32580e5510b810bf62c0f"
+  },
+  "test": {
+    "path": "tests/test_director_mastery_mapping.py",
+    "sha256": "4e0c8fb51ab0e7a681889c6a59307aa0e7c2bfda3832b47193640b02a4fc8973"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-005/SPEC.md",
+    "sha256": "b97ec7e53205bc40f3d128d59f1071be10228d014e46e2c780d05e0d8f922c4b"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:5aeb8c8d7a830d7b89622a49c93fd495337554c97dad5901c503c8663c667ef0",
+    "output_summary": [
+      {
+        "confidence": 0.85,
+        "current": 0.35,
+        "evidence_state": "known",
+        "gap": 0.45,
+        "objective_id": "obj:manip",
+        "target": 0.8
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 2,
+    "task_id": "BIE-GAME-DIR-005",
+    "capability": "mastery mapping",
+    "cumulative_tests_run": 16,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:ffd7ea01521c1259553da41b0d744662b91418dcfa7de57d31ef277ecdc695f2"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "bie.game.section15.hardening-h1/1",
+  "source_audit_zip_sha256": "2a8e12efdad199e195572bfa32a596c26c442d3d9b7309bf62e3cd5571a48f0e",
+  "source_step1_zip_sha256": "5c1c64dc5976fa7326952cee3d7be101399107f0513873fcf2e2cb11d54f3c51",
+  "batch_id": "GAME-HARDENING-H1-RUNTIME-STUDIO-EXECUTION",
+  "closed_findings": [
+    {
+      "id": "GAME-AUD-001",
+      "status": "CLOSED_IN_H1",
+      "evidence": [
+        "evidence/hardening_h1/RICH_VISUAL_COVERAGE.json",
+        "evidence/hardening_h1/rich_semantic_visuals.png"
+      ],
+      "note": "All 12 governed VisualKind values render; 11 non-label kinds hydrate real SVG primitives; real Chromium nonzero geometry and nonempty semantic text verified."
+    },
+    {
+      "id": "GAME-AUD-002",
+      "status": "CLOSED_IN_H1",
+      "evidence": [
+        "evidence/hardening_h1/REAL_BROWSER_GAMEPLAY_EVIDENCE.json"
+      ],
+      "note": "Live browser controller binds actions, rules, authoritative state effects, score, feedback, adaptation evaluation, local governed telemetry and render updates; real dispatch x=1->2 verified."
+    },
+    {
+      "id": "GAME-AUD-003",
+      "status": "CLOSED_IN_H1",
+      "evidence": [
+        "tests/hardening_h1/test_generic_candidate_build.py"
+      ],
+      "note": "BUILD-003/004 consume actual CompilerContext/GameDocument and candidate-derived or caller-supplied action scripts; fixture imports removed from production simulation/replay modules."
+    },
+    {
+      "id": "GAME-AUD-007",
+      "status": "CLOSED_IN_H1",
+      "evidence": [
+        "tests/hardening_h1/test_action_router.py"
+      ],
+      "note": "Deterministic ActionRoute maps ActionKind->mechanic and target bindings->unique rule; Mechanic ProposedStatePatch is validated before authoritative State transition and final state must match proposal fingerprint."
+    },
+    {
+      "id": "GAME-AUD-019",
+      "status": "CLOSED_IN_H1_WITH_SEPARATE_QA_GENERICITY_REMAINING",
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/browser_runtime.py",
+        "evidence/hardening_h1/REAL_BROWSER_GAMEPLAY_EVIDENCE.json"
+      ],
+      "note": "Runtime QA now rejects blank/zero-area/non-text semantic output and missing live controller. Candidate QA genericity remains independently open as GAME-AUD-004."
+    }
+  ],
+  "remaining_implementation_gap_count": 21,
+  "remaining_critical": 4,
+  "remaining_high": 15,
+  "remaining_medium": 2,
+  "remaining_critical_ids": [
+    "GAME-AUD-004",
+    "GAME-AUD-005",
+    "GAME-AUD-006",
+    "GAME-AUD-008"
+  ],
+  "tests": {
+    "hardening_h1": 18,
+    "compiler_regression": 107,
+    "build_runtime_regression": 75,
+    "state_regression": 111,
+    "mechanics_regression": 196,
+    "strategy_director_regression": 211,
+    "game_qa_regression": 87,
+    "in_package_total": 805,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "source_diff": {
+    "baseline_source_files": 173,
+    "unchanged_baseline_files": 159,
+    "changed_existing_files": [
+      "bie/game_engine/build_runtime_engine/browser_runtime.py",
+      "bie/game_engine/build_runtime_engine/deterministic_replay.py",
+      "bie/game_engine/build_runtime_engine/entrypoint.py",
+      "bie/game_engine/build_runtime_engine/interaction_simulation.py",
+      "bie/game_engine/build_runtime_engine/pipeline.py",
+      "bie/game_engine/build_runtime_engine/smoke_bundle.py",
+      "bie/game_engine/compiler_engine/adaptation_compiler.py",
+      "bie/game_engine/compiler_engine/bootstrap.py",
+      "bie/game_engine/compiler_engine/contracts.py",
+      "bie/game_engine/compiler_engine/interaction_compiler.py",
+      "bie/game_engine/compiler_engine/manifest.py",
+      "bie/game_engine/compiler_engine/pipeline.py",
+      "bie/game_engine/compiler_engine/react_runtime.py",
+      "bie/game_engine/compiler_engine/rule_compiler.py"
+    ],
+    "new_source_files": [
+      "bie/game_engine/build_runtime_engine/action_script.py",
+      "bie/game_engine/compiler_engine/runtime_controller.py",
+      "bie/game_engine/state_engine/action_router.py"
+    ]
+  },
+  "security": {
+    "unsafe_eval_exec_compile_calls": [],
+    "fixture_coupling_refs_in_build003_004": []
+  },
+  "implementation_scope_complete": false,
+  "product_accepted": false,
+  "next": "HARDENING_H2_REMAINING_AUDIT_GAPS"
+}

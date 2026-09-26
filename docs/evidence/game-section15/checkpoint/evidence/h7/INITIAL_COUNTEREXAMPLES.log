@@ -1,0 +1,265 @@
+test_deep_input_is_bounded_with_contract_error (tests.test_h7_properties.H7CodecProperties.test_deep_input_is_bounded_with_contract_error) ... FAIL
+test_duplicate_key_is_never_last_value_wins (tests.test_h7_properties.H7CodecProperties.test_duplicate_key_is_never_last_value_wins) ... 
+  test_duplicate_key_is_never_last_value_wins (tests.test_h7_properties.H7CodecProperties.test_duplicate_key_is_never_last_value_wins) (key='x') ... FAIL
+  test_duplicate_key_is_never_last_value_wins (tests.test_h7_properties.H7CodecProperties.test_duplicate_key_is_never_last_value_wins) (key='product_accepted') ... FAIL
+test_generated_roundtrip_and_order_independence (tests.test_h7_properties.H7CodecProperties.test_generated_roundtrip_and_order_independence) ... ok
+test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) ... 
+  test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$enum', value=[]) ... ERROR
+  test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$enum', value={}) ... ERROR
+  test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$type', value=[]) ... ERROR
+  test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$type', value={}) ... ERROR
+test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) ... 
+  test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='NaN') ... FAIL
+  test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='Infinity') ... FAIL
+  test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='-Infinity') ... FAIL
+  test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='1e999') ... FAIL
+test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) ... 
+  test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) (a=None, b=None) ... ERROR
+  test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) (a='x', b=2) ... ERROR
+  test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) (a=None, b=0) ... ERROR
+test_generated_arithmetic_matches_independent_integer_identities (tests.test_h7_properties.H7ExpressionProperties.test_generated_arithmetic_matches_independent_integer_identities) ... ok
+test_mixed_ordering_is_rejected_as_contract_error (tests.test_h7_properties.H7ExpressionProperties.test_mixed_ordering_is_rejected_as_contract_error) ... 
+  test_mixed_ordering_is_rejected_as_contract_error (tests.test_h7_properties.H7ExpressionProperties.test_mixed_ordering_is_rejected_as_contract_error) (a='x', b=2) ... ERROR
+test_nonfinite_state_rejected_before_evaluation (tests.test_h7_properties.H7ExpressionProperties.test_nonfinite_state_rejected_before_evaluation) ... 
+  test_nonfinite_state_rejected_before_evaluation (tests.test_h7_properties.H7ExpressionProperties.test_nonfinite_state_rejected_before_evaluation) (value=nan) ... FAIL
+test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) ... 
+  test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='C:escape') ... FAIL
+  test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='C:/escape') ... FAIL
+  test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a//b') ... FAIL
+  test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a/./b') ... FAIL
+  test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a/') ... FAIL
+  test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a:stream') ... FAIL
+test_generated_safe_paths_preserve_exact_identity (tests.test_h7_properties.H7PathProperties.test_generated_safe_paths_preserve_exact_identity) ... ok
+
+======================================================================
+ERROR: test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$enum', value=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 27, in test_malformed_tags_never_escape_as_python_type_error
+    with self.subTest(tag=tag,value=value), self.assertRaises(GameContractError):loads(json.dumps({tag:value,'value':'bad'}))
+                                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 58, in loads
+    return decode(raw)
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 37, in decode
+    cls=_ENUMS.get(value['$enum'])
+TypeError: unhashable type: 'list'
+
+======================================================================
+ERROR: test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$enum', value={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 27, in test_malformed_tags_never_escape_as_python_type_error
+    with self.subTest(tag=tag,value=value), self.assertRaises(GameContractError):loads(json.dumps({tag:value,'value':'bad'}))
+                                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 58, in loads
+    return decode(raw)
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 37, in decode
+    cls=_ENUMS.get(value['$enum'])
+TypeError: unhashable type: 'dict'
+
+======================================================================
+ERROR: test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$type', value=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 27, in test_malformed_tags_never_escape_as_python_type_error
+    with self.subTest(tag=tag,value=value), self.assertRaises(GameContractError):loads(json.dumps({tag:value,'value':'bad'}))
+                                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 58, in loads
+    return decode(raw)
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 45, in decode
+    cls=_TYPES.get(value['$type'])
+TypeError: unhashable type: 'list'
+
+======================================================================
+ERROR: test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) (tag='$type', value={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 27, in test_malformed_tags_never_escape_as_python_type_error
+    with self.subTest(tag=tag,value=value), self.assertRaises(GameContractError):loads(json.dumps({tag:value,'value':'bad'}))
+                                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 58, in loads
+    return decode(raw)
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\codec.py", line 45, in decode
+    cls=_TYPES.get(value['$type'])
+TypeError: unhashable type: 'dict'
+
+======================================================================
+ERROR: test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) (a=None, b=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 43, in test_equality_does_not_evaluate_unselected_ordering_operators
+    self.assertEqual(evaluate(expr,{}),a==b)
+                     ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\expressions.py", line 67, in evaluate
+    return {CompareOp.EQ:a==b,CompareOp.NE:a!=b,CompareOp.LT:a<b,CompareOp.LE:a<=b,CompareOp.GT:a>b,CompareOp.GE:a>=b}[expr.op]
+                                                             ^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'NoneType'
+
+======================================================================
+ERROR: test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) (a='x', b=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 43, in test_equality_does_not_evaluate_unselected_ordering_operators
+    self.assertEqual(evaluate(expr,{}),a==b)
+                     ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\expressions.py", line 67, in evaluate
+    return {CompareOp.EQ:a==b,CompareOp.NE:a!=b,CompareOp.LT:a<b,CompareOp.LE:a<=b,CompareOp.GT:a>b,CompareOp.GE:a>=b}[expr.op]
+                                                             ^^^
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+======================================================================
+ERROR: test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) (a=None, b=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 43, in test_equality_does_not_evaluate_unselected_ordering_operators
+    self.assertEqual(evaluate(expr,{}),a==b)
+                     ~~~~~~~~^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\expressions.py", line 67, in evaluate
+    return {CompareOp.EQ:a==b,CompareOp.NE:a!=b,CompareOp.LT:a<b,CompareOp.LE:a<=b,CompareOp.GT:a>b,CompareOp.GE:a>=b}[expr.op]
+                                                             ^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+======================================================================
+ERROR: test_mixed_ordering_is_rejected_as_contract_error (tests.test_h7_properties.H7ExpressionProperties.test_mixed_ordering_is_rejected_as_contract_error) (a='x', b=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 49, in test_mixed_ordering_is_rejected_as_contract_error
+    with self.subTest(a=a,b=b), self.assertRaises(GameContractError):evaluate_typed(expr,{},{})
+                                                                     ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\state_engine\expression_runtime.py", line 47, in evaluate_typed
+    return ev(expr)
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\bie\game_engine\state_engine\expression_runtime.py", line 37, in ev
+    return {CompareOp.EQ:a==b,CompareOp.NE:a!=b,CompareOp.LT:a<b,CompareOp.LE:a<=b,CompareOp.GT:a>b,CompareOp.GE:a>=b}[n.op]
+                                                             ^^^
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+======================================================================
+FAIL: test_deep_input_is_bounded_with_contract_error (tests.test_h7_properties.H7CodecProperties.test_deep_input_is_bounded_with_contract_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 22, in test_deep_input_is_bounded_with_contract_error
+    with self.assertRaises(GameContractError):loads('['*80+'0'+']'*80)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_duplicate_key_is_never_last_value_wins (tests.test_h7_properties.H7CodecProperties.test_duplicate_key_is_never_last_value_wins) (key='x')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 15, in test_duplicate_key_is_never_last_value_wins
+    with self.subTest(key=key), self.assertRaises(GameContractError):loads(wire)
+                                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_duplicate_key_is_never_last_value_wins (tests.test_h7_properties.H7CodecProperties.test_duplicate_key_is_never_last_value_wins) (key='product_accepted')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 15, in test_duplicate_key_is_never_last_value_wins
+    with self.subTest(key=key), self.assertRaises(GameContractError):loads(wire)
+                                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 19, in test_nonfinite_numbers_rejected_at_wire_boundary
+    with self.subTest(value=value), self.assertRaises(GameContractError):loads('{"value":'+value+'}')
+                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 19, in test_nonfinite_numbers_rejected_at_wire_boundary
+    with self.subTest(value=value), self.assertRaises(GameContractError):loads('{"value":'+value+'}')
+                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='-Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 19, in test_nonfinite_numbers_rejected_at_wire_boundary
+    with self.subTest(value=value), self.assertRaises(GameContractError):loads('{"value":'+value+'}')
+                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) (value='1e999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 19, in test_nonfinite_numbers_rejected_at_wire_boundary
+    with self.subTest(value=value), self.assertRaises(GameContractError):loads('{"value":'+value+'}')
+                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_nonfinite_state_rejected_before_evaluation (tests.test_h7_properties.H7ExpressionProperties.test_nonfinite_state_rejected_before_evaluation) (value=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 65, in test_nonfinite_state_rejected_before_evaluation
+    with self.subTest(value=value), self.assertRaises(GameContractError):validate_values(model,{'x':value,'attempts':0})
+                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: GameContractError not raised
+
+======================================================================
+FAIL: test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='C:escape')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 70, in test_cross_platform_path_escapes_and_aliases_reject
+    with self.subTest(path=path), self.assertRaises(ValueError):safe_relative(path)
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='C:/escape')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 70, in test_cross_platform_path_escapes_and_aliases_reject
+    with self.subTest(path=path), self.assertRaises(ValueError):safe_relative(path)
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a//b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 70, in test_cross_platform_path_escapes_and_aliases_reject
+    with self.subTest(path=path), self.assertRaises(ValueError):safe_relative(path)
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a/./b')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 70, in test_cross_platform_path_escapes_and_aliases_reject
+    with self.subTest(path=path), self.assertRaises(ValueError):safe_relative(path)
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a/')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 70, in test_cross_platform_path_escapes_and_aliases_reject
+    with self.subTest(path=path), self.assertRaises(ValueError):safe_relative(path)
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) (path='a:stream')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\h7\tests\test_h7_properties.py", line 70, in test_cross_platform_path_escapes_and_aliases_reject
+    with self.subTest(path=path), self.assertRaises(ValueError):safe_relative(path)
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.195s
+
+FAILED (failures=14, errors=8)

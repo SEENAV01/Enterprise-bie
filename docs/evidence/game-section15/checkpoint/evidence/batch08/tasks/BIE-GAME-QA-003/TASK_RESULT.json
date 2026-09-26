@@ -1,0 +1,57 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-003",
+  "capability": "challenge reachability and path evidence",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 3,
+    "task_id": "BIE-GAME-QA-003",
+    "cumulative_task_tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "state-graph"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:3c7be62bd0253294f86ac62f7b038ef58ecaf303742e1d635d352c258f103101",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1,
+        "name": "challenge_reachability",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": null,
+        "minimum": 1,
+        "name": "visited_states",
+        "unit": "count",
+        "value": 3.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:624b8157080f0be06de929d2bfdd5c329b05db55174f1e09577b47b07f582d76",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-003"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:7b84edd8c445639d8bb48264faaceaaa51fd93b8c156ec497fd43c2b1feeadd7",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:c4e1339debdd2900fbd61432",
+    "result_fingerprint": "sha256:624b8157080f0be06de929d2bfdd5c329b05db55174f1e09577b47b07f582d76",
+    "task_id": "BIE-GAME-QA-003"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

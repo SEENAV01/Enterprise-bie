@@ -1,0 +1,105 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-010",
+  "ordinal_in_batch": 10,
+  "capability": "Causal-system strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/causal_system.py",
+    "sha256": "0d83fd829f37a4bce104068fd1f315455d35b5055dafe5114420fde2ebf184f9",
+    "metrics": {
+      "bytes": 2901,
+      "loc": 23,
+      "functions": 2,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_causal_strategy.py",
+    "sha256": "61f9897e129b1805b16a99af015cce8078ba77b7e41aa57f30297467e1d9fcad",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-010/SPEC.md",
+    "sha256": "dc4a25d1e3779fc570a3f5eec62b2bdc294e8f85511a35966929c96ab75d8853"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:2fc1a0559d9dde1814280ad429bab0205f337135fe15c9b9b4c8e1f988a36bbc",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of causal/intervention objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "graph_depth",
+          "rationale": "Causal graph has enough directed structure",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "evidence_strength",
+          "rationale": "Average evidence strength on causal edges",
+          "value": 0.925,
+          "weight": 4
+        },
+        {
+          "name": "intervention_support",
+          "rationale": "Edges are valid for learner interventions",
+          "value": 1.0,
+          "weight": 3
+        }
+      ],
+      "confidence": 0.86,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:causal"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "semantic_motion",
+        "graph_runtime",
+        "branching_runtime",
+        "purposeful_camera"
+      ],
+      "score": 97.6923,
+      "strategy": "causal_system",
+      "strengths": [
+        "causal_graph_exploration",
+        "counterfactual_ready",
+        "intervention_reasoning"
+      ],
+      "studio_design_requirements": [
+        "animate_propagation_of_interventions",
+        "distinguish_correlation_from_causation",
+        "camera_follows_relevant_causal_path",
+        "show_delays_or_feedback_only_when_modelled",
+        "never_infer_unproven_causal_edge"
+      ]
+    },
+    "output_fingerprint": "sha256:168bd2b9c081bee9330d1e41bf9a1831c83d29d6e82afaf4df6ca304d15f07a1"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

@@ -1,0 +1,206 @@
+test_deep_input_is_bounded_with_contract_error (tests.test_h7_properties.H7CodecProperties.test_deep_input_is_bounded_with_contract_error) ... ok
+test_duplicate_key_is_never_last_value_wins (tests.test_h7_properties.H7CodecProperties.test_duplicate_key_is_never_last_value_wins) ... ok
+test_generated_roundtrip_and_order_independence (tests.test_h7_properties.H7CodecProperties.test_generated_roundtrip_and_order_independence) ... ok
+test_malformed_tags_never_escape_as_python_type_error (tests.test_h7_properties.H7CodecProperties.test_malformed_tags_never_escape_as_python_type_error) ... ok
+test_nonfinite_numbers_rejected_at_wire_boundary (tests.test_h7_properties.H7CodecProperties.test_nonfinite_numbers_rejected_at_wire_boundary) ... ok
+test_equality_does_not_evaluate_unselected_ordering_operators (tests.test_h7_properties.H7ExpressionProperties.test_equality_does_not_evaluate_unselected_ordering_operators) ... ok
+test_generated_arithmetic_matches_independent_integer_identities (tests.test_h7_properties.H7ExpressionProperties.test_generated_arithmetic_matches_independent_integer_identities) ... ok
+test_mixed_ordering_is_rejected_as_contract_error (tests.test_h7_properties.H7ExpressionProperties.test_mixed_ordering_is_rejected_as_contract_error) ... ok
+test_nonfinite_state_rejected_before_evaluation (tests.test_h7_properties.H7ExpressionProperties.test_nonfinite_state_rejected_before_evaluation) ... ok
+test_cross_platform_path_escapes_and_aliases_reject (tests.test_h7_properties.H7PathProperties.test_cross_platform_path_escapes_and_aliases_reject) ... ok
+test_generated_safe_paths_preserve_exact_identity (tests.test_h7_properties.H7PathProperties.test_generated_safe_paths_preserve_exact_identity) ... ok
+test_forging_current_hash_cannot_approve_changed_code (tests.test_h7_lineage.H7LineageTests.test_forging_current_hash_cannot_approve_changed_code) ... ok
+test_original_code_cannot_masquerade_as_current_repaired_code (tests.test_h7_lineage.H7LineageTests.test_original_code_cannot_masquerade_as_current_repaired_code) ... ok
+test_ambiguous_challenge_route_cannot_silently_pick_first (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_ambiguous_challenge_route_cannot_silently_pick_first) ... ok
+test_failure_takes_precedence_over_success (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_failure_takes_precedence_over_success) ... ok
+test_met_condition_receives_points (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_met_condition_receives_points) ... ok
+test_numeric_string_effect_is_not_silently_coerced (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_numeric_string_effect_is_not_silently_coerced) ... ok
+test_out_of_range_effect_rolls_back_without_score_or_telemetry (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_out_of_range_effect_rolls_back_without_score_or_telemetry) ... ok
+test_partial_effect_transaction_rolls_back (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_partial_effect_transaction_rolls_back) ... ok
+test_pending_challenge_cannot_receive_success_points (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_pending_challenge_cannot_receive_success_points) ... ok
+test_punctuation_distinct_ids_do_not_collide_in_generated_functions (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_punctuation_distinct_ids_do_not_collide_in_generated_functions) ... ok
+test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_repeated_rule_ids_in_distinct_levels_keep_their_own_predicates) ... ok
+test_repeating_success_cannot_farm_points (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_repeating_success_cannot_farm_points) ... ok
+test_reviewed_legacy_candidate_reaches_actual_compiled_consumer (tests.test_runtime_audit_regressions.RuntimeAuditRegressions.test_reviewed_legacy_candidate_reaches_actual_compiled_consumer) ... ok
+test_boolean_numeric_equality_matches_authoritative_semantics (tests.test_expression_runtime_parity.ExpressionRuntimeParity.test_boolean_numeric_equality_matches_authoritative_semantics) ... ok
+test_boolean_operands_preserve_authoritative_eager_error (tests.test_expression_runtime_parity.ExpressionRuntimeParity.test_boolean_operands_preserve_authoritative_eager_error) ... ok
+test_dynamic_zero_division_is_error_in_both_engines (tests.test_expression_runtime_parity.ExpressionRuntimeParity.test_dynamic_zero_division_is_error_in_both_engines) ... ok
+test_generated_numeric_trees_match_typed_evaluation (tests.test_expression_runtime_parity.ExpressionRuntimeParity.test_generated_numeric_trees_match_typed_evaluation) ... ok
+test_mixed_arithmetic_rejects_before_emission (tests.test_expression_runtime_parity.ExpressionRuntimeParity.test_mixed_arithmetic_rejects_before_emission) ... ok
+test_numeric_enum_preserves_primitive_identity (tests.test_expression_runtime_parity.ExpressionRuntimeParity.test_numeric_enum_preserves_primitive_identity) ... ok
+test_dispose_removes_all_input_handlers (tests.test_input_routing_audit.InputRoutingAudit.test_dispose_removes_all_input_handlers) ... ok
+test_enter_runs_one_authored_action_on_shared_target (tests.test_input_routing_audit.InputRoutingAudit.test_enter_runs_one_authored_action_on_shared_target) ... FAIL
+test_pointer_release_and_following_click_are_one_gesture (tests.test_input_routing_audit.InputRoutingAudit.test_pointer_release_and_following_click_are_one_gesture) ... FAIL
+test_screen_reader_click_runs_one_action (tests.test_input_routing_audit.InputRoutingAudit.test_screen_reader_click_runs_one_action) ... FAIL
+test_secondary_action_has_its_own_accessible_control (tests.test_input_routing_audit.InputRoutingAudit.test_secondary_action_has_its_own_accessible_control) ... FAIL
+test_selected_challenge_and_objective_are_preserved (tests.test_input_routing_audit.InputRoutingAudit.test_selected_challenge_and_objective_are_preserved) ... FAIL
+test_ambiguous_level_requires_game_instead_of_first_match (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_ambiguous_level_requires_game_instead_of_first_match) ... ok
+test_dispatch_result_cannot_mutate_stored_telemetry (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_dispatch_result_cannot_mutate_stored_telemetry) ... ok
+test_disposed_controller_cannot_play_audio (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_disposed_controller_cannot_play_audio) ... ok
+test_disposing_one_controller_preserves_another_controllers_audio (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_disposing_one_controller_preserves_another_controllers_audio) ... ok
+test_mixed_ordering_rejected_before_javascript_coercion (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_mixed_ordering_rejected_before_javascript_coercion) ... ok
+test_non_boolean_boolean_operand_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_non_boolean_boolean_operand_rejected) ... ok
+test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) ... ok
+test_receipt_cannot_attest_different_artifact_bytes (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_receipt_cannot_attest_different_artifact_bytes) ... ok
+test_same_level_id_in_different_games_resolves_explicit_game (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_same_level_id_in_different_games_resolves_explicit_game) ... ok
+test_telemetry_readout_does_not_expose_mutable_internal_events (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_telemetry_readout_does_not_expose_mutable_internal_events) ... ok
+
+======================================================================
+FAIL: test_enter_runs_one_authored_action_on_shared_target (tests.test_input_routing_audit.InputRoutingAudit.test_enter_runs_one_authored_action_on_shared_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 36, in test_enter_runs_one_authored_action_on_shared_target
+    r=self.run_probe("entity().emit('keydown',{key:'Enter',preventDefault(){}});console.log(JSON.stringify({state:c.getState(),events:c.getTelemetry()}));")
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 33, in run_probe
+    return support.RuntimeAuditRegressions.run_runtime(self,custom_context=ctx,js_probe=DOM_HARNESS+body)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 40, in run_runtime
+    self.assertEqual(run.returncode,0,run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\js\react-runtime.js:139
+        node.dataset.stateValue = JSON.stringify(values);
+                                ^
+
+TypeError: Cannot set properties of undefined (setting 'stateValue')
+    at applySemanticState (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\js\react-runtime.js:139:33)
+    at dispatch (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\js\runtime-controller.js:159:48)
+    at invoke (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\js\runtime-controller.js:178:46)
+    at C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\js\runtime-controller.js:186:17
+    at Object.emit (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\probe.cjs:7:67)
+    at Object.<anonymous> (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-4p6q2xgb\probe.cjs:13:10)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+
+Node.js v22.16.0
+
+
+======================================================================
+FAIL: test_pointer_release_and_following_click_are_one_gesture (tests.test_input_routing_audit.InputRoutingAudit.test_pointer_release_and_following_click_are_one_gesture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 40, in test_pointer_release_and_following_click_are_one_gesture
+    r=self.run_probe("entity().emit('pointerup',{button:0,clientX:20,clientY:10});entity().emit('click',{detail:1});console.log(JSON.stringify({state:c.getState(),events:c.getTelemetry()}));")
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 33, in run_probe
+    return support.RuntimeAuditRegressions.run_runtime(self,custom_context=ctx,js_probe=DOM_HARNESS+body)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 40, in run_runtime
+    self.assertEqual(run.returncode,0,run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\js\react-runtime.js:139
+        node.dataset.stateValue = JSON.stringify(values);
+                                ^
+
+TypeError: Cannot set properties of undefined (setting 'stateValue')
+    at applySemanticState (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\js\react-runtime.js:139:33)
+    at dispatch (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\js\runtime-controller.js:159:48)
+    at invoke (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\js\runtime-controller.js:178:46)
+    at C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\js\runtime-controller.js:198:58
+    at Object.emit (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\probe.cjs:7:67)
+    at Object.<anonymous> (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-r2mi_z5l\probe.cjs:13:10)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+
+Node.js v22.16.0
+
+
+======================================================================
+FAIL: test_screen_reader_click_runs_one_action (tests.test_input_routing_audit.InputRoutingAudit.test_screen_reader_click_runs_one_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 44, in test_screen_reader_click_runs_one_action
+    r=self.run_probe("entity().emit('click',{detail:0});console.log(JSON.stringify({state:c.getState(),events:c.getTelemetry()}));")
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 33, in run_probe
+    return support.RuntimeAuditRegressions.run_runtime(self,custom_context=ctx,js_probe=DOM_HARNESS+body)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 40, in run_runtime
+    self.assertEqual(run.returncode,0,run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\js\react-runtime.js:139
+        node.dataset.stateValue = JSON.stringify(values);
+                                ^
+
+TypeError: Cannot set properties of undefined (setting 'stateValue')
+    at applySemanticState (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\js\react-runtime.js:139:33)
+    at dispatch (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\js\runtime-controller.js:159:48)
+    at invoke (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\js\runtime-controller.js:178:46)
+    at C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\js\runtime-controller.js:182:45
+    at Object.emit (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\probe.cjs:7:67)
+    at Object.<anonymous> (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-rvctmxcj\probe.cjs:13:10)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+
+Node.js v22.16.0
+
+
+======================================================================
+FAIL: test_secondary_action_has_its_own_accessible_control (tests.test_input_routing_audit.InputRoutingAudit.test_secondary_action_has_its_own_accessible_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 48, in test_secondary_action_has_its_own_accessible_control
+    r=self.run_probe("const button=tree.querySelector('[data-action-id=\"submit\"]');if(button)button.emit('click',{detail:0});console.log(JSON.stringify({found:!!button,label:button?.props['aria-label'],state:c.getState(),events:c.getTelemetry()}));")
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 33, in run_probe
+    return support.RuntimeAuditRegressions.run_runtime(self,custom_context=ctx,js_probe=DOM_HARNESS+body)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 40, in run_runtime
+    self.assertEqual(run.returncode,0,run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\js\react-runtime.js:139
+        node.dataset.stateValue = JSON.stringify(values);
+                                ^
+
+TypeError: Cannot set properties of undefined (setting 'stateValue')
+    at applySemanticState (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\js\react-runtime.js:139:33)
+    at dispatch (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\js\runtime-controller.js:159:48)
+    at invoke (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\js\runtime-controller.js:178:46)
+    at C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\js\runtime-controller.js:182:45
+    at Object.emit (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\probe.cjs:7:67)
+    at Object.<anonymous> (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-89jc7pj1\probe.cjs:13:79)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+
+Node.js v22.16.0
+
+
+======================================================================
+FAIL: test_selected_challenge_and_objective_are_preserved (tests.test_input_routing_audit.InputRoutingAudit.test_selected_challenge_and_objective_are_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 53, in test_selected_challenge_and_objective_are_preserved
+    r=self.run_probe("const chooser=tree.querySelector('[data-challenge-control=\"select\"]');if(chooser){chooser.value='challenge:second';entity().emit('click',{detail:0});}console.log(JSON.stringify({found:!!chooser,events:c.getTelemetry(),state:c.getState()}));",multiple=True)
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_input_routing_audit.py", line 33, in run_probe
+    return support.RuntimeAuditRegressions.run_runtime(self,custom_context=ctx,js_probe=DOM_HARNESS+body)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 40, in run_runtime
+    self.assertEqual(run.returncode,0,run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\js\react-runtime.js:139
+        node.dataset.stateValue = JSON.stringify(values);
+                                ^
+
+TypeError: Cannot set properties of undefined (setting 'stateValue')
+    at applySemanticState (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\js\react-runtime.js:139:33)
+    at dispatch (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\js\runtime-controller.js:159:48)
+    at invoke (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\js\runtime-controller.js:178:46)
+    at C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\js\runtime-controller.js:182:45
+    at Object.emit (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\probe.cjs:7:67)
+    at Object.<anonymous> (C:\Users\Dell\AppData\Local\Temp\bie-runtime-audit-loll087j\probe.cjs:13:125)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+
+Node.js v22.16.0
+
+
+----------------------------------------------------------------------
+Ran 46 tests in 129.981s
+
+FAILED (failures=5)

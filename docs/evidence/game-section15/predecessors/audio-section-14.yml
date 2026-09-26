@@ -1,0 +1,120 @@
+name: BIE Audio Section 14
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [integrate/audio-section-14-001, main]
+    paths:
+      - 'bie/audio/**'
+      - 'tests/audio/**'
+      - 'docs/audio/**'
+      - 'docs/evidence/audio-integration-001/**'
+      - 'scripts/audio_*.py'
+      - 'scripts/benchmark_audio_*.py'
+      - 'scripts/test_enterprise.py'
+      - 'requirements-audio-*.txt'
+      - '.github/workflows/audio-section-14.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bie/audio/**'
+      - 'tests/audio/**'
+      - 'docs/audio/**'
+      - 'docs/evidence/audio-integration-001/**'
+      - 'scripts/audio_*.py'
+      - 'scripts/benchmark_audio_*.py'
+      - 'scripts/test_enterprise.py'
+      - 'requirements-audio-*.txt'
+      - '.github/workflows/audio-section-14.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-audio-section-14-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      BIE_CANONICAL_AUDIO_INTEGRATION: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Install canonical hosted verification environment
+        run: |
+          set -euo pipefail
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Install AUDIO verification dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-audio-mix.txt -r requirements-audio-acoustic.txt
+          python -m pip check
+          sudo apt-get update
+          sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
+          /usr/bin/espeak --version 2>&1 | head -n 2
+          ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
+      - name: Verify all AUDIO modules import from canonical source
+        run: |
+          python - <<'PY'
+          import importlib, pathlib
+          mods=[]
+          for p in sorted(pathlib.Path('bie/audio').rglob('*.py')):
+              if p.name == '__init__.py':
+                  continue
+              mods.append('.'.join(p.with_suffix('').parts))
+          for name in mods:
+              importlib.import_module(name)
+          print(f'imported {len(mods)} bie.audio modules')
+          PY
+      - name: Verify Chromium launch environment
+        run: |
+          set -euo pipefail
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS
+          python - <<'PY'
+          from bie.compiler.layout_browser import ChromiumLayoutProbe
+          with ChromiumLayoutProbe('/usr/bin/chromium') as probe:
+              print(probe.browser.version)
+          PY
+      - name: Complete canonical regression including AUDIO
+        run: |
+          set -euo pipefail
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS
+          mkdir -p "$RUNNER_TEMP/audio14-evidence"
+          python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/audio14-evidence" 2>&1 | tee "$RUNNER_TEMP/audio14-evidence/run.log"
+      - name: Enforce AUDIO and canonical regression gates
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'audio14-evidence/integrated_tests.json'
+          data=json.loads(p.read_text());s=data['summary'];rows=data['results']
+          audio=[r for r in rows if r['path'].startswith('tests/audio/')]
+          counts=(len(audio),sum(r['tests'] for r in audio),sum(r['failures'] for r in audio),sum(r['errors'] for r in audio),sum(r['skipped'] for r in audio))
+          if counts != (82,1684,0,0,0):raise SystemExit('AUDIO_GATE_FAILED:'+str(counts))
+          if s.get('passed') is not True or any(s.get(k)!=0 for k in ('failed_files','failures','errors','skipped')):raise SystemExit('CANONICAL_GATE_FAILED:'+str(s))
+          if s.get('tests_run',0) < 8169:raise SystemExit('CANONICAL_COUNT_TOO_LOW:'+str(s))
+          print(json.dumps({'audio':counts,'canonical':s,'product_accepted':False},indent=2))
+          PY
+      - name: Preserve verification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: bie-audio-section-14-evidence
+          path: |
+            ${{ runner.temp }}/audio14-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: warn
+          retention-days: 14

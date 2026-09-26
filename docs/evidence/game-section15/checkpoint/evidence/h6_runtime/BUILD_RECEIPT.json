@@ -1,0 +1,205 @@
+{
+  "compile_receipt": {
+    "receipt_id": "compile:eeb7e68dbf952af3c3e59d5c",
+    "input_fingerprint": "sha256:9383072d04bd0979835790f0c500c03eedecee948cf602ae05398905db4282b8",
+    "bundle_fingerprint": "sha256:eeb7e68dbf952af3c3e59d5cca3ce0c888a9949dae464e5ab6956d219c344ccb",
+    "artifact_hashes": [
+      [
+        "runtime/adaptation.ts",
+        "1b276b84e1e05419c3a9431681d063b461c894b20e5dd936a5035c4194041b1d"
+      ],
+      [
+        "runtime/assets.json",
+        "a25277b763bb84360fa5ee61082911c3f0267da15438ab41ff3ca481b0c0879f"
+      ],
+      [
+        "runtime/bootstrap.ts",
+        "b427a41c9a172be54875bb6df35c0f8d147189327c140240d5fb4951988ee74c"
+      ],
+      [
+        "runtime/feedback.ts",
+        "6142bb982df3983482e9ecefbc74726f9eefb15ea452a7e136a83b24f0f9e3fe"
+      ],
+      [
+        "runtime/game-ir.json",
+        "8979a20f7234349fbbeefbc677f30f9cf62aef40bb66a88566dc2c485145fbfa"
+      ],
+      [
+        "runtime/index.html",
+        "19e5c9ee3a0fc7e9b6ab26a55cb4e3ec17e790d4c073c59d4d6493fd33342fd9"
+      ],
+      [
+        "runtime/interactions.ts",
+        "e7ef4c4e2827fb1dd20a34fb59fdc9afc6e896da7a5ecb65c42eff759c6569fc"
+      ],
+      [
+        "runtime/manifest.json",
+        "2808bdba16ccfa483d85b394bffd7fd0a925a4f2faa47543e79e05e0d3ffd113"
+      ],
+      [
+        "runtime/react-runtime.ts",
+        "9223fb89d2ee28e485c2fd8d88054fcbe925bb9a5976c49bbb616821a6f2a66e"
+      ],
+      [
+        "runtime/rules.ts",
+        "b3367587bd34530c2cbe1eadbf2eb7f3b42930569bbd9c5ebd632708e3f2a111"
+      ],
+      [
+        "runtime/runtime-controller.ts",
+        "8d73b301d5c89966f85e340641c0275081ee276e4d7fa3dd2502d17147caab3e"
+      ],
+      [
+        "runtime/scoring.ts",
+        "da4521289b6a3040ab76f714733cc730b5179ff0f1e415b15b1764163a47e4bc"
+      ],
+      [
+        "runtime/source-map.json",
+        "8aba9afd1c8cdb4c65f4e5e45084a524401c9f4cf3999186e3e002a568fbd21c"
+      ],
+      [
+        "runtime/state-machine.ts",
+        "0a7e65d928a093ac5c4c820e6b097c43d37d8fbd8d55b71a38ed47db719f020b"
+      ],
+      [
+        "runtime/telemetry.ts",
+        "0fae1a5ccd806f03a97ef43c9692bd6943ab3c9583d2b42f2a32dc3431a69e0e"
+      ]
+    ],
+    "compiler_profile": "studio-enterprise-v1",
+    "deterministic": true,
+    "security_verified": true,
+    "product_accepted": false
+  },
+  "module_graph": {
+    "nodes": [
+      "adaptation.js",
+      "bootstrap.js",
+      "entry.js",
+      "feedback.js",
+      "interactions.js",
+      "react-runtime.js",
+      "react-vendor.js",
+      "rules.js",
+      "runtime-controller.js",
+      "scoring.js",
+      "state-machine.js",
+      "telemetry.js"
+    ],
+    "edges": [
+      [
+        "bootstrap.js",
+        "adaptation.js"
+      ],
+      [
+        "bootstrap.js",
+        "feedback.js"
+      ],
+      [
+        "bootstrap.js",
+        "interactions.js"
+      ],
+      [
+        "bootstrap.js",
+        "react-runtime.js"
+      ],
+      [
+        "bootstrap.js",
+        "rules.js"
+      ],
+      [
+        "bootstrap.js",
+        "runtime-controller.js"
+      ],
+      [
+        "bootstrap.js",
+        "scoring.js"
+      ],
+      [
+        "bootstrap.js",
+        "state-machine.js"
+      ],
+      [
+        "bootstrap.js",
+        "telemetry.js"
+      ],
+      [
+        "entry.js",
+        "bootstrap.js"
+      ],
+      [
+        "entry.js",
+        "react-vendor.js"
+      ],
+      [
+        "runtime-controller.js",
+        "adaptation.js"
+      ],
+      [
+        "runtime-controller.js",
+        "feedback.js"
+      ],
+      [
+        "runtime-controller.js",
+        "interactions.js"
+      ],
+      [
+        "runtime-controller.js",
+        "react-runtime.js"
+      ],
+      [
+        "runtime-controller.js",
+        "rules.js"
+      ],
+      [
+        "runtime-controller.js",
+        "scoring.js"
+      ],
+      [
+        "runtime-controller.js",
+        "state-machine.js"
+      ],
+      [
+        "runtime-controller.js",
+        "telemetry.js"
+      ]
+    ],
+    "graph_fingerprint": "sha256:7803ee4aca6163fa522309f23571ca8a597da7535e8ccca70839ca5a1adb53b8",
+    "passed": true,
+    "product_accepted": false
+  },
+  "artifact_sha256": {
+    "adaptation.js": "9de20e338ce23ebc667cd636cdcfef48247518436f632db0f7f70a23d12f1ccd",
+    "assets.json": "a25277b763bb84360fa5ee61082911c3f0267da15438ab41ff3ca481b0c0879f",
+    "bootstrap.js": "4e6d7c9c76bbc0f9e7cf23478d5dcf64b24463d81183fdce77585fdd7a6877ad",
+    "entry.js": "a54052d61d8095c22423c4cd6d215354aa33f79ab34e628e3231fc2b00638a47",
+    "feedback.js": "afff01583996b4c3214074747c9d589cfc8cd802e7dd86361d9c36b70c0f2c92",
+    "game-ir.json": "8979a20f7234349fbbeefbc677f30f9cf62aef40bb66a88566dc2c485145fbfa",
+    "index.html": "eca9f10f2e453b45c1d83776460ad4489cfd379a84cf11bfab3df68555715500",
+    "interactions.js": "fe9bd29d76356a467ef24d5314cfc9f42147871a24ccb4d247bc1818594955d3",
+    "manifest.json": "2808bdba16ccfa483d85b394bffd7fd0a925a4f2faa47543e79e05e0d3ffd113",
+    "probe.wav": "d56777146b707f4e83d5beb7e4832d840f10e05a1a4554798e569d5f9fd573c9",
+    "react-dom-LICENSE.txt": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "react-LICENSE.txt": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "react-runtime.js": "b0a185457e165a1f2b5a560782f9d474dd0f5723e457e533ef660c3fd109a09e",
+    "react-vendor.js": "29435ca974d7cb3d114d86dfd3adaf5370361b466933fc8bd2f33f62cb8b2695",
+    "react-vendor.js.LEGAL.txt": "573cc95a6417c69a6ca44804f440f00965283c8cdcc50025305a7a50f53940ac",
+    "rules.js": "1848d1cc56f33f08407618ec224a28f681a90a9a40ef2d53b3ba1d1459c12557",
+    "runtime-controller.js": "db9e22c035dd217e65c89ef9d9576205cac6d74ed173434ec60aed209632345a",
+    "scheduler-LICENSE.txt": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "scoring.js": "1729f24656424101120808d749cf57f441b70a31f94c6e1fbeda7b48d730b022",
+    "security-headers.json": "daefa4f1b3149a38c7c74c8688c6eeb556b154e768d0296641b0340e1c9c3f97",
+    "source-map.json": "8aba9afd1c8cdb4c65f4e5e45084a524401c9f4cf3999186e3e002a568fbd21c",
+    "state-machine.js": "66e4af6fe544674159c2a827881c1a2735ef9b62c6ce69a53fdc51a03caa5211",
+    "telemetry.js": "f034ae72129d41051b6b3dcb618c9c09b9cb983c2487fa90397e8e21b2b7fd9e",
+    "vendor-manifest.json": "9f4282da65e21df0517bdbd6ff5aa15f58f0e41fab66c89f5c20ec393669fd6f"
+  },
+  "test_only_harness_sha256": {
+    "h6-probe-ui.html": "2d49c953d5f9c45ed99b5e72ef51ddc23e18057b938878c8f368c39158927f76",
+    "h6-probe-ui.js": "85f190805a3b6447022b7794ec6c21612096689d862af9da24ec589876c336bc"
+  },
+  "smoke_sha256": "6b92c250e4bc94703eba1a46ccd4d3de3a3073038d2f2b0d59e98cb99fdda045",
+  "typescript_exit_code": 0,
+  "fixture_kind": "source-contract fixture with actual locally generated WAV tone",
+  "linux_sandbox_verified": false,
+  "product_accepted": false
+}

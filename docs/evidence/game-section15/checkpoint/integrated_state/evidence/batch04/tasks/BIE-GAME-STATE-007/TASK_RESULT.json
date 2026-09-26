@@ -1,0 +1,41 @@
+{
+  "schema_version": "bie.game.batch04-atomic-result/1",
+  "task_id": "BIE-GAME-STATE-007",
+  "ordinal": 7,
+  "capability": "failure conditions",
+  "implementation": {
+    "module": "bie/game_engine/state_engine/conditions.py",
+    "handler": "evaluate_failure / evaluate_conditions",
+    "module_sha256": "f0ec1a3401c5d863bf493e4dcb6302bc365d91f5bd27689b636003d1b4d19101"
+  },
+  "spec": {
+    "path": "docs/state_engine/tasks/BIE-GAME-STATE-007/SPEC.md",
+    "sha256": "0b027a5dfb0d26130ebd1a13bf28b7f7890acf0597ccbd8d9e1840dc3f472f51"
+  },
+  "tests": {
+    "path": "tests/state_engine/test_state_007_failure_conditions.py",
+    "sha256": "6226fd19778c2b5e9b517f08125afa2f7d39e3109f743a071ac661a120fc0d1a",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "cumulative_checkpoint": {
+    "ordinal": 7,
+    "task_id": "BIE-GAME-STATE-007",
+    "cumulative_tests": 71,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "typed_state": true,
+    "input_immutable": true,
+    "replay_compatible": true,
+    "product_accepted": false
+  },
+  "status": "IMPLEMENTED_TESTED_NOT_ACCEPTED",
+  "product_accepted": false
+}

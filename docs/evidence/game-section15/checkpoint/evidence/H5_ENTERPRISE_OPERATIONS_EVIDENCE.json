@@ -1,0 +1,131 @@
+{
+  "artifact_count": 5,
+  "artifact_ids": [
+    "game.learning.state:1.0.0:b37adcb54f12aa875464187f",
+    "game.runtime.package:1.0.0:19648f4c3ddf27a44091b4d8",
+    "game.session.result:1.0.0:0931b20b69aac936dcddbd08",
+    "game.telemetry.events:1.0.0:bf13ccde5bd49a80f1e450ef",
+    "source.asset:1.0.0:3854631030854cf9a45db16c"
+  ],
+  "canonical_bindings": {
+    "bie/bie_core/artifact_contracts.py": "7d7bf7944ff2f3cb1121b38399652a968b89a0b5",
+    "bie/infrastructure/artifact_store.py": "5ab0fbf90e6981585fdd4dfbe6aa6ddc6ebfa2f4",
+    "bie/infrastructure/idempotency_store.py": "bbfa38c261e67d142ad96ee96baebdc211b21507"
+  },
+  "canonical_main": "375d99af0edd0086206817dae932156ddf61c569",
+  "first_result": {
+    "adaptation_actions": [
+      [
+        "obj:motion",
+        "remediate"
+      ]
+    ],
+    "build_artifact_id": "game.runtime.package:1.0.0:19648f4c3ddf27a44091b4d8",
+    "idempotent_replay": false,
+    "learning_artifact_id": "game.learning.state:1.0.0:b37adcb54f12aa875464187f",
+    "mastery": [
+      {
+        "attempts": 1,
+        "confidence": 0.252,
+        "estimate": 0.507,
+        "evidence_count": 1,
+        "last_event_id": "telemetry:ddf01521bba6659a291a89ae",
+        "learner_key_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "objective_id": "obj:motion",
+        "version": 1
+      }
+    ],
+    "product_accepted": false,
+    "result_artifact_id": "game.session.result:1.0.0:0931b20b69aac936dcddbd08",
+    "resumed_from_checkpoint": false,
+    "run_id": "00000000-0000-4000-8000-000000000075",
+    "session_id": "session:evidence",
+    "telemetry_artifact_id": "game.telemetry.events:1.0.0:bf13ccde5bd49a80f1e450ef"
+  },
+  "future_director_mastery_signals": [
+    {
+      "attempts": 1,
+      "confidence": 0.252,
+      "current_mastery": 0.507,
+      "objective_id": "obj:motion"
+    }
+  ],
+  "idempotent_replay": {
+    "adaptation_actions": [
+      [
+        "obj:motion",
+        "remediate"
+      ]
+    ],
+    "build_artifact_id": "game.runtime.package:1.0.0:19648f4c3ddf27a44091b4d8",
+    "idempotent_replay": true,
+    "learning_artifact_id": "game.learning.state:1.0.0:b37adcb54f12aa875464187f",
+    "mastery": [
+      {
+        "attempts": 1,
+        "confidence": 0.252,
+        "estimate": 0.507,
+        "evidence_count": 1,
+        "last_event_id": "telemetry:ddf01521bba6659a291a89ae",
+        "learner_key_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "objective_id": "obj:motion",
+        "version": 1
+      }
+    ],
+    "product_accepted": false,
+    "result_artifact_id": "game.session.result:1.0.0:0931b20b69aac936dcddbd08",
+    "resumed_from_checkpoint": false,
+    "run_id": "00000000-0000-4000-8000-000000000075",
+    "session_id": "session:evidence",
+    "telemetry_artifact_id": "game.telemetry.events:1.0.0:bf13ccde5bd49a80f1e450ef"
+  },
+  "jobs": [
+    {
+      "checkpoint": {
+        "build_artifact_id": "game.runtime.package:1.0.0:19648f4c3ddf27a44091b4d8",
+        "learning_artifact_id": "game.learning.state:1.0.0:b37adcb54f12aa875464187f",
+        "result_artifact_id": "game.session.result:1.0.0:0931b20b69aac936dcddbd08",
+        "source_artifact_id": "source.asset:1.0.0:3854631030854cf9a45db16c",
+        "telemetry_artifact_id": "game.telemetry.events:1.0.0:bf13ccde5bd49a80f1e450ef",
+        "telemetry_processed": true
+      },
+      "key": "idem:evidence",
+      "result_ref": "game.session.result:1.0.0:0931b20b69aac936dcddbd08",
+      "state": "COMPLETED"
+    }
+  ],
+  "mastery": [
+    {
+      "attempts": 1,
+      "confidence": 0.252,
+      "estimate": 0.507,
+      "evidence_count": 1,
+      "last_event_id": "telemetry:ddf01521bba6659a291a89ae",
+      "learner_key_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "objective_id": "obj:motion",
+      "version": 1
+    }
+  ],
+  "product_accepted": false,
+  "schema_version": "bie.game.hardening-h5-evidence/1",
+  "telemetry": [
+    {
+      "event_id": "telemetry:ddf01521bba6659a291a89ae",
+      "event_type": "mechanic_completed",
+      "payload": {
+        "adaptation_id": "adapt:sample",
+        "attempt_number": 1,
+        "challenge_id": "challenge:motion",
+        "event": "mechanic_completed",
+        "game_id": "game:motion",
+        "level_id": "level:1",
+        "mechanic_id": "drag_and_drop",
+        "objective_id": "obj:motion",
+        "outcome_code": "applied"
+      },
+      "policy_id": "policy:telemetry:v1",
+      "sequence_id": 1,
+      "session_id": "session:evidence"
+    }
+  ]
+}

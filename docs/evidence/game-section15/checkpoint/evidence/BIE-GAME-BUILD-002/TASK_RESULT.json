@@ -1,0 +1,33 @@
+{
+  "schema_version": "bie.game.build-task-result/1",
+  "section": 15,
+  "batch": 7,
+  "task_id": "BIE-GAME-BUILD-002",
+  "capability": "real Chromium browser smoke and studio-runtime boot",
+  "status": "PASS",
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 2,
+    "task_id": "BIE-GAME-BUILD-002",
+    "atomic_tests": 7,
+    "cumulative_build_task_tests": 17,
+    "passed": true
+  },
+  "receipt": {
+    "receipt_id": "build:c84ac8b4829046542b5d1e5a",
+    "task_id": "BIE-GAME-BUILD-002",
+    "input_fingerprint": "sha256:f8a807d43818701cafde4fdbcd3fabdef183ed24dd05b9c2f6074510fb1a0d97",
+    "output_fingerprint": "sha256:0c92d51754475a059ed2d97c08656cb6a22a6ec15e57ed0ecf93953ddac33d56",
+    "toolchain_fingerprint": "sha256:437994247409775502533478f95eb75bf3c188187eb56ef3258e6e857c251b54",
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "deterministic": true,
+    "product_accepted": false
+  },
+  "output_fingerprint": "sha256:0c92d51754475a059ed2d97c08656cb6a22a6ec15e57ed0ecf93953ddac33d56",
+  "product_accepted": false,
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}
