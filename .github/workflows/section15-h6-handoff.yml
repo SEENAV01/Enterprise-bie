@@ -1,0 +1,63 @@
+name: Section 15 H6 handoff evidence
+on:
+  push:
+    branches: [validation/game-section15-h6-handoff-20260926]
+    paths: [.github/workflows/section15-h6-handoff.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: section15-h6-handoff-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  pinned-snapshots:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      CANONICAL_SHA: 375d99af0edd0086206817dae932156ddf61c569
+      CANDIDATE_SHA: dd75dd9a3070383cb0a8cbfc4d24d1b04cb6aad6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: dd75dd9a3070383cb0a8cbfc4d24d1b04cb6aad6
+          persist-credentials: false
+      - name: Preserve exact inputs without executing repository code
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$CANDIDATE_SHA"
+          git fetch --no-tags --depth=1 origin "$CANONICAL_SHA"
+          test "$(git rev-parse "${CANONICAL_SHA}^{tree}")" = a66b542ba9edf94cb62ccbf120af46843acbb9bd
+          test "$(git rev-parse "${CANDIDATE_SHA}^{tree}")" = f7a23521b5fd00e99450b2b635929590fa1eb15f
+          mkdir -p "$RUNNER_TEMP/handoff-inputs"
+          git archive --format=tar.gz --prefix=canonical/ "$CANONICAL_SHA" > "$RUNNER_TEMP/handoff-inputs/canonical.tar.gz"
+          git archive --format=tar.gz --prefix=candidate/ "$CANDIDATE_SHA:.validation/game-section15" > "$RUNNER_TEMP/handoff-inputs/candidate.tar.gz"
+          git diff --name-status "$CANONICAL_SHA" "$CANDIDATE_SHA" > "$RUNNER_TEMP/handoff-inputs/VALIDATION_DELTA.txt"
+          git ls-tree -r "$CANONICAL_SHA" > "$RUNNER_TEMP/handoff-inputs/CANONICAL_GIT_TREE.txt"
+          git ls-tree -r "$CANDIDATE_SHA:.validation/game-section15" > "$RUNNER_TEMP/handoff-inputs/CANDIDATE_GIT_TREE.txt"
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])/'handoff-inputs'
+          report={
+            'schema_version':'bie.game.h6.handoff-inputs/1',
+            'canonical_commit':os.environ['CANONICAL_SHA'],
+            'candidate_commit':os.environ['CANDIDATE_SHA'],
+            'workflow_commit':os.environ['GITHUB_SHA'],
+            'workflow_run_id':os.environ['GITHUB_RUN_ID'],
+            'purpose':'Pinned inputs for canonical-consumer audit; not integration or acceptance.',
+            'repository_code_executed':False,
+            'canonical_source_modified':False,
+            'task_028_started':False,
+            'product_accepted':False,
+            'files':{p.name:{'size_bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(out.iterdir()) if p.is_file()},
+          }
+          (out/'SNAPSHOT.json').write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps(report,indent=2))
+          PY
+      - name: Preserve handoff inputs
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: section15-h6-pinned-handoff-inputs
+          path: ${{ runner.temp }}/handoff-inputs/
+          retention-days: 14
+          if-no-files-found: error
