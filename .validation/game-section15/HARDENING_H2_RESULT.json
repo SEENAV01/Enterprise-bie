@@ -1,0 +1,87 @@
+{
+  "schema_version": "bie.game.section15.hardening-h2/1",
+  "source_audit_zip_sha256": "2a8e12efdad199e195572bfa32a596c26c442d3d9b7309bf62e3cd5571a48f0e",
+  "source_h1_zip_sha256": "809cf32d6e31512fdcb08efa1e017544a08df629ee92f817947ac6f48ed9f481",
+  "batch_id": "GAME-HARDENING-H2-CANDIDATE-HANDOFF-INTEGRATION",
+  "closed_findings": [
+    {
+      "id": "GAME-AUD-004",
+      "status": "CLOSED_IN_H2",
+      "evidence": [
+        "bie/game_engine/qa_engine/candidate.py",
+        "bie/game_engine/qa_engine/pipeline.py",
+        "evidence/hardening_h2/CANDIDATE_RUNTIME_EVIDENCE.json"
+      ],
+      "note": "Production GAME-QA accepts CandidateGameEvidence and evaluates supplied signals/plans/document/compiler/runtime/state/benchmark/source evidence; pipeline and QA-009 no longer construct synthetic fixtures."
+    },
+    {
+      "id": "GAME-AUD-005",
+      "status": "CLOSED_IN_H2",
+      "evidence": [
+        "bie/game_engine/handoff_engine/materializer.py",
+        "evidence/hardening_h2/MATERIALIZATION_EVIDENCE.json"
+      ],
+      "note": "DirectorPlan plus explicit text/visual/provenance inputs deterministically materializes validated GameDocument and compiler policies; missing material fails closed and receipt binds plan/document."
+    },
+    {
+      "id": "GAME-AUD-006",
+      "status": "CLOSED_IN_H2",
+      "evidence": [
+        "bie/game_engine/handoff_engine/canonical_adapters.py",
+        "evidence/hardening_h2/CANONICAL_ADAPTER_EVIDENCE.json",
+        "evidence/hardening_h2/CANONICAL_DEPENDENCY_BINDING.json"
+      ],
+      "note": "Versioned structural adapters bind current canonical GameHandoff, reasoning Game decision and UnifiedPedagogyPlan shapes to StrategySignalBundle/MasterySignal/DirectorContext; unresolved/review/low-confidence/missing evidence fails closed."
+    }
+  ],
+  "remaining_implementation_gap_count": 18,
+  "remaining_critical": 1,
+  "remaining_high": 15,
+  "remaining_medium": 2,
+  "remaining_critical_ids": [
+    "GAME-AUD-008"
+  ],
+  "tests": {
+    "hardening_h2": 37,
+    "hardening_h1": 18,
+    "compiler_regression": 107,
+    "build_runtime_regression": 75,
+    "state_regression": 111,
+    "mechanics_regression": 196,
+    "strategy_director_regression": 211,
+    "game_qa_regression": 87,
+    "in_package_total": 842,
+    "external_batch01_dsl_regression": 76,
+    "total_verified": 918,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "source_diff": {
+    "h1_source_files": 176,
+    "h2_source_files": 181,
+    "changed_existing_files": [
+      "qa_engine/pipeline.py",
+      "qa_engine/qa_009.py"
+    ],
+    "new_source_files": [
+      "handoff_engine/__init__.py",
+      "handoff_engine/canonical_adapters.py",
+      "handoff_engine/contracts.py",
+      "handoff_engine/materializer.py",
+      "qa_engine/candidate.py"
+    ],
+    "removed_source_files": []
+  },
+  "architecture": {
+    "h2_source_files": 7,
+    "active_source_loc": 348,
+    "functions": 25,
+    "classes": 10,
+    "unsafe_dynamic_calls": []
+  },
+  "implementation_scope_complete": false,
+  "github_integration_started": false,
+  "product_accepted": false,
+  "next": "HARDENING_H3_REMAINING_AUDIT_GAPS"
+}

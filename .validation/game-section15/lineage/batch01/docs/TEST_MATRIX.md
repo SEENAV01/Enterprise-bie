@@ -1,0 +1,3 @@
+# Batch 01 Test Matrix
+
+Coverage includes: identifiers/semver/hashes; canonical JSON; provenance roles/hashes/duplicates; expression evaluation, unknown variables, depth and divide-by-zero; learning target grounding; typed state ranges/enums/duplicates; accessible interaction actions; rule/effect target integrity; semantic visual accessibility; motion/camera target and purpose validation; audio cue sources; feedback anti-answer-reveal; adaptation target/priority conflicts; studio-quality intent weakening; slide/reference-only rejection; dynamic-without-motion rejection; strict codec round-trip/unknown-field rejection; schema registry; legacy migration block; deterministic receipts; complete document validation and stable validation output.

@@ -1,0 +1,2 @@
+class GameOperationsError(RuntimeError):
+    pass

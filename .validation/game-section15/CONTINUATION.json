@@ -1,0 +1,24 @@
+{
+  "checkpoint": "H6_LEGACY_COMPATIBILITY_AND_REAL_REACT_LOCAL_RUNTIME_VERIFIED",
+  "section": 15,
+  "hardening_batch": "H6",
+  "canonical_commit": "375d99af0edd0086206817dae932156ddf61c569",
+  "baseline_archive_sha256": "ec55b5bba5183bc091db5b68ac890b1640c0689446d8e228ef4d195c206ff848",
+  "audit_022": "LOCAL_REPAIR_VERIFIED_CANONICAL_INTEGRATION_PENDING",
+  "audit_023": "SEALED_LEGACY_CODEC_AND_EXPLICIT_SUBSET_MIGRATION_IMPLEMENTED_CONSUMER_ACCEPTANCE_PENDING",
+  "audit_024": "PINNED_REAL_REACT_AND_WINDOWS_BROWSER_LIFECYCLE_VERIFIED_LINUX_REGRESSION_PENDING",
+  "audit_026": "BOUNDED_LEGACY_PROPERTIES_ADDED_FULL_SECTION_CAMPAIGN_PENDING",
+  "remaining_audit_ids": [
+    "GAME-AUD-009",
+    "GAME-AUD-023",
+    "GAME-AUD-024",
+    "GAME-AUD-026"
+  ],
+  "h6_complete": false,
+  "implementation_scope_complete": false,
+  "github_integrated": false,
+  "product_accepted": false,
+  "fresh_test_evidence": "evidence/h6_recovery/RESULT.json",
+  "browser_evidence": "evidence/h6_runtime/BINDINGS.json",
+  "next_action": "Run full Linux cumulative and canonical-consumer gates, expand remaining AUD-026 coverage and AUD-009 deployed-origin proof, re-audit H6, then perform documented canonical source adoption and exact GitHub commit/tree readback."
+}
