@@ -1,0 +1,68 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-008",
+  "capability": "real build/runtime quality evidence aggregation",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 8,
+    "task_id": "BIE-GAME-QA-008",
+    "cumulative_task_tests": 56,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "build:483255e2932a0243258b22be",
+      "build:4d5e10438d3543373e50c666",
+      "build:57df591a2460554bc7fa9dbd",
+      "build:c84ac8b4829046542b5d1e5a",
+      "build:ddf8ac02bd6c61225d9f4ddb"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:44504212c0ad1b2dd01ce664a87d9560da06023dd762b2c030da1b9de8aae2d1",
+    "metrics": [
+      {
+        "maximum": 5.0,
+        "minimum": 5.0,
+        "name": "runtime_evidence_components",
+        "unit": "count",
+        "value": 5.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "external_requests",
+        "unit": "count",
+        "value": 0.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "runtime_errors",
+        "unit": "count",
+        "value": 0.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:b911b6109257a933d186571a4e38579ec1d827bdc2001e617605bbc16aac6284",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-008"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:3b1b0ae0cbf372a0b104ad1c7065073d94a9b222340ad6281ce58fff3c78afa1",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:0bb2b99db40d8e593b5222e2",
+    "result_fingerprint": "sha256:b911b6109257a933d186571a4e38579ec1d827bdc2001e617605bbc16aac6284",
+    "task_id": "BIE-GAME-QA-008"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

@@ -1,0 +1,370 @@
+{
+  "batch01_zip_sha256": "2cc616bab6634e2a325c1141d607c3ee9235cb17a35310c16f806b35f7c8c814",
+  "batch02_zip_sha256": "c62f22beea92c0082c085de74deb3292753f95aa69fd1797b8831def78025259",
+  "batch01": {
+    "label": "BATCH01_DSL_CORE",
+    "source_files_checked": 22,
+    "mismatches": [],
+    "files": [
+      {
+        "path": "__init__.py",
+        "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "batch03_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "match": true
+      },
+      {
+        "path": "game_engine/__init__.py",
+        "baseline_sha256": "01217f6b6ac880365e261d336883cd6ac63ba4bdebbb89e6fa70bf8b9b1be160",
+        "batch03_sha256": "01217f6b6ac880365e261d336883cd6ac63ba4bdebbb89e6fa70bf8b9b1be160",
+        "match": true
+      },
+      {
+        "path": "game_engine/adaptation.py",
+        "baseline_sha256": "65671c744b2400866aa1650417a199a50617893bdd1a515522d217fdb6cb3de2",
+        "batch03_sha256": "65671c744b2400866aa1650417a199a50617893bdd1a515522d217fdb6cb3de2",
+        "match": true
+      },
+      {
+        "path": "game_engine/audio.py",
+        "baseline_sha256": "1a525807046499fca8f6bc402fe05fb2ae600cf36e925881b2e26a02ae5a7615",
+        "batch03_sha256": "1a525807046499fca8f6bc402fe05fb2ae600cf36e925881b2e26a02ae5a7615",
+        "match": true
+      },
+      {
+        "path": "game_engine/canonical.py",
+        "baseline_sha256": "d976742213d839c98cdf41745a2093a0066a43d7fbd3a4877e803aba7b467d62",
+        "batch03_sha256": "d976742213d839c98cdf41745a2093a0066a43d7fbd3a4877e803aba7b467d62",
+        "match": true
+      },
+      {
+        "path": "game_engine/codec.py",
+        "baseline_sha256": "0daccf425ec904705513bd9319c718ed762f122837d24b2995339eaf50b9708d",
+        "batch03_sha256": "0daccf425ec904705513bd9319c718ed762f122837d24b2995339eaf50b9708d",
+        "match": true
+      },
+      {
+        "path": "game_engine/compatibility.py",
+        "baseline_sha256": "3300fc7604cdc5621bbe4dd25eb4717ce01e99bb911ec86e48d7a74ac4573e70",
+        "batch03_sha256": "3300fc7604cdc5621bbe4dd25eb4717ce01e99bb911ec86e48d7a74ac4573e70",
+        "match": true
+      },
+      {
+        "path": "game_engine/document.py",
+        "baseline_sha256": "860349f49aaff8f5d4755b8ae35301b936196b586e890d7974bdf87c14c89eb4",
+        "batch03_sha256": "860349f49aaff8f5d4755b8ae35301b936196b586e890d7974bdf87c14c89eb4",
+        "match": true
+      },
+      {
+        "path": "game_engine/errors.py",
+        "baseline_sha256": "40750029590fa524080f708cdce463e7e597d920e4e88c214cc2b36f2c29ac11",
+        "batch03_sha256": "40750029590fa524080f708cdce463e7e597d920e4e88c214cc2b36f2c29ac11",
+        "match": true
+      },
+      {
+        "path": "game_engine/expressions.py",
+        "baseline_sha256": "cd2a06b633e4d0505a510ab6ec21547051f1fb190b19ad1a9132f2b91e5fe641",
+        "batch03_sha256": "cd2a06b633e4d0505a510ab6ec21547051f1fb190b19ad1a9132f2b91e5fe641",
+        "match": true
+      },
+      {
+        "path": "game_engine/feedback.py",
+        "baseline_sha256": "cea8c39394a15a602307fe57db7ae55a5bf5787ca93664bf9393b831ac4c49c8",
+        "batch03_sha256": "cea8c39394a15a602307fe57db7ae55a5bf5787ca93664bf9393b831ac4c49c8",
+        "match": true
+      },
+      {
+        "path": "game_engine/fixtures.py",
+        "baseline_sha256": "a9733edcf028b6799238dfa0c8625312a2047b926b26bccfe0a01bcac45c8e28",
+        "batch03_sha256": "a9733edcf028b6799238dfa0c8625312a2047b926b26bccfe0a01bcac45c8e28",
+        "match": true
+      },
+      {
+        "path": "game_engine/ids.py",
+        "baseline_sha256": "3b803926c2b66512f88dbe8ca9fe47f4e8b1c26ff53ed8eafce231d9c15954f2",
+        "batch03_sha256": "3b803926c2b66512f88dbe8ca9fe47f4e8b1c26ff53ed8eafce231d9c15954f2",
+        "match": true
+      },
+      {
+        "path": "game_engine/interaction.py",
+        "baseline_sha256": "3a770c8b548b6622ff8b2666f9abf5d3c8142e4816c1dc5d3149cbdd3c9f5cae",
+        "batch03_sha256": "3a770c8b548b6622ff8b2666f9abf5d3c8142e4816c1dc5d3149cbdd3c9f5cae",
+        "match": true
+      },
+      {
+        "path": "game_engine/learning.py",
+        "baseline_sha256": "d830f948f1404404a6a365721e88c8124693ff1167c594bc7f64642462361778",
+        "batch03_sha256": "d830f948f1404404a6a365721e88c8124693ff1167c594bc7f64642462361778",
+        "match": true
+      },
+      {
+        "path": "game_engine/provenance.py",
+        "baseline_sha256": "27d183bbbd67c71eee701b9cb81d37bb8d47ad71aeab500cf5b9eb5bcaa3f0e0",
+        "batch03_sha256": "27d183bbbd67c71eee701b9cb81d37bb8d47ad71aeab500cf5b9eb5bcaa3f0e0",
+        "match": true
+      },
+      {
+        "path": "game_engine/quality_intent.py",
+        "baseline_sha256": "e82b0c3c715547ce930f065aefe1c02369c0487b6336966ee93d9da5c1b8c094",
+        "batch03_sha256": "e82b0c3c715547ce930f065aefe1c02369c0487b6336966ee93d9da5c1b8c094",
+        "match": true
+      },
+      {
+        "path": "game_engine/receipts.py",
+        "baseline_sha256": "ebe42ecfdb0085a79d4de42d8a784a81b241d8d4c27bce9564e307c0d130dd2f",
+        "batch03_sha256": "ebe42ecfdb0085a79d4de42d8a784a81b241d8d4c27bce9564e307c0d130dd2f",
+        "match": true
+      },
+      {
+        "path": "game_engine/schema_registry.py",
+        "baseline_sha256": "597a0c2d88f900e749d909f167272ccd583dd55ee67630f82bccf72d1e145b91",
+        "batch03_sha256": "597a0c2d88f900e749d909f167272ccd583dd55ee67630f82bccf72d1e145b91",
+        "match": true
+      },
+      {
+        "path": "game_engine/state.py",
+        "baseline_sha256": "8740dfa17223e62547ea30047b56c2d47c130cfbf2d03e1ff6eec588371842a0",
+        "batch03_sha256": "8740dfa17223e62547ea30047b56c2d47c130cfbf2d03e1ff6eec588371842a0",
+        "match": true
+      },
+      {
+        "path": "game_engine/validation.py",
+        "baseline_sha256": "e2d7b0741743def0b07ce17ef0cd6a549c7021bc3a7d378cc5c92de90a83d2b1",
+        "batch03_sha256": "e2d7b0741743def0b07ce17ef0cd6a549c7021bc3a7d378cc5c92de90a83d2b1",
+        "match": true
+      },
+      {
+        "path": "game_engine/visual.py",
+        "baseline_sha256": "22f2d10243787fd7d19833db5409c6ac40e923e1887c57cf65f36d828dfa0c84",
+        "batch03_sha256": "22f2d10243787fd7d19833db5409c6ac40e923e1887c57cf65f36d828dfa0c84",
+        "match": true
+      }
+    ],
+    "passed": true
+  },
+  "batch02": {
+    "label": "BATCH02_STRATEGY_CUMULATIVE",
+    "source_files_checked": 36,
+    "mismatches": [],
+    "files": [
+      {
+        "path": "__init__.py",
+        "baseline_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "batch03_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "match": true
+      },
+      {
+        "path": "game_engine/__init__.py",
+        "baseline_sha256": "01217f6b6ac880365e261d336883cd6ac63ba4bdebbb89e6fa70bf8b9b1be160",
+        "batch03_sha256": "01217f6b6ac880365e261d336883cd6ac63ba4bdebbb89e6fa70bf8b9b1be160",
+        "match": true
+      },
+      {
+        "path": "game_engine/adaptation.py",
+        "baseline_sha256": "65671c744b2400866aa1650417a199a50617893bdd1a515522d217fdb6cb3de2",
+        "batch03_sha256": "65671c744b2400866aa1650417a199a50617893bdd1a515522d217fdb6cb3de2",
+        "match": true
+      },
+      {
+        "path": "game_engine/audio.py",
+        "baseline_sha256": "1a525807046499fca8f6bc402fe05fb2ae600cf36e925881b2e26a02ae5a7615",
+        "batch03_sha256": "1a525807046499fca8f6bc402fe05fb2ae600cf36e925881b2e26a02ae5a7615",
+        "match": true
+      },
+      {
+        "path": "game_engine/canonical.py",
+        "baseline_sha256": "d976742213d839c98cdf41745a2093a0066a43d7fbd3a4877e803aba7b467d62",
+        "batch03_sha256": "d976742213d839c98cdf41745a2093a0066a43d7fbd3a4877e803aba7b467d62",
+        "match": true
+      },
+      {
+        "path": "game_engine/codec.py",
+        "baseline_sha256": "0daccf425ec904705513bd9319c718ed762f122837d24b2995339eaf50b9708d",
+        "batch03_sha256": "0daccf425ec904705513bd9319c718ed762f122837d24b2995339eaf50b9708d",
+        "match": true
+      },
+      {
+        "path": "game_engine/compatibility.py",
+        "baseline_sha256": "3300fc7604cdc5621bbe4dd25eb4717ce01e99bb911ec86e48d7a74ac4573e70",
+        "batch03_sha256": "3300fc7604cdc5621bbe4dd25eb4717ce01e99bb911ec86e48d7a74ac4573e70",
+        "match": true
+      },
+      {
+        "path": "game_engine/document.py",
+        "baseline_sha256": "860349f49aaff8f5d4755b8ae35301b936196b586e890d7974bdf87c14c89eb4",
+        "batch03_sha256": "860349f49aaff8f5d4755b8ae35301b936196b586e890d7974bdf87c14c89eb4",
+        "match": true
+      },
+      {
+        "path": "game_engine/errors.py",
+        "baseline_sha256": "40750029590fa524080f708cdce463e7e597d920e4e88c214cc2b36f2c29ac11",
+        "batch03_sha256": "40750029590fa524080f708cdce463e7e597d920e4e88c214cc2b36f2c29ac11",
+        "match": true
+      },
+      {
+        "path": "game_engine/expressions.py",
+        "baseline_sha256": "cd2a06b633e4d0505a510ab6ec21547051f1fb190b19ad1a9132f2b91e5fe641",
+        "batch03_sha256": "cd2a06b633e4d0505a510ab6ec21547051f1fb190b19ad1a9132f2b91e5fe641",
+        "match": true
+      },
+      {
+        "path": "game_engine/feedback.py",
+        "baseline_sha256": "cea8c39394a15a602307fe57db7ae55a5bf5787ca93664bf9393b831ac4c49c8",
+        "batch03_sha256": "cea8c39394a15a602307fe57db7ae55a5bf5787ca93664bf9393b831ac4c49c8",
+        "match": true
+      },
+      {
+        "path": "game_engine/fixtures.py",
+        "baseline_sha256": "a9733edcf028b6799238dfa0c8625312a2047b926b26bccfe0a01bcac45c8e28",
+        "batch03_sha256": "a9733edcf028b6799238dfa0c8625312a2047b926b26bccfe0a01bcac45c8e28",
+        "match": true
+      },
+      {
+        "path": "game_engine/ids.py",
+        "baseline_sha256": "3b803926c2b66512f88dbe8ca9fe47f4e8b1c26ff53ed8eafce231d9c15954f2",
+        "batch03_sha256": "3b803926c2b66512f88dbe8ca9fe47f4e8b1c26ff53ed8eafce231d9c15954f2",
+        "match": true
+      },
+      {
+        "path": "game_engine/interaction.py",
+        "baseline_sha256": "3a770c8b548b6622ff8b2666f9abf5d3c8142e4816c1dc5d3149cbdd3c9f5cae",
+        "batch03_sha256": "3a770c8b548b6622ff8b2666f9abf5d3c8142e4816c1dc5d3149cbdd3c9f5cae",
+        "match": true
+      },
+      {
+        "path": "game_engine/learning.py",
+        "baseline_sha256": "d830f948f1404404a6a365721e88c8124693ff1167c594bc7f64642462361778",
+        "batch03_sha256": "d830f948f1404404a6a365721e88c8124693ff1167c594bc7f64642462361778",
+        "match": true
+      },
+      {
+        "path": "game_engine/provenance.py",
+        "baseline_sha256": "27d183bbbd67c71eee701b9cb81d37bb8d47ad71aeab500cf5b9eb5bcaa3f0e0",
+        "batch03_sha256": "27d183bbbd67c71eee701b9cb81d37bb8d47ad71aeab500cf5b9eb5bcaa3f0e0",
+        "match": true
+      },
+      {
+        "path": "game_engine/quality_intent.py",
+        "baseline_sha256": "e82b0c3c715547ce930f065aefe1c02369c0487b6336966ee93d9da5c1b8c094",
+        "batch03_sha256": "e82b0c3c715547ce930f065aefe1c02369c0487b6336966ee93d9da5c1b8c094",
+        "match": true
+      },
+      {
+        "path": "game_engine/receipts.py",
+        "baseline_sha256": "ebe42ecfdb0085a79d4de42d8a784a81b241d8d4c27bce9564e307c0d130dd2f",
+        "batch03_sha256": "ebe42ecfdb0085a79d4de42d8a784a81b241d8d4c27bce9564e307c0d130dd2f",
+        "match": true
+      },
+      {
+        "path": "game_engine/schema_registry.py",
+        "baseline_sha256": "597a0c2d88f900e749d909f167272ccd583dd55ee67630f82bccf72d1e145b91",
+        "batch03_sha256": "597a0c2d88f900e749d909f167272ccd583dd55ee67630f82bccf72d1e145b91",
+        "match": true
+      },
+      {
+        "path": "game_engine/state.py",
+        "baseline_sha256": "8740dfa17223e62547ea30047b56c2d47c130cfbf2d03e1ff6eec588371842a0",
+        "batch03_sha256": "8740dfa17223e62547ea30047b56c2d47c130cfbf2d03e1ff6eec588371842a0",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/__init__.py",
+        "baseline_sha256": "d6d513414f354b18786e1311eb46e7355be618e0510f5c860bbd4e41afce2578",
+        "batch03_sha256": "d6d513414f354b18786e1311eb46e7355be618e0510f5c860bbd4e41afce2578",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/causal_system.py",
+        "baseline_sha256": "0d83fd829f37a4bce104068fd1f315455d35b5055dafe5114420fde2ebf184f9",
+        "batch03_sha256": "0d83fd829f37a4bce104068fd1f315455d35b5055dafe5114420fde2ebf184f9",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/common.py",
+        "baseline_sha256": "5d4775c31b3b1e1b7d8b881c67676270ac0cb5b77732300af89b05aaa81f9859",
+        "batch03_sha256": "5d4775c31b3b1e1b7d8b881c67676270ac0cb5b77732300af89b05aaa81f9859",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/contracts.py",
+        "baseline_sha256": "f88edb0e64d2d15c873549d1d2ddd75211655dee02c90a2e84a9039b5d2aad78",
+        "batch03_sha256": "f88edb0e64d2d15c873549d1d2ddd75211655dee02c90a2e84a9039b5d2aad78",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/diagnostic.py",
+        "baseline_sha256": "2c3e69ac6dcea8c50280d7fab15392524c61a942bcbe2e271ace6131e9d09c8a",
+        "batch03_sha256": "2c3e69ac6dcea8c50280d7fab15392524c61a942bcbe2e271ace6131e9d09c8a",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/equation.py",
+        "baseline_sha256": "d187e4790886c28736e6240b626de12c5ef83b222e5aea49a3da0639f6e990b4",
+        "batch03_sha256": "d187e4790886c28736e6240b626de12c5ef83b222e5aea49a3da0639f6e990b4",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/fixtures.py",
+        "baseline_sha256": "10644ef781a570dd5d0190035151999947c9c50599559bbb1c39f96a69521fe2",
+        "batch03_sha256": "10644ef781a570dd5d0190035151999947c9c50599559bbb1c39f96a69521fe2",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/manipulation.py",
+        "baseline_sha256": "5f8bc498f58cfe4a7deccce88b416dda4e8acffa8650de796ec72837e31b0871",
+        "batch03_sha256": "5f8bc498f58cfe4a7deccce88b416dda4e8acffa8650de796ec72837e31b0871",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/map_strategy.py",
+        "baseline_sha256": "c754991afc2beaccfa2fe9dd8b581e9163097a615e173c9f2f53f2c232f863f9",
+        "batch03_sha256": "c754991afc2beaccfa2fe9dd8b581e9163097a615e173c9f2f53f2c232f863f9",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/prediction.py",
+        "baseline_sha256": "44b8022cfa4b072792cd83457d74455316e3533898a9178e06280ab0a6fe18d6",
+        "batch03_sha256": "44b8022cfa4b072792cd83457d74455316e3533898a9178e06280ab0a6fe18d6",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/retrieval.py",
+        "baseline_sha256": "d7d84fc0ec21fd819c03884ef32ef58312877ed28cf8d3e63dcb6e20504b8ea5",
+        "batch03_sha256": "d7d84fc0ec21fd819c03884ef32ef58312877ed28cf8d3e63dcb6e20504b8ea5",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/selector.py",
+        "baseline_sha256": "813a7fee3ffd08559896429900ef79c3f52a9028ed9d46354efa530e61daf0f0",
+        "batch03_sha256": "813a7fee3ffd08559896429900ef79c3f52a9028ed9d46354efa530e61daf0f0",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/simulation.py",
+        "baseline_sha256": "ac818991db4334cdc50e471ac58f023357bd92ca4b2114fe2524a8be1b566884",
+        "batch03_sha256": "ac818991db4334cdc50e471ac58f023357bd92ca4b2114fe2524a8be1b566884",
+        "match": true
+      },
+      {
+        "path": "game_engine/strategy_engine/timeline.py",
+        "baseline_sha256": "985499fb1fcfe86af7e81604db41aafd1a4dae66668c4700c2201f94473809b9",
+        "batch03_sha256": "985499fb1fcfe86af7e81604db41aafd1a4dae66668c4700c2201f94473809b9",
+        "match": true
+      },
+      {
+        "path": "game_engine/validation.py",
+        "baseline_sha256": "e2d7b0741743def0b07ce17ef0cd6a549c7021bc3a7d378cc5c92de90a83d2b1",
+        "batch03_sha256": "e2d7b0741743def0b07ce17ef0cd6a549c7021bc3a7d378cc5c92de90a83d2b1",
+        "match": true
+      },
+      {
+        "path": "game_engine/visual.py",
+        "baseline_sha256": "22f2d10243787fd7d19833db5409c6ac40e923e1887c57cf65f36d828dfa0c84",
+        "batch03_sha256": "22f2d10243787fd7d19833db5409c6ac40e923e1887c57cf65f36d828dfa0c84",
+        "match": true
+      }
+    ],
+    "passed": true
+  },
+  "product_accepted": false,
+  "passed": true
+}

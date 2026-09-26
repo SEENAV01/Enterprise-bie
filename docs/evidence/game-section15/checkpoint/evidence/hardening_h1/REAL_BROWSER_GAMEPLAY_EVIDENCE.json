@@ -1,0 +1,74 @@
+{
+  "schema_version": "bie.game.h1.runtime/2",
+  "browser_version": "144.0.7559.96",
+  "before_state": {
+    "x": 1,
+    "attempts": 0
+  },
+  "dispatch_result": {
+    "applied": true,
+    "action_id": "drag:mover",
+    "rule_id": "rule:move",
+    "mechanic_id": "drag_and_drop",
+    "state": {
+      "x": 2,
+      "attempts": 0
+    },
+    "score": 10,
+    "feedback": "Correct. The object reached the target because the state changed to x equals 2.",
+    "adaptations": [],
+    "telemetry": {
+      "event": "mechanic_completed",
+      "game_id": "game:motion",
+      "level_id": "level:1",
+      "challenge_id": "challenge:motion",
+      "attempt_number": 1,
+      "outcome_code": "applied",
+      "mechanic_id": "drag_and_drop"
+    }
+  },
+  "after_state": {
+    "x": 2,
+    "attempts": 0
+  },
+  "score": 10,
+  "feedback": "Correct. The object reached the target because the state changed to x equals 2.",
+  "telemetry": [
+    {
+      "event": "mechanic_completed",
+      "game_id": "game:motion",
+      "level_id": "level:1",
+      "challenge_id": "challenge:motion",
+      "attempt_number": 1,
+      "outcome_code": "applied",
+      "mechanic_id": "drag_and_drop"
+    }
+  ],
+  "geometry": [
+    {
+      "id": "entity:mover",
+      "kind": "object",
+      "width": 308.8118896484375,
+      "height": 105.09017944335938,
+      "text": "\u25cf A movable object",
+      "semanticSvg": 1,
+      "motion": "move"
+    },
+    {
+      "id": "entity:target",
+      "kind": "label",
+      "width": 1184,
+      "height": 19,
+      "text": "\u25c6 Target at x equals 2",
+      "semanticSvg": 0,
+      "motion": null
+    }
+  ],
+  "semantic_svg_count": 1,
+  "camera_kind": "focus",
+  "body_text": "Motion Lab\n\nBuild intuitive displacement understanding\n\n\u25cf A movable object\n\u25c6 Target at x equals 2\nCorrect. The object reached the target because the state changed to x equals 2.",
+  "console_errors": [],
+  "page_errors": [],
+  "screenshot_sha256": "0f971066822a351169a0c7d98b89d4d90982e5b4bc514f9f29f86f6f8869ccf5",
+  "product_accepted": false
+}

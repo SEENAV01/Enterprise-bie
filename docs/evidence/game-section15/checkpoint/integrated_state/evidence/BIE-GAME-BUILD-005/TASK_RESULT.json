@@ -1,0 +1,33 @@
+{
+  "schema_version": "bie.game.build-task-result/1",
+  "section": 15,
+  "batch": 7,
+  "task_id": "BIE-GAME-BUILD-005",
+  "capability": "runtime exception capture and sanitized failure evidence",
+  "status": "PASS",
+  "atomic_tests": 6,
+  "cumulative_checkpoint": {
+    "ordinal": 5,
+    "task_id": "BIE-GAME-BUILD-005",
+    "atomic_tests": 6,
+    "cumulative_build_task_tests": 35,
+    "passed": true
+  },
+  "receipt": {
+    "receipt_id": "build:4d5e10438d3543373e50c666",
+    "task_id": "BIE-GAME-BUILD-005",
+    "input_fingerprint": "sha256:f8a807d43818701cafde4fdbcd3fabdef183ed24dd05b9c2f6074510fb1a0d97",
+    "output_fingerprint": "sha256:5ece9f0f4adc9bb52dde2e859f78dd227e8fd82c4902afa078586c54d9bead93",
+    "toolchain_fingerprint": "sha256:437994247409775502533478f95eb75bf3c188187eb56ef3258e6e857c251b54",
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "deterministic": true,
+    "product_accepted": false
+  },
+  "output_fingerprint": "sha256:5ece9f0f4adc9bb52dde2e859f78dd227e8fd82c4902afa078586c54d9bead93",
+  "product_accepted": false,
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

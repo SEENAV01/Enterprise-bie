@@ -1,0 +1,59 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-006",
+  "capability": "feedback correctness and no premature answer reveal",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 6,
+  "cumulative_checkpoint": {
+    "ordinal": 6,
+    "task_id": "BIE-GAME-QA-006",
+    "cumulative_task_tests": 42,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:9925935235b1954bf461b28bb32fa879133e9d6eb3af62eaf2108fb22105fc48",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1,
+        "name": "feedback_compile_coverage",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "blocking_feedback_findings",
+        "unit": "count",
+        "value": 0.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:67c3e40ad6bafd0c757a0b4a40fcf7721438e52f72685ef067b6d4e2c64c9667",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-006"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:63e3f19c6b87218f1fd1c257005619ecec28bee859bd2f097e19c4b9660cdc10",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:e8a6ce8de99a50eab881433e",
+    "result_fingerprint": "sha256:67c3e40ad6bafd0c757a0b4a40fcf7721438e52f72685ef067b6d4e2c64c9667",
+    "task_id": "BIE-GAME-QA-006"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

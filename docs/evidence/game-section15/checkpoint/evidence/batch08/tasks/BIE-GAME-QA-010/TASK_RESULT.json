@@ -1,0 +1,73 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-010",
+  "capability": "legacy keyword/slide generator retirement and unsafe-dispatch scan",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 10,
+    "task_id": "BIE-GAME-QA-010",
+    "cumulative_task_tests": 70,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "source-scan"
+    ],
+    "findings": [
+      {
+        "blocking": false,
+        "code": "STATIC_IMPORT_HARDENING_OBSERVATION",
+        "evidence_refs": [],
+        "finding_id": "BIE-GAME-QA-010:finding:950",
+        "message": "browser_runtime.py",
+        "severity": "warning"
+      }
+    ],
+    "input_fingerprint": "sha256:62490acf08dd1110ef4d9bf701412fbe7c172fa75212abebd36f57cf02bfb829",
+    "metrics": [
+      {
+        "maximum": null,
+        "minimum": 1,
+        "name": "source_files_scanned",
+        "unit": "count",
+        "value": 172.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "blocking_legacy_findings",
+        "unit": "count",
+        "value": 0.0
+      },
+      {
+        "maximum": null,
+        "minimum": 0,
+        "name": "dynamic_import_observations",
+        "unit": "count",
+        "value": 1.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:ac678fa49e4fe96931f7b64c9cbc58893c11e002403d0fc1394b9ed338f3037c",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-010"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:8a3154776d9b858a00db096f06240552611e2c233301827a0c2a7f43fb125915",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:ec49cc7d53575ac7865ff8f7",
+    "result_fingerprint": "sha256:ac678fa49e4fe96931f7b64c9cbc58893c11e002403d0fc1394b9ed338f3037c",
+    "task_id": "BIE-GAME-QA-010"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

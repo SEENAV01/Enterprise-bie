@@ -1,0 +1,102 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-005",
+  "ordinal_in_batch": 5,
+  "capability": "Prediction strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/prediction.py",
+    "sha256": "44b8022cfa4b072792cd83457d74455316e3533898a9178e06280ab0a6fe18d6",
+    "metrics": {
+      "bytes": 2145,
+      "loc": 13,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_prediction_strategy.py",
+    "sha256": "141655a3e1ffa2d6f1f19ba438fa2161526cd970d1671ee6c29805544bbe3ab8",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-005/SPEC.md",
+    "sha256": "5ee406ab28e9b2bc9ee9733595167145867062d563572d4eb89b55dab303c204"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:94196f51f181f54ae4f958e710695afb28064321e8e6972be339f842ee87d2a4",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of explicit prediction objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "precommit_integrity",
+          "rationale": "Predictions are committed before observations",
+          "value": 1.0,
+          "weight": 3
+        },
+        {
+          "name": "comparison_quality",
+          "rationale": "Explicit comparison metric per prediction target",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "observable_outcome",
+          "rationale": "Outcomes are observable and independently identified",
+          "value": 1.0,
+          "weight": 2
+        }
+      ],
+      "confidence": 0.73,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:predict"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "semantic_motion",
+        "audio_feedback"
+      ],
+      "score": 100.0,
+      "strategy": "prediction",
+      "strengths": [
+        "commit_then_reveal",
+        "observable_outcomes",
+        "prediction_error_feedback"
+      ],
+      "studio_design_requirements": [
+        "capture_prediction_before_reveal",
+        "animate_observation_after_commit",
+        "compare_prediction_vs_outcome_visually",
+        "feedback_explains_model_not_just_correctness"
+      ]
+    },
+    "output_fingerprint": "sha256:7d744497fc4dadeb0a269cfa7c9322f9b8b5b60ac962391e887afbd9ea851dc0"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

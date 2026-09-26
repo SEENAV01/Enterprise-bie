@@ -1,0 +1,57 @@
+{
+  "closed_h5": [
+    "GAME-AUD-018",
+    "GAME-AUD-020",
+    "GAME-AUD-021"
+  ],
+  "closed_through_h4": 18,
+  "closures": [
+    {
+      "closure": "GAME build/session/learning outputs are canonical envelopes persisted in CAS; logical runs use canonical idempotency and a WAL durable checkpoint journal with crash/resume proof.",
+      "evidence": [
+        "canonical ArtifactEnvelope exact blob",
+        "canonical FileSystemCAS exact blob",
+        "canonical SQLiteIdempotencyStore exact blob",
+        "H5_ENTERPRISE_OPERATIONS_EVIDENCE.json",
+        "H5_CRASH_RESUME_EVIDENCE.json"
+      ],
+      "gap_id": "GAME-AUD-018",
+      "status": "CLOSED_H5"
+    },
+    {
+      "closure": "Live browser emits consent/config-governed allowlisted events with session sequence IDs; SQLite/WAL local sink re-sanitizes, persists and exports without raw text.",
+      "evidence": [
+        "H5_BROWSER_TELEMETRY_EVIDENCE.json",
+        "H5_ENTERPRISE_OPERATIONS_EVIDENCE.json"
+      ],
+      "gap_id": "GAME-AUD-020",
+      "status": "CLOSED_H5"
+    },
+    {
+      "closure": "Outcome evidence updates persistent learner/objective mastery, produces governed adaptation actions, survives replay/restart, and can be loaded as Director MasterySignal for subsequent planning.",
+      "evidence": [
+        "H5_ENTERPRISE_OPERATIONS_EVIDENCE.json"
+      ],
+      "gap_id": "GAME-AUD-021",
+      "status": "CLOSED_H5"
+    }
+  ],
+  "github_integration_started": false,
+  "implementation_scope_complete": false,
+  "original_gap_count": 26,
+  "partial_environment_blocked_ids": [
+    "GAME-AUD-009"
+  ],
+  "product_accepted": false,
+  "remaining_critical_ids": [],
+  "remaining_high_ids": [
+    "GAME-AUD-009",
+    "GAME-AUD-022",
+    "GAME-AUD-023",
+    "GAME-AUD-024"
+  ],
+  "remaining_implementation_gap_count": 5,
+  "remaining_medium_ids": [
+    "GAME-AUD-026"
+  ]
+}

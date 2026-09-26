@@ -1,0 +1,79 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-003",
+  "engineering_ordinal": 1,
+  "capability": "objective mapping",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/objective_mapping.py",
+    "sha256": "3a3c2be67699352141748389abdb04d705b7e942bde7e8c21519113d9bd8c7df"
+  },
+  "test": {
+    "path": "tests/test_director_objective_mapping.py",
+    "sha256": "fae7da4d84e333d44ad745b15201ddb3726df231c26bb54d654c1e10ba771505"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-003/SPEC.md",
+    "sha256": "ed8fb1074d4b96c310e184c6ff6e4dc8e839cd577efcfa9f753b8825cda405ff"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:a375d8f8a76fe77e250a89dab7d9da6a5bb327bf7ef5b404e6b0623e1fd1448e",
+    "output_summary": [
+      {
+        "concept_ids": [
+          "concept:obj:manip"
+        ],
+        "level_id": "level:01",
+        "objective_id": "obj:manip",
+        "provenance": {
+          "inherited_from": [],
+          "refs": [
+            {
+              "artifact_id": "source:book",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "page:10",
+              "role": "source"
+            },
+            {
+              "artifact_id": "reason:strategy",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "decision:1",
+              "role": "reasoning"
+            },
+            {
+              "artifact_id": "objective:strategy",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "lo:1",
+              "role": "objective"
+            },
+            {
+              "artifact_id": "misconception:strategy",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "mis:1",
+              "role": "misconception"
+            }
+          ]
+        },
+        "required_interaction": true
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 1,
+    "task_id": "BIE-GAME-DIR-003",
+    "capability": "objective mapping",
+    "cumulative_tests_run": 11,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:42ff9440b2d218c464804b94bee293aa6d7d9b1899ec15165d06efbc7a22ed55"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

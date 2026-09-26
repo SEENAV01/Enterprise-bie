@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "project": "MY BOOK INTELLIGENCE ENGINE",
+  "repository": "SEENAV01/Enterprise-bie",
+  "branch": "main",
+  "canonical_root": "bie",
+  "completed_this_batch": [],
+  "latest_implemented": "BIE-COMP-H12-001",
+  "prerequisite_scope": "Previously implemented; preserved, do not restart",
+  "math_scope": "Previously implemented/hardened substantially; preserved, do not restart",
+  "reasoning_scope": "IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
+  "pedagogy_scope": "IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
+  "director_scope": "IMPLEMENTATION-SCOPE COMPLETE \u2014 NOT ACCEPTED",
+  "current_subsystem": "POST-DIR CANONICAL SOURCE ADOPTION",
+  "section_status": "IMPLEMENTATION_RECORD_RETAINED_RUNTIME_ACCEPTANCE_PENDING",
+  "original_roadmap_checkpoint": "BIE-DIR-QA-007",
+  "hardening_checkpoint": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+  "next_task_ids": [
+    "BIE-AUDIO-VO-001"
+  ],
+  "next_task_note": "After post-DIR integration has actually passed and been read back, continue the existing AUDIO registry. Do not invent further compiler hardening absent a reproduced defect.",
+  "acceptance": {
+    "reasoning": "NOT_ACCEPTED",
+    "pedagogy": "NOT_ACCEPTED",
+    "director": "NOT_ACCEPTED",
+    "product": "NOT_ACCEPTED",
+    "required_evidence": [
+      "Real multi-domain textbook BI/KI/PR/MATH/RE/PED \u2192 DIR E2E",
+      "Live provider and independent expert-signed benchmark calibration",
+      "Representative learner and deployed grader evidence",
+      "Actual rendered lesson/video/audio and playable-game validation"
+    ],
+    "visual": "NOT_ACCEPTED",
+    "animation": "NOT_ACCEPTED",
+    "scene_ir": "NOT_ACCEPTED",
+    "compiler": "NOT_ACCEPTED"
+  },
+  "tests": {
+    "historical_DIR_base": {
+      "pre_director_enterprise": 2160,
+      "director": 683,
+      "director_integration_contracts": 5,
+      "enterprise_total_expected": 2848,
+      "enterprise": {
+        "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+        "python": "3.12.14",
+        "test_files": 624,
+        "tests_run": 2848,
+        "failed_files": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "duration_seconds": 249.598,
+        "passed": true
+      }
+    },
+    "post_dir": "Use current commit-bound integration run; no unexecuted full suite claimed."
+  },
+  "integration_manifest": "manifests/director_integration_003.json",
+  "preservation_totals": {
+    "archives": 990,
+    "original_member_occurrences": 13925,
+    "historical_baseline_archives": 796,
+    "historical_baseline_members": 12439,
+    "reasoning_archives": 77,
+    "reasoning_members": 483,
+    "pedagogy_archives": 58,
+    "pedagogy_members": 393,
+    "director_archives": 59,
+    "director_members": 610
+  },
+  "additional_ingested_archives": {
+    "count": 194,
+    "files": 1486,
+    "manifests": [
+      "manifests/reasoning_integration_001.json",
+      "manifests/pedagogy_integration_002.json",
+      "manifests/director_integration_003.json"
+    ]
+  },
+  "synchronization": {
+    "base_main_commit": "73840d86a78e5f31438e2a1bad34f3b2a8433eb9",
+    "required": "No-force staging commit, all integrity/regression gates, remote exact SHA/tree readback before canonical merge",
+    "status": "DETERMINED_BY_REMOTE_WORKFLOW_RECEIPT"
+  },
+  "post_dir_integration_manifest": "manifests/post_dir_integration_004.json",
+  "supplied_inputs_manifest": "manifests/post_dir_supplied_inputs.json",
+  "post_dir_source_sections": [
+    "VIS",
+    "ANI",
+    "DSL",
+    "COMP"
+  ],
+  "runtime_verified": false,
+  "product_accepted": false,
+  "previous_checkpoint": {
+    "latest_implemented": "BIE-DIR-HARD-BENCHMARK-CALIBRATION-001",
+    "current_subsystem": "DIR \u2014 Lesson / Script Director Intelligence",
+    "evidence": "docs/evidence/post-dir-integration/predecessors/task_registry/continuation.json"
+  }
+}

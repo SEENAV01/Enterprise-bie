@@ -1,0 +1,100 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-002",
+  "engineering_ordinal": 4,
+  "capability": "mechanic selection",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/mechanic_selection.py",
+    "sha256": "d27a38fd551eee385f4d4a5472148089c5891d5ce99dae10183b66e8bb84416f"
+  },
+  "test": {
+    "path": "tests/test_director_mechanic_selection.py",
+    "sha256": "d6e86ea0caaad2a8042dfcdbb91e14e09dbadcde2bf09ffcd999d75a55734dc2"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-002/SPEC.md",
+    "sha256": "2bd2581c2ce42fc5b90f1928eaf4ef64d98036adc1b6747902c67781dd762d72"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:9827ce37a6ef0743fefddc322cb840e245139de8e210c9959780c90eb1a990a4",
+    "output_summary": [
+      {
+        "accessibility_requirements": [
+          "keyboard_equivalent",
+          "screen_reader_label",
+          "non_color_only_feedback"
+        ],
+        "mechanic": "manipulate_parameter",
+        "motion_requirements": [
+          "state_change_must_be_visually_observable",
+          "motion_explains_cause_effect"
+        ],
+        "objective_id": "obj:manip",
+        "provenance": {
+          "inherited_from": [],
+          "refs": [
+            {
+              "artifact_id": "source:book",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "page:10",
+              "role": "source"
+            },
+            {
+              "artifact_id": "reason:strategy",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "decision:1",
+              "role": "reasoning"
+            },
+            {
+              "artifact_id": "objective:strategy",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "lo:1",
+              "role": "objective"
+            },
+            {
+              "artifact_id": "misconception:strategy",
+              "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "locator": "mis:1",
+              "role": "misconception"
+            }
+          ]
+        },
+        "rationale": "manipulation chosen from governed strategy assessment score=100.0000, confidence=0.7300.",
+        "required_runtime_capabilities": [
+          "semantic_visuals",
+          "stateful_interaction",
+          "semantic_motion",
+          "drag_drop",
+          "parameter_controls",
+          "accessibility_keyboard"
+        ],
+        "semantic_visual_requirements": [
+          "learner_controls_semantic_objects_not_ui_chrome",
+          "state_change_must_be_visually_observable",
+          "motion_explains_cause_effect",
+          "keyboard_equivalent_for_spatial_actions",
+          "no_drag_for_decoration_only"
+        ]
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 4,
+    "task_id": "BIE-GAME-DIR-002",
+    "capability": "mechanic selection",
+    "cumulative_tests_run": 27,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:c7b3ea98c8b3bb9780aba6c0fe84b7530db4c1b4a2f72519cbfe25a92e84988b"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

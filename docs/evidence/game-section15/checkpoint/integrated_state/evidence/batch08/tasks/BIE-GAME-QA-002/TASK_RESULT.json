@@ -1,0 +1,66 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-002",
+  "capability": "rule correctness and source↔compiled rule correspondence",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 2,
+    "task_id": "BIE-GAME-QA-002",
+    "cumulative_task_tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:9925935235b1954bf461b28bb32fa879133e9d6eb3af62eaf2108fb22105fc48",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1,
+        "name": "rule_compile_coverage",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "unsafe_dynamic_execution",
+        "unit": "ratio",
+        "value": 0.0
+      },
+      {
+        "maximum": 0,
+        "minimum": 0,
+        "name": "ungrounded_rules",
+        "unit": "count",
+        "value": 0.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:0cbaa6fa1c8dab5c5da7be1fcf4d58c977ba88e375dc4a6fffe2c45db0ea272b",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-002"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:0540fe07365eb099f05ca6ee2fc10b6dc51be047708349f0529acf386df61ffc",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:ad4baa5f0e451eb995fb15be",
+    "result_fingerprint": "sha256:0cbaa6fa1c8dab5c5da7be1fcf4d58c977ba88e375dc4a6fffe2c45db0ea272b",
+    "task_id": "BIE-GAME-QA-002"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

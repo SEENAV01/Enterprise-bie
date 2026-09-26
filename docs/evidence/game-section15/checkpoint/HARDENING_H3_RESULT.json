@@ -1,0 +1,137 @@
+{
+  "architecture": {
+    "active_source_loc": 543,
+    "classes": 15,
+    "functions": 52,
+    "h3_delta_source_files": 11,
+    "unsafe_dynamic_calls": []
+  },
+  "batch_id": "GAME-HARDENING-H3-SECURE-RUNTIME-SUBSTRATE",
+  "canonical_binding": {
+    "browser_worker_blob": "1e177160c85e5d53e148d6116a454bf7c230bf36",
+    "main": "375d99af0edd0086206817dae932156ddf61c569"
+  },
+  "closed_findings": [
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/sandbox.py",
+        "evidence/hardening_h3/SANDBOX_BROWSER_EVIDENCE.json",
+        "evidence/hardening_h3/CANONICAL_BROWSER_WORKER_BINDING.json"
+      ],
+      "id": "GAME-AUD-008",
+      "note": "Chromium now launches as unprivileged UID/GID with NoNewPrivs=1, renderer seccomp=2, no --no-sandbox flag, deny-by-default network routing, and is structurally bound to canonical browser_game_worker contract/blob.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/workspace.py",
+        "evidence/hardening_h3/ASSET_COLLISION_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-010",
+      "note": "Asset filenames include content-addressed SHA suffixes and duplicate materialized paths with conflicting hashes fail closed.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/workspace.py",
+        "bie/game_engine/build_runtime_engine/integrity.py",
+        "evidence/hardening_h3/MANIFEST_INTEGRITY_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-011",
+      "note": "RuntimePackageManifest v2 binds a canonical self-hash for build-manifest.json; verifier rejects manifest tamper and untracked package files.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/process.py",
+        "evidence/hardening_h3/PROCESS_ISOLATION_EVIDENCE.json"
+      ],
+      "id": "GAME-AUD-012",
+      "note": "Build subprocesses use a minimal deterministic environment, no-new-privileges, new session, and RLIMIT CPU/address-space/process/open-file/file-size confinement.",
+      "status": "CLOSED_IN_H3"
+    },
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/browser_runtime.py",
+        "evidence/hardening_h3/SECURITY_SCAN.json"
+      ],
+      "id": "GAME-AUD-025",
+      "note": "Inherited dynamic __import__(json) was removed while browser sandbox code was rewritten; direct json import is used and AST scan reports no unsafe dynamic calls in H3 delta.",
+      "status": "INCIDENTALLY_CLOSED_IN_H3"
+    }
+  ],
+  "github_integration_started": false,
+  "implementation_scope_complete": false,
+  "next": "HARDENING_H4_REMAINING_AUDIT_GAPS",
+  "partial_findings": [
+    {
+      "evidence": [
+        "bie/game_engine/build_runtime_engine/deployment.py",
+        "evidence/hardening_h3/DEPLOYMENT_ESM_EVIDENCE.json",
+        "evidence/hardening_h3/HOST_CHROMIUM_POLICY_BLOCKER.json"
+      ],
+      "id": "GAME-AUD-009",
+      "note": "Static deployment origin with production security headers is verified and exact built module graph boots through native Chromium type=module loader. Combined browser navigation to the loopback origin cannot be proven in this host because managed Chromium URLBlocklist=[\"*\"] returns ERR_BLOCKED_BY_ADMINISTRATOR; no false closure claimed.",
+      "status": "PARTIALLY_HARDENED_ENVIRONMENT_BLOCKED"
+    }
+  ],
+  "product_accepted": false,
+  "remaining_critical": 0,
+  "remaining_high": 12,
+  "remaining_ids": [
+    "GAME-AUD-009",
+    "GAME-AUD-013",
+    "GAME-AUD-014",
+    "GAME-AUD-015",
+    "GAME-AUD-016",
+    "GAME-AUD-017",
+    "GAME-AUD-018",
+    "GAME-AUD-020",
+    "GAME-AUD-021",
+    "GAME-AUD-022",
+    "GAME-AUD-023",
+    "GAME-AUD-024",
+    "GAME-AUD-026"
+  ],
+  "remaining_implementation_gap_count": 13,
+  "remaining_medium": 1,
+  "schema_version": "bie.game.section15.hardening-h3/1",
+  "source_diff": {
+    "changed_existing_files": [
+      "build_runtime_engine/browser_runtime.py",
+      "build_runtime_engine/contracts.py",
+      "build_runtime_engine/exception_capture.py",
+      "build_runtime_engine/integrity.py",
+      "build_runtime_engine/pipeline.py",
+      "build_runtime_engine/process.py",
+      "build_runtime_engine/toolchain.py",
+      "build_runtime_engine/workspace.py",
+      "qa_engine/qa_008.py"
+    ],
+    "h2_source_files": 181,
+    "h3_source_files": 183,
+    "new_source_files": [
+      "build_runtime_engine/deployment.py",
+      "build_runtime_engine/sandbox.py"
+    ],
+    "removed_source_files": []
+  },
+  "tests": {
+    "build_runtime_regression": 75,
+    "compiler_regression": 107,
+    "errors": 0,
+    "execution_note": "browser-heavy Build/Runtime modules executed in isolated unittest module blocks to avoid harness wall-clock aggregation; no coverage reduction",
+    "external_batch01_dsl_regression": 76,
+    "failures": 0,
+    "game_qa_regression": 87,
+    "hardening_h1": 18,
+    "hardening_h2": 37,
+    "hardening_h3": 30,
+    "in_package_total": 872,
+    "mechanics_regression": 196,
+    "skips": 0,
+    "state_regression": 111,
+    "strategy_director_regression": 211,
+    "total_verified": 948
+  }
+}

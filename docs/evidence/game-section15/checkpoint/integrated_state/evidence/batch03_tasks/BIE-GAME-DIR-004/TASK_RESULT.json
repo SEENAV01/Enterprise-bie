@@ -1,0 +1,41 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-004",
+  "engineering_ordinal": 3,
+  "capability": "misconception mapping",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/misconception_mapping.py",
+    "sha256": "da9d69fe5f83e65ecb45ceda4dfd076b0383f20a9247fa229f7cabf58ddd98d4"
+  },
+  "test": {
+    "path": "tests/test_director_misconception_mapping.py",
+    "sha256": "7f19e4b9f2fd62fe26e0be3bcd1eb0f9df4095adb57d7e9171932714ce77c8a6"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-004/SPEC.md",
+    "sha256": "acceea8280a748f2b0ebbe95f6995d39fadd4e772304aede1bbcf7f5757baaef"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "output_summary": []
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 3,
+    "task_id": "BIE-GAME-DIR-004",
+    "capability": "misconception mapping",
+    "cumulative_tests_run": 21,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:ba6c30e3a2b012914938ce55471d1c2c7ab0d86f69059cc7284d15f7decbf624"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

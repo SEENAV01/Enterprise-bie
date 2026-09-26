@@ -1,0 +1,409 @@
+{
+  "compile_receipt": {
+    "receipt_id": "compile:4b66078803744221106235d3",
+    "input_fingerprint": "sha256:eba6e1a298c042d1d6c161a3ba0ecc3a001c22a63856114004f851445d4c8dbe",
+    "bundle_fingerprint": "sha256:4b66078803744221106235d32f4b24b0ab0e7bbe59cc9c6e7703f610e6970cfc",
+    "artifact_hashes": [
+      [
+        "runtime/adaptation.ts",
+        "07b731574ef193490777ae1ffd0e14590cf3e465c2ba65420fa8b7cd269863b6"
+      ],
+      [
+        "runtime/assets.json",
+        "a25277b763bb84360fa5ee61082911c3f0267da15438ab41ff3ca481b0c0879f"
+      ],
+      [
+        "runtime/bootstrap.ts",
+        "b427a41c9a172be54875bb6df35c0f8d147189327c140240d5fb4951988ee74c"
+      ],
+      [
+        "runtime/feedback.ts",
+        "27968c35aed7025bb81d339e56e28ac1b087803e3bf4d5d349b3030a498a740c"
+      ],
+      [
+        "runtime/game-ir.json",
+        "45823cddaca5806da9fc93ce0743a18fbcc9e802fd21015869af1827717fead6"
+      ],
+      [
+        "runtime/index.html",
+        "19e5c9ee3a0fc7e9b6ab26a55cb4e3ec17e790d4c073c59d4d6493fd33342fd9"
+      ],
+      [
+        "runtime/interactions.ts",
+        "55ab4438bee957ec3451dad545b5e10690f2be9ef0fec46b10df61751ce6a713"
+      ],
+      [
+        "runtime/manifest.json",
+        "83e168049999fbfacf10e14edfaf09385c9c8e91ed3ae56eebf3592b89f9429c"
+      ],
+      [
+        "runtime/react-runtime.ts",
+        "1008a6d1603f13408135433eb6f6b9c97982c5e86dd3f1b5f086d6650c40b1e4"
+      ],
+      [
+        "runtime/rules.ts",
+        "a9b0f8cfe4af916f72e508ef20d3344fb010e282e97ae8cbea81d9dbee7a1e70"
+      ],
+      [
+        "runtime/runtime-controller.ts",
+        "5ec67f596a5ab646cacfef9b6a9988b22950455f62d964dbc70def71c169911b"
+      ],
+      [
+        "runtime/scoring.ts",
+        "da4521289b6a3040ab76f714733cc730b5179ff0f1e415b15b1764163a47e4bc"
+      ],
+      [
+        "runtime/source-map.json",
+        "6ece014533d6a5c26896632fcba3d89a83956fbb4316f15835dc4d5d0da81f25"
+      ],
+      [
+        "runtime/state-machine.ts",
+        "756c8b617f0f4af95909543c6bac1a2e0d8e3d1759ca4f98bfb58b6bb3d5ed3d"
+      ],
+      [
+        "runtime/telemetry.ts",
+        "0fae1a5ccd806f03a97ef43c9692bd6943ab3c9583d2b42f2a32dc3431a69e0e"
+      ]
+    ],
+    "compiler_profile": "studio-enterprise-v1",
+    "deterministic": true,
+    "security_verified": true,
+    "product_accepted": false
+  },
+  "module_graph": {
+    "nodes": [
+      "adaptation.js",
+      "bootstrap.js",
+      "entry.js",
+      "feedback.js",
+      "interactions.js",
+      "react-runtime.js",
+      "react-vendor.js",
+      "rules.js",
+      "runtime-controller.js",
+      "scoring.js",
+      "state-machine.js",
+      "telemetry.js"
+    ],
+    "edges": [
+      [
+        "bootstrap.js",
+        "adaptation.js"
+      ],
+      [
+        "bootstrap.js",
+        "feedback.js"
+      ],
+      [
+        "bootstrap.js",
+        "interactions.js"
+      ],
+      [
+        "bootstrap.js",
+        "react-runtime.js"
+      ],
+      [
+        "bootstrap.js",
+        "rules.js"
+      ],
+      [
+        "bootstrap.js",
+        "runtime-controller.js"
+      ],
+      [
+        "bootstrap.js",
+        "scoring.js"
+      ],
+      [
+        "bootstrap.js",
+        "state-machine.js"
+      ],
+      [
+        "bootstrap.js",
+        "telemetry.js"
+      ],
+      [
+        "entry.js",
+        "bootstrap.js"
+      ],
+      [
+        "entry.js",
+        "react-vendor.js"
+      ],
+      [
+        "runtime-controller.js",
+        "adaptation.js"
+      ],
+      [
+        "runtime-controller.js",
+        "feedback.js"
+      ],
+      [
+        "runtime-controller.js",
+        "interactions.js"
+      ],
+      [
+        "runtime-controller.js",
+        "react-runtime.js"
+      ],
+      [
+        "runtime-controller.js",
+        "rules.js"
+      ],
+      [
+        "runtime-controller.js",
+        "scoring.js"
+      ],
+      [
+        "runtime-controller.js",
+        "state-machine.js"
+      ],
+      [
+        "runtime-controller.js",
+        "telemetry.js"
+      ]
+    ],
+    "graph_fingerprint": "sha256:7803ee4aca6163fa522309f23571ca8a597da7535e8ccca70839ca5a1adb53b8",
+    "passed": true,
+    "product_accepted": false
+  },
+  "artifact_sha256": {
+    "adaptation.js": "d18d1b43ed6aecea14a1a237cb06ebe45cd570a7837bfca2cb5d5d899c66b2b3",
+    "assets.json": "a25277b763bb84360fa5ee61082911c3f0267da15438ab41ff3ca481b0c0879f",
+    "bootstrap.js": "4e6d7c9c76bbc0f9e7cf23478d5dcf64b24463d81183fdce77585fdd7a6877ad",
+    "entry.js": "a54052d61d8095c22423c4cd6d215354aa33f79ab34e628e3231fc2b00638a47",
+    "feedback.js": "f66c4712079fff1fecd915cba28a006cce7e2aa3b806bcd69fd992603fb054ab",
+    "game-ir.json": "45823cddaca5806da9fc93ce0743a18fbcc9e802fd21015869af1827717fead6",
+    "index.html": "eca9f10f2e453b45c1d83776460ad4489cfd379a84cf11bfab3df68555715500",
+    "interactions.js": "fd6a69fa31096ba3ccd94bfa22c5bbb35b5db709bb390c3412953271ab75f5f6",
+    "manifest.json": "83e168049999fbfacf10e14edfaf09385c9c8e91ed3ae56eebf3592b89f9429c",
+    "probe.wav": "d56777146b707f4e83d5beb7e4832d840f10e05a1a4554798e569d5f9fd573c9",
+    "react-dom-LICENSE.txt": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "react-LICENSE.txt": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "react-runtime.js": "7153cc51d939eca88bdb6388285c809f86d82d5f5a2e2d56edd566ad00947a89",
+    "react-vendor.js": "29435ca974d7cb3d114d86dfd3adaf5370361b466933fc8bd2f33f62cb8b2695",
+    "react-vendor.js.LEGAL.txt": "573cc95a6417c69a6ca44804f440f00965283c8cdcc50025305a7a50f53940ac",
+    "rules.js": "b9f7c18406f50aa83c4f6939dacb5ff9e59641a3c40063f644dbb2f4c39948bd",
+    "runtime-controller.js": "00deeee00dac8b57bd459aa13f041cefd52f601683754326c8fea47a361627f0",
+    "scheduler-LICENSE.txt": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+    "scoring.js": "1729f24656424101120808d749cf57f441b70a31f94c6e1fbeda7b48d730b022",
+    "security-headers.json": "daefa4f1b3149a38c7c74c8688c6eeb556b154e768d0296641b0340e1c9c3f97",
+    "source-map.json": "6ece014533d6a5c26896632fcba3d89a83956fbb4316f15835dc4d5d0da81f25",
+    "state-machine.js": "d71c2b6180db2e7c3a85ae3cf5aded2776e5d8b83bd472957d65c2387316a334",
+    "telemetry.js": "f034ae72129d41051b6b3dcb618c9c09b9cb983c2487fa90397e8e21b2b7fd9e",
+    "vendor-manifest.json": "9f4282da65e21df0517bdbd6ff5aa15f58f0e41fab66c89f5c20ec393669fd6f"
+  },
+  "test_only_harness_sha256": {
+    "h6-probe-ui.html": "2d49c953d5f9c45ed99b5e72ef51ddc23e18057b938878c8f368c39158927f76",
+    "h6-probe-ui.js": "85f190805a3b6447022b7794ec6c21612096689d862af9da24ec589876c336bc"
+  },
+  "smoke_sha256": "456c8e1cff506d7e4f2983a5ac217562ff7de13130e2b5de8495784856053525",
+  "typescript_exit_code": 0,
+  "fixture_kind": "source-contract fixture with actual locally generated WAV tone",
+  "linux_sandbox_verified": false,
+  "product_accepted": false,
+  "candidate_source_sha256": {
+    "bie/game_engine/__init__.py": "01217f6b6ac880365e261d336883cd6ac63ba4bdebbb89e6fa70bf8b9b1be160",
+    "bie/game_engine/adaptation.py": "65671c744b2400866aa1650417a199a50617893bdd1a515522d217fdb6cb3de2",
+    "bie/game_engine/audio.py": "1a525807046499fca8f6bc402fe05fb2ae600cf36e925881b2e26a02ae5a7615",
+    "bie/game_engine/build_runtime_engine/__init__.py": "988976b6e0216421211d57fdaf7965f1fb8f1d76edcae40836f6f5f1305c0a42",
+    "bie/game_engine/build_runtime_engine/action_script.py": "4bafc751a796389d2aafcbb4935145b43d7ac6d468d67d12eb5f072e13aaa081",
+    "bie/game_engine/build_runtime_engine/browser_runtime.py": "397f72b8eb6da6041d4995ea34ef2102da2f1b0b33673fe2efb916a32f37c188",
+    "bie/game_engine/build_runtime_engine/build_001.py": "d345b8dd7c3225d2835b56805188cf9979952ec082490a4e10b422393cbb83e5",
+    "bie/game_engine/build_runtime_engine/build_002.py": "242df480d1617cfe84b7bb312b1f347fe00493951a10f8a639af97a5e510ced0",
+    "bie/game_engine/build_runtime_engine/build_003.py": "fc7e7d882cec6209cfa6e41fb83a3dbc0e57a27d7941403bfff0855f804aacc9",
+    "bie/game_engine/build_runtime_engine/build_004.py": "24aaa0fe11edbe241995574349f90c5e881773f699c3f30d60ac1530388dab86",
+    "bie/game_engine/build_runtime_engine/build_005.py": "4f4073ff7c346a78409a6a6297351c6d3f60ced04c5ac88f031d8346c38088a7",
+    "bie/game_engine/build_runtime_engine/contracts.py": "f3e959c3cf484623f3333df3cb41e5cf82e73d9576500fd1ed22cd3123222587",
+    "bie/game_engine/build_runtime_engine/deployment.py": "0e3fae41e7c2d68b7435103d24d7460f3b50362e4b82a8b3d8b1ca16f43b8cae",
+    "bie/game_engine/build_runtime_engine/deterministic_replay.py": "725dca393bcaa939f579e2173a91c62c5571a05a442cb38aa72d878239ac0053",
+    "bie/game_engine/build_runtime_engine/entrypoint.py": "e61c6f35fdf9dcd8d8d243acf9c45e1be9c400b9bb8498bdf4c02e8dc3a6c318",
+    "bie/game_engine/build_runtime_engine/errors.py": "a040af4e2680f8c18c0665463b75f7c78a2f7f3a93ef9338da1b18c1222675c3",
+    "bie/game_engine/build_runtime_engine/exception_capture.py": "53031d22f29b7d2975bad7ee45814b117717dbc4ddf3ad0a85d3874339a9a97d",
+    "bie/game_engine/build_runtime_engine/fixtures.py": "bda8d1ab3d803baf8d570008abf467fec9ee4c83f9df969c225ee996134d5bd0",
+    "bie/game_engine/build_runtime_engine/integrity.py": "b0922e96877234ed97fc26288d416914cd80a2a1bb490a283b11959b17042ff9",
+    "bie/game_engine/build_runtime_engine/interaction_simulation.py": "6d4e76f4a295a8c98007b2c689708fe8c8de4c91b3bd9c8e439c491a4385da10",
+    "bie/game_engine/build_runtime_engine/linker.py": "23ee98eeba756841a16cfc0a24f93386382815d848e40e0c64325ef41841d1c1",
+    "bie/game_engine/build_runtime_engine/module_graph.py": "cbc1b1f4da6168d4b01fe26c15d0df43555ad5b54dea490665482c78e5a66142",
+    "bie/game_engine/build_runtime_engine/pipeline.py": "8b898479a3fc4eaddfb5a75f9b0b3c0d0fda6eda456951b877719999a14560f6",
+    "bie/game_engine/build_runtime_engine/process.py": "b8cb45bdc3f07fa47b878cc3ffac7886acced9a9721d51588807614c8a91e558",
+    "bie/game_engine/build_runtime_engine/receipts.py": "fdbe25ded82ad9877129ce13a283974203c7daf539d0a40dfc5db6dd9d06c087",
+    "bie/game_engine/build_runtime_engine/sandbox.py": "f3dacc83a175fbde7c68a5c9e9f27b207348b0aef157a6503f4e4bd875f421d4",
+    "bie/game_engine/build_runtime_engine/smoke_bundle.py": "8bff3ca3dbb5ab8cb15451461f79cc7085f35b193b3e017dc040f45a579f3e0c",
+    "bie/game_engine/build_runtime_engine/toolchain.py": "ab7ba021c5ca753b393df6764fe8c569dfe01c7f2887bed4581da170867c05e9",
+    "bie/game_engine/build_runtime_engine/workspace.py": "949e2c1d9dc110d2b4297183c59b537779bdd852ba6e2f2132c9b6071f8e968a",
+    "bie/game_engine/canonical.py": "d976742213d839c98cdf41745a2093a0066a43d7fbd3a4877e803aba7b467d62",
+    "bie/game_engine/codec.py": "30e01b556594aec8f77471fa7bb2820076aea1452b85e4b1c2d580b2d8de73d9",
+    "bie/game_engine/compatibility.py": "3300fc7604cdc5621bbe4dd25eb4717ce01e99bb911ec86e48d7a74ac4573e70",
+    "bie/game_engine/compiler_engine/__init__.py": "d64129fa34404648355060e857d300755e2f07cc324b729b9f62e689f83274de",
+    "bie/game_engine/compiler_engine/adaptation_compiler.py": "8f9bc1c17e01f1c52bdc43deb3b5b360a907ff8c6afd52f8b48a736c505953b6",
+    "bie/game_engine/compiler_engine/asset_manifest.py": "447574f61f8a02059cd83e8aadd9976dc6d484f552ef96f53cd0a81f599f2362",
+    "bie/game_engine/compiler_engine/bootstrap.py": "053ff7af608ed5302a3f9593a2ffd247b3d06d0d62cca68fab997ecb9367ec77",
+    "bie/game_engine/compiler_engine/comp_001.py": "76d4b4259c35cfbe50499cd8d2bd2a0b7811f5d34c18af8c64ed0698dc441e0c",
+    "bie/game_engine/compiler_engine/comp_002.py": "7b7fed4ef3101c07baad8bc110245fb99fddf1548a4b12dd2e02ecefc081840e",
+    "bie/game_engine/compiler_engine/comp_003.py": "55a633aac1220677b90a93d5608a6f3b42b3d4dfeb9a581521483f2039f25c1a",
+    "bie/game_engine/compiler_engine/comp_004.py": "6b18dddfbdeb09b3329e8f1833d4fa87c14e405f1665bf7ff83c60a609494216",
+    "bie/game_engine/compiler_engine/comp_005.py": "16c117f4c4d84e59a2d88c938ef4954f352a4f5b72f214901e6160d272e4b814",
+    "bie/game_engine/compiler_engine/comp_006.py": "c153b12a47e3fc7600f1341bf06dcd64a7a876adacea34635683a2f57e00fc04",
+    "bie/game_engine/compiler_engine/comp_007.py": "6be8cae3cc789d235bb97a9fdd4d0c88552e6e53bdef077465719acd9b2caa24",
+    "bie/game_engine/compiler_engine/comp_008.py": "4923d7772e4177f29a3bf732c3c2a43e3595f0f36a5e5bd5871fa28c2618be0c",
+    "bie/game_engine/compiler_engine/comp_009.py": "3f0c3cef2de395513535359aeab2d3e8568db2ebcab96227148ae536d3636bca",
+    "bie/game_engine/compiler_engine/comp_010.py": "db38ac12b45b194941904118428141577d58ff44a3a31c750b5ae0cb4f283269",
+    "bie/game_engine/compiler_engine/contracts.py": "44f911109e2439d0cb358061d1ef9764d39b414eca412829db8d42db3325960d",
+    "bie/game_engine/compiler_engine/errors.py": "56d949476bc526d3787dfdb3b500423f389cee362e4e0a278e86d23447691018",
+    "bie/game_engine/compiler_engine/expression_codegen.py": "53750c702199c70049515f943a8e4c1145cf78634327b12e7bf3bf4f3a1e553e",
+    "bie/game_engine/compiler_engine/feedback_compiler.py": "f679be6a9bf53b3f5ed0342a91b978893ca76ded2c2521a83592c798412a375f",
+    "bie/game_engine/compiler_engine/fixtures.py": "a8b797304701cdf3f7f019745d9387d5d0b5f699770e41450fe539899e216ff4",
+    "bie/game_engine/compiler_engine/game_ir.py": "715e871a6a48b32cdd9c7610738ceb26da4f6e6cf31fe30d01f4138ef9834658",
+    "bie/game_engine/compiler_engine/html_runtime.py": "963b70e504601eaa3157cc74a6a6272ffeca31d1c2e133ff94586803b84f2a2b",
+    "bie/game_engine/compiler_engine/identifiers.py": "87dfaf8dfa02dffa3d0ab2f3066ff06024e03735345c656ea4753e86dcdea26b",
+    "bie/game_engine/compiler_engine/interaction_compiler.py": "9ec4ed827bb9066d44c948ad3f38953ffbe2041a2a126716639496acdf4d30f2",
+    "bie/game_engine/compiler_engine/manifest.py": "a0e3a120dfaacb42902585b2d4f578198802211e4f44b3edf2235aac34863e05",
+    "bie/game_engine/compiler_engine/pipeline.py": "b55480109c3ad70702b53efa5f019c4a1ca1064e2eb26b1010f8947fe6d73aa1",
+    "bie/game_engine/compiler_engine/provenance_adapter.py": "efa6201cc0f8014086b25e7118bd58a5c21acfc76b660dfd47e595f4a097e4f1",
+    "bie/game_engine/compiler_engine/react_runtime.py": "998236c80e344a03fa13cb029781d528ccffbb33d7545e4e8f2fc4816ff2721a",
+    "bie/game_engine/compiler_engine/receipts.py": "c0b854a7eef239ff4d08b1392ffca7d1cd6fb5dd2eb763670236baff6a5cd222",
+    "bie/game_engine/compiler_engine/rule_compiler.py": "96b4b8d3d5e2fd2865ed9a8b090cf7bb17dbb64ee16fbe71156411b688e79a30",
+    "bie/game_engine/compiler_engine/runtime_controller.py": "1397364e3a81d655a3bee9c73fc6ad7766d0b6c0d56814b4131438009adb3e1f",
+    "bie/game_engine/compiler_engine/scoring_compiler.py": "864dd6b4c31cfbeca2f59c7d1c6c9c6526be4f524b1fd8899033cd401c023ae1",
+    "bie/game_engine/compiler_engine/security.py": "be47269e9ab9d7b256cc64438294c93ffc5f4a3b62268fdcbf8bf1420a2bb984",
+    "bie/game_engine/compiler_engine/source_map.py": "9d44b499ce9c5f672c1566d80d91d706e529e98cfe574f6a1347897312224f2c",
+    "bie/game_engine/compiler_engine/state_machine.py": "dc41c1dfea97f70593d7f11b378b2cfa746be19a467fa11a3adcdaa3ece1de17",
+    "bie/game_engine/compiler_engine/telemetry_compiler.py": "b62124a788bfd8e6930fbc231f9a8003df09cca3a9b95b7013d1145d1ad8b658",
+    "bie/game_engine/contracts.py": "c3d6dabba6a1b4ff172d8ce7ada10d21d8911206cf45b11e4a3e4ff2e57e5b05",
+    "bie/game_engine/director_engine/__init__.py": "d4f3e78ecc58fa45d4927b99a087de6c2b0cd475f42fc4ce45aa7080aae20c4c",
+    "bie/game_engine/director_engine/adaptation.py": "bad608a3e9c0923426fe300d7ff51d3d5ae005db9ff4a18acb7462223bf4bc95",
+    "bie/game_engine/director_engine/common.py": "c14498582dd3a629e7985fd72551fc7898d9224a51213cd1866e838138322546",
+    "bie/game_engine/director_engine/contracts.py": "c129a49dce878d00f522a08d8efe01e0b7d227fcae2f671cc3860d89e1bb2347",
+    "bie/game_engine/director_engine/difficulty.py": "149d0523e8aa454c832a8a4c37ef6862ad8acd6c49efb77eb920ff034f5cebc1",
+    "bie/game_engine/director_engine/feedback_design.py": "2ab3a3a66aa5a9756bd9b4b5d41c547ad1761a3120b69df009bf21f2e1187941",
+    "bie/game_engine/director_engine/fixtures.py": "3e05b53699f3cdd05e66dc473de6a704668c723b4e7fbdbe604d0cb2430edee6",
+    "bie/game_engine/director_engine/graph.py": "38818010361f16a9b3f6c69443a25612d1f22068f4604d5b47778b0b675f02ae",
+    "bie/game_engine/director_engine/hint_strategy.py": "b5ce51cd263f449a1c6836d0e157e96c08dbcfa4f47074683c5724e06bf7e00a",
+    "bie/game_engine/director_engine/level_sequencing.py": "e14c26d50d276fa82a5939dddfa5057b8c3f3904c73d505caea96df4ed64cbeb",
+    "bie/game_engine/director_engine/mastery_mapping.py": "485967405bda61702b37af69db4017d52bfedc780ff32580e5510b810bf62c0f",
+    "bie/game_engine/director_engine/mechanic_selection.py": "d27a38fd551eee385f4d4a5472148089c5891d5ce99dae10183b66e8bb84416f",
+    "bie/game_engine/director_engine/misconception_mapping.py": "da9d69fe5f83e65ecb45ceda4dfd076b0383f20a9247fa229f7cabf58ddd98d4",
+    "bie/game_engine/director_engine/objective_mapping.py": "3a3c2be67699352141748389abdb04d705b7e942bde7e8c21519113d9bd8c7df",
+    "bie/game_engine/director_engine/pipeline.py": "0f312f1da71ae85b9518001157c31075d596faaf385a542e006a7a007e608c1e",
+    "bie/game_engine/director_engine/planner.py": "003289254951a6cd39f9c5f7702d13e5c9f10f453bd34bf75f98460a2e6c3bc8",
+    "bie/game_engine/director_engine/receipts.py": "18d1b26bda607a5ebacb56efea12ba4654b50b1812402d097bc179c58fb1af27",
+    "bie/game_engine/director_engine/scoring.py": "b9a266056c8931e6f47e0fba497e0fa1f089e90bb88ff2684f3181dff86c4d51",
+    "bie/game_engine/director_engine/studio_policy.py": "8c2f7003a908ea32c05bc70911e6e42f4441ce90b5bbcc383328d20bb094174a",
+    "bie/game_engine/document.py": "860349f49aaff8f5d4755b8ae35301b936196b586e890d7974bdf87c14c89eb4",
+    "bie/game_engine/errors.py": "40750029590fa524080f708cdce463e7e597d920e4e88c214cc2b36f2c29ac11",
+    "bie/game_engine/expressions.py": "824ef1377dd80ae9c9d4b098633c309bbad5bec5610322c9bb7aa7b030c6ccbd",
+    "bie/game_engine/feedback.py": "cea8c39394a15a602307fe57db7ae55a5bf5787ca93664bf9393b831ac4c49c8",
+    "bie/game_engine/fixtures.py": "a9733edcf028b6799238dfa0c8625312a2047b926b26bccfe0a01bcac45c8e28",
+    "bie/game_engine/handoff_engine/__init__.py": "e1dd244adf59d467e08fce0fd10062f8ce56c553db3251bb4edcc56869946e6b",
+    "bie/game_engine/handoff_engine/canonical_adapters.py": "90d17e9f1a8a1ea4bdf1a20c5b3c0fc768216bedf8495c06949aaa0b891c7662",
+    "bie/game_engine/handoff_engine/contracts.py": "35104cf0d3cbd0fe630d25dac342e93d7e9d7547e36176ae703ce0f0ed9d6c20",
+    "bie/game_engine/handoff_engine/materializer.py": "c5c9a8ae1b4a1784db771a3e0695ddfff3871fd26a7cca64d8102ad7470c3dd5",
+    "bie/game_engine/ids.py": "3b803926c2b66512f88dbe8ca9fe47f4e8b1c26ff53ed8eafce231d9c15954f2",
+    "bie/game_engine/interaction.py": "3a770c8b548b6622ff8b2666f9abf5d3c8142e4816c1dc5d3149cbdd3c9f5cae",
+    "bie/game_engine/learning.py": "d830f948f1404404a6a365721e88c8124693ff1167c594bc7f64642462361778",
+    "bie/game_engine/legacy_codec.py": "aea3d3be1b8c1de4978cae1c2317ea5ef17d14a9f1a118b4955792a089c022fd",
+    "bie/game_engine/legacy_migration.py": "1d59a1c1031a12b8e95dd86e8e401044b56faa96d075347464cb9ce77027fa49",
+    "bie/game_engine/mechanics_engine/__init__.py": "44998bb08de0fb34030c4dc3780ce141aac9c4290a0fff061bd84b8512b99a63",
+    "bie/game_engine/mechanics_engine/branching_scenario.py": "07f49f54a10187722cdd77ba3ec44639c8d0359e7701e18a77bd29520720008e",
+    "bie/game_engine/mechanics_engine/classify_sort.py": "9b9cae12932f15e5818b831868b1d3dd471b7f24360935890d80ae7f6ef49f7f",
+    "bie/game_engine/mechanics_engine/common.py": "d4f3437ad40b5d9d8cb0dba6f28aa567a49f3b4ce4f18a5101360427303f2df4",
+    "bie/game_engine/mechanics_engine/construct_model.py": "2b6fe6102958801366981e25c2834d1625c8bfebbb85ae71340f76b350590c96",
+    "bie/game_engine/mechanics_engine/contracts.py": "e78a53cc7f77aca5f6eb8db5e538ab6f04ac02a5c201de9bbcdac65bddce97f6",
+    "bie/game_engine/mechanics_engine/diagnose_error.py": "e4f2735bd9103b1b09f0d4d468ab207d1a60d2edc9ba49836a50948878819336",
+    "bie/game_engine/mechanics_engine/drag_drop.py": "fac922269f8dc2960352771b89954727c654356f6a2d0f1231ea16363bbe5a56",
+    "bie/game_engine/mechanics_engine/equation_balance.py": "fe249cdbdce215a73c8e8bd28321e27bd9f8a133d61280609926bb13fe391c1d",
+    "bie/game_engine/mechanics_engine/errors.py": "89a5e27ef2393a401dedc91d7521b3f17c3927e74518ef88495816f7e2967fd0",
+    "bie/game_engine/mechanics_engine/graph_exploration.py": "fc796599f0d16e4a1de3d6f7df721c6cf3a5895c3e481f096844600f810d2ad1",
+    "bie/game_engine/mechanics_engine/input_contracts.py": "ada97a4638a72d36991d6768eea1fc2882b2873115f64f3726dc9fea4f4c1ac9",
+    "bie/game_engine/mechanics_engine/map_interaction.py": "23cebe637175961ab0a8fc23960588296b703a093c5041e7c8c825270f66cb4c",
+    "bie/game_engine/mechanics_engine/misconception_trap.py": "b9d63e91219b1ff0609b2218df162f6ea0df8931f28a6a65cf57fc27cfd52832",
+    "bie/game_engine/mechanics_engine/parameter.py": "752a0eb2105dc619eac6499593c364eeca9a81f664644beb08154243e411f47a",
+    "bie/game_engine/mechanics_engine/pipeline.py": "7665d94b63bed4807f97cff454daf4fb857a47e9f3414934ea2ed36a55626fe3",
+    "bie/game_engine/mechanics_engine/prediction_observe.py": "f5b219b6135a0ccf8568f749eb5cf06024b5f9faa2c91bff6f2d10b59ee96401",
+    "bie/game_engine/mechanics_engine/replay.py": "89c3f5b9cf6711e7564cc283c9041f8a1a07b5a0ba8eae3f7081c84b4ba9525b",
+    "bie/game_engine/mechanics_engine/reset.py": "b8dcdca3be7d9d3a9c821299405acb07c21bb83e5592b63b1a68e377a83a44a6",
+    "bie/game_engine/mechanics_engine/resource_tradeoff.py": "a27398619eabb20f39967f58ae33216e9be82dcc2b3b9b37cdc0cc2a84d0b1e6",
+    "bie/game_engine/mechanics_engine/retrieval.py": "d8a535623217922c357f3f0ca6703197e564e1ca4ad1f2ba9382b74be97e6f22",
+    "bie/game_engine/mechanics_engine/semantic_events.py": "fa684e5eebc8deec5a614efe4c8f9a6bd2b0f9b38c6c7016e7848529772568f6",
+    "bie/game_engine/mechanics_engine/sequencing.py": "1737e1446ecececd6547bb094bbb12e217c0ca23042834c78a4c932ce50b3f5c",
+    "bie/game_engine/mechanics_engine/simulation_experiment.py": "4f3bc0dd71914e166ed8a035f1152dc2c4c380f4ca95aa100cdfdde80f54b179",
+    "bie/game_engine/mechanics_engine/spatial_arrangement.py": "9808cb9493eb1d7358ec448d55bbc642adfde5528806c57d85b93dc21bbd6fde",
+    "bie/game_engine/mechanics_engine/state_bridge.py": "62725727800aba4f51779be64ab4676443926e4f107a49cf57d4054b26e367e3",
+    "bie/game_engine/mechanics_engine/studio_policy.py": "ccd42bacbe11932dae815a7089d382e6c694b548b5196fe8a6db4476140b32e5",
+    "bie/game_engine/mechanics_engine/timeline_reconstruction.py": "74c5112039dd6a613d0656084aa767e90a839c14f6d71f1f5c3dd876783718de",
+    "bie/game_engine/operations_engine/__init__.py": "65ae665f413aa12ee8d002ef55851b96951a90e658d152afd743a28a976d4d5c",
+    "bie/game_engine/operations_engine/canonical_bindings.py": "18c71e56c07b0d824b5f90122500ac2281b37ce3042f3ed49ffe2a5ddd91bede",
+    "bie/game_engine/operations_engine/contracts.py": "060eaf9cf74b34af9ff7dd89112c863792c21f213ba4459dc09db7ddca92a32f",
+    "bie/game_engine/operations_engine/durable_store.py": "81b9ca4b1b22ba5fa1b1c16fc4c6529b96053fcdd86f2679fc6bcd35c6280301",
+    "bie/game_engine/operations_engine/errors.py": "2b11d120e206ba9979307ebe2221e274f8ea886c0447e0291afbf09d59205c21",
+    "bie/game_engine/operations_engine/mastery.py": "7839ca6054c8ad6f790350f5d96ac23868733e8851fa805c296cf15b338a80e3",
+    "bie/game_engine/operations_engine/pipeline.py": "b00609d0bb4c98f690feea4aed40a714f0bd8d471b2f6616b875432645296cc3",
+    "bie/game_engine/operations_engine/telemetry.py": "98f4d098b73b5fcbcf159fe396db63d09f5d89bac3c07fd0b4a8d4cad074a0f4",
+    "bie/game_engine/provenance.py": "27d183bbbd67c71eee701b9cb81d37bb8d47ad71aeab500cf5b9eb5bcaa3f0e0",
+    "bie/game_engine/qa_engine/__init__.py": "8afb528b35b219c25f802f6fb3f8064ede3af03532e0e0e5556d6349bbd64c5a",
+    "bie/game_engine/qa_engine/candidate.py": "a349b700043649d4da4eda605d9793a36e2482a7addcf6f51e34ce2dbe7b69e6",
+    "bie/game_engine/qa_engine/common.py": "a5d034d429481bd2b2b917c9a5ae8eb8847fca12d68db11d2f6a030d3a144152",
+    "bie/game_engine/qa_engine/contracts.py": "831a8695223990e0072c53d88832926db7a84e14b8cb4b371489ed516f4201f9",
+    "bie/game_engine/qa_engine/errors.py": "cbdd6234004fa78447fbb9899e6cf5b5859be1fb1b154015dcc5cfda0480ba85",
+    "bie/game_engine/qa_engine/fixtures.py": "822d190c61ad7da20e822a8ed7b718c2655faec2c86bf6323704c6fec2d5abfa",
+    "bie/game_engine/qa_engine/pipeline.py": "3fbf302003867f9bcaf05adc3f39715ef1c1b6b1ed102b9dfa49e1eb652d1d6e",
+    "bie/game_engine/qa_engine/policy.py": "ccbfa7112231d8d7b7a1b1907d2a693acd5b229a81a73b03ccfa3f5fd14aeb44",
+    "bie/game_engine/qa_engine/qa_001.py": "ae9b6fed0717f3b79253c3f0a81282e66c2a71fa5c372110bd5b652ea278b293",
+    "bie/game_engine/qa_engine/qa_002.py": "8b50ac0a774b291facbdc56d3a59c4ceab46e2f9032cb108d64b2a329a4070ec",
+    "bie/game_engine/qa_engine/qa_003.py": "d9b4a2e98dd713b67ec36ffe526a7ae5f446bb412e1fe75d1a8d5664bf793370",
+    "bie/game_engine/qa_engine/qa_004.py": "ea9ef6de022d6dd67e4d2d9f4dd9b7bf40bd498d5810369d75c0c982b8b4974a",
+    "bie/game_engine/qa_engine/qa_005.py": "2dd3f7c80ea75f48d67c20c0138904429a2866556c075a36d214f2eb64b9183e",
+    "bie/game_engine/qa_engine/qa_006.py": "f1087ed82ec76c70da97d17083e7b7d2a0a9ea0f3ffb3c93d0be3d47610b91ee",
+    "bie/game_engine/qa_engine/qa_007.py": "5b011a1fa5e3c3b4862d7fd33b2c6091b6ef0fbd01f4b181780ee9fe624c1635",
+    "bie/game_engine/qa_engine/qa_008.py": "eff14e0b014dcc95f0910505cc5f8ab2572e3e6f0d37f960e4aaa35e3a3afbe1",
+    "bie/game_engine/qa_engine/qa_009.py": "dd4cdd52cc2b5735ff89c8539aefb6ee9a4d800b29261632537894e2147f0a9c",
+    "bie/game_engine/qa_engine/qa_010.py": "79faf1568d8f6a9455a65cb6ffa979148ec80d074d8cb29cfd779687055ce4cb",
+    "bie/game_engine/qa_engine/receipts.py": "4fcad90c5b5558bf9e14e30b064ac4c22ad73f5a1b09dd73d6a68a2bd1000ab4",
+    "bie/game_engine/quality_intent.py": "e82b0c3c715547ce930f065aefe1c02369c0487b6336966ee93d9da5c1b8c094",
+    "bie/game_engine/react_runtime_engine/__init__.py": "9a832e7af4957f98feba7028b56d25a03d578d5950327bd3f0e86781cc6e2799",
+    "bie/game_engine/react_runtime_engine/pins.py": "818b0db44a852c6533d9562a354611d9a86ed12e22302c4325cf047d20bb71f3",
+    "bie/game_engine/react_runtime_engine/vendor.py": "47bfb7be06a60e46847d8693cd9107a68fc8ce867aa76a80e740e01f549af90b",
+    "bie/game_engine/receipts.py": "ebe42ecfdb0085a79d4de42d8a784a81b241d8d4c27bce9564e307c0d130dd2f",
+    "bie/game_engine/runtime_quality_engine/__init__.py": "6074cb289a78a2e4fc56e7b308268effb47cbc93141775e662570a3a298b712c",
+    "bie/game_engine/runtime_quality_engine/audio_bridge.py": "0f6d10262dd37d5f3c756e13b60d22571babc58a46f255abdfc6c9cdce2089e7",
+    "bie/game_engine/runtime_quality_engine/contracts.py": "e00e82a1a468f79e1fdfee509938cb44a9d24156ee59dc9da12ccb39e2964441",
+    "bie/game_engine/runtime_quality_engine/runtime_audit.py": "7da34e4fb181987bc869869c8694573090de83c37b9422246d85e6707344a550",
+    "bie/game_engine/schema_registry.py": "597a0c2d88f900e749d909f167272ccd583dd55ee67630f82bccf72d1e145b91",
+    "bie/game_engine/state.py": "8740dfa17223e62547ea30047b56c2d47c130cfbf2d03e1ff6eec588371842a0",
+    "bie/game_engine/state_engine/__init__.py": "dd07dc004eb921bc38040a4f1197d80cc120997c2e638a78b34ec39e68a5a24e",
+    "bie/game_engine/state_engine/action_router.py": "dc53cfbb9e8d56f53f6a44cec6cb4d0329dec714ab8d3873aaea72be622fb329",
+    "bie/game_engine/state_engine/challenge_state.py": "e87a0bb9a775a1ec7aba9cd581b1de14f10d89cbf1063ced59d41985ddc5eeba",
+    "bie/game_engine/state_engine/conditions.py": "f0ec1a3401c5d863bf493e4dcb6302bc365d91f5bd27689b636003d1b4d19101",
+    "bie/game_engine/state_engine/contracts.py": "e0547bffbdb641fc8879d2e8aea50566c2a893ddb686dd539bfe0adb3c3b0f53",
+    "bie/game_engine/state_engine/effects.py": "024bf9d27e5d545a220df514dd221261a152b3f3cc23d452accf5adfafe1412a",
+    "bie/game_engine/state_engine/expression_runtime.py": "a0ad144031c6ada68a545390bead74a33154f1dc7692242e63c7142d72939986",
+    "bie/game_engine/state_engine/fixtures.py": "9e60d0fac647d7d300308e77bcbe8990a8c7732c3ed10b2f07bf47bce62e4ab5",
+    "bie/game_engine/state_engine/invariants.py": "27814ef5346176345716f66a2716b3bc42b4ce07ce0f87ab798913b06a117774",
+    "bie/game_engine/state_engine/manipulables.py": "af96bbe18c0ffed3af2b628fefe3c015a1a56b319d59290f429f6df415ac3e83",
+    "bie/game_engine/state_engine/reachability.py": "06adb0021dfdefa6490277d36030eed701f7373079671e041d9421fa86492957",
+    "bie/game_engine/state_engine/receipts.py": "d746eeaba62a0748b8aee0c95b5949f36ab172a6d9c52e6727194b41391f33df",
+    "bie/game_engine/state_engine/replay.py": "4064543707bf6079352c733010ee370d6ee35893d4fdae88855396035e1b6072",
+    "bie/game_engine/state_engine/rules.py": "c40d69e322815802d7efd13ec6fa25a2006aa799f9a8587435a5a6a66ed1c244",
+    "bie/game_engine/state_engine/snapshots.py": "47438f9c62212429c8829972884d75e8246450ebff4be219bae8267c3238d5e4",
+    "bie/game_engine/state_engine/state_variables.py": "defeb302b08d4aaaf3f70b6a403d0b6c567f59f756e93861fa1187c0617b6aa5",
+    "bie/game_engine/state_engine/transition_engine.py": "85c71d861c9066fad100d0d5fc1e4b1c62c9d142165213606b54a2e19bb89007",
+    "bie/game_engine/strategy_engine/__init__.py": "d6d513414f354b18786e1311eb46e7355be618e0510f5c860bbd4e41afce2578",
+    "bie/game_engine/strategy_engine/causal_system.py": "0d83fd829f37a4bce104068fd1f315455d35b5055dafe5114420fde2ebf184f9",
+    "bie/game_engine/strategy_engine/common.py": "5d4775c31b3b1e1b7d8b881c67676270ac0cb5b77732300af89b05aaa81f9859",
+    "bie/game_engine/strategy_engine/contracts.py": "f88edb0e64d2d15c873549d1d2ddd75211655dee02c90a2e84a9039b5d2aad78",
+    "bie/game_engine/strategy_engine/diagnostic.py": "2c3e69ac6dcea8c50280d7fab15392524c61a942bcbe2e271ace6131e9d09c8a",
+    "bie/game_engine/strategy_engine/equation.py": "d187e4790886c28736e6240b626de12c5ef83b222e5aea49a3da0639f6e990b4",
+    "bie/game_engine/strategy_engine/fixtures.py": "10644ef781a570dd5d0190035151999947c9c50599559bbb1c39f96a69521fe2",
+    "bie/game_engine/strategy_engine/manipulation.py": "5f8bc498f58cfe4a7deccce88b416dda4e8acffa8650de796ec72837e31b0871",
+    "bie/game_engine/strategy_engine/map_strategy.py": "c754991afc2beaccfa2fe9dd8b581e9163097a615e173c9f2f53f2c232f863f9",
+    "bie/game_engine/strategy_engine/prediction.py": "44b8022cfa4b072792cd83457d74455316e3533898a9178e06280ab0a6fe18d6",
+    "bie/game_engine/strategy_engine/retrieval.py": "d7d84fc0ec21fd819c03884ef32ef58312877ed28cf8d3e63dcb6e20504b8ea5",
+    "bie/game_engine/strategy_engine/selector.py": "813a7fee3ffd08559896429900ef79c3f52a9028ed9d46354efa530e61daf0f0",
+    "bie/game_engine/strategy_engine/simulation.py": "ac818991db4334cdc50e471ac58f023357bd92ca4b2114fe2524a8be1b566884",
+    "bie/game_engine/strategy_engine/timeline.py": "985499fb1fcfe86af7e81604db41aafd1a4dae66668c4700c2201f94473809b9",
+    "bie/game_engine/validation.py": "e2d7b0741743def0b07ce17ef0cd6a549c7021bc3a7d378cc5c92de90a83d2b1",
+    "bie/game_engine/visual.py": "22f2d10243787fd7d19833db5409c6ac40e923e1887c57cf65f36d828dfa0c84"
+  },
+  "fixture_scope": "Two authored actions share one entity; repeatable +1 rule exposes duplicate event dispatch; two explicitly selectable challenges."
+}

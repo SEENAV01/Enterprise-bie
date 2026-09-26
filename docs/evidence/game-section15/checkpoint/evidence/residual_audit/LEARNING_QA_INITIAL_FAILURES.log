@@ -1,0 +1,108 @@
+test_browser_succeeded_outcome_increases_mastery (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_browser_succeeded_outcome_increases_mastery) ... FAIL
+test_conflicting_learning_replay_rejected (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_conflicting_learning_replay_rejected) ... FAIL
+test_crash_replayed_learning_event_is_applied_once (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_crash_replayed_learning_event_is_applied_once) ... FAIL
+test_explicit_telemetry_replay_key_is_idempotent (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_explicit_telemetry_replay_key_is_idempotent) ... ERROR
+test_nonterminal_outcome_cannot_be_scored_as_failure (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_nonterminal_outcome_cannot_be_scored_as_failure) ... FAIL
+test_qa_detects_changed_compiled_effect (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_qa_detects_changed_compiled_effect) ... FAIL
+test_qa_detects_missing_feedback_in_one_of_two_levels (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_qa_detects_missing_feedback_in_one_of_two_levels) ... FAIL
+test_qa_detects_missing_rule_in_one_of_two_levels (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_qa_detects_missing_rule_in_one_of_two_levels) ... C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\dataclasses.py:1323: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001AEEB3254E0>
+  return tuple(f for f in fields.values() if f._field_type is _FIELD)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\dataclasses.py:1323: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001AEED26C5E0>
+  return tuple(f for f in fields.values() if f._field_type is _FIELD)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\dataclasses.py:1323: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001AEED26C7C0>
+  return tuple(f for f in fields.values() if f._field_type is _FIELD)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\dataclasses.py:1323: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001AEED26CA90>
+  return tuple(f for f in fields.values() if f._field_type is _FIELD)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\dataclasses.py:1323: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001AEED26CC70>
+  return tuple(f for f in fields.values() if f._field_type is _FIELD)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FAIL
+
+======================================================================
+ERROR: test_explicit_telemetry_replay_key_is_idempotent (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_explicit_telemetry_replay_key_is_idempotent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 60, in test_explicit_telemetry_replay_key_is_idempotent
+    first=s.record('session:1',event,consent,('mechanic_completed',),event_key='outcome:1')
+TypeError: GovernedTelemetrySink.record() got an unexpected keyword argument 'event_key'
+
+======================================================================
+FAIL: test_browser_succeeded_outcome_increases_mastery (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_browser_succeeded_outcome_increases_mastery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 37, in test_browser_succeeded_outcome_increases_mastery
+    self.assertGreater(record.estimate,0)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.0 not greater than 0
+
+======================================================================
+FAIL: test_conflicting_learning_replay_rejected (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_conflicting_learning_replay_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 48, in test_conflicting_learning_replay_rejected
+    with self.assertRaises(Exception):s.update('a'*64,'obj:test','incorrect',1,1,'event:1')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_crash_replayed_learning_event_is_applied_once (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_crash_replayed_learning_event_is_applied_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 43, in test_crash_replayed_learning_event_is_applied_once
+    self.assertEqual(first,second);self.assertEqual(s.get('a'*64,'obj:test').version,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: Maste[125 chars]te=0.55, confidence=0.28, attempts=1, evidence[40 chars]t:1') != Maste[125 chars]te=0.7975, confidence=0.4816, attempts=2, evid[44 chars]t:1')
+
+======================================================================
+FAIL: test_nonterminal_outcome_cannot_be_scored_as_failure (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_nonterminal_outcome_cannot_be_scored_as_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 53, in test_nonterminal_outcome_cannot_be_scored_as_failure
+    with self.assertRaises(Exception):s.update('a'*64,'obj:test','in_progress',1,1,'event:1')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_qa_detects_changed_compiled_effect (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_qa_detects_changed_compiled_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 28, in test_qa_detects_changed_compiled_effect
+    self.assertEqual(rules_qa(d,b).status.value,'fail')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_qa_detects_missing_feedback_in_one_of_two_levels (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_qa_detects_missing_feedback_in_one_of_two_levels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 32, in test_qa_detects_missing_feedback_in_one_of_two_levels
+    self.assertEqual(feedback_qa(d,b).status.value,'fail')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+======================================================================
+FAIL: test_qa_detects_missing_rule_in_one_of_two_levels (tests.test_reaudit_learning_and_qa.ReauditLearningQA.test_qa_detects_missing_rule_in_one_of_two_levels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_reaudit_learning_and_qa.py", line 24, in test_qa_detects_missing_rule_in_one_of_two_levels
+    self.assertEqual(rules_qa(d,b).status.value,'fail')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'pass' != 'fail'
+- pass
++ fail
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.155s
+
+FAILED (failures=7, errors=1)

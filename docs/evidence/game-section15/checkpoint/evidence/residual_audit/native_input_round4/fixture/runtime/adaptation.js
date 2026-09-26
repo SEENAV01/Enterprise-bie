@@ -1,0 +1,3 @@
+export function adapt_5b2267616d653a6d6f74696f6e222c226c6576656c3a31222c2261646170743a68696e74225d(state) { return Boolean((Number(state["attempts"]) >= 2)); }
+export const adaptationMetadata = { "deterministic_priority": true, "product_accepted": false, "rules": [{ "action": "unlock_hint", "adaptation_id": "adapt:hint", "function_name": "adapt_5b2267616d653a6d6f74696f6e222c226c6576656c3a31222c2261646170743a68696e74225d", "level_id": "level:1", "priority": 1, "target_id": "hint:2" }], "schema_version": "bie.game.adaptation-program/2" };
+export const adaptationFunctions = { "adapt_5b2267616d653a6d6f74696f6e222c226c6576656c3a31222c2261646170743a68696e74225d": adapt_5b2267616d653a6d6f74696f6e222c226c6576656c3a31222c2261646170743a68696e74225d };

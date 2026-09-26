@@ -1,0 +1,102 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-009",
+  "ordinal_in_batch": 9,
+  "capability": "Equation strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/equation.py",
+    "sha256": "d187e4790886c28736e6240b626de12c5ef83b222e5aea49a3da0639f6e990b4",
+    "metrics": {
+      "bytes": 2286,
+      "loc": 13,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_equation_strategy.py",
+    "sha256": "14dc9ecc5a236db59330b28440d144dc71ae4314a67c55c452ab45688bd65eef",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-009/SPEC.md",
+    "sha256": "40322564e2927b360ad65c5e28abf7d3a4d4cf96d35e3114dc3faf066d7da244"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:f40f4b736d0fdad4921562396b4879567c1853ff7f4d799c6e890e08e87935ae",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of symbolic/solve objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "symbolic_structure",
+          "rationale": "Equations expose structured variables and operations",
+          "value": 1.0,
+          "weight": 3
+        },
+        {
+          "name": "invariant_preservation",
+          "rationale": "Every equation declares balance/equivalence invariant",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "manipulation_potential",
+          "rationale": "Operations support learner transformation steps",
+          "value": 1.0,
+          "weight": 1
+        }
+      ],
+      "confidence": 0.75,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:eq"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "symbolic_math_runtime",
+        "accessibility_keyboard"
+      ],
+      "score": 100.0,
+      "strategy": "equation",
+      "strengths": [
+        "equivalence_reasoning",
+        "stepwise_feedback",
+        "symbolic_manipulation"
+      ],
+      "studio_design_requirements": [
+        "render_equation_as_semantic_objects_not_flat_text",
+        "animate_balance_preserving_operations",
+        "never_use_eval_or_string_execution",
+        "explain_why_each_operation_preserves_equivalence"
+      ]
+    },
+    "output_fingerprint": "sha256:989cbd81c20aab59705b6afbcc91edf64b6467901237a95e268764c7def8f637"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

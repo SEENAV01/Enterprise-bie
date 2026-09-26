@@ -1,0 +1,3 @@
+export const stateMachine = {"deterministic":true,"games":[{"game_id":"game:motion","levels":[{"level_id":"level:1","reset_policy":"level","state_ids":["attempts","x"],"variables":[{"enum_values":[],"id":"x","initial":1.0,"max":10,"min":0,"role":"position","type":"number","units":"m"},{"enum_values":[],"id":"attempts","initial":0,"max":10,"min":0,"role":"attempt_count","type":"integer","units":null}]}]}],"product_accepted":false,"schema_version":"bie.game.state-machine/1"} as const;
+export type RuntimeState = Record<string, string|number|boolean|null>;
+export function cloneState(s: RuntimeState): RuntimeState { return {...s}; }

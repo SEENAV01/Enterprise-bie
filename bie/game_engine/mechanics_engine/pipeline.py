@@ -1,0 +1,9 @@
+from __future__ import annotations
+from .contracts import MechanicKind
+from .errors import MechanicError
+from . import parameter,drag_drop,spatial_arrangement,sequencing,classify_sort,construct_model,simulation_experiment,graph_exploration,timeline_reconstruction,map_interaction,equation_balance,prediction_observe,misconception_trap,diagnose_error,branching_scenario,resource_tradeoff,retrieval
+_REG={MechanicKind.MANIPULATE_PARAMETER:parameter,MechanicKind.DRAG_DROP:drag_drop,MechanicKind.SPATIAL_ARRANGEMENT:spatial_arrangement,MechanicKind.SEQUENCING:sequencing,MechanicKind.CLASSIFY_SORT:classify_sort,MechanicKind.CONSTRUCT_MODEL:construct_model,MechanicKind.SIMULATION_EXPERIMENT:simulation_experiment,MechanicKind.GRAPH_EXPLORATION:graph_exploration,MechanicKind.TIMELINE_RECONSTRUCTION:timeline_reconstruction,MechanicKind.MAP_INTERACTION:map_interaction,MechanicKind.EQUATION_BALANCE:equation_balance,MechanicKind.PREDICTION_OBSERVE:prediction_observe,MechanicKind.MISCONCEPTION_TRAP:misconception_trap,MechanicKind.DIAGNOSE_ERROR:diagnose_error,MechanicKind.BRANCHING_SCENARIO:branching_scenario,MechanicKind.RESOURCE_TRADEOFF:resource_tradeoff,MechanicKind.RETRIEVAL:retrieval}
+def module_for(kind):
+    if type(kind) is not MechanicKind or kind not in _REG:raise MechanicError('GAME_MECH_UNKNOWN_KIND')
+    return _REG[kind]
+def define(kind,ctx):return module_for(kind).define(ctx)

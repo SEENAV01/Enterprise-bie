@@ -1,0 +1,7 @@
+from .common import *
+def define(ctx):return make_definition(ctx,'mechanic:drag-drop',MechanicKind.DRAG_DROP,'Learner spatially moves an object into an evidence-defined target with keyboard-equivalent placement.',(action('drag:object',ActionKind.DRAG,'Move the object','Arrow keys','object:mover'),action('drop:object',ActionKind.DROP,'Place the object','Enter','object:mover')),(motion('motion:drag',MotionSemantic.TRANSLATE,'object:mover','Track learner-controlled spatial movement.','position'),motion('motion:snap',MotionSemantic.SNAP,'object:mover','Communicate target acquisition without decorative motion.','position')),('semantic_motion','keyboard_input','state_machine'))
+def execute(ctx,state,target,tolerance=0.25):
+ d=define(ctx);pos=state.get('position');
+ if not isinstance(pos,(tuple,list)) or len(pos)!=2 or not isinstance(target,(tuple,list)) or len(target)!=2:raise MechanicError('GAME_MECH_DRAG_COORDINATE')
+ if any(type(x) not in (int,float) for x in (*pos,*target)):raise MechanicError('GAME_MECH_DRAG_COORDINATE')
+ dist=((pos[0]-target[0])**2+(pos[1]-target[1])**2)**0.5;success=dist<=tolerance;after={**state,'position':tuple(target) if success else tuple(pos),'placed':success};out={'distance':round(dist,6),'snap':success,'tolerance':tolerance};return after,out,receipt(d,state,after,{'target':tuple(target)},out) if after!=state else (_ for _ in ()).throw(MechanicError('GAME_MECH_DROP_MISS'))

@@ -1,0 +1,67 @@
+{
+  "section": 15,
+  "batch": 6,
+  "task_count": 10,
+  "tasks": [
+    {
+      "task_id": "BIE-GAME-COMP-001",
+      "capability": "Game IR compiler",
+      "source": "bie/game_engine/compiler_engine/game_ir.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_001.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-002",
+      "capability": "React runtime compiler",
+      "source": "bie/game_engine/compiler_engine/react_runtime.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_002.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-003",
+      "capability": "HTML runtime compiler",
+      "source": "bie/game_engine/compiler_engine/html_runtime.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_003.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-004",
+      "capability": "state machine compiler",
+      "source": "bie/game_engine/compiler_engine/state_machine.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_004.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-005",
+      "capability": "rule compiler",
+      "source": "bie/game_engine/compiler_engine/rule_compiler.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_005.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-006",
+      "capability": "interaction compiler",
+      "source": "bie/game_engine/compiler_engine/interaction_compiler.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_006.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-007",
+      "capability": "scoring compiler",
+      "source": "bie/game_engine/compiler_engine/scoring_compiler.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_007.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-008",
+      "capability": "feedback compiler",
+      "source": "bie/game_engine/compiler_engine/feedback_compiler.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_008.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-009",
+      "capability": "adaptation compiler",
+      "source": "bie/game_engine/compiler_engine/adaptation_compiler.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_009.py"
+    },
+    {
+      "task_id": "BIE-GAME-COMP-010",
+      "capability": "telemetry hooks compiler",
+      "source": "bie/game_engine/compiler_engine/telemetry_compiler.py",
+      "test": "tests/compiler_engine/test_bie_game_comp_010.py"
+    }
+  ]
+}

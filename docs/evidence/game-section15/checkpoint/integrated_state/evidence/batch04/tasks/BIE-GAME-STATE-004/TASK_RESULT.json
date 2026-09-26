@@ -1,0 +1,41 @@
+{
+  "schema_version": "bie.game.batch04-atomic-result/1",
+  "task_id": "BIE-GAME-STATE-004",
+  "ordinal": 4,
+  "capability": "cause-effect effects",
+  "implementation": {
+    "module": "bie/game_engine/state_engine/effects.py",
+    "handler": "apply_effect / apply_effects",
+    "module_sha256": "024bf9d27e5d545a220df514dd221261a152b3f3cc23d452accf5adfafe1412a"
+  },
+  "spec": {
+    "path": "docs/state_engine/tasks/BIE-GAME-STATE-004/SPEC.md",
+    "sha256": "2ac04da78198cfb89787540c9b21e3c8b7f6ae344ea97d7cf10d34fe709a0bcd"
+  },
+  "tests": {
+    "path": "tests/state_engine/test_state_004_effects.py",
+    "sha256": "30c524452b645d844bfd9160ba8ee0e81f27ed45b81a6df509ce353085ee54fd",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "cumulative_checkpoint": {
+    "ordinal": 4,
+    "task_id": "BIE-GAME-STATE-004",
+    "cumulative_tests": 47,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "typed_state": true,
+    "input_immutable": true,
+    "replay_compatible": true,
+    "product_accepted": false
+  },
+  "status": "IMPLEMENTED_TESTED_NOT_ACCEPTED",
+  "product_accepted": false
+}

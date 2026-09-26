@@ -1,0 +1,100 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-002",
+  "ordinal_in_batch": 2,
+  "capability": "Retrieval strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/retrieval.py",
+    "sha256": "d7d84fc0ec21fd819c03884ef32ef58312877ed28cf8d3e63dcb6e20504b8ea5",
+    "metrics": {
+      "bytes": 2631,
+      "loc": 19,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_retrieval_strategy.py",
+    "sha256": "a5ed859166c25f7273f664b31dd9b7eaf72ef0bddb029c9570fd2ad0ce02295e",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-002/SPEC.md",
+    "sha256": "49531576c35add3aec733e94ab1721e08cd6544ddfd0b3e72a4acdae30d7387e"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:23ccfed15852874320301a53a7caa0777c2d714e4eea52ff2cfa0684d44c2340",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of recall/fact objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "item_diversity",
+          "rationale": "Distinct grounded prompts and answers",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "spacing_support",
+          "rationale": "Items expose deterministic spacing keys",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "misconception_targeting",
+          "rationale": "Retrieval can target known misconceptions",
+          "value": 0.0,
+          "weight": 1
+        }
+      ],
+      "confidence": 0.76,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:recall"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "accessibility_keyboard",
+        "audio_feedback"
+      ],
+      "score": 88.8889,
+      "strategy": "retrieval",
+      "strengths": [
+        "grounded_recall_practice",
+        "spacing_ready"
+      ],
+      "studio_design_requirements": [
+        "active_recall_before_answer_reveal",
+        "spaced_or_interleaved_prompt_selection",
+        "semantic_feedback_not_flashcard_slides",
+        "no_mcq_only_core_gameplay"
+      ]
+    },
+    "output_fingerprint": "sha256:1838569056fa563ff7d305877ca5bdb1e40c20833f51b82919f18f23e28631b2"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

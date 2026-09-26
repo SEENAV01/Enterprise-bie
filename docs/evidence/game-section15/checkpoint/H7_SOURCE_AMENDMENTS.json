@@ -1,0 +1,47 @@
+{
+  "audit_id": "GAME-AUD-026",
+  "h6_predecessor_archive_sha256": "8d1a77d5be761ef9eeaac7dc63d17c7332edc10391e4c3859a528d5321f133d1",
+  "records": [
+    {
+      "path": "bie/game_engine/codec.py",
+      "prior_sha256": "0daccf425ec904705513bd9319c718ed762f122837d24b2995339eaf50b9708d",
+      "active_sha256": "30e01b556594aec8f77471fa7bb2820076aea1452b85e4b1c2d580b2d8de73d9",
+      "reason": "Bound wire decoding; reject duplicate keys, nonfinite values, malformed tags and excessive complexity.",
+      "counterexamples": "evidence/h7/INITIAL_COUNTEREXAMPLES.log",
+      "finding": "GAME-AUD-026"
+    },
+    {
+      "path": "bie/game_engine/expressions.py",
+      "prior_sha256": "cd2a06b633e4d0505a510ab6ec21547051f1fb190b19ad1a9132f2b91e5fe641",
+      "active_sha256": "824ef1377dd80ae9c9d4b098633c309bbad5bec5610322c9bb7aa7b030c6ccbd",
+      "reason": "Evaluate only the requested comparison and reject nonfinite literals.",
+      "counterexamples": "evidence/h7/INITIAL_COUNTEREXAMPLES.log",
+      "finding": "GAME-AUD-026"
+    },
+    {
+      "path": "bie/game_engine/state_engine/expression_runtime.py",
+      "prior_sha256": "d312120219cb89dcc5628c91d2d3fc2cdc5e709a6cabefeef53022a4f8f39973",
+      "active_sha256": "a0ad144031c6ada68a545390bead74a33154f1dc7692242e63c7142d72939986",
+      "reason": "Prevent eager unrelated comparisons and convert mixed-order failures into governed errors.",
+      "counterexamples": "evidence/h7/INITIAL_COUNTEREXAMPLES.log",
+      "finding": "GAME-AUD-026"
+    },
+    {
+      "path": "bie/game_engine/state_engine/snapshots.py",
+      "prior_sha256": "1da7cf63a78d3cc44b071572d9dc37982dde85e3a4e344ed572f7245cd8a9654",
+      "active_sha256": "47438f9c62212429c8829972884d75e8246450ebff4be219bae8267c3238d5e4",
+      "reason": "Reject nonfinite input state before snapshots or predicates use it.",
+      "counterexamples": "evidence/h7/INITIAL_COUNTEREXAMPLES.log",
+      "finding": "GAME-AUD-026"
+    },
+    {
+      "path": "bie/game_engine/build_runtime_engine/contracts.py",
+      "prior_sha256": "00dd68bdd92919341b2d346f2e338d36b7fd2c0e748b8b7809a2796348a12329",
+      "active_sha256": "f3e959c3cf484623f3333df3cb41e5cf82e73d9576500fd1ed22cd3123222587",
+      "reason": "Reject drive/stream paths and normalized aliases across operating systems.",
+      "counterexamples": "evidence/h7/INITIAL_COUNTEREXAMPLES.log",
+      "finding": "GAME-AUD-026"
+    }
+  ],
+  "product_accepted": false
+}

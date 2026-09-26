@@ -1,0 +1,152 @@
+{
+  "engineering_order_reason": "Independent strategy evaluators are implemented/verified before BIE-GAME-STRAT-001 selector because the selector consumes their assessments. Governed task IDs remain unchanged.",
+  "count": 10,
+  "checkpoints": [
+    {
+      "engineering_ordinal": 1,
+      "task_id": "BIE-GAME-STRAT-002",
+      "modules": [
+        "tests.test_retrieval_strategy"
+      ],
+      "tests_run": 8,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:22b7716563ceeeda952819561e2dcb3237b2e08eff67b38fe6a11040f040b6ae"
+    },
+    {
+      "engineering_ordinal": 2,
+      "task_id": "BIE-GAME-STRAT-003",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy"
+      ],
+      "tests_run": 16,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:8414ca869d92bbd1d71707f3993b300888a07533ffc30c2dc46f96c83c1985d6"
+    },
+    {
+      "engineering_ordinal": 3,
+      "task_id": "BIE-GAME-STRAT-004",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy"
+      ],
+      "tests_run": 24,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:d7cb677263f5f16242979df93e1fc346e9fcbe62501fd68e5a25d130f1b7dd92"
+    },
+    {
+      "engineering_ordinal": 4,
+      "task_id": "BIE-GAME-STRAT-005",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy"
+      ],
+      "tests_run": 32,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:5dc8a9e369a998d9602131a5f6f81d009599c9d062baaca06a462213c5ce3fa4"
+    },
+    {
+      "engineering_ordinal": 5,
+      "task_id": "BIE-GAME-STRAT-006",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy",
+        "tests.test_diagnostic_strategy"
+      ],
+      "tests_run": 40,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:979314451d0f67c2dbf80e681ae9910c00f08e0c631dbba14ea28398f58ed647"
+    },
+    {
+      "engineering_ordinal": 6,
+      "task_id": "BIE-GAME-STRAT-007",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy",
+        "tests.test_diagnostic_strategy",
+        "tests.test_timeline_strategy"
+      ],
+      "tests_run": 48,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:3bdf11181409c82417d7f1a9409f3c3f02ee695e4eb25af8e6897b2937b4da5b"
+    },
+    {
+      "engineering_ordinal": 7,
+      "task_id": "BIE-GAME-STRAT-008",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy",
+        "tests.test_diagnostic_strategy",
+        "tests.test_timeline_strategy",
+        "tests.test_map_strategy"
+      ],
+      "tests_run": 56,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:6daad4456e221f4c1e29b321e1fa7312448bd6f37b8e9849757ff0549c7284ab"
+    },
+    {
+      "engineering_ordinal": 8,
+      "task_id": "BIE-GAME-STRAT-009",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy",
+        "tests.test_diagnostic_strategy",
+        "tests.test_timeline_strategy",
+        "tests.test_map_strategy",
+        "tests.test_equation_strategy"
+      ],
+      "tests_run": 64,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:97dbc7e6d92ff8fe71d619629ac3682733bcca90d07c4fd1d10d0cf01653da3c"
+    },
+    {
+      "engineering_ordinal": 9,
+      "task_id": "BIE-GAME-STRAT-010",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy",
+        "tests.test_diagnostic_strategy",
+        "tests.test_timeline_strategy",
+        "tests.test_map_strategy",
+        "tests.test_equation_strategy",
+        "tests.test_causal_strategy"
+      ],
+      "tests_run": 72,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:c39d2459ed10f3a5ff7d8b110ef8f4d8803213da94daa608a3477fcaecc34374"
+    },
+    {
+      "engineering_ordinal": 10,
+      "task_id": "BIE-GAME-STRAT-001",
+      "modules": [
+        "tests.test_retrieval_strategy",
+        "tests.test_manipulation_strategy",
+        "tests.test_simulation_strategy",
+        "tests.test_prediction_strategy",
+        "tests.test_diagnostic_strategy",
+        "tests.test_timeline_strategy",
+        "tests.test_map_strategy",
+        "tests.test_equation_strategy",
+        "tests.test_causal_strategy",
+        "tests.test_selector"
+      ],
+      "tests_run": 84,
+      "passed": true,
+      "checkpoint_fingerprint": "sha256:9e45bd0c73ebea1eedbea8241dea586d8688e2dbcb102392293eaa9cfd716e6a"
+    }
+  ],
+  "product_accepted": false
+}

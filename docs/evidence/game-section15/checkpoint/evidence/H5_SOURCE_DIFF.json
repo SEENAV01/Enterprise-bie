@@ -1,0 +1,26 @@
+{
+  "added_game_source": [
+    "bie/game_engine/operations_engine/__init__.py",
+    "bie/game_engine/operations_engine/canonical_bindings.py",
+    "bie/game_engine/operations_engine/contracts.py",
+    "bie/game_engine/operations_engine/durable_store.py",
+    "bie/game_engine/operations_engine/errors.py",
+    "bie/game_engine/operations_engine/mastery.py",
+    "bie/game_engine/operations_engine/pipeline.py",
+    "bie/game_engine/operations_engine/telemetry.py"
+  ],
+  "baseline": "H4",
+  "canonical_dependency_files_added": [
+    "bie/bie_core/artifact_contracts.py",
+    "bie/infrastructure/artifact_store.py",
+    "bie/infrastructure/idempotency_store.py"
+  ],
+  "changed_existing": [
+    "bie/game_engine/compiler_engine/interaction_compiler.py",
+    "bie/game_engine/compiler_engine/runtime_controller.py",
+    "bie/game_engine/compiler_engine/telemetry_compiler.py"
+  ],
+  "h4_game_source_files": 187,
+  "h5_game_source_files": 195,
+  "removed": []
+}

@@ -1,0 +1,136 @@
+{
+  "source_audit_summary": {
+    "implementation_gap_count": 26,
+    "critical": 9,
+    "high": 15,
+    "medium": 2,
+    "downstream_validation_gap_count": 3,
+    "remaining_hardening_gap": true,
+    "section_implementation_scope_complete": false,
+    "product_accepted": false
+  },
+  "closed_in_h1": [
+    "GAME-AUD-001",
+    "GAME-AUD-002",
+    "GAME-AUD-003",
+    "GAME-AUD-007",
+    "GAME-AUD-019"
+  ],
+  "closed_in_h2": [
+    "GAME-AUD-004",
+    "GAME-AUD-005",
+    "GAME-AUD-006"
+  ],
+  "remaining": [
+    {
+      "id": "GAME-AUD-008",
+      "severity": "critical",
+      "category": "security_runtime",
+      "title": "Chromium verification runs with --no-sandbox and is not bound to canonical browser-game worker sandbox policy"
+    },
+    {
+      "id": "GAME-AUD-009",
+      "severity": "high",
+      "category": "runtime_loader",
+      "title": "Native deployed ESM origin/module-loader path remains unverified"
+    },
+    {
+      "id": "GAME-AUD-010",
+      "severity": "high",
+      "category": "asset_integrity",
+      "title": "Sanitized asset filenames can collide and silently overwrite distinct assets"
+    },
+    {
+      "id": "GAME-AUD-011",
+      "severity": "high",
+      "category": "package_integrity",
+      "title": "build-manifest.json is written after artifact enumeration and is not covered by RuntimePackageManifest"
+    },
+    {
+      "id": "GAME-AUD-012",
+      "severity": "high",
+      "category": "process_isolation",
+      "title": "Build subprocesses inherit ambient environment and lack CPU/memory/process-count confinement"
+    },
+    {
+      "id": "GAME-AUD-013",
+      "severity": "high",
+      "category": "audio_runtime",
+      "title": "Audio cues/assets are manifest-only; live runtime playback/sync/ducking path is absent"
+    },
+    {
+      "id": "GAME-AUD-014",
+      "severity": "high",
+      "category": "accessibility",
+      "title": "Accessibility validation is contract-level, not full runtime interaction accessibility"
+    },
+    {
+      "id": "GAME-AUD-015",
+      "severity": "high",
+      "category": "localization",
+      "title": "Runtime language is hard-coded to English and GAME contracts lack locale/RTL/multilingual text policy"
+    },
+    {
+      "id": "GAME-AUD-016",
+      "severity": "high",
+      "category": "rights_assets",
+      "title": "AssetDescriptor has no rights/license/attribution/source-lineage contract"
+    },
+    {
+      "id": "GAME-AUD-017",
+      "severity": "high",
+      "category": "performance_responsive",
+      "title": "No runtime performance, responsive layout or mobile interaction budgets/tests"
+    },
+    {
+      "id": "GAME-AUD-018",
+      "severity": "high",
+      "category": "durability_enterprise",
+      "title": "GAME artifacts/runs are not integrated with canonical ArtifactEnvelope/CAS/idempotency/durable execution"
+    },
+    {
+      "id": "GAME-AUD-020",
+      "severity": "high",
+      "category": "telemetry_runtime",
+      "title": "Telemetry compiler sanitizes data but live runtime emits no governed telemetry events"
+    },
+    {
+      "id": "GAME-AUD-021",
+      "severity": "high",
+      "category": "learning_loop",
+      "title": "Mastery/scoring/adaptation do not form a persistent closed learning loop"
+    },
+    {
+      "id": "GAME-AUD-022",
+      "severity": "high",
+      "category": "traceability_packaging",
+      "title": "Consolidated ORIGINAL omits BIE-GAME-DSL-001 own test/spec/task-result payload"
+    },
+    {
+      "id": "GAME-AUD-023",
+      "severity": "high",
+      "category": "legacy_compatibility",
+      "title": "New modular GAME DSL has no explicit compatibility shim for current canonical bie.game_engine.contracts legacy API"
+    },
+    {
+      "id": "GAME-AUD-024",
+      "severity": "high",
+      "category": "react_runtime",
+      "title": "COMP-002 is React-shaped but Build runtime uses a custom DOM createElement shim instead of an actual React/ReactDOM runtime"
+    },
+    {
+      "id": "GAME-AUD-025",
+      "severity": "medium",
+      "category": "security_hygiene",
+      "title": "Inherited dynamic __import__(json) remains in browser runtime"
+    },
+    {
+      "id": "GAME-AUD-026",
+      "severity": "medium",
+      "category": "adversarial_testing",
+      "title": "No property-based/fuzz testing for codec/expression/path/input state spaces"
+    }
+  ],
+  "remaining_count": 18,
+  "product_accepted": false
+}

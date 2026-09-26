@@ -1,0 +1,33 @@
+{
+  "schema_version": "bie.game.build-task-result/1",
+  "section": 15,
+  "batch": 7,
+  "task_id": "BIE-GAME-BUILD-001",
+  "capability": "reproducible TypeScript/runtime package build",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_checkpoint": {
+    "ordinal": 1,
+    "task_id": "BIE-GAME-BUILD-001",
+    "atomic_tests": 10,
+    "cumulative_build_task_tests": 10,
+    "passed": true
+  },
+  "receipt": {
+    "receipt_id": "build:57df591a2460554bc7fa9dbd",
+    "task_id": "BIE-GAME-BUILD-001",
+    "input_fingerprint": "sha256:f8a807d43818701cafde4fdbcd3fabdef183ed24dd05b9c2f6074510fb1a0d97",
+    "output_fingerprint": "sha256:2ec67d5618cc5a8d5762e18781ff7772e57736b38c9ac6326acf6f93af04a733",
+    "toolchain_fingerprint": "sha256:437994247409775502533478f95eb75bf3c188187eb56ef3258e6e857c251b54",
+    "evidence_refs": [
+      "objective:motion",
+      "reason:game",
+      "source:book"
+    ],
+    "deterministic": true,
+    "product_accepted": false
+  },
+  "output_fingerprint": "sha256:2ec67d5618cc5a8d5762e18781ff7772e57736b38c9ac6326acf6f93af04a733",
+  "product_accepted": false,
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

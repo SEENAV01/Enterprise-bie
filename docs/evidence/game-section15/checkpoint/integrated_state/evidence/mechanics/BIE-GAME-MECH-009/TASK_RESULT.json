@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-009",
+  "ordinal": 9,
+  "capability": "timeline reconstruction",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 90,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/timeline_reconstruction.py",
+    "sha256": "74c5112039dd6a613d0656084aa767e90a839c14f6d71f1f5c3dd876783718de",
+    "definition_fingerprint": "sha256:bd198dd54f86c29d11c133152270220efa83819275cd28384f62a8184f330eab"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-009/SPEC.md",
+    "spec_sha256": "e3c1d856f8d506f54b3dc59abdf7c4a410a21199f1ca06d0904cfced63203fb8",
+    "test": "tests/mechanics_engine/test_bie_game_mech_009.py",
+    "test_sha256": "8f45f0850e74f7276c9b00a1a946d8fd2aa1fe1b635fe49592338faaf05d947b"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:88a0c3dc7f0d1f56e80d9745d3d6a1fd24d92bd6722fa6bd476f20bc933e27b7",
+    "outcome_fingerprint": "sha256:1618321738941446b37829967893e55aee7c192f1c007ea361c6ed82721d8095",
+    "receipt_id": "mechanic:47ed0e9229f9b1ad699390ab",
+    "receipt_fingerprint": "sha256:10adacaf91cb866533ecddd21c3a49509f521ac4d28913d2dc44dadabae184f7"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "bie.game.h6.recovery-verification/1",
+  "python": "3.13.5",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "traceability": {
+    "audit_id": "GAME-AUD-022",
+    "records_verified": 50,
+    "test_modules_verified": 11,
+    "archive_sha256": "2cc616bab6634e2a325c1141d607c3ee9235cb17a35310c16f806b35f7c8c814",
+    "traceability_passed": true,
+    "tests_executed_by_this_check": 0,
+    "product_accepted": false
+  },
+  "groups": {
+    "dsl_core": {
+      "run": 76,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "passed": true
+    },
+    "h6_hardening": {
+      "run": 56,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "passed": true
+    },
+    "state": {
+      "run": 111,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "passed": true
+    },
+    "mechanics": {
+      "run": 196,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "passed": true
+    },
+    "compiler_portable": {
+      "run": 105,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "passed": true
+    }
+  },
+  "h6_complete": false,
+  "github_integrated": false,
+  "product_accepted": false,
+  "source_inventory_sha256": "030e47643958f65585f9800f0e0f8f87122ec22ee230245e04281570f7dd4023",
+  "compiler_exclusions": {
+    "test_real_html_browser_smoke.py": "Historical browser test disables the Chromium sandbox; not accepted as H6 browser evidence.",
+    "test_real_typescript_compile.py": "Requires tsc on PATH; strict compilation executed separately with the exact locked TypeScript dependency."
+  },
+  "full_runtime_regression": {
+    "status": "NOT_RUN",
+    "reason": "Inherited bounded process runner imports Linux resource/prctl and requires a Linux Chromium sandbox; no configured Linux runtime is available on this Windows host."
+  },
+  "tests_run": 544,
+  "portable_gate_passed": true
+}

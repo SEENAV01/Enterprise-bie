@@ -1,0 +1,1 @@
+export const scoringProgram = { "games": { "game:motion": { "correct_points": 10, "floor": 0, "hint_cost": 1, "incorrect_points": 0, "mastery_weighted": true, "policy_id": "policy:score:v1", "speed_pressure": false } }, "product_accepted": false, "schema_version": "bie.game.scoring-program/1" };

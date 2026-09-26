@@ -1,0 +1,16 @@
+{
+  "schema_version": "bie.game.batch01.security-scan/1",
+  "forbidden_dynamic_calls": [
+    "eval",
+    "exec",
+    "compile",
+    "__import__"
+  ],
+  "findings": [],
+  "closed_expression_ast": true,
+  "unknown_wire_types_rejected": true,
+  "unknown_wire_fields_rejected": true,
+  "legacy_auto_migration_blocked": true,
+  "passed": true,
+  "product_accepted": false
+}

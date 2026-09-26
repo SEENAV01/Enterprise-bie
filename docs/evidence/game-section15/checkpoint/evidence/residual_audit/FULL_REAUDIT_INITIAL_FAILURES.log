@@ -1,0 +1,105 @@
+test_ambiguous_level_requires_game_instead_of_first_match (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_ambiguous_level_requires_game_instead_of_first_match) ... FAIL
+test_disposed_controller_cannot_play_audio (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_disposed_controller_cannot_play_audio) ... FAIL
+test_mixed_ordering_rejected_before_javascript_coercion (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_mixed_ordering_rejected_before_javascript_coercion) ... FAIL
+test_non_boolean_boolean_operand_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_non_boolean_boolean_operand_rejected) ... FAIL
+test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) ... 
+  test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) (value=nan) ... FAIL
+  test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) (value=inf) ... FAIL
+test_receipt_cannot_attest_different_artifact_bytes (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_receipt_cannot_attest_different_artifact_bytes) ... FAIL
+test_same_level_id_in_different_games_resolves_explicit_game (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_same_level_id_in_different_games_resolves_explicit_game) ... FAIL
+test_telemetry_readout_does_not_expose_mutable_internal_events (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_telemetry_readout_does_not_expose_mutable_internal_events) ... FAIL
+
+======================================================================
+FAIL: test_ambiguous_level_requires_game_instead_of_first_match (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_ambiguous_level_requires_game_instead_of_first_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 50, in test_ambiguous_level_requires_game_instead_of_first_match
+    r=self.run_runtime(custom_context=ctx,level_id='level:unique',js_probe="let error='';try{require('./js/runtime-controller.js').createRuntimeController('level:1')}catch(e){error=String(e)}console.log(JSON.stringify({error}));")
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 32, in run_runtime
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : ../../../../AppData/Local/Temp/bie-runtime-audit-jhlufvx6/rules.ts(7,499): error TS1117: An object literal cannot have multiple properties with the same name.
+
+
+======================================================================
+FAIL: test_disposed_controller_cannot_play_audio (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_disposed_controller_cannot_play_audio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 28, in test_disposed_controller_cannot_play_audio
+    self.assertIn('GAME_RUNTIME_DISPOSED',r['error'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'GAME_RUNTIME_DISPOSED' not found in ''
+
+======================================================================
+FAIL: test_mixed_ordering_rejected_before_javascript_coercion (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_mixed_ordering_rejected_before_javascript_coercion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 34, in test_mixed_ordering_rejected_before_javascript_coercion
+    with self.assertRaises(Exception):compile_expr(Compare(CompareOp.LT,Literal('2'),Literal(3)))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_non_boolean_boolean_operand_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_non_boolean_boolean_operand_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 31, in test_non_boolean_boolean_operand_rejected
+    with self.assertRaises(Exception):compile_expr(Boolean(BoolOp.AND,(Literal(1),Literal(True))))
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) (value=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 15, in test_nonfinite_scoring_rejected
+    with self.subTest(value=value),self.assertRaises(Exception):ScoringPolicy('policy:test',value).validate()
+                                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_nonfinite_scoring_rejected (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_nonfinite_scoring_rejected) (value=inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 15, in test_nonfinite_scoring_rejected
+    with self.subTest(value=value),self.assertRaises(Exception):ScoringPolicy('policy:test',value).validate()
+                                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_receipt_cannot_attest_different_artifact_bytes (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_receipt_cannot_attest_different_artifact_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 20, in test_receipt_cannot_attest_different_artifact_bytes
+    with self.assertRaises(Exception):replace(bundle,artifacts=(changed,)+bundle.artifacts[1:]).validate()
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: Exception not raised
+
+======================================================================
+FAIL: test_same_level_id_in_different_games_resolves_explicit_game (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_same_level_id_in_different_games_resolves_explicit_game)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 43, in test_same_level_id_in_different_games_resolves_explicit_game
+    r=self.run_runtime(custom_context=ctx,level_id='level:unique',js_probe="const other=require('./js/runtime-controller.js').createRuntimeController('level:1','game:second');const r=other.dispatch('drag:mover');console.log(JSON.stringify({score:other.getScore(),event:r.telemetry}));")
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_runtime_audit_regressions.py", line 32, in run_runtime
+    self.assertEqual(built.returncode,0,built.stdout+built.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : ../../../../AppData/Local/Temp/bie-runtime-audit-3dl7aotc/rules.ts(7,499): error TS1117: An object literal cannot have multiple properties with the same name.
+
+
+======================================================================
+FAIL: test_telemetry_readout_does_not_expose_mutable_internal_events (tests.test_full_reaudit_boundaries.FullReauditBoundaries.test_telemetry_readout_does_not_expose_mutable_internal_events)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Dell\Documents\Codex\2026-09-26\i-want-to-resume-the-work\work\residual\tests\test_full_reaudit_boundaries.py", line 24, in test_telemetry_readout_does_not_expose_mutable_internal_events
+    self.assertEqual(r['outcome_code'],'succeeded')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'forged' != 'succeeded'
+- forged
++ succeeded
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 16.880s
+
+FAILED (failures=9)

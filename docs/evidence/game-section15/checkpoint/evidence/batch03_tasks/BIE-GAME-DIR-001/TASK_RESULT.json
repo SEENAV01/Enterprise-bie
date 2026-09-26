@@ -1,0 +1,285 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-001",
+  "engineering_ordinal": 11,
+  "capability": "game experience planner",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/planner.py",
+    "sha256": "003289254951a6cd39f9c5f7702d13e5c9f10f453bd34bf75f98460a2e6c3bc8"
+  },
+  "test": {
+    "path": "tests/test_director_planner.py",
+    "sha256": "07ab36523daca46848b4635c4bff2be0e887afed72c0e9e2e40a3fcc88d23bb9"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-001/SPEC.md",
+    "sha256": "08fdbf13df4bf3eaa2ebf1b439b1e2bc3cf87784a003bf620b907a7eae801075"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:8a028b4bdab4fffd067a4f302b2fb6578119d16b7d95c7382f14d7a1f11318ff",
+    "output_summary": {
+      "adaptations": [
+        {
+          "action": "remediate",
+          "condition": "attempts >= 3 and mastery < target",
+          "objective_id": "obj:manip",
+          "priority": 10,
+          "rationale": "Repeated unsuccessful attempts require explicit remediation rather than hidden difficulty manipulation.",
+          "rule_id": "adapt:remediate:obj:manip",
+          "target_level_id": "remediation:obj:manip"
+        },
+        {
+          "action": "easier_variant",
+          "condition": "mastery < 0.5 and confidence >= 0.5",
+          "objective_id": "obj:manip",
+          "priority": 20,
+          "rationale": "High mastery gap receives a simpler variant without removing the learning objective.",
+          "rule_id": "adapt:easier:obj:manip",
+          "target_level_id": "easier:obj:manip"
+        },
+        {
+          "action": "advance",
+          "condition": "mastery >= target",
+          "objective_id": "obj:manip",
+          "priority": 30,
+          "rationale": "Advance only after evidence meets the objective mastery target.",
+          "rule_id": "adapt:advance:obj:manip",
+          "target_level_id": null
+        }
+      ],
+      "anti_slide_default": true,
+      "difficulty": [
+        {
+          "cognitive_load": 0.3765,
+          "difficulty": 0.3325,
+          "level_id": "level:01",
+          "support_level": 0.4925,
+          "target_success_probability": 0.8255
+        }
+      ],
+      "feedback": [
+        {
+          "answer_reveal_before_attempt": false,
+          "explanation_ref": "explanation:obj:manip",
+          "misconception_refs": [],
+          "objective_id": "obj:manip",
+          "retry_ref": "feedback:retry:obj:manip",
+          "success_ref": "feedback:success:obj:manip"
+        }
+      ],
+      "hints": [
+        {
+          "content_ref": "hintref:obj:manip:1",
+          "cost": 0,
+          "hint_id": "hint:obj:manip:1",
+          "level": 1,
+          "mode": "cue",
+          "objective_id": "obj:manip",
+          "reveal_fraction": 0.05
+        },
+        {
+          "content_ref": "hintref:obj:manip:2",
+          "cost": 1,
+          "hint_id": "hint:obj:manip:2",
+          "level": 2,
+          "mode": "focus",
+          "objective_id": "obj:manip",
+          "reveal_fraction": 0.15
+        },
+        {
+          "content_ref": "hintref:obj:manip:3",
+          "cost": 2,
+          "hint_id": "hint:obj:manip:3",
+          "level": 3,
+          "mode": "partial_step",
+          "objective_id": "obj:manip",
+          "reveal_fraction": 0.3
+        },
+        {
+          "content_ref": "hintref:obj:manip:4",
+          "cost": 3,
+          "hint_id": "hint:obj:manip:4",
+          "level": 4,
+          "mode": "explanation_link",
+          "objective_id": "obj:manip",
+          "reveal_fraction": 0.5
+        }
+      ],
+      "levels": [
+        {
+          "estimated_seconds": 114,
+          "level_id": "level:01",
+          "mechanic": "manipulate_parameter",
+          "objective_ids": [
+            "obj:manip"
+          ],
+          "pedagogical_purpose": "Close mastery gap 0.450 through active manipulate_parameter interaction.",
+          "prerequisite_level_ids": [],
+          "role": "practice"
+        }
+      ],
+      "mastery_targets": [
+        {
+          "confidence": 0.85,
+          "current": 0.35,
+          "evidence_state": "known",
+          "gap": 0.45,
+          "objective_id": "obj:manip",
+          "target": 0.8
+        }
+      ],
+      "mechanic_assignments": [
+        {
+          "accessibility_requirements": [
+            "keyboard_equivalent",
+            "screen_reader_label",
+            "non_color_only_feedback"
+          ],
+          "mechanic": "manipulate_parameter",
+          "motion_requirements": [
+            "state_change_must_be_visually_observable",
+            "motion_explains_cause_effect"
+          ],
+          "objective_id": "obj:manip",
+          "provenance": {
+            "inherited_from": [],
+            "refs": [
+              {
+                "artifact_id": "source:book",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "page:10",
+                "role": "source"
+              },
+              {
+                "artifact_id": "reason:strategy",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "decision:1",
+                "role": "reasoning"
+              },
+              {
+                "artifact_id": "objective:strategy",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "lo:1",
+                "role": "objective"
+              },
+              {
+                "artifact_id": "misconception:strategy",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "mis:1",
+                "role": "misconception"
+              }
+            ]
+          },
+          "rationale": "manipulation chosen from governed strategy assessment score=100.0000, confidence=0.7300.",
+          "required_runtime_capabilities": [
+            "semantic_visuals",
+            "stateful_interaction",
+            "semantic_motion",
+            "drag_drop",
+            "parameter_controls",
+            "accessibility_keyboard"
+          ],
+          "semantic_visual_requirements": [
+            "learner_controls_semantic_objects_not_ui_chrome",
+            "state_change_must_be_visually_observable",
+            "motion_explains_cause_effect",
+            "keyboard_equivalent_for_spatial_actions",
+            "no_drag_for_decoration_only"
+          ]
+        }
+      ],
+      "misconception_assignments": [],
+      "objective_assignments": [
+        {
+          "concept_ids": [
+            "concept:obj:manip"
+          ],
+          "level_id": "level:01",
+          "objective_id": "obj:manip",
+          "provenance": {
+            "inherited_from": [],
+            "refs": [
+              {
+                "artifact_id": "source:book",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "page:10",
+                "role": "source"
+              },
+              {
+                "artifact_id": "reason:strategy",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "decision:1",
+                "role": "reasoning"
+              },
+              {
+                "artifact_id": "objective:strategy",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "lo:1",
+                "role": "objective"
+              },
+              {
+                "artifact_id": "misconception:strategy",
+                "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "locator": "mis:1",
+                "role": "misconception"
+              }
+            ]
+          },
+          "required_interaction": true
+        }
+      ],
+      "plan_fingerprint": "sha256:984911808ef58b39aa2ea3d6350af8772df522fccadaa49439905cf76a46a127",
+      "plan_id": "director-plan:984911808ef58b39",
+      "product_accepted": false,
+      "scoring": {
+        "correct_points": 10,
+        "floor": 0,
+        "hint_costs": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "incorrect_points": 0,
+        "mastery_weighted": true,
+        "speed_bonus_enabled": false,
+        "streak_bonus": 2
+      },
+      "secondary_strategy": null,
+      "selected_strategy": "manipulation",
+      "strategy_fingerprint": "sha256:ed2411b8de5be1a427db3348c34e49bd6dcc1474d8cfa14d09984f4d167631f4",
+      "studio_grade_target": true
+    }
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 11,
+    "task_id": "BIE-GAME-DIR-001",
+    "capability": "game experience planner",
+    "cumulative_tests_run": 64,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:64ba9bf6d243edb4e7ab4e0a7e8f70538f89da97e33c677b28e6d52579325865"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

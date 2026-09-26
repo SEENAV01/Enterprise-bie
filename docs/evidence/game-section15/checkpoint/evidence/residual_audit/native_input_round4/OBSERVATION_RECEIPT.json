@@ -1,0 +1,263 @@
+{
+  "schema_version": "bie.game.native-input-observation/1",
+  "observation_method": "cua_repl browser UI gestures; read-only visible #routing-evidence text; observed JSON transcribed without changing values",
+  "browser": "Codex in-app browser",
+  "url": "http://127.0.0.1:49528/routing-proof.html",
+  "platform": "Win32",
+  "actions": [
+    "Capture initial state",
+    "Native Enter on A movable object; capture",
+    "Native click on A movable object; capture",
+    "Native click on Submit answer; capture",
+    "Select Second challenge; native click Submit answer; capture",
+    "Native Space on A movable object; capture"
+  ],
+  "assertions": {
+    "one_state_increment_per_gesture": true,
+    "one_telemetry_event_per_gesture": true,
+    "separate_submit_action": true,
+    "selected_challenge_and_objective_preserved": true,
+    "observed_page_errors": 0
+  },
+  "source_hashes_verified_against_current_candidate": true,
+  "fixture_files": [
+    {
+      "path": "BUILD_RECEIPT.json",
+      "sha256": "dcbdc13732878263cb1d430de129375433ccd024e7a4aee1cc379945ee6ce5cc",
+      "bytes": 31460
+    },
+    {
+      "path": "runtime/adaptation.js",
+      "sha256": "d18d1b43ed6aecea14a1a237cb06ebe45cd570a7837bfca2cb5d5d899c66b2b3",
+      "bytes": 752
+    },
+    {
+      "path": "runtime/assets.json",
+      "sha256": "a25277b763bb84360fa5ee61082911c3f0267da15438ab41ff3ca481b0c0879f",
+      "bytes": 394
+    },
+    {
+      "path": "runtime/bootstrap.js",
+      "sha256": "4e6d7c9c76bbc0f9e7cf23478d5dcf64b24463d81183fdce77585fdd7a6877ad",
+      "bytes": 1175
+    },
+    {
+      "path": "runtime/entry.js",
+      "sha256": "a54052d61d8095c22423c4cd6d215354aa33f79ab34e628e3231fc2b00638a47",
+      "bytes": 2688
+    },
+    {
+      "path": "runtime/feedback.js",
+      "sha256": "f66c4712079fff1fecd915cba28a006cce7e2aa3b806bcd69fd992603fb054ab",
+      "bytes": 1081
+    },
+    {
+      "path": "runtime/game-ir.json",
+      "sha256": "45823cddaca5806da9fc93ce0743a18fbcc9e802fd21015869af1827717fead6",
+      "bytes": 8217
+    },
+    {
+      "path": "runtime/h6-probe-ui.html",
+      "sha256": "2d49c953d5f9c45ed99b5e72ef51ddc23e18057b938878c8f368c39158927f76",
+      "bytes": 586
+    },
+    {
+      "path": "runtime/h6-probe-ui.js",
+      "sha256": "85f190805a3b6447022b7794ec6c21612096689d862af9da24ec589876c336bc",
+      "bytes": 3946
+    },
+    {
+      "path": "runtime/index.html",
+      "sha256": "eca9f10f2e453b45c1d83776460ad4489cfd379a84cf11bfab3df68555715500",
+      "bytes": 690
+    },
+    {
+      "path": "runtime/interactions.js",
+      "sha256": "fd6a69fa31096ba3ccd94bfa22c5bbb35b5db709bb390c3412953271ab75f5f6",
+      "bytes": 1607
+    },
+    {
+      "path": "runtime/manifest.json",
+      "sha256": "83e168049999fbfacf10e14edfaf09385c9c8e91ed3ae56eebf3592b89f9429c",
+      "bytes": 3684
+    },
+    {
+      "path": "runtime/probe.wav",
+      "sha256": "d56777146b707f4e83d5beb7e4832d840f10e05a1a4554798e569d5f9fd573c9",
+      "bytes": 1644
+    },
+    {
+      "path": "runtime/react-dom-LICENSE.txt",
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+      "bytes": 1088
+    },
+    {
+      "path": "runtime/react-LICENSE.txt",
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+      "bytes": 1088
+    },
+    {
+      "path": "runtime/react-runtime.js",
+      "sha256": "7153cc51d939eca88bdb6388285c809f86d82d5f5a2e2d56edd566ad00947a89",
+      "bytes": 11999
+    },
+    {
+      "path": "runtime/react-vendor.js",
+      "sha256": "29435ca974d7cb3d114d86dfd3adaf5370361b466933fc8bd2f33f62cb8b2695",
+      "bytes": 221908
+    },
+    {
+      "path": "runtime/react-vendor.js.LEGAL.txt",
+      "sha256": "573cc95a6417c69a6ca44804f440f00965283c8cdcc50025305a7a50f53940ac",
+      "bytes": 1219
+    },
+    {
+      "path": "runtime/routing-proof.html",
+      "sha256": "3e21fbcbd8edd4035110710b7b6f61ea80902fa7c42f1bdb57004b196a975c27",
+      "bytes": 471
+    },
+    {
+      "path": "runtime/routing-proof.js",
+      "sha256": "dd24df273ef3c14dc95680720b74f6246637b2f65639c95cf72b466a55cc000e",
+      "bytes": 915
+    },
+    {
+      "path": "runtime/rules.js",
+      "sha256": "b9f7c18406f50aa83c4f6939dacb5ff9e59641a3c40063f644dbb2f4c39948bd",
+      "bytes": 1149
+    },
+    {
+      "path": "runtime/runtime-controller.js",
+      "sha256": "00deeee00dac8b57bd459aa13f041cefd52f601683754326c8fea47a361627f0",
+      "bytes": 12461
+    },
+    {
+      "path": "runtime/scheduler-LICENSE.txt",
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93",
+      "bytes": 1088
+    },
+    {
+      "path": "runtime/scoring.js",
+      "sha256": "1729f24656424101120808d749cf57f441b70a31f94c6e1fbeda7b48d730b022",
+      "bytes": 297
+    },
+    {
+      "path": "runtime/security-headers.json",
+      "sha256": "daefa4f1b3149a38c7c74c8688c6eeb556b154e768d0296641b0340e1c9c3f97",
+      "bytes": 277
+    },
+    {
+      "path": "runtime/source-map.json",
+      "sha256": "6ece014533d6a5c26896632fcba3d89a83956fbb4316f15835dc4d5d0da81f25",
+      "bytes": 479
+    },
+    {
+      "path": "runtime/state-machine.js",
+      "sha256": "d71c2b6180db2e7c3a85ae3cf5aded2776e5d8b83bd472957d65c2387316a334",
+      "bytes": 589
+    },
+    {
+      "path": "runtime/telemetry.js",
+      "sha256": "f034ae72129d41051b6b3dcb618c9c09b9cb983c2487fa90397e8e21b2b7fd9e",
+      "bytes": 676
+    },
+    {
+      "path": "runtime/vendor-manifest.json",
+      "sha256": "9f4282da65e21df0517bdbd6ff5aa15f58f0e41fab66c89f5c20ec393669fd6f",
+      "bytes": 2589
+    },
+    {
+      "path": "smoke-bundle.js",
+      "sha256": "456c8e1cff506d7e4f2983a5ac217562ff7de13130e2b5de8495784856053525",
+      "bytes": 255209
+    },
+    {
+      "path": "source/adaptation.ts",
+      "sha256": "07b731574ef193490777ae1ffd0e14590cf3e465c2ba65420fa8b7cd269863b6",
+      "bytes": 875
+    },
+    {
+      "path": "source/assets.json",
+      "sha256": "a25277b763bb84360fa5ee61082911c3f0267da15438ab41ff3ca481b0c0879f",
+      "bytes": 394
+    },
+    {
+      "path": "source/bootstrap.ts",
+      "sha256": "b427a41c9a172be54875bb6df35c0f8d147189327c140240d5fb4951988ee74c",
+      "bytes": 1138
+    },
+    {
+      "path": "source/feedback.ts",
+      "sha256": "27968c35aed7025bb81d339e56e28ac1b087803e3bf4d5d349b3030a498a740c",
+      "bytes": 1042
+    },
+    {
+      "path": "source/game-ir.json",
+      "sha256": "45823cddaca5806da9fc93ce0743a18fbcc9e802fd21015869af1827717fead6",
+      "bytes": 8217
+    },
+    {
+      "path": "source/index.html",
+      "sha256": "19e5c9ee3a0fc7e9b6ab26a55cb4e3ec17e790d4c073c59d4d6493fd33342fd9",
+      "bytes": 728
+    },
+    {
+      "path": "source/interactions.ts",
+      "sha256": "55ab4438bee957ec3451dad545b5e10690f2be9ef0fec46b10df61751ce6a713",
+      "bytes": 1530
+    },
+    {
+      "path": "source/manifest.json",
+      "sha256": "83e168049999fbfacf10e14edfaf09385c9c8e91ed3ae56eebf3592b89f9429c",
+      "bytes": 3684
+    },
+    {
+      "path": "source/react-runtime.ts",
+      "sha256": "1008a6d1603f13408135433eb6f6b9c97982c5e86dd3f1b5f086d6650c40b1e4",
+      "bytes": 10495
+    },
+    {
+      "path": "source/rules.ts",
+      "sha256": "a9b0f8cfe4af916f72e508ef20d3344fb010e282e97ae8cbea81d9dbee7a1e70",
+      "bytes": 1398
+    },
+    {
+      "path": "source/runtime-controller.ts",
+      "sha256": "5ec67f596a5ab646cacfef9b6a9988b22950455f62d964dbc70def71c169911b",
+      "bytes": 11195
+    },
+    {
+      "path": "source/scoring.ts",
+      "sha256": "da4521289b6a3040ab76f714733cc730b5179ff0f1e415b15b1764163a47e4bc",
+      "bytes": 281
+    },
+    {
+      "path": "source/source-map.json",
+      "sha256": "6ece014533d6a5c26896632fcba3d89a83956fbb4316f15835dc4d5d0da81f25",
+      "bytes": 479
+    },
+    {
+      "path": "source/state-machine.ts",
+      "sha256": "756c8b617f0f4af95909543c6bac1a2e0d8e3d1759ca4f98bfb58b6bb3d5ed3d",
+      "bytes": 636
+    },
+    {
+      "path": "source/telemetry.ts",
+      "sha256": "0fae1a5ccd806f03a97ef43c9692bd6943ab3c9583d2b42f2a32dc3431a69e0e",
+      "bytes": 718
+    },
+    {
+      "path": "typescript.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "limitations": [
+    "Synthetic two-challenge fixture, not a real book.",
+    "Windows native browser evidence does not close the Linux sandbox/deployed-origin gate.",
+    "Assistive-technology software was not exercised; synthetic zero-detail click covered by local regression.",
+    "Tab content export is unsupported by this browser; visible JSON was transcribed."
+  ],
+  "linux_sandbox_verified": false,
+  "product_accepted": false
+}

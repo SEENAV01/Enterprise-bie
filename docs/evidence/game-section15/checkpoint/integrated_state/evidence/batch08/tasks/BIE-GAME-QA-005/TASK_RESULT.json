@@ -1,0 +1,60 @@
+{
+  "schema_version": "bie.game.qa-task-result/1",
+  "section": 15,
+  "batch": 8,
+  "task_id": "BIE-GAME-QA-005",
+  "capability": "misconception→diagnostic→feedback→remediation alignment",
+  "status": "PASS",
+  "score": 1.0,
+  "atomic_tests": 7,
+  "cumulative_checkpoint": {
+    "ordinal": 5,
+    "task_id": "BIE-GAME-QA-005",
+    "cumulative_task_tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "passed": true
+  },
+  "qa_result": {
+    "deterministic": true,
+    "evidence_refs": [
+      "misconception:strategy",
+      "objective:strategy",
+      "reason:strategy",
+      "source:book"
+    ],
+    "findings": [],
+    "input_fingerprint": "sha256:952f6bdbd5a10631dbc72ddb7713ac0b3f3a04a56d6565299f59d7dbdd25f151",
+    "metrics": [
+      {
+        "maximum": 1,
+        "minimum": 1,
+        "name": "misconception_alignment",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "maximum": null,
+        "minimum": 1,
+        "name": "remediation_objectives",
+        "unit": "count",
+        "value": 1.0
+      }
+    ],
+    "product_accepted": false,
+    "result_fingerprint": "sha256:329a3aa0be6c3a3c4f8f0c4f1118b9165628854d0973ee9fd201832c9f074ecf",
+    "score": 1.0,
+    "status": "pass",
+    "task_id": "BIE-GAME-QA-005"
+  },
+  "qa_receipt": {
+    "deterministic": true,
+    "implementation_fingerprint": "sha256:c7faabbf23911e62099370fdc81120833ffb67ad8b4a7f7e881496f3ccdcbf0d",
+    "product_accepted": false,
+    "receipt_id": "qa-receipt:7c07265e3d0702931479a522",
+    "result_fingerprint": "sha256:329a3aa0be6c3a3c4f8f0c4f1118b9165628854d0973ee9fd201832c9f074ecf",
+    "task_id": "BIE-GAME-QA-005"
+  },
+  "product_accepted": false,
+  "acceptance": "GAME_INTERNAL_IMPLEMENTATION_QA_ONLY"
+}

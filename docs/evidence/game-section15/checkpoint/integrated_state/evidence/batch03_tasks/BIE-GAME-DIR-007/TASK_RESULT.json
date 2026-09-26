@@ -1,0 +1,49 @@
+{
+  "schema_version": "bie.game.director-task-result/1",
+  "section": 15,
+  "batch": 3,
+  "task_id": "BIE-GAME-DIR-007",
+  "engineering_ordinal": 6,
+  "capability": "difficulty curve",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/director_engine/difficulty.py",
+    "sha256": "149d0523e8aa454c832a8a4c37ef6862ad8acd6c49efb77eb920ff034f5cebc1"
+  },
+  "test": {
+    "path": "tests/test_director_difficulty.py",
+    "sha256": "2038df4f4204f212e71dfe5cd56e5c1d5b02daec52108aa883b4aad5d1e5d8d2"
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-DIR-007/SPEC.md",
+    "sha256": "6cb18731810e07de727ca30803972db12212b10857cfdccfd5c431833c932eae"
+  },
+  "execution": {
+    "output_fingerprint": "sha256:588e0707b1e85391cc3aafabb3c61f35e507d63c3e96438b0c85f55768503b5d",
+    "output_summary": [
+      {
+        "cognitive_load": 0.3765,
+        "difficulty": 0.3325,
+        "level_id": "level:01",
+        "support_level": 0.4925,
+        "target_success_probability": 0.8255
+      }
+    ]
+  },
+  "cumulative_checkpoint": {
+    "engineering_ordinal": 6,
+    "task_id": "BIE-GAME-DIR-007",
+    "capability": "difficulty curve",
+    "cumulative_tests_run": 38,
+    "passed": true,
+    "checkpoint_fingerprint": "sha256:80f776ff7c8a4da282054e9433f8124fa7dac8f4ea362a88c01670a538874b3c"
+  },
+  "quality": {
+    "deterministic": true,
+    "fail_closed": true,
+    "provenance_bound": true,
+    "anti_slide_default": true,
+    "product_accepted": false
+  },
+  "product_accepted": false
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-003",
+  "ordinal_in_batch": 3,
+  "capability": "Manipulation strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/manipulation.py",
+    "sha256": "5f8bc498f58cfe4a7deccce88b416dda4e8acffa8650de796ec72837e31b0871",
+    "metrics": {
+      "bytes": 2300,
+      "loc": 13,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_manipulation_strategy.py",
+    "sha256": "bdfc98e5efd59d78858d7ac8f679394ab983f75148e1853afe716a1530dba989",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-003/SPEC.md",
+    "sha256": "76558e03157423c1c402bd74047d7cfa6489cade8e4e3189a5b9ccf7a440eeae"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:8c2800629f3917fa81d545efc4abc33d45163eff816b5b1dc10135750aec62d4",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of manipulation/procedure objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "state_action_density",
+          "rationale": "Grounded controllable state per target objective",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "observable_causality",
+          "rationale": "Learner actions produce observable semantic effects",
+          "value": 1.0,
+          "weight": 3
+        },
+        {
+          "name": "safety_resetability",
+          "rationale": "All manipulations are bounded and reversible",
+          "value": 1.0,
+          "weight": 2
+        }
+      ],
+      "confidence": 0.73,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:manip"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "semantic_motion",
+        "drag_drop",
+        "parameter_controls",
+        "accessibility_keyboard"
+      ],
+      "score": 100.0,
+      "strategy": "manipulation",
+      "strengths": [
+        "direct_state_control",
+        "resettable_experiment",
+        "visible_cause_effect"
+      ],
+      "studio_design_requirements": [
+        "learner_controls_semantic_objects_not_ui_chrome",
+        "state_change_must_be_visually_observable",
+        "motion_explains_cause_effect",
+        "keyboard_equivalent_for_spatial_actions",
+        "no_drag_for_decoration_only"
+      ]
+    },
+    "output_fingerprint": "sha256:12743371197c725d0c2a2b9eb81cce1138aee889cdb6a94c3113d54d9756696b"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

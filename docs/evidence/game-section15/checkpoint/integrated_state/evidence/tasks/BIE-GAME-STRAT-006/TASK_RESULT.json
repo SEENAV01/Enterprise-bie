@@ -1,0 +1,102 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-006",
+  "ordinal_in_batch": 6,
+  "capability": "Diagnostic strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/diagnostic.py",
+    "sha256": "2c3e69ac6dcea8c50280d7fab15392524c61a942bcbe2e271ace6131e9d09c8a",
+    "metrics": {
+      "bytes": 2370,
+      "loc": 14,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_diagnostic_strategy.py",
+    "sha256": "907399a0ed7f501a4caaa6b9e4a9febbdc38d3f73d701552e50d0e5d5ba8dbbb",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-006/SPEC.md",
+    "sha256": "e5e97167f54afc73e7ab549333a1c5dc630fb6c3a0e6f00c2c02507f2a38513b"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:4e679162dca692814515b6adf38adcdffccd8107137f5e553345b5b14d899b37",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of diagnostic objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "misconception_coverage",
+          "rationale": "Known misconceptions have grounded diagnostic cases",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "explanation_availability",
+          "rationale": "Each case binds to a corrective explanation",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "case_diversity",
+          "rationale": "Distinct incorrect states avoid repetitive traps",
+          "value": 1.0,
+          "weight": 1
+        }
+      ],
+      "confidence": 0.78,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:diag"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "accessibility_keyboard",
+        "audio_feedback"
+      ],
+      "score": 100.0,
+      "strategy": "diagnostic",
+      "strengths": [
+        "error_localization",
+        "explanation_grounding",
+        "misconception_specific_feedback"
+      ],
+      "studio_design_requirements": [
+        "show_learner_the_error_state_semantically",
+        "ask_for_diagnosis_before_correction",
+        "feedback_names_reasoning_error_not_person",
+        "never_use_gotcha_traps_without_explanation"
+      ]
+    },
+    "output_fingerprint": "sha256:44bba210782e93037e4c76ef38d658fbd9af035264819d4603a040d1aec13b21"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

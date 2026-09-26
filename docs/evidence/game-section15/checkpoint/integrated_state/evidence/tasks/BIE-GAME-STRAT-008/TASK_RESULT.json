@@ -1,0 +1,103 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-008",
+  "ordinal_in_batch": 8,
+  "capability": "Map strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/map_strategy.py",
+    "sha256": "c754991afc2beaccfa2fe9dd8b581e9163097a615e173c9f2f53f2c232f863f9",
+    "metrics": {
+      "bytes": 2309,
+      "loc": 14,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_map_strategy.py",
+    "sha256": "af6785dffd4081917a808769d8b4404a6987c2e8f01455772fbbd30622b0bffc",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-008/SPEC.md",
+    "sha256": "3b259669248cbfba64138b4bfe9ef1d369ec82ea9bbcee7c1b7bd770ff5cee22"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:d0ba0e4fed17527c4a8c80f779d750d8226a6a3833cdcfa79e5929ebd62a5d47",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of spatial/location objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "spatial_distinctness",
+          "rationale": "Distinct grounded locations",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "interaction_density",
+          "rationale": "Enough entities for comparison/location tasks",
+          "value": 0.6666666666666666,
+          "weight": 2
+        },
+        {
+          "name": "coordinate_grounding",
+          "rationale": "Coordinates are bound to evidence locators",
+          "value": 1.0,
+          "weight": 3
+        }
+      ],
+      "confidence": 0.81,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:map"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "map_runtime",
+        "accessibility_keyboard",
+        "purposeful_camera"
+      ],
+      "score": 93.9394,
+      "strategy": "map",
+      "strengths": [
+        "geospatial_reasoning",
+        "grounded_coordinates",
+        "location_comparison"
+      ],
+      "studio_design_requirements": [
+        "map_is_semantic_workspace_not_background_image",
+        "camera_zoom_has_learning_purpose",
+        "provide_non_pointer_navigation",
+        "distinguish_distance_direction_region_and_scale"
+      ]
+    },
+    "output_fingerprint": "sha256:6bc63b4375209fe70383c8bfe95a5d5ca0f9fefea467b3a41e21b878daf0d377"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}

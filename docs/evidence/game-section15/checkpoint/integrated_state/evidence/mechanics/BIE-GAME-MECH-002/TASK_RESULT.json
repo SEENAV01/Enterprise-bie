@@ -1,0 +1,38 @@
+{
+  "schema_version": "bie.game.mechanic-task-result/1",
+  "section": 15,
+  "batch": 5,
+  "task_id": "BIE-GAME-MECH-002",
+  "ordinal": 2,
+  "capability": "drag/drop",
+  "status": "PASS",
+  "atomic_tests": 10,
+  "cumulative_task_tests": 20,
+  "implementation": {
+    "path": "bie/game_engine/mechanics_engine/drag_drop.py",
+    "sha256": "fac922269f8dc2960352771b89954727c654356f6a2d0f1231ea16363bbe5a56",
+    "definition_fingerprint": "sha256:ab9962901556ad8f3818f9a38828a4bcb284da10d2fe8e9f6ee62b5688933cee"
+  },
+  "artifacts": {
+    "spec": "docs/mechanics/BIE-GAME-MECH-002/SPEC.md",
+    "spec_sha256": "85e7a2ee8c710382294179e57c08f8c94d7a4db49b866ad3db5eeab1c7f7ca80",
+    "test": "tests/mechanics_engine/test_bie_game_mech_002.py",
+    "test_sha256": "5d2c385b051189c31733f8d4436065d40bc04a71d1fa1e247a08d7dc81386531"
+  },
+  "sample_execution": {
+    "after_fingerprint": "sha256:9e4d5850fde5b16c5bb1c3749a5533d7440188623ddcb3ac3c5ed19192c50600",
+    "outcome_fingerprint": "sha256:86ebf37fa6a4ba2cb88e49622279c95f5fd0c42b8a57fc911311515043ce680d",
+    "receipt_id": "mechanic:5db5596ad17b474d66ee63e4",
+    "receipt_fingerprint": "sha256:c165ec75a2dfe029cf59da818412100d9f6f90937fbf258a25a4b7a2225b816b"
+  },
+  "quality": {
+    "state_causal": true,
+    "semantic_motion": true,
+    "accessibility": true,
+    "deterministic_replay": true,
+    "fail_closed_negative_cases": true,
+    "provenance_bound": true,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY"
+}

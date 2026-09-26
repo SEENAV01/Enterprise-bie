@@ -4,7 +4,7 @@ Historical ZIP contents are immutable. Tests are loaded with unique module names
 so identically named files in different batches do not replace each other.
 """
 from pathlib import Path
-import argparse, hashlib, importlib.util, io, json, sys, time, traceback, unittest
+import argparse, hashlib, importlib.util, io, json, os, subprocess, sys, time, traceback, unittest
 
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'bie'
@@ -33,6 +33,21 @@ def main():
             paths += sorted((ROOT/'tests'/family).rglob('test*.py'))
     if not paths:raise SystemExit('No tests discovered')
     results=[];start=time.monotonic()
+    if not args.batch and (ROOT/'manifests/game_section15_adoption.json').exists():
+        from game_section15_gate import read_bound_result
+        game_manifest=json.loads((ROOT/'manifests/game_section15_adoption.json').read_text())
+        game_paths=set(game_manifest['test_paths'])
+        paths=[p for p in paths if p.relative_to(ROOT).as_posix() not in game_paths]
+        output=Path(args.output)
+        if not output.is_absolute():output=ROOT/output
+        game_output=output.parent/'game-section15'
+        command=[sys.executable,'-B',str(ROOT/'scripts/game_section15_gate.py'),str(game_output)]
+        if os.environ.get('BIE_GAME_CI_SUPERVISOR')=='1':
+            command=['sudo','env','PATH='+os.environ['PATH'],'PYTHONDONTWRITEBYTECODE=1',*command]
+        completed=subprocess.run(command,cwd=ROOT)
+        game_rows=read_bound_result(game_output)
+        if completed.returncode and all(r['passed'] for r in game_rows):raise RuntimeError('GAME_SUPERVISOR_EXIT_STATUS')
+        results.extend(game_rows)
     for path in paths:
         rel=path.relative_to(ROOT).as_posix()
         if path.is_relative_to(ROOT / "tests/audio"):

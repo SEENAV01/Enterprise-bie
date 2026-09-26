@@ -1,0 +1,103 @@
+{
+  "schema_version": "bie.game.strategy-task-result/1",
+  "section": 15,
+  "batch": 2,
+  "task_id": "BIE-GAME-STRAT-007",
+  "ordinal_in_batch": 7,
+  "capability": "Timeline strategy",
+  "status": "PASS",
+  "source": {
+    "path": "bie/game_engine/strategy_engine/timeline.py",
+    "sha256": "985499fb1fcfe86af7e81604db41aafd1a4dae66668c4700c2201f94473809b9",
+    "metrics": {
+      "bytes": 2401,
+      "loc": 15,
+      "functions": 1,
+      "classes": 0
+    }
+  },
+  "test": {
+    "path": "tests/test_timeline_strategy.py",
+    "sha256": "3d9a5886ec44ec46a2dcdbdec8062a8cd20eb86baa3c14852f78708b62daaeb2",
+    "test_methods": 8
+  },
+  "spec": {
+    "path": "docs/tasks/BIE-GAME-STRAT-007/SPEC.md",
+    "sha256": "da9c80310c47e46d7ee848c8f5f2e5bf911af44b168b62a36facb291c8468938"
+  },
+  "execution": {
+    "result": {
+      "assessment_fingerprint": "sha256:271b58581b5f216d92681070ccc64c4e18418c3ab0dcb12989a8d3ebefceb8a8",
+      "blockers": [],
+      "components": [
+        {
+          "name": "objective_fit",
+          "rationale": "Coverage of temporal/order objectives",
+          "value": 1.0,
+          "weight": 4
+        },
+        {
+          "name": "sequence_depth",
+          "rationale": "Enough events to support reconstruction rather than trivial ordering",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "temporal_resolution",
+          "rationale": "Distinct temporal anchors support meaningful ordering",
+          "value": 1.0,
+          "weight": 2
+        },
+        {
+          "name": "grounded_anchors",
+          "rationale": "Every event has an evidence-backed anchor",
+          "value": 1.0,
+          "weight": 2
+        }
+      ],
+      "confidence": 0.89,
+      "eligible": true,
+      "evidence_refs": [
+        "misconception:strategy@mis:1:misconception",
+        "objective:strategy@lo:1:objective",
+        "reason:strategy@decision:1:reasoning",
+        "source:book@page:10:source"
+      ],
+      "objective_coverage": [
+        "obj:time"
+      ],
+      "product_accepted": false,
+      "required_runtime_capabilities": [
+        "semantic_visuals",
+        "stateful_interaction",
+        "semantic_motion",
+        "timeline_runtime",
+        "accessibility_keyboard"
+      ],
+      "score": 100.0,
+      "strategy": "timeline",
+      "strengths": [
+        "evidence_backed_events",
+        "stable_ordering",
+        "temporal_reconstruction"
+      ],
+      "studio_design_requirements": [
+        "represent_time_spatially_and_semantically",
+        "animate_reordering_as_state_change",
+        "support_keyboard_reordering",
+        "show_causal_links_separately_from_chronology"
+      ]
+    },
+    "output_fingerprint": "sha256:f351d6969bb192527d0b936355284bf23290c2d44682450c59eb14d7ee516016"
+  },
+  "quality": {
+    "independent_strategy_logic": true,
+    "deterministic": true,
+    "provenance_required": true,
+    "runtime_capability_gated": true,
+    "studio_design_requirements_emitted": true,
+    "ambiguity_fail_closed": false,
+    "product_accepted": false
+  },
+  "acceptance": "IMPLEMENTATION_EVIDENCE_ONLY_NOT_SECTION_OR_PRODUCT_ACCEPTANCE"
+}
