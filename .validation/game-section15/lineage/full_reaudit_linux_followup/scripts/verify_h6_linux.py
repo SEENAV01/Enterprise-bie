@@ -24,7 +24,6 @@ def main():
         report['groups'].append(row)
         (OUT/(module+'.log')).write_text(log.getvalue(),encoding='utf-8')
         print(json.dumps(row),flush=True)
-        if not row['passed']:print(log.getvalue(),flush=True)
         (OUT/'RESULT.json').write_text(json.dumps(report,indent=2)+'\n')
     report['tests_run']=sum(r['run'] for r in report['groups'])
     report['passed']=all(r['passed'] for r in report['groups'])

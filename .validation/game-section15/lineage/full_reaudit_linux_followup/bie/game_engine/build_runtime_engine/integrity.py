@@ -6,9 +6,8 @@ from .contracts import RuntimePackageManifest
 from .errors import GameBuildError
 
 def verify_compiler_binding(ctx,bundle):
-    actual=tuple(sorted((a.path,a.sha256) for a in bundle.artifacts))
+    bundle.validate();actual=tuple(sorted((a.path,a.sha256) for a in bundle.artifacts))
     if actual!=bundle.receipt.artifact_hashes:raise GameBuildError('GAME_BUILD_COMPILER_RECEIPT_ARTIFACT_MISMATCH')
-    bundle.validate()
     body={'input':fingerprint(ctx),'hashes':actual,'profile':ctx.compile_profile}
     if fingerprint(body)!=bundle.receipt.bundle_fingerprint:raise GameBuildError('GAME_BUILD_COMPILER_RECEIPT_FINGERPRINT_MISMATCH')
     return True

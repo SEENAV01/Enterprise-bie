@@ -21,27 +21,24 @@ def _artifact_payload(store,artifact_id):
     return json.loads(store.catalog.read_artifact(artifact_id))['payload']
 def _request_fp(ctx,asset_blobs,req):
     return fingerprint({'compiler':fingerprint(ctx),'assets':tuple((k,hashlib.sha256(v).hexdigest()) for k,v in sorted(asset_blobs.items())),'run_id':req.run_context.run_id,'session_id':req.session_id,'learner':req.learner_key_hash,'outcomes':req.outcomes,'consent':req.consent})
-def _resolve_outcome(document,outcome):
-    matches=[(g,l,ch) for g in document.experiences for l in g.levels for ch in l.challenges if ch.challenge_id==outcome.challenge_id and ch.learning.objective_id==outcome.objective_id and (outcome.game_id is None or (outcome.game_id==g.game_id and outcome.level_id==l.level_id))]
-    if len(matches)!=1:raise GameOperationsError('GAME_OPS_OUTCOME_SCOPE_AMBIGUOUS_OR_MISSING')
-    return matches[0]
-
 def _telemetry_event(ctx,outcome):
-    game,level,_=_resolve_outcome(ctx.document,outcome)
+    matches=[(g,l) for g in ctx.document.experiences for l in g.levels for ch in l.challenges if ch.challenge_id==outcome.challenge_id and ch.learning.objective_id==outcome.objective_id and (outcome.game_id is None or (outcome.game_id==g.game_id and outcome.level_id==l.level_id))]
+    if len(matches)!=1:raise GameOperationsError('GAME_OPS_OUTCOME_SCOPE_AMBIGUOUS_OR_MISSING')
+    game,level=matches[0]
     return {'event':outcome.event_type,'game_id':game.game_id,'level_id':level.level_id,'challenge_id':outcome.challenge_id,'attempt_number':outcome.attempt_number,'outcome_code':outcome.outcome_code,'mechanic_id':outcome.mechanic_id,'objective_id':outcome.objective_id,'adaptation_id':outcome.adaptation_ids[0] if outcome.adaptation_ids else ''}
-def _target(document,outcome):
-    _,_,challenge=_resolve_outcome(document,outcome)
-    return challenge.learning.mastery_target,bool(challenge.learning.misconception_ids)
-
+def _target(document,objective_id):
+    for exp in document.experiences:
+        for level in exp.levels:
+            for ch in level.challenges:
+                if ch.learning.objective_id==objective_id:return ch.learning.mastery_target,bool(ch.learning.misconception_ids)
+    raise GameOperationsError('GAME_OPS_OBJECTIVE_NOT_IN_DOCUMENT')
 def _result_from_payload(run_id,session_id,result_id,payload,idempotent,resumed):
     mastery=tuple(MasteryRecord(**x).validate() for x in payload['mastery'])
     return EnterpriseSessionResult(run_id,session_id,result_id,payload['build_artifact_id'],payload.get('telemetry_artifact_id'),payload['learning_artifact_id'],mastery,tuple(tuple(x) for x in payload['adaptation_actions']),idempotent,resumed,False).validate()
 
 def run_enterprise_session(ctx,asset_blobs,root:Path,request:EnterpriseSessionRequest,build_policy=None,fail_after_checkpoint:str|None=None):
     ctx.validate();request.validate()
-    resolved=[_telemetry_event(ctx,outcome) for outcome in request.outcomes]
-    identities={(x['game_id'],x['level_id'],x['challenge_id'],x['attempt_number']) for x in resolved}
-    if len(identities)!=len(resolved):raise GameOperationsError('GAME_OPS_DUPLICATE_OUTCOME')
+    for outcome in request.outcomes:_telemetry_event(ctx,outcome)
     verify_canonical_bindings(Path(__file__).resolve().parents[3])
     store=DurableGameStore(Path(root)/'operations');fp=_request_fp(ctx,asset_blobs,request)
     job=store.begin_job(request.idempotency_key,fp,request.run_context.run_id,request.session_id,request.owner)
@@ -73,12 +70,15 @@ def run_enterprise_session(ctx,asset_blobs,root:Path,request:EnterpriseSessionRe
                 _,tref=store.derive('game.telemetry.events',request.run_context.run_id,[build_ref],{'session_id':request.session_id,'events':tele_rows,'raw_text':False,'consent_policy':request.consent.policy_id},'BIE-GAME-OPS-TELEMETRY',_source_provenance(ctx.document),{'retention_days':request.consent.retention_days},True)
                 cp=store.checkpoint(request.idempotency_key,'telemetry_artifact_id',tref.artifact_id)
             cp=store.checkpoint(request.idempotency_key,'telemetry_processed',True)
+        tele_rows=tele.export(request.session_id)
+        tele_by_attempt={(r['payload']['challenge_id'],r['payload']['attempt_number']):r for r in tele_rows}
         if 'learning_artifact_id' not in cp:
             mastery_rows=[];adapt=[]
             for outcome in request.outcomes:
+                tr=tele_by_attempt.get((outcome.challenge_id,outcome.attempt_number))
                 eid='learning:'+hashlib.sha256((request.session_id+'|'+fingerprint({'game_id':_telemetry_event(ctx,outcome)['game_id'],'level_id':_telemetry_event(ctx,outcome)['level_id'],'challenge_id':outcome.challenge_id,'attempt':outcome.attempt_number})).encode()).hexdigest()[:24]
                 rec=mastery_store.update(request.learner_key_hash,outcome.objective_id,outcome.outcome_code,outcome.mastery_weight,outcome.evidence_strength,eid);mastery_rows.append(rec)
-                target,mis=_target(ctx.document,outcome);adapt.append((outcome.objective_id,mastery_store.adaptation_for(rec,target,mis)))
+                target,mis=_target(ctx.document,outcome.objective_id);adapt.append((outcome.objective_id,mastery_store.adaptation_for(rec,target,mis)))
             by={r.objective_id:r for r in mastery_rows};mastery_rows=tuple(by[k] for k in sorted(by))
             _,lref=store.derive('game.learning.state',request.run_context.run_id,[build_ref],{'learner_key_hash':request.learner_key_hash,'mastery':[asdict(x) for x in mastery_rows],'adaptation_actions':[list(x) for x in adapt]},'BIE-GAME-OPS-LEARNING',_source_provenance(ctx.document),{'persistent':True},True)
             cp=store.checkpoint(request.idempotency_key,'learning_artifact_id',lref.artifact_id)
