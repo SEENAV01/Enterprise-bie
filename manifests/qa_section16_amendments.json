@@ -1,0 +1,19 @@
+{
+  "schema_version": "bie.qa.section16.amendments/1",
+  "status": "SCOPED_SYNTHETIC_FIXTURE_REPAIR_NOT_SECTION_ACCEPTANCE",
+  "original_manifest_sha256": "9804d0102f516d1daeb709a572b0f529e70c68e1dfafe953837c103b367906ba",
+  "source_archive_sha256": "d4a3160e93f47ec510c8162309580b3df4fa3a8346211eb4197905a0399e24f1",
+  "product_accepted": false,
+  "paths": [
+    {
+      "path": "tests/qa_hardening_h8/h8_helpers.py",
+      "before_sha256": "e0b9bccd89542caa9fe9a9241870f79d4aa9d6a33e3917bd376bc4dea5fe3237",
+      "before_size": 9360,
+      "after_sha256": "eb0fd64790178ce213dfca346fa9acf3c5cebd786e62f969cf3d1d98d22e058d",
+      "after_size": 9523,
+      "reason_code": "PYTHON_STDLIB_SHADOWING_IN_SYNTHETIC_STAGE_FIXTURE",
+      "failed_workflow_run": 36521339502,
+      "failed_artifact_sha256": "951f4824c06cae1c9893726464c0c13b5a50de313c340dba7f39471082811990"
+    }
+  ]
+}

@@ -114,3 +114,25 @@ Both inherited assertions are unchanged. The focused script
 scripts/diagnose_section16_pipeline.py will record bounded synthetic
 first-stage process errors on a failed rerun. It grants no acceptance,
 relaxes no test, and contains no real document input.
+
+## Confirmed synthetic fixture defect — follow-up candidate pending CI
+
+Run 36521339502 on diagnostic commit 37c5a780ae54fc1ebe2d86fb62ef378bb3042cd0
+again failed the Section 16 gate after the canonical gate. Its artifact
+11013603923 has SHA-256
+951f4824c06cae1c9893726464c0c13b5a50de313c340dba7f39471082811990.
+The bounded H8 diagnostic recorded the two-stage fixture completing BI and KI,
+while the 15-stage fixture exited at BI before any completion. The actual
+stderr shows Python importing the generated `re.py` stage instead of its
+standard-library `re` module; `json`/`glob` then fails on missing `re.compile`.
+
+This is a synthetic fixture import collision, not evidence of a production
+pipeline defect. The scoped repair runs fixture scripts with Python `-I` so
+other generated stage names cannot shadow standard-library imports. Neither
+inherited full-chain assertion nor production engine source was altered.
+The original 817-path adoption manifest remains byte-identical. A separate
+`qa_section16_amendments.json` records the one changed fixture's original and
+new hashes, byte lengths, reason, failed run and artifact digest; the gate
+rejects any unrecorded addition or byte drift. Local amendment verification
+and 28 seeded positive/negative gate tests pass. Full hosted QA remains
+unverified for this new candidate, and no capability/section signoff follows.

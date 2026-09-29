@@ -59,7 +59,9 @@ def ref(root,name,path,data,role='report'):
 def program(path,code,timeout=5):
     path=Path(path).absolute();path.write_text(code)
     exe=str(Path(sys.executable).resolve())
-    return Program(path.stem,(exe,'-B',str(path)),tool_identity(exe)['sha256'],str(path),identity(path.read_bytes()),timeout)
+    # Synthetic stage names include re.py and math.py. Isolate script imports so
+    # they cannot shadow Python's standard-library modules in another stage.
+    return Program(path.stem,(exe,'-I','-B',str(path)),tool_identity(exe)['sha256'],str(path),identity(path.read_bytes()),timeout)
 
 STAGE_CODE='''import os,json,hashlib\nfrom pathlib import Path\ni=Path(os.environ['BIE_INPUT_ROOT']);o=Path(os.environ['BIE_OUTPUT_ROOT'])\nr=json.loads((i/'book-request.json').read_text())\ndef dg(x):return hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()).hexdigest()\nv={'schema_version':'bie.qa.book-stage-result/1','stage':r['stage'],'run_id':os.environ['BIE_RUN_ID'],'execution_id':os.environ['BIE_EXECUTION_ID'],'request_digest':dg(r),'source_digest':r['source_digest'],'checks':[{'check_id':x,'status':'PASS'} for x in r['required_checks']]}\n(o/'qa-result.json').write_text(json.dumps(v))\n(o/'data.txt').write_text('DIAGNOSTIC')\n'''
 

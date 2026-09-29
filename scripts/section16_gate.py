@@ -21,6 +21,9 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'manifests/qa_section16_adoption.json'
+AMENDMENTS = 'manifests/qa_section16_amendments.json'
+ADOPTION_MANIFEST_SHA256 = '9804d0102f516d1daeb709a572b0f529e70c68e1dfafe953837c103b367906ba'
+APPROVED_FIXTURE_SHA256 = 'eb0fd64790178ce213dfca346fa9acf3c5cebd786e62f969cf3d1d98d22e058d'
 SUITES = (
     ('qa_section16', 132), ('qa_source16', 146), ('qa_semantic16', 134),
     ('qa_reasoning16', 217), ('qa_math16', 276), ('qa_pedagogy16', 193),
@@ -77,6 +80,24 @@ def verify_adoption(root):
         raise ValueError('MANIFEST_VERSION')
     if data.get('source_overwrites') != [] or data.get('product_accepted') is not False:
         raise ValueError('MANIFEST_SCOPE')
+    amendment = read_json(root / AMENDMENTS)
+    if (amendment.get('schema_version') != 'bie.qa.section16.amendments/1'
+            or amendment.get('status') != 'SCOPED_SYNTHETIC_FIXTURE_REPAIR_NOT_SECTION_ACCEPTANCE'
+            or amendment.get('product_accepted') is not False
+            or amendment.get('original_manifest_sha256') != ADOPTION_MANIFEST_SHA256
+            or sha((root / MANIFEST).read_bytes()) != ADOPTION_MANIFEST_SHA256
+            or amendment.get('source_archive_sha256') != data['source_archive_sha256']):
+        raise ValueError('AMENDMENT_SCOPE')
+    patches = amendment.get('paths')
+    if (type(patches) is not list or len(patches) != 1 or type(patches[0]) is not dict
+            or patches[0].get('path') != 'tests/qa_hardening_h8/h8_helpers.py'
+            or patches[0].get('reason_code') != 'PYTHON_STDLIB_SHADOWING_IN_SYNTHETIC_STAGE_FIXTURE'
+            or patches[0].get('failed_workflow_run') != 36521339502
+            or patches[0].get('failed_artifact_sha256') != '951f4824c06cae1c9893726464c0c13b5a50de313c340dba7f39471082811990'
+            or patches[0].get('after_sha256') != APPROVED_FIXTURE_SHA256
+            or patches[0].get('after_size') != 9523):
+        raise ValueError('AMENDMENT_SCOPE')
+    patch = patches[0]
     rows = data['paths']
     if len(rows) != 817:
         raise ValueError('ADOPTION_COUNT')
@@ -87,7 +108,14 @@ def verify_adoption(root):
             raise ValueError('DUPLICATE_PATH')
         seen.add(name.casefold())
         payload = safe_path(root, name).read_bytes()
-        if type(row['size']) is not int or len(payload) != row['size'] or sha(payload) != row['sha256']:
+        if name == patch['path']:
+            if (patch.get('before_sha256') != row['sha256']
+                    or patch.get('before_size') != row['size']
+                    or type(patch.get('after_size')) is not int
+                    or len(payload) != patch['after_size']
+                    or sha(payload) != patch.get('after_sha256')):
+                raise ValueError('AMENDMENT_BYTES:' + name)
+        elif type(row['size']) is not int or len(payload) != row['size'] or sha(payload) != row['sha256']:
             raise ValueError('ADOPTION_BYTES:' + name)
         roles[row['role']] += 1
     if roles != Counter(QA_PRODUCTION_ADDITION=278, QA_TEST=180, QA_SCHEMA=50,
@@ -112,7 +140,10 @@ def verify_adoption(root):
         raise ValueError('EXISTING_GAME_QA_OWNERSHIP')
     if actual_dirs != {name for name, _ in SUITES if name != 'original'} | {'qa_engine'}:
         raise ValueError('UNDISCOVERED_SUITE')
-    return dict(passed=True, paths=len(rows), roles=dict(roles), manifest_sha256=sha((root / MANIFEST).read_bytes()))
+    return dict(passed=True, paths=len(rows), roles=dict(roles),
+                manifest_sha256=sha((root / MANIFEST).read_bytes()),
+                amendment_manifest_sha256=sha((root / AMENDMENTS).read_bytes()),
+                amended_paths=[patch['path']])
 
 
 def git(root, *args):

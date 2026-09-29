@@ -31,13 +31,39 @@ class Section16GateTests(unittest.TestCase):
         result = gate.verify_adoption(ROOT)
         self.assertTrue(result['passed'])
         self.assertEqual(result['paths'], 817)
+        self.assertEqual(result['amended_paths'], ['tests/qa_hardening_h8/h8_helpers.py'])
 
     def changed_manifest(self, mutate, code):
-        data = copy.deepcopy(gate.read_json(ROOT / gate.MANIFEST))
+        original = gate.read_json
+        data = copy.deepcopy(original(ROOT / gate.MANIFEST))
         mutate(data)
-        with patch.object(gate, 'read_json', return_value=data):
+        def read(path):
+            return data if Path(path) == ROOT / gate.MANIFEST else original(path)
+        with patch.object(gate, 'read_json', side_effect=read):
             with self.assertRaisesRegex(ValueError, code):
                 gate.verify_adoption(ROOT)
+
+    def changed_amendment(self, mutate, code):
+        original = gate.read_json
+        data = copy.deepcopy(original(ROOT / gate.AMENDMENTS))
+        mutate(data)
+        def read(path):
+            return data if Path(path) == ROOT / gate.AMENDMENTS else original(path)
+        with patch.object(gate, 'read_json', side_effect=read):
+            with self.assertRaisesRegex(ValueError, code):
+                gate.verify_adoption(ROOT)
+
+    def test_amendment_cannot_add_another_path(self):
+        self.changed_amendment(lambda d: d['paths'].append(d['paths'][0]), 'AMENDMENT_SCOPE')
+
+    def test_amendment_before_hash_must_match_original_source(self):
+        self.changed_amendment(lambda d: d['paths'][0].update(before_sha256='0'*64), 'AMENDMENT_BYTES')
+
+    def test_amendment_after_hash_must_match_current_fixture(self):
+        self.changed_amendment(lambda d: d['paths'][0].update(after_sha256='0'*64), 'AMENDMENT_SCOPE')
+
+    def test_amendment_cannot_claim_product_acceptance(self):
+        self.changed_amendment(lambda d: d.update(product_accepted=True), 'AMENDMENT_SCOPE')
 
     def test_missing_manifest_row_rejected(self):
         self.changed_manifest(lambda d: d['paths'].pop(), 'ADOPTION_COUNT')
