@@ -31,7 +31,41 @@ class Section16GateTests(unittest.TestCase):
         result = gate.verify_adoption(ROOT)
         self.assertTrue(result['passed'])
         self.assertEqual(result['paths'], 817)
-        self.assertEqual(result['amended_paths'], ['tests/qa_hardening_h8/h8_helpers.py'])
+        self.assertEqual(result['amended_paths'], [
+            'tests/qa_hardening_h8/h8_helpers.py',
+            *sorted(gate.NATIVE_MATH_EXPECTATION_PATHS),
+        ])
+        self.assertEqual(result['native_owner_repair_path'], gate.NATIVE_MATH_PATH)
+
+    def changed_native_math_repair(self, mutate, code='NATIVE_MATH_REPAIR_SCOPE'):
+        original = gate.read_json
+        data = copy.deepcopy(original(ROOT / gate.NATIVE_MATH_REPAIR))
+        mutate(data)
+        def read(path):
+            return data if Path(path) == ROOT / gate.NATIVE_MATH_REPAIR else original(path)
+        with patch.object(gate, 'read_json', side_effect=read):
+            with self.assertRaisesRegex(ValueError, code):
+                gate.verify_adoption(ROOT)
+
+    def test_native_math_repair_cannot_claim_signoff(self):
+        self.changed_native_math_repair(lambda d: d.update(section16_signed_off=True))
+
+    def test_native_math_repair_cannot_add_unreviewed_path(self):
+        self.changed_native_math_repair(lambda d: d['paths'].append(d['paths'][0]))
+
+    def test_native_math_repair_cannot_change_baseline(self):
+        self.changed_native_math_repair(lambda d: d['paths'][0].update(before_sha256='0'*64), 'NATIVE_MATH_REPAIR_BYTES')
+
+    def test_native_math_owner_bytes_tamper_rejected(self):
+        original = gate.safe_path
+        with tempfile.TemporaryDirectory() as tmp:
+            altered = Path(tmp) / 'expression_ast.py'
+            altered.write_bytes((ROOT / gate.NATIVE_MATH_PATH).read_bytes() + b'\n# changed')
+            def path(root, name):
+                return altered if name == gate.NATIVE_MATH_PATH else original(root, name)
+            with patch.object(gate, 'safe_path', side_effect=path):
+                with self.assertRaisesRegex(ValueError, 'NATIVE_MATH_REPAIR_BYTES'):
+                    gate.verify_adoption(ROOT)
 
     def changed_manifest(self, mutate, code):
         original = gate.read_json

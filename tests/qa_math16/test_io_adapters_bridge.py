@@ -64,10 +64,9 @@ class CodecTests(FixtureCase):
 
 class AdapterTests(FixtureCase):
     def test_real_native_node(self):self.assertEqual(import_node(parse_expression(['x','+','2']),'x+2'),parse('x+2'))
-    def test_native_parser_truncation_is_caught(self):
+    def test_native_parser_complete_expression_imports(self):
         node=parse_expression(['x','*','y','+','z'])
-        with self.assertRaises(ContractError) as ctx:import_node(node,'x*y+z')
-        self.assertEqual(ctx.exception.code,'NATIVE_SOURCE_PARSE_MISMATCH')
+        self.assertEqual(import_node(node,'x*y+z'),parse('x*y+z'))
     def test_native_multitoken_atom_rejected(self):
         with self.assertRaises(ContractError):import_node(Node('atom','x+1'),'x+1')
     def test_native_fake_dict_rejected(self):

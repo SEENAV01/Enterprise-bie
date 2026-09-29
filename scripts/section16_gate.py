@@ -22,8 +22,17 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'manifests/qa_section16_adoption.json'
 AMENDMENTS = 'manifests/qa_section16_amendments.json'
+NATIVE_MATH_REPAIR = 'manifests/qa_section16_native_math_parser_001.json'
 ADOPTION_MANIFEST_SHA256 = '9804d0102f516d1daeb709a572b0f529e70c68e1dfafe953837c103b367906ba'
 APPROVED_FIXTURE_SHA256 = 'eb0fd64790178ce213dfca346fa9acf3c5cebd786e62f969cf3d1d98d22e058d'
+NATIVE_MATH_REPAIR_SHA256 = '421bf85f0b69999040659c9029d2b4e48f3f6d5698a04da8faada3ff03c24e67'
+NATIVE_MATH_PATH = 'bie/math_intelligence/expression_ast.py'
+NATIVE_MATH_BEFORE_SHA256 = 'c36c5980be5c8bf7973429c3f9d781db5808a1f9da9963c7417ecf7fc69793b4'
+NATIVE_MATH_EXPECTATION_PATHS = frozenset({
+    'tests/qa_hardening_h4/test_h4_parser.py',
+    'tests/qa_hardening_h4/test_h4_interfaces.py',
+    'tests/qa_math16/test_io_adapters_bridge.py',
+})
 SUITES = (
     ('qa_section16', 132), ('qa_source16', 146), ('qa_semantic16', 134),
     ('qa_reasoning16', 217), ('qa_math16', 276), ('qa_pedagogy16', 193),
@@ -98,6 +107,30 @@ def verify_adoption(root):
             or patches[0].get('after_size') != 9523):
         raise ValueError('AMENDMENT_SCOPE')
     patch = patches[0]
+    repair = read_json(root / NATIVE_MATH_REPAIR)
+    repair_rows = repair.get('paths')
+    if (sha((root / NATIVE_MATH_REPAIR).read_bytes()) != NATIVE_MATH_REPAIR_SHA256
+            or repair.get('schema_version') != 'bie.qa.section16.native-math-parser-amendment/1'
+            or repair.get('status') != 'NATIVE_PARSER_TRUNCATION_REPAIR_PENDING_HOSTED_REAUDIT'
+            or repair.get('original_adoption_manifest_sha256') != ADOPTION_MANIFEST_SHA256
+            or repair.get('source_archive_sha256') != data['source_archive_sha256']
+            or repair.get('candidate_base_commit') != '1ba9e25ff97822ef901bcb116afd90b4a76a8290'
+            or repair.get('reason_code') != 'NATIVE_EXPRESSION_PARSER_SILENT_TOKEN_TRUNCATION'
+            or repair.get('product_accepted') is not False
+            or repair.get('section16_signed_off') is not False
+            or type(repair_rows) is not list or len(repair_rows) != 4
+            or {r.get('path') for r in repair_rows if type(r) is dict}
+                != NATIVE_MATH_EXPECTATION_PATHS | {NATIVE_MATH_PATH}):
+        raise ValueError('NATIVE_MATH_REPAIR_SCOPE')
+    repair_by_path = {r['path']: r for r in repair_rows}
+    native = repair_by_path[NATIVE_MATH_PATH]
+    native_payload = safe_path(root, NATIVE_MATH_PATH).read_bytes()
+    if (native.get('role') != 'NATIVE_OWNER_REPAIR'
+            or native.get('before_sha256') != NATIVE_MATH_BEFORE_SHA256
+            or native.get('before_size') != 605
+            or len(native_payload) != native.get('after_size')
+            or sha(native_payload) != native.get('after_sha256')):
+        raise ValueError('NATIVE_MATH_REPAIR_BYTES')
     rows = data['paths']
     if len(rows) != 817:
         raise ValueError('ADOPTION_COUNT')
@@ -115,6 +148,14 @@ def verify_adoption(root):
                     or len(payload) != patch['after_size']
                     or sha(payload) != patch.get('after_sha256')):
                 raise ValueError('AMENDMENT_BYTES:' + name)
+        elif name in NATIVE_MATH_EXPECTATION_PATHS:
+            migrated = repair_by_path[name]
+            if (migrated.get('role') != 'INHERITED_QA_EXPECTATION_MIGRATION'
+                    or migrated.get('before_sha256') != row['sha256']
+                    or migrated.get('before_size') != row['size']
+                    or len(payload) != migrated.get('after_size')
+                    or sha(payload) != migrated.get('after_sha256')):
+                raise ValueError('NATIVE_MATH_EXPECTATION_BYTES:' + name)
         elif type(row['size']) is not int or len(payload) != row['size'] or sha(payload) != row['sha256']:
             raise ValueError('ADOPTION_BYTES:' + name)
         roles[row['role']] += 1
@@ -143,7 +184,9 @@ def verify_adoption(root):
     return dict(passed=True, paths=len(rows), roles=dict(roles),
                 manifest_sha256=sha((root / MANIFEST).read_bytes()),
                 amendment_manifest_sha256=sha((root / AMENDMENTS).read_bytes()),
-                amended_paths=[patch['path']])
+                native_math_repair_manifest_sha256=sha((root / NATIVE_MATH_REPAIR).read_bytes()),
+                amended_paths=[patch['path'], *sorted(NATIVE_MATH_EXPECTATION_PATHS)],
+                native_owner_repair_path=NATIVE_MATH_PATH)
 
 
 def git(root, *args):

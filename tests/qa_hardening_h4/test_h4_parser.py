@@ -2,8 +2,8 @@ import unittest
 from bie.qa.domain_quality_v2.parser import *
 from bie.qa.math_v2.expression import parse as baseline
 class ParserChecks(unittest.TestCase):
-    def test_native_bug_preserved_and_detected(self):
-        r=inspect_parser('x * y + z');self.assertTrue(r['native_mismatch']);self.assertEqual(r['complete_ast']['value'],'+');self.assertEqual(r['native_ast']['value'],'*');self.assertFalse(r['native_overwritten'])
+    def test_native_complete_expression_matches_independent_parser(self):
+        r=inspect_parser('x * y + z');self.assertFalse(r['native_mismatch']);self.assertEqual(r['complete_ast']['value'],'+');self.assertEqual(r['native_ast']['value'],'+');self.assertFalse(r['native_overwritten'])
     def test_right_power(self):
         n=parse_complete(tokenize('x^2^3'))
         self.assertEqual(n.value,'^');self.assertEqual(n.children[1].value,'^')
@@ -24,9 +24,9 @@ class ParserChecks(unittest.TestCase):
         with self.assertRaises(ContractError):parse_complete([True])
     def test_node_type(self):
         with self.assertRaises(ContractError):node_text({'kind':'atom'})
-    def test_native_tree_cannot_hide_tail(self):
+    def test_native_tree_retains_tail(self):
         from bie.qa.math_v2.adapters import import_node
-        with self.assertRaises(ContractError):import_node(legacy_parse(['x','*','y','+','z']),'x*y+z')
+        self.assertEqual(import_node(legacy_parse(['x','*','y','+','z']),'x*y+z'),baseline('x*y+z'))
 GOOD={'mixed_precedence':'x*y+z','nested_group':'(x+y)*z','subtract_left':'x-y-z','divide_left':'x/y/z','negative_power':'x^-2','negative_square':'-x^2','signed_group':'(-x)^2','decimal':'1.25*x+2e-3','unary_plus':'+x+y','trailing_space':' x + y ','constant_fraction':'1/3+x','integer':'125','chained':'x+y*z-2*x'}
 for name,value in GOOD.items():
     def check(self,value=value):self.assertEqual(checked_expression(value),baseline(value))

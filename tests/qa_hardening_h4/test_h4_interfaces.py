@@ -22,7 +22,7 @@ class InterfaceChecks(TempCase):
         p=ParserPolicy(('expr',));b=binding(p);d=payload('BIE-QA-HARD-015',b,expressions=[dict(case_id='expr',text='x*y+z')]);ref=save(self.root,'parser.json',d)
         return p,b,d,ref
     def test_parser_byte_bound_api(self):
-        p,b,d,ref=self.parser_fixture();r,details=evaluate_parser(ref,self.root,b,p);self.assertEqual(r.status,'REVIEW_REQUIRED');self.assertTrue(details['expr']['native_mismatch'])
+        p,b,d,ref=self.parser_fixture();r,details=evaluate_parser(ref,self.root,b,p);self.assertEqual(r.status,'REVIEW_REQUIRED');self.assertFalse(details['expr']['native_mismatch'])
     def test_parser_missing_requirement(self):
         p,b,d,ref=self.parser_fixture();d['expressions'][0]['case_id']='wrong'
         with self.assertRaises(ContractError):evaluate_parser(save(self.root,'parser.json',d),self.root,b,p)
