@@ -148,3 +148,59 @@ repair writes this final receipt into the already runner-owned
 `canonical-evidence` directory, which the same workflow uploads. This is not
 an acceptance decision until a fresh exact-commit workflow succeeds and its
 artifact is independently inspected.
+
+## Parser preservation and native-PDF math linkage checkpoint (2026-09-29)
+
+The current isolated branch remains `codex/section16-hard039-recovery` on
+canonical base `a68e054025b8fe7756a71e998d9e9103dad8e0f4`; the separate
+original checkout has not been changed. Native `expression_ast.py` was found
+to silently drop the `+ z` suffix in `x * y + z`. The corrected parser and
+three strengthened inherited assertions are in commit `10c5f7c6`. The first
+hosted canonical check exposed a lossless-ledger preservation conflict rather
+than a parser test failure. Commits `6a22063d` and `cf78aa4f` preserve the
+605-byte exact predecessor in governed evidence and apply a narrow,
+source-archive-bound amendment without changing the sealed ledger. The
+replacement parser's SHA-256 is separately pinned.
+
+Hosted run 36539425191 on commit `6a22063d` passed the complete canonical
+gate (9,381 tests) and Section 16 explicit gate (4,856 tests), with 10
+overlapping IDs: 14,227 unique combined tests, zero required failures/errors/
+skips. Evidence artifact 11020382247 has SHA-256
+`8d06b05bcfc297ebf0ac7819abac65910628976f82bae49ecd1f1dd72ecbb6ad`.
+This passing run predates the archive-identity tightening and PDF bridge;
+it must not be reused as their exact-candidate receipt.
+
+Commit `c595c612` adds one hash-pinned QA bridge from an operator-selected
+canonical native-PDF text block to the corrected native math parser. It
+retains source hash, page, region and geometry, emits only safe hashes/counts,
+and fails closed on unsupported notation. Local tests: bridge 15/15,
+adoption gate 36/36, targeted inherited adapter tests 16/16, and unchanged
+817-path adoption verification PASS. The private 20-page Money PDF kept its
+verified source hash and 755 source-linked blocks, but had zero strict
+operator-containing math lines; its math capability is **not** validated by
+this observation. No PDF or extracted text was committed or uploaded.
+
+The exact `c595c612` hosted run 36542478700 passed: canonical 9,402 tests,
+Section 16 4,856 tests, 10 overlapping original release tests, and 14,248
+unique combined tests, with zero required failures/errors/skips. The uploaded
+artifact is 11022043961, SHA-256
+`c22b4d4488ec0b6974e6f3e1e4a023767319cb4c73b8381534d9443c714e142e`.
+The workflow receipt explicitly records `section16_signed_off: false` and
+`product_accepted: false`. A duplicate run 36542480007 was queued behind it;
+its eventual result is separate. Section 16 is **not signed off**.
+All 14 local capability-review records remain open, as do the 52 integration
+and 30 deployment/acceptance records. The 17 historical local rechecks still
+need candidate-bound disposition; passing a linked synthetic suite alone does
+not close an original obligation. HARD-039 stays active, HARD-040 incomplete,
+Task 028 paused, Sections 17/18 not started, and product acceptance false.
+
+The only `BookPlan(` registration found under `bie/`, `tests/` and `scripts/`
+is `tests/qa_hardening_h8/h8_helpers.py`, whose generated source is
+`source.txt` and whose default profile is `DIAGNOSTIC`. A complete native
+15-stage plan for an authorized real book has not been provisioned or
+executed. Actual source-to-lesson/media/game output, independent semantic
+and pedagogic assessment, native render/playable traces, and applicable
+rights/authority remain required before any unqualified sign-off. The next
+decision is to inspect the exact latest CI receipt, then resolve the remaining
+capability and native integration obligations with positive and seeded-negative
+evidence; do not infer completion from the synthetic full-chain fixture.
