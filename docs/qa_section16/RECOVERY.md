@@ -136,3 +136,15 @@ new hashes, byte lengths, reason, failed run and artifact digest; the gate
 rejects any unrecorded addition or byte drift. Local amendment verification
 and 28 seeded positive/negative gate tests pass. Full hosted QA remains
 unverified for this new candidate, and no capability/section signoff follows.
+
+Run 36524548405 on repair commit eb17b170a85d038ad2d18318e25903a83cd2b55c
+passed the canonical 9,355-test gate and every explicit Section 16 candidate
+suite (4,856/4,856 unique test IDs; H8 155/155 and Re-audit 002 90/90).
+The workflow itself still concluded FAILURE at the final combined-receipt step:
+that unprivileged step attempted to write into `section16-evidence`, a directory
+created by the approved root supervisor. The traceback was `PermissionError`
+for `COMBINED_RESULT.json`; no test or preservation check failed. The CI-only
+repair writes this final receipt into the already runner-owned
+`canonical-evidence` directory, which the same workflow uploads. This is not
+an acceptance decision until a fresh exact-commit workflow succeeds and its
+artifact is independently inspected.

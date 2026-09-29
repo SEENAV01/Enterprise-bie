@@ -154,7 +154,7 @@ jobs:
                   'section16_tests':4856,'overlap_original_release_tests':10,
                   'unique_combined_tests':canonical['summary']['tests_run']+4856-10,
                   'passed':True,'section16_signed_off':False,'product_accepted':False}
-          (temp/'section16-evidence/COMBINED_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+          (temp/'canonical-evidence/COMBINED_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
           print(json.dumps(result,indent=2))
           PY
       - name: Preserve actual results, including failures
