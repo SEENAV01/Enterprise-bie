@@ -23,9 +23,12 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = 'manifests/qa_section16_adoption.json'
 AMENDMENTS = 'manifests/qa_section16_amendments.json'
 NATIVE_MATH_REPAIR = 'manifests/qa_section16_native_math_parser_001.json'
+NATIVE_PDF_MATH_BRIDGE = 'manifests/qa_section16_native_pdf_math_bridge_001.json'
 ADOPTION_MANIFEST_SHA256 = '9804d0102f516d1daeb709a572b0f529e70c68e1dfafe953837c103b367906ba'
 APPROVED_FIXTURE_SHA256 = 'eb0fd64790178ce213dfca346fa9acf3c5cebd786e62f969cf3d1d98d22e058d'
 NATIVE_MATH_REPAIR_SHA256 = '421bf85f0b69999040659c9029d2b4e48f3f6d5698a04da8faada3ff03c24e67'
+NATIVE_PDF_MATH_BRIDGE_SHA256 = 'afe4d422a104894f0fbe019e4273f2ea4072be22d71a194fbbc4faa680026cf6'
+NATIVE_PDF_MATH_BRIDGE_PATH = 'bie/qa/math_v2/native_pdf_bridge.py'
 NATIVE_MATH_PATH = 'bie/math_intelligence/expression_ast.py'
 NATIVE_MATH_BEFORE_SHA256 = 'c36c5980be5c8bf7973429c3f9d781db5808a1f9da9963c7417ecf7fc69793b4'
 NATIVE_MATH_EXPECTATION_PATHS = frozenset({
@@ -131,6 +134,26 @@ def verify_adoption(root):
             or len(native_payload) != native.get('after_size')
             or sha(native_payload) != native.get('after_sha256')):
         raise ValueError('NATIVE_MATH_REPAIR_BYTES')
+    pdf_math = read_json(root / NATIVE_PDF_MATH_BRIDGE)
+    if (sha((root / NATIVE_PDF_MATH_BRIDGE).read_bytes()) != NATIVE_PDF_MATH_BRIDGE_SHA256
+            or pdf_math != {
+                'schema_version': 'bie.qa.section16.native-pdf-math-bridge/1',
+                'original_adoption_manifest_sha256': ADOPTION_MANIFEST_SHA256,
+                'candidate_base_commit': 'cf78aa4f835713e5303bc4a9782ddd877901e7d5',
+                'scope': 'SELECTED_NATIVE_PDF_TEXT_BLOCK_TO_BOUNDED_MATH_AST',
+                'product_accepted': False,
+                'section16_signed_off': False,
+                'qa16_gap_025_closed': False,
+                'qa16_gap_028_closed': False,
+                'path': NATIVE_PDF_MATH_BRIDGE_PATH,
+                'sha256': 'bb6c485d659dfc101dc9352e9b6324034bec93effb5a06ada54cebdd06dba731',
+                'size': 4098,
+                'reason': 'Explicit source-block math observation only; no automatic extraction, semantic truth, rendered-math or broad-profile acceptance.',
+            }):
+        raise ValueError('NATIVE_PDF_MATH_BRIDGE_SCOPE')
+    bridge_payload = safe_path(root, NATIVE_PDF_MATH_BRIDGE_PATH).read_bytes()
+    if len(bridge_payload) != pdf_math['size'] or sha(bridge_payload) != pdf_math['sha256']:
+        raise ValueError('NATIVE_PDF_MATH_BRIDGE_BYTES')
     rows = data['paths']
     if len(rows) != 817:
         raise ValueError('ADOPTION_COUNT')
@@ -165,7 +188,7 @@ def verify_adoption(root):
     actual = {p.relative_to(root).as_posix() for p in (root / 'bie/qa').rglob('*')
               if p.is_file() and '__pycache__' not in p.parts}
     expected = {r['path'] for r in rows if r['role'] == 'QA_PRODUCTION_ADDITION'}
-    if actual != expected | {'bie/qa/__init__.py', 'bie/qa/release_contracts.py'}:
+    if actual != expected | {'bie/qa/__init__.py', 'bie/qa/release_contracts.py', NATIVE_PDF_MATH_BRIDGE_PATH}:
         raise ValueError('QA_SOURCE_INVENTORY')
     test_paths = {p.relative_to(root).as_posix() for name, _ in SUITES if name != 'original'
                   for p in (root / 'tests' / name).rglob('*')
@@ -185,8 +208,10 @@ def verify_adoption(root):
                 manifest_sha256=sha((root / MANIFEST).read_bytes()),
                 amendment_manifest_sha256=sha((root / AMENDMENTS).read_bytes()),
                 native_math_repair_manifest_sha256=sha((root / NATIVE_MATH_REPAIR).read_bytes()),
+                native_pdf_math_bridge_manifest_sha256=sha((root / NATIVE_PDF_MATH_BRIDGE).read_bytes()),
                 amended_paths=[patch['path'], *sorted(NATIVE_MATH_EXPECTATION_PATHS)],
-                native_owner_repair_path=NATIVE_MATH_PATH)
+                native_owner_repair_path=NATIVE_MATH_PATH,
+                exact_qa_additions=[NATIVE_PDF_MATH_BRIDGE_PATH])
 
 
 def git(root, *args):

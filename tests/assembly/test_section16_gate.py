@@ -36,6 +36,37 @@ class Section16GateTests(unittest.TestCase):
             *sorted(gate.NATIVE_MATH_EXPECTATION_PATHS),
         ])
         self.assertEqual(result['native_owner_repair_path'], gate.NATIVE_MATH_PATH)
+        self.assertEqual(result['exact_qa_additions'], [gate.NATIVE_PDF_MATH_BRIDGE_PATH])
+
+    def changed_native_pdf_math_bridge(self, mutate, code='NATIVE_PDF_MATH_BRIDGE_SCOPE'):
+        original = gate.read_json
+        data = copy.deepcopy(original(ROOT / gate.NATIVE_PDF_MATH_BRIDGE))
+        mutate(data)
+        def read(path):
+            return data if Path(path) == ROOT / gate.NATIVE_PDF_MATH_BRIDGE else original(path)
+        with patch.object(gate, 'read_json', side_effect=read):
+            with self.assertRaisesRegex(ValueError, code):
+                gate.verify_adoption(ROOT)
+
+    def test_pdf_math_bridge_cannot_claim_gap_closure(self):
+        self.changed_native_pdf_math_bridge(lambda d: d.update(qa16_gap_025_closed=True))
+
+    def test_pdf_math_bridge_cannot_claim_section_signoff(self):
+        self.changed_native_pdf_math_bridge(lambda d: d.update(section16_signed_off=True))
+
+    def test_pdf_math_bridge_cannot_add_unreviewed_field(self):
+        self.changed_native_pdf_math_bridge(lambda d: d.update(other_path='bie/qa/other.py'))
+
+    def test_pdf_math_bridge_bytes_tamper_rejected(self):
+        original = gate.safe_path
+        with tempfile.TemporaryDirectory() as tmp:
+            altered = Path(tmp) / 'native_pdf_bridge.py'
+            altered.write_bytes((ROOT / gate.NATIVE_PDF_MATH_BRIDGE_PATH).read_bytes() + b'# tamper\n')
+            def path(root, name):
+                return altered if name == gate.NATIVE_PDF_MATH_BRIDGE_PATH else original(root, name)
+            with patch.object(gate, 'safe_path', side_effect=path):
+                with self.assertRaisesRegex(ValueError, 'NATIVE_PDF_MATH_BRIDGE_BYTES'):
+                    gate.verify_adoption(ROOT)
 
     def changed_native_math_repair(self, mutate, code='NATIVE_MATH_REPAIR_SCOPE'):
         original = gate.read_json
