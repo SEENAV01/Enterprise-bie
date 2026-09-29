@@ -226,3 +226,7 @@ safe preflight was deterministic, but all 15 native stage programs remain
 unregistered for that real-book plan. No content generation, video rendering,
 playable browser run, live assessment, rights clearance, or Section 16 sign-off
 is claimed. The new candidate still needs hosted combined regression.
+The exact 14-record capability review is separately dispositioned in
+`docs/evidence/qa-section16/recovery-001/CAPABILITY_DISPOSITION_002.md`:
+bounded controls, remaining implementation, candidate-native evidence and
+later product/deployment gates are not conflated. Every original ID stays OPEN.
