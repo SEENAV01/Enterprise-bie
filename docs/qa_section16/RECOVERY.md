@@ -204,3 +204,15 @@ rights/authority remain required before any unqualified sign-off. The next
 decision is to inspect the exact latest CI receipt, then resolve the remaining
 capability and native integration obligations with positive and seeded-negative
 evidence; do not infer completion from the synthetic full-chain fixture.
+
+The 17 historical local-fix records are now crosswalked against the exact
+passing candidate in
+`docs/evidence/qa-section16/recovery-001/HISTORICAL_LOCAL_RECHECK_002.md`.
+All 17 original IDs are present and remain OPEN; the record separates tested
+local controls from unfulfilled native/operational requirements. The user has
+specified configuration-driven OpenAI generation and independent Gemini-family
+assessment through the existing model gateway. No OpenAI key was found in the
+current process or the worktree's `.env`/`.env.local` locations; other approved
+secret stores were not inspected. No live validation has run. Until
+secure provisioning is approved, both live lanes are
+`BLOCKED_BY_CREDENTIALS`; ordinary Section 16 CI stays credential-free.
