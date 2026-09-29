@@ -80,8 +80,8 @@ def preflight_native_pdf_book(
     blockers = set()
     if plan.profile != 'NATIVE':
         blockers.add('H39_DIAGNOSTIC_PLAN_NOT_NATIVE')
-    for name in STAGES:
-        step = steps.get(name)
+    for stage_name in STAGES:
+        step = steps.get(stage_name)
         if step is None:
             status = 'NOT_REGISTERED'
             blockers.add('H39_MISSING_NATIVE_STAGE_REGISTRATION')
@@ -103,17 +103,17 @@ def preflight_native_pdf_book(
                 try:
                     if inventory(checkout) != list(profile.checkout_rows):
                         raise ContractError('H39_NATIVE_CHECKOUT_CHANGED')
-                    for name, expected in (
+                    for worker_name, expected in (
                         ('linux_worker.py', profile.worker_sha256),
                         ('namespace_launcher.py', profile.launcher_sha256),
                     ):
-                        if identity(regular_bytes(checkout, 'bie/compiler/' + name)) != expected:
+                        if identity(regular_bytes(checkout, 'bie/compiler/' + worker_name)) != expected:
                             raise ContractError('H39_NATIVE_WORKER_CHANGED')
                 except (ContractError, OSError):
                     status = 'NATIVE_WORKER_IDENTITY_INVALID'
                     blockers.add('H39_NATIVE_WORKER_IDENTITY_INVALID')
                 else:
                     status = 'NATIVE_REGISTRATION_BYTES_VERIFIED'
-        statuses.append((name, status))
+        statuses.append((stage_name, status))
     return NativeBookPreflight(source_hash, len(data), inspection.page_count, inspection.total_blocks,
                                plan.content_digest, tuple(statuses), tuple(sorted(blockers)))
