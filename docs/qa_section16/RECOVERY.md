@@ -95,3 +95,22 @@ The new combined workflow retains the approved canonical gate and executes all
 pending until actual hosted evidence is checked. Do not reuse recovery CI as
 this candidate's pass. The 14 capability reviews and 17 historical rechecks
 remain open; source adoption is not obligation closure or section sign-off.
+
+## Combined candidate run 36518073587 — failed, evidence retained
+
+The exact candidate 1e8022138597771b75450ac1766c2ce0d9447cfd
+passed the complete canonical gate: 9,351 tests across 1,246 files with
+zero failures, errors or skips. All 4,856 explicitly selected Section 16
+tests executed on Linux. Two positive synthetic full-chain checks failed:
+qa_hardening_h8 completed 0 of 15 diagnostic stages (154/155 passed),
+and qa_reaudit_002 observed the same 0 of 15 (89/90 passed).
+Other 30 suites passed their expected counts. This is a genuine candidate
+gate failure; no section completion or obligation closure follows from it.
+
+The hosted failure artifact is section16-combined-candidate-evidence,
+ID 11012670386, SHA-256
+6f528458028cf91b835d1e03f07b1c775a0d21e6628acae4e15c4e4a7595c607.
+Both inherited assertions are unchanged. The focused script
+scripts/diagnose_section16_pipeline.py will record bounded synthetic
+first-stage process errors on a failed rerun. It grants no acceptance,
+relaxes no test, and contains no real document input.

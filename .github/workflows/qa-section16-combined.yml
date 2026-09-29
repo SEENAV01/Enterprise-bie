@@ -129,6 +129,10 @@ jobs:
         run: |
           set -euo pipefail
           sudo env PATH="$PATH" PYTHONPATH="$GITHUB_WORKSPACE" PYTHONDONTWRITEBYTECODE=1 /opt/pyvenv/bin/python -B scripts/section16_gate.py --output "$RUNNER_TEMP/section16-evidence"
+      - name: Capture synthetic H8 process diagnostic after failed gate
+        if: failure()
+        run: |
+          sudo env PATH="$PATH" PYTHONPATH="$GITHUB_WORKSPACE" PYTHONDONTWRITEBYTECODE=1 /opt/pyvenv/bin/python -B scripts/diagnose_section16_pipeline.py "$RUNNER_TEMP/section16-evidence/H8_DIAGNOSTIC.json"
       - name: Require both exact-candidate gates, with explicit overlap accounting
         if: always()
         run: |
