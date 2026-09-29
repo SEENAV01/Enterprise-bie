@@ -22,6 +22,9 @@ def audit(root=ROOT):
     from game_initializer_amendment import resolve
     try: rows = resolve(root, rows)
     except (ValueError, OSError, KeyError) as exc: errors.append(str(exc))
+    from section16_release_amendment import resolve as resolve_qa_release
+    try: rows = resolve_qa_release(root, rows)
+    except (ValueError, OSError, KeyError) as exc: errors.append(str(exc))
     original = json.loads((root / "manifests/archive_inventory.json").read_text())["archives"]
     supplemental = json.loads((root / "manifests/supplemental_archives.json").read_text())
     expected_members = json.loads((root / "manifests/file_inventory.json").read_text())["files"] + [f for a in supplemental for f in a["files"]]

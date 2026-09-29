@@ -1,0 +1,30 @@
+{
+  "schema_version": "bie.qa.legacy-release-amendment/1",
+  "comparison_anchor": "a68e054025b8fe7756a71e998d9e9103dad8e0f4",
+  "original_ledger_sha256": "f981c9c11834f4136052306613de16bbb241ca4d980b96fec675d3ca767b76d1",
+  "source_archive_sha256": "d4a3160e93f47ec510c8162309580b3df4fa3a8346211eb4197905a0399e24f1",
+  "scope": "LEGACY_METADATA_ONLY_COMPATIBILITY",
+  "product_accepted": false,
+  "section_signed_off": false,
+  "reason": "Metadata-only evidence is CONTRACT_ONLY, never release authorization; preserve original source and strengthen the current caller assertion.",
+  "entries": [
+    {
+      "file_id": "6aee875a0974150e981e86f165519d72460b956aa8bd2b092ca4ea2eb0fcc9c8",
+      "active_path": "bie/qa/release_contracts.py",
+      "active_sha256": "4ae3347fa0ee58afbf6d3e2949a3972c679efa1a68b47da1e007fe767e203a3c",
+      "before_image": "docs/evidence/qa-section16/predecessors/bie/qa/release_contracts.py",
+      "before_sha256": "3e721b622855667f7898097bb5bcbe26855a39f24d1f335b2312af7c34846b3b",
+      "original_sha256": "3e721b622855667f7898097bb5bcbe26855a39f24d1f335b2312af7c34846b3b",
+      "original_bytes": "8045"
+    },
+    {
+      "file_id": "d4940ef65757fd0a9c3558636f5b87361823a1411b52b233fb73bf65206423bc",
+      "active_path": "tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py",
+      "active_sha256": "62bdaf4c673a0a23ba94a487a96ab107c3d7ec8164334efe8023d59ff754b37c",
+      "before_image": "docs/evidence/qa-section16/predecessors/tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py",
+      "before_sha256": "a5b23162a757c074e2a1c35aef152555d408c27ca827328b005fc1358c90db55",
+      "original_sha256": "bbf1e21131862011156ecd8fb6ce3891c2f99b6a93a55956400f69ee46902cda",
+      "original_bytes": "3814"
+    }
+  ]
+}

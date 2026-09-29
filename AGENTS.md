@@ -1,5 +1,7 @@
 # BIE continuation rules
 
+Section 16 HARD-039 recovery is active, not signed off. Read `docs/qa_section16/RECOVERY.md` before continuing Sections 16–18. Preserve all 76 QA tasks, 41 hardening tasks and 113 obligations; do not restart completed batches or replace global continuation. The reviewed legacy release amendment is metadata-only and grants no release or product acceptance. Task 028 remains paused.
+
 Read `BIE_CONTEXT_HANDOFF.md`, `docs/bie/CURRENT_STATE.md` and `task_registry/continuation.json` before continuing.
 
 - This is the existing enterprise BIE project. Preserve its architecture, task IDs, implementation history and acceptance boundaries.

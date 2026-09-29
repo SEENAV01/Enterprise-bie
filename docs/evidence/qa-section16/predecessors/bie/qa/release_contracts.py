@@ -8,7 +8,7 @@ class ReleaseContractError(ValueError):
 
 GATE_MODES={"REQUIRED","OPTIONAL","NOT_APPLICABLE"}
 EVIDENCE_STATUSES={"PASS","FAIL","ERROR","SKIPPED"}
-RELEASE_STATUSES={"BLOCKED","READY_FOR_REVIEW","RELEASE_CANDIDATE","SUCCESS","CONTRACT_ONLY"}
+RELEASE_STATUSES={"BLOCKED","READY_FOR_REVIEW","RELEASE_CANDIDATE","SUCCESS"}
 
 ALWAYS_REQUIRED={"lineage_integrity","source_grounding"}
 
@@ -98,9 +98,6 @@ class ReleaseDecision:
     blocking_gates:List[str]
     review_required:bool
     summary:str
-    release_authorized:bool=False
-    product_accepted:bool=False
-    evaluation_scope:str="LEGACY_METADATA_ONLY"
 
 class ReleaseEvaluator:
     @staticmethod
@@ -111,12 +108,11 @@ class ReleaseEvaluator:
         for e in evidence: by_gate.setdefault(e.gate_id,[]).append(e)
 
         results=[]
-        blockers=sorted({e.gate_id for e in evidence if e.diagnostics})
+        blockers=[]
         for req in policy.gates:
             evs=by_gate.get(req.gate_id,[])
             if req.mode=="NOT_APPLICABLE":
-                results.append(GateResult(req.gate_id,req.mode,"ERROR" if any(e.diagnostics for e in evs) else "SKIPPED",
-                                          [e.evidence_id for e in evs],req.remediation_layer,[d for e in evs for d in e.diagnostics]))
+                results.append(GateResult(req.gate_id,req.mode,"SKIPPED",[],req.remediation_layer))
                 continue
 
             if req.mode=="REQUIRED" and len(evs)<req.min_evidence_count:
@@ -125,16 +121,13 @@ class ReleaseEvaluator:
                 continue
 
             if not evs:
-                results.append(GateResult(req.gate_id,req.mode,"ERROR" if any(e.diagnostics for e in evs) else "SKIPPED",
-                                          [e.evidence_id for e in evs],req.remediation_layer,[d for e in evs for d in e.diagnostics]))
+                results.append(GateResult(req.gate_id,req.mode,"SKIPPED",[],req.remediation_layer))
                 continue
 
             statuses=[e.status for e in evs]
             diagnostics=[d for e in evs for d in e.diagnostics]
 
-            if diagnostics:
-                status="ERROR"
-            elif "ERROR" in statuses:
+            if "ERROR" in statuses:
                 status="ERROR"
             elif "FAIL" in statuses:
                 status="FAIL"
@@ -154,24 +147,20 @@ class ReleaseEvaluator:
                 req.remediation_layer,diagnostics
             ))
 
-        for gid in sorted(set(by_gate)-{g.gate_id for g in policy.gates}):
-            blockers.append(gid)
-            results.append(GateResult(gid,"REQUIRED","ERROR",[e.evidence_id for e in by_gate[gid]],"QA",
-                ["UNKNOWN_EVIDENCE_GATE"]+[d for e in by_gate[gid] for d in e.diagnostics]))
         if blockers:
             release_status="BLOCKED"
         elif policy.require_human_review:
             release_status="READY_FOR_REVIEW"
         else:
-            release_status="CONTRACT_ONLY"
+            release_status="SUCCESS"
 
         return ReleaseDecision(
             release_status=release_status,
             gate_results=results,
             blocking_gates=sorted(set(blockers)),
             review_required=policy.require_human_review and not blockers,
-            summary=("Legacy metadata checks passed; content-bound authorization is not established."
-                     if release_status=="CONTRACT_ONLY"
+            summary=("All required evidence-backed gates passed."
+                     if release_status=="SUCCESS"
                      else f"Release blocked/reviewed: {release_status}")
         )
 
