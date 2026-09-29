@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReasoningPolicy — structural wire schema",
+  "description": "Closed structural validation only. Use the strict runtime codec and evaluators for ranges, duplicate identities, graph scope, provenance, authority and resource limits.",
+  "$ref": "#/$defs/bie_qa_reasoning_v2_models_ReasoningPolicy",
+  "$defs": {
+    "bie_qa_reasoning_v2_models_ReasoningPolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/bie_qa_source_v2_models_Policy"
+        },
+        "learner_id": {
+          "type": "string"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "target_concepts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_PrerequisiteRule"
+          },
+          "maxItems": 8192
+        },
+        "expected_argument_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "lineages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_SourceLineage"
+          },
+          "maxItems": 8192
+        },
+        "domain": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "minimum_independent_sources": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_publish_confidence_ppm": {
+          "type": "integer"
+        },
+        "abstain_below_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "max_mastery_age_seconds": {
+          "type": "integer"
+        },
+        "max_calibration_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_calibration_samples": {
+          "type": "integer"
+        },
+        "minimum_bin_samples": {
+          "type": "integer"
+        },
+        "maximum_ece_ppm": {
+          "type": "integer"
+        },
+        "maximum_brier_ppm": {
+          "type": "integer"
+        },
+        "max_proof_atoms": {
+          "type": "integer"
+        },
+        "max_truth_assignments": {
+          "type": "integer"
+        },
+        "max_node_visits": {
+          "type": "integer"
+        },
+        "max_graph_checks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "learner_id",
+        "concepts",
+        "target_concepts",
+        "prerequisites",
+        "expected_argument_ids",
+        "lineages",
+        "domain",
+        "language",
+        "minimum_independent_sources",
+        "minimum_independent_assessors",
+        "minimum_review_confidence_ppm",
+        "minimum_publish_confidence_ppm",
+        "abstain_below_ppm",
+        "max_receipt_age_seconds",
+        "max_mastery_age_seconds",
+        "max_calibration_age_seconds",
+        "minimum_calibration_samples",
+        "minimum_bin_samples",
+        "maximum_ece_ppm",
+        "maximum_brier_ppm",
+        "max_proof_atoms",
+        "max_truth_assignments",
+        "max_node_visits",
+        "max_graph_checks"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Policy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_PrerequisiteRule": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "type": "string"
+        },
+        "prerequisite": {
+          "type": "string"
+        },
+        "dependent": {
+          "type": "string"
+        },
+        "minimum_depth": {
+          "type": "integer"
+        },
+        "minimum_mastery_ppm": {
+          "type": "integer"
+        },
+        "mode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "prerequisite",
+        "dependent",
+        "minimum_depth",
+        "minimum_mastery_ppm",
+        "mode"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_SourceLineage": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "lineage_group": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "lineage_group"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "$defs": {
+    "Binding": {
+      "additionalProperties": false,
+      "properties": {
+        "hi": {
+          "type": "string"
+        },
+        "lo": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "lo",
+        "hi",
+        "unit"
+      ],
+      "type": "object"
+    },
+    "Equation": {
+      "additionalProperties": false,
+      "properties": {
+        "left": {
+          "$ref": "#/$defs/Expr"
+        },
+        "right": {
+          "$ref": "#/$defs/Expr"
+        }
+      },
+      "required": [
+        "left",
+        "right"
+      ],
+      "type": "object"
+    },
+    "Expr": {
+      "additionalProperties": false,
+      "properties": {
+        "args": {
+          "items": {
+            "$ref": "#/$defs/Expr"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "op": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "value",
+        "args"
+      ],
+      "type": "object"
+    },
+    "FormulaReference": {
+      "additionalProperties": false,
+      "properties": {
+        "equation": {
+          "$ref": "#/$defs/Equation"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference_id",
+        "scope_id",
+        "equation"
+      ],
+      "type": "object"
+    },
+    "MathPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "formula_references": {
+          "items": {
+            "$ref": "#/$defs/FormulaReference"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "numerical_references": {
+          "items": {
+            "$ref": "#/$defs/NumericalReference"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "requirements": {
+          "items": {
+            "$ref": "#/$defs/Requirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scopes": {
+          "items": {
+            "$ref": "#/$defs/Scope"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/$defs/Policy"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "scopes",
+        "formula_references",
+        "numerical_references",
+        "requirements",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "NumericalReference": {
+      "additionalProperties": false,
+      "properties": {
+        "abs_tolerance": {
+          "type": "string"
+        },
+        "decimal_places": {
+          "type": "integer"
+        },
+        "expression": {
+          "$ref": "#/$defs/Expr"
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/Binding"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_interval_width": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "output_unit": {
+          "type": "string"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "rel_tolerance": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reference_id",
+        "scope_id",
+        "expression",
+        "inputs",
+        "output_unit",
+        "mode",
+        "abs_tolerance",
+        "rel_tolerance",
+        "decimal_places",
+        "max_interval_width"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "Requirement": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "end_reference_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "minimum_steps": {
+          "type": "integer"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "kind",
+        "scope_id",
+        "reference_id",
+        "end_reference_id",
+        "minimum_steps"
+      ],
+      "type": "object"
+    },
+    "Scope": {
+      "additionalProperties": false,
+      "properties": {
+        "nonzero": {
+          "items": {
+            "$ref": "#/$defs/Expr"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scope_id": {
+          "type": "string"
+        },
+        "symbols": {
+          "items": {
+            "$ref": "#/$defs/SymbolSpec"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "scope_id",
+        "symbols",
+        "nonzero"
+      ],
+      "type": "object"
+    },
+    "SymbolSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "bounds": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "unit",
+        "bounds"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/MathPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, proof/domain rules, artifact verification and external assessment authority.",
+  "title": "MathPolicy structure"
+}

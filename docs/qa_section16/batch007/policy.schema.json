@@ -1,0 +1,348 @@
+{
+  "$defs": {
+    "DirectorPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "audience_id": {
+          "type": "string"
+        },
+        "expected_promise_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "facets": {
+          "items": {
+            "$ref": "#/$defs/FacetRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "language": {
+          "type": "string"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "pacing": {
+          "$ref": "#/$defs/PacingLimits"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "routes": {
+          "items": {
+            "$ref": "#/$defs/RouteRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scenes": {
+          "items": {
+            "$ref": "#/$defs/SceneRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/$defs/Policy"
+        },
+        "terms": {
+          "items": {
+            "$ref": "#/$defs/TermRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "timing_constraints": {
+          "items": {
+            "$ref": "#/$defs/TimingConstraint"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "lesson_id",
+        "audience_id",
+        "language",
+        "scenes",
+        "routes",
+        "terms",
+        "facets",
+        "expected_promise_ids",
+        "timing_constraints",
+        "pacing",
+        "minimum_independent_assessors",
+        "minimum_review_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "FacetRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_modes": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "citation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "condition_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "facet_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "facet_id",
+        "citation_ids",
+        "condition_ids",
+        "allowed_modes"
+      ],
+      "type": "object"
+    },
+    "PacingLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_concurrent_speech": {
+          "type": "integer"
+        },
+        "max_pause_ms": {
+          "type": "integer"
+        },
+        "max_sentence_codepoints": {
+          "type": "integer"
+        },
+        "max_unmotivated_gap_ms": {
+          "type": "integer"
+        },
+        "qualification_window_ms": {
+          "type": "integer"
+        },
+        "screen_codepoints_per_minute": {
+          "type": "integer"
+        },
+        "speech_codepoints_per_minute": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "speech_codepoints_per_minute",
+        "screen_codepoints_per_minute",
+        "max_concurrent_speech",
+        "max_unmotivated_gap_ms",
+        "max_pause_ms",
+        "max_sentence_codepoints",
+        "qualification_window_ms"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "RouteRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "closing_roles": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "facet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_duration_ms": {
+          "type": "integer"
+        },
+        "objective_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "opening_roles": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "route_id": {
+          "type": "string"
+        },
+        "scene_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "route_id",
+        "scene_ids",
+        "objective_ids",
+        "facet_ids",
+        "opening_roles",
+        "closing_roles",
+        "max_duration_ms"
+      ],
+      "type": "object"
+    },
+    "SceneRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_roles": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "objective_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "parent_scene_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scene_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "scene_id",
+        "objective_ids",
+        "parent_scene_ids",
+        "allowed_roles"
+      ],
+      "type": "object"
+    },
+    "TermRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "assumed_known": {
+          "type": "boolean"
+        },
+        "forms": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "term_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "term_id",
+        "forms",
+        "assumed_known"
+      ],
+      "type": "object"
+    },
+    "TimingConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "after_beat_id": {
+          "type": "string"
+        },
+        "before_beat_id": {
+          "type": "string"
+        },
+        "constraint_id": {
+          "type": "string"
+        },
+        "maximum_gap_ms": {
+          "type": "integer"
+        },
+        "minimum_gap_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "constraint_id",
+        "before_beat_id",
+        "after_beat_id",
+        "minimum_gap_ms",
+        "maximum_gap_ms"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/DirectorPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, route, learning and timing rules, artifact verification and external assessment authority.",
+  "title": "DirectorPolicy structure"
+}

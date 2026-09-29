@@ -27,7 +27,10 @@ class ReleaseContractTests(unittest.TestCase):
         p=enterprise_default_policy(True,True)
         evidence=[ev(g.gate_id) for g in p.gates if g.mode=="REQUIRED"]
         d=ReleaseEvaluator.evaluate(p,evidence)
-        self.assertEqual(d.release_status,"SUCCESS")
+        self.assertEqual(d.release_status,"CONTRACT_ONLY")
+        self.assertFalse(d.release_authorized)
+        self.assertFalse(d.product_accepted)
+        self.assertEqual(d.evaluation_scope,"LEGACY_METADATA_ONLY")
 
     def test_missing_required_evidence_blocks(self):
         p=enterprise_default_policy(True,False)

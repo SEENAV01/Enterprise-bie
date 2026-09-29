@@ -1,0 +1,132 @@
+{
+  "batch_id": "BIE-QA-SECTION16-BATCH-007",
+  "applies_to_task_ids": [
+    "BIE-QA-DIR-001",
+    "BIE-QA-DIR-002",
+    "BIE-QA-DIR-003",
+    "BIE-QA-DIR-004"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "label": "Recover continuation",
+      "evidence": "history/section16_batch006/QA_SECTION16_CONTINUATION.json",
+      "status": "DONE"
+    },
+    {
+      "step": 2,
+      "label": "Bind original task scope",
+      "evidence": "docs/qa_section16/batch007/SPEC.md",
+      "status": "DONE"
+    },
+    {
+      "step": 3,
+      "label": "Preserve parent artifacts",
+      "evidence": "evidence/qa_section16/INHERITED_006_INVENTORY_007.json",
+      "status": "DONE"
+    },
+    {
+      "step": 4,
+      "label": "Inspect pinned dependencies",
+      "evidence": "evidence/qa_section16/native_dependencies_007.json",
+      "status": "DONE"
+    },
+    {
+      "step": 5,
+      "label": "Define contracts",
+      "evidence": "bie/qa/director_v2/models.py",
+      "status": "DONE"
+    },
+    {
+      "step": 6,
+      "label": "Define source/trust boundaries",
+      "evidence": "bie/qa/director_v2/attestation.py",
+      "status": "DONE"
+    },
+    {
+      "step": 7,
+      "label": "Define schemas",
+      "evidence": "docs/qa_section16/batch007/request.schema.json",
+      "status": "DONE"
+    },
+    {
+      "step": 8,
+      "label": "Implement deterministic metrics",
+      "evidence": "bie/qa/director_v2/metrics.py",
+      "status": "DONE"
+    },
+    {
+      "step": 9,
+      "label": "Implement four evaluators",
+      "evidence": "bie/qa/director_v2/evaluator.py",
+      "status": "DONE"
+    },
+    {
+      "step": 10,
+      "label": "Exercise native projection",
+      "evidence": "bie/qa/director_v2/adapters.py",
+      "status": "DONE"
+    },
+    {
+      "step": 11,
+      "label": "Implement release boundary",
+      "evidence": "bie/qa/director_v2/bridge.py",
+      "status": "DONE"
+    },
+    {
+      "step": 12,
+      "label": "Implement strict CLI",
+      "evidence": "bie/qa/director_v2/__main__.py",
+      "status": "DONE"
+    },
+    {
+      "step": 13,
+      "label": "Execute new tests",
+      "evidence": "evidence/qa_section16/executed_run_007/TEST_RESULT.json",
+      "status": "DONE"
+    },
+    {
+      "step": 14,
+      "label": "Execute inherited regression",
+      "evidence": "evidence/qa_section16/executed_run_007/batch006_regression/TEST_RESULT.json",
+      "status": "DONE"
+    },
+    {
+      "step": 15,
+      "label": "Probe guard removal and repair test gap",
+      "evidence": "evidence/qa_section16/mutation_run_007/MUTATION_RESULT.json",
+      "status": "DONE"
+    },
+    {
+      "step": 16,
+      "label": "Run authored demo",
+      "evidence": "examples/qa_section16/director_checks/DEMO_RESULT.json",
+      "status": "DONE"
+    },
+    {
+      "step": 17,
+      "label": "Record gaps and adoption needs",
+      "evidence": "QA_SECTION16_GAP_LEDGER.json",
+      "status": "DONE"
+    },
+    {
+      "step": 18,
+      "label": "Package and fresh-extract verify",
+      "evidence": "EXTERNAL_DELIVERY_RECEIPT",
+      "status": "VERIFY_AFTER_FREEZE"
+    },
+    {
+      "step": 19,
+      "label": "Canonical integration and actual media",
+      "evidence": "QA_SECTION16_INTEGRATION_PLAN.json",
+      "status": "OPEN_NOT_CLAIMED"
+    },
+    {
+      "step": 20,
+      "label": "Publish local continuation",
+      "evidence": "QA_SECTION16_CONTINUATION.json",
+      "status": "DONE_LOCAL_ONLY"
+    }
+  ],
+  "product_accepted": false
+}

@@ -1,0 +1,26 @@
+{
+  "task_id": "BIE-QA-HARD-009",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implementation": [
+    "bie/qa/native_quality_v2/common.py",
+    "bie/qa/native_quality_v2/assessors.py"
+  ],
+  "test_evidence": "hardening/section16_h3/evidence/final_source_suites/TEST_RESULT.json",
+  "negative_evidence": "hardening/section16_h3/evidence/mutations/MUTATION_RESULT.json",
+  "diagnostic_evidence": "hardening/section16_h3/evidence/diagnostics/EXECUTION_RESULT.json",
+  "new_tests_shared_not_per_task": 174,
+  "verified_local_behaviors": [
+    "Fixed rubric/system/tool configuration is preserved against source instructions and extra response authorization fields.",
+    "Unavailable/malformed/contradicted/truncated/foreign provider records remain blocked or review-required.",
+    "Two actual local assessor subprocesses executed diagnostic responses; native gateway contract tests use explicitly synthetic providers."
+  ],
+  "remaining_closure_requirements": [
+    "No live authorized provider was invoked or provisioned. Full HARD009 operational closure therefore remains OPEN.",
+    "Prompt framing and strict output controls do not prove semantic immunity to every prompt injection.",
+    "Operational credentials, retry economics/rate limits and independent assessor calibration remain deployment obligations."
+  ],
+  "full_scope_closure_verified": false,
+  "historical_obligations_closed": 0,
+  "github_integrated": false,
+  "product_accepted": false
+}

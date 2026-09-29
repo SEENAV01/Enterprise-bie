@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Review structural contract (not acceptance)",
+  "$ref": "#/$defs/Review",
+  "$defs": {
+    "Review": {
+      "type": "object",
+      "properties": {
+        "review_id": {
+          "type": "string"
+        },
+        "request_digest": {
+          "type": "string"
+        },
+        "policy_digest": {
+          "type": "string"
+        },
+        "subject_id": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "verdict": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "evaluator_id": {
+          "type": "string"
+        },
+        "evaluator_version": {
+          "type": "string"
+        },
+        "issued_at": {
+          "type": "integer"
+        },
+        "expires_at": {
+          "type": "integer"
+        },
+        "key_id": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "review_id",
+        "request_digest",
+        "policy_digest",
+        "subject_id",
+        "purpose",
+        "verdict",
+        "evidence_ids",
+        "confidence_ppm",
+        "rationale",
+        "evaluator_id",
+        "evaluator_version",
+        "issued_at",
+        "expires_at",
+        "key_id",
+        "signature"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

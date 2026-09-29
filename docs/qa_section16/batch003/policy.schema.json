@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Structural supplement only. Semantic ranges, identity, authorization, references and budget are enforced by Python contracts/evaluators.",
+  "$ref": "#/$defs/bie_qa_semantic_v2_models_SemanticPolicy",
+  "$defs": {
+    "bie_qa_semantic_v2_models_SemanticPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/bie_qa_source_v2_models_Policy"
+        },
+        "expected_reference_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "reference_source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "predicates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_semantic_v2_models_PredicateRule"
+          },
+          "maxItems": 8192
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_semantic_v2_models_Requirement"
+          },
+          "maxItems": 8192
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_weighted_coverage_ppm": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "max_comparisons": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "expected_reference_ids",
+        "reference_source_ids",
+        "predicates",
+        "requirements",
+        "minimum_confidence_ppm",
+        "minimum_weighted_coverage_ppm",
+        "minimum_independent_assessors",
+        "max_receipt_age_seconds",
+        "max_comparisons"
+      ]
+    },
+    "bie_qa_source_v2_models_Policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ]
+    },
+    "bie_qa_semantic_v2_models_PredicateRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "predicate_id": {
+          "type": "string"
+        },
+        "value_kind": {
+          "type": "string"
+        },
+        "cardinality": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "context_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "predicate_id",
+        "value_kind",
+        "cardinality",
+        "unit",
+        "context_keys"
+      ]
+    },
+    "bie_qa_semantic_v2_models_Requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requirement_id": {
+          "type": "string"
+        },
+        "concept_id": {
+          "type": "string"
+        },
+        "facet": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "minimum_depth": {
+          "type": "integer"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "critical": {
+          "type": "boolean"
+        },
+        "allowed_channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "requirement_id",
+        "concept_id",
+        "facet",
+        "description",
+        "minimum_depth",
+        "weight",
+        "critical",
+        "allowed_channels"
+      ]
+    }
+  }
+}

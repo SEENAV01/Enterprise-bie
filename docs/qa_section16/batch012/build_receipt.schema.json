@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/bie_qa_game_v2_models_BuildReceipt",
+  "$defs": {
+    "bie_qa_game_v2_models_BuildReceipt": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "game_id": {
+          "type": "string"
+        },
+        "inputs_digest": {
+          "type": "string"
+        },
+        "outputs_digest": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "string"
+        },
+        "tool_id": {
+          "type": "string"
+        },
+        "tool_version": {
+          "type": "string"
+        },
+        "started": {
+          "type": "boolean"
+        },
+        "exit_code": {
+          "type": "integer"
+        },
+        "timed_out": {
+          "type": "boolean"
+        },
+        "issued_at": {
+          "type": "integer"
+        },
+        "execution_kind": {
+          "type": "string"
+        },
+        "stdout": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "stderr": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "game_id",
+        "inputs_digest",
+        "outputs_digest",
+        "entrypoint",
+        "tool_id",
+        "tool_version",
+        "started",
+        "exit_code",
+        "timed_out",
+        "issued_at",
+        "execution_kind",
+        "stdout",
+        "stderr"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_release_v2_contracts_ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "bie.qa.recovery-ci-verification/1",
+  "repository": "SEENAV01/Enterprise-bie",
+  "run_id": 36506727442,
+  "job_id": 109209708403,
+  "artifact_id": 11007774576,
+  "artifact_sha256": "825dd23affea305d71def4c7b9087986f581b41b0819555a280f3f1063fcaa79",
+  "artifact_bytes": 101804,
+  "artifact_members": 183,
+  "head_sha": "0efcb1599880dbabf7eb8ac196515b45364a46e1",
+  "tree_sha": "a8c430a470dcc2b40936a4a9999c32672f9d8493",
+  "summary": {
+    "scope": "Canonical enterprise regression and integration tests; no production or real-book acceptance claimed",
+    "python": "3.13.5",
+    "test_files": 1245,
+    "tests_run": 9327,
+    "failed_files": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 1343.061,
+    "passed": true
+  },
+  "preserved_evidence_hashes": {
+    "canonical_integrity.json": "3786b06bc8b1e086b6b1fc0606ab35ab29a97a88ca4cfde589f4ab93f48f7079",
+    "ingested_archive_integrity.json": "ad8900fe09b09b8c7f3258e502ac475779029f48bca51f40e4e51e74b5f67595",
+    "post-dir-preservation.json": "f1d9cde9c391bc3183d3cd3127af1f50b74bb4a5f5f6fbf8b044b924f9385838"
+  },
+  "new_test_rows": [
+    {
+      "path": "tests/test_section16_release_migration.py",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    {
+      "path": "tests/assembly/test_section16_release_amendment.py",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    }
+  ],
+  "audio_tests": 1684,
+  "game_tests": 1123,
+  "subsets_already_in_total": true,
+  "scope": "RECOVERY_COMPATIBILITY_CANDIDATE_NOT_FULL_SECTION16",
+  "section16_complete": false,
+  "product_accepted": false
+}

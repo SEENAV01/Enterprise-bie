@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "$id": "urn:bie:qa:h4:hard015:input",
+  "description": "Structural boundary only. Runtime enforces per-kind fields, native digests, time, inventory and source bytes.",
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.domain-quality-input/1"
+    },
+    "task_id": {
+      "const": "BIE-QA-HARD-015"
+    },
+    "binding": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "policy_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "policy_digest"
+      ],
+      "additionalProperties": false
+    },
+    "expressions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1024,
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "binding",
+    "expressions"
+  ]
+}

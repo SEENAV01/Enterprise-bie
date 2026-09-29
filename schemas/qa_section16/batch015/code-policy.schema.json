@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 Batch015 code-policy",
+  "description": "Structural schema only. Runtime semantic contracts, byte validation and external approvals remain mandatory.",
+  "$ref": "#/$defs/media_repair_v2_CodePolicy",
+  "$defs": {
+    "media_repair_v2_CodePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "module_id",
+        "source",
+        "exports",
+        "source_claim_ids"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "module_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source_v2_Policy"
+        },
+        "exports": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/media_repair_v2_ExportValue"
+          }
+        },
+        "source_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "source_v2_Policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      }
+    },
+    "media_repair_v2_ExportValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "json_value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "json_value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "bie.qa.section16.native-math-parser-amendment/1",
+  "status": "NATIVE_PARSER_TRUNCATION_REPAIR_PENDING_HOSTED_REAUDIT",
+  "original_adoption_manifest_sha256": "9804d0102f516d1daeb709a572b0f529e70c68e1dfafe953837c103b367906ba",
+  "source_archive_sha256": "d4a3160e93f47ec510c8162309580b3df4fa3a8346211eb4197905a0399e24f1",
+  "candidate_base_commit": "1ba9e25ff97822ef901bcb116afd90b4a76a8290",
+  "reason_code": "NATIVE_EXPRESSION_PARSER_SILENT_TOKEN_TRUNCATION",
+  "reproduced_input": ["x", "*", "y", "+", "z"],
+  "reproduced_old_root": "*",
+  "required_new_root": "+",
+  "product_accepted": false,
+  "section16_signed_off": false,
+  "paths": [
+    {
+      "path": "bie/math_intelligence/expression_ast.py",
+      "role": "NATIVE_OWNER_REPAIR",
+      "before_sha256": "c36c5980be5c8bf7973429c3f9d781db5808a1f9da9963c7417ecf7fc69793b4",
+      "before_size": 605,
+      "after_sha256": "8b13a200725e07abc389d3750643b38f8800868de50ecd83e5f2aff79baeee27",
+      "after_size": 1923
+    },
+    {
+      "path": "tests/qa_hardening_h4/test_h4_parser.py",
+      "role": "INHERITED_QA_EXPECTATION_MIGRATION",
+      "before_sha256": "a3fd0efa25261c709ad9b7c42354992acfbe7d526e592558446f97d9b028b831",
+      "before_size": 2951,
+      "after_sha256": "5146226f09ee0a73ac5c47d63c77190d26878ac1baf2779a1c75f3894b76a587",
+      "after_size": 2966
+    },
+    {
+      "path": "tests/qa_hardening_h4/test_h4_interfaces.py",
+      "role": "INHERITED_QA_EXPECTATION_MIGRATION",
+      "before_sha256": "0d86aebfb0f8614497bf087af15a168b6620a175bd1c2c651ba281010c4241f4",
+      "before_size": 6387,
+      "after_sha256": "dad2aec600fbcf6765d312aa5a6f2f901bcbb10e7beb559b12117b2940938309",
+      "after_size": 6388
+    },
+    {
+      "path": "tests/qa_math16/test_io_adapters_bridge.py",
+      "role": "INHERITED_QA_EXPECTATION_MIGRATION",
+      "before_sha256": "52b6cfea220b82cc21c37f2536dbecb33d4c2b43133c94c636f937cf9c793bd4",
+      "before_size": 9388,
+      "after_sha256": "426dec5e237a15fbf3e808b052f254d90756f892d0dd6af07798c9007225f724",
+      "after_size": 9307
+    }
+  ]
+}

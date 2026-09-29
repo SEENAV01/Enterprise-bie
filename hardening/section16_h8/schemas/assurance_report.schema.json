@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.assurance-quality/1"
+    },
+    "report": {
+      "type": "object"
+    },
+    "details": {
+      "type": "object"
+    },
+    "technical_checks_clear": {
+      "type": "boolean"
+    },
+    "production_authorized": {
+      "const": false
+    },
+    "product_accepted": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "report",
+    "details",
+    "technical_checks_clear",
+    "production_authorized",
+    "product_accepted"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuditPolicy structural contract (not acceptance)",
+  "$ref": "#/$defs/AuditPolicy",
+  "$defs": {
+    "AuditPolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CaseRule"
+          },
+          "maxItems": 4096
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TargetCase"
+          },
+          "maxItems": 4096
+        },
+        "protected_artifact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "require_generation": {
+          "type": "boolean"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "phase_timeout_seconds": {
+          "type": "integer"
+        },
+        "max_evidence_bytes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "checks",
+        "targets",
+        "protected_artifact_ids",
+        "require_generation",
+        "max_receipt_age_seconds",
+        "phase_timeout_seconds",
+        "max_evidence_bytes"
+      ],
+      "additionalProperties": false
+    },
+    "CaseRule": {
+      "type": "object",
+      "properties": {
+        "check_id": {
+          "type": "string"
+        },
+        "case_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "fixture_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "validator_digest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "check_id",
+        "case_ids",
+        "fixture_ids",
+        "validator_digest"
+      ],
+      "additionalProperties": false
+    },
+    "TargetCase": {
+      "type": "object",
+      "properties": {
+        "failure_id": {
+          "type": "string"
+        },
+        "check_id": {
+          "type": "string"
+        },
+        "case_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "failure_id",
+        "check_id",
+        "case_id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "policy_id": "bie-enterprise-evidence-v2",
+  "policy_version": "2.0.0",
+  "gates": [
+    {
+      "gate_id": "accessibility",
+      "owner": "QA.VIS.GAME",
+      "required_roles": [
+        "game",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "animation_quality",
+      "owner": "ANI",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "benchmark",
+      "owner": "EVAL",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "canonical_integration",
+      "owner": "INFRA.QA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "citation_provenance",
+      "owner": "BI.QA",
+      "required_roles": [
+        "source"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "code_compile",
+      "owner": "COMP",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "director_quality",
+      "owner": "DIR",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "game_build",
+      "owner": "GAME",
+      "required_roles": [
+        "game"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "game_interactions",
+      "owner": "GAME.QA",
+      "required_roles": [
+        "game"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "game_learning_alignment",
+      "owner": "GAME.PED",
+      "required_roles": [
+        "game",
+        "source"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "game_runtime",
+      "owner": "GAME.QA",
+      "required_roles": [
+        "game"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "lineage_integrity",
+      "owner": "INFRA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "mathematical_correctness",
+      "owner": "MATH.QA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "pedagogical_correctness",
+      "owner": "PED",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "performance",
+      "owner": "INFRA.COMP",
+      "required_roles": [
+        "game",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "prerequisite_correctness",
+      "owner": "PR.PED",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "real_book_e2e",
+      "owner": "QA.EVAL",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "reasoning_validity",
+      "owner": "RE.QA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "regression",
+      "owner": "QA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "rendered_frame_inspection",
+      "owner": "QA.VIS",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "reproducibility",
+      "owner": "INFRA.QA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "rights_and_asset_provenance",
+      "owner": "INFRA.VIS",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "security",
+      "owner": "INFRA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "semantic_correctness",
+      "owner": "KI.RE.QA",
+      "required_roles": [
+        "game",
+        "source",
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "source_grounding",
+      "owner": "BI.KI.QA",
+      "required_roles": [
+        "source"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "timing_audio_sync",
+      "owner": "AUDIO.COMP",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "video_render",
+      "owner": "COMP",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution"
+      ],
+      "min_distinct_evaluators": 1
+    },
+    {
+      "gate_id": "visual_quality",
+      "owner": "VIS",
+      "required_roles": [
+        "video"
+      ],
+      "allowed_kinds": [
+        "execution",
+        "review"
+      ],
+      "min_distinct_evaluators": 1
+    }
+  ],
+  "max_evidence_lifetime_seconds": 604800
+}

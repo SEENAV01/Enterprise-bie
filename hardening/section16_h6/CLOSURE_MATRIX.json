@@ -1,0 +1,171 @@
+{
+  "schema_version": "bie.qa.h6-closure-matrix/1",
+  "tasks": [
+    {
+      "task_id": "BIE-QA-HARD-024",
+      "title": "End-to-end accessibility gate",
+      "original_scope": "Assemble real output accessibility checks across visual, motion, narration, caption and game controls with explicit applicability.",
+      "required_closure_evidence": [
+        "Keyboard/focus, color-independent meaning, readable labels and captions have failing controls.",
+        "Reduced-motion and flash checks cover actual output, not only the plan.",
+        "No blanket conformance certificate from static style metadata."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-017",
+        "BIE-QA-HARD-018",
+        "BIE-QA-HARD-021",
+        "BIE-QA-HARD-023"
+      ],
+      "implemented_local": "Actual-output accessibility evidence aggregation and static keyboard/focus capture. Exact required viewports/controls/caption/meaning inventories, byte/time bindings and unmeasured-axis review.",
+      "remaining": [
+        "Native final audiovisual and game output, screen-reader/focus behavior, actual caption paint and motion/flash coverage remain open.",
+        "Static desktop keyboard fixtures are not WCAG conformance, physical-device support, whole-film flash analysis or clinical certification."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": [
+        "tests/qa_hardening_h6/test_accessibility.py",
+        "tests/qa_hardening_h6/test_schemas_cli.py"
+      ],
+      "test_receipt": "hardening/section16_h6/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h6/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-025",
+      "title": "Native source-extraction repair adapter",
+      "original_scope": "Repair derived extraction/anchors through approved native providers while preserving original bytes and meaning.",
+      "required_closure_evidence": [
+        "Multiregion/scanned defects generate bounded proposals with unchanged original sources.",
+        "Ambiguous extraction escalates rather than fabricating a quote.",
+        "Every repaired source change invalidates downstream meaning/media evidence."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-007",
+        "BIE-QA-HARD-009"
+      ],
+      "implemented_local": "Reruns the native PDF ingestion/provenance adapter and proposes a regenerated multi-region derived snapshot; original source bytes and extraction policy remain unchanged. Actual source-pixel/text verification is repeated.",
+      "remaining": [
+        "Scanned repair with independently valid OCR and reading-order/figure interpretation remains open; no OCR process was executed in this batch.",
+        "Only proposed derived extraction is produced; semantic assessment, canonical downstream invalidation/adoption and real-book proof remain required."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": [
+        "tests/qa_hardening_h6/test_repairs.py",
+        "tests/qa_hardening_h6/test_handoff.py"
+      ],
+      "test_receipt": "hardening/section16_h6/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h6/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-026",
+      "title": "Contextual reasoning/pedagogy/director repair",
+      "original_scope": "Use governed generators to propose semantic corrections without inventing facts or weakening teaching objectives; preserve provenance.",
+      "required_closure_evidence": [
+        "Incorrect proposed corrections are rejected by independent validators.",
+        "New assessments bind changed content; old signatures cannot approve new proposals.",
+        "Bounded budgets and human escalation prevent unending or silent rewrite loops."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-009",
+        "BIE-QA-HARD-010",
+        "BIE-QA-HARD-012",
+        "BIE-QA-HARD-013",
+        "BIE-QA-HARD-016"
+      ],
+      "implemented_local": "Executes a pinned trusted contextual-generator callback with bounded output/deadline and preserves source links, objective identities, conditions and record inventory. Separate fresh approval and unchanged repair-controller validation are required.",
+      "remaining": [
+        "Positive callbacks and signing credentials are authored synthetic diagnostics; no live authorized model or independent semantic assessor was executed.",
+        "Preservation of declared conditions is not proof that new prose is true or pedagogically effective. Native content schemas and full runtime repair need owner-reviewed integration."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": [
+        "tests/qa_hardening_h6/test_repairs.py",
+        "tests/qa_hardening_h6/test_handoff.py"
+      ],
+      "test_receipt": "hardening/section16_h6/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h6/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-027",
+      "title": "Native generated-code and game repair integration",
+      "original_scope": "Apply owner-scoped repairs to actual generated modules using approved templates/transformations rather than claiming universal code repair.",
+      "required_closure_evidence": [
+        "Handwritten code/tests/policies are protected.",
+        "Compile and native runtime validation are required after repair.",
+        "Defects outside the supported transformation set escalate with intact originals."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-020",
+        "BIE-QA-HARD-022"
+      ],
+      "implemented_local": "Owner/recipe/SceneIR/emitter-bound complete JSON-literal slot transformations in explicitly generated TypeScript const-data modules. Protects all other bytes and requires compile/native-runtime/regression check scope before controller handoff.",
+      "remaining": [
+        "This is a restricted data-module adapter, not arbitrary TypeScript/React/game-interface repair. Unsupported module grammar or handwritten functions escalate.",
+        "Actual TypeScript and Node diagnostics ran, but native BIE generated application repair, full rebuild and native-origin runtime did not; H5 native runtime gates remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": [
+        "tests/qa_hardening_h6/test_repairs.py",
+        "tests/qa_hardening_h6/test_handoff.py",
+        "tests/qa_hardening_h6/test_schemas_cli.py"
+      ],
+      "test_receipt": "hardening/section16_h6/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h6/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-029",
+      "title": "Durable orchestration and crash recovery",
+      "original_scope": "Bind local journals to canonical task invalidation/idempotency and durable transactional state.",
+      "required_closure_evidence": [
+        "Crash/resume, duplicate delivery and competing reservations cannot double-publish or reset budgets.",
+        "Cancellation/timeouts terminate whole registered process groups and preserve evidence.",
+        "Distributed recovery is explicitly tested when that deployment is enabled."
+      ],
+      "dependencies": [],
+      "implemented_local": "Transactional local SQLite lease/fencing/attempt budgets, hash-chained state projection and result/invalidation outbox; committed-claim crash recovery and competing processes exercised. Native invalidation contract executes on exact causal descendant sets.",
+      "remaining": [
+        "Local trusted-directory durability, not distributed deployment, trusted wall-clock service, adversarial DB administration/rollback defense or exactly-once remote publication.",
+        "Lease expiry does not terminate the old worker. Fencing prevents stale commits; worker process-group cancellation is separate and only trusted callbacks are supported. Canonical orchestrator dispatch remains open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": [
+        "tests/qa_hardening_h6/test_durable_workers.py",
+        "tests/qa_hardening_h6/test_schemas_cli.py"
+      ],
+      "test_receipt": "hardening/section16_h6/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h6/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-036",
+      "title": "Canonical regression corpus and test identity",
+      "original_scope": "Register full canonical cases, immutable expected outputs and suite-qualified identities; run all native consumers, not only the local subset.",
+      "required_closure_evidence": [
+        "Missing cases, altered fixtures and duplicate record identities fail.",
+        "Before/after semantic, pixel and game-state regressions include negative controls.",
+        "The 3529 local cases are not relabelled as full-repository coverage."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-005",
+        "BIE-QA-HARD-006"
+      ],
+      "implemented_local": "Checks a supplied Git checkout against independently pinned revision/tree and every raw tracked blob, rejects dirty/untracked/omitted test files, discovers suite-qualified cases, and executes the independently approved immutable registration in isolated processes.",
+      "remaining": [
+        "Only two authored two-test Git repositories exercised full discovery/execution; the full Enterprise-bie checkout is not mounted and was explicitly rejected rather than substituted.",
+        "The cumulative local suite count is not canonical regression coverage. Broader frameworks, third-party dependency closure, production worker isolation and latest canonical corpus execution remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": [
+        "tests/qa_hardening_h6/test_corpus.py"
+      ],
+      "test_receipt": "hardening/section16_h6/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h6/evidence/diagnostics/EXECUTION_RESULT.json"
+    }
+  ],
+  "operational_scope_complete": false,
+  "historical_obligations_closed": 0
+}

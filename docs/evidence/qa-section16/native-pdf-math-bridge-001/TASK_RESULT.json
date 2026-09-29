@@ -1,0 +1,34 @@
+{
+  "schema_version": "bie.qa.section16-task-result/1",
+  "candidate_commit": "c595c612192dfd09c9d3bd7c145d1c5f56a19df6",
+  "obligation_ids": ["QA16-GAP-025", "QA16-GAP-028"],
+  "implemented_scope": "Operator-selected canonical native-PDF text block to native arithmetic parser and QA adapter, preserving source hash, physical page, region and normalized geometry.",
+  "source_path": "bie/qa/math_v2/native_pdf_bridge.py",
+  "source_sha256": "bb6c485d659dfc101dc9352e9b6324034bec93effb5a06ada54cebdd06dba731",
+  "preservation_manifest": "manifests/qa_section16_native_pdf_math_bridge_001.json",
+  "preservation_manifest_sha256": "afe4d422a104894f0fbe019e4273f2ea4072be22d71a194fbbc4faa680026cf6",
+  "local_positive_and_seeded_negative_tests": 15,
+  "local_result": "PASS",
+  "hosted_combined_gate": {
+    "run_id": 36542478700,
+    "status": "SUCCESS",
+    "canonical_tests": 9402,
+    "section16_tests": 4856,
+    "overlap_original_release_tests": 10,
+    "unique_combined_tests": 14248,
+    "artifact_id": 11022043961,
+    "artifact_sha256": "c22b4d4488ec0b6974e6f3e1e4a023767319cb4c73b8381534d9443c714e142e"
+  },
+  "real_pdf_observation": {
+    "source_hash_verified": true,
+    "page_count": 20,
+    "source_linked_block_count": 755,
+    "strict_operator_math_line_count": 0,
+    "native_math_capability_validated_by_this_pdf": false
+  },
+  "original_obligation_closed": false,
+  "general_math_extraction_claimed": false,
+  "rendered_consumer_validated": false,
+  "mathematical_truth_proven": false,
+  "product_accepted": false
+}

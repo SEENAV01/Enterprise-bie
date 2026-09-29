@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h5.motion",
+  "title": "motion structural policy; codec enforces semantic bounds",
+  "type": "object",
+  "properties": {
+    "frames": {
+      "type": "integer"
+    },
+    "fps": {
+      "type": "string"
+    },
+    "tracks": {
+      "type": "array"
+    },
+    "required_meanings": {
+      "type": "array"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "tolerance": {
+      "type": "string"
+    },
+    "reduced_speed_factor": {
+      "type": "string"
+    },
+    "max_trace_bytes": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "frames",
+    "fps",
+    "tracks",
+    "required_meanings"
+  ],
+  "additionalProperties": false
+}

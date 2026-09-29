@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/RightsPolicy",
+  "$defs": {
+    "RightsPolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "snapshot_digest": {
+          "type": "string"
+        },
+        "grantee_id": {
+          "type": "string"
+        },
+        "territories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "commercial": {
+          "type": "boolean"
+        },
+        "planned_from": {
+          "type": "integer"
+        },
+        "planned_until": {
+          "type": "integer"
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Material"
+          },
+          "maxItems": 4096
+        },
+        "grants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Grant"
+          },
+          "maxItems": 4096
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UseRequirement"
+          },
+          "maxItems": 4096
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "max_status_age_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "snapshot_digest",
+        "grantee_id",
+        "territories",
+        "channels",
+        "commercial",
+        "planned_from",
+        "planned_until",
+        "materials",
+        "grants",
+        "requirements",
+        "max_receipt_age_seconds",
+        "max_status_age_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "Material": {
+      "type": "object",
+      "properties": {
+        "material_id": {
+          "type": "string"
+        },
+        "artifact_id": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "extent_id": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "origin_reference": {
+          "type": "string"
+        },
+        "license_expression": {
+          "type": "string"
+        },
+        "parent_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "material_id",
+        "artifact_id",
+        "category",
+        "extent_id",
+        "origin",
+        "origin_reference",
+        "license_expression",
+        "parent_ids",
+        "dimensions"
+      ],
+      "additionalProperties": false
+    },
+    "Grant": {
+      "type": "object",
+      "properties": {
+        "grant_id": {
+          "type": "string"
+        },
+        "material_id": {
+          "type": "string"
+        },
+        "license_atom": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "grantor_id": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "grantees": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "territories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "commercial_allowed": {
+          "type": "boolean"
+        },
+        "valid_from": {
+          "type": "integer"
+        },
+        "valid_until": {
+          "type": "integer"
+        },
+        "obligations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Obligation"
+          },
+          "maxItems": 4096
+        },
+        "allowed_output_licenses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "grant_id",
+        "material_id",
+        "license_atom",
+        "basis",
+        "grantor_id",
+        "evidence_ids",
+        "operations",
+        "dimensions",
+        "grantees",
+        "territories",
+        "channels",
+        "commercial_allowed",
+        "valid_from",
+        "valid_until",
+        "obligations",
+        "allowed_output_licenses"
+      ],
+      "additionalProperties": false
+    },
+    "Obligation": {
+      "type": "object",
+      "properties": {
+        "obligation_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "required_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "obligation_id",
+        "kind",
+        "required_text"
+      ],
+      "additionalProperties": false
+    },
+    "UseRequirement": {
+      "type": "object",
+      "properties": {
+        "use_id": {
+          "type": "string"
+        },
+        "material_id": {
+          "type": "string"
+        },
+        "output_artifact_id": {
+          "type": "string"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "output_license": {
+          "type": "string"
+        },
+        "notice_artifact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "use_id",
+        "material_id",
+        "output_artifact_id",
+        "operations",
+        "output_license",
+        "notice_artifact_ids"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "description": "Structural schema; Python contracts and evaluator enforce semantics and authorization. No rights are inferred by schema validity."
+}

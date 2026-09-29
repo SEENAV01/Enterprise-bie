@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/bie_qa_game_v2_models_GamePolicy",
+  "$defs": {
+    "bie_qa_game_v2_models_GamePolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "game_id": {
+          "type": "string"
+        },
+        "expected_input_digest": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "string"
+        },
+        "required_loaded_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "initial_state": {
+          "type": "string"
+        },
+        "observables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Observable"
+          },
+          "maxItems": 4096
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_State"
+          },
+          "maxItems": 4096
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Action"
+          },
+          "maxItems": 4096
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Transition"
+          },
+          "maxItems": 4096
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Scenario"
+          },
+          "maxItems": 4096
+        },
+        "learning": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_LearningTarget"
+          },
+          "maxItems": 4096
+        },
+        "text_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_TextBinding"
+          },
+          "maxItems": 4096
+        },
+        "source": {
+          "$ref": "#/$defs/bie_qa_source_v2_models_Policy"
+        },
+        "replays": {
+          "type": "integer"
+        },
+        "max_action_ms": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "compile_tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "policy_id",
+        "game_id",
+        "expected_input_digest",
+        "entrypoint",
+        "required_loaded_paths",
+        "initial_state",
+        "observables",
+        "states",
+        "actions",
+        "transitions",
+        "scenarios",
+        "learning",
+        "text_bindings",
+        "source",
+        "replays",
+        "max_action_ms",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors",
+        "compile_tools"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Observable": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "selector"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_State": {
+      "type": "object",
+      "properties": {
+        "state_id": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Value"
+          },
+          "maxItems": 4096
+        },
+        "terminal": {
+          "type": "boolean"
+        },
+        "successful": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "state_id",
+        "values",
+        "terminal",
+        "successful"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Value": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Action": {
+      "type": "object",
+      "properties": {
+        "action_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action_id",
+        "kind",
+        "selector",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Transition": {
+      "type": "object",
+      "properties": {
+        "transition_id": {
+          "type": "string"
+        },
+        "before": {
+          "type": "string"
+        },
+        "action_id": {
+          "type": "string"
+        },
+        "after": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "transition_id",
+        "before",
+        "action_id",
+        "after"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Scenario": {
+      "type": "object",
+      "properties": {
+        "scenario_id": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "action_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "scenario_id",
+        "width",
+        "height",
+        "action_ids"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_LearningTarget": {
+      "type": "object",
+      "properties": {
+        "objective_id": {
+          "type": "string"
+        },
+        "challenge_id": {
+          "type": "string"
+        },
+        "mechanic": {
+          "type": "string"
+        },
+        "prompt_claim_id": {
+          "type": "string"
+        },
+        "prompt_key": {
+          "type": "string"
+        },
+        "correct_claim_id": {
+          "type": "string"
+        },
+        "incorrect_claim_id": {
+          "type": "string"
+        },
+        "feedback_key": {
+          "type": "string"
+        },
+        "response_action_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "success_state": {
+          "type": "string"
+        },
+        "failure_state": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "objective_id",
+        "challenge_id",
+        "mechanic",
+        "prompt_claim_id",
+        "prompt_key",
+        "correct_claim_id",
+        "incorrect_claim_id",
+        "feedback_key",
+        "response_action_ids",
+        "success_state",
+        "failure_state"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_TextBinding": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "state_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "claim_id",
+        "key",
+        "state_ids"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Policy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

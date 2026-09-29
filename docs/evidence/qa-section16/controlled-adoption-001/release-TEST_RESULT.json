@@ -1,0 +1,118 @@
+{
+  "schema_version": "bie.qa.release-migration-test/1",
+  "executed_at_utc": "2026-09-29T03:15:24.100763+00:00",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "scope": "CURRENT_CANONICAL_WORKTREE_RELEASE_COMPATIBILITY_ONLY",
+  "tests_run": 47,
+  "unique_tests": 47,
+  "results": [
+    {
+      "path": "tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py",
+      "tests_run": 10,
+      "expected": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "test_ids": [
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_default_policy_requires_runtime_gates",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_fail_blocks_release",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_game_disabled_does_not_require_game_runtime",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_human_review_policy_prevents_success",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_lineage_always_required",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_missing_required_evidence_blocks",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_required_skipped_is_error",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_source_grounding_always_required",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_success_only_when_all_required_pass",
+        "candidate_6a75fda6836c5b10.ReleaseContractTests.test_video_disabled_does_not_require_video_runtime"
+      ],
+      "passed": true
+    },
+    {
+      "path": "tests/director/test_qa_contracts.py",
+      "tests_run": 8,
+      "expected": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "test_ids": [
+        "candidate_71b19ce05879056e.QAContractTests.test_existing_ki_metadata_grounded_flag_is_not_semantic_or_byte_proof",
+        "candidate_71b19ce05879056e.QAContractTests.test_grounded_wrong_fact_does_not_pass_factual_qa",
+        "candidate_71b19ce05879056e.QAContractTests.test_narration_edit_invalidates_previous_qa_and_sync",
+        "candidate_71b19ce05879056e.QAContractTests.test_no_duration_cap_or_profile_needed_to_run_qa_and_timing",
+        "candidate_71b19ce05879056e.QAContractTests.test_partial_qa_evidence_cannot_satisfy_enterprise_release",
+        "candidate_71b19ce05879056e.QAContractTests.test_qa_and_visual_share_actual_realized_narration_spans",
+        "candidate_71b19ce05879056e.QAContractTests.test_upstream_script_review_survives_all_five_qa_gates",
+        "candidate_71b19ce05879056e.QAContractTests.test_wpm_change_leaves_text_qa_valid_but_requires_sync_rebuild"
+      ],
+      "passed": true
+    },
+    {
+      "path": "tests/test_section16_release_migration.py",
+      "tests_run": 15,
+      "expected": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "test_ids": [
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_adding_blocker_never_improves_status",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_advisory_prefix_cannot_hide_string_diagnostic",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_blocker_beats_human_review",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_empty_metadata_does_not_authorize",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_human_review_is_not_authorization",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_metadata_pass_is_contract_only",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_missing_required_evidence_stays_blocked",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_not_applicable_diagnostic_is_not_discarded",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_optional_diagnostic_blocks",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_required_error_stays_blocked",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_required_fail_stays_blocked",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_required_pass_with_diagnostic_blocks",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_required_skip_stays_blocked",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_success_evidence_status_is_rejected",
+        "candidate_d99db75bafd2e042.LegacyReleaseMigrationTests.test_unknown_pass_gate_blocks"
+      ],
+      "passed": true
+    },
+    {
+      "path": "tests/assembly/test_section16_release_amendment.py",
+      "tests_run": 14,
+      "expected": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "test_ids": [
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_acceptance_claim_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_additional_path_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_changed_active_source_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_changed_migrated_assertion_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_changed_original_before_image_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_duplicate_json_key_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_duplicated_original_row_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_exact_amendment_preserves_original_identity_and_other_rows",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_manifest_is_required",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_missing_original_row_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_original_row_identity_cannot_be_rewritten",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_repointed_before_image_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_sealed_ledger_mutation_is_rejected",
+        "candidate_fa9f4dfd98af9eba.ReleaseAmendmentTests.test_section_signoff_claim_is_rejected"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "file_sha256": {
+    "tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py": "62bdaf4c673a0a23ba94a487a96ab107c3d7ec8164334efe8023d59ff754b37c",
+    "tests/director/test_qa_contracts.py": "9247e1b5b0b134d068649226703bbb770595612f1d7a823f2638b26decdb1e7e",
+    "tests/test_section16_release_migration.py": "6e383b35fd795f20b90e28631c01b99b405f85ea33c24e52edc6eb86af724ab3",
+    "tests/assembly/test_section16_release_amendment.py": "7450b62715897e4a54dbde98c353f5aa9cbe59d02f89fdd087d80511b3e791dc",
+    "scripts/check_section16_release_migration.py": "350dd7a94618c1b71e7cd1e8a044ffe26cf2ca9e674eb204225713c397a263fc",
+    "bie/qa/release_contracts.py": "4ae3347fa0ee58afbf6d3e2949a3972c679efa1a68b47da1e007fe767e203a3c",
+    "scripts/audit_canonical.py": "7c49ec116fc3b264033851e0021b2aa408fa25c7c12764d814cb8a6b4c831328",
+    "scripts/section16_release_amendment.py": "dc88cef9807b4fd596bcb095f0ec4c233e4aa5434e195172d4bd325eeaeaed97",
+    "manifests/qa_section16_release_amendment.json": "a17f23bfcb332ea5ad7d831d14d8e6522ae53f522adaeb137b583226e197504e",
+    "manifests/lossless_migration.csv": "f981c9c11834f4136052306613de16bbb241ca4d980b96fec675d3ca767b76d1"
+  },
+  "full_canonical_regression": false,
+  "section_signed_off": false,
+  "product_accepted": false
+}

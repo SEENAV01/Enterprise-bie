@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 Batch015 game-policy",
+  "description": "Structural schema only. Runtime semantic contracts, byte validation and external approvals remain mandatory.",
+  "$ref": "#/$defs/media_repair_v2_GameRepairPolicy",
+  "$defs": {
+    "media_repair_v2_GameRepairPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "qa"
+      ],
+      "properties": {
+        "qa": {
+          "$ref": "#/$defs/game_v2_GamePolicy"
+        }
+      }
+    },
+    "game_v2_GamePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "game_id",
+        "expected_input_digest",
+        "entrypoint",
+        "required_loaded_paths",
+        "initial_state",
+        "observables",
+        "states",
+        "actions",
+        "transitions",
+        "scenarios",
+        "learning",
+        "text_bindings",
+        "source",
+        "replays",
+        "max_action_ms",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors",
+        "compile_tools"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "game_id": {
+          "type": "string"
+        },
+        "expected_input_digest": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "string"
+        },
+        "required_loaded_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "initial_state": {
+          "type": "string"
+        },
+        "observables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_Observable"
+          }
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_State"
+          }
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_Action"
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_Transition"
+          }
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_Scenario"
+          }
+        },
+        "learning": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_LearningTarget"
+          }
+        },
+        "text_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_TextBinding"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/source_v2_Policy"
+        },
+        "replays": {
+          "type": "integer"
+        },
+        "max_action_ms": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "compile_tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "game_v2_Observable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "selector"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "string"
+        }
+      }
+    },
+    "game_v2_State": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_id",
+        "values",
+        "terminal",
+        "successful"
+      ],
+      "properties": {
+        "state_id": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/game_v2_Value"
+          }
+        },
+        "terminal": {
+          "type": "boolean"
+        },
+        "successful": {
+          "type": "boolean"
+        }
+      }
+    },
+    "game_v2_Value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "text"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "game_v2_Action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action_id",
+        "kind",
+        "selector",
+        "value"
+      ],
+      "properties": {
+        "action_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "game_v2_Transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transition_id",
+        "before",
+        "action_id",
+        "after"
+      ],
+      "properties": {
+        "transition_id": {
+          "type": "string"
+        },
+        "before": {
+          "type": "string"
+        },
+        "action_id": {
+          "type": "string"
+        },
+        "after": {
+          "type": "string"
+        }
+      }
+    },
+    "game_v2_Scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenario_id",
+        "width",
+        "height",
+        "action_ids"
+      ],
+      "properties": {
+        "scenario_id": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "action_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "game_v2_LearningTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "objective_id",
+        "challenge_id",
+        "mechanic",
+        "prompt_claim_id",
+        "prompt_key",
+        "correct_claim_id",
+        "incorrect_claim_id",
+        "feedback_key",
+        "response_action_ids",
+        "success_state",
+        "failure_state"
+      ],
+      "properties": {
+        "objective_id": {
+          "type": "string"
+        },
+        "challenge_id": {
+          "type": "string"
+        },
+        "mechanic": {
+          "type": "string"
+        },
+        "prompt_claim_id": {
+          "type": "string"
+        },
+        "prompt_key": {
+          "type": "string"
+        },
+        "correct_claim_id": {
+          "type": "string"
+        },
+        "incorrect_claim_id": {
+          "type": "string"
+        },
+        "feedback_key": {
+          "type": "string"
+        },
+        "response_action_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "success_state": {
+          "type": "string"
+        },
+        "failure_state": {
+          "type": "string"
+        }
+      }
+    },
+    "game_v2_TextBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "key",
+        "state_ids"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "state_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "source_v2_Policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

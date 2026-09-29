@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "subject_type": {
+      "enum": [
+        "gate",
+        "section_exit"
+      ]
+    },
+    "subject_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+    },
+    "evaluator_policy_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "required_check_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "allowed_schemas": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "const": "bie.qa.terminal-report/1"
+        }
+      ],
+      "minItems": 1,
+      "maxItems": 1
+    }
+  },
+  "required": [
+    "subject_type",
+    "subject_id",
+    "evaluator_policy_digest",
+    "required_check_ids",
+    "allowed_schemas"
+  ],
+  "additionalProperties": false
+}

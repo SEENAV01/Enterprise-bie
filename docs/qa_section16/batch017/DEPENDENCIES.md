@@ -1,0 +1,1 @@
+Reuses unchanged release_v2 contracts/policy, source_v2 SnapshotStore/codec/Report, reasoning_v2 ReviewVerifier, repair_v2 Snapshot/codec/approved/validator_digest, repair_audit_v2 Observation/private-copy IO. Pillow decodes PNG. No new GitHub file was fetched, vendored or executed. Dependency baseline is the attached Batch016 package, not current repository HEAD.

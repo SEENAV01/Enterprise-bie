@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h5.stream",
+  "title": "stream structural policy; codec enforces semantic bounds",
+  "type": "object",
+  "properties": {
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "fps": {
+      "type": "string"
+    },
+    "frames": {
+      "type": "integer"
+    },
+    "require_audio": {
+      "type": "boolean"
+    },
+    "max_input_bytes": {
+      "type": "integer"
+    },
+    "max_working_pixel_bytes": {
+      "type": "integer"
+    },
+    "max_frames": {
+      "type": "integer"
+    },
+    "chunk_frames": {
+      "type": "integer"
+    },
+    "timeout_s": {
+      "type": "integer"
+    },
+    "black_max": {
+      "type": "integer"
+    },
+    "uniform_range": {
+      "type": "integer"
+    },
+    "jump_mean_milli": {
+      "type": "integer"
+    },
+    "flash_delta_milli": {
+      "type": "integer"
+    },
+    "max_flash_pairs_second": {
+      "type": "integer"
+    },
+    "max_freeze_frames": {
+      "type": "integer"
+    },
+    "blank_windows": {
+      "type": "array"
+    },
+    "motion_windows": {
+      "type": "array"
+    },
+    "allowed_cut_frames": {
+      "type": "array"
+    },
+    "sample_frames": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "width",
+    "height",
+    "fps",
+    "frames"
+  ],
+  "additionalProperties": false
+}

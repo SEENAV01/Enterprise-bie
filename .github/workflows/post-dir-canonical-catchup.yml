@@ -49,6 +49,12 @@ jobs:
           ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
       - name: Install approved Section 15 isolated browser profile
         run: bash .integration/tools/setup_game_ci.sh
+      - name: Install scoped QA profile without downgrading canonical PDF dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+          python -m pip freeze > "$RUNNER_TEMP/bie-ci-setup/qa-python-freeze.txt"
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail

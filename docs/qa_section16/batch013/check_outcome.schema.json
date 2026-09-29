@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CheckOutcome structural contract (not acceptance)",
+  "$ref": "#/$defs/CheckOutcome",
+  "$defs": {
+    "CheckOutcome": {
+      "type": "object",
+      "properties": {
+        "check_id": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "policy_digest": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "witness_digest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "check_id",
+        "candidate_digest",
+        "policy_digest",
+        "status",
+        "diagnostics",
+        "witness_digest"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

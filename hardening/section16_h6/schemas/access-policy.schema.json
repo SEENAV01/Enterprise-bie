@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:bie:qa:h6:access-policy:1",
+  "type": "object",
+  "properties": {
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "viewports": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "required_meanings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "caption_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "maxItems": 4096
+    },
+    "axes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "keyboard",
+          "focus",
+          "color",
+          "captions",
+          "reduced_motion",
+          "flash"
+        ]
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "min_contrast": {
+      "type": "string",
+      "minLength": 1
+    },
+    "max_caption_rate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "max_age_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 604800
+    }
+  },
+  "required": [
+    "controls",
+    "viewports",
+    "required_meanings",
+    "caption_ids",
+    "axes",
+    "min_contrast",
+    "max_caption_rate",
+    "max_age_seconds"
+  ],
+  "additionalProperties": false
+}

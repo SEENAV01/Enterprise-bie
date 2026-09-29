@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h7.workload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "expected_jobs",
+    "records"
+  ],
+  "properties": {
+    "expected_jobs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "job_id",
+          "execution_id",
+          "submitted_ns",
+          "started_ns",
+          "finished_ns",
+          "exit_code",
+          "output_verified"
+        ],
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "execution_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "submitted_ns": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "started_ns": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "finished_ns": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "exit_code": {
+            "type": "integer"
+          },
+          "output_verified": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

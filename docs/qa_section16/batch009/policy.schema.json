@@ -1,0 +1,500 @@
+{
+  "$defs": {
+    "AnimationPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "captures": {
+          "items": {
+            "$ref": "#/$defs/CaptureRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "cues": {
+          "items": {
+            "$ref": "#/$defs/Cue"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "invariants": {
+          "items": {
+            "$ref": "#/$defs/Invariant"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "limits": {
+          "$ref": "#/$defs/MotionLimits"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "modes": {
+          "items": {
+            "$ref": "#/$defs/Mode"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/ObjectSpec"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Policy"
+        },
+        "timing_rules": {
+          "items": {
+            "$ref": "#/$defs/TimingRule"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "tracks": {
+          "items": {
+            "$ref": "#/$defs/TrackRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "lesson_id",
+        "modes",
+        "objects",
+        "tracks",
+        "cues",
+        "timing_rules",
+        "invariants",
+        "captures",
+        "limits",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors"
+      ],
+      "type": "object"
+    },
+    "CaptureRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "frame_indices": {
+          "items": {
+            "type": "integer"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "opacity_tolerance_ppm": {
+          "type": "integer"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "tolerance_mpx": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "mode_id",
+        "frame_indices",
+        "required",
+        "tolerance_mpx",
+        "opacity_tolerance_ppm"
+      ],
+      "type": "object"
+    },
+    "Cue": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "cue_id": {
+          "type": "string"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cue_id",
+        "mode_id",
+        "start_ms",
+        "end_ms",
+        "claim_ids"
+      ],
+      "type": "object"
+    },
+    "FrameRate": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "type": "integer"
+        },
+        "numerator": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "type": "object"
+    },
+    "Invariant": {
+      "additionalProperties": false,
+      "properties": {
+        "end_ms": {
+          "type": "integer"
+        },
+        "invariant_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "tolerance": {
+          "type": "integer"
+        },
+        "track_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "invariant_id",
+        "mode_id",
+        "kind",
+        "track_ids",
+        "start_ms",
+        "end_ms",
+        "value",
+        "tolerance"
+      ],
+      "type": "object"
+    },
+    "Mode": {
+      "additionalProperties": false,
+      "properties": {
+        "duration_ms": {
+          "type": "integer"
+        },
+        "fps": {
+          "$ref": "#/$defs/FrameRate"
+        },
+        "height_px": {
+          "type": "integer"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "width_px": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "mode_id",
+        "kind",
+        "duration_ms",
+        "fps",
+        "width_px",
+        "height_px"
+      ],
+      "type": "object"
+    },
+    "MotionLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_jump_ppm": {
+          "type": "integer"
+        },
+        "max_opacity_ppm_per_second": {
+          "type": "integer"
+        },
+        "max_progress_ppm_per_second": {
+          "type": "integer"
+        },
+        "max_reversals": {
+          "type": "integer"
+        },
+        "max_rotation_mdeg_per_second": {
+          "type": "integer"
+        },
+        "max_scale_ppm_per_second": {
+          "type": "integer"
+        },
+        "max_simultaneous_objects": {
+          "type": "integer"
+        },
+        "max_speed_mpx_per_second": {
+          "type": "integer"
+        },
+        "max_sum_normalized_rate_ppm": {
+          "type": "integer"
+        },
+        "reduced_max_jump_ppm": {
+          "type": "integer"
+        },
+        "reduced_max_rotation_mdeg_per_second": {
+          "type": "integer"
+        },
+        "reduced_max_scale_ppm_per_second": {
+          "type": "integer"
+        },
+        "reduced_max_speed_mpx_per_second": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_speed_mpx_per_second",
+        "max_rotation_mdeg_per_second",
+        "max_scale_ppm_per_second",
+        "max_opacity_ppm_per_second",
+        "max_progress_ppm_per_second",
+        "max_simultaneous_objects",
+        "max_sum_normalized_rate_ppm",
+        "max_jump_ppm",
+        "max_reversals",
+        "reduced_max_speed_mpx_per_second",
+        "reduced_max_rotation_mdeg_per_second",
+        "reduced_max_scale_ppm_per_second",
+        "reduced_max_jump_ppm"
+      ],
+      "type": "object"
+    },
+    "ObjectSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "semantic_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "object_id",
+        "semantic_id",
+        "role",
+        "start_ms",
+        "end_ms",
+        "claim_ids"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "TimingRule": {
+      "additionalProperties": false,
+      "properties": {
+        "left_track_id": {
+          "type": "string"
+        },
+        "minimum_overlap_ms": {
+          "type": "integer"
+        },
+        "relation": {
+          "type": "string"
+        },
+        "right_id": {
+          "type": "string"
+        },
+        "right_kind": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": "string"
+        },
+        "tolerance_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "rule_id",
+        "left_track_id",
+        "right_id",
+        "right_kind",
+        "relation",
+        "tolerance_ms",
+        "minimum_overlap_ms"
+      ],
+      "type": "object"
+    },
+    "TrackRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "disclosure_cue_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "end_value": {
+          "type": "integer"
+        },
+        "endpoints_required": {
+          "type": "boolean"
+        },
+        "essential": {
+          "type": "boolean"
+        },
+        "maximum_value": {
+          "type": "integer"
+        },
+        "minimum_value": {
+          "type": "integer"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "property": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "semantic_id": {
+          "type": "string"
+        },
+        "start_value": {
+          "type": "integer"
+        },
+        "tolerance": {
+          "type": "integer"
+        },
+        "track_id": {
+          "type": "string"
+        },
+        "trend": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "track_id",
+        "mode_id",
+        "object_id",
+        "property",
+        "semantic_id",
+        "purpose",
+        "claim_ids",
+        "essential",
+        "minimum_value",
+        "maximum_value",
+        "trend",
+        "start_value",
+        "end_value",
+        "endpoints_required",
+        "tolerance",
+        "disclosure_cue_ids"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/AnimationPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, animation scope, geometry, responsive states and timing rules, artifact verification and external assessment authority.",
+  "title": "AnimationPolicy structure"
+}

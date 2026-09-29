@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "approval",
+  "description": "Structural validation only; Python contract, byte verification and authority checks remain mandatory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "approval_id",
+    "purpose",
+    "principal_id",
+    "key_id",
+    "assessment_digest",
+    "created_at",
+    "expires_at",
+    "decision",
+    "signature"
+  ],
+  "properties": {
+    "approval_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "enum": [
+        "inventory",
+        "evidence_and_section_exit",
+        "release_authorization"
+      ]
+    },
+    "principal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "key_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assessment_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "created_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expires_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "decision": {
+      "enum": [
+        "APPROVE",
+        "REJECT"
+      ]
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

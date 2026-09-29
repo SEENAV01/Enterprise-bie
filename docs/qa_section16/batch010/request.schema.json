@@ -1,0 +1,404 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "type": "object"
+    },
+    "AudioRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "captions": {
+          "items": {
+            "$ref": "#/$defs/CaptionTrack"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "clips": {
+          "items": {
+            "$ref": "#/$defs/Clip"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "pronunciation": {
+          "items": {
+            "$ref": "#/$defs/PronunciationEvidence"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Request"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "lesson_id",
+        "clips",
+        "captions",
+        "pronunciation"
+      ],
+      "type": "object"
+    },
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "type": "array"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ],
+      "type": "object"
+    },
+    "CaptionTrack": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "clip_id": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "track_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "track_id",
+        "clip_id",
+        "artifact",
+        "format",
+        "language"
+      ],
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "block_digest": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "citation_id": {
+          "type": "string"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ],
+      "type": "object"
+    },
+    "Clip": {
+      "additionalProperties": false,
+      "properties": {
+        "clip_id": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "timing": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "voice_id": {
+          "type": "string"
+        },
+        "wav": {
+          "$ref": "#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "clip_id",
+        "wav",
+        "timing",
+        "start_ms",
+        "language",
+        "voice_id"
+      ],
+      "type": "object"
+    },
+    "Output": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ],
+      "type": "object"
+    },
+    "PronunciationEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "clip_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clip_id",
+        "artifact"
+      ],
+      "type": "object"
+    },
+    "Request": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/$defs/Output"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ],
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        },
+        "source_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/AudioRequest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, audio scope, geometry, responsive states and timing rules, artifact verification and external assessment authority.",
+  "title": "AudioRequest structure"
+}

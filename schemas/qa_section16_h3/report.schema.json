@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "binding",
+    "findings",
+    "inspected",
+    "details_digest",
+    "status",
+    "product_accepted",
+    "release_authorized"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.native-quality/1"
+    },
+    "task_id": {
+      "enum": [
+        "BIE-QA-HARD-007",
+        "BIE-QA-HARD-008",
+        "BIE-QA-HARD-009",
+        "BIE-QA-HARD-010",
+        "BIE-QA-HARD-011"
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "policy_digest"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "candidate_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "policy_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "subject",
+          "severity"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "enum": [
+              "BLOCKER",
+              "REVIEW",
+              "ADVISORY"
+            ]
+          }
+        }
+      },
+      "minItems": 0,
+      "maxItems": 4096
+    },
+    "inspected": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "path",
+          "sha256",
+          "size",
+          "role"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "role": {
+            "enum": [
+              "source",
+              "video",
+              "game",
+              "support",
+              "report"
+            ]
+          }
+        }
+      },
+      "minItems": 0,
+      "maxItems": 4096
+    },
+    "details_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "enum": [
+        "BLOCKED",
+        "REVIEW_REQUIRED",
+        "LOCAL_CHECKS_CLEAR"
+      ]
+    },
+    "product_accepted": {
+      "const": false
+    },
+    "release_authorized": {
+      "const": false
+    }
+  }
+}

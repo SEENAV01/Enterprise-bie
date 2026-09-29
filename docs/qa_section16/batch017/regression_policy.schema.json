@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RegressionPolicy structural contract (not acceptance)",
+  "$ref": "#/$defs/RegressionPolicy",
+  "$defs": {
+    "RegressionPolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SuiteCheck"
+          },
+          "maxItems": 4096
+        },
+        "protected_artifact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "change_permits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ChangePermit"
+          },
+          "maxItems": 4096
+        },
+        "semantic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SemanticRule"
+          },
+          "maxItems": 4096
+        },
+        "visual": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VisualRule"
+          },
+          "maxItems": 4096
+        },
+        "game": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GameRule"
+          },
+          "maxItems": 4096
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "phase_timeout_seconds": {
+          "type": "integer"
+        },
+        "max_evidence_bytes": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "checks",
+        "protected_artifact_ids",
+        "change_permits",
+        "semantic",
+        "visual",
+        "game",
+        "max_receipt_age_seconds",
+        "phase_timeout_seconds",
+        "max_evidence_bytes"
+      ],
+      "additionalProperties": false
+    },
+    "SuiteCheck": {
+      "type": "object",
+      "properties": {
+        "check_id": {
+          "type": "string"
+        },
+        "validator_digest": {
+          "type": "string"
+        },
+        "case_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "fixture_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "check_id",
+        "validator_digest",
+        "case_ids",
+        "fixture_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ChangePermit": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "before_ref_digest": {
+          "type": "string"
+        },
+        "after_ref_digest": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "before_ref_digest",
+        "after_ref_digest",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "SemanticRule": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "required_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "required_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "artifact_id",
+        "required_claim_ids",
+        "required_concept_ids"
+      ],
+      "additionalProperties": false
+    },
+    "VisualRule": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "sample_key": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "channel_tolerance": {
+          "type": "integer"
+        },
+        "changed_pixel_limit_ppm": {
+          "type": "integer"
+        },
+        "masks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Box"
+          },
+          "maxItems": 4096
+        },
+        "critical_regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Box"
+          },
+          "maxItems": 4096
+        },
+        "max_mask_ppm": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "sample_key",
+        "width",
+        "height",
+        "channel_tolerance",
+        "changed_pixel_limit_ppm",
+        "masks",
+        "critical_regions",
+        "max_mask_ppm"
+      ],
+      "additionalProperties": false
+    },
+    "Box": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "GameRule": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Scenario"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "artifact_id",
+        "scenarios"
+      ],
+      "additionalProperties": false
+    },
+    "Scenario": {
+      "type": "object",
+      "properties": {
+        "scenario_id": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "action_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "scenario_id",
+        "seed",
+        "action_ids"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "$defs": {
+    "AudioPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "caption_tolerance_ms": {
+          "type": "integer"
+        },
+        "cues": {
+          "items": {
+            "$ref": "#/$defs/Cue"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "max_caption_chars_per_second": {
+          "type": "integer"
+        },
+        "max_caption_line_chars": {
+          "type": "integer"
+        },
+        "max_caption_lines": {
+          "type": "integer"
+        },
+        "max_caption_ms": {
+          "type": "integer"
+        },
+        "max_clipped_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "min_caption_ms": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "narrations": {
+          "items": {
+            "$ref": "#/$defs/Narration"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "placement_tolerance_ms": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Policy"
+        },
+        "terms": {
+          "items": {
+            "$ref": "#/$defs/Term"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "lesson_id",
+        "narrations",
+        "cues",
+        "terms",
+        "max_caption_chars_per_second",
+        "max_caption_line_chars",
+        "max_caption_lines",
+        "min_caption_ms",
+        "max_caption_ms",
+        "caption_tolerance_ms",
+        "placement_tolerance_ms",
+        "max_clipped_ppm",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors"
+      ],
+      "type": "object"
+    },
+    "Cue": {
+      "additionalProperties": false,
+      "properties": {
+        "clip_id": {
+          "type": "string"
+        },
+        "cue_id": {
+          "type": "string"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "tolerance_ms": {
+          "type": "integer"
+        },
+        "word_index": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cue_id",
+        "clip_id",
+        "word_index",
+        "start_ms",
+        "end_ms",
+        "tolerance_ms"
+      ],
+      "type": "object"
+    },
+    "Narration": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "clip_id": {
+          "type": "string"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "language": {
+          "type": "string"
+        },
+        "sample_rate": {
+          "type": "integer"
+        },
+        "spoken_text": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "voice_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clip_id",
+        "claim_ids",
+        "spoken_text",
+        "language",
+        "voice_id",
+        "start_ms",
+        "end_ms",
+        "sample_rate"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "Term": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_forms": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "clip_id": {
+          "type": "string"
+        },
+        "end_char": {
+          "type": "integer"
+        },
+        "language": {
+          "type": "string"
+        },
+        "start_char": {
+          "type": "integer"
+        },
+        "term_id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "term_id",
+        "clip_id",
+        "start_char",
+        "end_char",
+        "text",
+        "language",
+        "allowed_forms"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/AudioPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, audio scope, geometry, responsive states and timing rules, artifact verification and external assessment authority.",
+  "title": "AudioPolicy structure"
+}

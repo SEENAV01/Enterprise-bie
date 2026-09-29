@@ -1,0 +1,475 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 Batch015 visual-policy",
+  "description": "Structural schema only. Runtime semantic contracts, byte validation and external approvals remain mandatory.",
+  "$ref": "#/$defs/media_repair_v2_VisualRepairPolicy",
+  "$defs": {
+    "media_repair_v2_VisualRepairPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "qa",
+        "permissions",
+        "gap_mpx"
+      ],
+      "properties": {
+        "qa": {
+          "$ref": "#/$defs/visual_v2_VisualPolicy"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/media_repair_v2_LayoutPermission"
+          }
+        },
+        "gap_mpx": {
+          "type": "integer"
+        }
+      }
+    },
+    "visual_v2_VisualPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "source",
+        "lesson_id",
+        "audience_id",
+        "language",
+        "scenes",
+        "elements",
+        "states",
+        "views",
+        "relations",
+        "overlaps",
+        "limits",
+        "require_captures",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source_v2_Policy"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "audience_id": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "scenes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_SceneRequirement"
+          }
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_VisualElement"
+          }
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_StateRequirement"
+          }
+        },
+        "views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_ViewRequirement"
+          }
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_VisualRelation"
+          }
+        },
+        "overlaps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_OverlapAllowance"
+          }
+        },
+        "limits": {
+          "$ref": "#/$defs/visual_v2_VisualLimits"
+        },
+        "require_captures": {
+          "type": "boolean"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        }
+      }
+    },
+    "source_v2_Policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      }
+    },
+    "visual_v2_SceneRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scene_id",
+        "objective_ids",
+        "allowed_representations",
+        "required_features"
+      ],
+      "properties": {
+        "scene_id": {
+          "type": "string"
+        },
+        "objective_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_representations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visual_v2_VisualElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_id",
+        "scene_id",
+        "role",
+        "claim_ids",
+        "semantic_id",
+        "encodings"
+      ],
+      "properties": {
+        "object_id": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "semantic_id": {
+          "type": "string"
+        },
+        "encodings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visual_v2_StateRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_id",
+        "scene_id",
+        "view_id",
+        "start_ms",
+        "end_ms",
+        "object_ids",
+        "relation_ids"
+      ],
+      "properties": {
+        "state_id": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "view_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visual_v2_ViewRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "view_id",
+        "width_px",
+        "height_px",
+        "safe",
+        "subtitle_regions"
+      ],
+      "properties": {
+        "view_id": {
+          "type": "string"
+        },
+        "width_px": {
+          "type": "integer"
+        },
+        "height_px": {
+          "type": "integer"
+        },
+        "safe": {
+          "$ref": "#/$defs/visual_v2_Rect"
+        },
+        "subtitle_regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/visual_v2_Rect"
+          }
+        }
+      }
+    },
+    "visual_v2_Rect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      }
+    },
+    "visual_v2_VisualRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation_id",
+        "scene_id",
+        "kind",
+        "from_id",
+        "to_id",
+        "claim_ids"
+      ],
+      "properties": {
+        "relation_id": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "from_id": {
+          "type": "string"
+        },
+        "to_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visual_v2_OverlapAllowance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowance_id",
+        "state_id",
+        "first_id",
+        "second_id",
+        "max_overlap_ppm",
+        "reason"
+      ],
+      "properties": {
+        "allowance_id": {
+          "type": "string"
+        },
+        "state_id": {
+          "type": "string"
+        },
+        "first_id": {
+          "type": "string"
+        },
+        "second_id": {
+          "type": "string"
+        },
+        "max_overlap_ppm": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "visual_v2_VisualLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min_font_mpx",
+        "min_contrast_ppm",
+        "max_visible_items",
+        "max_semantic_items",
+        "max_text_codepoints",
+        "max_area_ppm",
+        "max_cell_items",
+        "grid_rows",
+        "grid_columns",
+        "max_read_codepoints_per_minute",
+        "min_text_exposure_ms",
+        "min_opacity_ppm",
+        "label_distance_mpx",
+        "geometry_tolerance_mpx"
+      ],
+      "properties": {
+        "min_font_mpx": {
+          "type": "integer"
+        },
+        "min_contrast_ppm": {
+          "type": "integer"
+        },
+        "max_visible_items": {
+          "type": "integer"
+        },
+        "max_semantic_items": {
+          "type": "integer"
+        },
+        "max_text_codepoints": {
+          "type": "integer"
+        },
+        "max_area_ppm": {
+          "type": "integer"
+        },
+        "max_cell_items": {
+          "type": "integer"
+        },
+        "grid_rows": {
+          "type": "integer"
+        },
+        "grid_columns": {
+          "type": "integer"
+        },
+        "max_read_codepoints_per_minute": {
+          "type": "integer"
+        },
+        "min_text_exposure_ms": {
+          "type": "integer"
+        },
+        "min_opacity_ppm": {
+          "type": "integer"
+        },
+        "label_distance_mpx": {
+          "type": "integer"
+        },
+        "geometry_tolerance_mpx": {
+          "type": "integer"
+        }
+      }
+    },
+    "media_repair_v2_LayoutPermission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_id",
+        "object_id",
+        "region",
+        "max_shift_mpx"
+      ],
+      "properties": {
+        "state_id": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "region": {
+          "$ref": "#/$defs/visual_v2_Rect"
+        },
+        "max_shift_mpx": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

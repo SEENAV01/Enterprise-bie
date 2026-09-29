@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-QA-HARD-012",
+  "title": "Domain reasoning and condition-preservation checks",
+  "batch_id": "BIE-QA-HARDENING-H4",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implemented": "Consumes native ReasoningDecision/ReasoningDecisionGraph, exact source text and operator-bound causal, chronology and affine-coordinate models. Checks dropped conditions, correlation promoted to causation, reversed/uncertain chronology and common-frame counterexamples. Unknown reasoning remains review-required.",
+  "source_paths": [
+    "bie/qa/domain_quality_v2/common.py",
+    "bie/qa/domain_quality_v2/reasoning.py"
+  ],
+  "shared_suite_id": "hardening_h4",
+  "shared_suite_tests": 211,
+  "not_independent_task_test_count": true,
+  "test_receipt": "hardening/section16_h4/evidence/final_source_suites/TEST_RESULT.json",
+  "mutation_receipt": "hardening/section16_h4/evidence/mutations/MUTATION_RESULT.json",
+  "operational_closure": false,
+  "product_accepted": false,
+  "github_integrated": false,
+  "remaining": [
+    "Independent validity of causal/chronology/frame models and natural-language interpretation remains open.",
+    "Broader causal/counterfactual/temporal/spatial profiles and native downstream lesson/render integration remain open."
+  ]
+}

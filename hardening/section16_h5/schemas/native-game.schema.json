@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h5.native-game",
+  "title": "native-game structural policy; codec enforces semantic bounds",
+  "type": "object",
+  "properties": {
+    "game_id": {
+      "type": "string"
+    },
+    "entrypoint": {
+      "type": "string"
+    },
+    "entry_module": {
+      "type": "string"
+    },
+    "module_paths": {
+      "type": "array"
+    },
+    "module_graph_fingerprint": {
+      "type": "string"
+    },
+    "package_revision": {
+      "type": "string"
+    },
+    "max_age": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "game_id",
+    "entrypoint",
+    "entry_module",
+    "module_paths",
+    "module_graph_fingerprint",
+    "package_revision"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,88 @@
+{
+  "$defs": {
+    "TimingReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "audio_sha256": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "clip_id": {
+          "type": "string"
+        },
+        "producer": {
+          "type": "string"
+        },
+        "sample_rate": {
+          "type": "integer"
+        },
+        "samples": {
+          "type": "integer"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "transcript_sha256": {
+          "type": "string"
+        },
+        "words": {
+          "items": {
+            "$ref": "#/$defs/Word"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "clip_id",
+        "audio_sha256",
+        "transcript_sha256",
+        "sample_rate",
+        "samples",
+        "producer",
+        "basis",
+        "words"
+      ],
+      "type": "object"
+    },
+    "Word": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "type": "integer"
+        },
+        "end_sample": {
+          "type": "integer"
+        },
+        "index": {
+          "type": "integer"
+        },
+        "start_char": {
+          "type": "integer"
+        },
+        "start_sample": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "index",
+        "start_char",
+        "end_char",
+        "text",
+        "start_sample",
+        "end_sample"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/TimingReceipt",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, audio scope, geometry, responsive states and timing rules, artifact verification and external assessment authority.",
+  "title": "TimingReceipt structure"
+}

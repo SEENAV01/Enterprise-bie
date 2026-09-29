@@ -1,0 +1,7 @@
+"""Locally registered suite identities; no callback paths are loaded from JSON."""
+LOCAL_SUITES = (
+    ('reaudit002', 'tests/qa_reaudit_002', 90),
+    ('hardening_h8', 'tests/qa_hardening_h8', 155),
+    ('hardening_h7', 'tests/qa_hardening_h7', 147),
+    ('hardening_h6', 'tests/qa_hardening_h6', 137),
+    ('hardening_h5', 'tests/qa_hardening_h5', 162),('hardening_h4', 'tests/qa_hardening_h4', 211), ('hardening_h3', 'tests/qa_hardening_h3', 174), ('hardening_h2', 'tests/qa_hardening_h2', 133), ('hardening_h1', 'tests/qa_hardening_h1', 118), ('batch022', 'tests/qa_publication22', 155), ('batch021', 'tests/qa_performance21', 129), ('batch020', 'tests/qa_security20', 154), ('batch019', 'tests/qa_rights19', 143), ('batch018', 'tests/qa_repro18', 103), ('batch017', 'tests/qa_regression16', 150), ('batch016', 'tests/qa_repair_audit16', 110), ('batch015', 'tests/qa_media_repair16', 113), ('batch014', 'tests/qa_domain_repair16', 116), ('batch013', 'tests/qa_repair16', 183), ('batch012', 'tests/qa_game16', 157), ('batch011', 'tests/qa_video16', 159), ('batch010', 'tests/qa_audio16', 117), ('batch009', 'tests/qa_animation16', 206), ('batch008', 'tests/qa_visual16', 187), ('batch007', 'tests/qa_director16', 239), ('batch006', 'tests/qa_pedagogy16', 193), ('batch005', 'tests/qa_math16', 276), ('batch004', 'tests/qa_reasoning16', 217), ('batch003', 'tests/qa_semantic16', 134), ('batch002', 'tests/qa_source16', 146), ('batch001', 'tests/qa_section16', 132), ('original', 'upstream/tests', 10))

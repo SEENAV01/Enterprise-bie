@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/bie_qa_game_v2_models_RuntimeReceipt",
+  "$defs": {
+    "bie_qa_game_v2_models_RuntimeReceipt": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "game_id": {
+          "type": "string"
+        },
+        "build_receipt_sha256": {
+          "type": "string"
+        },
+        "outputs_digest": {
+          "type": "string"
+        },
+        "oracle_digest": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "browser_version": {
+          "type": "string"
+        },
+        "issued_at": {
+          "type": "integer"
+        },
+        "execution_kind": {
+          "type": "string"
+        },
+        "sandbox_verified": {
+          "type": "boolean"
+        },
+        "loaded": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_LoadedAsset"
+          },
+          "maxItems": 4096
+        },
+        "traces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Trace"
+          },
+          "maxItems": 4096
+        },
+        "page_errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "console_errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "network_violations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "game_id",
+        "build_receipt_sha256",
+        "outputs_digest",
+        "oracle_digest",
+        "entrypoint",
+        "origin",
+        "method",
+        "browser_version",
+        "issued_at",
+        "execution_kind",
+        "sandbox_verified",
+        "loaded",
+        "traces",
+        "page_errors",
+        "console_errors",
+        "network_violations"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_LoadedAsset": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Trace": {
+      "type": "object",
+      "properties": {
+        "scenario_id": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_Step"
+          },
+          "maxItems": 4096
+        },
+        "loaded_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "scenario_id",
+        "replay",
+        "width",
+        "height",
+        "steps",
+        "loaded_paths"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_Step": {
+      "type": "object",
+      "properties": {
+        "action_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_game_v2_models_ObservedValue"
+          },
+          "maxItems": 4096
+        },
+        "screenshot": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        }
+      },
+      "required": [
+        "action_id",
+        "start_ms",
+        "end_ms",
+        "succeeded",
+        "error",
+        "values",
+        "screenshot"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_game_v2_models_ObservedValue": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "visible": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "key",
+        "text",
+        "count",
+        "visible"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_release_v2_contracts_ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

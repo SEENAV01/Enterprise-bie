@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "$id": "urn:bie:qa:h4:hard017:capture",
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.h4-static-capture/1"
+    },
+    "html_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "viewport": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer",
+        "minimum": 100,
+        "maximum": 2048
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "maxItems": 1024,
+      "items": {
+        "type": "object"
+      }
+    },
+    "unsupported_markup": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "blocked_requests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "browser_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "png_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "execution_mode": {
+      "const": "controlled_static_about_blank"
+    },
+    "native_runtime_verified": {
+      "const": false
+    },
+    "browser_sandbox_verified": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "html_sha256",
+    "viewport",
+    "nodes",
+    "unsupported_markup",
+    "blocked_requests",
+    "browser_version",
+    "png_sha256",
+    "execution_mode",
+    "native_runtime_verified",
+    "browser_sandbox_verified"
+  ]
+}

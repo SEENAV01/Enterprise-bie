@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "observed_at",
+    "grants"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.rights-status/1"
+    },
+    "observed_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "grants": {
+      "type": "array",
+      "maxItems": 512,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "grant_id",
+          "state"
+        ],
+        "properties": {
+          "grant_id": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "ACTIVE",
+              "REVOKED",
+              "SUSPENDED",
+              "UNKNOWN"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

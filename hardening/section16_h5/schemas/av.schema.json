@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h5.av",
+  "title": "av structural policy; codec enforces semantic bounds",
+  "type": "object",
+  "properties": {
+    "composition_id": {
+      "type": "string"
+    },
+    "scene_sha256": {
+      "type": "string"
+    },
+    "native_revision": {
+      "type": "string"
+    },
+    "required_evidence": {
+      "type": "array"
+    },
+    "max_age": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "composition_id",
+    "scene_sha256",
+    "native_revision",
+    "required_evidence"
+  ],
+  "additionalProperties": false
+}

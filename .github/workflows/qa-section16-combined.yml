@@ -1,0 +1,170 @@
+name: BIE Section 16 Combined Candidate
+
+on:
+  push:
+    branches: [codex/section16-hard039-recovery]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qa-section16-combined-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  canonical-regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      BIE_GAME_CI_SUPERVISOR: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
+        with:
+          node-version: '22.16.0'
+      - name: Install the verified hosted-worker profile when present
+        if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Install AUDIO validation profile when present
+        if: ${{ hashFiles('requirements-audio-mix.txt') != '' && hashFiles('requirements-audio-acoustic.txt') != '' }}
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-audio-mix.txt -r requirements-audio-acoustic.txt
+          python -m pip check
+          sudo apt-get update
+          sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
+          /usr/bin/espeak --version 2>&1 | head -n 2
+          ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
+      - name: Install approved Section 15 isolated browser profile
+        run: bash .integration/tools/setup_game_ci.sh
+      - name: Install scoped QA profile without downgrading canonical PDF dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+          python -m pip freeze > "$RUNNER_TEMP/bie-ci-setup/qa-python-freeze.txt"
+      - name: Complete canonical gate in a valid D-Bus session
+        run: |
+          set -euo pipefail
+          command -v dbus-run-session
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS DBUS_STARTER_ADDRESS DBUS_STARTER_BUS_TYPE
+          mkdir -p "$RUNNER_TEMP/canonical-evidence" "$RUNNER_TEMP/bie-ci-setup"
+          dbus-run-session -- bash -s <<'BASH'
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json, os, time
+          from playwright.sync_api import sync_playwright
+
+          address=os.environ.get('DBUS_SESSION_BUS_ADDRESS','')
+          if not address.startswith('unix:'):
+              raise SystemExit('INVALID_DBUS_SESSION_ADDRESS:'+address)
+          started=time.monotonic()
+          with sync_playwright() as p:
+              browser=p.chromium.launch(
+                  executable_path='/usr/bin/chromium',
+                  headless=True,
+                  args=['--no-sandbox','--disable-dev-shm-usage'],
+                  timeout=120000,
+              )
+              receipt={
+                  'schema_version':'bie.ci.chromium-session-preflight/1',
+                  'dbus_session_address_kind':'unix',
+                  'chromium_version':browser.version,
+                  'startup_seconds':round(time.monotonic()-started,3),
+                  'node_version':os.popen('node --version').read().strip(),
+                  'preflight_passed':True,
+                  'product_accepted':False,
+              }
+              browser.close()
+          out=Path(os.environ['RUNNER_TEMP'])/'bie-ci-setup/chromium-session-preflight.json'
+          out.write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
+          BASH
+      - name: Exact supplied corpus and adoption verification
+        if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        run: python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
+      - name: Require complete passing post-DIR regression, never skipped tests
+        if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence'
+          data=json.loads((root/'integrated_tests.json').read_text())
+          s=data['summary'];rows=data['results']
+          p=json.loads((root/'post-dir-preservation.json').read_text())
+          if s.get('passed') is not True or s.get('tests_run',0) < 9298:
+              raise SystemExit('INCOMPLETE_REGRESSION: '+str(s))
+          if any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
+              raise SystemExit('FAILURES_ERRORS_OR_SKIPS: '+str(s))
+          audio=[r for r in rows if r['path'].startswith('tests/audio/')]
+          counts=(len(audio),sum(r['tests'] for r in audio),sum(r['failures'] for r in audio),sum(r['errors'] for r in audio),sum(r['skipped'] for r in audio))
+          if counts != (82,1684,0,0,0):
+              raise SystemExit('AUDIO_GATE_FAILED: '+str(counts))
+          manifest=json.loads(Path('manifests/game_section15_adoption.json').read_text())
+          expected=set(manifest['test_paths']);game=[r for r in rows if r['path'] in expected]
+          if len(game)!=len(expected) or sum(r['tests'] for r in game)!=1123:
+              raise SystemExit('GAME_GATE_COVERAGE_FAILED')
+          if p.get('passed') is not True or p.get('errors') != []:
+              raise SystemExit('PRESERVATION_FAILED: '+str(p))
+          print(json.dumps({'regression':s,'audio':counts,'preservation':p,'product_accepted':False},indent=2))
+          PY
+      - name: Complete explicit Section 16 candidate suites
+        if: always()
+        run: |
+          set -euo pipefail
+          sudo env PATH="$PATH" PYTHONPATH="$GITHUB_WORKSPACE" PYTHONDONTWRITEBYTECODE=1 /opt/pyvenv/bin/python -B scripts/section16_gate.py --output "$RUNNER_TEMP/section16-evidence"
+      - name: Capture synthetic H8 process diagnostic after failed gate
+        if: failure()
+        run: |
+          sudo env PATH="$PATH" PYTHONPATH="$GITHUB_WORKSPACE" PYTHONDONTWRITEBYTECODE=1 /opt/pyvenv/bin/python -B scripts/diagnose_section16_pipeline.py "$RUNNER_TEMP/section16-evidence/H8_DIAGNOSTIC.json"
+      - name: Require both exact-candidate gates, with explicit overlap accounting
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          temp=Path(os.environ['RUNNER_TEMP'])
+          qa=json.loads((temp/'section16-evidence/TEST_RESULT.json').read_text())
+          canonical=json.loads((temp/'canonical-evidence/integrated_tests.json').read_text())
+          head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert qa['passed'] and qa['full_section_suite'] and qa['candidate_unchanged']
+          assert qa['candidate']['commit']==head and not qa['candidate']['dirty']
+          assert qa['executed_tests']==qa['unique_test_ids']==4856
+          assert canonical['summary']['passed']
+          assert all(canonical['summary'][k]==0 for k in ('failures','errors','skipped','failed_files'))
+          legacy=[r for r in canonical['results'] if r['path']=='tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py']
+          assert len(legacy)==1 and legacy[0]['tests']==10 and legacy[0]['passed']
+          result={'candidate':head,'canonical_tests':canonical['summary']['tests_run'],
+                  'section16_tests':4856,'overlap_original_release_tests':10,
+                  'unique_combined_tests':canonical['summary']['tests_run']+4856-10,
+                  'passed':True,'section16_signed_off':False,'product_accepted':False}
+          (temp/'canonical-evidence/COMBINED_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result,indent=2))
+          PY
+      - name: Preserve actual results, including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: section16-combined-candidate-evidence
+          path: |
+            ${{ runner.temp }}/canonical-evidence/
+            ${{ runner.temp }}/section16-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: warn
+          retention-days: 14

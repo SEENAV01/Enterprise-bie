@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuditRequest structural contract (not acceptance)",
+  "$ref": "#/$defs/AuditRequest",
+  "$defs": {
+    "AuditRequest": {
+      "type": "object",
+      "properties": {
+        "snapshot": {
+          "$ref": "#/$defs/Snapshot"
+        },
+        "batch": {
+          "$ref": "#/$defs/FailureBatch"
+        },
+        "proposal": {
+          "$ref": "#/$defs/Proposal"
+        },
+        "attempt": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "journal": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "regression": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "generation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GenerationLink"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "snapshot",
+        "batch",
+        "proposal",
+        "attempt",
+        "journal",
+        "regression",
+        "generation"
+      ],
+      "additionalProperties": false
+    },
+    "Snapshot": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "run_id",
+        "revision",
+        "artifacts"
+      ],
+      "additionalProperties": false
+    },
+    "ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "FailureBatch": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "snapshot_digest": {
+          "type": "string"
+        },
+        "reports": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BoundReport"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "run_id",
+        "revision",
+        "snapshot_digest",
+        "reports"
+      ],
+      "additionalProperties": false
+    },
+    "BoundReport": {
+      "type": "object",
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "request_digest": {
+          "type": "string"
+        },
+        "evaluator_policy_digest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact",
+        "task_id",
+        "request_digest",
+        "evaluator_policy_digest"
+      ],
+      "additionalProperties": false
+    },
+    "Proposal": {
+      "type": "object",
+      "properties": {
+        "proposal_id": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "base_digest": {
+          "type": "string"
+        },
+        "policy_digest": {
+          "type": "string"
+        },
+        "plan_digest": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "target_failure_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "replacements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Replacement"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "proposal_id",
+        "run_id",
+        "revision",
+        "base_digest",
+        "policy_digest",
+        "plan_digest",
+        "owner",
+        "target_failure_ids",
+        "replacements"
+      ],
+      "additionalProperties": false
+    },
+    "Replacement": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "before_sha256": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "path",
+        "before_sha256",
+        "artifact"
+      ],
+      "additionalProperties": false
+    },
+    "GenerationLink": {
+      "type": "object",
+      "properties": {
+        "job": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "receipt": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "domain_policy": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "limits": {
+          "$ref": "#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "job",
+        "receipt",
+        "domain_policy",
+        "limits"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

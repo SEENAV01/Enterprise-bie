@@ -1,0 +1,25 @@
+{
+  "task_id": "BIE-QA-HARD-008",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implementation": [
+    "bie/qa/native_quality_v2/common.py",
+    "bie/qa/native_quality_v2/knowledge.py"
+  ],
+  "test_evidence": "hardening/section16_h3/evidence/final_source_suites/TEST_RESULT.json",
+  "negative_evidence": "hardening/section16_h3/evidence/mutations/MUTATION_RESULT.json",
+  "diagnostic_evidence": "hardening/section16_h3/evidence/diagnostics/EXECUTION_RESULT.json",
+  "new_tests_shared_not_per_task": 174,
+  "verified_local_behaviors": [
+    "Actual native claim IDs and citation anchors reach the existing source evaluator.",
+    "Physics condition-loss, missing critical facets, reference byte aliases and biology/open-world cases exercise fail-closed handling."
+  ],
+  "remaining_closure_requirements": [
+    "Upstream selection is explicit; autonomous full semantic extraction and reference-fact truth are not established.",
+    "Bytes differing does not prove independent authorship or epistemic independence.",
+    "Live semantic review and canonical knowledge-to-QA orchestration remain open."
+  ],
+  "full_scope_closure_verified": false,
+  "historical_obligations_closed": 0,
+  "github_integrated": false,
+  "product_accepted": false
+}

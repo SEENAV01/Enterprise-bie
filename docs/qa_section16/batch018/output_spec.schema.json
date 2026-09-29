@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OutputSpec structural contract (not acceptance)",
+  "$ref": "#/$defs/OutputSpec",
+  "$defs": {
+    "OutputSpec": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "golden_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "role",
+        "golden_sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

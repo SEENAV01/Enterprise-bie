@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Observation structural contract (not acceptance)",
+  "$ref": "#/$defs/Observation",
+  "$defs": {
+    "Observation": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "witness": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "status",
+        "diagnostics",
+        "witness"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
