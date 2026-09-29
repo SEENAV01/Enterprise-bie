@@ -216,3 +216,13 @@ current process or the worktree's `.env`/`.env.local` locations; other approved
 secret stores were not inspected. No live validation has run. Until
 secure provisioning is approved, both live lanes are
 `BLOCKED_BY_CREDENTIALS`; ordinary Section 16 CI stays credential-free.
+
+The next credential-free controls and their exact limits are recorded in
+`docs/evidence/qa-section16/recovery-001/NONCREDENTIAL_CONTROLS_001.md`.
+They add a finite GAME branch/remediation/transfer/reset route census and a
+real-PDF-to-H8-plan preflight outside the sealed adoption inventory. The
+private Money PDF retained its verified 20-page/755-block baseline and the
+safe preflight was deterministic, but all 15 native stage programs remain
+unregistered for that real-book plan. No content generation, video rendering,
+playable browser run, live assessment, rights clearance, or Section 16 sign-off
+is claimed. The new candidate still needs hosted combined regression.
