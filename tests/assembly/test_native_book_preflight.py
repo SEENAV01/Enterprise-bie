@@ -1,10 +1,16 @@
 """Structural-only preflight tests; no real-book or stage execution claim."""
 import hashlib
+import os
+from pathlib import Path
+import sys
+import tempfile
 import unittest
 from dataclasses import replace
 
 from bie.document_intelligence.real_pdf_toc_runtime import RealPdfTocRuntimeError, inspect_real_pdf_toc
-from bie.qa.assurance_quality_v2.harness import BookPlan, STAGES
+from bie.qa.assurance_quality_v2.harness import BookPlan, PipelineStep, STAGES
+from bie.qa.operational_quality_v2.rebuild import Stage
+from bie.qa.operational_quality_v2.runtime import NativeWorkerProfile, Program
 from bie.qa.release_v2.contracts import ContractError
 from bie.section16.native_book_preflight import preflight_native_pdf_book
 from tests.productization.document_intelligence.structural_pdf_fixtures import structural_pdf
@@ -57,6 +63,61 @@ class NativeBookPreflightTests(unittest.TestCase):
     def test_diagnostic_profile_remains_blocked(self):
         result = self.inspect(plan=replace(self.plan, profile='DIAGNOSTIC'))
         self.assertIn('H39_DIAGNOSTIC_PLAN_NOT_NATIVE', result.blockers)
+
+    def registered_bi(self, checkout):
+        script = checkout / 'bi.py'
+        script.write_text('raise SystemExit("never executed")\n', encoding='utf-8')
+        compiler = checkout / 'bie' / 'compiler'
+        compiler.mkdir(parents=True)
+        worker = compiler / 'linux_worker.py'
+        launcher = compiler / 'namespace_launcher.py'
+        worker.write_text('# synthetic worker identity only\n', encoding='utf-8')
+        launcher.write_text('# synthetic launcher identity only\n', encoding='utf-8')
+        executable = Path(sys.executable).resolve()
+        program = Program(
+            'registered-bi', (str(executable), str(script)),
+            hashlib.sha256(executable.read_bytes()).hexdigest(), str(script),
+            hashlib.sha256(script.read_bytes()).hexdigest(),
+        )
+        rows = tuple({'path': p.relative_to(checkout).as_posix(), 'bytes': p.stat().st_size,
+                      'sha256': hashlib.sha256(p.read_bytes()).hexdigest()}
+                     for p in sorted(checkout.rglob('*')) if p.is_file())
+        profile = NativeWorkerProfile(rows, hashlib.sha256(worker.read_bytes()).hexdigest(),
+                                      hashlib.sha256(launcher.read_bytes()).hexdigest())
+        stage = Stage('bi', 'compile', program, ('qa-result.json',), profile, str(checkout))
+        return replace(self.plan, steps=(PipelineStep('BI', stage, (), ('source-check',)),)), script
+
+    def test_registered_native_program_bytes_checked_without_execution(self):
+        with tempfile.TemporaryDirectory() as directory:
+            plan, script = self.registered_bi(Path(directory))
+            result = self.inspect(plan=plan).to_safe_dict()
+            self.assertEqual(result['stage_status']['BI'],
+                             'NATIVE_REGISTRATION_BYTES_VERIFIED' if hasattr(os, 'O_NOFOLLOW') else 'PLATFORM_UNSUPPORTED')
+            self.assertEqual(result['native_stage_execution'], 'NOT_RUN')
+            self.assertEqual(script.read_text(), 'raise SystemExit("never executed")\n')
+
+    def test_changed_registered_program_bytes_are_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            plan, script = self.registered_bi(Path(directory))
+            script.write_text('raise SystemExit("changed")\n', encoding='utf-8')
+            result = self.inspect(plan=plan)
+            if hasattr(os, 'O_NOFOLLOW'):
+                self.assertEqual(dict(result.stage_status)['BI'], 'PROGRAM_IDENTITY_INVALID')
+                self.assertIn('H39_NATIVE_PROGRAM_IDENTITY_INVALID', result.blockers)
+            else:
+                self.assertEqual(dict(result.stage_status)['BI'], 'PLATFORM_UNSUPPORTED')
+                self.assertIn('H39_NATIVE_IDENTITY_PLATFORM_UNSUPPORTED', result.blockers)
+
+    def test_changed_worker_identity_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            plan, _ = self.registered_bi(Path(directory))
+            (Path(directory) / 'bie' / 'compiler' / 'linux_worker.py').write_text('# changed worker\n', encoding='utf-8')
+            result = self.inspect(plan=plan)
+            if hasattr(os, 'O_NOFOLLOW'):
+                self.assertEqual(dict(result.stage_status)['BI'], 'NATIVE_WORKER_IDENTITY_INVALID')
+                self.assertIn('H39_NATIVE_WORKER_IDENTITY_INVALID', result.blockers)
+            else:
+                self.assertEqual(dict(result.stage_status)['BI'], 'PLATFORM_UNSUPPORTED')
 
     def test_malformed_pdf_fails_closed(self):
         data = b'not a PDF'

@@ -116,7 +116,10 @@ def assess_oracle_depth(policy: GamePolicy, requirements: tuple[DepthRequirement
                 chosen.extend(path[start:end + 1])
         elif requirement.kind == 'transfer':
             first, second = (targets[x] for x in requirement.challenge_ids)
-            if first.objective_id == second.objective_id or first.prompt_claim_id == second.prompt_claim_id:
+            if (first.objective_id == second.objective_id
+                    or first.prompt_claim_id == second.prompt_claim_id
+                    or first.correct_claim_id == second.correct_claim_id
+                    or first.incorrect_claim_id == second.incorrect_claim_id):
                 findings.add('GAME_DEPTH_TRANSFER_NOT_DISTINCT')
             else:
                 path = paths[0]

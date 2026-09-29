@@ -7,9 +7,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
+import os
 
 from ..document_intelligence.real_pdf_toc_runtime import inspect_real_pdf_toc
 from ..qa.assurance_quality_v2.harness import BookPlan, STAGES
+from ..qa.operational_quality_v2.common import identity, inventory, regular_bytes
 from ..qa.release_v2.contracts import ContractError
 
 
@@ -86,6 +88,9 @@ def preflight_native_pdf_book(
         elif step.stage.native_profile is None:
             status = 'DIAGNOSTIC_ONLY'
             blockers.add('H39_STAGE_NOT_NATIVE')
+        elif not hasattr(os, 'O_NOFOLLOW'):
+            status = 'PLATFORM_UNSUPPORTED'
+            blockers.add('H39_NATIVE_IDENTITY_PLATFORM_UNSUPPORTED')
         else:
             try:
                 step.stage.program.verify()
@@ -93,7 +98,22 @@ def preflight_native_pdf_book(
                 status = 'PROGRAM_IDENTITY_INVALID'
                 blockers.add('H39_NATIVE_PROGRAM_IDENTITY_INVALID')
             else:
-                status = 'NATIVE_PROGRAM_BYTES_VERIFIED'
+                profile = step.stage.native_profile
+                checkout = step.stage.native_checkout
+                try:
+                    if inventory(checkout) != list(profile.checkout_rows):
+                        raise ContractError('H39_NATIVE_CHECKOUT_CHANGED')
+                    for name, expected in (
+                        ('linux_worker.py', profile.worker_sha256),
+                        ('namespace_launcher.py', profile.launcher_sha256),
+                    ):
+                        if identity(regular_bytes(checkout, 'bie/compiler/' + name)) != expected:
+                            raise ContractError('H39_NATIVE_WORKER_CHANGED')
+                except (ContractError, OSError):
+                    status = 'NATIVE_WORKER_IDENTITY_INVALID'
+                    blockers.add('H39_NATIVE_WORKER_IDENTITY_INVALID')
+                else:
+                    status = 'NATIVE_REGISTRATION_BYTES_VERIFIED'
         statuses.append((name, status))
     return NativeBookPreflight(source_hash, len(data), inspection.page_count, inspection.total_blocks,
                                plan.content_digest, tuple(statuses), tuple(sorted(blockers)))

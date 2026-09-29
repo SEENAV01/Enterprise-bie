@@ -22,7 +22,7 @@ class OracleDepthTests(FixtureCase):
         ), True, True)
         transfer = LearningTarget(
             'apply-equation', 'transfer-balance', 'apply-new-context',
-            'transfer-prompt', 'prompt', 'correct', 'incorrect', 'feedback',
+            'transfer-prompt', 'prompt', 'transfer-correct', 'transfer-incorrect', 'feedback',
             ('transfer',), 'transfer-win', 'wrong',
         )
         return replace(
@@ -77,6 +77,11 @@ class OracleDepthTests(FixtureCase):
         req = list(self.requirements())
         req[2] = DepthRequirement('transfer', ('pointer',), ('balance', 'transfer-balance'))
         self.assertIn('GAME_DEPTH_TRANSFER_MISSING', assess_oracle_depth(self.depth_policy(), tuple(req)).findings)
+
+    def test_transfer_cannot_reuse_original_feedback_claims(self):
+        p = self.depth_policy()
+        p = replace(p, learning=p.learning[:1] + (replace(p.learning[1], correct_claim_id='correct'),))
+        self.assertIn('GAME_DEPTH_TRANSFER_NOT_DISTINCT', assess_oracle_depth(p, self.requirements()).findings)
 
     def test_reset_must_follow_terminal_state(self):
         req = list(self.requirements())

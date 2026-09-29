@@ -9,14 +9,14 @@ the inherited 4,856-test denominator and original source hashes are unchanged.
 
 `bie/section16/oracle_depth.py` consumes the existing canonical QA GAME
 `GamePolicy` and its finite route oracle. Operator-owned requirements must
-declare branch, wrong-answer-to-success remediation, distinct-objective and
-distinct-prompt transfer, and terminal-to-initial reset routes. Missing or
+declare branch, wrong-answer-to-success remediation, distinct-objective,
+distinct-prompt and distinct-feedback-claim transfer, and terminal-to-initial reset routes. Missing or
 ambiguous declarations fail closed. The optional `GameResult` must bind to the
 same policy and cover required transition IDs. Output is safe IDs/status only;
 it **never** claims native game acceptance or learner mastery. Structural route
 coverage is not a browser trace, content truth, or empirical learning result.
 
-Local structural tests: `tests/assembly/test_oracle_depth.py`, 14/14 PASS,
+Local structural tests: `tests/assembly/test_oracle_depth.py`, 15/15 PASS,
 including seeded missing-branch, missing-remediation, indistinct/missing
 transfer, missing-reset, unknown-reference, omitted-role, and foreign-policy
 cases. This is partial local progress for `QA16-GAP-034` and
@@ -28,11 +28,17 @@ independent pedagogic judgment and genuine learning outcomes remain open.
 `bie/section16/native_book_preflight.py` binds exact PDF bytes to a single
 `BookPlan` source row, validates the expected SHA-256/page/block baseline
 through the canonical Task 016 PDF inspection, and reports the 15 required H8
-stage registrations. It verifies registered native program bytes when present
-but never invokes a program, generates content or fabricates a stage result.
-Local structural tests: `tests/assembly/test_native_book_preflight.py`, 9/9
+stage registrations. On supported Linux hosts it verifies registered program,
+checkout, worker and launcher bytes when present, but never invokes a program,
+generates content or fabricates a stage result. On Windows, H7's secure
+`O_NOFOLLOW` identity path is unavailable: a registered stage reports
+`PLATFORM_UNSUPPORTED` rather than an unverified PASS.
+Local structural tests: `tests/assembly/test_native_book_preflight.py`, 12/12
 PASS, including wrong hash, page/block baseline, plan inventory, diagnostic
-profile and malformed PDF failures. Existing adoption-gate tests: 36/36 PASS;
+profile, malformed PDF, changed program and changed worker identity cases.
+The registered-byte positive/negative branches await hosted Linux execution;
+Windows exercises the explicit platform-unsupported branch. Existing
+adoption-gate tests: 36/36 PASS;
 `verify_adoption` confirms the original 817-file corpus unchanged.
 
 The private real educational PDF `3. Money.pdf` at its previously authorized
@@ -68,3 +74,12 @@ identity remains configuration-driven, and any future hosted live job must be
 manual with protected-environment approval and job-scoped secrets. Ordinary
 CI remains credential-free. HARD-039 active, HARD-040 incomplete, Task 028
 paused; Sections 17/18 untouched; no PR or merge authorized by this record.
+
+Read-only gateway review found a concrete integration boundary: existing
+`GPTAdapter` and `GeminiAdapter` return legacy dictionaries, which the canonical
+Director caller accepts; `NativeGatewayTransport` in Section 16 requires a
+`ModelResponse` carrying request/invocation/mode provenance. A direct adapter
+injection into that assessor transport is therefore not sufficient. The live
+generator/assessor wrapper and provider-family independence check remain
+unimplemented; no existing model-gateway contract was rewritten. No API call
+or credential handling was attempted in this checkpoint.
