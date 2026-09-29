@@ -1,0 +1,444 @@
+{
+  "$defs": {
+    "OverlapAllowance": {
+      "additionalProperties": false,
+      "properties": {
+        "allowance_id": {
+          "type": "string"
+        },
+        "first_id": {
+          "type": "string"
+        },
+        "max_overlap_ppm": {
+          "type": "integer"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "second_id": {
+          "type": "string"
+        },
+        "state_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowance_id",
+        "state_id",
+        "first_id",
+        "second_id",
+        "max_overlap_ppm",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "Rect": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "type": "object"
+    },
+    "SceneRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_representations": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "objective_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "required_features": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scene_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "scene_id",
+        "objective_ids",
+        "allowed_representations",
+        "required_features"
+      ],
+      "type": "object"
+    },
+    "StateRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "end_ms": {
+          "type": "integer"
+        },
+        "object_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "relation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "state_id": {
+          "type": "string"
+        },
+        "view_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "state_id",
+        "scene_id",
+        "view_id",
+        "start_ms",
+        "end_ms",
+        "object_ids",
+        "relation_ids"
+      ],
+      "type": "object"
+    },
+    "ViewRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "height_px": {
+          "type": "integer"
+        },
+        "safe": {
+          "$ref": "#/$defs/Rect"
+        },
+        "subtitle_regions": {
+          "items": {
+            "$ref": "#/$defs/Rect"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "view_id": {
+          "type": "string"
+        },
+        "width_px": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "view_id",
+        "width_px",
+        "height_px",
+        "safe",
+        "subtitle_regions"
+      ],
+      "type": "object"
+    },
+    "VisualElement": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "encodings": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "semantic_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "object_id",
+        "scene_id",
+        "role",
+        "claim_ids",
+        "semantic_id",
+        "encodings"
+      ],
+      "type": "object"
+    },
+    "VisualLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "geometry_tolerance_mpx": {
+          "type": "integer"
+        },
+        "grid_columns": {
+          "type": "integer"
+        },
+        "grid_rows": {
+          "type": "integer"
+        },
+        "label_distance_mpx": {
+          "type": "integer"
+        },
+        "max_area_ppm": {
+          "type": "integer"
+        },
+        "max_cell_items": {
+          "type": "integer"
+        },
+        "max_read_codepoints_per_minute": {
+          "type": "integer"
+        },
+        "max_semantic_items": {
+          "type": "integer"
+        },
+        "max_text_codepoints": {
+          "type": "integer"
+        },
+        "max_visible_items": {
+          "type": "integer"
+        },
+        "min_contrast_ppm": {
+          "type": "integer"
+        },
+        "min_font_mpx": {
+          "type": "integer"
+        },
+        "min_opacity_ppm": {
+          "type": "integer"
+        },
+        "min_text_exposure_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "min_font_mpx",
+        "min_contrast_ppm",
+        "max_visible_items",
+        "max_semantic_items",
+        "max_text_codepoints",
+        "max_area_ppm",
+        "max_cell_items",
+        "grid_rows",
+        "grid_columns",
+        "max_read_codepoints_per_minute",
+        "min_text_exposure_ms",
+        "min_opacity_ppm",
+        "label_distance_mpx",
+        "geometry_tolerance_mpx"
+      ],
+      "type": "object"
+    },
+    "VisualPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "audience_id": {
+          "type": "string"
+        },
+        "elements": {
+          "items": {
+            "$ref": "#/$defs/VisualElement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "language": {
+          "type": "string"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "limits": {
+          "$ref": "#/$defs/VisualLimits"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "overlaps": {
+          "items": {
+            "$ref": "#/$defs/OverlapAllowance"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "relations": {
+          "items": {
+            "$ref": "#/$defs/VisualRelation"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "require_captures": {
+          "type": "boolean"
+        },
+        "scenes": {
+          "items": {
+            "$ref": "#/$defs/SceneRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/$defs/Policy"
+        },
+        "states": {
+          "items": {
+            "$ref": "#/$defs/StateRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "views": {
+          "items": {
+            "$ref": "#/$defs/ViewRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "lesson_id",
+        "audience_id",
+        "language",
+        "scenes",
+        "elements",
+        "states",
+        "views",
+        "relations",
+        "overlaps",
+        "limits",
+        "require_captures",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors"
+      ],
+      "type": "object"
+    },
+    "VisualRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "from_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "relation_id": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "to_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "relation_id",
+        "scene_id",
+        "kind",
+        "from_id",
+        "to_id",
+        "claim_ids"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/VisualPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, visual scope, geometry, responsive states and timing rules, artifact verification and external assessment authority.",
+  "title": "VisualPolicy structure"
+}

@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 Batch015 code-request",
+  "description": "Structural schema only. Runtime semantic contracts, byte validation and external approvals remain mandatory.",
+  "$ref": "#/$defs/media_repair_v2_CodeRequest",
+  "$defs": {
+    "media_repair_v2_CodeRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "source",
+        "module_id",
+        "module"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source_v2_Request"
+        },
+        "module_id": {
+          "type": "string"
+        },
+        "module": {
+          "$ref": "#/$defs/release_v2_ArtifactRef"
+        }
+      }
+    },
+    "source_v2_Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_v2_Source"
+          }
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_v2_Block"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_v2_Output"
+          }
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_v2_Citation"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_v2_Claim"
+          }
+        }
+      }
+    },
+    "source_v2_Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/release_v2_ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        }
+      }
+    },
+    "release_v2_ArtifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
+    "source_v2_Block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ],
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "text": {
+          "type": "string"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        }
+      }
+    },
+    "source_v2_Output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ],
+      "properties": {
+        "output_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/release_v2_ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        }
+      }
+    },
+    "source_v2_Citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ],
+      "properties": {
+        "citation_id": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "block_digest": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        }
+      }
+    },
+    "source_v2_Claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

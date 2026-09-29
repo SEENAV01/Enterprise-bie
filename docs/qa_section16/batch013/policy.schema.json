@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RepairPolicy structural contract (not acceptance)",
+  "$ref": "#/$defs/RepairPolicy",
+  "$defs": {
+    "RepairPolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FailureRule"
+          },
+          "maxItems": 4096
+        },
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OwnerRoute"
+          },
+          "maxItems": 4096
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CheckNode"
+          },
+          "maxItems": 4096
+        },
+        "required_checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "max_attempts": {
+          "type": "integer"
+        },
+        "max_replacement_bytes": {
+          "type": "integer"
+        },
+        "max_total_replacement_bytes": {
+          "type": "integer"
+        },
+        "max_changed_files": {
+          "type": "integer"
+        },
+        "worker_timeout_seconds": {
+          "type": "integer"
+        },
+        "max_total_worker_seconds": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "rules",
+        "routes",
+        "checks",
+        "required_checks",
+        "max_attempts",
+        "max_replacement_bytes",
+        "max_total_replacement_bytes",
+        "max_changed_files",
+        "worker_timeout_seconds",
+        "max_total_worker_seconds",
+        "max_receipt_age_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "FailureRule": {
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "automatic": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "task_id",
+        "code",
+        "category",
+        "owner",
+        "automatic"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerRoute": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "mutable_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "check_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "owner",
+        "mutable_paths",
+        "check_ids"
+      ],
+      "additionalProperties": false
+    },
+    "CheckNode": {
+      "type": "object",
+      "properties": {
+        "check_id": {
+          "type": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "validator_digest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "check_id",
+        "dependencies",
+        "validator_digest"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

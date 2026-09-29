@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReproPolicy structural contract (not acceptance)",
+  "$ref": "#/$defs/ReproPolicy",
+  "$defs": {
+    "ReproPolicy": {
+      "type": "object",
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "source_digest": {
+          "type": "string"
+        },
+        "producer_id": {
+          "type": "string"
+        },
+        "producer_artifact_id": {
+          "type": "string"
+        },
+        "producer_sha256": {
+          "type": "string"
+        },
+        "environment_json": {
+          "type": "string"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OutputSpec"
+          },
+          "maxItems": 4096
+        },
+        "parameters_json": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "source_date_epoch": {
+          "type": "integer"
+        },
+        "repetitions": {
+          "type": "integer"
+        },
+        "timeout_seconds": {
+          "type": "integer"
+        },
+        "max_output_bytes": {
+          "type": "integer"
+        },
+        "max_total_output_bytes": {
+          "type": "integer"
+        },
+        "max_evidence_bytes": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source_digest",
+        "producer_id",
+        "producer_artifact_id",
+        "producer_sha256",
+        "environment_json",
+        "outputs",
+        "parameters_json",
+        "seed",
+        "source_date_epoch",
+        "repetitions",
+        "timeout_seconds",
+        "max_output_bytes",
+        "max_total_output_bytes",
+        "max_evidence_bytes",
+        "max_receipt_age_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "OutputSpec": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "golden_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "role",
+        "golden_sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

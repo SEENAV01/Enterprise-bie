@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 VIDEO execution_receipt",
+  "description": "Structural schema. Runtime validates semantics, limits and trust.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "composition_id": {
+      "type": "string"
+    },
+    "inputs_digest": {
+      "type": "string"
+    },
+    "outputs_digest": {
+      "type": "string"
+    },
+    "parent_receipt_sha256": {
+      "type": "string"
+    },
+    "tool_id": {
+      "type": "string"
+    },
+    "tool_version": {
+      "type": "string"
+    },
+    "executable_sha256": {
+      "type": "string"
+    },
+    "command": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4096
+    },
+    "environment_digest": {
+      "type": "string"
+    },
+    "exit_code": {
+      "type": "integer"
+    },
+    "started": {
+      "type": "boolean"
+    },
+    "timed_out": {
+      "type": "boolean"
+    },
+    "stdout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ]
+    },
+    "stderr": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ]
+    },
+    "issued_at": {
+      "type": "integer"
+    },
+    "execution_kind": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "first_frame": {
+      "type": "integer"
+    },
+    "frame_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "stage",
+    "run_id",
+    "revision",
+    "composition_id",
+    "inputs_digest",
+    "outputs_digest",
+    "parent_receipt_sha256",
+    "tool_id",
+    "tool_version",
+    "executable_sha256",
+    "command",
+    "environment_digest",
+    "exit_code",
+    "started",
+    "timed_out",
+    "stdout",
+    "stderr",
+    "issued_at",
+    "execution_kind",
+    "mode",
+    "first_frame",
+    "frame_count"
+  ]
+}

@@ -79,3 +79,19 @@ No section completion, production deployment, merge, or product acceptance is
 claimed by this recovery checkpoint. HARD-039 is active and HARD-040 integration
 is incomplete. See the containing Git commit and subsequent CI receipt for
 remote state; this record grants no merge authorization.
+
+## Controlled adoption checkpoint (2026-09-29)
+
+Recovery commit 0efcb1599880dbabf7eb8ac196515b45364a46e1 passed hosted run
+36506727442: 9,327 tests / 1,245 files, zero failures/errors/skips. Downloaded
+artifact 11007774576 was independently hash-, count- and preservation-verified;
+see `docs/evidence/qa-section16/recovery-001/HOSTED_CI_VERIFIED_001.json`.
+That result does not cover the following newly staged QA additions.
+
+Read `CONTROLLED_ADOPTION.md`, `manifests/qa_section16_adoption.json` and
+`scripts/section16_gate.py` for the 817 hash-bound addition-only candidate.
+The new combined workflow retains the approved canonical gate and executes all
+32 supplied QA suites explicitly. Its complete current-candidate result remains
+pending until actual hosted evidence is checked. Do not reuse recovery CI as
+this candidate's pass. The 14 capability reviews and 17 historical rechecks
+remain open; source adoption is not obligation closure or section sign-off.

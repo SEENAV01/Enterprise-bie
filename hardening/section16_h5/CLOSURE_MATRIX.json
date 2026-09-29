@@ -1,0 +1,127 @@
+{
+  "schema_version": "bie.qa.h5-closure-matrix/1",
+  "tasks": [
+    {
+      "task_id": "BIE-QA-HARD-018",
+      "title": "Continuous animation, nonlinear state and safety coverage",
+      "original_scope": "Connect full native timelines/simulation state to trajectory, semantic-invariant, reduced-motion and flash/accessibility checks.",
+      "required_closure_evidence": [
+        "An intersample defect cannot escape endpoint-only checks.",
+        "Springs, camera/composition and complex motion are checked or rejected as unsupported.",
+        "Reduced motion preserves teaching meaning; comfort thresholds are not clinical certification."
+      ],
+      "implemented_local": "Exact cubic scalar enclosures, full discrete state/meaning/clock coverage, native Event temporal QA, reduced-motion limits and every-frame luminance/motion screening.",
+      "remaining": [
+        "Native timeline/renderer attestation and arbitrary spring/3-D/camera composition remain open.",
+        "Full output flash/accessibility coverage and calibrated comfort thresholds remain open; screening is not certification."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": "tests/qa_hardening_h5",
+      "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h5/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-019",
+      "title": "Streaming long-form media inspection",
+      "original_scope": "Extend bounded media/storage readers with checked chunk/frame coverage suitable for high-resolution multi-minute lessons.",
+      "required_closure_evidence": [
+        "Boundary-frame defects, truncated chunks and omitted frames fail.",
+        "Whole-file hashes and per-chunk coverage agree without unbounded memory.",
+        "Large-media acceptance is tested at declared production sizes, not inferred from short clips."
+      ],
+      "implemented_local": "Confined chunked immutable snapshots, actual full RGB decoding and timestamp coverage, continuous chunk-boundary comparisons, whole/segment hashes and sampled PNG export.",
+      "remaining": [
+        "Long-form diagnostics cover the declared two-minute 1080p SDR profile, not every production codec, HDR, 4K or arbitrary-duration workload.",
+        "Logical pixel buffers are bounded; aggregate decoder/process/container/GPU resource enforcement and operational isolation remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": "tests/qa_hardening_h5",
+      "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h5/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-020",
+      "title": "Native compiler-to-final-audiovisual QA binding",
+      "original_scope": "Run the actual SceneIR-to-Remotion/production compiler path and bind compile, render, decoded media, timing and source content.",
+      "required_closure_evidence": [
+        "No injected renderer or generic FFmpeg fixture can stand in for the native build.",
+        "Full versus smoke evidence and all required artifacts are distinguished.",
+        "Short or missing audio/video, incorrect frame cadence and source drift block."
+      ],
+      "implemented_local": "Hash-pinned canonical-checkout preflight and explicit invocation API for original compiler/full-render scripts, native receipt adaptation and mandatory fresh final-media re-decode with lineage byte inventory.",
+      "remaining": [
+        "The full native compiler checkout and installed Remotion dependencies are not provisioned in this workspace; no native compile/render succeeded.",
+        "Operational complete native evidence schemas, source-to-output provenance, production isolation and actual final audiovisual review remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": "tests/qa_hardening_h5",
+      "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h5/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-021",
+      "title": "Acoustic alignment, pronunciation and rendered captions",
+      "original_scope": "Consume genuine speech/alignment/listening evidence and final muxed captions; cover approved languages, terminology and audio profiles.",
+      "required_closure_evidence": [
+        "Engine timestamps alone do not prove phonetic boundaries.",
+        "Wrong pronunciation, missing words, delayed captions and clipping have independent controls.",
+        "Actual rendered credits/captions remain legible; translations preserve meaning."
+      ],
+      "implemented_local": "Actual PCM and caption bytes, independent listening/alignment record authentication, per-occurrence word coverage/forms, exact sample clocks and bounded reference-waveform offset estimation.",
+      "remaining": [
+        "No independent human listening/forced aligner or real phonetic word-boundary measurement was executed.",
+        "Rendered caption visibility, final native mux/playback, translation validity and live acoustic assessment remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": "tests/qa_hardening_h5",
+      "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h5/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-022",
+      "title": "Native-origin game QA adapter",
+      "original_scope": "Consume externally completed Section15 outputs through their real entrypoint/module load path. Do not rebuild or modify Section15 here.",
+      "required_closure_evidence": [
+        "HTTP/native origin, assets and interactions execute in an approved environment.",
+        "about:blank/injected mode never becomes native acceptance.",
+        "Environment policy blocks are retained; no policy bypass to turn the gate green."
+      ],
+      "implemented_local": "Current native DeploymentEvidence consumption explicitly requires real browser-origin navigation; exact package/module/load hashes, timestamps, screenshots and UI errors are checked. HTTP-only capture has no injected fallback.",
+      "remaining": [
+        "The supplied diagnostic UI is not Section15 native output. Native-origin Section15 execution and trusted capture attestation remain open.",
+        "Managed browser policy is never altered or bypassed; any blocked HTTP attempt is retained as a blocker."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": "tests/qa_hardening_h5",
+      "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h5/evidence/diagnostics/EXECUTION_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-023",
+      "title": "Broader game interaction and learning evidence",
+      "original_scope": "Cover required manipulation, simulation, prediction, branching, reset/reload and adaptive state paths beyond authored finite reducers.",
+      "required_closure_evidence": [
+        "Wrong score/feedback, impossible states, unreachable challenges and hidden branches are caught.",
+        "Keyboard and actual touch behavior are both verified on declared devices.",
+        "Scores are not represented as learner mastery without separate evidence."
+      ],
+      "implemented_local": "Existing full GAME QA is actually reused with authoritative scenario/mechanic coverage plus every-observed-checkpoint quantitative ranges and conservation constraints. Keyboard/reload and missing paths remain explicit.",
+      "remaining": [
+        "Finite recorded scenario checks do not establish broad native browser/game semantics or empirical learning.",
+        "Physical-device touch, native manipulation/simulation mechanics, independent assessment and learner measurement remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "tests": "tests/qa_hardening_h5",
+      "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+      "diagnostics": "hardening/section16_h5/evidence/diagnostics/EXECUTION_RESULT.json"
+    }
+  ],
+  "all_historical_obligations_preserved": true,
+  "full_operational_closure": false
+}

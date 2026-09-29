@@ -1,0 +1,21 @@
+{
+  "task_id": "BIE-QA-HARD-028",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "source_files": [
+    "bie/qa/operational_quality_v2/common.py",
+    "bie/qa/operational_quality_v2/rebuild.py",
+    "bie/qa/operational_quality_v2/runtime.py"
+  ],
+  "specification": "tasks/qa_section16/BIE-QA-HARD-028/SPEC.md",
+  "test_suite": "hardening_h7",
+  "shared_test_count": 147,
+  "test_evidence": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json",
+  "diagnostics": "hardening/section16_h7/evidence/diagnostics/EXECUTION_RESULT.json",
+  "independent_task_test_count": null,
+  "full_scope_closed": false,
+  "product_accepted": false,
+  "remaining": [
+    "The successful stage diagnostics are authored Python/JSON programs, not native BIE compile/render/recapture or canonical full-regression executions. Native stage transport is implemented but was not successfully executed.",
+    "Owner-provisioned native entrypoints, new actual audiovisual/game captures, complete canonical corpus and independent semantic assessment are required; no historical obligation is closed."
+  ]
+}

@@ -1,0 +1,467 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Structural supplement only. Semantic ranges, identity, authorization, references and budget are enforced by Python contracts/evaluators.",
+  "$ref": "#/$defs/bie_qa_semantic_v2_models_SemanticRequest",
+  "$defs": {
+    "bie_qa_semantic_v2_models_SemanticRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/bie_qa_source_v2_models_Request"
+        },
+        "normalizations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_semantic_v2_models_Normalization"
+          },
+          "maxItems": 8192
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_semantic_v2_models_ReferenceFact"
+          },
+          "maxItems": 8192
+        },
+        "coverage_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_semantic_v2_models_CoverageLink"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "normalizations",
+        "references",
+        "coverage_links"
+      ]
+    },
+    "bie_qa_source_v2_models_Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Source"
+          },
+          "maxItems": 8192
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Block"
+          },
+          "maxItems": 8192
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Output"
+          },
+          "maxItems": 8192
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Citation"
+          },
+          "maxItems": 8192
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Claim"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ]
+    },
+    "bie_qa_source_v2_models_Source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ]
+    },
+    "bie_qa_release_v2_contracts_ArtifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ]
+    },
+    "bie_qa_source_v2_models_Block": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "minItems": 4,
+          "maxItems": 4,
+          "items": false
+        },
+        "text": {
+          "type": "string"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ]
+    },
+    "bie_qa_source_v2_models_Output": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "output_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ]
+    },
+    "bie_qa_source_v2_models_Citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "citation_id": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "block_digest": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ]
+    },
+    "bie_qa_source_v2_models_Claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ]
+    },
+    "bie_qa_semantic_v2_models_Normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "propositions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_semantic_v2_models_Proposition"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "claim_id",
+        "propositions"
+      ]
+    },
+    "bie_qa_semantic_v2_models_Proposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "type": "string"
+        },
+        "predicate_id": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/bie_qa_semantic_v2_models_Value"
+        },
+        "polarity": {
+          "type": "string"
+        },
+        "context": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "minItems": 2,
+            "maxItems": 2,
+            "items": false
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "entity_id",
+        "predicate_id",
+        "value",
+        "polarity",
+        "context"
+      ]
+    },
+    "bie_qa_semantic_v2_models_Value": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "lower": {
+          "type": "string"
+        },
+        "upper": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "symbol",
+        "lower",
+        "upper",
+        "unit"
+      ]
+    },
+    "bie_qa_semantic_v2_models_ReferenceFact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference_id": {
+          "type": "string"
+        },
+        "proposition": {
+          "$ref": "#/$defs/bie_qa_semantic_v2_models_Proposition"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "reference_id",
+        "proposition",
+        "citation_ids"
+      ]
+    },
+    "bie_qa_semantic_v2_models_CoverageLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "link_id": {
+          "type": "string"
+        },
+        "requirement_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "depth": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "link_id",
+        "requirement_id",
+        "claim_ids",
+        "depth"
+      ]
+    }
+  }
+}

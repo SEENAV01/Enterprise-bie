@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-QA-HARD-014",
+  "title": "Broader mathematics, units and precision adapters",
+  "batch_id": "BIE-QA-HARDENING-H4",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implemented": "Adds exact polynomial differentiation/antiderivative checking and definite integration; rational matrices, unique linear systems with pivoting, dot/cross products, explicit extended-unit scales and complete rational real root sets for linear/quadratic cases. Tolerances are operator-controlled and exact by default.",
+  "source_paths": [
+    "bie/qa/domain_quality_v2/common.py",
+    "bie/qa/domain_quality_v2/mathematics.py"
+  ],
+  "shared_suite_id": "hardening_h4",
+  "shared_suite_tests": 211,
+  "not_independent_task_test_count": true,
+  "test_receipt": "hardening/section16_h4/evidence/final_source_suites/TEST_RESULT.json",
+  "mutation_receipt": "hardening/section16_h4/evidence/mutations/MUTATION_RESULT.json",
+  "operational_closure": false,
+  "product_accepted": false,
+  "github_integrated": false,
+  "remaining": [
+    "General symbolic/nonpolynomial calculus, complex solutions, tensors, broader units and mathematical OCR remain unsupported or review-required.",
+    "Independent reference/source interpretation and canonical mathematics-to-render integration remain open; finite exact equality is not empirical-law truth."
+  ]
+}

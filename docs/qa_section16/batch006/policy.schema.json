@@ -1,0 +1,300 @@
+{
+  "$defs": {
+    "Criterion": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "max_points": {
+          "type": "integer"
+        },
+        "minimum_points": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "criterion_id",
+        "description",
+        "max_points",
+        "minimum_points"
+      ],
+      "type": "object"
+    },
+    "LoadLimits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_adjacent_new_concepts": {
+          "type": "integer"
+        },
+        "max_motion_units": {
+          "type": "integer"
+        },
+        "max_simultaneous_new_concepts": {
+          "type": "integer"
+        },
+        "max_text_codepoints_per_minute": {
+          "type": "integer"
+        },
+        "max_uninterrupted_ms": {
+          "type": "integer"
+        },
+        "max_visual_units": {
+          "type": "integer"
+        },
+        "minimum_break_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_visual_units",
+        "max_motion_units",
+        "max_simultaneous_new_concepts",
+        "max_text_codepoints_per_minute",
+        "max_adjacent_new_concepts",
+        "max_uninterrupted_ms",
+        "minimum_break_ms"
+      ],
+      "type": "object"
+    },
+    "ObjectiveRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_levels": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "concept_id": {
+          "type": "string"
+        },
+        "criteria": {
+          "items": {
+            "$ref": "#/$defs/Criterion"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "mastery_threshold_ppm": {
+          "type": "integer"
+        },
+        "minimum_mastery_items": {
+          "type": "integer"
+        },
+        "minimum_response_ms": {
+          "type": "integer"
+        },
+        "minimum_worked_examples": {
+          "type": "integer"
+        },
+        "objective_id": {
+          "type": "string"
+        },
+        "observable_action": {
+          "type": "string"
+        },
+        "prerequisites": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "response_modes": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "transfer_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "objective_id",
+        "concept_id",
+        "observable_action",
+        "allowed_levels",
+        "criteria",
+        "prerequisites",
+        "minimum_worked_examples",
+        "minimum_mastery_items",
+        "response_modes",
+        "transfer_required",
+        "minimum_response_ms",
+        "mastery_threshold_ppm"
+      ],
+      "type": "object"
+    },
+    "OrderConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "after_segment_id": {
+          "type": "string"
+        },
+        "before_segment_id": {
+          "type": "string"
+        },
+        "constraint_id": {
+          "type": "string"
+        },
+        "minimum_gap_ms": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "constraint_id",
+        "before_segment_id",
+        "after_segment_id",
+        "minimum_gap_ms"
+      ],
+      "type": "object"
+    },
+    "PedagogyPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "audience_id": {
+          "type": "string"
+        },
+        "expected_segment_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "language": {
+          "type": "string"
+        },
+        "load_limits": {
+          "$ref": "#/$defs/LoadLimits"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "objectives": {
+          "items": {
+            "$ref": "#/$defs/ObjectiveRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "order_constraints": {
+          "items": {
+            "$ref": "#/$defs/OrderConstraint"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "routes": {
+          "items": {
+            "$ref": "#/$defs/RouteRequirement"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "source": {
+          "$ref": "#/$defs/Policy"
+        }
+      },
+      "required": [
+        "policy_id",
+        "source",
+        "audience_id",
+        "language",
+        "objectives",
+        "expected_segment_ids",
+        "routes",
+        "order_constraints",
+        "load_limits",
+        "minimum_review_confidence_ppm",
+        "max_receipt_age_seconds",
+        "minimum_independent_assessors"
+      ],
+      "type": "object"
+    },
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "type": "object"
+    },
+    "RouteRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "max_duration_ms": {
+          "type": "integer"
+        },
+        "objective_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "route_id": {
+          "type": "string"
+        },
+        "segment_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "route_id",
+        "segment_ids",
+        "objective_ids",
+        "max_duration_ms"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/PedagogyPolicy",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, route, learning and timing rules, artifact verification and external assessment authority.",
+  "title": "PedagogyPolicy structure"
+}

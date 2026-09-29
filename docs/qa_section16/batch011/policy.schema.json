@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 VIDEO policy",
+  "description": "Structural schema. Runtime validates semantics, limits and trust.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "composition_id": {
+      "type": "string"
+    },
+    "expected_input_digest": {
+      "type": "string"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "fps_numerator": {
+      "type": "integer"
+    },
+    "fps_denominator": {
+      "type": "integer"
+    },
+    "expected_frames": {
+      "type": "integer"
+    },
+    "require_audio": {
+      "type": "boolean"
+    },
+    "codecs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4096
+    },
+    "pixel_formats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4096
+    },
+    "compile_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4096
+    },
+    "render_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 4096
+    },
+    "sample_stride": {
+      "type": "integer"
+    },
+    "max_samples": {
+      "type": "integer"
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 4096
+    },
+    "cuts": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 4096
+    },
+    "blank_allowances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start": {
+            "type": "integer"
+          },
+          "end": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start",
+          "end"
+        ]
+      },
+      "maxItems": 4096
+    },
+    "expected_motion": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start": {
+            "type": "integer"
+          },
+          "end": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start",
+          "end"
+        ]
+      },
+      "maxItems": 4096
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "region_id": {
+            "type": "string"
+          },
+          "frame": {
+            "type": "integer"
+          },
+          "x": {
+            "type": "integer"
+          },
+          "y": {
+            "type": "integer"
+          },
+          "width": {
+            "type": "integer"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "reference": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "artifact_id": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              },
+              "size": {
+                "type": "integer"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "artifact_id",
+              "path",
+              "sha256",
+              "size",
+              "role"
+            ]
+          },
+          "max_error_ppm": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "region_id",
+          "frame",
+          "x",
+          "y",
+          "width",
+          "height",
+          "reference",
+          "max_error_ppm"
+        ]
+      },
+      "maxItems": 4096
+    },
+    "max_decoded_bytes": {
+      "type": "integer"
+    },
+    "max_process_seconds": {
+      "type": "integer"
+    },
+    "black_level": {
+      "type": "integer"
+    },
+    "black_fraction_ppm": {
+      "type": "integer"
+    },
+    "uniform_channel_span": {
+      "type": "integer"
+    },
+    "abrupt_change_ppm": {
+      "type": "integer"
+    },
+    "frozen_change_ppm": {
+      "type": "integer"
+    },
+    "max_repeated_frames": {
+      "type": "integer"
+    },
+    "duration_tolerance_us": {
+      "type": "integer"
+    },
+    "max_receipt_age_seconds": {
+      "type": "integer"
+    },
+    "minimum_independent_assessors": {
+      "type": "integer"
+    },
+    "minimum_review_confidence_ppm": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "composition_id",
+    "expected_input_digest",
+    "width",
+    "height",
+    "fps_numerator",
+    "fps_denominator",
+    "expected_frames",
+    "require_audio",
+    "codecs",
+    "pixel_formats",
+    "compile_tools",
+    "render_tools",
+    "sample_stride",
+    "max_samples",
+    "boundaries",
+    "cuts",
+    "blank_allowances",
+    "expected_motion",
+    "regions",
+    "max_decoded_bytes",
+    "max_process_seconds",
+    "black_level",
+    "black_fraction_ppm",
+    "uniform_channel_span",
+    "abrupt_change_ppm",
+    "frozen_change_ppm",
+    "max_repeated_frames",
+    "duration_tolerance_us",
+    "max_receipt_age_seconds",
+    "minimum_independent_assessors",
+    "minimum_review_confidence_ppm"
+  ]
+}

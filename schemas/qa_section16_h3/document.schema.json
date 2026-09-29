@@ -1,0 +1,381 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "binding",
+    "source",
+    "policy_digest",
+    "native_inventory",
+    "extractor",
+    "pages",
+    "regions",
+    "semantic_correctness_verified",
+    "content_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.native-document/1"
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "policy_digest"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "candidate_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "policy_digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "role": {
+          "enum": [
+            "source",
+            "video",
+            "game",
+            "support",
+            "report"
+          ]
+        }
+      }
+    },
+    "policy_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "native_inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "page_count",
+        "text_pages",
+        "encrypted"
+      ],
+      "properties": {
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "text_pages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "encrypted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "extractor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pymupdf",
+        "geometry",
+        "reading_order"
+      ],
+      "properties": {
+        "pymupdf": {
+          "type": "string",
+          "minLength": 1
+        },
+        "geometry": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reading_order": {
+          "const": "EXTRACTION_ORDER_NOT_VERIFIED"
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "page",
+          "width_points",
+          "height_points",
+          "raster_sha256",
+          "pixels",
+          "region_ids",
+          "basis",
+          "image_count",
+          "drawing_count",
+          "ocr_receipt"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "width_points": {
+            "type": "string",
+            "minLength": 1
+          },
+          "height_points": {
+            "type": "string",
+            "minLength": 1
+          },
+          "raster_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "pixels": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "region_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "maxItems": 4096
+          },
+          "basis": {
+            "enum": [
+              "PDF_TEXT_LAYER",
+              "OCR_UNVERIFIED",
+              "IMAGE_ONLY_UNREAD"
+            ]
+          },
+          "image_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "drawing_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "ocr_receipt": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "engine",
+                  "executable_sha256",
+                  "language",
+                  "stderr_sha256",
+                  "tsv_sha256",
+                  "exit_code",
+                  "source_png_sha256",
+                  "phonetic_or_semantic_verification"
+                ],
+                "properties": {
+                  "engine": {
+                    "const": "tesseract"
+                  },
+                  "executable_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "language": {
+                    "const": "eng"
+                  },
+                  "stderr_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "tsv_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "exit_code": {
+                    "const": 0
+                  },
+                  "source_png_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "phonetic_or_semantic_verification": {
+                    "const": false
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 1024
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "region_id",
+          "page",
+          "box_points",
+          "box_ppm",
+          "text",
+          "normalized_text",
+          "normalization",
+          "text_sha256",
+          "raster_sha256",
+          "basis",
+          "confidence_ppm"
+        ],
+        "properties": {
+          "region_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "box_points": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "box_ppm": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "normalized_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "normalization": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "raw_start",
+                "raw_end",
+                "out_start",
+                "out_end",
+                "operation"
+              ],
+              "properties": {
+                "raw_start": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "raw_end": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "out_start": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "out_end": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "operation": {
+                  "const": "IDENTITY"
+                }
+              }
+            },
+            "minItems": 1,
+            "maxItems": 1
+          },
+          "text_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "raster_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "basis": {
+            "enum": [
+              "PDF_TEXT_LAYER",
+              "OCR_UNVERIFIED"
+            ]
+          },
+          "confidence_ppm": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        }
+      },
+      "minItems": 0,
+      "maxItems": 4096
+    },
+    "semantic_correctness_verified": {
+      "const": false
+    },
+    "content_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

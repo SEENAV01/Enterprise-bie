@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h5.speech",
+  "title": "speech structural policy; codec enforces semantic bounds",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "voice_id": {
+      "type": "string"
+    },
+    "pronunciation_forms": {
+      "type": "array"
+    },
+    "max_sync_ms": {
+      "type": "integer"
+    },
+    "min_word_ms": {
+      "type": "integer"
+    },
+    "max_age": {
+      "type": "integer"
+    },
+    "min_signal": {
+      "type": "integer"
+    },
+    "max_clipped_ppm": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "language",
+    "voice_id",
+    "pronunciation_forms"
+  ],
+  "additionalProperties": false
+}

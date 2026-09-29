@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "binding",
+    "artifact"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "policy_digest"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "policy_digest": {
+          "type": "string"
+        }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

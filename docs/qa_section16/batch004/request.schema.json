@@ -1,0 +1,754 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReasoningRequest — structural wire schema",
+  "description": "Closed structural validation only. Use the strict runtime codec and evaluators for ranges, duplicate identities, graph scope, provenance, authority and resource limits.",
+  "$ref": "#/$defs/bie_qa_reasoning_v2_models_ReasoningRequest",
+  "$defs": {
+    "bie_qa_reasoning_v2_models_ReasoningRequest": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/bie_qa_source_v2_models_Request"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_LearningEvent"
+          },
+          "maxItems": 8192
+        },
+        "masteries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_MasteryEvidence"
+          },
+          "maxItems": 8192
+        },
+        "statements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_Statement"
+          },
+          "maxItems": 8192
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_InferenceStep"
+          },
+          "maxItems": 8192
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_Argument"
+          },
+          "maxItems": 8192
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_EvidenceLink"
+          },
+          "maxItems": 8192
+        },
+        "calibrations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_CalibrationArtifact"
+          },
+          "maxItems": 8192
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_models_ConfidenceDecision"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "events",
+        "masteries",
+        "statements",
+        "steps",
+        "arguments",
+        "evidence",
+        "calibrations",
+        "decisions"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Request": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Source"
+          },
+          "maxItems": 8192
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Block"
+          },
+          "maxItems": 8192
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Output"
+          },
+          "maxItems": 8192
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Citation"
+          },
+          "maxItems": 8192
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Claim"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Source": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_release_v2_contracts_ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Block": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "maxItems": 8192
+        },
+        "text": {
+          "type": "string"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Output": {
+      "type": "object",
+      "properties": {
+        "output_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Citation": {
+      "type": "object",
+      "properties": {
+        "citation_id": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "block_digest": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Claim": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_LearningEvent": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "concept_id": {
+          "type": "string"
+        },
+        "position": {
+          "type": "integer"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "depth": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "event_id",
+        "concept_id",
+        "position",
+        "kind",
+        "claim_ids",
+        "depth"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_MasteryEvidence": {
+      "type": "object",
+      "properties": {
+        "observation_id": {
+          "type": "string"
+        },
+        "concept_id": {
+          "type": "string"
+        },
+        "learner_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "correct": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "observed_at": {
+          "type": "integer"
+        },
+        "expires_at": {
+          "type": "integer"
+        },
+        "available_at_position": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "observation_id",
+        "concept_id",
+        "learner_id",
+        "artifact",
+        "correct",
+        "total",
+        "observed_at",
+        "expires_at",
+        "available_at_position"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_Statement": {
+      "type": "object",
+      "properties": {
+        "statement_id": {
+          "type": "string"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "expression": {
+          "$ref": "#/$defs/bie_qa_reasoning_v2_logic_Expr"
+        }
+      },
+      "required": [
+        "statement_id",
+        "claim_id",
+        "scope",
+        "expression"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_logic_Expr": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "enum": [
+            "atom",
+            "not",
+            "and",
+            "or",
+            "implies",
+            "iff"
+          ]
+        },
+        "atom": {
+          "type": "string"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_reasoning_v2_logic_Expr"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "op",
+        "atom",
+        "args"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "atom"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "atom": {
+                "minLength": 1
+              },
+              "args": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "atom": {
+                "const": ""
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "not"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "args": {
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "and",
+                  "or",
+                  "implies",
+                  "iff"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "args": {
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    "bie_qa_reasoning_v2_models_InferenceStep": {
+      "type": "object",
+      "properties": {
+        "step_id": {
+          "type": "string"
+        },
+        "conclusion_id": {
+          "type": "string"
+        },
+        "premise_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "method": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "step_id",
+        "conclusion_id",
+        "premise_ids",
+        "method"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_Argument": {
+      "type": "object",
+      "properties": {
+        "argument_id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "statement_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "premise_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "step_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "conclusion_id": {
+          "type": "string"
+        },
+        "assumption_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "conclusion_mode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "argument_id",
+        "scope",
+        "statement_ids",
+        "premise_ids",
+        "step_ids",
+        "conclusion_id",
+        "assumption_ids",
+        "conclusion_mode"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_EvidenceLink": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string"
+        },
+        "argument_id": {
+          "type": "string"
+        },
+        "premise_id": {
+          "type": "string"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        },
+        "relation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "argument_id",
+        "premise_id",
+        "citation_ids",
+        "relation"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_CalibrationArtifact": {
+      "type": "object",
+      "properties": {
+        "calibration_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "issued_at": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "calibration_id",
+        "artifact",
+        "model_id",
+        "model_version",
+        "domain",
+        "language",
+        "issued_at"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_reasoning_v2_models_ConfidenceDecision": {
+      "type": "object",
+      "properties": {
+        "argument_id": {
+          "type": "string"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        },
+        "disposition": {
+          "type": "string"
+        },
+        "calibration_id": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "disclosure_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8192
+        }
+      },
+      "required": [
+        "argument_id",
+        "confidence_ppm",
+        "disposition",
+        "calibration_id",
+        "model_id",
+        "model_version",
+        "domain",
+        "language",
+        "disclosure_claim_ids"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

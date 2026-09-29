@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "certificate",
+  "description": "Structural validation only; Python contract, byte verification and authority checks remain mandatory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "release_id",
+    "release_version",
+    "environment_id",
+    "mode",
+    "status",
+    "candidate_digest",
+    "bundle_digest",
+    "request_digest",
+    "publication_policy_digest",
+    "manifest_digest",
+    "graph_digest",
+    "assessment_digest",
+    "approval_digest",
+    "assessed_at",
+    "issued_at",
+    "expires_at",
+    "issuer_key_id",
+    "issuer_principal_id",
+    "release_authorized",
+    "product_accepted",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.publication/1"
+    },
+    "release_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "production",
+        "diagnostic"
+      ]
+    },
+    "status": {
+      "enum": [
+        "SUCCESS",
+        "DIAGNOSTIC_ONLY"
+      ]
+    },
+    "candidate_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "bundle_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "request_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "publication_policy_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "manifest_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "graph_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "assessment_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "approval_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "assessed_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "issued_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expires_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "issuer_key_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuer_principal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release_authorized": {
+      "type": "boolean"
+    },
+    "product_accepted": {
+      "type": "boolean"
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

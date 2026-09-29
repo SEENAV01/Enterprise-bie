@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h7.aggregate_limits",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "memory_bytes",
+    "processes",
+    "max_jobs",
+    "max_queue_ns"
+  ],
+  "properties": {
+    "memory_bytes": {
+      "type": "integer",
+      "minimum": 16777216,
+      "maximum": 17179869184
+    },
+    "processes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 512
+    },
+    "max_jobs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "max_queue_ns": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3600000000000
+    }
+  }
+}

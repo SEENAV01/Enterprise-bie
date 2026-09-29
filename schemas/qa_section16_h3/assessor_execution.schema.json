@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider",
+    "task_digest",
+    "request_digest",
+    "attempts",
+    "raw_responses",
+    "assessment",
+    "release_authorized",
+    "product_accepted",
+    "transport_timeout_enforcement"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.assessor-execution/1"
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_id",
+        "model_id",
+        "version",
+        "mode",
+        "max_attempts",
+        "timeout_ms",
+        "max_response_bytes"
+      ],
+      "properties": {
+        "provider_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "enum": [
+            "diagnostic",
+            "live"
+          ]
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "timeout_ms": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_response_bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "task_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "request_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "attempt",
+              "status",
+              "invocation_id",
+              "duration_ns",
+              "mode"
+            ],
+            "properties": {
+              "attempt": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "status": {
+                "const": "RECEIVED"
+              },
+              "invocation_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "duration_ns": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "mode": {
+                "enum": [
+                  "diagnostic",
+                  "live"
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "attempt",
+              "status",
+              "exception_type",
+              "duration_ns"
+            ],
+            "properties": {
+              "attempt": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "status": {
+                "enum": [
+                  "TRANSIENT_FAILURE",
+                  "TRANSPORT_FAILURE"
+                ]
+              },
+              "exception_type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "duration_ns": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 4
+    },
+    "raw_responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sha256",
+          "utf8"
+        ],
+        "properties": {
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "utf8": {
+            "type": "string"
+          }
+        }
+      },
+      "minItems": 0,
+      "maxItems": 4
+    },
+    "assessment": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "request_digest",
+            "criteria"
+          ],
+          "properties": {
+            "request_digest": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "criteria": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "criterion_id",
+                  "verdict",
+                  "evidence_ids",
+                  "rationale"
+                ],
+                "properties": {
+                  "criterion_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verdict": {
+                    "enum": [
+                      "SUPPORTED",
+                      "CONTRADICTED",
+                      "UNCERTAIN"
+                    ]
+                  },
+                  "evidence_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "minItems": 1,
+                    "maxItems": 128
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "minItems": 1,
+              "maxItems": 128
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "release_authorized": {
+      "const": false
+    },
+    "product_accepted": {
+      "const": false
+    },
+    "transport_timeout_enforcement": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

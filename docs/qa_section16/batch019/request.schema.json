@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/RightsRequest",
+  "$defs": {
+    "RightsRequest": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/Snapshot"
+        },
+        "status_artifact_id": {
+          "type": "string"
+        },
+        "selections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UseSelection"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "job_id",
+        "snapshot",
+        "status_artifact_id",
+        "selections"
+      ],
+      "additionalProperties": false
+    },
+    "Snapshot": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "run_id",
+        "revision",
+        "artifacts"
+      ],
+      "additionalProperties": false
+    },
+    "ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "UseSelection": {
+      "type": "object",
+      "properties": {
+        "use_id": {
+          "type": "string"
+        },
+        "grant_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        },
+        "notices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NoticeProof"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "use_id",
+        "grant_ids",
+        "notices"
+      ],
+      "additionalProperties": false
+    },
+    "NoticeProof": {
+      "type": "object",
+      "properties": {
+        "grant_id": {
+          "type": "string"
+        },
+        "obligation_id": {
+          "type": "string"
+        },
+        "artifact_id": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "grant_id",
+        "obligation_id",
+        "artifact_id",
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "description": "Structural schema; Python contracts and evaluator enforce semantics and authorization. No rights are inferred by schema validity."
+}

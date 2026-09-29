@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PerformancePolicy",
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "snapshot_digest": {
+      "type": "string"
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string"
+          },
+          "producer_id": {
+            "type": "string"
+          },
+          "input_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 4096
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "output_id": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "expected_sha256": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "frames": {
+                  "type": "integer"
+                },
+                "fps_numerator": {
+                  "type": "integer"
+                },
+                "fps_denominator": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "output_id",
+                "path",
+                "kind",
+                "expected_sha256",
+                "width",
+                "height",
+                "frames",
+                "fps_numerator",
+                "fps_denominator"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 4096
+          }
+        },
+        "required": [
+          "job_id",
+          "producer_id",
+          "input_ids",
+          "outputs"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 4096
+    },
+    "producer_bindings": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "maxItems": 4096
+    },
+    "environment_digest": {
+      "type": "string"
+    },
+    "max_workers": {
+      "type": "integer"
+    },
+    "timeout_ms": {
+      "type": "integer"
+    },
+    "max_job_ms": {
+      "type": "integer"
+    },
+    "max_p95_queue_ms": {
+      "type": "integer"
+    },
+    "max_p95_latency_ms": {
+      "type": "integer"
+    },
+    "max_batch_ms": {
+      "type": "integer"
+    },
+    "min_jobs_per_second_milli": {
+      "type": "integer"
+    },
+    "min_render_fps_milli": {
+      "type": "integer"
+    },
+    "address_space_bytes": {
+      "type": "integer"
+    },
+    "max_rss_bytes": {
+      "type": "integer"
+    },
+    "max_file_bytes": {
+      "type": "integer"
+    },
+    "max_total_output_bytes": {
+      "type": "integer"
+    },
+    "max_receipt_age_seconds": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "policy_id",
+    "snapshot_digest",
+    "jobs",
+    "producer_bindings",
+    "environment_digest",
+    "max_workers",
+    "timeout_ms",
+    "max_job_ms",
+    "max_p95_queue_ms",
+    "max_p95_latency_ms",
+    "max_batch_ms",
+    "min_jobs_per_second_milli",
+    "min_render_fps_milli",
+    "address_space_bytes",
+    "max_rss_bytes",
+    "max_file_bytes",
+    "max_total_output_bytes",
+    "max_receipt_age_seconds"
+  ],
+  "additionalProperties": false
+}

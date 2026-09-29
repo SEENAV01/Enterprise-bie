@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "generation_receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.domain-repair-generation/1"
+    },
+    "generation_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "job_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "plan_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "before_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "after_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "generated_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 16777216
+    },
+    "required_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "invalidated_previous_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "witness": {
+      "type": "object"
+    },
+    "status": {
+      "const": "PROPOSAL_GENERATED_REVIEW_REQUIRED"
+    },
+    "original_files_written": {
+      "const": false
+    },
+    "previous_candidate_reviews_reusable": {
+      "const": false
+    },
+    "live_model_invoked": {
+      "const": false
+    },
+    "canonical_repository_modified": {
+      "const": false
+    },
+    "product_accepted": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "generation_digest",
+    "job_digest",
+    "plan_digest",
+    "before_sha256",
+    "after_sha256",
+    "generated_bytes",
+    "required_checks",
+    "invalidated_previous_checks",
+    "witness",
+    "status",
+    "original_files_written",
+    "previous_candidate_reviews_reusable",
+    "live_model_invoked",
+    "canonical_repository_modified",
+    "product_accepted"
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 Batch015 animation-policy",
+  "description": "Structural schema only. Runtime semantic contracts, byte validation and external approvals remain mandatory.",
+  "$ref": "#/$defs/media_repair_v2_AnimationRepairPolicy",
+  "$defs": {
+    "media_repair_v2_AnimationRepairPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "qa",
+        "windows"
+      ],
+      "properties": {
+        "qa": {
+          "$ref": "#/$defs/animation_v2_AnimationPolicy"
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/media_repair_v2_TrackWindow"
+          }
+        }
+      }
+    },
+    "animation_v2_AnimationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "source",
+        "lesson_id",
+        "modes",
+        "objects",
+        "tracks",
+        "cues",
+        "timing_rules",
+        "invariants",
+        "captures",
+        "limits",
+        "max_receipt_age_seconds",
+        "minimum_review_confidence_ppm",
+        "minimum_independent_assessors"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source_v2_Policy"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "modes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_Mode"
+          }
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_ObjectSpec"
+          }
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_TrackRequirement"
+          }
+        },
+        "cues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_Cue"
+          }
+        },
+        "timing_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_TimingRule"
+          }
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_Invariant"
+          }
+        },
+        "captures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation_v2_CaptureRequirement"
+          }
+        },
+        "limits": {
+          "$ref": "#/$defs/animation_v2_MotionLimits"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        },
+        "minimum_review_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_independent_assessors": {
+          "type": "integer"
+        }
+      }
+    },
+    "source_v2_Policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "expected_output_ids",
+        "minimum_confidence_ppm",
+        "minimum_extraction_confidence_ppm",
+        "max_receipt_age_seconds"
+      ],
+      "properties": {
+        "policy_id": {
+          "type": "string"
+        },
+        "expected_output_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "minimum_confidence_ppm": {
+          "type": "integer"
+        },
+        "minimum_extraction_confidence_ppm": {
+          "type": "integer"
+        },
+        "max_receipt_age_seconds": {
+          "type": "integer"
+        }
+      }
+    },
+    "animation_v2_Mode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode_id",
+        "kind",
+        "duration_ms",
+        "fps",
+        "width_px",
+        "height_px"
+      ],
+      "properties": {
+        "mode_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "duration_ms": {
+          "type": "integer"
+        },
+        "fps": {
+          "$ref": "#/$defs/animation_v2_FrameRate"
+        },
+        "width_px": {
+          "type": "integer"
+        },
+        "height_px": {
+          "type": "integer"
+        }
+      }
+    },
+    "animation_v2_FrameRate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "properties": {
+        "numerator": {
+          "type": "integer"
+        },
+        "denominator": {
+          "type": "integer"
+        }
+      }
+    },
+    "animation_v2_ObjectSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_id",
+        "semantic_id",
+        "role",
+        "start_ms",
+        "end_ms",
+        "claim_ids"
+      ],
+      "properties": {
+        "object_id": {
+          "type": "string"
+        },
+        "semantic_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "animation_v2_TrackRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "track_id",
+        "mode_id",
+        "object_id",
+        "property",
+        "semantic_id",
+        "purpose",
+        "claim_ids",
+        "essential",
+        "minimum_value",
+        "maximum_value",
+        "trend",
+        "start_value",
+        "end_value",
+        "endpoints_required",
+        "tolerance",
+        "disclosure_cue_ids"
+      ],
+      "properties": {
+        "track_id": {
+          "type": "string"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "property": {
+          "type": "string"
+        },
+        "semantic_id": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "essential": {
+          "type": "boolean"
+        },
+        "minimum_value": {
+          "type": "integer"
+        },
+        "maximum_value": {
+          "type": "integer"
+        },
+        "trend": {
+          "type": "string"
+        },
+        "start_value": {
+          "type": "integer"
+        },
+        "end_value": {
+          "type": "integer"
+        },
+        "endpoints_required": {
+          "type": "boolean"
+        },
+        "tolerance": {
+          "type": "integer"
+        },
+        "disclosure_cue_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "animation_v2_Cue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cue_id",
+        "mode_id",
+        "start_ms",
+        "end_ms",
+        "claim_ids"
+      ],
+      "properties": {
+        "cue_id": {
+          "type": "string"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "animation_v2_TimingRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "left_track_id",
+        "right_id",
+        "right_kind",
+        "relation",
+        "tolerance_ms",
+        "minimum_overlap_ms"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string"
+        },
+        "left_track_id": {
+          "type": "string"
+        },
+        "right_id": {
+          "type": "string"
+        },
+        "right_kind": {
+          "type": "string"
+        },
+        "relation": {
+          "type": "string"
+        },
+        "tolerance_ms": {
+          "type": "integer"
+        },
+        "minimum_overlap_ms": {
+          "type": "integer"
+        }
+      }
+    },
+    "animation_v2_Invariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "invariant_id",
+        "mode_id",
+        "kind",
+        "track_ids",
+        "start_ms",
+        "end_ms",
+        "value",
+        "tolerance"
+      ],
+      "properties": {
+        "invariant_id": {
+          "type": "string"
+        },
+        "mode_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "track_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "integer"
+        },
+        "tolerance": {
+          "type": "integer"
+        }
+      }
+    },
+    "animation_v2_CaptureRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode_id",
+        "frame_indices",
+        "required",
+        "tolerance_mpx",
+        "opacity_tolerance_ppm"
+      ],
+      "properties": {
+        "mode_id": {
+          "type": "string"
+        },
+        "frame_indices": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "tolerance_mpx": {
+          "type": "integer"
+        },
+        "opacity_tolerance_ppm": {
+          "type": "integer"
+        }
+      }
+    },
+    "animation_v2_MotionLimits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_speed_mpx_per_second",
+        "max_rotation_mdeg_per_second",
+        "max_scale_ppm_per_second",
+        "max_opacity_ppm_per_second",
+        "max_progress_ppm_per_second",
+        "max_simultaneous_objects",
+        "max_sum_normalized_rate_ppm",
+        "max_jump_ppm",
+        "max_reversals",
+        "reduced_max_speed_mpx_per_second",
+        "reduced_max_rotation_mdeg_per_second",
+        "reduced_max_scale_ppm_per_second",
+        "reduced_max_jump_ppm"
+      ],
+      "properties": {
+        "max_speed_mpx_per_second": {
+          "type": "integer"
+        },
+        "max_rotation_mdeg_per_second": {
+          "type": "integer"
+        },
+        "max_scale_ppm_per_second": {
+          "type": "integer"
+        },
+        "max_opacity_ppm_per_second": {
+          "type": "integer"
+        },
+        "max_progress_ppm_per_second": {
+          "type": "integer"
+        },
+        "max_simultaneous_objects": {
+          "type": "integer"
+        },
+        "max_sum_normalized_rate_ppm": {
+          "type": "integer"
+        },
+        "max_jump_ppm": {
+          "type": "integer"
+        },
+        "max_reversals": {
+          "type": "integer"
+        },
+        "reduced_max_speed_mpx_per_second": {
+          "type": "integer"
+        },
+        "reduced_max_rotation_mdeg_per_second": {
+          "type": "integer"
+        },
+        "reduced_max_scale_ppm_per_second": {
+          "type": "integer"
+        },
+        "reduced_max_jump_ppm": {
+          "type": "integer"
+        }
+      }
+    },
+    "media_repair_v2_TrackWindow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "track_id",
+        "start_ms",
+        "end_ms"
+      ],
+      "properties": {
+        "track_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "end_ms": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

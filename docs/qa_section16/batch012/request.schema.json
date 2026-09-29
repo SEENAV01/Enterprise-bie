@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/bie_qa_game_v2_models_GameRequest",
+  "$defs": {
+    "bie_qa_game_v2_models_GameRequest": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "game_id": {
+          "type": "string"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+          },
+          "maxItems": 4096
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+          },
+          "maxItems": 4096
+        },
+        "build_receipt": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "runtime_receipt": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "source": {
+          "$ref": "#/$defs/bie_qa_source_v2_models_Request"
+        }
+      },
+      "required": [
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "game_id",
+        "inputs",
+        "outputs",
+        "build_receipt",
+        "runtime_receipt",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_release_v2_contracts_ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Request": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Source"
+          },
+          "maxItems": 4096
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Block"
+          },
+          "maxItems": 4096
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Output"
+          },
+          "maxItems": 4096
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Citation"
+          },
+          "maxItems": 4096
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bie_qa_source_v2_models_Claim"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Source": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Block": {
+      "type": "object",
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "text": {
+          "type": "string"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Output": {
+      "type": "object",
+      "properties": {
+        "output_id": {
+          "type": "string"
+        },
+        "artifact": {
+          "$ref": "#/$defs/bie_qa_release_v2_contracts_ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Citation": {
+      "type": "object",
+      "properties": {
+        "citation_id": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "block_digest": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ],
+      "additionalProperties": false
+    },
+    "bie_qa_source_v2_models_Claim": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "citation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

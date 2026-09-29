@@ -1,0 +1,23 @@
+{
+  "task_id": "BIE-QA-HARD-022",
+  "title": "Native-origin game QA adapter",
+  "batch_id": "BIE-QA-HARDENING-H5",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implemented": "Current native DeploymentEvidence consumption explicitly requires real browser-origin navigation; exact package/module/load hashes, timestamps, screenshots and UI errors are checked. HTTP-only capture has no injected fallback.",
+  "source_paths": [
+    "bie/qa/media_runtime_v2/common.py",
+    "bie/qa/media_runtime_v2/game.py"
+  ],
+  "shared_suite_id": "hardening_h5",
+  "shared_suite_tests": 162,
+  "not_independent_task_test_count": true,
+  "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+  "mutation_receipt": "hardening/section16_h5/evidence/mutations/MUTATION_RESULT.json",
+  "operational_closure": false,
+  "product_accepted": false,
+  "github_integrated": false,
+  "remaining": [
+    "The supplied diagnostic UI is not Section15 native output. Native-origin Section15 execution and trusted capture attestation remain open.",
+    "Managed browser policy is never altered or bypassed; any blocked HTTP attempt is retained as a blocker."
+  ]
+}

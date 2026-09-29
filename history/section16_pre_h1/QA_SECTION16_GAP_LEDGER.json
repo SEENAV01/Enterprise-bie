@@ -1,0 +1,856 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Cumulative Section16 originals001\u2013022 plus initial completeness audit001. No section exit or product acceptance.",
+  "gaps": [
+    {
+      "gap_id": "QA16-GAP-001",
+      "title": "Canonical routing not migrated",
+      "description": "The v1 API remains byte-identical. No existing caller has been switched to v2.",
+      "owner_or_next_work": "governed canonical integration and compatibility regression",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-002",
+      "title": "Source and semantic evaluator implementations",
+      "description": "A signed report is not source grounding. Implement and connect actual original SOURCE/SEM/PR/RE/MATH/PED/DIR/VIS/ANI/AUDIO evaluators.",
+      "owner_or_next_work": "remaining Section16 original tasks",
+      "status": "PARTIALLY_ADDRESSED_OPEN",
+      "batch002_update": "Source byte/span/scope evaluators and authenticated judgment handling added. Native extraction and calibrated semantic judgment execution remain open; other original evaluators remain planned.",
+      "batch003_update": "Typed factual/coverage/contradiction evaluators added. Actual language/reference/teaching assessment services and remaining original evaluators are still open.",
+      "batch004_update": "PR/RE typed evaluators now added. Live semantic mapping/grading/calibration and remaining original evaluators still open.",
+      "batch005_update": "Four bounded MATH evaluators added. Broader math, actual input/assessor integration and remaining original evaluators stay open.",
+      "batch006_update": "Four bounded PED plan evaluators implemented; deployed calibrated assessment, actual learning/media evidence and remaining original evaluators stay open.",
+      "batch008_update": "Five bounded VIS evaluators and an actual static Chromium collector added. Static fixture capture is verified; independent semantic assessment, full native media correspondence and remaining original evaluators remain open.",
+      "batch009_update": "Three bounded ANI evaluators and actual paused CSS sample collector added. Contextual/calibrated assessment, measured audio/continuous native media and remaining original evaluators stay open.",
+      "batch010_update": "AUDIO PCM/sample/receipt, plain-caption and pronunciation evidence checks implemented. Live calibrated acoustic/listening evaluation and final media still open.",
+      "batch011_update": "Seven bounded VIDEO QA evaluators and actual tsc/JS/FFmpeg diagnostics added. Native compile/render provenance, complete media semantics and real-book E2E remain open.",
+      "batch012_update": "Four bounded GAME QA evaluators added; native caller/origin and learning evidence remain open."
+    },
+    {
+      "gap_id": "QA16-GAP-003",
+      "title": "Externally managed Section15 evidence",
+      "description": "Do not redo GAME here. Bind and verify the completed GAME artifacts and actual runtime/interaction/learning reports when available.",
+      "owner_or_next_work": "other work session plus QA-GAME integration",
+      "status": "EXTERNAL_PENDING",
+      "batch012_update": "Read-only a68e054 contract adapter, finite oracle and build/runtime evidence QA added. Section15 was not rebuilt, modified or accepted."
+    },
+    {
+      "gap_id": "QA16-GAP-004",
+      "title": "Actual media and real-book evidence",
+      "description": "No Remotion compile/render/frame/audio or real-book product output was executed in this batch.",
+      "owner_or_next_work": "QA-VIDEO, QA-AUDIO and real-book E2E",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-005",
+      "title": "Production trust deployment",
+      "description": "Local HMAC verifies content/authorization but is not a deployed worker-attestation or secret-management backend.",
+      "owner_or_next_work": "INFRA trust adapter and security review",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-006",
+      "title": "Immutable storage and time of release",
+      "description": "Verifier proves bytes read during this check, not later publication bytes in a mutable directory.",
+      "owner_or_next_work": "content-addressed immutable store plus publication recheck",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-007",
+      "title": "Platform and environment matrix",
+      "description": "Tested Linux/Python3.13.5 only. Unsupported secure file APIs fail closed; Windows and canonical interpreter runs remain pending.",
+      "owner_or_next_work": "canonical regression and portability adapter",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-008",
+      "title": "Large-media capacity",
+      "description": "Current default bounds are 256MiB/file and 2GiB aggregate; larger assets fail explicitly. No large-media performance claim.",
+      "owner_or_next_work": "governed limits/backend work and QA-PERF",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-009",
+      "title": "Calibrated quality and acceptance",
+      "description": "Cinematic/learning quality, evaluator agreement, golden benchmarks and expert/learner evidence are not inferred from these tests.",
+      "owner_or_next_work": "Section17 EVAL and real-book acceptance",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-010",
+      "title": "Repair and release certification",
+      "description": "No repair execution, release manifest publication or production SUCCESS certification is implemented by this first batch.",
+      "owner_or_next_work": "QA-REPAIR and QA-REL original tasks",
+      "status": "PARTIALLY_ADDRESSED_OPEN",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open.",
+      "batch022_update": "Bounded repair and release manifest/graph/blocker/certificate lifecycle implemented. Native proof adapters, operational assessors, deployment and real-book acceptance remain open."
+    },
+    {
+      "gap_id": "QA16-GAP-011",
+      "title": "Full completeness/security audit",
+      "description": "146 Batch002 tests plus 132 preserved Batch001 and 10 original contract tests, and selected probes, do not replace full-section or enterprise acceptance audits.",
+      "owner_or_next_work": "post-original-task Section16 audit",
+      "status": "OPEN",
+      "batch003_update": "134 new tests with 146 included subcases; 10 selected mutation probes. Full-section and external security/acceptance audits remain open.",
+      "batch004_update": "217 new tests with 273 included subcases, 16 selected safeguard-removal probes. Full-section/security/acceptance audits remain open.",
+      "batch005_update": "276 new tests, 444 contained subcases, 17 selected safeguard-removal probes. No full-section or enterprise acceptance audit."
+    },
+    {
+      "gap_id": "QA16-GAP-012",
+      "title": "Real semantic/extraction assessor execution and calibration",
+      "status": "OPEN",
+      "owner_or_next_work": "MODEL/BI/KI plus QA-SEM and EVAL",
+      "description": "Operator-authorized HMAC records are verified but no live language model, human review service, or PDF/OCR extraction assessor ran in this batch. Synthetic signed fixtures must never be substituted for those judgments.",
+      "batch003_update": "Authenticated normalization/reference/alignment/consistency obligations, conditional logic and assessor-quorum checks implemented; no live assessor or calibration execution."
+    },
+    {
+      "gap_id": "QA16-GAP-013",
+      "title": "Rich native BI/Director caller migration",
+      "status": "OPEN",
+      "owner_or_next_work": "governed QA/BI/DIR integration",
+      "description": "Four canonical BI/KI producers are actually consumed unchanged. Native real_pdf_text_runtime and rich Director evaluators were inspected but not executed or replaced. Preserve their contracts and add real integration tests.",
+      "batch003_update": "Five exact KI/RE/DIR files consumed in local compatibility adapters/tests. Canonical live worker/caller migration remains open."
+    },
+    {
+      "gap_id": "QA16-GAP-014",
+      "title": "Output scope to rendered product binding",
+      "status": "OPEN",
+      "owner_or_next_work": "QA-VIDEO/QA-GAME/APP",
+      "description": "Operator-owned expected text outputs are checked; completeness of the operator inventory and its mapping to actual rendered frames/audio/game UI require downstream evidence."
+    },
+    {
+      "gap_id": "QA16-GAP-015",
+      "title": "Source QA resource and portability acceptance",
+      "status": "OPEN",
+      "owner_or_next_work": "QA-PERF and platform hardening",
+      "description": "Bounded POSIX text snapshots and fixed precision adapter limits are implemented. No large-book throughput, exhaustive race resistance, Windows backend or linguistic segmentation benchmark is accepted."
+    },
+    {
+      "gap_id": "QA16-GAP-016",
+      "title": "General semantic normalization and domain logic",
+      "status": "OPEN",
+      "owner_or_next_work": "MODEL/KI/RE domain adapters, QA-SEM hardening and EVAL",
+      "description": "Only reviewed exact-context symbol polarity and closed interval reasoning run locally. Language parsing, aliases, quantifiers, temporal implication, multimodal semantics and subject-specific laws need governed adapters and real-book counterexample evaluation."
+    },
+    {
+      "gap_id": "QA16-GAP-017",
+      "title": "Reference and requirement inventory quality",
+      "status": "OPEN",
+      "owner_or_next_work": "KI/PED/QA/EVAL and operator governance",
+      "description": "Operator inventory identities are enforced but completeness, source authority, factual currency and appropriate teaching depth still need independent curation/calibration. A hash or authenticated assessment does not prove these qualities."
+    },
+    {
+      "gap_id": "QA16-GAP-018",
+      "title": "Complete product semantic gate aggregation",
+      "status": "OPEN",
+      "owner_or_next_work": "QA-VIDEO/GAME and canonical release integration",
+      "description": "The local unsigned semantic_correctness bridge emits NOT_RUN for healthy text checks, because source/video/game product semantics require actual media evidence. It must not be changed to PASS merely to close a dashboard gap."
+    },
+    {
+      "gap_id": "QA16-GAP-019",
+      "title": "Reviewed learning/proof inventory execution",
+      "description": "The operator policy and authenticated mapping/teaching reviews are checked, but no live semantic extraction or independent reviewer service produced the actual input inventory.",
+      "owner_or_next_work": "PR/RE/KI/PED/MODEL integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-020",
+      "title": "Real learner diagnosis and teaching effectiveness",
+      "description": "Raw artifact scoring/freshness and reviewed provenance are enforced. No real learner diagnostic, criterion validity study or demonstrated learning outcome was run. Prior instruction is not mastery.",
+      "owner_or_next_work": "PR-READY/PED/EVAL and real learner validation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-021",
+      "title": "Broader formal/domain reasoning",
+      "description": "Bounded propositional entailment is implemented. Quantified, algebraic, causal/inductive proofs and automatic natural-language normalization are not supplied. Reviewed non-deductive labels do not constitute formal proof.",
+      "owner_or_next_work": "QA-MATH plus domain reasoning adapters and benchmarks",
+      "status": "OPEN",
+      "batch005_update": "Bounded exact rational-polynomial and reversible equation checks added. General calculus/quantification/domain reasoning remain open."
+    },
+    {
+      "gap_id": "QA16-GAP-022",
+      "title": "Live model calibration and holdout provenance",
+      "description": "Exact descriptive errors and declared leakage checks are implemented; true holdout, correct labels, independent source groups, model identity/execution and future-domain applicability remain unverified. Observed-bin accuracy is not a confidence interval.",
+      "owner_or_next_work": "MODEL/EVAL operational calibration and independent dataset review",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-023",
+      "title": "Canonical prerequisite/reasoning caller adoption",
+      "description": "Three exact pinned dependencies and adapters are tested locally. New HEAD compatibility, canonical PR/RE/Director caller migration and full repository regression remain open.",
+      "owner_or_next_work": "Governed integration after Section16 audit",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-024",
+      "title": "Non-reasoning output applicability policy",
+      "description": "This batch requires at least one governed reasoning argument and explicit concept schedule. Lessons legitimately requiring no argument need a reviewed applicability/waiver contract; they are not silently passed through an empty scope.",
+      "owner_or_next_work": "Section16 hardening and domain scope audit",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-025",
+      "title": "Broader mathematics and native math extraction",
+      "description": "Typed grammar deliberately excludes general calculus, matrices/vectors, inequalities, arbitrary LaTeX, math OCR, transcendental identities and complete solution-set reasoning. Unknown cannot become a pass.",
+      "owner_or_next_work": "MATH/BI adapters, Section16 hardening and Section17 benchmarks",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-026",
+      "title": "Canonical native expression-parser completeness",
+      "description": "Pinned native expression parser can truncate x * y + z. Local adapter requires original text and rejects strict-parse mismatch. Native source unchanged; inspect latest HEAD and repair/integrate producer with full regression before canonical adoption.",
+      "owner_or_next_work": "Canonical MATH owner and governed integration",
+      "status": "OPEN",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-GAP-027",
+      "title": "Mathematical reference and scope assessment",
+      "description": "Operator inventories, references, exact inputs, physical applicability and disclosed assumptions are enforced but not independently curated by a live service. Signed synthetic fixtures do not prove real assessment quality.",
+      "owner_or_next_work": "KI/MATH/MODEL plus independent domain review and EVAL",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-028",
+      "title": "Rich units, precision and numeric performance",
+      "description": "Only explicit shipped units/kinds and integer powers are supported. General quantity-kind algebra, statistically justified precision, tighter interval range solving, large-book throughput and CPU-isolated workers remain unverified.",
+      "owner_or_next_work": "MATH units/numerical adapters and QA-PERF/SEC",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-029",
+      "title": "Full product mathematics gate",
+      "description": "The unsigned mathematical_correctness bridge emits NOT_RUN for healthy typed text, FAIL for blocked scope. Actual frames, audio, game/simulation numeric states, all rendered equations and their provenance are not evaluated here.",
+      "owner_or_next_work": "QA-VIDEO/AUDIO/GAME and canonical release integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-030",
+      "title": "No-math applicability and canonical MATH migration",
+      "description": "Categories with no defined scope require review. A governed no-math/applicability contract, current-HEAD compatibility and actual caller migration/full repository regression remain open.",
+      "owner_or_next_work": "Section16 hardening and integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-031",
+      "title": "Independent pedagogy assessment operation",
+      "description": "Semantic objective measurability, teaching alignment, example novelty, transfer, answer correctness, rubric validity and policy applicability require genuinely governed assessors. Public synthetic signatures establish no assessment quality.",
+      "owner_or_next_work": "PED/MODEL/EVAL and operator trust integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-032",
+      "title": "Actual presentation and interaction correspondence",
+      "description": "Declared timing, visual/motion/concept inventories, response gates, feedback and finite routes are not verified against rendered video, narration, frames or running adaptive games. Full pedagogy media gate remains NOT_RUN.",
+      "owner_or_next_work": "QA-DIR/VIS/ANI/AUDIO/VIDEO/GAME and release integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-033",
+      "title": "Empirical learner and load-policy validation",
+      "description": "Codepoint rates and declared visual/motion/concept units are operator guardrails, not measured cognitive capacity. Language-specific segmentation, accessibility profiles, empirical learning gains and real diagnostic/mastery observations remain open.",
+      "owner_or_next_work": "PED/EVAL and real learner validation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-034",
+      "title": "Runtime branching, novelty and applicability",
+      "description": "All enumerated finite routes are checked, not executable reachability or arbitrary loops. Text deduplication does not detect all paraphrase/semantic repetition, and specialized no-assessment applicability needs governed policy rather than empty-scope passing.",
+      "owner_or_next_work": "Section16 hardening with GAME/PED and subject benchmarks",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-035",
+      "title": "Canonical pedagogy QA integration",
+      "description": "Six pinned native files are verified and adapters exercised. They are verify-only snapshots; re-read latest HEAD, preserve concurrent work, migrate real callers, run full canonical regression and post-merge checks.",
+      "owner_or_next_work": "Governed integration after full-section audit and hardening",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-036",
+      "title": "Director semantic assessor quality",
+      "description": "Narrative relevance, accurate simplification, definition adequacy, audience suitability and script-to-plan mapping require independently validated assessments. All positive reviews executed here are synthetic fixtures.",
+      "owner_or_next_work": "DIR/MODEL/EVAL and governed reviewer integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-037",
+      "title": "Declared director plan versus actual experience",
+      "description": "No rendered frames, actual spoken words, voice performance, within-beat condition order, learner comprehension or cinematic engagement were measured. Verify every intended route and spoken expansion against actual output artifacts.",
+      "owner_or_next_work": "QA-VIS/ANI/AUDIO/VIDEO/GAME and real-book E2E",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-038",
+      "title": "Multilingual pacing and lexical coverage",
+      "description": "Unicode codepoint limits, literal term forms and sentence/repetition diagnostics are operator rules, not empirical language-specific pacing, age scores or semantic similarity. Calibrate by learner profile and actual TTS; preserve false-positive/false-negative evaluation.",
+      "owner_or_next_work": "DIR/AUDIO/PED/EVAL and subject/locale packs",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-039",
+      "title": "Canonical Director adoption and operational bounds",
+      "description": "The pinned native projection and unsigned release bridge are exercised locally, not adopted by canonical producers. Re-read latest HEAD, reconcile snapshots, bind trusted inventories/reviews/clock and enforce actual worker/storage bounds with full canonical regression.",
+      "owner_or_next_work": "Governed integration after Section16 hardening and re-audit",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-040",
+      "title": "Contextual visual assessment and domain semantics",
+      "description": "Representation/meaning reviews are authenticated but not independently calibrated. Diagram grammar, scientific visual truth, glyph correctness, cultural/age appropriateness and 2D/3D depiction accuracy require operational subject-aware assessors. No live model or actual human assessor was executed.",
+      "owner_or_next_work": "VIS and EVAL / model gateway integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-041",
+      "title": "Native and continuous media correspondence",
+      "description": "Eleven authored static Chromium diagnostic captures were executed at listed desktop/mobile viewports. This does not prove native Remotion compilation, every animation frame, camera/3D occlusion, game state branches, audio sync or complete release assets.",
+      "owner_or_next_work": "ANI / VIDEO / GAME and native compiler capture integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-042",
+      "title": "Complex browser paint, glyphs and hostile-input isolation",
+      "description": "AABB/line rectangles and simple opaque-background sRGB checks are bounded. Mixed styles, transforms, filters, gradients, unsupported DOM, glyph shaping/tofu, visual-only assets and sampled hit-test ambiguity remain explicit review needs. The static trusted-HTML collector is not an OS-level hostile-document sandbox.",
+      "owner_or_next_work": "VIS / SECURITY / render-worker deployment",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-043",
+      "title": "Empirical visual pedagogy and accessibility validation",
+      "description": "Density, size, exposure and reading guardrails are operator policies, not empirical learner capacity estimates or complete WCAG conformance. Multilingual and assistive-technology evaluation and observed learning remain open.",
+      "owner_or_next_work": "EVAL and accessibility validation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAP-044",
+      "title": "Canonical VIS adoption and capture provenance",
+      "description": "Pinned native layout/collision modules are verify-only dependencies. Current HEAD must be reread before integration. Capture hash identity is not independent proof of browser provenance. Production collection identity, immutable storage, signed evidence, full canonical regression and caller migration remain open.",
+      "owner_or_next_work": "Section16 integration and enterprise runtime",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-ANI009-GAP-001",
+      "title": "Continuous native motion and screen composition",
+      "description": "Paused CSS samples do not prove unsampled behavior, native Remotion/3-D/camera composition, full playback or actual word/audio sync.",
+      "owner_or_next_work": "Section16 governed hardening plus ANI/COMP/AUDIO and real-book evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-ANI009-GAP-002",
+      "title": "Operational animation-semantic judgments",
+      "description": "Authenticated synthetic fixtures do not establish calibrated interpretation of arbitrary scientific animations or efficacy of reduced-motion alternatives.",
+      "owner_or_next_work": "Section16 governed hardening plus ANI/COMP/AUDIO and real-book evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-ANI009-GAP-003",
+      "title": "Production capture worker and attestations",
+      "description": "Diagnostic HTML collector is not a hostile-input isolated worker; trusted capture attestation, resource/security policy and pixel-meaning checks remain open.",
+      "owner_or_next_work": "Section16 governed hardening plus ANI/COMP/AUDIO and real-book evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-ANI009-GAP-004",
+      "title": "Broader animation invariants and safety",
+      "description": "Exact proofs cover supported scalar linear/step constraints only. Nonlinear easing, springs, 3-D simulation invariants, flash/photosensitivity and empirical comfort/learning validation remain open.",
+      "owner_or_next_work": "Section16 governed hardening plus ANI/COMP/AUDIO and real-book evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-AUDIO-010-01",
+      "title": "Acoustic alignment and pronunciation assessor",
+      "description": "Provision calibrated independent acoustic/phonetic and/or human-listening assessment with language/accent/domain calibration. Engine timings, ASR transcript, and metadata cannot substitute. Synthetic positive reviews are tests only.",
+      "owner_or_next_work": "AUDIO QA hardening/canonical integration and downstream real-book media evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-AUDIO-010-02",
+      "title": "Canonical AUDIO adoption and final AV synchronization",
+      "description": "Native receipt adapter shape inspected and tested with representative JSON, not full native AUDIO execution. Integrate current native callers and verify actual mux PTS, resampling, scene/animation/caption render and player timing, across production routes.",
+      "owner_or_next_work": "AUDIO QA hardening/canonical integration and downstream real-book media evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-AUDIO-010-03",
+      "title": "Audio quality and format breadth",
+      "description": "Bounded PCM16 mono/stereo only. Encoded audio decode, integrated loudness, true peak, music masking, intelligibility, naturalness/cinematic voice and empirical learning remain open.",
+      "owner_or_next_work": "AUDIO QA hardening/canonical integration and downstream real-book media evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-AUDIO-010-04",
+      "title": "Caption rendering, multilingual segmentation and hostile media isolation",
+      "description": "Plain SRT/WebVTT no tags/settings/styles/translation. Character-rate budgets are operator guardrails. Prove actual caption rendering, complex scripts/graphemes, translations, branch timing and production worker isolation.",
+      "owner_or_next_work": "AUDIO QA hardening/canonical integration and downstream real-book media evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-AUDIO-010-05",
+      "title": "Governed term inventory and context",
+      "description": "Operator supplies all required pronunciation occurrences and allowed language/context forms. Exhaustive automatic inventory, homographs, equations/acronyms, dialect fairness and assessor quality need downstream proof.",
+      "owner_or_next_work": "AUDIO QA hardening/canonical integration and downstream real-book media evaluation",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-VIDEO-011-NATIVE",
+      "title": "Native Scene IR/Remotion pipeline adoption",
+      "description": "Read pinned COMP RenderReceipt contract and add conservative mapping; no native compiler or Remotion runtime executed. Production signing, current-HEAD consumers and full repository regression remain open.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 hardening and governed canonical integration"
+    },
+    {
+      "gap_id": "QA16-VIDEO-011-LONGFORM",
+      "title": "Governed streaming/chunked long-form worker",
+      "description": "Current SnapshotStore allows16MiB per artifact/64MiB total; video policy bounds full RGB decode to64MiB by default and256MiB maximum. Long/high-resolution media beyond bounds is rejected, not silently downsampled or partially accepted. Add chunk provenance, overlap checks and full frame-count coverage before long-form production.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 hardening and governed canonical integration"
+    },
+    {
+      "gap_id": "QA16-VIDEO-011-CROP",
+      "title": "General required-content crop/occlusion coverage",
+      "description": "Current checks cover operator-specified complete PNG regions and frame bounds. Arbitrary text/glyph omissions, transformed objects, clipping paths, occlusion and3D content require native renderer evidence plus calibrated visual/semantic assessment.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 hardening and governed canonical integration"
+    },
+    {
+      "gap_id": "QA16-VIDEO-011-QUALITY",
+      "title": "Calibrated visual continuity and complete audiovisual quality",
+      "description": "Blank/cut/freeze thresholds are operator guardrails. Motion semantics, meaningful holds/transitions, hearing/caption correspondence, actual player/device behavior and cinematic learning quality remain unaccepted.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 hardening and governed canonical integration"
+    },
+    {
+      "gap_id": "QA16-VIDEO-011-ISOLATION",
+      "title": "Production isolated decoder/execution attestation",
+      "description": "Local fixed-argv subprocesses use protocol/demux bounds, data-reference restrictions, timeouts/output caps and process-group cleanup. These are not a complete sandbox against hostile codecs/generated code. Operator-owned binaries/root, OS/container isolation and independent producer attestation remain mandatory.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 hardening and governed canonical integration"
+    },
+    {
+      "gap_id": "QA16-GAME-NATIVE-ORIGIN",
+      "title": "Native entrypoint and deployed worker proof",
+      "description": "Managed Chromium URLBlocklist blocks loopback. Default HTTP collector must run on authorized worker/native Section15 output. Offline injected UI proof cannot close this gap.",
+      "owner_or_next_work": "Section16 hardening / governed native integration / real-book E2E",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAME-ORACLE-DEPTH",
+      "title": "General game behavior beyond finite state oracle",
+      "description": "Arbitrary input sequences, long-running timers, all mechanic families, touch devices, canvas/WebGL/3D and accessibility remain unverified.",
+      "owner_or_next_work": "Section16 hardening / governed native integration / real-book E2E",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAME-LEARNING-EMPIRICAL",
+      "title": "Game pedagogy and real learner outcomes",
+      "description": "Source-linked mechanics/feedback and signed external judgment contracts are not calibrated assessor execution or empirical mastery.",
+      "owner_or_next_work": "Section16 hardening / governed native integration / real-book E2E",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-GAME-CAPTURE-TRUST",
+      "title": "Production capture provenance and isolation",
+      "description": "Local screenshots and receipt hashes require signed worker identity, immutable storage, audited network/process sandbox and publication recheck.",
+      "owner_or_next_work": "Section16 hardening / governed native integration / real-book E2E",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-B013-DOMAIN_WORKERS",
+      "title": "Domain-specific proposal and repair workers",
+      "description": "This batch validates/stages approved replacements; original source/reasoning/pedagogy/director/visual/animation/code/game proposal generation is still required.",
+      "owner_or_next_work": "REPAIR004-011",
+      "status": "PARTIALLY_ADDRESSED_OPEN",
+      "batch014_update": "Four deterministic domain workers generate new proposals from defective typed artifacts and reuse actual bounded staging/revalidation. Arbitrary source/OCR, premise or pedagogical content redesign and live-model generation remain open; visual/animation/code/game workers remain scheduled.",
+      "batch015_update": "Bounded static visual/linear timing/generated const-module/finite reducer generation added. General contextual rewriting, native adapters and production orchestration remain open.",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B013-PRODUCTION_ISOLATION",
+      "title": "Hostile-code worker isolation",
+      "description": "Resource-limited trusted callbacks are not a filesystem/network sandbox. No untrusted callback/import/command may be provisioned. Production isolated execution remains open.",
+      "owner_or_next_work": "SEC and production workers",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-B013-DURABLE_ORCHESTRATION",
+      "title": "Distributed journal and crash resolution",
+      "description": "Local serialized SQLite/hash chain is not distributed coordination or privileged tamperproof storage. Pending attempts require manual investigation; no automatic lease recovery.",
+      "owner_or_next_work": "INFRA and repair hardening",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-B013-DEPENDENCY_CLOSURE",
+      "title": "Canonical dependency and environment closure",
+      "description": "Operator finite check graph and defining-module/function pins do not prove all downstream dependencies/transitive imports/toolchain are complete or current.",
+      "owner_or_next_work": "REPAIR012-013 and canonical integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-B013-DOMAIN_VALIDATION",
+      "title": "Independent repair quality and real-book proof",
+      "description": "Authored arithmetic proposals and synthetic review fixtures do not prove live content repair quality or actual media/learning improvement. Prior native Remotion and game-origin blockers remain.",
+      "owner_or_next_work": "real-book E2E and full-section audit",
+      "status": "OPEN",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B014-SOURCE_EXTRACTION",
+      "title": "Native source extraction repair and semantic content correction",
+      "status": "OPEN",
+      "description": "UTF8 full-region single-block restoration only. Do not edit source files, invent quotes, promote confidence or claim PDF/OCR/multi-region repair. Bind native extraction and independently reviewed content correction in governed integration.",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B014-CONTEXTUAL_REDESIGN",
+      "title": "Contextual reasoning, pedagogy and script redesign",
+      "status": "OPEN",
+      "description": "Current proof repair preserves existing propositions; route/gate repair preserves instructional inventory/criteria; timing reflow preserves narration. Unsupported logic, absent teaching, causal reasoning, hook/payoff/script rewriting, multilingual empirical timing need separate governed generators and calibrated evaluators.",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B014-RUNTIME_EQUIVALENCE",
+      "title": "Repaired plan to actual runtime correspondence",
+      "status": "OPEN",
+      "description": "Fresh signed test fixtures authorize staged technical cases only. Actual response gates, narration timing, rendered/game behavior and native consumers must be rerun with independently provisioned operational reviews. All full-media and Section15-origin gaps stay open.",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B015-VISUAL_CAPTURE",
+      "title": "Fresh visual capture and broader layout repair",
+      "description": "Current repair modifies only declared axis-aligned static layout. New render/capture, complex grouping/3-D and semantic presentation verification must follow each changed plan.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 audit/hardening plus governed native downstream integration",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B015-ANIMATION_RUNTIME",
+      "title": "Native retiming and semantic playback proof",
+      "description": "Exact scalar linear/step profiles preserve values but do not establish audio clocks, continuous playback, springs/cameras/3-D or calibrated meaning.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 audit/hardening plus governed native downstream integration"
+    },
+    {
+      "gap_id": "QA16-B015-GENERATED_CODE",
+      "title": "Broader native code repair",
+      "description": "Only owned closed const-data TypeScript modules can regenerate here. Native emitter AST/type/import/React repairs, dependency/security regression and render execution remain open.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 audit/hardening plus governed native downstream integration",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B015-GAME_RUNTIME",
+      "title": "Native UI and full-game repair",
+      "description": "Only a finite pure reducer is rebuilt from independent policy. Native UI/event/persistence/async/controller/cross-device and learner/semantic quality proof remain open.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 audit/hardening plus governed native downstream integration",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B015-TRUST_WORKER",
+      "title": "Production repair trust and isolation",
+      "description": "Synthetic approvals demonstrate contract paths, not production trust. Safe private workspace, independent validators, real calibrated assessor, distributed journal and hostile-worker isolation remain required.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 audit/hardening plus governed native downstream integration",
+      "batch016_update": "Added receipt/journal/immutable generation verification and actual before/after case regression. Canonical/distributed trust, production callbacks, complete native/media evidence and full-section/real-book gates remain open."
+    },
+    {
+      "gap_id": "QA16-B016-REPAIR-AUDIT-DEPLOYMENT",
+      "title": "Operational repair audit and complete case registry",
+      "description": "Validated local authored flows use synthetic approvals. Provision independently controlled required cases/fixtures, current validator/transitive dependency environments, real evidence authorities, production isolation, distributed journal and native consumer adoption. Local regression cannot certify all subject/media/game semantics.",
+      "status": "OPEN",
+      "owner_or_next_work": "Section16 regression/hardening plus governed integration"
+    },
+    {
+      "gap_id": "QA16-PERF-GAP-001",
+      "title": "Native rendering and queue benchmark adoption",
+      "description": "Integrate pinned native Remotion/compiler and canonical queue producers. Validate representative domains, job sizes, retries, caching and performance thresholds without weakening media quality.",
+      "owner_or_next_work": "full-section hardening and governed native integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-PERF-GAP-002",
+      "title": "Aggregate memory and production isolation",
+      "description": "Add process-tree/cgroup/GPU measurements and enforcement, large-media streaming, OOM/crash recovery and least-privilege runtime isolation. wait4/RLIMIT_AS diagnostics are not a substitute.",
+      "owner_or_next_work": "full-section hardening and governed native integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-PERF-GAP-003",
+      "title": "Production measurement authority and statistical validity",
+      "description": "Bind independent execution attestation, dependency/hardware/environment controls, workload representativeness, calibrated SLAs and repeated/cross-machine measurements.",
+      "owner_or_next_work": "full-section hardening and governed native integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-REL-GAP-001",
+      "title": "Native release-proof and section-exit adoption",
+      "description": "Current bounded evaluator bridges still emit FAIL/NOT_RUN. Bind native complete-product results and actual full-section audit/hardening/re-audit without promoting diagnostic scope.",
+      "owner_or_next_work": "QA full-section audit and canonical release integration",
+      "status": "OPEN"
+    },
+    {
+      "gap_id": "QA16-REL-GAP-002",
+      "title": "Production authorities and transactional publication",
+      "description": "Provision independent operational reviewers/issuer, immutable storage, trusted time, remote signing/attestation, durable distributed revocation and atomic deployment. Local HMAC/SQLite mechanics are not those services.",
+      "owner_or_next_work": "INFRA.SEC and release engineering",
+      "status": "OPEN"
+    }
+  ],
+  "batch017_open_obligations": [
+    {
+      "id": "REG17-CANONICAL",
+      "status": "OPEN",
+      "description": "Canonical suite/consumer integration and independent completeness of case registry not established."
+    },
+    {
+      "id": "REG17-SEMANTIC",
+      "status": "OPEN",
+      "description": "Native KI/source exporters and calibrated semantic meaning assessment remain required; changed typed meaning remains review."
+    },
+    {
+      "id": "REG17-MEDIA",
+      "status": "OPEN",
+      "description": "Full-stream high-resolution audiovisual and native game/Android browser coverage not established by finite PNG/Node samples."
+    },
+    {
+      "id": "REG17-WORKER",
+      "status": "OPEN",
+      "description": "Production hostile-code isolation, transitive dependency closure, distributed execution/durability and trustworthy clocks remain external."
+    },
+    {
+      "id": "REG17-ACCEPTANCE",
+      "status": "OPEN",
+      "description": "Real-book content quality, benchmark and learner outcomes plus Section15 evidence remain required."
+    }
+  ],
+  "batch018_open_obligations": [
+    {
+      "id": "QA16-REPRO018-001",
+      "status": "OPEN",
+      "requirement": "Adopt actual canonical BI/KI/PED/DIR/SceneIR/COMP/audio/game producers and their complete generated artifact inventories."
+    },
+    {
+      "id": "QA16-REPRO018-002",
+      "status": "OPEN",
+      "requirement": "Governed installation/rebuild and identity verification of transitive third-party dependencies, shared libraries, OS/container images, fonts, GPU and external model snapshots."
+    },
+    {
+      "id": "QA16-REPRO018-003",
+      "status": "OPEN",
+      "requirement": "Cross-machine, cross-platform and long/high-resolution media reproduction with bounded streaming and complete coverage."
+    },
+    {
+      "id": "QA16-REPRO018-004",
+      "status": "OPEN",
+      "requirement": "Independent operational execution attestation, reviewer governance and tamper-resistant collector origin; hashes alone do not prove provenance."
+    },
+    {
+      "id": "QA16-REPRO018-005",
+      "status": "OPEN",
+      "requirement": "Production worker and network isolation, crash recovery and distributed orchestration; trusted bounded subprocesses are not a hostile-code sandbox."
+    },
+    {
+      "id": "QA16-REPRO018-006",
+      "status": "OPEN",
+      "requirement": "Finite matching outputs may be consistently wrong. All semantic, pedagogy, cinematic, actual render/game, regression and real-book gates remain mandatory."
+    }
+  ],
+  "batch019_open_obligations": [
+    {
+      "gap_id": "QA16-RIGHTS19-001",
+      "status": "OPEN",
+      "description": "Actual upstream inventory of sources, assets, embedded exclusions, code/dependencies and provider terms."
+    },
+    {
+      "gap_id": "QA16-RIGHTS19-002",
+      "status": "OPEN",
+      "description": "Qualified operational rights/legal review and grantor/chain-of-title verification; no synthetic credentials."
+    },
+    {
+      "gap_id": "QA16-RIGHTS19-003",
+      "status": "OPEN",
+      "description": "Production status refresh, lifecycle and applicable legal termination/exception interpretation."
+    },
+    {
+      "gap_id": "QA16-RIGHTS19-004",
+      "status": "OPEN",
+      "description": "Native rendered/deployed notices and source-offer availability; no metadata-only clearance."
+    },
+    {
+      "gap_id": "QA16-RIGHTS19-005",
+      "status": "OPEN",
+      "description": "Complete current-HEAD integration, canonical regression, large media and real-book acceptance."
+    }
+  ],
+  "batch020_open_obligations": [
+    {
+      "gap_id": "QA16-SEC020-001",
+      "status": "OPEN",
+      "title": "Native generated-worker sandbox adoption",
+      "description": "The bundled privileged bootstrap executes fixed trusted probes only. Wire approved production Python/Node/Chromium/Remotion/game workers to an independently reviewed isolation profile; do not use this diagnostic helper to launch candidate code."
+    },
+    {
+      "gap_id": "QA16-SEC020-002",
+      "status": "OPEN",
+      "title": "Broader static and supply-chain coverage",
+      "description": "General React/TypeScript/HTML/CSS/native code, transitive dependency inventory, taint/dataflow and vulnerability database checks remain unsupported or review-required. Operator-pinned third-party parser and interpreter integrity is not a vulnerability clearance."
+    },
+    {
+      "gap_id": "QA16-SEC020-003",
+      "status": "OPEN",
+      "title": "Production isolation and attestation",
+      "description": "Cgroups/namespaces/containers, aggregate memory/CPU/network quotas, kernel/runtime vulnerabilities, cross-platform profiles, privileged-bootstrap review and authenticated operational execution attestation remain open. Neither chroot nor seccomp is treated as sufficient alone."
+    },
+    {
+      "gap_id": "QA16-SEC020-004",
+      "status": "OPEN",
+      "title": "Security assessment and real-book end-to-end proof",
+      "description": "All positive review keys are synthetic fixtures. Actual assessor calibration, independent red-team review, native pipeline integration, regression and product security acceptance remain unverified."
+    }
+  ],
+  "audit001_findings": [
+    {
+      "gap_id": "QA16-AUDIT001-F01",
+      "status": "OPEN",
+      "title": "Unregistered terminal report schemas can clear publication assessment",
+      "priority": "P0",
+      "description": "The code tests top-level success fields but has no terminal schema registry. A terminal report with an unknown version reached READY_FOR_AUTHORIZATION. All inputs were synthetic; issue() was never called.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-001"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F02",
+      "status": "OPEN",
+      "title": "Nested report failures are not propagated",
+      "priority": "P0",
+      "description": "A top-level PASS with checks[0].status=FAIL/MISSING_FRAMES cleared assessment. Known top-level FAIL still blocks, so the defect is selective rather than a total missing gate.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-001"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F03",
+      "status": "OPEN",
+      "title": "Supporting evidence can be borrowed across identities or time",
+      "priority": "P0",
+      "description": "Outer proof bindings are checked, but terminal candidate/run/revision/gate fields and their own validity window are not interpreted. Foreign or future terminal reports cleared assessment.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-002"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F04",
+      "status": "OPEN",
+      "title": "Batch-specific open obligation lists are not recognized by publication",
+      "priority": "P0",
+      "description": "The ledger has81 rows in gaps plus20 other obligation rows. A PASS report with an empty gaps array and an OPEN row in batch020_open_obligations cleared assessment. The actual full ledger still blocks because its81 gaps are open; that is not a fix for incomplete traversal.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-001",
+        "BIE-QA-HARD-006"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F05",
+      "status": "OPEN",
+      "title": "Readiness consumers disagree about evidence diagnostics",
+      "priority": "P1",
+      "description": "release_v2 returns READY_FOR_REVIEW for authenticated PASS-labelled evidence with a blocking diagnostic. publication_v2 correctly rejects it. A caller using only the lower API loses this safeguard; it does not itself issue a certificate.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-003",
+        "BIE-QA-HARD-040"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F06",
+      "status": "OPEN",
+      "title": "Shared-secret evaluator aliases can satisfy a strengthened quorum",
+      "priority": "P1",
+      "description": "Two out-of-band evaluator aliases sharing one secret met min_distinct_evaluators=2 with distinct report bytes. This is a trusted-store configuration weakness, not an unauthenticated remote bypass. Final publication authority already has a separate same-secret guard.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-004"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F07",
+      "status": "OPEN",
+      "title": "Integration metadata still advertises Batch020 and only20 namespaces",
+      "priority": "P1",
+      "description": "The actual22 namespaces and continuation disagree with status=LOCAL_BATCH020_ONLY_NOT_INTEGRATED, new_source_namespace=security_v2 and the20-name integration list. Batch021/022 prose notes do not repair a machine reader of those fields.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-005",
+        "BIE-QA-HARD-040"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F08",
+      "status": "OPEN",
+      "title": "Task/test identity requires a normalized index",
+      "priority": "P2",
+      "description": "All76 implementation tasks are traceable, but task metadata is spread across tasks/, docs/ and evidence/. The3529 suite-qualified test identities include3515 distinct unqualified unittest IDs:14 names collide across isolated suites. No test is deleted or counted twice within a suite.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-005",
+        "BIE-QA-HARD-036"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F09",
+      "status": "OPEN",
+      "title": "Long-form product media exceeds current byte/decode envelopes",
+      "priority": "P1",
+      "description": "SnapshotStore rejects a >16MiB artifact before IO; raw RGB complete decoding is also bounded. This is correct fail-closed behavior but not sufficient for full-resolution multi-minute lessons. Do not remove bounds without streaming coverage.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-019"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F10",
+      "status": "OPEN",
+      "title": "Native and operational evidence remains separate from synthetic capability tests",
+      "priority": "P1",
+      "description": "The continuation keeps native Remotion, native game origin, acoustic alignment, operational assessors, canonical callers and real-book proof open. Passing this audit regression does not execute those paths anew or clear their obligations.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-007",
+        "BIE-QA-HARD-009",
+        "BIE-QA-HARD-020",
+        "BIE-QA-HARD-021",
+        "BIE-QA-HARD-022",
+        "BIE-QA-HARD-038",
+        "BIE-QA-HARD-040"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F11",
+      "status": "OPEN",
+      "title": "Production trust, publication and worker scope remains unfinished",
+      "priority": "P1",
+      "description": "Local HMAC/SQLite, fixed sandbox probes and trusted producer measurements remain bounded components, not deployed authority, immutable publication, hostile generated-worker isolation or distributed durability.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-029",
+        "BIE-QA-HARD-030",
+        "BIE-QA-HARD-031",
+        "BIE-QA-HARD-033",
+        "BIE-QA-HARD-034",
+        "BIE-QA-HARD-035"
+      ]
+    },
+    {
+      "gap_id": "QA16-AUDIT001-F12",
+      "status": "OPEN",
+      "title": "Cinematic learning outcomes and correction-memory improvement need explicit evidence",
+      "priority": "P1",
+      "description": "Existing plan validators and finite diagnostics are useful but do not prove the intended explanatory cinematic quality, real learner understanding, multi-domain calibration or measurable improvement through reuse. These remain mandatory QA/EVAL handoff requirements, not claims of this audit.",
+      "hardening_task_ids": [
+        "BIE-QA-HARD-010",
+        "BIE-QA-HARD-013",
+        "BIE-QA-HARD-016",
+        "BIE-QA-HARD-023",
+        "BIE-QA-HARD-024",
+        "BIE-QA-HARD-038",
+        "BIE-QA-HARD-041"
+      ]
+    }
+  ]
+}

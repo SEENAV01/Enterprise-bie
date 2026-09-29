@@ -1,0 +1,25 @@
+{
+  "task_id": "BIE-QA-HARD-020",
+  "title": "Native compiler-to-final-audiovisual QA binding",
+  "batch_id": "BIE-QA-HARDENING-H5",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implemented": "Hash-pinned canonical-checkout preflight and explicit invocation API for original compiler/full-render scripts, native receipt adaptation and mandatory fresh final-media re-decode with lineage byte inventory.",
+  "source_paths": [
+    "bie/qa/media_runtime_v2/common.py",
+    "bie/qa/media_runtime_v2/native.py",
+    "bie/qa/media_runtime_v2/storage.py",
+    "bie/qa/media_runtime_v2/process.py"
+  ],
+  "shared_suite_id": "hardening_h5",
+  "shared_suite_tests": 162,
+  "not_independent_task_test_count": true,
+  "test_receipt": "hardening/section16_h5/evidence/final_source_suites/TEST_RESULT.json",
+  "mutation_receipt": "hardening/section16_h5/evidence/mutations/MUTATION_RESULT.json",
+  "operational_closure": false,
+  "product_accepted": false,
+  "github_integrated": false,
+  "remaining": [
+    "The full native compiler checkout and installed Remotion dependencies are not provisioned in this workspace; no native compile/render succeeded.",
+    "Operational complete native evidence schemas, source-to-output provenance, production isolation and actual final audiovisual review remain open."
+  ]
+}

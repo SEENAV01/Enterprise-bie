@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bie.qa.h5.extended-game",
+  "title": "extended-game structural policy; codec enforces semantic bounds",
+  "type": "object",
+  "properties": {
+    "game_policy_digest": {
+      "type": "string"
+    },
+    "required_scenarios": {
+      "type": "array"
+    },
+    "required_mechanics": {
+      "type": "array"
+    },
+    "state_ranges": {
+      "type": "array"
+    },
+    "conserved_groups": {
+      "type": "array"
+    },
+    "actual_touch_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "game_policy_digest",
+    "required_scenarios",
+    "required_mechanics",
+    "state_ranges"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "section-exit",
+  "description": "Structural validation only; Python contract, byte verification and authority checks remain mandatory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "stage",
+    "status",
+    "revision",
+    "candidate_digest",
+    "bundle_digest",
+    "open_must_have_ids",
+    "scope",
+    "source_reports"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.section-exit/1"
+    },
+    "stage": {
+      "enum": [
+        "audit",
+        "hardening",
+        "reaudit"
+      ]
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "ERROR",
+        "NOT_RUN"
+      ]
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "candidate_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "bundle_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "open_must_have_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "scope": {
+      "enum": [
+        "NATIVE_PRODUCT",
+        "DIAGNOSTIC"
+      ]
+    },
+    "source_reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "path",
+          "sha256",
+          "size",
+          "role"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "role": {
+            "const": "report"
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 128
+    }
+  }
+}

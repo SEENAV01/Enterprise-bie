@@ -1,0 +1,146 @@
+{
+  "schema_version": "bie.qa.h7-closure-matrix/1",
+  "tasks": [
+    {
+      "task_id": "BIE-QA-HARD-028",
+      "title": "Rebuild/recapture and independent repair regression",
+      "original_scope": "Wire approved proposals through native rebuild, renewed captures, complete invalidation and before/after regression.",
+      "required_closure_evidence": [
+        "A repair that fixes one defect but breaks captions, meaning or controls is rejected.",
+        "No reuse of pre-repair measurements or affected PASS evidence.",
+        "Actual subprocess/render/game evidence, not only staged files, closes the repair."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-025",
+        "BIE-QA-HARD-026",
+        "BIE-QA-HARD-027",
+        "BIE-QA-HARD-036"
+      ],
+      "implemented_local": "Separate before/after working copies and actual registered compile/render/capture/regression stage execution. Fresh stage outputs feed subsequent stages; original sources stay intact; complete case census and targeted baseline failure are checked. Optional pinned native-worker stage transport has no diagnostic fallback.",
+      "remaining": [
+        "The successful stage diagnostics are authored Python/JSON programs, not native BIE compile/render/recapture or canonical full-regression executions. Native stage transport is implemented but was not successfully executed.",
+        "Owner-provisioned native entrypoints, new actual audiovisual/game captures, complete canonical corpus and independent semantic assessment are required; no historical obligation is closed."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-030",
+      "title": "Production worker/decoder isolation integration",
+      "original_scope": "Connect approved Python/Node/browser/media workers to reviewed process, filesystem, network and aggregate resource boundaries.",
+      "required_closure_evidence": [
+        "Benign controls work and denied paths/process/network behavior fails in the actual worker profile.",
+        "No candidate execution via the fixed diagnostic bootstrap.",
+        "Cross-platform unsupported isolation blocks rather than falling back insecurely."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-029"
+      ],
+      "implemented_local": "An out-of-band hash-pinned native checkout is passed to the existing compiler Linux isolation adapter. Kernel proof/control checks and failure propagation are implemented. The separate trusted diagnostic runner bounds logs/deadlines, scrubs inherited environment and terminates process groups; it is explicitly not a sandbox.",
+      "remaining": [
+        "The native compiler checkout is not mounted. Read-only connector source inspection succeeded, but a public archive download failed DNS resolution. No native isolated workload was executed.",
+        "Complete runtime/dependency provisioning, actual approved worker controls and production isolation remain open. Trusted subprocess cleanup is not hostile-code confinement or administrator-race protection."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-031",
+      "title": "Dependency and generated-code security closure",
+      "original_scope": "Create complete locked executable/dependency inventories and registered static/vulnerability evidence for production runtimes.",
+      "required_closure_evidence": [
+        "Unresolved imports, undeclared scripts/dependencies, malformed parsers and unsafe dynamic capabilities fail.",
+        "Declared versions alone cannot substitute for actual installed dependency identities.",
+        "Current vulnerability review and broader analysis are explicitly evidenced, not implied by this audit."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-030"
+      ],
+      "implemented_local": "Exact installed file/metadata/dependency/script census plus independently pinned, dated per-package review records. Supports restricted exact npm/PyPI/SYSTEM requirements and explicit-version OSV observations; unsupported ranges remain unknown. No package or installation script is executed by inspection.",
+      "remaining": [
+        "All positive vulnerability-review credentials/records are synthetic. No current online vulnerability feed, complete transitive runtime inventory or broader whole-program security analysis was executed.",
+        "The supported dependency grammar deliberately rejects version ranges/conditional dependency syntax outside its exact subset. Native installed React/Remotion/browser/OS dependency clearance remains open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-032",
+      "title": "Full-environment and cross-host reproduction",
+      "original_scope": "Reproduce actual producers with locked third-party/OS/runtime/tool/asset identities; classify model and native nondeterminism explicitly.",
+      "required_closure_evidence": [
+        "Same-input reruns and golden artifacts cover native video/game at required sizes.",
+        "Cross-host mismatches and dependency drift fail or receive a governed review policy.",
+        "No relabeling of equal stdlib fixtures as full product reproduction."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-019",
+        "BIE-QA-HARD-020",
+        "BIE-QA-HARD-022",
+        "BIE-QA-HARD-031"
+      ],
+      "implemented_local": "Restores the approved dependency snapshot into independent copies, executes pinned producers, compares selected measured host/tool identity before and after, and requires exact output inventory/hash reproduction. Host drift, failed/missing/extra/nondeterministic output and absent required cross-host evidence block.",
+      "remaining": [
+        "Two same-host authored dependency snapshots were reproduced; no OS/container image was reconstructed and no cross-machine/native audiovisual/game reproduction was executed.",
+        "Selected host fingerprints do not prove full shared-library/GPU/font/service closure or arbitrary model determinism. Full production environment scope remains open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-033",
+      "title": "Representative performance and aggregate memory",
+      "original_scope": "Measure actual native queues and render/browser process trees under declared workloads and platform profiles.",
+      "required_closure_evidence": [
+        "Fast incomplete outputs earn no throughput credit.",
+        "Aggregate/cgroup or equivalent budgets and backpressure are tested.",
+        "All submitted jobs, latency tails, retries and failures remain in workload accounting."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-019",
+        "BIE-QA-HARD-020",
+        "BIE-QA-HARD-022",
+        "BIE-QA-HARD-030"
+      ],
+      "implemented_local": "Authoritative submitted-job and execution census, exact latency/throughput accounting and failed-output exclusion from throughput credit without excluding jobs. Actual cgroup-v2 child scope API reads back limits/counters and checks OOM; actual /proc group RSS is distinctly observational, not enforcement.",
+      "remaining": [
+        "The cgroup filesystem is real but not delegated writable here; the attempted fresh group failed closed. No cgroup-constrained workload or aggregate enforcement success is claimed.",
+        "The actual process-tree measurement is a sample, not a peak/enforcement guarantee. Workload verdict rows require an external approved output validator; production native queue benchmarks, backpressure and GPU accounting remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-034",
+      "title": "Immutable publication and artifact transaction",
+      "original_scope": "Use content-addressed immutable release inputs and atomic verified publication so later bytes match the assessed candidate.",
+      "required_closure_evidence": [
+        "A post-audit mutation cannot publish under an older certificate.",
+        "Release retries cannot produce mixed-version artifacts.",
+        "Rollback/revocation behavior is checked without claiming deployment from local SQLite."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-001",
+        "BIE-QA-HARD-002",
+        "BIE-QA-HARD-003",
+        "BIE-QA-HARD-006",
+        "BIE-QA-HARD-029"
+      ],
+      "implemented_local": "Actual existing certificate assessment/verification before copying and after restoring content-addressed release bytes. Local transactional activation, immutable version identity, compare-and-swap head, idempotent retry, read-time expiry/revocation verification and deactivation. Mutable source files are never hardlinked as published blobs.",
+      "remaining": [
+        "Publication exercised the existing certificate verifier using synthetic diagnostic-only authorities and artifacts. No production certificate, distributed store, deployed endpoint or real product release was issued.",
+        "Private local SQLite/CAS does not resist an administrator replacing all database/history, deliver distributed transactions/trusted time/KMS, or revoke already downloaded bytes. Native caller integration and production approval remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json"
+    }
+  ],
+  "operational_scope_complete": false,
+  "historical_obligations_closed": 0
+}

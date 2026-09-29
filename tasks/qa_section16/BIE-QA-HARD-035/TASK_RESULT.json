@@ -1,0 +1,18 @@
+{
+  "task_id": "BIE-QA-HARD-035",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "source_paths": [
+    "bie/qa/assurance_quality_v2/authority.py"
+  ],
+  "shared_test_receipt": "hardening/section16_h8/evidence/final_source_suites/TEST_RESULT.json",
+  "shared_suite_unique_tests": 155,
+  "independent_task_test_count": null,
+  "scope_boundary": [
+    "No live time/authority service, independent operator enrollment, KMS, hardware attestation, remote revocation distribution or trusted hardware clock was provisioned. Positive signed evidence is diagnostic.",
+    "The new wrapper is exercised but canonical/direct H7 publication callers are not migrated. Session freshness is bounded by explicit TTL, not instantaneous revocation polling. Local database state is not resistant to administrator rollback."
+  ],
+  "full_scope_closed": false,
+  "product_accepted": false,
+  "github_modified": false,
+  "section15_modified": false
+}

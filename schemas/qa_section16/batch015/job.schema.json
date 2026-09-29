@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BIE Section16 Batch015 job",
+  "description": "Structural schema only. Runtime semantic contracts, byte validation and external approvals remain mandatory.",
+  "$ref": "#/$defs/media_repair_v2_Job",
+  "$defs": {
+    "media_repair_v2_Job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "job_id",
+        "task_id",
+        "request",
+        "target",
+        "snapshot_digest",
+        "batch_digest",
+        "repair_policy_digest",
+        "domain_policy_digest",
+        "limits_digest"
+      ],
+      "properties": {
+        "job_id": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "request": {
+          "$ref": "#/$defs/release_v2_ArtifactRef"
+        },
+        "target": {
+          "$ref": "#/$defs/release_v2_ArtifactRef"
+        },
+        "snapshot_digest": {
+          "type": "string"
+        },
+        "batch_digest": {
+          "type": "string"
+        },
+        "repair_policy_digest": {
+          "type": "string"
+        },
+        "domain_policy_digest": {
+          "type": "string"
+        },
+        "limits_digest": {
+          "type": "string"
+        }
+      }
+    },
+    "release_v2_ArtifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

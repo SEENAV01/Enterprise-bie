@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "observation_id",
+    "learner_id",
+    "concept_id",
+    "assessed_at",
+    "policy_digest",
+    "scores",
+    "reported_mastery",
+    "provenance_mode"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "bie.qa.learner-diagnostic/1"
+    },
+    "observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "learner_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "concept_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assessed_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "policy_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "scores": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 1000000
+      }
+    },
+    "reported_mastery": {
+      "type": "boolean"
+    },
+    "provenance_mode": {
+      "enum": [
+        "diagnostic",
+        "observed"
+      ]
+    }
+  }
+}

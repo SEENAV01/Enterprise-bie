@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "snapshot_digest": {
+      "type": "string"
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "language",
+          "profile"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 4096
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "artifact_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "artifact_id"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 4096
+    },
+    "approved_scripts": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "maxItems": 4096
+    },
+    "parser_node_sha256": {
+      "type": "string"
+    },
+    "parser_typescript_sha256": {
+      "type": "string"
+    },
+    "max_source_bytes": {
+      "type": "integer"
+    },
+    "max_ast_nodes": {
+      "type": "integer"
+    },
+    "max_receipt_age_seconds": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "policy_id",
+    "snapshot_digest",
+    "units",
+    "dependencies",
+    "approved_scripts",
+    "parser_node_sha256",
+    "parser_typescript_sha256",
+    "max_source_bytes",
+    "max_ast_nodes",
+    "max_receipt_age_seconds"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,664 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "type": "object"
+    },
+    "Beat": {
+      "additionalProperties": false,
+      "properties": {
+        "beat_id": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "end_ms": {
+          "type": "integer"
+        },
+        "objective_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "repeat_of": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        },
+        "speaker_id": {
+          "type": "string"
+        },
+        "start_ms": {
+          "type": "integer"
+        },
+        "voice_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "beat_id",
+        "scene_id",
+        "role",
+        "channel",
+        "start_ms",
+        "end_ms",
+        "claim_ids",
+        "objective_ids",
+        "speaker_id",
+        "voice_id",
+        "repeat_of"
+      ],
+      "type": "object"
+    },
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "type": "array"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ],
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "block_digest": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "citation_id": {
+          "type": "string"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ],
+      "type": "object"
+    },
+    "ConditionWitness": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "condition_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "condition_id",
+        "claim_id"
+      ],
+      "type": "object"
+    },
+    "DirectorRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "audience_id": {
+          "type": "string"
+        },
+        "beats": {
+          "items": {
+            "$ref": "#/$defs/Beat"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "fidelity": {
+          "items": {
+            "$ref": "#/$defs/FidelityMapping"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "language": {
+          "type": "string"
+        },
+        "lesson_id": {
+          "type": "string"
+        },
+        "promises": {
+          "items": {
+            "$ref": "#/$defs/Promise"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "routes": {
+          "items": {
+            "$ref": "#/$defs/Route"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "scenes": {
+          "items": {
+            "$ref": "#/$defs/Scene"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Request"
+        },
+        "spoken_forms": {
+          "items": {
+            "$ref": "#/$defs/SpokenForm"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "term_introductions": {
+          "items": {
+            "$ref": "#/$defs/TermIntroduction"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "transitions": {
+          "items": {
+            "$ref": "#/$defs/Transition"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "lesson_id",
+        "audience_id",
+        "language",
+        "scenes",
+        "beats",
+        "routes",
+        "transitions",
+        "promises",
+        "term_introductions",
+        "spoken_forms",
+        "fidelity"
+      ],
+      "type": "object"
+    },
+    "FidelityMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "$ref": "#/$defs/ConditionWitness"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "disclosure_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "facet_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "mapping_id": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "mapping_id",
+        "claim_id",
+        "mode",
+        "citation_ids",
+        "facet_ids",
+        "conditions",
+        "disclosure_claim_ids"
+      ],
+      "type": "object"
+    },
+    "Output": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ],
+      "type": "object"
+    },
+    "Promise": {
+      "additionalProperties": false,
+      "properties": {
+        "payoff_beat_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "promise_id": {
+          "type": "string"
+        },
+        "setup_beat_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "promise_id",
+        "setup_beat_id",
+        "payoff_beat_ids"
+      ],
+      "type": "object"
+    },
+    "Request": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/$defs/Output"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ],
+      "type": "object"
+    },
+    "Route": {
+      "additionalProperties": false,
+      "properties": {
+        "route_id": {
+          "type": "string"
+        },
+        "scene_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "route_id",
+        "scene_ids"
+      ],
+      "type": "object"
+    },
+    "Scene": {
+      "additionalProperties": false,
+      "properties": {
+        "duration_ms": {
+          "type": "integer"
+        },
+        "objective_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "parent_scene_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "scene_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "scene_id",
+        "role",
+        "purpose",
+        "objective_ids",
+        "parent_scene_ids",
+        "duration_ms"
+      ],
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        },
+        "source_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ],
+      "type": "object"
+    },
+    "SpokenForm": {
+      "additionalProperties": false,
+      "properties": {
+        "beat_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "beat_id",
+        "text",
+        "claim_ids"
+      ],
+      "type": "object"
+    },
+    "TermIntroduction": {
+      "additionalProperties": false,
+      "properties": {
+        "beat_id": {
+          "type": "string"
+        },
+        "introduction_id": {
+          "type": "string"
+        },
+        "term_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "introduction_id",
+        "term_id",
+        "beat_id"
+      ],
+      "type": "object"
+    },
+    "Transition": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "from_scene_id": {
+          "type": "string"
+        },
+        "to_scene_id": {
+          "type": "string"
+        },
+        "transition_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "transition_id",
+        "from_scene_id",
+        "to_scene_id",
+        "claim_ids"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/DirectorRequest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, route, learning and timing rules, artifact verification and external assessment authority.",
+  "title": "DirectorRequest structure"
+}

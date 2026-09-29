@@ -1,0 +1,20 @@
+{
+  "task_id": "BIE-QA-HARD-033",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "source_files": [
+    "bie/qa/operational_quality_v2/common.py",
+    "bie/qa/operational_quality_v2/performance.py"
+  ],
+  "specification": "tasks/qa_section16/BIE-QA-HARD-033/SPEC.md",
+  "test_suite": "hardening_h7",
+  "shared_test_count": 147,
+  "test_evidence": "hardening/section16_h7/evidence/final_source_suites/TEST_RESULT.json",
+  "diagnostics": "hardening/section16_h7/evidence/diagnostics/EXECUTION_RESULT.json",
+  "independent_task_test_count": null,
+  "full_scope_closed": false,
+  "product_accepted": false,
+  "remaining": [
+    "The cgroup filesystem is real but not delegated writable here; the attempted fresh group failed closed. No cgroup-constrained workload or aggregate enforcement success is claimed.",
+    "The actual process-tree measurement is a sample, not a peak/enforcement guarantee. Workload verdict rows require an external approved output validator; production native queue benchmarks, backpressure and GPU accounting remain open."
+  ]
+}

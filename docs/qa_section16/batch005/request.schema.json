@@ -1,0 +1,660 @@
+{
+  "$defs": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "path",
+        "sha256",
+        "size",
+        "role"
+      ],
+      "type": "object"
+    },
+    "Binding": {
+      "additionalProperties": false,
+      "properties": {
+        "hi": {
+          "type": "string"
+        },
+        "lo": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "lo",
+        "hi",
+        "unit"
+      ],
+      "type": "object"
+    },
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "type": "string"
+        },
+        "box_ppm": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "type": "array"
+        },
+        "confidence_ppm": {
+          "type": "integer"
+        },
+        "extractor_id": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_id",
+        "source_sha256",
+        "page",
+        "region_id",
+        "box_ppm",
+        "text",
+        "extractor_id",
+        "extractor_version",
+        "confidence_ppm"
+      ],
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "block_digest": {
+          "type": "string"
+        },
+        "block_id": {
+          "type": "string"
+        },
+        "citation_id": {
+          "type": "string"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "quote": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "citation_id",
+        "block_id",
+        "block_digest",
+        "start",
+        "end",
+        "quote"
+      ],
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "citation_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "end": {
+          "type": "integer"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        },
+        "output_sha256": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "output_id",
+        "output_sha256",
+        "start",
+        "end",
+        "text",
+        "kind",
+        "citation_ids"
+      ],
+      "type": "object"
+    },
+    "Conversion": {
+      "additionalProperties": false,
+      "properties": {
+        "conversion_id": {
+          "type": "string"
+        },
+        "from_unit": {
+          "type": "string"
+        },
+        "hi": {
+          "type": "string"
+        },
+        "lo": {
+          "type": "string"
+        },
+        "reported_hi": {
+          "type": "string"
+        },
+        "reported_lo": {
+          "type": "string"
+        },
+        "to_unit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "conversion_id",
+        "lo",
+        "hi",
+        "from_unit",
+        "to_unit",
+        "reported_lo",
+        "reported_hi"
+      ],
+      "type": "object"
+    },
+    "DerivationCase": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "condition_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "end_reference_id": {
+          "type": "string"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/DerivationStep"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "case_id",
+        "scope_id",
+        "reference_id",
+        "end_reference_id",
+        "claim_ids",
+        "condition_claim_ids",
+        "steps"
+      ],
+      "type": "object"
+    },
+    "DerivationStep": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "$ref": "#/$defs/Equation"
+        },
+        "before": {
+          "$ref": "#/$defs/Equation"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "operand": {
+          "$ref": "#/$defs/Expr"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "step_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "step_id",
+        "claim_ids",
+        "before",
+        "after",
+        "rule",
+        "operand"
+      ],
+      "type": "object"
+    },
+    "Equation": {
+      "additionalProperties": false,
+      "properties": {
+        "left": {
+          "$ref": "#/$defs/Expr"
+        },
+        "right": {
+          "$ref": "#/$defs/Expr"
+        }
+      },
+      "required": [
+        "left",
+        "right"
+      ],
+      "type": "object"
+    },
+    "Expr": {
+      "additionalProperties": false,
+      "properties": {
+        "args": {
+          "items": {
+            "$ref": "#/$defs/Expr"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "op": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "value",
+        "args"
+      ],
+      "type": "object"
+    },
+    "FormulaCase": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "condition_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "equation": {
+          "$ref": "#/$defs/Equation"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "scope_id",
+        "reference_id",
+        "claim_ids",
+        "condition_claim_ids",
+        "equation"
+      ],
+      "type": "object"
+    },
+    "MathRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "derivations": {
+          "items": {
+            "$ref": "#/$defs/DerivationCase"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "formulas": {
+          "items": {
+            "$ref": "#/$defs/FormulaCase"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "numericals": {
+          "items": {
+            "$ref": "#/$defs/NumericalCase"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Request"
+        },
+        "units": {
+          "items": {
+            "$ref": "#/$defs/UnitCase"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "source",
+        "formulas",
+        "derivations",
+        "numericals",
+        "units"
+      ],
+      "type": "object"
+    },
+    "NumericalCase": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "condition_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "expression": {
+          "$ref": "#/$defs/Expr"
+        },
+        "inputs": {
+          "items": {
+            "$ref": "#/$defs/Binding"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "output_unit": {
+          "type": "string"
+        },
+        "reference_id": {
+          "type": "string"
+        },
+        "reported_hi": {
+          "type": "string"
+        },
+        "reported_lo": {
+          "type": "string"
+        },
+        "scope_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "scope_id",
+        "reference_id",
+        "claim_ids",
+        "condition_claim_ids",
+        "expression",
+        "inputs",
+        "reported_lo",
+        "reported_hi",
+        "output_unit"
+      ],
+      "type": "object"
+    },
+    "Output": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "output_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "output_id",
+        "artifact",
+        "channel"
+      ],
+      "type": "object"
+    },
+    "Request": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "candidate_digest": {
+          "type": "string"
+        },
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/$defs/Output"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "revision": {
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "schema_version": {
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "revision",
+        "candidate_digest",
+        "sources",
+        "blocks",
+        "outputs",
+        "citations",
+        "claims"
+      ],
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer"
+        },
+        "source_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "artifact",
+        "media_type",
+        "page_count"
+      ],
+      "type": "object"
+    },
+    "UnitCase": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "condition_claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "conversions": {
+          "items": {
+            "$ref": "#/$defs/Conversion"
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "equation": {
+          "$ref": "#/$defs/Equation"
+        },
+        "scope_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "scope_id",
+        "claim_ids",
+        "condition_claim_ids",
+        "equation",
+        "conversions"
+      ],
+      "type": "object"
+    }
+  },
+  "$ref": "#/$defs/MathRequest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Structural validation only. Runtime validation also enforces closed vocabularies, bounds, cross references, proof/domain rules, artifact verification and external assessment authority.",
+  "title": "MathRequest structure"
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "bie.qa.h3-closure-matrix/1",
+  "tasks": [
+    {
+      "task_id": "BIE-QA-HARD-007",
+      "title": "Native document-to-QA provenance adapter",
+      "local_implementation": "Actual native PDFInventory ingestion through the preserved pypdf adapter, PyMuPDF page/region extraction, full-page pixel hashes and deterministic raster crops. Identity normalization retains text. Existing Anchor/TextBlock and Source/Block contracts are actually constructed. Verification reopens source bytes; no submitted native-success flag is credited.",
+      "verified": [
+        "Text PDF reaches byte and region checks; one image-only page reaches one successful OCR diagnostic and retains review-required recognition.",
+        "Rehashed lost qualifiers, modified page/region pixels and reordered text are rejected; arbitrary figure/table meaning is reviewed.",
+        "Page/text/pixel/byte limits fail without truncation."
+      ],
+      "open": [
+        "EPUB and arbitrary multilingual/multicolumn/native extraction provider coverage remain open.",
+        "OCR meaning and reading order require independent assessment. These authored PDFs are not a real-book E2E run.",
+        "Production parser isolation and canonical caller migration remain open."
+      ],
+      "full_scope_closed": false
+    },
+    {
+      "task_id": "BIE-QA-HARD-008",
+      "title": "Native semantic and reference inventory adapter",
+      "local_implementation": "Preserved KI claim_extraction and claim_evidence are executed on explicitly selected, source-contained fragments. Existing source QA rechecks quotation/output bytes. Required claim/facet/reference inventories cannot shrink; missing conditions and critical facets block. Existing typed propositions can be supplied without manufacturing atoms from open-world text.",
+      "verified": [
+        "Actual native claim IDs and citation anchors reach the existing source evaluator.",
+        "Physics condition-loss, missing critical facets, reference byte aliases and biology/open-world cases exercise fail-closed handling."
+      ],
+      "open": [
+        "Upstream selection is explicit; autonomous full semantic extraction and reference-fact truth are not established.",
+        "Bytes differing does not prove independent authorship or epistemic independence.",
+        "Live semantic review and canonical knowledge-to-QA orchestration remain open."
+      ],
+      "full_scope_closed": false
+    },
+    {
+      "task_id": "BIE-QA-HARD-009",
+      "title": "Operational assessor adapters and untrusted-content defense",
+      "local_implementation": "Provider registry is configured out-of-band. The unchanged native ModelRequest/ModelResponse contract has an adapter with request/provider/model/provenance checks. Strict responses cannot choose gates, authority, executable callbacks or tools. Retry only transient errors; contradictions/malformed answers cannot be retried until favorable. A pinned subprocess transport enforces a process-group timeout. Generic registered provider objects retain responsibility for interruptible transport deadlines.",
+      "verified": [
+        "Fixed rubric/system/tool configuration is preserved against source instructions and extra response authorization fields.",
+        "Unavailable/malformed/contradicted/truncated/foreign provider records remain blocked or review-required.",
+        "Two actual local assessor subprocesses executed diagnostic responses; native gateway contract tests use explicitly synthetic providers."
+      ],
+      "open": [
+        "No live authorized provider was invoked or provisioned. Full HARD009 operational closure therefore remains OPEN.",
+        "Prompt framing and strict output controls do not prove semantic immunity to every prompt injection.",
+        "Operational credentials, retry economics/rate limits and independent assessor calibration remain deployment obligations."
+      ],
+      "full_scope_closed": false
+    },
+    {
+      "task_id": "BIE-QA-HARD-010",
+      "title": "Calibrated quality floors and evaluator agreement interface",
+      "local_implementation": "Consumes actual corpus and prediction JSON bytes with operator-owned criterion floors, rater versions, principals, groups, domain and language. Recomputes per-criterion held-out accuracy/agreement and critical false-clear counts. Duplicate/cross-split source or input identities and incomplete case/rater coverage are rejected. A strong style score cannot compensate for failed academic criteria.",
+      "verified": [
+        "Blind-ID and holdout provenance structure, corrupted calibration bytes, stale profiles, class coverage and rater drift are tested.",
+        "Independent/scoped synthetic approval demonstrates the positive contract; diagnostic corpus results never establish empirical calibration."
+      ],
+      "open": [
+        "No genuine independent EVAL-held rater dataset, human review or learner study was supplied.",
+        "Empirical thresholds, external label quality and actual blinded collection remain OPEN.",
+        "The API is a measurement/interface implementation, not fabricated cinematic scores or learning-efficacy certification."
+      ],
+      "full_scope_closed": false
+    },
+    {
+      "task_id": "BIE-QA-HARD-011",
+      "title": "Prerequisite readiness and applicability adapter",
+      "local_implementation": "Consumes the actual preserved PrerequisiteGraph and source-QA request. Computes transitive requirements and checks all authoritative lesson routes. Learner diagnostic bytes bind learner, policy, observations, criterion floors and timestamps; synthetic/unverified observations cannot confer mastery. Failing evidence cannot be outvoted. Applicability requests retain all mandatory gate IDs.",
+      "verified": [
+        "Cycles, inconsistent edges, wrong alternate-route order, learner mismatch, stale diagnostics and criterion-floor violations are tested.",
+        "The native prerequisite/source path is executed in an authored diagnostic.",
+        "No-math requests never remove release gates or fabricate domain proof."
+      ],
+      "open": [
+        "Actual learner measurements and observed native lesson/game behavior remain OPEN.",
+        "Positive observed-evidence unit fixtures have synthetic credentials and labels; they are not genuine learners.",
+        "Grounded independent applicability approval and full canonical lesson integration remain required."
+      ],
+      "full_scope_closed": false
+    }
+  ],
+  "historical_obligations_closed": 0,
+  "product_accepted": false
+}

@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PerformanceExecution",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "execution_id": {
+      "type": "string"
+    },
+    "snapshot_digest": {
+      "type": "string"
+    },
+    "policy_digest": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "integer"
+    },
+    "finished_at": {
+      "type": "integer"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "environment_before": {
+      "type": "object"
+    },
+    "environment_after": {
+      "type": "object"
+    },
+    "collector_sha256": {
+      "type": "string"
+    },
+    "launcher_sha256": {
+      "type": "string"
+    },
+    "probe_sha256": {
+      "type": "string"
+    },
+    "producers": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "queue_start_ns": {
+      "type": "integer"
+    },
+    "queue_end_ns": {
+      "type": "integer"
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string"
+          },
+          "producer_id": {
+            "type": "string"
+          },
+          "execution_id": {
+            "type": "string"
+          },
+          "enqueue_ns": {
+            "type": "integer"
+          },
+          "dispatch_ns": {
+            "type": "integer"
+          },
+          "process_start_ns": {
+            "type": "integer"
+          },
+          "process_end_ns": {
+            "type": "integer"
+          },
+          "complete_ns": {
+            "type": "integer"
+          },
+          "exit_code": {
+            "type": "integer"
+          },
+          "timed_out": {
+            "type": "boolean"
+          },
+          "input_unchanged": {
+            "type": "boolean"
+          },
+          "peak_rss_bytes": {
+            "type": "integer"
+          },
+          "cpu_user_ns": {
+            "type": "integer"
+          },
+          "cpu_system_ns": {
+            "type": "integer"
+          },
+          "memory_basis": {
+            "type": "string"
+          },
+          "stdout_id": {
+            "type": "string"
+          },
+          "stderr_id": {
+            "type": "string"
+          },
+          "limits_id": {
+            "type": "string"
+          },
+          "outputs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "issues": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "job_id",
+          "producer_id",
+          "execution_id",
+          "enqueue_ns",
+          "dispatch_ns",
+          "process_start_ns",
+          "process_end_ns",
+          "complete_ns",
+          "exit_code",
+          "timed_out",
+          "input_unchanged",
+          "peak_rss_bytes",
+          "cpu_user_ns",
+          "cpu_system_ns",
+          "memory_basis",
+          "stdout_id",
+          "stderr_id",
+          "limits_id",
+          "outputs",
+          "issues"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "memory_probe": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string"
+        },
+        "producer_id": {
+          "type": "string"
+        },
+        "execution_id": {
+          "type": "string"
+        },
+        "enqueue_ns": {
+          "type": "integer"
+        },
+        "dispatch_ns": {
+          "type": "integer"
+        },
+        "process_start_ns": {
+          "type": "integer"
+        },
+        "process_end_ns": {
+          "type": "integer"
+        },
+        "complete_ns": {
+          "type": "integer"
+        },
+        "exit_code": {
+          "type": "integer"
+        },
+        "timed_out": {
+          "type": "boolean"
+        },
+        "input_unchanged": {
+          "type": "boolean"
+        },
+        "peak_rss_bytes": {
+          "type": "integer"
+        },
+        "cpu_user_ns": {
+          "type": "integer"
+        },
+        "cpu_system_ns": {
+          "type": "integer"
+        },
+        "memory_basis": {
+          "type": "string"
+        },
+        "stdout_id": {
+          "type": "string"
+        },
+        "stderr_id": {
+          "type": "string"
+        },
+        "limits_id": {
+          "type": "string"
+        },
+        "outputs": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "job_id",
+        "producer_id",
+        "execution_id",
+        "enqueue_ns",
+        "dispatch_ns",
+        "process_start_ns",
+        "process_end_ns",
+        "complete_ns",
+        "exit_code",
+        "timed_out",
+        "input_unchanged",
+        "peak_rss_bytes",
+        "cpu_user_ns",
+        "cpu_system_ns",
+        "memory_basis",
+        "stdout_id",
+        "stderr_id",
+        "limits_id",
+        "outputs",
+        "issues"
+      ],
+      "additionalProperties": false
+    },
+    "product_accepted": {
+      "type": "boolean"
+    },
+    "native_queue_executed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "execution_id",
+    "snapshot_digest",
+    "policy_digest",
+    "started_at",
+    "finished_at",
+    "profile",
+    "environment_before",
+    "environment_after",
+    "collector_sha256",
+    "launcher_sha256",
+    "probe_sha256",
+    "producers",
+    "queue_start_ns",
+    "queue_end_ns",
+    "jobs",
+    "memory_probe",
+    "product_accepted",
+    "native_queue_executed"
+  ],
+  "additionalProperties": false
+}

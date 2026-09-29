@@ -1,0 +1,114 @@
+{
+  "schema_version": "bie.qa.h8-closure-matrix/1",
+  "tasks": [
+    {
+      "task_id": "BIE-QA-HARD-035",
+      "title": "Operational authority, attestation and trusted time",
+      "original_scope": "Provision real out-of-band evaluator/issuer authority, capture attestation, trusted clocks and revocation distribution.",
+      "required_closure_evidence": [
+        "Test-only credentials cannot authorize production.",
+        "Independent review and issuer roles are enforced across adapters.",
+        "Expired/revoked evidence is invalid at assessment, issuance and serving time."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-004",
+        "BIE-QA-HARD-030",
+        "BIE-QA-HARD-034"
+      ],
+      "implemented_local": "Public-key verification of independently configured Ed25519 identities, nonce-bound signed clock intervals and revocation status. Private SQLite replay/rollback watermarks, bounded sessions, disjoint authority roles, and an optional wrapper around the actual inherited publication/certificate verifier.",
+      "remaining": [
+        "No live time/authority service, independent operator enrollment, KMS, hardware attestation, remote revocation distribution or trusted hardware clock was provisioned. Positive signed evidence is diagnostic.",
+        "The new wrapper is exercised but canonical/direct H7 publication callers are not migrated. Session freshness is bounded by explicit TTL, not instantaneous revocation polling. Local database state is not resistant to administrator rollback."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h8/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-037",
+      "title": "Operational rights inventory and output notices",
+      "original_scope": "Bind real source/asset/provider/dependency inventories, scoped permission evidence and actual published notices.",
+      "required_closure_evidence": [
+        "Unknown ownership/status or missing upstream permissions remains blocked/review-required.",
+        "Rendered credits and source offers match approved terms.",
+        "Qualified clearance is externally evidenced; synthetic permissions are never promoted."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-006",
+        "BIE-QA-HARD-007",
+        "BIE-QA-HARD-020",
+        "BIE-QA-HARD-022",
+        "BIE-QA-HARD-035"
+      ],
+      "implemented_local": "Reuses the inherited rights evaluator over exact source/asset/dependency/provider inventory and independently signed clearance. Required notice channels are bound to exact output/capture bytes and observation types. The full trusted-time interval must fit permission validity.",
+      "remaining": [
+        "No real ownership or legal clearance, live grant-status service, qualified external rights reviewer or native rendered/deployed notice validation was executed. Submitted capture assertions remain dependent on independently trustworthy capture evidence.",
+        "The saved Money.pdf is an analysis source, not a cleared distribution asset; its full bytes are deliberately excluded from this delivery."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h8/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-038",
+      "title": "Native real-book QA integration and EVAL handoff",
+      "original_scope": "Implement a reproducible original-source-to-lesson/video/game QA harness with retained artifacts and deliberate failure injection; consume Section17 benchmarks when available.",
+      "required_closure_evidence": [
+        "At least one actual source passage exercises native BI/KI/PR/MATH/RE/PED/DIR/VIS/ANI/COMP/AUDIO/GAME boundaries where applicable.",
+        "Source loss, wrong math, bad narration, broken control and repair regression are independently rejected.",
+        "Measured learning/benchmark/product acceptance is a separate downstream gate, not a prerequisite to writing this harness."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-007",
+        "BIE-QA-HARD-008",
+        "BIE-QA-HARD-010",
+        "BIE-QA-HARD-011",
+        "BIE-QA-HARD-012",
+        "BIE-QA-HARD-014",
+        "BIE-QA-HARD-016",
+        "BIE-QA-HARD-020",
+        "BIE-QA-HARD-021",
+        "BIE-QA-HARD-023",
+        "BIE-QA-HARD-024",
+        "BIE-QA-HARD-028",
+        "BIE-QA-HARD-032",
+        "BIE-QA-HARD-033",
+        "BIE-QA-HARD-037"
+      ],
+      "implemented_local": "Authoritative 15-stage source-to-EVAL plan and registered, immutable-input stage execution with source/run/execution/check bindings and EVAL handoff. Actual saved Money.pdf passage executes preserved native BI region/provenance and native KI claim/evidence functions. A missing native executor blocks before any fallback execution.",
+      "remaining": [
+        "Three complete protocol diagnostics used 45 authored Python/JSON stage processes, not native lesson/video/game generation. The real source executes BI and KI passage boundaries only; all 13 other stages are explicitly NOT_RUN.",
+        "Full canonical checkout, isolated native stage executors, genuine semantic/quality authorities, actual SceneIR/Remotion/AUDIO/GAME runs, independent seeded-defect controls on that path and real-book EVAL/product acceptance remain open."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h8/evidence/final_source_suites/TEST_RESULT.json"
+    },
+    {
+      "task_id": "BIE-QA-HARD-041",
+      "title": "Governed correction-memory evidence export",
+      "original_scope": "Export rights-safe, source-bound failure/repair/assessment evidence for BIE improvement and reusable scene/code memory; do not silently train or mutate product memory.",
+      "required_closure_evidence": [
+        "Stale/wrong corrections cannot poison future retrieval or erase provenance.",
+        "Reuse still reruns context-dependent quality gates.",
+        "Improvement claims require held-out comparison, not a growing archive count."
+      ],
+      "dependencies": [
+        "BIE-QA-HARD-006",
+        "BIE-QA-HARD-010",
+        "BIE-QA-HARD-028",
+        "BIE-QA-HARD-037"
+      ],
+      "implemented_local": "Explicit, separately approved correction export binds actual source, before/after text, validation bytes, rights and context. Targeted baseline failure and every candidate validation case are required. Reuse rereads current source bytes, rights and new context and requires fresh source/semantic/regression gates.",
+      "remaining": [
+        "Only a synthetic correction/permission/approval diagnostic was exported. No product retrieval store was mutated, no model was trained and no empirical improvement is claimed.",
+        "Native correction-memory adoption, independent semantic assessment, genuine retrieval rights and held-out improvement comparisons remain required. A signed validation statement alone does not establish that its interpretation is true."
+      ],
+      "full_scope_closed": false,
+      "closed_historical_obligations": [],
+      "test_receipt": "hardening/section16_h8/evidence/final_source_suites/TEST_RESULT.json"
+    }
+  ],
+  "operational_scope_complete": false,
+  "historical_obligations_closed": 0
+}

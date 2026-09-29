@@ -1,0 +1,25 @@
+{
+  "task_id": "BIE-QA-HARD-010",
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_SECTION_REAUDIT",
+  "implementation": [
+    "bie/qa/native_quality_v2/common.py",
+    "bie/qa/native_quality_v2/calibration.py"
+  ],
+  "test_evidence": "hardening/section16_h3/evidence/final_source_suites/TEST_RESULT.json",
+  "negative_evidence": "hardening/section16_h3/evidence/mutations/MUTATION_RESULT.json",
+  "diagnostic_evidence": "hardening/section16_h3/evidence/diagnostics/EXECUTION_RESULT.json",
+  "new_tests_shared_not_per_task": 174,
+  "verified_local_behaviors": [
+    "Blind-ID and holdout provenance structure, corrupted calibration bytes, stale profiles, class coverage and rater drift are tested.",
+    "Independent/scoped synthetic approval demonstrates the positive contract; diagnostic corpus results never establish empirical calibration."
+  ],
+  "remaining_closure_requirements": [
+    "No genuine independent EVAL-held rater dataset, human review or learner study was supplied.",
+    "Empirical thresholds, external label quality and actual blinded collection remain OPEN.",
+    "The API is a measurement/interface implementation, not fabricated cinematic scores or learning-efficacy certification."
+  ],
+  "full_scope_closure_verified": false,
+  "historical_obligations_closed": 0,
+  "github_integrated": false,
+  "product_accepted": false
+}
