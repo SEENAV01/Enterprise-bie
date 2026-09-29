@@ -67,6 +67,10 @@ class NativeMathAmendmentTests(unittest.TestCase):
         self.change_manifest(lambda m: m['entry'].update(active_path='other.py'))
         self.rejected('IDENTITY')
 
+    def test_wrong_source_archive_hash_is_rejected(self):
+        self.change_manifest(lambda m: m.update(source_archive_sha256='0' * 64))
+        self.rejected('IDENTITY')
+
     def test_duplicate_json_key_is_rejected(self):
         path = self.root / amendment.MANIFEST
         value = path.read_text().rstrip()
@@ -98,6 +102,10 @@ class NativeMathAmendmentTests(unittest.TestCase):
 
     def test_original_row_identity_mutation_is_rejected(self):
         next(r for r in self.rows if r['file_id'] == amendment.ENTRY['file_id'])['sha256'] = '0' * 64
+        self.rejected('ORIGINAL_IDENTITY')
+
+    def test_original_archive_identity_mutation_is_rejected(self):
+        next(r for r in self.rows if r['file_id'] == amendment.ENTRY['file_id'])['archive'] = 'other.zip'
         self.rejected('ORIGINAL_IDENTITY')
 
 

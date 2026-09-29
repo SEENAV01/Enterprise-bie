@@ -56,7 +56,8 @@ def resolve(root: Path, rows: list[dict]) -> list[dict]:
     expected = {
         'schema_version': 'bie.qa.section16.native-math-ledger-amendment/1',
         'original_ledger_sha256': LEDGER_SHA256,
-        'source_archive_sha256': 'd4a3160e93f47ec510c8162309580b3df4fa3a8346211eb4197905a0399e24f1',
+        'source_archive_name': 'BIE_AST_001.zip',
+        'source_archive_sha256': '4870318fd7ecf7020ef6b47f2e963ad2510c91331f14a5938495d5aa81b60702',
         'candidate_base_commit': '1ba9e25ff97822ef901bcb116afd90b4a76a8290',
         'scope': 'NATIVE_MATH_PARSER_SILENT_TRUNCATION_REPAIR',
         'product_accepted': False,
@@ -72,8 +73,8 @@ def resolve(root: Path, rows: list[dict]) -> list[dict]:
     if len(selected) != 1:
         raise ValueError('QA_NATIVE_MATH_AMENDMENT_COVERAGE')
     row = selected[0]
-    if (row['canonical_path'], row['canonical_sha256'], row['sha256'], row['bytes'], row['disposition']) != (
-        ENTRY['active_path'], ENTRY['before_sha256'], ENTRY['original_sha256'], ENTRY['original_bytes'], 'MIGRATED'
+    if (row['archive'], row['canonical_path'], row['canonical_sha256'], row['sha256'], row['bytes'], row['disposition']) != (
+        expected['source_archive_name'], ENTRY['active_path'], ENTRY['before_sha256'], ENTRY['original_sha256'], ENTRY['original_bytes'], 'MIGRATED'
     ):
         raise ValueError('QA_NATIVE_MATH_AMENDMENT_ORIGINAL_IDENTITY')
     for path, digest in ((ENTRY['active_path'], ENTRY['active_sha256']),
