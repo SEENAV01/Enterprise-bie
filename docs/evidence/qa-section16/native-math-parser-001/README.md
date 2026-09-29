@@ -1,6 +1,12 @@
 # Native math parser repair — Section 16 candidate evidence
 
-Status: **PENDING HOSTED COMBINED GATE AND RE-AUDIT**. This is a scoped repair,
+Status: **PENDING HOSTED COMBINED GATE AND RE-AUDIT**. The first hosted run
+(`36536084987`) passed the Section 16 explicit tests but failed canonical
+lossless audit because the sealed ledger still pointed to the old parser bytes
+at the repaired owner path. The separate exact ledger amendment now redirects
+only that one source row to its byte-identical predecessor evidence while
+requiring the repaired owner hash. It does not weaken or rewrite the ledger.
+This is a scoped repair,
 not Section 16 sign-off, mathematical correctness acceptance, or product release.
 
 The canonical `bie/math_intelligence/expression_ast.py` at base commit
