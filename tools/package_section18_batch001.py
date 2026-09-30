@@ -5,6 +5,8 @@ from pathlib import Path
 import hashlib,importlib,json,shutil,sys,tempfile,unittest,zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0,str(ROOT))
 DIST=ROOT/"dist"
 TASKS=json.loads((ROOT/"metadata/section18/BATCH001_TASKS.json").read_text())["tasks"]
 COMMON=[

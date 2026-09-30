@@ -21,7 +21,9 @@ jobs:
       - name: Run existing API productization regression
         run: python -B -m unittest discover -s tests/productization/api -p 'test_*.py' -v
       - name: Build and verify atomic and combined packages
-        run: python -B tools/package_section18_batch001.py | tee dist/PACKAGE_RESULT.txt
+        run: |
+          mkdir -p dist
+          python -B tools/package_section18_batch001.py | tee dist/PACKAGE_RESULT.txt
       - name: Upload Section 18 Batch 001 delivery
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
