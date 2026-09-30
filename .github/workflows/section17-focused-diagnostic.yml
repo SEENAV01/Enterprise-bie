@@ -1,0 +1,101 @@
+name: Section 17 focused CI diagnostic
+
+on:
+  push:
+    branches: [diagnostic/section17-ci-14900]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  section17-diagnostic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      BIE_GAME_CI_SUPERVISOR: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
+        with:
+          node-version: '22.16.0'
+      - name: Install hosted-worker profile
+        if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Install AUDIO validation profile
+        if: ${{ hashFiles('requirements-audio-mix.txt') != '' && hashFiles('requirements-audio-acoustic.txt') != '' }}
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-audio-mix.txt -r requirements-audio-acoustic.txt
+          python -m pip check
+          sudo apt-get update
+          sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
+      - name: Install approved browser profile
+        run: bash .integration/tools/setup_game_ci.sh
+      - name: Install scoped QA profile
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Provision Section 17 media tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          command -v dbus-run-session
+      - name: Run focused Section 17 suite and print exact failures
+        run: |
+          set -euo pipefail
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS DBUS_STARTER_ADDRESS DBUS_STARTER_BUS_TYPE
+          dbus-run-session -- bash -s <<'BASH'
+          set -uo pipefail
+          BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)"
+          export BIE_SECTION17_CHROMIUM
+          OUT="$RUNNER_TEMP/section17-diagnostic"
+          rm -rf "$OUT"
+          set +e
+          python -B tools/run_section17_native_api_tests.py --output-dir "$OUT"
+          rc=$?
+          set -e
+          python - <<'PY'
+          from pathlib import Path
+          import json, os, re
+          out=Path(os.environ['RUNNER_TEMP'])/'section17-diagnostic'
+          data=json.loads((out/'TEST_RESULT.json').read_text())
+          bad=[r for r in data.get('records',[]) if r.get('status')!='PASS']
+          print('SECTION17_DIAGNOSTIC_SUMMARY='+json.dumps({
+              k:data.get(k) for k in ('tests_run','passed','failed','errors','skipped','all_passed',
+                                      'native_module_origins_valid','external_dependency_snapshot_used')
+          },sort_keys=True))
+          print('SECTION17_BAD_TESTS='+json.dumps(bad,sort_keys=True))
+          text=(out/'TEST_RESULT.txt').read_text(errors='replace')
+          blocks=[]
+          for m in re.finditer(r'(?m)^(?:FAIL|ERROR): .+$', text):
+              start=m.start()
+              end=text.find('\n----------------------------------------------------------------------',start)
+              if end < 0:
+                  end=min(len(text),start+8000)
+              blocks.append(text[start:end])
+          print('SECTION17_FAILURE_BLOCKS_BEGIN')
+          print('\n\n'.join(blocks))
+          print('SECTION17_FAILURE_BLOCKS_END')
+          PY
+          exit "$rc"
+          BASH
+      - name: Preserve focused diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: section17-focused-diagnostic
+          path: ${{ runner.temp }}/section17-diagnostic/
+          if-no-files-found: warn
+          retention-days: 7
