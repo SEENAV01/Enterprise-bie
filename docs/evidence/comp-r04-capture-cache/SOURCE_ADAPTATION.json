@@ -1,0 +1,74 @@
+{
+  "schema_version": "bie.r04.cache-and-target-adaptation.v1",
+  "parent_commit": "d29c7025b03342ff9fd9dd59624b9ba15a89bb65",
+  "prior_source_commit": "76b6f6da0cde70413f34ad4521f931fb0eb02a2d",
+  "source_path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+  "source_before_git_blob": "f1af451633b8b2a414429e7971726b4b2aa0d7a6",
+  "source_after_git_blob": "d510dd2d30e357d54068333ef8237a64cc8a31ff",
+  "source_before_sha256": "63e0c4c553f973574d2452832b9d29719838340002cf3634885524580f280bff",
+  "source_after_sha256": "d27134da1cd6280823aee2336a15a89296c6d537aed19b45d6c485d3b3e0167d",
+  "manifest_path": "manifests/post_dir_integration_004.json",
+  "manifest_before_git_blob": "f99aa66205f5e233e407a4129b29d7177fbb420c",
+  "manifest_after_git_blob": "a814015278ebf23511d927a768bfa0713a7cd30b",
+  "manifest_before_sha256": "7bc533bf409e3311b35ca65c44d2ef591b4581103b57f8b986ed04aa84ed2ab0",
+  "manifest_after_sha256": "c0630749d8fddae8bda51410d7566d074bda1c598cbf6fd0f1050719a8a03b33",
+  "manifest_before_image": {
+    "commit": "76b6f6da0cde70413f34ad4521f931fb0eb02a2d",
+    "path": "manifests/post_dir_integration_004.json",
+    "git_blob": "f99aa66205f5e233e407a4129b29d7177fbb420c"
+  },
+  "ledger_changes": [
+    {
+      "group": "members",
+      "index": 14097,
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "field": "canonical_sha256",
+      "before": "63e0c4c553f973574d2452832b9d29719838340002cf3634885524580f280bff",
+      "after": "d27134da1cd6280823aee2336a15a89296c6d537aed19b45d6c485d3b3e0167d"
+    },
+    {
+      "group": "members",
+      "index": 14097,
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "field": "transformation",
+      "before": "BYTE_IDENTICAL_ADOPTION",
+      "after": "CANONICAL_PATH_ADAPTATION_OR_DOCUMENTED_AMENDMENT"
+    },
+    {
+      "group": "members",
+      "index": 14104,
+      "path": "bie/compiler/real_paint.py",
+      "field": "canonical_sha256",
+      "before": "fc320220631020b0bc246786e659ea105313e11b6a47ef97b99db6ed043e07bf",
+      "after": "ab939ee47dc3b4aed58aceab72db8ebdb5d3c42cab77c329ced8630b03f72a86"
+    },
+    {
+      "group": "source_members",
+      "index": 651,
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "field": "canonical_sha256",
+      "before": "63e0c4c553f973574d2452832b9d29719838340002cf3634885524580f280bff",
+      "after": "d27134da1cd6280823aee2336a15a89296c6d537aed19b45d6c485d3b3e0167d"
+    },
+    {
+      "group": "source_members",
+      "index": 651,
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "field": "disposition",
+      "before": "BYTE_IDENTICAL_ADOPTION",
+      "after": "CANONICAL_PATH_ADAPTATION_OR_DOCUMENTED_AMENDMENT"
+    }
+  ],
+  "original_archive_and_member_hashes_changed": false,
+  "source_delta": {
+    "before": " const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public')});\n",
+    "after": " // Source and dependencies are immutable in the isolated capture worker.\n // Do not let Webpack create or invalidate a cache under node_modules.\n const serveUrl=await bundle({enableCaching:false,entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public')});\n"
+  },
+  "reproduced_runtime_failure_run": 35499934225,
+  "reproduced_runtime_failure": "EROFS: node_modules/.cache/webpack/remotion-production-4.0.506",
+  "scope": "Disable optional bundle caching while keeping source/dependency mounts immutable; align both active canonical-target views",
+  "cache_contract_tests": 5,
+  "guard_and_isolation_code_changed": false,
+  "real_render_status": "NOT_RUN_AT_COMMIT",
+  "accepted": false
+}

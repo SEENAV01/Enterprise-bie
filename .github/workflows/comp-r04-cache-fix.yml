@@ -1,0 +1,223 @@
+name: COMP R04 - immutable capture cache and target ledgers (not acceptance)
+
+on:
+  push:
+    branches: ['validation/comp-r04-20260920']
+    paths: ['tools/comp-r04-cache/**', '.github/workflows/comp-r04-cache-fix.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: comp-r04-cache-fix-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: github.repository == 'SEENAV01/Enterprise-bie' && github.ref == 'refs/heads/validation/comp-r04-20260920'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    # Write permission exists only for the guarded, fast-forward review-branch publisher.
+    permissions:
+      contents: write
+    outputs:
+      source_sha: ${{ steps.apply.outputs.source_sha }}
+      source_tree: ${{ steps.apply.outputs.source_tree }}
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Apply reproduced cache correction and reconcile active-target ledgers
+        id: apply
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python -B tools/comp-r04-cache/apply_cache_fix.py \
+            --repo "$GITHUB_WORKSPACE" --evidence "$RUNNER_TEMP/r04-source" \
+            --expected-parent "$GITHUB_SHA" --publish-review-branch
+      - name: Retain original failure, candidate tests and source-publication evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r04-cache-correction-${{ github.run_id }}
+          path: ${{ runner.temp }}/r04-source/
+          if-no-files-found: error
+          retention-days: 14
+
+  canonical-regression:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.prepare.outputs.source_sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing canonical hosted-worker setup
+        run: |
+          set -euo pipefail
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Existing complete canonical gate on the NEW source commit
+        env:
+          EXPECTED_SHA: ${{ needs.prepare.outputs.source_sha }}
+          EXPECTED_TREE: ${{ needs.prepare.outputs.source_tree }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          test "$(git rev-parse HEAD^{tree})" = "$EXPECTED_TREE"
+          test -z "$(git status --porcelain --untracked-files=all)"
+          mkdir -p "$RUNNER_TEMP/canonical-evidence"
+          printf 'source_sha=%s\nsource_tree=%s\n' "$EXPECTED_SHA" "$EXPECTED_TREE" > "$RUNNER_TEMP/canonical-evidence/SOURCE_IDENTITY.txt"
+          python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
+          python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence'
+          s=json.loads((root/'integrated_tests.json').read_text())['summary']
+          p=json.loads((root/'post-dir-preservation.json').read_text())
+          if s.get('passed') is not True or s.get('tests_run',0) < 6498:
+              raise SystemExit('INCOMPLETE_REGRESSION:'+str(s))
+          if any(s.get(k)!=0 for k in ('failed_files','failures','errors','skipped')):
+              raise SystemExit('FAILURES_ERRORS_OR_SKIPS:'+str(s))
+          if p.get('passed') is not True or p.get('errors')!=[]:
+              raise SystemExit('PRESERVATION_FAILED:'+str(p))
+          print(json.dumps({'regression':s,'product_accepted':False},indent=2))
+          PY
+          test -z "$(git status --porcelain --untracked-files=all)"
+      - name: Retain actual candidate canonical results, including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r04-cache-canonical-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/canonical-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: error
+          retention-days: 14
+
+  technical-fixture:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      SOURCE_SHA: ${{ needs.prepare.outputs.source_sha }}
+      SOURCE_TREE: ${{ needs.prepare.outputs.source_tree }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          path: driver
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.prepare.outputs.source_sha }}
+          path: canonical
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing hosted-worker setup, unchanged
+        working-directory: canonical
+        run: |
+          set -euo pipefail
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          GITHUB_WORKSPACE="$GITHUB_WORKSPACE/canonical" bash .integration/tools/setup_ci_environment.sh
+      - name: Run identity and existing helper contract checks
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/r04-control"
+          printf 'driver_sha=%s\nsource_sha=%s\nsource_tree=%s\nrun_id=%s\n' "$GITHUB_SHA" "$SOURCE_SHA" "$SOURCE_TREE" "$GITHUB_RUN_ID" > "$RUNNER_TEMP/r04-control/hosted-run.txt"
+          python -B -m unittest discover -s driver/tools/comp-r04 -p test_validation_driver.py -v 2>&1 | tee "$RUNNER_TEMP/r04-control/helper-checks.txt"
+      - name: Exact previous dependency lock and Remotion-managed browser
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --connect-timeout 20 --max-time 120 \
+            --header "Authorization: Bearer $GH_TOKEN" --header "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/SEENAV01/Enterprise-bie/actions/artifacts/10599699753/zip \
+            --output "$RUNNER_TEMP/r04-lock-origin.zip"
+          python -B driver/tools/comp-r04/provision_managed_browser.py \
+            --artifact "$RUNNER_TEMP/r04-lock-origin.zip" --output "$RUNNER_TEMP/r04-browser" --allow-network
+      - name: Real pinned TypeScript 5.9.3 coverage and negative probes
+        run: |
+          set -euo pipefail
+          python -B driver/tools/comp-r04-fix/probe_helper_coverage.py \
+            --tsc "$RUNNER_TEMP/r04-browser/work/node_modules/.bin/tsc" --expected-version 5.9.3 \
+            --output "$RUNNER_TEMP/r04-control/PINNED_LANGUAGE_PROBE.json"
+      - name: Real checked slice against the NEW source SHA and tree
+        run: |
+          set -euo pipefail
+          BROWSER="$(cat "$RUNNER_TEMP/r04-browser/evidence/BROWSER_PATH.txt")"
+          python -B driver/tools/comp-r04-fix/run_candidate.py --source-sha "$SOURCE_SHA" --source-tree "$SOURCE_TREE" \
+            --repo "$GITHUB_WORKSPACE/canonical" --output "$RUNNER_TEMP/r04-first" --browser "$BROWSER" --allow-network \
+            --lockfile "$RUNNER_TEMP/r04-browser/evidence/package-lock.json" \
+            --expected-lock-sha256 e445be44573e1cbac454af2987d84f795c43e8bc826be5e86b754ee42073b1c7
+      - name: Fresh-project replay with the identical lock
+        run: |
+          set -euo pipefail
+          BROWSER="$(cat "$RUNNER_TEMP/r04-browser/evidence/BROWSER_PATH.txt")"
+          python -B driver/tools/comp-r04-fix/run_candidate.py --source-sha "$SOURCE_SHA" --source-tree "$SOURCE_TREE" \
+            --repo "$GITHUB_WORKSPACE/canonical" --output "$RUNNER_TEMP/r04-replay" --browser "$BROWSER" --allow-network \
+            --lockfile "$RUNNER_TEMP/r04-first/evidence/package-lock.json" \
+            --expected-lock-sha256 e445be44573e1cbac454af2987d84f795c43e8bc826be5e86b754ee42073b1c7
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP']); a=root/'r04-first/evidence'; b=root/'r04-replay/evidence'
+          def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+          def rows(p): return [s for s in p.read_text().splitlines() if s and not s.startswith('#')]
+          def src(p):
+              m=json.loads(p.read_text())
+              return {k:v for k,v in m.items() if k.endswith(('.ts','.tsx')) or k in ('package.json','tsconfig.json')}
+          one=rows(a/'logs/full-framemd5.stdout.txt'); two=rows(b/'logs/full-framemd5.stdout.txt')
+          result={'source_sha':os.environ['SOURCE_SHA'],'source_tree':os.environ['SOURCE_TREE'],
+                  'lock_identical':digest(a/'package-lock.json')==digest(b/'package-lock.json'),
+                  'generated_code_identical':src(a/'GENERATED_SOURCE_SHA256.json')==src(b/'GENERATED_SOURCE_SHA256.json'),
+                  'decoded_frames_identical':len(one)==48 and one==two,
+                  'comparison_scope':'SAME_HOST_SAME_LOCK_TWO_CLEAN_PROJECTS',
+                  'frame_visual_inspection':'NOT_PERFORMED','product_accepted':False}
+          (root/'r04-control/REPLAY_COMPARISON.json').write_text(json.dumps(result,indent=2)+'\n')
+          if not all(result[k] is True for k in ('lock_identical','generated_code_identical','decoded_frames_identical')):
+              raise SystemExit('REPLAY_MISMATCH; do not rewrite fixtures')
+          PY
+      - name: Retain genuine compile/render success or failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: r04-cache-render-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/r04-control/
+            ${{ runner.temp }}/r04-browser/evidence/
+            ${{ runner.temp }}/r04-first/evidence/
+            ${{ runner.temp }}/r04-replay/evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: error
+          retention-days: 14
+          include-hidden-files: true

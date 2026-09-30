@@ -12,7 +12,9 @@ async function main(){
   if(fromProject(name+'/package.json').version!==req.remotion_version)throw new Error('CAPTURE_PIN_MISMATCH:'+name);
  }
  const out=req.output;fs.mkdirSync(out,{recursive:true});
- const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public')});
+ // Source and dependencies are immutable in the isolated capture worker.
+ // Do not let Webpack create or invalidate a cache under node_modules.
+ const serveUrl=await bundle({enableCaching:false,entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public')});
  const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromiumOptions:{enableMultiProcessOnLinux:true}});
  const frames=[],rasterFrames=[],errors=[];
  try{
