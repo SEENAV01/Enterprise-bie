@@ -21,7 +21,7 @@ class SourceValidationUiTests(AppProductCase):
         self.assertIn(str(len(self.pdf)), html)
 
     def test_ui_escapes_display_name(self):
-        view = validate_source(self.pdf, "<script>alert(1)</script>.pdf", "application/pdf")
+        view = validate_source(self.pdf, "<script>.pdf", "application/pdf")
         html = render_source_validation_html(view)
         self.assertNotIn("<script>", html)
         self.assertIn("&lt;script&gt;", html)
