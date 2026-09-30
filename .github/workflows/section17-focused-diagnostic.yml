@@ -78,16 +78,11 @@ jobs:
           },sort_keys=True))
           print('SECTION17_BAD_TESTS='+json.dumps(bad,sort_keys=True))
           text=(out/'TEST_RESULT.txt').read_text(errors='replace')
-          blocks=[]
-          for m in re.finditer(r'(?m)^(?:FAIL|ERROR): .+$', text):
-              start=m.start()
-              end=text.find('\n----------------------------------------------------------------------',start)
-              if end < 0:
-                  end=min(len(text),start+8000)
-              blocks.append(text[start:end])
-          print('SECTION17_FAILURE_BLOCKS_BEGIN')
-          print('\n\n'.join(blocks))
-          print('SECTION17_FAILURE_BLOCKS_END')
+          marker='======================================================================'
+          first=text.find(marker)
+          print('SECTION17_FAILURE_DETAILS_BEGIN')
+          print(text[first:] if first >= 0 else text[-60000:])
+          print('SECTION17_FAILURE_DETAILS_END')
           PY
           exit "$rc"
           BASH
