@@ -10,6 +10,9 @@ class Section17GateTests(unittest.TestCase):
             'source_changed_during_run': False,
             'native_module_origins_valid': True,
             'external_dependency_snapshot_used': False,
+            'fixture_events': [],
+            'fixture_errors': 0,
+            'fixture_skips': 0,
             'tests_run': EXPECTED_METHODS,
             'unique_test_method_ids': EXPECTED_METHODS,
             'records': [
@@ -58,6 +61,13 @@ class Section17GateTests(unittest.TestCase):
         value = self.receipt()
         value['external_dependency_snapshot_used'] = True
         self.assertFalse(complete(value, 0))
+
+    def test_fixture_error_or_skip_fails(self):
+        for status in ('ERROR', 'SKIP'):
+            with self.subTest(status=status):
+                value = self.receipt()
+                value['fixture_events'] = [{'test_id': 'setUpClass (Fixture)', 'status': status}]
+                self.assertFalse(complete(value, 0))
 
 
 if __name__ == '__main__':

@@ -55,6 +55,18 @@ jobs:
           python -m pip install -r requirements-qa-section16-validation.txt
           python -m pip check
           python -m pip freeze > "$RUNNER_TEMP/bie-ci-setup/qa-python-freeze.txt"
+      - name: Require Section 17 browser startup before full regression
+        run: |
+          set -euo pipefail
+          test -x "$BIE_SECTION17_CHROMIUM"
+          python -B tools/run_section17_native_api_tests.py --pattern test_h5_006.py --output-dir "$RUNNER_TEMP/canonical-evidence/section17-browser-preflight"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          result=json.loads((Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17-browser-preflight/TEST_RESULT.json').read_text())
+          assert result['all_passed'] and result['tests_run']==result['unique_test_method_ids']==8
+          assert result['fixture_events']==[] and result['native_module_origins_valid']
+          PY
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail
@@ -133,7 +145,7 @@ jobs:
         if: failure()
         run: |
           sudo env PATH="$PATH" PYTHONPATH="$GITHUB_WORKSPACE" PYTHONDONTWRITEBYTECODE=1 /opt/pyvenv/bin/python -B scripts/diagnose_section16_pipeline.py "$RUNNER_TEMP/section16-evidence/H8_DIAGNOSTIC.json"
-      - name: Require both exact-candidate gates, with explicit overlap accounting
+      - name: Require all exact-candidate gates, with explicit overlap accounting
         if: always()
         run: |
           python - <<'PY'
@@ -142,17 +154,24 @@ jobs:
           temp=Path(os.environ['RUNNER_TEMP'])
           qa=json.loads((temp/'section16-evidence/TEST_RESULT.json').read_text())
           canonical=json.loads((temp/'canonical-evidence/integrated_tests.json').read_text())
+          section17=json.loads((temp/'canonical-evidence/section17/GATE_RESULT.json').read_text())
           head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
           assert qa['passed'] and qa['full_section_suite'] and qa['candidate_unchanged']
           assert qa['candidate']['commit']==head and not qa['candidate']['dirty']
           assert qa['executed_tests']==qa['unique_test_ids']==4856
           assert canonical['summary']['passed']
           assert all(canonical['summary'][k]==0 for k in ('failures','errors','skipped','failed_files'))
+          assert section17['suite_passed'] and section17['section17_methods_observed']==2023
+          assert section17['native_module_origins_valid'] and section17['external_dependency_snapshot_used'] is False
+          assert section17['fixture_errors']==section17['fixture_skips']==0
+          assert not any(r['path'].startswith('tests/section17/') for r in canonical['results'])
           legacy=[r for r in canonical['results'] if r['path']=='tests/imported/BIE_QA_RELEASE_001/tests/qa/test_release_contracts.py']
           assert len(legacy)==1 and legacy[0]['tests']==10 and legacy[0]['passed']
           result={'candidate':head,'canonical_tests':canonical['summary']['tests_run'],
                   'section16_tests':4856,'overlap_original_release_tests':10,
-                  'unique_combined_tests':canonical['summary']['tests_run']+4856-10,
+                  'section17_tests':2023,'section17_suite_passed':True,
+                  'overlap_section17_methods':0,
+                  'unique_combined_tests':canonical['summary']['tests_run']+4856-10+2023,
                   'passed':True,'section16_signed_off':False,'product_accepted':False}
           (temp/'canonical-evidence/COMBINED_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
           print(json.dumps(result,indent=2))

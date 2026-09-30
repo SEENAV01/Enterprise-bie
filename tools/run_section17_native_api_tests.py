@@ -2,6 +2,7 @@
 """Run actual task tests and save candidate-bound, non-inflated evidence."""
 from __future__ import annotations
 import argparse
+from contextlib import contextmanager
 import hashlib
 import io
 import json
@@ -10,6 +11,7 @@ from pathlib import Path
 import platform
 import sqlite3
 import sys
+import tempfile
 import time
 import unittest
 
@@ -48,20 +50,52 @@ def native_module_origins(modules=None):
         observed[name] = locations
     return observed, bool(observed) and valid
 
+
+@contextmanager
+def browser_environment():
+    """Give the suite writable private Chromium config/cache directories."""
+    keys = ('XDG_CONFIG_HOME', 'XDG_CACHE_HOME')
+    previous = {key: os.environ.get(key) for key in keys}
+    with tempfile.TemporaryDirectory(prefix='bie-section17-browser-') as directory:
+        paths = [Path(directory) / name for name in ('config', 'cache')]
+        for path in paths:
+            path.mkdir(mode=0o700)
+        os.environ.update(dict(zip(keys, map(str, paths))))
+        try:
+            yield
+        finally:
+            for key, value in previous.items():
+                if value is None:
+                    os.environ.pop(key, None)
+                else:
+                    os.environ[key] = value
+
+
 class RecordedResult(unittest.TextTestResult):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs); self.records={}
+        super().__init__(*args, **kwargs); self.records={}; self.fixture_events=[]
+    def _status(self, test, status):
+        if test.id() in self.records:
+            self.records[test.id()]['status'] = status
+        else:
+            # unittest reports setUpClass/tearDownClass failures without startTest.
+            # Keep them separate from actual method identities and keep running.
+            self.fixture_events.append({'test_id': test.id(), 'status': status})
     def startTest(self,test):
         super().startTest(test); self.records[test.id()]={'test_id':test.id(),'status':'RUNNING'}
     def addSuccess(self,test):
         super().addSuccess(test)
         if self.records[test.id()]['status']=='RUNNING': self.records[test.id()]['status']='PASS'
     def addFailure(self,test,err):
-        super().addFailure(test,err);self.records[test.id()]['status']='FAIL'
+        super().addFailure(test,err);self._status(test,'FAIL')
     def addError(self,test,err):
-        super().addError(test,err);self.records[test.id()]['status']='ERROR'
+        super().addError(test,err);self._status(test,'ERROR')
     def addSkip(self,test,reason):
-        super().addSkip(test,reason);self.records[test.id()]['status']='SKIP'
+        super().addSkip(test,reason);self._status(test,'SKIP')
+    def addExpectedFailure(self,test,err):
+        super().addExpectedFailure(test,err);self._status(test,'EXPECTED_FAILURE')
+    def addUnexpectedSuccess(self,test):
+        super().addUnexpectedSuccess(test);self._status(test,'FAIL')
     def addSubTest(self,test,subtest,err):
         super().addSubTest(test,subtest,err)
         if err is not None:self.records[test.id()]['status']='FAIL'
@@ -80,7 +114,8 @@ def main():
     before=inventory()
     started=time.time();stream=io.StringIO()
     suite=unittest.defaultTestLoader.discover(str(ROOT/'tests/section17'),pattern=args.pattern)
-    result=unittest.TextTestRunner(stream=stream,verbosity=2,resultclass=RecordedResult).run(suite)
+    with browser_environment():
+        result=unittest.TextTestRunner(stream=stream,verbosity=2,resultclass=RecordedResult).run(suite)
     records=sorted(result.records.values(),key=lambda r:r['test_id'])
     changed=inventory()!=before
     origins, origins_valid = native_module_origins()
@@ -92,11 +127,15 @@ def main():
         'passed':sum(r['status']=='PASS' for r in records),
         'failed':sum(r['status']=='FAIL' for r in records),'errors':sum(r['status']=='ERROR' for r in records),
         'skipped':sum(r['status']=='SKIP' for r in records),
+        'fixture_events':result.fixture_events,
+        'fixture_errors':sum(r['status']=='ERROR' for r in result.fixture_events),
+        'fixture_skips':sum(r['status']=='SKIP' for r in result.fixture_events),
+        'browser_config_policy':'PRIVATE_TEMPORARY_XDG_CONFIG_AND_CACHE',
         'source_changed_during_run':changed,'records':records,
         'native_module_origins':origins,'native_module_origins_valid':origins_valid,
         'external_dependency_snapshot_used':False,
         'candidate_inventory_sha256':hashlib.sha256(json.dumps(before,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
-        'all_passed':result.wasSuccessful() and not changed and not result.skipped and len(records)==result.testsRun and origins_valid,
+        'all_passed':result.wasSuccessful() and not changed and not result.skipped and not result.fixture_events and all(r['status']=='PASS' for r in records) and len(records)==result.testsRun and origins_valid,
         'canonical_regression_run':False,'native_bie_run':False,'product_accepted':False,
         'native_dependency_snapshot':'canonical repository bie/ only; external dependency snapshot disabled',
         'baseline_source_recovery':'322/324 published H5 inventory files recovered; two old helper scripts absent',

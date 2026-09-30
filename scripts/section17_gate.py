@@ -19,6 +19,9 @@ def complete(receipt: dict, returncode: int) -> bool:
         and receipt.get('source_changed_during_run') is False
         and receipt.get('native_module_origins_valid') is True
         and receipt.get('external_dependency_snapshot_used') is False
+        and receipt.get('fixture_events') == []
+        and receipt.get('fixture_errors') == 0
+        and receipt.get('fixture_skips') == 0
         and receipt.get('tests_run') == EXPECTED_METHODS
         and receipt.get('unique_test_method_ids') == EXPECTED_METHODS
         and len(records) == EXPECTED_METHODS
@@ -49,6 +52,8 @@ def main() -> int:
         'source_inventory_sha256': receipt.get('candidate_inventory_sha256'),
         'native_module_origins_valid': receipt.get('native_module_origins_valid'),
         'external_dependency_snapshot_used': receipt.get('external_dependency_snapshot_used'),
+        'fixture_errors': receipt.get('fixture_errors'),
+        'fixture_skips': receipt.get('fixture_skips'),
         'section_complete': False,
         'product_accepted': False,
     }

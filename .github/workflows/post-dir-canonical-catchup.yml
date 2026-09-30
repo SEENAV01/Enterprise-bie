@@ -64,6 +64,17 @@ jobs:
           command -v ffmpeg
           command -v ffprobe
           test -x "$BIE_SECTION17_CHROMIUM"
+      - name: Require Section 17 browser startup before full regression
+        run: |
+          set -euo pipefail
+          python -B tools/run_section17_native_api_tests.py --pattern test_h5_006.py --output-dir "$RUNNER_TEMP/canonical-evidence/section17-browser-preflight"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          result=json.loads((Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17-browser-preflight/TEST_RESULT.json').read_text())
+          assert result['all_passed'] and result['tests_run']==result['unique_test_method_ids']==8
+          assert result['fixture_events']==[] and result['native_module_origins_valid']
+          PY
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail

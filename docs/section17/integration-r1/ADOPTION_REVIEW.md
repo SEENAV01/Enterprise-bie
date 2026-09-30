@@ -118,3 +118,33 @@ Section 17 gate requires this origin result and an explicit false value for
 external-snapshot use. The amended runner's original and replacement hashes
 are recorded without changing the supplied master or original integration map.
 Positive and seeded-negative runner/gate/adoption controls passed 16/16 locally.
+
+The exact `b834648ea5bd0631dabe21e8779d675e5a0881fd` hosted runs
+`36690026670` and `36690026683` both failed when Section 17's H5-006
+Chromium fixture could not start: `chrome_crashpad_handler: --database is
+required`. The enterprise run nevertheless completed 9,479 methods with
+zero failures/errors/skips, including 1,123 GAME methods. The separate
+Section 16 gate completed its unchanged 4,856-method census successfully.
+These results do not establish Section 17 completion. The combined artifact
+`11087181799` was downloaded outside Git and verified against SHA-256
+`de86376b5989cafe92f528818c3a6126328678d2cd8f443fb2da310d37d38f24`.
+
+The recovered recorder then raised a secondary `KeyError` for `setUpClass`,
+since unittest fixture failures do not call `startTest`. The repair records
+fixture errors/skips separately from executed method identities, continues
+the remaining suite, and rejects any such event at the gate. Expected
+failures no longer receive a PASS status. Private temporary writable XDG
+config/cache directories are scoped to the suite and restored/removed even
+on failure; no browser security flag, authored browser assertion, or GAME
+isolation policy was weakened. Fresh hosted validation is required to
+confirm this addresses the Chromium startup failure. An early eight-method
+H5-006 preflight now runs before the expensive enterprise regression.
+
+The previous combined receipt incorrectly considered only enterprise and
+Section 16 results even after the Section 17 step failed. Its workflow still
+failed, but that receipt must not be reused as complete integration evidence.
+The combined receipt now requires the exact Section 17 gate and adds its
+2,023 methods only after proving the enterprise file census excludes
+`tests/section17/`. The existing ten-method legacy release overlap between
+enterprise and Section 16 is still deducted. Positive and seeded-negative
+runner/gate/adoption controls passed 23/23 locally after these repairs.

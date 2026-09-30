@@ -5,8 +5,8 @@
     {
       "path": "tools/run_section17_native_api_tests.py",
       "original_sha256": "5b86d51a949e8e9b1146631111bfe0ec0c13d324343e2ca03ba12ccf18eea47a",
-      "replacement_sha256": "a92b8ebfe4d53117e369c2202e5c67f358f7cd508550b62a4c1e141bdc603aa8",
-      "reason": "Canonical integration disables the package's sibling dependency snapshot fallback, verifies loaded BIE module origins, and records the actual source scope."
+      "replacement_sha256": "301131e1d4e02e649d055624985558f365e2fed12cba77ddd4b893ffd1796987",
+      "reason": "Canonical integration disables sibling dependency snapshots, verifies BIE module origins, records class fixture failures without aborting the suite, and uses private writable XDG browser configuration/cache directories without changing browser security flags."
     },
     {
       "path": "bie/evaluation/benchmarks/native_api/service.py",
