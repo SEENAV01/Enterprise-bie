@@ -409,6 +409,22 @@ The concept and prerequisite viewers validate canonical graph structures and ren
 
 
 def finish_delivery(master_meta: dict[str, object], atomics: list[dict[str, object]]) -> None:
+    shutil.copy2(ROOT / "tools" / "verify_section18_batch001_delivery.py", DELIVERY / "VERIFY_DELIVERY.py")
+    (DELIVERY / "START_HERE.md").write_text(
+        """# Section 18 Batch 001 delivery
+
+This package contains 10 original atomic task ZIPs, a combined source ZIP, a cumulative Batch 001 master, verification receipts, checksums and continuation metadata.
+
+Verify the extracted delivery with:
+
+`python -B VERIFY_DELIVERY.py .`
+
+The atomic ZIPs are under `atomics/`. The master package is `BIE_APP_SECTION18_BATCH001_MASTER_PACKAGE.zip`.
+
+This is a ZIP-building checkpoint only. It is not Section 18 completion, GitHub integration, deployment or product acceptance.
+""",
+        encoding="utf-8",
+    )
     verification = {
         "schema_version": "bie.section18.batch001-delivery/1",
         "canonical_baseline": BASELINE,

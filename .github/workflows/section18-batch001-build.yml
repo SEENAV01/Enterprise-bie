@@ -68,6 +68,7 @@ jobs:
                   assert z.testzip() is None, p
           print("DELIVERY_SHAPE_PASS")
           PY
+          python -B dist/section18_batch001/delivery/VERIFY_DELIVERY.py dist/section18_batch001/delivery
 
       - name: Upload verified Section 18 Batch 001 delivery
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
