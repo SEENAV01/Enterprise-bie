@@ -1,0 +1,80 @@
+name: Build Section 18 Batch 001 ZIPs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [build/section18-batch001-r1-20261001]
+    paths:
+      - "bie/product_app_v1/**"
+      - "apps/api/section18_*.py"
+      - "apps/web/**"
+      - "tests/section18/**"
+      - "docs/section18/**"
+      - "task_registry/section18_batch001.json"
+      - "tools/build_section18_batch001.py"
+      - ".github/workflows/section18-batch001-build.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: section18-batch001-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+
+    steps:
+      - name: Check out packaging branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: 3.13.5
+          cache: pip
+
+      - name: Install scoped canonical dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[document-intelligence,document-intelligence-layout,api,api-test]"
+          python -m pip check
+
+      - name: Build and verify ten atomic ZIPs plus Batch 001 master
+        run: |
+          set -euo pipefail
+          python -B tools/build_section18_batch001.py | tee section18-batch001-build.log
+
+      - name: Assert delivery shape
+        run: |
+          set -euo pipefail
+          test "$(find dist/section18_batch001/delivery/atomics -maxdepth 1 -type f -name '*.zip' | wc -l)" -eq 10
+          test -f dist/section18_batch001/delivery/BIE_APP_SECTION18_BATCH001_MASTER_PACKAGE.zip
+          test -f dist/section18_batch001/delivery/BIE_APP_SECTION18_BATCH001_COMBINED_SOURCE.zip
+          python - <<'PY'
+          import json, pathlib, zipfile
+          root=pathlib.Path("dist/section18_batch001/delivery")
+          v=json.loads((root/"VERIFICATION.json").read_text())
+          assert v["atomic_count"]==10 and v["all_tests_passed"]
+          for p in root.rglob("*.zip"):
+              with zipfile.ZipFile(p) as z:
+                  assert z.testzip() is None, p
+          print("DELIVERY_SHAPE_PASS")
+          PY
+
+      - name: Upload verified Section 18 Batch 001 delivery
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_SECTION18_BATCH001_DELIVERY
+          path: |
+            dist/section18_batch001/delivery/**
+            section18-batch001-build.log
+          if-no-files-found: error
+          retention-days: 30
