@@ -1,0 +1,58 @@
+name: Section 18 Batch 001 ZIP Build
+
+on:
+  push:
+    branches:
+      - build/section18-batch001-20260930
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install canonical bounded product dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e '.[document-intelligence,api,api-test]'
+
+      - name: Run Section 18 Batch 001 tests
+        run: |
+          python -B tools/run_section18_batch001_tests.py \
+            --output-dir "$RUNNER_TEMP/section18-batch001-evidence"
+
+      - name: Run inherited API/job regression
+        run: |
+          set -o pipefail
+          python -B -m unittest discover -s tests/productization/api -p 'test_*.py' -v \
+            2>&1 | tee "$RUNNER_TEMP/inherited-api-regression.txt"
+
+      - name: Build ten atomic ZIPs and cumulative Batch 001 master
+        run: |
+          python -B tools/package_section18_batch001.py \
+            --evidence-dir "$RUNNER_TEMP/section18-batch001-evidence" \
+            --output-dir "$RUNNER_TEMP/section18-batch001-dist" \
+            --base-sha 47cafba8975061555764c3c579ae6daad696ae64
+          cp "$RUNNER_TEMP/inherited-api-regression.txt" \
+            "$RUNNER_TEMP/section18-batch001-dist/INHERITED_API_REGRESSION.txt"
+
+      - name: Verify ZIP integrity
+        run: |
+          python -B tools/verify_section18_batch001.py "$RUNNER_TEMP/section18-batch001-dist"
+
+      - name: Upload Section 18 Batch 001
+        uses: actions/upload-artifact@v4
+        with:
+          name: BIE_APP_SECTION18_BATCH001_DELIVERY
+          path: ${{ runner.temp }}/section18-batch001-dist/
+          if-no-files-found: error
+          retention-days: 30

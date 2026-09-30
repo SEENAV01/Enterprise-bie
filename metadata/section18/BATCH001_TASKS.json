@@ -1,0 +1,192 @@
+{
+  "schema_version": "bie.section18.batch001-task-registry/1",
+  "section": 18,
+  "section_title": "APP - Product/API/Operator Experience",
+  "canonical_base_commit": "47cafba8975061555764c3c579ae6daad696ae64",
+  "canonical_base_tree": "821bde84740dbd38489eb95c8918645268b99688",
+  "original_task_count": 33,
+  "batch": "001",
+  "task_count": 10,
+  "tasks": [
+    {
+      "ordinal": 1,
+      "task_id": "BIE-APP-RUN-001",
+      "original_capability": "create run",
+      "test_file": "tests/section18/test_app_run_001.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/source_validation.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 2,
+      "task_id": "BIE-APP-RUN-002",
+      "original_capability": "upload/import source",
+      "test_file": "tests/section18/test_app_run_002.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/source_validation.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 3,
+      "task_id": "BIE-APP-RUN-003",
+      "original_capability": "source validation UI",
+      "test_file": "tests/section18/test_app_run_003.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/source_validation.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 4,
+      "task_id": "BIE-APP-RUN-004",
+      "original_capability": "run status",
+      "test_file": "tests/section18/test_app_run_004.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 5,
+      "task_id": "BIE-APP-RUN-005",
+      "original_capability": "stage timeline",
+      "test_file": "tests/section18/test_app_run_005.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 6,
+      "task_id": "BIE-APP-RUN-006",
+      "original_capability": "failure view",
+      "test_file": "tests/section18/test_app_run_006.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 7,
+      "task_id": "BIE-APP-RUN-007",
+      "original_capability": "retry controls",
+      "test_file": "tests/section18/test_app_run_007.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 8,
+      "task_id": "BIE-APP-RUN-008",
+      "original_capability": "cancel/pause/resume",
+      "test_file": "tests/section18/test_app_run_008.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/operator_store.py",
+        "bie/app_product/service.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 9,
+      "task_id": "BIE-APP-GRAPH-001",
+      "original_capability": "concept graph viewer",
+      "test_file": "tests/section18/test_app_graph_001.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/graph_view.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    },
+    {
+      "ordinal": 10,
+      "task_id": "BIE-APP-GRAPH-002",
+      "original_capability": "prerequisite graph viewer",
+      "test_file": "tests/section18/test_app_graph_002.py",
+      "source_files": [
+        "bie/app_product/contracts.py",
+        "bie/app_product/graph_view.py"
+      ],
+      "support_files": [
+        "bie/app_product/__init__.py",
+        "tests/section18/support.py"
+      ],
+      "status": "IMPLEMENTED_PENDING_CI_VERIFICATION"
+    }
+  ],
+  "next_batch_task_ids": [
+    "BIE-APP-GRAPH-003",
+    "BIE-APP-LESSON-001",
+    "BIE-APP-LESSON-002",
+    "BIE-APP-LESSON-003",
+    "BIE-APP-LESSON-004",
+    "BIE-APP-LESSON-005",
+    "BIE-APP-ART-001",
+    "BIE-APP-ART-002",
+    "BIE-APP-ART-003",
+    "BIE-APP-ART-004"
+  ],
+  "section_complete": false,
+  "product_accepted": false,
+  "task028": "PAUSED",
+  "notes": [
+    "Batch code reuses canonical PdfInspectionJobService, SQLitePersistence, SQLiteDurableTaskQueue, FileSystemCAS and graph types.",
+    "Operator sidecar stores display metadata/control intent only; raw source bytes and engine state stay canonical.",
+    "Pause/cancel is fail-closed after worker claim; it is not advertised as preemptive process termination.",
+    "No Section 18 code from this build branch is merged to main by this packaging workflow."
+  ]
+}
