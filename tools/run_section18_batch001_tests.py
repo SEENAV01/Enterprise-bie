@@ -98,6 +98,9 @@ def main():
     print(json.dumps({k: report[k] for k in (
         "tests_run", "passed", "failed", "errors", "skipped", "all_passed", "inventory_sha256"
     )}, indent=2))
+    if not report["all_passed"]:
+        print("=== SECTION18 FAILURE DETAIL ===")
+        print((output / "TEST_RESULT.txt").read_text(encoding="utf-8"))
     return 0 if report["all_passed"] else 1
 
 
