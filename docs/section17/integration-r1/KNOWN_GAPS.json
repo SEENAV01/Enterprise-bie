@@ -95,5 +95,14 @@
   },
   "full_repository_regression_run_now": false,
   "github_written_now": false,
-  "product_accepted": false
+  "product_accepted": false,
+  "integration_evidence_gaps": [
+    {
+      "id": "H1-PREIMAGE-BYTES-NOT-ADOPTED",
+      "status": "RESOLVED_EXACT_BYTES",
+      "scope": "All fourteen H1 changed-file preimages were recovered from the verified R1 master's combined_source/evidence/section17/h1 tree and matched every published before_sha256. They are retained at their original evidence-relative paths; the original strict byte assertion is restored. H1_PREIMAGE_RECOVERY.json binds their source archive, paths and hashes. Other missing historical master-only containers remain open.",
+      "bytes_reconstructed": false,
+      "acceptance_effect": "Closes only the recoverable H1 preimage byte-preservation gap. Does not permit Section17 sign-off or product acceptance."
+    }
+  ]
 }

@@ -148,3 +148,26 @@ The combined receipt now requires the exact Section 17 gate and adds its
 `tests/section17/`. The existing ten-method legacy release overlap between
 enterprise and Section 16 is still deducted. Positive and seeded-negative
 runner/gate/adoption controls passed 23/23 locally after these repairs.
+
+Concurrent work on the same authorized branch was discovered before push.
+Commits `f1409f00`, `2fa38532`, `14900caa`, and `fb16eb76` were fetched and
+preserved by a normal history merge, never force-pushed over. They select the
+resolved native system Chromium already validated inside the D-Bus session,
+bind H2/H3's render-contract fixture to canonical source, and disclose the
+omitted H1 preimages. The browser preflight now runs inside that same session
+with that validated executable. The exact remote `fb16eb76` PR runs
+`36711838261` and `36711838200` succeeded, including 9,480 enterprise,
+2,023 Section 17, and 4,856 Section 16 methods. Their older combined count
+14,326 excluded the separate Section 17 denominator; the repaired receipt
+counts all three explicitly. Fresh CI is still required for the merged repair.
+
+The disclosed H1 gap was recoverable: all fourteen changed-file preimages
+were present in the verified R1 master and each raw SHA-256 matched its
+published `before_sha256`. They have now been selectively added at their
+original historical evidence-relative paths, with `H1_PREIMAGE_RECOVERY.json`
+binding provenance and hashes. The original Batch002 strict byte assertion
+is restored verbatim; the temporary metadata-only fallback is superseded.
+The adoption guard additionally requires the fourteen files and exact
+bindings; missing/tampered bytes and duplicate manifest rows are rejected.
+This closes H1 byte recovery only, not unavailable master-only history or
+real-book/independent-assessment acceptance obligations.

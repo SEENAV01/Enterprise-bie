@@ -38,6 +38,25 @@ class Section17RunnerOriginTests(unittest.TestCase):
         self.assertFalse(native_module_origins({})[1])
         self.assertFalse(native_module_origins({'bie.unknown': SimpleNamespace()})[1])
 
+    def test_fixture_level_error_is_preserved(self):
+        class BrokenFixture(unittest.TestCase):
+            @classmethod
+            def setUpClass(cls):
+                raise RuntimeError('fixture boom')
+            def test_never_runs(self):
+                pass
+
+        result = unittest.TextTestRunner(
+            stream=io.StringIO(),
+            verbosity=0,
+            resultclass=RecordedResult,
+        ).run(unittest.defaultTestLoader.loadTestsFromTestCase(BrokenFixture))
+        self.assertEqual(len(result.errors), 1)
+        self.assertTrue(any(
+            row['test_id'].startswith('setUpClass') and row['status'] == 'ERROR'
+            for row in result.fixture_events
+        ))
+
 
 class Section17FailureRecordingTests(unittest.TestCase):
     @staticmethod

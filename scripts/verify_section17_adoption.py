@@ -44,6 +44,27 @@ def matches(path: Path, expected: str) -> bool:
     return hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest() == expected
 
 
+def verify_h1_preimages(delta: dict, recovery: dict) -> list[str]:
+    """Require all fourteen original byte preimages, not only their metadata."""
+    expected = {row['preimage']: row for row in delta['changed_original_files']}
+    recovered = {row['path']: row for row in recovery['files']}
+    if (len(expected) != 14 or len(recovered) != len(recovery['files'])
+            or set(recovered) != set(expected)
+            or recovery.get('source_master_sha256') != '03043839a2290672a4b672cbb39952846e77ff99572a791bf0ca89cf14a51f4e'
+            or recovery.get('status') != 'RECOVERED_EXACT_BYTES'
+            or recovery.get('bytes_reconstructed') is not False):
+        return ['H1_PREIMAGE_RECOVERY_CENSUS_OR_ORIGIN']
+    errors = []
+    for relative, original in expected.items():
+        row = recovered[relative]
+        path = checked_path(relative)
+        if (row['original_path'] != original['path']
+                or row['sha256'] != original['before_sha256']
+                or not path.is_file() or not matches(path, original['before_sha256'])):
+            errors.append('H1_PREIMAGE_BYTES_OR_BINDING:' + relative)
+    return errors
+
+
 def verify() -> dict:
     mapping = json.loads((EVIDENCE / 'SOURCE_INTEGRATION_MAP.json').read_text(encoding='utf-8'))
     amendments = json.loads((EVIDENCE / 'ADOPTION_AMENDMENTS.json').read_text(encoding='utf-8'))
@@ -55,6 +76,7 @@ def verify() -> dict:
     if set(changes) != {
         'tools/run_section17_native_api_tests.py',
         'bie/evaluation/benchmarks/native_api/service.py',
+        'tests/section17/h2_support.py',
         'tests/section17/h4_support.py',
         'tests/section17/test_bio_001.py',
         'tests/section17/test_bio_002.py',
@@ -96,8 +118,12 @@ def verify() -> dict:
         errors.append('ADOPTION_CENSUS_MISMATCH')
     if not matches(checked_path(CLI), CLI_SHA):
         errors.append('QA_CLI_PATCH_MISMATCH')
+    delta = json.loads((ROOT / 'metadata/section17/H1_WORKSPACE_DELTA.json').read_text(encoding='utf-8'))
+    recovery = json.loads((EVIDENCE / 'H1_PREIMAGE_RECOVERY.json').read_text(encoding='utf-8'))
+    errors.extend(verify_h1_preimages(delta, recovery))
     return {'schema_version': 'bie.section17.adoption/1', 'adopted_files': adopted,
             'generated_caches_excluded': caches, 'reviewed_amendments': len(changes),
+            'recovered_h1_preimages': len(recovery['files']),
             'errors': errors, 'passed': not errors, 'section_complete': False,
             'product_accepted': False}
 

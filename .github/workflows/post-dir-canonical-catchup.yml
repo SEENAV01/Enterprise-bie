@@ -64,17 +64,6 @@ jobs:
           command -v ffmpeg
           command -v ffprobe
           test -x "$BIE_SECTION17_CHROMIUM"
-      - name: Require Section 17 browser startup before full regression
-        run: |
-          set -euo pipefail
-          python -B tools/run_section17_native_api_tests.py --pattern test_h5_006.py --output-dir "$RUNNER_TEMP/canonical-evidence/section17-browser-preflight"
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          result=json.loads((Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17-browser-preflight/TEST_RESULT.json').read_text())
-          assert result['all_passed'] and result['tests_run']==result['unique_test_method_ids']==8
-          assert result['fixture_events']==[] and result['native_module_origins_valid']
-          PY
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail
@@ -112,6 +101,37 @@ jobs:
           out=Path(os.environ['RUNNER_TEMP'])/'bie-ci-setup/chromium-session-preflight.json'
           out.write_text(json.dumps(receipt,indent=2)+'\\n')
           print(json.dumps(receipt,indent=2))
+          PY
+          # The preflight above proves the system Chromium can launch inside this
+          # exact D-Bus session. Section 17 must use that validated executable;
+          # the separately copied Section 15 browser remains available for its
+          # own isolation contract.
+          BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)"
+          export BIE_SECTION17_CHROMIUM
+          python - "$BIE_SECTION17_CHROMIUM" "$RUNNER_TEMP/bie-ci-setup/section17-chromium.txt" <<'PY'
+          from pathlib import Path
+          import hashlib,sys
+          path=Path(sys.argv[1])
+          if path.is_symlink() or not path.is_file():
+              raise SystemExit('SECTION17_CHROMIUM_NOT_REGULAR:'+str(path))
+          raw=path.read_bytes()
+          if raw[:4] != b'\x7fELF':
+              raise SystemExit('SECTION17_CHROMIUM_NOT_ELF:'+str(path))
+          Path(sys.argv[2]).write_text(
+              f'path={path}\nsha256={hashlib.sha256(raw).hexdigest()}\nbytes={len(raw)}\n',
+              encoding='utf-8',
+          )
+          print(f'SECTION17_CHROMIUM_NATIVE={path}')
+          PY
+          # Exercise authored AX assertions using the exact validated executable
+          # in this session before the expensive full regression.
+          python -B tools/run_section17_native_api_tests.py --pattern test_h5_006.py --output-dir "$RUNNER_TEMP/canonical-evidence/section17-browser-preflight"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          result=json.loads((Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17-browser-preflight/TEST_RESULT.json').read_text())
+          assert result['all_passed'] and result['tests_run']==result['unique_test_method_ids']==8
+          assert result['fixture_events']==[] and result['native_module_origins_valid']
           PY
           python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
           BASH

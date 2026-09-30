@@ -6,7 +6,8 @@
       "path": "tools/run_section17_native_api_tests.py",
       "original_sha256": "5b86d51a949e8e9b1146631111bfe0ec0c13d324343e2ca03ba12ccf18eea47a",
       "replacement_sha256": "301131e1d4e02e649d055624985558f365e2fed12cba77ddd4b893ffd1796987",
-      "reason": "Canonical integration disables sibling dependency snapshots, verifies BIE module origins, records class fixture failures without aborting the suite, and uses private writable XDG browser configuration/cache directories without changing browser security flags."
+      "reason": "Canonical integration disables sibling dependency snapshots, verifies BIE module origins, records class fixture failures without aborting the suite, and uses private writable XDG browser configuration/cache directories without changing browser security flags.",
+      "supersedes_replacement_sha256": "db3e34ad35c9b995bb502dec800b7d74f8bc8189c27d45357c54ab812680ac68"
     },
     {
       "path": "bie/evaluation/benchmarks/native_api/service.py",
@@ -79,6 +80,12 @@
       "original_sha256": "220d2defaf689a9bf66daedf94a45ef538e104de24d5aaf6718c14f06a0bf512",
       "replacement_sha256": "0ef42d81e648c70434066cbbf696c66b5f4133d61f8d7d5b4b316057fb68bc02",
       "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/h2_support.py",
+      "original_sha256": "34daf9f37b0bbb3f79e125978dc612f1d08ad9a5f524103b65b8933e3a2f0275",
+      "replacement_sha256": "0674be9310a572c5b387697605c1c96ae84b6d2fd3b8e71ce19a163ba80a61d9",
+      "reason": "Canonical integration binds the H2/H3 native contract fixture directly to the exact pinned canonical bie/compiler/render_contracts.py Git blob; no external dependency snapshot or duplicate provenance copy is used."
     }
   ]
 }
