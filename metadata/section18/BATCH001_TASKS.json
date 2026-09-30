@@ -1,0 +1,185 @@
+{
+  "schema_version": "bie.section18.batch001.tasks/1",
+  "section": 18,
+  "title": "APP - Product/API/Operator Experience",
+  "baseline_main_sha": "47cafba8975061555764c3c579ae6daad696ae64",
+  "baseline_main_tree": "821bde84740dbd38489eb95c8918645268b99688",
+  "task_count": 10,
+  "original_registry_count": 33,
+  "batch": "001",
+  "task_ids": [
+    "BIE-APP-RUN-001",
+    "BIE-APP-RUN-002",
+    "BIE-APP-RUN-003",
+    "BIE-APP-RUN-004",
+    "BIE-APP-RUN-005",
+    "BIE-APP-RUN-006",
+    "BIE-APP-RUN-007",
+    "BIE-APP-RUN-008",
+    "BIE-APP-GRAPH-001",
+    "BIE-APP-GRAPH-002"
+  ],
+  "tasks": [
+    {
+      "task_id": "BIE-APP-RUN-001",
+      "capability": "create run",
+      "owned_paths": [
+        "bie/app_product/operator_service.py",
+        "apps/api/section18.py"
+      ],
+      "test_modules": [
+        "tests.section18.test_run_and_source",
+        "tests.section18.test_status_timeline_failure"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-002",
+      "capability": "upload/import source",
+      "owned_paths": [
+        "bie/app_product/contracts.py",
+        "apps/api/section18.py",
+        "apps/web/section18/app.js",
+        "apps/web/section18/index.html"
+      ],
+      "test_modules": [
+        "tests.section18.test_run_and_source",
+        "tests.section18.test_web_contract"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-003",
+      "capability": "source validation UI",
+      "owned_paths": [
+        "bie/app_product/contracts.py",
+        "apps/api/section18.py",
+        "apps/web/section18/index.html",
+        "apps/web/section18/app.js",
+        "apps/web/section18/styles.css"
+      ],
+      "test_modules": [
+        "tests.section18.test_run_and_source",
+        "tests.section18.test_web_contract"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-004",
+      "capability": "run status",
+      "owned_paths": [
+        "bie/app_product/operator_service.py",
+        "apps/api/section18.py",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_status_timeline_failure",
+        "tests.section18.test_web_contract"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-005",
+      "capability": "stage timeline",
+      "owned_paths": [
+        "bie/app_product/operator_service.py",
+        "apps/api/section18.py",
+        "apps/web/section18/index.html",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_status_timeline_failure",
+        "tests.section18.test_controls",
+        "tests.section18.test_web_contract"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-006",
+      "capability": "failure view",
+      "owned_paths": [
+        "bie/app_product/operator_service.py",
+        "apps/api/section18.py",
+        "apps/web/section18/index.html",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_status_timeline_failure",
+        "tests.section18.test_controls"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-007",
+      "capability": "retry controls",
+      "owned_paths": [
+        "bie/app_product/operator_service.py",
+        "apps/api/section18.py",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_controls"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-RUN-008",
+      "capability": "cancel/pause/resume",
+      "owned_paths": [
+        "bie/app_product/control_store.py",
+        "bie/app_product/operator_service.py",
+        "apps/api/section18.py",
+        "scripts/run_bie_operator_worker.py",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_controls"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-GRAPH-001",
+      "capability": "concept graph viewer",
+      "owned_paths": [
+        "bie/app_product/graph_views.py",
+        "apps/api/section18.py",
+        "apps/web/section18/index.html",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_graph_views",
+        "tests.section18.test_web_contract"
+      ]
+    },
+    {
+      "task_id": "BIE-APP-GRAPH-002",
+      "capability": "prerequisite graph viewer",
+      "owned_paths": [
+        "bie/app_product/graph_views.py",
+        "apps/api/section18.py",
+        "apps/web/section18/index.html",
+        "apps/web/section18/app.js"
+      ],
+      "test_modules": [
+        "tests.section18.test_graph_views",
+        "tests.section18.test_web_contract"
+      ]
+    }
+  ],
+  "shared_paths": [
+    "bie/app_product/__init__.py",
+    "apps/api/main.py",
+    "tests/section18/support.py",
+    "tools/run_section18_batch001_tests.py",
+    "tools/run_section18_batch001_browser_smoke.py",
+    "tools/package_section18_batch001.py",
+    "tools/verify_section18_batch001_package.py",
+    "docs/section18/BATCH001_SPEC.md",
+    "docs/section18/CONTINUATION.json"
+  ],
+  "acceptance_boundary": {
+    "implementation_scope": "Supported local PDF source and canonical persisted job/graph state; no mock backend.",
+    "not_claimed": [
+      "all 33 Section 18 original tasks complete",
+      "Section 18 complete",
+      "production deployment",
+      "authentication or tenant isolation complete",
+      "real-book full BIE pipeline acceptance",
+      "video/game preview acceptance",
+      "product acceptance",
+      "Task 028 restart"
+    ]
+  }
+}
