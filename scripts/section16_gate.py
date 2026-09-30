@@ -36,6 +36,11 @@ NATIVE_MATH_EXPECTATION_PATHS = frozenset({
     'tests/qa_hardening_h4/test_h4_interfaces.py',
     'tests/qa_math16/test_io_adapters_bridge.py',
 })
+SECTION17_CLI_PATH = 'bie/qa/lifecycle_quality_v2/__main__.py'
+SECTION17_CLI_BINDING = 'docs/section17/integration-r1/QA_CLI_PATCH_BINDING.json'
+SECTION17_CLI_BINDING_SHA256 = 'b40bdcb224492549312284aada757f28f22fa1e987b650443a5c2d51f872004f'
+SECTION17_CLI_BASE_SHA256 = '58014fef4352224c772684b876a4e269459e2fa605235d2a2ad868c0faad0a0b'
+SECTION17_CLI_SHA256 = '7bc0c5b937d14a4918349f377716d213e9447812aac2f8d5f443bda0b7f6ee0e'
 SUITES = (
     ('qa_section16', 132), ('qa_source16', 146), ('qa_semantic16', 134),
     ('qa_reasoning16', 217), ('qa_math16', 276), ('qa_pedagogy16', 193),
@@ -154,6 +159,23 @@ def verify_adoption(root):
     bridge_payload = safe_path(root, NATIVE_PDF_MATH_BRIDGE_PATH).read_bytes()
     if len(bridge_payload) != pdf_math['size'] or sha(bridge_payload) != pdf_math['sha256']:
         raise ValueError('NATIVE_PDF_MATH_BRIDGE_BYTES')
+    # Section 17 extends exactly one Section 16-owned CLI. Preserve the
+    # original adoption row, and accept only the independently reviewed
+    # source-to-candidate patch binding and its exact resulting bytes.
+    binding_path = safe_path(root, SECTION17_CLI_BINDING)
+    if sha(binding_path.read_bytes()) != SECTION17_CLI_BINDING_SHA256:
+        raise ValueError('SECTION17_CLI_BINDING')
+    binding = read_json(binding_path)
+    if binding != {
+            'path': SECTION17_CLI_PATH,
+            'base_sha256': SECTION17_CLI_BASE_SHA256,
+            'candidate_sha256': SECTION17_CLI_SHA256,
+            'base_git_blob_sha': 'a26b01bb70ae0b60d85319c0b8a429bc207845ed',
+            'canonical_pin': '8b8e500bf7b83addfcecce41c3fca08563eceb41',
+            'patch_applied_remotely': False,
+            'scope': 'Reviewed local candidate; revalidate against current checkout',
+            }:
+        raise ValueError('SECTION17_CLI_BINDING')
     rows = data['paths']
     if len(rows) != 817:
         raise ValueError('ADOPTION_COUNT')
@@ -179,6 +201,12 @@ def verify_adoption(root):
                     or len(payload) != migrated.get('after_size')
                     or sha(payload) != migrated.get('after_sha256')):
                 raise ValueError('NATIVE_MATH_EXPECTATION_BYTES:' + name)
+        elif name == SECTION17_CLI_PATH:
+            if (type(row['size']) is not int or row['size'] != 1659
+                    or row['sha256'] != SECTION17_CLI_BASE_SHA256):
+                raise ValueError('SECTION17_CLI_BASELINE')
+            if len(payload) != 2010 or sha(payload) != SECTION17_CLI_SHA256:
+                raise ValueError('SECTION17_CLI_BYTES')
         elif type(row['size']) is not int or len(payload) != row['size'] or sha(payload) != row['sha256']:
             raise ValueError('ADOPTION_BYTES:' + name)
         roles[row['role']] += 1
@@ -210,6 +238,7 @@ def verify_adoption(root):
                 native_math_repair_manifest_sha256=sha((root / NATIVE_MATH_REPAIR).read_bytes()),
                 native_pdf_math_bridge_manifest_sha256=sha((root / NATIVE_PDF_MATH_BRIDGE).read_bytes()),
                 amended_paths=[patch['path'], *sorted(NATIVE_MATH_EXPECTATION_PATHS)],
+                cross_section_extensions=[SECTION17_CLI_PATH],
                 native_owner_repair_path=NATIVE_MATH_PATH,
                 exact_qa_additions=[NATIVE_PDF_MATH_BRIDGE_PATH])
 

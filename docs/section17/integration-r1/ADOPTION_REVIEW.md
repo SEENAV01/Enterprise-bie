@@ -74,3 +74,37 @@ that path matches its committed Git blob. Historical files and the verifier
 were not altered to make the check pass. The complete preservation gate must
 run in the approved Linux checkout and its exact candidate result must be
 inspected before PR/merge readiness is claimed.
+
+The hosted run `36675956256` tested commit
+`3910368ad81fab63ce9597d90b7b0209bed241e1`. Its 9,470-method enterprise
+run failed in `tests/assembly/test_section16_gate.py`: the Section 16
+adoption guard rejected the reviewed two-route QA CLI extension as
+`ADOPTION_BYTES:bie/qa/lifecycle_quality_v2/__main__.py`. The downloaded
+artifact `11079729909` matched GitHub's SHA-256
+`9ffe35161373349681cd5127c237a2dff0149d7e1a992c3575ef39c2d898b1d8`.
+The Section 17 suite had not run because the earlier gate failed.
+
+The scoped integration repair preserves the original Section 16 adoption
+manifest and adds one explicit cross-section extension to its guard. The
+original CLI row must still match its original 1,659-byte hash; the extension
+must match the R1 patch-binding document and its exact 2,010-byte candidate
+hash. The guard reports this extension separately from Section 16 amendments.
+Three seeded-negative controls reject altered original rows, binding data,
+and CLI bytes. All 39 guard tests passed on an isolated Git-blob snapshot
+exported with `core.autocrlf=false`; the first Windows export used host CRLF
+conversion and was invalid for byte-preservation testing. No historical
+evidence or guard was normalized to conceal that difference.
+
+The five existing journal CLI behavior tests and the existing structural
+schema test passed (6/6) with the pinned `jsonschema==4.26.0` installed in an
+external validation directory. The broader 11-method file is not claimed
+as a Windows pass: Linux-only secure artifact I/O rejects this host. Hosted
+Linux validation remains mandatory. Section 17 adoption verification still
+passes for all 780 files and 12 documented amendments.
+
+The shared approved browser setup now exports its regular executable path
+for every subsequent combined-gate caller. Section 16 combined CI is also
+enabled for this explicit integration branch, retaining its 4,856-method
+denominator and the complete enterprise/Section 17 checks. These changes do
+not change browser isolation, production algorithms, historical manifests,
+or the remaining real-book/independent-assessment acceptance obligations.

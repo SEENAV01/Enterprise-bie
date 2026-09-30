@@ -20,3 +20,9 @@ profile bie-game-validation /opt/bie-game-chromium/chrome flags=(unconfined) {
 PROFILE
 sudo apparmor_parser -r /etc/apparmor.d/bie-game-validation-chromium
 chromium --version
+# The Section 17 integrity check pins the executable itself, not the convenience
+# symlink. Share this approved installed path with later steps that run the
+# combined repository gate, including the existing QA/AUDIO workflows.
+if [[ -n "${GITHUB_ENV:-}" ]]; then
+  printf '%s\n' 'BIE_SECTION17_CHROMIUM=/opt/bie-game-chromium/chrome' >> "$GITHUB_ENV"
+fi
