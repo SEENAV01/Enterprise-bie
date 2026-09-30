@@ -3,6 +3,12 @@
   "source_master_sha256": "03043839a2290672a4b672cbb39952846e77ff99572a791bf0ca89cf14a51f4e",
   "amendments": [
     {
+      "path": "tools/run_section17_native_api_tests.py",
+      "original_sha256": "5b86d51a949e8e9b1146631111bfe0ec0c13d324343e2ca03ba12ccf18eea47a",
+      "replacement_sha256": "a92b8ebfe4d53117e369c2202e5c67f358f7cd508550b62a4c1e141bdc603aa8",
+      "reason": "Canonical integration disables the package's sibling dependency snapshot fallback, verifies loaded BIE module origins, and records the actual source scope."
+    },
+    {
       "path": "bie/evaluation/benchmarks/native_api/service.py",
       "original_sha256": "033f01943e3d79d5b01870bbf469bcbf774a78a368c77802c622dabf95095e18",
       "replacement_sha256": "1aa453ce284851802c70b78183032367c06274497ff2a6a902c530517b3db11d",

@@ -8,6 +8,8 @@ class Section17GateTests(unittest.TestCase):
         return {
             'all_passed': True,
             'source_changed_during_run': False,
+            'native_module_origins_valid': True,
+            'external_dependency_snapshot_used': False,
             'tests_run': EXPECTED_METHODS,
             'unique_test_method_ids': EXPECTED_METHODS,
             'records': [
@@ -46,6 +48,16 @@ class Section17GateTests(unittest.TestCase):
 
     def test_runner_failure_fails(self):
         self.assertFalse(complete(self.receipt(), 1))
+
+    def test_foreign_module_origin_fails(self):
+        value = self.receipt()
+        value['native_module_origins_valid'] = False
+        self.assertFalse(complete(value, 0))
+
+    def test_external_snapshot_fails(self):
+        value = self.receipt()
+        value['external_dependency_snapshot_used'] = True
+        self.assertFalse(complete(value, 0))
 
 
 if __name__ == '__main__':

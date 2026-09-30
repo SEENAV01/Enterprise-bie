@@ -26,7 +26,7 @@ acceptance. Task 028 remains paused; Section 18 is unchanged.
   copying into an absent target. No `__pycache__` or `.pyc` was adopted.
   `SOURCE_INTEGRATION_MAP.json` and `ADOPTION_AMENDMENTS.json` are retained
   in this directory; `scripts/verify_section17_adoption.py` verifies all
-  780 adopted paths, 12 reviewed amendments (two integration adaptations and
+  780 adopted paths, 13 reviewed amendments (three integration adaptations and
   ten EOF-only test formatting fixes), the original CLI route patch,
   and the absence of 15 generated caches. Its local result passed.
 - The existing QA lifecycle CLI's Git blob SHA matched the package's stated
@@ -108,3 +108,13 @@ enabled for this explicit integration branch, retaining its 4,856-method
 denominator and the complete enterprise/Section 17 checks. These changes do
 not change browser isolation, production algorithms, historical manifests,
 or the remaining real-book/independent-assessment acceptance obligations.
+
+Canonical-runner provenance is the third integration adaptation. The recovered
+standalone runner could add a sibling `dependency_snapshot` to `sys.path` and
+always described that snapshot in its receipt. The canonical runner no longer
+imports that location. It records every loaded BIE file/namespace origin and
+fails if an origin is missing or outside this checkout's `bie/` tree. The
+Section 17 gate requires this origin result and an explicit false value for
+external-snapshot use. The amended runner's original and replacement hashes
+are recorded without changing the supplied master or original integration map.
+Positive and seeded-negative runner/gate/adoption controls passed 16/16 locally.

@@ -1,4 +1,4 @@
-"""Verify every adopted R1 file and the two reviewed integration amendments."""
+"""Verify every adopted R1 file and its reviewed integration amendments."""
 from __future__ import annotations
 
 import argparse
@@ -53,6 +53,7 @@ def verify() -> dict:
         raise ValueError('WRONG_SOURCE_MASTER')
     changes = {row['path']: row for row in amendments['amendments']}
     if set(changes) != {
+        'tools/run_section17_native_api_tests.py',
         'bie/evaluation/benchmarks/native_api/service.py',
         'tests/section17/h4_support.py',
         'tests/section17/test_bio_001.py',

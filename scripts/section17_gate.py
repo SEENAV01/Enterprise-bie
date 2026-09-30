@@ -17,6 +17,8 @@ def complete(receipt: dict, returncode: int) -> bool:
         returncode == 0
         and receipt.get('all_passed') is True
         and receipt.get('source_changed_during_run') is False
+        and receipt.get('native_module_origins_valid') is True
+        and receipt.get('external_dependency_snapshot_used') is False
         and receipt.get('tests_run') == EXPECTED_METHODS
         and receipt.get('unique_test_method_ids') == EXPECTED_METHODS
         and len(records) == EXPECTED_METHODS
@@ -45,6 +47,8 @@ def main() -> int:
         'section17_methods_observed': receipt.get('tests_run'),
         'suite_passed': passed,
         'source_inventory_sha256': receipt.get('candidate_inventory_sha256'),
+        'native_module_origins_valid': receipt.get('native_module_origins_valid'),
+        'external_dependency_snapshot_used': receipt.get('external_dependency_snapshot_used'),
         'section_complete': False,
         'product_accepted': False,
     }
