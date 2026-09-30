@@ -58,13 +58,7 @@ async def validate_source(request: Request) -> JSONResponse:
     try:
         payload = await _read_bounded(request)
     except PayloadTooLarge:
-        return JSONResponse(
-            status_code=200,
-            content=validate_pdf_source(
-                b"x" * (MAX_SOURCE_BYTES + 1),
-                media_type=_media_type(request) or "application/octet-stream",
-            ).to_safe_dict(),
-        )
+        return _error(413, "source_too_large", "Source exceeds the configured validation limit")
     except Exception:
         return _error(500, "internal_error", "Internal service error")
     try:

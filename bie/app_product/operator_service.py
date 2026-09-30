@@ -395,7 +395,7 @@ class OperatorJobService(PdfInspectionJobService):
         control = self.controls.ensure_active(job_id)
 
         if control.state == "PAUSED":
-            self.queue.nack(task_id, worker_id, delay_seconds=1.0, reason="paused_by_operator")
+            self.queue.nack(task_id, worker_id, delay_seconds=0.0, reason="paused_by_operator")
             return WorkerOutcome("PAUSED", job_id, task_id)
         if control.state in {"CANCEL_REQUESTED", "CANCELLED"}:
             self._finalize_cancel(job_id, attempt_number, task_id)
