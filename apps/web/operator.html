@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIE Operator</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:960px;margin:auto;padding:1rem;line-height:1.45}
+fieldset{margin:1rem 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f5f5;padding:.75rem}button,input{font:inherit;padding:.5rem}
+</style>
+</head>
+<body><main>
+<h1>My Book Intelligence Engine — Operator</h1>
+<p>This development UI shows persisted backend state. It does not infer product acceptance.</p>
+<fieldset><legend>Create bounded run</legend><label>Config SHA-256 <input id="config" size="68" maxlength="64"></label><button id="create">Create run</button></fieldset>
+<fieldset><legend>Import PDF source</legend><label>Run ID <input id="run"></label><label>PDF <input id="pdf" type="file" accept="application/pdf"></label><button id="upload">Validate &amp; store source</button></fieldset>
+<div class="grid">
+<section><h2>Status</h2><button id="status">Refresh</button><pre id="statusOut" aria-live="polite"></pre></section>
+<section><h2>Timeline</h2><button id="timeline">Refresh</button><pre id="timelineOut" aria-live="polite"></pre></section>
+<section><h2>Failures</h2><button id="failures">Refresh</button><pre id="failureOut" aria-live="polite"></pre></section>
+</div></main>
+<script>
+const q=id=>document.getElementById(id),out=(id,v)=>q(id).textContent=JSON.stringify(v,null,2);
+async function j(url,o){const r=await fetch(url,o),b=await r.json();if(!r.ok)throw new Error(JSON.stringify(b));return b}
+q('create').onclick=async()=>{try{const v=await j('/v1/operator/runs',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({config_hash:q('config').value})});q('run').value=v.run_id;out('statusOut',v)}catch(e){out('statusOut',{error:String(e)})}};
+q('upload').onclick=async()=>{try{const f=q('pdf').files[0];if(!f)throw new Error('Choose a PDF');out('statusOut',await j('/v1/operator/runs/'+encodeURIComponent(q('run').value)+'/source',{method:'POST',headers:{'content-type':f.type||'application/pdf','x-bie-filename':f.name},body:f}))}catch(e){out('statusOut',{error:String(e)})}};
+q('status').onclick=async()=>{try{out('statusOut',await j('/v1/operator/runs/'+encodeURIComponent(q('run').value)))}catch(e){out('statusOut',{error:String(e)})}};
+q('timeline').onclick=async()=>{try{out('timelineOut',await j('/v1/operator/runs/'+encodeURIComponent(q('run').value)+'/timeline'))}catch(e){out('timelineOut',{error:String(e)})}};
+q('failures').onclick=async()=>{try{out('failureOut',await j('/v1/operator/runs/'+encodeURIComponent(q('run').value)+'/failures'))}catch(e){out('failureOut',{error:String(e)})}};
+</script></body></html>

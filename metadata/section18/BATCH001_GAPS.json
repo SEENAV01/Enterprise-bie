@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "gaps": [
+    {
+      "id": "APP18-RUNTIME-PROFILE",
+      "status": "OPEN",
+      "detail": "Only bounded pdf_inspection_v1 run profile is wired; full BIE pipeline creation/start remains integration work."
+    },
+    {
+      "id": "APP18-CONTROL-WORKER-BINDING",
+      "status": "OPEN",
+      "detail": "Pause/resume/cancel requests are persisted truthfully but actual worker/orchestrator acknowledgement remains required."
+    },
+    {
+      "id": "APP18-RETRY-DISPATCH",
+      "status": "OPEN",
+      "detail": "Retry creates canonical READY attempt; queue/orchestrator dispatch binding remains required."
+    },
+    {
+      "id": "APP18-GRAPH-NATIVE-SCHEMA",
+      "status": "OPEN",
+      "detail": "Graph viewer uses explicit bie.graph.v1 contract; canonical graph artifact adapters must be verified."
+    },
+    {
+      "id": "APP18-AUTHORIZATION",
+      "status": "OPEN",
+      "detail": "Existing local API has no authentication; production authorization and tenant boundaries remain later work."
+    },
+    {
+      "id": "APP18-REAL-UI-E2E",
+      "status": "NOT_RUN",
+      "detail": "Static operator UI and API are present; hosted browser/native mobile flows remain required."
+    }
+  ],
+  "section_complete": false,
+  "product_accepted": false
+}

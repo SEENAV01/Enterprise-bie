@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "section": 18,
+  "section_name": "APP - Product/API/Operator Experience",
+  "canonical_base_commit": "47cafba8975061555764c3c579ae6daad696ae64",
+  "tasks": [
+    {
+      "task_id": "BIE-APP-RUN-001",
+      "capability": "create run",
+      "test_module": "tests.section18.test_run_001"
+    },
+    {
+      "task_id": "BIE-APP-RUN-002",
+      "capability": "upload/import source",
+      "test_module": "tests.section18.test_run_002"
+    },
+    {
+      "task_id": "BIE-APP-RUN-003",
+      "capability": "source validation UI",
+      "test_module": "tests.section18.test_run_003"
+    },
+    {
+      "task_id": "BIE-APP-RUN-004",
+      "capability": "run status",
+      "test_module": "tests.section18.test_run_004"
+    },
+    {
+      "task_id": "BIE-APP-RUN-005",
+      "capability": "stage timeline",
+      "test_module": "tests.section18.test_run_005"
+    },
+    {
+      "task_id": "BIE-APP-RUN-006",
+      "capability": "failure view",
+      "test_module": "tests.section18.test_run_006"
+    },
+    {
+      "task_id": "BIE-APP-RUN-007",
+      "capability": "retry controls",
+      "test_module": "tests.section18.test_run_007"
+    },
+    {
+      "task_id": "BIE-APP-RUN-008",
+      "capability": "cancel/pause/resume",
+      "test_module": "tests.section18.test_run_008"
+    },
+    {
+      "task_id": "BIE-APP-GRAPH-001",
+      "capability": "concept graph viewer",
+      "test_module": "tests.section18.test_graph_001"
+    },
+    {
+      "task_id": "BIE-APP-GRAPH-002",
+      "capability": "prerequisite graph viewer",
+      "test_module": "tests.section18.test_graph_002"
+    }
+  ],
+  "original_section18_total": 33,
+  "section_complete": false,
+  "product_accepted": false,
+  "task028": "PAUSED"
+}
