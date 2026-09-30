@@ -197,6 +197,14 @@ class Batch001ApiIntegrationTests(unittest.TestCase):
         self.assertNotIn("product_accepted", serialized)
         self.assertNotIn("release_authorized", serialized)
 
+    def test_prerequisite_endpoint_rejects_non_mapping_edges(self):
+        response = self.client.post("/v1/operator/viewers/prerequisite-graph", json={
+            "nodes": ["a", "b"],
+            "edges": ["not-an-edge"],
+        })
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json()["error"]["code"], "prerequisite_edge_must_be_mapping")
+
 
 if __name__ == "__main__":
     unittest.main()

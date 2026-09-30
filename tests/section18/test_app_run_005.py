@@ -57,6 +57,28 @@ class AppRun005Tests(OperatorCase):
         view = StageTimelineService(self.context).timeline(result["run"]["run_id"])
         self.assertEqual(view["event_count"], len(view["events"]))
 
+    def test_retry_timeline_keeps_prior_and_current_attempts(self):
+        result = self.imported("timeline-retry")
+        run_id = result["run"]["run_id"]
+        import apps.api.job_service as jobs_module
+        from unittest.mock import patch
+        service = self.context.job_service()
+        try:
+            with patch.object(jobs_module, "inspect_real_pdf_toc", side_effect=RuntimeError("controlled")):
+                self.assertEqual(service.run_once("timeline-retry-fail").outcome, "FAILED")
+        finally:
+            service.close()
+        self.observe(run_id)
+        from bie.product_app_v1.retry import RetryService
+        RetryService(self.context).retry(run_id)
+        view = StageTimelineService(self.context).timeline(run_id)
+        attempts = {
+            e["payload"].get("operator_attempt")
+            for e in view["events"]
+            if e["origin"] in {"canonical_persistence", "canonical_queue"}
+        }
+        self.assertEqual(attempts, {1, 2})
+
 
 if __name__ == "__main__":
     import unittest

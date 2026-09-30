@@ -119,6 +119,23 @@ class AppRun008Tests(OperatorCase):
         controls.resume(run_id)
         self.assertEqual(self.run_native_once().outcome, "ACKED")
 
+    def test_cancel_paused_relabels_durable_queue_as_cancelled(self):
+        result = self.imported("cancel-paused-reason")
+        run_id = result["run"]["run_id"]
+        controls = RunControlService(self.context)
+        controls.pause(run_id)
+        controls.cancel(run_id)
+        service = self.context.job_service()
+        try:
+            delivery = service.queue.get("inspect-" + result["canonical_job"]["job_id"][4:])
+            events = service.queue.events(delivery.task.task_id)
+        finally:
+            service.close()
+        self.assertEqual(delivery.state, "DEAD_LETTER")
+        self.assertEqual(delivery.last_reason, "operator_cancel")
+        self.assertEqual(events[-1]["event_type"], "DEAD_LETTERED")
+        self.assertEqual(events[-1]["reason"], "operator_cancel")
+
 
 if __name__ == "__main__":
     import unittest
