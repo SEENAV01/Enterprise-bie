@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_METHODS = 2023  # 2018 recovered originals + 5 checkout-pin integration tests.
+EXPECTED_METHODS = 2024  # 2018 recovered originals + 5 checkout-pin tests + 1 fixture-error regression.
 
 
 def complete(receipt: dict, returncode: int) -> bool:

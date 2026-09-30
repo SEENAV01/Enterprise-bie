@@ -120,7 +120,7 @@ jobs:
           from pathlib import Path
           p=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17/GATE_RESULT.json'
           result=json.loads(p.read_text())
-          if result.get('suite_passed') is not True or result.get('section17_methods_observed') != 2023:
+          if result.get('suite_passed') is not True or result.get('section17_methods_observed') != 2024:
               raise SystemExit('SECTION17_GATE_INCOMPLETE: '+str(result))
           if result.get('product_accepted') is not False or result.get('section_complete') is not False:
               raise SystemExit('SECTION17_UNSUPPORTED_PROMOTION')
