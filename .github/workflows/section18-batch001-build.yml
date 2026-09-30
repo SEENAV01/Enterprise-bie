@@ -70,6 +70,102 @@ jobs:
           PY
           python -B dist/section18_batch001/delivery/VERIFY_DELIVERY.py dist/section18_batch001/delivery
 
+      - name: Upload BIE_APP_RUN_001 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_001
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_001.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_002 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_002
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_002.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_003 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_003
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_003.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_004 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_004
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_004.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_005 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_005
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_005.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_006 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_006
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_006.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_007 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_007
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_007.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_RUN_008 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_RUN_008
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_RUN_008.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_GRAPH_001 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_GRAPH_001
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_GRAPH_001.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload BIE_APP_GRAPH_002 atomic ZIP
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_GRAPH_002
+          path: dist/section18_batch001/delivery/atomics/BIE_APP_GRAPH_002.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Batch 001 master package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_SECTION18_BATCH001_MASTER_PACKAGE
+          path: dist/section18_batch001/delivery/BIE_APP_SECTION18_BATCH001_MASTER_PACKAGE.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Batch 001 combined source
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: BIE_APP_SECTION18_BATCH001_COMBINED_SOURCE
+          path: dist/section18_batch001/delivery/BIE_APP_SECTION18_BATCH001_COMBINED_SOURCE.zip
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload verified Section 18 Batch 001 delivery
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
