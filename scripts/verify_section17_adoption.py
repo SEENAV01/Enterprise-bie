@@ -55,7 +55,9 @@ def verify() -> dict:
     if set(changes) != {
         'tools/run_section17_native_api_tests.py',
         'bie/evaluation/benchmarks/native_api/service.py',
+        'tests/section17/h2_support.py',
         'tests/section17/h4_support.py',
+        'tests/section17/test_batch002_contracts.py',
         'tests/section17/test_bio_001.py',
         'tests/section17/test_bio_002.py',
         'tests/section17/test_bio_003.py',

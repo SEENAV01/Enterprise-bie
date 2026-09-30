@@ -95,5 +95,14 @@
   },
   "full_repository_regression_run_now": false,
   "github_written_now": false,
-  "product_accepted": false
+  "product_accepted": false,
+  "integration_evidence_gaps": [
+    {
+      "id": "H1-PREIMAGE-BYTES-NOT-ADOPTED",
+      "status": "OPEN",
+      "scope": "The R1 canonical source adoption retained H1 before/after SHA256 ledgers but did not place the archive-only H1 preimage byte files under evidence/section17/h1/preimages in Git. Original atomic/master archives remain external historical evidence; no preimage bytes are reconstructed or claimed present.",
+      "bytes_reconstructed": false,
+      "acceptance_effect": "Does not permit Section17 sign-off or product acceptance; close only by importing exact hash-matching preimage bytes from preserved original archives."
+    }
+  ]
 }

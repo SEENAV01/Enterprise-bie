@@ -5,7 +5,7 @@ import atexit, tempfile, subprocess, hashlib, copy
 from bie.evaluation.benchmarks.models import digest
 from bie.evaluation.benchmarks.av.service import collect_and_evaluate
 ROOT=Path(__file__).resolve().parents[2]
-CONTRACT=ROOT/'provenance/section17/h2/native/render_contracts.py'
+CONTRACT=ROOT/'bie/compiler/render_contracts.py'
 _TMP=tempfile.TemporaryDirectory(prefix='bie-h2-tests-');atexit.register(_TMP.cleanup)
 TD=Path(_TMP.name)
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
