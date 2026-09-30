@@ -29,12 +29,17 @@ class SourceImportService:
         name = require_token(display_name, "display_name", max_len=240)
         validation = validate_pdf_source(payload, media_type=media_type)
         if not validation.accepted:
-            self.context.operator.transition(
+            # A rejected upload is not an engine failure. Keep the run in DRAFT
+            # so the operator can correct the source and try again, while
+            # retaining immutable rejection evidence in the operator timeline.
+            self.context.operator.record_event(
                 run_id,
-                expected={"DRAFT"},
-                target="BLOCKED",
-                event_type="SOURCE_REJECTED",
-                payload={"diagnostics": list(validation.diagnostics)},
+                "SOURCE_REJECTED",
+                {
+                    "diagnostics": list(validation.diagnostics),
+                    "byte_length": validation.byte_length,
+                    "media_type": validation.media_type,
+                },
             )
             return {
                 "run": self.context.operator.get_run(run_id).to_safe_dict(),

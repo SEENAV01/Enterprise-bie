@@ -251,6 +251,27 @@ class SQLiteOperatorStore:
             raise OperatorError("attempt_not_found")
         return AttemptSnapshot(*row)
 
+    def record_event(
+        self,
+        run_id: str,
+        event_type: str,
+        payload: dict[str, Any] | None = None,
+    ) -> OperatorEvent:
+        if type(event_type) is not str or not event_type.strip():
+            raise OperatorError("invalid_event_type")
+        with self._lock, self._connect() as c:
+            try:
+                c.execute("BEGIN IMMEDIATE")
+                if c.execute("SELECT 1 FROM operator_runs WHERE run_id=?", (run_id,)).fetchone() is None:
+                    raise OperatorError("run_not_found")
+                sequence = self._append_event_tx(c, run_id, event_type.strip(), dict(payload or {}))
+                c.execute("UPDATE operator_runs SET updated_at=? WHERE run_id=?", (self._now(), run_id))
+                c.execute("COMMIT")
+            except Exception:
+                c.execute("ROLLBACK")
+                raise
+        return next(e for e in self.events(run_id) if e.sequence == sequence)
+
     def transition(
         self,
         run_id: str,

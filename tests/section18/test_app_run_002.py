@@ -51,8 +51,9 @@ class AppRun002Tests(OperatorCase):
             run["run_id"], b"not-a-pdf", display_name="bad.pdf"
         )
         self.assertFalse(result["validation"]["accepted"])
-        self.assertEqual(result["run"]["state"], "BLOCKED")
+        self.assertEqual(result["run"]["state"], "DRAFT")
         self.assertIsNone(result["canonical_job"])
+        self.assertEqual(self.context.operator.events(run["run_id"])[-1].event_type, "SOURCE_REJECTED")
 
     def test_source_name_is_safe_metadata(self):
         result = self.imported("name", name="Physics — Unit 1.pdf")
@@ -79,6 +80,18 @@ class AppRun002Tests(OperatorCase):
         outcome = self.run_native_once()
         self.assertEqual(outcome.job_id, result["canonical_job"]["job_id"])
         self.assertEqual(outcome.outcome, "ACKED")
+
+    def test_rejected_upload_can_be_corrected_without_new_run(self):
+        run = self.create("correct-source")
+        service = SourceImportService(self.context)
+        rejected = service.import_pdf(run["run_id"], b"not-a-pdf", display_name="bad.pdf")
+        self.assertEqual(rejected["run"]["state"], "DRAFT")
+        accepted = service.import_pdf(run["run_id"], self.pdf, display_name="good.pdf")
+        self.assertTrue(accepted["validation"]["accepted"])
+        self.assertEqual(accepted["run"]["state"], "READY")
+        names = [e.event_type for e in self.context.operator.events(run["run_id"])]
+        self.assertEqual(names[:2], ["RUN_CREATED", "SOURCE_REJECTED"])
+        self.assertIn("SOURCE_BOUND", names)
 
 
 if __name__ == "__main__":
