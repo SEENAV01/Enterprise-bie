@@ -53,20 +53,27 @@ class RecordedResult(unittest.TextTestResult):
         super().__init__(*args, **kwargs); self.records={}
     def startTest(self,test):
         super().startTest(test); self.records[test.id()]={'test_id':test.id(),'status':'RUNNING'}
+    def _record(self,test,status='RUNNING'):
+        return self.records.setdefault(test.id(),{'test_id':test.id(),'status':status})
     def addSuccess(self,test):
         super().addSuccess(test)
-        if self.records[test.id()]['status']=='RUNNING': self.records[test.id()]['status']='PASS'
+        row=self._record(test)
+        if row['status']=='RUNNING': row['status']='PASS'
     def addFailure(self,test,err):
-        super().addFailure(test,err);self.records[test.id()]['status']='FAIL'
+        super().addFailure(test,err);self._record(test)['status']='FAIL'
     def addError(self,test,err):
-        super().addError(test,err);self.records[test.id()]['status']='ERROR'
+        # unittest can report class/module fixture errors through _ErrorHolder
+        # without calling startTest(). Preserve that failure instead of masking
+        # it with a bookkeeping KeyError.
+        super().addError(test,err);self._record(test)['status']='ERROR'
     def addSkip(self,test,reason):
-        super().addSkip(test,reason);self.records[test.id()]['status']='SKIP'
+        super().addSkip(test,reason);self._record(test)['status']='SKIP'
     def addSubTest(self,test,subtest,err):
         super().addSubTest(test,subtest,err)
-        if err is not None:self.records[test.id()]['status']='FAIL'
+        if err is not None:self._record(test)['status']='FAIL'
     def stopTest(self,test):
-        if self.records[test.id()]['status']=='RUNNING': self.records[test.id()]['status']='PASS'
+        row=self._record(test)
+        if row['status']=='RUNNING': row['status']='PASS'
         super().stopTest(test)
 
 

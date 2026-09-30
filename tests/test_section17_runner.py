@@ -1,9 +1,10 @@
 from pathlib import Path
+import io
 import tempfile
 from types import SimpleNamespace
 import unittest
 
-from tools.run_section17_native_api_tests import ROOT, native_module_origins
+from tools.run_section17_native_api_tests import ROOT, RecordedResult, native_module_origins
 
 
 class Section17RunnerOriginTests(unittest.TestCase):
@@ -34,6 +35,25 @@ class Section17RunnerOriginTests(unittest.TestCase):
     def test_missing_or_empty_origins_rejected(self):
         self.assertFalse(native_module_origins({})[1])
         self.assertFalse(native_module_origins({'bie.unknown': SimpleNamespace()})[1])
+
+    def test_fixture_level_error_is_preserved(self):
+        class BrokenFixture(unittest.TestCase):
+            @classmethod
+            def setUpClass(cls):
+                raise RuntimeError('fixture boom')
+            def test_never_runs(self):
+                pass
+
+        result = unittest.TextTestRunner(
+            stream=io.StringIO(),
+            verbosity=0,
+            resultclass=RecordedResult,
+        ).run(unittest.defaultTestLoader.loadTestsFromTestCase(BrokenFixture))
+        self.assertEqual(len(result.errors), 1)
+        self.assertTrue(any(
+            key.startswith('setUpClass') and row['status'] == 'ERROR'
+            for key, row in result.records.items()
+        ))
 
 
 if __name__ == '__main__':

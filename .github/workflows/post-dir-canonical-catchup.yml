@@ -102,6 +102,12 @@ jobs:
           out.write_text(json.dumps(receipt,indent=2)+'\\n')
           print(json.dumps(receipt,indent=2))
           PY
+          # The preflight above proves the system Chromium can launch inside this
+          # exact D-Bus session. Section 17 must use that validated executable;
+          # the separately copied Section 15 browser remains available for its
+          # own isolation contract.
+          export BIE_SECTION17_CHROMIUM=/usr/bin/chromium
+          test -x "$BIE_SECTION17_CHROMIUM"
           python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
           BASH
       - name: Exact supplied corpus and adoption verification
