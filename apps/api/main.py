@@ -191,3 +191,19 @@ async def job_result(job_id: str) -> JSONResponse:
         "job_id": job_id,
         "result": result,
     })
+
+
+# Section 18 operator/product candidate. This mounts additive routes and static
+# UI only; existing bounded API endpoints remain unchanged.
+from pathlib import Path as _Section18Path
+from fastapi.staticfiles import StaticFiles as _Section18StaticFiles
+from .section18 import router as section18_router
+
+app.include_router(section18_router)
+_section18_web = _Section18Path(__file__).resolve().parents[1] / "web" / "section18"
+if _section18_web.is_dir():
+    app.mount(
+        "/app",
+        _Section18StaticFiles(directory=str(_section18_web), html=True),
+        name="bie-section18-operator-app",
+    )
