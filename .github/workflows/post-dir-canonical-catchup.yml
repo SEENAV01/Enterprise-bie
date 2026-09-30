@@ -21,7 +21,7 @@ jobs:
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       BIE_GAME_CI_SUPERVISOR: '1'
-      BIE_SECTION17_CHROMIUM: /usr/local/bin/chromium
+      BIE_SECTION17_CHROMIUM: /opt/bie-game-chromium/chrome
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
