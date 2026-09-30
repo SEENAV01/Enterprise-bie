@@ -283,7 +283,10 @@ def build_master(registry: dict[str, object], atomics: list[dict[str, object]], 
             copy_file(path.relative_to(ROOT).as_posix(), master / path.relative_to(ROOT))
     copy_file("task_registry/section18_batch001.json", master / "task_registry" / "section18_batch001.json")
     for item in atomics:
-        copy_file(item["zip"], master / item["zip"])
+        source_zip = DELIVERY / item["zip"]
+        target_zip = master / item["zip"]
+        target_zip.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_zip, target_zip)
 
     full = run_command(
         [sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests/section18", "-p", "test_*.py", "-v"],

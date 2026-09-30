@@ -255,12 +255,13 @@ async def prerequisite_graph_page(request: Request):
         edges = body.get("edges")
         if not isinstance(nodes, list) or not isinstance(edges, list):
             raise OperatorError("prerequisite_graph_payload_required")
+        if any(not isinstance(e, dict) for e in edges):
+            raise OperatorError("prerequisite_edge_must_be_mapping")
         graph = build_graph(
             [str(x) for x in nodes],
             [
                 Edge(str(e["prerequisite"]), str(e["dependent"]), float(e.get("confidence", 1.0)))
                 for e in edges
-                if isinstance(e, dict)
             ],
         )
         view = prerequisite_graph_view(

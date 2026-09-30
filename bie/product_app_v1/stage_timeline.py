@@ -28,38 +28,43 @@ class StageTimelineService:
                 "event_type": event.event_type,
                 "payload": dict(event.payload),
             })
-        if run.canonical_job_id is not None:
+        if run.attempt > 0:
             service = self.context.job_service()
             try:
-                native = service.persistence.load_run_state(run.canonical_job_id)
-                for event in native["events"]:
-                    events.append({
-                        "origin": "canonical_persistence",
-                        "sequence": int(event["sequence"]),
-                        "timestamp": _iso_to_epoch(str(event["timestamp"])),
-                        "event_type": "STAGE_TRANSITION",
-                        "payload": {
-                            "stage_id": event["stage_id"],
-                            "from_state": event["from_state"],
-                            "to_state": event["to_state"],
-                            "attempt": event["attempt"],
-                            "reason": event["reason"],
-                            "evidence_refs": list(event["evidence_refs"]),
-                        },
-                    })
-                attempt = self.context.operator.attempt(run_id)
-                task_id = "inspect-" + attempt.canonical_job_id.removeprefix("job-")
-                for event in service.queue.events(task_id):
-                    events.append({
-                        "origin": "canonical_queue",
-                        "sequence": int(event["sequence"]),
-                        "timestamp": float(event["event_at"]),
-                        "event_type": str(event["event_type"]),
-                        "payload": {
-                            "delivery_count": event["delivery_count"],
-                            "reason": event["reason"],
-                        },
-                    })
+                for operator_attempt in range(1, run.attempt + 1):
+                    attempt = self.context.operator.attempt(run_id, operator_attempt)
+                    native = service.persistence.load_run_state(attempt.canonical_job_id)
+                    for event in native["events"]:
+                        events.append({
+                            "origin": "canonical_persistence",
+                            "sequence": int(event["sequence"]),
+                            "timestamp": _iso_to_epoch(str(event["timestamp"])),
+                            "event_type": "STAGE_TRANSITION",
+                            "payload": {
+                                "operator_attempt": operator_attempt,
+                                "canonical_job_id": attempt.canonical_job_id,
+                                "stage_id": event["stage_id"],
+                                "from_state": event["from_state"],
+                                "to_state": event["to_state"],
+                                "attempt": event["attempt"],
+                                "reason": event["reason"],
+                                "evidence_refs": list(event["evidence_refs"]),
+                            },
+                        })
+                    task_id = "inspect-" + attempt.canonical_job_id.removeprefix("job-")
+                    for event in service.queue.events(task_id):
+                        events.append({
+                            "origin": "canonical_queue",
+                            "sequence": int(event["sequence"]),
+                            "timestamp": float(event["event_at"]),
+                            "event_type": str(event["event_type"]),
+                            "payload": {
+                                "operator_attempt": operator_attempt,
+                                "canonical_job_id": attempt.canonical_job_id,
+                                "delivery_count": event["delivery_count"],
+                                "reason": event["reason"],
+                            },
+                        })
             finally:
                 service.close()
         events.sort(key=lambda row: (

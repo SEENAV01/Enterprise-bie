@@ -86,6 +86,11 @@ class RunControlService:
             else:
                 if delivery.state != "DEAD_LETTER" or delivery.last_reason != "operator_pause":
                     raise OperatorConflict("pause_queue_state_mismatch")
+                # Convert the queue's pause marker into an explicit cancellation
+                # marker. This keeps the durable queue truthful after the
+                # operator run becomes terminal.
+                service.queue.redrive(task_id)
+                service.queue.dead_letter(task_id, "operator_cancel")
         finally:
             service.close()
         return self.context.operator.transition(
