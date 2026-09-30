@@ -23,7 +23,8 @@ state remains in SQLitePersistence; work remains in SQLiteDurableTaskQueue. The
 Section 18 sidecar stores only display metadata and operator intent/audit events.
 
 Create/import/status/timeline/failure/retry flows execute against the actual
-`PdfInspectionJobService`. Pause/cancel for an unclaimed READY task uses the
+`PdfInspectionJobService`. Retry creates a new canonical child job rather than
+mutating immutable failure evidence in the failed parent. Pause/cancel for an unclaimed READY task uses the
 canonical queue's dead-letter/redrive primitives. Once a worker has claimed a task,
 pause/cancel fails closed rather than pretending preemption exists.
 

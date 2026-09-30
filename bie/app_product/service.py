@@ -164,12 +164,49 @@ class OperatorService:
             raise ControlConflict("cancelled_run_cannot_retry")
         if view.canonical_status != "FAILED":
             raise ControlConflict("retry_requires_failed_run")
-        delivery = self.native.queue.get(self._task_id(job_id))
-        if delivery.state != "DEAD_LETTER":
+        failed_delivery = self.native.queue.get(self._task_id(job_id))
+        if failed_delivery.state != "DEAD_LETTER":
             raise ControlConflict("retry_requires_dead_letter")
-        self.operator.record_retry(job_id, reason)
-        self.native.queue.redrive(delivery.task.task_id)
-        return ControlReceipt(job_id, "RETRY", "RETRY_QUEUED", "READY", reason)
+
+        previous = self.operator.retries(job_id)
+        if previous:
+            latest_child = previous[-1]["child_job_id"]
+            try:
+                latest_status = self.native.status(latest_child)
+            except JobNotFound as exc:
+                raise ProjectionError("retry_lineage_child_missing") from exc
+            if latest_status["status"] in {"READY", "RUNNING", "SUCCEEDED"}:
+                raise ControlConflict("retry_already_active_or_completed")
+
+        state = self.native.persistence.load_run_state(job_id)
+        attempt = state["stages"]["PDF_INSPECTION"]["attempts"][-1]
+        source_id = attempt["input_artifact_refs"][0]
+        record = self.native.persistence.load_artifact(source_id)
+        if record.artifact_type != "document.source.pdf":
+            raise ProjectionError("retry_source_artifact_type_mismatch")
+        source_bytes = self.native.cas.get_bytes(
+            BlobRef(record.blob_algorithm, record.blob_digest, record.blob_size)
+        )
+        source_meta = self.operator.source(job_id)
+        if source_meta is None or source_meta["source_hash"] != record.metadata.get("source_hash"):
+            raise ProjectionError("retry_source_index_binding_missing")
+
+        retry_no = len(previous) + 1
+        retry_key = f"section18-retry-{job_id[4:]}-{retry_no}"
+        child = self.native.submit(source_bytes, retry_key)
+        child_id = child["job_id"]
+        self.operator.remember_source(
+            child_id,
+            str(source_meta["display_name"]),
+            str(source_meta["source_hash"]),
+            int(source_meta["byte_length"]),
+            str(source_meta["media_type"]),
+        )
+        self.operator.record_retry(job_id, child_id, reason)
+        child_view = self.status(child_id)
+        return ControlReceipt(
+            job_id, "RETRY", "RETRY_QUEUED", child_view.queue_state, reason, child_id
+        )
 
     def pause(self, job_id: str, reason: str = "operator_pause") -> ControlReceipt:
         view = self.status(job_id)

@@ -9,7 +9,7 @@ import time
 from .contracts import AppProductError, ControlConflict
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 VALID_CONTROL_STATES = {"ACTIVE", "PAUSED", "CANCELLED"}
 
 
@@ -63,7 +63,16 @@ class OperatorStore:
                     from_state TEXT NOT NULL,
                     to_state TEXT NOT NULL,
                     reason TEXT NOT NULL,
+                    related_job_id TEXT,
                     event_at REAL NOT NULL
+                );
+                CREATE TABLE IF NOT EXISTS retry_links(
+                    parent_job_id TEXT NOT NULL,
+                    retry_no INTEGER NOT NULL,
+                    child_job_id TEXT NOT NULL UNIQUE,
+                    reason TEXT NOT NULL,
+                    created_at REAL NOT NULL,
+                    PRIMARY KEY(parent_job_id,retry_no)
                 );
                 COMMIT;
                 """
@@ -74,6 +83,11 @@ class OperatorStore:
                     "INSERT INTO schema_meta(key,value) VALUES('schema_version',?)",
                     (str(SCHEMA_VERSION),),
                 )
+            elif int(row[0]) == 1:
+                columns = {r[1] for r in c.execute("PRAGMA table_info(control_events)").fetchall()}
+                if "related_job_id" not in columns:
+                    c.execute("ALTER TABLE control_events ADD COLUMN related_job_id TEXT")
+                c.execute("UPDATE schema_meta SET value=? WHERE key='schema_version'", (str(SCHEMA_VERSION),))
             elif int(row[0]) != SCHEMA_VERSION:
                 raise AppProductError("unsupported_operator_store_schema")
 
@@ -158,9 +172,9 @@ class OperatorStore:
                         (target, reason, time.time(), job_id),
                     )
                 c.execute(
-                    "INSERT INTO control_events(job_id,action,from_state,to_state,reason,event_at) "
-                    "VALUES(?,?,?,?,?,?)",
-                    (job_id, action, current, target, reason, time.time()),
+                    "INSERT INTO control_events(job_id,action,from_state,to_state,reason,related_job_id,event_at) "
+                    "VALUES(?,?,?,?,?,?,?)",
+                    (job_id, action, current, target, reason, None, time.time()),
                 )
                 c.execute("COMMIT")
                 return target
@@ -168,33 +182,57 @@ class OperatorStore:
                 c.execute("ROLLBACK")
                 raise
 
-    def record_retry(self, job_id: str, reason: str) -> None:
-        if self.control_state(job_id) == "CANCELLED":
+    def record_retry(self, parent_job_id: str, child_job_id: str, reason: str) -> int:
+        if not child_job_id or parent_job_id == child_job_id:
+            raise ControlConflict("invalid_retry_lineage")
+        if self.control_state(parent_job_id) == "CANCELLED":
             raise ControlConflict("cancelled_run_cannot_retry")
         with self._lock, self._conn() as c:
             c.execute("BEGIN IMMEDIATE")
             try:
-                c.execute(
-                    "INSERT OR IGNORE INTO controls(job_id,state,reason,updated_at) VALUES(?,?,?,?)",
-                    (job_id, "ACTIVE", "retry", time.time()),
-                )
-                current = c.execute("SELECT state FROM controls WHERE job_id=?", (job_id,)).fetchone()[0]
-                if current == "PAUSED":
+                current = c.execute(
+                    "SELECT state FROM controls WHERE job_id=?", (parent_job_id,)
+                ).fetchone()
+                state = "ACTIVE" if current is None else current[0]
+                if state == "PAUSED":
                     raise ControlConflict("paused_run_must_resume_before_retry")
+                row = c.execute(
+                    "SELECT COALESCE(MAX(retry_no),0) FROM retry_links WHERE parent_job_id=?",
+                    (parent_job_id,),
+                ).fetchone()
+                retry_no = int(row[0]) + 1
                 c.execute(
-                    "INSERT INTO control_events(job_id,action,from_state,to_state,reason,event_at) "
-                    "VALUES(?,?,?,?,?,?)",
-                    (job_id, "RETRY", current, current, reason, time.time()),
+                    "INSERT INTO retry_links(parent_job_id,retry_no,child_job_id,reason,created_at) "
+                    "VALUES(?,?,?,?,?)",
+                    (parent_job_id, retry_no, child_job_id, reason, time.time()),
+                )
+                c.execute(
+                    "INSERT INTO control_events(job_id,action,from_state,to_state,reason,related_job_id,event_at) "
+                    "VALUES(?,?,?,?,?,?,?)",
+                    (parent_job_id, "RETRY", state, state, reason, child_job_id, time.time()),
                 )
                 c.execute("COMMIT")
+                return retry_no
             except Exception:
                 c.execute("ROLLBACK")
                 raise
 
+    def retries(self, parent_job_id: str) -> tuple[dict[str, object], ...]:
+        with self._conn() as c:
+            rows = c.execute(
+                "SELECT retry_no,child_job_id,reason,created_at FROM retry_links "
+                "WHERE parent_job_id=? ORDER BY retry_no",
+                (parent_job_id,),
+            ).fetchall()
+        return tuple(
+            {"retry_no": r[0], "child_job_id": r[1], "reason": r[2], "created_at": r[3]}
+            for r in rows
+        )
+
     def events(self, job_id: str) -> tuple[dict[str, object], ...]:
         with self._conn() as c:
             rows = c.execute(
-                "SELECT sequence,action,from_state,to_state,reason,event_at "
+                "SELECT sequence,action,from_state,to_state,reason,related_job_id,event_at "
                 "FROM control_events WHERE job_id=? ORDER BY sequence",
                 (job_id,),
             ).fetchall()
@@ -205,7 +243,8 @@ class OperatorStore:
                 "from_state": row[2],
                 "to_state": row[3],
                 "reason": row[4],
-                "event_at": row[5],
+                "related_job_id": row[5],
+                "event_at": row[6],
             }
             for row in rows
         )

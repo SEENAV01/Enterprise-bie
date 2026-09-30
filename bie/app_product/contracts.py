@@ -128,6 +128,7 @@ class ControlReceipt:
     state: str
     queue_state: str
     reason: str
+    related_job_id: str | None = None
 
     def to_safe_dict(self) -> dict[str, Any]:
         return asdict(self)

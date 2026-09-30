@@ -20,3 +20,10 @@ Primary verification:
 The task must consume canonical BIE runtime/graph state where applicable, remain
 deterministic and bounded, reject unsupported states, and avoid fabricated success.
 A passing local task is not Section 18 or product acceptance.
+
+## Retry immutability rule
+
+A retry does not overwrite the failed run's immutable result/evidence identifiers.
+It creates a new canonical child job using the exact CAS-bound source bytes, records
+a durable parent→child retry link, and leaves the failed parent/evidence intact.
+A second retry is rejected while the latest child is READY/RUNNING/SUCCEEDED.
