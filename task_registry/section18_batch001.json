@@ -1,0 +1,144 @@
+{
+  "schema_version": "bie.section18.batch001-registry/1",
+  "canonical_baseline": "47cafba8975061555764c3c579ae6daad696ae64",
+  "original_section18_task_count": 33,
+  "batch_task_count": 10,
+  "tasks": [
+    {
+      "task_id": "BIE-APP-RUN-001",
+      "capability": "Create run",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-001/SPEC.md",
+      "test": "tests/section18/test_app_run_001.py",
+      "owned_files": [
+        "bie/product_app_v1/models.py",
+        "bie/product_app_v1/store.py",
+        "bie/product_app_v1/context.py",
+        "bie/product_app_v1/run_create.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-002",
+      "capability": "Upload/import source",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-002/SPEC.md",
+      "test": "tests/section18/test_app_run_002.py",
+      "owned_files": [
+        "bie/product_app_v1/source_validation.py",
+        "bie/product_app_v1/source_import.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-003",
+      "capability": "Source validation UI",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-003/SPEC.md",
+      "test": "tests/section18/test_app_run_003.py",
+      "owned_files": [
+        "bie/product_app_v1/source_validation.py",
+        "apps/api/section18_operator.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-004",
+      "capability": "Run status",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-004/SPEC.md",
+      "test": "tests/section18/test_app_run_004.py",
+      "owned_files": [
+        "bie/product_app_v1/run_status.py",
+        "apps/web/section18_views.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-005",
+      "capability": "Stage timeline",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-005/SPEC.md",
+      "test": "tests/section18/test_app_run_005.py",
+      "owned_files": [
+        "bie/product_app_v1/stage_timeline.py",
+        "apps/web/section18_views.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-006",
+      "capability": "Failure view",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-006/SPEC.md",
+      "test": "tests/section18/test_app_run_006.py",
+      "owned_files": [
+        "bie/product_app_v1/failure_view.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-007",
+      "capability": "Retry controls",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-007/SPEC.md",
+      "test": "tests/section18/test_app_run_007.py",
+      "owned_files": [
+        "bie/product_app_v1/retry.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-RUN-008",
+      "capability": "Cancel/pause/resume",
+      "spec": "docs/section18/tasks/BIE-APP-RUN-008/SPEC.md",
+      "test": "tests/section18/test_app_run_008.py",
+      "owned_files": [
+        "bie/product_app_v1/run_control.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-GRAPH-001",
+      "capability": "Concept graph viewer",
+      "spec": "docs/section18/tasks/BIE-APP-GRAPH-001/SPEC.md",
+      "test": "tests/section18/test_app_graph_001.py",
+      "owned_files": [
+        "bie/product_app_v1/concept_graph_viewer.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    },
+    {
+      "task_id": "BIE-APP-GRAPH-002",
+      "capability": "Prerequisite graph viewer",
+      "spec": "docs/section18/tasks/BIE-APP-GRAPH-002/SPEC.md",
+      "test": "tests/section18/test_app_graph_002.py",
+      "owned_files": [
+        "bie/product_app_v1/prerequisite_graph_viewer.py"
+      ],
+      "status": "IMPLEMENTED_TEST_REQUIRED"
+    }
+  ],
+  "remaining_original_tasks": [
+    "BIE-APP-GRAPH-003",
+    "BIE-APP-LESSON-001",
+    "BIE-APP-LESSON-002",
+    "BIE-APP-LESSON-003",
+    "BIE-APP-LESSON-004",
+    "BIE-APP-LESSON-005",
+    "BIE-APP-ART-001",
+    "BIE-APP-ART-002",
+    "BIE-APP-ART-003",
+    "BIE-APP-ART-004",
+    "BIE-APP-ART-005",
+    "BIE-APP-ART-006",
+    "BIE-APP-QA-001",
+    "BIE-APP-QA-002",
+    "BIE-APP-QA-003",
+    "BIE-APP-QA-004",
+    "BIE-APP-ADMIN-001",
+    "BIE-APP-ADMIN-002",
+    "BIE-APP-ADMIN-003",
+    "BIE-APP-ADMIN-004",
+    "BIE-APP-ADMIN-005",
+    "BIE-APP-ADMIN-006",
+    "BIE-APP-ADMIN-007"
+  ],
+  "task028": "PAUSED_UNCHANGED",
+  "section17": "MERGED_BASELINE_ONLY",
+  "github_integration_for_section18": false,
+  "product_accepted": false
+}
