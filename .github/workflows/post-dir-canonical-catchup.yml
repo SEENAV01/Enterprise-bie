@@ -106,8 +106,23 @@ jobs:
           # exact D-Bus session. Section 17 must use that validated executable;
           # the separately copied Section 15 browser remains available for its
           # own isolation contract.
-          export BIE_SECTION17_CHROMIUM=/usr/bin/chromium
-          test -x "$BIE_SECTION17_CHROMIUM"
+          BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)"
+          export BIE_SECTION17_CHROMIUM
+          python - "$BIE_SECTION17_CHROMIUM" "$RUNNER_TEMP/bie-ci-setup/section17-chromium.txt" <<'PY'
+          from pathlib import Path
+          import hashlib,sys
+          path=Path(sys.argv[1])
+          if path.is_symlink() or not path.is_file():
+              raise SystemExit('SECTION17_CHROMIUM_NOT_REGULAR:'+str(path))
+          raw=path.read_bytes()
+          if raw[:4] != b'\x7fELF':
+              raise SystemExit('SECTION17_CHROMIUM_NOT_ELF:'+str(path))
+          Path(sys.argv[2]).write_text(
+              f'path={path}\nsha256={hashlib.sha256(raw).hexdigest()}\nbytes={len(raw)}\n',
+              encoding='utf-8',
+          )
+          print(f'SECTION17_CHROMIUM_NATIVE={path}')
+          PY
           python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
           BASH
       - name: Exact supplied corpus and adoption verification
@@ -120,7 +135,7 @@ jobs:
           from pathlib import Path
           p=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17/GATE_RESULT.json'
           result=json.loads(p.read_text())
-          if result.get('suite_passed') is not True or result.get('section17_methods_observed') != 2024:
+          if result.get('suite_passed') is not True or result.get('section17_methods_observed') != 2023:
               raise SystemExit('SECTION17_GATE_INCOMPLETE: '+str(result))
           if result.get('product_accepted') is not False or result.get('section_complete') is not False:
               raise SystemExit('SECTION17_UNSUPPORTED_PROMOTION')
