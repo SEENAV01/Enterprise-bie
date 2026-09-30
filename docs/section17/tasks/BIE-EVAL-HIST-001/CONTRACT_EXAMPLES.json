@@ -1,0 +1,336 @@
+{
+  "task_id": "BIE-EVAL-HIST-001",
+  "operations": {
+    "event_facts": [
+      "BIE-EVAL-HIST-001.C001",
+      "BIE-EVAL-HIST-001.C002",
+      "BIE-EVAL-HIST-001.C003",
+      "BIE-EVAL-HIST-001.C004",
+      "BIE-EVAL-HIST-001.C012"
+    ],
+    "audit_timeline": [
+      "BIE-EVAL-HIST-001.C005",
+      "BIE-EVAL-HIST-001.C006",
+      "BIE-EVAL-HIST-001.C007",
+      "BIE-EVAL-HIST-001.C008",
+      "BIE-EVAL-HIST-001.C009"
+    ],
+    "classify_claim": [
+      "BIE-EVAL-HIST-001.C010",
+      "BIE-EVAL-HIST-001.C011"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-HIST-001.C001",
+      "inputs": {
+        "event_ids": [
+          "estates_general_opening"
+        ],
+        "op": "event_facts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "events": [
+            {
+              "date": "1789-05-05",
+              "event_id": "estates_general_opening",
+              "place": "Versailles",
+              "source_ref": "versailles-estates-1789"
+            }
+          ],
+          "profile": "FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY"
+        }
+      },
+      "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C002",
+      "inputs": {
+        "event_ids": [
+          "tennis_court_oath"
+        ],
+        "op": "event_facts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "events": [
+            {
+              "date": "1789-06-20",
+              "event_id": "tennis_court_oath",
+              "place": "Versailles",
+              "source_ref": "versailles-oath-1789"
+            }
+          ],
+          "profile": "FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY"
+        }
+      },
+      "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C003",
+      "inputs": {
+        "event_ids": [
+          "declaration_1789_text"
+        ],
+        "op": "event_facts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "events": [
+            {
+              "date": "1789-08-26",
+              "event_id": "declaration_1789_text",
+              "source_ref": "elysee-declaration-1789"
+            }
+          ],
+          "profile": "FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY"
+        }
+      },
+      "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C004",
+      "inputs": {
+        "event_ids": [
+          "royal_departure_versailles"
+        ],
+        "op": "event_facts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "events": [
+            {
+              "date": "1789-10-06",
+              "event_id": "royal_departure_versailles",
+              "place": "Versailles",
+              "source_ref": "versailles-departure-1789"
+            }
+          ],
+          "profile": "FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY"
+        }
+      },
+      "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C005",
+      "inputs": {
+        "entries": [
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "day": 20,
+              "era": "CE",
+              "month": 6,
+              "precision": "day",
+              "year": 1789
+            },
+            "event_id": "tennis_court_oath",
+            "source_ref": "versailles-oath-1789"
+          }
+        ],
+        "op": "audit_timeline",
+        "required_event_ids": [
+          "tennis_court_oath"
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consistent": true,
+          "defects": [],
+          "references_are_links_not_captured_passages": true
+        }
+      },
+      "derivation": "Day and source reference both match the declared event record."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C006",
+      "inputs": {
+        "entries": [
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "day": 21,
+              "era": "CE",
+              "month": 6,
+              "precision": "day",
+              "year": 1789
+            },
+            "event_id": "tennis_court_oath",
+            "source_ref": "versailles-oath-1789"
+          }
+        ],
+        "op": "audit_timeline",
+        "required_event_ids": [
+          "tennis_court_oath"
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consistent": false,
+          "defects": [
+            {
+              "event_id": "tennis_court_oath",
+              "reason": "DATE_MISMATCH_OR_INSUFFICIENT_PRECISION"
+            }
+          ],
+          "references_are_links_not_captured_passages": true
+        }
+      },
+      "derivation": "A one-day displacement is a factual date mismatch."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C007",
+      "inputs": {
+        "entries": [
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "era": "CE",
+              "precision": "year",
+              "year": 1789
+            },
+            "event_id": "tennis_court_oath",
+            "source_ref": "versailles-oath-1789"
+          }
+        ],
+        "op": "audit_timeline",
+        "required_event_ids": [
+          "tennis_court_oath"
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consistent": false,
+          "defects": [
+            {
+              "event_id": "tennis_court_oath",
+              "reason": "DATE_MISMATCH_OR_INSUFFICIENT_PRECISION"
+            }
+          ],
+          "references_are_links_not_captured_passages": true
+        }
+      },
+      "derivation": "Containment of the actual date in a broad year range is not an exact-date answer."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C008",
+      "inputs": {
+        "entries": [
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "day": 20,
+              "era": "CE",
+              "month": 6,
+              "precision": "day",
+              "year": 1789
+            },
+            "event_id": "tennis_court_oath",
+            "source_ref": "elysee-declaration-1789"
+          }
+        ],
+        "op": "audit_timeline",
+        "required_event_ids": [
+          "tennis_court_oath"
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consistent": false,
+          "defects": [
+            {
+              "event_id": "tennis_court_oath",
+              "reason": "SOURCE_EVENT_MISMATCH"
+            }
+          ],
+          "references_are_links_not_captured_passages": true
+        }
+      },
+      "derivation": "A valid reference ID for another event does not support this date."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C009",
+      "inputs": {
+        "entries": [],
+        "op": "audit_timeline",
+        "required_event_ids": [
+          "tennis_court_oath"
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consistent": false,
+          "defects": [
+            {
+              "event_id": "tennis_court_oath",
+              "reason": "MISSING_EVENT"
+            }
+          ],
+          "references_are_links_not_captured_passages": true
+        }
+      },
+      "derivation": "Empty timeline cannot pass against a nonempty frozen event roster."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C010",
+      "inputs": {
+        "claim_id": "declaration_article1_equal_rights_principle",
+        "op": "classify_claim",
+        "source_ref": "elysee-declaration-1789"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "claim_type": "TEXTUAL_PRINCIPLE",
+          "historical_practice_established_by_normative_text": false,
+          "profile": "DECLARED_SOURCE_LINKED_CLAIM_TYPE_NOT_ENTAILMENT",
+          "source_ref": "elysee-declaration-1789"
+        }
+      },
+      "derivation": "A stated principle is not proof of implementation; a historical explanation remains attributed. "
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C011",
+      "inputs": {
+        "claim_id": "financial_crisis_contributed_to_convocation",
+        "op": "classify_claim",
+        "source_ref": "versailles-estates-1789"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "claim_type": "ATTRIBUTED_INTERPRETATION",
+          "historical_practice_established_by_normative_text": false,
+          "profile": "DECLARED_SOURCE_LINKED_CLAIM_TYPE_NOT_ENTAILMENT",
+          "source_ref": "versailles-estates-1789"
+        }
+      },
+      "derivation": "A stated principle is not proof of implementation; a historical explanation remains attributed. "
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-001.C012",
+      "inputs": {
+        "event_ids": [
+          "unregistered_event"
+        ],
+        "op": "event_facts"
+      },
+      "expected": {
+        "error_code": "EVENT_OUTSIDE_REFERENCE_PROFILE",
+        "status": "REJECTED"
+      },
+      "derivation": "No fabricated fallback date for an event outside the bounded reference profile."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

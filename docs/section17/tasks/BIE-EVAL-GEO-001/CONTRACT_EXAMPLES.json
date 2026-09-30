@@ -1,0 +1,345 @@
+{
+  "task_id": "BIE-EVAL-GEO-001",
+  "operations": {
+    "boundary_motion": [
+      "BIE-EVAL-GEO-001.C001",
+      "BIE-EVAL-GEO-001.C002",
+      "BIE-EVAL-GEO-001.C003",
+      "BIE-EVAL-GEO-001.C004",
+      "BIE-EVAL-GEO-001.C010"
+    ],
+    "spreading_distance": [
+      "BIE-EVAL-GEO-001.C005",
+      "BIE-EVAL-GEO-001.C006"
+    ],
+    "age_from_ridge": [
+      "BIE-EVAL-GEO-001.C007",
+      "BIE-EVAL-GEO-001.C011"
+    ],
+    "boundary_features": [
+      "BIE-EVAL-GEO-001.C008",
+      "BIE-EVAL-GEO-001.C009"
+    ],
+    "audit_concepts": [
+      "BIE-EVAL-GEO-001.C012"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-GEO-001.C001",
+      "inputs": {
+        "normal_a_to_b": [
+          1,
+          0
+        ],
+        "op": "boundary_motion",
+        "velocity_a": {
+          "unit": "cm/yr",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "velocity_b": {
+          "unit": "cm/yr",
+          "values": [
+            4,
+            0
+          ]
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "motion": "divergent",
+          "profile": "LOCAL_PLANAR_DIRECTED_UNIT_NORMAL",
+          "separation_cm_per_yr": "4",
+          "tangential_cm_per_yr": "0"
+        }
+      },
+      "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C002",
+      "inputs": {
+        "normal_a_to_b": [
+          1,
+          0
+        ],
+        "op": "boundary_motion",
+        "velocity_a": {
+          "unit": "cm/yr",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "velocity_b": {
+          "unit": "cm/yr",
+          "values": [
+            -4,
+            0
+          ]
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "motion": "convergent",
+          "profile": "LOCAL_PLANAR_DIRECTED_UNIT_NORMAL",
+          "separation_cm_per_yr": "-4",
+          "tangential_cm_per_yr": "0"
+        }
+      },
+      "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C003",
+      "inputs": {
+        "normal_a_to_b": [
+          1,
+          0
+        ],
+        "op": "boundary_motion",
+        "velocity_a": {
+          "unit": "cm/yr",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "velocity_b": {
+          "unit": "cm/yr",
+          "values": [
+            0,
+            3
+          ]
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "motion": "transform",
+          "profile": "LOCAL_PLANAR_DIRECTED_UNIT_NORMAL",
+          "separation_cm_per_yr": "0",
+          "tangential_cm_per_yr": "3"
+        }
+      },
+      "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C004",
+      "inputs": {
+        "normal_a_to_b": [
+          1,
+          0
+        ],
+        "op": "boundary_motion",
+        "velocity_a": {
+          "unit": "cm/yr",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "velocity_b": {
+          "unit": "cm/yr",
+          "values": [
+            4,
+            3
+          ]
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "motion": "oblique_divergent",
+          "profile": "LOCAL_PLANAR_DIRECTED_UNIT_NORMAL",
+          "separation_cm_per_yr": "4",
+          "tangential_cm_per_yr": "3"
+        }
+      },
+      "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C005",
+      "inputs": {
+        "duration": {
+          "unit": "Myr",
+          "value": 2
+        },
+        "op": "spreading_distance",
+        "rate": {
+          "unit": "cm/yr",
+          "value": 3
+        },
+        "rate_kind": "half"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "one_flank_km": "60",
+          "profile": "CONSTANT_SYMMETRIC_SPREADING",
+          "total_separation_km": "120"
+        }
+      },
+      "derivation": "One cm/year over one million years is ten km; full rate is twice the half rate."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C006",
+      "inputs": {
+        "duration": {
+          "unit": "Myr",
+          "value": 2
+        },
+        "op": "spreading_distance",
+        "rate": {
+          "unit": "cm/yr",
+          "value": 6
+        },
+        "rate_kind": "full"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "one_flank_km": "60",
+          "profile": "CONSTANT_SYMMETRIC_SPREADING",
+          "total_separation_km": "120"
+        }
+      },
+      "derivation": "One cm/year over one million years is ten km; full rate is twice the half rate."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C007",
+      "inputs": {
+        "distance": {
+          "unit": "km",
+          "value": 90
+        },
+        "half_rate": {
+          "unit": "cm/yr",
+          "value": 3
+        },
+        "op": "age_from_ridge"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "age_Myr": "3",
+          "profile": "CONSTANT_HALF_RATE_PER_FLANK"
+        }
+      },
+      "derivation": "Age=90/(10*3)=3 Myr for the constant-rate single flank."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C008",
+      "inputs": {
+        "boundary": "transform",
+        "op": "boundary_features"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "landform": "strike_slip_fault_zone",
+          "oceanic_lithosphere_consumed": false,
+          "oceanic_lithosphere_created": false,
+          "profile": "IDEALIZED_OCEANIC_LITHOSPHERE_BUDGET_NOT_TOTAL_CRUST_BUDGET"
+        }
+      },
+      "derivation": "Ideal transform motion does not create or consume crust."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C009",
+      "inputs": {
+        "boundary": "ocean_continent_convergent",
+        "op": "boundary_features"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "landform": "trench_and_continental_arc",
+          "oceanic_lithosphere_consumed": true,
+          "oceanic_lithosphere_created": false,
+          "profile": "IDEALIZED_OCEANIC_LITHOSPHERE_BUDGET_NOT_TOTAL_CRUST_BUDGET"
+        }
+      },
+      "derivation": "The simplified subduction-boundary inventory tracks consumed oceanic crust, not a whole-Earth crust budget."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C010",
+      "inputs": {
+        "normal_a_to_b": [
+          2,
+          0
+        ],
+        "op": "boundary_motion",
+        "velocity_a": {
+          "unit": "cm/yr",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "velocity_b": {
+          "unit": "cm/yr",
+          "values": [
+            4,
+            0
+          ]
+        }
+      },
+      "expected": {
+        "error_code": "EXACT_UNIT_NORMAL_REQUIRED",
+        "status": "REJECTED"
+      },
+      "derivation": "Normal length must be exactly one in the rational input profile to avoid scaled projection errors."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C011",
+      "inputs": {
+        "distance": {
+          "unit": "km",
+          "value": 90
+        },
+        "half_rate": {
+          "unit": "cm/yr",
+          "value": 0
+        },
+        "op": "age_from_ridge"
+      },
+      "expected": {
+        "error_code": "QUANTITY_OUT_OF_PROFILE",
+        "status": "REJECTED"
+      },
+      "derivation": "The inversion requires a positive half-spreading rate."
+    },
+    {
+      "case_id": "BIE-EVAL-GEO-001.C012",
+      "inputs": {
+        "claims": {
+          "average_plate_speed_predicts_exact_earthquake_time": false,
+          "mantle_entirely_liquid": true,
+          "plate_material": "crust_and_rigid_uppermost_mantle",
+          "seafloor_age_increases_away_from_ridge_in_simple_model": true,
+          "transform_creates_new_crust_in_ideal_model": false
+        },
+        "op": "audit_concepts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "assessment_scope": "DECLARED_PROPOSITION_PROFILE_ONLY",
+          "consistent": false,
+          "defects": [
+            {
+              "claim": "mantle_entirely_liquid",
+              "reason": "CONTRADICTED_CLAIM"
+            }
+          ]
+        }
+      },
+      "derivation": "The declared tectonic model does not treat the whole mantle as liquid."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "metric_id": "BIE-EVAL-METRIC-017",
+  "rubric_id": "regression-v1",
+  "rubric_version": "1.0.0",
+  "reference_sha256": "9d3248d5862ee59ac8ca5efb4b5b11be9bd0e6b594554323040c9063651fa3d9",
+  "candidate_sha256": "1194845dbc9b429be7f36660ab19559b147d86abc41c3c98bd791c0bfc65655b",
+  "evaluator_id": "det",
+  "evaluator_code_sha256": "a933e12d3c96e1c7f64160a817f6ccfc55f9ebb036145284193b4991cffbfa6a",
+  "status": "MEASURED",
+  "outcome": "PASS",
+  "score_exact": "1",
+  "earned_weight": "3",
+  "total_weight": "3",
+  "unit_count": 2,
+  "units": [
+    {
+      "id": "a",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "b",
+      "weight": "2",
+      "credit": "1",
+      "reasons": []
+    }
+  ],
+  "defects": [],
+  "details": {
+    "paired_deltas": [
+      {
+        "id": "a",
+        "baseline_score": "1",
+        "candidate_score": "1",
+        "delta": "0"
+      },
+      {
+        "id": "b",
+        "baseline_score": "3/4",
+        "candidate_score": "4/5",
+        "delta": "1/20"
+      }
+    ],
+    "scope": "PINNED_ROSTER_DETERMINISTIC_NONREGRESSION",
+    "statistical_significance_claimed": false
+  },
+  "evidence_grade": "AUTHORED_DIAGNOSTIC",
+  "source_artifacts_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "independently_reviewed": false,
+  "native_bie_execution_verified": false,
+  "release_authorized": false,
+  "product_accepted": false
+}

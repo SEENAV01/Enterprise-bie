@@ -1,0 +1,74 @@
+{
+  "scope": "BATCH003_LOCAL_REVIEW_NOT_FULL_SECTION_EXIT",
+  "implementation_repairs": [
+    {
+      "id": "S17-B003-FIX-001",
+      "issue": "Malformed/nonobject stored receipt or nested report could escape as AttributeError or inconsistent parse code.",
+      "repair": "Validate parsed object/report types and normalize expected receipt corruption to METRIC_RECEIPT_INTEGRITY_FAILURE.",
+      "regressions": [
+        "test_nonobject_receipt_tamper_typed",
+        "test_nonobject_report_tamper_typed",
+        "test_malformed_receipt_json_tamper_typed"
+      ]
+    },
+    {
+      "id": "S17-B003-FIX-002",
+      "issue": "Local SQLite target symlink was followed.",
+      "repair": "Preflight rejects existing symlinks on target/parent/SQLite sidecars and nonregular target. Not a race-proof protection against a writable directory adversary.",
+      "regressions": [
+        "test_symlink_database_refused"
+      ]
+    }
+  ],
+  "test_and_fixture_repairs_not_product_bugs": [
+    {
+      "id": "AUTHORING-001",
+      "issue": "Quoted decimal strings outside inherited integer/p/q grammar used in a Kelvin fixture and numeric tests.",
+      "repair": "Use exact rational strings; unchanged old parser and unchanged intended arithmetic."
+    },
+    {
+      "id": "AUTHORING-002",
+      "issue": "Bit-exact comparison of authored pi/2 and haversine float result was too strict.",
+      "repair": "New fixture helper invokes existing schema-aware grading with already-declared case tolerance; rational strings and structure remain exact. No old tests weakened."
+    },
+    {
+      "id": "AUTHORING-003",
+      "issue": "Two new test assertions used nonexistent descriptive output key names.",
+      "repair": "Use actual documented keys; implementation unchanged."
+    }
+  ],
+  "actual_runs": {
+    "baseline": 493,
+    "initial": {
+      "tests": 695,
+      "failures": 9,
+      "errors": 5
+    },
+    "audit_probe": {
+      "tests": 746,
+      "failures": 2,
+      "errors": 2
+    },
+    "repaired": 746,
+    "final": 749
+  },
+  "controls": {
+    "domain_cases": 228,
+    "metric_scenarios": 36,
+    "positive_metric_candidates": 6,
+    "deliberately_defective_metric_candidates": 30,
+    "faults_injected": 10,
+    "faults_detected": 10
+  },
+  "second_review": "All final local tests and selected faults passed/detected after repairs; no independent auditor/subject-rater review, no full-section exit, no native pipeline or product acceptance.",
+  "acceptance_vetoes": [
+    "SCORE_ALONE_IS_NOT_PASS",
+    "GOLDEN_REVIEW_REQUIRED",
+    "NATIVE_ADAPTER_REQUIRED",
+    "REAL_BOOK_E2E_REQUIRED",
+    "SECTION_EXIT_AUDIT_REQUIRED"
+  ],
+  "source_preimages_retained": true,
+  "intermediate_failure_receipts_retained": true,
+  "product_accepted": false
+}

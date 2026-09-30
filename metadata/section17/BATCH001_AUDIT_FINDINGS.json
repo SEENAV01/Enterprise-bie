@@ -1,0 +1,49 @@
+{
+  "scope": "Self-review and executable repair regression of Batch001; not independent external review or a whole-section completeness audit.",
+  "findings": [
+    {
+      "finding_id": "B001-F01",
+      "owner_original_task": "BIE-EVAL-REG-004",
+      "observed_issue": "Changing policy_sha256 in stored binding was not detected before finalize.",
+      "repair": "Add a full binding digest while retaining policy-independent retry scope.",
+      "test_method": "test_reg004_policy_binding_tamper_rejected",
+      "status": "FIXED_LOCAL_RETESTED"
+    },
+    {
+      "finding_id": "B001-F02",
+      "owner_original_task": "BIE-EVAL-REG-003",
+      "observed_issue": "Authority dataclass repr exposed key bytes.",
+      "repair": "Suppress key field in repr; custody still belongs to the trusted operator.",
+      "test_method": "test_reg003_authority_repr_does_not_print_key",
+      "status": "FIXED_LOCAL_RETESTED"
+    },
+    {
+      "finding_id": "B001-F03",
+      "owner_original_task": "BIE-EVAL-MATH-001",
+      "observed_issue": "Large exact polynomial result leaked OverflowError while converting to float.",
+      "repair": "Typed representation-limit rejection; also reject nonzero exact values that underflow to zero.",
+      "test_method": "test_math001_float_range_rejection_is_typed",
+      "status": "FIXED_LOCAL_RETESTED"
+    },
+    {
+      "finding_id": "B001-F04",
+      "owner_original_task": "BIE-EVAL-PHY-003",
+      "observed_issue": "Unhashable direction value leaked TypeError.",
+      "repair": "Validate string type before direction membership.",
+      "test_method": "test_phy003_malformed_direction_is_typed",
+      "status": "FIXED_LOCAL_RETESTED"
+    },
+    {
+      "finding_id": "B001-F05",
+      "owner_original_task": "BIE-EVAL-REG-004",
+      "observed_issue": "Prompt comparison lacked an adequate explicit workload bound.",
+      "repair": "Cache fingerprints and reject excess prompt/corpus/pairwise work before comparisons.",
+      "test_method": "test_reg004_prompt_comparison_resource_bound",
+      "status": "FIXED_LOCAL_RETESTED"
+    }
+  ],
+  "before_evidence": "evidence/section17/audit_reproduced_failures.txt",
+  "before_images": "evidence/section17/preimages/",
+  "after_evidence": "evidence/section17/TEST_RESULT.json",
+  "new_original_atomic_task_ids_invented": false
+}

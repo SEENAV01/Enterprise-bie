@@ -1,0 +1,79 @@
+{
+  "task_id": "BIE-EVAL-H1-006",
+  "title": "Structured candidate bundle binding",
+  "finding": {
+    "finding_id": "H1-F006",
+    "task_id": "BIE-EVAL-H1-006",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "Manifest artifact identity was a supplied hash, not verified against an exact structured candidate bundle.",
+    "implemented_behavior": "Require exact roster, per-case candidate digests and whole canonical bundle hash in production; diagnostic behavior stays compatible.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "This binds supplied structured JSON only, not unseen video/audio or a native run.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/release/bundle.py",
+      "bie/evaluation/benchmarks/release/gate.py"
+    ],
+    "test_pattern": "test_h1_006.py",
+    "passed_test_methods": 12,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_changed_candidate_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_empty_manifest_denominator_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_extra_case_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_list_candidates_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_matching_bytes_verified",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_missing_case_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_order_independent_dictionary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_production_missing_bundle_is_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_structured_binding_not_native_claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_unknown_bundle_field_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_unrelated_artifact_hash_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_006.CandidateBundleBoundary.test_wrong_schema_rejected",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/release/bundle.py": "fcb9001c8dd88557cf3164e84295de67191292e96fcb617b1edef96c99510b8f",
+    "bie/evaluation/benchmarks/release/gate.py": "6e37c74e5fdb1c48f315ff08b83191b60c1a1619e546a67e4a8f9fb3feef3044",
+    "tests/section17/test_h1_006.py": "b08292b205191b755e84fb99913f44f0bf337cbb055b7962f5357e2dc2dbb0bd"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

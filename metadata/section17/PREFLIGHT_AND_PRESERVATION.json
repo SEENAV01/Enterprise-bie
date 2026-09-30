@@ -1,0 +1,39 @@
+{
+  "inputs": [
+    {
+      "file": "BIE_CODEX_MASTER_PROMPT_S16_S17_S18.txt",
+      "sha256": "36c75226f51cdfec36be4419197e8b65a8b87cb036e0a2cf0b127efce8933bf1",
+      "role": "historical continuation and preservation instructions"
+    },
+    {
+      "file": "BIE_ENTERPRISE_V1_MASTER_ATOMIC_TASK_REGISTRY_ORIGINAL_18_SECTIONS.pdf",
+      "sha256": "d92fb701bf0549014aae9e7b0646c73edd0e7b0c8672b39c329b29bfd59efc43",
+      "role": "original scope baseline"
+    }
+  ],
+  "repository": {
+    "repository": "SEENAV01/Enterprise-bie",
+    "branch_read": "main",
+    "read_date": "2026-09-29",
+    "observed_sha": "a68e054025b8fe7756a71e998d9e9103dad8e0f4",
+    "observed_tree": "5b9b835e99d17c1a54287822bfddb870612fac63",
+    "read_route": "authorized GitHub connector GET",
+    "existing_evaluation_tree": "e14194a4919a76590c1a640d90446d6cd1339ecb",
+    "preserved_contract_git_blob": "d3de9ac6559ee00ddb08b93d6e4310b9820d3afe",
+    "existing_evaluation_files": [
+      "bie/evaluation/__init__.py",
+      "bie/evaluation/contracts.py"
+    ],
+    "remote_writes": false,
+    "local_full_checkout_obtained": false,
+    "download_attempt": {
+      "host": "codeload.github.com",
+      "exit_code": 6,
+      "observed_error": "Could not resolve host: codeload.github.com"
+    },
+    "canonical_regression_executed": false,
+    "section16_integration_verified": false,
+    "task028_resumed": false
+  },
+  "decision": "User-requested isolated Section17 ZIP development only; no bypass or closure of Section16 gates."
+}

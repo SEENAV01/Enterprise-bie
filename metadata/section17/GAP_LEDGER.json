@@ -1,0 +1,239 @@
+{
+  "scope": "Section17 Batch001..005 + H1 + H2; local bounded implementations, not section/product acceptance",
+  "all_material_known_gaps": [
+    {
+      "gap_id": "S17-DEPENDENCY-001",
+      "phase": "INTEGRATION",
+      "status": "OPEN",
+      "requirement": "Section16 local exit and governed integration have not been verified.",
+      "owner_and_next_action": "Integration owner; recover actual Section16 source/re-audit and exact current main."
+    },
+    {
+      "gap_id": "S17-INTEGRATION-002",
+      "phase": "INTEGRATION",
+      "status": "OPEN",
+      "requirement": "Additive extension has not run against a full canonical checkout or Section16/native candidate.",
+      "owner_and_next_action": "Integration owner; explicit owned-path adoption, existing contract consumer review, canonical tests and native runs.",
+      "h2_update": "Canonical main and exact render contract read at a68e054025b8fe7756a71e998d9e9103dad8e0f4; pinned render-only declaration adapter implemented. No full checkout or native execution/integration."
+    },
+    {
+      "gap_id": "S17-CORPUS-003",
+      "phase": "DOMAIN_BENCHMARK_SCOPE",
+      "status": "OPEN",
+      "requirement": "Retained20 domain packs/228 cases, prior16 metric fixture sets and new authored regression/rater/release diagnostics are DEVELOPMENT evidence, not independently reviewed golden/held-out corpora.",
+      "owner_and_next_action": "Benchmark curator and independent subject reviewers; rights-cleared multi-source cases, split custody, rubric review and documented signoff."
+    },
+    {
+      "gap_id": "S17-CALIBRATION-004",
+      "phase": "EVALUATION",
+      "status": "OPEN",
+      "requirement": "Threshold, hard-floor, domain minimum and evaluator-agreement code now exists. Numerical policies and rater validity still require independent empirical calibration.",
+      "owner_and_next_action": "EVAL metric/rater/release work plus independently reviewed calibration cases."
+    },
+    {
+      "gap_id": "S17-SECURITY-005",
+      "phase": "OPERATIONAL",
+      "status": "OPEN",
+      "requirement": "Production identity, custody, worker isolation and durable off-host evidence anchoring are not supplied by this local package.",
+      "owner_and_next_action": "Infrastructure/governance integration owner; candidate cannot access references, signatures or database."
+    },
+    {
+      "gap_id": "S17-SCALE-006",
+      "phase": "IMPLEMENTATION_FOLLOWUP",
+      "status": "OPEN",
+      "requirement": "Leakage triage is bounded to 512 cases, 2048-character prompts and a pairwise comparison-work budget; larger datasets fail closed.",
+      "owner_and_next_action": "EVAL owner; implement and evaluate an indexed/semantic duplicate adapter when required by actual corpus scale."
+    },
+    {
+      "gap_id": "S17-SOURCE-007",
+      "phase": "SOURCE_PROVENANCE",
+      "status": "OPEN",
+      "requirement": "Domain references are links/authored derivations, not extracted textbook passages. Grounding metric additionally validates captured original authored text, not real-book rights-cleared sources.",
+      "owner_and_next_action": "Corpus curator; preserve exact rights/provenance and source artifacts for real benchmarks."
+    },
+    {
+      "gap_id": "S17-REMAINING-008",
+      "phase": "IMPLEMENTATION",
+      "status": "ORIGINAL_IMPLEMENTATION_COVERED_LOCALLY",
+      "requirement": "All50 original tasks now have scoped local implementations. Whole-section audit/hardening/re-audit remain separately open under S17-AUDIT-010.",
+      "owner_and_next_action": "Do not invent more original task IDs. Begin whole-section capability audit.",
+      "historical_requirement": "Original tasks41..50 remain, followed by whole-section audit/hardening/re-audit."
+    },
+    {
+      "gap_id": "S17-MEDIA-009",
+      "phase": "IMPLEMENTATION_AND_NATIVE_ACCEPTANCE",
+      "status": "PARTIAL_LOCAL_V2_IMPLEMENTATION_NATIVE_ACCEPTANCE_OPEN",
+      "requirement": "H2 adds tested all-frame 120-second 1280x720/24fps decoding, full original-channel PCM, PTS/sync, caption checks and actual local TTS controls. Legacy metric consumers remain unchanged. Native producer/gate adoption, semantic audio/visual quality, playable-game/browser and real learners remain open.",
+      "owner_and_next_action": "Native integration plus remaining METRIC/RATER/REL work and real-book E2E evidence.",
+      "historical_h1_requirement": "Batch004 executed small authored Python/TypeScript compiles, decoded a12-frame local authored video and compared RGB frames and separate Python-build bytes. No real-book/native BIE or Remotion run, decoded narration QA, playable-game or measured human learner outcome has been evaluated. Current collector hard caps20MB/320x180/300frames/20s; full-lesson/audio support is a concrete implementation gap, not only a missing approval."
+    },
+    {
+      "gap_id": "S17-AUDIT-010",
+      "phase": "SECTION_EXIT",
+      "status": "FIRST_CAPABILITY_AUDIT_AND_H1_REAUDIT_DONE_SECTION_EXIT_OPEN",
+      "requirement": "All50 original tasks mapped to actual source/spec/test boundaries;10 H1 fixes locally verified. Concrete remaining implementation, integration and independent validation gaps remain.",
+      "owner_and_next_action": "Continue H2 from the new residual ledger; no section exit from task count alone."
+    },
+    {
+      "gap_id": "S17-INTERPRETATION-011",
+      "phase": "DOMAIN_BENCHMARK_SCOPE",
+      "status": "OPEN",
+      "requirement": "History reasoning consumes declared annotations; source capture, source entailment, multi-source disagreement adjudication and independent reference review are not implemented by this bounded pack.",
+      "owner_and_next_action": "Corpus/subject reviewer and later metric/rater integration; retain review flags."
+    },
+    {
+      "gap_id": "S17-ADAPTER-012",
+      "phase": "NATIVE_ACCEPTANCE",
+      "status": "OPEN",
+      "requirement": "Structured functions plus bounded local media collectors do not parse arbitrary textbook diagrams/free narration or certify native BIE mappings. Learning traces are authored; tiny RGB fixtures are not a real-book video.",
+      "owner_and_next_action": "Exact canonical/native output adapter, rights-cleared books, held-out cases and downstream media/learning metrics."
+    },
+    {
+      "gap_id": "S17-METRIC-013",
+      "phase": "NATIVE_ACCEPTANCE",
+      "status": "OPEN",
+      "requirement": "Seventeen structured deterministic metric profiles and five rater/release paths are locally implemented; native mapping, semantic judge calibration and empirical golden validation are not certified.",
+      "owner_and_next_action": "Implement governed native adapters with independent references and negative controls; do not equate fixture pass with native quality."
+    },
+    {
+      "gap_id": "S17-CUSTODY-014",
+      "phase": "OPERATIONAL",
+      "status": "OPEN",
+      "requirement": "Local metric reference/code pins and SQLite retry/corruption checks are not authenticated multi-tenant custody, off-host signatures or a race-proof filesystem sandbox.",
+      "owner_and_next_action": "Trusted evaluation workers and directory permissions; external campaign/identity authority, source/reference separation and independent evidence anchoring."
+    },
+    {
+      "gap_id": "S17-CIVICS-015",
+      "phase": "COVERAGE",
+      "status": "OPEN",
+      "requirement": "Civics has five source/date-pinned introductory UK role assertions and ordinary bill profile plus explicit fictional power tables, not full cross-jurisdictional civics coverage.",
+      "owner_and_next_action": "Add independently reviewed, dated, jurisdiction-specific educational cases without political merit ratings."
+    },
+    {
+      "gap_id": "S17-WORKER-016",
+      "status": "OPEN",
+      "phase": "OPERATIONAL",
+      "requirement": "Evaluator observation hashes are not signatures. Local file/timeout/protocol guards are not production worker isolation or race-proof access control.",
+      "owner_and_next_action": "Integrate privileged collectors in isolated, resource-limited trusted workers; keep candidate files/requests away from reference/campaign/observations and signer keys."
+    },
+    {
+      "gap_id": "S17-ACCESSIBILITY-017",
+      "status": "OPEN",
+      "phase": "NATIVE_ACCEPTANCE",
+      "requirement": "Static contrast/caption/focus checks are partial and do not certify WCAG, browser keyboard operation, screen readers or decoded audio captions.",
+      "owner_and_next_action": "Real player/game browser and assistive-technology audit against authored accessible references."
+    },
+    {
+      "gap_id": "S17-LEARNING-018",
+      "status": "OPEN",
+      "phase": "SCIENTIFIC_ACCEPTANCE",
+      "requirement": "Authored session-response diagnostics are not real learner data, educational efficacy or causal evidence.",
+      "owner_and_next_action": "Independently reviewed instrument and consented representative learner studies with calibrated raters and appropriate analysis."
+    },
+    {
+      "gap_id": "S17-LIVE-RATER-019",
+      "phase": "EVALUATION",
+      "status": "OPEN",
+      "requirement": "No live model evaluator or actual independent human review was executed. Fixture adapters and signed test claims are not provider/reviewer acceptance.",
+      "owner_and_next_action": "Integrate an operator-selected provider adapter with hard network timeouts, custody and calibration; onboard independent subject reviewers.",
+      "h1_progress": "Request custody and supervised deadline implemented/tested with fixtures; actual provider/reviewer integration remains open."
+    },
+    {
+      "gap_id": "S17-RELEASE-AUTH-020",
+      "phase": "PRODUCTION",
+      "status": "OPEN",
+      "requirement": "Signed external native/golden/video/game/security evidence, production key custody, evaluator-service authentication and deployment authorization are not supplied.",
+      "owner_and_next_action": "Integrate protected evidence collection and independent approval services; preserve BLOCKED on missing or untrusted evidence.",
+      "h1_progress": "Exact candidate/assessment/coverage bindings added; real services, key custody and native truth remain open."
+    },
+    {
+      "gap_id": "H1-RES-001",
+      "phase": "IMPLEMENTATION_AND_INTEGRATION",
+      "status": "OPEN",
+      "requirement": "Governed native BIE output adapter",
+      "owner_and_next_action": "Implement exact canonical schema mapping, source/provenance capture and runtime evidence ingestion against an explicitly pinned repository checkout. Do not fabricate schemas from task names."
+    },
+    {
+      "gap_id": "H1-RES-002",
+      "phase": "IMPLEMENTATION",
+      "status": "OPEN",
+      "requirement": "Long-form audiovisual collectors",
+      "owner_and_next_action": "Replace the tiny bounded video-only path with resource-bounded streaming/chunked full-resolution long-lesson verification, decoded narration/silence/clipping and caption/audio timing checks. Add real files and corrupt/missing-stream controls."
+    },
+    {
+      "gap_id": "H1-RES-003",
+      "phase": "IMPLEMENTATION_AND_EXTERNAL_VALIDATION",
+      "status": "OPEN",
+      "requirement": "Live evaluator and human workflow",
+      "owner_and_next_action": "Wire an operator-selected provider through supervised execution, finite network timeouts and protected credentials; add independent reviewer onboarding/assignment/review custody and actual validation. No live call or real human review was done."
+    },
+    {
+      "gap_id": "H1-RES-004",
+      "phase": "IMPLEMENTATION_AND_NATIVE_VALIDATION",
+      "status": "OPEN",
+      "requirement": "Game/player/browser evidence",
+      "owner_and_next_action": "Connect actual playable-game outcomes, browser keyboard/screen-reader/player observations and learning event lineage; structured authored traces are not runtime evidence."
+    },
+    {
+      "gap_id": "H1-RES-005",
+      "phase": "SCIENTIFIC_VALIDATION",
+      "status": "OPEN",
+      "requirement": "Independent golden corpus and calibrated quality",
+      "owner_and_next_action": "Rights-cleared source snapshots, domain experts, blind heldout splits, rater calibration, validated thresholds and consented learning studies remain required."
+    },
+    {
+      "gap_id": "H1-RES-006",
+      "phase": "IMPLEMENTATION",
+      "status": "OPEN",
+      "requirement": "Corpus-scale anti-leakage",
+      "owner_and_next_action": "Implement/evaluate an indexed bounded duplicate/semantic-triage adapter beyond the inherited512-case pairwise cap without silent denominator dropping."
+    },
+    {
+      "gap_id": "H1-RES-007",
+      "phase": "DEPLOYMENT_IMPLEMENTATION",
+      "status": "OPEN",
+      "requirement": "Service isolation, protected keys and durable evidence",
+      "owner_and_next_action": "Provision authenticated services, secret custody, worker OS resource/descendant/network containment and off-host audit anchoring. The Python wrapper/HMAC helpers are not these services."
+    },
+    {
+      "gap_id": "H1-RES-008",
+      "phase": "EVIDENCE_TRUST_BOUNDARY",
+      "status": "OPEN",
+      "requirement": "Native external evidence truth",
+      "owner_and_next_action": "Verify real source/render/game artifacts via trusted native collectors and independent signoff. The local gate verifies configured signed assertions, not the truth of invented external artifact content. Test-only keys/evidence cannot authorize a real product."
+    },
+    {
+      "gap_id": "H1-RES-009",
+      "phase": "ENVIRONMENT_VALIDATION",
+      "status": "OPEN",
+      "requirement": "Actual supported runtime matrix",
+      "owner_and_next_action": "Run real Python3.11 and other supported platforms and native toolchains; the current host is Python3.13.5 and the older SQLite API test is simulated."
+    }
+  ],
+  "section_complete": false,
+  "product_accepted": false,
+  "H1_repaired_scopes": [
+    "H1-F001",
+    "H1-F002",
+    "H1-F003",
+    "H1-F004",
+    "H1-F005",
+    "H1-F006",
+    "H1-F007",
+    "H1-F008",
+    "H1-F009",
+    "H1-F010"
+  ],
+  "H2_repaired_scopes": [
+    "Artifact custody and bounded input profiles",
+    "Streaming process supervision",
+    "Media inventory and profile admission",
+    "Full-frame streaming video inspection",
+    "Per-channel decoded audio inspection",
+    "Decoded timeline and AV synchronization",
+    "Caption content and timing coverage",
+    "Pinned AV policy and evidence receipt",
+    "Canonical RenderReceipt mapping",
+    "Durable AV run store and operator CLI"
+  ]
+}

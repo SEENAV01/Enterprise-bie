@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_math_002.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/math_002"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668295.7754996,
+  "duration_seconds": 0.036542415618896484,
+  "tests_run": 20,
+  "unique_test_method_ids": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_math_002.CalculusTests.test_abs_positive_derivative",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_antiderivative_requires_arbitrary_constant",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_authored_reference_pack",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_constant_derivative_zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_cusp_not_derivative_zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_derivative_fraction_coefficients",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_derivative_order_higher_than_degree",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_fundamental_theorem_polynomial",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_integral_orientation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_integral_zero_interval",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_missing_arbitrary_constant_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_negative_derivative_order_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_odd_integrand_symmetric_interval",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_order_boolean_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_order_zero_is_identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_principal_value_not_improper_integral",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_reciprocal_negative_interval",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_singular_endpoint_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_tangent_point_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_002.CalculusTests.test_wrong_integral_orientation_seed_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

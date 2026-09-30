@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0.0",
+  "outcome": "DIAGNOSTIC_PASS",
+  "mode": "DIAGNOSTIC",
+  "reasons": [],
+  "evaluated_at": 0,
+  "manifest_sha256": "cb8eef8a271823149343f376c039b40cd6971eba260ea78f6f1bf2a2d1dcbd62",
+  "policy_sha256": "216756aea3da6d9ec84ff7908b51cde9350d83ebbdb64054651e82c8677d6111",
+  "evidence_scope_sha256": "435b57f1fb198c0d9c41cef53ad8b2bdb621c73d45f59ad6c862ec7ea3cdd493",
+  "aggregates": [
+    {
+      "context": {
+        "run_id": "run1",
+        "case_id": "case1",
+        "domain": "math",
+        "metric_id": "BIE-EVAL-METRIC-005",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "score_exact": "1",
+      "status": "MEASURED",
+      "reasons": [],
+      "spread_exact": "0",
+      "policy_sha256": "4f7fffcd0dc987af62f392eb01c545134a441eff179d8214895f1e8af4727772",
+      "assessment_sha256s": [
+        "02a1e6d545796dd12992fdf19ed3abcefa67c10e0557561cbcdbcf50a74bb9e2",
+        "7642b9039e2d66cf6c4c8caafa3de939632b254648e2689ad271c2fa955fdb03"
+      ],
+      "rule": "MINIMUM_OF_REQUIRED_RATERS",
+      "release_authorized": false,
+      "product_accepted": false,
+      "aggregate_sha256": "32245363d570d01d2cb0a13c8df5b8b34fb5f221eccdd3b2d00d397ac7ac3a49"
+    },
+    {
+      "context": {
+        "run_id": "run1",
+        "case_id": "case2",
+        "domain": "physics",
+        "metric_id": "BIE-EVAL-METRIC-007",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "score_exact": "1",
+      "status": "MEASURED",
+      "reasons": [],
+      "spread_exact": "0",
+      "policy_sha256": "4f7fffcd0dc987af62f392eb01c545134a441eff179d8214895f1e8af4727772",
+      "assessment_sha256s": [
+        "9175feb2424035ece268e2bd6e44f32d90b3e735e0d8e1842660d698f708c069",
+        "f8935fad47a7848eb7aa3931aa2b2627db7fab0fab0990ff365dfb67c6bfda5d"
+      ],
+      "rule": "MINIMUM_OF_REQUIRED_RATERS",
+      "release_authorized": false,
+      "product_accepted": false,
+      "aggregate_sha256": "0896c0c5d265131bef26c79f0bb79ad0bd94be8af690d359d2471caf5381706b"
+    },
+    {
+      "context": {
+        "run_id": "run1",
+        "case_id": "case3",
+        "domain": "math",
+        "metric_id": "BIE-EVAL-METRIC-007",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "score_exact": "1",
+      "status": "MEASURED",
+      "reasons": [],
+      "spread_exact": "0",
+      "policy_sha256": "4f7fffcd0dc987af62f392eb01c545134a441eff179d8214895f1e8af4727772",
+      "assessment_sha256s": [
+        "42f47f4421d3b6df229d60f15b770a523592f4a806a3305cbba57effab6af6c3",
+        "dbfee1b9294b82e4fb1444ec79b6f6748205973daac973c96780c492ef7ba922"
+      ],
+      "rule": "MINIMUM_OF_REQUIRED_RATERS",
+      "release_authorized": false,
+      "product_accepted": false,
+      "aggregate_sha256": "0281717bcba5c68e7973b6eba8685595bbbef3ddd269904ce29df31bc51d980e"
+    }
+  ],
+  "metric_rows": [
+    {
+      "id": "BIE-EVAL-METRIC-005",
+      "status": "MEASURED",
+      "score": "1"
+    },
+    {
+      "id": "BIE-EVAL-METRIC-007",
+      "status": "MEASURED",
+      "score": "1"
+    }
+  ],
+  "enterprise": {
+    "gate": "ENTERPRISE_THRESHOLD",
+    "outcome": "PASS",
+    "reasons": [],
+    "score_exact": "1",
+    "minimum_score": "9/10",
+    "measured_fraction": "1",
+    "expected_metric_count": 2,
+    "measured_metric_count": 2,
+    "missing_or_blocked": [],
+    "policy_sha256": "e5e274e3868673df528f81f5eb114b2e011528809730326a1a54ffca1ce3e6a2",
+    "release_authorized": false,
+    "product_accepted": false
+  },
+  "critical_floors": {
+    "gate": "CRITICAL_HARD_FLOORS",
+    "outcome": "PASS",
+    "reasons": [],
+    "failures": [],
+    "required_metric_count": 2,
+    "policy_sha256": "c88b5820554ff0319d26ff6efe79d352f2cfd63f16325157636d4ef1829dbde6",
+    "release_authorized": false,
+    "product_accepted": false
+  },
+  "domain_minimums": {
+    "gate": "DOMAIN_MINIMUMS",
+    "outcome": "PASS",
+    "reasons": [],
+    "domains": [
+      {
+        "id": "math",
+        "score_exact": "1",
+        "measured_fraction": "1",
+        "expected_cases": 2,
+        "measured_cases": 2,
+        "independent_groups": 2,
+        "reasons": []
+      },
+      {
+        "id": "physics",
+        "score_exact": "1",
+        "measured_fraction": "1",
+        "expected_cases": 1,
+        "measured_cases": 1,
+        "independent_groups": 1,
+        "reasons": []
+      }
+    ],
+    "policy_sha256": "7e0dd71ca9dc3ce6d3b4bfe04144f67b15e49bb539d0627af6faad162e040c16",
+    "release_authorized": false,
+    "product_accepted": false
+  },
+  "agreement": {
+    "status": "MEASURED",
+    "missing": [],
+    "pairs": [
+      {
+        "assessors": [
+          "det",
+          "human"
+        ],
+        "paired_count": 3,
+        "expected_count": 3,
+        "confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "observed_agreement": "1",
+        "chance_agreement": "1",
+        "kappa": null,
+        "kappa_state": "UNDEFINED",
+        "mean_absolute_score_difference": "0"
+      }
+    ],
+    "pass_threshold": "1",
+    "accuracy_inferred": false,
+    "product_accepted": false
+  },
+  "attestations": [],
+  "benchmark_gate_passed": false,
+  "release_authorized": false,
+  "product_accepted": false,
+  "authority_note": "Benchmark decision only. Deployment and final product acceptance are separate approvals.",
+  "report_sha256": "c78c9584338bed26cb5ffbd64588d14064aaf46aff1dc9c9f8e78f0c16663058"
+}

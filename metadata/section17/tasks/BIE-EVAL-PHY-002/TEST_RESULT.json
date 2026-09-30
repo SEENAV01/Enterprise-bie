@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_phy_002.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/phy_002"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668292.51271,
+  "duration_seconds": 0.02232050895690918,
+  "tests_run": 20,
+  "unique_test_method_ids": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_authored_reference_pack",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_collision_momentum_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_comoving_collision_loses_no_energy",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_coordinate_translation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_empty_force_list_not_a_measurement",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_equal_opposite_force_zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_force_mass_inverse_scaling",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_galilean_collision_velocity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_inelastic_energy_not_conserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_mass_not_force_units",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_motion_independent_analytic",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_negative_elapsed_time_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_signed_work_dot_product",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_time_unit_conversion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_unsupported_relativity_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_work_perpendicular_not_magnitude_product",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_wrong_acceleration_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_wrong_energy_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_zero_acceleration_linear",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_002.MechanicsTests.test_zero_mass_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

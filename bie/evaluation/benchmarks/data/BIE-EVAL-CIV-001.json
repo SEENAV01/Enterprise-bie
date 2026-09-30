@@ -1,0 +1,374 @@
+[
+  {
+    "case_id": "BIE-EVAL-CIV-001.C001",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Descriptive institutional roles match selected official profile",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 1: Descriptive institutional roles match selected official profile. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"claims\":{\"bill_is_already_an_act\":false,\"day_to_day_public_administration\":\"government\",\"government_and_parliament_identical\":false,\"ministers_can_also_sit_in_parliament\":true,\"scrutinises_government\":\"parliament\"},\"op\":\"audit_roles\",\"profile\":\"UK_INTRO_2026-09-29\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":true,\"defects\":[],\"jurisdiction\":\"UK\",\"reference_profile\":\"UK_INTRO_2026-09-29\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Compare five typed educational propositions with the consulted introductory institutional-role profile. No political merit is judged.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_roles",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C002",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Government and parliament are not identical",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 2: Government and parliament are not identical. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"claims\":{\"bill_is_already_an_act\":false,\"day_to_day_public_administration\":\"government\",\"government_and_parliament_identical\":true,\"ministers_can_also_sit_in_parliament\":true,\"scrutinises_government\":\"parliament\"},\"op\":\"audit_roles\",\"profile\":\"UK_INTRO_2026-09-29\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":false,\"defects\":[{\"claim\":\"government_and_parliament_identical\",\"reason\":\"CONTRADICTED_CLAIM\"}],\"jurisdiction\":\"UK\",\"reference_profile\":\"UK_INTRO_2026-09-29\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "The selected official introductory source distinguishes their roles.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_roles",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C003",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Omitted scrutiny proposition remains a defect",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 3: Omitted scrutiny proposition remains a defect. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"claims\":{\"bill_is_already_an_act\":false,\"day_to_day_public_administration\":\"government\",\"government_and_parliament_identical\":false,\"ministers_can_also_sit_in_parliament\":true},\"op\":\"audit_roles\",\"profile\":\"UK_INTRO_2026-09-29\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":false,\"defects\":[{\"claim\":\"scrutinises_government\",\"reason\":\"MISSING_CLAIM\"}],\"jurisdiction\":\"UK\",\"reference_profile\":\"UK_INTRO_2026-09-29\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Required descriptive assertions cannot be omitted to appear correct.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_roles",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C004",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Ordinary bill trace: introduced,commons_agreed,lords_agreed,royal_assent",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 4: Ordinary bill trace: introduced,commons_agreed,lords_agreed,royal_assent. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"events\":[\"introduced\",\"commons_agreed\",\"lords_agreed\",\"royal_assent\"],\"op\":\"ordinary_bill_trace\",\"profile\":\"UK_INTRO_2026-09-29\",\"route\":\"ordinary_two_house_bill\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"act_in_this_profile\":true,\"defects\":[],\"profile\":\"ORDINARY_TWO_HOUSE_BILL_NOT_EXCEPTIONS\",\"trace_consistent\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Apply introduction, both-house agreement and assent dependencies only within the stated ordinary route.",
+    "sources": [
+      {
+        "reference_id": "uk-bill-stages",
+        "title": "UK Parliament: passage of a Bill",
+        "locator": "Introductory ordinary two-house legislative procedure",
+        "url": "https://www.parliament.uk/about/how/laws/passage-bill/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ordinary_bill_trace",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C005",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Ordinary bill trace: introduced,lords_agreed,commons_agreed,royal_assent",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 5: Ordinary bill trace: introduced,lords_agreed,commons_agreed,royal_assent. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"events\":[\"introduced\",\"lords_agreed\",\"commons_agreed\",\"royal_assent\"],\"op\":\"ordinary_bill_trace\",\"profile\":\"UK_INTRO_2026-09-29\",\"route\":\"ordinary_two_house_bill\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"act_in_this_profile\":true,\"defects\":[],\"profile\":\"ORDINARY_TWO_HOUSE_BILL_NOT_EXCEPTIONS\",\"trace_consistent\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Apply introduction, both-house agreement and assent dependencies only within the stated ordinary route.",
+    "sources": [
+      {
+        "reference_id": "uk-bill-stages",
+        "title": "UK Parliament: passage of a Bill",
+        "locator": "Introductory ordinary two-house legislative procedure",
+        "url": "https://www.parliament.uk/about/how/laws/passage-bill/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ordinary_bill_trace",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C006",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Ordinary bill trace: introduced,commons_agreed",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 6: Ordinary bill trace: introduced,commons_agreed. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"events\":[\"introduced\",\"commons_agreed\"],\"op\":\"ordinary_bill_trace\",\"profile\":\"UK_INTRO_2026-09-29\",\"route\":\"ordinary_two_house_bill\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"act_in_this_profile\":false,\"defects\":[],\"profile\":\"ORDINARY_TWO_HOUSE_BILL_NOT_EXCEPTIONS\",\"trace_consistent\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Apply introduction, both-house agreement and assent dependencies only within the stated ordinary route.",
+    "sources": [
+      {
+        "reference_id": "uk-bill-stages",
+        "title": "UK Parliament: passage of a Bill",
+        "locator": "Introductory ordinary two-house legislative procedure",
+        "url": "https://www.parliament.uk/about/how/laws/passage-bill/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ordinary_bill_trace",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C007",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Ordinary bill trace: introduced,royal_assent",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 7: Ordinary bill trace: introduced,royal_assent. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"events\":[\"introduced\",\"royal_assent\"],\"op\":\"ordinary_bill_trace\",\"profile\":\"UK_INTRO_2026-09-29\",\"route\":\"ordinary_two_house_bill\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"act_in_this_profile\":false,\"defects\":[{\"event\":\"royal_assent\",\"reason\":\"BOTH_HOUSES_AGREEMENT_REQUIRED_IN_PROFILE\"}],\"profile\":\"ORDINARY_TWO_HOUSE_BILL_NOT_EXCEPTIONS\",\"trace_consistent\":false}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Apply introduction, both-house agreement and assent dependencies only within the stated ordinary route.",
+    "sources": [
+      {
+        "reference_id": "uk-bill-stages",
+        "title": "UK Parliament: passage of a Bill",
+        "locator": "Introductory ordinary two-house legislative procedure",
+        "url": "https://www.parliament.uk/about/how/laws/passage-bill/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ordinary_bill_trace",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C008",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Assigned power in an explicitly fictional scenario",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 8: Assigned power in an explicitly fictional scenario. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"institutions\":[{\"id\":\"assembly\",\"powers\":[\"make_statute\"]},{\"id\":\"council\",\"powers\":[\"run_services\"]}],\"jurisdiction\":\"FICTIONAL_EDUCATIONAL_SCENARIO\",\"op\":\"fictional_competence\",\"request\":{\"institution\":\"council\",\"power\":\"run_services\"}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assigned_in_supplied_scenario\":true,\"jurisdiction\":\"FICTIONAL_EDUCATIONAL_SCENARIO\",\"policy_merit_evaluated\":false}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Set membership in the supplied fictional rule table, not a real legal opinion.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "fictional_competence",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C009",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Unassigned power in the same fictional scenario",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 9: Unassigned power in the same fictional scenario. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"institutions\":[{\"id\":\"assembly\",\"powers\":[\"make_statute\"]},{\"id\":\"council\",\"powers\":[\"run_services\"]}],\"jurisdiction\":\"FICTIONAL_EDUCATIONAL_SCENARIO\",\"op\":\"fictional_competence\",\"request\":{\"institution\":\"council\",\"power\":\"make_statute\"}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assigned_in_supplied_scenario\":false,\"jurisdiction\":\"FICTIONAL_EDUCATIONAL_SCENARIO\",\"policy_merit_evaluated\":false}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "The supplied council powers do not include make_statute.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "fictional_competence",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C010",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Unknown country profile rejected",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 10: Unknown country profile rejected. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"claims\":{\"bill_is_already_an_act\":false,\"day_to_day_public_administration\":\"government\",\"government_and_parliament_identical\":false,\"ministers_can_also_sit_in_parliament\":true,\"scrutinises_government\":\"parliament\"},\"op\":\"audit_roles\",\"profile\":\"ANY_COUNTRY\"}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_ENUM\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "A UK-specific profile is not universal.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_roles",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C011",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Special legislative routes are not silently approximated",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 11: Special legislative routes are not silently approximated. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"events\":[\"introduced\"],\"op\":\"ordinary_bill_trace\",\"profile\":\"UK_INTRO_2026-09-29\",\"route\":\"special_route\"}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_ENUM\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Special routes require separately reviewed fixtures.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ordinary_bill_trace",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CIV-001.C012",
+    "task_id": "BIE-EVAL-CIV-001",
+    "domain": "civics",
+    "title": "Duplicate legislative events rejected",
+    "prompt": "BIE-EVAL-CIV-001 authored diagnostic 12: Duplicate legislative events rejected. Evaluate only the explicitly declared civics profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"events\":[\"introduced\",\"introduced\"],\"op\":\"ordinary_bill_trace\",\"profile\":\"UK_INTRO_2026-09-29\",\"route\":\"ordinary_two_house_bill\"}",
+    "expected_json": "{\"error_code\":\"DUPLICATE_EVENT\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CIV-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Repeated events are malformed traces.",
+    "sources": [
+      {
+        "reference_id": "uk-parliament-roles",
+        "title": "UK Parliament and Government",
+        "locator": "Descriptive institution roles, consulted 2026-09-29",
+        "url": "https://www.parliament.uk/about/how/role/relations-with-other-institutions/parliament-government/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ordinary_bill_trace",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

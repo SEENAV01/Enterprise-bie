@@ -1,0 +1,362 @@
+[
+  {
+    "case_id": "BIE-EVAL-HIST-001.C001",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Reference event estates_general_opening",
+    "prompt": "Reference event estates_general_opening. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"event_ids\":[\"estates_general_opening\"],\"op\":\"event_facts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"events\":[{\"date\":\"1789-05-05\",\"event_id\":\"estates_general_opening\",\"place\":\"Versailles\",\"source_ref\":\"versailles-estates-1789\"}],\"profile\":\"FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "event_facts",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C002",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Reference event tennis_court_oath",
+    "prompt": "Reference event tennis_court_oath. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"event_ids\":[\"tennis_court_oath\"],\"op\":\"event_facts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"events\":[{\"date\":\"1789-06-20\",\"event_id\":\"tennis_court_oath\",\"place\":\"Versailles\",\"source_ref\":\"versailles-oath-1789\"}],\"profile\":\"FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment.",
+    "sources": [
+      {
+        "reference_id": "versailles-oath-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Jeu de Paume Oath, 20 June 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/jeu-paume-oath-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "event_facts",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C003",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Reference event declaration_1789_text",
+    "prompt": "Reference event declaration_1789_text. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"event_ids\":[\"declaration_1789_text\"],\"op\":\"event_facts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"events\":[{\"date\":\"1789-08-26\",\"event_id\":\"declaration_1789_text\",\"source_ref\":\"elysee-declaration-1789\"}],\"profile\":\"FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment.",
+    "sources": [
+      {
+        "reference_id": "elysee-declaration-1789",
+        "title": "Elysee historical text",
+        "locator": "1789 declaration, history and articles 1/16",
+        "url": "https://www.elysee.fr/en/french-presidency/the-declaration-of-the-rights-of-man-and-of-the-citizen",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "event_facts",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C004",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Reference event royal_departure_versailles",
+    "prompt": "Reference event royal_departure_versailles. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"event_ids\":[\"royal_departure_versailles\"],\"op\":\"event_facts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"events\":[{\"date\":\"1789-10-06\",\"event_id\":\"royal_departure_versailles\",\"place\":\"Versailles\",\"source_ref\":\"versailles-departure-1789\"}],\"profile\":\"FOUR_REFERENCED_1789_EVENTS_NOT_COMPLETE_HISTORY\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Small dated-event record is sourced to the referenced institutional history; no motive or evaluative judgment.",
+    "sources": [
+      {
+        "reference_id": "versailles-departure-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Royal departure from Versailles, 6 October 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/departure-king-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "event_facts",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C005",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Dated and referenced oath entry",
+    "prompt": "Dated and referenced oath entry. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"entries\":[{\"date\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"event_id\":\"tennis_court_oath\",\"source_ref\":\"versailles-oath-1789\"}],\"op\":\"audit_timeline\",\"required_event_ids\":[\"tennis_court_oath\"]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consistent\":true,\"defects\":[],\"references_are_links_not_captured_passages\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Day and source reference both match the declared event record.",
+    "sources": [
+      {
+        "reference_id": "versailles-oath-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Jeu de Paume Oath, 20 June 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/jeu-paume-oath-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_timeline",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C006",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "One-day chronology defect",
+    "prompt": "One-day chronology defect. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"entries\":[{\"date\":{\"calendar\":\"proleptic_gregorian\",\"day\":21,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"event_id\":\"tennis_court_oath\",\"source_ref\":\"versailles-oath-1789\"}],\"op\":\"audit_timeline\",\"required_event_ids\":[\"tennis_court_oath\"]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consistent\":false,\"defects\":[{\"event_id\":\"tennis_court_oath\",\"reason\":\"DATE_MISMATCH_OR_INSUFFICIENT_PRECISION\"}],\"references_are_links_not_captured_passages\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A one-day displacement is a factual date mismatch.",
+    "sources": [
+      {
+        "reference_id": "versailles-oath-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Jeu de Paume Oath, 20 June 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/jeu-paume-oath-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_timeline",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C007",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Year-only input cannot impersonate exact date",
+    "prompt": "Year-only input cannot impersonate exact date. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"entries\":[{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"event_id\":\"tennis_court_oath\",\"source_ref\":\"versailles-oath-1789\"}],\"op\":\"audit_timeline\",\"required_event_ids\":[\"tennis_court_oath\"]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consistent\":false,\"defects\":[{\"event_id\":\"tennis_court_oath\",\"reason\":\"DATE_MISMATCH_OR_INSUFFICIENT_PRECISION\"}],\"references_are_links_not_captured_passages\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Containment of the actual date in a broad year range is not an exact-date answer.",
+    "sources": [
+      {
+        "reference_id": "versailles-oath-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Jeu de Paume Oath, 20 June 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/jeu-paume-oath-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_timeline",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C008",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Citation must match event",
+    "prompt": "Citation must match event. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"entries\":[{\"date\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"event_id\":\"tennis_court_oath\",\"source_ref\":\"elysee-declaration-1789\"}],\"op\":\"audit_timeline\",\"required_event_ids\":[\"tennis_court_oath\"]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consistent\":false,\"defects\":[{\"event_id\":\"tennis_court_oath\",\"reason\":\"SOURCE_EVENT_MISMATCH\"}],\"references_are_links_not_captured_passages\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A valid reference ID for another event does not support this date.",
+    "sources": [
+      {
+        "reference_id": "versailles-oath-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Jeu de Paume Oath, 20 June 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/jeu-paume-oath-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_timeline",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C009",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Omitted required event",
+    "prompt": "Omitted required event. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"entries\":[],\"op\":\"audit_timeline\",\"required_event_ids\":[\"tennis_court_oath\"]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consistent\":false,\"defects\":[{\"event_id\":\"tennis_court_oath\",\"reason\":\"MISSING_EVENT\"}],\"references_are_links_not_captured_passages\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Empty timeline cannot pass against a nonempty frozen event roster.",
+    "sources": [
+      {
+        "reference_id": "versailles-oath-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Jeu de Paume Oath, 20 June 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/jeu-paume-oath-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_timeline",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C010",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Claim kind declaration_article1_equal_rights_principle",
+    "prompt": "Claim kind declaration_article1_equal_rights_principle. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claim_id\":\"declaration_article1_equal_rights_principle\",\"op\":\"classify_claim\",\"source_ref\":\"elysee-declaration-1789\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"claim_type\":\"TEXTUAL_PRINCIPLE\",\"historical_practice_established_by_normative_text\":false,\"profile\":\"DECLARED_SOURCE_LINKED_CLAIM_TYPE_NOT_ENTAILMENT\",\"source_ref\":\"elysee-declaration-1789\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A stated principle is not proof of implementation; a historical explanation remains attributed. ",
+    "sources": [
+      {
+        "reference_id": "elysee-declaration-1789",
+        "title": "Elysee historical text",
+        "locator": "1789 declaration, history and articles 1/16",
+        "url": "https://www.elysee.fr/en/french-presidency/the-declaration-of-the-rights-of-man-and-of-the-citizen",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "classify_claim",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C011",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Claim kind financial_crisis_contributed_to_convocation",
+    "prompt": "Claim kind financial_crisis_contributed_to_convocation. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claim_id\":\"financial_crisis_contributed_to_convocation\",\"op\":\"classify_claim\",\"source_ref\":\"versailles-estates-1789\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"claim_type\":\"ATTRIBUTED_INTERPRETATION\",\"historical_practice_established_by_normative_text\":false,\"profile\":\"DECLARED_SOURCE_LINKED_CLAIM_TYPE_NOT_ENTAILMENT\",\"source_ref\":\"versailles-estates-1789\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A stated principle is not proof of implementation; a historical explanation remains attributed. ",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "classify_claim",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-001.C012",
+    "task_id": "BIE-EVAL-HIST-001",
+    "domain": "history",
+    "title": "Unknown event cannot be hallucinated",
+    "prompt": "Unknown event cannot be hallucinated. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"event_ids\":[\"unregistered_event\"],\"op\":\"event_facts\"}",
+    "expected_json": "{\"error_code\":\"EVENT_OUTSIDE_REFERENCE_PROFILE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "No fabricated fallback date for an event outside the bounded reference profile.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "event_facts",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_reg_001.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/reg_001"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668286.942138,
+  "duration_seconds": 0.037956953048706055,
+  "tests_run": 26,
+  "unique_test_method_ids": 26,
+  "passed": 26,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_reg_001.RegistryTests.test_batch_rollback_is_all_or_nothing",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_boolean_tolerance_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_duplicate_batch_id_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_duplicate_json_keys_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_duplicate_source_id_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_empty_batch_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_event_chain_detects_body_change",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_existing_id_not_overwritten",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_frozen_outer_record",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_hash_independent_of_mapping_order",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_infinite_tolerance_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_invalid_id_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_inventory_is_sorted_and_redacted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_json_depth_limit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_missing_provenance_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_mutable_source_collection_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_nan_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_nested_inputs_are_detached",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_noncanonical_nested_payload_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_public_view_redacts_reference",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_register_read_identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_reopen_persists_cases",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_tampered_case_bytes_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_unknown_database_version_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_unknown_json_fields_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_001.RegistryTests.test_untrusted_json_constant_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

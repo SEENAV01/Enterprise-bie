@@ -1,0 +1,293 @@
+{
+  "manifest": {
+    "id": "suite1",
+    "version": "1.0.0",
+    "artifact_sha256": "c27d550c60fdbdceae8a1a2cd1d3aeef3d998cfe0f1c8f78ec0d5817186ba7ac",
+    "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+    "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+    "split": "DEVELOPMENT",
+    "reference_grade": "AUTHORED_DIAGNOSTIC",
+    "cases": [
+      {
+        "context": {
+          "run_id": "run1",
+          "case_id": "case1",
+          "domain": "math",
+          "metric_id": "BIE-EVAL-METRIC-005",
+          "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+          "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+          "split": "DEVELOPMENT"
+        },
+        "weight": "1",
+        "leakage_group": "group-case1"
+      },
+      {
+        "context": {
+          "run_id": "run1",
+          "case_id": "case2",
+          "domain": "physics",
+          "metric_id": "BIE-EVAL-METRIC-007",
+          "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+          "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+          "split": "DEVELOPMENT"
+        },
+        "weight": "1",
+        "leakage_group": "group-case2"
+      },
+      {
+        "context": {
+          "run_id": "run1",
+          "case_id": "case3",
+          "domain": "math",
+          "metric_id": "BIE-EVAL-METRIC-007",
+          "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+          "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+          "split": "DEVELOPMENT"
+        },
+        "weight": "1",
+        "leakage_group": "group-case3"
+      }
+    ]
+  },
+  "policy": {
+    "id": "release-policy1",
+    "version": "1.0.0",
+    "mode": "DIAGNOSTIC",
+    "enterprise": {
+      "id": "enterprise",
+      "version": "1.0.0",
+      "minimum_score": "9/10",
+      "minimum_measured_fraction": "1",
+      "metrics": [
+        {
+          "id": "BIE-EVAL-METRIC-005",
+          "weight": "1"
+        },
+        {
+          "id": "BIE-EVAL-METRIC-007",
+          "weight": "1"
+        }
+      ]
+    },
+    "critical_floors": {
+      "id": "floors",
+      "floors": [
+        {
+          "id": "BIE-EVAL-METRIC-005",
+          "minimum": "1"
+        },
+        {
+          "id": "BIE-EVAL-METRIC-007",
+          "minimum": "1"
+        }
+      ]
+    },
+    "domains": {
+      "id": "domains",
+      "domains": [
+        {
+          "id": "math",
+          "minimum_score": "9/10",
+          "minimum_cases": 1,
+          "minimum_measured_fraction": "1"
+        },
+        {
+          "id": "physics",
+          "minimum_score": "9/10",
+          "minimum_cases": 1,
+          "minimum_measured_fraction": "1"
+        }
+      ]
+    },
+    "aggregation": {
+      "id": "raters-v1",
+      "maximum_disagreement": "1/4",
+      "raters": [
+        {
+          "id": "det",
+          "kind": "DETERMINISTIC",
+          "independence_group": "code-author"
+        },
+        {
+          "id": "human",
+          "kind": "HUMAN",
+          "independence_group": "reviewer-team"
+        }
+      ]
+    },
+    "agreement": {
+      "minimum_pairs": 2,
+      "minimum_observed": "1",
+      "maximum_mae": "0",
+      "minimum_kappa": null
+    },
+    "required_attestations": []
+  },
+  "assessments": [
+    {
+      "schema_version": "1.0.0",
+      "context": {
+        "run_id": "run1",
+        "case_id": "case1",
+        "domain": "math",
+        "metric_id": "BIE-EVAL-METRIC-005",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "assessor_id": "det",
+      "kind": "DETERMINISTIC",
+      "assessor_version": "1.0.0",
+      "status": "MEASURED",
+      "score_exact": "1",
+      "reasons": [],
+      "evidence": {},
+      "execution": "FIXTURE",
+      "release_authorized": false,
+      "product_accepted": false,
+      "assessment_sha256": "7642b9039e2d66cf6c4c8caafa3de939632b254648e2689ad271c2fa955fdb03"
+    },
+    {
+      "schema_version": "1.0.0",
+      "context": {
+        "run_id": "run1",
+        "case_id": "case1",
+        "domain": "math",
+        "metric_id": "BIE-EVAL-METRIC-005",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "assessor_id": "human",
+      "kind": "HUMAN",
+      "assessor_version": "1.0.0",
+      "status": "MEASURED",
+      "score_exact": "1",
+      "reasons": [],
+      "evidence": {},
+      "execution": "FIXTURE",
+      "release_authorized": false,
+      "product_accepted": false,
+      "assessment_sha256": "02a1e6d545796dd12992fdf19ed3abcefa67c10e0557561cbcdbcf50a74bb9e2"
+    },
+    {
+      "schema_version": "1.0.0",
+      "context": {
+        "run_id": "run1",
+        "case_id": "case2",
+        "domain": "physics",
+        "metric_id": "BIE-EVAL-METRIC-007",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "assessor_id": "det",
+      "kind": "DETERMINISTIC",
+      "assessor_version": "1.0.0",
+      "status": "MEASURED",
+      "score_exact": "1",
+      "reasons": [],
+      "evidence": {},
+      "execution": "FIXTURE",
+      "release_authorized": false,
+      "product_accepted": false,
+      "assessment_sha256": "f8935fad47a7848eb7aa3931aa2b2627db7fab0fab0990ff365dfb67c6bfda5d"
+    },
+    {
+      "schema_version": "1.0.0",
+      "context": {
+        "run_id": "run1",
+        "case_id": "case2",
+        "domain": "physics",
+        "metric_id": "BIE-EVAL-METRIC-007",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "assessor_id": "human",
+      "kind": "HUMAN",
+      "assessor_version": "1.0.0",
+      "status": "MEASURED",
+      "score_exact": "1",
+      "reasons": [],
+      "evidence": {},
+      "execution": "FIXTURE",
+      "release_authorized": false,
+      "product_accepted": false,
+      "assessment_sha256": "9175feb2424035ece268e2bd6e44f32d90b3e735e0d8e1842660d698f708c069"
+    },
+    {
+      "schema_version": "1.0.0",
+      "context": {
+        "run_id": "run1",
+        "case_id": "case3",
+        "domain": "math",
+        "metric_id": "BIE-EVAL-METRIC-007",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "assessor_id": "det",
+      "kind": "DETERMINISTIC",
+      "assessor_version": "1.0.0",
+      "status": "MEASURED",
+      "score_exact": "1",
+      "reasons": [],
+      "evidence": {},
+      "execution": "FIXTURE",
+      "release_authorized": false,
+      "product_accepted": false,
+      "assessment_sha256": "dbfee1b9294b82e4fb1444ec79b6f6748205973daac973c96780c492ef7ba922"
+    },
+    {
+      "schema_version": "1.0.0",
+      "context": {
+        "run_id": "run1",
+        "case_id": "case3",
+        "domain": "math",
+        "metric_id": "BIE-EVAL-METRIC-007",
+        "candidate_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "reference_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rubric_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+        "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+        "split": "DEVELOPMENT"
+      },
+      "assessor_id": "human",
+      "kind": "HUMAN",
+      "assessor_version": "1.0.0",
+      "status": "MEASURED",
+      "score_exact": "1",
+      "reasons": [],
+      "evidence": {},
+      "execution": "FIXTURE",
+      "release_authorized": false,
+      "product_accepted": false,
+      "assessment_sha256": "42f47f4421d3b6df229d60f15b770a523592f4a806a3305cbba57effab6af6c3"
+    }
+  ]
+}

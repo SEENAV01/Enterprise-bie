@@ -1,0 +1,476 @@
+{
+  "task_id": "BIE-EVAL-CHEM-003",
+  "operations": {
+    "balance": [
+      "BIE-EVAL-CHEM-003.C001",
+      "BIE-EVAL-CHEM-003.C002",
+      "BIE-EVAL-CHEM-003.C003",
+      "BIE-EVAL-CHEM-003.C009",
+      "BIE-EVAL-CHEM-003.C010",
+      "BIE-EVAL-CHEM-003.C012"
+    ],
+    "reaction_extent": [
+      "BIE-EVAL-CHEM-003.C004",
+      "BIE-EVAL-CHEM-003.C005",
+      "BIE-EVAL-CHEM-003.C006",
+      "BIE-EVAL-CHEM-003.C011"
+    ],
+    "percent_yield": [
+      "BIE-EVAL-CHEM-003.C007",
+      "BIE-EVAL-CHEM-003.C008"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C001",
+      "inputs": {
+        "op": "balance",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "hydrogen"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "oxygen"
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "products": {
+            "water": 2
+          },
+          "profile": "PRIMITIVE_INTEGER_ATOM_AND_CHARGE_BALANCE",
+          "reactants": {
+            "hydrogen": 2,
+            "oxygen": 1
+          }
+        }
+      },
+      "derivation": "Hydrogen and oxygen conservation require primitive coefficients 2:1:2."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C002",
+      "inputs": {
+        "op": "balance",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "CaCl2",
+            "id": "salt"
+          },
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "Ca(OH)2",
+            "id": "base"
+          },
+          {
+            "charge": 0,
+            "formula": "HCl",
+            "id": "acid"
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "products": {
+            "salt": 1,
+            "water": 2
+          },
+          "profile": "PRIMITIVE_INTEGER_ATOM_AND_CHARGE_BALANCE",
+          "reactants": {
+            "acid": 2,
+            "base": 1
+          }
+        }
+      },
+      "derivation": "Ca=1, Cl=2, O=2, H=4 on each side."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C003",
+      "inputs": {
+        "op": "balance",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 1,
+            "formula": "H",
+            "id": "H"
+          },
+          {
+            "charge": -1,
+            "formula": "OH",
+            "id": "OH"
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "products": {
+            "water": 1
+          },
+          "profile": "PRIMITIVE_INTEGER_ATOM_AND_CHARGE_BALANCE",
+          "reactants": {
+            "H": 1,
+            "OH": 1
+          }
+        }
+      },
+      "derivation": "One +1 and one -1 species sum to neutral water with conserved atoms."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C004",
+      "inputs": {
+        "coefficients": {
+          "hydrogen": 2,
+          "oxygen": 1,
+          "water": 2
+        },
+        "feed_mol": {
+          "hydrogen": 5,
+          "oxygen": 2
+        },
+        "op": "reaction_extent",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "hydrogen"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "oxygen"
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consumed_mol": {
+            "hydrogen": "4",
+            "oxygen": "2"
+          },
+          "extent_mol": "2",
+          "limiting_reactants": [
+            "oxygen"
+          ],
+          "produced_mol": {
+            "water": "4"
+          },
+          "profile": "IDEAL_COMPLETE_CONVERSION_NO_SIDE_REACTIONS",
+          "remaining_mol": {
+            "hydrogen": "1",
+            "oxygen": "0"
+          }
+        }
+      },
+      "derivation": "Extent=min(n_hydrogen/2,n_oxygen); multiply by each stoichiometric coefficient."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C005",
+      "inputs": {
+        "coefficients": {
+          "hydrogen": 2,
+          "oxygen": 1,
+          "water": 2
+        },
+        "feed_mol": {
+          "hydrogen": 4,
+          "oxygen": 2
+        },
+        "op": "reaction_extent",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "hydrogen"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "oxygen"
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consumed_mol": {
+            "hydrogen": "4",
+            "oxygen": "2"
+          },
+          "extent_mol": "2",
+          "limiting_reactants": [
+            "hydrogen",
+            "oxygen"
+          ],
+          "produced_mol": {
+            "water": "4"
+          },
+          "profile": "IDEAL_COMPLETE_CONVERSION_NO_SIDE_REACTIONS",
+          "remaining_mol": {
+            "hydrogen": "0",
+            "oxygen": "0"
+          }
+        }
+      },
+      "derivation": "Extent=min(n_hydrogen/2,n_oxygen); multiply by each stoichiometric coefficient."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C006",
+      "inputs": {
+        "coefficients": {
+          "hydrogen": 2,
+          "oxygen": 1,
+          "water": 2
+        },
+        "feed_mol": {
+          "hydrogen": 0,
+          "oxygen": 2
+        },
+        "op": "reaction_extent",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "hydrogen"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "oxygen"
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "consumed_mol": {
+            "hydrogen": "0",
+            "oxygen": "0"
+          },
+          "extent_mol": "0",
+          "limiting_reactants": [
+            "hydrogen"
+          ],
+          "produced_mol": {
+            "water": "0"
+          },
+          "profile": "IDEAL_COMPLETE_CONVERSION_NO_SIDE_REACTIONS",
+          "remaining_mol": {
+            "hydrogen": "0",
+            "oxygen": "2"
+          }
+        }
+      },
+      "derivation": "Extent=min(n_hydrogen/2,n_oxygen); multiply by each stoichiometric coefficient."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C007",
+      "inputs": {
+        "actual_mol": 3,
+        "op": "percent_yield",
+        "theoretical_mol": 4
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "percent_yield": "75",
+          "profile": "PURE_PRODUCT_SAME_SPECIES_MOLAR_YIELD"
+        }
+      },
+      "derivation": "100*3/4=75 percent for the same pure product."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C008",
+      "inputs": {
+        "actual_mol": 5,
+        "op": "percent_yield",
+        "theoretical_mol": 4
+      },
+      "expected": {
+        "error_code": "PURE_PRODUCT_YIELD_EXCEEDS_THEORY",
+        "status": "REJECTED"
+      },
+      "derivation": "Observed apparent yields above 100 need a different measurement/impurity model."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C009",
+      "inputs": {
+        "op": "balance",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H",
+            "id": "neutral"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 1,
+            "formula": "H",
+            "id": "ion"
+          }
+        ]
+      },
+      "expected": {
+        "error_code": "NO_NONZERO_BALANCE",
+        "status": "REJECTED"
+      },
+      "derivation": "Atom conservation permits equal counts, but charge conservation forces zero; no nonzero balance."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C010",
+      "inputs": {
+        "op": "balance",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "CO",
+            "id": "CO"
+          },
+          {
+            "charge": 0,
+            "formula": "CO2",
+            "id": "CO2"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "C",
+            "id": "carbon"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "oxygen"
+          }
+        ]
+      },
+      "expected": {
+        "error_code": "BALANCE_NOT_UNIQUE",
+        "status": "REJECTED"
+      },
+      "derivation": "Two carbon products create more than one independent stoichiometric solution; do not invent a ratio."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C011",
+      "inputs": {
+        "coefficients": {
+          "hydrogen": 1,
+          "oxygen": 1,
+          "water": 1
+        },
+        "feed_mol": {
+          "hydrogen": 2,
+          "oxygen": 2
+        },
+        "op": "reaction_extent",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "hydrogen"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "oxygen"
+          }
+        ]
+      },
+      "expected": {
+        "error_code": "UNBALANCED_REACTION",
+        "status": "REJECTED"
+      },
+      "derivation": "Declared coefficients must conserve atoms before limiting-feed arithmetic."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-003.C012",
+      "inputs": {
+        "op": "balance",
+        "products": [
+          {
+            "charge": 0,
+            "formula": "CuSO4",
+            "id": "salt"
+          },
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "water"
+          }
+        ],
+        "reactants": [
+          {
+            "charge": 0,
+            "formula": "CuSO4.5H2O",
+            "id": "hydrate"
+          }
+        ]
+      },
+      "expected": {
+        "error_code": "UNSUPPORTED_FORMULA_SYNTAX",
+        "status": "REJECTED"
+      },
+      "derivation": "The bounded parser does not silently misread dot hydrate notation."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

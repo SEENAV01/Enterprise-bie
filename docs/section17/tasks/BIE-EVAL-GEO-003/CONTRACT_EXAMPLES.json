@@ -1,0 +1,374 @@
+[
+  {
+    "case_id": "BIE-EVAL-GEO-003.C001",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Perfect reflection yields zero ideal absorbed flux",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 1: Perfect reflection yields zero ideal absorbed flux. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"albedo\":1,\"emissivity\":1,\"op\":\"planetary_budget\",\"solar_constant_W_m2\":1000}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"absorbed_W_m2\":\"0\",\"effective_radiating_temperature_K\":0.0,\"profile\":\"GLOBAL_MEAN_STEADY_STATE_EFFECTIVE_NOT_SURFACE\",\"reflected_W_m2\":\"250\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Global mean incident flux is 1000/4. Albedo one reflects it all in this ideal model.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "planetary_budget",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C002",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Catchment storage accumulation",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 2: Catchment storage accumulation. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"evapotranspiration\":{\"unit\":\"mm\",\"value\":40},\"op\":\"water_budget\",\"precipitation\":{\"unit\":\"cm\",\"value\":10},\"runoff\":{\"unit\":\"mm\",\"value\":30}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"CLOSED_CATCHMENT_INTERVAL_NO_LATERAL_IMPORT\",\"storage_change_mm\":\"30\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "100 - 40 - 30 =30 mm.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "water_budget",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C003",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Catchment storage drawdown",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 3: Catchment storage drawdown. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"evapotranspiration\":{\"unit\":\"mm\",\"value\":40},\"op\":\"water_budget\",\"precipitation\":{\"unit\":\"mm\",\"value\":20},\"runoff\":{\"unit\":\"mm\",\"value\":10}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"CLOSED_CATCHMENT_INTERVAL_NO_LATERAL_IMPORT\",\"storage_change_mm\":\"-30\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "20 -40 -10 = -30 mm; storage can decrease.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "water_budget",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C004",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Complete thirty-year baseline anomaly",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 4: Complete thirty-year baseline anomaly. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"annual_means\":[{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1991},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1992},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1993},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1994},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1995},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1996},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1997},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1998},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1999},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2000},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2001},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2002},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2003},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2004},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2005},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2006},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2007},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2008},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2009},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2010},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2011},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2012},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2013},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2014},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2015},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2016},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2017},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2018},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2019},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2020}],\"baseline_end\":2020,\"baseline_start\":1991,\"observation\":{\"unit\":\"degC\",\"value\":12},\"op\":\"temperature_anomaly\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"anomaly_degC\":\"2\",\"baseline_mean_degC\":\"10\",\"profile\":\"COMPLETE_EQUAL_YEAR_MEANS_NO_HOMOGENIZATION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "All thirty annual means are 10; observation minus mean is 2.",
+    "sources": [
+      {
+        "reference_id": "noaa-climate-normal",
+        "title": "NOAA NCEI: Climate Normals",
+        "locator": "30-year reference period; this fixture uses a simpler complete annual series",
+        "url": "https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "temperature_anomaly",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C005",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Absolute temperature unit converted before anomaly",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 5: Absolute temperature unit converted before anomaly. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"annual_means\":[{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1991},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1992},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1993},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1994},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1995},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1996},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1997},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1998},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1999},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2000},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2001},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2002},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2003},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2004},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2005},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2006},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2007},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2008},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2009},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2010},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2011},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2012},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2013},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2014},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2015},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2016},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2017},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2018},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2019},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2020}],\"baseline_end\":2020,\"baseline_start\":1991,\"observation\":{\"unit\":\"K\",\"value\":\"5703/20\"},\"op\":\"temperature_anomaly\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"anomaly_degC\":\"2\",\"baseline_mean_degC\":\"10\",\"profile\":\"COMPLETE_EQUAL_YEAR_MEANS_NO_HOMOGENIZATION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "285.15 K =12 C; anomaly is 2 C.",
+    "sources": [
+      {
+        "reference_id": "noaa-climate-normal",
+        "title": "NOAA NCEI: Climate Normals",
+        "locator": "30-year reference period; this fixture uses a simpler complete annual series",
+        "url": "https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "temperature_anomaly",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C006",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Area-weighted means are not unweighted means",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 6: Area-weighted means are not unweighted means. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"op\":\"area_weighted_temperature\",\"regions\":[{\"area_km2\":1,\"id\":\"small\",\"temperature\":{\"unit\":\"degC\",\"value\":0}},{\"area_km2\":3,\"id\":\"large\",\"temperature\":{\"unit\":\"degC\",\"value\":20}}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"mean_degC\":\"15\",\"profile\":\"DECLARED_NONOVERLAPPING_AREA_WEIGHTS\",\"total_area_km2\":\"4\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "(1*0+3*20)/4=15 C.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "area_weighted_temperature",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C007",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Declared two-negative feedback is reinforcing",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 7: Declared two-negative feedback is reinforcing. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"links\":[{\"from\":\"a\",\"sign\":\"-\",\"to\":\"b\"},{\"from\":\"b\",\"sign\":\"-\",\"to\":\"a\"}],\"op\":\"feedback_loop\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"feedback\":\"reinforcing\",\"loop_sign\":1,\"profile\":\"DECLARED_LINK_POLARITY_NOT_EMPIRICAL_ATTRIBUTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Two negative factors multiply to positive; no empirical attribution follows.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "feedback_loop",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C008",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Declared single-negative feedback is balancing",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 8: Declared single-negative feedback is balancing. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"links\":[{\"from\":\"a\",\"sign\":\"+\",\"to\":\"b\"},{\"from\":\"b\",\"sign\":\"-\",\"to\":\"a\"}],\"op\":\"feedback_loop\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"feedback\":\"balancing\",\"loop_sign\":-1,\"profile\":\"DECLARED_LINK_POLARITY_NOT_EMPIRICAL_ATTRIBUTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "The sign product is negative.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "feedback_loop",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C009",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Duplicate year cannot conceal a missing baseline year",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 9: Duplicate year cannot conceal a missing baseline year. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"annual_means\":[{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1992},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1992},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1993},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1994},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1995},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1996},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1997},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1998},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1999},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2000},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2001},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2002},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2003},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2004},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2005},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2006},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2007},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2008},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2009},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2010},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2011},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2012},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2013},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2014},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2015},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2016},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2017},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2018},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2019},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2020}],\"baseline_end\":2020,\"baseline_start\":1991,\"observation\":{\"unit\":\"degC\",\"value\":12},\"op\":\"temperature_anomaly\"}",
+    "expected_json": "{\"error_code\":\"DUPLICATE_YEAR\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Two copies of 1992 do not supply 1991.",
+    "sources": [
+      {
+        "reference_id": "noaa-climate-normal",
+        "title": "NOAA NCEI: Climate Normals",
+        "locator": "30-year reference period; this fixture uses a simpler complete annual series",
+        "url": "https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "temperature_anomaly",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C010",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Twenty-nine years are not the declared thirty-year profile",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 10: Twenty-nine years are not the declared thirty-year profile. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"annual_means\":[{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1991},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1992},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1993},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1994},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1995},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1996},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1997},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1998},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":1999},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2000},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2001},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2002},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2003},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2004},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2005},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2006},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2007},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2008},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2009},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2010},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2011},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2012},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2013},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2014},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2015},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2016},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2017},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2018},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2019},{\"temperature\":{\"unit\":\"degC\",\"value\":10},\"year\":2020}],\"baseline_end\":2019,\"baseline_start\":1991,\"observation\":{\"unit\":\"degC\",\"value\":12},\"op\":\"temperature_anomaly\"}",
+    "expected_json": "{\"error_code\":\"EXACT_30_YEAR_BASELINE_REQUIRED\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Inclusive 1991 through 2019 covers only 29 years.",
+    "sources": [
+      {
+        "reference_id": "noaa-climate-normal",
+        "title": "NOAA NCEI: Climate Normals",
+        "locator": "30-year reference period; this fixture uses a simpler complete annual series",
+        "url": "https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "temperature_anomaly",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C011",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Zero emissivity fails the thermal equilibrium model",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 11: Zero emissivity fails the thermal equilibrium model. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"albedo\":1,\"emissivity\":0,\"op\":\"planetary_budget\",\"solar_constant_W_m2\":1000}",
+    "expected_json": "{\"error_code\":\"ZERO_EMISSIVITY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Radiative temperature formula divides by a strictly positive emissivity.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "planetary_budget",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-003.C012",
+    "task_id": "BIE-EVAL-GEO-003",
+    "domain": "climate",
+    "title": "Temperature below absolute zero rejected",
+    "prompt": "BIE-EVAL-GEO-003 authored diagnostic 12: Temperature below absolute zero rejected. Evaluate only the explicitly declared climate profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"op\":\"area_weighted_temperature\",\"regions\":[{\"area_km2\":1,\"id\":\"r\",\"temperature\":{\"unit\":\"K\",\"value\":-1}}]}",
+    "expected_json": "{\"error_code\":\"BELOW_ABSOLUTE_ZERO\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-003.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Kelvin must not be negative.",
+    "sources": [
+      {
+        "reference_id": "nasa-energy-budget",
+        "title": "NASA: Climate and Earth energy budget",
+        "locator": "Global-mean geometry, absorption and thermal radiation",
+        "url": "https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "area_weighted_temperature",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "task_id": "BIE-EVAL-H1-005",
+  "title": "Supervised provider deadline",
+  "finding": {
+    "finding_id": "H1-F005",
+    "task_id": "BIE-EVAL-H1-005",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "The model port delegated timeouts to the adapter; a hanging callback had no enforced process deadline.",
+    "implemented_behavior": "Offer an operator-installed factory wrapper with spawned worker, bounded UTF-8 response channel, deadline termination and direct-child reaping.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Not an OS sandbox: descendant, network, memory, service authorization and provider billing cancellation remain deployment concerns. Wrapper adoption by the native broker is not automatic.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/release/supervised.py"
+    ],
+    "test_pattern": "test_h1_005.py",
+    "passed_test_methods": 13,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_bool_deadline_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_hanging_worker_is_killed_and_reaped",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_nan_deadline_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_noncallable_factory_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_overlarge_deadline_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_oversized_response_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_positive_process_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_repeat_timeout_leaves_no_children",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_response_budget_bound",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_secret_exception_is_not_returned",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_worker_crash_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_wrong_child_identity_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_zero_deadline_refused",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/release/supervised.py": "e62e169043ef50cbcb0db3c39e37b7ffc0c74b3a7e6e88a5adf303d1f046bfb1",
+    "tests/section17/test_h1_005.py": "f0befbfb9c602d796d14c538233110060758953045adefed6546558170da5105"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

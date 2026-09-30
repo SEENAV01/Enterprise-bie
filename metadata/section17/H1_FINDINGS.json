@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "findings": [
+    {
+      "finding_id": "H1-F001",
+      "task_id": "BIE-EVAL-H1-001",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "Unpaired Unicode surrogates and oversized UTF-8 strings escaped the typed evidence boundary.",
+      "implemented_behavior": "Reject invalid scalar strings/keys and byte budgets before serialization; retain Hindi/emoji and valid surrogate pairs.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Unicode/byte limits are defensive input checks, not source truth or text semantics.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/models.py"
+      ],
+      "test_pattern": "test_h1_001.py",
+      "passed_test_methods": 14,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F002",
+      "task_id": "BIE-EVAL-H1-002",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "Registry unconditionally used a Python3.12-only SQLite keyword despite the advertised3.11 minimum; lexical parent symlinks were not centrally guarded.",
+      "implemented_behavior": "Use explicit manual transactions with version-aware connection parameters and reject symlink/URI/traversal paths.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Executed on Python3.13.5;3.11 API behavior is simulated, not an actual3.11 platform run. Single-owner preflight is not race-proof OS containment.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/storage.py",
+        "bie/evaluation/benchmarks/registry.py",
+        "bie/evaluation/benchmarks/release/ledger.py"
+      ],
+      "test_pattern": "test_h1_002.py",
+      "passed_test_methods": 13,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F003",
+      "task_id": "BIE-EVAL-H1-003",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "Unexpected metric errors escaped; a malformed/misbound/overcredited result could escape or be represented incorrectly.",
+      "implemented_behavior": "Freeze evaluator inputs; validate context pins, unit-weighted scores and receipt construction inside one fail-closed boundary; redact exception details.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Bounded deterministic profiles still do not judge arbitrary language or guarantee scientific truth. Re-audit malformed-result failures and fixes are retained.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/deterministic.py"
+      ],
+      "test_pattern": "test_h1_003.py",
+      "passed_test_methods": 18,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F004",
+      "task_id": "BIE-EVAL-H1-004",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "A provider callback could mutate caller-owned rubric/context or its fixture identity across the call.",
+      "implemented_behavior": "Use detached request-bound snapshots and recheck provider/model/fixture identity after execution.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "No live provider is selected or called. An in-process adapter is still trusted operator code; use the supervised wrapper for a hard deadline.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/model.py"
+      ],
+      "test_pattern": "test_h1_004.py",
+      "passed_test_methods": 12,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F005",
+      "task_id": "BIE-EVAL-H1-005",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "The model port delegated timeouts to the adapter; a hanging callback had no enforced process deadline.",
+      "implemented_behavior": "Offer an operator-installed factory wrapper with spawned worker, bounded UTF-8 response channel, deadline termination and direct-child reaping.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Not an OS sandbox: descendant, network, memory, service authorization and provider billing cancellation remain deployment concerns. Wrapper adoption by the native broker is not automatic.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/supervised.py"
+      ],
+      "test_pattern": "test_h1_005.py",
+      "passed_test_methods": 13,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F006",
+      "task_id": "BIE-EVAL-H1-006",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "Manifest artifact identity was a supplied hash, not verified against an exact structured candidate bundle.",
+      "implemented_behavior": "Require exact roster, per-case candidate digests and whole canonical bundle hash in production; diagnostic behavior stays compatible.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "This binds supplied structured JSON only, not unseen video/audio or a native run.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/bundle.py",
+        "bie/evaluation/benchmarks/release/gate.py"
+      ],
+      "test_pattern": "test_h1_006.py",
+      "passed_test_methods": 12,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F007",
+      "task_id": "BIE-EVAL-H1-007",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "A content-hashed assessment could self-assert a production execution identity without a per-assessment service authorization.",
+      "implemented_behavior": "Require exact signed assessment scopes, configured roles/identity/version/group, expiry/revocation, non-fixture execution and no reused secret across raters.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Configured shared-secret service custody is not independent digital non-repudiation, actual reviewer expertise, honest external evidence or protected production key provisioning.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/admission.py",
+        "bie/evaluation/benchmarks/release/gate.py"
+      ],
+      "test_pattern": "test_h1_007.py",
+      "passed_test_methods": 13,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F008",
+      "task_id": "BIE-EVAL-H1-008",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "Global metric and domain aggregates could conceal missing domain-by-metric cells; the hardened gate inputs also needed CLI wiring.",
+      "implemented_behavior": "Pin an exact full17-metric roster per domain; require independent reference/leakage-group components per cell; bind the contract into external attestation scope and expose all required inputs through the CLI.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "No automatic not-applicable exemptions and no empirical calibration claimed. Synthetic full-matrix controls use invented evidence and test signing identities, not a real production/golden approval.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/coverage.py",
+        "bie/evaluation/benchmarks/release/gate.py",
+        "bie/evaluation/benchmarks/release/__main__.py"
+      ],
+      "test_pattern": "test_h1_008.py",
+      "passed_test_methods": 17,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F009",
+      "task_id": "BIE-EVAL-H1-009",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "A finalization could return a receipt without ensuring its reserved row was finalized; interrupted reservations lacked a governed terminal recovery path.",
+      "implemented_behavior": "Compare-and-set finalization, read-back integrity, artifact/report bindings and explicit input-pinned operator recovery to terminal BLOCKED.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Single-host privileged recovery requires stopping the abandoned worker first. It is not an authenticated public recovery endpoint or distributed crash reconciliation. Pre-H1 finalized receipts require explicit revalidation; do not rewrite archived evidence.",
+      "code_paths": [
+        "bie/evaluation/benchmarks/release/ledger.py"
+      ],
+      "test_pattern": "test_h1_009.py",
+      "passed_test_methods": 13,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    },
+    {
+      "finding_id": "H1-F010",
+      "task_id": "BIE-EVAL-H1-010",
+      "origin": "derived from audit, NOT an original task ID",
+      "issue": "Resolving paths before checking them hid root/parent symlinks; normalized Unicode/Windows aliases were not rejected. An inherited preservation assertion needed a tracked-change path rather than a skip.",
+      "implemented_behavior": "Reject lexical symlink roots/parents and nonportable aliases, verify exact inventories, and require original preimages plus old/new hashes for intentional baseline replacements.",
+      "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+      "boundaries": "Extraction remains for trusted operator-owned parents, not hostile concurrent filesystem writers. Historical original archives remain byte-identical; one old test file is deliberately updated and preserved.",
+      "code_paths": [
+        "tools/verify_section17_package.py",
+        "tests/section17/test_batch002_contracts.py"
+      ],
+      "test_pattern": "test_h1_010.py",
+      "passed_test_methods": 14,
+      "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+    }
+  ],
+  "original_tasks_added": 0,
+  "hardening_tasks": 10,
+  "section_complete": false
+}

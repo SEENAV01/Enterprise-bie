@@ -1,0 +1,61 @@
+{
+  "task_id": "BIE-EVAL-H1-005",
+  "selected_test_method_count": 13,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_bool_deadline_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_hanging_worker_is_killed_and_reaped",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_nan_deadline_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_noncallable_factory_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_overlarge_deadline_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_oversized_response_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_positive_process_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_repeat_timeout_leaves_no_children",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_response_budget_bound",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_secret_exception_is_not_returned",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_worker_crash_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_wrong_child_identity_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_005.SupervisedDeadline.test_zero_deadline_refused",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

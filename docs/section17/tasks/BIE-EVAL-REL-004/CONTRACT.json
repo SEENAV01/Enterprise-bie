@@ -1,0 +1,16 @@
+{
+  "task_id": "BIE-EVAL-REL-004",
+  "original_sequence": 50,
+  "original_capability": "release benchmark gate",
+  "module": "release/gate.py",
+  "test_pattern": "test_rel_004.py",
+  "direct_dependencies": [
+    "BIE-EVAL-REL-001",
+    "BIE-EVAL-REL-002",
+    "BIE-EVAL-REL-003"
+  ],
+  "status": "SCOPED_LOCAL_IMPLEMENTATION",
+  "limits": "Production signed evidence, real-book/video/game acceptance and secure service custody remain absent. Diagnostic passes never authorize deployment or accept the product.",
+  "release_authorized": false,
+  "product_accepted": false
+}

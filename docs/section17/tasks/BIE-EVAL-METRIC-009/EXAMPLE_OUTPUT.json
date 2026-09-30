@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "metric_id": "BIE-EVAL-METRIC-009",
+  "rubric_id": "delivery-metric-009",
+  "rubric_version": "1.0.0",
+  "reference_sha256": "1c0eaf27f13917943f3165a270c3e42097f9b3c6687793bb6210f49fbb4723cd",
+  "candidate_sha256": "39e9fbcc7c56cf53c8dbccdd4235391203aada83f6ba5500db300bd9ba34c5a6",
+  "evaluator_id": "bie-metric-evaluator-v1",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "status": "MEASURED",
+  "outcome": "PASS",
+  "score_exact": "1",
+  "earned_weight": "3",
+  "total_weight": "3",
+  "unit_count": 3,
+  "units": [
+    {
+      "id": "a",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "b",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "relation:attraction",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    }
+  ],
+  "defects": [],
+  "details": {
+    "assessment_scope": "TYPED_SCENE_SEMANTICS_AND_BOXES",
+    "rendered_pixels_verified": false
+  },
+  "evidence_grade": "AUTHORED_DIAGNOSTIC",
+  "independently_reviewed": false,
+  "source_artifacts_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "native_bie_execution_verified": false,
+  "release_authorized": false,
+  "product_accepted": false
+}

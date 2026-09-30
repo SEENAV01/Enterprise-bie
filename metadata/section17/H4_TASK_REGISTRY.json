@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "derived_from": "retrieved H3_CAPABILITY_AUDIT.md lines 66-75 (original residual JSON not recovered)",
+  "original_tasks_unchanged": true,
+  "tasks": [
+    {
+      "task_id": "BIE-EVAL-H4-001",
+      "title": "Versioned browser contracts and fixed reference coverage",
+      "scope": "Strict manifest/reference schemas, typed expectations, resource pins, nonempty objective coverage and content identity.",
+      "justification": "H3 audit: actual browser/game runtime absent.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/contracts.py",
+      "tests": "tests/section17/test_h4_001.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-002",
+      "title": "Verified static-asset custody",
+      "scope": "Descriptor-confined reads and immutable, hash-checked private asset copies; input-directory rename does not reset attempt identity.",
+      "justification": "H3 audit: real candidate files, not declarations.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/bundle.py",
+      "tests": "tests/section17/test_h4_002.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-003",
+      "title": "Bounded actual Chromium worker",
+      "scope": "Disposable Chromium, local in-memory documents, all page requests aborted, service workers blocked, fixed shared deadline and retained failure receipts.",
+      "justification": "H3 audit: actual runtime evidence absent.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/worker.py",
+      "tests": "tests/section17/test_h4_003.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-004",
+      "title": "Real keyboard and game-feedback actions",
+      "scope": "Real Tab/Enter/fill/click and local-document reset, bounded action execution and observation at each trusted checkpoint.",
+      "justification": "H3 audit: gameplay/browser behavior not exercised.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/actions.py",
+      "tests": "tests/section17/test_h4_004.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-005",
+      "title": "Isolated rendered DOM and screenshot observation",
+      "scope": "CDP isolated-world text/style/geometry observations plus native PNG capture; candidate style API overrides do not supply the scores.",
+      "justification": "H3 audit: static contrast/focus fields not actual runtime.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/observe.py",
+      "tests": "tests/section17/test_h4_005.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-006",
+      "title": "Objective-linked behavior grading",
+      "scope": "Fixed denominator, missing/error observations penalized, actual feedback paths mapped to declared objectives without claiming student learning efficacy.",
+      "justification": "H3 audit: genuine gameplay evidence required, not authored PASS flags.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/scoring.py",
+      "tests": "tests/section17/test_h4_006.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-007",
+      "title": "Fresh-context observed replay",
+      "scope": "Two fresh browser contexts, deterministic normalized observation comparison; screenshot identity reported separately.",
+      "justification": "H3 audit and reproducibility requirement.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/replay.py",
+      "tests": "tests/section17/test_h4_007.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-008",
+      "title": "Explicit native-layout and metric/rater adapters",
+      "scope": "Canonical smoke-layout mapper, opt-in METRIC-014/015 browser profiles, existing deterministic-rater integration and retained blocked collector evidence.",
+      "justification": "H3 audit: do not imply native success from layout/file pins.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/native.py + metric.py",
+      "tests": "tests/section17/test_h4_008.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-009",
+      "title": "Durable browser attempt store and CLI",
+      "scope": "Committed reservations, immutable campaign policy/code/environment pins, duplicate rejection, verified readback and controlled terminal blocked recovery.",
+      "justification": "New actual runtime must retain negative/interrupted evidence.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/ledger.py + __main__.py",
+      "tests": "tests/section17/test_h4_009.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-H4-010",
+      "title": "H3 source recovery and delivery integrity",
+      "scope": "Verify recovered file hashes, safe ZIP member/CRC/hash checks, explicit missing-history accounting, regression/fault controls and cumulative packaging.",
+      "justification": "Missing original H3 master discovered in this turn; preserve available history without fabricating it.",
+      "original_registry_task": false,
+      "implementation": "bie/evaluation/benchmarks/browser/integrity.py",
+      "tests": "tests/section17/test_h4_010.py",
+      "acceptance_scope": "LOCAL_AUTHORED_DIAGNOSTIC_ONLY",
+      "product_accepted": false
+    }
+  ]
+}

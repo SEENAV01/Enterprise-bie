@@ -1,0 +1,93 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-015",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-015",
+    "rubric_id": "delivery-metric-015",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-015/SPEC.md",
+        "basis_sha256": "26bdb643efc153874b15b4edc401b3444d1cf81d0446e2b378a0faf3a137a6c8"
+      }
+    ],
+    "payload": {
+      "duration_ms": 2000,
+      "speech": [
+        {
+          "id": "speech",
+          "start": 0,
+          "end": 2000,
+          "transcript": "Distance changes force",
+          "weight": 1
+        }
+      ],
+      "controls": [
+        {
+          "id": "pause",
+          "key": "Space",
+          "role": "button",
+          "weight": 1
+        }
+      ],
+      "text_labels": [
+        {
+          "id": "caption",
+          "large_text": false,
+          "weight": 1
+        }
+      ],
+      "alt_ids": [
+        "diagram"
+      ],
+      "caption_tolerance_ms": 0
+    }
+  },
+  "candidate": {
+    "captions": [
+      {
+        "id": "cue",
+        "speech_id": "speech",
+        "start": 0,
+        "end": 2000,
+        "text": "Distance changes force"
+      }
+    ],
+    "controls": [
+      {
+        "id": "pause",
+        "key": "Space",
+        "role": "button",
+        "accessible_name": "Pause video",
+        "next_id": "EXIT"
+      }
+    ],
+    "text_styles": [
+      {
+        "id": "caption",
+        "foreground": [
+          255,
+          255,
+          255
+        ],
+        "background": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "alts": [
+      {
+        "id": "diagram",
+        "text": "Two charges separated by a labelled distance"
+      }
+    ]
+  },
+  "expected_reference_sha256": "58df538fdb0404ed77f52d7f3ac67bcd576acc7629d9cf8fbe970099285ded29",
+  "expected_candidate_sha256": "c46853c19937641c5bdb1d98a549aff154eb81fb74985314c3995444a9185369",
+  "source_artifacts": {}
+}

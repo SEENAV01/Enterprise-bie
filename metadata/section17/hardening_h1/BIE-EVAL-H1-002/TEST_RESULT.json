@@ -1,0 +1,61 @@
+{
+  "task_id": "BIE-EVAL-H1-002",
+  "selected_test_method_count": 13,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_311_api_compatibility_branch",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_directory_not_database",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_empty_path_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_existing_schema_version_preserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_file_database_works",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_file_symlink_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_manual_transactions_commit_and_rollback",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_memory_durable_port_refuses",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_memory_explicitly_allowed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_nonexistent_parent_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_parent_symlink_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_parent_traversal_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_uri_refused",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

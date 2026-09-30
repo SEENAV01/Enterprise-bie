@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "metric_id": "BIE-EVAL-METRIC-013",
+  "rubric_id": "delivery-metric-013",
+  "rubric_version": "1.0.0",
+  "reference_sha256": "19f1e6015f8a22f12d6b5d721377da2c42702bd461633251b768451b9ccc1f26",
+  "candidate_sha256": "c71a93ef7946a612012585dc7dc0562a58653e051d83e47d1c9f5351f8788d7b",
+  "evaluator_id": "bie-metric-evaluator-v1",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "status": "MEASURED",
+  "outcome": "PASS",
+  "score_exact": "1",
+  "earned_weight": "4",
+  "total_weight": "4",
+  "unit_count": 4,
+  "units": [
+    {
+      "id": "frame:0",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "frame:11",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "frame:6",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "motion:0",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    }
+  ],
+  "defects": [],
+  "details": {
+    "assessment_scope": "TRUSTED_DECODED_RGB_SAMPLES",
+    "statistics": {
+      "frame:0": {
+        "mae_exact": "0",
+        "black_fraction_exact": "0",
+        "channel_spread": 220
+      },
+      "frame:11": {
+        "mae_exact": "0",
+        "black_fraction_exact": "0",
+        "channel_spread": 220
+      },
+      "frame:6": {
+        "mae_exact": "0",
+        "black_fraction_exact": "0",
+        "channel_spread": 220
+      }
+    },
+    "perceptual_quality_certified": false
+  },
+  "evidence_grade": "AUTHORED_DIAGNOSTIC",
+  "independently_reviewed": false,
+  "source_artifacts_sha256": "70d3f39d7ce3829b34d5518a8f06b30371eef33dc81eeb2e133789c13c777f45",
+  "native_bie_execution_verified": false,
+  "release_authorized": false,
+  "product_accepted": false
+}

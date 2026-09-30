@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "metric_id": "BIE-EVAL-METRIC-016",
+  "rubric_id": "delivery-metric-016",
+  "rubric_version": "1.0.0",
+  "reference_sha256": "74fbf6e18b7c2f51c6358cba053490cb03fe5612771352ed648e4753aa7a5210",
+  "candidate_sha256": "47c4c1f667284d36476d0005489945b8b2fd60eb383587b024b22284b6331d4b",
+  "evaluator_id": "bie-metric-evaluator-v1",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "status": "MEASURED",
+  "outcome": "PASS",
+  "score_exact": "1",
+  "earned_weight": "1",
+  "total_weight": "1",
+  "unit_count": 1,
+  "units": [
+    {
+      "id": "bytecode",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    }
+  ],
+  "defects": [],
+  "details": {
+    "assessment_scope": "EXACT_BYTES_WITH_FIXED_CONTEXT",
+    "run_count": 2,
+    "observed_outputs": {
+      "lesson.pyc": [
+        {
+          "sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b",
+          "bytes": 315
+        },
+        {
+          "sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b",
+          "bytes": 315
+        }
+      ]
+    },
+    "build_execution_proven_by_hashing_alone": false,
+    "cross_platform_reproducibility_certified": false
+  },
+  "evidence_grade": "AUTHORED_DIAGNOSTIC",
+  "independently_reviewed": false,
+  "source_artifacts_sha256": "716f8cd60441c5d0a3156fd013db1eac98b5542f72c4c92ab47baf214ca27efa",
+  "native_bie_execution_verified": false,
+  "release_authorized": false,
+  "product_accepted": false
+}

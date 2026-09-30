@@ -1,0 +1,138 @@
+{
+  "task_id": "BIE-EVAL-HIST-002",
+  "original_sequence": 18,
+  "original_capability": "historical causality",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Audits annotated causal arguments and graphs while retaining uncertainty and source-review requirements.",
+  "bounds_and_open_scope": "Authored/curated evidence annotations, <=32 links/evidence records per applicable collection and <=16 alternatives. Exact cause/effect binding, chronology/precision, cycles and overstrong causal assertions are checked. Passing means structurally coherent annotations only: source truth and causality always remain unproven. Real multi-source historiographic adjudication requires independent reviewers.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-HIST-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/historical_causality.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-002.json",
+    "tests/section17/test_hist_002.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/historical_causality.py": "0a6d374705269784ec9be7ab40bff69445f216e8fff971b151ad474ad2b4537f",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-002.json": "1a042c0748104a3911688252b544dfd1c3bbc17058333b5da487131f0ecba3cc",
+    "tests/section17/test_hist_002.py": "e1c6f7668533c4e41739e8db01006c6b4b4342e51ba1be8918a604a0e39cec3f"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_conflicting_node_dates_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_cycle_detected_without_proving_causation",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_duplicate_alternatives_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_duplicate_edge_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_endpoint_not_an_alternative",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_graph_permutation_deterministic",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_same_day_does_not_imply_prior_cause",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_self_causation_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_unknown_evidence_kind_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_hist_002.HIST002Tests.test_unverified_annotation_never_becomes_source_verification",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 10,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-HIST-002/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

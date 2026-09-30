@@ -1,0 +1,65 @@
+{
+  "task_id": "BIE-EVAL-H1-001",
+  "selected_test_method_count": 14,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_duplicate_keys_still_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_emoji_scalar_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_hash_order_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_high_surrogate_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_hindi_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_json_escape_surrogate_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_low_surrogate_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_multibyte_budget_is_bytes_not_characters",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_nested_surrogate_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_nonfinite_still_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_normalization_not_silently_changed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_surrogate_key_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_text_rejects_surrogate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_valid_escaped_surrogate_pair_roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

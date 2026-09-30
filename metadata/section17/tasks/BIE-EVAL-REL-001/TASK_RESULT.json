@@ -1,0 +1,91 @@
+{
+  "task_id": "BIE-EVAL-REL-001",
+  "original_sequence": 47,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Exact weighted metric thresholds and measured-fraction checks using an operator-pinned denominator; missing metrics remain zero.",
+  "limits": "Threshold values are operator policies, not empirically certified enterprise quality levels.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/thresholds.py",
+    "tests/section17/test_rel_001.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-RATER-005"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_below_threshold_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_blocked_score_not_credited",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_duplicate_score_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_empty_metric_policy_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_empty_scores_fail",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_exact_weighted_boundary_passes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_missing_fails_coverage_even_when_score_ok",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_missing_keeps_fixed_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_order_invariant",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_policy_hash_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_score_boolean_negative_nonfinite_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_threshold_score_does_not_authorize_release",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_unknown_metric_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_unknown_status_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_001.EnterpriseThreshold001.test_zero_weight_rejects",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 15,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-001_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-001_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-REL-001/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

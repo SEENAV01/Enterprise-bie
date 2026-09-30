@@ -1,0 +1,374 @@
+[
+  {
+    "case_id": "BIE-EVAL-GEO-002.C001",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Printed length to ground distance",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 1: Printed length to ground distance. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"map_length\":{\"unit\":\"cm\",\"value\":2},\"op\":\"scale_distance\",\"scale_denominator\":50000}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"ground_m\":\"1000\",\"profile\":\"PRINTED_REPRESENTATIVE_FRACTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "0.02 m times 50000 = 1000 m; no map resizing assumed.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "scale_distance",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C002",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "A fractional centimetre remains exact",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 2: A fractional centimetre remains exact. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"map_length\":{\"unit\":\"cm\",\"value\":\"1/3\"},\"op\":\"scale_distance\",\"scale_denominator\":30000}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"ground_m\":\"100\",\"profile\":\"PRINTED_REPRESENTATIVE_FRACTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "(1/3)/100 times 30000 = 100 m.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "scale_distance",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C003",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Area scales by the square",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 3: Area scales by the square. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"map_area\":{\"unit\":\"cm2\",\"value\":4},\"op\":\"scale_area\",\"scale_denominator\":10000}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"ground_m2\":\"40000\",\"profile\":\"UNIFORM_PLANAR_SCALE_AREA\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "4/10000 square metre times 10000 squared = 40000.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "scale_area",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C004",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "West DMS is negative longitude",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 4: West DMS is negative longitude. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"axis\":\"longitude\",\"degrees\":73,\"hemisphere\":\"W\",\"minutes\":30,\"op\":\"dms\",\"seconds\":0}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"axis\":\"longitude\",\"decimal_degrees\":\"-147/2\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "West negates 73+30/60.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "dms",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C005",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "South pole accepts zero smaller parts",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 5: South pole accepts zero smaller parts. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"axis\":\"latitude\",\"degrees\":90,\"hemisphere\":\"S\",\"minutes\":0,\"op\":\"dms\",\"seconds\":0}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"axis\":\"latitude\",\"decimal_degrees\":\"-90\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "The signed pole coordinate is -90 degrees.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "dms",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C006",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Identical spherical endpoints",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 6: Identical spherical endpoints. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"a\":{\"latitude_deg\":0,\"longitude_deg\":0},\"b\":{\"latitude_deg\":0,\"longitude_deg\":0},\"op\":\"spherical_distance\",\"sphere_radius_m\":1000}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"central_angle_rad\":0.0,\"distance_m\":0.0,\"profile\":\"DECLARED_SPHERE_NOT_ELLIPSOID\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Coincident endpoints have zero central angle.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "spherical_distance",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C007",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Quarter circle on a supplied sphere",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 7: Quarter circle on a supplied sphere. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"a\":{\"latitude_deg\":0,\"longitude_deg\":0},\"b\":{\"latitude_deg\":0,\"longitude_deg\":90},\"op\":\"spherical_distance\",\"sphere_radius_m\":1000}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"central_angle_rad\":1.5707963267948966,\"distance_m\":1570.7963267948965,\"profile\":\"DECLARED_SPHERE_NOT_ELLIPSOID\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "90 degrees = pi/2 radians; arc length =1000 pi/2.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "spherical_distance",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C008",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "East is clockwise bearing ninety",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 8: East is clockwise bearing ninety. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"delta_east_m\":3,\"delta_north_m\":0,\"op\":\"planar_bearing\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"bearing_deg\":90.0,\"distance_m\":3.0,\"profile\":\"CLOCKWISE_FROM_GRID_NORTH\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Positive east with zero north is 90 degrees from grid north.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "planar_bearing",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C009",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Zero representative-fraction denominator rejected",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 9: Zero representative-fraction denominator rejected. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"map_length\":{\"unit\":\"cm\",\"value\":2},\"op\":\"scale_distance\",\"scale_denominator\":0}",
+    "expected_json": "{\"error_code\":\"QUANTITY_OUT_OF_PROFILE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Scale must be strictly positive.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "scale_distance",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C010",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Pole overflow rejected",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 10: Pole overflow rejected. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"axis\":\"latitude\",\"degrees\":90,\"hemisphere\":\"N\",\"minutes\":0,\"op\":\"dms\",\"seconds\":1}",
+    "expected_json": "{\"error_code\":\"INVALID_DMS\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "90 degrees plus a positive second exceeds the latitude bound.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "dms",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C011",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Undefined zero-displacement bearing rejected",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 11: Undefined zero-displacement bearing rejected. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"delta_east_m\":0,\"delta_north_m\":0,\"op\":\"planar_bearing\"}",
+    "expected_json": "{\"error_code\":\"BEARING_UNDEFINED_AT_ZERO_DISTANCE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "A zero vector has no bearing.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "planar_bearing",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-002.C012",
+    "task_id": "BIE-EVAL-GEO-002",
+    "domain": "maps",
+    "title": "Square-length unit cannot be used for map length",
+    "prompt": "BIE-EVAL-GEO-002 authored diagnostic 12: Square-length unit cannot be used for map length. Evaluate only the explicitly declared maps profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"map_length\":{\"unit\":\"m2\",\"value\":2},\"op\":\"scale_distance\",\"scale_denominator\":100}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_ENUM\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-002.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Length and area units are distinct typed inputs.",
+    "sources": [
+      {
+        "reference_id": "noaa-coordinates",
+        "title": "NOAA National Ocean Service: latitude",
+        "locator": "Coordinate angle definition and DMS subdivisions",
+        "url": "https://oceanservice.noaa.gov/facts/latitude.html",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "scale_distance",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

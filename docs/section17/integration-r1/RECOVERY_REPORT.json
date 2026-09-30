@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "recovery_id": "SECTION17-INTEGRATION-MASTER-20260930-R1",
+  "created_utc": "2026-09-30T01:42:37.261333+00:00",
+  "development_checkpoint": "BIE-EVAL-NATIVE-API-001",
+  "new_development_tasks": 0,
+  "logical_atomic_count": 103,
+  "original_tasks": 50,
+  "hardening_tasks": 50,
+  "native_integration_tasks": 3,
+  "all_103_atomic_crc_checks_passed": true,
+  "all_103_published_sha256_match": true,
+  "original_mounted_inputs_accounted": 183,
+  "exact_available_master_archives_preserved_directly_or_inside_parent": 9,
+  "additional_published_files_recovered_from_nested_archives": 6,
+  "current_source": {
+    "source_atomic": "BIE_EVAL_NATIVE_API_001.zip",
+    "source_atomic_sha256": "f044ce493dfb213398fdf7cf740d90d0f96bc6428dbc73c5e66ab07dd4b2f117",
+    "source_and_evidence_files_compared": 2282,
+    "changed": [],
+    "missing": [],
+    "runtime_or_test_changes_made": false
+  },
+  "fresh_section17_tests": {
+    "tests_run": 2018,
+    "passed": 2018,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "all_passed": true,
+    "candidate_inventory_sha256": "1c46937bff234d8b8636bdb086d5ccc21b0fcefeaff2e2691b35fe6a3fff26ab",
+    "source_changed_during_run": false,
+    "duration_seconds": 129.280033826828
+  },
+  "separate_native_component_tests": {
+    "tests_run": 37,
+    "all_passed": true
+  },
+  "packaging_tool_tests": {
+    "tests_run": 17,
+    "all_passed": true,
+    "scope": "New packaging verifier/unpacker controls, NOT new Section17 methods"
+  },
+  "interrupted_run_retained": "recovery/fresh_tests/section17_fresh_01_INTERRUPTED.json",
+  "package_role": "CURRENT_SOURCE_AND_EVIDENCE_FOR_CONTROLLED_GITHUB_INTEGRATION",
+  "ready_to_start_reviewed_integration": true,
+  "ready_for_unconditional_main_merge": false,
+  "section_complete": false,
+  "product_accepted": false,
+  "github_modified": false,
+  "full_canonical_repository_regression_run": false,
+  "native_real_book_pipeline_run": false,
+  "task028": "PAUSED",
+  "section18": "NOT_STARTED",
+  "known_gaps": "recovery/KNOWN_GAPS.json",
+  "original_available_input_accounting": "recovery/INPUT_PRESERVATION.json",
+  "atomic_index": "ATOMIC_INDEX.json",
+  "final_archive_verification": "External FINAL_VERIFICATION.json and FINAL_CHECK.zip bind the final ZIP hash; not a circular embedded self-hash."
+}

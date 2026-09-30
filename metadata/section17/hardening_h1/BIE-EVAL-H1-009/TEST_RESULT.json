@@ -1,0 +1,61 @@
+{
+  "task_id": "BIE-EVAL-H1-009",
+  "selected_test_method_count": 13,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_artifact_column_tamper_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_completed_attempt_cannot_be_recovered",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_double_recovery_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_final_receipt_binds_artifact",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_inner_report_tamper_even_with_outer_hash_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_legacy_receipt_not_silently_promoted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_missing_campaign_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_raced_finalization_not_falsely_reported_success",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_recovery_never_gives_retry",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_recovery_persists_after_reopen",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_recovery_wrong_pin_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_terminal_recovery_is_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_unknown_recovery_refused",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

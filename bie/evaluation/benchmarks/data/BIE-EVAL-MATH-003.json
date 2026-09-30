@@ -1,0 +1,302 @@
+[
+  {
+    "case_id": "BIE-EVAL-MATH-003.C001",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Three four five triangle",
+    "prompt": "Three four five triangle. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"triangle_sides\",\"sides\":[{\"unit\":\"m\",\"value\":3},{\"unit\":\"m\",\"value\":4},{\"unit\":\"m\",\"value\":5}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"area_m2\":6,\"perimeter_m\":12}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Right-triangle area=3*4/2=6 and perimeter=3+4+5=12.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "triangle_sides",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C002",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Squared units in triangle area",
+    "prompt": "Squared units in triangle area. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"triangle_sides\",\"sides\":[{\"unit\":\"cm\",\"value\":300},{\"unit\":\"cm\",\"value\":400},{\"unit\":\"cm\",\"value\":500}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"area_m2\":6,\"perimeter_m\":12}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Lengths convert to 3,4,5 m; area is 6 m^2, not 600 m^2.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "triangle_sides",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C003",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Degenerate triangle rejected",
+    "prompt": "Degenerate triangle rejected. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"triangle_sides\",\"sides\":[{\"unit\":\"m\",\"value\":1},{\"unit\":\"m\",\"value\":2},{\"unit\":\"m\",\"value\":3}]}",
+    "expected_json": "{\"error_code\":\"DEGENERATE_OR_IMPOSSIBLE_TRIANGLE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "1+2 equals 3, so the triangle is degenerate.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "triangle_sides",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C004",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Counterclockwise rectangle",
+    "prompt": "Counterclockwise rectangle. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"simple_polygon_area\",\"unit\":\"m\",\"vertices\":[[0,0],[4,0],[4,3],[0,3]]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"area_m2\":12,\"orientation\":\"CCW\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Rectangle area=4*3; signed shoelace sum is positive.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "simple_polygon_area",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C005",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Reversed orientation same area",
+    "prompt": "Reversed orientation same area. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"simple_polygon_area\",\"unit\":\"m\",\"vertices\":[[0,3],[4,3],[4,0],[0,0]]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"area_m2\":12,\"orientation\":\"CW\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Vertex reversal flips orientation but not physical area.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "simple_polygon_area",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C006",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Concave simple polygon",
+    "prompt": "Concave simple polygon. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"simple_polygon_area\",\"unit\":\"m\",\"vertices\":[[0,0],[2,0],[2,2],[1,1],[0,2]]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"area_m2\":3,\"orientation\":\"CCW\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "A 2-by-2 square minus the top triangle of area 1 has area 3.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "simple_polygon_area",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C007",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Self-crossing polygon rejected",
+    "prompt": "Self-crossing polygon rejected. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"simple_polygon_area\",\"unit\":\"m\",\"vertices\":[[0,0],[2,2],[0,2],[2,0]]}",
+    "expected_json": "{\"error_code\":\"NON_SIMPLE_POLYGON\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Crossed diagonals form a bow tie; a simple-polygon area profile must reject it.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "simple_polygon_area",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C008",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Rigid ninety-degree motion",
+    "prompt": "Rigid ninety-degree motion. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"angle\":{\"unit\":\"deg\",\"value\":90},\"op\":\"rigid_transform_2d\",\"points\":[[1,0]],\"translation\":{\"unit\":\"m\",\"values\":[2,3]},\"unit\":\"m\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"points_m\":[[2,4]]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Rotate (1,0) to (0,1), then translate by (2,3).",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "rigid_transform_2d",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C009",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Length scale squared for area",
+    "prompt": "Length scale squared for area. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"base_area\":{\"unit\":\"m^2\",\"value\":4},\"length_scale\":3,\"op\":\"similar_figure_area\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"area_m2\":36}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "An area scales by the square of the length ratio: 4*3^2=36.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "similar_figure_area",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-003.C010",
+    "task_id": "BIE-EVAL-MATH-003",
+    "domain": "mathematics",
+    "title": "Repeated vertex rejected",
+    "prompt": "Repeated vertex rejected. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"simple_polygon_area\",\"unit\":\"m\",\"vertices\":[[0,0],[1,0],[1,1],[0,0]]}",
+    "expected_json": "{\"error_code\":\"REPEATED_POLYGON_VERTEX\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The input schema requires each vertex once; the closing edge is implicit.",
+    "sources": [
+      {
+        "reference_id": "openstax-precalc2-triangles",
+        "title": "Precalculus 2e",
+        "locator": "8.2 Non-right Triangles: Law of Cosines; independent elementary geometry derivations",
+        "url": "https://openstax.org/books/precalculus-2e/pages/8-2-non-right-triangles-law-of-cosines",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "simple_polygon_area",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

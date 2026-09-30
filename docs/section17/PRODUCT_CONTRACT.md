@@ -1,0 +1,7 @@
+# Preserved BIE product contract
+
+The project continues; it is not restarted or reduced. A good book/chapter/PDF should become a complete source-grounded learning experience through document intelligence, knowledge/prerequisite graphs, verified math and reasoning, pedagogy, directed lessons, purposeful visual/animation plans, SceneIR, actual video compilation/rendering and synchronized narration, playable learning games, QA/repair, evaluation and the product/operator application.
+
+The intended output is academically correct, engaging cinematic explanation and meaningful interactive learning—not decorative text slides, a generic score dashboard or only a quiz skin. Preserve necessary conditions, mechanisms, derivations, misconceptions, Hindi/English context, readable equations and visual/audio timing. High style cannot average away false science or broken interaction. A game score is not measured learning.
+
+Preserve provider neutrality, reusable source-bound concept/scene/code memory, governed correction and improvement, rights/provenance, deterministic-tool-first checks, reproducible task evidence, security and regressions. This batch provides only an initial evaluation-machinery slice; later EVAL metrics/raters/release gates must assess the actual full native pipeline. No acceptance claim is authorized by stored content, declared scores, task totals, ZIP sizes or synthetic tests.

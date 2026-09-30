@@ -1,0 +1,24 @@
+{
+  "contract_kind": "bounded executable profile, not a general JSON Schema",
+  "reference_payload_required_fields": [
+    "environment_sha256",
+    "inputs_sha256",
+    "minimum_runs",
+    "outputs",
+    "recipe_sha256",
+    "seed"
+  ],
+  "candidate_required_fields": [
+    "observation_ids"
+  ],
+  "strict_unknown_fields": true,
+  "schema_version": "1.0.0",
+  "reference_hash_required": true,
+  "candidate_hash_required": true,
+  "typed_blocked_errors": true,
+  "trusted_observations_required": true,
+  "observation_hash_is_not_signature": true,
+  "numerical_encoding": "JSON bounded numbers or inherited rational p/q grammar; no NaN/Infinity/boolean-as-number",
+  "normative_executable_contract": "bie/evaluation/benchmarks/metrics/reproducibility.py",
+  "six_diagnostic_cases": "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-016.json"
+}

@@ -1,0 +1,39 @@
+{
+  "policy": {
+    "id": "domains",
+    "domains": [
+      {
+        "id": "physics",
+        "minimum_score": "1",
+        "minimum_cases": 2,
+        "minimum_measured_fraction": "1"
+      }
+    ]
+  },
+  "roster": [
+    {
+      "id": "a",
+      "domain": "physics",
+      "weight": "1",
+      "leakage_group": "one"
+    },
+    {
+      "id": "b",
+      "domain": "physics",
+      "weight": "1",
+      "leakage_group": "one"
+    }
+  ],
+  "rows": [
+    {
+      "id": "a",
+      "status": "MEASURED",
+      "score": "1"
+    },
+    {
+      "id": "b",
+      "status": "MEASURED",
+      "score": "1"
+    }
+  ]
+}

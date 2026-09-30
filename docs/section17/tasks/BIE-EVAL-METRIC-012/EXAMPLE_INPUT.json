@@ -1,0 +1,94 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-012",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-012",
+    "rubric_id": "delivery-metric-012",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-012/SPEC.md",
+        "basis_sha256": "0ba5209ffc66ee53131a965cc4d58d9c9eef2762acdbc36e0d6e3aa3b013d0a2"
+      }
+    ],
+    "payload": {
+      "targets": [
+        {
+          "id": "lesson",
+          "width": 64,
+          "height": 36,
+          "fps": 6,
+          "frame_count": 12,
+          "audio_required": false,
+          "pts_tolerance_seconds": "1/1000",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "artifacts": [
+      {
+        "id": "lesson",
+        "observation_id": "render",
+        "media_sha256": "869668a576668be9e179c5927356ba3366a1f724b61baf8aaf29e6462400fbb6"
+      }
+    ]
+  },
+  "expected_reference_sha256": "264ed8ee0338749d15de1992f62f6a517bd602d94037dba0e1f2baa4506f4a8e",
+  "expected_candidate_sha256": "2727930b695ac1476bf43daa70fc7540fef8410581b16b73c6a239d1bdc7d823",
+  "source_artifacts": {
+    "render": {
+      "schema_version": "1.0.0",
+      "kind": "media",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "decode-good",
+      "subject_sha256": "869668a576668be9e179c5927356ba3366a1f724b61baf8aaf29e6462400fbb6",
+      "facts": {
+        "width": 64,
+        "height": 36,
+        "fps": "6",
+        "container_duration": "2",
+        "decoded_frames": 12,
+        "video_streams": 1,
+        "audio_streams": 0,
+        "pts_seconds": [
+          "0",
+          "167/1000",
+          "333/1000",
+          "1/2",
+          "667/1000",
+          "833/1000",
+          "1",
+          "1167/1000",
+          "1333/1000",
+          "3/2",
+          "1667/1000",
+          "1833/1000"
+        ],
+        "frame_sha256": [
+          "e7cda1827802cafd1fda67dd2961a6cf5066dcb13fa03c0bd8610ff9b2b0382a",
+          "e0fd9d8402c4b43b052a6b39ec3eda5b15018206d3db25dd3d3e892ffd902ff3",
+          "1ca7eac0963ad8389fe6a21fd2401bb875e134534977b4c847a1ccd5df6998d0",
+          "ad83d1a7b1798a20349128e9f7160f563ec49cdc4c6a86737c6889765b37a8f1",
+          "19bc5866a8d96dafc94e7e4b141ff53162ddd1d47e8a6beef8bd962f89686d0b",
+          "3424a4a326e0e1b23cc6c8928796f0ba11af07f37e8d1850445c643bbfd6f32a",
+          "c5f202e80e502dd41b22c3198e0d90ab4d3d0b77dbee8a42a4430b6273d0a63b",
+          "8860f4bd841f48647b1da04b18f98b214f12404c9f3d3928ee2c5de859c92aa5",
+          "f18d18ef510108c6021465d0f57ec62c8cd21bd9ec021ca978d1b376578c1744",
+          "6e34ab647135fccd900e9cc6aa1f1ee275ef4b68a498c1c114c8374d820b473d",
+          "7339c1f1bbc3544734132f75c2e407e5500a5f4fe02995066f73a93e94fcc013",
+          "df67a1a1042db4d90635630dd10ec5b2860450ef85fd23b3e12f4a9aa356938d"
+        ],
+        "decoded_sha256": "da327202f2fc2e4a236caca010670ecf5cee282431d3dc37b0a386c0fbf5be02",
+        "decoder_version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+        "decode_exit_code": 0,
+        "codec": "ffv1"
+      },
+      "receipt_sha256": "f4f099a182b6b7bf4fa37b1f244354a7446cabbb34fd59c02841ac8162f311e4"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_native_qa_tests.py",
+    "--output-dir",
+    "/mnt/data/s17_next/evidence/PREPACKAGE_FULL"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_RECOVERED_H5_PLUS_NATIVE_QA_001",
+  "started_unix": 1790704056.1911159,
+  "duration_seconds": 107.92573046684265,
+  "tests_run": 1926,
+  "unique_test_method_ids": 1926,
+  "passed": 1926,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "candidate_inventory_sha256": "3a554dc27e2bec9fd3da82bd3a0753814c97a8b3b3454cc8641fd91c2c83e515",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "native_dependency_snapshot": "../dependency_snapshot",
+  "baseline_source_recovery": "322/324 published H5 inventory files recovered; two old helper scripts absent",
+  "counting_note": "Subtests, repeated verification runs and diagnostic replay cases are not additional test methods."
+}

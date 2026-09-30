@@ -1,0 +1,903 @@
+{
+  "schema_version": "1.0.0",
+  "derived_hardening_tasks": [
+    {
+      "task_id": "BIE-EVAL-H2-001",
+      "title": "Artifact custody and bounded input profiles",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/custody.py"
+      ],
+      "dependencies": [],
+      "test_file": "tests/section17/test_h2_001.py",
+      "test_count": 16,
+      "records": [
+        {
+          "test_id": "test_h2_001.H2001.test_directory_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_empty_input",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_fifo_nonblocking_rejection",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_final_symlink",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_frozen_bytes_and_binding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_hash_and_size_stream",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_input_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_json_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_json_duplicate_keys_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_json_invalid_encoding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_numeric_boolean_not_integer",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_parent_symlink",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_resource_types_and_bounds",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_source_mutation_cannot_change_private_copy",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_traversal",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_001.H2001.test_wrong_hash_rejected",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Operator-owned source parents; not race-proof protection against hostile concurrent filesystem writers.",
+      "derived_from": "H1-RES-002 / H1-RES-008"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-002",
+      "title": "Streaming process supervision",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/process.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001"
+      ],
+      "test_file": "tests/section17/test_h2_002.py",
+      "test_count": 18,
+      "records": [
+        {
+          "test_id": "test_h2_002.H2002.test_argv_no_shell_substitution",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_callback_error_aborts",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_deadline_terminates_hang",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_environment_secrets_not_inherited",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_framer_chunk_and_final_line",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_framer_long_line",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_framer_unicode_boundary",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_group_descendant_with_open_pipe",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_invalid_deadline",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_invalid_line_framer_limit",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_invalid_output_limit",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_missing_tool",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_nonzero_exit",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_relative_executable_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_stderr_flood_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_stderr_not_silently_accepted",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_stdout_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_002.H2002.test_stdout_exact_hash",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Not a CPU/RSS/network sandbox; escaped descendants, service identity and kernel isolation remain deployment work. Snapshot copy is byte-bounded; process deadline is checked before decoder stages.",
+      "derived_from": "H1-RES-002 / H1-RES-007"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-003",
+      "title": "Media inventory and profile admission",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/probe.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-002"
+      ],
+      "test_file": "tests/section17/test_h2_003.py",
+      "test_count": 16,
+      "records": [
+        {
+          "test_id": "test_h2_003.H2003.test_actual_probe",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_ambiguous_audio",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_duplicate_video",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_duration_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_embedded_subtitle_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_fps_zero",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_fraction_nonfinite_boolean",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_fraction_rational_exact",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_hdr_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_nonsquare_pixel_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_protocols_no_network_or_playlists",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_resolution_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_rotation_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_unknown_video_codec",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_unsupported_pixel_depth",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_003.H2003.test_zero_video",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Runtime controls here cover H.264 SDR8 MKV/MP4 plus PCM. Other allowlisted codecs need actual format-matrix testing. Multi-audio, embedded subtitles, HDR and rotated profiles fail closed.",
+      "derived_from": "H1-RES-002"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-004",
+      "title": "Full-frame streaming video inspection",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/video.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-002",
+        "BIE-EVAL-H2-003"
+      ],
+      "test_file": "tests/section17/test_h2_004.py",
+      "test_count": 17,
+      "records": [
+        {
+          "test_id": "test_h2_004.H2004.test_actual_decoded_byte_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_actual_video_all_pixels",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_all_frames_count",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_black_frame_detection",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_bright_frame_not_black",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_chunk_boundaries",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_dark_code_boundary",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_empty_decode_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_first_and_last_hashes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_frame_budget_no_truncation",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_frame_chain_order_sensitive",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_freeze_run_reset",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_full_byte_hash",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_identical_frame_run",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_invalid_dimensions_rejected_at_constructor",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_invalid_frame_limit_rejected_at_constructor",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_004.H2004.test_partial_frame_rejected",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Dark/freeze thresholds are illustrative signal policies, not semantics, readable equations, visual fidelity, cinematic engagement or aesthetic judgement.",
+      "derived_from": "H1-RES-002"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-005",
+      "title": "Per-channel decoded audio inspection",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/audio.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-002",
+        "BIE-EVAL-H2-003"
+      ],
+      "test_file": "tests/section17/test_h2_005.py",
+      "test_count": 18,
+      "records": [
+        {
+          "test_id": "test_h2_005.H2005.test_activity_merging_and_silence_split",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_arbitrary_byte_splits_same_hash",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_clipping_positive_and_negative",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_empty_decode",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_exact_sample_count",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_infinite_sample_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_invalid_audio_constructor_values",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_invalid_audio_window",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_nan_sample_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_no_audio_explicit_none",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_original_rate_channels_actual",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_partial_final_window_included",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_partial_interleaved_sample",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_per_channel_no_antiphase_downmix",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_rms_computation",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_sample_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_silence_all_samples",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_005.H2005.test_silent_channel_not_hidden",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "RMS activity is not voice recognition and can include tone/DC/music. No ASR, word alignment, pronunciation, true-peak or perceptual loudness certification.",
+      "derived_from": "H1-RES-002"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-006",
+      "title": "Decoded timeline and AV synchronization",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/timeline.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-002",
+        "BIE-EVAL-H2-003"
+      ],
+      "test_file": "tests/section17/test_h2_006.py",
+      "test_count": 17,
+      "records": [
+        {
+          "test_id": "test_h2_006.H2006.test_audio_pts_sample_count_mismatch",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_audio_uses_sample_count",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_backward_pts",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_decoded_timing_count_must_match",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_duplicate_pts",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_exact_timeline",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_gap_measured",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_invalid_audio_samples",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_missing_audio_timing",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_missing_duration_fallback_explicit_cfr",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_missing_pts",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_negative_pts",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_overlap_measured",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_resolution_change",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_timing_count_budget",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_unknown_timeline_kind",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_006.H2006.test_variable_fps_detected",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "CFR profile with explicit tolerances; not a general VFR retimer, forced word aligner or semantic synchronization evaluator.",
+      "derived_from": "H1-RES-002"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-007",
+      "title": "Caption content and timing coverage",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/captions.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001"
+      ],
+      "test_file": "tests/section17/test_h2_007.py",
+      "test_count": 16,
+      "records": [
+        {
+          "test_id": "test_h2_007.H2007.test_activity_offset_respected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_coverage_intersections",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_empty_caption",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_invalid_minutes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_invalid_utf8",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_markup_not_silently_removed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_no_asr_or_pronunciation_claim",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_no_denominator_is_none",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_overlap_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_required_intervals_not_overlapping",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_sequence_gap",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_srt_hindi_text_hash",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_time_outside_media",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_vtt_plain",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_vtt_settings_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_007.H2007.test_windows_crlf",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Rich WebVTT settings/markup/overlaps are blocked. Timing plus text-pin checks do not establish that the audio says those words or full accessibility compliance.",
+      "derived_from": "H1-RES-002"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-008",
+      "title": "Pinned AV policy and evidence receipt",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/service.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-002",
+        "BIE-EVAL-H2-003",
+        "BIE-EVAL-H2-004",
+        "BIE-EVAL-H2-005",
+        "BIE-EVAL-H2-006",
+        "BIE-EVAL-H2-007"
+      ],
+      "test_file": "tests/section17/test_h2_008.py",
+      "test_count": 20,
+      "records": [
+        {
+          "test_id": "test_h2_008.H2008.test_actual_valid_candidate",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_black_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_boolean_score_limit_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_caption_text_pin_actual",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_clip_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_corrupt_media_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_exact_policy_fields",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_media_hash_mismatch",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_missing_audio_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_missing_captions_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_native_flag_escalation_even_rehashed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_no_acceptance_flags",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_no_numeric_type_rewrite_of_reference",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_policy_hash_mismatch",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_receipt_tamper_detected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_required_narration_cannot_be_empty",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_silence_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_tools_have_actual_binary_identity",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_unexpected_evaluator_failure_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_008.H2008.test_wrong_frame_reference_fails",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "This v2 operator path is additive. Legacy metrics012/013/015 and the existing release gate are not automatically rerouted. Hashes do not authenticate untrusted self-authored receipts.",
+      "derived_from": "H1-RES-002 / H1-RES-008"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-009",
+      "title": "Canonical RenderReceipt mapping",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/native.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-008"
+      ],
+      "test_file": "tests/section17/test_h2_009.py",
+      "test_count": 19,
+      "records": [
+        {
+          "test_id": "test_h2_009.H2009.test_adapter_fields_exact_match_canonical_ast",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_altered_contract_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_artifact_hash_binding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_artifact_size_binding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_declared_native_fields_match_real_bytes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_dimensions_binding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_exact_contract_blob",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_exact_field_roster",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_failed_local_evidence_cannot_map",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_forged_mp4_name_for_mkv_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_frame_count_binding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_injected_runner_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_mapping_not_authentication",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_other_commit_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_path_traversal",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_recipe_binding",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_self_claimed_acceptance_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_smoke_render_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_009.H2009.test_unknown_schema",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Declaration matching is NOT proof of Remotion execution or source provenance. No full canonical checkout, native producer/run, SceneIR/game/audio schema integration or authenticated collector was executed.",
+      "derived_from": "H1-RES-001"
+    },
+    {
+      "task_id": "BIE-EVAL-H2-010",
+      "title": "Durable AV run store and operator CLI",
+      "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "section_accepted": false,
+      "product_accepted": false,
+      "owned_files": [
+        "bie/evaluation/benchmarks/av/ledger.py",
+        "bie/evaluation/benchmarks/av/__main__.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-H2-001",
+        "BIE-EVAL-H2-008",
+        "BIE-EVAL-H2-009"
+      ],
+      "test_file": "tests/section17/test_h2_010.py",
+      "test_count": 16,
+      "records": [
+        {
+          "test_id": "test_h2_010.H2010.test_actual_persist_reopen",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_bad_policy_before_reservation",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_cli_get_matches_database",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_cli_missing_database_no_creation",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_duplicate_candidate_reservation",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_duplicate_run_id_across_campaigns",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_limits_pin_change_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_policy_cannot_change_in_campaign",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_recovery_cannot_replace_final",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_recovery_terminal_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_recovery_wrong_pins",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_row_pin_tamper",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_source_code_pin_change_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_tampered_stored_bytes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_unfinished_get_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_h2_010.H2010.test_unknown_run",
+          "status": "PASS"
+        }
+      ],
+      "residual_boundary": "Single-host operator-owned database; not authenticated multi-tenant/off-host audit storage. Recovery requires stopping abandoned workers first. Tool hashes are observed but dynamic-library/OS identities and cross-run toolchain policy require deployment integration.",
+      "derived_from": "H1-RES-001 / H1-RES-007 / H1-RES-008"
+    }
+  ],
+  "original_registry_modified": false
+}

@@ -1,0 +1,96 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-009",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-009",
+    "rubric_id": "delivery-metric-009",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-009/SPEC.md",
+        "basis_sha256": "5d22ad6940a1fa8c2918cfa4d2e26e37328ce0965ae9fbaf6b3f1709bbf8b6b6"
+      }
+    ],
+    "payload": {
+      "viewport": {
+        "width": 120,
+        "height": 60
+      },
+      "objects": [
+        {
+          "id": "a",
+          "concept_id": "positive-charge",
+          "label": "+q",
+          "kind": "charge",
+          "weight": 1
+        },
+        {
+          "id": "b",
+          "concept_id": "negative-charge",
+          "label": "-q",
+          "kind": "charge",
+          "weight": 1
+        }
+      ],
+      "relations": [
+        {
+          "id": "attraction",
+          "from": "a",
+          "to": "b",
+          "kind": "force",
+          "weight": 1
+        }
+      ],
+      "nonoverlap_pairs": [
+        {
+          "first": "a",
+          "second": "b"
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "objects": [
+      {
+        "id": "a",
+        "concept_id": "positive-charge",
+        "label": "+q",
+        "kind": "charge",
+        "box": {
+          "x": 10,
+          "y": 10,
+          "width": 20,
+          "height": 20
+        },
+        "alt_text": "+q"
+      },
+      {
+        "id": "b",
+        "concept_id": "negative-charge",
+        "label": "-q",
+        "kind": "charge",
+        "box": {
+          "x": 70,
+          "y": 10,
+          "width": 20,
+          "height": 20
+        },
+        "alt_text": "-q"
+      }
+    ],
+    "relations": [
+      {
+        "id": "attraction",
+        "from": "a",
+        "to": "b",
+        "kind": "force"
+      }
+    ]
+  },
+  "expected_reference_sha256": "1c0eaf27f13917943f3165a270c3e42097f9b3c6687793bb6210f49fbb4723cd",
+  "expected_candidate_sha256": "39e9fbcc7c56cf53c8dbccdd4235391203aada83f6ba5500db300bd9ba34c5a6",
+  "source_artifacts": {}
+}

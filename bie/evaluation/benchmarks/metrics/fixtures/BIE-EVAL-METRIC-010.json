@@ -1,0 +1,211 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-010",
+    "rubric_id": "delivery-metric-010",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-010/SPEC.md",
+        "basis_sha256": "0a9df9ccadae0519ccc173391d36c776b3313f72681018124d84ce333a4d6da4"
+      }
+    ],
+    "payload": {
+      "frame_count": 11,
+      "fps": 10,
+      "sample_frames": [
+        0,
+        5,
+        10
+      ],
+      "tracks": [
+        {
+          "id": "move",
+          "property": "position-x",
+          "unit": "px",
+          "knots": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 10,
+              "value": 10
+            }
+          ],
+          "absolute_tolerance": 0,
+          "minimum": 0,
+          "maximum": 10,
+          "max_speed": 10,
+          "max_acceleration": 0,
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "correct",
+      "candidate": {
+        "tracks": [
+          {
+            "id": "move",
+            "property": "position-x",
+            "unit": "px",
+            "samples": [
+              {
+                "frame": 0,
+                "value": 0
+              },
+              {
+                "frame": 5,
+                "value": 5
+              },
+              {
+                "frame": 10,
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "wrong-position",
+      "candidate": {
+        "tracks": [
+          {
+            "id": "move",
+            "property": "position-x",
+            "unit": "px",
+            "samples": [
+              {
+                "frame": 0,
+                "value": 0
+              },
+              {
+                "frame": 5,
+                "value": 6
+              },
+              {
+                "frame": 10,
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "TRAJECTORY_FIDELITY_ERROR"
+    },
+    {
+      "id": "missing-sample",
+      "candidate": {
+        "tracks": [
+          {
+            "id": "move",
+            "property": "position-x",
+            "unit": "px",
+            "samples": [
+              {
+                "frame": 0,
+                "value": 0
+              },
+              {
+                "frame": 10,
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "ANIMATION_SAMPLE_ROSTER_MISMATCH"
+    },
+    {
+      "id": "wrong-unit",
+      "candidate": {
+        "tracks": [
+          {
+            "id": "move",
+            "property": "position-x",
+            "unit": "m",
+            "samples": [
+              {
+                "frame": 0,
+                "value": 0
+              },
+              {
+                "frame": 5,
+                "value": 5
+              },
+              {
+                "frame": 10,
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "PROPERTY_OR_UNIT_MISMATCH"
+    },
+    {
+      "id": "missing-track",
+      "candidate": {
+        "tracks": []
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "REQUIRED_ANIMATION_TRACK_MISSING"
+    },
+    {
+      "id": "overshoot",
+      "candidate": {
+        "tracks": [
+          {
+            "id": "move",
+            "property": "position-x",
+            "unit": "px",
+            "samples": [
+              {
+                "frame": 0,
+                "value": 0
+              },
+              {
+                "frame": 5,
+                "value": 11
+              },
+              {
+                "frame": 10,
+                "value": 10
+              }
+            ]
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "ANIMATION_VALUE_OUT_OF_BOUNDS"
+    }
+  ],
+  "diagnostic_grade": "AUTHORED_DIAGNOSTIC",
+  "independent_review": false,
+  "native_bie": false
+}

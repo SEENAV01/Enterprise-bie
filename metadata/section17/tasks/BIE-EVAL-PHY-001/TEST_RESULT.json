@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_phy_001.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/phy_001"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668291.424125,
+  "duration_seconds": 0.027184009552001953,
+  "tests_run": 20,
+  "unique_test_method_ids": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_phy_001.CoulombTests.test_authored_reference_pack",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_bad_distance_unit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_boolean_charge_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_boolean_target_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_charge_product_scaling",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_coincidence_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_constant_must_be_positive",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_independent_inverse_square",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_nan_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_negative_charge_attracts",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_newton_pair_action_reaction",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_rotation_covariance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_superposition_cancels",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_three_dimensional_vectors_required",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_translation_invariance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_unit_conversion_equivalence",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_unsupported_medium_not_silently_ignored",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_wrong_force_direction_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_wrong_inverse_square_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_phy_001.CoulombTests.test_zero_test_charge",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

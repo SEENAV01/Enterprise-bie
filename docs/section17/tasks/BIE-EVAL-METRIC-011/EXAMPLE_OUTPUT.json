@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "metric_id": "BIE-EVAL-METRIC-011",
+  "rubric_id": "delivery-metric-011",
+  "rubric_version": "1.0.0",
+  "reference_sha256": "cdea5b39593781023261b840ea9fafe5ea5755f2ac6d859ba79c9c2e5bf843e0",
+  "candidate_sha256": "e94c8e17a9deeae516b229457806ab690c3e0325dee1e596aa1c959b9d734076",
+  "evaluator_id": "bie-metric-evaluator-v1",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "status": "MEASURED",
+  "outcome": "PASS",
+  "score_exact": "1",
+  "earned_weight": "2",
+  "total_weight": "2",
+  "unit_count": 2,
+  "units": [
+    {
+      "id": "python",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    },
+    {
+      "id": "typescript",
+      "weight": "1",
+      "credit": "1",
+      "reasons": []
+    }
+  ],
+  "defects": [],
+  "details": {
+    "assessment_scope": "LOCAL_COMPILER_EXIT_AND_EMITTED_BYTES",
+    "collector_run_ids": [
+      "compile-python-good",
+      "compile-typescript-good"
+    ],
+    "candidate_runtime_executed": false,
+    "remotion_bundle_verified": false
+  },
+  "evidence_grade": "AUTHORED_DIAGNOSTIC",
+  "independently_reviewed": false,
+  "source_artifacts_sha256": "524eef8f0ee1130e9c4340ecf7e722035347ac8d8d326fcd242da4118d4e5b37",
+  "native_bie_execution_verified": false,
+  "release_authorized": false,
+  "product_accepted": false
+}

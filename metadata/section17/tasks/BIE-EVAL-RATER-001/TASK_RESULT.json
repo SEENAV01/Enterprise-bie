@@ -1,0 +1,103 @@
+{
+  "task_id": "BIE-EVAL-RATER-001",
+  "original_sequence": 42,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Execute the actual 17 supported metric profiles, bind candidate/reference/rubric/service-code digests, retain detailed metric receipts and blocked failures.",
+  "limits": "Bounded structured reference profiles; no arbitrary-language or native BIE adapter certification.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/deterministic.py",
+    "tests/section17/test_rater_001.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-017"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_actual_metric_receipt_digest",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_all_seventeen_routes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_assessment_integrity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_candidate_hash_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_candidate_schema_invalid_becomes_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_changed_code_pin_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_deterministic_results_repeat",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_execution_is_not_product_acceptance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_input_not_mutated",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_known_metric_actually_runs",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_legacy_router_snapshot_remains_sixteen",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_missing_compile_observation_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_modified_score_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_reference_hash_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_regression_route",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_rubric_hash_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_separate_pinned_rubric_supported",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_001.DeterministicRater001.test_unknown_metric_rejected",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 18,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-001_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-001_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-RATER-001/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

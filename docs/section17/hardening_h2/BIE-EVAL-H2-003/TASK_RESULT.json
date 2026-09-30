@@ -1,0 +1,84 @@
+{
+  "task_id": "BIE-EVAL-H2-003",
+  "title": "Media inventory and profile admission",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/probe.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-002"
+  ],
+  "test_file": "tests/section17/test_h2_003.py",
+  "test_count": 16,
+  "records": [
+    {
+      "test_id": "test_h2_003.H2003.test_actual_probe",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_ambiguous_audio",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_duplicate_video",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_duration_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_embedded_subtitle_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_fps_zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_fraction_nonfinite_boolean",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_fraction_rational_exact",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_hdr_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_nonsquare_pixel_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_protocols_no_network_or_playlists",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_resolution_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_rotation_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_unknown_video_codec",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_unsupported_pixel_depth",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_003.H2003.test_zero_video",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Runtime controls here cover H.264 SDR8 MKV/MP4 plus PCM. Other allowlisted codecs need actual format-matrix testing. Multi-audio, embedded subtitles, HDR and rotated profiles fail closed.",
+  "derived_from": "H1-RES-002"
+}

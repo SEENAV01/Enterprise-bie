@@ -1,0 +1,94 @@
+{
+  "task_id": "BIE-EVAL-METRIC-013",
+  "original_sequence": 37,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Actual decoded RGB samples, strict base64/byte/hash validation, mean absolute channel error, black-pixel ratio, channel range and required motion pairs.",
+  "limits": "Small authored pixel references are diagnostics, not subjective/perceptual aesthetics, full-video inspection, text legibility or scientific figure correctness.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/frame_quality.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-013.json",
+    "tests/section17/test_metric_013.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001",
+    "BIE-EVAL-METRIC-012"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_duplicate_decoded_frame_index_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_duplicate_motion_pair_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_duplicate_reference_frame_index_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_empty_frames_reference_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_invalid_base64_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_lossless_pixels_have_zero_mae",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_max_black_fraction_bounded",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_unknown_motion_endpoint_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_unrequested_sample_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_013.METRIC013Tests.test_wrong_reference_pixel_size_blocked",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-013/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

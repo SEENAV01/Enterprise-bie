@@ -1,0 +1,89 @@
+{
+  "task_id": "BIE-EVAL-H2-004",
+  "title": "Full-frame streaming video inspection",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/video.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-002",
+    "BIE-EVAL-H2-003"
+  ],
+  "test_file": "tests/section17/test_h2_004.py",
+  "test_count": 17,
+  "records": [
+    {
+      "test_id": "test_h2_004.H2004.test_actual_decoded_byte_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_actual_video_all_pixels",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_all_frames_count",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_black_frame_detection",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_bright_frame_not_black",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_chunk_boundaries",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_dark_code_boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_empty_decode_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_first_and_last_hashes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_frame_budget_no_truncation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_frame_chain_order_sensitive",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_freeze_run_reset",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_full_byte_hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_identical_frame_run",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_invalid_dimensions_rejected_at_constructor",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_invalid_frame_limit_rejected_at_constructor",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_004.H2004.test_partial_frame_rejected",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Dark/freeze thresholds are illustrative signal policies, not semantics, readable equations, visual fidelity, cinematic engagement or aesthetic judgement.",
+  "derived_from": "H1-RES-002"
+}

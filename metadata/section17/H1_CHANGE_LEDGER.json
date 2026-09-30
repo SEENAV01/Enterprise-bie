@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_master_sha256": "89d8eedc87075739c316f308bdc2f777063a9502bd125a21f245f36ca35d0ae4",
+  "changes": {
+    "tools/verify_section17_package.py": {
+      "task_id": "BIE-EVAL-H1-010",
+      "before_sha256": "2e33e2fdb5953eead4ae5c0209c6e536ab83619db24e8be651db36f6850b8e61",
+      "after_sha256": "c13f180bad40a1a6c776d08d31d55cfe9bf748e3ce622d1cfb9e46c1aab129fb",
+      "preimage": "evidence/section17/h1/preimages/tools/verify_section17_package.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/registry.py": {
+      "task_id": "BIE-EVAL-H1-002",
+      "before_sha256": "a5739dd018f41e7463637a3f97c3c55645312c25c2b074b1780e1e6e70e6283e",
+      "after_sha256": "b03c59376b0bb199fee89772583f18886dc4e80bfdbb0ceef8d76d73352c4af5",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/registry.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/models.py": {
+      "task_id": "BIE-EVAL-H1-001",
+      "before_sha256": "273e8c8b88a66b0ec7a35fabea665f3b161591aaeb7c2e99184b1ad8249fa32f",
+      "after_sha256": "339af44f261b0879f393d4dbbf8c83a5daf03073bd8e15f8888afbf28dd06689",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/models.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/release/deterministic.py": {
+      "task_id": "BIE-EVAL-H1-003",
+      "before_sha256": "a34420aebec12be58a4b8f1345f8c5fc0e2b7b7aac6265734b50ebd6f3f1e830",
+      "after_sha256": "d2907cdd72d5c1f3259e0c53b04d91b14b90d110a52420513e7240e5cc4dc462",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/release/deterministic.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/release/ledger.py": {
+      "task_id": "BIE-EVAL-H1-009",
+      "before_sha256": "2bb4b0198f244dd34bb206413b77c7191f111b6620a70f18bd89e1ea3ca395ae",
+      "after_sha256": "7a36544ff576c6264fa7b24265c55c4b360bed4ce6deae42587203b8e281ea5f",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/release/ledger.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/release/gate.py": {
+      "task_id": "BIE-EVAL-H1-006",
+      "before_sha256": "69906b888e7d989d2eabcaedae059065ab85ed0b5a93ab422cd61cc78e04e2cc",
+      "after_sha256": "6e37c74e5fdb1c48f315ff08b83191b60c1a1619e546a67e4a8f9fb3feef3044",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/release/gate.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/release/model.py": {
+      "task_id": "BIE-EVAL-H1-004",
+      "before_sha256": "1ead1184f4f624b744156d8ab3f571aca2eb47eebb8349a00053010fb1e6392b",
+      "after_sha256": "e1a5232afc56a09f40bed2195f7819e8d55ebc2c16cedc841635a122e9bc437c",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/release/model.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "tests/section17/test_batch002_contracts.py": {
+      "task_id": "BIE-EVAL-H1-010",
+      "before_sha256": "56dc29e3e4ec3264d07fe21353a4fc289891ee89a8316975648e4b8177a23fc1",
+      "after_sha256": "1fa3f8d9f56ab8e5f220f125dce59ca5cdf5f17ad400a1586fd63a5efd19f29b",
+      "preimage": "evidence/section17/h1/preimages/tests/section17/test_batch002_contracts.py",
+      "justification": "Audited H1 replacement; exact baseline bytes and original archives retained. See H1_FINDINGS.json."
+    },
+    "bie/evaluation/benchmarks/release/__main__.py": {
+      "task_id": "BIE-EVAL-H1-008",
+      "before_sha256": "2a11d591316dfe7b27a5ab6e0b4e1a069092e28832503fcc3f338016b544924c",
+      "after_sha256": "a7993cf89aa2e233e2ef966acf99832a91bbebcec65ccc51999c2748a865e9cf",
+      "preimage": "evidence/section17/h1/preimages/bie/evaluation/benchmarks/release/__main__.py",
+      "justification": "Connect the hardened production gate inputs to the inherited operator CLI; no implicit trust or weakening of required gates."
+    }
+  }
+}

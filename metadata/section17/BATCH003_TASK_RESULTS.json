@@ -1,0 +1,1297 @@
+{
+  "batch": 3,
+  "tasks": [
+    {
+      "task_id": "BIE-EVAL-GEO-002",
+      "original_sequence": 21,
+      "original_capability": "maps",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Printed map length/area scale, signed DMS coordinates, spherical distance and grid bearings.",
+      "bounded_contract": "`scale_distance`: `map_length {value,unit}` and positive `scale_denominator`; length units mm/cm/m/km. Ground metres = map metres times scale.\n`scale_area`: map_area (mm2/cm2/m2); ground area = map area times scale squared.\n`dms`: axis latitude/longitude; integer degrees/minutes, exact seconds; corresponding N/S or E/W hemisphere; limits 90/180, minutes/seconds <60. Negative degree entry is not combined with a hemisphere.\n`spherical_distance`: two numeric degree coordinate objects and positive caller-supplied sphere radius. Haversine shortest spherical arc, antimeridian-safe; outputs floats with declared comparison tolerances.\n`planar_bearing`: signed east/north displacement; clockwise angle from grid north, atan2(east,north); zero vector rejected.",
+      "bounds_and_open_scope": "No actual map, raster, projection, image/OCR, ellipsoidal geodesic, changing scale or routing interpretation. Printed-scale and supplied-sphere assumptions must be true upstream.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/maps.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-002.json",
+        "tests/section17/test_geo_002.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/maps.py": "24e1e08c2bea1ebe1d09970f6569010deac174de59578f29103d149baac41463",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-002.json": "c2ccd398f21cf89945dac98507a4126ae1f7131dab9a0b6827ab6985d36c41a5",
+        "tests/section17/test_geo_002.py": "81bab8267ad91cae4da13e55c16632654cd402bc08bf2e752ff0f2b791f2d139"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-GEO-002",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 22,
+        "passed": 22,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_antimeridian_short_arc",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_antipode_clamped_roundoff",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_area_scales_quadratically",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_007",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_008",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_009",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_010",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_011",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_authored_case_012",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_bearing_four_quadrants",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_boolean_scale_not_number",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_distance_symmetric",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_dms_boundary_and_hemisphere",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_latitude_above_ninety_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_no_silent_extra_fields",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_002.GEO002Tests.test_scale_units_equivalent",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-GEO-002/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 12,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-003",
+      "original_sequence": 22,
+      "original_capability": "climate systems",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Declared global energy/water budgets, 30-year anomaly arithmetic, area weighting and feedback polarity.",
+      "bounded_contract": "`planetary_budget`: S>0, albedo in [0,1], emissivity in (0,1]; absorbed = S(1-a)/4, reflected = Sa/4; radiating temperature from absorbed/(emissivity*sigma) to power 1/4. Sigma is 5.670374419e-8 in declared SI units.\n`water_budget`: precipitation minus evapotranspiration minus runoff in mm, allowing signed storage change; mm/cm/m inputs.\n`temperature_anomaly`: exactly 30 distinct consecutive supplied annual means matching baseline_start..end, years 1..9999. Equal-year mean only. Absolute input temperature units degC/K; converted before anomaly. Below absolute zero rejected.\n`area_weighted_temperature`: unique declared nonoverlapping regions and strictly positive km2 weights.\n`feedback_loop`: 2..32 signed edges forming exactly one simple closed cycle; sign product positive means reinforcing, negative means balancing.",
+      "bounds_and_open_scope": "Effective radiating temperature is not observed surface temperature. No climate forecast, empirical feedback attribution, station homogenization, missing-year imputation or certified climate-normal computation.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/climate.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-003.json",
+        "tests/section17/test_geo_003.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/climate.py": "cf6ab134f96300c31f9d8b8c1c33d27d938234bbfa42269ce7c12169f293eec9",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-003.json": "16316a67fe323849f40fdeb616f9a3a857369855dca713525bf9fcb78be57944",
+        "tests/section17/test_geo_003.py": "a40ea42104d0dd7387ebd6448e5c6b02d26d21976fa9531c8f760e90b7a1845c"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-GEO-003",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 22,
+        "passed": 22,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_all_positive_cycle_reinforcing",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_area_must_be_positive",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_007",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_008",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_009",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_010",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_011",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_authored_case_012",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_baseline_order_irrelevant",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_disconnected_cycles_not_one_feedback_loop",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_global_budget_energy_conserved",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_kelvin_and_celsius_same_mean",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_no_surface_temperature_claim",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_radiating_temperature_fourth_root_scaling",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_thirty_rows_with_out_of_window_year_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_geo_003.GEO003Tests.test_water_depth_unit_equivalence",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-GEO-003/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 12,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-CIV-001",
+      "original_sequence": 23,
+      "original_capability": "civics/institutions",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Descriptive selected UK institution roles, ordinary two-house bill traces, and explicit fictional power tables.",
+      "bounded_contract": "`audit_roles`: fixed `UK_INTRO_2026-09-29` introductory reference profile; typed assertions checked for missing, unknown and mismatched values. The five role assertions and official source links are in CONTRACT_EXAMPLES.json.\n`ordinary_bill_trace`: explicit `ordinary_two_house_bill` route; unique introduced/commons_agreed/lords_agreed/royal_assent events (maximum four); either house may agree first; introduction then both approvals before assent; no post-assent steps.\n`fictional_competence`: explicit FICTIONAL_EDUCATIONAL_SCENARIO, unique institution IDs, unique declared powers, institution/power request; returns membership in supplied scenario.",
+      "bounds_and_open_scope": "Not comprehensive constitutional law; special bill routes excluded. The UK profile is source/date-limited, not jurisdiction-neutral. Fictional power tables are not facts about India or any real country. No ranking, merit score, endorsement or judgment of political actors/choices/policies; only correctness of educational factual assertions.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/civics.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json",
+        "tests/section17/test_civ_001.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/civics.py": "4f7f46885273738e89205598d15a301bf53f81565b6174c638ee3abe73f2eea4",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json": "3c4005a467016ed234bc12b8d7533508a35f3de638948387ead89b779a27a1e4",
+        "tests/section17/test_civ_001.py": "3e8c80829face23aa3b715913406c1ee64cf0986081075c135a31f6ef665ed7d"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-CIV-001",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 22,
+        "passed": 22,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_agreement_without_introduction_not_valid",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_assent_after_only_one_house_not_act",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_assent_then_house_not_valid",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_007",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_008",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_009",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_010",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_011",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_authored_case_012",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_duplicate_fictional_powers_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_integer_one_not_boolean_true",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_omission_not_assumed_correct",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_real_jurisdiction_not_inferred_for_fictional_rules",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_same_fictional_power_can_belong_to_two_institutions",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_unknown_claim_not_ignored",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_civ_001.CIV001Tests.test_unsupported_special_bill_route_rejected",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-CIV-001/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 12,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-DATA-001",
+      "original_sequence": 24,
+      "original_capability": "tables/charts",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Exact table arithmetic and structured cell-to-chart fidelity with explicit missing data and axes.",
+      "bounded_contract": "`summary`: unique row IDs, rational values or null, missing_policy reject/exclude_explicit; sum, mean, odd/even median, observed/missing counts and excluded IDs; all missing rejected.\n`percent_change`: positive baseline, nonnegative final value; 100(after-before)/before.\n`weighted_mean`: unique rows with nonnegative weight and signed rational values; total weight strictly positive.\n`chart_fidelity`: source_rows vs chart_points joined by ID; explicit source/chart units, bar/line/scatter type and bounded linear/log y_axis. Mismatched unit labels are not implicitly converted. Missing/extra/wrong/out-of-axis values are defects. Zero-excluding bar axes and log scales generate separate presentation warnings.",
+      "bounds_and_open_scope": "No PDF table extraction, raster chart interpretation, render verification or holistic visual-quality judgment. Data fidelity can pass while presentation warnings remain; neither proves good pedagogy.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/tables_charts.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-DATA-001.json",
+        "tests/section17/test_data_001.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/tables_charts.py": "3578a293046850720c6c487f7805c20dc8531f70c0148c0bccb5d1256e5e53e4",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-DATA-001.json": "648c9c26fc90949ad13ab3a067ab9ea3024a574a437daa876c830f58b2e7e8b3",
+        "tests/section17/test_data_001.py": "41679bb3be6b8e12fcf37f3cfd59abc04e386b6247a657830f22ae469750c23f"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-DATA-001",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 22,
+        "passed": 22,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_007",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_008",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_009",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_010",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_011",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_authored_case_012",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_chart_axis_cannot_hide_source_value",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_chart_wrong_value_detected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_duplicate_row_ids_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_extra_chart_point_detected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_log_axis_nonpositive_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_missing_chart_point_detected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_negative_percentage_base_not_silently_used",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_summary_negative_values_exact",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_unannounced_unit_conversion_fails",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_data_001.DATA001Tests.test_zero_weight_row_not_influence_mean",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-DATA-001/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 12,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-001",
+      "original_sequence": 25,
+      "original_capability": "grounding metric",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Candidate-bound weighted proposition/citation checking against exact captured authored source text.",
+      "bounded_contract": "Reference payload: sources {id,text_sha256,locator}, claims {id,weight,proposition,supports}. Candidate: claims {id,proposition,citations}. A typed proposition has subject,predicate,object; IDs and scalar types are strict.\nActual source_artifacts text must exactly match the trusted source roster and UTF-8 hashes. Spans use Python/Unicode codepoint indices, not byte offsets or grapheme clusters. Reference spans have expected span SHA256. Candidate citations must all match annotated supports; at least one annotated support is required per present claim.\nEach trusted claim earns all or zero declared weight; missing, changed, uncited or unannotated claims fail. Duplicate citations/unknown claims or sources are blocked rather than discarded. Grounding is measured from artifacts, not a candidate-owned PASS assertion.",
+      "bounds_and_open_scope": "Exact span binding does not establish entailment, truth or licensing. Proposition-to-source support is curated, not NLP-inferred. Original authored text is bundled only in fixture artifacts. Independent source review and native PDF/text span adaptation remain open.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/grounding.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json",
+        "tests/section17/test_metric_001.py",
+        "bie/evaluation/benchmarks/metrics/__init__.py",
+        "bie/evaluation/benchmarks/metrics/common.py",
+        "bie/evaluation/benchmarks/metrics/service.py",
+        "bie/evaluation/benchmarks/metrics/__main__.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/grounding.py": "c6846daa2ece8915e8a120db3ca0652c318513653bf5d5c6ecada2dc568f84f3",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json": "123eb4b1de57eb79097ad1a247a966ea7f856d2770e119a4af71203882fa9398",
+        "tests/section17/test_metric_001.py": "380f8da33abdf2afd6f0ef0d08f6658c2b639d0b54ea5e8d96ab0c952ee49bf9",
+        "bie/evaluation/benchmarks/metrics/__init__.py": "0a40e49f291f5798eb846f252e9a48c7c05ddf55589b3b055ec184aca0944603",
+        "bie/evaluation/benchmarks/metrics/common.py": "bec37a5016b30b8a808ef08158a23ac221a8ccc790ca9eb974baf5a94a19a56b",
+        "bie/evaluation/benchmarks/metrics/service.py": "40e739de890d3f20f76f6644ddca768aa7e8b83c7aba784beaa0db6697a844ec",
+        "bie/evaluation/benchmarks/metrics/__main__.py": "f456f4dbc86dcc76bfc4f904f72c29e5c06d609eaeeeb03904adb1d54e5f3443"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-METRIC-001",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 20,
+        "passed": 20,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_boolean_span_not_an_index",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_candidate_cannot_supply_its_own_weight",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_duplicate_citation_not_double_credit",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_empty_reference_never_perfect",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_extra_claim_does_not_expand_denominator",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_missing_source_artifact_blocked",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_negative_span_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_one_correct_plus_one_wrong_citation_is_not_accepted",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_proposition_type_distinguishes_boolean_integer",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_reference_span_tamper_blocked",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_reference_weight_sets_denominator",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_source_tamper_blocked",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_unicode_offsets_are_codepoints_not_bytes",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_001.METRIC001Tests.test_unknown_source_rejected",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-001/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 6,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-002",
+      "original_sequence": 26,
+      "original_capability": "semantic metric",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Weighted trusted concept facets and relation fidelity without keyword-overlap grading.",
+      "bounded_contract": "Reference concepts have id,positive weight,nonempty typed facets; reference relations have id,weight,from,predicate,to. Candidate concepts omit weight; relations omit weight.\nA concept earns matched required facets/number required facets times its weight. Missing/wrong facets lose credit. Unexpected facets are defects even if required facet recall is complete. Missing concepts stay in denominator; unknown IDs and duplicates rejected.\nEach relation is all-or-zero: exact directed triple and both endpoints actually supplied/taught. Reference concept/relation unit-ID collisions rejected. Input list order does not change unit scoring.",
+      "bounds_and_open_scope": "No free-text paraphrase understanding, arbitrary semantic equivalence, learner comprehension or human-rater agreement measured. Trusted graph annotation quality needs independent review.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/semantic.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-002.json",
+        "tests/section17/test_metric_002.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/semantic.py": "050ff7f22515c3f25d4f228577f561f920acbd730cd3e397436d159ad022cba7",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-002.json": "8963c2dc14fc810f91d124673b8ed73fd4a432764a38e446af6e68f43b851139",
+        "tests/section17/test_metric_002.py": "d8d2de583387f75eb0074f7540e56ab2cb9e70f4b7e06f199615ee4a9ea0ff2b"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-METRIC-002",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 18,
+        "passed": 18,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_duplicate_concept_not_double_counted",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_empty_candidate_facets_zero_concept_credit",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_extra_facet_is_not_hidden_by_full_recall",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_facet_type_mismatch",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_list_order_does_not_change_result",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_missing_relation_stays_in_denominator",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_no_free_text_entailment_claim",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_reference_cannot_have_empty_facets",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_reference_unit_id_collision_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_relation_endpoint_must_be_reference_concept",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_reversed_relation_not_semantically_equal",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_002.METRIC002Tests.test_unknown_concept_rejected",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-002/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 6,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-003",
+      "original_sequence": 27,
+      "original_capability": "prerequisite metric",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Prerequisite transitive closure and teach-before-use under a trusted acyclic graph.",
+      "bounded_contract": "Reference: nodes, directed weighted prerequisite/dependent edges, target IDs and trusted known_prior IDs. Candidate: unique teaching_order only.\nValidate the complete DAG; required nodes are backward closure of targets, stopping at trusted known_prior. Each required node has weight1; each edge into required learning nodes has its declared positive weight. Nodes must occur, and prerequisites must appear earlier unless independently marked known_prior.\nAll known targets yield blocked NO_UNMASTERED_TARGET_IN_PROFILE rather than a vacuous 100 percent. Missing items remain denominator terms. Candidate cannot insert its own prior-knowledge flags.",
+      "bounds_and_open_scope": "No assessment of actual learner mastery, text/scene alignment, optimal instructional sequence or universal prerequisite validity. Prior knowledge and graph must come from trusted upstream evidence.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/prerequisites.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json",
+        "tests/section17/test_metric_003.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/prerequisites.py": "4d6ecdaf5ec404f4c204b9819a28122d03c53068bb5f99b13330bd36ac192c2a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json": "12159249f43f2229db358f03f43b7232bb3dfe1c58529da88501461a08da3d62",
+        "tests/section17/test_metric_003.py": "e37cc92d14f370876f11dcf913914f96eae873de24cdcbe61b95ca0cb1d9e124"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-METRIC-003",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 18,
+        "passed": 18,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_all_targets_known_cannot_vacuously_pass",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_disconnected_nonrequired_node_not_penalized",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_duplicate_reference_edge_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_duplicate_teaching_node_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_independent_prerequisites_can_swap",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_known_prior_cuts_ancestor_reteaching",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_known_prior_removes_reteaching_requirement",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_prior_knowledge_is_not_candidate_owned",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_reference_cycle_blocked",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_reference_unknown_target_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_transitive_prerequisite_must_be_taught",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_003.METRIC003Tests.test_unknown_teaching_node_rejected",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-003/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 6,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-004",
+      "original_sequence": 28,
+      "original_capability": "reasoning metric",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Finite forward Horn-rule proof checking with trusted facts and no invented premises.",
+      "bounded_contract": "Reference: facts {id,atom}, rules {id,antecedents,consequent}, weighted goals {id,atom,weight}. Candidate steps: id,rule_id,premises,conclusion.\nOnly trusted facts or valid preceding steps can support premises. Premise atoms must equal the complete antecedent set. Invalid/forward/circular steps do not enter the proven set; step IDs cannot shadow fact IDs. Rule conclusion must match exactly.\nGoals earn all-or-zero weight when available from trusted/valid proof. Any invalid extra step yields FAIL even if all requested goals earn credit. Score and outcome must be consumed together.",
+      "bounds_and_open_scope": "This is a bounded formal proof calculus, not validation of arbitrary natural-language reasoning, induction, analogy, uncertainty, temporal or spatial reasoning. Such adapters require additional governed work.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/reasoning.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json",
+        "tests/section17/test_metric_004.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/reasoning.py": "4255e645a50054482d99043bd482785e7c09e1d127104d8776f12435f6c4d80a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json": "b1df3df033dfa568b1c19f4ef3a8791902d2b649aeb343cb41e870d5e51b20d6",
+        "tests/section17/test_metric_004.py": "50bad2feede83fd590c4e1e94bd067b617eb455662f1a4777e3cbf80a3434f05"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-METRIC-004",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 18,
+        "passed": 18,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_candidate_cannot_insert_axiom",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_circular_self_reference_fails",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_duplicate_premise_id_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_extra_irrelevant_premise_is_not_licensed_rule",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_fact_goal_does_not_need_new_derivation",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_forward_reference_cannot_prove_goal",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_general_reasoning_not_claimed",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_invalid_step_cannot_be_reused",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_premise_order_irrelevant",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_rule_requires_all_antecedents_not_any",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_step_cannot_shadow_trusted_fact",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_004.METRIC004Tests.test_wrong_conclusion_not_credited",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-004/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 6,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-005",
+      "original_sequence": 29,
+      "original_capability": "math metric",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Unit-aware exact arithmetic, bounded polynomial identities and rational-expression domain preservation.",
+      "bounded_contract": "Reference checks: id,weight,kind,expected,absolute_tolerance,relative_tolerance. Candidate checks: id,value.\nQuantity profile uses a fixed units whitelist (1,m,cm,mm,km,s,min,kg,g,N,kN,J,kJ,K,degC), canonical dimensions/scales/temperature offsets. Comparison tolerance is max(atol,rtol*abs(expected)) in canonical base units; rtol<=0.01; tolerance is trusted, never supplied by candidate.\nPolynomial profile: exact constant-first coefficient arrays, at most9 entries, trailing zeros normalized. Algebra tolerance must be zero.\nRational-function profile: bounded numerator polynomial, denominator given as product of up to8 factors (x-root), up to16 explicit excluded values; all denominator roots must be excluded. Compare exact cross products and exact domain exclusion sets, so cancellation does not erase a domain hole. No eval or arbitrary expression parser.",
+      "bounds_and_open_scope": "Not a general CAS, theorem prover or support for transcendental expressions, arbitrary units, differential equations or unrestricted multivariate algebra. This checks supplied structured work, not extracted equations or mental calculation.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/mathematics.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json",
+        "tests/section17/test_metric_005.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/mathematics.py": "a440d523e27e98a7168f9aaf1abb5d684afbc4e89a8e523f02e8d55aff733bed",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json": "5ca421b0d47507df4a14570869207b9a28dcc79ce5abffd077df9e117363e796",
+        "tests/section17/test_metric_005.py": "6df657ada31e7bce1d6c59d679cce876328c516b06cccf24d6cfb2dbf2caf933"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-METRIC-005",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 20,
+        "passed": 20,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_absolute_tolerance_uses_canonical_base_unit",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_candidate_extra_domain_hole_fails",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_celsius_kelvin_offset",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_denominator_root_requires_exclusion",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_duplicate_domain_hole_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_expression_string_never_evaluated",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_inflated_tolerance_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_negative_kelvin_blocked",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_numeric_wrong_value_cannot_be_masked_by_unit_label",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_polynomial_degree_bounded",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_polynomial_product_coefficient_order",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_relative_tolerance_at_limit",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_symbolic_tolerance_not_allowed",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_005.METRIC005Tests.test_zero_polynomial_normalizes_trailing_zeros",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-005/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 6,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-006",
+      "original_sequence": 30,
+      "original_capability": "causal metric",
+      "batch": 3,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "implemented_behavior": "Directed graph and intervention/counterfactual fidelity in declared acyclic linear structural causal models.",
+      "bounded_contract": "Reference model: each node has id,intercept,noise,parents {node,coefficient}. All nodes/edges unique, acyclic, bounded, with nonzero edge coefficients. Queries specify positive weight, interventions,target,inference_kind.\nSolve in topological order. A do intervention replaces the intervened node equation, not its exogenous ancestors. Fixed noise is retained for explicitly labeled counterfactual_fixed_noise queries. Candidate edges and numeric query answers are checked independently against trusted model.\nTrue edges contribute weight1; queries have declared weights. Missing/reversed edges lose credit; unsupported extra edges veto PASS. Association cannot be relabeled as intervention/counterfactual; correct numbers with wrong inference_kind fail.",
+      "bounds_and_open_scope": "No empirical identification, causal discovery, proof of real-world causal validity, stochastic uncertainty estimation or universal counterfactual reasoning. Model assumptions and noise are supplied and require independent validation.",
+      "direct_dependency_task_ids": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/causality.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json",
+        "tests/section17/test_metric_006.py"
+      ],
+      "owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/causality.py": "1fd680cce320ed71e91668b2c8864707a9641b05f53c6961c79ed03634845986",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json": "3243c758f8879550fd4da01640126c2da96363a04333edfe02a54065413c1a10",
+        "tests/section17/test_metric_006.py": "344144cdde159a89b698d611b3867c67960a96c7fd30e0f7fabab874805d410d"
+      },
+      "selected_task_suite": {
+        "schema_version": "1.0.0",
+        "task_id": "BIE-EVAL-METRIC-006",
+        "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+        "tests_run": 20,
+        "passed": 20,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "records": [
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_001",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_002",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_003",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_004",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_005",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_006",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_do_overrides_incoming_equation_not_exogenous_parent",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_duplicate_reported_edge_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_extra_edge_is_fail_even_when_queries_correct",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_fixed_noise_preserved_for_counterfactual",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_intervene_on_outcome_replaces_parents",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_negative_coefficient_supported",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_no_empirical_causal_certification",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_observation_without_intervention_different_from_do",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_query_absence_not_remove_denominator",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_reference_cycle_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_structural_node_input_order_irrelevant",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_unknown_candidate_node_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_unknown_intervention_rejected",
+            "status": "PASS"
+          },
+          {
+            "test_id": "test_metric_006.METRIC006Tests.test_zero_coefficient_not_an_edge",
+            "status": "PASS"
+          }
+        ],
+        "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+        "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+        "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+      },
+      "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+      "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-006/SPEC.md",
+      "github_integrated": false,
+      "native_bie_verified": false,
+      "product_accepted": false,
+      "authored_fixture_count": 6,
+      "independent_reference_review": false,
+      "hidden_holdout": false
+    }
+  ],
+  "scope": "SCOPED_LOCAL_ONLY"
+}

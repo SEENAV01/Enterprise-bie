@@ -1,0 +1,44 @@
+[
+  {
+    "id": "H4-A01",
+    "type": "environment",
+    "finding": "Managed Chromium policy denied virtual-origin navigation.",
+    "resolution": "Retained BLOCKED evidence; explicit local in-memory document transport without changing policy. ES-module/HTTP boot remains unverified."
+  },
+  {
+    "id": "H4-A02",
+    "type": "implementation",
+    "finding": "Main-world DOM/style APIs can be replaced by candidate JS.",
+    "resolution": "Fixed observer uses CDP isolated world; native PNG capture no longer depends on page-main-world screenshot helper stabilization."
+  },
+  {
+    "id": "H4-A03",
+    "type": "implementation",
+    "finding": "Playwright evaluation can invoke a function-valued last script expression, causing unexpected execution.",
+    "resolution": "Evaluator-owned wrapper discards script result. Initially failing spoof regression now passes; preimages and failure logs retained."
+  },
+  {
+    "id": "H4-A04",
+    "type": "input_validation",
+    "finding": "Reserved metric-unit IDs and non-string objective check IDs needed explicit admission.",
+    "resolution": "Reserved IDs rejected; objective-check list is bounded and typed."
+  },
+  {
+    "id": "H4-A05",
+    "type": "evidence",
+    "finding": "Inherited inventory runner did not include executable example assets.",
+    "resolution": "New H4 runner includes examples in candidate inventory; unchanged H3 runner and published inventory retained."
+  },
+  {
+    "id": "H4-A06",
+    "type": "history",
+    "finding": "Missing exact H3 master and ancillary ledger/evidence.",
+    "resolution": "257 published source files recovered exactly, 1658 baseline tests rerun, all available originals retained; original archive/history closure explicitly OPEN."
+  },
+  {
+    "id": "H4-A07",
+    "type": "execution",
+    "finding": "A shell timeout interrupted an attempted final-test/fault launch.",
+    "resolution": "Empty/incomplete attempt directories retained; only completed v2 receipts count."
+  }
+]

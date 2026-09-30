@@ -1,0 +1,16 @@
+{
+  "task_id": "BIE-EVAL-RATER-004",
+  "original_sequence": 45,
+  "original_capability": "evaluator agreement",
+  "module": "release/agreement.py",
+  "test_pattern": "test_rater_004.py",
+  "direct_dependencies": [
+    "BIE-EVAL-RATER-001",
+    "BIE-EVAL-RATER-002",
+    "BIE-EVAL-RATER-003"
+  ],
+  "status": "SCOPED_LOCAL_IMPLEMENTATION",
+  "limits": "Agreement is not accuracy. No confidence intervals, sample adequacy guarantee or empirically calibrated thresholds.",
+  "release_authorized": false,
+  "product_accepted": false
+}

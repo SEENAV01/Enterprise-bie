@@ -1,0 +1,39 @@
+{
+  "scope": "Batch005 targeted code/behavior audit, not whole-section exit audit",
+  "findings": [
+    {
+      "id": "B005-A001",
+      "type": "IMPLEMENTATION_BUG",
+      "status": "REPAIRED_AND_RETESTED",
+      "finding": "SQLite attempt insertion had8 SQL placeholders for7 columns, blocking11 ledger tests.",
+      "fix": "Explicit7-column insertion; 86 release tests passed after fix.",
+      "evidence_before": "evidence/section17/batch005/release_initial",
+      "evidence_after": "evidence/section17/batch005/release_after_A001"
+    },
+    {
+      "id": "B005-A002",
+      "type": "FAIL_CLOSED_ADAPTER_GAP",
+      "status": "REPAIRED_AND_RETESTED",
+      "finding": "Arbitrary provider adapter exceptions escaped the model evaluator rather than yielding a blocked assessment.",
+      "fix": "Catch unexpected adapter failures without recording secret exception text.",
+      "evidence_before": "evidence/section17/batch005/audit_before_A002_A003",
+      "evidence_after": "evidence/section17/batch005/audit_after_A002_A003"
+    },
+    {
+      "id": "B005-A003",
+      "type": "AUDIT_BINDING_GAP",
+      "status": "REPAIRED_AND_RETESTED",
+      "finding": "Report lacked explicit evaluation timestamp, verified token identity and binding to external attestation/evidence/trust metadata.",
+      "fix": "Add evaluated_at, token/key digests and external-evidence input digest excluding secrets.",
+      "evidence_before": "evidence/section17/batch005/audit_before_A002_A003",
+      "evidence_after": "evidence/section17/batch005/audit_after_A002_A003"
+    }
+  ],
+  "interrupted_run": {
+    "path": "evidence/section17/batch005/cumulative_initial",
+    "status": "INTERRUPTED_BY_TOOL_TIMEOUT_NO_RESULT",
+    "counted_as_pass": false,
+    "replacement": "evidence/section17/batch005/cumulative_after_audit"
+  },
+  "whole_section_audit_completed": false
+}

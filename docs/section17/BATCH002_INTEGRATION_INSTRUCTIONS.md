@@ -1,0 +1,10 @@
+# Integration handoff — do not apply as a blind overlay
+
+1. Preserve the exact delivered manifest and original Batch001 archive. Extract into a new external scratch folder and verify all hashes; run the cumulative tests, diagnostic and fault controls with outputs outside the candidate.
+2. Recover current Section16/repository state and the user's authorized integration lane. The inherited repository anchor is not current verification. Inspect the actual evaluation namespace and consumers; do not replace parent initializers or `bie/evaluation/contracts.py`.
+3. Use `TASK_INTEGRATION_INDEX.json` and `BATCH002_CHANGE_LEDGER.json` to adopt only owned/additive paths. Stop on different existing files and reconcile intent/tests; never overwrite unrelated Math, QA, COMP, AUDIO, app or Codex work. `owned_delta` is explicit; `runtime` is only an atomic verification dependency snapshot.
+4. Preserve exact original fifty IDs. The only baseline runtime change in this batch is ten additive pack registrations in `runner.py`; two shared tests now assert the expanded complete roster, not a smaller hardcoded sixty. Test-tool labels changed only to identify cumulative scope. Original domain/core files and all original sixty cases are byte-preserved.
+5. Run native canonical baseline and tests against the exact combined candidate plus its real-book/source/media/learning adapters. A local Python test is not CI, merge, render or release evidence. Keep source/golden/reviewer/rights/custody flags false until real evidence satisfies them.
+6. Publish commit/PR/merge evidence only if authorized and actually performed, reading back exact SHAs. This package performed none of those external actions and does not resume Task028. Production deployment, paid services, permission changes and public release are not authorized by ZIP creation.
+
+Remaining local development starts with BIE-EVAL-GEO-002. Complete remaining original tasks and justified hardening before the section-level re-audit; do not equate reaching task fifty or a large ZIP with enterprise product acceptance.

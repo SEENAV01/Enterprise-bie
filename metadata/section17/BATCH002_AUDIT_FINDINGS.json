@@ -1,0 +1,53 @@
+{
+  "scope": "LOCAL_BATCH002_AUDIT_AND_REAUDIT_NOT_SECTION_EXIT",
+  "findings": [
+    {
+      "id": "B002-F001",
+      "kind": "IMPLEMENTATION_BUG",
+      "issue": "Validated quantity conversion passed internal Fraction to JSON-facing rational parser, rejecting legitimate BIO003/GEO001 quantities.",
+      "fix": "Internal exact Fraction branch with the same 512-bit bounds; public JSON boundary still refuses arbitrary objects.",
+      "evidence": "initial/TEST_RESULT.json and final_source/TEST_RESULT.json",
+      "status": "FIXED_LOCAL_REGRESSION_VERIFIED"
+    },
+    {
+      "id": "B002-F002",
+      "kind": "SEMANTIC_SCOPE_DEFECT",
+      "issue": "Generic crust_created/crust_consumed labels could deny arc crust generation at convergent boundaries.",
+      "fix": "Narrow output names and profile to idealized oceanic-lithosphere accounting, not a total crust budget; update independently authored expected schema.",
+      "evidence": "adversarial_initial/TEST_RESULT.json and final_source/TEST_RESULT.json",
+      "status": "FIXED_LOCAL_REGRESSION_VERIFIED"
+    },
+    {
+      "id": "B002-F003",
+      "kind": "PROVENANCE_OVERREACH",
+      "issue": "Declaration event returned a place not established by its linked page in this review.",
+      "fix": "Remove the unsupported place field; keep the referenced date and do not infer unspecified geography.",
+      "evidence": "adversarial_initial/TEST_RESULT.json and final_source/TEST_RESULT.json",
+      "status": "FIXED_LOCAL_REGRESSION_VERIFIED"
+    },
+    {
+      "id": "B002-T001",
+      "kind": "TEST_AUTHORING_ERROR",
+      "issue": "Permutation test selected year-difference fixture by a wrong numeric index.",
+      "fix": "Select the explicitly named partial_order operation; preserve the same invariance assertion.",
+      "evidence": "adversarial_initial/TEST_RESULT.json",
+      "status": "FIXED_TEST_HARNESS"
+    },
+    {
+      "id": "B002-T002",
+      "kind": "TEST_AUTHORING_ERROR",
+      "issue": "Registry assertion used tasks rather than the supplied registry schema key rows.",
+      "fix": "Use the actual rows field; preserve exact expected original IDs/order.",
+      "evidence": "contract_reaudit/TEST_RESULT.json",
+      "status": "FIXED_TEST_HARNESS"
+    }
+  ],
+  "source_enrichment": "Added direct light-reaction and USGS subduction references; no source passages or inferred redistribution rights.",
+  "old_suite_change": "Only frozen 60-case cardinality assertions in two shared Batch001 test files became dynamic complete-roster assertions. Existing 254 IDs retained; original baseline independently reran 254/254 before modifications.",
+  "code_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "all_known_recorded_batch_findings_addressed": true,
+  "independent_review": false,
+  "section_complete": false,
+  "product_accepted": false,
+  "open_gaps": "GAP_LEDGER.json"
+}

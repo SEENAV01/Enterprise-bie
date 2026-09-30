@@ -1,0 +1,87 @@
+{
+  "task_id": "BIE-EVAL-H1-010",
+  "title": "Portable archive custody and auditable replacements",
+  "finding": {
+    "finding_id": "H1-F010",
+    "task_id": "BIE-EVAL-H1-010",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "Resolving paths before checking them hid root/parent symlinks; normalized Unicode/Windows aliases were not rejected. An inherited preservation assertion needed a tracked-change path rather than a skip.",
+    "implemented_behavior": "Reject lexical symlink roots/parents and nonportable aliases, verify exact inventories, and require original preimages plus old/new hashes for intentional baseline replacements.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Extraction remains for trusted operator-owned parents, not hostile concurrent filesystem writers. Historical original archives remain byte-identical; one old test file is deliberately updated and preserved.",
+    "code_paths": [
+      "tools/verify_section17_package.py",
+      "tests/section17/test_batch002_contracts.py"
+    ],
+    "test_pattern": "test_h1_010.py",
+    "passed_test_methods": 14,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_control_character_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_extra_unmanifested_file_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_extract_symlink_parent_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_file_directory_conflict_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_parent_traversal_zip_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_reserved_windows_device_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_source_archive_symlink_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_tampered_bytes_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_trailing_dot_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_trailing_space_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_unicode_normalization_alias_zip_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_valid_unicode_member_works",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_verify_symlink_root_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_verify_valid_tree",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "tools/verify_section17_package.py": "c13f180bad40a1a6c776d08d31d55cfe9bf748e3ce622d1cfb9e46c1aab129fb",
+    "tests/section17/test_batch002_contracts.py": "1fa3f8d9f56ab8e5f220f125dce59ca5cdf5f17ad400a1586fd63a5efd19f29b",
+    "tests/section17/test_h1_010.py": "e6362a5a28eb72afb877c944b1a135448e3ce639df53b0bd3335b54918ca43e1"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

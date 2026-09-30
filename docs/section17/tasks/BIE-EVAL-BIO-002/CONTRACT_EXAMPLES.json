@@ -1,0 +1,338 @@
+{
+  "task_id": "BIE-EVAL-BIO-002",
+  "operations": {
+    "mendelian_cross": [
+      "BIE-EVAL-BIO-002.C001",
+      "BIE-EVAL-BIO-002.C002",
+      "BIE-EVAL-BIO-002.C003",
+      "BIE-EVAL-BIO-002.C004",
+      "BIE-EVAL-BIO-002.C009",
+      "BIE-EVAL-BIO-002.C010"
+    ],
+    "hardy_weinberg": [
+      "BIE-EVAL-BIO-002.C005",
+      "BIE-EVAL-BIO-002.C006",
+      "BIE-EVAL-BIO-002.C007",
+      "BIE-EVAL-BIO-002.C011",
+      "BIE-EVAL-BIO-002.C012"
+    ],
+    "allele_frequency": [
+      "BIE-EVAL-BIO-002.C008"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-BIO-002.C001",
+      "inputs": {
+        "assortment": "independent",
+        "dominance": "complete",
+        "loci": [
+          {
+            "gene": "A",
+            "parent_a": "Aa",
+            "parent_b": "Aa"
+          }
+        ],
+        "op": "mendelian_cross"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "AA": "1/4",
+            "Aa": "1/2",
+            "aa": "1/4"
+          },
+          "phenotype_probabilities": {
+            "A_": "3/4",
+            "aa": "1/4"
+          },
+          "probability_sum": "1",
+          "profile": "INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE"
+        }
+      },
+      "derivation": "Four equiprobable parental allele pairs aggregate to 1:2:1 genotypes and 3:1 phenotypes."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C002",
+      "inputs": {
+        "assortment": "independent",
+        "dominance": "complete",
+        "loci": [
+          {
+            "gene": "A",
+            "parent_a": "Aa",
+            "parent_b": "aa"
+          }
+        ],
+        "op": "mendelian_cross"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "Aa": "1/2",
+            "aa": "1/2"
+          },
+          "phenotype_probabilities": {
+            "A_": "1/2",
+            "aa": "1/2"
+          },
+          "probability_sum": "1",
+          "profile": "INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE"
+        }
+      },
+      "derivation": "A or a from one parent meets only a from the other."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C003",
+      "inputs": {
+        "assortment": "independent",
+        "dominance": "complete",
+        "loci": [
+          {
+            "gene": "A",
+            "parent_a": "AA",
+            "parent_b": "aa"
+          }
+        ],
+        "op": "mendelian_cross"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "Aa": "1"
+          },
+          "phenotype_probabilities": {
+            "A_": "1"
+          },
+          "probability_sum": "1",
+          "profile": "INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE"
+        }
+      },
+      "derivation": "Every pair is heterozygous."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C004",
+      "inputs": {
+        "assortment": "independent",
+        "dominance": "complete",
+        "loci": [
+          {
+            "gene": "A",
+            "parent_a": "Aa",
+            "parent_b": "aa"
+          },
+          {
+            "gene": "B",
+            "parent_a": "Bb",
+            "parent_b": "bb"
+          }
+        ],
+        "op": "mendelian_cross"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "AaBb": "1/4",
+            "Aabb": "1/4",
+            "aaBb": "1/4",
+            "aabb": "1/4"
+          },
+          "phenotype_probabilities": {
+            "A_|B_": "1/4",
+            "A_|bb": "1/4",
+            "aa|B_": "1/4",
+            "aa|bb": "1/4"
+          },
+          "probability_sum": "1",
+          "profile": "INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE"
+        }
+      },
+      "derivation": "Multiply two independent one-half probabilities."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C005",
+      "inputs": {
+        "assumptions": [
+          "random_mating",
+          "large_population",
+          "no_selection",
+          "no_mutation",
+          "no_migration"
+        ],
+        "op": "hardy_weinberg",
+        "p": "1/2"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "AA": "1/4",
+            "Aa": "1/2",
+            "aa": "1/4"
+          },
+          "p": "1/2",
+          "profile": "IDEAL_TWO_ALLELE_HARDY_WEINBERG_NOT_OBSERVED_COUNTS",
+          "q": "1/2"
+        }
+      },
+      "derivation": "Under the explicitly supplied model, q=1-p and genotype frequencies are p*p, 2*p*q, q*q."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C006",
+      "inputs": {
+        "assumptions": [
+          "random_mating",
+          "large_population",
+          "no_selection",
+          "no_mutation",
+          "no_migration"
+        ],
+        "op": "hardy_weinberg",
+        "p": "4/5"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "AA": "16/25",
+            "Aa": "8/25",
+            "aa": "1/25"
+          },
+          "p": "4/5",
+          "profile": "IDEAL_TWO_ALLELE_HARDY_WEINBERG_NOT_OBSERVED_COUNTS",
+          "q": "1/5"
+        }
+      },
+      "derivation": "Under the explicitly supplied model, q=1-p and genotype frequencies are p*p, 2*p*q, q*q."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C007",
+      "inputs": {
+        "assumptions": [
+          "random_mating",
+          "large_population",
+          "no_selection",
+          "no_mutation",
+          "no_migration"
+        ],
+        "op": "hardy_weinberg",
+        "p": 1
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "genotype_probabilities": {
+            "AA": "1",
+            "Aa": "0",
+            "aa": "0"
+          },
+          "p": "1",
+          "profile": "IDEAL_TWO_ALLELE_HARDY_WEINBERG_NOT_OBSERVED_COUNTS",
+          "q": "0"
+        }
+      },
+      "derivation": "Under the explicitly supplied model, q=1-p and genotype frequencies are p*p, 2*p*q, q*q."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C008",
+      "inputs": {
+        "AA": 20,
+        "Aa": 10,
+        "aa": 20,
+        "op": "allele_frequency"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "equilibrium_established": false,
+          "individuals": 50,
+          "p": "1/2",
+          "q": "1/2"
+        }
+      },
+      "derivation": "Count 50 A alleles and 50 a alleles among 100; do not infer equilibrium from p alone."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C009",
+      "inputs": {
+        "assortment": "linked",
+        "dominance": "complete",
+        "loci": [
+          {
+            "gene": "A",
+            "parent_a": "Aa",
+            "parent_b": "Aa"
+          }
+        ],
+        "op": "mendelian_cross"
+      },
+      "expected": {
+        "error_code": "UNSUPPORTED_ENUM",
+        "status": "REJECTED"
+      },
+      "derivation": "Linkage needs a separate model; independent assortment cannot be silently assumed."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C010",
+      "inputs": {
+        "assortment": "independent",
+        "dominance": "complete",
+        "loci": [
+          {
+            "gene": "A",
+            "parent_a": "AB",
+            "parent_b": "Aa"
+          }
+        ],
+        "op": "mendelian_cross"
+      },
+      "expected": {
+        "error_code": "INVALID_DIPLOID_GENOTYPE",
+        "status": "REJECTED"
+      },
+      "derivation": "Both symbols must be alleles of the declared locus."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C011",
+      "inputs": {
+        "assumptions": [
+          "random_mating",
+          "large_population",
+          "no_selection",
+          "no_mutation"
+        ],
+        "op": "hardy_weinberg",
+        "p": "1/2"
+      },
+      "expected": {
+        "error_code": "COLLECTION_SIZE_OR_TYPE",
+        "status": "REJECTED"
+      },
+      "derivation": "The declared five-assumption set is mandatory."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-002.C012",
+      "inputs": {
+        "assumptions": [
+          "random_mating",
+          "large_population",
+          "no_selection",
+          "no_mutation",
+          "no_migration"
+        ],
+        "op": "hardy_weinberg",
+        "p": 2
+      },
+      "expected": {
+        "error_code": "INVALID_PROBABILITY",
+        "status": "REJECTED"
+      },
+      "derivation": "p is a probability, not an arbitrary positive number."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

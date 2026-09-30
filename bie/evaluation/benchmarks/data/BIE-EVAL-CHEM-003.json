@@ -1,0 +1,362 @@
+[
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C001",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Water primitive equation balance",
+    "prompt": "Water primitive equation balance. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"balance\",\"products\":[{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"H2\",\"id\":\"hydrogen\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"oxygen\"}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"products\":{\"water\":2},\"profile\":\"PRIMITIVE_INTEGER_ATOM_AND_CHARGE_BALANCE\",\"reactants\":{\"hydrogen\":2,\"oxygen\":1}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Hydrogen and oxygen conservation require primitive coefficients 2:1:2.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "balance",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C002",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Parenthesized formula balance",
+    "prompt": "Parenthesized formula balance. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"balance\",\"products\":[{\"charge\":0,\"formula\":\"CaCl2\",\"id\":\"salt\"},{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"Ca(OH)2\",\"id\":\"base\"},{\"charge\":0,\"formula\":\"HCl\",\"id\":\"acid\"}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"products\":{\"salt\":1,\"water\":2},\"profile\":\"PRIMITIVE_INTEGER_ATOM_AND_CHARGE_BALANCE\",\"reactants\":{\"acid\":2,\"base\":1}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Ca=1, Cl=2, O=2, H=4 on each side.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "balance",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C003",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Ionic charges are conserved",
+    "prompt": "Ionic charges are conserved. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"balance\",\"products\":[{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":1,\"formula\":\"H\",\"id\":\"H\"},{\"charge\":-1,\"formula\":\"OH\",\"id\":\"OH\"}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"products\":{\"water\":1},\"profile\":\"PRIMITIVE_INTEGER_ATOM_AND_CHARGE_BALANCE\",\"reactants\":{\"H\":1,\"OH\":1}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "One +1 and one -1 species sum to neutral water with conserved atoms.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "balance",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C004",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Limiting feed {'hydrogen': 5, 'oxygen': 2}",
+    "prompt": "Limiting feed {'hydrogen': 5, 'oxygen': 2}. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"coefficients\":{\"hydrogen\":2,\"oxygen\":1,\"water\":2},\"feed_mol\":{\"hydrogen\":5,\"oxygen\":2},\"op\":\"reaction_extent\",\"products\":[{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"H2\",\"id\":\"hydrogen\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"oxygen\"}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consumed_mol\":{\"hydrogen\":\"4\",\"oxygen\":\"2\"},\"extent_mol\":\"2\",\"limiting_reactants\":[\"oxygen\"],\"produced_mol\":{\"water\":\"4\"},\"profile\":\"IDEAL_COMPLETE_CONVERSION_NO_SIDE_REACTIONS\",\"remaining_mol\":{\"hydrogen\":\"1\",\"oxygen\":\"0\"}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Extent=min(n_hydrogen/2,n_oxygen); multiply by each stoichiometric coefficient.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "reaction_extent",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C005",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Limiting feed {'hydrogen': 4, 'oxygen': 2}",
+    "prompt": "Limiting feed {'hydrogen': 4, 'oxygen': 2}. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"coefficients\":{\"hydrogen\":2,\"oxygen\":1,\"water\":2},\"feed_mol\":{\"hydrogen\":4,\"oxygen\":2},\"op\":\"reaction_extent\",\"products\":[{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"H2\",\"id\":\"hydrogen\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"oxygen\"}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consumed_mol\":{\"hydrogen\":\"4\",\"oxygen\":\"2\"},\"extent_mol\":\"2\",\"limiting_reactants\":[\"hydrogen\",\"oxygen\"],\"produced_mol\":{\"water\":\"4\"},\"profile\":\"IDEAL_COMPLETE_CONVERSION_NO_SIDE_REACTIONS\",\"remaining_mol\":{\"hydrogen\":\"0\",\"oxygen\":\"0\"}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Extent=min(n_hydrogen/2,n_oxygen); multiply by each stoichiometric coefficient.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "reaction_extent",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C006",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Limiting feed {'hydrogen': 0, 'oxygen': 2}",
+    "prompt": "Limiting feed {'hydrogen': 0, 'oxygen': 2}. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"coefficients\":{\"hydrogen\":2,\"oxygen\":1,\"water\":2},\"feed_mol\":{\"hydrogen\":0,\"oxygen\":2},\"op\":\"reaction_extent\",\"products\":[{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"H2\",\"id\":\"hydrogen\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"oxygen\"}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"consumed_mol\":{\"hydrogen\":\"0\",\"oxygen\":\"0\"},\"extent_mol\":\"0\",\"limiting_reactants\":[\"hydrogen\"],\"produced_mol\":{\"water\":\"0\"},\"profile\":\"IDEAL_COMPLETE_CONVERSION_NO_SIDE_REACTIONS\",\"remaining_mol\":{\"hydrogen\":\"0\",\"oxygen\":\"2\"}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Extent=min(n_hydrogen/2,n_oxygen); multiply by each stoichiometric coefficient.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "reaction_extent",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C007",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Pure product molar yield",
+    "prompt": "Pure product molar yield. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"actual_mol\":3,\"op\":\"percent_yield\",\"theoretical_mol\":4}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"percent_yield\":\"75\",\"profile\":\"PURE_PRODUCT_SAME_SPECIES_MOLAR_YIELD\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "100*3/4=75 percent for the same pure product.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "percent_yield",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C008",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Percent above pure theoretical yield",
+    "prompt": "Percent above pure theoretical yield. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"actual_mol\":5,\"op\":\"percent_yield\",\"theoretical_mol\":4}",
+    "expected_json": "{\"error_code\":\"PURE_PRODUCT_YIELD_EXCEEDS_THEORY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Observed apparent yields above 100 need a different measurement/impurity model.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "percent_yield",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C009",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Charge cannot disappear",
+    "prompt": "Charge cannot disappear. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"balance\",\"products\":[{\"charge\":0,\"formula\":\"H\",\"id\":\"neutral\"}],\"reactants\":[{\"charge\":1,\"formula\":\"H\",\"id\":\"ion\"}]}",
+    "expected_json": "{\"error_code\":\"NO_NONZERO_BALANCE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Atom conservation permits equal counts, but charge conservation forces zero; no nonzero balance.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "balance",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C010",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Multiple possible equation balances refused",
+    "prompt": "Multiple possible equation balances refused. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"balance\",\"products\":[{\"charge\":0,\"formula\":\"CO\",\"id\":\"CO\"},{\"charge\":0,\"formula\":\"CO2\",\"id\":\"CO2\"}],\"reactants\":[{\"charge\":0,\"formula\":\"C\",\"id\":\"carbon\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"oxygen\"}]}",
+    "expected_json": "{\"error_code\":\"BALANCE_NOT_UNIQUE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Two carbon products create more than one independent stoichiometric solution; do not invent a ratio.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "balance",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C011",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Unbalanced supplied coefficients",
+    "prompt": "Unbalanced supplied coefficients. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"coefficients\":{\"hydrogen\":1,\"oxygen\":1,\"water\":1},\"feed_mol\":{\"hydrogen\":2,\"oxygen\":2},\"op\":\"reaction_extent\",\"products\":[{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"H2\",\"id\":\"hydrogen\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"oxygen\"}]}",
+    "expected_json": "{\"error_code\":\"UNBALANCED_REACTION\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Declared coefficients must conserve atoms before limiting-feed arithmetic.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "reaction_extent",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-003.C012",
+    "task_id": "BIE-EVAL-CHEM-003",
+    "domain": "chemistry",
+    "title": "Unsupported hydrate syntax must be explicit",
+    "prompt": "Unsupported hydrate syntax must be explicit. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"balance\",\"products\":[{\"charge\":0,\"formula\":\"CuSO4\",\"id\":\"salt\"},{\"charge\":0,\"formula\":\"H2O\",\"id\":\"water\"}],\"reactants\":[{\"charge\":0,\"formula\":\"CuSO4.5H2O\",\"id\":\"hydrate\"}]}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_FORMULA_SYNTAX\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The bounded parser does not silently misread dot hydrate notation.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-yield",
+        "title": "Chemistry 2e",
+        "locator": "4.4 reaction yields",
+        "url": "https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "balance",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

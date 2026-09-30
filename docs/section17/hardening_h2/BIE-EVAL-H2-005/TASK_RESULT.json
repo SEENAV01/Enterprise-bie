@@ -1,0 +1,93 @@
+{
+  "task_id": "BIE-EVAL-H2-005",
+  "title": "Per-channel decoded audio inspection",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/audio.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-002",
+    "BIE-EVAL-H2-003"
+  ],
+  "test_file": "tests/section17/test_h2_005.py",
+  "test_count": 18,
+  "records": [
+    {
+      "test_id": "test_h2_005.H2005.test_activity_merging_and_silence_split",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_arbitrary_byte_splits_same_hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_clipping_positive_and_negative",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_empty_decode",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_exact_sample_count",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_infinite_sample_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_invalid_audio_constructor_values",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_invalid_audio_window",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_nan_sample_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_no_audio_explicit_none",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_original_rate_channels_actual",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_partial_final_window_included",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_partial_interleaved_sample",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_per_channel_no_antiphase_downmix",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_rms_computation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_sample_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_silence_all_samples",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_005.H2005.test_silent_channel_not_hidden",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "RMS activity is not voice recognition and can include tone/DC/music. No ASR, word alignment, pronunciation, true-peak or perceptual loudness certification.",
+  "derived_from": "H1-RES-002"
+}

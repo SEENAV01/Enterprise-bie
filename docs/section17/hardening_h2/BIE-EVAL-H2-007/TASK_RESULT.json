@@ -1,0 +1,83 @@
+{
+  "task_id": "BIE-EVAL-H2-007",
+  "title": "Caption content and timing coverage",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/captions.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001"
+  ],
+  "test_file": "tests/section17/test_h2_007.py",
+  "test_count": 16,
+  "records": [
+    {
+      "test_id": "test_h2_007.H2007.test_activity_offset_respected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_coverage_intersections",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_empty_caption",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_invalid_minutes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_invalid_utf8",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_markup_not_silently_removed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_no_asr_or_pronunciation_claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_no_denominator_is_none",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_overlap_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_required_intervals_not_overlapping",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_sequence_gap",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_srt_hindi_text_hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_time_outside_media",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_vtt_plain",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_vtt_settings_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_007.H2007.test_windows_crlf",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Rich WebVTT settings/markup/overlaps are blocked. Timing plus text-pin checks do not establish that the audio says those words or full accessibility compliance.",
+  "derived_from": "H1-RES-002"
+}

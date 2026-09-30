@@ -1,0 +1,85 @@
+{
+  "task_id": "BIE-EVAL-H1-002",
+  "title": "SQLite API compatibility and path custody",
+  "finding": {
+    "finding_id": "H1-F002",
+    "task_id": "BIE-EVAL-H1-002",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "Registry unconditionally used a Python3.12-only SQLite keyword despite the advertised3.11 minimum; lexical parent symlinks were not centrally guarded.",
+    "implemented_behavior": "Use explicit manual transactions with version-aware connection parameters and reject symlink/URI/traversal paths.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Executed on Python3.13.5;3.11 API behavior is simulated, not an actual3.11 platform run. Single-owner preflight is not race-proof OS containment.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/storage.py",
+      "bie/evaluation/benchmarks/registry.py",
+      "bie/evaluation/benchmarks/release/ledger.py"
+    ],
+    "test_pattern": "test_h1_002.py",
+    "passed_test_methods": 13,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_311_api_compatibility_branch",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_directory_not_database",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_empty_path_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_existing_schema_version_preserved",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_file_database_works",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_file_symlink_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_manual_transactions_commit_and_rollback",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_memory_durable_port_refuses",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_memory_explicitly_allowed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_nonexistent_parent_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_parent_symlink_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_parent_traversal_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_002.StorageBoundary.test_uri_refused",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/storage.py": "df74cd9f1a6e960ef7a345064d70e2495849a3400ea402eaf889d4e8267de343",
+    "bie/evaluation/benchmarks/registry.py": "b03c59376b0bb199fee89772583f18886dc4e80bfdbb0ceef8d76d73352c4af5",
+    "bie/evaluation/benchmarks/release/ledger.py": "7a36544ff576c6264fa7b24265c55c4b360bed4ce6deae42587203b8e281ea5f",
+    "tests/section17/test_h1_002.py": "c35e3938c478837752e9f0c6cff0543442872f9641117813c712fc50ff059ac0"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

@@ -1,0 +1,86 @@
+{
+  "task_id": "BIE-EVAL-H2-010",
+  "title": "Durable AV run store and operator CLI",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/ledger.py",
+    "bie/evaluation/benchmarks/av/__main__.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-008",
+    "BIE-EVAL-H2-009"
+  ],
+  "test_file": "tests/section17/test_h2_010.py",
+  "test_count": 16,
+  "records": [
+    {
+      "test_id": "test_h2_010.H2010.test_actual_persist_reopen",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_bad_policy_before_reservation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_cli_get_matches_database",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_cli_missing_database_no_creation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_duplicate_candidate_reservation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_duplicate_run_id_across_campaigns",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_limits_pin_change_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_policy_cannot_change_in_campaign",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_recovery_cannot_replace_final",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_recovery_terminal_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_recovery_wrong_pins",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_row_pin_tamper",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_source_code_pin_change_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_tampered_stored_bytes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_unfinished_get_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_010.H2010.test_unknown_run",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Single-host operator-owned database; not authenticated multi-tenant/off-host audit storage. Recovery requires stopping abandoned workers first. Tool hashes are observed but dynamic-library/OS identities and cross-run toolchain policy require deployment integration.",
+  "derived_from": "H1-RES-001 / H1-RES-007 / H1-RES-008"
+}

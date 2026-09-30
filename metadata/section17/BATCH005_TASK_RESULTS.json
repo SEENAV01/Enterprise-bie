@@ -1,0 +1,1145 @@
+{
+  "tasks": [
+    {
+      "task_id": "BIE-EVAL-METRIC-017",
+      "original_sequence": 41,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Exact paired-roster deltas, critical floor and allowed-drop checks with pinned dataset/environment/evaluator identities.",
+      "limits": "Deterministic authored non-regression only; no population inference or statistical significance claim.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/regression.py",
+        "tests/section17/test_metric_017.py",
+        "bie/evaluation/benchmarks/release/contracts.py",
+        "bie/evaluation/benchmarks/release/__init__.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-REG-002",
+        "BIE-EVAL-REG-004"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_bad_score_types_and_range",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_baseline_run_cannot_be_reused",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_blocked_case_cannot_claim_full_credit",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_candidate_pass_flag_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_changed_case_digest_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_critical_case_drop_not_hidden",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_dataset_environment_code_changes_block",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_drop_below_boundary",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_duplicate_case_is_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_empty_reference_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_exact_tolerance_boundary",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_extra_case_is_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_hash_pins_enforced",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_missing_case_remains_denominator",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_no_release_promotion",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_no_statistical_significance_claim",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_order_independent",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_positive_exact_pair",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_relabel_metric_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_017.RegressionMetric017.test_skipped_is_failure",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 20,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-METRIC-017_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-METRIC-017_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-017/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-001",
+      "original_sequence": 42,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Execute the actual 17 supported metric profiles, bind candidate/reference/rubric/service-code digests, retain detailed metric receipts and blocked failures.",
+      "limits": "Bounded structured reference profiles; no arbitrary-language or native BIE adapter certification.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/deterministic.py",
+        "tests/section17/test_rater_001.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-017"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_actual_metric_receipt_digest",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_all_seventeen_routes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_assessment_integrity",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_candidate_hash_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_candidate_schema_invalid_becomes_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_changed_code_pin_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_deterministic_results_repeat",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_execution_is_not_product_acceptance",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_input_not_mutated",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_known_metric_actually_runs",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_legacy_router_snapshot_remains_sixteen",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_missing_compile_observation_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_modified_score_detected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_reference_hash_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_regression_route",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_rubric_hash_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_separate_pinned_rubric_supported",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_001.DeterministicRater001.test_unknown_metric_rejected",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 18,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-001_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-001_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-001/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-002",
+      "original_sequence": 43,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Provider-neutral callable port, version-pinned request/response envelopes, fixed weighted rubric roster, evidence-ID checking, response limits and fail-closed errors.",
+      "limits": "Only fixture adapters were exercised. No live provider call, external timeout enforcement, semantic-judge calibration or proof of prompt-injection immunity.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/model.py",
+        "tests/section17/test_rater_002.py",
+        "bie/evaluation/benchmarks/release/judgement.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-RATER-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rater_002.ModelRater002.test_blank_rationale_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_candidate_instructions_stay_data",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_duplicate_json_keys_block",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_duplicate_unit_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_exact_weighted_score",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_extra_release_authorization_field_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_fenced_output_not_silently_parsed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_large_response_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_missing_unit_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_model_candidate_hash_checked_before_call",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_no_input_mutation",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_no_live_provider_or_semantic_accuracy_claim",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_out_of_range_boolean_negative_credit",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_provider_missing_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_reference_evidence_missing_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_structured_fixture_adapter_called",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_timeouts_and_connection_errors_recorded",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_tools_disabled",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_unknown_evidence_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_unknown_provider_identity_raises",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_wrong_request_hash_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_002.ModelRater002.test_wrong_response_model_version_blocks",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 22,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-002_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-002_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-002/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-003",
+      "original_sequence": 44,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Operator-authenticated subject, candidate/rubric-bound assignment, HMAC service attestation, reviewer-role checks, expiry/revocation, conflicts and explicit unit judgements.",
+      "limits": "Fixture signatures are not real human reviews. Production identity, expertise, onboarding, key custody and independent reviewer work remain external.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/human.py",
+        "tests/section17/test_rater_003.py",
+        "bie/evaluation/benchmarks/release/auth.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-RATER-002"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rater_003.HumanRater003.test_author_cannot_review_self",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_declared_conflict_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_expiry_boundary_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_false_like_string_not_conflict_false",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_fixture_key_cannot_authorize_production",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_fixture_review_never_live_human_claim",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_future_issue_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_missing_review_unit_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_partial_credit_exact",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_review_other_candidate_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_revoked_key_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_rubric_owner_cannot_review_self",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_signed_review_accepts_scoped_judgement",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_token_cannot_outlive_key",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_ttl_resource_limit",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_unknown_key_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_unsigned_score_tampering_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_weak_key_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_wrong_authenticated_identity_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_wrong_key_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_wrong_review_role_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_003.HumanRater003.test_wrong_scope_even_valid_signature_rejects",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 22,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-003_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-003_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-003/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-004",
+      "original_sequence": 45,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Complete paired panels, binary observed agreement, exact Cohen kappa and mean absolute score differences; missingness and undefined statistics remain explicit.",
+      "limits": "Agreement is not accuracy. No confidence intervals, sample adequacy guarantee or empirically calibrated thresholds.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/agreement.py",
+        "tests/section17/test_rater_004.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-RATER-001",
+        "BIE-EVAL-RATER-002",
+        "BIE-EVAL-RATER-003"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_all_missing_has_no_fake_agreement",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_balanced_independent_labels_kappa_zero",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_blocked_assessor_reduces_pairs",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_complete_disagreement_negative_kappa",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_context_changed_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_degenerate_kappa_explicitly_undefined",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_duplicate_context_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_duplicate_rater_per_case_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_false_json_acceptance_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_invalid_threshold_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_mae_computed_exactly",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_missing_not_dropped_into_complete_report",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_no_accuracy_inference",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_order_independent",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_perfect_non_degenerate_agreement",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_rater_roster_requires_two",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_sample_too_small_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_004.AgreementRater004.test_unknown_case_rejects",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 18,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-004_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-004_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-004/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-005",
+      "original_sequence": 46,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Minimum score across a pinned rater roster, required deterministic evaluator, unique declared independence groups, zero credit for absent/blocked raters and disagreement adjudication blocks.",
+      "limits": "Declared independence metadata requires deployment governance; a hash alone does not authenticate a submitted assessment.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/aggregation.py",
+        "tests/section17/test_rater_005.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-RATER-004"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_aggregate_has_integrity_hash",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_all_missing_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_blocked_rater_zero_and_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_candidate_binding_changed_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_conservative_minimum_not_mean",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_deterministic_zero_cannot_be_outvoted",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_disagreement_boundary_exact",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_duplicate_rater_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_excess_disagreement_requires_adjudication",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_independence_group_clones_reject",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_missing_rater_zero_and_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_model_only_roster_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_policy_digest_cannot_be_changed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_positive_minimum",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_score_aggregation_does_not_authorize_release",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_stable_result_order",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_unknown_assessor_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rater_005.AggregationRater005.test_wrong_kind_rejects",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 18,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-005_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-005_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-005/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-REL-001",
+      "original_sequence": 47,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Exact weighted metric thresholds and measured-fraction checks using an operator-pinned denominator; missing metrics remain zero.",
+      "limits": "Threshold values are operator policies, not empirically certified enterprise quality levels.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/thresholds.py",
+        "tests/section17/test_rel_001.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-RATER-005"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_below_threshold_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_blocked_score_not_credited",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_duplicate_score_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_empty_metric_policy_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_empty_scores_fail",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_exact_weighted_boundary_passes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_missing_fails_coverage_even_when_score_ok",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_missing_keeps_fixed_denominator",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_order_invariant",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_policy_hash_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_score_boolean_negative_nonfinite_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_threshold_score_does_not_authorize_release",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_unknown_metric_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_unknown_status_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_001.EnterpriseThreshold001.test_zero_weight_rejects",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 15,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-001_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-001_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-001/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-REL-002",
+      "original_sequence": 48,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Mandatory per-metric floors and measured-status requirements that cannot be overridden by a high overall average.",
+      "limits": "Production policy approval is external. Passing floors alone never grants release authorization.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/floors.py",
+        "tests/section17/test_rel_002.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-REL-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rel_002.HardFloors002.test_all_missing_reports_every_failure",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_any_floor_fails_gate",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_blocked_critical_cannot_claim_one",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_duplicate_floor_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_duplicate_result_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_empty_floor_policy_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_exact_boundary_passes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_extra_metric_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_hard_floor_failures_deterministic",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_hash_pin_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_invalid_floor_range_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_missing_critical_is_not_measured",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_one_strong_metric_cannot_mask_other",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_002.HardFloors002.test_zero_floor_still_requires_measured",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 14,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-002_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-002_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-002/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-REL-003",
+      "original_sequence": 49,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Per-domain weighted score/coverage floors, fixed case rosters and minimum independent leakage-group counts.",
+      "limits": "Leakage groups must be curated upstream; sample counts do not establish domain-wide validity.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/domains.py",
+        "tests/section17/test_rel_003.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-REL-001",
+        "BIE-EVAL-REL-002"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_all_domain_minima_pass",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_blocked_cases_do_not_count_as_independent",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_domain_outputs_sorted",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_domain_policy_cannot_drop_weak_domain",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_duplicate_case_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_duplicate_leakage_groups_not_independent",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_empty_domain_roster_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_hash_pin_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_invalid_case_minimum_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_missing_domain_case_keeps_denominator",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_no_product_acceptance",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_one_domain_failure_not_masked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_unconfigured_domain_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_unknown_result_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_unmeasured_fraction_minimum",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_003.DomainMinimums003.test_weighted_domain_score_exact",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-003_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-003_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-003/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-REL-004",
+      "original_sequence": 50,
+      "batch": 5,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Aggregate actual evaluator receipts, enforce agreement/enterprise/critical/domain gates, verify scoped signed external evidence and persist single-use attempts with frozen campaign identity.",
+      "limits": "Production signed evidence, real-book/video/game acceptance and secure service custody remain absent. Diagnostic passes never authorize deployment or accept the product.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/gate.py",
+        "tests/section17/test_rel_004.py",
+        "bie/evaluation/benchmarks/release/ledger.py",
+        "bie/evaluation/benchmarks/release/__main__.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-REL-001",
+        "BIE-EVAL-REL-002",
+        "BIE-EVAL-REL-003"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_attestation_cannot_be_reused_for_other_policy",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_bad_manifest_pin_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_candidate_supplied_aggregate_not_accepted",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_complete_fixture_is_only_diagnostic_pass",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_core_floor_cannot_be_weakened",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_cross_candidate_assessment_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_duplicate_assessment_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_duplicate_attestation_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_gate_order_independent",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_manifest_context_mismatch_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_missing_all_assessments_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_missing_case_rater_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_no_deployment_or_product_authorization",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_one_low_case_blocks_even_high_others",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_production_authored_reference_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_production_coverage_cannot_be_weakened",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_production_missing_evidence_blocks_not_pass",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_production_policy_cannot_remove_attestations",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_production_requires_all_seventeen_metrics",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_report_hash_integrity",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_required_external_attestation_missing_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_revoked_release_attestor_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_same_domain_dropped_from_policy_rejects",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_scoped_diagnostic_attestation_verified",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_undefined_kappa_not_silently_perfect",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseGate004.test_valid_signature_without_evidence_bytes_blocks",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_candidate_revision_does_not_change_pinned_roster",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_corrupt_campaign_binding_detected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_database_directory_refused",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_distinct_artifact_same_pinned_campaign_supported",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_failed_attempt_also_consumed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_incomplete_attempt_not_success",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_invalid_policy_keeps_blocked_receipt",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_persisted_receipt_reopened",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_policy_change_fails_campaign_freeze",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_roster_change_not_silent_new_campaign",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_same_artifact_attempt_cannot_be_retried",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_symlink_database_refused",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_symlink_parent_refused",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_tampered_receipt_detected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_rel_004.ReleaseLedger004.test_unknown_attempt_not_success",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 41,
+      "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+      "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+      "evidence": {
+        "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+        "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-004_INJECTED.txt",
+        "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-004_RESTORED.txt"
+      },
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-004/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    }
+  ],
+  "all_original_task_ids_covered_locally": true,
+  "section_complete": false,
+  "product_accepted": false
+}

@@ -1,0 +1,93 @@
+{
+  "task_id": "BIE-EVAL-METRIC-007",
+  "original_sequence": 31,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Trusted objective/activity alignment, explain-example-practice-assess ordering, feedback binding and timeline collisions.",
+  "limits": "Structured curated content-bank IDs and activity metadata only. No free-text pedagogical judgment, validated teaching effectiveness or human learning outcome.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/pedagogy.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-007.json",
+    "tests/section17/test_metric_007.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_all_objectives_remain_in_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_boolean_frame_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_claimed_kind_cannot_change_reference_alignment",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_duplicate_activity_id_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_missing_feedback_reference_is_invalid",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_missing_reference_assessment_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_reference_without_practice_is_not_sufficient",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_unknown_content_cannot_be_claimed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_zero_duration_activity_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_007.METRIC007Tests.test_zero_objective_weight_blocked",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-007/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

@@ -1,0 +1,520 @@
+{
+  "task_id": "BIE-EVAL-CHEM-001",
+  "operations": {
+    "lewis_audit": [
+      "BIE-EVAL-CHEM-001.C001",
+      "BIE-EVAL-CHEM-001.C002",
+      "BIE-EVAL-CHEM-001.C003",
+      "BIE-EVAL-CHEM-001.C004",
+      "BIE-EVAL-CHEM-001.C009",
+      "BIE-EVAL-CHEM-001.C010",
+      "BIE-EVAL-CHEM-001.C011"
+    ],
+    "vsepr": [
+      "BIE-EVAL-CHEM-001.C005",
+      "BIE-EVAL-CHEM-001.C006",
+      "BIE-EVAL-CHEM-001.C007",
+      "BIE-EVAL-CHEM-001.C012"
+    ],
+    "audit_concepts": [
+      "BIE-EVAL-CHEM-001.C008"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C001",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "O",
+            "id": "O",
+            "nonbonding_electrons": 4
+          },
+          {
+            "element": "H",
+            "id": "H1",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H2",
+            "nonbonding_electrons": 0
+          }
+        ],
+        "bonds": [
+          {
+            "a": "O",
+            "b": "H1",
+            "order": 1
+          },
+          {
+            "a": "O",
+            "b": "H2",
+            "order": 1
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 0
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "defects": [],
+          "drawn_valence_electrons": 8,
+          "formal_charge_sum": 0,
+          "formal_charges": {
+            "H1": 0,
+            "H2": 0,
+            "O": 0
+          },
+          "profile": "LEWIS_BOOKKEEPING_NOT_STABILITY_PROOF",
+          "required_valence_electrons": 8,
+          "shell_electrons": {
+            "H1": 2,
+            "H2": 2,
+            "O": 8
+          }
+        }
+      },
+      "derivation": "O has 6-4-2=0 formal charge; 4 nonbonding and 4 bond electrons total 8."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C002",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "C",
+            "id": "C",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "O",
+            "id": "O1",
+            "nonbonding_electrons": 4
+          },
+          {
+            "element": "O",
+            "id": "O2",
+            "nonbonding_electrons": 4
+          }
+        ],
+        "bonds": [
+          {
+            "a": "C",
+            "b": "O1",
+            "order": 2
+          },
+          {
+            "a": "C",
+            "b": "O2",
+            "order": 2
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 0
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "defects": [],
+          "drawn_valence_electrons": 16,
+          "formal_charge_sum": 0,
+          "formal_charges": {
+            "C": 0,
+            "O1": 0,
+            "O2": 0
+          },
+          "profile": "LEWIS_BOOKKEEPING_NOT_STABILITY_PROOF",
+          "required_valence_electrons": 16,
+          "shell_electrons": {
+            "C": 8,
+            "O1": 8,
+            "O2": 8
+          }
+        }
+      },
+      "derivation": "Two double bonds use eight electrons; two O lone-pair sets use eight more."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C003",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "N",
+            "id": "N",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H1",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H2",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H3",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H4",
+            "nonbonding_electrons": 0
+          }
+        ],
+        "bonds": [
+          {
+            "a": "N",
+            "b": "H1",
+            "order": 1
+          },
+          {
+            "a": "N",
+            "b": "H2",
+            "order": 1
+          },
+          {
+            "a": "N",
+            "b": "H3",
+            "order": 1
+          },
+          {
+            "a": "N",
+            "b": "H4",
+            "order": 1
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 1
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "defects": [],
+          "drawn_valence_electrons": 8,
+          "formal_charge_sum": 1,
+          "formal_charges": {
+            "H1": 0,
+            "H2": 0,
+            "H3": 0,
+            "H4": 0,
+            "N": 1
+          },
+          "profile": "LEWIS_BOOKKEEPING_NOT_STABILITY_PROOF",
+          "required_valence_electrons": 8,
+          "shell_electrons": {
+            "H1": 2,
+            "H2": 2,
+            "H3": 2,
+            "H4": 2,
+            "N": 8
+          }
+        }
+      },
+      "derivation": "N formal charge=5-0-4=+1; positive molecular charge removes one electron."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C004",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "N",
+            "id": "N",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H1",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H2",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H3",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H4",
+            "nonbonding_electrons": 0
+          }
+        ],
+        "bonds": [
+          {
+            "a": "N",
+            "b": "H1",
+            "order": 1
+          },
+          {
+            "a": "N",
+            "b": "H2",
+            "order": 1
+          },
+          {
+            "a": "N",
+            "b": "H3",
+            "order": 1
+          },
+          {
+            "a": "N",
+            "b": "H4",
+            "order": 1
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 0
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "defects": [
+            "TOTAL_CHARGE_MISMATCH"
+          ],
+          "drawn_valence_electrons": 8,
+          "formal_charge_sum": 1,
+          "formal_charges": {
+            "H1": 0,
+            "H2": 0,
+            "H3": 0,
+            "H4": 0,
+            "N": 1
+          },
+          "profile": "LEWIS_BOOKKEEPING_NOT_STABILITY_PROOF",
+          "required_valence_electrons": 9,
+          "shell_electrons": {
+            "H1": 2,
+            "H2": 2,
+            "H3": 2,
+            "H4": 2,
+            "N": 8
+          }
+        }
+      },
+      "derivation": "An electron graph drawing with net +1 cannot be reported as neutral."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C005",
+      "inputs": {
+        "bonded_domains": 2,
+        "lone_pairs": 0,
+        "op": "vsepr"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "electron_domains": 2,
+          "electron_geometry": "linear",
+          "molecular_geometry": "linear",
+          "profile": "MAIN_GROUP_2_TO_4_DOMAINS"
+        }
+      },
+      "derivation": "Electron domains count bonds as single domains; molecular shape excludes lone-pair positions."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C006",
+      "inputs": {
+        "bonded_domains": 2,
+        "lone_pairs": 2,
+        "op": "vsepr"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "electron_domains": 4,
+          "electron_geometry": "tetrahedral",
+          "molecular_geometry": "bent",
+          "profile": "MAIN_GROUP_2_TO_4_DOMAINS"
+        }
+      },
+      "derivation": "Electron domains count bonds as single domains; molecular shape excludes lone-pair positions."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C007",
+      "inputs": {
+        "bonded_domains": 3,
+        "lone_pairs": 1,
+        "op": "vsepr"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "electron_domains": 4,
+          "electron_geometry": "tetrahedral",
+          "molecular_geometry": "trigonal_pyramidal",
+          "profile": "MAIN_GROUP_2_TO_4_DOMAINS"
+        }
+      },
+      "derivation": "Electron domains count bonds as single domains; molecular shape excludes lone-pair positions."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C008",
+      "inputs": {
+        "claims": {
+          "formal_charge_is_partial_charge": false,
+          "multiple_bond_vsepr_domains": "one",
+          "polar_bonds_always_imply_polar_molecule": false,
+          "resonance_is_temporal_switching": true
+        },
+        "op": "audit_concepts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "assessment_scope": "DECLARED_PROPOSITION_PROFILE_ONLY",
+          "consistent": false,
+          "defects": [
+            {
+              "claim": "resonance_is_temporal_switching",
+              "reason": "CONTRADICTED_CLAIM"
+            }
+          ]
+        }
+      },
+      "derivation": "Resonance structures are not distinct molecules toggling in time."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C009",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "O",
+            "id": "O",
+            "nonbonding_electrons": 4
+          },
+          {
+            "element": "H",
+            "id": "H1",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H2",
+            "nonbonding_electrons": 0
+          }
+        ],
+        "bonds": [
+          {
+            "a": "O",
+            "b": "H1",
+            "order": 1
+          },
+          {
+            "a": "O",
+            "b": "H2",
+            "order": 1
+          },
+          {
+            "a": "H1",
+            "b": "O",
+            "order": 1
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 0
+      },
+      "expected": {
+        "error_code": "DUPLICATE_BOND",
+        "status": "REJECTED"
+      },
+      "derivation": "An undirected edge and its reverse are the same bond."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C010",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "O",
+            "id": "O",
+            "nonbonding_electrons": 4
+          },
+          {
+            "element": "H",
+            "id": "H1",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H2",
+            "nonbonding_electrons": 0
+          }
+        ],
+        "bonds": [
+          {
+            "a": "O",
+            "b": "absent",
+            "order": 1
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 0
+      },
+      "expected": {
+        "error_code": "DANGLING_BOND",
+        "status": "REJECTED"
+      },
+      "derivation": "Every bond endpoint must resolve to a declared atom."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C011",
+      "inputs": {
+        "atoms": [
+          {
+            "element": "O",
+            "id": "O",
+            "nonbonding_electrons": 3
+          },
+          {
+            "element": "H",
+            "id": "H1",
+            "nonbonding_electrons": 0
+          },
+          {
+            "element": "H",
+            "id": "H2",
+            "nonbonding_electrons": 0
+          }
+        ],
+        "bonds": [
+          {
+            "a": "O",
+            "b": "H1",
+            "order": 1
+          },
+          {
+            "a": "O",
+            "b": "H2",
+            "order": 1
+          }
+        ],
+        "op": "lewis_audit",
+        "total_charge": 0
+      },
+      "expected": {
+        "error_code": "RADICAL_OUTSIDE_PROFILE",
+        "status": "REJECTED"
+      },
+      "derivation": "Odd nonbonding electron count requires a separate radical model."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-001.C012",
+      "inputs": {
+        "bonded_domains": 4,
+        "lone_pairs": 2,
+        "op": "vsepr"
+      },
+      "expected": {
+        "error_code": "GEOMETRY_OUTSIDE_PROFILE",
+        "status": "REJECTED"
+      },
+      "derivation": "This VSEPR profile is explicitly restricted to 2-4 electron domains."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

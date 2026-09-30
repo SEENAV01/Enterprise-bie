@@ -1,0 +1,98 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-008",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-008",
+    "rubric_id": "delivery-metric-008",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-008/SPEC.md",
+        "basis_sha256": "7aaab20fb82fb5ac68af15123ef95ce0f0e2cb0f49f436991d3bc8e31901b78e"
+      }
+    ],
+    "payload": {
+      "duration_frames": 360,
+      "fps": 24,
+      "max_words_per_minute": 180,
+      "max_parallel_focus": 2,
+      "max_gap_frames": 0,
+      "beats": [
+        {
+          "id": "question",
+          "kind": "question",
+          "concept_id": "inverse-square",
+          "weight": 1
+        },
+        {
+          "id": "explain",
+          "kind": "explain",
+          "concept_id": "inverse-square",
+          "weight": 1
+        },
+        {
+          "id": "recap",
+          "kind": "recap",
+          "concept_id": "inverse-square",
+          "weight": 1
+        }
+      ],
+      "precedence": [
+        {
+          "before": "question",
+          "after": "explain"
+        },
+        {
+          "before": "explain",
+          "after": "recap"
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "scenes": [
+      {
+        "id": "scene-0",
+        "start": 0,
+        "end": 120,
+        "beats": [
+          "question"
+        ],
+        "narration": "How does distance change force",
+        "focus_ids": [
+          "inverse-square"
+        ]
+      },
+      {
+        "id": "scene-1",
+        "start": 120,
+        "end": 240,
+        "beats": [
+          "explain"
+        ],
+        "narration": "How does distance change force",
+        "focus_ids": [
+          "inverse-square"
+        ]
+      },
+      {
+        "id": "scene-2",
+        "start": 240,
+        "end": 360,
+        "beats": [
+          "recap"
+        ],
+        "narration": "How does distance change force",
+        "focus_ids": [
+          "inverse-square"
+        ]
+      }
+    ]
+  },
+  "expected_reference_sha256": "24421beff4aa4033a5bd052430be4215d0a35646a023747592f3e38ad0fda7f2",
+  "expected_candidate_sha256": "2cf575d3b9c996ef61fcc3b5077a83d20071ae4e3f1a90cc0098701fd16f1aeb",
+  "source_artifacts": {}
+}

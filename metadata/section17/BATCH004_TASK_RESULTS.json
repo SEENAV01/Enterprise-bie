@@ -1,0 +1,950 @@
+{
+  "tasks": [
+    {
+      "task_id": "BIE-EVAL-METRIC-007",
+      "original_sequence": 31,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Trusted objective/activity alignment, explain-example-practice-assess ordering, feedback binding and timeline collisions.",
+      "limits": "Structured curated content-bank IDs and activity metadata only. No free-text pedagogical judgment, validated teaching effectiveness or human learning outcome.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/pedagogy.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-007.json",
+        "tests/section17/test_metric_007.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_all_objectives_remain_in_denominator",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_boolean_frame_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_claimed_kind_cannot_change_reference_alignment",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_duplicate_activity_id_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_missing_feedback_reference_is_invalid",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_missing_reference_assessment_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_reference_without_practice_is_not_sufficient",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_unknown_content_cannot_be_claimed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_zero_duration_activity_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_007.METRIC007Tests.test_zero_objective_weight_blocked",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-007/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-008",
+      "original_sequence": 32,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Required story-beat coverage and precedence, timeline gaps, declared focus constraints and whitespace-token narration density.",
+      "limits": "No subjective cinematic quality, multilingual speech-duration prediction, audiovisual synchronization or native lesson-director integration.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/direction.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-008.json",
+        "tests/section17/test_metric_008.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_cyclic_reference_precedence_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_duplicate_beat_occurrence_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_empty_narration_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_exact_density_floor_passes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_one_extra_word_over_floor_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_overlapping_scenes_fail",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_scene_outside_duration_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_unknown_beat_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_unknown_focus_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_008.METRIC008Tests.test_unscored_scene_cannot_hide_dense_text",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-008/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-009",
+      "original_sequence": 33,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Concept/label/kind fidelity, directed semantic relations, viewport visibility, declared nonoverlap constraints and alt-text presence.",
+      "limits": "Scene metadata is not evidence of pixels actually drawn; no image understanding, OCR readability or full accessibility.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/representation.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-009.json",
+        "tests/section17/test_metric_009.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_alt_text_blank_not_accepted",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_bad_reference_endpoint_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_box_touching_viewport_edge_passes",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_duplicate_nonoverlap_pair_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_missing_relation_remains_denominator",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_negative_y_fails_visibility",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_semantic_type_mismatch_not_label_match",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_touching_boxes_are_not_occluded",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_unknown_candidate_relation_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_009.METRIC009Tests.test_zero_box_width_blocked",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-009/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-010",
+      "original_sequence": 34,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Complete sampled trajectories against trusted piecewise-linear knots, property/unit binding, tolerance, bounds, finite-difference velocity and acceleration.",
+      "limits": "Only the supplied sampled instants are assessed. No proof of unsampled motion, smoothness perceived by viewers, physically complete simulation or rendered animation fidelity.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/animation.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-010.json",
+        "tests/section17/test_metric_010.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_acceleration_check_catches_jitter",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_duplicate_reference_sample_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_fractional_midpoint_is_exact",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_incomplete_reference_knot_roster_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_nan_sample_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_nonmonotonic_samples_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_reference_bounds_reversed_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_reference_endpoints_required",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_reference_speed_self_inconsistent_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_010.METRIC010Tests.test_wrong_property_fails",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-010/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-011",
+      "original_sequence": 35,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Source-bound actual Python checked-hash bytecode and strict TypeScript emission receipts; compiler identity/profile, exit status and emitted-byte evidence.",
+      "limits": "Compilation is not execution, Remotion bundling, canonical BIE compatibility or an OS security sandbox. Only evaluator-owned observations may enter the evidence channel.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/compilation.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-011.json",
+        "tests/section17/test_metric_011.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_boolean_exit_code_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_candidate_owned_pass_flag_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_compiler_language_profile_mismatch_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_empty_reference_targets_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_extra_observation_not_silently_ignored",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_metric_does_not_claim_runtime_or_remotion",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_negative_byte_count_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_tampered_receipt_not_rehashed_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_unknown_compiler_profile_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_011.METRIC011Tests.test_zero_emitted_bytes_cannot_pass",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-011/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-012",
+      "original_sequence": 36,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Real bounded media probing and full video-frame decoding; stream dimensions, rational frame rate, timestamps, duration, frame count and required audio-stream presence.",
+      "limits": "At most 20MB input, 320x180 video, 300 frames and 20 seconds in this collector. Audio presence is not audio decoding, intelligibility or narration QA; no native Remotion render run.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/rendering.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-012.json",
+        "tests/section17/test_metric_012.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-011"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_boolean_audio_requirement_really_typed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_container_duration_mismatch_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_decode_does_not_claim_audio_content",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_empty_media_candidates_cannot_score_one",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_forged_media_receipt_hash_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_missing_frame_hashes_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_nonmonotonic_pts_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_one_frame_tolerance_not_allowed",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_required_audio_absent_fails",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_012.METRIC012Tests.test_wrong_frame_count_fails",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-012/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-013",
+      "original_sequence": 37,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Actual decoded RGB samples, strict base64/byte/hash validation, mean absolute channel error, black-pixel ratio, channel range and required motion pairs.",
+      "limits": "Small authored pixel references are diagnostics, not subjective/perceptual aesthetics, full-video inspection, text legibility or scientific figure correctness.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/frame_quality.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-013.json",
+        "tests/section17/test_metric_013.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-012"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_duplicate_decoded_frame_index_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_duplicate_motion_pair_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_duplicate_reference_frame_index_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_empty_frames_reference_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_invalid_base64_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_lossless_pixels_have_zero_mae",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_max_black_fraction_bounded",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_unknown_motion_endpoint_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_unrequested_sample_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_013.METRIC013Tests.test_wrong_reference_pixel_size_blocked",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-013/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-014",
+      "original_sequence": 38,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Trusted question/answer/feedback keys, first-attempt phase ordering and completeness, objective-level post accuracy, paired gain and delayed retention in authored event traces.",
+      "limits": "No playable browser game or real human learners were run. Authored trace arithmetic does not demonstrate educational efficacy or a causal treatment effect.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/game_learning.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-014.json",
+        "tests/section17/test_metric_014.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_candidate_gain_flag_not_accepted",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_exact_gain_computed_not_candidate_reported",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_feedback_reference_must_cover_all_options",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_invalid_reference_correct_option_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_missing_reference_retention_design_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_no_human_learning_certification",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_phase_order_not_only_chronological",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_repeated_attempt_is_not_best_of_n",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_timestamp_order_is_enforced",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_014.METRIC014Tests.test_unknown_question_cannot_pad_gain",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-014/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-015",
+      "original_sequence": 39,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Unrounded sRGB text contrast, trusted normal/large-text classification, caption text and interval coverage, static control names/roles/keys, focus-graph exit reachability and alt-text presence.",
+      "limits": "Partial static diagnostics, not WCAG conformance certification, an actual keyboard/browser test, assistive-technology compatibility or decoded audio-caption alignment.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/accessibility.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-015.json",
+        "tests/section17/test_metric_015.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_black_white_contrast_is_21",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_candidate_cannot_claim_large_text_exception",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_focus_reference_missing_target_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_missing_accessible_name_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_no_wcag_certification_in_report",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_out_of_range_rgb_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_same_color_contrast_is_one",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_split_caption_coverage_and_text",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_standard_text_777777_is_below_4_5",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_015.METRIC015Tests.test_trusted_large_text_777777_can_pass",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-015/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-016",
+      "original_sequence": 40,
+      "batch": 4,
+      "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+      "original_capability_fully_closed": false,
+      "behavior": "Actual file-byte inventories from separately captured workspaces, exact required output rosters, build context/input/recipe/environment/seed bindings and output hashes/sizes.",
+      "limits": "Snapshot receipts do not by themselves prove builds ran. This batch separately compiled the same Python source twice; no cross-platform or full BIE/Remotion deterministic-build acceptance.",
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/reproducibility.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-016.json",
+        "tests/section17/test_metric_016.py"
+      ],
+      "dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-011"
+      ],
+      "selected_tests": [
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_added_output_is_not_ignored",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_001",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_002",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_003",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_004",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_005",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_006",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_casefold_output_collisions_blocked",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_different_byte_size_fails_even_same_hash",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_duplicate_observation_id_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_hashing_does_not_prove_build_execution",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_manifest_subject_binding_verified",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_minimum_one_run_reference_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_reference_output_traversal_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_unclaimed_observation_rejected",
+          "status": "PASS"
+        },
+        {
+          "test_id": "test_metric_016.METRIC016Tests.test_zero_runs_is_not_vacuously_reproducible",
+          "status": "PASS"
+        }
+      ],
+      "selected_distinct_method_count": 16,
+      "authored_fixture_scenarios": 6,
+      "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+      "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+      "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-016/SPEC.md",
+      "github_integrated": false,
+      "native_bie": false,
+      "independent_review": false,
+      "product_accepted": false
+    }
+  ],
+  "shared_paths": [
+    "bie/evaluation/benchmarks/metrics/delivery_common.py",
+    "bie/evaluation/benchmarks/metrics/collectors.py",
+    "bie/evaluation/benchmarks/metrics/__init__.py",
+    "bie/evaluation/benchmarks/metrics/__main__.py",
+    "tests/section17/batch004_helpers.py",
+    "tests/section17/test_batch004_contracts.py",
+    "tests/section17/test_batch004_collectors.py",
+    "tools/run_section17_batch004_diagnostics.py",
+    "tools/run_section17_batch004_collectors.py",
+    "tools/run_section17_batch004_fault_controls.py"
+  ],
+  "counting_note": "160 task-specific +53 shared new methods =213 new; with749 preserved =962 distinct."
+}

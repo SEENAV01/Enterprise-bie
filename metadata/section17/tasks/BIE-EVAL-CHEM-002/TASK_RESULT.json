@@ -1,0 +1,138 @@
+{
+  "task_id": "BIE-EVAL-CHEM-002",
+  "original_sequence": 15,
+  "original_capability": "reaction mechanism",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Conserved step sums, intermediates/catalysts, elementary-rate-law guard and energy differences.",
+  "bounds_and_open_scope": "<=24 explicitly charged species, <=16 declared steps, conservation of elements AND charge. Symbolic toy mechanisms do not assert real chemistry. Declared elementary rate laws have total molecularity <=3; <=17 alternating extrema for energy differences. No inferred rate-determining step, full kinetics, arbitrary organic-mechanism recognition or synthesis workflow.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-CHEM-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/mechanisms.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-002.json",
+    "tests/section17/test_chem_002.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/mechanisms.py": "14494806bdce37409993f7a44ba55e2caa81f75d68ec23adf78eee5d18496cc6",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-002.json": "d62ce1c64ccfa4ec2fd68367580b174dd898a42618e7dd221a430c6c05a0bdd0",
+    "tests/section17/test_chem_002.py": "614488f0df2f2a0c0d5b75211c0fcb7e40ecd0d1ab84c7c8efefe657ba8dd858"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_charge_not_only_atoms_conserved",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_energy_zero_shift_preserves_barriers",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_even_energy_sequence_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_identical_left_right_has_no_net_reaction",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_integer_one_is_not_elementary_attestation",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_reversed_path_exchanges_forward_reverse",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_step_coefficients_scale_net_not_classification",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_unknown_species_not_silently_dropped",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_unsupported_high_molecularity_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_002.CHEM002Tests.test_zero_coefficient_refused",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 7,
+    "expected_typed_rejection": 5,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-CHEM-002/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

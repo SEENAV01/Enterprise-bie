@@ -1,0 +1,317 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-009",
+    "rubric_id": "delivery-metric-009",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-009/SPEC.md",
+        "basis_sha256": "5d22ad6940a1fa8c2918cfa4d2e26e37328ce0965ae9fbaf6b3f1709bbf8b6b6"
+      }
+    ],
+    "payload": {
+      "viewport": {
+        "width": 120,
+        "height": 60
+      },
+      "objects": [
+        {
+          "id": "a",
+          "concept_id": "positive-charge",
+          "label": "+q",
+          "kind": "charge",
+          "weight": 1
+        },
+        {
+          "id": "b",
+          "concept_id": "negative-charge",
+          "label": "-q",
+          "kind": "charge",
+          "weight": 1
+        }
+      ],
+      "relations": [
+        {
+          "id": "attraction",
+          "from": "a",
+          "to": "b",
+          "kind": "force",
+          "weight": 1
+        }
+      ],
+      "nonoverlap_pairs": [
+        {
+          "first": "a",
+          "second": "b"
+        }
+      ]
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "correct",
+      "candidate": {
+        "objects": [
+          {
+            "id": "a",
+            "concept_id": "positive-charge",
+            "label": "+q",
+            "kind": "charge",
+            "box": {
+              "x": 10,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "+q"
+          },
+          {
+            "id": "b",
+            "concept_id": "negative-charge",
+            "label": "-q",
+            "kind": "charge",
+            "box": {
+              "x": 70,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "-q"
+          }
+        ],
+        "relations": [
+          {
+            "id": "attraction",
+            "from": "a",
+            "to": "b",
+            "kind": "force"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "wrong-label",
+      "candidate": {
+        "objects": [
+          {
+            "id": "a",
+            "concept_id": "positive-charge",
+            "label": "-q",
+            "kind": "charge",
+            "box": {
+              "x": 10,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "+q"
+          },
+          {
+            "id": "b",
+            "concept_id": "negative-charge",
+            "label": "-q",
+            "kind": "charge",
+            "box": {
+              "x": 70,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "-q"
+          }
+        ],
+        "relations": [
+          {
+            "id": "attraction",
+            "from": "a",
+            "to": "b",
+            "kind": "force"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "2/3",
+      "expected_reason": "SEMANTIC_REPRESENTATION_MISMATCH"
+    },
+    {
+      "id": "offscreen",
+      "candidate": {
+        "objects": [
+          {
+            "id": "a",
+            "concept_id": "positive-charge",
+            "label": "+q",
+            "kind": "charge",
+            "box": {
+              "x": -1,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "+q"
+          },
+          {
+            "id": "b",
+            "concept_id": "negative-charge",
+            "label": "-q",
+            "kind": "charge",
+            "box": {
+              "x": 70,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "-q"
+          }
+        ],
+        "relations": [
+          {
+            "id": "attraction",
+            "from": "a",
+            "to": "b",
+            "kind": "force"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "2/3",
+      "expected_reason": "OBJECT_OUTSIDE_VIEWPORT"
+    },
+    {
+      "id": "occlusion",
+      "candidate": {
+        "objects": [
+          {
+            "id": "a",
+            "concept_id": "positive-charge",
+            "label": "+q",
+            "kind": "charge",
+            "box": {
+              "x": 10,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "+q"
+          },
+          {
+            "id": "b",
+            "concept_id": "negative-charge",
+            "label": "-q",
+            "kind": "charge",
+            "box": {
+              "x": 15,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "-q"
+          }
+        ],
+        "relations": [
+          {
+            "id": "attraction",
+            "from": "a",
+            "to": "b",
+            "kind": "force"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "REQUIRED_ELEMENTS_OCCLUDED"
+    },
+    {
+      "id": "reversed-force",
+      "candidate": {
+        "objects": [
+          {
+            "id": "a",
+            "concept_id": "positive-charge",
+            "label": "+q",
+            "kind": "charge",
+            "box": {
+              "x": 10,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "+q"
+          },
+          {
+            "id": "b",
+            "concept_id": "negative-charge",
+            "label": "-q",
+            "kind": "charge",
+            "box": {
+              "x": 70,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "-q"
+          }
+        ],
+        "relations": [
+          {
+            "id": "attraction",
+            "from": "b",
+            "to": "a",
+            "kind": "force"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "2/3",
+      "expected_reason": "RELATION_DIRECTION_OR_KIND_MISMATCH"
+    },
+    {
+      "id": "missing-object",
+      "candidate": {
+        "objects": [
+          {
+            "id": "a",
+            "concept_id": "positive-charge",
+            "label": "+q",
+            "kind": "charge",
+            "box": {
+              "x": 10,
+              "y": 10,
+              "width": 20,
+              "height": 20
+            },
+            "alt_text": "+q"
+          }
+        ],
+        "relations": [
+          {
+            "id": "attraction",
+            "from": "a",
+            "to": "b",
+            "kind": "force"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "REQUIRED_OBJECT_MISSING"
+    }
+  ],
+  "diagnostic_grade": "AUTHORED_DIAGNOSTIC",
+  "independent_review": false,
+  "native_bie": false
+}

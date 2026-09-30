@@ -1,0 +1,120 @@
+{
+  "task_id": "BIE-EVAL-RATER-003",
+  "original_sequence": 44,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Operator-authenticated subject, candidate/rubric-bound assignment, HMAC service attestation, reviewer-role checks, expiry/revocation, conflicts and explicit unit judgements.",
+  "limits": "Fixture signatures are not real human reviews. Production identity, expertise, onboarding, key custody and independent reviewer work remain external.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/human.py",
+    "tests/section17/test_rater_003.py",
+    "bie/evaluation/benchmarks/release/auth.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-RATER-002"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rater_003.HumanRater003.test_author_cannot_review_self",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_declared_conflict_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_expiry_boundary_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_false_like_string_not_conflict_false",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_fixture_key_cannot_authorize_production",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_fixture_review_never_live_human_claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_future_issue_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_missing_review_unit_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_partial_credit_exact",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_review_other_candidate_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_revoked_key_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_rubric_owner_cannot_review_self",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_signed_review_accepts_scoped_judgement",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_token_cannot_outlive_key",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_ttl_resource_limit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_unknown_key_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_unsigned_score_tampering_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_weak_key_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_wrong_authenticated_identity_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_wrong_key_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_wrong_review_role_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_003.HumanRater003.test_wrong_scope_even_valid_signature_rejects",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 22,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-003_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-003_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-RATER-003/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

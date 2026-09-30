@@ -1,0 +1,86 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-016",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-016",
+    "rubric_id": "delivery-metric-016",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-016/SPEC.md",
+        "basis_sha256": "b702fc9acea05121b15686e0e9a108e964be845e346a3dc4834e4f28ca748000"
+      }
+    ],
+    "payload": {
+      "outputs": [
+        {
+          "id": "bytecode",
+          "path": "lesson.pyc",
+          "weight": 1
+        }
+      ],
+      "inputs_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+      "recipe_sha256": "2867067f93dd14529e70096f90f51a9e7f82798a14b1bdcb0802394706063c57",
+      "environment_sha256": "a26ecc5b46812b7b1abd983854a00d46713c46a190dc80a834476589d400cb75",
+      "seed": 0,
+      "minimum_runs": 2
+    }
+  },
+  "candidate": {
+    "observation_ids": [
+      "first",
+      "second"
+    ]
+  },
+  "expected_reference_sha256": "74fbf6e18b7c2f51c6358cba053490cb03fe5612771352ed648e4753aa7a5210",
+  "expected_candidate_sha256": "47c4c1f667284d36476d0005489945b8b2fd60eb383587b024b22284b6331d4b",
+  "source_artifacts": {
+    "first": {
+      "schema_version": "1.0.0",
+      "kind": "output-snapshot",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "snapshot-first",
+      "subject_sha256": "d8e64da92a8da2ccc769e8c20e8a9487feee4e1ca3a74531e389388cb9c914d3",
+      "facts": {
+        "workspace_sha256": "094dab5efdd4c639345cf6dda818913b18199e9f23d0459bdea10ebd59c790ea",
+        "inputs_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+        "recipe_sha256": "2867067f93dd14529e70096f90f51a9e7f82798a14b1bdcb0802394706063c57",
+        "environment_sha256": "a26ecc5b46812b7b1abd983854a00d46713c46a190dc80a834476589d400cb75",
+        "seed": 0,
+        "outputs": [
+          {
+            "path": "lesson.pyc",
+            "bytes": 315,
+            "sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b"
+          }
+        ]
+      },
+      "receipt_sha256": "475e396d6c5acf4c5c0fef2b0245ded92f12ea9c8ff39dd0efd6710dd3f0beb0"
+    },
+    "second": {
+      "schema_version": "1.0.0",
+      "kind": "output-snapshot",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "snapshot-second",
+      "subject_sha256": "d8e64da92a8da2ccc769e8c20e8a9487feee4e1ca3a74531e389388cb9c914d3",
+      "facts": {
+        "workspace_sha256": "74630197057048f0dc6134dd2fa18f1e04f54fb5762791f2c2f6f7e3dd594a74",
+        "inputs_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+        "recipe_sha256": "2867067f93dd14529e70096f90f51a9e7f82798a14b1bdcb0802394706063c57",
+        "environment_sha256": "a26ecc5b46812b7b1abd983854a00d46713c46a190dc80a834476589d400cb75",
+        "seed": 0,
+        "outputs": [
+          {
+            "path": "lesson.pyc",
+            "bytes": 315,
+            "sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b"
+          }
+        ]
+      },
+      "receipt_sha256": "13678d1cadacb264ff8e0f84f0e3e55b20a68e16f789271e348650e8a00576dd"
+    }
+  }
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "case_id": "BIE-EVAL-MATH-002.C001",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Polynomial first derivative",
+    "prompt": "Polynomial first derivative. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[1,2,3],\"op\":\"differentiate_polynomial\",\"order\":1}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"coefficients\":[\"2\",\"6\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "d(1+2x+3x^2)/dx=2+6x.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "differentiate_polynomial",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C002",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Polynomial second derivative",
+    "prompt": "Polynomial second derivative. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[1,2,3],\"op\":\"differentiate_polynomial\",\"order\":2}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"coefficients\":[\"6\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The derivative of 2+6x is 6.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "differentiate_polynomial",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C003",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Arbitrary integration constant retained",
+    "prompt": "Arbitrary integration constant retained. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[0,2],\"op\":\"antiderivative_polynomial\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"arbitrary_constant\":\"C\",\"particular_coefficients\":[\"0\",\"0\",\"1\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The family of antiderivatives of 2x is x^2+C, not only x^2.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "antiderivative_polynomial",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C004",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Fundamental theorem definite integral",
+    "prompt": "Fundamental theorem definite integral. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[0,0,3],\"lower\":0,\"op\":\"definite_integral_polynomial\",\"upper\":2}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"8\",\"value\":8}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Integral of 3x^2 is x^3; 2^3-0^3=8.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "definite_integral_polynomial",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C005",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Reversed integration limits",
+    "prompt": "Reversed integration limits. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[0,0,3],\"lower\":2,\"op\":\"definite_integral_polynomial\",\"upper\":0}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"-8\",\"value\":-8}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Reversing limits changes the sign of the definite integral.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "definite_integral_polynomial",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C006",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Tangent slope and intercept",
+    "prompt": "Tangent slope and intercept. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[0,0,1],\"op\":\"tangent_polynomial\",\"x\":3}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"intercept_exact\":\"-9\",\"slope_exact\":\"6\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "At (3,9), slope 2x=6; y-9=6(x-3), so y=6x-9.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "tangent_polynomial",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C007",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Cusp is not differentiable",
+    "prompt": "Cusp is not differentiable. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"derivative_absolute_value\",\"x\":0}",
+    "expected_json": "{\"error_code\":\"NONDIFFERENTIABLE_AT_POINT\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Left and right derivatives of absolute value at zero are -1 and +1.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "derivative_absolute_value",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C008",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Absolute value on negative half-line",
+    "prompt": "Absolute value on negative half-line. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"derivative_absolute_value\",\"x\":-2}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"derivative\":-1}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "For x<0, |x|=-x and derivative is -1.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "derivative_absolute_value",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C009",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Logarithmic antiderivative reference",
+    "prompt": "Logarithmic antiderivative reference. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"lower\":1,\"op\":\"definite_integral_reciprocal\",\"upper\":2}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"value\":0.6931471805599453}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Integral from 1 to 2 of 1/x is ln(2)-ln(1)=ln 2.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "definite_integral_reciprocal",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-002.C010",
+    "task_id": "BIE-EVAL-MATH-002",
+    "domain": "mathematics",
+    "title": "Singularity cannot be cancelled across interval",
+    "prompt": "Singularity cannot be cancelled across interval. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"lower\":-1,\"op\":\"definite_integral_reciprocal\",\"upper\":1}",
+    "expected_json": "{\"error_code\":\"INTEGRATION_INTERVAL_CROSSES_SINGULARITY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The usual improper integral diverges; endpoint log subtraction would incorrectly suggest zero.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-antiderivatives",
+        "title": "Calculus Volume 1",
+        "locator": "4.10 Antiderivatives; polynomial power rules",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/4-10-antiderivatives",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "definite_integral_reciprocal",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

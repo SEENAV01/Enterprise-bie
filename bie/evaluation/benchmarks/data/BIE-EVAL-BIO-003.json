@@ -1,0 +1,365 @@
+[
+  {
+    "case_id": "BIE-EVAL-BIO-003.C001",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Cardiac flow 75mL",
+    "prompt": "Cardiac flow 75mL. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"heart_rate\":{\"unit\":\"per_min\",\"value\":64},\"op\":\"cardiac_output\",\"stroke_volume\":{\"unit\":\"mL\",\"value\":75}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"cardiac_output_L_per_min\":\"24/5\",\"profile\":\"STEADY_PER_VENTRICLE_EDUCATIONAL_FLOW\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "75 mL times 64/min = 4800 mL/min = 4.8 L/min.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-cardiac",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "19.4 cardiac output",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "cardiac_output",
+      "unit-conversion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C002",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Cardiac flow 3/40L",
+    "prompt": "Cardiac flow 3/40L. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"heart_rate\":{\"unit\":\"per_min\",\"value\":64},\"op\":\"cardiac_output\",\"stroke_volume\":{\"unit\":\"L\",\"value\":\"3/40\"}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"cardiac_output_L_per_min\":\"24/5\",\"profile\":\"STEADY_PER_VENTRICLE_EDUCATIONAL_FLOW\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "75 mL times 64/min = 4800 mL/min = 4.8 L/min.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-cardiac",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "19.4 cardiac output",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "cardiac_output",
+      "unit-conversion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C003",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Alveolar versus total minute ventilation",
+    "prompt": "Alveolar versus total minute ventilation. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"breathing_rate\":{\"unit\":\"per_min\",\"value\":10},\"dead_space\":{\"unit\":\"mL\",\"value\":150},\"op\":\"ventilation\",\"tidal_volume\":{\"unit\":\"mL\",\"value\":600}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"alveolar_ventilation_L_per_min\":\"9/2\",\"minute_ventilation_L_per_min\":\"6\",\"profile\":\"FIXED_DEAD_SPACE_EDUCATIONAL_MODEL\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Total=600*10/1000; alveolar=(600-150)*10/1000.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-breathing",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "22.3 ventilation bookkeeping",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ventilation",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C004",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "All tidal volume is dead space",
+    "prompt": "All tidal volume is dead space. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"breathing_rate\":{\"unit\":\"per_min\",\"value\":12},\"dead_space\":{\"unit\":\"mL\",\"value\":150},\"op\":\"ventilation\",\"tidal_volume\":{\"unit\":\"mL\",\"value\":150}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"alveolar_ventilation_L_per_min\":\"0\",\"minute_ventilation_L_per_min\":\"9/5\",\"profile\":\"FIXED_DEAD_SPACE_EDUCATIONAL_MODEL\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The fixed-volume model gives zero alveolar ventilation when both volumes are equal.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-breathing",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "22.3 ventilation bookkeeping",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ventilation",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C005",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Adult systemic flow order",
+    "prompt": "Adult systemic flow order. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"circuit\":\"systemic\",\"op\":\"circulation_route\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"ADULT_POSTNATAL_NORMAL_CIRCULATION\",\"route\":[\"left_ventricle\",\"systemic_arteries\",\"systemic_capillaries\",\"systemic_veins\",\"right_atrium\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Ordered major compartments in the declared adult postnatal circuit; fetal shunts excluded.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-cardiac",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "19.4 cardiac output",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "circulation_route",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C006",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Adult pulmonary flow order",
+    "prompt": "Adult pulmonary flow order. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"circuit\":\"pulmonary\",\"op\":\"circulation_route\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"ADULT_POSTNATAL_NORMAL_CIRCULATION\",\"route\":[\"right_ventricle\",\"pulmonary_arteries\",\"pulmonary_capillaries\",\"pulmonary_veins\",\"left_atrium\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Ordered major compartments in the declared adult postnatal circuit; fetal shunts excluded.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-cardiac",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "19.4 cardiac output",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "circulation_route",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C007",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Nonpenetrating outside osmolarity 450",
+    "prompt": "Nonpenetrating outside osmolarity 450. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"inside\":{\"unit\":\"mOsm/L\",\"value\":300},\"op\":\"osmosis\",\"outside\":{\"unit\":\"mOsm/L\",\"value\":450},\"solute_profile\":\"nonpenetrating_ideal\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"outside_relative_tonicity\":\"hypertonic\",\"profile\":\"INITIAL_IDEAL_NONPENETRATING_SOLUTE_EQUAL_PRESSURE\",\"water_direction\":\"out_of_cell\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "For equal pressure and nonpenetrating solute, initial net water flow is toward higher solute concentration.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-membrane",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "3.1 plasma membrane and osmosis",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-1-the-cell-membrane",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "osmosis",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C008",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Nonpenetrating outside osmolarity 300",
+    "prompt": "Nonpenetrating outside osmolarity 300. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"inside\":{\"unit\":\"mOsm/L\",\"value\":300},\"op\":\"osmosis\",\"outside\":{\"unit\":\"mOsm/L\",\"value\":300},\"solute_profile\":\"nonpenetrating_ideal\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"outside_relative_tonicity\":\"isotonic\",\"profile\":\"INITIAL_IDEAL_NONPENETRATING_SOLUTE_EQUAL_PRESSURE\",\"water_direction\":\"no_net_flow\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "For equal pressure and nonpenetrating solute, initial net water flow is toward higher solute concentration.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-membrane",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "3.1 plasma membrane and osmosis",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-1-the-cell-membrane",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "osmosis",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C009",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Nonpenetrating outside osmolarity 150",
+    "prompt": "Nonpenetrating outside osmolarity 150. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"inside\":{\"unit\":\"mOsm/L\",\"value\":300},\"op\":\"osmosis\",\"outside\":{\"unit\":\"mOsm/L\",\"value\":150},\"solute_profile\":\"nonpenetrating_ideal\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"outside_relative_tonicity\":\"hypotonic\",\"profile\":\"INITIAL_IDEAL_NONPENETRATING_SOLUTE_EQUAL_PRESSURE\",\"water_direction\":\"into_cell\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "For equal pressure and nonpenetrating solute, initial net water flow is toward higher solute concentration.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-membrane",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "3.1 plasma membrane and osmosis",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-1-the-cell-membrane",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "osmosis",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C010",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Dead space exceeds tidal input",
+    "prompt": "Dead space exceeds tidal input. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"breathing_rate\":{\"unit\":\"per_min\",\"value\":12},\"dead_space\":{\"unit\":\"mL\",\"value\":150},\"op\":\"ventilation\",\"tidal_volume\":{\"unit\":\"mL\",\"value\":100}}",
+    "expected_json": "{\"error_code\":\"DEAD_SPACE_EXCEEDS_TIDAL_VOLUME\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Do not report negative alveolar ventilation as a valid modeled flow.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-breathing",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "22.3 ventilation bookkeeping",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "ventilation",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C011",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Pressure cannot stand in for volume",
+    "prompt": "Pressure cannot stand in for volume. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"heart_rate\":{\"unit\":\"per_min\",\"value\":64},\"op\":\"cardiac_output\",\"stroke_volume\":{\"unit\":\"mmHg\",\"value\":75}}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_ENUM\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Volume profile accepts mL/L only.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-cardiac",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "19.4 cardiac output",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "cardiac_output",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-003.C012",
+    "task_id": "BIE-EVAL-BIO-003",
+    "domain": "biology",
+    "title": "Artery definition misconception",
+    "prompt": "Artery definition misconception. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claims\":{\"artery_defined_by\":\"oxygen_rich_blood\",\"negative_feedback_response\":\"opposes_deviation\",\"pulmonary_artery_relative_oxygen\":\"lower\",\"pulmonary_vein_relative_oxygen\":\"higher\",\"vein_defined_by\":\"flow_towards_heart\"},\"op\":\"audit_concepts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":false,\"defects\":[{\"claim\":\"artery_defined_by\",\"reason\":\"CONTRADICTED_CLAIM\"}]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Arteries are defined by flow direction, not by oxygen content.",
+    "sources": [
+      {
+        "reference_id": "openstax-ap-cardiac",
+        "title": "Anatomy and Physiology 2e",
+        "locator": "19.4 cardiac output",
+        "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_concepts",
+      "misconception",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

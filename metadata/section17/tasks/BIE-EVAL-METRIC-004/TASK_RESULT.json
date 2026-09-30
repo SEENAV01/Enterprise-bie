@@ -1,0 +1,119 @@
+{
+  "task_id": "BIE-EVAL-METRIC-004",
+  "original_sequence": 28,
+  "original_capability": "reasoning metric",
+  "batch": 3,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Finite forward Horn-rule proof checking with trusted facts and no invented premises.",
+  "bounded_contract": "Reference: facts {id,atom}, rules {id,antecedents,consequent}, weighted goals {id,atom,weight}. Candidate steps: id,rule_id,premises,conclusion.\nOnly trusted facts or valid preceding steps can support premises. Premise atoms must equal the complete antecedent set. Invalid/forward/circular steps do not enter the proven set; step IDs cannot shadow fact IDs. Rule conclusion must match exactly.\nGoals earn all-or-zero weight when available from trusted/valid proof. Any invalid extra step yields FAIL even if all requested goals earn credit. Score and outcome must be consumed together.",
+  "bounds_and_open_scope": "This is a bounded formal proof calculus, not validation of arbitrary natural-language reasoning, induction, analogy, uncertainty, temporal or spatial reasoning. Such adapters require additional governed work.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/reasoning.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json",
+    "tests/section17/test_metric_004.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/metrics/reasoning.py": "4255e645a50054482d99043bd482785e7c09e1d127104d8776f12435f6c4d80a",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json": "b1df3df033dfa568b1c19f4ef3a8791902d2b649aeb343cb41e870d5e51b20d6",
+    "tests/section17/test_metric_004.py": "50bad2feede83fd590c4e1e94bd067b617eb455662f1a4777e3cbf80a3434f05"
+  },
+  "selected_task_suite": {
+    "schema_version": "1.0.0",
+    "task_id": "BIE-EVAL-METRIC-004",
+    "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+    "tests_run": 18,
+    "passed": 18,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_authored_candidate_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_candidate_cannot_insert_axiom",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_circular_self_reference_fails",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_duplicate_premise_id_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_extra_irrelevant_premise_is_not_licensed_rule",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_fact_goal_does_not_need_new_derivation",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_forward_reference_cannot_prove_goal",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_general_reasoning_not_claimed",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_invalid_step_cannot_be_reused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_premise_order_irrelevant",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_rule_requires_all_antecedents_not_any",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_step_cannot_shadow_trusted_fact",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_004.METRIC004Tests.test_wrong_conclusion_not_credited",
+        "status": "PASS"
+      }
+    ],
+    "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+    "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+    "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+  },
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-004/SPEC.md",
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_fixture_count": 6,
+  "independent_reference_review": false,
+  "hidden_holdout": false
+}

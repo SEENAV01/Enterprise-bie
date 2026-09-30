@@ -1,0 +1,22 @@
+{
+  "source_recovered": true,
+  "expected_source_files": 257,
+  "matched_source_files": 257,
+  "pre_H4_source_inventory_sha256": "8d24868473dd8dbba447eff6c3eb78c6af09bfa6e8e263e5ebd7ff6c04ba15db",
+  "baseline_tests_rerun": 1658,
+  "baseline_all_passed": true,
+  "recovery_inputs": [
+    "exact H2 combined master",
+    "H3 individual atomics 001..010",
+    "H3 FINAL_MASTER_CHECK published inventory"
+  ],
+  "original_H3_master_available": false,
+  "original_H3_master_reconstructed": false,
+  "unrecovered": [
+    "Exact H3 combined master archive bytes",
+    "H3-only ancillary evidence/metadata not distributed in available atomics or final-check ZIP, including original H3_RESIDUAL_GAPS.json"
+  ],
+  "all_H3_history_preserved_claim": false,
+  "original_H3_reports_and_checksums_preserved": true,
+  "note": "No missing artifact was replaced with an invented original. Current source is code-byte-verified recovery plus documented H4 delta."
+}

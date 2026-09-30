@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/usr/bin/ffprobe",
+    "-v",
+    "error",
+    "-protocol_whitelist",
+    "file,pipe",
+    "-format_whitelist",
+    "matroska,webm,mov",
+    "-i",
+    "<PRIVATE_INPUT>",
+    "-show_streams",
+    "-show_format",
+    "-of",
+    "json"
+  ],
+  "exit_code": 0,
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 3874,
+  "stdout_sha256": "b5ecc8f1b5943d50fcee35d4b6c63fe19e801ba646300562987417a13b3959f4"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "missing_exact_historical_containers": [
+    {
+      "checksum_file": "BIE_EVAL_SECTION17_HARDENING_H5_SHA256SUMS.txt",
+      "name": "BIE_EVAL_SECTION17_HARDENING_H5_COMBINED_MASTER_PACKAGE.zip",
+      "published_sha256": "c43a7bfdd95d0bbce9c2e7f3ba7ba0801a80bc01057bdcb6be82e021e58b365f",
+      "available_sha256": null,
+      "status": "UNAVAILABLE"
+    },
+    {
+      "checksum_file": "BIE_EVAL_SECTION17_NATIVE_API_001_SHA256SUMS.txt",
+      "name": "BIE_EVAL_SECTION17_NATIVE_API_001_COMBINED_MASTER_PACKAGE.zip",
+      "published_sha256": "76afbf7a6a962cade9c80b04598a1f8509e38dd28126863e6dca3cc9e8a64917",
+      "available_sha256": null,
+      "status": "UNAVAILABLE"
+    },
+    {
+      "checksum_file": "BIE_EVAL_SECTION17_NATIVE_CAMPAIGN_001_SHA256SUMS.txt",
+      "name": "BIE_EVAL_SECTION17_NATIVE_CAMPAIGN_001_COMBINED_MASTER_PACKAGE.zip",
+      "published_sha256": "4e9a2c90e1399c3cc8b9c4562a0886bbebc1559f31923e0470c0948975860dcf",
+      "available_sha256": null,
+      "status": "UNAVAILABLE"
+    },
+    {
+      "checksum_file": "BIE_EVAL_SECTION17_HARDENING_H3_SHA256SUMS.txt",
+      "name": "BIE_EVAL_SECTION17_HARDENING_H3_COMBINED_MASTER_PACKAGE.zip",
+      "published_sha256": "7fbce291dc7cd5a182458028120e003ffdfc7f3c0068a72af498964e40c4c658",
+      "available_sha256": null,
+      "status": "UNAVAILABLE"
+    }
+  ],
+  "other_historical_metadata_fingerprint_gaps": [
+    {
+      "checksum_file": "BIE_EVAL_SECTION17_HARDENING_H5_SHA256SUMS.txt",
+      "name": "BIE_EVAL_SECTION17_HARDENING_H5_REPORT.md",
+      "published_sha256": "d10d90113589603c14f23c5e06a8414cf6084aefa8d666e7c3bb8cacad12dfc0",
+      "available_sha256": "a29de4dcf37c32806cfc7f90e4060cb16bce2109a4a0741f8a2ca5834f83ffd3",
+      "status": "MISMATCH"
+    },
+    {
+      "checksum_file": "BIE_EVAL_SECTION17_BATCH001_SHA256SUMS.txt",
+      "name": "BIE_EVAL_SECTION17_CONTINUATION.json",
+      "published_sha256": "cf6820076e4388483bb3981764e26e54cd97c15ce3be882bcfe7bfce290115a9",
+      "available_sha256": null,
+      "status": "UNAVAILABLE"
+    }
+  ],
+  "old_h5_helpers_not_found": [
+    "tools/run_section17_h5_diagnostics.py",
+    "tools/run_section17_h5_fault_controls.py"
+  ],
+  "note": "All 103 current logical atomic ZIPs and current runtime/tests are present. Unavailable old containers and master-only historical bytes are not re-created or relabelled. The supplied H5 report is preserved at its actual supplied hash; its older checksum cannot be certified. An old Batch001 loose continuation fingerprint is unresolved; later/current continuations are retained. History catalog is not a claim that every historical message version is recovered.",
+  "product_scope_gaps": {
+    "task_id": "BIE-EVAL-NATIVE-API-001",
+    "gaps": [
+      {
+        "id": "NATIVE-REMOTE-ADOPTION",
+        "status": "OPEN",
+        "scope": "No remote patch, PR, merge, app daemon or queued worker deployed. Local canonical BenchmarkAPI and QA command invocation verified."
+      },
+      {
+        "id": "FULL-CHECKOUT-REGRESSION",
+        "status": "BLOCKED_INPUT_ACCESS",
+        "scope": "Connected GitHub file reads work. Container git ls-remote failed: Could not resolve host github.com. GitHub fetch does not support binary archives; archive download attempt failed. Full repository not obtained or tested."
+      },
+      {
+        "id": "REALBOOK-SEMANTIC-CINEMATIC",
+        "status": "NOT_RUN",
+        "scope": "No genuine source-to-native-book/Remotion/playable-game run. Three AV metrics on authored two-second media; source and game only byte-inspected."
+      },
+      {
+        "id": "GLOBAL-ATTEMPT-SERVICE",
+        "status": "PARTIALLY_IMPLEMENTED_LOCAL",
+        "scope": "Cross-campaign aliases denied only through this API using one configured operator-owned registry. Distinct registry paths, independent operators, old entrypoints, or administrator rewrites are outside enforcement. No distributed authentication/anti-gaming acceptance."
+      },
+      {
+        "id": "HTTP-RUNTIME-ISOLATION",
+        "status": "OPEN_CARRIED_FORWARD",
+        "scope": "No managed policy bypass. This delivery does not rerun the previously blocked served HTTP/browser path and does not deploy a network API."
+      },
+      {
+        "id": "INDEPENDENT-BENCHMARK-LEARNING",
+        "status": "NOT_RUN",
+        "scope": "No live model, independent reviewer, learner trial, full 17-metric authenticated benchmark or learning/cinematic acceptance."
+      },
+      {
+        "id": "HISTORY-ORIGINALS",
+        "status": "CARRIED_FORWARD_AND_EXTENDED",
+        "scope": "Exact H3 and H5 masters plus two historical H5 scripts previously absent; exact Native Campaign001 master (expected SHA256 4e9a2c90e1399c3cc8b9c4562a0886bbebc1559f31923e0470c0948975860dcf) also not retrievable this turn. Exact campaign atomic and its complete published runtime/test inventory are preserved and baseline rerun. No exact reconstruction of missing master-only ancillary history is claimed."
+      }
+    ],
+    "section_complete": false,
+    "product_accepted": false
+  },
+  "full_repository_regression_run_now": false,
+  "github_written_now": false,
+  "product_accepted": false
+}

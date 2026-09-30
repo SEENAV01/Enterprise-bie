@@ -1,0 +1,13 @@
+{
+  "task_id": "BIE-EVAL-NATIVE-QA-001",
+  "title": "Real Section17 metrics to canonical QA component integration",
+  "basis": "H5 residual native integration obligation + current canonical QA merge",
+  "implementation_scope": "LOCAL_COMPONENT_ONLY",
+  "files": [
+    "bie/evaluation/benchmarks/native_qa/",
+    "tests/section17/test_native_qa_001.py",
+    "tests/section17/test_native_qa_cli_001.py"
+  ],
+  "required_dependency_snapshot": "../dependency_snapshot/bie/qa/release_v2",
+  "product_accepted": false
+}

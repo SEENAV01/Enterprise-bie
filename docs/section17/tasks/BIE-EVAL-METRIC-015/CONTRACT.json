@@ -1,0 +1,27 @@
+{
+  "contract_kind": "bounded executable profile, not a general JSON Schema",
+  "reference_payload_required_fields": [
+    "alt_ids",
+    "caption_tolerance_ms",
+    "controls",
+    "duration_ms",
+    "speech",
+    "text_labels"
+  ],
+  "candidate_required_fields": [
+    "alts",
+    "captions",
+    "controls",
+    "text_styles"
+  ],
+  "strict_unknown_fields": true,
+  "schema_version": "1.0.0",
+  "reference_hash_required": true,
+  "candidate_hash_required": true,
+  "typed_blocked_errors": true,
+  "trusted_observations_required": false,
+  "observation_hash_is_not_signature": true,
+  "numerical_encoding": "JSON bounded numbers or inherited rational p/q grammar; no NaN/Infinity/boolean-as-number",
+  "normative_executable_contract": "bie/evaluation/benchmarks/metrics/accessibility.py",
+  "six_diagnostic_cases": "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-015.json"
+}

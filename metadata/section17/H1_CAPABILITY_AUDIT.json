@@ -1,0 +1,2673 @@
+{
+  "schema_version": "1.0.0",
+  "original_task_count": 50,
+  "all50_paths_specs_dependency_edges_checked": true,
+  "dependency_graph_acyclic": true,
+  "baseline_test_ids_retained": 1181,
+  "new_test_ids": 139,
+  "review_method": "scoped source/spec/traceability and operational trust-boundary review plus executed tests, NOT independent or exhaustive security/scientific audit",
+  "rows": [
+    {
+      "task_id": "BIE-EVAL-REG-001",
+      "original_sequence": 1,
+      "original_capability": "benchmark registry",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-001/SPEC.md",
+      "spec_sha256": "c924ce51c2b9383128e9d5c19b4a77ef4ea5c00a6006ee311d8e47dd74439768",
+      "scoped_behavior": "Typed, source-bound immutable benchmark cases; transactional SQLite registration; duplicate rejection; detached nested data; redacted candidate view; hash-chained operator audit records.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/__init__.py": [],
+        "bie/evaluation/benchmarks/models.py": [
+          "ident",
+          "text",
+          "number",
+          "digest_string",
+          "version_tuple",
+          "_validate_json",
+          "canonical_json",
+          "strict_loads",
+          "digest",
+          "exact_fields",
+          "__init__",
+          "pairs",
+          "reject_constant",
+          "__post_init__",
+          "from_dict",
+          "__post_init__",
+          "create",
+          "to_dict",
+          "from_dict",
+          "content_sha256",
+          "inputs",
+          "expected",
+          "problem_fingerprint",
+          "prompt_fingerprint",
+          "candidate_view"
+        ],
+        "bie/evaluation/benchmarks/registry.py": [
+          "__init__",
+          "__enter__",
+          "__exit__",
+          "close",
+          "transaction",
+          "_event",
+          "audit_head",
+          "register",
+          "get_case",
+          "all_cases",
+          "inventory"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/__init__.py": "a414418891439dea02bfce76ccf150fdb48afbdc484f0ed8840f5d492ee644d2",
+        "bie/evaluation/benchmarks/models.py": "339af44f261b0879f393d4dbbf8c83a5daf03073bd8e15f8888afbf28dd06689",
+        "bie/evaluation/benchmarks/registry.py": "b03c59376b0bb199fee89772583f18886dc4e80bfdbb0ceef8d76d73352c4af5",
+        "tests/section17/helpers.py": "987f1df2c3a991d95ccc20e45bafd0359603dccf3c2a9d4fc7d7c31e83e219c4",
+        "tests/section17/test_reg_001.py": "4852f5ed0c07189b349241f7388f39290a3348574e8475a49e959d05412826c4"
+      },
+      "direct_dependencies": [],
+      "executed_selected_test_ids": [
+        "test_reg_001.RegistryTests.test_batch_rollback_is_all_or_nothing",
+        "test_reg_001.RegistryTests.test_boolean_tolerance_rejected",
+        "test_reg_001.RegistryTests.test_duplicate_batch_id_rejected",
+        "test_reg_001.RegistryTests.test_duplicate_json_keys_rejected",
+        "test_reg_001.RegistryTests.test_duplicate_source_id_rejected",
+        "test_reg_001.RegistryTests.test_empty_batch_rejected",
+        "test_reg_001.RegistryTests.test_event_chain_detects_body_change",
+        "test_reg_001.RegistryTests.test_existing_id_not_overwritten",
+        "test_reg_001.RegistryTests.test_frozen_outer_record",
+        "test_reg_001.RegistryTests.test_hash_independent_of_mapping_order",
+        "test_reg_001.RegistryTests.test_infinite_tolerance_rejected",
+        "test_reg_001.RegistryTests.test_invalid_id_rejected",
+        "test_reg_001.RegistryTests.test_inventory_is_sorted_and_redacted",
+        "test_reg_001.RegistryTests.test_json_depth_limit",
+        "test_reg_001.RegistryTests.test_missing_provenance_rejected",
+        "test_reg_001.RegistryTests.test_mutable_source_collection_rejected",
+        "test_reg_001.RegistryTests.test_nan_rejected",
+        "test_reg_001.RegistryTests.test_nested_inputs_are_detached",
+        "test_reg_001.RegistryTests.test_noncanonical_nested_payload_rejected",
+        "test_reg_001.RegistryTests.test_public_view_redacts_reference",
+        "test_reg_001.RegistryTests.test_register_read_identity",
+        "test_reg_001.RegistryTests.test_reopen_persists_cases",
+        "test_reg_001.RegistryTests.test_tampered_case_bytes_rejected",
+        "test_reg_001.RegistryTests.test_unknown_database_version_fail_closed",
+        "test_reg_001.RegistryTests.test_unknown_json_fields_rejected",
+        "test_reg_001.RegistryTests.test_untrusted_json_constant_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Local typed registry and audit hashes do not establish authenticated multi-tenant/off-host custody.",
+      "hardening_links": [
+        "BIE-EVAL-H1-001",
+        "BIE-EVAL-H1-002",
+        "BIE-EVAL-H1-010"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REG-002",
+      "original_sequence": 2,
+      "original_capability": "benchmark versioning",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-002/SPEC.md",
+      "spec_sha256": "eddce654b4731c20b6ec2ca9b9e9e1bd9e33438c6bb674709982d2a3771a03cb",
+      "scoped_behavior": "Immutable dataset snapshots, monotonic semantic versions, exact parent linkage, lineage verification, comparison/diffs and public manifests without expected answers.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/versioning.py": [
+          "snapshot_diff",
+          "__post_init__",
+          "body",
+          "cases",
+          "public_manifest",
+          "__init__",
+          "create",
+          "get",
+          "verify_lineage"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/versioning.py": "b771f09ab0a1e9f2aa4a9f3565d54e8b2d45f8a0c0818d6a92bc994ac246db72",
+        "tests/section17/test_reg_002.py": "3f09ca33a1cbe0e52285258b90f2ed9ad8938fe5761610c252af0e7d6ed59e9b"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_reg_002.VersionTests.test_case_order_does_not_change_hash",
+        "test_reg_002.VersionTests.test_cross_dataset_diff_rejected",
+        "test_reg_002.VersionTests.test_database_snapshot_tamper",
+        "test_reg_002.VersionTests.test_duplicate_roster_rejected",
+        "test_reg_002.VersionTests.test_duplicate_version_rejected",
+        "test_reg_002.VersionTests.test_empty_snapshot_rejected",
+        "test_reg_002.VersionTests.test_explicit_diff_added_and_removed",
+        "test_reg_002.VersionTests.test_forged_parent_not_found",
+        "test_reg_002.VersionTests.test_initial_parent_rejected",
+        "test_reg_002.VersionTests.test_lineage_exact_parent_chain",
+        "test_reg_002.VersionTests.test_missing_case_rolls_back",
+        "test_reg_002.VersionTests.test_old_snapshot_remains_immutable",
+        "test_reg_002.VersionTests.test_public_manifest_no_reference_leak",
+        "test_reg_002.VersionTests.test_snapshot_body_tamper",
+        "test_reg_002.VersionTests.test_snapshot_round_trip",
+        "test_reg_002.VersionTests.test_unknown_schema_rejected",
+        "test_reg_002.VersionTests.test_version_roll_back_rejected",
+        "test_reg_002.VersionTests.test_version_syntax_strict",
+        "test_reg_002.VersionTests.test_wrong_parent_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Immutable local snapshots do not prove distributed backup/recovery or a protected held-out deployment.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REG-003",
+      "original_sequence": 3,
+      "original_capability": "governance",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-003/SPEC.md",
+      "spec_sha256": "4b489c2558b379cada106ae9c46738754f84dee5c67be279394eb697d5d93ece",
+      "scoped_behavior": "Snapshot-bound approval verification, independently configured reviewer roles, quorum, rejection veto, author/reviewer separation, validity windows, revocation and signed review-evidence hashes.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/governance.py": [
+          "__post_init__",
+          "payload",
+          "__post_init__",
+          "from_dict",
+          "__init__",
+          "sign",
+          "verify",
+          "authorize_holdout"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/governance.py": "7894d6e9dc037d11f87f004d19444d0068602a7279d22b32a72003a4ed213221",
+        "tests/section17/test_reg_003.py": "010f798d1e3677baee64680a8c7c5c872fea21f814cc349b18d5803411a84083"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-002"
+      ],
+      "executed_selected_test_ids": [
+        "test_reg_003.GovernanceTests.test_authorized_is_not_real_world_identity",
+        "test_reg_003.GovernanceTests.test_boolean_clock_rejected",
+        "test_reg_003.GovernanceTests.test_diagnostic_cannot_be_promoted_by_signatures",
+        "test_reg_003.GovernanceTests.test_duplicate_authority_key_rejected",
+        "test_reg_003.GovernanceTests.test_duplicate_reviewer_not_quorum",
+        "test_reg_003.GovernanceTests.test_empty_review_body_rejected",
+        "test_reg_003.GovernanceTests.test_excessive_validity_rejected",
+        "test_reg_003.GovernanceTests.test_expiry_exclusive",
+        "test_reg_003.GovernanceTests.test_independent_role_quorum",
+        "test_reg_003.GovernanceTests.test_missing_role_blocked",
+        "test_reg_003.GovernanceTests.test_not_yet_valid",
+        "test_reg_003.GovernanceTests.test_one_reviewer_insufficient",
+        "test_reg_003.GovernanceTests.test_reject_is_veto",
+        "test_reg_003.GovernanceTests.test_revocation_is_checked_at_use",
+        "test_reg_003.GovernanceTests.test_round_trip_approval",
+        "test_reg_003.GovernanceTests.test_self_review_blocked",
+        "test_reg_003.GovernanceTests.test_signer_role_cannot_be_changed",
+        "test_reg_003.GovernanceTests.test_tampered_review_evidence_rejected",
+        "test_reg_003.GovernanceTests.test_tampered_signature_rejected",
+        "test_reg_003.GovernanceTests.test_unknown_approval_fields_rejected",
+        "test_reg_003.GovernanceTests.test_unknown_key_rejected",
+        "test_reg_003.GovernanceTests.test_weak_authority_key_rejected",
+        "test_reg_003.GovernanceTests.test_wrong_dataset_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Configured HMAC authorities, not verified expert identity, independent non-repudiation or actual reviewed golden cases.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REG-004",
+      "original_sequence": 4,
+      "original_capability": "anti-gaming rules",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-004/SPEC.md",
+      "spec_sha256": "5c54a395f5a9d595bd31bfcef8dcd41df1fb1d6f403c4e983a17e7fedae32a07",
+      "scoped_behavior": "Cross-split problem/group/prompt leakage triage; bounded near-duplicate work; atomic one-attempt claims; pinned candidate/dataset/policy identity; complete frozen denominator; missing/error/abstain penalties; persisted reports; structured-output import CLI.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/anti_gaming.py": [
+          "leakage_report",
+          "__init__",
+          "start",
+          "_row",
+          "finalize",
+          "get_report"
+        ],
+        "bie/evaluation/benchmarks/runner.py": [
+          "load_pack",
+          "reference_output",
+          "compare_structured",
+          "grade_case",
+          "diagnostic_pack"
+        ],
+        "bie/evaluation/benchmarks/session.py": [
+          "grade_submission"
+        ],
+        "bie/evaluation/benchmarks/__main__.py": [
+          "write_json",
+          "prepare",
+          "main"
+        ],
+        "bie/evaluation/benchmarks/domains/__init__.py": [],
+        "bie/evaluation/benchmarks/domains/common.py": [
+          "scalar",
+          "vector",
+          "integer",
+          "rational",
+          "polynomial",
+          "horner",
+          "trim",
+          "derivative",
+          "fraction_result"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/anti_gaming.py": "7660f3307bb4f2aff96ef8d760e6e699ef90c0211a8946fab8f0d099949caad2",
+        "bie/evaluation/benchmarks/runner.py": "70d21ba24ec2805d1b0d872b5c4f6272ff4515f1dda1a52a91e85899f28788d2",
+        "bie/evaluation/benchmarks/session.py": "0137135f1eec26f0afc5b23779ebe6eb4d034f740a8e10ef920256728c0482a6",
+        "bie/evaluation/benchmarks/__main__.py": "874310a2bc44417f3dab811e38efdb492b29eac4a4519e8342936d8278373bab",
+        "bie/evaluation/benchmarks/domains/__init__.py": "ce54883f1b90a2ff9298560dea2caae0fbe9068f8efab8fed8ecdc2687c192fb",
+        "bie/evaluation/benchmarks/domains/common.py": "17d60e955e438c04d179fd3b2d9933905b10e7ab5a35a83e4e84c92a0d342ca7",
+        "tests/section17/domain_helpers.py": "68c6bc96ac42026f0283cdebfe4a746d7450f2fdc8f142797ea8cea440e65f17",
+        "tests/section17/test_reg_004.py": "e251914d03335f5508783551553c659b1e3b53ca1dc41f63c972875c9798b6ac"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-003"
+      ],
+      "executed_selected_test_ids": [
+        "test_reg_004.AntiGamingTests.test_abstention_never_counts_as_pass",
+        "test_reg_004.AntiGamingTests.test_atomic_claim_concurrency",
+        "test_reg_004.AntiGamingTests.test_boolean_cannot_pass_as_numeric_one",
+        "test_reg_004.AntiGamingTests.test_cannot_resubmit_after_failure",
+        "test_reg_004.AntiGamingTests.test_clean_diagnostic_split",
+        "test_reg_004.AntiGamingTests.test_cross_split_group_leak",
+        "test_reg_004.AntiGamingTests.test_duplicate_problem_under_new_id",
+        "test_reg_004.AntiGamingTests.test_duplicate_result_rejected",
+        "test_reg_004.AntiGamingTests.test_empty_result_set_is_zero_not_success",
+        "test_reg_004.AntiGamingTests.test_extra_candidate_score_field_rejected",
+        "test_reg_004.AntiGamingTests.test_frozen_denominator_missing_failure",
+        "test_reg_004.AntiGamingTests.test_grading_never_accepts_product",
+        "test_reg_004.AntiGamingTests.test_holdout_requires_actual_review_authority",
+        "test_reg_004.AntiGamingTests.test_invalid_candidate_digest",
+        "test_reg_004.AntiGamingTests.test_model_instruction_text_not_executed",
+        "test_reg_004.AntiGamingTests.test_nan_candidate_answer_rejected",
+        "test_reg_004.AntiGamingTests.test_normalized_prompt_leak",
+        "test_reg_004.AntiGamingTests.test_numeric_string_cannot_pass_as_number",
+        "test_reg_004.AntiGamingTests.test_open_run_not_claimed_complete",
+        "test_reg_004.AntiGamingTests.test_policy_change_does_not_buy_retry",
+        "test_reg_004.AntiGamingTests.test_replay_claim_blocked",
+        "test_reg_004.AntiGamingTests.test_report_persistence",
+        "test_reg_004.AntiGamingTests.test_result_tamper_detected",
+        "test_reg_004.AntiGamingTests.test_roster_tamper_detected",
+        "test_reg_004.AntiGamingTests.test_tolerance_not_rounding_away_failure",
+        "test_reg_004.AntiGamingTests.test_training_fingerprint_overlap",
+        "test_reg_004.AntiGamingTests.test_training_group_overlap",
+        "test_reg_004.AntiGamingTests.test_unknown_result_not_added_to_denominator"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Bounded pairwise leakage triage (512 cases/2048-character prompts) needs a scalable/indexed governed adapter; training leakage remains unverified.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-PHY-001",
+      "original_sequence": 5,
+      "original_capability": "Coulomb benchmark",
+      "spec": "docs/section17/tasks/BIE-EVAL-PHY-001/SPEC.md",
+      "spec_sha256": "5fef638932787cb583183995c7395c2b7866f4f5119e9a7a322cd1004c9b6c60",
+      "scoped_behavior": "Signed 3D point-charge force, vector superposition, inverse-square distance, explicit SI conversions, configurable pinned Coulomb constant and coincidence rejection.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/coulomb.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/coulomb.py": "0485487a83253033211f8ad0a3d6ebf76631384c80553b67e8763fb9d28b5f8a",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-001.json": "36cd6dfca7613e917fb9358265447de5923447b354441607064286cd928a96d2",
+        "tests/section17/test_phy_001.py": "622f0a757a6fb7998c50ac06ae77428a39a00bfa84b92f2ea61f22c3b4b8b558"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_phy_001.CoulombTests.test_authored_reference_pack",
+        "test_phy_001.CoulombTests.test_bad_distance_unit",
+        "test_phy_001.CoulombTests.test_boolean_charge_rejected",
+        "test_phy_001.CoulombTests.test_boolean_target_rejected",
+        "test_phy_001.CoulombTests.test_charge_product_scaling",
+        "test_phy_001.CoulombTests.test_coincidence_rejected",
+        "test_phy_001.CoulombTests.test_constant_must_be_positive",
+        "test_phy_001.CoulombTests.test_independent_inverse_square",
+        "test_phy_001.CoulombTests.test_nan_rejected",
+        "test_phy_001.CoulombTests.test_negative_charge_attracts",
+        "test_phy_001.CoulombTests.test_newton_pair_action_reaction",
+        "test_phy_001.CoulombTests.test_rotation_covariance",
+        "test_phy_001.CoulombTests.test_superposition_cancels",
+        "test_phy_001.CoulombTests.test_three_dimensional_vectors_required",
+        "test_phy_001.CoulombTests.test_translation_invariance",
+        "test_phy_001.CoulombTests.test_unit_conversion_equivalence",
+        "test_phy_001.CoulombTests.test_unsupported_medium_not_silently_ignored",
+        "test_phy_001.CoulombTests.test_wrong_force_direction_seed_rejected",
+        "test_phy_001.CoulombTests.test_wrong_inverse_square_seed_rejected",
+        "test_phy_001.CoulombTests.test_zero_test_charge"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Point-charge/SI/vector profiles, not complete electrostatics textbook or visualization coverage. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-PHY-002",
+      "original_sequence": 6,
+      "original_capability": "mechanics benchmark",
+      "spec": "docs/section17/tasks/BIE-EVAL-PHY-002/SPEC.md",
+      "spec_sha256": "bd6030597535a5022cbb3634d2d3d98df086187d55fcf0911c85a43f5009787e",
+      "scoped_behavior": "Constant-acceleration 1D kinematics, net-force 3D acceleration, perfectly inelastic 1D momentum/energy loss and constant-force dot-product work; units, limits and sign checks.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/mechanics.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/mechanics.py": "45185fd971355fd41a4fad8766557453699470625bdae02ed0301b6a748a4c01",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-002.json": "6d6dee3070f88aecdf30a9cf08803142051686748c5e268552b96083902b621a",
+        "tests/section17/test_phy_002.py": "32f4ad1d9f106a02fe2e10026f51c98853cbef48c29f53175303deee3c981fa0"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_phy_002.MechanicsTests.test_authored_reference_pack",
+        "test_phy_002.MechanicsTests.test_collision_momentum_independent",
+        "test_phy_002.MechanicsTests.test_comoving_collision_loses_no_energy",
+        "test_phy_002.MechanicsTests.test_coordinate_translation",
+        "test_phy_002.MechanicsTests.test_empty_force_list_not_a_measurement",
+        "test_phy_002.MechanicsTests.test_equal_opposite_force_zero",
+        "test_phy_002.MechanicsTests.test_force_mass_inverse_scaling",
+        "test_phy_002.MechanicsTests.test_galilean_collision_velocity",
+        "test_phy_002.MechanicsTests.test_inelastic_energy_not_conserved",
+        "test_phy_002.MechanicsTests.test_mass_not_force_units",
+        "test_phy_002.MechanicsTests.test_motion_independent_analytic",
+        "test_phy_002.MechanicsTests.test_negative_elapsed_time_rejected",
+        "test_phy_002.MechanicsTests.test_signed_work_dot_product",
+        "test_phy_002.MechanicsTests.test_time_unit_conversion",
+        "test_phy_002.MechanicsTests.test_unsupported_relativity_rejected",
+        "test_phy_002.MechanicsTests.test_work_perpendicular_not_magnitude_product",
+        "test_phy_002.MechanicsTests.test_wrong_acceleration_seed_rejected",
+        "test_phy_002.MechanicsTests.test_wrong_energy_seed_rejected",
+        "test_phy_002.MechanicsTests.test_zero_acceleration_linear",
+        "test_phy_002.MechanicsTests.test_zero_mass_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Specified Newtonian calculation profiles, not all mechanics or native free-response reasoning. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-PHY-003",
+      "original_sequence": 7,
+      "original_capability": "waves benchmark",
+      "spec": "docs/section17/tasks/BIE-EVAL-PHY-003/SPEC.md",
+      "spec_sha256": "b9929775b202329bbb5b5be4ec526bc711bf21fffacb91977caaf889eabb0370",
+      "scoped_behavior": "Linear wave properties and superposition, traveling-wave samples with distinct phase/particle velocities, fixed-string harmonics, phase/units/mode validation.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/waves.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/waves.py": "7422c37c3973285f0a6e220af3cdc9fcbb7afe96bf0a22cdb1ccd9fa6228cece",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-003.json": "9a6cd2a4e07491486a99309a0a58b88314be52b7bbbdea6cff2536aca44e08ff",
+        "tests/section17/test_phy_003.py": "ee63217640d34cf12304dfc4ef23b5400658334a6058c858ddd5ba67e14a4b1b"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_phy_003.WavesTests.test_authored_reference_pack",
+        "test_phy_003.WavesTests.test_boolean_mode_rejected",
+        "test_phy_003.WavesTests.test_direction_reverses_particle_velocity_at_origin",
+        "test_phy_003.WavesTests.test_direction_validation",
+        "test_phy_003.WavesTests.test_dispersion_identity",
+        "test_phy_003.WavesTests.test_fixed_string_fundamental",
+        "test_phy_003.WavesTests.test_frequency_dimension",
+        "test_phy_003.WavesTests.test_harmonic_scaling",
+        "test_phy_003.WavesTests.test_linear_amplitude_scaling",
+        "test_phy_003.WavesTests.test_linear_phase_cancellation",
+        "test_phy_003.WavesTests.test_negative_amplitude_rejected",
+        "test_phy_003.WavesTests.test_node_count_seed_rejected",
+        "test_phy_003.WavesTests.test_nonlinear_assumption_not_silently_applied",
+        "test_phy_003.WavesTests.test_particle_not_phase_speed",
+        "test_phy_003.WavesTests.test_periodic_space",
+        "test_phy_003.WavesTests.test_periodic_time",
+        "test_phy_003.WavesTests.test_phase_particle_confusion_seed_rejected",
+        "test_phy_003.WavesTests.test_phase_resolution_limit",
+        "test_phy_003.WavesTests.test_wave_units",
+        "test_phy_003.WavesTests.test_zero_amplitude_zero_particle_motion"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Selected linear wave/harmonic profiles, not complete wave physics or visual verification. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-MATH-001",
+      "original_sequence": 8,
+      "original_capability": "functions",
+      "spec": "docs/section17/tasks/BIE-EVAL-MATH-001/SPEC.md",
+      "spec_sha256": "328b8950d4c20e601e1fdf5af8e4d2dcde343505c94e64945996866bccf8c8e5",
+      "scoped_behavior": "Exact rational polynomial/rational evaluation, original-domain holes, order-sensitive composition, affine inversion, finite-relation function/injectivity and bounded arithmetic.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/functions.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/functions.py": "828cf957433ec1b3d0c1cb0b6942a2047f3341d6eb78cd2f7696c329e0691f23",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-001.json": "11b2bfb70aa8f8a88d499eb04f15ee110a383ac8246630f6802f2b63986a3e82",
+        "tests/section17/test_math_001.py": "2a79cc9338f5b36c833e23cc9057a14348b6765247a169d02c101cf68b960a6d"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_math_001.FunctionsTests.test_authored_reference_pack",
+        "test_math_001.FunctionsTests.test_boolean_coefficient_rejected",
+        "test_math_001.FunctionsTests.test_cancelled_hole_wrong_success_rejected",
+        "test_math_001.FunctionsTests.test_composition_order_matters",
+        "test_math_001.FunctionsTests.test_consistent_duplicate_pair_is_function",
+        "test_math_001.FunctionsTests.test_degree_limit_rejected",
+        "test_math_001.FunctionsTests.test_exact_rational_input_identity",
+        "test_math_001.FunctionsTests.test_exact_rational_polynomial",
+        "test_math_001.FunctionsTests.test_identically_zero_denominator",
+        "test_math_001.FunctionsTests.test_invalid_fraction_zero_denominator",
+        "test_math_001.FunctionsTests.test_inverse_roundtrip",
+        "test_math_001.FunctionsTests.test_many_to_one_not_injective",
+        "test_math_001.FunctionsTests.test_multiple_outputs_not_function",
+        "test_math_001.FunctionsTests.test_negative_argument",
+        "test_math_001.FunctionsTests.test_noninvertible_constant",
+        "test_math_001.FunctionsTests.test_python_expression_not_executed",
+        "test_math_001.FunctionsTests.test_uncancelled_domain_hole",
+        "test_math_001.FunctionsTests.test_unsupported_transcendental_not_fake_symbolic",
+        "test_math_001.FunctionsTests.test_wrong_composition_seed_rejected",
+        "test_math_001.FunctionsTests.test_zero_polynomial"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Bounded rational/polynomial/finite-relation profiles, not arbitrary functions. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-MATH-002",
+      "original_sequence": 9,
+      "original_capability": "calculus",
+      "spec": "docs/section17/tasks/BIE-EVAL-MATH-002/SPEC.md",
+      "spec_sha256": "41e2ab6502587cd83d1b4d9cfb6890012b5f01c5619d45a4c18ddac53678f2dd",
+      "scoped_behavior": "Analytic bounded polynomial derivatives/antiderivatives, explicit arbitrary constant, oriented definite integrals, tangent coefficients, absolute-value cusp and reciprocal singularity guards.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/calculus.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/calculus.py": "7c5572a1c9aa339bd9162fd9b0f66cd0a2ec9019f8d7eda6dc4eaed2bf01a4f3",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-002.json": "f9b10c7461edeec8bd3401cb77d20b5ac52573b43d92e512d7279596e51cd8bc",
+        "tests/section17/test_math_002.py": "4f8e3ebf5e8e039abb32c4685baef1d13642c467e862b009f36b494463bf3b63"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_math_002.CalculusTests.test_abs_positive_derivative",
+        "test_math_002.CalculusTests.test_antiderivative_requires_arbitrary_constant",
+        "test_math_002.CalculusTests.test_authored_reference_pack",
+        "test_math_002.CalculusTests.test_constant_derivative_zero",
+        "test_math_002.CalculusTests.test_cusp_not_derivative_zero",
+        "test_math_002.CalculusTests.test_derivative_fraction_coefficients",
+        "test_math_002.CalculusTests.test_derivative_order_higher_than_degree",
+        "test_math_002.CalculusTests.test_fundamental_theorem_polynomial",
+        "test_math_002.CalculusTests.test_integral_orientation",
+        "test_math_002.CalculusTests.test_integral_zero_interval",
+        "test_math_002.CalculusTests.test_missing_arbitrary_constant_seed_rejected",
+        "test_math_002.CalculusTests.test_negative_derivative_order_rejected",
+        "test_math_002.CalculusTests.test_odd_integrand_symmetric_interval",
+        "test_math_002.CalculusTests.test_order_boolean_rejected",
+        "test_math_002.CalculusTests.test_order_zero_is_identity",
+        "test_math_002.CalculusTests.test_principal_value_not_improper_integral",
+        "test_math_002.CalculusTests.test_reciprocal_negative_interval",
+        "test_math_002.CalculusTests.test_singular_endpoint_rejected",
+        "test_math_002.CalculusTests.test_tangent_point_independent",
+        "test_math_002.CalculusTests.test_wrong_integral_orientation_seed_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Bounded polynomial calculus and selected singularity handling, not arbitrary symbolic calculus. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-MATH-003",
+      "original_sequence": 10,
+      "original_capability": "geometry",
+      "spec": "docs/section17/tasks/BIE-EVAL-MATH-003/SPEC.md",
+      "spec_sha256": "cc04358ce7dd93eea5219b46b0ef2873649766d15fa48889000d625a62221f71",
+      "scoped_behavior": "Stable triangle area/perimeter, simple-polygon validation/shoelace area/orientation, rigid planar transforms and square-law similar-area scaling with units.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/geometry.py": [
+          "_cross",
+          "_on",
+          "_intersects",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/geometry.py": "28ceb7a093f52df2850aca79130dcef3192047582ffc134e8d924e5c4d0d853e",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-003.json": "ccc0c7af2a96e08dde092f749b43e0a3c486eba5a59313a24f0d5909dbb443d6",
+        "tests/section17/test_math_003.py": "fb326f0ab7201b59ef818f4260a3d17f335e1676e1d0f3aae9109ec2374fe978"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_math_003.GeometryTests.test_authored_reference_pack",
+        "test_math_003.GeometryTests.test_collinear_backtrack_rejected",
+        "test_math_003.GeometryTests.test_collinear_forward_boundary_vertex_allowed",
+        "test_math_003.GeometryTests.test_equilateral_triangle",
+        "test_math_003.GeometryTests.test_full_rotation_identity",
+        "test_math_003.GeometryTests.test_heron_independent_right_triangle",
+        "test_math_003.GeometryTests.test_invalid_coordinate_dimension_rejected",
+        "test_math_003.GeometryTests.test_negative_side_rejected",
+        "test_math_003.GeometryTests.test_polygon_orientation_does_not_negate_area",
+        "test_math_003.GeometryTests.test_polygon_translation_invariance",
+        "test_math_003.GeometryTests.test_polygon_unit_area_conversion",
+        "test_math_003.GeometryTests.test_repeated_vertex_rejected",
+        "test_math_003.GeometryTests.test_rigid_transform_preserves_distance",
+        "test_math_003.GeometryTests.test_self_intersection_rejected",
+        "test_math_003.GeometryTests.test_similarity_square_law",
+        "test_math_003.GeometryTests.test_triangle_inequality_rejected",
+        "test_math_003.GeometryTests.test_triangle_permutation",
+        "test_math_003.GeometryTests.test_wrong_orientation_seed_rejected",
+        "test_math_003.GeometryTests.test_wrong_similarity_linear_seed_rejected",
+        "test_math_003.GeometryTests.test_zero_scale_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Selected planar geometry/transformation profiles, not full geometric proof or diagrams. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-BIO-001",
+      "original_sequence": 11,
+      "original_capability": "photosynthesis",
+      "spec": "docs/section17/tasks/BIE-EVAL-BIO-001/SPEC.md",
+      "spec_sha256": "bbd860b5c4e7934740abc751d900a925614aa00e855d443ebbfdc45783709324",
+      "scoped_behavior": "# BIE-EVAL-BIO-001 — photosynthesis",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/photosynthesis.py": [
+          "solve"
+        ],
+        "bie/evaluation/benchmarks/domains/structured.py": [
+          "record",
+          "choice",
+          "sequence",
+          "unique_ids",
+          "amount",
+          "probability",
+          "exact_map",
+          "quantity",
+          "observed_claims"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/photosynthesis.py": "e2c04198e4895e11c5c557baecea78034592ea16a72e5b3b75408990a3b2536a",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-001.json": "69d938dbf62e812201006157eb344c4b973ea147720f34477ae2a91515f4e2b2",
+        "tests/section17/test_bio_001.py": "0b723c5bb09ffd651abbee967ac4d45f9651258b59f7afef0641d747a63d4a37",
+        "bie/evaluation/benchmarks/domains/structured.py": "2b018efccd2844b6e05719ca7f59a24da5588e6354b740152714a9f1f28fd4c0",
+        "tests/section17/batch002_helpers.py": "32c55f72437e1ccb510a45dc55c4c435f9b8458ffc34f65174371b1f3f7291bd"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_bio_001.BIO001Tests.test_authored_case_001",
+        "test_bio_001.BIO001Tests.test_authored_case_002",
+        "test_bio_001.BIO001Tests.test_authored_case_003",
+        "test_bio_001.BIO001Tests.test_authored_case_004",
+        "test_bio_001.BIO001Tests.test_authored_case_005",
+        "test_bio_001.BIO001Tests.test_authored_case_006",
+        "test_bio_001.BIO001Tests.test_authored_case_007",
+        "test_bio_001.BIO001Tests.test_authored_case_008",
+        "test_bio_001.BIO001Tests.test_authored_case_009",
+        "test_bio_001.BIO001Tests.test_authored_case_010",
+        "test_bio_001.BIO001Tests.test_authored_case_011",
+        "test_bio_001.BIO001Tests.test_authored_case_012",
+        "test_bio_001.BIO001Tests.test_boolean_concept_not_numeric_one",
+        "test_bio_001.BIO001Tests.test_boolean_is_not_quantity",
+        "test_bio_001.BIO001Tests.test_calvin_gross_equals_recycled_plus_export",
+        "test_bio_001.BIO001Tests.test_expected_answer_injection_is_extra_field",
+        "test_bio_001.BIO001Tests.test_input_and_reference_profile_not_mutated",
+        "test_bio_001.BIO001Tests.test_limiting_pools_never_overconsume",
+        "test_bio_001.BIO001Tests.test_negative_supplied_pool",
+        "test_bio_001.BIO001Tests.test_net_budget_conserves_each_atom",
+        "test_bio_001.BIO001Tests.test_quantity_upper_bound",
+        "test_bio_001.BIO001Tests.test_unknown_concept_cannot_improve_score"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Authored photosynthesis resource/budget abstractions, not full biological mechanism understanding. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-BIO-002",
+      "original_sequence": 12,
+      "original_capability": "genetics",
+      "spec": "docs/section17/tasks/BIE-EVAL-BIO-002/SPEC.md",
+      "spec_sha256": "7e62e3f8b870666c490bf04b20c5088860bc360b421a1eebe2b3f775e776bfda",
+      "scoped_behavior": "# BIE-EVAL-BIO-002 — genetics",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/genetics.py": [
+          "locus_cross",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/genetics.py": "48b99a61eed55aca86995718d210142f44bfebc2480f4771cf38c9a036de9143",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-002.json": "0c86a69a13949d31c8d0cd7c5e5d95425a58b32d88ed97ccdcda8aedf5a373f8",
+        "tests/section17/test_bio_002.py": "2c7268a9dac95a0905fef0cb741f3f9955cd27cd2bb0ae7d03651238d21ebed5"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_bio_002.BIO002Tests.test_authored_case_001",
+        "test_bio_002.BIO002Tests.test_authored_case_002",
+        "test_bio_002.BIO002Tests.test_authored_case_003",
+        "test_bio_002.BIO002Tests.test_authored_case_004",
+        "test_bio_002.BIO002Tests.test_authored_case_005",
+        "test_bio_002.BIO002Tests.test_authored_case_006",
+        "test_bio_002.BIO002Tests.test_authored_case_007",
+        "test_bio_002.BIO002Tests.test_authored_case_008",
+        "test_bio_002.BIO002Tests.test_authored_case_009",
+        "test_bio_002.BIO002Tests.test_authored_case_010",
+        "test_bio_002.BIO002Tests.test_authored_case_011",
+        "test_bio_002.BIO002Tests.test_authored_case_012",
+        "test_bio_002.BIO002Tests.test_duplicate_loci_refused",
+        "test_bio_002.BIO002Tests.test_empty_population_refused",
+        "test_bio_002.BIO002Tests.test_five_loci_refused",
+        "test_bio_002.BIO002Tests.test_four_loci_cartesian_distribution",
+        "test_bio_002.BIO002Tests.test_hardy_weinberg_allele_symmetry",
+        "test_bio_002.BIO002Tests.test_hardy_weinberg_mixed_assumption_types",
+        "test_bio_002.BIO002Tests.test_incomplete_dominance_not_silently_assumed",
+        "test_bio_002.BIO002Tests.test_negative_population_refused",
+        "test_bio_002.BIO002Tests.test_observed_counts_not_equilibrium_inference",
+        "test_bio_002.BIO002Tests.test_parent_swap_preserves_cross"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Declared inheritance/equilibrium assumptions, not all genetics or empirical biological validity. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-BIO-003",
+      "original_sequence": 13,
+      "original_capability": "physiology",
+      "spec": "docs/section17/tasks/BIE-EVAL-BIO-003/SPEC.md",
+      "spec_sha256": "19a6fd2fb5506335289d1354b041e77e02aee60f4b624619d1bbaddcb76723af",
+      "scoped_behavior": "# BIE-EVAL-BIO-003 — physiology",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/physiology.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/physiology.py": "f431b797348cc87c3349c0c97c95aeb646edf49308065ee214c64c9f0f77fddd",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-003.json": "ace849dcbf062510f6a4823ad780a9998cefe64c35d70f1ab17c4aaa0ee4240a",
+        "tests/section17/test_bio_003.py": "df8a38e48521d4b512020da5ab5ab337a4bd7b16f412965942fad8fc2f277cd4"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_bio_003.BIO003Tests.test_authored_case_001",
+        "test_bio_003.BIO003Tests.test_authored_case_002",
+        "test_bio_003.BIO003Tests.test_authored_case_003",
+        "test_bio_003.BIO003Tests.test_authored_case_004",
+        "test_bio_003.BIO003Tests.test_authored_case_005",
+        "test_bio_003.BIO003Tests.test_authored_case_006",
+        "test_bio_003.BIO003Tests.test_authored_case_007",
+        "test_bio_003.BIO003Tests.test_authored_case_008",
+        "test_bio_003.BIO003Tests.test_authored_case_009",
+        "test_bio_003.BIO003Tests.test_authored_case_010",
+        "test_bio_003.BIO003Tests.test_authored_case_011",
+        "test_bio_003.BIO003Tests.test_authored_case_012",
+        "test_bio_003.BIO003Tests.test_converted_volume_bound_checked",
+        "test_bio_003.BIO003Tests.test_fetal_circuit_outside_scope",
+        "test_bio_003.BIO003Tests.test_float_nan_stopped_at_json_boundary",
+        "test_bio_003.BIO003Tests.test_frequency_and_volume_unit_equivalence",
+        "test_bio_003.BIO003Tests.test_negative_volume_refused",
+        "test_bio_003.BIO003Tests.test_no_unit_guessing",
+        "test_bio_003.BIO003Tests.test_osmolar_unit_equivalence",
+        "test_bio_003.BIO003Tests.test_permeating_solute_not_silently_tonicity",
+        "test_bio_003.BIO003Tests.test_route_return_is_defensive_copy",
+        "test_bio_003.BIO003Tests.test_zero_rate_means_zero_model_flow_not_diagnosis"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Selected ideal physiology/unit calculations, not clinical guidance or complete physiology. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-CHEM-001",
+      "original_sequence": 14,
+      "original_capability": "bonding",
+      "spec": "docs/section17/tasks/BIE-EVAL-CHEM-001/SPEC.md",
+      "spec_sha256": "8605e6e794c74273af03ae6d12d958e914f58fb7e5d2cbda29f243f9a6c9ce6a",
+      "scoped_behavior": "# BIE-EVAL-CHEM-001 — bonding",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/bonding.py": [
+          "solve"
+        ],
+        "bie/evaluation/benchmarks/domains/chemistry_common.py": [
+          "parse_formula",
+          "species_table",
+          "coefficients",
+          "inventory",
+          "conserved",
+          "multiplier",
+          "group"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/bonding.py": "20d7b582423c795ee4f2fccd7bff9e93acdf9531e270e561edc9e789145b94bc",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-001.json": "fcc6eaf6ef562a8bafaa2fec4ab1e8f175c2b270ead96afb7c1f59301cd1b4cf",
+        "tests/section17/test_chem_001.py": "593aab7cb7639404a08a9f1d4543e01edacdc022d48b07c4c915f7cedeb84279",
+        "bie/evaluation/benchmarks/domains/chemistry_common.py": "01c32bebc452ea170f489645220bb097d03970777974e5a49fee451c854f6632"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_chem_001.CHEM001Tests.test_all_supported_vsepr_shapes",
+        "test_chem_001.CHEM001Tests.test_atom_and_bond_order_irrelevant",
+        "test_chem_001.CHEM001Tests.test_authored_case_001",
+        "test_chem_001.CHEM001Tests.test_authored_case_002",
+        "test_chem_001.CHEM001Tests.test_authored_case_003",
+        "test_chem_001.CHEM001Tests.test_authored_case_004",
+        "test_chem_001.CHEM001Tests.test_authored_case_005",
+        "test_chem_001.CHEM001Tests.test_authored_case_006",
+        "test_chem_001.CHEM001Tests.test_authored_case_007",
+        "test_chem_001.CHEM001Tests.test_authored_case_008",
+        "test_chem_001.CHEM001Tests.test_authored_case_009",
+        "test_chem_001.CHEM001Tests.test_authored_case_010",
+        "test_chem_001.CHEM001Tests.test_authored_case_011",
+        "test_chem_001.CHEM001Tests.test_authored_case_012",
+        "test_chem_001.CHEM001Tests.test_boolean_bond_order_refused",
+        "test_chem_001.CHEM001Tests.test_expanded_octet_element_refused",
+        "test_chem_001.CHEM001Tests.test_formal_charge_consistent_with_total_electrons",
+        "test_chem_001.CHEM001Tests.test_numeric_boolean_claim_not_equivalent",
+        "test_chem_001.CHEM001Tests.test_omitted_bonding_claims_are_defects",
+        "test_chem_001.CHEM001Tests.test_oversized_atom_graph_refused",
+        "test_chem_001.CHEM001Tests.test_reverse_duplicate_bond_refused",
+        "test_chem_001.CHEM001Tests.test_self_bond_refused"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Bounded electron/charge/VSEPR profiles, not general molecular or chemical interpretation. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-CHEM-002",
+      "original_sequence": 15,
+      "original_capability": "reaction mechanism",
+      "spec": "docs/section17/tasks/BIE-EVAL-CHEM-002/SPEC.md",
+      "spec_sha256": "6a44ece760edefe271d77e536ac06f540eff82f9ca808f648f68a537e7e56b6c",
+      "scoped_behavior": "# BIE-EVAL-CHEM-002 — reaction mechanism",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/mechanisms.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/mechanisms.py": "14494806bdce37409993f7a44ba55e2caa81f75d68ec23adf78eee5d18496cc6",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-002.json": "d62ce1c64ccfa4ec2fd68367580b174dd898a42618e7dd221a430c6c05a0bdd0",
+        "tests/section17/test_chem_002.py": "614488f0df2f2a0c0d5b75211c0fcb7e40ecd0d1ab84c7c8efefe657ba8dd858"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-CHEM-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_chem_002.CHEM002Tests.test_authored_case_001",
+        "test_chem_002.CHEM002Tests.test_authored_case_002",
+        "test_chem_002.CHEM002Tests.test_authored_case_003",
+        "test_chem_002.CHEM002Tests.test_authored_case_004",
+        "test_chem_002.CHEM002Tests.test_authored_case_005",
+        "test_chem_002.CHEM002Tests.test_authored_case_006",
+        "test_chem_002.CHEM002Tests.test_authored_case_007",
+        "test_chem_002.CHEM002Tests.test_authored_case_008",
+        "test_chem_002.CHEM002Tests.test_authored_case_009",
+        "test_chem_002.CHEM002Tests.test_authored_case_010",
+        "test_chem_002.CHEM002Tests.test_authored_case_011",
+        "test_chem_002.CHEM002Tests.test_authored_case_012",
+        "test_chem_002.CHEM002Tests.test_charge_not_only_atoms_conserved",
+        "test_chem_002.CHEM002Tests.test_energy_zero_shift_preserves_barriers",
+        "test_chem_002.CHEM002Tests.test_even_energy_sequence_refused",
+        "test_chem_002.CHEM002Tests.test_identical_left_right_has_no_net_reaction",
+        "test_chem_002.CHEM002Tests.test_integer_one_is_not_elementary_attestation",
+        "test_chem_002.CHEM002Tests.test_reversed_path_exchanges_forward_reverse",
+        "test_chem_002.CHEM002Tests.test_step_coefficients_scale_net_not_classification",
+        "test_chem_002.CHEM002Tests.test_unknown_species_not_silently_dropped",
+        "test_chem_002.CHEM002Tests.test_unsupported_high_molecularity_refused",
+        "test_chem_002.CHEM002Tests.test_zero_coefficient_refused"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Selected mechanism conservation/rate/energy annotations, not general mechanism discovery. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-CHEM-003",
+      "original_sequence": 16,
+      "original_capability": "stoichiometry",
+      "spec": "docs/section17/tasks/BIE-EVAL-CHEM-003/SPEC.md",
+      "spec_sha256": "43e0f7092ad07e632e86f1d9fc5698503f8f51c8215ed67aa3038140f3bbce0f",
+      "scoped_behavior": "# BIE-EVAL-CHEM-003 — stoichiometry",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/stoichiometry.py": [
+          "setup",
+          "balance",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/stoichiometry.py": "9889d2f002b693705fba2facbadd8dc81b3de010e7bebee62bfcd5a3a6bb3c06",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-003.json": "fcbc6eee6ebe645ad2da6ac48e3d820f456a4fd474ec1b2efd3511f0fb39116e",
+        "tests/section17/test_chem_003.py": "bdef6eec1f3d653900cada74b7c8291c509fa235c4ebf9951941b6c37a3132a7"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-CHEM-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_chem_003.CHEM003Tests.test_authored_case_001",
+        "test_chem_003.CHEM003Tests.test_authored_case_002",
+        "test_chem_003.CHEM003Tests.test_authored_case_003",
+        "test_chem_003.CHEM003Tests.test_authored_case_004",
+        "test_chem_003.CHEM003Tests.test_authored_case_005",
+        "test_chem_003.CHEM003Tests.test_authored_case_006",
+        "test_chem_003.CHEM003Tests.test_authored_case_007",
+        "test_chem_003.CHEM003Tests.test_authored_case_008",
+        "test_chem_003.CHEM003Tests.test_authored_case_009",
+        "test_chem_003.CHEM003Tests.test_authored_case_010",
+        "test_chem_003.CHEM003Tests.test_authored_case_011",
+        "test_chem_003.CHEM003Tests.test_authored_case_012",
+        "test_chem_003.CHEM003Tests.test_balance_input_order_does_not_change_answer",
+        "test_chem_003.CHEM003Tests.test_duplicate_species_ids_not_merged",
+        "test_chem_003.CHEM003Tests.test_extent_coefficient_scaling_preserves_production",
+        "test_chem_003.CHEM003Tests.test_extra_feed_not_cherry_picked",
+        "test_chem_003.CHEM003Tests.test_formula_grouped_and_expanded_equivalent",
+        "test_chem_003.CHEM003Tests.test_formula_invalid_syntax_and_resource_bounds",
+        "test_chem_003.CHEM003Tests.test_missing_feed_not_treated_as_unlimited",
+        "test_chem_003.CHEM003Tests.test_nested_formula_parser",
+        "test_chem_003.CHEM003Tests.test_primitive_coefficients_known_carbon_example",
+        "test_chem_003.CHEM003Tests.test_zero_theoretical_yield_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Bounded formula/stoichiometry/yield calculations, not arbitrary chemistry. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-HIST-001",
+      "original_sequence": 17,
+      "original_capability": "French Revolution",
+      "spec": "docs/section17/tasks/BIE-EVAL-HIST-001/SPEC.md",
+      "spec_sha256": "10455eb98e42771fe8689b13f11e238b999d8f037ede4ec49a68767a2ec14cea",
+      "scoped_behavior": "# BIE-EVAL-HIST-001 — French Revolution",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/french_revolution.py": [
+          "solve"
+        ],
+        "bie/evaluation/benchmarks/domains/temporal.py": [
+          "astronomical_year",
+          "month_length",
+          "day_number",
+          "date_interval",
+          "relation"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/french_revolution.py": "e207140d6299f80b0bc2e4bb3f0bc8d7d10be9bd877460e56d90e7cd1e1565ee",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-001.json": "d76de989e2a9490dcebe9089b1bdb6a07389f859b25780d8d02cdb4892d55c75",
+        "tests/section17/test_hist_001.py": "4f31d7c32f3841f1641e63b7664b635b5432df4e93df851a104dc4d1e83a8d17",
+        "bie/evaluation/benchmarks/domains/temporal.py": "d3a2b7e35abb9f730a3c2b6e6f1b6ee34d08492b84b602939faa62945276849b"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_hist_001.HIST001Tests.test_all_required_events_missing_remain_failures",
+        "test_hist_001.HIST001Tests.test_authored_case_001",
+        "test_hist_001.HIST001Tests.test_authored_case_002",
+        "test_hist_001.HIST001Tests.test_authored_case_003",
+        "test_hist_001.HIST001Tests.test_authored_case_004",
+        "test_hist_001.HIST001Tests.test_authored_case_005",
+        "test_hist_001.HIST001Tests.test_authored_case_006",
+        "test_hist_001.HIST001Tests.test_authored_case_007",
+        "test_hist_001.HIST001Tests.test_authored_case_008",
+        "test_hist_001.HIST001Tests.test_authored_case_009",
+        "test_hist_001.HIST001Tests.test_authored_case_010",
+        "test_hist_001.HIST001Tests.test_authored_case_011",
+        "test_hist_001.HIST001Tests.test_authored_case_012",
+        "test_hist_001.HIST001Tests.test_candidate_cannot_override_reference_date",
+        "test_hist_001.HIST001Tests.test_claim_source_mismatch_is_rejection",
+        "test_hist_001.HIST001Tests.test_declaration_date_has_no_unsourced_place_field",
+        "test_hist_001.HIST001Tests.test_duplicate_timeline_events_not_counted_twice",
+        "test_hist_001.HIST001Tests.test_julian_calendar_not_silently_converted",
+        "test_hist_001.HIST001Tests.test_normative_principle_not_actor_score",
+        "test_hist_001.HIST001Tests.test_reference_event_return_defensive_copy",
+        "test_hist_001.HIST001Tests.test_textual_principle_not_historical_practice_proof",
+        "test_hist_001.HIST001Tests.test_unexpected_event_refused"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "A small source-dated authored event set, not independent multi-source historical scholarship. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-HIST-002",
+      "original_sequence": 18,
+      "original_capability": "historical causality",
+      "spec": "docs/section17/tasks/BIE-EVAL-HIST-002/SPEC.md",
+      "spec_sha256": "5492c1bc06e684be9136f8fa3b748c936293c2eb29500e510ef0a4af026c4215",
+      "scoped_behavior": "# BIE-EVAL-HIST-002 — historical causality",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/historical_causality.py": [
+          "assess",
+          "solve",
+          "visit"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/historical_causality.py": "0a6d374705269784ec9be7ab40bff69445f216e8fff971b151ad474ad2b4537f",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-002.json": "1a042c0748104a3911688252b544dfd1c3bbc17058333b5da487131f0ecba3cc",
+        "tests/section17/test_hist_002.py": "e1c6f7668533c4e41739e8db01006c6b4b4342e51ba1be8918a604a0e39cec3f"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-HIST-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_hist_002.HIST002Tests.test_authored_case_001",
+        "test_hist_002.HIST002Tests.test_authored_case_002",
+        "test_hist_002.HIST002Tests.test_authored_case_003",
+        "test_hist_002.HIST002Tests.test_authored_case_004",
+        "test_hist_002.HIST002Tests.test_authored_case_005",
+        "test_hist_002.HIST002Tests.test_authored_case_006",
+        "test_hist_002.HIST002Tests.test_authored_case_007",
+        "test_hist_002.HIST002Tests.test_authored_case_008",
+        "test_hist_002.HIST002Tests.test_authored_case_009",
+        "test_hist_002.HIST002Tests.test_authored_case_010",
+        "test_hist_002.HIST002Tests.test_authored_case_011",
+        "test_hist_002.HIST002Tests.test_authored_case_012",
+        "test_hist_002.HIST002Tests.test_conflicting_node_dates_refused",
+        "test_hist_002.HIST002Tests.test_cycle_detected_without_proving_causation",
+        "test_hist_002.HIST002Tests.test_duplicate_alternatives_refused",
+        "test_hist_002.HIST002Tests.test_duplicate_edge_refused",
+        "test_hist_002.HIST002Tests.test_endpoint_not_an_alternative",
+        "test_hist_002.HIST002Tests.test_graph_permutation_deterministic",
+        "test_hist_002.HIST002Tests.test_same_day_does_not_imply_prior_cause",
+        "test_hist_002.HIST002Tests.test_self_causation_refused",
+        "test_hist_002.HIST002Tests.test_unknown_evidence_kind_refused",
+        "test_hist_002.HIST002Tests.test_unverified_annotation_never_becomes_source_verification"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Declared causality annotations, not source entailment or independent historiographical adjudication. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-HIST-003",
+      "original_sequence": 19,
+      "original_capability": "chronology",
+      "spec": "docs/section17/tasks/BIE-EVAL-HIST-003/SPEC.md",
+      "spec_sha256": "18423b6e927e7cc86b8c72081e1fcccbf7bfd064e5ee2a22c534c1de8508b282",
+      "scoped_behavior": "# BIE-EVAL-HIST-003 — chronology",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/chronology.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/chronology.py": "e803eb9249f120b0e4fcb0611084043729097d4e9beed9a52aea8ab8029d8157",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-003.json": "ca5434e319bdd0c9a1667c2ef362a5c3196a0413f78eb51e69c17f00e5bd1d38",
+        "tests/section17/test_hist_003.py": "220d2defaf689a9bf66daedf94a45ef538e104de24d5aaf6718c14f06a0bf512"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-HIST-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_hist_003.HIST003Tests.test_authored_case_001",
+        "test_hist_003.HIST003Tests.test_authored_case_002",
+        "test_hist_003.HIST003Tests.test_authored_case_003",
+        "test_hist_003.HIST003Tests.test_authored_case_004",
+        "test_hist_003.HIST003Tests.test_authored_case_005",
+        "test_hist_003.HIST003Tests.test_authored_case_006",
+        "test_hist_003.HIST003Tests.test_authored_case_007",
+        "test_hist_003.HIST003Tests.test_authored_case_008",
+        "test_hist_003.HIST003Tests.test_authored_case_009",
+        "test_hist_003.HIST003Tests.test_authored_case_010",
+        "test_hist_003.HIST003Tests.test_authored_case_011",
+        "test_hist_003.HIST003Tests.test_authored_case_012",
+        "test_hist_003.HIST003Tests.test_day_numbers_match_python_calendar_sample",
+        "test_hist_003.HIST003Tests.test_duplicate_event_id_refused",
+        "test_hist_003.HIST003Tests.test_era_must_be_explicit",
+        "test_hist_003.HIST003Tests.test_far_negative_astronomical_year_leap_spacing",
+        "test_hist_003.HIST003Tests.test_irrelevant_day_with_year_precision_refused",
+        "test_hist_003.HIST003Tests.test_month_precision_bounds_account_for_leap_year",
+        "test_hist_003.HIST003Tests.test_one_bce_to_one_ce_consecutive_days",
+        "test_hist_003.HIST003Tests.test_partial_order_permutation_invariant",
+        "test_hist_003.HIST003Tests.test_same_day_ties_not_unique_order",
+        "test_hist_003.HIST003Tests.test_year_precision_not_point_date"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Ordering and date precision checks, not verification of every historical assertion. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-001",
+      "original_sequence": 20,
+      "original_capability": "plate tectonics",
+      "spec": "docs/section17/tasks/BIE-EVAL-GEO-001/SPEC.md",
+      "spec_sha256": "0d1653deef8066384ad94e57d479a7ae18a0d5ee62995270640bef415253fd16",
+      "scoped_behavior": "# BIE-EVAL-GEO-001 — plate tectonics",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/plate_tectonics.py": [
+          "velocity",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/plate_tectonics.py": "8a208a1b959c5f53cf61c040b678b2ae6fb7f98dc8be270f70ba3d79db48b397",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-001.json": "65fda46225efbd3feff8b28e902a271ff7952b9c26f3eecbc61e25946696e64a",
+        "tests/section17/test_geo_001.py": "2cdb9d5747b1c59f42a755499f090ddb8ddfb90292ed1cd58b485a04422649ac"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_geo_001.GEO001Tests.test_approximate_normal_not_silently_normalized",
+        "test_geo_001.GEO001Tests.test_authored_case_001",
+        "test_geo_001.GEO001Tests.test_authored_case_002",
+        "test_geo_001.GEO001Tests.test_authored_case_003",
+        "test_geo_001.GEO001Tests.test_authored_case_004",
+        "test_geo_001.GEO001Tests.test_authored_case_005",
+        "test_geo_001.GEO001Tests.test_authored_case_006",
+        "test_geo_001.GEO001Tests.test_authored_case_007",
+        "test_geo_001.GEO001Tests.test_authored_case_008",
+        "test_geo_001.GEO001Tests.test_authored_case_009",
+        "test_geo_001.GEO001Tests.test_authored_case_010",
+        "test_geo_001.GEO001Tests.test_authored_case_011",
+        "test_geo_001.GEO001Tests.test_authored_case_012",
+        "test_geo_001.GEO001Tests.test_common_translation_does_not_change_relative_motion",
+        "test_geo_001.GEO001Tests.test_mm_and_cm_rate_equivalence",
+        "test_geo_001.GEO001Tests.test_negative_duration_refused",
+        "test_geo_001.GEO001Tests.test_plate_swap_and_normal_reversal_preserve_separation",
+        "test_geo_001.GEO001Tests.test_rational_unit_normal_projection",
+        "test_geo_001.GEO001Tests.test_spreading_age_round_trip",
+        "test_geo_001.GEO001Tests.test_subduction_class_does_not_deny_all_new_crust",
+        "test_geo_001.GEO001Tests.test_transform_motion_has_no_crust_prediction_score",
+        "test_geo_001.GEO001Tests.test_zero_relative_velocity_not_transform"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Declared simplified plate-motion/boundary profiles, not full earth-science corpus. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-002",
+      "original_sequence": 21,
+      "original_capability": "maps",
+      "spec": "docs/section17/tasks/BIE-EVAL-GEO-002/SPEC.md",
+      "spec_sha256": "5773a16889f7b8706f1130bd934f8427f0cfc40490731d4091306d37699b2eda",
+      "scoped_behavior": "Printed map length/area scale, signed DMS coordinates, spherical distance and grid bearings.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/maps.py": [
+          "coordinate",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/maps.py": "24e1e08c2bea1ebe1d09970f6569010deac174de59578f29103d149baac41463",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-002.json": "c2ccd398f21cf89945dac98507a4126ae1f7131dab9a0b6827ab6985d36c41a5",
+        "tests/section17/test_geo_002.py": "81bab8267ad91cae4da13e55c16632654cd402bc08bf2e752ff0f2b791f2d139"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_geo_002.GEO002Tests.test_antimeridian_short_arc",
+        "test_geo_002.GEO002Tests.test_antipode_clamped_roundoff",
+        "test_geo_002.GEO002Tests.test_area_scales_quadratically",
+        "test_geo_002.GEO002Tests.test_authored_case_001",
+        "test_geo_002.GEO002Tests.test_authored_case_002",
+        "test_geo_002.GEO002Tests.test_authored_case_003",
+        "test_geo_002.GEO002Tests.test_authored_case_004",
+        "test_geo_002.GEO002Tests.test_authored_case_005",
+        "test_geo_002.GEO002Tests.test_authored_case_006",
+        "test_geo_002.GEO002Tests.test_authored_case_007",
+        "test_geo_002.GEO002Tests.test_authored_case_008",
+        "test_geo_002.GEO002Tests.test_authored_case_009",
+        "test_geo_002.GEO002Tests.test_authored_case_010",
+        "test_geo_002.GEO002Tests.test_authored_case_011",
+        "test_geo_002.GEO002Tests.test_authored_case_012",
+        "test_geo_002.GEO002Tests.test_bearing_four_quadrants",
+        "test_geo_002.GEO002Tests.test_boolean_scale_not_number",
+        "test_geo_002.GEO002Tests.test_distance_symmetric",
+        "test_geo_002.GEO002Tests.test_dms_boundary_and_hemisphere",
+        "test_geo_002.GEO002Tests.test_latitude_above_ninety_rejected",
+        "test_geo_002.GEO002Tests.test_no_silent_extra_fields",
+        "test_geo_002.GEO002Tests.test_scale_units_equivalent"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Map-coordinate/scale calculations, not interpretation of arbitrary scanned maps. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-003",
+      "original_sequence": 22,
+      "original_capability": "climate systems",
+      "spec": "docs/section17/tasks/BIE-EVAL-GEO-003/SPEC.md",
+      "spec_sha256": "fdc19f0573eb867786c4d5683caef78286e04b743289dd844001e67dab83412a",
+      "scoped_behavior": "Declared global energy/water budgets, 30-year anomaly arithmetic, area weighting and feedback polarity.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/climate.py": [
+          "celsius",
+          "year",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/climate.py": "cf6ab134f96300c31f9d8b8c1c33d27d938234bbfa42269ce7c12169f293eec9",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-003.json": "16316a67fe323849f40fdeb616f9a3a857369855dca713525bf9fcb78be57944",
+        "tests/section17/test_geo_003.py": "a40ea42104d0dd7387ebd6448e5c6b02d26d21976fa9531c8f760e90b7a1845c"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_geo_003.GEO003Tests.test_all_positive_cycle_reinforcing",
+        "test_geo_003.GEO003Tests.test_area_must_be_positive",
+        "test_geo_003.GEO003Tests.test_authored_case_001",
+        "test_geo_003.GEO003Tests.test_authored_case_002",
+        "test_geo_003.GEO003Tests.test_authored_case_003",
+        "test_geo_003.GEO003Tests.test_authored_case_004",
+        "test_geo_003.GEO003Tests.test_authored_case_005",
+        "test_geo_003.GEO003Tests.test_authored_case_006",
+        "test_geo_003.GEO003Tests.test_authored_case_007",
+        "test_geo_003.GEO003Tests.test_authored_case_008",
+        "test_geo_003.GEO003Tests.test_authored_case_009",
+        "test_geo_003.GEO003Tests.test_authored_case_010",
+        "test_geo_003.GEO003Tests.test_authored_case_011",
+        "test_geo_003.GEO003Tests.test_authored_case_012",
+        "test_geo_003.GEO003Tests.test_baseline_order_irrelevant",
+        "test_geo_003.GEO003Tests.test_disconnected_cycles_not_one_feedback_loop",
+        "test_geo_003.GEO003Tests.test_global_budget_energy_conserved",
+        "test_geo_003.GEO003Tests.test_kelvin_and_celsius_same_mean",
+        "test_geo_003.GEO003Tests.test_no_surface_temperature_claim",
+        "test_geo_003.GEO003Tests.test_radiating_temperature_fourth_root_scaling",
+        "test_geo_003.GEO003Tests.test_thirty_rows_with_out_of_window_year_rejected",
+        "test_geo_003.GEO003Tests.test_water_depth_unit_equivalence"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Declared budget/anomaly/climate profiles, not a validated climate model or complete geography. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-CIV-001",
+      "original_sequence": 23,
+      "original_capability": "civics/institutions",
+      "spec": "docs/section17/tasks/BIE-EVAL-CIV-001/SPEC.md",
+      "spec_sha256": "11332e51718e81f4872cfe3fe1b74b279cf4f2220cf731e2defc26c2a0474278",
+      "scoped_behavior": "Descriptive selected UK institution roles, ordinary two-house bill traces, and explicit fictional power tables.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/civics.py": [
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/civics.py": "4f7f46885273738e89205598d15a301bf53f81565b6174c638ee3abe73f2eea4",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json": "3c4005a467016ed234bc12b8d7533508a35f3de638948387ead89b779a27a1e4",
+        "tests/section17/test_civ_001.py": "3e8c80829face23aa3b715913406c1ee64cf0986081075c135a31f6ef665ed7d"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_civ_001.CIV001Tests.test_agreement_without_introduction_not_valid",
+        "test_civ_001.CIV001Tests.test_assent_after_only_one_house_not_act",
+        "test_civ_001.CIV001Tests.test_assent_then_house_not_valid",
+        "test_civ_001.CIV001Tests.test_authored_case_001",
+        "test_civ_001.CIV001Tests.test_authored_case_002",
+        "test_civ_001.CIV001Tests.test_authored_case_003",
+        "test_civ_001.CIV001Tests.test_authored_case_004",
+        "test_civ_001.CIV001Tests.test_authored_case_005",
+        "test_civ_001.CIV001Tests.test_authored_case_006",
+        "test_civ_001.CIV001Tests.test_authored_case_007",
+        "test_civ_001.CIV001Tests.test_authored_case_008",
+        "test_civ_001.CIV001Tests.test_authored_case_009",
+        "test_civ_001.CIV001Tests.test_authored_case_010",
+        "test_civ_001.CIV001Tests.test_authored_case_011",
+        "test_civ_001.CIV001Tests.test_authored_case_012",
+        "test_civ_001.CIV001Tests.test_duplicate_fictional_powers_rejected",
+        "test_civ_001.CIV001Tests.test_integer_one_not_boolean_true",
+        "test_civ_001.CIV001Tests.test_omission_not_assumed_correct",
+        "test_civ_001.CIV001Tests.test_real_jurisdiction_not_inferred_for_fictional_rules",
+        "test_civ_001.CIV001Tests.test_same_fictional_power_can_belong_to_two_institutions",
+        "test_civ_001.CIV001Tests.test_unknown_claim_not_ignored",
+        "test_civ_001.CIV001Tests.test_unsupported_special_bill_route_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Selected dated jurisdictional educational profiles, not cross-jurisdiction coverage or any political merit evaluation. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-DATA-001",
+      "original_sequence": 24,
+      "original_capability": "tables/charts",
+      "spec": "docs/section17/tasks/BIE-EVAL-DATA-001/SPEC.md",
+      "spec_sha256": "0477eb9e4892eb81989a0a22522104ce8dca63cbaa125a2b439d62733d42034f",
+      "scoped_behavior": "Exact table arithmetic and structured cell-to-chart fidelity with explicit missing data and axes.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/domains/tables_charts.py": [
+          "table",
+          "solve"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/domains/tables_charts.py": "3578a293046850720c6c487f7805c20dc8531f70c0148c0bccb5d1256e5e53e4",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-DATA-001.json": "648c9c26fc90949ad13ab3a067ab9ea3024a574a437daa876c830f58b2e7e8b3",
+        "tests/section17/test_data_001.py": "41679bb3be6b8e12fcf37f3cfd59abc04e386b6247a657830f22ae469750c23f"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_data_001.DATA001Tests.test_authored_case_001",
+        "test_data_001.DATA001Tests.test_authored_case_002",
+        "test_data_001.DATA001Tests.test_authored_case_003",
+        "test_data_001.DATA001Tests.test_authored_case_004",
+        "test_data_001.DATA001Tests.test_authored_case_005",
+        "test_data_001.DATA001Tests.test_authored_case_006",
+        "test_data_001.DATA001Tests.test_authored_case_007",
+        "test_data_001.DATA001Tests.test_authored_case_008",
+        "test_data_001.DATA001Tests.test_authored_case_009",
+        "test_data_001.DATA001Tests.test_authored_case_010",
+        "test_data_001.DATA001Tests.test_authored_case_011",
+        "test_data_001.DATA001Tests.test_authored_case_012",
+        "test_data_001.DATA001Tests.test_chart_axis_cannot_hide_source_value",
+        "test_data_001.DATA001Tests.test_chart_wrong_value_detected",
+        "test_data_001.DATA001Tests.test_duplicate_row_ids_rejected",
+        "test_data_001.DATA001Tests.test_extra_chart_point_detected",
+        "test_data_001.DATA001Tests.test_log_axis_nonpositive_rejected",
+        "test_data_001.DATA001Tests.test_missing_chart_point_detected",
+        "test_data_001.DATA001Tests.test_negative_percentage_base_not_silently_used",
+        "test_data_001.DATA001Tests.test_summary_negative_values_exact",
+        "test_data_001.DATA001Tests.test_unannounced_unit_conversion_fails",
+        "test_data_001.DATA001Tests.test_zero_weight_row_not_influence_mean"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Structured tables/chart values, not native chart-image extraction or independent visual-statistical literacy. Authored references are not independent golden/holdout evidence.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-001",
+      "original_sequence": 25,
+      "original_capability": "grounding metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-001/SPEC.md",
+      "spec_sha256": "19bf0c377dbca25cc6ce994c44bd81db882246b6e8cda6c35b76a29faf0cec40",
+      "scoped_behavior": "Candidate-bound weighted proposition/citation checking against exact captured authored source text.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/grounding.py": [
+          "text_sha",
+          "proposition",
+          "span",
+          "measure"
+        ],
+        "bie/evaluation/benchmarks/metrics/__init__.py": [
+          "evaluator_code_sha256",
+          "evaluate"
+        ],
+        "bie/evaluation/benchmarks/metrics/common.py": [
+          "indexed",
+          "ids",
+          "weight",
+          "scalar",
+          "exact",
+          "unit",
+          "no_extras",
+          "topological"
+        ],
+        "bie/evaluation/benchmarks/metrics/service.py": [
+          "__init__",
+          "close",
+          "__enter__",
+          "__exit__",
+          "execute",
+          "get"
+        ],
+        "bie/evaluation/benchmarks/metrics/__main__.py": [
+          "load",
+          "main"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/grounding.py": "c6846daa2ece8915e8a120db3ca0652c318513653bf5d5c6ecada2dc568f84f3",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json": "123eb4b1de57eb79097ad1a247a966ea7f856d2770e119a4af71203882fa9398",
+        "tests/section17/test_metric_001.py": "380f8da33abdf2afd6f0ef0d08f6658c2b639d0b54ea5e8d96ab0c952ee49bf9",
+        "bie/evaluation/benchmarks/metrics/__init__.py": "007e0f640f9ab12c08f220ab6a08d54882a6f299ffd0bae59eff4d7031bceb14",
+        "bie/evaluation/benchmarks/metrics/common.py": "bec37a5016b30b8a808ef08158a23ac221a8ccc790ca9eb974baf5a94a19a56b",
+        "bie/evaluation/benchmarks/metrics/service.py": "40e739de890d3f20f76f6644ddca768aa7e8b83c7aba784beaa0db6697a844ec",
+        "bie/evaluation/benchmarks/metrics/__main__.py": "deb77633a09f22a7928d41bd70a4a19e09987e9a389f25ed30dcdfbff86be10a"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_001.METRIC001Tests.test_authored_candidate_001",
+        "test_metric_001.METRIC001Tests.test_authored_candidate_002",
+        "test_metric_001.METRIC001Tests.test_authored_candidate_003",
+        "test_metric_001.METRIC001Tests.test_authored_candidate_004",
+        "test_metric_001.METRIC001Tests.test_authored_candidate_005",
+        "test_metric_001.METRIC001Tests.test_authored_candidate_006",
+        "test_metric_001.METRIC001Tests.test_boolean_span_not_an_index",
+        "test_metric_001.METRIC001Tests.test_candidate_cannot_supply_its_own_weight",
+        "test_metric_001.METRIC001Tests.test_duplicate_citation_not_double_credit",
+        "test_metric_001.METRIC001Tests.test_empty_reference_never_perfect",
+        "test_metric_001.METRIC001Tests.test_extra_claim_does_not_expand_denominator",
+        "test_metric_001.METRIC001Tests.test_missing_source_artifact_blocked",
+        "test_metric_001.METRIC001Tests.test_negative_span_rejected",
+        "test_metric_001.METRIC001Tests.test_one_correct_plus_one_wrong_citation_is_not_accepted",
+        "test_metric_001.METRIC001Tests.test_proposition_type_distinguishes_boolean_integer",
+        "test_metric_001.METRIC001Tests.test_reference_span_tamper_blocked",
+        "test_metric_001.METRIC001Tests.test_reference_weight_sets_denominator",
+        "test_metric_001.METRIC001Tests.test_source_tamper_blocked",
+        "test_metric_001.METRIC001Tests.test_unicode_offsets_are_codepoints_not_bytes",
+        "test_metric_001.METRIC001Tests.test_unknown_source_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Exact annotated claim/span/hash checks, not general semantic entailment or real-book provenance capture.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-002",
+      "original_sequence": 26,
+      "original_capability": "semantic metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-002/SPEC.md",
+      "spec_sha256": "fb6dd21dcb43cd2ca7e7517aee4a95d84a94cae512aa455acd524c2163678c25",
+      "scoped_behavior": "Weighted trusted concept facets and relation fidelity without keyword-overlap grading.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/semantic.py": [
+          "facets",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/semantic.py": "050ff7f22515c3f25d4f228577f561f920acbd730cd3e397436d159ad022cba7",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-002.json": "8963c2dc14fc810f91d124673b8ed73fd4a432764a38e446af6e68f43b851139",
+        "tests/section17/test_metric_002.py": "d8d2de583387f75eb0074f7540e56ab2cb9e70f4b7e06f199615ee4a9ea0ff2b"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_002.METRIC002Tests.test_authored_candidate_001",
+        "test_metric_002.METRIC002Tests.test_authored_candidate_002",
+        "test_metric_002.METRIC002Tests.test_authored_candidate_003",
+        "test_metric_002.METRIC002Tests.test_authored_candidate_004",
+        "test_metric_002.METRIC002Tests.test_authored_candidate_005",
+        "test_metric_002.METRIC002Tests.test_authored_candidate_006",
+        "test_metric_002.METRIC002Tests.test_duplicate_concept_not_double_counted",
+        "test_metric_002.METRIC002Tests.test_empty_candidate_facets_zero_concept_credit",
+        "test_metric_002.METRIC002Tests.test_extra_facet_is_not_hidden_by_full_recall",
+        "test_metric_002.METRIC002Tests.test_facet_type_mismatch",
+        "test_metric_002.METRIC002Tests.test_list_order_does_not_change_result",
+        "test_metric_002.METRIC002Tests.test_missing_relation_stays_in_denominator",
+        "test_metric_002.METRIC002Tests.test_no_free_text_entailment_claim",
+        "test_metric_002.METRIC002Tests.test_reference_cannot_have_empty_facets",
+        "test_metric_002.METRIC002Tests.test_reference_unit_id_collision_rejected",
+        "test_metric_002.METRIC002Tests.test_relation_endpoint_must_be_reference_concept",
+        "test_metric_002.METRIC002Tests.test_reversed_relation_not_semantically_equal",
+        "test_metric_002.METRIC002Tests.test_unknown_concept_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Typed concept/facet matching, not a free-text/diagram semantic evaluator.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-003",
+      "original_sequence": 27,
+      "original_capability": "prerequisite metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-003/SPEC.md",
+      "spec_sha256": "7d4cb9043ab71ae84e4fad536397fc873b50f5855de138de104fc4445a8d8e4a",
+      "scoped_behavior": "Prerequisite transitive closure and teach-before-use under a trusted acyclic graph.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/prerequisites.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/prerequisites.py": "4d6ecdaf5ec404f4c204b9819a28122d03c53068bb5f99b13330bd36ac192c2a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json": "12159249f43f2229db358f03f43b7232bb3dfe1c58529da88501461a08da3d62",
+        "tests/section17/test_metric_003.py": "e37cc92d14f370876f11dcf913914f96eae873de24cdcbe61b95ca0cb1d9e124"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_003.METRIC003Tests.test_all_targets_known_cannot_vacuously_pass",
+        "test_metric_003.METRIC003Tests.test_authored_candidate_001",
+        "test_metric_003.METRIC003Tests.test_authored_candidate_002",
+        "test_metric_003.METRIC003Tests.test_authored_candidate_003",
+        "test_metric_003.METRIC003Tests.test_authored_candidate_004",
+        "test_metric_003.METRIC003Tests.test_authored_candidate_005",
+        "test_metric_003.METRIC003Tests.test_authored_candidate_006",
+        "test_metric_003.METRIC003Tests.test_disconnected_nonrequired_node_not_penalized",
+        "test_metric_003.METRIC003Tests.test_duplicate_reference_edge_rejected",
+        "test_metric_003.METRIC003Tests.test_duplicate_teaching_node_rejected",
+        "test_metric_003.METRIC003Tests.test_independent_prerequisites_can_swap",
+        "test_metric_003.METRIC003Tests.test_known_prior_cuts_ancestor_reteaching",
+        "test_metric_003.METRIC003Tests.test_known_prior_removes_reteaching_requirement",
+        "test_metric_003.METRIC003Tests.test_prior_knowledge_is_not_candidate_owned",
+        "test_metric_003.METRIC003Tests.test_reference_cycle_blocked",
+        "test_metric_003.METRIC003Tests.test_reference_unknown_target_rejected",
+        "test_metric_003.METRIC003Tests.test_transitive_prerequisite_must_be_taught",
+        "test_metric_003.METRIC003Tests.test_unknown_teaching_node_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Checks a declared prerequisite graph; the correctness/completeness of extracted native prerequisites still requires validation.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-004",
+      "original_sequence": 28,
+      "original_capability": "reasoning metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-004/SPEC.md",
+      "spec_sha256": "add93aaa7f6985b3d278bc0fbe4e5cd43c04735ff8227904dd99c5dbd8f39b07",
+      "scoped_behavior": "Finite forward Horn-rule proof checking with trusted facts and no invented premises.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/reasoning.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/reasoning.py": "4255e645a50054482d99043bd482785e7c09e1d127104d8776f12435f6c4d80a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json": "b1df3df033dfa568b1c19f4ef3a8791902d2b649aeb343cb41e870d5e51b20d6",
+        "tests/section17/test_metric_004.py": "50bad2feede83fd590c4e1e94bd067b617eb455662f1a4777e3cbf80a3434f05"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_004.METRIC004Tests.test_authored_candidate_001",
+        "test_metric_004.METRIC004Tests.test_authored_candidate_002",
+        "test_metric_004.METRIC004Tests.test_authored_candidate_003",
+        "test_metric_004.METRIC004Tests.test_authored_candidate_004",
+        "test_metric_004.METRIC004Tests.test_authored_candidate_005",
+        "test_metric_004.METRIC004Tests.test_authored_candidate_006",
+        "test_metric_004.METRIC004Tests.test_candidate_cannot_insert_axiom",
+        "test_metric_004.METRIC004Tests.test_circular_self_reference_fails",
+        "test_metric_004.METRIC004Tests.test_duplicate_premise_id_rejected",
+        "test_metric_004.METRIC004Tests.test_extra_irrelevant_premise_is_not_licensed_rule",
+        "test_metric_004.METRIC004Tests.test_fact_goal_does_not_need_new_derivation",
+        "test_metric_004.METRIC004Tests.test_forward_reference_cannot_prove_goal",
+        "test_metric_004.METRIC004Tests.test_general_reasoning_not_claimed",
+        "test_metric_004.METRIC004Tests.test_invalid_step_cannot_be_reused",
+        "test_metric_004.METRIC004Tests.test_premise_order_irrelevant",
+        "test_metric_004.METRIC004Tests.test_rule_requires_all_antecedents_not_any",
+        "test_metric_004.METRIC004Tests.test_step_cannot_shadow_trusted_fact",
+        "test_metric_004.METRIC004Tests.test_wrong_conclusion_not_credited"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Checks supplied formal rules and proof steps; not a general reasoning or natural-language proof verifier.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-005",
+      "original_sequence": 29,
+      "original_capability": "math metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-005/SPEC.md",
+      "spec_sha256": "de987c94fd7071a7c165c7815d31a202b6140b44986b324fdfb52623e14d8369",
+      "scoped_behavior": "Unit-aware exact arithmetic, bounded polynomial identities and rational-expression domain preservation.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/mathematics.py": [
+          "quantity",
+          "coeffs",
+          "mul",
+          "rational_function",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/mathematics.py": "a440d523e27e98a7168f9aaf1abb5d684afbc4e89a8e523f02e8d55aff733bed",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json": "5ca421b0d47507df4a14570869207b9a28dcc79ce5abffd077df9e117363e796",
+        "tests/section17/test_metric_005.py": "6df657ada31e7bce1d6c59d679cce876328c516b06cccf24d6cfb2dbf2caf933"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_005.METRIC005Tests.test_absolute_tolerance_uses_canonical_base_unit",
+        "test_metric_005.METRIC005Tests.test_authored_candidate_001",
+        "test_metric_005.METRIC005Tests.test_authored_candidate_002",
+        "test_metric_005.METRIC005Tests.test_authored_candidate_003",
+        "test_metric_005.METRIC005Tests.test_authored_candidate_004",
+        "test_metric_005.METRIC005Tests.test_authored_candidate_005",
+        "test_metric_005.METRIC005Tests.test_authored_candidate_006",
+        "test_metric_005.METRIC005Tests.test_candidate_extra_domain_hole_fails",
+        "test_metric_005.METRIC005Tests.test_celsius_kelvin_offset",
+        "test_metric_005.METRIC005Tests.test_denominator_root_requires_exclusion",
+        "test_metric_005.METRIC005Tests.test_duplicate_domain_hole_rejected",
+        "test_metric_005.METRIC005Tests.test_expression_string_never_evaluated",
+        "test_metric_005.METRIC005Tests.test_inflated_tolerance_rejected",
+        "test_metric_005.METRIC005Tests.test_negative_kelvin_blocked",
+        "test_metric_005.METRIC005Tests.test_numeric_wrong_value_cannot_be_masked_by_unit_label",
+        "test_metric_005.METRIC005Tests.test_polynomial_degree_bounded",
+        "test_metric_005.METRIC005Tests.test_polynomial_product_coefficient_order",
+        "test_metric_005.METRIC005Tests.test_relative_tolerance_at_limit",
+        "test_metric_005.METRIC005Tests.test_symbolic_tolerance_not_allowed",
+        "test_metric_005.METRIC005Tests.test_zero_polynomial_normalizes_trailing_zeros"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Bounded exact arithmetic/unit/algebra profiles; not full scientific/advanced-math coverage.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-006",
+      "original_sequence": 30,
+      "original_capability": "causal metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-006/SPEC.md",
+      "spec_sha256": "5f34efc6c7510c44be384f4bdc32af14ef31d4aa716e0dd11a69959ea955b193",
+      "scoped_behavior": "Directed graph and intervention/counterfactual fidelity in declared acyclic linear structural causal models.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/causality.py": [
+          "model",
+          "evaluate_model",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/causality.py": "1fd680cce320ed71e91668b2c8864707a9641b05f53c6961c79ed03634845986",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json": "3243c758f8879550fd4da01640126c2da96363a04333edfe02a54065413c1a10",
+        "tests/section17/test_metric_006.py": "344144cdde159a89b698d611b3867c67960a96c7fd30e0f7fabab874805d410d"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_006.METRIC006Tests.test_authored_candidate_001",
+        "test_metric_006.METRIC006Tests.test_authored_candidate_002",
+        "test_metric_006.METRIC006Tests.test_authored_candidate_003",
+        "test_metric_006.METRIC006Tests.test_authored_candidate_004",
+        "test_metric_006.METRIC006Tests.test_authored_candidate_005",
+        "test_metric_006.METRIC006Tests.test_authored_candidate_006",
+        "test_metric_006.METRIC006Tests.test_do_overrides_incoming_equation_not_exogenous_parent",
+        "test_metric_006.METRIC006Tests.test_duplicate_reported_edge_rejected",
+        "test_metric_006.METRIC006Tests.test_extra_edge_is_fail_even_when_queries_correct",
+        "test_metric_006.METRIC006Tests.test_fixed_noise_preserved_for_counterfactual",
+        "test_metric_006.METRIC006Tests.test_intervene_on_outcome_replaces_parents",
+        "test_metric_006.METRIC006Tests.test_negative_coefficient_supported",
+        "test_metric_006.METRIC006Tests.test_no_empirical_causal_certification",
+        "test_metric_006.METRIC006Tests.test_observation_without_intervention_different_from_do",
+        "test_metric_006.METRIC006Tests.test_query_absence_not_remove_denominator",
+        "test_metric_006.METRIC006Tests.test_reference_cycle_rejected",
+        "test_metric_006.METRIC006Tests.test_structural_node_input_order_irrelevant",
+        "test_metric_006.METRIC006Tests.test_unknown_candidate_node_rejected",
+        "test_metric_006.METRIC006Tests.test_unknown_intervention_rejected",
+        "test_metric_006.METRIC006Tests.test_zero_coefficient_not_an_edge"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Fidelity to declared causal models is not empirical causality or observational identification.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-007",
+      "original_sequence": 31,
+      "original_capability": "pedagogy metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-007/SPEC.md",
+      "spec_sha256": "adf3f2c4a37dee97324382f94afba1d9eccac6068f2c0761d1e2b14f84b1306d",
+      "scoped_behavior": "# BIE-EVAL-METRIC-007 — Pedagogy",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/pedagogy.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/pedagogy.py": "6827e49a5cbca269a476c1fe3ba04c81e2913c6db043d2de4873a8fa1c99746c",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-007.json": "a8b1d696cf362b77ab606b6fcae9fa7af6558461583fcac53d802dce2ea1b290",
+        "tests/section17/test_metric_007.py": "8ba02ba8b24d7bd30fa9f23524e2b69bad3181b2f841f4f46bc15febfc280167"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_007.METRIC007Tests.test_all_objectives_remain_in_denominator",
+        "test_metric_007.METRIC007Tests.test_authored_contract_001",
+        "test_metric_007.METRIC007Tests.test_authored_contract_002",
+        "test_metric_007.METRIC007Tests.test_authored_contract_003",
+        "test_metric_007.METRIC007Tests.test_authored_contract_004",
+        "test_metric_007.METRIC007Tests.test_authored_contract_005",
+        "test_metric_007.METRIC007Tests.test_authored_contract_006",
+        "test_metric_007.METRIC007Tests.test_boolean_frame_rejected",
+        "test_metric_007.METRIC007Tests.test_claimed_kind_cannot_change_reference_alignment",
+        "test_metric_007.METRIC007Tests.test_duplicate_activity_id_blocked",
+        "test_metric_007.METRIC007Tests.test_missing_feedback_reference_is_invalid",
+        "test_metric_007.METRIC007Tests.test_missing_reference_assessment_blocked",
+        "test_metric_007.METRIC007Tests.test_reference_without_practice_is_not_sufficient",
+        "test_metric_007.METRIC007Tests.test_unknown_content_cannot_be_claimed",
+        "test_metric_007.METRIC007Tests.test_zero_duration_activity_blocked",
+        "test_metric_007.METRIC007Tests.test_zero_objective_weight_blocked"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Structured objective/activity coverage does not prove understanding or effective teaching.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-008",
+      "original_sequence": 32,
+      "original_capability": "director metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-008/SPEC.md",
+      "spec_sha256": "c8e08bf6fb7d3232e2e4decb9f7561cbbd3a2ed29ed2d0cdc17487ab71282e70",
+      "scoped_behavior": "# BIE-EVAL-METRIC-008 — Director",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/direction.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/direction.py": "ccc332b16193e6780cfff4c505f6fe8e0b4153e2a9f115f412bbb11260934de0",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-008.json": "02b03725856611fcbed327a189bf70850437e489db1e65b7bb07bd7d12e5c3df",
+        "tests/section17/test_metric_008.py": "697f079a29480d7ac55fd84630e1e3e144d1a85439ab884cbdf8fa8704f254e1"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_008.METRIC008Tests.test_authored_contract_001",
+        "test_metric_008.METRIC008Tests.test_authored_contract_002",
+        "test_metric_008.METRIC008Tests.test_authored_contract_003",
+        "test_metric_008.METRIC008Tests.test_authored_contract_004",
+        "test_metric_008.METRIC008Tests.test_authored_contract_005",
+        "test_metric_008.METRIC008Tests.test_authored_contract_006",
+        "test_metric_008.METRIC008Tests.test_cyclic_reference_precedence_blocked",
+        "test_metric_008.METRIC008Tests.test_duplicate_beat_occurrence_fails",
+        "test_metric_008.METRIC008Tests.test_empty_narration_rejected",
+        "test_metric_008.METRIC008Tests.test_exact_density_floor_passes",
+        "test_metric_008.METRIC008Tests.test_one_extra_word_over_floor_fails",
+        "test_metric_008.METRIC008Tests.test_overlapping_scenes_fail",
+        "test_metric_008.METRIC008Tests.test_scene_outside_duration_rejected",
+        "test_metric_008.METRIC008Tests.test_unknown_beat_rejected",
+        "test_metric_008.METRIC008Tests.test_unknown_focus_rejected",
+        "test_metric_008.METRIC008Tests.test_unscored_scene_cannot_hide_dense_text"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Authored beats/timing/word density do not validate cinematic narration or multilingual spoken pacing.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-009",
+      "original_sequence": 33,
+      "original_capability": "representation metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-009/SPEC.md",
+      "spec_sha256": "101fb8c3353df3c9f82f550c6009a4920b565f55b5f7b2ef3873af3ac33eb897",
+      "scoped_behavior": "# BIE-EVAL-METRIC-009 — Representation",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/representation.py": [
+          "box",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/representation.py": "815004d2237c7db64583e24969972901791e58b6141ee6d98a942fa560500b18",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-009.json": "705d4201cbf51653e2869cb7c7f0733accccd4651da00bcd9f1f66bb2663614b",
+        "tests/section17/test_metric_009.py": "b00b66eb36808739792ef69f3ae047c1811a55c5df65a775c98e5518066e401b"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_009.METRIC009Tests.test_alt_text_blank_not_accepted",
+        "test_metric_009.METRIC009Tests.test_authored_contract_001",
+        "test_metric_009.METRIC009Tests.test_authored_contract_002",
+        "test_metric_009.METRIC009Tests.test_authored_contract_003",
+        "test_metric_009.METRIC009Tests.test_authored_contract_004",
+        "test_metric_009.METRIC009Tests.test_authored_contract_005",
+        "test_metric_009.METRIC009Tests.test_authored_contract_006",
+        "test_metric_009.METRIC009Tests.test_bad_reference_endpoint_blocked",
+        "test_metric_009.METRIC009Tests.test_box_touching_viewport_edge_passes",
+        "test_metric_009.METRIC009Tests.test_duplicate_nonoverlap_pair_blocked",
+        "test_metric_009.METRIC009Tests.test_missing_relation_remains_denominator",
+        "test_metric_009.METRIC009Tests.test_negative_y_fails_visibility",
+        "test_metric_009.METRIC009Tests.test_semantic_type_mismatch_not_label_match",
+        "test_metric_009.METRIC009Tests.test_touching_boxes_are_not_occluded",
+        "test_metric_009.METRIC009Tests.test_unknown_candidate_relation_blocked",
+        "test_metric_009.METRIC009Tests.test_zero_box_width_blocked"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Declared labels/layout/relations are not actual rendered semantic perception.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-010",
+      "original_sequence": 34,
+      "original_capability": "animation metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-010/SPEC.md",
+      "spec_sha256": "82f8bd4bc7b35657ced2aaaf6f9b5f885ea3b322138e5a94bdc82cceb5c5fb70",
+      "scoped_behavior": "# BIE-EVAL-METRIC-010 — Animation",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/animation.py": [
+          "samples",
+          "interpolate",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/animation.py": "a487aefa122e64388a7b04d425fb41845dd92c1e9976860bdb9e1b4a42a251ed",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-010.json": "ba9d428b15e1e378261753f109810e650d101995ec5b146ae9307c5719e50ef7",
+        "tests/section17/test_metric_010.py": "34be792accd988258dc2a329bc53618d49c5c505a3f9e2cb168b77e42278c24e"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_010.METRIC010Tests.test_acceleration_check_catches_jitter",
+        "test_metric_010.METRIC010Tests.test_authored_contract_001",
+        "test_metric_010.METRIC010Tests.test_authored_contract_002",
+        "test_metric_010.METRIC010Tests.test_authored_contract_003",
+        "test_metric_010.METRIC010Tests.test_authored_contract_004",
+        "test_metric_010.METRIC010Tests.test_authored_contract_005",
+        "test_metric_010.METRIC010Tests.test_authored_contract_006",
+        "test_metric_010.METRIC010Tests.test_duplicate_reference_sample_blocked",
+        "test_metric_010.METRIC010Tests.test_fractional_midpoint_is_exact",
+        "test_metric_010.METRIC010Tests.test_incomplete_reference_knot_roster_blocked",
+        "test_metric_010.METRIC010Tests.test_nan_sample_rejected",
+        "test_metric_010.METRIC010Tests.test_nonmonotonic_samples_blocked",
+        "test_metric_010.METRIC010Tests.test_reference_bounds_reversed_blocked",
+        "test_metric_010.METRIC010Tests.test_reference_endpoints_required",
+        "test_metric_010.METRIC010Tests.test_reference_speed_self_inconsistent_blocked",
+        "test_metric_010.METRIC010Tests.test_wrong_property_fails"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Sampled trajectories are not continuous visual correctness or native animation-engine execution.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-011",
+      "original_sequence": 35,
+      "original_capability": "compile metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-011/SPEC.md",
+      "spec_sha256": "e4ed3e63cb13f8eaef3ad6653fdb9d3b1757d130714b2544b9fc6125aaec2207",
+      "scoped_behavior": "# BIE-EVAL-METRIC-011 — Compile",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/compilation.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/compilation.py": "796615c66155f41ab5991d9f235dd546bbe61b4a120a0f3c1cd2bf90134b6479",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-011.json": "b7d6b9ea5e89f3336bc492517dd0530ed3fa0cc17ce68e7661947e48aab3d241",
+        "tests/section17/test_metric_011.py": "770d796fc80c8cd67a540a23f85356f21edb2e06907c8fb34640577683da07ff"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_011.METRIC011Tests.test_authored_contract_001",
+        "test_metric_011.METRIC011Tests.test_authored_contract_002",
+        "test_metric_011.METRIC011Tests.test_authored_contract_003",
+        "test_metric_011.METRIC011Tests.test_authored_contract_004",
+        "test_metric_011.METRIC011Tests.test_authored_contract_005",
+        "test_metric_011.METRIC011Tests.test_authored_contract_006",
+        "test_metric_011.METRIC011Tests.test_boolean_exit_code_blocked",
+        "test_metric_011.METRIC011Tests.test_candidate_owned_pass_flag_rejected",
+        "test_metric_011.METRIC011Tests.test_compiler_language_profile_mismatch_fails",
+        "test_metric_011.METRIC011Tests.test_empty_reference_targets_blocked",
+        "test_metric_011.METRIC011Tests.test_extra_observation_not_silently_ignored",
+        "test_metric_011.METRIC011Tests.test_metric_does_not_claim_runtime_or_remotion",
+        "test_metric_011.METRIC011Tests.test_negative_byte_count_rejected",
+        "test_metric_011.METRIC011Tests.test_tampered_receipt_not_rehashed_blocked",
+        "test_metric_011.METRIC011Tests.test_unknown_compiler_profile_rejected",
+        "test_metric_011.METRIC011Tests.test_zero_emitted_bytes_cannot_pass"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Small Python/TypeScript source compiles do not bundle a native Remotion project or validate dependency closure.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-012",
+      "original_sequence": 36,
+      "original_capability": "render metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-012/SPEC.md",
+      "spec_sha256": "65bb323d34b5c799d9ea9ff567c12ea5f5258f971bafb9781830c86b7bb68441",
+      "scoped_behavior": "# BIE-EVAL-METRIC-012 — Render",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/rendering.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/rendering.py": "64dc59defce96cfcbaf367c27474fbf1410e8c4fdb56c95aff07ffbdb57f0fc0",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-012.json": "1b48837f47ff26b02f4ec5a16ee1b3f17cefd25970ccb5aa930e7f377d72af6c",
+        "tests/section17/test_metric_012.py": "670b21d1669c94f5f5bb1755504b1e62b8cabc432227d4381657f339bf7728a4"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-011"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_012.METRIC012Tests.test_authored_contract_001",
+        "test_metric_012.METRIC012Tests.test_authored_contract_002",
+        "test_metric_012.METRIC012Tests.test_authored_contract_003",
+        "test_metric_012.METRIC012Tests.test_authored_contract_004",
+        "test_metric_012.METRIC012Tests.test_authored_contract_005",
+        "test_metric_012.METRIC012Tests.test_authored_contract_006",
+        "test_metric_012.METRIC012Tests.test_boolean_audio_requirement_really_typed",
+        "test_metric_012.METRIC012Tests.test_container_duration_mismatch_fails",
+        "test_metric_012.METRIC012Tests.test_decode_does_not_claim_audio_content",
+        "test_metric_012.METRIC012Tests.test_empty_media_candidates_cannot_score_one",
+        "test_metric_012.METRIC012Tests.test_forged_media_receipt_hash_blocked",
+        "test_metric_012.METRIC012Tests.test_missing_frame_hashes_blocked",
+        "test_metric_012.METRIC012Tests.test_nonmonotonic_pts_fails",
+        "test_metric_012.METRIC012Tests.test_one_frame_tolerance_not_allowed",
+        "test_metric_012.METRIC012Tests.test_required_audio_absent_fails",
+        "test_metric_012.METRIC012Tests.test_wrong_frame_count_fails"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Collector caps20MB,320x180,300frames,20s; audio presence only. Full-size lesson/video/audio implementation remains open.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-013",
+      "original_sequence": 37,
+      "original_capability": "frame-quality metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-013/SPEC.md",
+      "spec_sha256": "c1cbaecedc429c87bbf8503ba90e1f2201574484fe8605bdf0d78bbed50cd8c8",
+      "scoped_behavior": "# BIE-EVAL-METRIC-013 — Frame quality",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/frame_quality.py": [
+          "pixels",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/frame_quality.py": "33efa302fe2ffbc8ca790fe5bd71f38abdb1e4af96f4652664a8e1aa7920dcfd",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-013.json": "36114f709a4414255f7a954f132e07c2ad586298fecdcfbd94c014b6db95d892",
+        "tests/section17/test_metric_013.py": "cfa5f8d7d3443a2111ddfa588db46a72173faaa2e02f577e37c28d3d89da18c8"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-012"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_013.METRIC013Tests.test_authored_contract_001",
+        "test_metric_013.METRIC013Tests.test_authored_contract_002",
+        "test_metric_013.METRIC013Tests.test_authored_contract_003",
+        "test_metric_013.METRIC013Tests.test_authored_contract_004",
+        "test_metric_013.METRIC013Tests.test_authored_contract_005",
+        "test_metric_013.METRIC013Tests.test_authored_contract_006",
+        "test_metric_013.METRIC013Tests.test_duplicate_decoded_frame_index_blocked",
+        "test_metric_013.METRIC013Tests.test_duplicate_motion_pair_blocked",
+        "test_metric_013.METRIC013Tests.test_duplicate_reference_frame_index_blocked",
+        "test_metric_013.METRIC013Tests.test_empty_frames_reference_blocked",
+        "test_metric_013.METRIC013Tests.test_invalid_base64_blocked",
+        "test_metric_013.METRIC013Tests.test_lossless_pixels_have_zero_mae",
+        "test_metric_013.METRIC013Tests.test_max_black_fraction_bounded",
+        "test_metric_013.METRIC013Tests.test_unknown_motion_endpoint_blocked",
+        "test_metric_013.METRIC013Tests.test_unrequested_sample_blocked",
+        "test_metric_013.METRIC013Tests.test_wrong_reference_pixel_size_blocked"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Small decoded RGB comparisons are not native long-video quality, OCR/readability, perception or independent aesthetic judgement.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-014",
+      "original_sequence": 38,
+      "original_capability": "game-learning metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-014/SPEC.md",
+      "spec_sha256": "2ff1e0b682a16ec728ab56a1285b78219dc63dd0e8f2adaf0c7209f9e098c3c4",
+      "scoped_behavior": "# BIE-EVAL-METRIC-014 — Game learning",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/game_learning.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/game_learning.py": "935c89be4c0f5b8b9a87b5d6bac0634047e56fae820db46953dc0267f7788348",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-014.json": "13fb8587b27c0aa89a26208926e25f800c57c77eaf4a08a430508e1497b62d6a",
+        "tests/section17/test_metric_014.py": "0726e2042f319b6d7a2b1cdc885441dc179e7678d2df1b38140f2d45a905d8ca"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_014.METRIC014Tests.test_authored_contract_001",
+        "test_metric_014.METRIC014Tests.test_authored_contract_002",
+        "test_metric_014.METRIC014Tests.test_authored_contract_003",
+        "test_metric_014.METRIC014Tests.test_authored_contract_004",
+        "test_metric_014.METRIC014Tests.test_authored_contract_005",
+        "test_metric_014.METRIC014Tests.test_authored_contract_006",
+        "test_metric_014.METRIC014Tests.test_candidate_gain_flag_not_accepted",
+        "test_metric_014.METRIC014Tests.test_exact_gain_computed_not_candidate_reported",
+        "test_metric_014.METRIC014Tests.test_feedback_reference_must_cover_all_options",
+        "test_metric_014.METRIC014Tests.test_invalid_reference_correct_option_blocked",
+        "test_metric_014.METRIC014Tests.test_missing_reference_retention_design_blocked",
+        "test_metric_014.METRIC014Tests.test_no_human_learning_certification",
+        "test_metric_014.METRIC014Tests.test_phase_order_not_only_chronological",
+        "test_metric_014.METRIC014Tests.test_repeated_attempt_is_not_best_of_n",
+        "test_metric_014.METRIC014Tests.test_timestamp_order_is_enforced",
+        "test_metric_014.METRIC014Tests.test_unknown_question_cannot_pad_gain"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Authored response traces and paired calculations are not actual game runtime telemetry or causal human-learning improvement.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-015",
+      "original_sequence": 39,
+      "original_capability": "accessibility metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-015/SPEC.md",
+      "spec_sha256": "da71ebe41d388af840285850cca16695e1a61bb5c54f418db665328cb190fd76",
+      "scoped_behavior": "# BIE-EVAL-METRIC-015 — Accessibility",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/accessibility.py": [
+          "color",
+          "luminance",
+          "contrast",
+          "normalized",
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/accessibility.py": "746e6e066d66d2d7228c66015d3b0476ed86830c03c13dfddf6dd82ec4c1e95a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-015.json": "a0db3219eeee017fc78cf5c3dfbb6f6b96731b3f6f0f0cbf1a019d334bbdc16b",
+        "tests/section17/test_metric_015.py": "e07d7b0c06b310d975b3f9785591a7789a519c377aa0ba0ec38961129a0edc62"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_015.METRIC015Tests.test_authored_contract_001",
+        "test_metric_015.METRIC015Tests.test_authored_contract_002",
+        "test_metric_015.METRIC015Tests.test_authored_contract_003",
+        "test_metric_015.METRIC015Tests.test_authored_contract_004",
+        "test_metric_015.METRIC015Tests.test_authored_contract_005",
+        "test_metric_015.METRIC015Tests.test_authored_contract_006",
+        "test_metric_015.METRIC015Tests.test_black_white_contrast_is_21",
+        "test_metric_015.METRIC015Tests.test_candidate_cannot_claim_large_text_exception",
+        "test_metric_015.METRIC015Tests.test_focus_reference_missing_target_blocked",
+        "test_metric_015.METRIC015Tests.test_missing_accessible_name_blocked",
+        "test_metric_015.METRIC015Tests.test_no_wcag_certification_in_report",
+        "test_metric_015.METRIC015Tests.test_out_of_range_rgb_rejected",
+        "test_metric_015.METRIC015Tests.test_same_color_contrast_is_one",
+        "test_metric_015.METRIC015Tests.test_split_caption_coverage_and_text",
+        "test_metric_015.METRIC015Tests.test_standard_text_777777_is_below_4_5",
+        "test_metric_015.METRIC015Tests.test_trusted_large_text_777777_can_pass"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Static contrast/caption/focus data are not browser/assistive-technology or decoded caption conformance.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-016",
+      "original_sequence": 40,
+      "original_capability": "reproducibility metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-016/SPEC.md",
+      "spec_sha256": "57272836a43cf16eac50b1f7597aabc3c3738ca9f1b520a84cb061f12897b628",
+      "scoped_behavior": "# BIE-EVAL-METRIC-016 — Reproducibility",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/reproducibility.py": [
+          "measure"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/reproducibility.py": "18b5ac7e8ccc6b5defdf00cbeba5d30ab09518a9179804dd07d1c8157e3bfe92",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-016.json": "d87f1bf9de18c1edef982d3414c6411e9b62ad7af8f429c027e61db24845bf30",
+        "tests/section17/test_metric_016.py": "be0ecbdf5e073860e2bc4ba16a173185399577702767fcf68d4405e85911868f"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-011"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_016.METRIC016Tests.test_added_output_is_not_ignored",
+        "test_metric_016.METRIC016Tests.test_authored_contract_001",
+        "test_metric_016.METRIC016Tests.test_authored_contract_002",
+        "test_metric_016.METRIC016Tests.test_authored_contract_003",
+        "test_metric_016.METRIC016Tests.test_authored_contract_004",
+        "test_metric_016.METRIC016Tests.test_authored_contract_005",
+        "test_metric_016.METRIC016Tests.test_authored_contract_006",
+        "test_metric_016.METRIC016Tests.test_casefold_output_collisions_blocked",
+        "test_metric_016.METRIC016Tests.test_different_byte_size_fails_even_same_hash",
+        "test_metric_016.METRIC016Tests.test_duplicate_observation_id_rejected",
+        "test_metric_016.METRIC016Tests.test_hashing_does_not_prove_build_execution",
+        "test_metric_016.METRIC016Tests.test_manifest_subject_binding_verified",
+        "test_metric_016.METRIC016Tests.test_minimum_one_run_reference_rejected",
+        "test_metric_016.METRIC016Tests.test_reference_output_traversal_rejected",
+        "test_metric_016.METRIC016Tests.test_unclaimed_observation_rejected",
+        "test_metric_016.METRIC016Tests.test_zero_runs_is_not_vacuously_reproducible"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Local output-byte comparisons are not reproducibility of complete native provider/render/game pipelines.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-017",
+      "original_sequence": 41,
+      "original_capability": "regression metric",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-017/SPEC.md",
+      "spec_sha256": "7fd920f5e04b8d35b949b0e736214ae268b24e07166206b0ed21ddb1ab1991e3",
+      "scoped_behavior": "Exact paired-roster deltas, critical floor and allowed-drop checks with pinned dataset/environment/evaluator identities.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/metrics/regression.py": [
+          "measure",
+          "evaluate"
+        ],
+        "bie/evaluation/benchmarks/release/contracts.py": [
+          "bounded_int",
+          "score",
+          "context",
+          "pinned",
+          "make_assessment",
+          "assessment",
+          "keyed_rows",
+          "gate_result"
+        ],
+        "bie/evaluation/benchmarks/release/__init__.py": []
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/metrics/regression.py": "04557b5193c73094b68bb1c8aaf7a7613542c62f935ba24cf6e02e617d2d709c",
+        "tests/section17/test_metric_017.py": "d9b51d2cc61a9068f32092d72138f68f16a1c03ed7869f5b68e649b78b4c58b9",
+        "bie/evaluation/benchmarks/release/contracts.py": "1bf768e7635ec8b010b0b53a48018c90c84b1ab26c36c237e193b3c7fe53ffa4",
+        "bie/evaluation/benchmarks/release/__init__.py": "b463277dbe2d93e46496827d18762dfe05f533ae3efd18c2621c62488f6be794"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REG-002",
+        "BIE-EVAL-REG-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_metric_017.RegressionMetric017.test_bad_score_types_and_range",
+        "test_metric_017.RegressionMetric017.test_baseline_run_cannot_be_reused",
+        "test_metric_017.RegressionMetric017.test_blocked_case_cannot_claim_full_credit",
+        "test_metric_017.RegressionMetric017.test_candidate_pass_flag_rejected",
+        "test_metric_017.RegressionMetric017.test_changed_case_digest_blocked",
+        "test_metric_017.RegressionMetric017.test_critical_case_drop_not_hidden",
+        "test_metric_017.RegressionMetric017.test_dataset_environment_code_changes_block",
+        "test_metric_017.RegressionMetric017.test_drop_below_boundary",
+        "test_metric_017.RegressionMetric017.test_duplicate_case_is_rejected",
+        "test_metric_017.RegressionMetric017.test_empty_reference_blocked",
+        "test_metric_017.RegressionMetric017.test_exact_tolerance_boundary",
+        "test_metric_017.RegressionMetric017.test_extra_case_is_rejected",
+        "test_metric_017.RegressionMetric017.test_hash_pins_enforced",
+        "test_metric_017.RegressionMetric017.test_missing_case_remains_denominator",
+        "test_metric_017.RegressionMetric017.test_no_release_promotion",
+        "test_metric_017.RegressionMetric017.test_no_statistical_significance_claim",
+        "test_metric_017.RegressionMetric017.test_order_independent",
+        "test_metric_017.RegressionMetric017.test_positive_exact_pair",
+        "test_metric_017.RegressionMetric017.test_relabel_metric_blocked",
+        "test_metric_017.RegressionMetric017.test_skipped_is_failure"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Paired bounded reference-case regressions still need an independently governed held-out native suite.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-001",
+      "original_sequence": 42,
+      "original_capability": "deterministic evaluator",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-001/SPEC.md",
+      "spec_sha256": "a118559c2b3afb4555d7a1e4c4d67f1c4720e4fedf6279dfa35d3ad62059ae9b",
+      "scoped_behavior": "Execute the actual 17 supported metric profiles, bind candidate/reference/rubric/service-code digests, retain detailed metric receipts and blocked failures.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/deterministic.py": [
+          "service_code_sha256",
+          "evaluate_metric",
+          "execute"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/deterministic.py": "d2907cdd72d5c1f3259e0c53b04d91b14b90d110a52420513e7240e5cc4dc462",
+        "tests/section17/test_rater_001.py": "b18b626a5f008a1a0ef73beff3d50c68f8861f075bc30f730e7a8b16f4cecd39"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-017"
+      ],
+      "executed_selected_test_ids": [
+        "test_rater_001.DeterministicRater001.test_actual_metric_receipt_digest",
+        "test_rater_001.DeterministicRater001.test_all_seventeen_routes",
+        "test_rater_001.DeterministicRater001.test_assessment_integrity",
+        "test_rater_001.DeterministicRater001.test_candidate_hash_rejected",
+        "test_rater_001.DeterministicRater001.test_candidate_schema_invalid_becomes_blocked",
+        "test_rater_001.DeterministicRater001.test_changed_code_pin_rejected",
+        "test_rater_001.DeterministicRater001.test_deterministic_results_repeat",
+        "test_rater_001.DeterministicRater001.test_execution_is_not_product_acceptance",
+        "test_rater_001.DeterministicRater001.test_input_not_mutated",
+        "test_rater_001.DeterministicRater001.test_known_metric_actually_runs",
+        "test_rater_001.DeterministicRater001.test_legacy_router_snapshot_remains_sixteen",
+        "test_rater_001.DeterministicRater001.test_missing_compile_observation_blocked",
+        "test_rater_001.DeterministicRater001.test_modified_score_detected",
+        "test_rater_001.DeterministicRater001.test_reference_hash_rejected",
+        "test_rater_001.DeterministicRater001.test_regression_route",
+        "test_rater_001.DeterministicRater001.test_rubric_hash_rejected",
+        "test_rater_001.DeterministicRater001.test_separate_pinned_rubric_supported",
+        "test_rater_001.DeterministicRater001.test_unknown_metric_rejected"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "17 actual bounded evaluators and hardened fault handling, not free-text/native scientific coverage.",
+      "hardening_links": [
+        "BIE-EVAL-H1-003"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-002",
+      "original_sequence": 43,
+      "original_capability": "model evaluator",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-002/SPEC.md",
+      "spec_sha256": "eeeade4ef1b108c67c9b803ccfeb7b12a4b419845d84283c2327e4ce2c02d474",
+      "scoped_behavior": "Provider-neutral callable port, version-pinned request/response envelopes, fixed weighted rubric roster, evidence-ID checking, response limits and fail-closed errors.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/model.py": [
+          "build_request",
+          "execute",
+          "complete"
+        ],
+        "bie/evaluation/benchmarks/release/judgement.py": [
+          "rubric",
+          "grade"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/model.py": "e1a5232afc56a09f40bed2195f7819e8d55ebc2c16cedc841635a122e9bc437c",
+        "tests/section17/test_rater_002.py": "4cb59c13c4333f11a27377ff8b2afd7d9690f7fce789ccb630d9a58f2441a3c4",
+        "bie/evaluation/benchmarks/release/judgement.py": "6e9cdfd3dddcd668e112832a343e8b922ec380fdb2a9b24df801b2f6787955a1"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_rater_002.ModelRater002.test_blank_rationale_blocks",
+        "test_rater_002.ModelRater002.test_candidate_instructions_stay_data",
+        "test_rater_002.ModelRater002.test_duplicate_json_keys_block",
+        "test_rater_002.ModelRater002.test_duplicate_unit_blocks",
+        "test_rater_002.ModelRater002.test_exact_weighted_score",
+        "test_rater_002.ModelRater002.test_extra_release_authorization_field_blocked",
+        "test_rater_002.ModelRater002.test_fenced_output_not_silently_parsed",
+        "test_rater_002.ModelRater002.test_large_response_blocks",
+        "test_rater_002.ModelRater002.test_missing_unit_blocks",
+        "test_rater_002.ModelRater002.test_model_candidate_hash_checked_before_call",
+        "test_rater_002.ModelRater002.test_no_input_mutation",
+        "test_rater_002.ModelRater002.test_no_live_provider_or_semantic_accuracy_claim",
+        "test_rater_002.ModelRater002.test_out_of_range_boolean_negative_credit",
+        "test_rater_002.ModelRater002.test_provider_missing_blocks",
+        "test_rater_002.ModelRater002.test_reference_evidence_missing_rejected",
+        "test_rater_002.ModelRater002.test_structured_fixture_adapter_called",
+        "test_rater_002.ModelRater002.test_timeouts_and_connection_errors_recorded",
+        "test_rater_002.ModelRater002.test_tools_disabled",
+        "test_rater_002.ModelRater002.test_unknown_evidence_blocks",
+        "test_rater_002.ModelRater002.test_unknown_provider_identity_raises",
+        "test_rater_002.ModelRater002.test_wrong_request_hash_blocks",
+        "test_rater_002.ModelRater002.test_wrong_response_model_version_blocks"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Provider-neutral port plus optional hard-deadline wrapper; live provider selection, broker integration and calibration remain unimplemented/unvalidated.",
+      "hardening_links": [
+        "BIE-EVAL-H1-004",
+        "BIE-EVAL-H1-005"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-003",
+      "original_sequence": 44,
+      "original_capability": "human evaluator",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-003/SPEC.md",
+      "spec_sha256": "fcaf4effed0bc6cfeeaa405da501f2c9e6aa4de28536e09bb4404260de56dae2",
+      "scoped_behavior": "Operator-authenticated subject, candidate/rubric-bound assignment, HMAC service attestation, reviewer-role checks, expiry/revocation, conflicts and explicit unit judgements.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/human.py": [
+          "assignment",
+          "execute"
+        ],
+        "bie/evaluation/benchmarks/release/auth.py": [
+          "sign",
+          "_body",
+          "verify"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/human.py": "c074885be32c1eb73fece8216a46ca95f104dfae773da28a9e162e09672cf403",
+        "tests/section17/test_rater_003.py": "1aa093f59631d80aedcaa10dd4e4941efac43a0b70ac43be0c025c1534559f4e",
+        "bie/evaluation/benchmarks/release/auth.py": "2be70f9fe8f95fd859f945f539f07c3247c73a68bee378cb197474a040037255"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-002"
+      ],
+      "executed_selected_test_ids": [
+        "test_rater_003.HumanRater003.test_author_cannot_review_self",
+        "test_rater_003.HumanRater003.test_declared_conflict_blocks",
+        "test_rater_003.HumanRater003.test_expiry_boundary_rejects",
+        "test_rater_003.HumanRater003.test_false_like_string_not_conflict_false",
+        "test_rater_003.HumanRater003.test_fixture_key_cannot_authorize_production",
+        "test_rater_003.HumanRater003.test_fixture_review_never_live_human_claim",
+        "test_rater_003.HumanRater003.test_future_issue_rejects",
+        "test_rater_003.HumanRater003.test_missing_review_unit_rejects",
+        "test_rater_003.HumanRater003.test_partial_credit_exact",
+        "test_rater_003.HumanRater003.test_review_other_candidate_rejects",
+        "test_rater_003.HumanRater003.test_revoked_key_rejected",
+        "test_rater_003.HumanRater003.test_rubric_owner_cannot_review_self",
+        "test_rater_003.HumanRater003.test_signed_review_accepts_scoped_judgement",
+        "test_rater_003.HumanRater003.test_token_cannot_outlive_key",
+        "test_rater_003.HumanRater003.test_ttl_resource_limit",
+        "test_rater_003.HumanRater003.test_unknown_key_rejected",
+        "test_rater_003.HumanRater003.test_unsigned_score_tampering_rejected",
+        "test_rater_003.HumanRater003.test_weak_key_rejected",
+        "test_rater_003.HumanRater003.test_wrong_authenticated_identity_rejected",
+        "test_rater_003.HumanRater003.test_wrong_key_rejected",
+        "test_rater_003.HumanRater003.test_wrong_review_role_rejects",
+        "test_rater_003.HumanRater003.test_wrong_scope_even_valid_signature_rejects"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Signed review data/assignment checks, not an actual reviewer interface/onboarding workflow or independent reviews.",
+      "hardening_links": [
+        "BIE-EVAL-H1-007"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-004",
+      "original_sequence": 45,
+      "original_capability": "evaluator agreement",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-004/SPEC.md",
+      "spec_sha256": "4ee03bbbe2f3a084174ea16f9547e7eba121e3019544d39c5f991c513938f722",
+      "scoped_behavior": "Complete paired panels, binary observed agreement, exact Cohen kappa and mean absolute score differences; missingness and undefined statistics remain explicit.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/agreement.py": [
+          "evaluate"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/agreement.py": "cf830bc34e9dd67c372a8b85f17b50fe9f6b82b301748f962c653da84363824e",
+        "tests/section17/test_rater_004.py": "72f46a20452e8cb9cb2d4396c154092f24e82068550692ad61a5293a3dba6a0f"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-001",
+        "BIE-EVAL-RATER-002",
+        "BIE-EVAL-RATER-003"
+      ],
+      "executed_selected_test_ids": [
+        "test_rater_004.AgreementRater004.test_all_missing_has_no_fake_agreement",
+        "test_rater_004.AgreementRater004.test_balanced_independent_labels_kappa_zero",
+        "test_rater_004.AgreementRater004.test_blocked_assessor_reduces_pairs",
+        "test_rater_004.AgreementRater004.test_complete_disagreement_negative_kappa",
+        "test_rater_004.AgreementRater004.test_context_changed_rejects",
+        "test_rater_004.AgreementRater004.test_degenerate_kappa_explicitly_undefined",
+        "test_rater_004.AgreementRater004.test_duplicate_context_rejects",
+        "test_rater_004.AgreementRater004.test_duplicate_rater_per_case_rejects",
+        "test_rater_004.AgreementRater004.test_false_json_acceptance_rejects",
+        "test_rater_004.AgreementRater004.test_invalid_threshold_rejects",
+        "test_rater_004.AgreementRater004.test_mae_computed_exactly",
+        "test_rater_004.AgreementRater004.test_missing_not_dropped_into_complete_report",
+        "test_rater_004.AgreementRater004.test_no_accuracy_inference",
+        "test_rater_004.AgreementRater004.test_order_independent",
+        "test_rater_004.AgreementRater004.test_perfect_non_degenerate_agreement",
+        "test_rater_004.AgreementRater004.test_rater_roster_requires_two",
+        "test_rater_004.AgreementRater004.test_sample_too_small_rejects",
+        "test_rater_004.AgreementRater004.test_unknown_case_rejects"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Exact paired statistics are implemented; rater agreement does not demonstrate correctness and calibration is open.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-005",
+      "original_sequence": 46,
+      "original_capability": "conservative aggregation",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-005/SPEC.md",
+      "spec_sha256": "2da0938a1bd2f394923182ecbe23cd0b86c7e8aa76e90abd5e9a90a13c88990a",
+      "scoped_behavior": "Minimum score across a pinned rater roster, required deterministic evaluator, unique declared independence groups, zero credit for absent/blocked raters and disagreement adjudication blocks.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/aggregation.py": [
+          "aggregate"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/aggregation.py": "cd7e2b7b6bf4c7bcc5d357d8d1e96db761cfe7c235aaa6d4ea7e722883dfced2",
+        "tests/section17/test_rater_005.py": "c103bc246311c595fe50e7e0e816dfe2aa880bd9ac93803f4e0741299871b109"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-004"
+      ],
+      "executed_selected_test_ids": [
+        "test_rater_005.AggregationRater005.test_aggregate_has_integrity_hash",
+        "test_rater_005.AggregationRater005.test_all_missing_blocked",
+        "test_rater_005.AggregationRater005.test_blocked_rater_zero_and_blocked",
+        "test_rater_005.AggregationRater005.test_candidate_binding_changed_rejects",
+        "test_rater_005.AggregationRater005.test_conservative_minimum_not_mean",
+        "test_rater_005.AggregationRater005.test_deterministic_zero_cannot_be_outvoted",
+        "test_rater_005.AggregationRater005.test_disagreement_boundary_exact",
+        "test_rater_005.AggregationRater005.test_duplicate_rater_rejects",
+        "test_rater_005.AggregationRater005.test_excess_disagreement_requires_adjudication",
+        "test_rater_005.AggregationRater005.test_independence_group_clones_reject",
+        "test_rater_005.AggregationRater005.test_missing_rater_zero_and_blocked",
+        "test_rater_005.AggregationRater005.test_model_only_roster_rejects",
+        "test_rater_005.AggregationRater005.test_policy_digest_cannot_be_changed",
+        "test_rater_005.AggregationRater005.test_positive_minimum",
+        "test_rater_005.AggregationRater005.test_score_aggregation_does_not_authorize_release",
+        "test_rater_005.AggregationRater005.test_stable_result_order",
+        "test_rater_005.AggregationRater005.test_unknown_assessor_rejects",
+        "test_rater_005.AggregationRater005.test_wrong_kind_rejects"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Conservative aggregation/service admission does not prove real-world evaluator independence or rater accuracy.",
+      "hardening_links": [
+        "BIE-EVAL-H1-007"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REL-001",
+      "original_sequence": 47,
+      "original_capability": "enterprise threshold",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-001/SPEC.md",
+      "spec_sha256": "d5f2a5fbfa5ed68b68394f783cf8e9474f933375cfeb7602ffb6b940b3d85f81",
+      "scoped_behavior": "Exact weighted metric thresholds and measured-fraction checks using an operator-pinned denominator; missing metrics remain zero.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/thresholds.py": [
+          "normalize_scores",
+          "evaluate"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/thresholds.py": "ced02e60bf9786f1e10ed99919c2c96723a6dee08739d255fa18b40189b99e3f",
+        "tests/section17/test_rel_001.py": "958d116a0597ea40884d85c765cf7b574c37ea0a4543a34307251a41afebdcc1"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-005"
+      ],
+      "executed_selected_test_ids": [
+        "test_rel_001.EnterpriseThreshold001.test_below_threshold_fails",
+        "test_rel_001.EnterpriseThreshold001.test_blocked_score_not_credited",
+        "test_rel_001.EnterpriseThreshold001.test_duplicate_score_rejects",
+        "test_rel_001.EnterpriseThreshold001.test_empty_metric_policy_rejects",
+        "test_rel_001.EnterpriseThreshold001.test_empty_scores_fail",
+        "test_rel_001.EnterpriseThreshold001.test_exact_weighted_boundary_passes",
+        "test_rel_001.EnterpriseThreshold001.test_missing_fails_coverage_even_when_score_ok",
+        "test_rel_001.EnterpriseThreshold001.test_missing_keeps_fixed_denominator",
+        "test_rel_001.EnterpriseThreshold001.test_order_invariant",
+        "test_rel_001.EnterpriseThreshold001.test_policy_hash_rejects",
+        "test_rel_001.EnterpriseThreshold001.test_score_boolean_negative_nonfinite_rejects",
+        "test_rel_001.EnterpriseThreshold001.test_threshold_score_does_not_authorize_release",
+        "test_rel_001.EnterpriseThreshold001.test_unknown_metric_rejects",
+        "test_rel_001.EnterpriseThreshold001.test_unknown_status_rejects",
+        "test_rel_001.EnterpriseThreshold001.test_zero_weight_rejects"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Weighted numerical thresholds are operator policy, not empirically validated learning-quality standards.",
+      "hardening_links": [
+        "BIE-EVAL-H1-008"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REL-002",
+      "original_sequence": 48,
+      "original_capability": "critical hard floors",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-002/SPEC.md",
+      "spec_sha256": "48dfc7ca8c7b1cb835e8a9c34f1c21ed2b88eef66682a86716bd8d26513392cc",
+      "scoped_behavior": "Mandatory per-metric floors and measured-status requirements that cannot be overridden by a high overall average.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/floors.py": [
+          "evaluate"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/floors.py": "fb7cf8a1255e3a601b6eef67c8c11a4a9dddd01a9dca6e70650c315b987d8477",
+        "tests/section17/test_rel_002.py": "99666aa5f19c76775b10df78dc12e3fdb53be5458c491db7183da6033847136a"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REL-001"
+      ],
+      "executed_selected_test_ids": [
+        "test_rel_002.HardFloors002.test_all_missing_reports_every_failure",
+        "test_rel_002.HardFloors002.test_any_floor_fails_gate",
+        "test_rel_002.HardFloors002.test_blocked_critical_cannot_claim_one",
+        "test_rel_002.HardFloors002.test_duplicate_floor_rejects",
+        "test_rel_002.HardFloors002.test_duplicate_result_rejects",
+        "test_rel_002.HardFloors002.test_empty_floor_policy_rejects",
+        "test_rel_002.HardFloors002.test_exact_boundary_passes",
+        "test_rel_002.HardFloors002.test_extra_metric_rejects",
+        "test_rel_002.HardFloors002.test_hard_floor_failures_deterministic",
+        "test_rel_002.HardFloors002.test_hash_pin_rejects",
+        "test_rel_002.HardFloors002.test_invalid_floor_range_rejects",
+        "test_rel_002.HardFloors002.test_missing_critical_is_not_measured",
+        "test_rel_002.HardFloors002.test_one_strong_metric_cannot_mask_other",
+        "test_rel_002.HardFloors002.test_zero_floor_still_requires_measured"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Hard floors cannot certify the truth of supplied upstream evidence or completeness of selected profiles.",
+      "hardening_links": [],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REL-003",
+      "original_sequence": 49,
+      "original_capability": "domain minimums",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-003/SPEC.md",
+      "spec_sha256": "c403c1277670dce0d1adbd1be224ccaed232267f65740644c94ddae094666461",
+      "scoped_behavior": "Per-domain weighted score/coverage floors, fixed case rosters and minimum independent leakage-group counts.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/domains.py": [
+          "evaluate"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/domains.py": "9f628cb051ce8553038da306be905b8b7aee8f07275d00903d4658f4bc51090f",
+        "tests/section17/test_rel_003.py": "5b930b52116d2e9d6afd49800ffb522a59fb396ae990966be8827be9757fdbe6"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REL-001",
+        "BIE-EVAL-REL-002"
+      ],
+      "executed_selected_test_ids": [
+        "test_rel_003.DomainMinimums003.test_all_domain_minima_pass",
+        "test_rel_003.DomainMinimums003.test_blocked_cases_do_not_count_as_independent",
+        "test_rel_003.DomainMinimums003.test_domain_outputs_sorted",
+        "test_rel_003.DomainMinimums003.test_domain_policy_cannot_drop_weak_domain",
+        "test_rel_003.DomainMinimums003.test_duplicate_case_rejects",
+        "test_rel_003.DomainMinimums003.test_duplicate_leakage_groups_not_independent",
+        "test_rel_003.DomainMinimums003.test_empty_domain_roster_rejects",
+        "test_rel_003.DomainMinimums003.test_hash_pin_rejects",
+        "test_rel_003.DomainMinimums003.test_invalid_case_minimum_rejects",
+        "test_rel_003.DomainMinimums003.test_missing_domain_case_keeps_denominator",
+        "test_rel_003.DomainMinimums003.test_no_product_acceptance",
+        "test_rel_003.DomainMinimums003.test_one_domain_failure_not_masked",
+        "test_rel_003.DomainMinimums003.test_unconfigured_domain_rejects",
+        "test_rel_003.DomainMinimums003.test_unknown_result_rejects",
+        "test_rel_003.DomainMinimums003.test_unmeasured_fraction_minimum",
+        "test_rel_003.DomainMinimums003.test_weighted_domain_score_exact"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Full pinned domain-metric cells and reference-group checks do not create independently reviewed domain coverage.",
+      "hardening_links": [
+        "BIE-EVAL-H1-008"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    },
+    {
+      "task_id": "BIE-EVAL-REL-004",
+      "original_sequence": 50,
+      "original_capability": "release benchmark gate",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-004/SPEC.md",
+      "spec_sha256": "64b7ccb5d3f316fbc5fda1e4fd81f9ceb49fe76752927963e3bbc5d942e57b4a",
+      "scoped_behavior": "Aggregate actual evaluator receipts, enforce agreement/enterprise/critical/domain gates, verify scoped signed external evidence and persist single-use attempts with frozen campaign identity.",
+      "source_symbols": {
+        "bie/evaluation/benchmarks/release/gate.py": [
+          "validate_manifest",
+          "validate_policy",
+          "evidence_scope",
+          "production_input_bindings",
+          "evaluate"
+        ],
+        "bie/evaluation/benchmarks/release/ledger.py": [
+          "__init__",
+          "__enter__",
+          "__exit__",
+          "close",
+          "execute",
+          "get",
+          "recover_incomplete"
+        ],
+        "bie/evaluation/benchmarks/release/__main__.py": [
+          "read_json",
+          "load_trust",
+          "main"
+        ]
+      },
+      "owned_files_sha256": {
+        "bie/evaluation/benchmarks/release/gate.py": "6e37c74e5fdb1c48f315ff08b83191b60c1a1619e546a67e4a8f9fb3feef3044",
+        "tests/section17/test_rel_004.py": "7460bea6b2079e3c22e796916717a0c619b4ea147785813fa2fbbeab1cb1e125",
+        "bie/evaluation/benchmarks/release/ledger.py": "7a36544ff576c6264fa7b24265c55c4b360bed4ce6deae42587203b8e281ea5f",
+        "bie/evaluation/benchmarks/release/__main__.py": "a7993cf89aa2e233e2ef966acf99832a91bbebcec65ccc51999c2748a865e9cf"
+      },
+      "direct_dependencies": [
+        "BIE-EVAL-REL-001",
+        "BIE-EVAL-REL-002",
+        "BIE-EVAL-REL-003"
+      ],
+      "executed_selected_test_ids": [
+        "test_rel_004.ReleaseGate004.test_attestation_cannot_be_reused_for_other_policy",
+        "test_rel_004.ReleaseGate004.test_bad_manifest_pin_rejects",
+        "test_rel_004.ReleaseGate004.test_candidate_supplied_aggregate_not_accepted",
+        "test_rel_004.ReleaseGate004.test_complete_fixture_is_only_diagnostic_pass",
+        "test_rel_004.ReleaseGate004.test_core_floor_cannot_be_weakened",
+        "test_rel_004.ReleaseGate004.test_cross_candidate_assessment_rejects",
+        "test_rel_004.ReleaseGate004.test_duplicate_assessment_rejects",
+        "test_rel_004.ReleaseGate004.test_duplicate_attestation_rejects",
+        "test_rel_004.ReleaseGate004.test_gate_order_independent",
+        "test_rel_004.ReleaseGate004.test_manifest_context_mismatch_rejects",
+        "test_rel_004.ReleaseGate004.test_missing_all_assessments_blocks",
+        "test_rel_004.ReleaseGate004.test_missing_case_rater_blocks",
+        "test_rel_004.ReleaseGate004.test_no_deployment_or_product_authorization",
+        "test_rel_004.ReleaseGate004.test_one_low_case_blocks_even_high_others",
+        "test_rel_004.ReleaseGate004.test_production_authored_reference_rejected",
+        "test_rel_004.ReleaseGate004.test_production_coverage_cannot_be_weakened",
+        "test_rel_004.ReleaseGate004.test_production_missing_evidence_blocks_not_pass",
+        "test_rel_004.ReleaseGate004.test_production_policy_cannot_remove_attestations",
+        "test_rel_004.ReleaseGate004.test_production_requires_all_seventeen_metrics",
+        "test_rel_004.ReleaseGate004.test_report_hash_integrity",
+        "test_rel_004.ReleaseGate004.test_required_external_attestation_missing_blocks",
+        "test_rel_004.ReleaseGate004.test_revoked_release_attestor_blocks",
+        "test_rel_004.ReleaseGate004.test_same_domain_dropped_from_policy_rejects",
+        "test_rel_004.ReleaseGate004.test_scoped_diagnostic_attestation_verified",
+        "test_rel_004.ReleaseGate004.test_undefined_kappa_not_silently_perfect",
+        "test_rel_004.ReleaseGate004.test_valid_signature_without_evidence_bytes_blocks",
+        "test_rel_004.ReleaseLedger004.test_candidate_revision_does_not_change_pinned_roster",
+        "test_rel_004.ReleaseLedger004.test_corrupt_campaign_binding_detected",
+        "test_rel_004.ReleaseLedger004.test_database_directory_refused",
+        "test_rel_004.ReleaseLedger004.test_distinct_artifact_same_pinned_campaign_supported",
+        "test_rel_004.ReleaseLedger004.test_failed_attempt_also_consumed",
+        "test_rel_004.ReleaseLedger004.test_incomplete_attempt_not_success",
+        "test_rel_004.ReleaseLedger004.test_invalid_policy_keeps_blocked_receipt",
+        "test_rel_004.ReleaseLedger004.test_persisted_receipt_reopened",
+        "test_rel_004.ReleaseLedger004.test_policy_change_fails_campaign_freeze",
+        "test_rel_004.ReleaseLedger004.test_roster_change_not_silent_new_campaign",
+        "test_rel_004.ReleaseLedger004.test_same_artifact_attempt_cannot_be_retried",
+        "test_rel_004.ReleaseLedger004.test_symlink_database_refused",
+        "test_rel_004.ReleaseLedger004.test_symlink_parent_refused",
+        "test_rel_004.ReleaseLedger004.test_tampered_receipt_detected",
+        "test_rel_004.ReleaseLedger004.test_unknown_attempt_not_success"
+      ],
+      "scoped_tests_passed": true,
+      "remaining_capability_boundary": "Hardened bundle/service/coverage bindings and signed external attestations are not native artifact verification or production deployment permission; operator honesty/custody remains a trust boundary.",
+      "hardening_links": [
+        "BIE-EVAL-H1-002",
+        "BIE-EVAL-H1-006",
+        "BIE-EVAL-H1-007",
+        "BIE-EVAL-H1-008",
+        "BIE-EVAL-H1-009"
+      ],
+      "enterprise_capability_closed": false,
+      "review_method": "spec/owned-code boundary review, dependency/path/hash verification and local regression; NOT independent exhaustive line-by-line or canonical-repository audit"
+    }
+  ],
+  "section_complete": false,
+  "native_repository_audited": false
+}

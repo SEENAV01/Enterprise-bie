@@ -1,0 +1,138 @@
+{
+  "task_id": "BIE-EVAL-GEO-001",
+  "original_sequence": 20,
+  "original_capability": "plate tectonics",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Directed boundary projections, half/full spreading rates, ridge age and tectonic misconception checks.",
+  "bounds_and_open_scope": "Local planar two-dimensional velocities with an exact rational unit normal; explicit cm/yr, mm/yr, m/yr, yr/Myr and m/km units. Constant symmetric half/full spreading and four idealized oceanic-lithosphere boundary profiles. Not a total crust budget, global Euler-pole model, map/diagram parser, variable-rate inversion, seismic forecast or exact earthquake-time prediction.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-BIO-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/plate_tectonics.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-001.json",
+    "tests/section17/test_geo_001.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/plate_tectonics.py": "8a208a1b959c5f53cf61c040b678b2ae6fb7f98dc8be270f70ba3d79db48b397",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-001.json": "65fda46225efbd3feff8b28e902a271ff7952b9c26f3eecbc61e25946696e64a",
+    "tests/section17/test_geo_001.py": "2cdb9d5747b1c59f42a755499f090ddb8ddfb90292ed1cd58b485a04422649ac"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_approximate_normal_not_silently_normalized",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_common_translation_does_not_change_relative_motion",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_mm_and_cm_rate_equivalence",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_negative_duration_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_plate_swap_and_normal_reversal_preserve_separation",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_rational_unit_normal_projection",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_spreading_age_round_trip",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_subduction_class_does_not_deny_all_new_crust",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_transform_motion_has_no_crust_prediction_score",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_geo_001.GEO001Tests.test_zero_relative_velocity_not_transform",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 10,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-GEO-001/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

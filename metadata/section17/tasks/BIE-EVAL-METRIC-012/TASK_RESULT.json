@@ -1,0 +1,94 @@
+{
+  "task_id": "BIE-EVAL-METRIC-012",
+  "original_sequence": 36,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Real bounded media probing and full video-frame decoding; stream dimensions, rational frame rate, timestamps, duration, frame count and required audio-stream presence.",
+  "limits": "At most 20MB input, 320x180 video, 300 frames and 20 seconds in this collector. Audio presence is not audio decoding, intelligibility or narration QA; no native Remotion render run.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/rendering.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-012.json",
+    "tests/section17/test_metric_012.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001",
+    "BIE-EVAL-METRIC-011"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_boolean_audio_requirement_really_typed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_container_duration_mismatch_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_decode_does_not_claim_audio_content",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_empty_media_candidates_cannot_score_one",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_forged_media_receipt_hash_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_missing_frame_hashes_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_nonmonotonic_pts_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_one_frame_tolerance_not_allowed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_required_audio_absent_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_012.METRIC012Tests.test_wrong_frame_count_fails",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-012/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

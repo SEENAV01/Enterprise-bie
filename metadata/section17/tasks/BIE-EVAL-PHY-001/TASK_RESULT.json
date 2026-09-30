@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-EVAL-PHY-001",
+  "original_capability": "Coulomb benchmark",
+  "batch": 1,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Signed 3D point-charge force, vector superposition, inverse-square distance, explicit SI conversions, configurable pinned Coulomb constant and coincidence rejection.",
+  "bounds_and_open_scope": "Electrostatic point charges in vacuum only. Not dielectric interfaces, distributed fields, relativity, visual explanations or native BIE physics acceptance. Ten authored development cases; no independently reviewed hidden Coulomb corpus.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/coulomb.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-001.json",
+    "tests/section17/test_phy_001.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/coulomb.py": "0485487a83253033211f8ad0a3d6ebf76631384c80553b67e8763fb9d28b5f8a",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-001.json": "36cd6dfca7613e917fb9358265447de5923447b354441607064286cd928a96d2",
+    "tests/section17/test_phy_001.py": "622f0a757a6fb7998c50ac06ae77428a39a00bfa84b92f2ea61f22c3b4b8b558"
+  },
+  "selected_task_suite": {
+    "test_method_count": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "python -B -m unittest discover -s tests/section17 -p test_phy_001.py -v"
+  },
+  "batch_shared_regression": "254 unique test methods including 38 additional cross-task/audit/CLI/package tests; do not add repeated task runs to this count.",
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-PHY-001/SPEC.md",
+  "evidence_scope": "Local Python execution, unit/contract/metamorphic tests and authored diagnostic cases only.",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_diagnostic_cases": {
+    "total": 10,
+    "expected_successful_computation": 8,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  }
+}

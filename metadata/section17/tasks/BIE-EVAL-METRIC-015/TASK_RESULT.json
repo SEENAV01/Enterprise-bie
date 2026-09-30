@@ -1,0 +1,93 @@
+{
+  "task_id": "BIE-EVAL-METRIC-015",
+  "original_sequence": 39,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Unrounded sRGB text contrast, trusted normal/large-text classification, caption text and interval coverage, static control names/roles/keys, focus-graph exit reachability and alt-text presence.",
+  "limits": "Partial static diagnostics, not WCAG conformance certification, an actual keyboard/browser test, assistive-technology compatibility or decoded audio-caption alignment.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/accessibility.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-015.json",
+    "tests/section17/test_metric_015.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_black_white_contrast_is_21",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_candidate_cannot_claim_large_text_exception",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_focus_reference_missing_target_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_missing_accessible_name_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_no_wcag_certification_in_report",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_out_of_range_rgb_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_same_color_contrast_is_one",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_split_caption_coverage_and_text",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_standard_text_777777_is_below_4_5",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_015.METRIC015Tests.test_trusted_large_text_777777_can_pass",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-015/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

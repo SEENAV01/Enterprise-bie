@@ -1,0 +1,138 @@
+{
+  "task_id": "BIE-EVAL-BIO-002",
+  "original_sequence": 12,
+  "original_capability": "genetics",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Exact mono/multilocus Mendelian crosses, allele counting and explicitly conditional H-W expectations.",
+  "bounds_and_open_scope": "At most four independent diploid loci, single-letter allele symbols and complete dominance. Exact Mendelian probabilities. Hardy-Weinberg requires all five declared assumptions. No linked loci, epistasis, population fitting or personal genetic-risk assessment.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-BIO-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/genetics.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-002.json",
+    "tests/section17/test_bio_002.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/genetics.py": "48b99a61eed55aca86995718d210142f44bfebc2480f4771cf38c9a036de9143",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-002.json": "0c86a69a13949d31c8d0cd7c5e5d95425a58b32d88ed97ccdcda8aedf5a373f8",
+    "tests/section17/test_bio_002.py": "2c7268a9dac95a0905fef0cb741f3f9955cd27cd2bb0ae7d03651238d21ebed5"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_duplicate_loci_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_empty_population_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_five_loci_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_four_loci_cartesian_distribution",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_hardy_weinberg_allele_symmetry",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_hardy_weinberg_mixed_assumption_types",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_incomplete_dominance_not_silently_assumed",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_negative_population_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_observed_counts_not_equilibrium_inference",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_002.BIO002Tests.test_parent_swap_preserves_cross",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 8,
+    "expected_typed_rejection": 4,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-BIO-002/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

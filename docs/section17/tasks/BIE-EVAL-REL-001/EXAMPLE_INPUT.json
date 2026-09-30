@@ -1,0 +1,30 @@
+{
+  "policy": {
+    "id": "threshold",
+    "version": "1.0.0",
+    "minimum_score": "4/5",
+    "minimum_measured_fraction": "1",
+    "metrics": [
+      {
+        "id": "a",
+        "weight": "3"
+      },
+      {
+        "id": "b",
+        "weight": "1"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "id": "a",
+      "status": "MEASURED",
+      "score": "1"
+    },
+    {
+      "id": "b",
+      "status": "MEASURED",
+      "score": "1/5"
+    }
+  ]
+}

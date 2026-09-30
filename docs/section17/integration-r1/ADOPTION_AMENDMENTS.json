@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "source_master_sha256": "03043839a2290672a4b672cbb39952846e77ff99572a791bf0ca89cf14a51f4e",
+  "amendments": [
+    {
+      "path": "bie/evaluation/benchmarks/native_api/service.py",
+      "original_sha256": "033f01943e3d79d5b01870bbf469bcbf774a78a368c77802c622dabf95095e18",
+      "replacement_sha256": "1aa453ce284851802c70b78183032367c06274497ff2a6a902c530517b3db11d",
+      "reason": "Exact pinned LF Git blob is accepted when Windows materializes only CRLF; changed code remains rejected."
+    },
+    {
+      "path": "tests/section17/h4_support.py",
+      "original_sha256": "7a50d92b4d53ab7dc0b7662c910ebc12614f4b52ccdf56de22b06ed6f2719108",
+      "replacement_sha256": "ac89c35c03835ae841cea02348f6b643365569920bf53fa4966d42dc176a514b",
+      "reason": "CI operator selects its approved Chromium binary without changing the authored browser test policy."
+    },
+    {
+      "path": "tests/section17/test_bio_001.py",
+      "original_sha256": "0b723c5bb09ffd651abbee967ac4d45f9651258b59f7afef0641d747a63d4a37",
+      "replacement_sha256": "ad64e590aefd71153aeaf8b02431e3de0b7e41942da80e645bcda9e5eb10b691",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_bio_002.py",
+      "original_sha256": "2c7268a9dac95a0905fef0cb741f3f9955cd27cd2bb0ae7d03651238d21ebed5",
+      "replacement_sha256": "a27155f908e8b5b3d2ac27b301ec436d8122712be5a15d4c49ec42d5bf974262",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_bio_003.py",
+      "original_sha256": "df8a38e48521d4b512020da5ab5ab337a4bd7b16f412965942fad8fc2f277cd4",
+      "replacement_sha256": "4e3660860c2d29e41dd9e3e7a8d48972c09f0245f3fd1ef5ee1119acefe50861",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_chem_001.py",
+      "original_sha256": "593aab7cb7639404a08a9f1d4543e01edacdc022d48b07c4c915f7cedeb84279",
+      "replacement_sha256": "2fdff9dab9a9013c7e386b7cea2ab0442b949fdbdecc63440b10b83f3b5e21d3",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_chem_002.py",
+      "original_sha256": "614488f0df2f2a0c0d5b75211c0fcb7e40ecd0d1ab84c7c8efefe657ba8dd858",
+      "replacement_sha256": "494cb77fdd08a6d156d6437aa081ab155f4261b7254ed9ef2bc513d3ee197970",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_chem_003.py",
+      "original_sha256": "bdef6eec1f3d653900cada74b7c8291c509fa235c4ebf9951941b6c37a3132a7",
+      "replacement_sha256": "b3ba761ee455f349c39255a7d7f05f38344baa8d4f117de1ed6863f9216cddad",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_geo_001.py",
+      "original_sha256": "2cdb9d5747b1c59f42a755499f090ddb8ddfb90292ed1cd58b485a04422649ac",
+      "replacement_sha256": "20aca8c568a160eb648deb7b48fd8e5b98630fd37f83321f756eb3b9b42f78a5",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_hist_001.py",
+      "original_sha256": "4f31d7c32f3841f1641e63b7664b635b5432df4e93df851a104dc4d1e83a8d17",
+      "replacement_sha256": "0c0b58a2454e9b6409c135806595cd39d033b044379b676b2bf9eb6d3cfeeea7",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_hist_002.py",
+      "original_sha256": "e1c6f7668533c4e41739e8db01006c6b4b4342e51ba1be8918a604a0e39cec3f",
+      "replacement_sha256": "fb6c027aceb1a9ccc541907c00bccd3ca75edb02f09a54a3601047fc498f8077",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    },
+    {
+      "path": "tests/section17/test_hist_003.py",
+      "original_sha256": "220d2defaf689a9bf66daedf94a45ef538e104de24d5aaf6718c14f06a0bf512",
+      "replacement_sha256": "0ef42d81e648c70434066cbbf696c66b5f4133d61f8d7d5b4b316057fb68bc02",
+      "reason": "Remove one blank line at EOF; no test logic changed."
+    }
+  ]
+}
