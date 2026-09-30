@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BIE Operator Console — Section 18</title>
+  <link rel="stylesheet" href="/app/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">My Book Intelligence Engine</p>
+      <h1>Operator Console</h1>
+    </div>
+    <p class="candidate">Section 18 · Batch 001 candidate</p>
+  </header>
+
+  <main id="main" class="shell">
+    <section class="panel" aria-labelledby="source-heading">
+      <div class="panel-heading">
+        <div>
+          <p class="step">Source</p>
+          <h2 id="source-heading">Validate and create a run</h2>
+        </div>
+        <span id="validationBadge" class="badge neutral">Not checked</span>
+      </div>
+      <form id="sourceForm">
+        <label for="sourceFile">PDF source</label>
+        <input id="sourceFile" name="sourceFile" type="file" accept="application/pdf,.pdf" required>
+        <div class="button-row">
+          <button id="validateButton" type="button">Validate source</button>
+          <button id="createButton" type="submit" class="primary" disabled>Create run</button>
+        </div>
+      </form>
+      <dl id="sourceFacts" class="facts" aria-live="polite"></dl>
+      <p id="sourceMessage" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="run-heading">
+      <div class="panel-heading">
+        <div>
+          <p class="step">Run</p>
+          <h2 id="run-heading">Truthful runtime state</h2>
+        </div>
+        <button id="refreshButton" type="button" disabled>Refresh</button>
+      </div>
+      <dl id="runFacts" class="facts"></dl>
+      <div class="button-row controls" aria-label="Run controls">
+        <button data-action="pause" type="button" disabled>Pause</button>
+        <button data-action="resume" type="button" disabled>Resume</button>
+        <button data-action="retry" type="button" disabled>Retry</button>
+        <button data-action="cancel" type="button" class="danger" disabled>Cancel</button>
+      </div>
+      <p id="runMessage" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="timeline-heading">
+      <p class="step">Trace</p>
+      <h2 id="timeline-heading">Stage timeline</h2>
+      <ol id="timeline" class="timeline">
+        <li class="empty">No run selected.</li>
+      </ol>
+    </section>
+
+    <section class="panel" aria-labelledby="failure-heading">
+      <p class="step">Failure</p>
+      <h2 id="failure-heading">Safe failure inspection</h2>
+      <div id="failureView" class="empty">No failure evidence available.</div>
+    </section>
+
+    <section class="panel wide" aria-labelledby="graphs-heading">
+      <div class="panel-heading">
+        <div>
+          <p class="step">Graphs</p>
+          <h2 id="graphs-heading">Artifact-backed graph viewers</h2>
+        </div>
+      </div>
+      <label for="artifactId">Graph artifact ID</label>
+      <input id="artifactId" type="text" maxlength="256" autocomplete="off" placeholder="Actual BIE artifact ID">
+      <div class="button-row">
+        <button data-graph="concept" type="button" disabled>Concept graph</button>
+        <button data-graph="prerequisite" type="button" disabled>Prerequisite graph</button>
+      </div>
+      <p id="graphMessage" class="message" role="status" aria-live="polite"></p>
+      <svg id="graphCanvas" viewBox="0 0 960 520" role="img" aria-labelledby="graphTitle graphDescription">
+        <title id="graphTitle">BIE graph viewer</title>
+        <desc id="graphDescription">Select an actual graph artifact to render its nodes and edges.</desc>
+      </svg>
+      <div id="graphTable" class="graph-table"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Development operator view. Backend state is authoritative; this page does not infer release acceptance.</p>
+  </footer>
+  <script src="/app/app.js" defer></script>
+</body>
+</html>
