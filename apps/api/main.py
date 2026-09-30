@@ -9,6 +9,7 @@ from bie.document_intelligence.real_pdf_toc_runtime import (
     RealPdfTocRuntimeError,
     inspect_real_pdf_toc,
 )
+from .operator_routes import router as operator_router
 from .job_service import (
     IdempotencyConflict,
     InvalidIdempotencyKey,
@@ -35,6 +36,7 @@ app = FastAPI(
     docs_url=None,
     redoc_url=None,
 )
+app.include_router(operator_router)
 
 
 def _error(status_code: int, code: str, message: str) -> JSONResponse:
