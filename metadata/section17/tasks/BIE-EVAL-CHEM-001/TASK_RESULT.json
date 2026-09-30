@@ -1,0 +1,140 @@
+{
+  "task_id": "BIE-EVAL-CHEM-001",
+  "original_sequence": 14,
+  "original_capability": "bonding",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Lewis graph electron/charge accounting, VSEPR and conceptual defects.",
+  "bounds_and_open_scope": "Even-electron H/Be/B/C/N/O/F Lewis bookkeeping: <=32 atoms, <=64 bonds; six VSEPR profiles covering two to four electron domains. Formal charges/shell diagnostics are not partial charges, stability or complete chemical-validity proofs. General resonance generation, radicals, expanded octets, electronic structure and diagram understanding remain open.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-BIO-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/bonding.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-001.json",
+    "tests/section17/test_chem_001.py",
+    "bie/evaluation/benchmarks/domains/chemistry_common.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/bonding.py": "20d7b582423c795ee4f2fccd7bff9e93acdf9531e270e561edc9e789145b94bc",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-001.json": "fcc6eaf6ef562a8bafaa2fec4ab1e8f175c2b270ead96afb7c1f59301cd1b4cf",
+    "tests/section17/test_chem_001.py": "593aab7cb7639404a08a9f1d4543e01edacdc022d48b07c4c915f7cedeb84279",
+    "bie/evaluation/benchmarks/domains/chemistry_common.py": "01c32bebc452ea170f489645220bb097d03970777974e5a49fee451c854f6632"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_all_supported_vsepr_shapes",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_atom_and_bond_order_irrelevant",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_boolean_bond_order_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_expanded_octet_element_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_formal_charge_consistent_with_total_electrons",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_numeric_boolean_claim_not_equivalent",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_omitted_bonding_claims_are_defects",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_oversized_atom_graph_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_reverse_duplicate_bond_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_001.CHEM001Tests.test_self_bond_refused",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 8,
+    "expected_typed_rejection": 4,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-CHEM-001/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

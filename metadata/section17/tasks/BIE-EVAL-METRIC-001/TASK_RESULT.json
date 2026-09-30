@@ -1,0 +1,136 @@
+{
+  "task_id": "BIE-EVAL-METRIC-001",
+  "original_sequence": 25,
+  "original_capability": "grounding metric",
+  "batch": 3,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Candidate-bound weighted proposition/citation checking against exact captured authored source text.",
+  "bounded_contract": "Reference payload: sources {id,text_sha256,locator}, claims {id,weight,proposition,supports}. Candidate: claims {id,proposition,citations}. A typed proposition has subject,predicate,object; IDs and scalar types are strict.\nActual source_artifacts text must exactly match the trusted source roster and UTF-8 hashes. Spans use Python/Unicode codepoint indices, not byte offsets or grapheme clusters. Reference spans have expected span SHA256. Candidate citations must all match annotated supports; at least one annotated support is required per present claim.\nEach trusted claim earns all or zero declared weight; missing, changed, uncited or unannotated claims fail. Duplicate citations/unknown claims or sources are blocked rather than discarded. Grounding is measured from artifacts, not a candidate-owned PASS assertion.",
+  "bounds_and_open_scope": "Exact span binding does not establish entailment, truth or licensing. Proposition-to-source support is curated, not NLP-inferred. Original authored text is bundled only in fixture artifacts. Independent source review and native PDF/text span adaptation remain open.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004",
+    "BIE-EVAL-BIO-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/grounding.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json",
+    "tests/section17/test_metric_001.py",
+    "bie/evaluation/benchmarks/metrics/__init__.py",
+    "bie/evaluation/benchmarks/metrics/common.py",
+    "bie/evaluation/benchmarks/metrics/service.py",
+    "bie/evaluation/benchmarks/metrics/__main__.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/metrics/grounding.py": "c6846daa2ece8915e8a120db3ca0652c318513653bf5d5c6ecada2dc568f84f3",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json": "123eb4b1de57eb79097ad1a247a966ea7f856d2770e119a4af71203882fa9398",
+    "tests/section17/test_metric_001.py": "380f8da33abdf2afd6f0ef0d08f6658c2b639d0b54ea5e8d96ab0c952ee49bf9",
+    "bie/evaluation/benchmarks/metrics/__init__.py": "0a40e49f291f5798eb846f252e9a48c7c05ddf55589b3b055ec184aca0944603",
+    "bie/evaluation/benchmarks/metrics/common.py": "bec37a5016b30b8a808ef08158a23ac221a8ccc790ca9eb974baf5a94a19a56b",
+    "bie/evaluation/benchmarks/metrics/service.py": "40e739de890d3f20f76f6644ddca768aa7e8b83c7aba784beaa0db6697a844ec",
+    "bie/evaluation/benchmarks/metrics/__main__.py": "f456f4dbc86dcc76bfc4f904f72c29e5c06d609eaeeeb03904adb1d54e5f3443"
+  },
+  "selected_task_suite": {
+    "schema_version": "1.0.0",
+    "task_id": "BIE-EVAL-METRIC-001",
+    "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+    "tests_run": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_boolean_span_not_an_index",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_candidate_cannot_supply_its_own_weight",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_duplicate_citation_not_double_credit",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_empty_reference_never_perfect",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_extra_claim_does_not_expand_denominator",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_missing_source_artifact_blocked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_negative_span_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_one_correct_plus_one_wrong_citation_is_not_accepted",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_proposition_type_distinguishes_boolean_integer",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_reference_span_tamper_blocked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_reference_weight_sets_denominator",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_source_tamper_blocked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_unicode_offsets_are_codepoints_not_bytes",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_001.METRIC001Tests.test_unknown_source_rejected",
+        "status": "PASS"
+      }
+    ],
+    "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+    "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+    "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+  },
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-001/SPEC.md",
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_fixture_count": 6,
+  "independent_reference_review": false,
+  "hidden_holdout": false
+}

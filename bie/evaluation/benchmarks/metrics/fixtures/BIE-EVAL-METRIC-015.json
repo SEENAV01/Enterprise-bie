@@ -1,0 +1,337 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-015",
+    "rubric_id": "delivery-metric-015",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-015/SPEC.md",
+        "basis_sha256": "26bdb643efc153874b15b4edc401b3444d1cf81d0446e2b378a0faf3a137a6c8"
+      }
+    ],
+    "payload": {
+      "duration_ms": 2000,
+      "speech": [
+        {
+          "id": "speech",
+          "start": 0,
+          "end": 2000,
+          "transcript": "Distance changes force",
+          "weight": 1
+        }
+      ],
+      "controls": [
+        {
+          "id": "pause",
+          "key": "Space",
+          "role": "button",
+          "weight": 1
+        }
+      ],
+      "text_labels": [
+        {
+          "id": "caption",
+          "large_text": false,
+          "weight": 1
+        }
+      ],
+      "alt_ids": [
+        "diagram"
+      ],
+      "caption_tolerance_ms": 0
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "correct",
+      "candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 2000,
+            "text": "Distance changes force"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "EXIT"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "alts": [
+          {
+            "id": "diagram",
+            "text": "Two charges separated by a labelled distance"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "low-contrast",
+      "candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 2000,
+            "text": "Distance changes force"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "EXIT"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              110,
+              110,
+              110
+            ],
+            "background": [
+              100,
+              100,
+              100
+            ]
+          }
+        ],
+        "alts": [
+          {
+            "id": "diagram",
+            "text": "Two charges separated by a labelled distance"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "TEXT_CONTRAST_BELOW_FLOOR"
+    },
+    {
+      "id": "caption-text-wrong",
+      "candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 2000,
+            "text": "Unrelated text"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "EXIT"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "alts": [
+          {
+            "id": "diagram",
+            "text": "Two charges separated by a labelled distance"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "CAPTION_TRANSCRIPT_MISMATCH"
+    },
+    {
+      "id": "caption-gap",
+      "candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 1500,
+            "text": "Distance changes force"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "EXIT"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "alts": [
+          {
+            "id": "diagram",
+            "text": "Two charges separated by a labelled distance"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "CAPTION_TIMING_MISMATCH"
+    },
+    {
+      "id": "keyboard-trap",
+      "candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 2000,
+            "text": "Distance changes force"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "pause"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "alts": [
+          {
+            "id": "diagram",
+            "text": "Two charges separated by a labelled distance"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "KEYBOARD_FOCUS_TRAP"
+    },
+    {
+      "id": "missing-alt",
+      "candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 2000,
+            "text": "Distance changes force"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "EXIT"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "alts": []
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "ALT_TEXT_MISSING"
+    }
+  ],
+  "diagnostic_grade": "AUTHORED_DIAGNOSTIC",
+  "independent_review": false,
+  "native_bie": false
+}

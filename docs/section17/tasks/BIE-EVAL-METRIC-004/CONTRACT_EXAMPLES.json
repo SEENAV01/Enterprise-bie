@@ -1,0 +1,203 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-004",
+    "rubric_id": "BIE-EVAL-METRIC-004.development-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-author-batch003",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-basis",
+        "locator": "Finite Horn proof P->R and R,Q->S with trusted P,Q; required R weight1, S weight2. Invalid extra steps still cause FAIL even at full goal credit.",
+        "basis_sha256": "93ef1a5f834c5dc08eace6206b740623199db8b70597036462cf5e493b50b5d1"
+      }
+    ],
+    "payload": {
+      "facts": [
+        {
+          "id": "f1",
+          "atom": "P"
+        },
+        {
+          "id": "f2",
+          "atom": "Q"
+        }
+      ],
+      "rules": [
+        {
+          "id": "r1",
+          "antecedents": [
+            "P"
+          ],
+          "consequent": "R"
+        },
+        {
+          "id": "r2",
+          "antecedents": [
+            "R",
+            "Q"
+          ],
+          "consequent": "S"
+        }
+      ],
+      "goals": [
+        {
+          "id": "g1",
+          "atom": "R",
+          "weight": 1
+        },
+        {
+          "id": "g2",
+          "atom": "S",
+          "weight": 2
+        }
+      ]
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "positive",
+      "candidate": {
+        "steps": [
+          {
+            "id": "s1",
+            "rule_id": "r1",
+            "premises": [
+              "f1"
+            ],
+            "conclusion": "R"
+          },
+          {
+            "id": "s2",
+            "rule_id": "r2",
+            "premises": [
+              "s1",
+              "f2"
+            ],
+            "conclusion": "S"
+          }
+        ]
+      },
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "missing_last_step",
+      "candidate": {
+        "steps": [
+          {
+            "id": "s1",
+            "rule_id": "r1",
+            "premises": [
+              "f1"
+            ],
+            "conclusion": "R"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "GOAL_NOT_DERIVED"
+    },
+    {
+      "id": "unlicensed_rule",
+      "candidate": {
+        "steps": [
+          {
+            "id": "s1",
+            "rule_id": "invented",
+            "premises": [
+              "f1"
+            ],
+            "conclusion": "R"
+          },
+          {
+            "id": "s2",
+            "rule_id": "r2",
+            "premises": [
+              "s1",
+              "f2"
+            ],
+            "conclusion": "S"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "UNLICENSED_RULE"
+    },
+    {
+      "id": "missing_premise",
+      "candidate": {
+        "steps": [
+          {
+            "id": "s1",
+            "rule_id": "r1",
+            "premises": [
+              "f1"
+            ],
+            "conclusion": "R"
+          },
+          {
+            "id": "s2",
+            "rule_id": "r2",
+            "premises": [
+              "s1"
+            ],
+            "conclusion": "S"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "RULE_ANTECEDENTS_MISMATCH"
+    },
+    {
+      "id": "extra_invalid_step",
+      "candidate": {
+        "steps": [
+          {
+            "id": "s1",
+            "rule_id": "r1",
+            "premises": [
+              "f1"
+            ],
+            "conclusion": "R"
+          },
+          {
+            "id": "s2",
+            "rule_id": "r2",
+            "premises": [
+              "s1",
+              "f2"
+            ],
+            "conclusion": "S"
+          },
+          {
+            "id": "bad",
+            "rule_id": "fake",
+            "premises": [],
+            "conclusion": "X"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1",
+      "expected_reason": "UNLICENSED_RULE"
+    },
+    {
+      "id": "empty_output",
+      "candidate": {
+        "steps": []
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "GOAL_NOT_DERIVED"
+    }
+  ],
+  "fixture_origin": "ORIGINAL_AUTHORED_DEVELOPMENT_NOT_GOLDEN",
+  "expected_values_authored_without_calling_evaluator": true
+}

@@ -1,0 +1,363 @@
+[
+  {
+    "case_id": "BIE-EVAL-BIO-002.C001",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Heterozygous monohybrid cross",
+    "prompt": "Heterozygous monohybrid cross. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assortment\":\"independent\",\"dominance\":\"complete\",\"loci\":[{\"gene\":\"A\",\"parent_a\":\"Aa\",\"parent_b\":\"Aa\"}],\"op\":\"mendelian_cross\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"AA\":\"1/4\",\"Aa\":\"1/2\",\"aa\":\"1/4\"},\"phenotype_probabilities\":{\"A_\":\"3/4\",\"aa\":\"1/4\"},\"probability_sum\":\"1\",\"profile\":\"INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Four equiprobable parental allele pairs aggregate to 1:2:1 genotypes and 3:1 phenotypes.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-inheritance",
+        "title": "Biology 2e",
+        "locator": "12.3 segregation and independent assortment",
+        "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "mendelian_cross",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C002",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Monohybrid test cross",
+    "prompt": "Monohybrid test cross. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assortment\":\"independent\",\"dominance\":\"complete\",\"loci\":[{\"gene\":\"A\",\"parent_a\":\"Aa\",\"parent_b\":\"aa\"}],\"op\":\"mendelian_cross\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"Aa\":\"1/2\",\"aa\":\"1/2\"},\"phenotype_probabilities\":{\"A_\":\"1/2\",\"aa\":\"1/2\"},\"probability_sum\":\"1\",\"profile\":\"INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A or a from one parent meets only a from the other.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-inheritance",
+        "title": "Biology 2e",
+        "locator": "12.3 segregation and independent assortment",
+        "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "mendelian_cross",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C003",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Opposite true-breeding parents",
+    "prompt": "Opposite true-breeding parents. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assortment\":\"independent\",\"dominance\":\"complete\",\"loci\":[{\"gene\":\"A\",\"parent_a\":\"AA\",\"parent_b\":\"aa\"}],\"op\":\"mendelian_cross\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"Aa\":\"1\"},\"phenotype_probabilities\":{\"A_\":\"1\"},\"probability_sum\":\"1\",\"profile\":\"INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Every pair is heterozygous.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-inheritance",
+        "title": "Biology 2e",
+        "locator": "12.3 segregation and independent assortment",
+        "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "mendelian_cross",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C004",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Independent two-locus test cross",
+    "prompt": "Independent two-locus test cross. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assortment\":\"independent\",\"dominance\":\"complete\",\"loci\":[{\"gene\":\"A\",\"parent_a\":\"Aa\",\"parent_b\":\"aa\"},{\"gene\":\"B\",\"parent_a\":\"Bb\",\"parent_b\":\"bb\"}],\"op\":\"mendelian_cross\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"AaBb\":\"1/4\",\"Aabb\":\"1/4\",\"aaBb\":\"1/4\",\"aabb\":\"1/4\"},\"phenotype_probabilities\":{\"A_|B_\":\"1/4\",\"A_|bb\":\"1/4\",\"aa|B_\":\"1/4\",\"aa|bb\":\"1/4\"},\"probability_sum\":\"1\",\"profile\":\"INDEPENDENT_DIPLOID_COMPLETE_DOMINANCE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Multiply two independent one-half probabilities.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-inheritance",
+        "title": "Biology 2e",
+        "locator": "12.3 segregation and independent assortment",
+        "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "mendelian_cross",
+      "multilocus",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C005",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Conditional Hardy-Weinberg p=1/2",
+    "prompt": "Conditional Hardy-Weinberg p=1/2. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assumptions\":[\"random_mating\",\"large_population\",\"no_selection\",\"no_mutation\",\"no_migration\"],\"op\":\"hardy_weinberg\",\"p\":\"1/2\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"AA\":\"1/4\",\"Aa\":\"1/2\",\"aa\":\"1/4\"},\"p\":\"1/2\",\"profile\":\"IDEAL_TWO_ALLELE_HARDY_WEINBERG_NOT_OBSERVED_COUNTS\",\"q\":\"1/2\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Under the explicitly supplied model, q=1-p and genotype frequencies are p*p, 2*p*q, q*q.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-population",
+        "title": "Biology 2e",
+        "locator": "19.1 two-allele Hardy-Weinberg model",
+        "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "hardy_weinberg",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C006",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Conditional Hardy-Weinberg p=4/5",
+    "prompt": "Conditional Hardy-Weinberg p=4/5. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assumptions\":[\"random_mating\",\"large_population\",\"no_selection\",\"no_mutation\",\"no_migration\"],\"op\":\"hardy_weinberg\",\"p\":\"4/5\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"AA\":\"16/25\",\"Aa\":\"8/25\",\"aa\":\"1/25\"},\"p\":\"4/5\",\"profile\":\"IDEAL_TWO_ALLELE_HARDY_WEINBERG_NOT_OBSERVED_COUNTS\",\"q\":\"1/5\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Under the explicitly supplied model, q=1-p and genotype frequencies are p*p, 2*p*q, q*q.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-population",
+        "title": "Biology 2e",
+        "locator": "19.1 two-allele Hardy-Weinberg model",
+        "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "hardy_weinberg",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C007",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Conditional Hardy-Weinberg p=1",
+    "prompt": "Conditional Hardy-Weinberg p=1. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assumptions\":[\"random_mating\",\"large_population\",\"no_selection\",\"no_mutation\",\"no_migration\"],\"op\":\"hardy_weinberg\",\"p\":1}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"genotype_probabilities\":{\"AA\":\"1\",\"Aa\":\"0\",\"aa\":\"0\"},\"p\":\"1\",\"profile\":\"IDEAL_TWO_ALLELE_HARDY_WEINBERG_NOT_OBSERVED_COUNTS\",\"q\":\"0\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Under the explicitly supplied model, q=1-p and genotype frequencies are p*p, 2*p*q, q*q.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-population",
+        "title": "Biology 2e",
+        "locator": "19.1 two-allele Hardy-Weinberg model",
+        "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "hardy_weinberg",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C008",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Observed allele counts do not prove equilibrium",
+    "prompt": "Observed allele counts do not prove equilibrium. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"AA\":20,\"Aa\":10,\"aa\":20,\"op\":\"allele_frequency\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"equilibrium_established\":false,\"individuals\":50,\"p\":\"1/2\",\"q\":\"1/2\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Count 50 A alleles and 50 a alleles among 100; do not infer equilibrium from p alone.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-population",
+        "title": "Biology 2e",
+        "locator": "19.1 two-allele Hardy-Weinberg model",
+        "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "allele_frequency",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C009",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Linked loci must not use independent profile",
+    "prompt": "Linked loci must not use independent profile. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assortment\":\"linked\",\"dominance\":\"complete\",\"loci\":[{\"gene\":\"A\",\"parent_a\":\"Aa\",\"parent_b\":\"Aa\"}],\"op\":\"mendelian_cross\"}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_ENUM\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Linkage needs a separate model; independent assortment cannot be silently assumed.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-inheritance",
+        "title": "Biology 2e",
+        "locator": "12.3 segregation and independent assortment",
+        "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "mendelian_cross",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C010",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Wrong locus alphabet",
+    "prompt": "Wrong locus alphabet. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assortment\":\"independent\",\"dominance\":\"complete\",\"loci\":[{\"gene\":\"A\",\"parent_a\":\"AB\",\"parent_b\":\"Aa\"}],\"op\":\"mendelian_cross\"}",
+    "expected_json": "{\"error_code\":\"INVALID_DIPLOID_GENOTYPE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Both symbols must be alleles of the declared locus.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-inheritance",
+        "title": "Biology 2e",
+        "locator": "12.3 segregation and independent assortment",
+        "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "mendelian_cross",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C011",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Missing H-W assumption",
+    "prompt": "Missing H-W assumption. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assumptions\":[\"random_mating\",\"large_population\",\"no_selection\",\"no_mutation\"],\"op\":\"hardy_weinberg\",\"p\":\"1/2\"}",
+    "expected_json": "{\"error_code\":\"COLLECTION_SIZE_OR_TYPE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The declared five-assumption set is mandatory.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-population",
+        "title": "Biology 2e",
+        "locator": "19.1 two-allele Hardy-Weinberg model",
+        "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "hardy_weinberg",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-002.C012",
+    "task_id": "BIE-EVAL-BIO-002",
+    "domain": "biology",
+    "title": "Allele probability above one",
+    "prompt": "Allele probability above one. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"assumptions\":[\"random_mating\",\"large_population\",\"no_selection\",\"no_mutation\",\"no_migration\"],\"op\":\"hardy_weinberg\",\"p\":2}",
+    "expected_json": "{\"error_code\":\"INVALID_PROBABILITY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "p is a probability, not an arbitrary positive number.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-population",
+        "title": "Biology 2e",
+        "locator": "19.1 two-allele Hardy-Weinberg model",
+        "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "hardy_weinberg",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

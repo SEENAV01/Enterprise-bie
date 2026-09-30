@@ -1,0 +1,833 @@
+{
+  "schema_version": 1,
+  "original_task_count": 50,
+  "hardening_task_count": 50,
+  "native_integration_task_count": 3,
+  "total": 103,
+  "atoms": [
+    {
+      "name": "BIE_EVAL_NATIVE_API_001.zip",
+      "source": "BIE_EVAL_NATIVE_API_001.zip",
+      "sha256": "f044ce493dfb213398fdf7cf740d90d0f96bc6428dbc73c5e66ab07dd4b2f117",
+      "size_bytes": 7596662,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_NATIVE_API_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_NATIVE_CAMPAIGN_001.zip",
+      "source": "BIE_EVAL_NATIVE_CAMPAIGN_001.zip",
+      "sha256": "5f5c8e7934d732c8077ce5f2a802dbcec842264bf95daa540b34acd2352f356b",
+      "size_bytes": 6997165,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_NATIVE_CAMPAIGN_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_NATIVE_QA_001.zip",
+      "source": "BIE_EVAL_NATIVE_QA_001.zip",
+      "sha256": "0ca4c19c47103c39bb9a1255024a3ded0e6cb955200a349ea5d93c84125d65c2",
+      "size_bytes": 5936097,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_NATIVE_QA_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_MATH_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_MATH_001.zip",
+      "sha256": "39ccd9f638004c8a7f428b798731c4545a1c5db1b0c865d764bee17c47fe8c13",
+      "size_bytes": 13137,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_MATH_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_MATH_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_MATH_002.zip",
+      "sha256": "b6284835351c1e0e7f87f8ddf9940fe6e23e5431efa54a46c26296fc9153b523",
+      "size_bytes": 13095,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_MATH_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_MATH_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_MATH_003.zip",
+      "sha256": "6f5a4bbf51001007eb24cbe4e00b3a61c4c0fa68fe19a91b3da369e7aac99f94",
+      "size_bytes": 14010,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_MATH_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_PHY_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_PHY_001.zip",
+      "sha256": "06711009be182a4c5e33f817cc7e9f4ac44c64d7878417980a55b72adeb6f0dd",
+      "size_bytes": 13151,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_PHY_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_PHY_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_PHY_002.zip",
+      "sha256": "3d889adcfadc38c6ccced0a989f3c38ea6f2f764ff96d5c0dce11ed8112479ba",
+      "size_bytes": 13361,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_PHY_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_PHY_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_PHY_003.zip",
+      "sha256": "ac558f621a69a56096bae8c58c0ce76eb754564124589a4b32558575a9ad591a",
+      "size_bytes": 13518,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_PHY_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_REG_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_REG_001.zip",
+      "sha256": "87cc764347a085ecaf3e68d2f259540f03ce776f4409ba6fe0f5121056cea953",
+      "size_bytes": 17379,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REG_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_REG_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_REG_002.zip",
+      "sha256": "28f7faccd4cc7f5e7c453a096d8086202d30e62bee5e20d9e0c73eef73f7f16f",
+      "size_bytes": 11801,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REG_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_REG_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_REG_003.zip",
+      "sha256": "c54577056148ddb096e74afc3e2493cfa5e2c5b25eff3597c54385c4bc39c189",
+      "size_bytes": 12717,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REG_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_REG_004.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH001_ATOMICS/BIE_EVAL_REG_004.zip",
+      "sha256": "b469901a70948a2f89d0ed1c878e7bd36ec49c8ed3d524edad8c89903717a587",
+      "size_bytes": 23959,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REG_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_BIO_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_BIO_001.zip",
+      "sha256": "8b5d9f4a87dbb07eac0d75bb654eb15895662ca39fb29df256daaf5498926a3b",
+      "size_bytes": 125366,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_BIO_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_BIO_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_BIO_002.zip",
+      "sha256": "d620aff973a0bc7500e3d319b9f88aef0f007ac52925d9cb45b7380c21438dde",
+      "size_bytes": 122334,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_BIO_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_BIO_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_BIO_003.zip",
+      "sha256": "6159579d05291ea3fc39659fde365364e1ce6aa838a32eead17c8500192cd921",
+      "size_bytes": 122367,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_BIO_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_CHEM_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_CHEM_001.zip",
+      "sha256": "2f6499865ddad677d3b3211b48f00b435e636ed9a4dee484af249864f4cc83a5",
+      "size_bytes": 125095,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_CHEM_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_CHEM_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_CHEM_002.zip",
+      "sha256": "5f506f94768603c92ac75b62ea427733e971c06c793ebe1501f9df5566fefd8f",
+      "size_bytes": 123383,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_CHEM_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_CHEM_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_CHEM_003.zip",
+      "sha256": "77ac80f675054576fea344f72e67bd757798eed79a654f57f845219071f0649a",
+      "size_bytes": 123647,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_CHEM_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_GEO_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_GEO_001.zip",
+      "sha256": "8023a109279202993d25bae8e593910fafb9cf03cb5fa8741b5294d11738208b",
+      "size_bytes": 123382,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_GEO_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_HIST_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_HIST_001.zip",
+      "sha256": "43dc2d93d9dff6b563aacad05b0d8fb2cb24137a9d7bb1498bd6c7217179af76",
+      "size_bytes": 124370,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_HIST_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_HIST_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_HIST_002.zip",
+      "sha256": "0c252a014507f2624da0d8e2b4490e19e7bd7da4b89661fd5aed7a3f2aaa0225",
+      "size_bytes": 123420,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_HIST_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_HIST_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH002_ATOMICS/BIE_EVAL_HIST_003.zip",
+      "sha256": "6954d3866cf821bc1384cd5ac0d35d70e4a933283f3b8fa4f1eb572566fbdacf",
+      "size_bytes": 122108,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_HIST_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_CIV_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_CIV_001.zip",
+      "sha256": "9202a52976a646f539af34ea1f6ebe5813b45ade1f55aaa9a1619a3e111f27cc",
+      "size_bytes": 529560,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_CIV_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_DATA_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_DATA_001.zip",
+      "sha256": "92df1f2194af1c3b403abe4d4a5c530fa8c6883e3c52f0deb92633c35dfdff1f",
+      "size_bytes": 529816,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_DATA_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_GEO_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_GEO_002.zip",
+      "sha256": "d38287658e38db723f9e2b6a40aa1d1c3033d9484d9ba564e2d05ae9878935d6",
+      "size_bytes": 529138,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_GEO_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_GEO_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_GEO_003.zip",
+      "sha256": "e9e0879b0efcdaf7cb633903f3be6fd7f85e0783d3a2081477132db8fb785ba4",
+      "size_bytes": 530045,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_GEO_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_METRIC_001.zip",
+      "sha256": "5e2bdb93ceef1d60d823fbf2de34ed5589de259dc0f1eb298df8e9ebb9048be6",
+      "size_bytes": 531827,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_METRIC_002.zip",
+      "sha256": "e39c447b0595332f0b2241381a6ffefcdec6d5abc86307af9bba0c6d7e941677",
+      "size_bytes": 530793,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_METRIC_003.zip",
+      "sha256": "ce00f472c33341914e716ca17d34bb658e824cd1fd6ef5f1ad14607ee9b4e700",
+      "size_bytes": 530645,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_004.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_METRIC_004.zip",
+      "sha256": "3e2ce3116656841f99e350c98b44c925bb8d2ddb88a6c77614d7ab2ea83a3ac4",
+      "size_bytes": 530847,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_005.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_METRIC_005.zip",
+      "sha256": "a937c452bb3b712edc6728d1448c31a4ea056bd8d6e60b5f7aa8734689ae25d2",
+      "size_bytes": 531432,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_006.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH003_ATOMICS/BIE_EVAL_METRIC_006.zip",
+      "sha256": "d54ecc7c93ca57d31f2522f87d3f257c77d4d9dd4d71dce0f068fd8151a5dc47",
+      "size_bytes": 531476,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_006.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_007.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_007.zip",
+      "sha256": "84de9af83dd948feb2b4184a13fbab54f8124a726b0f4ab87ad8d321395e20e4",
+      "size_bytes": 752625,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_007.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_008.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_008.zip",
+      "sha256": "37d234a1dc1c5126c411e3294c04ea2d964ba3ae36c7a0805a87a4505b0ceb01",
+      "size_bytes": 752513,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_008.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_009.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_009.zip",
+      "sha256": "1ddad1009bb20f01534bb9f46d78389235ae8f87369c48c204845c60d5dda15e",
+      "size_bytes": 752548,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_009.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_010.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_010.zip",
+      "sha256": "b37795d0930b34ec55565bc27a8415729ae406cb5b699d41f1125fbb6ee3af14",
+      "size_bytes": 752476,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_010.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_011.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_011.zip",
+      "sha256": "0b1859d94c9d8d7d82c5798f81595d663798315f3a3d312ed7f01d6195f044c0",
+      "size_bytes": 753006,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_011.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_012.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_012.zip",
+      "sha256": "f1f191a671eeb98984780eb0858294a906600da13a51dec5db939e4846a6468d",
+      "size_bytes": 753331,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_012.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_013.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_013.zip",
+      "sha256": "014dddceee67f7a7533f470de484df27aab76a3040962365c00ce62f2dd887da",
+      "size_bytes": 760327,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_013.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_014.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_014.zip",
+      "sha256": "b6ceb92aee63dc74e9c80833cd7b98c2526f7a39fbff07f621c275f91aad0a74",
+      "size_bytes": 752852,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_014.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_015.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_015.zip",
+      "sha256": "073e93c8a5d2b69443b74698faedb724e30a389bbd8831c80d197d1edbb60da8",
+      "size_bytes": 752835,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_015.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_016.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH004_ATOMICS/BIE_EVAL_METRIC_016.zip",
+      "sha256": "d68a5fc87ba2d26a69b6a2fd97ef71dd3ca3695648f17a5d66f201e1468f6f5e",
+      "size_bytes": 753207,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_016.zip"
+    },
+    {
+      "name": "BIE_EVAL_METRIC_017.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_METRIC_017.zip",
+      "sha256": "20122e860d6734ff88ce374003a282e615fe8587678ee9fe03a195f574a90069",
+      "size_bytes": 892964,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_METRIC_017.zip"
+    },
+    {
+      "name": "BIE_EVAL_RATER_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_RATER_001.zip",
+      "sha256": "96e770fbd1356f0cb0408b5bb50c75c951fc1cef15f340d6047056a3b6997426",
+      "size_bytes": 892573,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_RATER_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_RATER_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_RATER_002.zip",
+      "sha256": "799c851558204082ffa204b3f596948d4224e351e9d1c90de6ea78cdeaf12cce",
+      "size_bytes": 892391,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_RATER_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_RATER_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_RATER_003.zip",
+      "sha256": "f2e5c80cb4ec1906772e5f1271d990b04eb4068ffc110cc082669c51c4375ce4",
+      "size_bytes": 892531,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_RATER_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_RATER_004.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_RATER_004.zip",
+      "sha256": "e4b01a3f326299dcc221df5e346560e52ee28d6f9fd1cbd95233350214833c03",
+      "size_bytes": 891808,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_RATER_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_RATER_005.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_RATER_005.zip",
+      "sha256": "8d27fcca178141d2958c8cc83d787a3622e66fbeeea26e276f96909291567f45",
+      "size_bytes": 891852,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_RATER_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_REL_001.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_REL_001.zip",
+      "sha256": "abeb4a30e99c810427e1001db143c47c325339edca8bfe7e962203ace2382b7c",
+      "size_bytes": 888655,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REL_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_REL_002.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_REL_002.zip",
+      "sha256": "51a2a3b38c9e238e027d231a3f8a9d078b700cc338053453a81283f1e0582ee5",
+      "size_bytes": 888623,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REL_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_REL_003.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_REL_003.zip",
+      "sha256": "ecf07848b3e01dbe41af9463138dbaf92d08222d5dd59af9946a957e88bb8a15",
+      "size_bytes": 888921,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REL_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_REL_004.zip",
+      "source": "BIE_EVAL_SECTION17_BATCH005_ATOMICS/BIE_EVAL_REL_004.zip",
+      "sha256": "0145697e247b92b20295d44ec09b69e3c689211c7bab401be34b2874c0b41a50",
+      "size_bytes": 893924,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_REL_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_001.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_001.zip",
+      "sha256": "2bb939709a2dbcdd27528bdf5c92bf9e4b83bc2cc787a194299a19df63664f0c",
+      "size_bytes": 233559,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_002.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_002.zip",
+      "sha256": "0badde053dbba90006b8c5ef5363d937ec29ce85752df02b7a4de7ad3b4136aa",
+      "size_bytes": 234172,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_003.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_003.zip",
+      "sha256": "cec041effae930527a89c21ca7396c979b0185187b0e5a7c27c9129a80e62c58",
+      "size_bytes": 234523,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_004.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_004.zip",
+      "sha256": "cc696b0c9ee684256d759953cd0cececbed01a92e20548663d7fce65dc013056",
+      "size_bytes": 233860,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_005.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_005.zip",
+      "sha256": "aeb5ddee13a5013891046041d811c78c8d2747e5526ebb68004b3b9bcea3f8d6",
+      "size_bytes": 234129,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_006.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_006.zip",
+      "sha256": "2d3d5faf413d1ff4151600eb4a4d59b5b469766ff3ca60b1198282705a87c36d",
+      "size_bytes": 233675,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_006.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_007.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_007.zip",
+      "sha256": "3b72229c703b0248f0de2606c41fc5db99574f88e11305e0e6919796d82e62d0",
+      "size_bytes": 234226,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_007.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_008.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_008.zip",
+      "sha256": "927ff955853f0e42f825d017af67928c115558d925bab3f88aff4d5dc0ffaa68",
+      "size_bytes": 235432,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_008.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_009.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_009.zip",
+      "sha256": "dd434338d1e0802566529ca18303f42bcdbaa96bdc612d1f82a45572636b2f7a",
+      "size_bytes": 234546,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_009.zip"
+    },
+    {
+      "name": "BIE_EVAL_H1_010.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H1_ATOMICS/BIE_EVAL_H1_010.zip",
+      "sha256": "e88605110938729568abefa6179b5b9c66bdc5c35bf31f2ce09235f39efad430",
+      "size_bytes": 234403,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H1_010.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_001.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_001.zip",
+      "sha256": "eda0ddaf450ad37ed936b03f68236364b79abf4f2e48e20dca1fee513c305133",
+      "size_bytes": 251774,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_002.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_002.zip",
+      "sha256": "20289def3b4ebef3df79bb28089844337938adc134ac4fcb46f55a41a174a294",
+      "size_bytes": 252554,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_003.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_003.zip",
+      "sha256": "65d8d9cea395e9c4e23251920793a8237e8461cf165fe03eac16088943759088",
+      "size_bytes": 252068,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_004.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_004.zip",
+      "sha256": "d9d85303c0e2c055c566129c704da63e496fd9eecc74c2dfe107716ee55940c1",
+      "size_bytes": 252187,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_005.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_005.zip",
+      "sha256": "a0fd65eb2857a3b5c483007212ea6ae7b64bfb42845f9cfca2d78ef88d00fbb3",
+      "size_bytes": 252433,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_006.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_006.zip",
+      "sha256": "107d19539c36c2210249b8ce62c758281caeafe6060f49560bf0eaa7c9cd6777",
+      "size_bytes": 251951,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_006.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_007.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_007.zip",
+      "sha256": "b21110005e7a89aaa6b7349e352b903141c556e6019e7e005002b7f37df9a733",
+      "size_bytes": 252246,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_007.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_008.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_008.zip",
+      "sha256": "94ae82a32613d668535c10b2595332925a4279e27ea9e976bf47a51b63b1ae88",
+      "size_bytes": 255315,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_008.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_009.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_009.zip",
+      "sha256": "9b53a775752d7d54416ab51198ff0afddd97cbcdf4a9b64f9e7f135e86cd2261",
+      "size_bytes": 252766,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_009.zip"
+    },
+    {
+      "name": "BIE_EVAL_H2_010.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H2_ATOMICS/BIE_EVAL_H2_010.zip",
+      "sha256": "7300e3e894de6fea0eec6bbe46ea3b5783437922088d669ed60c95340ca44f14",
+      "size_bytes": 252679,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H2_010.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_001.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_001.zip",
+      "sha256": "6367c8f22a5bb51dd5cd6ee6194c41ab5639e5375e4146855a42ced539e86bfb",
+      "size_bytes": 348804,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_002.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_002.zip",
+      "sha256": "fdf0a0572778000bda164ae1c0224ffc2fad2ed4b685d99911e12d04a1fb2b90",
+      "size_bytes": 348663,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_003.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_003.zip",
+      "sha256": "d212c5b1f2b4343caf54a3bf7b67f8d61d9c0df0a21c638f390fd85f5ca44100",
+      "size_bytes": 352728,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_004.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_004.zip",
+      "sha256": "f42711bb48ee2dc1a71d99717b832913b4c489ed8429e36fc86950533ca0d9ce",
+      "size_bytes": 352450,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_005.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_005.zip",
+      "sha256": "d4b7852925ab623c5de54756ff32cf67f0cb0a01ddb5e53474ed05216e221a06",
+      "size_bytes": 353322,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_006.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_006.zip",
+      "sha256": "93b7dc3bbd6d3be8d2f12658bb3e85dc56e7768ed00d88aa3bea7ae2dee376e1",
+      "size_bytes": 352816,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_006.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_007.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_007.zip",
+      "sha256": "def737c929e9514be85b46439e420fd84dd19a76cf7b013a4a14ca4df723d9fc",
+      "size_bytes": 351058,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_007.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_008.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_008.zip",
+      "sha256": "5d70ea9c9a05888f7eb85a6ea3134d63f2fd0a5670e9f26be1ee8576e2551c71",
+      "size_bytes": 351446,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_008.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_009.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_009.zip",
+      "sha256": "c24ef86e831b210f02b02f6e959e359749cb55640e33cf73044d758ad7c40f06",
+      "size_bytes": 353207,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_009.zip"
+    },
+    {
+      "name": "BIE_EVAL_H3_010.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H3_ATOMICS/BIE_EVAL_H3_010.zip",
+      "sha256": "bb366ab65c2f9a957b3f6df4ad1809781f65fb33ba365f4267d2e8bdb8a313a7",
+      "size_bytes": 350355,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H3_010.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_001.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_001.zip",
+      "sha256": "82bfda77f2dfd23ee9be1e723d69eec901c7b81d4f62b413d85ff7a42ac78164",
+      "size_bytes": 295154,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_002.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_002.zip",
+      "sha256": "dfd3469014e635f310f6aedea07e748f8aace59b4b1eb5061430a1bb410ff98c",
+      "size_bytes": 294598,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_003.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_003.zip",
+      "sha256": "bcb9606a6297b64e58a10548b5f1b5d08a49a5d74a3a76d891c0bed406a68b5c",
+      "size_bytes": 294924,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_004.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_004.zip",
+      "sha256": "75fc424750128061fd27941c8e269c5e29a94174f1f609dc880941ec85259e2a",
+      "size_bytes": 294483,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_005.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_005.zip",
+      "sha256": "50099542ea0a77e5e6d30d261a3050fdc0296373101329a6be5da800164630f5",
+      "size_bytes": 294970,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_006.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_006.zip",
+      "sha256": "3b1d64ce501b0fa3e28313d2fb958623b635c0c7acfbf4e390e8461468f20c69",
+      "size_bytes": 294712,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_006.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_007.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_007.zip",
+      "sha256": "c41dd457e7b5596b6295de1bf5b8698070eec3982a83858a9a070bb79234b3f0",
+      "size_bytes": 294474,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_007.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_008.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_008.zip",
+      "sha256": "87b07dd98253abf7a0e20ab396b42cf5d9025dc00a9c5a42ecb24d6eaa50791b",
+      "size_bytes": 295041,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_008.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_009.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_009.zip",
+      "sha256": "a8884b8d0aaeca43710dd23122f0167d078b53259e207dcc530bfaae05b56bf4",
+      "size_bytes": 295086,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_009.zip"
+    },
+    {
+      "name": "BIE_EVAL_H4_010.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H4_ATOMICS/BIE_EVAL_H4_010.zip",
+      "sha256": "0ea3b8b58c27e5499f20ea9112bd29417606e87a52a9ad26847faa0033b87051",
+      "size_bytes": 294857,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H4_010.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_001.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_001.zip",
+      "sha256": "d9d0c9b0f9580af387c54dd6c1d30958dac080c655ed9735f75c20e3108e3e54",
+      "size_bytes": 309918,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_001.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_002.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_002.zip",
+      "sha256": "95e991a9868b5df08200c81733f32a3eb994013111b3ea86312eda636831f341",
+      "size_bytes": 309665,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_002.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_003.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_003.zip",
+      "sha256": "523a99c6da6f6118291da2769f83664b23ebbbe1155c75852e5416d30d883126",
+      "size_bytes": 310532,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_003.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_004.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_004.zip",
+      "sha256": "68582f8e5b19a7b7aee360534fd7e160fa287c8156da59a64c58875bf63a0481",
+      "size_bytes": 310066,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_004.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_005.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_005.zip",
+      "sha256": "573a5377a6396075cc26a473e31ac4479268eaffef8b096c5919ea6f05944cc4",
+      "size_bytes": 310012,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_005.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_006.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_006.zip",
+      "sha256": "00c97b3fee09cd1c798ca473ba12a2298c2418ead551c8341c7c5d802e92270a",
+      "size_bytes": 309726,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_006.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_007.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_007.zip",
+      "sha256": "cc07d028576f707d1a0aa75cd059cf76e49e46a393cb44cfc09a28e9313a7411",
+      "size_bytes": 310264,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_007.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_008.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_008.zip",
+      "sha256": "9a7d341410b89996cce2531e0678007991934b59a56650ad0861f501109f0d87",
+      "size_bytes": 310298,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_008.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_009.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_009.zip",
+      "sha256": "16d1aca52a8e7482f4507f3d48d8eebff2b210ef3a41e36d86fb0826d6676482",
+      "size_bytes": 310485,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_009.zip"
+    },
+    {
+      "name": "BIE_EVAL_H5_010.zip",
+      "source": "BIE_EVAL_SECTION17_HARDENING_H5_ATOMICS/BIE_EVAL_H5_010.zip",
+      "sha256": "ffd0fb7e6c35102b2ce377b93ebad5b247a049e3db9365fca579a8e178f5f0e7",
+      "size_bytes": 310089,
+      "zip_crc_ok": true,
+      "path": "atomics/BIE_EVAL_H5_010.zip"
+    }
+  ]
+}

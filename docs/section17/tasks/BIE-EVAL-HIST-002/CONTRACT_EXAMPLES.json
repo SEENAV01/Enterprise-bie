@@ -1,0 +1,648 @@
+{
+  "task_id": "BIE-EVAL-HIST-002",
+  "operations": {
+    "assess_link": [
+      "BIE-EVAL-HIST-002.C001",
+      "BIE-EVAL-HIST-002.C002",
+      "BIE-EVAL-HIST-002.C003",
+      "BIE-EVAL-HIST-002.C004",
+      "BIE-EVAL-HIST-002.C005",
+      "BIE-EVAL-HIST-002.C006",
+      "BIE-EVAL-HIST-002.C007",
+      "BIE-EVAL-HIST-002.C008",
+      "BIE-EVAL-HIST-002.C009",
+      "BIE-EVAL-HIST-002.C010",
+      "BIE-EVAL-HIST-002.C011",
+      "BIE-EVAL-HIST-002.C012"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-HIST-002.C001",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "ANNOTATED_INTERPRETATION_STRUCTURALLY_SUPPORTED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "A hypothetical A-before-B dossier supplies a mechanism annotation and an alternative. This checks argument form, not historical source truth."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C002",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "temporal_record",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "SEQUENCE_ALONE_DOES_NOT_ESTABLISH_CAUSATION"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "Temporal records alone lack a supplied causal interpretation/mechanism. Hypothetical data."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C003",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "sole_cause"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "OVERSTRONG_CAUSAL_CLAIM"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "This annotated contributing-cause profile cannot establish sole, necessary or sufficient causation."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C004",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "necessary"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "OVERSTRONG_CAUSAL_CLAIM"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "This annotated contributing-cause profile cannot establish sole, necessary or sufficient causation."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C005",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "sufficient"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "OVERSTRONG_CAUSAL_CLAIM"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "This annotated contributing-cause profile cannot establish sole, necessary or sufficient causation."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C006",
+      "inputs": {
+        "alternatives_considered": [],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "ALTERNATIVES_NOT_CONSIDERED"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "The defined diagnostic requires at least one distinct alternative for review."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C007",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1790
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "TEMPORAL_REVERSAL"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "AFTER"
+        }
+      },
+      "derivation": "The cause interval lies wholly after its effect interval."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C008",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1"
+          ],
+          "issues": [
+            "TIME_ORDER_UNRESOLVED"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "OVERLAPPING_OR_UNCERTAIN"
+        }
+      },
+      "derivation": "Year precision cannot establish within-year causal precedence."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C009",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          },
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E2",
+            "kind": "counter_evidence",
+            "source_ref": "synthetic-dossier-2"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [
+            "E1",
+            "E2"
+          ],
+          "issues": [
+            "COUNTEREVIDENCE_REQUIRES_REVIEW"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "Counterevidence must remain visible even when a supportive annotation exists."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C010",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "annotations_independently_verified": false,
+          "causality_proven": false,
+          "evidence_ids": [],
+          "issues": [
+            "NO_EVIDENCE",
+            "SEQUENCE_ALONE_DOES_NOT_ESTABLISH_CAUSATION"
+          ],
+          "profile": "ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION",
+          "status": "REVIEW_REQUIRED",
+          "time_relation": "BEFORE"
+        }
+      },
+      "derivation": "Do not infer evidentiary support from chronological placement."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C011",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "C",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "error_code": "EVIDENCE_ENDPOINT_MISMATCH",
+        "status": "REJECTED"
+      },
+      "derivation": "Evidence endpoints must match the particular cause/effect proposition."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-002.C012",
+      "inputs": {
+        "alternatives_considered": [
+          "C"
+        ],
+        "cause": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1788
+          },
+          "id": "A"
+        },
+        "effect": {
+          "date": {
+            "calendar": "proleptic_gregorian",
+            "era": "CE",
+            "precision": "year",
+            "year": 1789
+          },
+          "id": "B"
+        },
+        "evidence": [
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          },
+          {
+            "cause_id": "A",
+            "effect_id": "B",
+            "id": "E1",
+            "kind": "mechanism_account",
+            "source_ref": "synthetic-dossier-1"
+          }
+        ],
+        "op": "assess_link",
+        "relation_claim": "contributes_to"
+      },
+      "expected": {
+        "error_code": "DUPLICATE_EVIDENCE",
+        "status": "REJECTED"
+      },
+      "derivation": "Repeated evidence identity is not additional support."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

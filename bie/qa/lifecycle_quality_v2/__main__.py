@@ -1,10 +1,17 @@
-"""Read-only journal inspection. No repair execution, imports or release from JSON."""
+"""Journal inspection plus explicit eval-campaign opt-in. No repair execution or release."""
 import argparse,json,sqlite3
 from pathlib import Path
 from .common import Binding,strict_json,ContractError
 from .durable import LeaseJournal,LeasePolicy
 
 def main():
+    import sys
+    if sys.argv[1:2] == ['eval-api']:
+        from bie.evaluation.benchmarks.native_api.__main__ import main as api_main
+        return api_main(sys.argv[2:])
+    if sys.argv[1:2] == ['eval-campaign']:
+        from bie.evaluation.benchmarks.native_campaign.__main__ import main as eval_main
+        return eval_main(sys.argv[2:])
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('journal',type=Path);p.add_argument('--context',type=Path,required=True);a=p.parse_args()
     try:
         if not a.journal.is_file():raise ContractError('H6_JOURNAL_NOT_FOUND')

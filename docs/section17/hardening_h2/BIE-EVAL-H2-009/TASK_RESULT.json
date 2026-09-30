@@ -1,0 +1,96 @@
+{
+  "task_id": "BIE-EVAL-H2-009",
+  "title": "Canonical RenderReceipt mapping",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/native.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-008"
+  ],
+  "test_file": "tests/section17/test_h2_009.py",
+  "test_count": 19,
+  "records": [
+    {
+      "test_id": "test_h2_009.H2009.test_adapter_fields_exact_match_canonical_ast",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_altered_contract_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_artifact_hash_binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_artifact_size_binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_declared_native_fields_match_real_bytes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_dimensions_binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_exact_contract_blob",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_exact_field_roster",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_failed_local_evidence_cannot_map",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_forged_mp4_name_for_mkv_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_frame_count_binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_injected_runner_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_mapping_not_authentication",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_other_commit_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_path_traversal",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_recipe_binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_self_claimed_acceptance_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_smoke_render_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_009.H2009.test_unknown_schema",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Declaration matching is NOT proof of Remotion execution or source provenance. No full canonical checkout, native producer/run, SceneIR/game/audio schema integration or authenticated collector was executed.",
+  "derived_from": "H1-RES-001"
+}

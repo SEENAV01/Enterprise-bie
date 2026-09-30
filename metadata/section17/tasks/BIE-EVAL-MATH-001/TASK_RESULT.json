@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-EVAL-MATH-001",
+  "original_capability": "functions",
+  "batch": 1,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Exact rational polynomial/rational evaluation, original-domain holes, order-sensitive composition, affine inversion, finite-relation function/injectivity and bounded arithmetic.",
+  "bounds_and_open_scope": "Bounded degree-32 polynomial/rational and finite-relation profiles; not arbitrary symbolic mathematics or a replacement for the integrated Math engine. Ten authored development cases; no independent golden corpus.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/functions.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-001.json",
+    "tests/section17/test_math_001.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/functions.py": "828cf957433ec1b3d0c1cb0b6942a2047f3341d6eb78cd2f7696c329e0691f23",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-001.json": "11b2bfb70aa8f8a88d499eb04f15ee110a383ac8246630f6802f2b63986a3e82",
+    "tests/section17/test_math_001.py": "2a79cc9338f5b36c833e23cc9057a14348b6765247a169d02c101cf68b960a6d"
+  },
+  "selected_task_suite": {
+    "test_method_count": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "python -B -m unittest discover -s tests/section17 -p test_math_001.py -v"
+  },
+  "batch_shared_regression": "254 unique test methods including 38 additional cross-task/audit/CLI/package tests; do not add repeated task runs to this count.",
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-MATH-001/SPEC.md",
+  "evidence_scope": "Local Python execution, unit/contract/metamorphic tests and authored diagnostic cases only.",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_diagnostic_cases": {
+    "total": 10,
+    "expected_successful_computation": 8,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  }
+}

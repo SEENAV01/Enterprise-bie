@@ -1,0 +1,105 @@
+{
+  "task_id": "BIE-EVAL-RATER-004",
+  "original_sequence": 45,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Complete paired panels, binary observed agreement, exact Cohen kappa and mean absolute score differences; missingness and undefined statistics remain explicit.",
+  "limits": "Agreement is not accuracy. No confidence intervals, sample adequacy guarantee or empirically calibrated thresholds.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/agreement.py",
+    "tests/section17/test_rater_004.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-RATER-001",
+    "BIE-EVAL-RATER-002",
+    "BIE-EVAL-RATER-003"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_all_missing_has_no_fake_agreement",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_balanced_independent_labels_kappa_zero",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_blocked_assessor_reduces_pairs",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_complete_disagreement_negative_kappa",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_context_changed_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_degenerate_kappa_explicitly_undefined",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_duplicate_context_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_duplicate_rater_per_case_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_false_json_acceptance_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_invalid_threshold_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_mae_computed_exactly",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_missing_not_dropped_into_complete_report",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_no_accuracy_inference",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_order_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_perfect_non_degenerate_agreement",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_rater_roster_requires_two",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_sample_too_small_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_004.AgreementRater004.test_unknown_case_rejects",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 18,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-004_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-004_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-RATER-004/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

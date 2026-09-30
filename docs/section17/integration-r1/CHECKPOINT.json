@@ -1,0 +1,40 @@
+{
+  "checkpoint": "SECTION17_R1_REMOTE_PREFLIGHT_ONLY",
+  "base_commit": "8b8e500bf7b83addfcecce41c3fca08563eceb41",
+  "branch": "integration/section17-eval-r1-20260930",
+  "source_checkpoint": "BIE-EVAL-NATIVE-API-001",
+  "atomic_archives_in_verified_local_master": 103,
+  "master_sha256": "03043839a2290672a4b672cbb39952846e77ff99572a791bf0ca89cf14a51f4e",
+  "master_size_bytes": 383934041,
+  "uploaded_early_backup_sha256": "f7885732ad9dd5c8d83de54651e081a2f844748bd3077f29d8abf9cf4dbdbef1",
+  "uploaded_backup_exactly_matches_existing_history": true,
+  "new_history_gaps_closed": 0,
+  "fresh_local_section17_tests": {
+    "run": 2018,
+    "passed": 2018,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "preflight_unit_tests": {
+    "run": 31,
+    "passed": 31
+  },
+  "full_repository_checkout_obtained": false,
+  "full_repository_regression_run": false,
+  "remote_section17_source_adopted": false,
+  "qa_cli_patch_applied": false,
+  "main_modified": false,
+  "pr_created": false,
+  "merge_performed": false,
+  "task028": "PAUSED_UNCHANGED",
+  "section18": "NOT_STARTED",
+  "section_complete": false,
+  "product_accepted": false,
+  "blockers": [
+    "Direct container Git access failed: Could not resolve host github.com. Connected GitHub reads/writes work.",
+    "Bulk candidate source/evidence upload, canonical collision check and registered repository regression remain pending.",
+    "Historical H3/H5/NativeCampaign/NativeAPI master-only and two H5 helper gaps remain open."
+  ],
+  "next_action": "Use the exact R1 master in an authorized full clean checkout of this branch, run the read-only preflight, reconcile all collisions/dependency differences, adopt only reviewed paths and CLI patch, connect the producer/worker, register Section17 in canonical gates, run combined regression and required native validation. Do not open a merge-ready PR or merge before relevant checks/review. Never force-push or replace global continuation."
+}

@@ -1,0 +1,373 @@
+[
+  {
+    "case_id": "BIE-EVAL-GEO-001.C001",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Directed boundary divergent",
+    "prompt": "Directed boundary divergent. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"normal_a_to_b\":[1,0],\"op\":\"boundary_motion\",\"velocity_a\":{\"unit\":\"cm/yr\",\"values\":[0,0]},\"velocity_b\":{\"unit\":\"cm/yr\",\"values\":[4,0]}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"motion\":\"divergent\",\"profile\":\"LOCAL_PLANAR_DIRECTED_UNIT_NORMAL\",\"separation_cm_per_yr\":\"4\",\"tangential_cm_per_yr\":\"0\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_motion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C002",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Directed boundary convergent",
+    "prompt": "Directed boundary convergent. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"normal_a_to_b\":[1,0],\"op\":\"boundary_motion\",\"velocity_a\":{\"unit\":\"cm/yr\",\"values\":[0,0]},\"velocity_b\":{\"unit\":\"cm/yr\",\"values\":[-4,0]}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"motion\":\"convergent\",\"profile\":\"LOCAL_PLANAR_DIRECTED_UNIT_NORMAL\",\"separation_cm_per_yr\":\"-4\",\"tangential_cm_per_yr\":\"0\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_motion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C003",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Directed boundary transform",
+    "prompt": "Directed boundary transform. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"normal_a_to_b\":[1,0],\"op\":\"boundary_motion\",\"velocity_a\":{\"unit\":\"cm/yr\",\"values\":[0,0]},\"velocity_b\":{\"unit\":\"cm/yr\",\"values\":[0,3]}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"motion\":\"transform\",\"profile\":\"LOCAL_PLANAR_DIRECTED_UNIT_NORMAL\",\"separation_cm_per_yr\":\"0\",\"tangential_cm_per_yr\":\"3\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_motion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C004",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Directed boundary oblique_divergent",
+    "prompt": "Directed boundary oblique_divergent. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"normal_a_to_b\":[1,0],\"op\":\"boundary_motion\",\"velocity_a\":{\"unit\":\"cm/yr\",\"values\":[0,0]},\"velocity_b\":{\"unit\":\"cm/yr\",\"values\":[4,3]}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"motion\":\"oblique_divergent\",\"profile\":\"LOCAL_PLANAR_DIRECTED_UNIT_NORMAL\",\"separation_cm_per_yr\":\"4\",\"tangential_cm_per_yr\":\"3\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Project relative velocity vB-vA onto the A-to-B normal and its +90-degree tangent.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_motion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C005",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Symmetric spreading 3 half",
+    "prompt": "Symmetric spreading 3 half. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"duration\":{\"unit\":\"Myr\",\"value\":2},\"op\":\"spreading_distance\",\"rate\":{\"unit\":\"cm/yr\",\"value\":3},\"rate_kind\":\"half\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"one_flank_km\":\"60\",\"profile\":\"CONSTANT_SYMMETRIC_SPREADING\",\"total_separation_km\":\"120\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "One cm/year over one million years is ten km; full rate is twice the half rate.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "spreading_distance",
+      "half-versus-full",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C006",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Symmetric spreading 6 full",
+    "prompt": "Symmetric spreading 6 full. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"duration\":{\"unit\":\"Myr\",\"value\":2},\"op\":\"spreading_distance\",\"rate\":{\"unit\":\"cm/yr\",\"value\":6},\"rate_kind\":\"full\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"one_flank_km\":\"60\",\"profile\":\"CONSTANT_SYMMETRIC_SPREADING\",\"total_separation_km\":\"120\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "One cm/year over one million years is ten km; full rate is twice the half rate.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "spreading_distance",
+      "half-versus-full",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C007",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Ridge age from half rate",
+    "prompt": "Ridge age from half rate. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"distance\":{\"unit\":\"km\",\"value\":90},\"half_rate\":{\"unit\":\"cm/yr\",\"value\":3},\"op\":\"age_from_ridge\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"age_Myr\":\"3\",\"profile\":\"CONSTANT_HALF_RATE_PER_FLANK\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Age=90/(10*3)=3 Myr for the constant-rate single flank.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "age_from_ridge",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C008",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Ideal transform boundary inventory",
+    "prompt": "Ideal transform boundary inventory. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"boundary\":\"transform\",\"op\":\"boundary_features\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"landform\":\"strike_slip_fault_zone\",\"oceanic_lithosphere_consumed\":false,\"oceanic_lithosphere_created\":false,\"profile\":\"IDEALIZED_OCEANIC_LITHOSPHERE_BUDGET_NOT_TOTAL_CRUST_BUDGET\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Ideal transform motion does not create or consume crust.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_features",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C009",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Ideal ocean-continent convergence",
+    "prompt": "Ideal ocean-continent convergence. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"boundary\":\"ocean_continent_convergent\",\"op\":\"boundary_features\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"landform\":\"trench_and_continental_arc\",\"oceanic_lithosphere_consumed\":true,\"oceanic_lithosphere_created\":false,\"profile\":\"IDEALIZED_OCEANIC_LITHOSPHERE_BUDGET_NOT_TOTAL_CRUST_BUDGET\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The simplified subduction-boundary inventory tracks consumed oceanic crust, not a whole-Earth crust budget.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usgs-subduction-intro",
+        "title": "US Geological Survey",
+        "locator": "Introduction to subduction zones and volcanic arcs",
+        "url": "https://www.usgs.gov/special-topics/subduction-zone-science/science/introduction-subduction-zones-amazing-events",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_features",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C010",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Nonunit normal refused",
+    "prompt": "Nonunit normal refused. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"normal_a_to_b\":[2,0],\"op\":\"boundary_motion\",\"velocity_a\":{\"unit\":\"cm/yr\",\"values\":[0,0]},\"velocity_b\":{\"unit\":\"cm/yr\",\"values\":[4,0]}}",
+    "expected_json": "{\"error_code\":\"EXACT_UNIT_NORMAL_REQUIRED\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Normal length must be exactly one in the rational input profile to avoid scaled projection errors.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "boundary_motion",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C011",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Zero ridge spreading rate cannot define age",
+    "prompt": "Zero ridge spreading rate cannot define age. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"distance\":{\"unit\":\"km\",\"value\":90},\"half_rate\":{\"unit\":\"cm/yr\",\"value\":0},\"op\":\"age_from_ridge\"}",
+    "expected_json": "{\"error_code\":\"QUANTITY_OUT_OF_PROFILE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The inversion requires a positive half-spreading rate.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "age_from_ridge",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-GEO-001.C012",
+    "task_id": "BIE-EVAL-GEO-001",
+    "domain": "geography",
+    "title": "Wholly liquid mantle misconception",
+    "prompt": "Wholly liquid mantle misconception. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claims\":{\"average_plate_speed_predicts_exact_earthquake_time\":false,\"mantle_entirely_liquid\":true,\"plate_material\":\"crust_and_rigid_uppermost_mantle\",\"seafloor_age_increases_away_from_ridge_in_simple_model\":true,\"transform_creates_new_crust_in_ideal_model\":false},\"op\":\"audit_concepts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":false,\"defects\":[{\"claim\":\"mantle_entirely_liquid\",\"reason\":\"CONTRADICTED_CLAIM\"}]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-GEO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The declared tectonic model does not treat the whole mantle as liquid.",
+    "sources": [
+      {
+        "reference_id": "openstax-astronomy-crust",
+        "title": "Astronomy 2e",
+        "locator": "8.2 plate tectonics and crust",
+        "url": "https://openstax.org/books/astronomy-2e/pages/8-2-earths-crust",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_concepts",
+      "misconception",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

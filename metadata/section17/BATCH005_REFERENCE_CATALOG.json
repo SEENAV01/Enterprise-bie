@@ -1,0 +1,36 @@
+{
+  "scope": "Implementation references, not golden-source evidence",
+  "original_registry": "Original50 task identities retained from the attached canonical registry and Batch004 continuation",
+  "sources": [
+    {
+      "id": "python-hmac",
+      "url": "https://docs.python.org/3/library/hmac.html",
+      "used_for": "HMAC SHA256 and constant-time digest comparison API semantics",
+      "retrieved": "2026-09-29"
+    },
+    {
+      "id": "sqlite-atomic",
+      "url": "https://sqlite.org/atomiccommit.html",
+      "used_for": "Single-database atomic transactions; does not attest evidence truth",
+      "retrieved": "2026-09-29"
+    },
+    {
+      "id": "python-sqlite3",
+      "url": "https://docs.python.org/3/library/sqlite3.html",
+      "used_for": "Parameterized statements and explicit transaction API",
+      "retrieved": "2026-09-29"
+    },
+    {
+      "id": "statsmodels-kappa",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.inter_rater.cohens_kappa.html",
+      "used_for": "Binary inter-rater kappa concept; independent exact Fraction implementation, not a statsmodels dependency",
+      "retrieved": "2026-09-29"
+    },
+    {
+      "id": "owasp-prompt-injection",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "used_for": "Instruction/data separation and layered restrictions; no claim of complete injection prevention",
+      "retrieved": "2026-09-29"
+    }
+  ]
+}

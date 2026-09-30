@@ -1,0 +1,369 @@
+{
+  "candidate_identity": {
+    "caption_format": "srt",
+    "caption_sha256": "6508f4f68691f994dc704c7230c4039a61bb9a559e5b157d9ea187f21800f774",
+    "media_sha256": "6d1a32dfd3479c392fb42fc5f65b9b51e1da3a6e7b7f4cd65e06d652f485b65a"
+  },
+  "candidate_sha256": "5e5bd5fc345ceccfd3bb8de19d2c9fa255438adf1f2da8e27af95ca844bfad8c",
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-format_whitelist",
+        "matroska,webm,mov",
+        "-i",
+        "<PRIVATE_INPUT>",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 3874,
+      "stdout_sha256": "b5ecc8f1b5943d50fcee35d4b6c63fe19e801ba646300562987417a13b3959f4"
+    },
+    {
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-xerror",
+        "-threads",
+        "1",
+        "-noautorotate",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-format_whitelist",
+        "matroska,webm,mov",
+        "-i",
+        "<PRIVATE_INPUT>",
+        "-map",
+        "0:0",
+        "-an",
+        "-sn",
+        "-dn",
+        "-fps_mode",
+        "passthrough",
+        "-threads",
+        "1",
+        "-pix_fmt",
+        "rgb24",
+        "-f",
+        "rawvideo",
+        "pipe:1"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 7962624000,
+      "stdout_sha256": "f09e721b4029c3980dca67b435762b7d2751202b578733b16faddad666908f5a"
+    },
+    {
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-format_whitelist",
+        "matroska,webm,mov",
+        "-i",
+        "<PRIVATE_INPUT>",
+        "-select_streams",
+        "v:0",
+        "-show_frames",
+        "-show_entries",
+        "frame=media_type,best_effort_timestamp_time,duration_time,width,height,nb_samples",
+        "-of",
+        "compact=p=0"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 285474,
+      "stdout_sha256": "8879196313aac9ff723d02bf1e48dc93c035603a1c8a92c1bf6b070ab64b875c"
+    },
+    {
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-nostdin",
+        "-v",
+        "error",
+        "-xerror",
+        "-threads",
+        "1",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-format_whitelist",
+        "matroska,webm,mov",
+        "-i",
+        "<PRIVATE_INPUT>",
+        "-map",
+        "0:1",
+        "-vn",
+        "-sn",
+        "-dn",
+        "-threads",
+        "1",
+        "-c:a",
+        "pcm_f32le",
+        "-f",
+        "f32le",
+        "pipe:1"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 15360000,
+      "stdout_sha256": "67b0f99e44fe8403e93916ed8b510e3c7e86975c79571da1cad19102fc10a0ce"
+    },
+    {
+      "argv": [
+        "/usr/bin/ffprobe",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-format_whitelist",
+        "matroska,webm,mov",
+        "-i",
+        "<PRIVATE_INPUT>",
+        "-select_streams",
+        "a:0",
+        "-show_frames",
+        "-show_entries",
+        "frame=media_type,best_effort_timestamp_time,duration_time,width,height,nb_samples",
+        "-of",
+        "compact=p=0"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 174530,
+      "stdout_sha256": "636c231c306a46f47a03362ef0e883357be519337e79e7283426565a86fb9136"
+    },
+    {
+      "argv": [
+        "/usr/bin/ffmpeg",
+        "-version"
+      ],
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1872,
+      "stdout_sha256": "b241942a091ee91966e5b04017a34f1f2a3bcfb1cf80a195e274db03874459d9"
+    }
+  ],
+  "evaluator_code_sha256": "8dd27ea05eff86c85b5176ae0aad644b4b2ef5f12e22dfe90b0175202e72d9c8",
+  "limits_sha256": "c0e93419e6b9c5b3f4919432211e325e16ffe61e9e16e94c37bc151b947e9462",
+  "native_execution_verified": false,
+  "observations": {
+    "alignment": {
+      "caption_coverage_of_declared_narration": 1.0,
+      "decoded_activity_coverage_of_declared_narration": 1.0,
+      "pronunciation_verified": false,
+      "speech_content_verified": false
+    },
+    "artifact": {
+      "bytes": 68262930,
+      "sha256": "6d1a32dfd3479c392fb42fc5f65b9b51e1da3a6e7b7f4cd65e06d652f485b65a"
+    },
+    "audio": {
+      "activity_intervals_relative_s": [
+        [
+          0.0,
+          120.0
+        ]
+      ],
+      "activity_is_speech_recognition": false,
+      "channels": 2,
+      "clipped_samples_per_channel": [
+        0,
+        0
+      ],
+      "decoded_sha256": "67b0f99e44fe8403e93916ed8b510e3c7e86975c79571da1cad19102fc10a0ce",
+      "duration_s": 120.0,
+      "peak_per_channel": [
+        0.20001220703125,
+        0.20001220703125
+      ],
+      "rate": 16000,
+      "rms_per_channel": [
+        0.14142172551566023,
+        0.14142165540553123
+      ],
+      "samples_per_channel": 1920000,
+      "silent_samples_per_channel": [
+        0,
+        0
+      ],
+      "window_size_samples": 1600,
+      "window_stats_sha256": "1f533207c052baae2e0b952602ed42f552ac3aeb32128a5ec0c161d502caadf0",
+      "windows": 1200
+    },
+    "audio_timing": {
+      "end_s": 120.0,
+      "frames": 1875,
+      "max_gap_s": 0.0,
+      "max_overlap_s": 0.0,
+      "max_step_error_s": 0.0,
+      "pts_sha256": "299892ec7b74c9cb01c19b3bdbb65c73c423638cf420cca780bb560ca3376e83",
+      "samples": 1920000,
+      "start_s": 0.0
+    },
+    "captions": {
+      "cues": [
+        {
+          "end_s": 10.0,
+          "id": "1",
+          "start_s": 0.0,
+          "text": "Synthetic HD diagnostic segment 1."
+        },
+        {
+          "end_s": 20.0,
+          "id": "2",
+          "start_s": 10.0,
+          "text": "Synthetic HD diagnostic segment 2."
+        },
+        {
+          "end_s": 30.0,
+          "id": "3",
+          "start_s": 20.0,
+          "text": "Synthetic HD diagnostic segment 3."
+        },
+        {
+          "end_s": 40.0,
+          "id": "4",
+          "start_s": 30.0,
+          "text": "Synthetic HD diagnostic segment 4."
+        },
+        {
+          "end_s": 50.0,
+          "id": "5",
+          "start_s": 40.0,
+          "text": "Synthetic HD diagnostic segment 5."
+        },
+        {
+          "end_s": 60.0,
+          "id": "6",
+          "start_s": 50.0,
+          "text": "Synthetic HD diagnostic segment 6."
+        },
+        {
+          "end_s": 70.0,
+          "id": "7",
+          "start_s": 60.0,
+          "text": "Synthetic HD diagnostic segment 7."
+        },
+        {
+          "end_s": 80.0,
+          "id": "8",
+          "start_s": 70.0,
+          "text": "Synthetic HD diagnostic segment 8."
+        },
+        {
+          "end_s": 90.0,
+          "id": "9",
+          "start_s": 80.0,
+          "text": "Synthetic HD diagnostic segment 9."
+        },
+        {
+          "end_s": 100.0,
+          "id": "10",
+          "start_s": 90.0,
+          "text": "Synthetic HD diagnostic segment 10."
+        },
+        {
+          "end_s": 110.0,
+          "id": "11",
+          "start_s": 100.0,
+          "text": "Synthetic HD diagnostic segment 11."
+        },
+        {
+          "end_s": 120.0,
+          "id": "12",
+          "start_s": 110.0,
+          "text": "Synthetic HD diagnostic segment 12."
+        }
+      ],
+      "format": "srt",
+      "raw_sha256": "6508f4f68691f994dc704c7230c4039a61bb9a559e5b157d9ea187f21800f774",
+      "text_sha256": "aa6d5fd3572a9dac561f6c25a82d11cbe57d8c3f4c4081f4974b9c111a8d4cc9"
+    },
+    "decoder_version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "metadata": {
+      "audio": {
+        "channels": 2,
+        "codec": "pcm_s16le",
+        "index": 1,
+        "rate": 16000
+      },
+      "codec": "h264",
+      "container_formats": [
+        "matroska",
+        "webm"
+      ],
+      "duration_s": "120",
+      "fps": "24",
+      "height": 720,
+      "pixel_format": "yuv420p",
+      "video_index": 0,
+      "width": 1280
+    },
+    "tool_binary_identity": {
+      "ffmpeg": {
+        "bytes": 366984,
+        "path": "/usr/bin/ffmpeg",
+        "sha256": "e8a8d46f5225f3062cec7c07fb145d58ae73c603cb740dcd5bad34bfb54e455a"
+      },
+      "ffprobe": {
+        "bytes": 206504,
+        "path": "/usr/bin/ffprobe",
+        "sha256": "cefc5f81c0b18429cdbf8fa5a89e1e9c759235e10f93f9b329ff1b2fdff26f46"
+      }
+    },
+    "video": {
+      "dark_frames": 0,
+      "decoded_frames": 2880,
+      "decoded_sha256": "f09e721b4029c3980dca67b435762b7d2751202b578733b16faddad666908f5a",
+      "first_frame_sha256": "386a979f621579cbf5792584399608b1b039e9391c7405f0662c7b92d912e1c9",
+      "frame_bytes": 2764800,
+      "frame_chain_sha256": "4aad9263fb957f6397fcd713883744ac84635c5d54dad756a63e71592ad28c48",
+      "inspection": "ALL_PIXELS_RGB8_ALL_FRAMES",
+      "last_frame_sha256": "452c4041b1548ad79c221d423d4bfca5a8b3a52a9d1b810dcca3fb70637d361c",
+      "max_dark_run_frames": 0,
+      "max_same_run_transitions": 0,
+      "same_transitions": 0
+    },
+    "video_timing": {
+      "end_s": 119.999,
+      "frames": 2880,
+      "max_gap_s": 0.001,
+      "max_overlap_s": 0.0,
+      "max_step_error_s": 0.0006666666666666666,
+      "pts_sha256": "319f38dfce9372e9558a92c4ad94ccb0cedee925a2410fad1955d7fddd6dd750",
+      "samples": 0,
+      "start_s": 0.0
+    }
+  },
+  "product_accepted": false,
+  "reasons": [],
+  "receipt_sha256": "6c00e374848e5a44e1ca18dc478b2d94ec8af3b1b146b6652e48426d328049ec",
+  "reference_sha256": "cff70bc74c0f9437ab49ba6c2e96461a5db7c4a702db6a85e0f56641864dd439",
+  "release_authorized": false,
+  "run_id": "long_hd_stereo_all_frames",
+  "schema_version": "av-result-2",
+  "semantic_speech_verified": false,
+  "status": "DIAGNOSTIC_PASS"
+}

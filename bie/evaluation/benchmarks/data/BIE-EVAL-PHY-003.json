@@ -1,0 +1,302 @@
+[
+  {
+    "case_id": "BIE-EVAL-PHY-003.C001",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Frequency wavelength and phase speed",
+    "prompt": "Frequency wavelength and phase speed. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"frequency\":{\"unit\":\"Hz\",\"value\":3},\"op\":\"wave_properties\",\"wavelength\":{\"unit\":\"m\",\"value\":2}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"k_radpm\":3.141592653589793,\"omega_radps\":18.84955592153876,\"phase_speed_mps\":6}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "v=f lambda=6; omega=2 pi f=6 pi; k=2 pi/lambda=pi.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "wave_properties",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C002",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Wavelength and frequency units",
+    "prompt": "Wavelength and frequency units. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"frequency\":{\"unit\":\"kHz\",\"value\":2},\"op\":\"wave_properties\",\"wavelength\":{\"unit\":\"cm\",\"value\":50}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"k_radpm\":12.566370614359172,\"omega_radps\":12566.370614359172,\"phase_speed_mps\":1000}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": ".5 m times 2000 Hz = 1000 m/s; omega=4000 pi; k=4 pi.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "wave_properties",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C003",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Constructive displacement superposition",
+    "prompt": "Constructive displacement superposition. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"components\":[{\"amplitude\":{\"unit\":\"m\",\"value\":1},\"phase\":{\"unit\":\"deg\",\"value\":90}},{\"amplitude\":{\"unit\":\"m\",\"value\":1},\"phase\":{\"unit\":\"deg\",\"value\":90}}],\"op\":\"linear_superposition\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"displacement_m\":2}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Each displacement is 1 m at phase pi/2; linear sum is 2 m.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "linear_superposition",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C004",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Destructive displacement superposition",
+    "prompt": "Destructive displacement superposition. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"components\":[{\"amplitude\":{\"unit\":\"m\",\"value\":1},\"phase\":{\"unit\":\"deg\",\"value\":90}},{\"amplitude\":{\"unit\":\"m\",\"value\":1},\"phase\":{\"unit\":\"deg\",\"value\":270}}],\"op\":\"linear_superposition\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"displacement_m\":0}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Sine of pi/2 plus sine of 3pi/2 is zero.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "linear_superposition",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C005",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Particle velocity differs from phase speed",
+    "prompt": "Particle velocity differs from phase speed. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"amplitude\":{\"unit\":\"m\",\"value\":0.1},\"direction\":\"POSITIVE_X\",\"frequency\":{\"unit\":\"Hz\",\"value\":1},\"op\":\"traveling_wave_sample\",\"phase\":{\"unit\":\"rad\",\"value\":0},\"position\":{\"unit\":\"m\",\"value\":0},\"time\":{\"unit\":\"s\",\"value\":0},\"wavelength\":{\"unit\":\"m\",\"value\":2}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"displacement_m\":0,\"particle_velocity_mps\":-0.6283185307179586,\"phase_velocity_mps\":2}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "At zero phase y=0; dy/dt=-omega*A=-.2pi, while phase velocity is 2 m/s.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "traveling_wave_sample",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C006",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Negative propagation direction",
+    "prompt": "Negative propagation direction. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"amplitude\":{\"unit\":\"m\",\"value\":0.1},\"direction\":\"NEGATIVE_X\",\"frequency\":{\"unit\":\"Hz\",\"value\":1},\"op\":\"traveling_wave_sample\",\"phase\":{\"unit\":\"rad\",\"value\":0},\"position\":{\"unit\":\"m\",\"value\":0},\"time\":{\"unit\":\"s\",\"value\":0},\"wavelength\":{\"unit\":\"m\",\"value\":2}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"displacement_m\":0,\"particle_velocity_mps\":0.6283185307179586,\"phase_velocity_mps\":-2}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Changing propagation sign reverses phase velocity and the time derivative sign.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "traveling_wave_sample",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C007",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Third fixed-string mode",
+    "prompt": "Third fixed-string mode. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"length\":{\"unit\":\"m\",\"value\":1},\"mode\":3,\"op\":\"fixed_string_mode\",\"wave_speed\":{\"unit\":\"m/s\",\"value\":100}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"frequency_Hz\":150,\"node_count_including_ends\":4,\"wavelength_m\":0.6666666666666666}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "lambda=2L/n=2/3; f=nv/(2L)=150; n+1 nodes including endpoints.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "fixed_string_mode",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C008",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "No zeroth fixed-string oscillatory mode",
+    "prompt": "No zeroth fixed-string oscillatory mode. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"length\":{\"unit\":\"m\",\"value\":1},\"mode\":0,\"op\":\"fixed_string_mode\",\"wave_speed\":{\"unit\":\"m/s\",\"value\":100}}",
+    "expected_json": "{\"error_code\":\"INVALID_INTEGER\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The supported oscillatory mode index starts at one.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "fixed_string_mode",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C009",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Zero frequency outside propagating profile",
+    "prompt": "Zero frequency outside propagating profile. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"frequency\":{\"unit\":\"Hz\",\"value\":0},\"op\":\"wave_properties\",\"wavelength\":{\"unit\":\"m\",\"value\":2}}",
+    "expected_json": "{\"error_code\":\"NONPOSITIVE_QUANTITY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "This propagating-wave profile requires positive frequency.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "wave_properties",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-003.C010",
+    "task_id": "BIE-EVAL-PHY-003",
+    "domain": "physics",
+    "title": "Nonlinear waves not silently substituted",
+    "prompt": "Nonlinear waves not silently substituted. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"nonlinear_shock\"}",
+    "expected_json": "{\"error_code\":\"UNSUPPORTED_OPERATION\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-003.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "A linear reference must abstain from a nonlinear-shock request.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-waves",
+        "title": "University Physics Volume 1",
+        "locator": "16.2 Mathematics of Waves; 16.5 Interference of Waves",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "nonlinear_shock",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

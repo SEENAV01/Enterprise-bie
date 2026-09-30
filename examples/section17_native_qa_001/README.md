@@ -1,0 +1,1 @@
+Explicitly authored 2-second media and unexecuted source/game placeholders. Used for local component interoperation only; not a real book or native BIE product. Operator pins in this fixture are test inputs, not independent benchmark approval.

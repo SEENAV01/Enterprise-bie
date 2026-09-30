@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-EVAL-PHY-003",
+  "original_capability": "waves benchmark",
+  "batch": 1,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Linear wave properties and superposition, traveling-wave samples with distinct phase/particle velocities, fixed-string harmonics, phase/units/mode validation.",
+  "bounds_and_open_scope": "Linear wave and fixed-end string profiles only. No nonlinear media, general dispersion, audio/media quality or full wave curriculum acceptance. Ten authored development cases; no independent golden corpus.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/waves.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-003.json",
+    "tests/section17/test_phy_003.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/waves.py": "7422c37c3973285f0a6e220af3cdc9fcbb7afe96bf0a22cdb1ccd9fa6228cece",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-003.json": "9a6cd2a4e07491486a99309a0a58b88314be52b7bbbdea6cff2536aca44e08ff",
+    "tests/section17/test_phy_003.py": "ee63217640d34cf12304dfc4ef23b5400658334a6058c858ddd5ba67e14a4b1b"
+  },
+  "selected_task_suite": {
+    "test_method_count": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "python -B -m unittest discover -s tests/section17 -p test_phy_003.py -v"
+  },
+  "batch_shared_regression": "254 unique test methods including 38 additional cross-task/audit/CLI/package tests; do not add repeated task runs to this count.",
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-PHY-003/SPEC.md",
+  "evidence_scope": "Local Python execution, unit/contract/metamorphic tests and authored diagnostic cases only.",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_diagnostic_cases": {
+    "total": 10,
+    "expected_successful_computation": 7,
+    "expected_typed_rejection": 3,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  }
+}

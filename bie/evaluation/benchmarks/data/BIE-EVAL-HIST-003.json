@@ -1,0 +1,362 @@
+[
+  {
+    "case_id": "BIE-EVAL-HIST-003.C001",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Adjacent CE dates",
+    "prompt": "Adjacent CE dates. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"b\":{\"calendar\":\"proleptic_gregorian\",\"day\":21,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"b_minus_a_days_max\":1,\"b_minus_a_days_min\":1,\"profile\":\"PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY\",\"relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C002",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Reverse CE dates",
+    "prompt": "Reverse CE dates. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"day\":21,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"b\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"b_minus_a_days_max\":-1,\"b_minus_a_days_min\":-1,\"profile\":\"PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY\",\"relation\":\"AFTER\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C003",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Same exact day",
+    "prompt": "Same exact day. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"b\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"b_minus_a_days_max\":0,\"b_minus_a_days_min\":0,\"profile\":\"PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY\",\"relation\":\"SAME_DAY\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C004",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Gregorian 400-year leap rule",
+    "prompt": "Gregorian 400-year leap rule. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"day\":28,\"era\":\"CE\",\"month\":2,\"precision\":\"day\",\"year\":2000},\"b\":{\"calendar\":\"proleptic_gregorian\",\"day\":1,\"era\":\"CE\",\"month\":3,\"precision\":\"day\",\"year\":2000},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"b_minus_a_days_max\":2,\"b_minus_a_days_min\":2,\"profile\":\"PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY\",\"relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C005",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Gregorian century non-leap rule",
+    "prompt": "Gregorian century non-leap rule. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"day\":28,\"era\":\"CE\",\"month\":2,\"precision\":\"day\",\"year\":1900},\"b\":{\"calendar\":\"proleptic_gregorian\",\"day\":1,\"era\":\"CE\",\"month\":3,\"precision\":\"day\",\"year\":1900},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"b_minus_a_days_max\":1,\"b_minus_a_days_min\":1,\"profile\":\"PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY\",\"relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C006",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Equal year labels do not establish simultaneity",
+    "prompt": "Equal year labels do not establish simultaneity. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"b\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"b_minus_a_days_max\":364,\"b_minus_a_days_min\":-364,\"profile\":\"PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY\",\"relation\":\"OVERLAPPING_OR_UNCERTAIN\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C007",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "No-year-zero difference 1BCE-1CE",
+    "prompt": "No-year-zero difference 1BCE-1CE. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a_era\":\"BCE\",\"a_year\":1,\"b_era\":\"CE\",\"b_year\":1,\"op\":\"year_difference\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"YEAR_LABEL_DIFFERENCE_NOT_PRECISE_ELAPSED_DURATION\",\"signed_year_number_difference\":1}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Convert BCE year y to astronomical year 1-y before subtracting; label difference is not precise elapsed duration.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "year_difference",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C008",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "No-year-zero difference 2BCE-1BCE",
+    "prompt": "No-year-zero difference 2BCE-1BCE. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a_era\":\"BCE\",\"a_year\":2,\"b_era\":\"BCE\",\"b_year\":1,\"op\":\"year_difference\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"YEAR_LABEL_DIFFERENCE_NOT_PRECISE_ELAPSED_DURATION\",\"signed_year_number_difference\":1}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Convert BCE year y to astronomical year 1-y before subtracting; label difference is not precise elapsed duration.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "year_difference",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C009",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "No-year-zero difference 10CE-10BCE",
+    "prompt": "No-year-zero difference 10CE-10BCE. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a_era\":\"CE\",\"a_year\":10,\"b_era\":\"BCE\",\"b_year\":10,\"op\":\"year_difference\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"profile\":\"YEAR_LABEL_DIFFERENCE_NOT_PRECISE_ELAPSED_DURATION\",\"signed_year_number_difference\":-19}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Convert BCE year y to astronomical year 1-y before subtracting; label difference is not precise elapsed duration.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "year_difference",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C010",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Partial order retains overlapping intervals",
+    "prompt": "Partial order retains overlapping intervals. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"events\":[{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},{\"date\":{\"calendar\":\"proleptic_gregorian\",\"day\":20,\"era\":\"CE\",\"month\":6,\"precision\":\"day\",\"year\":1789},\"id\":\"C\"}],\"op\":\"partial_order\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"definitely_before\":[[\"A\",\"B\"],[\"A\",\"C\"]],\"overlapping_or_uncertain\":[[\"B\",\"C\"]],\"profile\":\"PRECISION_PRESERVING_PARTIAL_ORDER\",\"same_day\":[],\"unique_total_order\":false}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A definitely precedes B and C; B year-range overlaps the exact C date, so do not impose a total order.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "partial_order",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C011",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Civil year zero rejected",
+    "prompt": "Civil year zero rejected. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a_era\":\"BCE\",\"a_year\":0,\"b_era\":\"CE\",\"b_year\":1,\"op\":\"year_difference\"}",
+    "expected_json": "{\"error_code\":\"INVALID_INTEGER\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Civil BCE/CE input excludes year zero.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "year_difference",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-003.C012",
+    "task_id": "BIE-EVAL-HIST-003",
+    "domain": "history",
+    "title": "Invalid non-leap date rejected",
+    "prompt": "Invalid non-leap date rejected. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"a\":{\"calendar\":\"proleptic_gregorian\",\"day\":29,\"era\":\"CE\",\"month\":2,\"precision\":\"day\",\"year\":1900},\"b\":{\"calendar\":\"proleptic_gregorian\",\"day\":1,\"era\":\"CE\",\"month\":3,\"precision\":\"day\",\"year\":1900},\"op\":\"compare_dates\"}",
+    "expected_json": "{\"error_code\":\"INVALID_INTEGER\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-003.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "1900 is divisible by 100 but not 400, so February has only 28 days in this profile.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "compare_dates",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

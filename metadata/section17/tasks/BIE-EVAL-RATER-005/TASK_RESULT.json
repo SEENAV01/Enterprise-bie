@@ -1,0 +1,103 @@
+{
+  "task_id": "BIE-EVAL-RATER-005",
+  "original_sequence": 46,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Minimum score across a pinned rater roster, required deterministic evaluator, unique declared independence groups, zero credit for absent/blocked raters and disagreement adjudication blocks.",
+  "limits": "Declared independence metadata requires deployment governance; a hash alone does not authenticate a submitted assessment.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/aggregation.py",
+    "tests/section17/test_rater_005.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-RATER-004"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_aggregate_has_integrity_hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_all_missing_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_blocked_rater_zero_and_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_candidate_binding_changed_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_conservative_minimum_not_mean",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_deterministic_zero_cannot_be_outvoted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_disagreement_boundary_exact",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_duplicate_rater_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_excess_disagreement_requires_adjudication",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_independence_group_clones_reject",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_missing_rater_zero_and_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_model_only_roster_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_policy_digest_cannot_be_changed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_positive_minimum",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_score_aggregation_does_not_authorize_release",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_stable_result_order",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_unknown_assessor_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rater_005.AggregationRater005.test_wrong_kind_rejects",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 18,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-005_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-RATER-005_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-RATER-005/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

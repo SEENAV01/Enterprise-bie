@@ -1,0 +1,302 @@
+[
+  {
+    "case_id": "BIE-EVAL-MATH-001.C001",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Polynomial evaluation",
+    "prompt": "Polynomial evaluation. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[5,-3,2],\"op\":\"polynomial_value\",\"x\":2}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"7\",\"value\":7}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "5-3*2+2*2^2=7.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "polynomial_value",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C002",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Rational value in original domain",
+    "prompt": "Rational value in original domain. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"denominator\":[-1,1],\"numerator\":[-1,0,1],\"op\":\"rational_value\",\"x\":2}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"3\",\"value\":3}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "(2^2-1)/(2-1)=3.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "rational_value",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C003",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Removable hole is still outside domain",
+    "prompt": "Removable hole is still outside domain. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"denominator\":[-1,1],\"numerator\":[-1,0,1],\"op\":\"rational_value\",\"x\":1}",
+    "expected_json": "{\"error_code\":\"OUTSIDE_ORIGINAL_DOMAIN\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The original expression has denominator zero at x=1 even though a factor cancels algebraically.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "rational_value",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C004",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Order-sensitive composition",
+    "prompt": "Order-sensitive composition. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"inner\":[0,0,1],\"op\":\"composition_value\",\"outer\":[1,2],\"x\":3}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"19\",\"value\":19}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "f(g(3))=1+2*(3^2)=19, not g(f(3)).",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "composition_value",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C005",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Affine inverse",
+    "prompt": "Affine inverse. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"a\":2,\"b\":3,\"op\":\"inverse_affine_value\",\"y\":11}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"4\",\"value\":4}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Solve 2x+3=11 to obtain x=4.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "inverse_affine_value",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C006",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Constant function not invertible",
+    "prompt": "Constant function not invertible. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"a\":0,\"b\":3,\"op\":\"inverse_affine_value\",\"y\":3}",
+    "expected_json": "{\"error_code\":\"NONINVERTIBLE_FUNCTION\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "A constant function has no single-valued inverse on the real line.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "inverse_affine_value",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C007",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Injective finite function",
+    "prompt": "Injective finite function. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"finite_relation\",\"pairs\":[[1,2],[2,4]]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"conflicting_inputs\":[],\"domain_cardinality\":2,\"is_function\":true,\"is_injective\":true}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Two different inputs each have one distinct output.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "finite_relation",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C008",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Many-to-one remains a function",
+    "prompt": "Many-to-one remains a function. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"finite_relation\",\"pairs\":[[1,2],[2,2]]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"conflicting_inputs\":[],\"domain_cardinality\":2,\"is_function\":true,\"is_injective\":false}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Each input has one output; two inputs share output 2, so not injective.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "finite_relation",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C009",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "One input with two outputs",
+    "prompt": "One input with two outputs. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"op\":\"finite_relation\",\"pairs\":[[1,2],[1,3]]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"conflicting_inputs\":[\"1\"],\"domain_cardinality\":1,\"is_function\":false,\"is_injective\":false}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Input 1 maps to both 2 and 3, violating the function definition.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "finite_relation",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-MATH-001.C010",
+    "task_id": "BIE-EVAL-MATH-001",
+    "domain": "mathematics",
+    "title": "Exact rational coefficients",
+    "prompt": "Exact rational coefficients. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"coefficients\":[\"1/2\",\"2/3\"],\"op\":\"polynomial_value\",\"x\":\"3/2\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"exact\":\"3/2\",\"value\":1.5}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-MATH-001.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "1/2+(2/3)*(3/2)=3/2 exactly.",
+    "sources": [
+      {
+        "reference_id": "openstax-calc1-functions",
+        "title": "Calculus Volume 1",
+        "locator": "1.1 Review of Functions",
+        "url": "https://openstax.org/books/calculus-volume-1/pages/1-1-review-of-functions",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "polynomial_value",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "task_id": "BIE-EVAL-REL-002",
+  "original_sequence": 48,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Mandatory per-metric floors and measured-status requirements that cannot be overridden by a high overall average.",
+  "limits": "Production policy approval is external. Passing floors alone never grants release authorization.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/floors.py",
+    "tests/section17/test_rel_002.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-REL-001"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rel_002.HardFloors002.test_all_missing_reports_every_failure",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_any_floor_fails_gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_blocked_critical_cannot_claim_one",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_duplicate_floor_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_duplicate_result_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_empty_floor_policy_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_exact_boundary_passes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_extra_metric_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_hard_floor_failures_deterministic",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_hash_pin_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_invalid_floor_range_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_missing_critical_is_not_measured",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_one_strong_metric_cannot_mask_other",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_002.HardFloors002.test_zero_floor_still_requires_measured",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 14,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-002_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-002_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-REL-002/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

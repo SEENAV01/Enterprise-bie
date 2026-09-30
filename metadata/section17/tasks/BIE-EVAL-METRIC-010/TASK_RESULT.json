@@ -1,0 +1,93 @@
+{
+  "task_id": "BIE-EVAL-METRIC-010",
+  "original_sequence": 34,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Complete sampled trajectories against trusted piecewise-linear knots, property/unit binding, tolerance, bounds, finite-difference velocity and acceleration.",
+  "limits": "Only the supplied sampled instants are assessed. No proof of unsampled motion, smoothness perceived by viewers, physically complete simulation or rendered animation fidelity.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/animation.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-010.json",
+    "tests/section17/test_metric_010.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_acceleration_check_catches_jitter",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_duplicate_reference_sample_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_fractional_midpoint_is_exact",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_incomplete_reference_knot_roster_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_nan_sample_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_nonmonotonic_samples_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_reference_bounds_reversed_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_reference_endpoints_required",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_reference_speed_self_inconsistent_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_010.METRIC010Tests.test_wrong_property_fails",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-010/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

@@ -1,0 +1,127 @@
+{
+  "task_id": "BIE-EVAL-METRIC-006",
+  "original_sequence": 30,
+  "original_capability": "causal metric",
+  "batch": 3,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Directed graph and intervention/counterfactual fidelity in declared acyclic linear structural causal models.",
+  "bounded_contract": "Reference model: each node has id,intercept,noise,parents {node,coefficient}. All nodes/edges unique, acyclic, bounded, with nonzero edge coefficients. Queries specify positive weight, interventions,target,inference_kind.\nSolve in topological order. A do intervention replaces the intervened node equation, not its exogenous ancestors. Fixed noise is retained for explicitly labeled counterfactual_fixed_noise queries. Candidate edges and numeric query answers are checked independently against trusted model.\nTrue edges contribute weight1; queries have declared weights. Missing/reversed edges lose credit; unsupported extra edges veto PASS. Association cannot be relabeled as intervention/counterfactual; correct numbers with wrong inference_kind fail.",
+  "bounds_and_open_scope": "No empirical identification, causal discovery, proof of real-world causal validity, stochastic uncertainty estimation or universal counterfactual reasoning. Model assumptions and noise are supplied and require independent validation.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/causality.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json",
+    "tests/section17/test_metric_006.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/metrics/causality.py": "1fd680cce320ed71e91668b2c8864707a9641b05f53c6961c79ed03634845986",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json": "3243c758f8879550fd4da01640126c2da96363a04333edfe02a54065413c1a10",
+    "tests/section17/test_metric_006.py": "344144cdde159a89b698d611b3867c67960a96c7fd30e0f7fabab874805d410d"
+  },
+  "selected_task_suite": {
+    "schema_version": "1.0.0",
+    "task_id": "BIE-EVAL-METRIC-006",
+    "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+    "tests_run": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_authored_candidate_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_do_overrides_incoming_equation_not_exogenous_parent",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_duplicate_reported_edge_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_extra_edge_is_fail_even_when_queries_correct",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_fixed_noise_preserved_for_counterfactual",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_intervene_on_outcome_replaces_parents",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_negative_coefficient_supported",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_no_empirical_causal_certification",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_observation_without_intervention_different_from_do",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_query_absence_not_remove_denominator",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_reference_cycle_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_structural_node_input_order_irrelevant",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_unknown_candidate_node_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_unknown_intervention_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_006.METRIC006Tests.test_zero_coefficient_not_an_edge",
+        "status": "PASS"
+      }
+    ],
+    "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+    "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+    "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+  },
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-006/SPEC.md",
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_fixture_count": 6,
+  "independent_reference_review": false,
+  "hidden_holdout": false
+}

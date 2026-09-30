@@ -1,0 +1,89 @@
+{
+  "task_id": "BIE-EVAL-H2-006",
+  "title": "Decoded timeline and AV synchronization",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/timeline.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-002",
+    "BIE-EVAL-H2-003"
+  ],
+  "test_file": "tests/section17/test_h2_006.py",
+  "test_count": 17,
+  "records": [
+    {
+      "test_id": "test_h2_006.H2006.test_audio_pts_sample_count_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_audio_uses_sample_count",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_backward_pts",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_decoded_timing_count_must_match",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_duplicate_pts",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_exact_timeline",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_gap_measured",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_invalid_audio_samples",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_missing_audio_timing",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_missing_duration_fallback_explicit_cfr",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_missing_pts",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_negative_pts",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_overlap_measured",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_resolution_change",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_timing_count_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_unknown_timeline_kind",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_006.H2006.test_variable_fps_detected",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "CFR profile with explicit tolerances; not a general VFR retimer, forced word aligner or semantic synchronization evaluator.",
+  "derived_from": "H1-RES-002"
+}

@@ -1,0 +1,297 @@
+{
+  "task_id": "BIE-EVAL-BIO-001",
+  "operations": {
+    "net_budget": [
+      "BIE-EVAL-BIO-001.C001",
+      "BIE-EVAL-BIO-001.C002",
+      "BIE-EVAL-BIO-001.C011"
+    ],
+    "calvin_budget": [
+      "BIE-EVAL-BIO-001.C003",
+      "BIE-EVAL-BIO-001.C004",
+      "BIE-EVAL-BIO-001.C012"
+    ],
+    "resource_limited_calvin": [
+      "BIE-EVAL-BIO-001.C005",
+      "BIE-EVAL-BIO-001.C006",
+      "BIE-EVAL-BIO-001.C007"
+    ],
+    "audit_concepts": [
+      "BIE-EVAL-BIO-001.C008",
+      "BIE-EVAL-BIO-001.C009",
+      "BIE-EVAL-BIO-001.C010"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-BIO-001.C001",
+      "inputs": {
+        "glucose_mol": "1",
+        "op": "net_budget"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "net_consumed_mol": {
+            "CO2": "6",
+            "H2O": "6"
+          },
+          "net_produced_mol": {
+            "C6H12O6": "1",
+            "O2": "6"
+          },
+          "oxygen_source": "water",
+          "profile": "NET_OXYGENIC_BOOKKEEPING"
+        }
+      },
+      "derivation": "Net equation coefficients 6:6:1:6; oxygen source is distinguished from net atom cancellation."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C002",
+      "inputs": {
+        "glucose_mol": "1/2",
+        "op": "net_budget"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "net_consumed_mol": {
+            "CO2": "3",
+            "H2O": "3"
+          },
+          "net_produced_mol": {
+            "C6H12O6": "1/2",
+            "O2": "3"
+          },
+          "oxygen_source": "water",
+          "profile": "NET_OXYGENIC_BOOKKEEPING"
+        }
+      },
+      "derivation": "Net equation coefficients 6:6:1:6; oxygen source is distinguished from net atom cancellation."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C003",
+      "inputs": {
+        "co2_mol": 3,
+        "op": "calvin_budget"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "atp_consumed_mol": "9",
+          "g3p_recycled_mol": "5",
+          "gross_g3p_reduced_mol": "6",
+          "nadph_consumed_mol": "6",
+          "net_g3p_mol": "1",
+          "profile": "IDEAL_C3_CALVIN_NO_PHOTORESPIRATION",
+          "rubp_regenerated_mol": "3"
+        }
+      },
+      "derivation": "Per net G3P: 3 CO2, 9 ATP, 6 NADPH; five of six reduced G3P recycle."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C004",
+      "inputs": {
+        "co2_mol": 6,
+        "op": "calvin_budget"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "atp_consumed_mol": "18",
+          "g3p_recycled_mol": "10",
+          "gross_g3p_reduced_mol": "12",
+          "nadph_consumed_mol": "12",
+          "net_g3p_mol": "2",
+          "profile": "IDEAL_C3_CALVIN_NO_PHOTORESPIRATION",
+          "rubp_regenerated_mol": "6"
+        }
+      },
+      "derivation": "Per net G3P: 3 CO2, 9 ATP, 6 NADPH; five of six reduced G3P recycle."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C005",
+      "inputs": {
+        "atp_mol": 18,
+        "co2_mol": 9,
+        "nadph_mol": 6,
+        "op": "resource_limited_calvin"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "limiting_resources": [
+            "NADPH"
+          ],
+          "net_g3p_mol": "1",
+          "profile": "IDEAL_C3_SUPPLIED_POOLS_NOT_KINETIC_PREDICTION",
+          "unused_mol": {
+            "ATP": "9",
+            "CO2": "6",
+            "NADPH": "0"
+          }
+        }
+      },
+      "derivation": "Compare CO2/3, ATP/9 and NADPH/6 capacities; retain ties and all unused pools."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C006",
+      "inputs": {
+        "atp_mol": 9,
+        "co2_mol": 3,
+        "nadph_mol": 6,
+        "op": "resource_limited_calvin"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "limiting_resources": [
+            "ATP",
+            "CO2",
+            "NADPH"
+          ],
+          "net_g3p_mol": "1",
+          "profile": "IDEAL_C3_SUPPLIED_POOLS_NOT_KINETIC_PREDICTION",
+          "unused_mol": {
+            "ATP": "0",
+            "CO2": "0",
+            "NADPH": "0"
+          }
+        }
+      },
+      "derivation": "Compare CO2/3, ATP/9 and NADPH/6 capacities; retain ties and all unused pools."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C007",
+      "inputs": {
+        "atp_mol": 0,
+        "co2_mol": 3,
+        "nadph_mol": 6,
+        "op": "resource_limited_calvin"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "limiting_resources": [
+            "ATP"
+          ],
+          "net_g3p_mol": "0",
+          "profile": "IDEAL_C3_SUPPLIED_POOLS_NOT_KINETIC_PREDICTION",
+          "unused_mol": {
+            "ATP": "0",
+            "CO2": "3",
+            "NADPH": "6"
+          }
+        }
+      },
+      "derivation": "Compare CO2/3, ATP/9 and NADPH/6 capacities; retain ties and all unused pools."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C008",
+      "inputs": {
+        "claims": {
+          "calvin_direct_photon_requirement": false,
+          "calvin_independent_of_atp_nadph_supply": false,
+          "calvin_location": "chloroplast_stroma",
+          "fixed_carbon_source": "carbon_dioxide",
+          "light_reaction_location": "thylakoid_membrane",
+          "oxygen_source": "water",
+          "plants_also_respire": true
+        },
+        "op": "audit_concepts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "assessment_scope": "DECLARED_PROPOSITION_PROFILE_ONLY",
+          "consistent": true,
+          "defects": []
+        }
+      },
+      "derivation": "All seven declared propositions agree."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C009",
+      "inputs": {
+        "claims": {
+          "calvin_direct_photon_requirement": false,
+          "calvin_independent_of_atp_nadph_supply": false,
+          "calvin_location": "chloroplast_stroma",
+          "fixed_carbon_source": "carbon_dioxide",
+          "light_reaction_location": "thylakoid_membrane",
+          "oxygen_source": "carbon_dioxide",
+          "plants_also_respire": true
+        },
+        "op": "audit_concepts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "assessment_scope": "DECLARED_PROPOSITION_PROFILE_ONLY",
+          "consistent": false,
+          "defects": [
+            {
+              "claim": "oxygen_source",
+              "reason": "CONTRADICTED_CLAIM"
+            }
+          ]
+        }
+      },
+      "derivation": "Reject carbon dioxide as released oxygen source in oxygenic photosynthesis."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C010",
+      "inputs": {
+        "claims": {
+          "calvin_direct_photon_requirement": false,
+          "calvin_independent_of_atp_nadph_supply": false,
+          "calvin_location": "chloroplast_stroma",
+          "fixed_carbon_source": "carbon_dioxide",
+          "light_reaction_location": "thylakoid_membrane",
+          "oxygen_source": "water"
+        },
+        "op": "audit_concepts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "assessment_scope": "DECLARED_PROPOSITION_PROFILE_ONLY",
+          "consistent": false,
+          "defects": [
+            {
+              "claim": "plants_also_respire",
+              "reason": "MISSING_CLAIM"
+            }
+          ]
+        }
+      },
+      "derivation": "An omitted required proposition is not a pass."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C011",
+      "inputs": {
+        "glucose_mol": -1,
+        "op": "net_budget"
+      },
+      "expected": {
+        "error_code": "QUANTITY_OUT_OF_PROFILE",
+        "status": "REJECTED"
+      },
+      "derivation": "Negative substance amounts are outside this net-production request."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-001.C012",
+      "inputs": {
+        "co2_mol": 3,
+        "expected": "PASS",
+        "op": "calvin_budget"
+      },
+      "expected": {
+        "error_code": "INVALID_FIELDS",
+        "status": "REJECTED"
+      },
+      "derivation": "Closed input schema rejects answer injection."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

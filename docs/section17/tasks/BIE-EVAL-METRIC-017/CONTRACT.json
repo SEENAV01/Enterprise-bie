@@ -1,0 +1,15 @@
+{
+  "task_id": "BIE-EVAL-METRIC-017",
+  "original_sequence": 41,
+  "original_capability": "regression metric",
+  "module": "metrics/regression.py",
+  "test_pattern": "test_metric_017.py",
+  "direct_dependencies": [
+    "BIE-EVAL-REG-002",
+    "BIE-EVAL-REG-004"
+  ],
+  "status": "SCOPED_LOCAL_IMPLEMENTATION",
+  "limits": "Deterministic authored non-regression only; no population inference or statistical significance claim.",
+  "release_authorized": false,
+  "product_accepted": false
+}

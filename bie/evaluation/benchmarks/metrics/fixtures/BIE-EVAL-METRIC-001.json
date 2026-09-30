@@ -1,0 +1,257 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-001",
+    "rubric_id": "BIE-EVAL-METRIC-001.development-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-author-batch003",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-basis",
+        "locator": "Two original typed claims manually bound to authored explanatory spans; weights2 and1; exact span binding is not automatic entailment.",
+        "basis_sha256": "caf673ea6ac54da68ae9177608f5a3357058fcd5ccdad1294977e57596c06f58"
+      }
+    ],
+    "payload": {
+      "sources": [
+        {
+          "id": "doc",
+          "text_sha256": "e5ea59a62c2e60b84270b4246b958acc382ae32b98bf0e76aa4bc3e6b243cd2d",
+          "locator": "Original authored explanatory text, Unicode codepoint offsets"
+        }
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "weight": 2,
+          "proposition": {
+            "subject": "force",
+            "predicate": "has",
+            "object": "magnitude_and_direction"
+          },
+          "supports": [
+            {
+              "source_id": "doc",
+              "start": 0,
+              "end": 43,
+              "span_sha256": "2a5745fb0aa8b3bb22a4717ed7d96047e788e5121f03ce3797505b6541ef8351"
+            }
+          ]
+        },
+        {
+          "id": "c2",
+          "weight": 1,
+          "proposition": {
+            "subject": "isolated_system",
+            "predicate": "conserves",
+            "object": "momentum"
+          },
+          "supports": [
+            {
+              "source_id": "doc",
+              "start": 44,
+              "end": 88,
+              "span_sha256": "f764cc1d70a9c549af8ef4d2d0a28f66159c05bb39312349a9211ad69aa56dcf"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "source_artifacts": {
+    "doc": "A force vector has magnitude and direction. An ideal isolated system conserves momentum."
+  },
+  "cases": [
+    {
+      "id": "positive",
+      "candidate": {
+        "claims": [
+          {
+            "id": "c1",
+            "proposition": {
+              "subject": "force",
+              "predicate": "has",
+              "object": "magnitude_and_direction"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 0,
+                "end": 43
+              }
+            ]
+          },
+          {
+            "id": "c2",
+            "proposition": {
+              "subject": "isolated_system",
+              "predicate": "conserves",
+              "object": "momentum"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 44,
+                "end": 88
+              }
+            ]
+          }
+        ]
+      },
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "wrong_proposition",
+      "candidate": {
+        "claims": [
+          {
+            "id": "c1",
+            "proposition": {
+              "subject": "force",
+              "predicate": "has",
+              "object": "magnitude_only"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 0,
+                "end": 43
+              }
+            ]
+          },
+          {
+            "id": "c2",
+            "proposition": {
+              "subject": "isolated_system",
+              "predicate": "conserves",
+              "object": "momentum"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 44,
+                "end": 88
+              }
+            ]
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "PROPOSITION_MISMATCH"
+    },
+    {
+      "id": "missing_claim",
+      "candidate": {
+        "claims": [
+          {
+            "id": "c2",
+            "proposition": {
+              "subject": "isolated_system",
+              "predicate": "conserves",
+              "object": "momentum"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 44,
+                "end": 88
+              }
+            ]
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "MISSING_CLAIM"
+    },
+    {
+      "id": "missing_citation",
+      "candidate": {
+        "claims": [
+          {
+            "id": "c1",
+            "proposition": {
+              "subject": "force",
+              "predicate": "has",
+              "object": "magnitude_and_direction"
+            },
+            "citations": []
+          },
+          {
+            "id": "c2",
+            "proposition": {
+              "subject": "isolated_system",
+              "predicate": "conserves",
+              "object": "momentum"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 44,
+                "end": 88
+              }
+            ]
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "UNCITED_CLAIM"
+    },
+    {
+      "id": "unannotated_span",
+      "candidate": {
+        "claims": [
+          {
+            "id": "c1",
+            "proposition": {
+              "subject": "force",
+              "predicate": "has",
+              "object": "magnitude_and_direction"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 0,
+                "end": 42
+              }
+            ]
+          },
+          {
+            "id": "c2",
+            "proposition": {
+              "subject": "isolated_system",
+              "predicate": "conserves",
+              "object": "momentum"
+            },
+            "citations": [
+              {
+                "source_id": "doc",
+                "start": 44,
+                "end": 88
+              }
+            ]
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "CITATION_NOT_ANNOTATED_SUPPORT"
+    },
+    {
+      "id": "empty_output",
+      "candidate": {
+        "claims": []
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "MISSING_CLAIM"
+    }
+  ],
+  "fixture_origin": "ORIGINAL_AUTHORED_DEVELOPMENT_NOT_GOLDEN",
+  "expected_values_authored_without_calling_evaluator": true
+}

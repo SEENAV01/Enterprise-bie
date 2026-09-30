@@ -1,0 +1,251 @@
+[
+  {
+    "metric_id": "BIE-EVAL-METRIC-012",
+    "reference": {
+      "schema_version": "metric-av-reference-3",
+      "metric_id": "BIE-EVAL-METRIC-012",
+      "rubric_id": "av-rubric-12",
+      "version": "1.0.0",
+      "reference_owner_id": "fixture-author",
+      "evidence_grade": "AUTHORED_DIAGNOSTIC",
+      "source_refs": [
+        {
+          "id": "authored",
+          "locator": "Local original synthetic test media",
+          "basis_sha256": "9be97c102828eea39afbad7fcef1c3a3e4505f77bc24bc0b9a7b8a2eaad17c97"
+        }
+      ],
+      "av_policy": {
+        "schema_version": "av-policy-2",
+        "width": 64,
+        "height": 36,
+        "expected_frames": 8,
+        "fps": "4",
+        "require_audio": true,
+        "require_captions": false,
+        "caption_text_sha256": null,
+        "narration_intervals_s": [
+          [
+            0,
+            2
+          ]
+        ],
+        "max_dark_fraction": 0.1,
+        "max_identical_run_s": 10,
+        "max_silent_fraction": 0.05,
+        "max_clipped_fraction": 0.001,
+        "min_caption_coverage": 0.95,
+        "min_narration_activity": 0.9,
+        "sync_tolerance_s": 0.01
+      },
+      "limits_sha256": "381421901546c39192d488c64d8585bd6d5074acfa01fd2c0904ebe7dcb43e8f",
+      "frame_reference": null,
+      "a11y_reference": null
+    },
+    "candidate": {
+      "schema_version": "metric-av-candidate-3",
+      "media": {
+        "path": "lesson.mkv",
+        "sha256": "9d1d7a8e945b7f13eb74ba6105e340f8546134797368586450263b8ab98ea888",
+        "size_bytes": 67220
+      },
+      "captions": null,
+      "caption_format": null,
+      "a11y_candidate": null
+    },
+    "expected_reference_sha256": "8af7abac0129bc52843e362d05fb6e41a61d796a1ca4e88fa685a497dbf1ca71",
+    "expected_candidate_sha256": "7a11a8d76da57f451c4f3c2e5eb2adf653a41830b84ca429d406ba13543f85c9"
+  },
+  {
+    "metric_id": "BIE-EVAL-METRIC-013",
+    "reference": {
+      "schema_version": "metric-av-reference-3",
+      "metric_id": "BIE-EVAL-METRIC-013",
+      "rubric_id": "av-rubric-13",
+      "version": "1.0.0",
+      "reference_owner_id": "fixture-author",
+      "evidence_grade": "AUTHORED_DIAGNOSTIC",
+      "source_refs": [
+        {
+          "id": "authored",
+          "locator": "Local original synthetic test media",
+          "basis_sha256": "9be97c102828eea39afbad7fcef1c3a3e4505f77bc24bc0b9a7b8a2eaad17c97"
+        }
+      ],
+      "av_policy": {
+        "schema_version": "av-policy-2",
+        "width": 64,
+        "height": 36,
+        "expected_frames": 8,
+        "fps": "4",
+        "require_audio": true,
+        "require_captions": false,
+        "caption_text_sha256": null,
+        "narration_intervals_s": [
+          [
+            0,
+            2
+          ]
+        ],
+        "max_dark_fraction": 0.1,
+        "max_identical_run_s": 10,
+        "max_silent_fraction": 0.05,
+        "max_clipped_fraction": 0.001,
+        "min_caption_coverage": 0.95,
+        "min_narration_activity": 0.9,
+        "sync_tolerance_s": 0.01
+      },
+      "limits_sha256": "381421901546c39192d488c64d8585bd6d5074acfa01fd2c0904ebe7dcb43e8f",
+      "frame_reference": {
+        "decoded_sha256": "a8beb80f36bd7792266c7a5d9cd67b85775bb9c509193c28f1fde3418248e40f",
+        "frame_chain_sha256": "57d0c520378a56cb17b552b1ce2758d95e264b862c82968892b18f7a4ad00675",
+        "ffmpeg_sha256": "e8a8d46f5225f3062cec7c07fb145d58ae73c603cb740dcd5bad34bfb54e455a"
+      },
+      "a11y_reference": null
+    },
+    "candidate": {
+      "schema_version": "metric-av-candidate-3",
+      "media": {
+        "path": "lesson.mkv",
+        "sha256": "9d1d7a8e945b7f13eb74ba6105e340f8546134797368586450263b8ab98ea888",
+        "size_bytes": 67220
+      },
+      "captions": null,
+      "caption_format": null,
+      "a11y_candidate": null
+    },
+    "expected_reference_sha256": "22a84d93b3d400bb179398ecb838488dab3f98200a40ea34a42f49d8ef49d472",
+    "expected_candidate_sha256": "7a11a8d76da57f451c4f3c2e5eb2adf653a41830b84ca429d406ba13543f85c9"
+  },
+  {
+    "metric_id": "BIE-EVAL-METRIC-015",
+    "reference": {
+      "schema_version": "metric-av-reference-3",
+      "metric_id": "BIE-EVAL-METRIC-015",
+      "rubric_id": "av-rubric-15",
+      "version": "1.0.0",
+      "reference_owner_id": "fixture-author",
+      "evidence_grade": "AUTHORED_DIAGNOSTIC",
+      "source_refs": [
+        {
+          "id": "authored",
+          "locator": "Local original synthetic test media",
+          "basis_sha256": "f4c9aedfbd371948f98abe378a6385b0093290b75bf2b61fffad65b6853a2fbe"
+        }
+      ],
+      "av_policy": {
+        "schema_version": "av-policy-2",
+        "width": 64,
+        "height": 36,
+        "expected_frames": 8,
+        "fps": "4",
+        "require_audio": true,
+        "require_captions": true,
+        "caption_text_sha256": "fa3469999df0f91e43cb619b34775fe6dba6862bcffbfd1d74432e8452395360",
+        "narration_intervals_s": [
+          [
+            0,
+            2
+          ]
+        ],
+        "max_dark_fraction": 0.1,
+        "max_identical_run_s": 10,
+        "max_silent_fraction": 0.05,
+        "max_clipped_fraction": 0.001,
+        "min_caption_coverage": 0.95,
+        "min_narration_activity": 0.9,
+        "sync_tolerance_s": 0.01
+      },
+      "limits_sha256": "381421901546c39192d488c64d8585bd6d5074acfa01fd2c0904ebe7dcb43e8f",
+      "frame_reference": null,
+      "a11y_reference": {
+        "duration_ms": 2000,
+        "speech": [
+          {
+            "id": "speech",
+            "start": 0,
+            "end": 2000,
+            "transcript": "Distance changes force",
+            "weight": 1
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "weight": 1
+          }
+        ],
+        "text_labels": [
+          {
+            "id": "caption",
+            "large_text": false,
+            "weight": 1
+          }
+        ],
+        "alt_ids": [
+          "diagram"
+        ],
+        "caption_tolerance_ms": 0
+      }
+    },
+    "candidate": {
+      "schema_version": "metric-av-candidate-3",
+      "media": {
+        "path": "lesson.mkv",
+        "sha256": "9d1d7a8e945b7f13eb74ba6105e340f8546134797368586450263b8ab98ea888",
+        "size_bytes": 67220
+      },
+      "captions": {
+        "path": "lesson.srt",
+        "sha256": "2863860b428f1699f9e31b385df22257416c9c2ec2404f08223df2e59be7cb73",
+        "size_bytes": 55
+      },
+      "caption_format": "srt",
+      "a11y_candidate": {
+        "captions": [
+          {
+            "id": "cue",
+            "speech_id": "speech",
+            "start": 0,
+            "end": 2000,
+            "text": "Distance changes force"
+          }
+        ],
+        "controls": [
+          {
+            "id": "pause",
+            "key": "Space",
+            "role": "button",
+            "accessible_name": "Pause video",
+            "next_id": "EXIT"
+          }
+        ],
+        "text_styles": [
+          {
+            "id": "caption",
+            "foreground": [
+              255,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "alts": [
+          {
+            "id": "diagram",
+            "text": "Two charges separated by a labelled distance"
+          }
+        ]
+      }
+    },
+    "expected_reference_sha256": "8e1554cb985b8140d1bc8fec8f32c6185d582c05d33241389fd4ceab7862384a",
+    "expected_candidate_sha256": "8ef5bffa4b918644facd8f11c8ed2fadfdb61bb84485d0e990730f1396073a35"
+  }
+]

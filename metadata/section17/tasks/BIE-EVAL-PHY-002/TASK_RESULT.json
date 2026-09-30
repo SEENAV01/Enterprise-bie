@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-EVAL-PHY-002",
+  "original_capability": "mechanics benchmark",
+  "batch": 1,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Constant-acceleration 1D kinematics, net-force 3D acceleration, perfectly inelastic 1D momentum/energy loss and constant-force dot-product work; units, limits and sign checks.",
+  "bounds_and_open_scope": "Explicit Newtonian inertial-frame profiles only. Not friction/contact simulation, general dynamics or a complete mechanics curriculum. Ten authored development cases; no independently reviewed hidden mechanics corpus.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/mechanics.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-002.json",
+    "tests/section17/test_phy_002.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/mechanics.py": "45185fd971355fd41a4fad8766557453699470625bdae02ed0301b6a748a4c01",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-002.json": "6d6dee3070f88aecdf30a9cf08803142051686748c5e268552b96083902b621a",
+    "tests/section17/test_phy_002.py": "32f4ad1d9f106a02fe2e10026f51c98853cbef48c29f53175303deee3c981fa0"
+  },
+  "selected_task_suite": {
+    "test_method_count": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "python -B -m unittest discover -s tests/section17 -p test_phy_002.py -v"
+  },
+  "batch_shared_regression": "254 unique test methods including 38 additional cross-task/audit/CLI/package tests; do not add repeated task runs to this count.",
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-PHY-002/SPEC.md",
+  "evidence_scope": "Local Python execution, unit/contract/metamorphic tests and authored diagnostic cases only.",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_diagnostic_cases": {
+    "total": 10,
+    "expected_successful_computation": 8,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  }
+}

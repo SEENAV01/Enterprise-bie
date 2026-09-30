@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_reg_004.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/reg_004"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668290.162161,
+  "duration_seconds": 0.17107057571411133,
+  "tests_run": 28,
+  "unique_test_method_ids": 28,
+  "passed": 28,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_abstention_never_counts_as_pass",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_atomic_claim_concurrency",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_boolean_cannot_pass_as_numeric_one",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_cannot_resubmit_after_failure",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_clean_diagnostic_split",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_cross_split_group_leak",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_duplicate_problem_under_new_id",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_duplicate_result_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_empty_result_set_is_zero_not_success",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_extra_candidate_score_field_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_frozen_denominator_missing_failure",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_grading_never_accepts_product",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_holdout_requires_actual_review_authority",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_invalid_candidate_digest",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_model_instruction_text_not_executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_nan_candidate_answer_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_normalized_prompt_leak",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_numeric_string_cannot_pass_as_number",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_open_run_not_claimed_complete",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_policy_change_does_not_buy_retry",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_replay_claim_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_report_persistence",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_result_tamper_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_roster_tamper_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_tolerance_not_rounding_away_failure",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_training_fingerprint_overlap",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_training_group_overlap",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_004.AntiGamingTests.test_unknown_result_not_added_to_denominator",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

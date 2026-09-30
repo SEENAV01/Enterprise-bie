@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "retrieved_date": "2026-09-29",
+  "sources": [
+    {
+      "id": "python-pycompile",
+      "url": "https://docs.python.org/3/library/py_compile.html",
+      "use": "Documented compiler behavior and checked-hash bytecode. Installed runtime 3.13.5 was executed; current documentation version need not equal installed version."
+    },
+    {
+      "id": "ffprobe",
+      "url": "https://ffmpeg.org/ffprobe.html",
+      "use": "Machine-readable stream/frame probing."
+    },
+    {
+      "id": "ffmpeg",
+      "url": "https://ffmpeg.org/ffmpeg.html",
+      "use": "Local bounded raw RGB video decoding and authored fixture encoding."
+    },
+    {
+      "id": "wcag-contrast",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "use": "sRGB contrast arithmetic, normal/large text thresholds, no threshold rounding."
+    },
+    {
+      "id": "wcag-keyboard",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html",
+      "use": "Rationale for static exit-reachability diagnostics; not live conformance."
+    },
+    {
+      "id": "wcag-caption",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html",
+      "use": "Rationale for prerecorded speech caption coverage; no audio-level test."
+    }
+  ],
+  "authored_profiles": "All reference payloads, classroom/game examples, thresholds other than cited contrast criteria, traces and tiny media fixture were authored for diagnostics, not independently validated research instruments.",
+  "fixture_basis_hash_semantics": "source_refs[].basis_sha256 in these authored fixtures is digest(reference.payload), not the SHA of SPEC.md or a retrieved webpage. The locator names the supporting implementation specification; the manifest separately binds its file bytes.",
+  "no_copyrighted_book_excerpt_used": true,
+  "independent_reference_review": false,
+  "real_book_input": false,
+  "remotion_execution": false
+}

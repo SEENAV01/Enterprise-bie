@@ -1,0 +1,245 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-006",
+    "rubric_id": "BIE-EVAL-METRIC-006.development-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-author-batch003",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-basis",
+        "locator": "Original deterministic SCM U=2,X=U,Y=3X+4U. do(X=0) yields8; do(X=1) with fixed noise yields11. Three edges weight1 plus queries2+1.",
+        "basis_sha256": "44d57451f2250e6581a7f38c83af7f994828e6dcb0069e8bd258808d292c479f"
+      }
+    ],
+    "payload": {
+      "model": [
+        {
+          "id": "U",
+          "intercept": 2,
+          "noise": 0,
+          "parents": []
+        },
+        {
+          "id": "X",
+          "intercept": 0,
+          "noise": 0,
+          "parents": [
+            {
+              "node": "U",
+              "coefficient": 1
+            }
+          ]
+        },
+        {
+          "id": "Y",
+          "intercept": 0,
+          "noise": 0,
+          "parents": [
+            {
+              "node": "X",
+              "coefficient": 3
+            },
+            {
+              "node": "U",
+              "coefficient": 4
+            }
+          ]
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "weight": 2,
+          "interventions": {
+            "X": 0
+          },
+          "target": "Y",
+          "inference_kind": "intervention"
+        },
+        {
+          "id": "q2",
+          "weight": 1,
+          "interventions": {
+            "X": 1
+          },
+          "target": "Y",
+          "inference_kind": "counterfactual_fixed_noise"
+        }
+      ]
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "positive",
+      "candidate": {
+        "edges": [
+          {
+            "from": "U",
+            "to": "X"
+          },
+          {
+            "from": "X",
+            "to": "Y"
+          },
+          {
+            "from": "U",
+            "to": "Y"
+          }
+        ],
+        "queries": [
+          {
+            "id": "q1",
+            "value": 8,
+            "inference_kind": "intervention"
+          },
+          {
+            "id": "q2",
+            "value": 11,
+            "inference_kind": "counterfactual_fixed_noise"
+          }
+        ]
+      },
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "confounder_dropped",
+      "candidate": {
+        "edges": [
+          {
+            "from": "U",
+            "to": "X"
+          },
+          {
+            "from": "X",
+            "to": "Y"
+          },
+          {
+            "from": "U",
+            "to": "Y"
+          }
+        ],
+        "queries": [
+          {
+            "id": "q1",
+            "value": 0,
+            "inference_kind": "intervention"
+          },
+          {
+            "id": "q2",
+            "value": 11,
+            "inference_kind": "counterfactual_fixed_noise"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "2/3",
+      "expected_reason": "INTERVENTION_VALUE_MISMATCH"
+    },
+    {
+      "id": "missing_graph",
+      "candidate": {
+        "edges": [],
+        "queries": [
+          {
+            "id": "q1",
+            "value": 8,
+            "inference_kind": "intervention"
+          },
+          {
+            "id": "q2",
+            "value": 11,
+            "inference_kind": "counterfactual_fixed_noise"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "CAUSAL_EDGE_MISSING_OR_REVERSED"
+    },
+    {
+      "id": "reversed_edge",
+      "candidate": {
+        "edges": [
+          {
+            "from": "X",
+            "to": "U"
+          },
+          {
+            "from": "X",
+            "to": "Y"
+          },
+          {
+            "from": "U",
+            "to": "Y"
+          }
+        ],
+        "queries": [
+          {
+            "id": "q1",
+            "value": 8,
+            "inference_kind": "intervention"
+          },
+          {
+            "id": "q2",
+            "value": 11,
+            "inference_kind": "counterfactual_fixed_noise"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "5/6",
+      "expected_reason": "UNSUPPORTED_CAUSAL_EDGE"
+    },
+    {
+      "id": "association_not_intervention",
+      "candidate": {
+        "edges": [
+          {
+            "from": "U",
+            "to": "X"
+          },
+          {
+            "from": "X",
+            "to": "Y"
+          },
+          {
+            "from": "U",
+            "to": "Y"
+          }
+        ],
+        "queries": [
+          {
+            "id": "q1",
+            "value": 8,
+            "inference_kind": "association"
+          },
+          {
+            "id": "q2",
+            "value": 11,
+            "inference_kind": "counterfactual_fixed_noise"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "2/3",
+      "expected_reason": "INFERENCE_KIND_MISMATCH"
+    },
+    {
+      "id": "empty_output",
+      "candidate": {
+        "edges": [],
+        "queries": []
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "MISSING_CAUSAL_QUERY"
+    }
+  ],
+  "fixture_origin": "ORIGINAL_AUTHORED_DEVELOPMENT_NOT_GOLDEN",
+  "expected_values_authored_without_calling_evaluator": true
+}

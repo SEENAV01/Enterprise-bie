@@ -1,0 +1,365 @@
+[
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C001",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Hypothetical conserved intermediate pathway",
+    "prompt": "Hypothetical conserved intermediate pathway. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"audit_steps\",\"species\":[{\"charge\":0,\"formula\":\"H2O2\",\"id\":\"R\"},{\"charge\":0,\"formula\":\"H2O\",\"id\":\"W\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"O\"},{\"charge\":0,\"formula\":\"HO\",\"id\":\"I\"}],\"steps\":[{\"products\":{\"I\":2},\"reactants\":{\"R\":1}},{\"products\":{\"O\":1,\"W\":2},\"reactants\":{\"I\":2,\"R\":1}}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"catalysts\":[],\"intermediates\":[\"I\"],\"mechanism_experimentally_established\":false,\"net_products\":{\"O\":1,\"W\":2},\"net_reactants\":{\"R\":2},\"profile\":\"DECLARED_STEP_SEQUENCE_CONSERVATION_ONLY\",\"spectators\":[]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Authored formal atom-conserving pathway only, not a claim of an actual laboratory mechanism: add steps and cancel two I.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_steps",
+      "synthetic-not-experimental",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C002",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Hypothetical catalyst regenerated",
+    "prompt": "Hypothetical catalyst regenerated. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"audit_steps\",\"species\":[{\"charge\":0,\"formula\":\"H2\",\"id\":\"A\"},{\"charge\":0,\"formula\":\"H2\",\"id\":\"B\"},{\"charge\":0,\"formula\":\"He\",\"id\":\"K\"},{\"charge\":0,\"formula\":\"H2He\",\"id\":\"AK\"}],\"steps\":[{\"products\":{\"AK\":1},\"reactants\":{\"A\":1,\"K\":1}},{\"products\":{\"B\":1,\"K\":1},\"reactants\":{\"AK\":1}}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"catalysts\":[\"K\"],\"intermediates\":[\"AK\"],\"mechanism_experimentally_established\":false,\"net_products\":{\"B\":1},\"net_reactants\":{\"A\":1},\"profile\":\"DECLARED_STEP_SEQUENCE_CONSERVATION_ONLY\",\"spectators\":[]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Formal species ledger: K is first consumed and regenerated; AK is first formed and consumed. Not a physical reaction claim.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_steps",
+      "synthetic-not-experimental",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C003",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Declared elementary mass-action {'A': 1}",
+    "prompt": "Declared elementary mass-action {'A': 1}. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"is_elementary\":true,\"op\":\"elementary_rate_law\",\"reactants\":{\"A\":1}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"concentration_exponents\":{\"A\":1},\"overall_order\":1,\"profile\":\"DECLARED_ELEMENTARY_MASS_ACTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "For an explicitly elementary step, exponents equal molecularities. No net-reaction inference.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "elementary_rate_law",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C004",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Declared elementary mass-action {'A': 1, 'B': 1}",
+    "prompt": "Declared elementary mass-action {'A': 1, 'B': 1}. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"is_elementary\":true,\"op\":\"elementary_rate_law\",\"reactants\":{\"A\":1,\"B\":1}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"concentration_exponents\":{\"A\":1,\"B\":1},\"overall_order\":2,\"profile\":\"DECLARED_ELEMENTARY_MASS_ACTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "For an explicitly elementary step, exponents equal molecularities. No net-reaction inference.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "elementary_rate_law",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C005",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Declared elementary mass-action {'A': 2}",
+    "prompt": "Declared elementary mass-action {'A': 2}. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"is_elementary\":true,\"op\":\"elementary_rate_law\",\"reactants\":{\"A\":2}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"concentration_exponents\":{\"A\":2},\"overall_order\":2,\"profile\":\"DECLARED_ELEMENTARY_MASS_ACTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "For an explicitly elementary step, exponents equal molecularities. No net-reaction inference.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "elementary_rate_law",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C006",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Net equation is insufficient for a rate law",
+    "prompt": "Net equation is insufficient for a rate law. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"is_elementary\":false,\"op\":\"elementary_rate_law\",\"reactants\":{\"A\":2}}",
+    "expected_json": "{\"error_code\":\"ELEMENTARY_STEP_REQUIRED\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Reject assuming that stoichiometric coefficients determine an arbitrary net rate law.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "elementary_rate_law",
+      "misconception",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C007",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Energy profile [0, 40, -10]",
+    "prompt": "Energy profile [0, 40, -10]. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"energies_kJ_per_mol\":[0,40,-10],\"op\":\"energy_profile\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"forward_barriers_kJ_per_mol\":[\"40\"],\"net_energy_change_kJ_per_mol\":\"-10\",\"profile\":\"ENERGY_DIFFERENCES_NOT_FULL_KINETICS\",\"rate_determining_step_inferred\":false,\"reverse_barriers_kJ_per_mol\":[\"50\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Subtract each adjacent minimum from its transition-state energy; endpoint difference is not an activation barrier.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "energy_profile",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C008",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Energy profile [0, 25, 5, 45, -15]",
+    "prompt": "Energy profile [0, 25, 5, 45, -15]. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"energies_kJ_per_mol\":[0,25,5,45,-15],\"op\":\"energy_profile\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"forward_barriers_kJ_per_mol\":[\"25\",\"40\"],\"net_energy_change_kJ_per_mol\":\"-15\",\"profile\":\"ENERGY_DIFFERENCES_NOT_FULL_KINETICS\",\"rate_determining_step_inferred\":false,\"reverse_barriers_kJ_per_mol\":[\"20\",\"60\"]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Subtract each adjacent minimum from its transition-state energy; endpoint difference is not an activation barrier.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "energy_profile",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C009",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Atom-imbalanced step rejected",
+    "prompt": "Atom-imbalanced step rejected. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"audit_steps\",\"species\":[{\"charge\":0,\"formula\":\"H2O2\",\"id\":\"R\"},{\"charge\":0,\"formula\":\"H2O\",\"id\":\"W\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"O\"},{\"charge\":0,\"formula\":\"HO\",\"id\":\"I\"}],\"steps\":[{\"products\":{\"I\":2},\"reactants\":{\"R\":1}},{\"products\":{\"O\":1,\"W\":1},\"reactants\":{\"I\":2,\"R\":1}}]}",
+    "expected_json": "{\"error_code\":\"UNBALANCED_ELEMENTARY_STEP\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A conserved net label cannot excuse a nonconserving declared elementary step.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_steps",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C010",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Unreferenced species refused",
+    "prompt": "Unreferenced species refused. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"op\":\"audit_steps\",\"species\":[{\"charge\":0,\"formula\":\"H2O2\",\"id\":\"R\"},{\"charge\":0,\"formula\":\"H2O\",\"id\":\"W\"},{\"charge\":0,\"formula\":\"O2\",\"id\":\"O\"},{\"charge\":0,\"formula\":\"HO\",\"id\":\"I\"},{\"charge\":0,\"formula\":\"Na\",\"id\":\"X\"}],\"steps\":[{\"products\":{\"I\":2},\"reactants\":{\"R\":1}},{\"products\":{\"O\":1,\"W\":2},\"reactants\":{\"I\":2,\"R\":1}}]}",
+    "expected_json": "{\"error_code\":\"UNUSED_SPECIES\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "All declared species must participate in the step ledger.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_steps",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C011",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Candidate cannot inject elementary flag as string",
+    "prompt": "Candidate cannot inject elementary flag as string. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"is_elementary\":\"true\",\"op\":\"elementary_rate_law\",\"reactants\":{\"A\":1}}",
+    "expected_json": "{\"error_code\":\"ELEMENTARY_STEP_REQUIRED\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Only the literal boolean True acknowledges the elementary profile.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "elementary_rate_law",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-CHEM-002.C012",
+    "task_id": "BIE-EVAL-CHEM-002",
+    "domain": "chemistry",
+    "title": "Transition state below product refused",
+    "prompt": "Transition state below product refused. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"energies_kJ_per_mol\":[0,10,15],\"op\":\"energy_profile\"}",
+    "expected_json": "{\"error_code\":\"TRANSITION_STATE_NOT_MAXIMUM\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-CHEM-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "An alternating maximum must exceed both adjacent minima.",
+    "sources": [
+      {
+        "reference_id": "openstax-chem-mechanism",
+        "title": "Chemistry 2e",
+        "locator": "12.6 elementary versus net reactions",
+        "url": "https://openstax.org/books/chemistry-2e/pages/12-6-reaction-mechanisms",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "energy_profile",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

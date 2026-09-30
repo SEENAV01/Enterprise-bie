@@ -1,0 +1,468 @@
+[
+  {
+    "case_id": "BIE-EVAL-BIO-001.C001",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Oxygenic net budget 1",
+    "prompt": "Oxygenic net budget 1. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"glucose_mol\":\"1\",\"op\":\"net_budget\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"net_consumed_mol\":{\"CO2\":\"6\",\"H2O\":\"6\"},\"net_produced_mol\":{\"C6H12O6\":\"1\",\"O2\":\"6\"},\"oxygen_source\":\"water\",\"profile\":\"NET_OXYGENIC_BOOKKEEPING\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Net equation coefficients 6:6:1:6; oxygen source is distinguished from net atom cancellation.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "net_budget",
+      "conservation",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C002",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Oxygenic net budget 1/2",
+    "prompt": "Oxygenic net budget 1/2. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"glucose_mol\":\"1/2\",\"op\":\"net_budget\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"net_consumed_mol\":{\"CO2\":\"3\",\"H2O\":\"3\"},\"net_produced_mol\":{\"C6H12O6\":\"1/2\",\"O2\":\"3\"},\"oxygen_source\":\"water\",\"profile\":\"NET_OXYGENIC_BOOKKEEPING\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Net equation coefficients 6:6:1:6; oxygen source is distinguished from net atom cancellation.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "net_budget",
+      "conservation",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C003",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Calvin carbon budget 3",
+    "prompt": "Calvin carbon budget 3. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"co2_mol\":3,\"op\":\"calvin_budget\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"atp_consumed_mol\":\"9\",\"g3p_recycled_mol\":\"5\",\"gross_g3p_reduced_mol\":\"6\",\"nadph_consumed_mol\":\"6\",\"net_g3p_mol\":\"1\",\"profile\":\"IDEAL_C3_CALVIN_NO_PHOTORESPIRATION\",\"rubp_regenerated_mol\":\"3\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Per net G3P: 3 CO2, 9 ATP, 6 NADPH; five of six reduced G3P recycle.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "calvin_budget",
+      "gross-versus-net",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C004",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Calvin carbon budget 6",
+    "prompt": "Calvin carbon budget 6. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"co2_mol\":6,\"op\":\"calvin_budget\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"atp_consumed_mol\":\"18\",\"g3p_recycled_mol\":\"10\",\"gross_g3p_reduced_mol\":\"12\",\"nadph_consumed_mol\":\"12\",\"net_g3p_mol\":\"2\",\"profile\":\"IDEAL_C3_CALVIN_NO_PHOTORESPIRATION\",\"rubp_regenerated_mol\":\"6\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Per net G3P: 3 CO2, 9 ATP, 6 NADPH; five of six reduced G3P recycle.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "calvin_budget",
+      "gross-versus-net",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C005",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Calvin supplied-pool constraint 9-18-6",
+    "prompt": "Calvin supplied-pool constraint 9-18-6. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"atp_mol\":18,\"co2_mol\":9,\"nadph_mol\":6,\"op\":\"resource_limited_calvin\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"limiting_resources\":[\"NADPH\"],\"net_g3p_mol\":\"1\",\"profile\":\"IDEAL_C3_SUPPLIED_POOLS_NOT_KINETIC_PREDICTION\",\"unused_mol\":{\"ATP\":\"9\",\"CO2\":\"6\",\"NADPH\":\"0\"}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Compare CO2/3, ATP/9 and NADPH/6 capacities; retain ties and all unused pools.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "resource_limited_calvin",
+      "limiting-resources",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C006",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Calvin supplied-pool constraint 3-9-6",
+    "prompt": "Calvin supplied-pool constraint 3-9-6. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"atp_mol\":9,\"co2_mol\":3,\"nadph_mol\":6,\"op\":\"resource_limited_calvin\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"limiting_resources\":[\"ATP\",\"CO2\",\"NADPH\"],\"net_g3p_mol\":\"1\",\"profile\":\"IDEAL_C3_SUPPLIED_POOLS_NOT_KINETIC_PREDICTION\",\"unused_mol\":{\"ATP\":\"0\",\"CO2\":\"0\",\"NADPH\":\"0\"}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Compare CO2/3, ATP/9 and NADPH/6 capacities; retain ties and all unused pools.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "resource_limited_calvin",
+      "limiting-resources",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C007",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Calvin supplied-pool constraint 3-0-6",
+    "prompt": "Calvin supplied-pool constraint 3-0-6. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"atp_mol\":0,\"co2_mol\":3,\"nadph_mol\":6,\"op\":\"resource_limited_calvin\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"limiting_resources\":[\"ATP\"],\"net_g3p_mol\":\"0\",\"profile\":\"IDEAL_C3_SUPPLIED_POOLS_NOT_KINETIC_PREDICTION\",\"unused_mol\":{\"ATP\":\"0\",\"CO2\":\"3\",\"NADPH\":\"6\"}}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Compare CO2/3, ATP/9 and NADPH/6 capacities; retain ties and all unused pools.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "resource_limited_calvin",
+      "limiting-resources",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C008",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Complete photosynthesis proposition profile",
+    "prompt": "Complete photosynthesis proposition profile. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claims\":{\"calvin_direct_photon_requirement\":false,\"calvin_independent_of_atp_nadph_supply\":false,\"calvin_location\":\"chloroplast_stroma\",\"fixed_carbon_source\":\"carbon_dioxide\",\"light_reaction_location\":\"thylakoid_membrane\",\"oxygen_source\":\"water\",\"plants_also_respire\":true},\"op\":\"audit_concepts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":true,\"defects\":[]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "All seven declared propositions agree.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_concepts",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C009",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Oxygen-source misconception",
+    "prompt": "Oxygen-source misconception. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claims\":{\"calvin_direct_photon_requirement\":false,\"calvin_independent_of_atp_nadph_supply\":false,\"calvin_location\":\"chloroplast_stroma\",\"fixed_carbon_source\":\"carbon_dioxide\",\"light_reaction_location\":\"thylakoid_membrane\",\"oxygen_source\":\"carbon_dioxide\",\"plants_also_respire\":true},\"op\":\"audit_concepts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":false,\"defects\":[{\"claim\":\"oxygen_source\",\"reason\":\"CONTRADICTED_CLAIM\"}]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Reject carbon dioxide as released oxygen source in oxygenic photosynthesis.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_concepts",
+      "misconception",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C010",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Missing respiration proposition",
+    "prompt": "Missing respiration proposition. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"claims\":{\"calvin_direct_photon_requirement\":false,\"calvin_independent_of_atp_nadph_supply\":false,\"calvin_location\":\"chloroplast_stroma\",\"fixed_carbon_source\":\"carbon_dioxide\",\"light_reaction_location\":\"thylakoid_membrane\",\"oxygen_source\":\"water\"},\"op\":\"audit_concepts\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"assessment_scope\":\"DECLARED_PROPOSITION_PROFILE_ONLY\",\"consistent\":false,\"defects\":[{\"claim\":\"plants_also_respire\",\"reason\":\"MISSING_CLAIM\"}]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "An omitted required proposition is not a pass.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "audit_concepts",
+      "missing-evidence",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C011",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Negative net amount",
+    "prompt": "Negative net amount. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"glucose_mol\":-1,\"op\":\"net_budget\"}",
+    "expected_json": "{\"error_code\":\"QUANTITY_OUT_OF_PROFILE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Negative substance amounts are outside this net-production request.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "net_budget",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-BIO-001.C012",
+    "task_id": "BIE-EVAL-BIO-001",
+    "domain": "biology",
+    "title": "Input cannot inject an answer override",
+    "prompt": "Input cannot inject an answer override. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"co2_mol\":3,\"expected\":\"PASS\",\"op\":\"calvin_budget\"}",
+    "expected_json": "{\"error_code\":\"INVALID_FIELDS\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-BIO-001.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Closed input schema rejects answer injection.",
+    "sources": [
+      {
+        "reference_id": "openstax-bio-calvin",
+        "title": "Biology 2e",
+        "locator": "8.3 Calvin cycle resource bookkeeping",
+        "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "openstax-bio-light",
+        "title": "Biology 2e",
+        "locator": "8.2 water splitting and oxygen evolution",
+        "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "calvin_budget",
+      "answer-injection",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

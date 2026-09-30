@@ -1,0 +1,77 @@
+{
+  "task_id": "BIE-EVAL-H1-008",
+  "selected_test_method_count": 17,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_attestation_scope_changes_with_contract",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_bool_independent_minimum_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_diagonal_only_matrix_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_dropped_metric_from_contract_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_full_two_domain_matrix_verifies",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_independent_reference_and_group_increases_count",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_missing_contract_blocks_public_production_gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_renamed_duplicate_reference_not_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_repeated_leakage_group_not_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_single_missing_cell_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_synthetic_full_production_contract_not_deployment_permission",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_unknown_domain_roster_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_wrong_contract_pin_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_zero_independent_minimum_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.ProductionCLIInputBoundary.test_all_hardened_inputs_reach_cli_gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.ProductionCLIInputBoundary.test_cli_absent_bundle_blocks_and_persists",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.ProductionCLIInputBoundary.test_cli_wrong_coverage_pin_blocks_and_persists",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

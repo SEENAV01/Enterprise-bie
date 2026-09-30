@@ -1,0 +1,81 @@
+{
+  "task_id": "BIE-EVAL-H2-001",
+  "title": "Artifact custody and bounded input profiles",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/custody.py"
+  ],
+  "dependencies": [],
+  "test_file": "tests/section17/test_h2_001.py",
+  "test_count": 16,
+  "records": [
+    {
+      "test_id": "test_h2_001.H2001.test_directory_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_empty_input",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_fifo_nonblocking_rejection",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_final_symlink",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_frozen_bytes_and_binding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_hash_and_size_stream",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_input_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_json_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_json_duplicate_keys_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_json_invalid_encoding",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_numeric_boolean_not_integer",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_parent_symlink",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_resource_types_and_bounds",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_source_mutation_cannot_change_private_copy",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_traversal",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_001.H2001.test_wrong_hash_rejected",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Operator-owned source parents; not race-proof protection against hostile concurrent filesystem writers.",
+  "derived_from": "H1-RES-002 / H1-RES-008"
+}

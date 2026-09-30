@@ -1,0 +1,85 @@
+{
+  "task_id": "BIE-EVAL-H1-001",
+  "title": "Unicode-safe canonical evidence",
+  "finding": {
+    "finding_id": "H1-F001",
+    "task_id": "BIE-EVAL-H1-001",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "Unpaired Unicode surrogates and oversized UTF-8 strings escaped the typed evidence boundary.",
+    "implemented_behavior": "Reject invalid scalar strings/keys and byte budgets before serialization; retain Hindi/emoji and valid surrogate pairs.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Unicode/byte limits are defensive input checks, not source truth or text semantics.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/models.py"
+    ],
+    "test_pattern": "test_h1_001.py",
+    "passed_test_methods": 14,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_duplicate_keys_still_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_emoji_scalar_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_hash_order_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_high_surrogate_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_hindi_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_json_escape_surrogate_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_low_surrogate_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_multibyte_budget_is_bytes_not_characters",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_nested_surrogate_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_nonfinite_still_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_normalization_not_silently_changed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_surrogate_key_has_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_text_rejects_surrogate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_001.UnicodeBoundary.test_valid_escaped_surrogate_pair_roundtrip",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/models.py": "339af44f261b0879f393d4dbbf8c83a5daf03073bd8e15f8888afbf28dd06689",
+    "tests/section17/test_h1_001.py": "79176bcf78b69dc43bc9e755ad6ce81e273514365e7e6b36a0f748f276a29ec5"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

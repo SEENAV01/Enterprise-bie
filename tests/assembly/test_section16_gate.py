@@ -37,6 +37,35 @@ class Section16GateTests(unittest.TestCase):
         ])
         self.assertEqual(result['native_owner_repair_path'], gate.NATIVE_MATH_PATH)
         self.assertEqual(result['exact_qa_additions'], [gate.NATIVE_PDF_MATH_BRIDGE_PATH])
+        self.assertEqual(result['cross_section_extensions'], [gate.SECTION17_CLI_PATH])
+
+    def test_section17_cli_binding_tamper_rejected(self):
+        original = gate.read_json
+        def read(path):
+            if Path(path) == ROOT / gate.SECTION17_CLI_BINDING:
+                altered = copy.deepcopy(original(path))
+                altered['candidate_sha256'] = '0' * 64
+                return altered
+            return original(path)
+        with patch.object(gate, 'read_json', side_effect=read):
+            with self.assertRaisesRegex(ValueError, 'SECTION17_CLI_BINDING'):
+                gate.verify_adoption(ROOT)
+
+    def test_section17_cli_bytes_tamper_rejected(self):
+        original = gate.safe_path
+        with tempfile.TemporaryDirectory() as tmp:
+            altered = Path(tmp) / '__main__.py'
+            altered.write_bytes((ROOT / gate.SECTION17_CLI_PATH).read_bytes() + b'\n# tamper\n')
+            def path(root, name):
+                return altered if name == gate.SECTION17_CLI_PATH else original(root, name)
+            with patch.object(gate, 'safe_path', side_effect=path):
+                with self.assertRaisesRegex(ValueError, 'SECTION17_CLI_BYTES'):
+                    gate.verify_adoption(ROOT)
+
+    def test_section17_cli_base_row_tamper_rejected(self):
+        self.changed_manifest(
+            lambda d: next(r for r in d['paths'] if r['path'] == gate.SECTION17_CLI_PATH)
+            .update(sha256='0' * 64), 'SECTION17_CLI_BASELINE')
 
     def changed_native_pdf_math_bridge(self, mutate, code='NATIVE_PDF_MATH_BRIDGE_SCOPE'):
         original = gate.read_json

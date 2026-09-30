@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_math_003.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/math_003"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668296.885316,
+  "duration_seconds": 0.02611064910888672,
+  "tests_run": 20,
+  "unique_test_method_ids": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_math_003.GeometryTests.test_authored_reference_pack",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_collinear_backtrack_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_collinear_forward_boundary_vertex_allowed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_equilateral_triangle",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_full_rotation_identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_heron_independent_right_triangle",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_invalid_coordinate_dimension_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_negative_side_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_polygon_orientation_does_not_negate_area",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_polygon_translation_invariance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_polygon_unit_area_conversion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_repeated_vertex_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_rigid_transform_preserves_distance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_self_intersection_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_similarity_square_law",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_triangle_inequality_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_triangle_permutation",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_wrong_orientation_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_wrong_similarity_linear_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_003.GeometryTests.test_zero_scale_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

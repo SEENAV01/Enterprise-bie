@@ -1,0 +1,101 @@
+{
+  "task_id": "BIE-EVAL-H1-008",
+  "title": "Full domain-metric coverage and operator path",
+  "finding": {
+    "finding_id": "H1-F008",
+    "task_id": "BIE-EVAL-H1-008",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "Global metric and domain aggregates could conceal missing domain-by-metric cells; the hardened gate inputs also needed CLI wiring.",
+    "implemented_behavior": "Pin an exact full17-metric roster per domain; require independent reference/leakage-group components per cell; bind the contract into external attestation scope and expose all required inputs through the CLI.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "No automatic not-applicable exemptions and no empirical calibration claimed. Synthetic full-matrix controls use invented evidence and test signing identities, not a real production/golden approval.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/release/coverage.py",
+      "bie/evaluation/benchmarks/release/gate.py",
+      "bie/evaluation/benchmarks/release/__main__.py"
+    ],
+    "test_pattern": "test_h1_008.py",
+    "passed_test_methods": 17,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_attestation_scope_changes_with_contract",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_bool_independent_minimum_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_diagonal_only_matrix_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_dropped_metric_from_contract_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_full_two_domain_matrix_verifies",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_independent_reference_and_group_increases_count",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_missing_contract_blocks_public_production_gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_renamed_duplicate_reference_not_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_repeated_leakage_group_not_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_single_missing_cell_blocks",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_synthetic_full_production_contract_not_deployment_permission",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_unknown_domain_roster_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_wrong_contract_pin_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.CoverageMatrixBoundary.test_zero_independent_minimum_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.ProductionCLIInputBoundary.test_all_hardened_inputs_reach_cli_gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.ProductionCLIInputBoundary.test_cli_absent_bundle_blocks_and_persists",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_008.ProductionCLIInputBoundary.test_cli_wrong_coverage_pin_blocks_and_persists",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/release/coverage.py": "e5162c15b6f79deed59b490a661ecdd015e72700c17347466bffc86c2d1acdbb",
+    "bie/evaluation/benchmarks/release/gate.py": "6e37c74e5fdb1c48f315ff08b83191b60c1a1619e546a67e4a8f9fb3feef3044",
+    "bie/evaluation/benchmarks/release/__main__.py": "a7993cf89aa2e233e2ef966acf99832a91bbebcec65ccc51999c2748a865e9cf",
+    "tests/section17/test_h1_008.py": "ab249ac9696d3916ffaed5bed90ffe2168f406533ddfea1e4d9a06f1bce64f71"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

@@ -1,0 +1,117 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-003",
+    "rubric_id": "BIE-EVAL-METRIC-003.development-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-author-batch003",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-basis",
+        "locator": "Illustrative trusted prerequisite DAG, not claimed universal pedagogy. Three node requirements weight1 plus edges weights2+1; total6.",
+        "basis_sha256": "05cae28078b59c75c8e92ff39bcfe89b92006cccb0d2a94e49c1a64660e360af"
+      }
+    ],
+    "payload": {
+      "nodes": [
+        "charge",
+        "vector",
+        "force"
+      ],
+      "edges": [
+        {
+          "id": "qf",
+          "weight": 2,
+          "prerequisite": "charge",
+          "dependent": "force"
+        },
+        {
+          "id": "vf",
+          "weight": 1,
+          "prerequisite": "vector",
+          "dependent": "force"
+        }
+      ],
+      "targets": [
+        "force"
+      ],
+      "known_prior": []
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "positive",
+      "candidate": {
+        "teaching_order": [
+          "charge",
+          "vector",
+          "force"
+        ]
+      },
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "reversed_order",
+      "candidate": {
+        "teaching_order": [
+          "force",
+          "charge",
+          "vector"
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "PREREQUISITE_NOT_BEFORE_USE"
+    },
+    {
+      "id": "missing_prerequisite",
+      "candidate": {
+        "teaching_order": [
+          "vector",
+          "force"
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "REQUIRED_NODE_MISSING"
+    },
+    {
+      "id": "only_target",
+      "candidate": {
+        "teaching_order": [
+          "force"
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/6",
+      "expected_reason": "PREREQUISITE_NOT_BEFORE_USE"
+    },
+    {
+      "id": "missing_target",
+      "candidate": {
+        "teaching_order": [
+          "charge",
+          "vector"
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/3",
+      "expected_reason": "DEPENDENT_NOT_TAUGHT"
+    },
+    {
+      "id": "empty_output",
+      "candidate": {
+        "teaching_order": []
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "REQUIRED_NODE_MISSING"
+    }
+  ],
+  "fixture_origin": "ORIGINAL_AUTHORED_DEVELOPMENT_NOT_GOLDEN",
+  "expected_values_authored_without_calling_evaluator": true
+}

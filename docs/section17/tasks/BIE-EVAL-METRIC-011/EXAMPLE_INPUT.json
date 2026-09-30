@@ -1,0 +1,88 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-011",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-011",
+    "rubric_id": "delivery-metric-011",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-011/SPEC.md",
+        "basis_sha256": "0ec4672dbe9f4a7afd736ac861c058bf0d2ecc120f25943e85da167d0183078c"
+      }
+    ],
+    "payload": {
+      "targets": [
+        {
+          "id": "python",
+          "language": "python",
+          "weight": 1
+        },
+        {
+          "id": "typescript",
+          "language": "typescript",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "artifacts": [
+      {
+        "id": "python",
+        "observation_id": "python",
+        "source_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53"
+      },
+      {
+        "id": "typescript",
+        "observation_id": "typescript",
+        "source_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec"
+      }
+    ]
+  },
+  "expected_reference_sha256": "cdea5b39593781023261b840ea9fafe5ea5755f2ac6d859ba79c9c2e5bf843e0",
+  "expected_candidate_sha256": "e94c8e17a9deeae516b229457806ab690c3e0325dee1e596aa1c959b9d734076",
+  "source_artifacts": {
+    "python": {
+      "schema_version": "1.0.0",
+      "kind": "compile",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "compile-python-good",
+      "subject_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+      "facts": {
+        "language": "python",
+        "command_profile": "python-checked-hash-bytecode-v1",
+        "compiler_version": "3.13.5",
+        "exit_code": 0,
+        "source_bytes": 107,
+        "output_bytes": 315,
+        "output_sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt_sha256": "1525fb97a3768c5df638ec7f76754caf1261d0f239e83e3f442a64793c20ba34"
+    },
+    "typescript": {
+      "schema_version": "1.0.0",
+      "kind": "compile",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "compile-typescript-good",
+      "subject_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec",
+      "facts": {
+        "language": "typescript",
+        "command_profile": "typescript-strict-emit-v1",
+        "compiler_version": "Version 5.8.3",
+        "exit_code": 0,
+        "source_bytes": 106,
+        "output_bytes": 246,
+        "output_sha256": "224667659e2a1d0ce605c0d01f04c4135a315596a89aa7fef89b7b43a93aa8ac",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt_sha256": "d30917511fa65fed4c711766cbd0a991db6be3f369ce5638985e8bd10b38aa1e"
+    }
+  }
+}

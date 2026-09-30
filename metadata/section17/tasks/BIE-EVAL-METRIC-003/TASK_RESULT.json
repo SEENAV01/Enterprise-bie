@@ -1,0 +1,119 @@
+{
+  "task_id": "BIE-EVAL-METRIC-003",
+  "original_sequence": 27,
+  "original_capability": "prerequisite metric",
+  "batch": 3,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Prerequisite transitive closure and teach-before-use under a trusted acyclic graph.",
+  "bounded_contract": "Reference: nodes, directed weighted prerequisite/dependent edges, target IDs and trusted known_prior IDs. Candidate: unique teaching_order only.\nValidate the complete DAG; required nodes are backward closure of targets, stopping at trusted known_prior. Each required node has weight1; each edge into required learning nodes has its declared positive weight. Nodes must occur, and prerequisites must appear earlier unless independently marked known_prior.\nAll known targets yield blocked NO_UNMASTERED_TARGET_IN_PROFILE rather than a vacuous 100 percent. Missing items remain denominator terms. Candidate cannot insert its own prior-knowledge flags.",
+  "bounds_and_open_scope": "No assessment of actual learner mastery, text/scene alignment, optimal instructional sequence or universal prerequisite validity. Prior knowledge and graph must come from trusted upstream evidence.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/prerequisites.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json",
+    "tests/section17/test_metric_003.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/metrics/prerequisites.py": "4d6ecdaf5ec404f4c204b9819a28122d03c53068bb5f99b13330bd36ac192c2a",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json": "12159249f43f2229db358f03f43b7232bb3dfe1c58529da88501461a08da3d62",
+    "tests/section17/test_metric_003.py": "e37cc92d14f370876f11dcf913914f96eae873de24cdcbe61b95ca0cb1d9e124"
+  },
+  "selected_task_suite": {
+    "schema_version": "1.0.0",
+    "task_id": "BIE-EVAL-METRIC-003",
+    "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+    "tests_run": 18,
+    "passed": 18,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_all_targets_known_cannot_vacuously_pass",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_disconnected_nonrequired_node_not_penalized",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_duplicate_reference_edge_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_duplicate_teaching_node_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_independent_prerequisites_can_swap",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_known_prior_cuts_ancestor_reteaching",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_known_prior_removes_reteaching_requirement",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_prior_knowledge_is_not_candidate_owned",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_reference_cycle_blocked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_reference_unknown_target_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_transitive_prerequisite_must_be_taught",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_003.METRIC003Tests.test_unknown_teaching_node_rejected",
+        "status": "PASS"
+      }
+    ],
+    "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+    "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+    "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+  },
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-003/SPEC.md",
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_fixture_count": 6,
+  "independent_reference_review": false,
+  "hidden_holdout": false
+}

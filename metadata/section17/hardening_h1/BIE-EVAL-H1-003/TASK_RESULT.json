@@ -1,0 +1,101 @@
+{
+  "task_id": "BIE-EVAL-H1-003",
+  "title": "Deterministic execution and result boundary",
+  "finding": {
+    "finding_id": "H1-F003",
+    "task_id": "BIE-EVAL-H1-003",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "Unexpected metric errors escaped; a malformed/misbound/overcredited result could escape or be represented incorrectly.",
+    "implemented_behavior": "Freeze evaluator inputs; validate context pins, unit-weighted scores and receipt construction inside one fail-closed boundary; redact exception details.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Bounded deterministic profiles still do not judge arbitrary language or guarantee scientific truth. Re-audit malformed-result failures and fixes are retained.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/release/deterministic.py"
+    ],
+    "test_pattern": "test_h1_003.py",
+    "passed_test_methods": 18,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_arithmetic_fault_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_bad_candidate_pin_not_coerced_to_score",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_blocked_receipt_integrity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_candidate_argument_not_mutated_by_faulty_evaluator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_code_changes_during_execution_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_code_pin_wrong_rejected_before_execution",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_exception_text_not_in_receipt",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_expected_contract_fault_retains_code",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_malformed_defect_reason_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_malformed_evaluator_result_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_missing_defects_cannot_escape_receipt_boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_overcredited_result_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_positive_still_measured",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_reference_argument_not_mutated_by_faulty_evaluator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_result_for_other_candidate_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_result_score_recomputed_from_units",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_runtime_exception_becomes_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_type_fault_blocked",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/release/deterministic.py": "d2907cdd72d5c1f3259e0c53b04d91b14b90d110a52420513e7240e5cc4dc462",
+    "tests/section17/test_h1_003.py": "ea219f401e3c9136a5fdc8ac5b9e8e44d5a01202eb76545faf308d8aba1f1585"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

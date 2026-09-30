@@ -1,0 +1,14 @@
+{
+  "task_id": "BIE-EVAL-RATER-002",
+  "original_sequence": 43,
+  "original_capability": "model evaluator",
+  "module": "release/model.py",
+  "test_pattern": "test_rater_002.py",
+  "direct_dependencies": [
+    "BIE-EVAL-RATER-001"
+  ],
+  "status": "SCOPED_LOCAL_IMPLEMENTATION",
+  "limits": "Only fixture adapters were exercised. No live provider call, external timeout enforcement, semantic-judge calibration or proof of prompt-injection immunity.",
+  "release_authorized": false,
+  "product_accepted": false
+}

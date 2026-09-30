@@ -1,0 +1,93 @@
+{
+  "task_id": "BIE-EVAL-METRIC-011",
+  "original_sequence": 35,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Source-bound actual Python checked-hash bytecode and strict TypeScript emission receipts; compiler identity/profile, exit status and emitted-byte evidence.",
+  "limits": "Compilation is not execution, Remotion bundling, canonical BIE compatibility or an OS security sandbox. Only evaluator-owned observations may enter the evidence channel.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/compilation.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-011.json",
+    "tests/section17/test_metric_011.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_boolean_exit_code_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_candidate_owned_pass_flag_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_compiler_language_profile_mismatch_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_empty_reference_targets_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_extra_observation_not_silently_ignored",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_metric_does_not_claim_runtime_or_remotion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_negative_byte_count_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_tampered_receipt_not_rehashed_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_unknown_compiler_profile_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_011.METRIC011Tests.test_zero_emitted_bytes_cannot_pass",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-011/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

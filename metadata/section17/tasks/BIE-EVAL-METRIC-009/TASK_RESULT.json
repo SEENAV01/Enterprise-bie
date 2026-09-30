@@ -1,0 +1,93 @@
+{
+  "task_id": "BIE-EVAL-METRIC-009",
+  "original_sequence": 33,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Concept/label/kind fidelity, directed semantic relations, viewport visibility, declared nonoverlap constraints and alt-text presence.",
+  "limits": "Scene metadata is not evidence of pixels actually drawn; no image understanding, OCR readability or full accessibility.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/representation.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-009.json",
+    "tests/section17/test_metric_009.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_alt_text_blank_not_accepted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_bad_reference_endpoint_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_box_touching_viewport_edge_passes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_duplicate_nonoverlap_pair_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_missing_relation_remains_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_negative_y_fails_visibility",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_semantic_type_mismatch_not_label_match",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_touching_boxes_are_not_occluded",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_unknown_candidate_relation_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_009.METRIC009Tests.test_zero_box_width_blocked",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-009/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

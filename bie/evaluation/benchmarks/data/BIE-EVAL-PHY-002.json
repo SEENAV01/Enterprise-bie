@@ -1,0 +1,302 @@
+[
+  {
+    "case_id": "BIE-EVAL-PHY-002.C001",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Constant positive acceleration",
+    "prompt": "Constant positive acceleration. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"a\":{\"unit\":\"m/s^2\",\"value\":3},\"op\":\"constant_acceleration_1d\",\"time\":{\"unit\":\"s\",\"value\":4},\"v0\":{\"unit\":\"m/s\",\"value\":2},\"x0\":{\"unit\":\"m\",\"value\":1}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"position_m\":33,\"velocity_mps\":14}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "x=1+2*4+3*4^2/2=33; v=2+3*4=14.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "constant_acceleration_1d",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C002",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Initial instant",
+    "prompt": "Initial instant. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"a\":{\"unit\":\"m/s^2\",\"value\":3},\"op\":\"constant_acceleration_1d\",\"time\":{\"unit\":\"s\",\"value\":0},\"v0\":{\"unit\":\"m/s\",\"value\":2},\"x0\":{\"unit\":\"m\",\"value\":1}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"position_m\":1,\"velocity_mps\":2}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "At elapsed time zero the initial position and velocity are unchanged.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "constant_acceleration_1d",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C003",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Signed deceleration",
+    "prompt": "Signed deceleration. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"a\":{\"unit\":\"m/s^2\",\"value\":-2},\"op\":\"constant_acceleration_1d\",\"time\":{\"unit\":\"s\",\"value\":3},\"v0\":{\"unit\":\"m/s\",\"value\":10},\"x0\":{\"unit\":\"m\",\"value\":0}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"position_m\":21,\"velocity_mps\":4}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "x=10*3-2*9/2=21; v=10-6=4.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "constant_acceleration_1d",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C004",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Net force before division",
+    "prompt": "Net force before division. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"forces\":[{\"unit\":\"N\",\"values\":[4,0,0]},{\"unit\":\"N\",\"values\":[-2,4,0]}],\"mass\":{\"unit\":\"kg\",\"value\":2},\"op\":\"net_acceleration\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"acceleration_mps2\":[1,2,0]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Vector sum is (2,4,0) N; divide by 2 kg.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "net_acceleration",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C005",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Mass unit conversion",
+    "prompt": "Mass unit conversion. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"forces\":[{\"unit\":\"N\",\"values\":[4,0,0]}],\"mass\":{\"unit\":\"g\",\"value\":2000},\"op\":\"net_acceleration\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"acceleration_mps2\":[2,0,0]}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "2000 g equals 2 kg; 4 N / 2 kg = 2 m/s^2.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "net_acceleration",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C006",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Inelastic momentum and energy",
+    "prompt": "Inelastic momentum and energy. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"mass1\":{\"unit\":\"kg\",\"value\":2},\"mass2\":{\"unit\":\"kg\",\"value\":1},\"op\":\"perfectly_inelastic_1d\",\"velocity1\":{\"unit\":\"m/s\",\"value\":3},\"velocity2\":{\"unit\":\"m/s\",\"value\":-3}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"final_velocity_mps\":1,\"kinetic_energy_lost_J\":12}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Momentum is 3 kg m/s, total mass 3 kg. Initial kinetic energy 13.5 J minus final 1.5 J = 12 J.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "perfectly_inelastic_1d",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C007",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Perpendicular force does no work",
+    "prompt": "Perpendicular force does no work. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"displacement\":{\"unit\":\"m\",\"values\":[4,-3,0]},\"force\":{\"unit\":\"N\",\"values\":[3,4,0]},\"op\":\"constant_force_work\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"work_J\":0}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Dot product 3*4+4*(-3)=0.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "constant_force_work",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C008",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Negative work",
+    "prompt": "Negative work. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"displacement\":{\"unit\":\"m\",\"values\":[-3,0,0]},\"force\":{\"unit\":\"N\",\"values\":[2,0,0]},\"op\":\"constant_force_work\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"work_J\":-6}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "Force and displacement oppose; dot product is -6 J.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "constant_force_work",
+      "analytic-reference"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C009",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Zero inertial mass",
+    "prompt": "Zero inertial mass. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"forces\":[{\"unit\":\"N\",\"values\":[1,0,0]}],\"mass\":{\"unit\":\"kg\",\"value\":0},\"op\":\"net_acceleration\"}",
+    "expected_json": "{\"error_code\":\"NONPOSITIVE_QUANTITY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "This Newtonian reference requires strictly positive inertial mass.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "net_acceleration",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-PHY-002.C010",
+    "task_id": "BIE-EVAL-PHY-002",
+    "domain": "physics",
+    "title": "Negative elapsed time outside profile",
+    "prompt": "Negative elapsed time outside profile. Return the requested structured scientific result for the supplied inputs; state a supported domain rejection when the reference profile is undefined.",
+    "inputs_json": "{\"a\":{\"unit\":\"m/s^2\",\"value\":3},\"op\":\"constant_acceleration_1d\",\"time\":{\"unit\":\"s\",\"value\":-1},\"v0\":{\"unit\":\"m/s\",\"value\":2},\"x0\":{\"unit\":\"m\",\"value\":1}}",
+    "expected_json": "{\"error_code\":\"NEGATIVE_QUANTITY\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-PHY-002.authored-family",
+    "author_id": "bie-local-author",
+    "derivation": "The supported initial-value profile restricts elapsed time to nonnegative values.",
+    "sources": [
+      {
+        "reference_id": "openstax-phys1-mechanics",
+        "title": "University Physics Volume 1",
+        "locator": "Newton laws, constant acceleration, work and momentum",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law",
+        "rights": "Reference link only; numerical problems and derivations authored for this BIE diagnostic. No textbook passages, figures or exercises reproduced.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "constant_acceleration_1d",
+      "seeded-domain-control"
+    ],
+    "absolute_tolerance": 1e-09,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

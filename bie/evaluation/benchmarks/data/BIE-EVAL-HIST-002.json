@@ -1,0 +1,430 @@
+[
+  {
+    "case_id": "BIE-EVAL-HIST-002.C001",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Synthetic annotated contributing-cause argument",
+    "prompt": "Synthetic annotated contributing-cause argument. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"ANNOTATED_INTERPRETATION_STRUCTURALLY_SUPPORTED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "A hypothetical A-before-B dossier supplies a mechanism annotation and an alternative. This checks argument form, not historical source truth.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C002",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Temporal succession alone",
+    "prompt": "Temporal succession alone. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"temporal_record\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"SEQUENCE_ALONE_DOES_NOT_ESTABLISH_CAUSATION\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Temporal records alone lack a supplied causal interpretation/mechanism. Hypothetical data.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C003",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Overstrong sole_cause claim",
+    "prompt": "Overstrong sole_cause claim. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"sole_cause\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"OVERSTRONG_CAUSAL_CLAIM\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "This annotated contributing-cause profile cannot establish sole, necessary or sufficient causation.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C004",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Overstrong necessary claim",
+    "prompt": "Overstrong necessary claim. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"necessary\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"OVERSTRONG_CAUSAL_CLAIM\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "This annotated contributing-cause profile cannot establish sole, necessary or sufficient causation.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C005",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Overstrong sufficient claim",
+    "prompt": "Overstrong sufficient claim. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"sufficient\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"OVERSTRONG_CAUSAL_CLAIM\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "This annotated contributing-cause profile cannot establish sole, necessary or sufficient causation.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C006",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Missing alternative explanations",
+    "prompt": "Missing alternative explanations. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"ALTERNATIVES_NOT_CONSIDERED\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The defined diagnostic requires at least one distinct alternative for review.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C007",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Cause after claimed effect",
+    "prompt": "Cause after claimed effect. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1790},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"TEMPORAL_REVERSAL\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"AFTER\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "The cause interval lies wholly after its effect interval.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C008",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Unresolved same-year ordering",
+    "prompt": "Unresolved same-year ordering. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\"],\"issues\":[\"TIME_ORDER_UNRESOLVED\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"OVERLAPPING_OR_UNCERTAIN\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Year precision cannot establish within-year causal precedence.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C009",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Counterevidence retained",
+    "prompt": "Counterevidence retained. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"},{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E2\",\"kind\":\"counter_evidence\",\"source_ref\":\"synthetic-dossier-2\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[\"E1\",\"E2\"],\"issues\":[\"COUNTEREVIDENCE_REQUIRES_REVIEW\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Counterevidence must remain visible even when a supportive annotation exists.",
+    "sources": [
+      {
+        "reference_id": "versailles-estates-1789",
+        "title": "Chateau de Versailles",
+        "locator": "Estates General opening, 5 May 1789",
+        "url": "https://en.chateauversailles.fr/discover/history/key-dates/summoning-estates-general-1789",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      },
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C010",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "No supplied evidence",
+    "prompt": "No supplied evidence. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"annotations_independently_verified\":false,\"causality_proven\":false,\"evidence_ids\":[],\"issues\":[\"NO_EVIDENCE\",\"SEQUENCE_ALONE_DOES_NOT_ESTABLISH_CAUSATION\"],\"profile\":\"ANNOTATED_ARGUMENT_AUDIT_NOT_SOURCE_VERIFICATION\",\"status\":\"REVIEW_REQUIRED\",\"time_relation\":\"BEFORE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Do not infer evidentiary support from chronological placement.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C011",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Evidence about a different effect",
+    "prompt": "Evidence about a different effect. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"C\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"error_code\":\"EVIDENCE_ENDPOINT_MISMATCH\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Evidence endpoints must match the particular cause/effect proposition.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-HIST-002.C012",
+    "task_id": "BIE-EVAL-HIST-002",
+    "domain": "history",
+    "title": "Duplicate evidence cannot inflate support",
+    "prompt": "Duplicate evidence cannot inflate support. Use only the declared structured profile and assumptions. Return the contract-defined structured result or an explicit supported rejection; do not infer production acceptance.",
+    "inputs_json": "{\"alternatives_considered\":[\"C\"],\"cause\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1788},\"id\":\"A\"},\"effect\":{\"date\":{\"calendar\":\"proleptic_gregorian\",\"era\":\"CE\",\"precision\":\"year\",\"year\":1789},\"id\":\"B\"},\"evidence\":[{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"},{\"cause_id\":\"A\",\"effect_id\":\"B\",\"id\":\"E1\",\"kind\":\"mechanism_account\",\"source_ref\":\"synthetic-dossier-1\"}],\"op\":\"assess_link\",\"relation_claim\":\"contributes_to\"}",
+    "expected_json": "{\"error_code\":\"DUPLICATE_EVIDENCE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-HIST-002.authored-family",
+    "author_id": "bie-batch002-local-author",
+    "derivation": "Repeated evidence identity is not additional support.",
+    "sources": [
+      {
+        "reference_id": "usno-calendars",
+        "title": "US Naval Observatory",
+        "locator": "Introduction to Calendars",
+        "url": "https://aa.usno.navy.mil/faq/calendars",
+        "rights": "Reference link only. No textbook passages, figures, exercises or fetched source bytes redistributed. Original authored diagnostic problems/code; this entry grants no source-content ingestion or redistribution permission.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "assess_link",
+      "synthetic-dossier",
+      "authored-development"
+    ],
+    "absolute_tolerance": 0,
+    "relative_tolerance": 0,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

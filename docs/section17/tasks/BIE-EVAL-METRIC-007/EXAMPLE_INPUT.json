@@ -1,0 +1,110 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-007",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-007",
+    "rubric_id": "delivery-metric-007",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-007/SPEC.md",
+        "basis_sha256": "515f8efc68490760b3ff1a180a904d36d14a16f05e8e77af6168024afe100966"
+      }
+    ],
+    "payload": {
+      "duration_frames": 120,
+      "objectives": [
+        {
+          "id": "inverse-square",
+          "required_kinds": [
+            "explain",
+            "example",
+            "practice",
+            "assess"
+          ],
+          "weight": 1
+        }
+      ],
+      "content_bank": [
+        {
+          "id": "content-explain",
+          "objective_id": "inverse-square",
+          "kind": "explain",
+          "feedback_ids": []
+        },
+        {
+          "id": "content-example",
+          "objective_id": "inverse-square",
+          "kind": "example",
+          "feedback_ids": []
+        },
+        {
+          "id": "content-practice",
+          "objective_id": "inverse-square",
+          "kind": "practice",
+          "feedback_ids": [
+            "feedback-practice"
+          ]
+        },
+        {
+          "id": "content-assess",
+          "objective_id": "inverse-square",
+          "kind": "assess",
+          "feedback_ids": [
+            "feedback-assess"
+          ]
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "activities": [
+      {
+        "id": "activity-explain",
+        "objective_id": "inverse-square",
+        "content_id": "content-explain",
+        "kind": "explain",
+        "start": 0,
+        "end": 30,
+        "feedback_ids": []
+      },
+      {
+        "id": "activity-example",
+        "objective_id": "inverse-square",
+        "content_id": "content-example",
+        "kind": "example",
+        "start": 30,
+        "end": 60,
+        "feedback_ids": []
+      },
+      {
+        "id": "activity-practice",
+        "objective_id": "inverse-square",
+        "content_id": "content-practice",
+        "kind": "practice",
+        "start": 60,
+        "end": 90,
+        "feedback_ids": [
+          "feedback-practice"
+        ]
+      },
+      {
+        "id": "activity-assess",
+        "objective_id": "inverse-square",
+        "content_id": "content-assess",
+        "kind": "assess",
+        "start": 90,
+        "end": 120,
+        "feedback_ids": [
+          "feedback-assess"
+        ]
+      }
+    ]
+  },
+  "expected_reference_sha256": "611c4424c5cc8d6b331f7fa7696a6a50ddb7704bf6ce650675dc12ee647426b6",
+  "expected_candidate_sha256": "8a58e8bd16fe95e6e2100498bc424e5024ff13955f84d8d7129d1d1665fb0635",
+  "source_artifacts": {}
+}

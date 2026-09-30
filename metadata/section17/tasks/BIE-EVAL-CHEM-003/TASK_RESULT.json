@@ -1,0 +1,138 @@
+{
+  "task_id": "BIE-EVAL-CHEM-003",
+  "original_sequence": 16,
+  "original_capability": "stoichiometry",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Unique positive balancing with charge conservation, limiting feeds and molar yield.",
+  "bounds_and_open_scope": "<=6 reactants and <=6 products, bounded 118-element formula grammar, parentheses/brackets depth<=4, <=128 formula characters, per-element count and coefficients<=10000. Nullity-one strictly positive primitive balance only. Explicit charge, complete feeds and full coefficient roster. Hydrates/isotopes/phase/charge-suffix notation and underdetermined ratios are refused, not guessed. No mass-to-mole/atomic-weight database or reaction-feasibility proof.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-CHEM-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/stoichiometry.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-003.json",
+    "tests/section17/test_chem_003.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/stoichiometry.py": "9889d2f002b693705fba2facbadd8dc81b3de010e7bebee62bfcd5a3a6bb3c06",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-003.json": "fcbc6eee6ebe645ad2da6ac48e3d820f456a4fd474ec1b2efd3511f0fb39116e",
+    "tests/section17/test_chem_003.py": "bdef6eec1f3d653900cada74b7c8291c509fa235c4ebf9951941b6c37a3132a7"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_balance_input_order_does_not_change_answer",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_duplicate_species_ids_not_merged",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_extent_coefficient_scaling_preserves_production",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_extra_feed_not_cherry_picked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_formula_grouped_and_expanded_equivalent",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_formula_invalid_syntax_and_resource_bounds",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_missing_feed_not_treated_as_unlimited",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_nested_formula_parser",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_primitive_coefficients_known_carbon_example",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_chem_003.CHEM003Tests.test_zero_theoretical_yield_rejected",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 7,
+    "expected_typed_rejection": 5,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-CHEM-003/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

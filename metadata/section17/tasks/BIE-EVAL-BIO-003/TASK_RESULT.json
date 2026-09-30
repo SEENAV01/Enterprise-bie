@@ -1,0 +1,138 @@
+{
+  "task_id": "BIE-EVAL-BIO-003",
+  "original_sequence": 13,
+  "original_capability": "physiology",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Educational flow, ventilation, adult circulation, osmosis and definition checks; no medical recommendations.",
+  "bounds_and_open_scope": "Explicit mL/L, per_min/per_s and mOsm/L/Osm/L units. Adult postnatal circulation; fixed-dead-space ventilation and initial equal-pressure ideal nonpenetrating-solute osmosis. No patient normal ranges, diagnosis, treatment or general physiological simulation.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-BIO-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/physiology.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-003.json",
+    "tests/section17/test_bio_003.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/physiology.py": "f431b797348cc87c3349c0c97c95aeb646edf49308065ee214c64c9f0f77fddd",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-003.json": "ace849dcbf062510f6a4823ad780a9998cefe64c35d70f1ab17c4aaa0ee4240a",
+    "tests/section17/test_bio_003.py": "df8a38e48521d4b512020da5ab5ab337a4bd7b16f412965942fad8fc2f277cd4"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_converted_volume_bound_checked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_fetal_circuit_outside_scope",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_float_nan_stopped_at_json_boundary",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_frequency_and_volume_unit_equivalence",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_negative_volume_refused",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_no_unit_guessing",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_osmolar_unit_equivalence",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_permeating_solute_not_silently_tonicity",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_route_return_is_defensive_copy",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_003.BIO003Tests.test_zero_rate_means_zero_model_flow_not_diagnosis",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 10,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-BIO-003/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

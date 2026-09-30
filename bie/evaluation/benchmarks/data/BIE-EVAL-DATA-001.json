@@ -1,0 +1,374 @@
+[
+  {
+    "case_id": "BIE-EVAL-DATA-001.C001",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Odd-sample mean and median differ",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 1: Odd-sample mean and median differ. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"missing_policy\":\"reject\",\"op\":\"summary\",\"rows\":[{\"id\":\"r0\",\"value\":1},{\"id\":\"r1\",\"value\":2},{\"id\":\"r2\",\"value\":9}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"excluded_ids\":[],\"mean\":\"4\",\"median\":\"2\",\"missing_count\":0,\"observed_count\":3,\"sum\":\"12\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Sorted [1,2,9] has midpoint 2 and mean12/3.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "summary",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C002",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Even-sample median averages the middle pair",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 2: Even-sample median averages the middle pair. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"missing_policy\":\"reject\",\"op\":\"summary\",\"rows\":[{\"id\":\"r0\",\"value\":4},{\"id\":\"r1\",\"value\":1},{\"id\":\"r2\",\"value\":9},{\"id\":\"r3\",\"value\":2}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"excluded_ids\":[],\"mean\":\"4\",\"median\":\"3\",\"missing_count\":0,\"observed_count\":4,\"sum\":\"16\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Sorted [1,2,4,9] has middle-pair mean3.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "summary",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C003",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Explicit missing-value exclusion reports its denominator",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 3: Explicit missing-value exclusion reports its denominator. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"missing_policy\":\"exclude_explicit\",\"op\":\"summary\",\"rows\":[{\"id\":\"r0\",\"value\":null},{\"id\":\"r1\",\"value\":0},{\"id\":\"r2\",\"value\":4}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"excluded_ids\":[\"r0\"],\"mean\":\"2\",\"median\":\"2\",\"missing_count\":1,\"observed_count\":2,\"sum\":\"4\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Missing r0 is excluded, not treated as observed zero.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "summary",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C004",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Negative relative change",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 4: Negative relative change. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"after\":80,\"before\":100,\"op\":\"percent_change\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"absolute_change\":\"-20\",\"percent_change\":\"-20\",\"profile\":\"POSITIVE_BASE_RELATIVE_CHANGE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "(80-100)/100 times100=-20%.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "percent_change",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C005",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Fractional relative increase",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 5: Fractional relative increase. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"after\":4,\"before\":3,\"op\":\"percent_change\"}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"absolute_change\":\"1\",\"percent_change\":\"100/3\",\"profile\":\"POSITIVE_BASE_RELATIVE_CHANGE\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "A one-unit rise on a base of3 is100/3 percent.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "percent_change",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C006",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Weights change the mean",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 6: Weights change the mean. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"op\":\"weighted_mean\",\"rows\":[{\"id\":\"a\",\"value\":10,\"weight\":1},{\"id\":\"b\",\"value\":20,\"weight\":3}]}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"total_weight\":\"4\",\"weighted_mean\":\"35/2\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "(10+60)/4=17.5.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "weighted_mean",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C007",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Chart correspondence uses row identity rather than row order",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 7: Chart correspondence uses row identity rather than row order. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"chart_points\":[{\"id\":\"r1\",\"value\":20},{\"id\":\"r0\",\"value\":10}],\"chart_type\":\"bar\",\"chart_unit\":\"count\",\"op\":\"chart_fidelity\",\"source_rows\":[{\"id\":\"r0\",\"value\":10},{\"id\":\"r1\",\"value\":20}],\"source_unit\":\"count\",\"y_axis\":{\"maximum\":25,\"minimum\":0,\"scale\":\"linear\"}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"data_faithful\":true,\"defects\":[],\"presentation_warnings\":[],\"profile\":\"STRUCTURED_DATA_FIDELITY_NOT_RENDER_INSPECTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Row IDs and cell values agree despite the displayed order.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "chart_fidelity",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C008",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Truncated bar baseline is explicit presentation warning",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 8: Truncated bar baseline is explicit presentation warning. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"chart_points\":[{\"id\":\"r1\",\"value\":20},{\"id\":\"r0\",\"value\":10}],\"chart_type\":\"bar\",\"chart_unit\":\"count\",\"op\":\"chart_fidelity\",\"source_rows\":[{\"id\":\"r0\",\"value\":10},{\"id\":\"r1\",\"value\":20}],\"source_unit\":\"count\",\"y_axis\":{\"maximum\":25,\"minimum\":5,\"scale\":\"linear\"}}",
+    "expected_json": "{\"status\":\"OK\",\"values\":{\"data_faithful\":true,\"defects\":[],\"presentation_warnings\":[\"BAR_ZERO_BASELINE_NOT_VISIBLE\"],\"profile\":\"STRUCTURED_DATA_FIDELITY_NOT_RENDER_INSPECTION\"}}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "All values match and fit the axis, but zero is not visible; do not claim overall visual fidelity.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "chart_fidelity",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C009",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Missing cells rejected under strict policy",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 9: Missing cells rejected under strict policy. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"missing_policy\":\"reject\",\"op\":\"summary\",\"rows\":[{\"id\":\"r0\",\"value\":1},{\"id\":\"r1\",\"value\":null}]}",
+    "expected_json": "{\"error_code\":\"MISSING_CELL\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Strict policy refuses imputation.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "summary",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C010",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "All-missing table cannot claim a zero mean",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 10: All-missing table cannot claim a zero mean. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"missing_policy\":\"exclude_explicit\",\"op\":\"summary\",\"rows\":[{\"id\":\"r0\",\"value\":null},{\"id\":\"r1\",\"value\":null}]}",
+    "expected_json": "{\"error_code\":\"NO_OBSERVED_VALUES\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "No observed denominator exists.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "summary",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C011",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Relative percent change from zero is undefined here",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 11: Relative percent change from zero is undefined here. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"after\":10,\"before\":0,\"op\":\"percent_change\"}",
+    "expected_json": "{\"error_code\":\"QUANTITY_OUT_OF_PROFILE\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "The positive-base profile refuses zero.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "percent_change",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  },
+  {
+    "case_id": "BIE-EVAL-DATA-001.C012",
+    "task_id": "BIE-EVAL-DATA-001",
+    "domain": "tables_charts",
+    "title": "Zero total weight cannot produce a mean",
+    "prompt": "BIE-EVAL-DATA-001 authored diagnostic 12: Zero total weight cannot produce a mean. Evaluate only the explicitly declared tables_charts profile; do not infer unstated source facts or conventions.",
+    "inputs_json": "{\"op\":\"weighted_mean\",\"rows\":[{\"id\":\"a\",\"value\":2,\"weight\":0}]}",
+    "expected_json": "{\"error_code\":\"ZERO_TOTAL_WEIGHT\",\"status\":\"REJECTED\"}",
+    "split": "DEVELOPMENT",
+    "leakage_group": "BIE-EVAL-DATA-001.batch003",
+    "author_id": "bie-author-batch003",
+    "derivation": "Weighted means require positive total weight.",
+    "sources": [
+      {
+        "reference_id": "nist-central-location",
+        "title": "NIST: Measures of Location",
+        "locator": "Arithmetic mean and even/odd median definitions",
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "rights": "Reference link only; original authored problems/derivations. No source passages, images or textbook exercises redistributed. No golden or independently reviewed claim.",
+        "evidence_kind": "REFERENCE_ONLY"
+      }
+    ],
+    "tags": [
+      "weighted_mean",
+      "batch003",
+      "authored"
+    ],
+    "absolute_tolerance": 1e-08,
+    "relative_tolerance": 1e-09,
+    "evidence_grade": "AUTHORED_DIAGNOSTIC"
+  }
+]

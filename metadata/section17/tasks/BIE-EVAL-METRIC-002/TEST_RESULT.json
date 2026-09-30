@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-EVAL-METRIC-002",
+  "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+  "tests_run": 18,
+  "passed": 18,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "records": [
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_authored_candidate_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_duplicate_concept_not_double_counted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_empty_candidate_facets_zero_concept_credit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_extra_facet_is_not_hidden_by_full_recall",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_facet_type_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_list_order_does_not_change_result",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_missing_relation_stays_in_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_no_free_text_entailment_claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_reference_cannot_have_empty_facets",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_reference_unit_id_collision_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_relation_endpoint_must_be_reference_concept",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_reversed_relation_not_semantically_equal",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_002.METRIC002Tests.test_unknown_concept_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+  "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+}

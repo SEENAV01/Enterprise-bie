@@ -1,0 +1,323 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-011",
+    "rubric_id": "delivery-metric-011",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-011/SPEC.md",
+        "basis_sha256": "0ec4672dbe9f4a7afd736ac861c058bf0d2ecc120f25943e85da167d0183078c"
+      }
+    ],
+    "payload": {
+      "targets": [
+        {
+          "id": "python",
+          "language": "python",
+          "weight": 1
+        },
+        {
+          "id": "typescript",
+          "language": "typescript",
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "source_artifacts": {
+    "python": {
+      "schema_version": "1.0.0",
+      "kind": "compile",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "compile-python-good",
+      "subject_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+      "facts": {
+        "language": "python",
+        "command_profile": "python-checked-hash-bytecode-v1",
+        "compiler_version": "3.13.5",
+        "exit_code": 0,
+        "source_bytes": 107,
+        "output_bytes": 315,
+        "output_sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt_sha256": "1525fb97a3768c5df638ec7f76754caf1261d0f239e83e3f442a64793c20ba34"
+    },
+    "typescript": {
+      "schema_version": "1.0.0",
+      "kind": "compile",
+      "collector_id": "bie-local-collector-v1",
+      "run_id": "compile-typescript-good",
+      "subject_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec",
+      "facts": {
+        "language": "typescript",
+        "command_profile": "typescript-strict-emit-v1",
+        "compiler_version": "Version 5.8.3",
+        "exit_code": 0,
+        "source_bytes": 106,
+        "output_bytes": 246,
+        "output_sha256": "224667659e2a1d0ce605c0d01f04c4135a315596a89aa7fef89b7b43a93aa8ac",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "receipt_sha256": "d30917511fa65fed4c711766cbd0a991db6be3f369ce5638985e8bd10b38aa1e"
+    }
+  },
+  "cases": [
+    {
+      "id": "correct",
+      "candidate": {
+        "artifacts": [
+          {
+            "id": "python",
+            "observation_id": "python",
+            "source_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53"
+          },
+          {
+            "id": "typescript",
+            "observation_id": "typescript",
+            "source_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "real-python-syntax-error",
+      "candidate": {
+        "artifacts": [
+          {
+            "id": "python",
+            "observation_id": "python",
+            "source_sha256": "e5c39b5d9e483c96898f2970978fee4d8e5a3814e685d9ab37365a5aa333b5ad"
+          },
+          {
+            "id": "typescript",
+            "observation_id": "typescript",
+            "source_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "ACTUAL_COMPILE_FAILED",
+      "source_artifacts": {
+        "python": {
+          "schema_version": "1.0.0",
+          "kind": "compile",
+          "collector_id": "bie-local-collector-v1",
+          "run_id": "compile-python-bad",
+          "subject_sha256": "e5c39b5d9e483c96898f2970978fee4d8e5a3814e685d9ab37365a5aa333b5ad",
+          "facts": {
+            "language": "python",
+            "command_profile": "python-checked-hash-bytecode-v1",
+            "compiler_version": "3.13.5",
+            "exit_code": 1,
+            "source_bytes": 13,
+            "output_bytes": 0,
+            "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "d5bab99200ee4ed301e9110734a0031b8d2eadd09ef578312bc3805113ff5af6"
+          },
+          "receipt_sha256": "67c3bfc39a5e7c1f689b38e39e0227fe9facf106efb99f9d0dc75cb64d3b3d13"
+        },
+        "typescript": {
+          "schema_version": "1.0.0",
+          "kind": "compile",
+          "collector_id": "bie-local-collector-v1",
+          "run_id": "compile-typescript-good",
+          "subject_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec",
+          "facts": {
+            "language": "typescript",
+            "command_profile": "typescript-strict-emit-v1",
+            "compiler_version": "Version 5.8.3",
+            "exit_code": 0,
+            "source_bytes": 106,
+            "output_bytes": 246,
+            "output_sha256": "224667659e2a1d0ce605c0d01f04c4135a315596a89aa7fef89b7b43a93aa8ac",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "receipt_sha256": "d30917511fa65fed4c711766cbd0a991db6be3f369ce5638985e8bd10b38aa1e"
+        }
+      },
+      "observation_kind": "ACTUAL_INVALID_SOURCE_COMPILER_EXECUTION"
+    },
+    {
+      "id": "real-typescript-type-error",
+      "candidate": {
+        "artifacts": [
+          {
+            "id": "python",
+            "observation_id": "python",
+            "source_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53"
+          },
+          {
+            "id": "typescript",
+            "observation_id": "typescript",
+            "source_sha256": "df14599f888366ebef2698e37c5315a099677bf07ea59da6cba198dfb7251524"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "ACTUAL_COMPILE_FAILED",
+      "source_artifacts": {
+        "python": {
+          "schema_version": "1.0.0",
+          "kind": "compile",
+          "collector_id": "bie-local-collector-v1",
+          "run_id": "compile-python-good",
+          "subject_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+          "facts": {
+            "language": "python",
+            "command_profile": "python-checked-hash-bytecode-v1",
+            "compiler_version": "3.13.5",
+            "exit_code": 0,
+            "source_bytes": 107,
+            "output_bytes": 315,
+            "output_sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "receipt_sha256": "1525fb97a3768c5df638ec7f76754caf1261d0f239e83e3f442a64793c20ba34"
+        },
+        "typescript": {
+          "schema_version": "1.0.0",
+          "kind": "compile",
+          "collector_id": "bie-local-collector-v1",
+          "run_id": "compile-typescript-bad",
+          "subject_sha256": "df14599f888366ebef2698e37c5315a099677bf07ea59da6cba198dfb7251524",
+          "facts": {
+            "language": "typescript",
+            "command_profile": "typescript-strict-emit-v1",
+            "compiler_version": "Version 5.8.3",
+            "exit_code": 1,
+            "source_bytes": 36,
+            "output_bytes": 0,
+            "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "066767e27609b2e1db4571783af6c96b404578bcb621401f811a85ebbb29753f",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "receipt_sha256": "1c20530387f9ac0f58ad67521924aa04c2ed02a06f5565df00c906064558e686"
+        }
+      },
+      "observation_kind": "ACTUAL_INVALID_SOURCE_COMPILER_EXECUTION"
+    },
+    {
+      "id": "missing-target",
+      "candidate": {
+        "artifacts": [
+          {
+            "id": "python",
+            "observation_id": "python",
+            "source_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53"
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "REQUIRED_COMPILE_TARGET_MISSING",
+      "source_artifacts": {
+        "python": {
+          "schema_version": "1.0.0",
+          "kind": "compile",
+          "collector_id": "bie-local-collector-v1",
+          "run_id": "compile-python-good",
+          "subject_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53",
+          "facts": {
+            "language": "python",
+            "command_profile": "python-checked-hash-bytecode-v1",
+            "compiler_version": "3.13.5",
+            "exit_code": 0,
+            "source_bytes": 107,
+            "output_bytes": 315,
+            "output_sha256": "7c524afc9282dc51f3948ecc10e67f8b1a17133aa47b58d4e482792a0fa3545b",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "receipt_sha256": "1525fb97a3768c5df638ec7f76754caf1261d0f239e83e3f442a64793c20ba34"
+        }
+      },
+      "observation_kind": "MUTATED_CAPTURED_OBSERVATION_FOR_NEGATIVE_CONTROL"
+    },
+    {
+      "id": "source-substitution",
+      "candidate": {
+        "artifacts": [
+          {
+            "id": "python",
+            "observation_id": "python",
+            "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "id": "typescript",
+            "observation_id": "typescript",
+            "source_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec"
+          }
+        ]
+      },
+      "expected_status": "BLOCKED",
+      "expected_outcome": null,
+      "expected_score_exact": null,
+      "expected_reason": "OBSERVATION_SUBJECT_MISMATCH"
+    },
+    {
+      "id": "missing-evidence",
+      "candidate": {
+        "artifacts": [
+          {
+            "id": "python",
+            "observation_id": "python",
+            "source_sha256": "8c6911f61f9546d60d95ea136bc8954453749c2c66f9012f98e1e993dcfcfd53"
+          },
+          {
+            "id": "typescript",
+            "observation_id": "typescript",
+            "source_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec"
+          }
+        ]
+      },
+      "expected_status": "BLOCKED",
+      "expected_outcome": null,
+      "expected_score_exact": null,
+      "expected_reason": "TRUSTED_OBSERVATION_MISSING",
+      "source_artifacts": {
+        "typescript": {
+          "schema_version": "1.0.0",
+          "kind": "compile",
+          "collector_id": "bie-local-collector-v1",
+          "run_id": "compile-typescript-good",
+          "subject_sha256": "5c8513e675695bfe6bb54cf92d76d99b341823201aedbd010346ea9b451831ec",
+          "facts": {
+            "language": "typescript",
+            "command_profile": "typescript-strict-emit-v1",
+            "compiler_version": "Version 5.8.3",
+            "exit_code": 0,
+            "source_bytes": 106,
+            "output_bytes": 246,
+            "output_sha256": "224667659e2a1d0ce605c0d01f04c4135a315596a89aa7fef89b7b43a93aa8ac",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "receipt_sha256": "d30917511fa65fed4c711766cbd0a991db6be3f369ce5638985e8bd10b38aa1e"
+        }
+      },
+      "observation_kind": "MUTATED_CAPTURED_OBSERVATION_FOR_NEGATIVE_CONTROL"
+    }
+  ],
+  "diagnostic_grade": "AUTHORED_DIAGNOSTIC",
+  "independent_review": false,
+  "native_bie": false
+}

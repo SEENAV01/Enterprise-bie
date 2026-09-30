@@ -1,0 +1,263 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-005",
+    "rubric_id": "BIE-EVAL-METRIC-005.development-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-author-batch003",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-basis",
+        "locator": "100cm=1m; (1+x)^2=1+2x+x^2. (x^2-1)/(x-1)=x+1 only with x=1 excluded. Check weights1,1,2.",
+        "basis_sha256": "47deb351b96500b641bacd950f9af3addf6eef4dbcabfeb4846bb4d6e0ddf801"
+      }
+    ],
+    "payload": {
+      "checks": [
+        {
+          "id": "length",
+          "weight": 1,
+          "kind": "quantity",
+          "expected": {
+            "value": 1,
+            "unit": "m"
+          },
+          "absolute_tolerance": 0,
+          "relative_tolerance": 0
+        },
+        {
+          "id": "poly",
+          "weight": 1,
+          "kind": "polynomial",
+          "expected": [
+            1,
+            2,
+            1
+          ],
+          "absolute_tolerance": 0,
+          "relative_tolerance": 0
+        },
+        {
+          "id": "rf",
+          "weight": 2,
+          "kind": "rational_function",
+          "expected": {
+            "numerator": [
+              -1,
+              0,
+              1
+            ],
+            "denominator_roots": [
+              1
+            ],
+            "excluded_values": [
+              1
+            ]
+          },
+          "absolute_tolerance": 0,
+          "relative_tolerance": 0
+        }
+      ]
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "positive",
+      "candidate": {
+        "checks": [
+          {
+            "id": "length",
+            "value": {
+              "value": 100,
+              "unit": "cm"
+            }
+          },
+          {
+            "id": "poly",
+            "value": [
+              1,
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "id": "rf",
+            "value": {
+              "numerator": [
+                1,
+                1
+              ],
+              "denominator_roots": [],
+              "excluded_values": [
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "wrong_dimension",
+      "candidate": {
+        "checks": [
+          {
+            "id": "length",
+            "value": {
+              "value": 100,
+              "unit": "s"
+            }
+          },
+          {
+            "id": "poly",
+            "value": [
+              1,
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "id": "rf",
+            "value": {
+              "numerator": [
+                1,
+                1
+              ],
+              "denominator_roots": [],
+              "excluded_values": [
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "DIMENSION_MISMATCH"
+    },
+    {
+      "id": "lost_domain_hole",
+      "candidate": {
+        "checks": [
+          {
+            "id": "length",
+            "value": {
+              "value": 100,
+              "unit": "cm"
+            }
+          },
+          {
+            "id": "poly",
+            "value": [
+              1,
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "id": "rf",
+            "value": {
+              "numerator": [
+                1,
+                1
+              ],
+              "denominator_roots": [],
+              "excluded_values": []
+            }
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/2",
+      "expected_reason": "DOMAIN_EXCLUSIONS_MISMATCH"
+    },
+    {
+      "id": "missing_length",
+      "candidate": {
+        "checks": [
+          {
+            "id": "poly",
+            "value": [
+              1,
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "id": "rf",
+            "value": {
+              "numerator": [
+                1,
+                1
+              ],
+              "denominator_roots": [],
+              "excluded_values": [
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "MISSING_MATH_CHECK"
+    },
+    {
+      "id": "wrong_polynomial",
+      "candidate": {
+        "checks": [
+          {
+            "id": "length",
+            "value": {
+              "value": 100,
+              "unit": "cm"
+            }
+          },
+          {
+            "id": "poly",
+            "value": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "rf",
+            "value": {
+              "numerator": [
+                1,
+                1
+              ],
+              "denominator_roots": [],
+              "excluded_values": [
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "POLYNOMIAL_IDENTITY_MISMATCH"
+    },
+    {
+      "id": "empty_output",
+      "candidate": {
+        "checks": []
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "MISSING_MATH_CHECK"
+    }
+  ],
+  "fixture_origin": "ORIGINAL_AUTHORED_DEVELOPMENT_NOT_GOLDEN",
+  "expected_values_authored_without_calling_evaluator": true
+}

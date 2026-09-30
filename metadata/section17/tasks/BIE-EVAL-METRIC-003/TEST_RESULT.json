@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-EVAL-METRIC-003",
+  "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+  "tests_run": 18,
+  "passed": 18,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "records": [
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_all_targets_known_cannot_vacuously_pass",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_authored_candidate_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_disconnected_nonrequired_node_not_penalized",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_duplicate_reference_edge_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_duplicate_teaching_node_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_independent_prerequisites_can_swap",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_known_prior_cuts_ancestor_reteaching",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_known_prior_removes_reteaching_requirement",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_prior_knowledge_is_not_candidate_owned",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_reference_cycle_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_reference_unknown_target_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_transitive_prerequisite_must_be_taught",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_003.METRIC003Tests.test_unknown_teaching_node_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+  "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+}

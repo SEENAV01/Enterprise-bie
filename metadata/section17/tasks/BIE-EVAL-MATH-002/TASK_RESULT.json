@@ -1,0 +1,45 @@
+{
+  "task_id": "BIE-EVAL-MATH-002",
+  "original_capability": "calculus",
+  "batch": 1,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Analytic bounded polynomial derivatives/antiderivatives, explicit arbitrary constant, oriented definite integrals, tangent coefficients, absolute-value cusp and reciprocal singularity guards.",
+  "bounds_and_open_scope": "Specific analytic profiles, derivative order at most eight; no numerical proof-by-sampling or arbitrary symbolic integration. Ten authored development cases; independent rubrics/calibration/native math integration remain pending.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/calculus.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-002.json",
+    "tests/section17/test_math_002.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/calculus.py": "7c5572a1c9aa339bd9162fd9b0f66cd0a2ec9019f8d7eda6dc4eaed2bf01a4f3",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-002.json": "f9b10c7461edeec8bd3401cb77d20b5ac52573b43d92e512d7279596e51cd8bc",
+    "tests/section17/test_math_002.py": "4f8e3ebf5e8e039abb32c4685baef1d13642c467e862b009f36b494463bf3b63"
+  },
+  "selected_task_suite": {
+    "test_method_count": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "python -B -m unittest discover -s tests/section17 -p test_math_002.py -v"
+  },
+  "batch_shared_regression": "254 unique test methods including 38 additional cross-task/audit/CLI/package tests; do not add repeated task runs to this count.",
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-MATH-002/SPEC.md",
+  "evidence_scope": "Local Python execution, unit/contract/metamorphic tests and authored diagnostic cases only.",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_diagnostic_cases": {
+    "total": 10,
+    "expected_successful_computation": 8,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  }
+}

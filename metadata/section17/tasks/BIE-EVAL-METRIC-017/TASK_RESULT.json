@@ -1,0 +1,114 @@
+{
+  "task_id": "BIE-EVAL-METRIC-017",
+  "original_sequence": 41,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Exact paired-roster deltas, critical floor and allowed-drop checks with pinned dataset/environment/evaluator identities.",
+  "limits": "Deterministic authored non-regression only; no population inference or statistical significance claim.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/regression.py",
+    "tests/section17/test_metric_017.py",
+    "bie/evaluation/benchmarks/release/contracts.py",
+    "bie/evaluation/benchmarks/release/__init__.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-REG-002",
+    "BIE-EVAL-REG-004"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_bad_score_types_and_range",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_baseline_run_cannot_be_reused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_blocked_case_cannot_claim_full_credit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_candidate_pass_flag_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_changed_case_digest_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_critical_case_drop_not_hidden",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_dataset_environment_code_changes_block",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_drop_below_boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_duplicate_case_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_empty_reference_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_exact_tolerance_boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_extra_case_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_hash_pins_enforced",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_missing_case_remains_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_no_release_promotion",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_no_statistical_significance_claim",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_order_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_positive_exact_pair",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_relabel_metric_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_017.RegressionMetric017.test_skipped_is_failure",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 20,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-METRIC-017_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-METRIC-017_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-017/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

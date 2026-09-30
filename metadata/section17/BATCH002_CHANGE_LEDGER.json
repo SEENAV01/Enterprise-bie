@@ -1,0 +1,600 @@
+{
+  "schema_version": "1.0.0",
+  "baseline": "Original Batch001 cumulative archive",
+  "changed": [
+    {
+      "path": "BIE_SECTION17_CONTINUATION.json",
+      "before_sha256": "cf6820076e4388483bb3981764e26e54cd97c15ce3be882bcfe7bfce290115a9",
+      "after_sha256": "12b72982ca6700cd1cc8090282695daedacf2ff84ae15c6fb2e8456bb3029588"
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "de3dc10bec0057eb2f85e1bb0a20384ac327080c41f64ca4bec0cb801a0b4c84",
+      "after_sha256": "ee7217a8d8d53e9e08170caf4e5cbaa2339a27f65e8ddcad58c73da972e2939b"
+    },
+    {
+      "path": "RESUME_SECTION17.txt",
+      "before_sha256": "d7ba00c3a62c2d1e27d47ff190cd470fde5718a57c3f0fc4c145970decd2a8e4",
+      "after_sha256": "a396417ea03a97f305c57af4a4176f558370f359598c818cf4325f474531b579"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/runner.py",
+      "before_sha256": "5e793af648246418f2d66ad6bf633a203ae4b8d9a4268bbe61f48bde015ed282",
+      "after_sha256": "e917c774af0ace78ca79e58db580630fc7ffef85c4964f20e5d4d926e53d3e88"
+    },
+    {
+      "path": "metadata/section17/GAP_LEDGER.json",
+      "before_sha256": "8cf580f5c5d115e3686fb6df3bbd42f168afcddce1da6a835a110a944f88a9cd",
+      "after_sha256": "1b2f9bc7fb002a8cf23aad94bd4d26fa069adbc67544f64b960f02d0a33dc649"
+    },
+    {
+      "path": "metadata/section17/ORIGINAL_50_TASK_REGISTRY.json",
+      "before_sha256": "f70075dfd2935cb0fb352927c623b7a51122f89de67a9c7eb694052560b8ab73",
+      "after_sha256": "d5ecb12a39c8ad3a344241239ee3d6451e0284e5dc6250cc68708a6efcfead90"
+    },
+    {
+      "path": "metadata/section17/TASK_INTEGRATION_INDEX.json",
+      "before_sha256": "d73d76f90117a0d83a5cf9e31b715cd2811454f129dfc0a83da0c1d71afbb6e4",
+      "after_sha256": "805c35d562ad31a365827d5d6acb044710b99cbe303534d1667fd1edbe8f7909"
+    },
+    {
+      "path": "tests/section17/test_batch_cli.py",
+      "before_sha256": "aebaf677dcd63b2d1bf179341f090b6396d9aa898a923e16daade8a4ba9c5307",
+      "after_sha256": "637f450586fdb73497ca2dad951de337200b18141955cd2d1326dc3fa7deb762"
+    },
+    {
+      "path": "tests/section17/test_batch_integration.py",
+      "before_sha256": "3224e757ce265ba8cf0c704374b27d28026b33222a7764fb232905551c96f2b8",
+      "after_sha256": "d479016e51c51397c590eaf75b8e8e291a1ffc89267edc90382ac67ed892151d"
+    },
+    {
+      "path": "tools/run_section17_tests.py",
+      "before_sha256": "a4c9ba68b77a461d9df42ecf744905adba86b4fe1c045f8dff36e1a31b98f6d2",
+      "after_sha256": "c84ef96b0ff3f97812a137943dce4f0c26ed83a785ad16aa346e5ff2aa3abdf1"
+    }
+  ],
+  "added": [
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-001.json",
+      "sha256": "69d938dbf62e812201006157eb344c4b973ea147720f34477ae2a91515f4e2b2"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-002.json",
+      "sha256": "0c86a69a13949d31c8d0cd7c5e5d95425a58b32d88ed97ccdcda8aedf5a373f8"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-003.json",
+      "sha256": "ace849dcbf062510f6a4823ad780a9998cefe64c35d70f1ab17c4aaa0ee4240a"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-001.json",
+      "sha256": "fcc6eaf6ef562a8bafaa2fec4ab1e8f175c2b270ead96afb7c1f59301cd1b4cf"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-002.json",
+      "sha256": "d62ce1c64ccfa4ec2fd68367580b174dd898a42618e7dd221a430c6c05a0bdd0"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-003.json",
+      "sha256": "fcbc6eee6ebe645ad2da6ac48e3d820f456a4fd474ec1b2efd3511f0fb39116e"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-001.json",
+      "sha256": "65fda46225efbd3feff8b28e902a271ff7952b9c26f3eecbc61e25946696e64a"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-001.json",
+      "sha256": "d76de989e2a9490dcebe9089b1bdb6a07389f859b25780d8d02cdb4892d55c75"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-002.json",
+      "sha256": "1a042c0748104a3911688252b544dfd1c3bbc17058333b5da487131f0ecba3cc"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-003.json",
+      "sha256": "ca5434e319bdd0c9a1667c2ef362a5c3196a0413f78eb51e69c17f00e5bd1d38"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/bonding.py",
+      "sha256": "20d7b582423c795ee4f2fccd7bff9e93acdf9531e270e561edc9e789145b94bc"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/chemistry_common.py",
+      "sha256": "01c32bebc452ea170f489645220bb097d03970777974e5a49fee451c854f6632"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/chronology.py",
+      "sha256": "e803eb9249f120b0e4fcb0611084043729097d4e9beed9a52aea8ab8029d8157"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/french_revolution.py",
+      "sha256": "e207140d6299f80b0bc2e4bb3f0bc8d7d10be9bd877460e56d90e7cd1e1565ee"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/genetics.py",
+      "sha256": "48b99a61eed55aca86995718d210142f44bfebc2480f4771cf38c9a036de9143"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/historical_causality.py",
+      "sha256": "0a6d374705269784ec9be7ab40bff69445f216e8fff971b151ad474ad2b4537f"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/mechanisms.py",
+      "sha256": "14494806bdce37409993f7a44ba55e2caa81f75d68ec23adf78eee5d18496cc6"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/photosynthesis.py",
+      "sha256": "e2c04198e4895e11c5c557baecea78034592ea16a72e5b3b75408990a3b2536a"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/physiology.py",
+      "sha256": "f431b797348cc87c3349c0c97c95aeb646edf49308065ee214c64c9f0f77fddd"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/plate_tectonics.py",
+      "sha256": "8a208a1b959c5f53cf61c040b678b2ae6fb7f98dc8be270f70ba3d79db48b397"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/stoichiometry.py",
+      "sha256": "9889d2f002b693705fba2facbadd8dc81b3de010e7bebee62bfcd5a3a6bb3c06"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/structured.py",
+      "sha256": "2b018efccd2844b6e05719ca7f59a24da5588e6354b740152714a9f1f28fd4c0"
+    },
+    {
+      "path": "bie/evaluation/benchmarks/domains/temporal.py",
+      "sha256": "d3a2b7e35abb9f730a3c2b6e6f1b6ee34d08492b84b602939faa62945276849b"
+    },
+    {
+      "path": "docs/section17/BATCH002_AUDIT_AND_SCOPE.md",
+      "sha256": "6a3a61af0d11105e15f73003877c1969dd41c30317601147901e9afa13e2e074"
+    },
+    {
+      "path": "docs/section17/BATCH002_INTEGRATION_INSTRUCTIONS.md",
+      "sha256": "f9feeb50b0da31c73eb4aabddc7e6594bc3854ca9fe852b86fe8bf7334012d13"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-BIO-001/CONTRACT_EXAMPLES.json",
+      "sha256": "4f9447fd9ed31e520553af354962d9ec39c727ab2e34afa2ae0a7fed16841dc8"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-BIO-001/SPEC.md",
+      "sha256": "bbd860b5c4e7934740abc751d900a925614aa00e855d443ebbfdc45783709324"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-BIO-002/CONTRACT_EXAMPLES.json",
+      "sha256": "5d0f78e48db74b8318f5000a80df0f637d95478c4671df263ba8d542528f1666"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-BIO-002/SPEC.md",
+      "sha256": "7e62e3f8b870666c490bf04b20c5088860bc360b421a1eebe2b3f775e776bfda"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-BIO-003/CONTRACT_EXAMPLES.json",
+      "sha256": "4e130880e7935067a466c81cf37281c8c3df5eadbe43d24a720b111b30cb8a37"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-BIO-003/SPEC.md",
+      "sha256": "19a6fd2fb5506335289d1354b041e77e02aee60f4b624619d1bbaddcb76723af"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-CHEM-001/CONTRACT_EXAMPLES.json",
+      "sha256": "3722f46c3631c54693adbf77b7fa0cad3aa89abf50b099ad9d8e95bffefe66e2"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-CHEM-001/SPEC.md",
+      "sha256": "8605e6e794c74273af03ae6d12d958e914f58fb7e5d2cbda29f243f9a6c9ce6a"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-CHEM-002/CONTRACT_EXAMPLES.json",
+      "sha256": "c9420d5e0c9e2dc8aac470fb8c2f2891538bc952969f8f76f6325571d877beaf"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-CHEM-002/SPEC.md",
+      "sha256": "6a44ece760edefe271d77e536ac06f540eff82f9ca808f648f68a537e7e56b6c"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-CHEM-003/CONTRACT_EXAMPLES.json",
+      "sha256": "6f8531998863ef1f297aef175c5b31724eb7f6dabd35c8128fcd49c9251b2981"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-CHEM-003/SPEC.md",
+      "sha256": "43e0f7092ad07e632e86f1d9fc5698503f8f51c8215ed67aa3038140f3bbce0f"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-GEO-001/CONTRACT_EXAMPLES.json",
+      "sha256": "997c02fd3be13fd622b4d0323e79d30a78bf223a13a065dca33ec34a476364a1"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-GEO-001/SPEC.md",
+      "sha256": "0d1653deef8066384ad94e57d479a7ae18a0d5ee62995270640bef415253fd16"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-HIST-001/CONTRACT_EXAMPLES.json",
+      "sha256": "33538dc30130c81e80ccaf46d32f9709ec126f510c47535ffc18da23a4d52b52"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-HIST-001/SPEC.md",
+      "sha256": "10455eb98e42771fe8689b13f11e238b999d8f037ede4ec49a68767a2ec14cea"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-HIST-002/CONTRACT_EXAMPLES.json",
+      "sha256": "1dd3a55ba4695c6ccdda740cd31d26b9cc0e8a5544cb45e5ea4545f8bbd849e7"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-HIST-002/SPEC.md",
+      "sha256": "5492c1bc06e684be9136f8fa3b748c936293c2eb29500e510ef0a4af026c4215"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-HIST-003/CONTRACT_EXAMPLES.json",
+      "sha256": "3dda04902a46e1738e4b63d6718af8c711582f52c5bacc45dd11c6fca7695a52"
+    },
+    {
+      "path": "docs/section17/tasks/BIE-EVAL-HIST-003/SPEC.md",
+      "sha256": "18423b6e927e7cc86b8c72081e1fcccbf7bfd064e5ee2a22c534c1de8508b282"
+    },
+    {
+      "path": "evidence/section17/batch002/PYTHON_SYNTAX_COMPILE.json",
+      "sha256": "84f63eba588b94d3a4392ebb39fdfb96eb738d01b3407e74f03fd15dfde296ba"
+    },
+    {
+      "path": "evidence/section17/batch002/adversarial_initial/CANDIDATE_INVENTORY.json",
+      "sha256": "32bf47b440a3fc228bde84f70bf26a6acfcec519b77cb4acef6f02308518e96e"
+    },
+    {
+      "path": "evidence/section17/batch002/adversarial_initial/TEST_RESULT.json",
+      "sha256": "02d7c13abc60a4781282fe3272d7a6fe54ed43e07dfcdf3d6cdc436680673bc0"
+    },
+    {
+      "path": "evidence/section17/batch002/adversarial_initial/TEST_RESULT.txt",
+      "sha256": "712db71847c9b27b93efac40ce4a7d4e1c4a2c6161a5c98b56db12fc997a5142"
+    },
+    {
+      "path": "evidence/section17/batch002/baseline_recheck/CANDIDATE_INVENTORY.json",
+      "sha256": "a9ab31f9ddd1ab4c5d9655c58a6238dab2d261aa644a4f991a86f4b4a6aa15b5"
+    },
+    {
+      "path": "evidence/section17/batch002/baseline_recheck/TEST_RESULT.json",
+      "sha256": "3fe37a83c5ace6523eeb814df4e730bcd4dd77c8f1ba69d2d0e8e51529873dcd"
+    },
+    {
+      "path": "evidence/section17/batch002/baseline_recheck/TEST_RESULT.txt",
+      "sha256": "820f3ac899e7ee2fa30e1c849a0c27b944742e8fbd612cb3c0a3bd90d4c7ecee"
+    },
+    {
+      "path": "evidence/section17/batch002/batch001_records/BIE_SECTION17_CONTINUATION.json",
+      "sha256": "cf6820076e4388483bb3981764e26e54cd97c15ce3be882bcfe7bfce290115a9"
+    },
+    {
+      "path": "evidence/section17/batch002/batch001_records/README.md",
+      "sha256": "de3dc10bec0057eb2f85e1bb0a20384ac327080c41f64ca4bec0cb801a0b4c84"
+    },
+    {
+      "path": "evidence/section17/batch002/batch001_records/RESUME_SECTION17.txt",
+      "sha256": "d7ba00c3a62c2d1e27d47ff190cd470fde5718a57c3f0fc4c145970decd2a8e4"
+    },
+    {
+      "path": "evidence/section17/batch002/batch001_records/metadata/section17/GAP_LEDGER.json",
+      "sha256": "8cf580f5c5d115e3686fb6df3bbd42f168afcddce1da6a835a110a944f88a9cd"
+    },
+    {
+      "path": "evidence/section17/batch002/batch001_records/metadata/section17/ORIGINAL_50_TASK_REGISTRY.json",
+      "sha256": "f70075dfd2935cb0fb352927c623b7a51122f89de67a9c7eb694052560b8ab73"
+    },
+    {
+      "path": "evidence/section17/batch002/batch001_records/metadata/section17/TASK_INTEGRATION_INDEX.json",
+      "sha256": "d73d76f90117a0d83a5cf9e31b715cd2811454f129dfc0a83da0c1d71afbb6e4"
+    },
+    {
+      "path": "evidence/section17/batch002/contract_reaudit/CANDIDATE_INVENTORY.json",
+      "sha256": "ad20ccfef3ee03beba0d26640dfaf3db033283d1198f7025cc72bf3c4d6d6858"
+    },
+    {
+      "path": "evidence/section17/batch002/contract_reaudit/TEST_RESULT.json",
+      "sha256": "de067ebfd6ca001f79d2432120084170fab5337c9a95d279d4a90cc3578ce219"
+    },
+    {
+      "path": "evidence/section17/batch002/contract_reaudit/TEST_RESULT.txt",
+      "sha256": "d2857c06e0695ea68c39acff4499b07eadaf05ed507372a63a84f2bec0e13a0a"
+    },
+    {
+      "path": "evidence/section17/batch002/diagnostic/CASE_GRADES.json",
+      "sha256": "cd3750eaa4025a132b0591fff92c6ed77d8a6a37f7e741090ec2a7c1384a8244"
+    },
+    {
+      "path": "evidence/section17/batch002/diagnostic/DATASET_MANIFEST.json",
+      "sha256": "723091c6977acbbc2839ca4d406d27963825612b8e99bef548b47ecfa94451ba"
+    },
+    {
+      "path": "evidence/section17/batch002/diagnostic/RESULT.json",
+      "sha256": "e24b6d5760da46fc5a093fba714b3fc79d8da9e578b3e8c5302dc307f7dca20d"
+    },
+    {
+      "path": "evidence/section17/batch002/diagnostic/diagnostic.sqlite3",
+      "sha256": "1b46089cb1aee597a48302d7446a05631c39c81f892aec0058ea244493f9df11"
+    },
+    {
+      "path": "evidence/section17/batch002/fault_controls/FAULT_CONTROLS.json",
+      "sha256": "c46ccd5e6868997b694f9cfa016528ee2f692854e2eef9c645995f025ab1257c"
+    },
+    {
+      "path": "evidence/section17/batch002/final_source/CANDIDATE_INVENTORY.json",
+      "sha256": "5a3b101453e83da36dcc3660f45091a995d4a15096a4f3125bdc7a2b6fd7d177"
+    },
+    {
+      "path": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+      "sha256": "3f94551926228d18c89daf8378554b2f632e3b64cd70dd864fdd41b6d9a52f4b"
+    },
+    {
+      "path": "evidence/section17/batch002/final_source/TEST_RESULT.txt",
+      "sha256": "ace6a5453438fa40de0f16346c5bed9919b99beb1f6b0c1956554fe766da75f5"
+    },
+    {
+      "path": "evidence/section17/batch002/initial/CANDIDATE_INVENTORY.json",
+      "sha256": "c207f0a5ce5823ee8202d59f1772ce3ccc9f902bc5385df05fd01ab2a40cb55a"
+    },
+    {
+      "path": "evidence/section17/batch002/initial/TEST_RESULT.json",
+      "sha256": "ae083c7b2ee3304adfb29157ac8635eb92a5f741e021822423bd0fb3536b7972"
+    },
+    {
+      "path": "evidence/section17/batch002/initial/TEST_RESULT.txt",
+      "sha256": "73be163090114cdf04c30f99b6daddfe4f2727c74f91e9980797f26172af478e"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/audit002/bie/evaluation/benchmarks/domains/french_revolution.py",
+      "sha256": "9db37bedf09372fab40cdaf0aa69ee6d0ebe3e1eaa9d828d5cc8a7a4df21ed0b"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/audit002/bie/evaluation/benchmarks/domains/plate_tectonics.py",
+      "sha256": "6c07d6b252538b05c846e9e99cbb323ef3a83ab25edcea38223f7d288a9b9457"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/audit002/bie/evaluation/benchmarks/domains/structured.py",
+      "sha256": "adec13644ea19c9e12dfc3f3051bada73afcc8f3e2130468a779a4d685d5d8dc"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/audit002/tests/section17/test_hist_003.py",
+      "sha256": "943df5dbb723e863e52e8f42da5a355454ff72b59b3153077c805a29aecc3224"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/bie/evaluation/benchmarks/runner.py",
+      "sha256": "5e793af648246418f2d66ad6bf633a203ae4b8d9a4268bbe61f48bde015ed282"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/build_fixtures_before_source_scope_correction.py",
+      "sha256": "a8e5e63573fe6e270382a2e394c7ca75a136ce88d77769fd73106cd880d5504d"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/structured_initial.py",
+      "sha256": "adec13644ea19c9e12dfc3f3051bada73afcc8f3e2130468a779a4d685d5d8dc"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/test_batch002_contracts_before_registry_key_fix.py",
+      "sha256": "70c15c2bc5b157ef0a8c8dfcd860ea1e5b8003c09940aeec39da037299b220fb"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/tests/section17/test_batch_cli.py",
+      "sha256": "aebaf677dcd63b2d1bf179341f090b6396d9aa898a923e16daade8a4ba9c5307"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/tests/section17/test_batch_integration.py",
+      "sha256": "3224e757ce265ba8cf0c704374b27d28026b33222a7764fb232905551c96f2b8"
+    },
+    {
+      "path": "evidence/section17/batch002/preimages/tools/run_section17_tests.py",
+      "sha256": "a4c9ba68b77a461d9df42ecf744905adba86b4fe1c045f8dff36e1a31b98f6d2"
+    },
+    {
+      "path": "evidence/section17/batch002/repaired/CANDIDATE_INVENTORY.json",
+      "sha256": "65aa957e07515f158c84f3aba59f0a4b92d49d3d270da4984b0c9c952e793ea4"
+    },
+    {
+      "path": "evidence/section17/batch002/repaired/TEST_RESULT.json",
+      "sha256": "38597c1e454c333305ef50fd9e26b76bc33d25c61cf197271a2bd46e7361eef4"
+    },
+    {
+      "path": "evidence/section17/batch002/repaired/TEST_RESULT.txt",
+      "sha256": "6f9f791538ba9cb04e568bfd085a255a99b276c5289315201f87e1807d49b672"
+    },
+    {
+      "path": "metadata/section17/BATCH001_BASELINE_FILES.json",
+      "sha256": "771818f03c5b0a240df6a583a016df2e2c3f4ad3fcf44ebae0164b2a7b30a4a5"
+    },
+    {
+      "path": "metadata/section17/BATCH002_AUDIT_FINDINGS.json",
+      "sha256": "20a45f8a0646db90e9ba92dc8f445c7af8109a3d0dcfcb24d515f3a47d232b25"
+    },
+    {
+      "path": "metadata/section17/BATCH002_REFERENCE_CATALOG.json",
+      "sha256": "3383b98985aa7d8137b4f0282320767f0e7a25b25d87afdd713b9e80fe9110b7"
+    },
+    {
+      "path": "metadata/section17/BATCH002_TASK_DESCRIPTIONS.json",
+      "sha256": "7dbe3b07fdfb99b4ed938295660b5a12b3dc97f6e2c5e2800392ebf8aa69a8a6"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-001/TASK_RESULT.json",
+      "sha256": "43fec623b413c21a2f274405e820e13e1a499fbcdfc34cb371bae73785cc6cc6"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-001/TEST_RESULT.json",
+      "sha256": "758d184d852748c41950abe8aad95d98549d8592007525424674a9bc61e3d9b9"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-001/TEST_RESULT.txt",
+      "sha256": "d5675dea5656d87237a87f04dd7e41021f368c0fc785f1027f08713987ab43dc"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-002/TASK_RESULT.json",
+      "sha256": "4ab0d69535de9362e94089334d6552e718234fb4ae129cbeaf96171fcb7a8c74"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-002/TEST_RESULT.json",
+      "sha256": "c9041e792aed30131050cb8918e241cf4cad40e87b996ec9f4e3309ca10a7794"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-002/TEST_RESULT.txt",
+      "sha256": "223b77f504677585c4a85f169e71649a78e2d7530f48af8440534dc66a1cce4e"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-003/TASK_RESULT.json",
+      "sha256": "87cad3d1420a30253444adceeab931e9c05114de87bd77e054848bafd9a10916"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-003/TEST_RESULT.json",
+      "sha256": "b77f126442f6df9678dd3d9e204e6bf724dd1ddc314f0632bf7db80bb47277fa"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-BIO-003/TEST_RESULT.txt",
+      "sha256": "1023a7e29cbf15d2e69ab7fa0560b3788072fbea041fcb5e955182741b3099a8"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-001/TASK_RESULT.json",
+      "sha256": "0d3146849799bbd84b4f8f42412d4e320f9eb1482eed8fad8008c11065f849fd"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-001/TEST_RESULT.json",
+      "sha256": "1d4c45c051a356a2254eb53fb2f597db817ce238e468ca28ad29fa024e397b8f"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-001/TEST_RESULT.txt",
+      "sha256": "b3ed6c86b4e6b26a8831517921f5e6448fb275bb21986e6632ba2db7247779a7"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-002/TASK_RESULT.json",
+      "sha256": "79233e99ca8e77c18770cc52881e182c818e75c51235c4e14432e7389b73ceae"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-002/TEST_RESULT.json",
+      "sha256": "35b8b4baccaa1e95fdbad83dd0c59da9863c778841dc3e7d774c2f77d43bd8e3"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-002/TEST_RESULT.txt",
+      "sha256": "56c7e046306089c8bb417526b65172c7bdeb4cb65ea76d8012dc102b4eb4f777"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-003/TASK_RESULT.json",
+      "sha256": "a30ea56f4ed3699cbbbdacdcb074f7557171f982d0cd6e10f43b3ec886a203c3"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-003/TEST_RESULT.json",
+      "sha256": "754221677ae386418b293e3d3fa3ef865c0972cbd5a98b0ff1c0e3f42e9bf610"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-CHEM-003/TEST_RESULT.txt",
+      "sha256": "0f9006a8d3b5dd53394b5ee38e1bed8d8c1b1aa360b549e05c5cb7a8222ae13d"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-GEO-001/TASK_RESULT.json",
+      "sha256": "66ee5df118310725d4381fd6e3fd7d897ad1f5f488a060910fe8c83c31fca376"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-GEO-001/TEST_RESULT.json",
+      "sha256": "077d618249000bc99793a70a1ce4e29a15005884c833f5ea8a13f399aac22018"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-GEO-001/TEST_RESULT.txt",
+      "sha256": "b739cdf52f5d23e9c999f7c3fe9d1520003c813a4613bea3bead84e00e6ad15e"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-001/TASK_RESULT.json",
+      "sha256": "9ef27ca26236770cbb0df47c7cf428c8b27ab4eb4b51921c795034867b330078"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-001/TEST_RESULT.json",
+      "sha256": "636eb2fead780c308f2df21489b596d3217ad92efc5a6bb2b13ae64e16d9bb2f"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-001/TEST_RESULT.txt",
+      "sha256": "2a5bc2c4d9b16af037fa20adb8f1c96dc237f504f656bcf3c3230b90bc63a0ce"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-002/TASK_RESULT.json",
+      "sha256": "34330ea6d408dc9a1af4b189a677563e7dc2e56d9f95d8924025c23ebd3a382d"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-002/TEST_RESULT.json",
+      "sha256": "416f0fc044bbed42ef9e67728ae4c8c05cd81376b65a8f0c47b77d5ba4196c80"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-002/TEST_RESULT.txt",
+      "sha256": "f8cf6504af12f41927e7305d7977c115426bf274c4913373f4361c632afb4c65"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-003/TASK_RESULT.json",
+      "sha256": "a3966ec12375f5fc590c55be2858e26c37c312e5c8c222f9f22225358e99c992"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-003/TEST_RESULT.json",
+      "sha256": "62d8d5d030afab486e7686033ed874161d069f19b923f4a54e22d0fa4d67943d"
+    },
+    {
+      "path": "metadata/section17/tasks/BIE-EVAL-HIST-003/TEST_RESULT.txt",
+      "sha256": "48446d5e8e5d9d88bff011fd8c8ce9025e29abc15e168c77268cefcd2cef0744"
+    },
+    {
+      "path": "tests/section17/batch002_helpers.py",
+      "sha256": "32c55f72437e1ccb510a45dc55c4c435f9b8458ffc34f65174371b1f3f7291bd"
+    },
+    {
+      "path": "tests/section17/test_batch002_contracts.py",
+      "sha256": "56dc29e3e4ec3264d07fe21353a4fc289891ee89a8316975648e4b8177a23fc1"
+    },
+    {
+      "path": "tests/section17/test_bio_001.py",
+      "sha256": "0b723c5bb09ffd651abbee967ac4d45f9651258b59f7afef0641d747a63d4a37"
+    },
+    {
+      "path": "tests/section17/test_bio_002.py",
+      "sha256": "2c7268a9dac95a0905fef0cb741f3f9955cd27cd2bb0ae7d03651238d21ebed5"
+    },
+    {
+      "path": "tests/section17/test_bio_003.py",
+      "sha256": "df8a38e48521d4b512020da5ab5ab337a4bd7b16f412965942fad8fc2f277cd4"
+    },
+    {
+      "path": "tests/section17/test_chem_001.py",
+      "sha256": "593aab7cb7639404a08a9f1d4543e01edacdc022d48b07c4c915f7cedeb84279"
+    },
+    {
+      "path": "tests/section17/test_chem_002.py",
+      "sha256": "614488f0df2f2a0c0d5b75211c0fcb7e40ecd0d1ab84c7c8efefe657ba8dd858"
+    },
+    {
+      "path": "tests/section17/test_chem_003.py",
+      "sha256": "bdef6eec1f3d653900cada74b7c8291c509fa235c4ebf9951941b6c37a3132a7"
+    },
+    {
+      "path": "tests/section17/test_geo_001.py",
+      "sha256": "2cdb9d5747b1c59f42a755499f090ddb8ddfb90292ed1cd58b485a04422649ac"
+    },
+    {
+      "path": "tests/section17/test_hist_001.py",
+      "sha256": "4f31d7c32f3841f1641e63b7664b635b5432df4e93df851a104dc4d1e83a8d17"
+    },
+    {
+      "path": "tests/section17/test_hist_002.py",
+      "sha256": "e1c6f7668533c4e41739e8db01006c6b4b4342e51ba1be8918a604a0e39cec3f"
+    },
+    {
+      "path": "tests/section17/test_hist_003.py",
+      "sha256": "220d2defaf689a9bf66daedf94a45ef538e104de24d5aaf6718c14f06a0bf512"
+    },
+    {
+      "path": "tools/rebuild_batch002_fixture_data.py",
+      "sha256": "6fe911f6663468ce386e3c2f3613be93bf06f7c97cde7d68a30583f1ed04d356"
+    },
+    {
+      "path": "tools/run_section17_fault_controls.py",
+      "sha256": "de2f4873a97eb847847b62f924f0625c40aed56a93fa4b41592ddd79ba13d69f"
+    }
+  ],
+  "removed_files_except_regenerated_manifest": [],
+  "original_code_preservation_checks": "BATCH001_BASELINE_FILES.json",
+  "self_reference_excluded": true,
+  "generated_manifest_excluded": true,
+  "scope": "snapshot before manifest; any packaging-only extras are covered by final MANIFEST.json",
+  "canonical_github_changes": false
+}

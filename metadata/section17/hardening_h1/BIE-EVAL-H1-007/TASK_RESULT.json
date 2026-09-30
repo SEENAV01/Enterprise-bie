@@ -1,0 +1,83 @@
+{
+  "task_id": "BIE-EVAL-H1-007",
+  "title": "Authenticated assessment admission",
+  "finding": {
+    "finding_id": "H1-F007",
+    "task_id": "BIE-EVAL-H1-007",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "A content-hashed assessment could self-assert a production execution identity without a per-assessment service authorization.",
+    "implemented_behavior": "Require exact signed assessment scopes, configured roles/identity/version/group, expiry/revocation, non-fixture execution and no reused secret across raters.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Configured shared-secret service custody is not independent digital non-repudiation, actual reviewer expertise, honest external evidence or protected production key provisioning.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/release/admission.py",
+      "bie/evaluation/benchmarks/release/gate.py"
+    ],
+    "test_pattern": "test_h1_007.py",
+    "passed_test_methods": 13,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_correct_service_signatures_verify",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_duplicate_signature_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_false_version_claim_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_fixture_execution_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_fixture_key_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_independent_accuracy_not_inferred",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_missing_all_signatures_blocks_public_production_gate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_missing_one_signature_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_rehashed_score_cannot_reuse_signature",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_revoked_service_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_shared_secrets_do_not_fake_independence",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_signature_bitflip_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_007.AssessmentCustodyBoundary.test_wrong_role_rejects",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/release/admission.py": "0624281fc144dc1990435ba448c1774fc1615d46c36774bcd42b29c0ebbeb044",
+    "bie/evaluation/benchmarks/release/gate.py": "6e37c74e5fdb1c48f315ff08b83191b60c1a1619e546a67e4a8f9fb3feef3044",
+    "tests/section17/test_h1_007.py": "0c9ddc8874fb7875dbe0e3ca2bc3a43443db7977c50f271452bfa837c9bc6bac"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "BIE-EVAL-METRIC-001",
+  "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+  "tests_run": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "records": [
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_authored_candidate_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_boolean_span_not_an_index",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_candidate_cannot_supply_its_own_weight",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_duplicate_citation_not_double_credit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_empty_reference_never_perfect",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_extra_claim_does_not_expand_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_missing_source_artifact_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_negative_span_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_one_correct_plus_one_wrong_citation_is_not_accepted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_proposition_type_distinguishes_boolean_integer",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_reference_span_tamper_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_reference_weight_sets_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_source_tamper_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_unicode_offsets_are_codepoints_not_bytes",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_001.METRIC001Tests.test_unknown_source_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+  "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+}

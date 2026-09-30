@@ -1,0 +1,127 @@
+{
+  "task_id": "BIE-EVAL-METRIC-005",
+  "original_sequence": 29,
+  "original_capability": "math metric",
+  "batch": 3,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Unit-aware exact arithmetic, bounded polynomial identities and rational-expression domain preservation.",
+  "bounded_contract": "Reference checks: id,weight,kind,expected,absolute_tolerance,relative_tolerance. Candidate checks: id,value.\nQuantity profile uses a fixed units whitelist (1,m,cm,mm,km,s,min,kg,g,N,kN,J,kJ,K,degC), canonical dimensions/scales/temperature offsets. Comparison tolerance is max(atol,rtol*abs(expected)) in canonical base units; rtol<=0.01; tolerance is trusted, never supplied by candidate.\nPolynomial profile: exact constant-first coefficient arrays, at most9 entries, trailing zeros normalized. Algebra tolerance must be zero.\nRational-function profile: bounded numerator polynomial, denominator given as product of up to8 factors (x-root), up to16 explicit excluded values; all denominator roots must be excluded. Compare exact cross products and exact domain exclusion sets, so cancellation does not erase a domain hole. No eval or arbitrary expression parser.",
+  "bounds_and_open_scope": "Not a general CAS, theorem prover or support for transcendental expressions, arbitrary units, differential equations or unrestricted multivariate algebra. This checks supplied structured work, not extracted equations or mental calculation.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-METRIC-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/mathematics.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json",
+    "tests/section17/test_metric_005.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/metrics/mathematics.py": "a440d523e27e98a7168f9aaf1abb5d684afbc4e89a8e523f02e8d55aff733bed",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json": "5ca421b0d47507df4a14570869207b9a28dcc79ce5abffd077df9e117363e796",
+    "tests/section17/test_metric_005.py": "6df657ada31e7bce1d6c59d679cce876328c516b06cccf24d6cfb2dbf2caf933"
+  },
+  "selected_task_suite": {
+    "schema_version": "1.0.0",
+    "task_id": "BIE-EVAL-METRIC-005",
+    "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+    "tests_run": 20,
+    "passed": 20,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_absolute_tolerance_uses_canonical_base_unit",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_authored_candidate_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_candidate_extra_domain_hole_fails",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_celsius_kelvin_offset",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_denominator_root_requires_exclusion",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_duplicate_domain_hole_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_expression_string_never_evaluated",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_inflated_tolerance_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_negative_kelvin_blocked",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_numeric_wrong_value_cannot_be_masked_by_unit_label",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_polynomial_degree_bounded",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_polynomial_product_coefficient_order",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_relative_tolerance_at_limit",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_symbolic_tolerance_not_allowed",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_metric_005.METRIC005Tests.test_zero_polynomial_normalizes_trailing_zeros",
+        "status": "PASS"
+      }
+    ],
+    "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+    "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+    "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+  },
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-METRIC-005/SPEC.md",
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_fixture_count": 6,
+  "independent_reference_review": false,
+  "hidden_holdout": false
+}

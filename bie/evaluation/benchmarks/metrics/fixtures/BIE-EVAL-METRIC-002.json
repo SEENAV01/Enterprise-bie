@@ -1,0 +1,207 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-002",
+    "rubric_id": "BIE-EVAL-METRIC-002.development-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-author-batch003",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-basis",
+        "locator": "Manually annotated vector/force facets; concept weights2+1 and relation1. Facet credit is matched fraction per concept, not string similarity.",
+        "basis_sha256": "a8711c80a4825a1bce8948bb1ed373e853fe5c4ad9c3264b6d7463b998d83d87"
+      }
+    ],
+    "payload": {
+      "concepts": [
+        {
+          "id": "vector",
+          "weight": 2,
+          "facets": {
+            "has_magnitude": true,
+            "has_direction": true
+          }
+        },
+        {
+          "id": "force",
+          "weight": 1,
+          "facets": {
+            "is_vector": true
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "r",
+          "weight": 1,
+          "from": "force",
+          "predicate": "instance_of",
+          "to": "vector"
+        }
+      ]
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "positive",
+      "candidate": {
+        "concepts": [
+          {
+            "id": "vector",
+            "facets": {
+              "has_magnitude": true,
+              "has_direction": true
+            }
+          },
+          {
+            "id": "force",
+            "facets": {
+              "is_vector": true
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "r",
+            "from": "force",
+            "predicate": "instance_of",
+            "to": "vector"
+          }
+        ]
+      },
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "wrong_facet",
+      "candidate": {
+        "concepts": [
+          {
+            "id": "vector",
+            "facets": {
+              "has_magnitude": true,
+              "has_direction": false
+            }
+          },
+          {
+            "id": "force",
+            "facets": {
+              "is_vector": true
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "r",
+            "from": "force",
+            "predicate": "instance_of",
+            "to": "vector"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "INCORRECT_FACET:has_direction"
+    },
+    {
+      "id": "missing_concept",
+      "candidate": {
+        "concepts": [
+          {
+            "id": "force",
+            "facets": {
+              "is_vector": true
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "r",
+            "from": "force",
+            "predicate": "instance_of",
+            "to": "vector"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "1/4",
+      "expected_reason": "MISSING_CONCEPT"
+    },
+    {
+      "id": "wrong_relation",
+      "candidate": {
+        "concepts": [
+          {
+            "id": "vector",
+            "facets": {
+              "has_magnitude": true,
+              "has_direction": true
+            }
+          },
+          {
+            "id": "force",
+            "facets": {
+              "is_vector": true
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "r",
+            "from": "force",
+            "predicate": "instance_of",
+            "to": "force"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "RELATION_MISMATCH"
+    },
+    {
+      "id": "missing_facet",
+      "candidate": {
+        "concepts": [
+          {
+            "id": "vector",
+            "facets": {
+              "has_magnitude": true
+            }
+          },
+          {
+            "id": "force",
+            "facets": {
+              "is_vector": true
+            }
+          }
+        ],
+        "relations": [
+          {
+            "id": "r",
+            "from": "force",
+            "predicate": "instance_of",
+            "to": "vector"
+          }
+        ]
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "3/4",
+      "expected_reason": "MISSING_FACET:has_direction"
+    },
+    {
+      "id": "empty_output",
+      "candidate": {
+        "concepts": [],
+        "relations": []
+      },
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "MISSING_CONCEPT"
+    }
+  ],
+  "fixture_origin": "ORIGINAL_AUTHORED_DEVELOPMENT_NOT_GOLDEN",
+  "expected_values_authored_without_calling_evaluator": true
+}

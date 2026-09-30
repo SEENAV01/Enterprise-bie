@@ -1,0 +1,91 @@
+{
+  "task_id": "BIE-EVAL-H2-002",
+  "title": "Streaming process supervision",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/process.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001"
+  ],
+  "test_file": "tests/section17/test_h2_002.py",
+  "test_count": 18,
+  "records": [
+    {
+      "test_id": "test_h2_002.H2002.test_argv_no_shell_substitution",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_callback_error_aborts",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_deadline_terminates_hang",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_environment_secrets_not_inherited",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_framer_chunk_and_final_line",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_framer_long_line",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_framer_unicode_boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_group_descendant_with_open_pipe",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_invalid_deadline",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_invalid_line_framer_limit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_invalid_output_limit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_missing_tool",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_nonzero_exit",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_relative_executable_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_stderr_flood_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_stderr_not_silently_accepted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_stdout_budget",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_002.H2002.test_stdout_exact_hash",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "Not a CPU/RSS/network sandbox; escaped descendants, service identity and kernel isolation remain deployment work. Snapshot copy is byte-bounded; process deadline is checked before decoder stages.",
+  "derived_from": "H1-RES-002 / H1-RES-007"
+}

@@ -1,0 +1,136 @@
+{
+  "task_id": "BIE-EVAL-CIV-001",
+  "original_sequence": 23,
+  "original_capability": "civics/institutions",
+  "batch": 3,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Descriptive selected UK institution roles, ordinary two-house bill traces, and explicit fictional power tables.",
+  "bounded_contract": "`audit_roles`: fixed `UK_INTRO_2026-09-29` introductory reference profile; typed assertions checked for missing, unknown and mismatched values. The five role assertions and official source links are in CONTRACT_EXAMPLES.json.\n`ordinary_bill_trace`: explicit `ordinary_two_house_bill` route; unique introduced/commons_agreed/lords_agreed/royal_assent events (maximum four); either house may agree first; introduction then both approvals before assent; no post-assent steps.\n`fictional_competence`: explicit FICTIONAL_EDUCATIONAL_SCENARIO, unique institution IDs, unique declared powers, institution/power request; returns membership in supplied scenario.",
+  "bounds_and_open_scope": "Not comprehensive constitutional law; special bill routes excluded. The UK profile is source/date-limited, not jurisdiction-neutral. Fictional power tables are not facts about India or any real country. No ranking, merit score, endorsement or judgment of political actors/choices/policies; only correctness of educational factual assertions.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004",
+    "BIE-EVAL-BIO-001"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/civics.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json",
+    "tests/section17/test_civ_001.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/civics.py": "4f7f46885273738e89205598d15a301bf53f81565b6174c638ee3abe73f2eea4",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json": "3c4005a467016ed234bc12b8d7533508a35f3de638948387ead89b779a27a1e4",
+    "tests/section17/test_civ_001.py": "3e8c80829face23aa3b715913406c1ee64cf0986081075c135a31f6ef665ed7d"
+  },
+  "selected_task_suite": {
+    "schema_version": "1.0.0",
+    "task_id": "BIE-EVAL-CIV-001",
+    "scope": "SELECTED_METHODS_FROM_ACTUAL_CUMULATIVE_RUN",
+    "tests_run": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_agreement_without_introduction_not_valid",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_assent_after_only_one_house_not_act",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_assent_then_house_not_valid",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_duplicate_fictional_powers_rejected",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_integer_one_not_boolean_true",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_omission_not_assumed_correct",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_real_jurisdiction_not_inferred_for_fictional_rules",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_same_fictional_power_can_belong_to_two_institutions",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_unknown_claim_not_ignored",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_civ_001.CIV001Tests.test_unsupported_special_bill_route_rejected",
+        "status": "PASS"
+      }
+    ],
+    "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+    "source_evidence": "evidence/section17/batch003/final_source/TEST_RESULT.json",
+    "counting_note": "Subset of 749; repeated selected and archive runs are not added."
+  },
+  "candidate_inventory_sha256": "f6bd0af1a013ac9461735e62d823b8968e6efaded0f40aed169b98dc6a31798d",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-CIV-001/SPEC.md",
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false,
+  "authored_fixture_count": 12,
+  "independent_reference_review": false,
+  "hidden_holdout": false
+}

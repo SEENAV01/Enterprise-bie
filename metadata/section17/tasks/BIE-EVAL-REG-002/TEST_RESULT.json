@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_reg_002.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/reg_002"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668287.9997241,
+  "duration_seconds": 0.06939387321472168,
+  "tests_run": 19,
+  "unique_test_method_ids": 19,
+  "passed": 19,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_reg_002.VersionTests.test_case_order_does_not_change_hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_cross_dataset_diff_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_database_snapshot_tamper",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_duplicate_roster_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_duplicate_version_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_empty_snapshot_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_explicit_diff_added_and_removed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_forged_parent_not_found",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_initial_parent_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_lineage_exact_parent_chain",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_missing_case_rolls_back",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_old_snapshot_remains_immutable",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_public_manifest_no_reference_leak",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_snapshot_body_tamper",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_snapshot_round_trip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_unknown_schema_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_version_roll_back_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_version_syntax_strict",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_reg_002.VersionTests.test_wrong_parent_rejected",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "command": [
+    "tools/run_section17_tests.py",
+    "--pattern",
+    "test_math_001.py",
+    "--output-dir",
+    "/mnt/data/bie_s17_work/task_runs/math_001"
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "sqlite_version": "3.46.1",
+  "scope": "LOCAL_SECTION17_BATCH001_ONLY",
+  "started_unix": 1790668294.7145581,
+  "duration_seconds": 0.01997065544128418,
+  "tests_run": 20,
+  "unique_test_method_ids": 20,
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_changed_during_run": false,
+  "records": [
+    {
+      "test_id": "test_math_001.FunctionsTests.test_authored_reference_pack",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_boolean_coefficient_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_cancelled_hole_wrong_success_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_composition_order_matters",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_consistent_duplicate_pair_is_function",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_degree_limit_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_exact_rational_input_identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_exact_rational_polynomial",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_identically_zero_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_invalid_fraction_zero_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_inverse_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_many_to_one_not_injective",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_multiple_outputs_not_function",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_negative_argument",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_noninvertible_constant",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_python_expression_not_executed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_uncancelled_domain_hole",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_unsupported_transcendental_not_fake_symbolic",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_wrong_composition_seed_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_math_001.FunctionsTests.test_zero_polynomial",
+      "status": "PASS"
+    }
+  ],
+  "candidate_inventory_sha256": "bb68d6a8b0c4827d09a2cbf9b1ea354ae6ded1418eef42fcf505f85e6581810a",
+  "all_passed": true,
+  "canonical_regression_run": false,
+  "native_bie_run": false,
+  "product_accepted": false,
+  "counting_note": "Subtests, repeated verification runs and 60 replay cases are not additional test methods."
+}

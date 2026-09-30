@@ -1,0 +1,326 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-014",
+    "rubric_id": "delivery-metric-014",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-014/SPEC.md",
+        "basis_sha256": "e9c2c4b7280b13c11971422f7dbed1ee664e540526de6a88725a539f468835c4"
+      }
+    ],
+    "payload": {
+      "objectives": [
+        {
+          "id": "inverse-square",
+          "min_post_accuracy": 1,
+          "min_delay_accuracy": 1,
+          "min_gain": 1,
+          "weight": 1
+        }
+      ],
+      "questions": [
+        {
+          "id": "pre-q",
+          "objective_id": "inverse-square",
+          "phase": "pre",
+          "options": [
+            "A",
+            "B"
+          ],
+          "correct_option": "B",
+          "feedback_by_option": {
+            "A": "review-square",
+            "B": "correct-square"
+          }
+        },
+        {
+          "id": "practice-q",
+          "objective_id": "inverse-square",
+          "phase": "practice",
+          "options": [
+            "A",
+            "B"
+          ],
+          "correct_option": "B",
+          "feedback_by_option": {
+            "A": "review-square",
+            "B": "correct-square"
+          }
+        },
+        {
+          "id": "post-q",
+          "objective_id": "inverse-square",
+          "phase": "post",
+          "options": [
+            "A",
+            "B"
+          ],
+          "correct_option": "B",
+          "feedback_by_option": {
+            "A": "review-square",
+            "B": "correct-square"
+          }
+        },
+        {
+          "id": "delay-q",
+          "objective_id": "inverse-square",
+          "phase": "delay",
+          "options": [
+            "A",
+            "B"
+          ],
+          "correct_option": "B",
+          "feedback_by_option": {
+            "A": "review-square",
+            "B": "correct-square"
+          }
+        }
+      ],
+      "minimum_delay_ms": 86400000
+    }
+  },
+  "source_artifacts": {},
+  "cases": [
+    {
+      "id": "correct",
+      "candidate": {
+        "session_id": "synthetic-session",
+        "events": [
+          {
+            "id": "event-0",
+            "question_id": "pre-q",
+            "option_id": "A",
+            "feedback_id": "review-square",
+            "time_ms": 100
+          },
+          {
+            "id": "event-1",
+            "question_id": "practice-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 200
+          },
+          {
+            "id": "event-2",
+            "question_id": "post-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 300
+          },
+          {
+            "id": "event-3",
+            "question_id": "delay-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 86400300
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "PASS",
+      "expected_score_exact": "1",
+      "expected_reason": null
+    },
+    {
+      "id": "wrong-post-answer",
+      "candidate": {
+        "session_id": "synthetic-session",
+        "events": [
+          {
+            "id": "event-0",
+            "question_id": "pre-q",
+            "option_id": "A",
+            "feedback_id": "review-square",
+            "time_ms": 100
+          },
+          {
+            "id": "event-1",
+            "question_id": "practice-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 200
+          },
+          {
+            "id": "event-2",
+            "question_id": "post-q",
+            "option_id": "A",
+            "feedback_id": "review-square",
+            "time_ms": 300
+          },
+          {
+            "id": "event-3",
+            "question_id": "delay-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 86400300
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "POST_ASSESSMENT_FLOOR_NOT_MET"
+    },
+    {
+      "id": "missing-retention",
+      "candidate": {
+        "session_id": "synthetic-session",
+        "events": [
+          {
+            "id": "event-0",
+            "question_id": "pre-q",
+            "option_id": "A",
+            "feedback_id": "review-square",
+            "time_ms": 100
+          },
+          {
+            "id": "event-1",
+            "question_id": "practice-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 200
+          },
+          {
+            "id": "event-2",
+            "question_id": "post-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 300
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "RETENTION_FLOOR_NOT_MET"
+    },
+    {
+      "id": "wrong-feedback",
+      "candidate": {
+        "session_id": "synthetic-session",
+        "events": [
+          {
+            "id": "event-0",
+            "question_id": "pre-q",
+            "option_id": "A",
+            "feedback_id": "review-square",
+            "time_ms": 100
+          },
+          {
+            "id": "event-1",
+            "question_id": "practice-q",
+            "option_id": "B",
+            "feedback_id": "wrong-feedback",
+            "time_ms": 200
+          },
+          {
+            "id": "event-2",
+            "question_id": "post-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 300
+          },
+          {
+            "id": "event-3",
+            "question_id": "delay-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 86400300
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "MISCONCEPTION_FEEDBACK_MISMATCH"
+    },
+    {
+      "id": "delay-too-short",
+      "candidate": {
+        "session_id": "synthetic-session",
+        "events": [
+          {
+            "id": "event-0",
+            "question_id": "pre-q",
+            "option_id": "A",
+            "feedback_id": "review-square",
+            "time_ms": 100
+          },
+          {
+            "id": "event-1",
+            "question_id": "practice-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 200
+          },
+          {
+            "id": "event-2",
+            "question_id": "post-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 300
+          },
+          {
+            "id": "event-3",
+            "question_id": "delay-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 400
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "RETENTION_DELAY_TOO_SHORT"
+    },
+    {
+      "id": "ceiling-no-gain",
+      "candidate": {
+        "session_id": "synthetic-session",
+        "events": [
+          {
+            "id": "event-0",
+            "question_id": "pre-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 100
+          },
+          {
+            "id": "event-1",
+            "question_id": "practice-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 200
+          },
+          {
+            "id": "event-2",
+            "question_id": "post-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 300
+          },
+          {
+            "id": "event-3",
+            "question_id": "delay-q",
+            "option_id": "B",
+            "feedback_id": "correct-square",
+            "time_ms": 86400300
+          }
+        ]
+      },
+      "expected_status": "MEASURED",
+      "expected_outcome": "FAIL",
+      "expected_score_exact": "0",
+      "expected_reason": "PAIRED_GAIN_FLOOR_NOT_MET"
+    }
+  ],
+  "diagnostic_grade": "AUTHORED_DIAGNOSTIC",
+  "independent_review": false,
+  "native_bie": false
+}

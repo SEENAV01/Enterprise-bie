@@ -1,0 +1,178 @@
+{
+  "schema_version": "browser-reference-1",
+  "metric_id": "BIE-EVAL-METRIC-014",
+  "rubric_id": "fraction-ui-v1",
+  "version": "1.0.0",
+  "evidence_grade": "AUTHORED_DIAGNOSTIC",
+  "limits_sha256": "5a2e5c52aa45870d1b80df5ddfd52fd18a699d1471c52741b96eb8ad73a17d3b",
+  "viewport": {
+    "width": 900,
+    "height": 800
+  },
+  "steps": [
+    {
+      "id": "start",
+      "action": "inspect",
+      "target": null,
+      "value": null,
+      "checks": [
+        {
+          "id": "question-text",
+          "target": "#question",
+          "property": "text",
+          "expected": "Which fraction equals 1/2?"
+        },
+        {
+          "id": "question-visible",
+          "target": "#question",
+          "property": "visible",
+          "expected": true
+        },
+        {
+          "id": "question-in-view",
+          "target": "#question",
+          "property": "in_viewport",
+          "expected": true
+        },
+        {
+          "id": "question-contrast",
+          "target": "#question",
+          "property": "contrast_at_least",
+          "expected": 4.5
+        },
+        {
+          "id": "button-name",
+          "target": "#right",
+          "property": "has_accessible_name",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "keyboard-wrong",
+      "action": "press",
+      "target": null,
+      "value": "Tab",
+      "checks": [
+        {
+          "id": "wrong-focus",
+          "target": "#wrong",
+          "property": "focused",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "wrong-answer",
+      "action": "press",
+      "target": null,
+      "value": "Enter",
+      "checks": [
+        {
+          "id": "wrong-feedback",
+          "target": "#feedback",
+          "property": "text",
+          "expected": "Try again. Multiply both numerator and denominator by 2."
+        },
+        {
+          "id": "no-false-progress",
+          "target": "#progress",
+          "property": "text",
+          "expected": "Solved: 0/1"
+        }
+      ]
+    },
+    {
+      "id": "keyboard-right",
+      "action": "press",
+      "target": null,
+      "value": "Tab",
+      "checks": [
+        {
+          "id": "right-focus",
+          "target": "#right",
+          "property": "focused",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "right-answer",
+      "action": "press",
+      "target": null,
+      "value": "Enter",
+      "checks": [
+        {
+          "id": "right-feedback",
+          "target": "#feedback",
+          "property": "text",
+          "expected": "Correct. 1/2 = 2/4."
+        },
+        {
+          "id": "progress-credit",
+          "target": "#progress",
+          "property": "text",
+          "expected": "Solved: 1/1"
+        },
+        {
+          "id": "feedback-unclipped",
+          "target": "#feedback",
+          "property": "unclipped",
+          "expected": true
+        }
+      ]
+    },
+    {
+      "id": "fill-note",
+      "action": "fill",
+      "target": "#note",
+      "value": "Equivalent",
+      "checks": [
+        {
+          "id": "note-value",
+          "target": "#note",
+          "property": "value",
+          "expected": "Equivalent"
+        }
+      ]
+    },
+    {
+      "id": "reset",
+      "action": "reload",
+      "target": null,
+      "value": null,
+      "checks": [
+        {
+          "id": "reset-progress",
+          "target": "#progress",
+          "property": "text",
+          "expected": "Solved: 0/1"
+        }
+      ]
+    }
+  ],
+  "objectives": [
+    {
+      "id": "equivalence-feedback",
+      "concept_id": "fractions-equivalence",
+      "source_sha256": "b57e6f6221cc27a857e5f72f926c8aee082c361c47a5d15e6c1d699dcd28aaf6",
+      "checks": [
+        "question-text",
+        "question-visible",
+        "question-in-view",
+        "question-contrast",
+        "button-name",
+        "wrong-focus",
+        "wrong-feedback",
+        "no-false-progress",
+        "right-focus",
+        "right-feedback",
+        "progress-credit",
+        "feedback-unclipped",
+        "note-value",
+        "reset-progress"
+      ]
+    }
+  ],
+  "replay_count": 2
+}

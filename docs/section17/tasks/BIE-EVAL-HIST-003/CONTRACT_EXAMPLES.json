@@ -1,0 +1,372 @@
+{
+  "task_id": "BIE-EVAL-HIST-003",
+  "operations": {
+    "compare_dates": [
+      "BIE-EVAL-HIST-003.C001",
+      "BIE-EVAL-HIST-003.C002",
+      "BIE-EVAL-HIST-003.C003",
+      "BIE-EVAL-HIST-003.C004",
+      "BIE-EVAL-HIST-003.C005",
+      "BIE-EVAL-HIST-003.C006",
+      "BIE-EVAL-HIST-003.C012"
+    ],
+    "year_difference": [
+      "BIE-EVAL-HIST-003.C007",
+      "BIE-EVAL-HIST-003.C008",
+      "BIE-EVAL-HIST-003.C009",
+      "BIE-EVAL-HIST-003.C011"
+    ],
+    "partial_order": [
+      "BIE-EVAL-HIST-003.C010"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-HIST-003.C001",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "day": 20,
+          "era": "CE",
+          "month": 6,
+          "precision": "day",
+          "year": 1789
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "day": 21,
+          "era": "CE",
+          "month": 6,
+          "precision": "day",
+          "year": 1789
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "b_minus_a_days_max": 1,
+          "b_minus_a_days_min": 1,
+          "profile": "PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY",
+          "relation": "BEFORE"
+        }
+      },
+      "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C002",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "day": 21,
+          "era": "CE",
+          "month": 6,
+          "precision": "day",
+          "year": 1789
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "day": 20,
+          "era": "CE",
+          "month": 6,
+          "precision": "day",
+          "year": 1789
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "b_minus_a_days_max": -1,
+          "b_minus_a_days_min": -1,
+          "profile": "PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY",
+          "relation": "AFTER"
+        }
+      },
+      "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C003",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "day": 20,
+          "era": "CE",
+          "month": 6,
+          "precision": "day",
+          "year": 1789
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "day": 20,
+          "era": "CE",
+          "month": 6,
+          "precision": "day",
+          "year": 1789
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "b_minus_a_days_max": 0,
+          "b_minus_a_days_min": 0,
+          "profile": "PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY",
+          "relation": "SAME_DAY"
+        }
+      },
+      "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C004",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "day": 28,
+          "era": "CE",
+          "month": 2,
+          "precision": "day",
+          "year": 2000
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "day": 1,
+          "era": "CE",
+          "month": 3,
+          "precision": "day",
+          "year": 2000
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "b_minus_a_days_max": 2,
+          "b_minus_a_days_min": 2,
+          "profile": "PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY",
+          "relation": "BEFORE"
+        }
+      },
+      "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C005",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "day": 28,
+          "era": "CE",
+          "month": 2,
+          "precision": "day",
+          "year": 1900
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "day": 1,
+          "era": "CE",
+          "month": 3,
+          "precision": "day",
+          "year": 1900
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "b_minus_a_days_max": 1,
+          "b_minus_a_days_min": 1,
+          "profile": "PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY",
+          "relation": "BEFORE"
+        }
+      },
+      "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C006",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "era": "CE",
+          "precision": "year",
+          "year": 1789
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "era": "CE",
+          "precision": "year",
+          "year": 1789
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "b_minus_a_days_max": 364,
+          "b_minus_a_days_min": -364,
+          "profile": "PROLEPTIC_GREGORIAN_INTERVAL_ARITHMETIC_NOT_CAUSALITY",
+          "relation": "OVERLAPPING_OR_UNCERTAIN"
+        }
+      },
+      "derivation": "Calendar interval arithmetic under an explicit proleptic Gregorian model; uncertain dates stay ranges."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C007",
+      "inputs": {
+        "a_era": "BCE",
+        "a_year": 1,
+        "b_era": "CE",
+        "b_year": 1,
+        "op": "year_difference"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "profile": "YEAR_LABEL_DIFFERENCE_NOT_PRECISE_ELAPSED_DURATION",
+          "signed_year_number_difference": 1
+        }
+      },
+      "derivation": "Convert BCE year y to astronomical year 1-y before subtracting; label difference is not precise elapsed duration."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C008",
+      "inputs": {
+        "a_era": "BCE",
+        "a_year": 2,
+        "b_era": "BCE",
+        "b_year": 1,
+        "op": "year_difference"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "profile": "YEAR_LABEL_DIFFERENCE_NOT_PRECISE_ELAPSED_DURATION",
+          "signed_year_number_difference": 1
+        }
+      },
+      "derivation": "Convert BCE year y to astronomical year 1-y before subtracting; label difference is not precise elapsed duration."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C009",
+      "inputs": {
+        "a_era": "CE",
+        "a_year": 10,
+        "b_era": "BCE",
+        "b_year": 10,
+        "op": "year_difference"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "profile": "YEAR_LABEL_DIFFERENCE_NOT_PRECISE_ELAPSED_DURATION",
+          "signed_year_number_difference": -19
+        }
+      },
+      "derivation": "Convert BCE year y to astronomical year 1-y before subtracting; label difference is not precise elapsed duration."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C010",
+      "inputs": {
+        "events": [
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "era": "CE",
+              "precision": "year",
+              "year": 1788
+            },
+            "id": "A"
+          },
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "era": "CE",
+              "precision": "year",
+              "year": 1789
+            },
+            "id": "B"
+          },
+          {
+            "date": {
+              "calendar": "proleptic_gregorian",
+              "day": 20,
+              "era": "CE",
+              "month": 6,
+              "precision": "day",
+              "year": 1789
+            },
+            "id": "C"
+          }
+        ],
+        "op": "partial_order"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "definitely_before": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "A",
+              "C"
+            ]
+          ],
+          "overlapping_or_uncertain": [
+            [
+              "B",
+              "C"
+            ]
+          ],
+          "profile": "PRECISION_PRESERVING_PARTIAL_ORDER",
+          "same_day": [],
+          "unique_total_order": false
+        }
+      },
+      "derivation": "A definitely precedes B and C; B year-range overlaps the exact C date, so do not impose a total order."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C011",
+      "inputs": {
+        "a_era": "BCE",
+        "a_year": 0,
+        "b_era": "CE",
+        "b_year": 1,
+        "op": "year_difference"
+      },
+      "expected": {
+        "error_code": "INVALID_INTEGER",
+        "status": "REJECTED"
+      },
+      "derivation": "Civil BCE/CE input excludes year zero."
+    },
+    {
+      "case_id": "BIE-EVAL-HIST-003.C012",
+      "inputs": {
+        "a": {
+          "calendar": "proleptic_gregorian",
+          "day": 29,
+          "era": "CE",
+          "month": 2,
+          "precision": "day",
+          "year": 1900
+        },
+        "b": {
+          "calendar": "proleptic_gregorian",
+          "day": 1,
+          "era": "CE",
+          "month": 3,
+          "precision": "day",
+          "year": 1900
+        },
+        "op": "compare_dates"
+      },
+      "expected": {
+        "error_code": "INVALID_INTEGER",
+        "status": "REJECTED"
+      },
+      "derivation": "1900 is divisible by 100 but not 400, so February has only 28 days in this profile."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

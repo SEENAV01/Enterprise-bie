@@ -1,0 +1,441 @@
+{
+  "task_id": "BIE-EVAL-CHEM-002",
+  "operations": {
+    "audit_steps": [
+      "BIE-EVAL-CHEM-002.C001",
+      "BIE-EVAL-CHEM-002.C002",
+      "BIE-EVAL-CHEM-002.C009",
+      "BIE-EVAL-CHEM-002.C010"
+    ],
+    "elementary_rate_law": [
+      "BIE-EVAL-CHEM-002.C003",
+      "BIE-EVAL-CHEM-002.C004",
+      "BIE-EVAL-CHEM-002.C005",
+      "BIE-EVAL-CHEM-002.C006",
+      "BIE-EVAL-CHEM-002.C011"
+    ],
+    "energy_profile": [
+      "BIE-EVAL-CHEM-002.C007",
+      "BIE-EVAL-CHEM-002.C008",
+      "BIE-EVAL-CHEM-002.C012"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C001",
+      "inputs": {
+        "op": "audit_steps",
+        "species": [
+          {
+            "charge": 0,
+            "formula": "H2O2",
+            "id": "R"
+          },
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "W"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "O"
+          },
+          {
+            "charge": 0,
+            "formula": "HO",
+            "id": "I"
+          }
+        ],
+        "steps": [
+          {
+            "products": {
+              "I": 2
+            },
+            "reactants": {
+              "R": 1
+            }
+          },
+          {
+            "products": {
+              "O": 1,
+              "W": 2
+            },
+            "reactants": {
+              "I": 2,
+              "R": 1
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "catalysts": [],
+          "intermediates": [
+            "I"
+          ],
+          "mechanism_experimentally_established": false,
+          "net_products": {
+            "O": 1,
+            "W": 2
+          },
+          "net_reactants": {
+            "R": 2
+          },
+          "profile": "DECLARED_STEP_SEQUENCE_CONSERVATION_ONLY",
+          "spectators": []
+        }
+      },
+      "derivation": "Authored formal atom-conserving pathway only, not a claim of an actual laboratory mechanism: add steps and cancel two I."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C002",
+      "inputs": {
+        "op": "audit_steps",
+        "species": [
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "A"
+          },
+          {
+            "charge": 0,
+            "formula": "H2",
+            "id": "B"
+          },
+          {
+            "charge": 0,
+            "formula": "He",
+            "id": "K"
+          },
+          {
+            "charge": 0,
+            "formula": "H2He",
+            "id": "AK"
+          }
+        ],
+        "steps": [
+          {
+            "products": {
+              "AK": 1
+            },
+            "reactants": {
+              "A": 1,
+              "K": 1
+            }
+          },
+          {
+            "products": {
+              "B": 1,
+              "K": 1
+            },
+            "reactants": {
+              "AK": 1
+            }
+          }
+        ]
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "catalysts": [
+            "K"
+          ],
+          "intermediates": [
+            "AK"
+          ],
+          "mechanism_experimentally_established": false,
+          "net_products": {
+            "B": 1
+          },
+          "net_reactants": {
+            "A": 1
+          },
+          "profile": "DECLARED_STEP_SEQUENCE_CONSERVATION_ONLY",
+          "spectators": []
+        }
+      },
+      "derivation": "Formal species ledger: K is first consumed and regenerated; AK is first formed and consumed. Not a physical reaction claim."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C003",
+      "inputs": {
+        "is_elementary": true,
+        "op": "elementary_rate_law",
+        "reactants": {
+          "A": 1
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "concentration_exponents": {
+            "A": 1
+          },
+          "overall_order": 1,
+          "profile": "DECLARED_ELEMENTARY_MASS_ACTION"
+        }
+      },
+      "derivation": "For an explicitly elementary step, exponents equal molecularities. No net-reaction inference."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C004",
+      "inputs": {
+        "is_elementary": true,
+        "op": "elementary_rate_law",
+        "reactants": {
+          "A": 1,
+          "B": 1
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "concentration_exponents": {
+            "A": 1,
+            "B": 1
+          },
+          "overall_order": 2,
+          "profile": "DECLARED_ELEMENTARY_MASS_ACTION"
+        }
+      },
+      "derivation": "For an explicitly elementary step, exponents equal molecularities. No net-reaction inference."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C005",
+      "inputs": {
+        "is_elementary": true,
+        "op": "elementary_rate_law",
+        "reactants": {
+          "A": 2
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "concentration_exponents": {
+            "A": 2
+          },
+          "overall_order": 2,
+          "profile": "DECLARED_ELEMENTARY_MASS_ACTION"
+        }
+      },
+      "derivation": "For an explicitly elementary step, exponents equal molecularities. No net-reaction inference."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C006",
+      "inputs": {
+        "is_elementary": false,
+        "op": "elementary_rate_law",
+        "reactants": {
+          "A": 2
+        }
+      },
+      "expected": {
+        "error_code": "ELEMENTARY_STEP_REQUIRED",
+        "status": "REJECTED"
+      },
+      "derivation": "Reject assuming that stoichiometric coefficients determine an arbitrary net rate law."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C007",
+      "inputs": {
+        "energies_kJ_per_mol": [
+          0,
+          40,
+          -10
+        ],
+        "op": "energy_profile"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "forward_barriers_kJ_per_mol": [
+            "40"
+          ],
+          "net_energy_change_kJ_per_mol": "-10",
+          "profile": "ENERGY_DIFFERENCES_NOT_FULL_KINETICS",
+          "rate_determining_step_inferred": false,
+          "reverse_barriers_kJ_per_mol": [
+            "50"
+          ]
+        }
+      },
+      "derivation": "Subtract each adjacent minimum from its transition-state energy; endpoint difference is not an activation barrier."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C008",
+      "inputs": {
+        "energies_kJ_per_mol": [
+          0,
+          25,
+          5,
+          45,
+          -15
+        ],
+        "op": "energy_profile"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "forward_barriers_kJ_per_mol": [
+            "25",
+            "40"
+          ],
+          "net_energy_change_kJ_per_mol": "-15",
+          "profile": "ENERGY_DIFFERENCES_NOT_FULL_KINETICS",
+          "rate_determining_step_inferred": false,
+          "reverse_barriers_kJ_per_mol": [
+            "20",
+            "60"
+          ]
+        }
+      },
+      "derivation": "Subtract each adjacent minimum from its transition-state energy; endpoint difference is not an activation barrier."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C009",
+      "inputs": {
+        "op": "audit_steps",
+        "species": [
+          {
+            "charge": 0,
+            "formula": "H2O2",
+            "id": "R"
+          },
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "W"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "O"
+          },
+          {
+            "charge": 0,
+            "formula": "HO",
+            "id": "I"
+          }
+        ],
+        "steps": [
+          {
+            "products": {
+              "I": 2
+            },
+            "reactants": {
+              "R": 1
+            }
+          },
+          {
+            "products": {
+              "O": 1,
+              "W": 1
+            },
+            "reactants": {
+              "I": 2,
+              "R": 1
+            }
+          }
+        ]
+      },
+      "expected": {
+        "error_code": "UNBALANCED_ELEMENTARY_STEP",
+        "status": "REJECTED"
+      },
+      "derivation": "A conserved net label cannot excuse a nonconserving declared elementary step."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C010",
+      "inputs": {
+        "op": "audit_steps",
+        "species": [
+          {
+            "charge": 0,
+            "formula": "H2O2",
+            "id": "R"
+          },
+          {
+            "charge": 0,
+            "formula": "H2O",
+            "id": "W"
+          },
+          {
+            "charge": 0,
+            "formula": "O2",
+            "id": "O"
+          },
+          {
+            "charge": 0,
+            "formula": "HO",
+            "id": "I"
+          },
+          {
+            "charge": 0,
+            "formula": "Na",
+            "id": "X"
+          }
+        ],
+        "steps": [
+          {
+            "products": {
+              "I": 2
+            },
+            "reactants": {
+              "R": 1
+            }
+          },
+          {
+            "products": {
+              "O": 1,
+              "W": 2
+            },
+            "reactants": {
+              "I": 2,
+              "R": 1
+            }
+          }
+        ]
+      },
+      "expected": {
+        "error_code": "UNUSED_SPECIES",
+        "status": "REJECTED"
+      },
+      "derivation": "All declared species must participate in the step ledger."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C011",
+      "inputs": {
+        "is_elementary": "true",
+        "op": "elementary_rate_law",
+        "reactants": {
+          "A": 1
+        }
+      },
+      "expected": {
+        "error_code": "ELEMENTARY_STEP_REQUIRED",
+        "status": "REJECTED"
+      },
+      "derivation": "Only the literal boolean True acknowledges the elementary profile."
+    },
+    {
+      "case_id": "BIE-EVAL-CHEM-002.C012",
+      "inputs": {
+        "energies_kJ_per_mol": [
+          0,
+          10,
+          15
+        ],
+        "op": "energy_profile"
+      },
+      "expected": {
+        "error_code": "TRANSITION_STATE_NOT_MAXIMUM",
+        "status": "REJECTED"
+      },
+      "derivation": "An alternating maximum must exceed both adjacent minima."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

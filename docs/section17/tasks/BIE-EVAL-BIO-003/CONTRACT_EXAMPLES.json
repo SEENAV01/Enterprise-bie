@@ -1,0 +1,311 @@
+{
+  "task_id": "BIE-EVAL-BIO-003",
+  "operations": {
+    "cardiac_output": [
+      "BIE-EVAL-BIO-003.C001",
+      "BIE-EVAL-BIO-003.C002",
+      "BIE-EVAL-BIO-003.C011"
+    ],
+    "ventilation": [
+      "BIE-EVAL-BIO-003.C003",
+      "BIE-EVAL-BIO-003.C004",
+      "BIE-EVAL-BIO-003.C010"
+    ],
+    "circulation_route": [
+      "BIE-EVAL-BIO-003.C005",
+      "BIE-EVAL-BIO-003.C006"
+    ],
+    "osmosis": [
+      "BIE-EVAL-BIO-003.C007",
+      "BIE-EVAL-BIO-003.C008",
+      "BIE-EVAL-BIO-003.C009"
+    ],
+    "audit_concepts": [
+      "BIE-EVAL-BIO-003.C012"
+    ]
+  },
+  "examples": [
+    {
+      "case_id": "BIE-EVAL-BIO-003.C001",
+      "inputs": {
+        "heart_rate": {
+          "unit": "per_min",
+          "value": 64
+        },
+        "op": "cardiac_output",
+        "stroke_volume": {
+          "unit": "mL",
+          "value": 75
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "cardiac_output_L_per_min": "24/5",
+          "profile": "STEADY_PER_VENTRICLE_EDUCATIONAL_FLOW"
+        }
+      },
+      "derivation": "75 mL times 64/min = 4800 mL/min = 4.8 L/min."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C002",
+      "inputs": {
+        "heart_rate": {
+          "unit": "per_min",
+          "value": 64
+        },
+        "op": "cardiac_output",
+        "stroke_volume": {
+          "unit": "L",
+          "value": "3/40"
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "cardiac_output_L_per_min": "24/5",
+          "profile": "STEADY_PER_VENTRICLE_EDUCATIONAL_FLOW"
+        }
+      },
+      "derivation": "75 mL times 64/min = 4800 mL/min = 4.8 L/min."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C003",
+      "inputs": {
+        "breathing_rate": {
+          "unit": "per_min",
+          "value": 10
+        },
+        "dead_space": {
+          "unit": "mL",
+          "value": 150
+        },
+        "op": "ventilation",
+        "tidal_volume": {
+          "unit": "mL",
+          "value": 600
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "alveolar_ventilation_L_per_min": "9/2",
+          "minute_ventilation_L_per_min": "6",
+          "profile": "FIXED_DEAD_SPACE_EDUCATIONAL_MODEL"
+        }
+      },
+      "derivation": "Total=600*10/1000; alveolar=(600-150)*10/1000."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C004",
+      "inputs": {
+        "breathing_rate": {
+          "unit": "per_min",
+          "value": 12
+        },
+        "dead_space": {
+          "unit": "mL",
+          "value": 150
+        },
+        "op": "ventilation",
+        "tidal_volume": {
+          "unit": "mL",
+          "value": 150
+        }
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "alveolar_ventilation_L_per_min": "0",
+          "minute_ventilation_L_per_min": "9/5",
+          "profile": "FIXED_DEAD_SPACE_EDUCATIONAL_MODEL"
+        }
+      },
+      "derivation": "The fixed-volume model gives zero alveolar ventilation when both volumes are equal."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C005",
+      "inputs": {
+        "circuit": "systemic",
+        "op": "circulation_route"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "profile": "ADULT_POSTNATAL_NORMAL_CIRCULATION",
+          "route": [
+            "left_ventricle",
+            "systemic_arteries",
+            "systemic_capillaries",
+            "systemic_veins",
+            "right_atrium"
+          ]
+        }
+      },
+      "derivation": "Ordered major compartments in the declared adult postnatal circuit; fetal shunts excluded."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C006",
+      "inputs": {
+        "circuit": "pulmonary",
+        "op": "circulation_route"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "profile": "ADULT_POSTNATAL_NORMAL_CIRCULATION",
+          "route": [
+            "right_ventricle",
+            "pulmonary_arteries",
+            "pulmonary_capillaries",
+            "pulmonary_veins",
+            "left_atrium"
+          ]
+        }
+      },
+      "derivation": "Ordered major compartments in the declared adult postnatal circuit; fetal shunts excluded."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C007",
+      "inputs": {
+        "inside": {
+          "unit": "mOsm/L",
+          "value": 300
+        },
+        "op": "osmosis",
+        "outside": {
+          "unit": "mOsm/L",
+          "value": 450
+        },
+        "solute_profile": "nonpenetrating_ideal"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "outside_relative_tonicity": "hypertonic",
+          "profile": "INITIAL_IDEAL_NONPENETRATING_SOLUTE_EQUAL_PRESSURE",
+          "water_direction": "out_of_cell"
+        }
+      },
+      "derivation": "For equal pressure and nonpenetrating solute, initial net water flow is toward higher solute concentration."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C008",
+      "inputs": {
+        "inside": {
+          "unit": "mOsm/L",
+          "value": 300
+        },
+        "op": "osmosis",
+        "outside": {
+          "unit": "mOsm/L",
+          "value": 300
+        },
+        "solute_profile": "nonpenetrating_ideal"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "outside_relative_tonicity": "isotonic",
+          "profile": "INITIAL_IDEAL_NONPENETRATING_SOLUTE_EQUAL_PRESSURE",
+          "water_direction": "no_net_flow"
+        }
+      },
+      "derivation": "For equal pressure and nonpenetrating solute, initial net water flow is toward higher solute concentration."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C009",
+      "inputs": {
+        "inside": {
+          "unit": "mOsm/L",
+          "value": 300
+        },
+        "op": "osmosis",
+        "outside": {
+          "unit": "mOsm/L",
+          "value": 150
+        },
+        "solute_profile": "nonpenetrating_ideal"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "outside_relative_tonicity": "hypotonic",
+          "profile": "INITIAL_IDEAL_NONPENETRATING_SOLUTE_EQUAL_PRESSURE",
+          "water_direction": "into_cell"
+        }
+      },
+      "derivation": "For equal pressure and nonpenetrating solute, initial net water flow is toward higher solute concentration."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C010",
+      "inputs": {
+        "breathing_rate": {
+          "unit": "per_min",
+          "value": 12
+        },
+        "dead_space": {
+          "unit": "mL",
+          "value": 150
+        },
+        "op": "ventilation",
+        "tidal_volume": {
+          "unit": "mL",
+          "value": 100
+        }
+      },
+      "expected": {
+        "error_code": "DEAD_SPACE_EXCEEDS_TIDAL_VOLUME",
+        "status": "REJECTED"
+      },
+      "derivation": "Do not report negative alveolar ventilation as a valid modeled flow."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C011",
+      "inputs": {
+        "heart_rate": {
+          "unit": "per_min",
+          "value": 64
+        },
+        "op": "cardiac_output",
+        "stroke_volume": {
+          "unit": "mmHg",
+          "value": 75
+        }
+      },
+      "expected": {
+        "error_code": "UNSUPPORTED_ENUM",
+        "status": "REJECTED"
+      },
+      "derivation": "Volume profile accepts mL/L only."
+    },
+    {
+      "case_id": "BIE-EVAL-BIO-003.C012",
+      "inputs": {
+        "claims": {
+          "artery_defined_by": "oxygen_rich_blood",
+          "negative_feedback_response": "opposes_deviation",
+          "pulmonary_artery_relative_oxygen": "lower",
+          "pulmonary_vein_relative_oxygen": "higher",
+          "vein_defined_by": "flow_towards_heart"
+        },
+        "op": "audit_concepts"
+      },
+      "expected": {
+        "status": "OK",
+        "values": {
+          "assessment_scope": "DECLARED_PROPOSITION_PROFILE_ONLY",
+          "consistent": false,
+          "defects": [
+            {
+              "claim": "artery_defined_by",
+              "reason": "CONTRADICTED_CLAIM"
+            }
+          ]
+        }
+      },
+      "derivation": "Arteries are defined by flow direction, not by oxygen content."
+    }
+  ],
+  "source": "Hand-authored development expectations, NOT an independent golden oracle."
+}

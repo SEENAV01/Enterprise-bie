@@ -1,0 +1,1024 @@
+{
+  "tasks": [
+    {
+      "task_id": "BIE-EVAL-REG-001",
+      "direct_dependencies": [],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/__init__.py",
+        "bie/evaluation/benchmarks/models.py",
+        "bie/evaluation/benchmarks/registry.py",
+        "tests/section17/helpers.py",
+        "tests/section17/test_reg_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REG-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-001/SPEC.md",
+      "selected_test_pattern": "test_reg_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/__init__.py": "a414418891439dea02bfce76ccf150fdb48afbdc484f0ed8840f5d492ee644d2",
+        "bie/evaluation/benchmarks/models.py": "273e8c8b88a66b0ec7a35fabea665f3b161591aaeb7c2e99184b1ad8249fa32f",
+        "bie/evaluation/benchmarks/registry.py": "a5739dd018f41e7463637a3f97c3c55645312c25c2b074b1780e1e6e70e6283e",
+        "tests/section17/helpers.py": "987f1df2c3a991d95ccc20e45bafd0359603dccf3c2a9d4fc7d7c31e83e219c4",
+        "tests/section17/test_reg_001.py": "4852f5ed0c07189b349241f7388f39290a3348574e8475a49e959d05412826c4"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REG-002",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/versioning.py",
+        "tests/section17/test_reg_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REG-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-002/SPEC.md",
+      "selected_test_pattern": "test_reg_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/versioning.py": "b771f09ab0a1e9f2aa4a9f3565d54e8b2d45f8a0c0818d6a92bc994ac246db72",
+        "tests/section17/test_reg_002.py": "3f09ca33a1cbe0e52285258b90f2ed9ad8938fe5761610c252af0e7d6ed59e9b"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REG-003",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-002"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/governance.py",
+        "tests/section17/test_reg_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REG-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-003/SPEC.md",
+      "selected_test_pattern": "test_reg_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/governance.py": "7894d6e9dc037d11f87f004d19444d0068602a7279d22b32a72003a4ed213221",
+        "tests/section17/test_reg_003.py": "010f798d1e3677baee64680a8c7c5c872fea21f814cc349b18d5803411a84083"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REG-004",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-003"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/anti_gaming.py",
+        "bie/evaluation/benchmarks/runner.py",
+        "bie/evaluation/benchmarks/session.py",
+        "bie/evaluation/benchmarks/__main__.py",
+        "bie/evaluation/benchmarks/domains/__init__.py",
+        "bie/evaluation/benchmarks/domains/common.py",
+        "tests/section17/domain_helpers.py",
+        "tests/section17/test_reg_004.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REG-004/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REG-004/SPEC.md",
+      "selected_test_pattern": "test_reg_004.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/anti_gaming.py": "7660f3307bb4f2aff96ef8d760e6e699ef90c0211a8946fab8f0d099949caad2",
+        "bie/evaluation/benchmarks/runner.py": "70d21ba24ec2805d1b0d872b5c4f6272ff4515f1dda1a52a91e85899f28788d2",
+        "bie/evaluation/benchmarks/session.py": "0137135f1eec26f0afc5b23779ebe6eb4d034f740a8e10ef920256728c0482a6",
+        "bie/evaluation/benchmarks/__main__.py": "874310a2bc44417f3dab811e38efdb492b29eac4a4519e8342936d8278373bab",
+        "bie/evaluation/benchmarks/domains/__init__.py": "ce54883f1b90a2ff9298560dea2caae0fbe9068f8efab8fed8ecdc2687c192fb",
+        "bie/evaluation/benchmarks/domains/common.py": "17d60e955e438c04d179fd3b2d9933905b10e7ab5a35a83e4e84c92a0d342ca7",
+        "tests/section17/domain_helpers.py": "68c6bc96ac42026f0283cdebfe4a746d7450f2fdc8f142797ea8cea440e65f17",
+        "tests/section17/test_reg_004.py": "e251914d03335f5508783551553c659b1e3b53ca1dc41f63c972875c9798b6ac"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-PHY-001",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/coulomb.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-001.json",
+        "tests/section17/test_phy_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-PHY-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-PHY-001/SPEC.md",
+      "selected_test_pattern": "test_phy_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/coulomb.py": "0485487a83253033211f8ad0a3d6ebf76631384c80553b67e8763fb9d28b5f8a",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-001.json": "36cd6dfca7613e917fb9358265447de5923447b354441607064286cd928a96d2",
+        "tests/section17/test_phy_001.py": "622f0a757a6fb7998c50ac06ae77428a39a00bfa84b92f2ea61f22c3b4b8b558"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-PHY-002",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/mechanics.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-002.json",
+        "tests/section17/test_phy_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-PHY-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-PHY-002/SPEC.md",
+      "selected_test_pattern": "test_phy_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/mechanics.py": "45185fd971355fd41a4fad8766557453699470625bdae02ed0301b6a748a4c01",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-002.json": "6d6dee3070f88aecdf30a9cf08803142051686748c5e268552b96083902b621a",
+        "tests/section17/test_phy_002.py": "32f4ad1d9f106a02fe2e10026f51c98853cbef48c29f53175303deee3c981fa0"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-PHY-003",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/waves.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-003.json",
+        "tests/section17/test_phy_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-PHY-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-PHY-003/SPEC.md",
+      "selected_test_pattern": "test_phy_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/waves.py": "7422c37c3973285f0a6e220af3cdc9fcbb7afe96bf0a22cdb1ccd9fa6228cece",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-PHY-003.json": "9a6cd2a4e07491486a99309a0a58b88314be52b7bbbdea6cff2536aca44e08ff",
+        "tests/section17/test_phy_003.py": "ee63217640d34cf12304dfc4ef23b5400658334a6058c858ddd5ba67e14a4b1b"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-MATH-001",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/functions.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-001.json",
+        "tests/section17/test_math_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-MATH-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-MATH-001/SPEC.md",
+      "selected_test_pattern": "test_math_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/functions.py": "828cf957433ec1b3d0c1cb0b6942a2047f3341d6eb78cd2f7696c329e0691f23",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-001.json": "11b2bfb70aa8f8a88d499eb04f15ee110a383ac8246630f6802f2b63986a3e82",
+        "tests/section17/test_math_001.py": "2a79cc9338f5b36c833e23cc9057a14348b6765247a169d02c101cf68b960a6d"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-MATH-002",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/calculus.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-002.json",
+        "tests/section17/test_math_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-MATH-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-MATH-002/SPEC.md",
+      "selected_test_pattern": "test_math_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/calculus.py": "7c5572a1c9aa339bd9162fd9b0f66cd0a2ec9019f8d7eda6dc4eaed2bf01a4f3",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-002.json": "f9b10c7461edeec8bd3401cb77d20b5ac52573b43d92e512d7279596e51cd8bc",
+        "tests/section17/test_math_002.py": "4f8e3ebf5e8e039abb32c4685baef1d13642c467e862b009f36b494463bf3b63"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-MATH-003",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/geometry.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-003.json",
+        "tests/section17/test_math_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-MATH-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-MATH-003/SPEC.md",
+      "selected_test_pattern": "test_math_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/geometry.py": "28ceb7a093f52df2850aca79130dcef3192047582ffc134e8d924e5c4d0d853e",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-MATH-003.json": "ccc0c7af2a96e08dde092f749b43e0a3c486eba5a59313a24f0d5909dbb443d6",
+        "tests/section17/test_math_003.py": "fb326f0ab7201b59ef818f4260a3d17f335e1676e1d0f3aae9109ec2374fe978"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-BIO-001",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/photosynthesis.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-001.json",
+        "tests/section17/test_bio_001.py",
+        "bie/evaluation/benchmarks/domains/structured.py",
+        "tests/section17/batch002_helpers.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-BIO-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-BIO-001/SPEC.md",
+      "selected_test_pattern": "test_bio_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/photosynthesis.py": "e2c04198e4895e11c5c557baecea78034592ea16a72e5b3b75408990a3b2536a",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-001.json": "69d938dbf62e812201006157eb344c4b973ea147720f34477ae2a91515f4e2b2",
+        "tests/section17/test_bio_001.py": "0b723c5bb09ffd651abbee967ac4d45f9651258b59f7afef0641d747a63d4a37",
+        "bie/evaluation/benchmarks/domains/structured.py": "2b018efccd2844b6e05719ca7f59a24da5588e6354b740152714a9f1f28fd4c0",
+        "tests/section17/batch002_helpers.py": "32c55f72437e1ccb510a45dc55c4c435f9b8458ffc34f65174371b1f3f7291bd"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-BIO-002",
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/genetics.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-002.json",
+        "tests/section17/test_bio_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-BIO-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-BIO-002/SPEC.md",
+      "selected_test_pattern": "test_bio_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/genetics.py": "48b99a61eed55aca86995718d210142f44bfebc2480f4771cf38c9a036de9143",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-002.json": "0c86a69a13949d31c8d0cd7c5e5d95425a58b32d88ed97ccdcda8aedf5a373f8",
+        "tests/section17/test_bio_002.py": "2c7268a9dac95a0905fef0cb741f3f9955cd27cd2bb0ae7d03651238d21ebed5"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-BIO-003",
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/physiology.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-003.json",
+        "tests/section17/test_bio_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-BIO-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-BIO-003/SPEC.md",
+      "selected_test_pattern": "test_bio_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/physiology.py": "f431b797348cc87c3349c0c97c95aeb646edf49308065ee214c64c9f0f77fddd",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-003.json": "ace849dcbf062510f6a4823ad780a9998cefe64c35d70f1ab17c4aaa0ee4240a",
+        "tests/section17/test_bio_003.py": "df8a38e48521d4b512020da5ab5ab337a4bd7b16f412965942fad8fc2f277cd4"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-CHEM-001",
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/bonding.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-001.json",
+        "tests/section17/test_chem_001.py",
+        "bie/evaluation/benchmarks/domains/chemistry_common.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-CHEM-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-CHEM-001/SPEC.md",
+      "selected_test_pattern": "test_chem_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/bonding.py": "20d7b582423c795ee4f2fccd7bff9e93acdf9531e270e561edc9e789145b94bc",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-001.json": "fcc6eaf6ef562a8bafaa2fec4ab1e8f175c2b270ead96afb7c1f59301cd1b4cf",
+        "tests/section17/test_chem_001.py": "593aab7cb7639404a08a9f1d4543e01edacdc022d48b07c4c915f7cedeb84279",
+        "bie/evaluation/benchmarks/domains/chemistry_common.py": "01c32bebc452ea170f489645220bb097d03970777974e5a49fee451c854f6632"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-CHEM-002",
+      "direct_dependencies": [
+        "BIE-EVAL-CHEM-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/mechanisms.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-002.json",
+        "tests/section17/test_chem_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-CHEM-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-CHEM-002/SPEC.md",
+      "selected_test_pattern": "test_chem_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/mechanisms.py": "14494806bdce37409993f7a44ba55e2caa81f75d68ec23adf78eee5d18496cc6",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-002.json": "d62ce1c64ccfa4ec2fd68367580b174dd898a42618e7dd221a430c6c05a0bdd0",
+        "tests/section17/test_chem_002.py": "614488f0df2f2a0c0d5b75211c0fcb7e40ecd0d1ab84c7c8efefe657ba8dd858"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-CHEM-003",
+      "direct_dependencies": [
+        "BIE-EVAL-CHEM-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/stoichiometry.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-003.json",
+        "tests/section17/test_chem_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-CHEM-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-CHEM-003/SPEC.md",
+      "selected_test_pattern": "test_chem_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/stoichiometry.py": "9889d2f002b693705fba2facbadd8dc81b3de010e7bebee62bfcd5a3a6bb3c06",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CHEM-003.json": "fcbc6eee6ebe645ad2da6ac48e3d820f456a4fd474ec1b2efd3511f0fb39116e",
+        "tests/section17/test_chem_003.py": "bdef6eec1f3d653900cada74b7c8291c509fa235c4ebf9951941b6c37a3132a7"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-HIST-001",
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/french_revolution.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-001.json",
+        "tests/section17/test_hist_001.py",
+        "bie/evaluation/benchmarks/domains/temporal.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-HIST-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-HIST-001/SPEC.md",
+      "selected_test_pattern": "test_hist_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/french_revolution.py": "e207140d6299f80b0bc2e4bb3f0bc8d7d10be9bd877460e56d90e7cd1e1565ee",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-001.json": "d76de989e2a9490dcebe9089b1bdb6a07389f859b25780d8d02cdb4892d55c75",
+        "tests/section17/test_hist_001.py": "4f31d7c32f3841f1641e63b7664b635b5432df4e93df851a104dc4d1e83a8d17",
+        "bie/evaluation/benchmarks/domains/temporal.py": "d3a2b7e35abb9f730a3c2b6e6f1b6ee34d08492b84b602939faa62945276849b"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-HIST-002",
+      "direct_dependencies": [
+        "BIE-EVAL-HIST-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/historical_causality.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-002.json",
+        "tests/section17/test_hist_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-HIST-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-HIST-002/SPEC.md",
+      "selected_test_pattern": "test_hist_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/historical_causality.py": "0a6d374705269784ec9be7ab40bff69445f216e8fff971b151ad474ad2b4537f",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-002.json": "1a042c0748104a3911688252b544dfd1c3bbc17058333b5da487131f0ecba3cc",
+        "tests/section17/test_hist_002.py": "e1c6f7668533c4e41739e8db01006c6b4b4342e51ba1be8918a604a0e39cec3f"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-HIST-003",
+      "direct_dependencies": [
+        "BIE-EVAL-HIST-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/chronology.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-003.json",
+        "tests/section17/test_hist_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-HIST-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-HIST-003/SPEC.md",
+      "selected_test_pattern": "test_hist_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/chronology.py": "e803eb9249f120b0e4fcb0611084043729097d4e9beed9a52aea8ab8029d8157",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-HIST-003.json": "ca5434e319bdd0c9a1667c2ef362a5c3196a0413f78eb51e69c17f00e5bd1d38",
+        "tests/section17/test_hist_003.py": "220d2defaf689a9bf66daedf94a45ef538e104de24d5aaf6718c14f06a0bf512"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-001",
+      "direct_dependencies": [
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/plate_tectonics.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-001.json",
+        "tests/section17/test_geo_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-GEO-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-GEO-001/SPEC.md",
+      "selected_test_pattern": "test_geo_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/plate_tectonics.py": "8a208a1b959c5f53cf61c040b678b2ae6fb7f98dc8be270f70ba3d79db48b397",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-001.json": "65fda46225efbd3feff8b28e902a271ff7952b9c26f3eecbc61e25946696e64a",
+        "tests/section17/test_geo_001.py": "2cdb9d5747b1c59f42a755499f090ddb8ddfb90292ed1cd58b485a04422649ac"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-002",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/maps.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-002.json",
+        "tests/section17/test_geo_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-GEO-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-GEO-002/SPEC.md",
+      "selected_test_pattern": "test_geo_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/maps.py": "24e1e08c2bea1ebe1d09970f6569010deac174de59578f29103d149baac41463",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-002.json": "c2ccd398f21cf89945dac98507a4126ae1f7131dab9a0b6827ab6985d36c41a5",
+        "tests/section17/test_geo_002.py": "81bab8267ad91cae4da13e55c16632654cd402bc08bf2e752ff0f2b791f2d139"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-GEO-003",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/climate.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-003.json",
+        "tests/section17/test_geo_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-GEO-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-GEO-003/SPEC.md",
+      "selected_test_pattern": "test_geo_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/climate.py": "cf6ab134f96300c31f9d8b8c1c33d27d938234bbfa42269ce7c12169f293eec9",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-GEO-003.json": "16316a67fe323849f40fdeb616f9a3a857369855dca713525bf9fcb78be57944",
+        "tests/section17/test_geo_003.py": "a40ea42104d0dd7387ebd6448e5c6b02d26d21976fa9531c8f760e90b7a1845c"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-CIV-001",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/civics.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json",
+        "tests/section17/test_civ_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-CIV-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-CIV-001/SPEC.md",
+      "selected_test_pattern": "test_civ_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/civics.py": "4f7f46885273738e89205598d15a301bf53f81565b6174c638ee3abe73f2eea4",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-CIV-001.json": "3c4005a467016ed234bc12b8d7533508a35f3de638948387ead89b779a27a1e4",
+        "tests/section17/test_civ_001.py": "3e8c80829face23aa3b715913406c1ee64cf0986081075c135a31f6ef665ed7d"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-DATA-001",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/domains/tables_charts.py",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-DATA-001.json",
+        "tests/section17/test_data_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-DATA-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-DATA-001/SPEC.md",
+      "selected_test_pattern": "test_data_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/domains/tables_charts.py": "3578a293046850720c6c487f7805c20dc8531f70c0148c0bccb5d1256e5e53e4",
+        "bie/evaluation/benchmarks/data/BIE-EVAL-DATA-001.json": "648c9c26fc90949ad13ab3a067ab9ea3024a574a437daa876c830f58b2e7e8b3",
+        "tests/section17/test_data_001.py": "41679bb3be6b8e12fcf37f3cfd59abc04e386b6247a657830f22ae469750c23f"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-001",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-004",
+        "BIE-EVAL-BIO-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/grounding.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json",
+        "tests/section17/test_metric_001.py",
+        "bie/evaluation/benchmarks/metrics/__init__.py",
+        "bie/evaluation/benchmarks/metrics/common.py",
+        "bie/evaluation/benchmarks/metrics/service.py",
+        "bie/evaluation/benchmarks/metrics/__main__.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-001/SPEC.md",
+      "selected_test_pattern": "test_metric_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/grounding.py": "c6846daa2ece8915e8a120db3ca0652c318513653bf5d5c6ecada2dc568f84f3",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-001.json": "123eb4b1de57eb79097ad1a247a966ea7f856d2770e119a4af71203882fa9398",
+        "tests/section17/test_metric_001.py": "380f8da33abdf2afd6f0ef0d08f6658c2b639d0b54ea5e8d96ab0c952ee49bf9",
+        "bie/evaluation/benchmarks/metrics/__init__.py": "007e0f640f9ab12c08f220ab6a08d54882a6f299ffd0bae59eff4d7031bceb14",
+        "bie/evaluation/benchmarks/metrics/common.py": "bec37a5016b30b8a808ef08158a23ac221a8ccc790ca9eb974baf5a94a19a56b",
+        "bie/evaluation/benchmarks/metrics/service.py": "40e739de890d3f20f76f6644ddca768aa7e8b83c7aba784beaa0db6697a844ec",
+        "bie/evaluation/benchmarks/metrics/__main__.py": "deb77633a09f22a7928d41bd70a4a19e09987e9a389f25ed30dcdfbff86be10a"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-002",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/semantic.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-002.json",
+        "tests/section17/test_metric_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-002/SPEC.md",
+      "selected_test_pattern": "test_metric_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/semantic.py": "050ff7f22515c3f25d4f228577f561f920acbd730cd3e397436d159ad022cba7",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-002.json": "8963c2dc14fc810f91d124673b8ed73fd4a432764a38e446af6e68f43b851139",
+        "tests/section17/test_metric_002.py": "d8d2de583387f75eb0074f7540e56ab2cb9e70f4b7e06f199615ee4a9ea0ff2b"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-003",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/prerequisites.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json",
+        "tests/section17/test_metric_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-003/SPEC.md",
+      "selected_test_pattern": "test_metric_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/prerequisites.py": "4d6ecdaf5ec404f4c204b9819a28122d03c53068bb5f99b13330bd36ac192c2a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-003.json": "12159249f43f2229db358f03f43b7232bb3dfe1c58529da88501461a08da3d62",
+        "tests/section17/test_metric_003.py": "e37cc92d14f370876f11dcf913914f96eae873de24cdcbe61b95ca0cb1d9e124"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-004",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/reasoning.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json",
+        "tests/section17/test_metric_004.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-004/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-004/SPEC.md",
+      "selected_test_pattern": "test_metric_004.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/reasoning.py": "4255e645a50054482d99043bd482785e7c09e1d127104d8776f12435f6c4d80a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-004.json": "b1df3df033dfa568b1c19f4ef3a8791902d2b649aeb343cb41e870d5e51b20d6",
+        "tests/section17/test_metric_004.py": "50bad2feede83fd590c4e1e94bd067b617eb455662f1a4777e3cbf80a3434f05"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-005",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/mathematics.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json",
+        "tests/section17/test_metric_005.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-005/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-005/SPEC.md",
+      "selected_test_pattern": "test_metric_005.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/mathematics.py": "a440d523e27e98a7168f9aaf1abb5d684afbc4e89a8e523f02e8d55aff733bed",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-005.json": "5ca421b0d47507df4a14570869207b9a28dcc79ce5abffd077df9e117363e796",
+        "tests/section17/test_metric_005.py": "6df657ada31e7bce1d6c59d679cce876328c516b06cccf24d6cfb2dbf2caf933"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-006",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/causality.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json",
+        "tests/section17/test_metric_006.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-006/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-006/SPEC.md",
+      "selected_test_pattern": "test_metric_006.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/causality.py": "1fd680cce320ed71e91668b2c8864707a9641b05f53c6961c79ed03634845986",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-006.json": "3243c758f8879550fd4da01640126c2da96363a04333edfe02a54065413c1a10",
+        "tests/section17/test_metric_006.py": "344144cdde159a89b698d611b3867c67960a96c7fd30e0f7fabab874805d410d"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-007",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/pedagogy.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-007.json",
+        "tests/section17/test_metric_007.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-007/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-007/SPEC.md",
+      "selected_test_pattern": "test_metric_007.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/pedagogy.py": "6827e49a5cbca269a476c1fe3ba04c81e2913c6db043d2de4873a8fa1c99746c",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-007.json": "a8b1d696cf362b77ab606b6fcae9fa7af6558461583fcac53d802dce2ea1b290",
+        "tests/section17/test_metric_007.py": "8ba02ba8b24d7bd30fa9f23524e2b69bad3181b2f841f4f46bc15febfc280167"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-008",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/direction.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-008.json",
+        "tests/section17/test_metric_008.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-008/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-008/SPEC.md",
+      "selected_test_pattern": "test_metric_008.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/direction.py": "ccc332b16193e6780cfff4c505f6fe8e0b4153e2a9f115f412bbb11260934de0",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-008.json": "02b03725856611fcbed327a189bf70850437e489db1e65b7bb07bd7d12e5c3df",
+        "tests/section17/test_metric_008.py": "697f079a29480d7ac55fd84630e1e3e144d1a85439ab884cbdf8fa8704f254e1"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-009",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/representation.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-009.json",
+        "tests/section17/test_metric_009.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-009/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-009/SPEC.md",
+      "selected_test_pattern": "test_metric_009.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/representation.py": "815004d2237c7db64583e24969972901791e58b6141ee6d98a942fa560500b18",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-009.json": "705d4201cbf51653e2869cb7c7f0733accccd4651da00bcd9f1f66bb2663614b",
+        "tests/section17/test_metric_009.py": "b00b66eb36808739792ef69f3ae047c1811a55c5df65a775c98e5518066e401b"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-010",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/animation.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-010.json",
+        "tests/section17/test_metric_010.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-010/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-010/SPEC.md",
+      "selected_test_pattern": "test_metric_010.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/animation.py": "a487aefa122e64388a7b04d425fb41845dd92c1e9976860bdb9e1b4a42a251ed",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-010.json": "ba9d428b15e1e378261753f109810e650d101995ec5b146ae9307c5719e50ef7",
+        "tests/section17/test_metric_010.py": "34be792accd988258dc2a329bc53618d49c5c505a3f9e2cb168b77e42278c24e"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-011",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/compilation.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-011.json",
+        "tests/section17/test_metric_011.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-011/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-011/SPEC.md",
+      "selected_test_pattern": "test_metric_011.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/compilation.py": "796615c66155f41ab5991d9f235dd546bbe61b4a120a0f3c1cd2bf90134b6479",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-011.json": "b7d6b9ea5e89f3336bc492517dd0530ed3fa0cc17ce68e7661947e48aab3d241",
+        "tests/section17/test_metric_011.py": "770d796fc80c8cd67a540a23f85356f21edb2e06907c8fb34640577683da07ff"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-012",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-011"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/rendering.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-012.json",
+        "tests/section17/test_metric_012.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-012/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-012/SPEC.md",
+      "selected_test_pattern": "test_metric_012.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/rendering.py": "64dc59defce96cfcbaf367c27474fbf1410e8c4fdb56c95aff07ffbdb57f0fc0",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-012.json": "1b48837f47ff26b02f4ec5a16ee1b3f17cefd25970ccb5aa930e7f377d72af6c",
+        "tests/section17/test_metric_012.py": "670b21d1669c94f5f5bb1755504b1e62b8cabc432227d4381657f339bf7728a4"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-013",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-012"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/frame_quality.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-013.json",
+        "tests/section17/test_metric_013.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-013/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-013/SPEC.md",
+      "selected_test_pattern": "test_metric_013.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/frame_quality.py": "33efa302fe2ffbc8ca790fe5bd71f38abdb1e4af96f4652664a8e1aa7920dcfd",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-013.json": "36114f709a4414255f7a954f132e07c2ad586298fecdcfbd94c014b6db95d892",
+        "tests/section17/test_metric_013.py": "cfa5f8d7d3443a2111ddfa588db46a72173faaa2e02f577e37c28d3d89da18c8"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-014",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/game_learning.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-014.json",
+        "tests/section17/test_metric_014.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-014/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-014/SPEC.md",
+      "selected_test_pattern": "test_metric_014.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/game_learning.py": "935c89be4c0f5b8b9a87b5d6bac0634047e56fae820db46953dc0267f7788348",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-014.json": "13fb8587b27c0aa89a26208926e25f800c57c77eaf4a08a430508e1497b62d6a",
+        "tests/section17/test_metric_014.py": "0726e2042f319b6d7a2b1cdc885441dc179e7678d2df1b38140f2d45a905d8ca"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-015",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/accessibility.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-015.json",
+        "tests/section17/test_metric_015.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-015/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-015/SPEC.md",
+      "selected_test_pattern": "test_metric_015.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/accessibility.py": "746e6e066d66d2d7228c66015d3b0476ed86830c03c13dfddf6dd82ec4c1e95a",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-015.json": "a0db3219eeee017fc78cf5c3dfbb6f6b96731b3f6f0f0cbf1a019d334bbdc16b",
+        "tests/section17/test_metric_015.py": "e07d7b0c06b310d975b3f9785591a7789a519c377aa0ba0ec38961129a0edc62"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-016",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-001",
+        "BIE-EVAL-METRIC-011"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/reproducibility.py",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-016.json",
+        "tests/section17/test_metric_016.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-016/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-016/SPEC.md",
+      "selected_test_pattern": "test_metric_016.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/reproducibility.py": "18b5ac7e8ccc6b5defdf00cbeba5d30ab09518a9179804dd07d1c8157e3bfe92",
+        "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-016.json": "d87f1bf9de18c1edef982d3414c6411e9b62ad7af8f429c027e61db24845bf30",
+        "tests/section17/test_metric_016.py": "be0ecbdf5e073860e2bc4ba16a173185399577702767fcf68d4405e85911868f"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-METRIC-017",
+      "direct_dependencies": [
+        "BIE-EVAL-REG-002",
+        "BIE-EVAL-REG-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/metrics/regression.py",
+        "tests/section17/test_metric_017.py",
+        "bie/evaluation/benchmarks/release/contracts.py",
+        "bie/evaluation/benchmarks/release/__init__.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-METRIC-017/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-METRIC-017/SPEC.md",
+      "selected_test_pattern": "test_metric_017.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/metrics/regression.py": "04557b5193c73094b68bb1c8aaf7a7613542c62f935ba24cf6e02e617d2d709c",
+        "tests/section17/test_metric_017.py": "d9b51d2cc61a9068f32092d72138f68f16a1c03ed7869f5b68e649b78b4c58b9",
+        "bie/evaluation/benchmarks/release/contracts.py": "1bf768e7635ec8b010b0b53a48018c90c84b1ab26c36c237e193b3c7fe53ffa4",
+        "bie/evaluation/benchmarks/release/__init__.py": "b463277dbe2d93e46496827d18762dfe05f533ae3efd18c2621c62488f6be794"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-001",
+      "direct_dependencies": [
+        "BIE-EVAL-METRIC-017"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/deterministic.py",
+        "tests/section17/test_rater_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-RATER-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-001/SPEC.md",
+      "selected_test_pattern": "test_rater_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/deterministic.py": "a34420aebec12be58a4b8f1345f8c5fc0e2b7b7aac6265734b50ebd6f3f1e830",
+        "tests/section17/test_rater_001.py": "b18b626a5f008a1a0ef73beff3d50c68f8861f075bc30f730e7a8b16f4cecd39"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-002",
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/model.py",
+        "tests/section17/test_rater_002.py",
+        "bie/evaluation/benchmarks/release/judgement.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-RATER-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-002/SPEC.md",
+      "selected_test_pattern": "test_rater_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/model.py": "1ead1184f4f624b744156d8ab3f571aca2eb47eebb8349a00053010fb1e6392b",
+        "tests/section17/test_rater_002.py": "4cb59c13c4333f11a27377ff8b2afd7d9690f7fce789ccb630d9a58f2441a3c4",
+        "bie/evaluation/benchmarks/release/judgement.py": "6e9cdfd3dddcd668e112832a343e8b922ec380fdb2a9b24df801b2f6787955a1"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-003",
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-002"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/human.py",
+        "tests/section17/test_rater_003.py",
+        "bie/evaluation/benchmarks/release/auth.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-RATER-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-003/SPEC.md",
+      "selected_test_pattern": "test_rater_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/human.py": "c074885be32c1eb73fece8216a46ca95f104dfae773da28a9e162e09672cf403",
+        "tests/section17/test_rater_003.py": "1aa093f59631d80aedcaa10dd4e4941efac43a0b70ac43be0c025c1534559f4e",
+        "bie/evaluation/benchmarks/release/auth.py": "2be70f9fe8f95fd859f945f539f07c3247c73a68bee378cb197474a040037255"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-004",
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-001",
+        "BIE-EVAL-RATER-002",
+        "BIE-EVAL-RATER-003"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/agreement.py",
+        "tests/section17/test_rater_004.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-RATER-004/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-004/SPEC.md",
+      "selected_test_pattern": "test_rater_004.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/agreement.py": "cf830bc34e9dd67c372a8b85f17b50fe9f6b82b301748f962c653da84363824e",
+        "tests/section17/test_rater_004.py": "72f46a20452e8cb9cb2d4396c154092f24e82068550692ad61a5293a3dba6a0f"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-RATER-005",
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-004"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/aggregation.py",
+        "tests/section17/test_rater_005.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-RATER-005/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-RATER-005/SPEC.md",
+      "selected_test_pattern": "test_rater_005.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/aggregation.py": "cd7e2b7b6bf4c7bcc5d357d8d1e96db761cfe7c235aaa6d4ea7e722883dfced2",
+        "tests/section17/test_rater_005.py": "c103bc246311c595fe50e7e0e816dfe2aa880bd9ac93803f4e0741299871b109"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REL-001",
+      "direct_dependencies": [
+        "BIE-EVAL-RATER-005"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/thresholds.py",
+        "tests/section17/test_rel_001.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REL-001/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-001/SPEC.md",
+      "selected_test_pattern": "test_rel_001.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/thresholds.py": "ced02e60bf9786f1e10ed99919c2c96723a6dee08739d255fa18b40189b99e3f",
+        "tests/section17/test_rel_001.py": "958d116a0597ea40884d85c765cf7b574c37ea0a4543a34307251a41afebdcc1"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REL-002",
+      "direct_dependencies": [
+        "BIE-EVAL-REL-001"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/floors.py",
+        "tests/section17/test_rel_002.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REL-002/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-002/SPEC.md",
+      "selected_test_pattern": "test_rel_002.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/floors.py": "fb7cf8a1255e3a601b6eef67c8c11a4a9dddd01a9dca6e70650c315b987d8477",
+        "tests/section17/test_rel_002.py": "99666aa5f19c76775b10df78dc12e3fdb53be5458c491db7183da6033847136a"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REL-003",
+      "direct_dependencies": [
+        "BIE-EVAL-REL-001",
+        "BIE-EVAL-REL-002"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/domains.py",
+        "tests/section17/test_rel_003.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REL-003/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-003/SPEC.md",
+      "selected_test_pattern": "test_rel_003.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/domains.py": "9f628cb051ce8553038da306be905b8b7aee8f07275d00903d4658f4bc51090f",
+        "tests/section17/test_rel_003.py": "5b930b52116d2e9d6afd49800ffb522a59fb396ae990966be8827be9757fdbe6"
+      }
+    },
+    {
+      "task_id": "BIE-EVAL-REL-004",
+      "direct_dependencies": [
+        "BIE-EVAL-REL-001",
+        "BIE-EVAL-REL-002",
+        "BIE-EVAL-REL-003"
+      ],
+      "owned_paths": [
+        "bie/evaluation/benchmarks/release/gate.py",
+        "tests/section17/test_rel_004.py",
+        "bie/evaluation/benchmarks/release/ledger.py",
+        "bie/evaluation/benchmarks/release/__main__.py"
+      ],
+      "task_record": "metadata/section17/tasks/BIE-EVAL-REL-004/TASK_RESULT.json",
+      "spec": "docs/section17/tasks/BIE-EVAL-REL-004/SPEC.md",
+      "selected_test_pattern": "test_rel_004.py",
+      "current_owned_file_sha256": {
+        "bie/evaluation/benchmarks/release/gate.py": "69906b888e7d989d2eabcaedae059065ab85ed0b5a93ab422cd61cc78e04e2cc",
+        "tests/section17/test_rel_004.py": "7460bea6b2079e3c22e796916717a0c619b4ea147785813fa2fbbeab1cb1e125",
+        "bie/evaluation/benchmarks/release/ledger.py": "2bb4b0198f244dd34bb206413b77c7191f111b6620a70f18bd89e1ea3ca395ae",
+        "bie/evaluation/benchmarks/release/__main__.py": "2a11d591316dfe7b27a5ab6e0b4e1a069092e28832503fcc3f338016b544924c"
+      }
+    }
+  ],
+  "shared_batch_test_and_tool_paths": [
+    "bie/evaluation/benchmarks/metrics/__init__.py",
+    "bie/evaluation/benchmarks/metrics/__main__.py",
+    "bie/evaluation/benchmarks/metrics/collectors.py",
+    "bie/evaluation/benchmarks/metrics/delivery_common.py",
+    "tests/section17/batch003_helpers.py",
+    "tests/section17/batch004_helpers.py",
+    "tests/section17/test_batch002_contracts.py",
+    "tests/section17/test_batch003_contracts.py",
+    "tests/section17/test_batch004_collectors.py",
+    "tests/section17/test_batch004_contracts.py",
+    "tests/section17/test_batch_audit.py",
+    "tests/section17/test_batch_cli.py",
+    "tests/section17/test_batch_integration.py",
+    "tests/section17/test_batch_package.py",
+    "tools/rebuild_batch002_fixture_data.py",
+    "tools/rebuild_batch003_fixture_data.py",
+    "tools/run_section17_batch003_fault_controls.py",
+    "tools/run_section17_batch003_metric_diagnostics.py",
+    "tools/run_section17_batch004_collectors.py",
+    "tools/run_section17_batch004_diagnostics.py",
+    "tools/run_section17_batch004_fault_controls.py",
+    "tools/run_section17_fault_controls.py",
+    "tools/run_section17_tests.py",
+    "tools/verify_section17_package.py"
+  ],
+  "path_collision_policy": "Stop if any pre-existing canonical path differs; no blind overlay.",
+  "atomic_dependencies_are_required": true,
+  "historical_task_records": "Batch001..003 task receipts remain historical, unchanged. This index binds current owned hashes and Batch004 cumulative evidence.",
+  "current_candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "batch005_runtime_api": "bie.evaluation.benchmarks.release",
+  "native_integration_performed": false,
+  "shared_batch005_paths": [
+    "tests/section17/batch005_helpers.py",
+    "tests/section17/test_batch005_contracts.py",
+    "tools/run_section17_batch005_tests.py",
+    "tools/run_section17_batch005_diagnostics.py",
+    "tools/run_section17_batch005_fault_controls.py",
+    "tools/build_section17_archive.py"
+  ]
+}

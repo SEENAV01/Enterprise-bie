@@ -1,0 +1,142 @@
+{
+  "task_id": "BIE-EVAL-BIO-001",
+  "original_sequence": 11,
+  "original_capability": "photosynthesis",
+  "batch": 2,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "implemented_behavior": "Oxygenic net budgets, C3 Calvin resource limits and misconception controls.",
+  "bounds_and_open_scope": "Oxygenic/C3 molar bookkeeping only, nonnegative supplied pools, exact rational quantities at most 10^12. Not a kinetic leaf simulator; C4/CAM, photorespiration and independently extracted diagram/text comprehension remain outside this profile.",
+  "direct_dependency_task_ids": [
+    "BIE-EVAL-REG-004"
+  ],
+  "owned_paths": [
+    "bie/evaluation/benchmarks/domains/photosynthesis.py",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-001.json",
+    "tests/section17/test_bio_001.py",
+    "bie/evaluation/benchmarks/domains/structured.py",
+    "tests/section17/batch002_helpers.py"
+  ],
+  "owned_file_sha256": {
+    "bie/evaluation/benchmarks/domains/photosynthesis.py": "e2c04198e4895e11c5c557baecea78034592ea16a72e5b3b75408990a3b2536a",
+    "bie/evaluation/benchmarks/data/BIE-EVAL-BIO-001.json": "69d938dbf62e812201006157eb344c4b973ea147720f34477ae2a91515f4e2b2",
+    "tests/section17/test_bio_001.py": "0b723c5bb09ffd651abbee967ac4d45f9651258b59f7afef0641d747a63d4a37",
+    "bie/evaluation/benchmarks/domains/structured.py": "2b018efccd2844b6e05719ca7f59a24da5588e6354b740152714a9f1f28fd4c0",
+    "tests/section17/batch002_helpers.py": "32c55f72437e1ccb510a45dc55c4c435f9b8458ffc34f65174371b1f3f7291bd"
+  },
+  "shared_wiring_change": "bie/evaluation/benchmarks/runner.py additive PACK_MODULES entries; see BATCH002_CHANGE_LEDGER.json",
+  "selected_task_suite": {
+    "scope": "SELECTED_TASK_TESTS_EXTRACTED_FROM_CUMULATIVE_RUN",
+    "test_count": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "records": [
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_001",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_002",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_003",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_004",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_005",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_006",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_007",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_008",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_009",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_010",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_011",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_authored_case_012",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_boolean_concept_not_numeric_one",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_boolean_is_not_quantity",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_calvin_gross_equals_recycled_plus_export",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_expected_answer_injection_is_extra_field",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_input_and_reference_profile_not_mutated",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_limiting_pools_never_overconsume",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_negative_supplied_pool",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_net_budget_conserves_each_atom",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_quantity_upper_bound",
+        "status": "PASS"
+      },
+      {
+        "test_id": "test_bio_001.BIO001Tests.test_unknown_concept_cannot_improve_score",
+        "status": "PASS"
+      }
+    ],
+    "source_evidence": "evidence/section17/batch002/final_source/TEST_RESULT.json",
+    "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+    "counting_note": "Subset of 493; do not add it again."
+  },
+  "authored_diagnostic_cases": {
+    "total": 12,
+    "expected_successful_computation": 10,
+    "expected_typed_rejection": 2,
+    "independent_reference_review": false,
+    "hidden_holdout": false
+  },
+  "candidate_inventory_sha256": "a7c94a0015bc1ff76c4c756188c357ca4c33d47b4bd2a4f2f356e7d466bfa921",
+  "spec_path": "docs/section17/tasks/BIE-EVAL-BIO-001/SPEC.md",
+  "canonical_source_modified": false,
+  "github_integrated": false,
+  "native_bie_verified": false,
+  "product_accepted": false
+}

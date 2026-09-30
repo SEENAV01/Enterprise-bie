@@ -1,0 +1,94 @@
+{
+  "task_id": "BIE-EVAL-METRIC-016",
+  "original_sequence": 40,
+  "batch": 4,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Actual file-byte inventories from separately captured workspaces, exact required output rosters, build context/input/recipe/environment/seed bindings and output hashes/sizes.",
+  "limits": "Snapshot receipts do not by themselves prove builds ran. This batch separately compiled the same Python source twice; no cross-platform or full BIE/Remotion deterministic-build acceptance.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/metrics/reproducibility.py",
+    "bie/evaluation/benchmarks/metrics/fixtures/BIE-EVAL-METRIC-016.json",
+    "tests/section17/test_metric_016.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-METRIC-001",
+    "BIE-EVAL-METRIC-011"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_added_output_is_not_ignored",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_002",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_003",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_004",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_005",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_authored_contract_006",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_casefold_output_collisions_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_different_byte_size_fails_even_same_hash",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_duplicate_observation_id_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_hashing_does_not_prove_build_execution",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_manifest_subject_binding_verified",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_minimum_one_run_reference_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_reference_output_traversal_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_unclaimed_observation_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_metric_016.METRIC016Tests.test_zero_runs_is_not_vacuously_reproducible",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "authored_fixture_scenarios": 6,
+  "candidate_inventory_sha256": "227203014308148f54cf6b8503a3d4fb99a46cae6fb7006f4e75939673cbb0d2",
+  "evaluator_code_sha256": "ebdd00e41c6cdd8f6e0355dda654bbbb2514aa0994db279779730a3cc4d9f8cd",
+  "evidence": "evidence/section17/batch004/final_source/TEST_RESULT.json",
+  "spec": "docs/section17/tasks/BIE-EVAL-METRIC-016/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

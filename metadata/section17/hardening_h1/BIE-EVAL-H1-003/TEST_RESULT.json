@@ -1,0 +1,81 @@
+{
+  "task_id": "BIE-EVAL-H1-003",
+  "selected_test_method_count": 18,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_arithmetic_fault_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_bad_candidate_pin_not_coerced_to_score",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_blocked_receipt_integrity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_candidate_argument_not_mutated_by_faulty_evaluator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_code_changes_during_execution_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_code_pin_wrong_rejected_before_execution",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_exception_text_not_in_receipt",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_expected_contract_fault_retains_code",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_malformed_defect_reason_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_malformed_evaluator_result_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_missing_defects_cannot_escape_receipt_boundary",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_overcredited_result_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_positive_still_measured",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_reference_argument_not_mutated_by_faulty_evaluator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_result_for_other_candidate_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_result_score_recomputed_from_units",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_runtime_exception_becomes_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_003.DeterministicFaultBoundary.test_type_fault_blocked",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

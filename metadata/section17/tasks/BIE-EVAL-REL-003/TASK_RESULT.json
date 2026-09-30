@@ -1,0 +1,96 @@
+{
+  "task_id": "BIE-EVAL-REL-003",
+  "original_sequence": 49,
+  "batch": 5,
+  "local_implementation_status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "original_capability_fully_closed": false,
+  "behavior": "Per-domain weighted score/coverage floors, fixed case rosters and minimum independent leakage-group counts.",
+  "limits": "Leakage groups must be curated upstream; sample counts do not establish domain-wide validity.",
+  "owned_paths": [
+    "bie/evaluation/benchmarks/release/domains.py",
+    "tests/section17/test_rel_003.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-REL-001",
+    "BIE-EVAL-REL-002"
+  ],
+  "selected_tests": [
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_all_domain_minima_pass",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_blocked_cases_do_not_count_as_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_domain_outputs_sorted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_domain_policy_cannot_drop_weak_domain",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_duplicate_case_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_duplicate_leakage_groups_not_independent",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_empty_domain_roster_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_hash_pin_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_invalid_case_minimum_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_missing_domain_case_keeps_denominator",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_no_product_acceptance",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_one_domain_failure_not_masked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_unconfigured_domain_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_unknown_result_rejects",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_unmeasured_fraction_minimum",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_rel_003.DomainMinimums003.test_weighted_domain_score_exact",
+      "status": "PASS"
+    }
+  ],
+  "selected_distinct_method_count": 16,
+  "candidate_inventory_sha256": "a662ff14267daa6904e029eb6b0b84e20faeb0a24f945cc7b4dd121edc5818b4",
+  "evaluator_service_code_sha256": "2a353ec21ec46e5db645cd76aa5a6c3cb58ca77d8e424797b5f8bbf7ba57e9f1",
+  "evidence": {
+    "cumulative": "evidence/section17/batch005/final_source/TEST_RESULT.json",
+    "defect_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-003_INJECTED.txt",
+    "restored_control": "evidence/section17/batch005/fault_controls/BIE-EVAL-REL-003_RESTORED.txt"
+  },
+  "spec": "docs/section17/tasks/BIE-EVAL-REL-003/SPEC.md",
+  "github_integrated": false,
+  "native_bie": false,
+  "independent_review": false,
+  "product_accepted": false
+}

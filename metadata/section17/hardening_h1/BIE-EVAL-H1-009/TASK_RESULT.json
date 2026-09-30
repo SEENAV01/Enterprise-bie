@@ -1,0 +1,81 @@
+{
+  "task_id": "BIE-EVAL-H1-009",
+  "title": "Durable finalization and explicit recovery",
+  "finding": {
+    "finding_id": "H1-F009",
+    "task_id": "BIE-EVAL-H1-009",
+    "origin": "derived from audit, NOT an original task ID",
+    "issue": "A finalization could return a receipt without ensuring its reserved row was finalized; interrupted reservations lacked a governed terminal recovery path.",
+    "implemented_behavior": "Compare-and-set finalization, read-back integrity, artifact/report bindings and explicit input-pinned operator recovery to terminal BLOCKED.",
+    "status": "REPAIRED_AND_LOCALLY_RETESTED_SCOPED",
+    "boundaries": "Single-host privileged recovery requires stopping the abandoned worker first. It is not an authenticated public recovery endpoint or distributed crash reconciliation. Pre-H1 finalized receipts require explicit revalidation; do not rewrite archived evidence.",
+    "code_paths": [
+      "bie/evaluation/benchmarks/release/ledger.py"
+    ],
+    "test_pattern": "test_h1_009.py",
+    "passed_test_methods": 13,
+    "evidence": "evidence/section17/h1/runs/final_full_verified/TEST_RESULT.json"
+  },
+  "status": "LOCAL_VERIFIED_NOT_ENTERPRISE_ACCEPTED",
+  "selected_tests": [
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_artifact_column_tamper_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_completed_attempt_cannot_be_recovered",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_double_recovery_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_final_receipt_binds_artifact",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_inner_report_tamper_even_with_outer_hash_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_legacy_receipt_not_silently_promoted",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_missing_campaign_typed_error",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_raced_finalization_not_falsely_reported_success",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_recovery_never_gives_retry",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_recovery_persists_after_reopen",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_recovery_wrong_pin_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_terminal_recovery_is_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_009.DurableRecoveryBoundary.test_unknown_recovery_refused",
+      "status": "PASS"
+    }
+  ],
+  "owned_or_shared_paths_sha256": {
+    "bie/evaluation/benchmarks/release/ledger.py": "7a36544ff576c6264fa7b24265c55c4b360bed4ce6deae42587203b8e281ea5f",
+    "tests/section17/test_h1_009.py": "af559d67e1c25d280c3762c212b270016264ac22d9f433cd0299f6e9adb91885"
+  },
+  "runtime_dependencies": "Cumulative H1 evaluation code/data plus named fixture helpers",
+  "atomic_manifest_is_identity_not_authentication": true,
+  "product_accepted": false
+}

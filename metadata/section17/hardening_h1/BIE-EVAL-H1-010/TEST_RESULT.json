@@ -1,0 +1,65 @@
+{
+  "task_id": "BIE-EVAL-H1-010",
+  "selected_test_method_count": 14,
+  "all_passed": true,
+  "tests": [
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_control_character_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_extra_unmanifested_file_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_extract_symlink_parent_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_file_directory_conflict_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_parent_traversal_zip_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_reserved_windows_device_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_source_archive_symlink_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_tampered_bytes_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_trailing_dot_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_trailing_space_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_unicode_normalization_alias_zip_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_valid_unicode_member_works",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_verify_symlink_root_refused",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h1_010.PortablePackageBoundary.test_verify_valid_tree",
+      "status": "PASS"
+    }
+  ],
+  "full_suite_inventory_sha256": "4330333638197cf6bd56cd4447d6fa648f072e9a3e93606eae1153983572dba2",
+  "evidence_scope": "actual selected records from full suite, not an independent replay claim"
+}

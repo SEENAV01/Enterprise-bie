@@ -1,0 +1,76 @@
+{
+  "metric_id": "BIE-EVAL-METRIC-010",
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-010",
+    "rubric_id": "delivery-metric-010",
+    "version": "1.0.0",
+    "reference_owner_id": "bie-diagnostic-author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "authored-reference",
+        "locator": "docs/section17/tasks/BIE-EVAL-METRIC-010/SPEC.md",
+        "basis_sha256": "0a9df9ccadae0519ccc173391d36c776b3313f72681018124d84ce333a4d6da4"
+      }
+    ],
+    "payload": {
+      "frame_count": 11,
+      "fps": 10,
+      "sample_frames": [
+        0,
+        5,
+        10
+      ],
+      "tracks": [
+        {
+          "id": "move",
+          "property": "position-x",
+          "unit": "px",
+          "knots": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 10,
+              "value": 10
+            }
+          ],
+          "absolute_tolerance": 0,
+          "minimum": 0,
+          "maximum": 10,
+          "max_speed": 10,
+          "max_acceleration": 0,
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "tracks": [
+      {
+        "id": "move",
+        "property": "position-x",
+        "unit": "px",
+        "samples": [
+          {
+            "frame": 0,
+            "value": 0
+          },
+          {
+            "frame": 5,
+            "value": 5
+          },
+          {
+            "frame": 10,
+            "value": 10
+          }
+        ]
+      }
+    ]
+  },
+  "expected_reference_sha256": "6309741a6754426fa63ef8184f4bf7f6011a136cf6ecafbe2a12e8bf6a7aa358",
+  "expected_candidate_sha256": "8e8246fb40da9a80b1c77d3a9f98c66a73a99110c39fc23da17ce2cd13fcf777",
+  "source_artifacts": {}
+}

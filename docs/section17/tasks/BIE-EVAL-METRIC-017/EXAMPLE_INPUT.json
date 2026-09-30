@@ -1,0 +1,65 @@
+{
+  "reference": {
+    "schema_version": "1.0.0",
+    "metric_id": "BIE-EVAL-METRIC-017",
+    "rubric_id": "regression-v1",
+    "version": "1.0.0",
+    "reference_owner_id": "author",
+    "evidence_grade": "AUTHORED_DIAGNOSTIC",
+    "source_refs": [
+      {
+        "id": "paired-fixture",
+        "locator": "Original authored exact paired values",
+        "basis_sha256": "923bbf12af9ad513aa46ad9aac0b8472cc203648f2ed6121928eac7f2d1d0787"
+      }
+    ],
+    "payload": {
+      "dataset_sha256": "519b3ed503c6a825347f28dfd269c0a422e3b923858410e3abbab2d2a99837f2",
+      "environment_sha256": "4147dd2e1fb1e7ca4c039d76925ef97033462ccd4edb15a98b6605b97a2c6dd7",
+      "evaluator_sha256": "4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8",
+      "baseline_run_id": "old",
+      "cases": [
+        {
+          "id": "a",
+          "metric_id": "BIE-EVAL-METRIC-005",
+          "case_sha256": "ac8d8342bbb2362d13f0a559a3621bb407011368895164b628a54f7fc33fc43c",
+          "baseline_score": "1",
+          "allowed_drop": "0",
+          "floor": "1",
+          "weight": "1"
+        },
+        {
+          "id": "b",
+          "metric_id": "BIE-EVAL-METRIC-001",
+          "case_sha256": "c100f95c1913f9c72fc1f4ef0847e1e723ffe0bde0b36e5f36c13f81fe8c26ed",
+          "baseline_score": "3/4",
+          "allowed_drop": "1/20",
+          "floor": "1/2",
+          "weight": "2"
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "dataset_sha256": "519b3ed503c6a825347f28dfd269c0a422e3b923858410e3abbab2d2a99837f2",
+    "environment_sha256": "4147dd2e1fb1e7ca4c039d76925ef97033462ccd4edb15a98b6605b97a2c6dd7",
+    "evaluator_sha256": "4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8",
+    "run_id": "new",
+    "cases": [
+      {
+        "id": "a",
+        "metric_id": "BIE-EVAL-METRIC-005",
+        "case_sha256": "ac8d8342bbb2362d13f0a559a3621bb407011368895164b628a54f7fc33fc43c",
+        "status": "MEASURED",
+        "score": "1"
+      },
+      {
+        "id": "b",
+        "metric_id": "BIE-EVAL-METRIC-001",
+        "case_sha256": "c100f95c1913f9c72fc1f4ef0847e1e723ffe0bde0b36e5f36c13f81fe8c26ed",
+        "status": "MEASURED",
+        "score": "4/5"
+      }
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "scope": "Section17 cumulative Batch001..Batch005",
+  "all_material_known_gaps": [
+    {
+      "gap_id": "S17-DEPENDENCY-001",
+      "phase": "INTEGRATION",
+      "status": "OPEN",
+      "requirement": "Section16 local exit and governed integration have not been verified.",
+      "owner_and_next_action": "Integration owner; recover actual Section16 source/re-audit and exact current main."
+    },
+    {
+      "gap_id": "S17-INTEGRATION-002",
+      "phase": "INTEGRATION",
+      "status": "OPEN",
+      "requirement": "Additive extension has not run against a full canonical checkout or Section16/native candidate.",
+      "owner_and_next_action": "Integration owner; explicit owned-path adoption, existing contract consumer review, canonical tests and native runs."
+    },
+    {
+      "gap_id": "S17-CORPUS-003",
+      "phase": "DOMAIN_BENCHMARK_SCOPE",
+      "status": "OPEN",
+      "requirement": "Retained20 domain packs/228 cases, prior16 metric fixture sets and new authored regression/rater/release diagnostics are DEVELOPMENT evidence, not independently reviewed golden/held-out corpora.",
+      "owner_and_next_action": "Benchmark curator and independent subject reviewers; rights-cleared multi-source cases, split custody, rubric review and documented signoff."
+    },
+    {
+      "gap_id": "S17-CALIBRATION-004",
+      "phase": "EVALUATION",
+      "status": "OPEN",
+      "requirement": "Threshold, hard-floor, domain minimum and evaluator-agreement code now exists. Numerical policies and rater validity still require independent empirical calibration.",
+      "owner_and_next_action": "EVAL metric/rater/release work plus independently reviewed calibration cases."
+    },
+    {
+      "gap_id": "S17-SECURITY-005",
+      "phase": "OPERATIONAL",
+      "status": "OPEN",
+      "requirement": "Production identity, custody, worker isolation and durable off-host evidence anchoring are not supplied by this local package.",
+      "owner_and_next_action": "Infrastructure/governance integration owner; candidate cannot access references, signatures or database."
+    },
+    {
+      "gap_id": "S17-SCALE-006",
+      "phase": "IMPLEMENTATION_FOLLOWUP",
+      "status": "OPEN",
+      "requirement": "Leakage triage is bounded to 512 cases, 2048-character prompts and a pairwise comparison-work budget; larger datasets fail closed.",
+      "owner_and_next_action": "EVAL owner; implement and evaluate an indexed/semantic duplicate adapter when required by actual corpus scale."
+    },
+    {
+      "gap_id": "S17-SOURCE-007",
+      "phase": "SOURCE_PROVENANCE",
+      "status": "OPEN",
+      "requirement": "Domain references are links/authored derivations, not extracted textbook passages. Grounding metric additionally validates captured original authored text, not real-book rights-cleared sources.",
+      "owner_and_next_action": "Corpus curator; preserve exact rights/provenance and source artifacts for real benchmarks."
+    },
+    {
+      "gap_id": "S17-REMAINING-008",
+      "phase": "IMPLEMENTATION",
+      "status": "ORIGINAL_IMPLEMENTATION_COVERED_LOCALLY",
+      "requirement": "All50 original tasks now have scoped local implementations. Whole-section audit/hardening/re-audit remain separately open under S17-AUDIT-010.",
+      "owner_and_next_action": "Do not invent more original task IDs. Begin whole-section capability audit.",
+      "historical_requirement": "Original tasks41..50 remain, followed by whole-section audit/hardening/re-audit."
+    },
+    {
+      "gap_id": "S17-MEDIA-009",
+      "phase": "NATIVE_ACCEPTANCE",
+      "status": "OPEN",
+      "requirement": "Batch004 executed small authored Python/TypeScript compiles, decoded a12-frame local authored video and compared RGB frames and separate Python-build bytes. No real-book/native BIE or Remotion run, decoded narration QA, playable-game or measured human learner outcome has been evaluated.",
+      "owner_and_next_action": "Native integration plus remaining METRIC/RATER/REL work and real-book E2E evidence."
+    },
+    {
+      "gap_id": "S17-AUDIT-010",
+      "phase": "SECTION_EXIT",
+      "status": "OPEN",
+      "requirement": "Whole-section completeness audit, justified hardening and section-level re-audit remain pending after the original task scope is developed.",
+      "owner_and_next_action": "Section17 owner; do not equate this batch audit with full-section exit."
+    },
+    {
+      "gap_id": "S17-INTERPRETATION-011",
+      "phase": "DOMAIN_BENCHMARK_SCOPE",
+      "status": "OPEN",
+      "requirement": "History reasoning consumes declared annotations; source capture, source entailment, multi-source disagreement adjudication and independent reference review are not implemented by this bounded pack.",
+      "owner_and_next_action": "Corpus/subject reviewer and later metric/rater integration; retain review flags."
+    },
+    {
+      "gap_id": "S17-ADAPTER-012",
+      "phase": "NATIVE_ACCEPTANCE",
+      "status": "OPEN",
+      "requirement": "Structured functions plus bounded local media collectors do not parse arbitrary textbook diagrams/free narration or certify native BIE mappings. Learning traces are authored; tiny RGB fixtures are not a real-book video.",
+      "owner_and_next_action": "Exact canonical/native output adapter, rights-cleared books, held-out cases and downstream media/learning metrics."
+    },
+    {
+      "gap_id": "S17-METRIC-013",
+      "phase": "NATIVE_ACCEPTANCE",
+      "status": "OPEN",
+      "requirement": "Seventeen structured deterministic metric profiles and five rater/release paths are locally implemented; native mapping, semantic judge calibration and empirical golden validation are not certified.",
+      "owner_and_next_action": "Implement governed native adapters with independent references and negative controls; do not equate fixture pass with native quality."
+    },
+    {
+      "gap_id": "S17-CUSTODY-014",
+      "phase": "OPERATIONAL",
+      "status": "OPEN",
+      "requirement": "Local metric reference/code pins and SQLite retry/corruption checks are not authenticated multi-tenant custody, off-host signatures or a race-proof filesystem sandbox.",
+      "owner_and_next_action": "Trusted evaluation workers and directory permissions; external campaign/identity authority, source/reference separation and independent evidence anchoring."
+    },
+    {
+      "gap_id": "S17-CIVICS-015",
+      "phase": "COVERAGE",
+      "status": "OPEN",
+      "requirement": "Civics has five source/date-pinned introductory UK role assertions and ordinary bill profile plus explicit fictional power tables, not full cross-jurisdictional civics coverage.",
+      "owner_and_next_action": "Add independently reviewed, dated, jurisdiction-specific educational cases without political merit ratings."
+    },
+    {
+      "gap_id": "S17-WORKER-016",
+      "status": "OPEN",
+      "phase": "OPERATIONAL",
+      "requirement": "Evaluator observation hashes are not signatures. Local file/timeout/protocol guards are not production worker isolation or race-proof access control.",
+      "owner_and_next_action": "Integrate privileged collectors in isolated, resource-limited trusted workers; keep candidate files/requests away from reference/campaign/observations and signer keys."
+    },
+    {
+      "gap_id": "S17-ACCESSIBILITY-017",
+      "status": "OPEN",
+      "phase": "NATIVE_ACCEPTANCE",
+      "requirement": "Static contrast/caption/focus checks are partial and do not certify WCAG, browser keyboard operation, screen readers or decoded audio captions.",
+      "owner_and_next_action": "Real player/game browser and assistive-technology audit against authored accessible references."
+    },
+    {
+      "gap_id": "S17-LEARNING-018",
+      "status": "OPEN",
+      "phase": "SCIENTIFIC_ACCEPTANCE",
+      "requirement": "Authored session-response diagnostics are not real learner data, educational efficacy or causal evidence.",
+      "owner_and_next_action": "Independently reviewed instrument and consented representative learner studies with calibrated raters and appropriate analysis."
+    },
+    {
+      "gap_id": "S17-LIVE-RATER-019",
+      "phase": "EVALUATION",
+      "status": "OPEN",
+      "requirement": "No live model evaluator or actual independent human review was executed. Fixture adapters and signed test claims are not provider/reviewer acceptance.",
+      "owner_and_next_action": "Integrate an operator-selected provider adapter with hard network timeouts, custody and calibration; onboard independent subject reviewers."
+    },
+    {
+      "gap_id": "S17-RELEASE-AUTH-020",
+      "phase": "PRODUCTION",
+      "status": "OPEN",
+      "requirement": "Signed external native/golden/video/game/security evidence, production key custody, evaluator-service authentication and deployment authorization are not supplied.",
+      "owner_and_next_action": "Integrate protected evidence collection and independent approval services; preserve BLOCKED on missing or untrusted evidence."
+    }
+  ],
+  "section_complete": false,
+  "product_accepted": false
+}

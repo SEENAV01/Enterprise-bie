@@ -1,0 +1,118 @@
+[
+  {
+    "task_id": "BIE-EVAL-METRIC-017",
+    "original_capability": "regression metric",
+    "module": "metrics/regression.py",
+    "test_pattern": "test_metric_017.py",
+    "behavior": "Exact paired-roster deltas, critical floor and allowed-drop checks with pinned dataset/environment/evaluator identities.",
+    "limits": "Deterministic authored non-regression only; no population inference or statistical significance claim.",
+    "dependencies": [
+      "BIE-EVAL-REG-002",
+      "BIE-EVAL-REG-004"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-RATER-001",
+    "original_capability": "deterministic evaluator",
+    "module": "release/deterministic.py",
+    "test_pattern": "test_rater_001.py",
+    "behavior": "Execute the actual 17 supported metric profiles, bind candidate/reference/rubric/service-code digests, retain detailed metric receipts and blocked failures.",
+    "limits": "Bounded structured reference profiles; no arbitrary-language or native BIE adapter certification.",
+    "dependencies": [
+      "BIE-EVAL-METRIC-017"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-RATER-002",
+    "original_capability": "model evaluator",
+    "module": "release/model.py",
+    "test_pattern": "test_rater_002.py",
+    "behavior": "Provider-neutral callable port, version-pinned request/response envelopes, fixed weighted rubric roster, evidence-ID checking, response limits and fail-closed errors.",
+    "limits": "Only fixture adapters were exercised. No live provider call, external timeout enforcement, semantic-judge calibration or proof of prompt-injection immunity.",
+    "dependencies": [
+      "BIE-EVAL-RATER-001"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-RATER-003",
+    "original_capability": "human evaluator",
+    "module": "release/human.py",
+    "test_pattern": "test_rater_003.py",
+    "behavior": "Operator-authenticated subject, candidate/rubric-bound assignment, HMAC service attestation, reviewer-role checks, expiry/revocation, conflicts and explicit unit judgements.",
+    "limits": "Fixture signatures are not real human reviews. Production identity, expertise, onboarding, key custody and independent reviewer work remain external.",
+    "dependencies": [
+      "BIE-EVAL-RATER-002"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-RATER-004",
+    "original_capability": "evaluator agreement",
+    "module": "release/agreement.py",
+    "test_pattern": "test_rater_004.py",
+    "behavior": "Complete paired panels, binary observed agreement, exact Cohen kappa and mean absolute score differences; missingness and undefined statistics remain explicit.",
+    "limits": "Agreement is not accuracy. No confidence intervals, sample adequacy guarantee or empirically calibrated thresholds.",
+    "dependencies": [
+      "BIE-EVAL-RATER-001",
+      "BIE-EVAL-RATER-002",
+      "BIE-EVAL-RATER-003"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-RATER-005",
+    "original_capability": "conservative aggregation",
+    "module": "release/aggregation.py",
+    "test_pattern": "test_rater_005.py",
+    "behavior": "Minimum score across a pinned rater roster, required deterministic evaluator, unique declared independence groups, zero credit for absent/blocked raters and disagreement adjudication blocks.",
+    "limits": "Declared independence metadata requires deployment governance; a hash alone does not authenticate a submitted assessment.",
+    "dependencies": [
+      "BIE-EVAL-RATER-004"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-REL-001",
+    "original_capability": "enterprise threshold",
+    "module": "release/thresholds.py",
+    "test_pattern": "test_rel_001.py",
+    "behavior": "Exact weighted metric thresholds and measured-fraction checks using an operator-pinned denominator; missing metrics remain zero.",
+    "limits": "Threshold values are operator policies, not empirically certified enterprise quality levels.",
+    "dependencies": [
+      "BIE-EVAL-RATER-005"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-REL-002",
+    "original_capability": "critical hard floors",
+    "module": "release/floors.py",
+    "test_pattern": "test_rel_002.py",
+    "behavior": "Mandatory per-metric floors and measured-status requirements that cannot be overridden by a high overall average.",
+    "limits": "Production policy approval is external. Passing floors alone never grants release authorization.",
+    "dependencies": [
+      "BIE-EVAL-REL-001"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-REL-003",
+    "original_capability": "domain minimums",
+    "module": "release/domains.py",
+    "test_pattern": "test_rel_003.py",
+    "behavior": "Per-domain weighted score/coverage floors, fixed case rosters and minimum independent leakage-group counts.",
+    "limits": "Leakage groups must be curated upstream; sample counts do not establish domain-wide validity.",
+    "dependencies": [
+      "BIE-EVAL-REL-001",
+      "BIE-EVAL-REL-002"
+    ]
+  },
+  {
+    "task_id": "BIE-EVAL-REL-004",
+    "original_capability": "release benchmark gate",
+    "module": "release/gate.py",
+    "test_pattern": "test_rel_004.py",
+    "behavior": "Aggregate actual evaluator receipts, enforce agreement/enterprise/critical/domain gates, verify scoped signed external evidence and persist single-use attempts with frozen campaign identity.",
+    "limits": "Production signed evidence, real-book/video/game acceptance and secure service custody remain absent. Diagnostic passes never authorize deployment or accept the product.",
+    "dependencies": [
+      "BIE-EVAL-REL-001",
+      "BIE-EVAL-REL-002",
+      "BIE-EVAL-REL-003"
+    ]
+  }
+]

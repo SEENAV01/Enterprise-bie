@@ -1,0 +1,105 @@
+{
+  "task_id": "BIE-EVAL-H2-008",
+  "title": "Pinned AV policy and evidence receipt",
+  "status": "SCOPED_LOCAL_IMPLEMENTATION_VERIFIED",
+  "section_accepted": false,
+  "product_accepted": false,
+  "owned_files": [
+    "bie/evaluation/benchmarks/av/service.py"
+  ],
+  "dependencies": [
+    "BIE-EVAL-H2-001",
+    "BIE-EVAL-H2-002",
+    "BIE-EVAL-H2-003",
+    "BIE-EVAL-H2-004",
+    "BIE-EVAL-H2-005",
+    "BIE-EVAL-H2-006",
+    "BIE-EVAL-H2-007"
+  ],
+  "test_file": "tests/section17/test_h2_008.py",
+  "test_count": 20,
+  "records": [
+    {
+      "test_id": "test_h2_008.H2008.test_actual_valid_candidate",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_black_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_boolean_score_limit_rejected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_caption_text_pin_actual",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_clip_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_corrupt_media_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_exact_policy_fields",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_media_hash_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_missing_audio_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_missing_captions_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_native_flag_escalation_even_rehashed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_no_acceptance_flags",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_no_numeric_type_rewrite_of_reference",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_policy_hash_mismatch",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_receipt_tamper_detected",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_required_narration_cannot_be_empty",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_silence_fails",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_tools_have_actual_binary_identity",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_unexpected_evaluator_failure_blocked",
+      "status": "PASS"
+    },
+    {
+      "test_id": "test_h2_008.H2008.test_wrong_frame_reference_fails",
+      "status": "PASS"
+    }
+  ],
+  "residual_boundary": "This v2 operator path is additive. Legacy metrics012/013/015 and the existing release gate are not automatically rerouted. Hashes do not authenticate untrusted self-authored receipts.",
+  "derived_from": "H1-RES-002 / H1-RES-008"
+}

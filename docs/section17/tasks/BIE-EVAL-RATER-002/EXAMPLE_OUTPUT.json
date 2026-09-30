@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "context": {
+    "run_id": "run1",
+    "case_id": "case1",
+    "domain": "physics",
+    "metric_id": "BIE-EVAL-METRIC-007",
+    "candidate_sha256": "3c097d07fbd089c531344d7663d4da3c57c9d0976f6894a0ee3d1719f8b41b2c",
+    "reference_sha256": "4070e86744898b1c188a6aa1009696a98e512dab88fe6e56a0bb7e1209b7eedf",
+    "rubric_sha256": "3957a5e958edabdba2f862aaaad39ae4ee892b41eb4d58b055c1a111b180e683",
+    "dataset_sha256": "469c70b0ad7da00b440117fa3d7cb827c565d1f4682440d68b73954ba86b67e2",
+    "environment_sha256": "a2e61c88fbd92155c272f8fb014f57e07a242798503522250ce4ba76c07c102a",
+    "split": "DEVELOPMENT"
+  },
+  "assessor_id": "model",
+  "kind": "MODEL",
+  "assessor_version": "fixture-v1",
+  "status": "MEASURED",
+  "score_exact": "1",
+  "reasons": [],
+  "evidence": {
+    "request_sha256": "9646b67001b06e378634a723278d768c8fcc198bfd27484430f89eae75db7bca",
+    "provider_id": "fixture-provider",
+    "model_version": "fixture-v1",
+    "live_provider_verified": false,
+    "semantic_judge_accuracy_certified": false,
+    "response_sha256": "762a2a67f95dc450acc5892c71832d4e915b73ca86022e2238e8c3feadc87cbc",
+    "judgement_units": [
+      {
+        "credit": "1",
+        "evidence_ids": [
+          "e1"
+        ],
+        "id": "meaning",
+        "rationale": "Matches authored statement"
+      },
+      {
+        "credit": "1",
+        "evidence_ids": [
+          "e2"
+        ],
+        "id": "units",
+        "rationale": "Matches authored units"
+      }
+    ]
+  },
+  "execution": "FIXTURE",
+  "release_authorized": false,
+  "product_accepted": false,
+  "assessment_sha256": "5c7378d7459aef19ca5a21b079789b973d499150b5f2389c3a7e3b58ca5c5d69"
+}
