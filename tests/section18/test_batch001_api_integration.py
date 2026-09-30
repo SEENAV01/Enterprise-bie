@@ -205,6 +205,36 @@ class Batch001ApiIntegrationTests(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json()["error"]["code"], "prerequisite_edge_must_be_mapping")
 
+    def test_source_validation_ui_has_real_file_picker_and_endpoint_binding(self):
+        response = self.client.get("/v1/operator/source-validation-ui")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("type='file'", response.text)
+        self.assertIn("accept='application/pdf,.pdf'", response.text)
+        self.assertIn("fetch('/v1/operator/source-validation'", response.text)
+        self.assertIn("aria-live='polite'", response.text)
+
+    def test_ready_status_view_exposes_working_control_forms(self):
+        run = self.create("api-control-forms")
+        self.import_pdf(run["run_id"])
+        response = self.client.get(f"/v1/operator/runs/{run['run_id']}/status-view")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(f"/v1/operator/runs/{run['run_id']}/pause", response.text)
+        self.assertIn(f"/v1/operator/runs/{run['run_id']}/cancel", response.text)
+
+    def test_failure_html_exposes_real_retry_form(self):
+        run = self.create("api-failure-form")
+        self.import_pdf(run["run_id"], b"%PDF-1.7\nmalformed")
+        context = OperatorContext(self.root)
+        service = context.job_service()
+        try:
+            service.run_once("api-failure-form-worker")
+        finally:
+            service.close()
+        self.client.get(f"/v1/operator/runs/{run['run_id']}")
+        response = self.client.get(f"/v1/operator/runs/{run['run_id']}/failure-view")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(f"/v1/operator/runs/{run['run_id']}/retry", response.text)
+
 
 if __name__ == "__main__":
     unittest.main()

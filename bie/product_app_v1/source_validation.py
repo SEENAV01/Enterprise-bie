@@ -93,3 +93,43 @@ def render_source_validation(validation: SourceValidation, *, display_name: str)
         f"<h3>Diagnostics</h3><ul>{diagnostics}</ul>"
         "</section>"
     )
+
+
+def render_source_validation_shell() -> str:
+    """Real local-operator file picker wired to the validation endpoint."""
+    return """<!doctype html>
+<html lang='en'>
+<head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>BIE source validation</title></head>
+<body>
+<main>
+  <h1>Validate PDF source</h1>
+  <p>This checks bounded transport properties before canonical document intelligence runs.</p>
+  <label for='source-file'>PDF source</label>
+  <input id='source-file' type='file' accept='application/pdf,.pdf'>
+  <button id='validate-source' type='button'>Validate source</button>
+  <div id='validation-result' role='status' aria-live='polite'></div>
+</main>
+<script>
+(() => {
+  const input=document.getElementById('source-file');
+  const button=document.getElementById('validate-source');
+  const result=document.getElementById('validation-result');
+  button.addEventListener('click', async () => {
+    const file=input.files && input.files[0];
+    if(!file){ result.textContent='Choose a PDF first.'; return; }
+    result.textContent='Validating…';
+    try{
+      const response=await fetch('/v1/operator/source-validation',{
+        method:'POST',
+        headers:{'Content-Type':file.type || 'application/pdf','X-Source-Name':file.name},
+        body:file
+      });
+      result.innerHTML=await response.text();
+    }catch(_error){
+      result.textContent='Validation request failed.';
+    }
+  });
+})();
+</script>
+</body></html>"""

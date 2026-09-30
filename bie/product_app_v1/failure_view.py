@@ -67,5 +67,7 @@ def render_failure_view(view: dict[str, object]) -> str:
         f"<p>Evidence: <code>{escape(str(view['evidence_id']))}</code></p>"
         f"<table><tbody>{rows}</tbody></table>"
         "<p>No source document text or traceback is exposed by this view.</p>"
+        f"<form method='post' action='/v1/operator/runs/{escape(str(view['run_id']), quote=True)}/retry'>"
+        "<button type='submit'>Retry run</button></form>"
         "</section>"
     )

@@ -8,6 +8,24 @@ def _time(value: float) -> str:
     return datetime.fromtimestamp(float(value), tz=timezone.utc).isoformat()
 
 
+def _control_forms(run_id: str, state: str) -> str:
+    rid = escape(run_id, quote=True)
+    actions = []
+    if state == "DRAFT":
+        actions = [("cancel", "Cancel run")]
+    elif state == "READY":
+        actions = [("pause", "Pause run"), ("cancel", "Cancel run")]
+    elif state == "PAUSED":
+        actions = [("resume", "Resume run"), ("cancel", "Cancel run")]
+    elif state == "FAILED":
+        actions = [("retry", "Retry run")]
+    return "".join(
+        f"<form method='post' action='/v1/operator/runs/{rid}/{escape(action, quote=True)}'>"
+        f"<button type='submit'>{escape(label)}</button></form>"
+        for action, label in actions
+    )
+
+
 def render_run_status(status: dict[str, object]) -> str:
     state = escape(str(status["state"]))
     rows = [
@@ -29,6 +47,8 @@ def render_run_status(status: dict[str, object]) -> str:
         "<h2 id='run-status-title'>Run status</h2>"
         "<p>No fabricated percentage is shown. Status is reconciled from persisted operator and canonical job state.</p>"
         f"<table><tbody>{table}</tbody></table>"
+        "<h3>Available controls</h3>"
+        f"<div class='run-controls'>{_control_forms(str(status['run_id']), str(status['state']))}</div>"
         "</section>"
     )
 

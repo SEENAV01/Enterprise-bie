@@ -22,7 +22,7 @@ from bie.product_app_v1.run_control import RunControlService
 from bie.product_app_v1.run_create import create_run
 from bie.product_app_v1.run_status import RunStatusService
 from bie.product_app_v1.source_import import SourceImportService
-from bie.product_app_v1.source_validation import MAX_SOURCE_BYTES, render_source_validation, validate_pdf_source
+from bie.product_app_v1.source_validation import MAX_SOURCE_BYTES, render_source_validation, render_source_validation_shell, validate_pdf_source
 from bie.product_app_v1.stage_timeline import StageTimelineService
 from apps.web.section18_views import render_run_status, render_timeline
 
@@ -104,6 +104,13 @@ async def import_source(run_id: str, request: Request):
     except OperatorError as exc:
         code = str(exc)
         return _error(413 if code == "request_too_large" else 400, code)
+
+
+@router.get("/source-validation-ui", response_class=HTMLResponse)
+async def source_validation_ui():
+    if (blocked := _guard()) is not None:
+        return blocked
+    return HTMLResponse(render_source_validation_shell())
 
 
 @router.post("/source-validation", response_class=HTMLResponse)
