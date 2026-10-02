@@ -13,6 +13,7 @@ const child=spawn(browser,['--headless=new','--no-first-run','--no-default-brows
   '--remote-debugging-address=127.0.0.1','--remote-debugging-port='+debugPort,
   '--user-data-dir='+profile,'about:blank'],{stdio:'ignore',windowsHide:true});
 let socket;const contexts=new Map(),sessions=new Map(),diagnostics=[];
+let rootResponse=null,domReady=false,loadSeen=false;
 const pending=new Map();let seq=0;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function call(method,params={},sessionId=null){
@@ -33,6 +34,9 @@ try{
  socket=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
  await new Promise((r,j)=>{socket.onopen=r;socket.onerror=j;});
  socket.onmessage=event=>{const row=JSON.parse(event.data),p=pending.get(row.id);if(p){clearTimeout(p.timer);pending.delete(row.id);row.error?p.reject(new Error('CDP_CALL_FAILED')):p.resolve(row.result);}
+  if(row.method==='Page.domContentEventFired')domReady=true;
+  if(row.method==='Page.loadEventFired')loadSeen=true;
+  if(row.method==='Network.responseReceived'&&row.params.response.url===base)rootResponse=row.params.response.status;
   if(row.method==='Runtime.executionContextCreated'){const c=row.params.context;contexts.set((row.sessionId||'root')+':'+c.id,{...c,sessionId:row.sessionId||null});}
   if(row.method==='Target.attachedToTarget'){sessions.set(row.params.sessionId,row.params.targetInfo);for(const method of ['Runtime.enable','Log.enable','Network.enable'])call(method,{},row.params.sessionId).catch(()=>{});}
   if(row.method==='Runtime.exceptionThrown'){
@@ -260,7 +264,16 @@ try{
  if(scenario==='batch003b')assert(await evaluate("document.getElementById('quality-content').textContent==='' && document.getElementById('quality-benchmark').disabled"),'PRIVATE_QUALITY_CLEAR_FAILED');
  console.log(JSON.stringify({mode,passed:true,native_browser:true,structured_graph:true,keyboard:true,ax_tree:true,
     horizontal_overflow:false,synthetic_fixture:true,real_book_executed:false,product_accepted:false}));
-}catch(e){console.error('NATIVE_UI_FAILED:'+e.message);process.exitCode=1;}
+}catch(e){
+ if(e.message.startsWith('CDP_TIMEOUT:')){
+  let healthStatus=null;
+  try{const response=await fetch(base+'healthz',{signal:AbortSignal.timeout(1000)});healthStatus=response.status;}catch{}
+  // Never log expressions, requests, tokens, source data or URLs.
+  console.error('NATIVE_CDP_DIAGNOSTIC:'+JSON.stringify({rootResponse,domReady,loadSeen,healthStatus,
+    childExited:child.exitCode!==null||child.signalCode!==null,contexts:contexts.size,sessions:sessions.size}));
+ }
+ console.error('NATIVE_UI_FAILED:'+e.message);process.exitCode=1;
+}
 finally{
  if(socket?.readyState===1){try{await call('Browser.close');}catch{}socket.close();}
  for(const p of pending.values())clearTimeout(p.timer);

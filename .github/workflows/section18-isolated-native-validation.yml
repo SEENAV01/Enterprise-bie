@@ -123,6 +123,10 @@ jobs:
           python -B tools/run_section18_posix_validation.py --scope wasm-bounds --output "$RUNNER_TEMP/section18-evidence/native-wasm-bounds"
           python -B tools/run_section18_posix_validation.py --scope bundle-cache --output "$RUNNER_TEMP/section18-evidence/native-bundle-cache"
           python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
+      - name: Collect bounded native browser-launch diagnostic, not a render gate
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: python -B tools/diagnose_section18_native_browser.py --output "$RUNNER_TEMP/section18-evidence/browser-launch-diagnostic"
       - name: Genuine native render gate
         id: native-render
         env:
