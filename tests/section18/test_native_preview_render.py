@@ -5,6 +5,7 @@ is explicitly a tiny synthetic technical scene, not learning or book acceptance.
 """
 from pathlib import Path
 import os
+import json
 import sys
 import unittest
 from dataclasses import replace
@@ -33,7 +34,24 @@ class NativePreviewRender(Base):
         request=RenderRequest(str(cls.project),'src/index.ts',comp,'out/preview.mp4',source.scene_fingerprint,
                               'operator18-native-preview',browser_executable='/opt/bie-game-chromium/chrome',timeout_s=120)
         cls.receipt=full_render(request)
-        if not cls.receipt.passed:raise AssertionError('native renderer failed closed: '+str(cls.receipt.failure_code)+': '+str(cls.receipt.errors))
+        if not cls.receipt.passed:
+            # Retain exact native typecheck evidence from the canonical producer.
+            # This diagnostic reads the synthetic CI workspace only and does not
+            # replace the producer, inject a witness, or relax source coverage.
+            path=cls.project/cls.receipt.evidence_directory/'actual-paint/typecheck/TYPECHECK.json'
+            cls.failure_diagnostic=dict(failure_code=cls.receipt.failure_code,
+                                        errors=list(cls.receipt.errors),synthetic_source=True)
+            if path.is_file():
+                raw=path.read_bytes()
+                if len(raw)<=8*1024**2:
+                    report=json.loads(raw);gate=report['receipt']
+                    cls.failure_diagnostic.update(typecheck_status=gate['status'],
+                        listed_sources=[line.rsplit('/',1)[-1] for line in gate['stdout'].splitlines()
+                                        if '/node_modules/' not in line],
+                        processes=[dict(outcome=e['process']['outcome'],
+                                        started=e['process']['started'],
+                                        passed=e['process']['process']['passed']) for e in report['executions']])
+            raise AssertionError('native renderer failed closed: '+str(cls.receipt.failure_code)+': '+str(cls.receipt.errors))
         cls.data=(cls.project/cls.receipt.output_path).read_bytes()
         cls.policy=VideoPolicy(comp.composition_id,cls.receipt.input_sha256,640,360,12,1,6)
 

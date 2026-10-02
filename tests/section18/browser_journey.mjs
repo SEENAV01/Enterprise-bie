@@ -262,6 +262,10 @@ finally{
   if(process.platform==='win32'){
    const stop=spawn('taskkill',['/PID',String(child.pid),'/T','/F'],{stdio:'ignore',windowsHide:true});
    await new Promise(resolve=>{stop.on('error',resolve);stop.on('exit',resolve);});
+   // taskkill's process-tree enumeration can race Chromium's asynchronous
+   // shutdown. Node still owns the original process handle: terminate that
+   // handle as well, never enumerate or kill unrelated user browsers.
+   if(child.exitCode===null && child.signalCode===null)child.kill('SIGKILL');
   }else child.kill('SIGKILL');
   if(!await waitForExit()){console.error('NATIVE_UI_FAILED:BROWSER_SHUTDOWN_FAILED');process.exitCode=1;}
  }
