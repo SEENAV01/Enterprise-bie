@@ -79,23 +79,10 @@ class Campaign:
         private_directory(self.root)
         for name in ('campaign.sqlite', 'campaign.sqlite-wal', 'campaign.sqlite-shm', 'campaign.sqlite-journal'):
             p = self.root / name
-            # SQLite legitimately unlinks volatile sidecars on last-close.
-            # One no-follow syscall avoids exists/stat/symlink TOCTOU. Missing
-            # main database remains governed by the caller's required check.
-            try:
-                s = p.lstat()
-            except FileNotFoundError:
-                continue
-            require(not stat.S_ISLNK(s.st_mode), 'CAMPAIGN_DATABASE_SYMLINK')
-            if s.st_nlink == 0 and name != 'campaign.sqlite':
-                # A sidecar inode may be unlinked while stat is in progress.
-                # Recheck once; never accept an extant nonregular/linked file.
-                try:
-                    s = p.lstat()
-                except FileNotFoundError:
-                    continue
-                require(not stat.S_ISLNK(s.st_mode), 'CAMPAIGN_DATABASE_SYMLINK')
-            require(stat.S_ISREG(s.st_mode) and s.st_nlink == 1, 'CAMPAIGN_DATABASE_FILE')
+            require(not p.is_symlink(), 'CAMPAIGN_DATABASE_SYMLINK')
+            if p.exists():
+                s = p.stat()
+                require(stat.S_ISREG(s.st_mode) and s.st_nlink == 1, 'CAMPAIGN_DATABASE_FILE')
 
     def _ready(self):
         self._database_paths()

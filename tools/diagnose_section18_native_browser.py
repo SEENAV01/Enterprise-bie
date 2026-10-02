@@ -13,6 +13,8 @@ from bie.compiler.installed_toolchain import collect_installed_toolchain,require
 SCRIPT=r'''const cp=require('node:child_process');
 const real=cp.spawn;
 cp.spawn=function(executable,args,options){
+  // Logging-only diagnostic options. No sandbox/allocator/feature switch.
+  args=[...args,'--enable-logging=stderr','--v=1'];
   console.log('OBSERVED_BROWSER_ARGV:'+JSON.stringify([executable,...args]));
   const child=real.call(this,executable,args,options);
   child.on('exit',(code,signal)=>console.log('OBSERVED_BROWSER_EXIT:'+JSON.stringify({code,signal})));
@@ -49,6 +51,12 @@ def main():
             source='SYNTHETIC_TEST',distinct_test_methods=0,render_gate_authorized=False,
             actual_paint_gate_authorized=False,product_accepted=False)
         assert receipt['cache_created'] is False
+        receipt['diagnostic_browser_logging_options']=['--enable-logging=stderr','--v=1']
+        version_command=[browser,'--version']
+        version,version_kernel=run_isolated(version_command,workspace=stage,policy=policy,
+            timeout_s=10,max_output_bytes=64*1024)
+        assert version_kernel['kernel_enforced'] and version_kernel['resource_limits']==asdict(policy)
+        receipt['isolated_browser_version_probe']=dict(command=version_command,process=asdict(version),kernel_policy=version_kernel)
         (args.output/'DIAGNOSTIC.json').write_text(json.dumps(receipt,indent=2)+'\n')
         print(json.dumps(dict(diagnostic_only=True,browser_opened='GENUINE_BROWSER_OPENED' in process.process.stdout,
                              stdout=process.process.stdout,stderr=process.process.stderr,

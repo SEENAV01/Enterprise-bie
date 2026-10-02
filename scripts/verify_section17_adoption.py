@@ -16,6 +16,11 @@ ROLES = {
 TEXT_SUFFIXES = {'.py', '.json', '.md', '.txt', '.html', '.js', '.mjs', '.css', '.srt', '.yaml', '.yml'}
 CLI = 'bie/qa/lifecycle_quality_v2/__main__.py'
 CLI_SHA = '7bc0c5b937d14a4918349f377716d213e9447812aac2f8d5f443bda0b7f6ee0e'
+MAINTENANCE_DIR = 'docs/section18/maintenance-campaign-sidecar'
+MAINTENANCE_SHA = 'e7aa150a39517aababfed7b6d2d1d6a4d86528313ab96bcb2f34dffdafc66eae'
+CAMPAIGN_PATH = 'bie/evaluation/benchmarks/native_campaign/runtime.py'
+CAMPAIGN_ORIGINAL = 'd471bb8372696fa471dfd386d13b8003ed0e8980fb7057991819955fb1477a82'
+CAMPAIGN_REPLACEMENT = '22de09eeab7b7d7091d5c3a7a493d27d865faebeda696bc90b1abfb5a00c387a'
 
 
 def checked_path(relative: str) -> Path:
@@ -42,6 +47,36 @@ def matches(path: Path, expected: str) -> bool:
     if b'\r' in raw.replace(b'\r\n', b''):
         return False
     return hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest() == expected
+
+
+def verified_maintenance() -> dict[str, str]:
+    """One reviewed cross-section correction, never an arbitrary hash override.
+
+    The immutable R1 map and its fourteen amendments remain authoritative.
+    Both the extra amendment document and the genuine original byte preimage
+    are pinned separately. All other adopted paths retain their original gate.
+    """
+    path = checked_path(MAINTENANCE_DIR + '/AMENDMENT.json')
+    if not path.exists():
+        return {}
+    if not path.is_file() or path.stat().st_size > 4096 or not matches(path, MAINTENANCE_SHA):
+        raise ValueError('MAINTENANCE_DOCUMENT_TAMPERED')
+    body = json.loads(path.read_text(encoding='utf-8'))
+    if (body['path'] != CAMPAIGN_PATH or body['original_adopted_sha256'] != CAMPAIGN_ORIGINAL
+            or body['replacement_sha256'] != CAMPAIGN_REPLACEMENT
+            or body['original_section17_test_methods'] != 2023):
+        raise ValueError('MAINTENANCE_SCOPE_OR_PIN')
+    before = checked_path(MAINTENANCE_DIR + '/runtime.py.before')
+    if not before.is_file() or before.stat().st_size > 32*1024:
+        raise ValueError('MAINTENANCE_PREIMAGE_MISSING')
+    raw = before.read_bytes()
+    # Either exact Windows checkout bytes or their exact LF Git blob. No source
+    # reconstruction, ignored region, or relaxed semantic comparison is used.
+    if (hashlib.sha256(raw).hexdigest() not in
+            {body['before_image_sha256'], CAMPAIGN_ORIGINAL}
+            or hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest() != CAMPAIGN_ORIGINAL):
+        raise ValueError('MAINTENANCE_PREIMAGE_TAMPERED')
+    return {CAMPAIGN_PATH: CAMPAIGN_REPLACEMENT}
 
 
 def verify_h1_preimages(delta: dict, recovery: dict) -> list[str]:
@@ -73,6 +108,7 @@ def verify() -> dict:
     if amendments.get('source_master_sha256') != '03043839a2290672a4b672cbb39952846e77ff99572a791bf0ca89cf14a51f4e':
         raise ValueError('WRONG_SOURCE_MASTER')
     changes = {row['path']: row for row in amendments['amendments']}
+    maintenance = verified_maintenance()
     if set(changes) != {
         'tools/run_section17_native_api_tests.py',
         'bie/evaluation/benchmarks/native_api/service.py',
@@ -112,6 +148,10 @@ def verify() -> dict:
         if amendment and amendment['original_sha256'] != row['sha256']:
             errors.append('AMENDMENT_PREIMAGE_MISMATCH:' + relative)
         expected = amendment['replacement_sha256'] if amendment else row['sha256']
+        if relative in maintenance:
+            if amendment or row['sha256'] != CAMPAIGN_ORIGINAL:
+                errors.append('MAINTENANCE_ORIGINAL_BINDING:' + relative)
+            expected = maintenance[relative]
         if not path.is_file() or not matches(path, expected):
             errors.append('ADOPTED_HASH_MISMATCH:' + relative)
     if (adopted, caches) != (780, 15):
@@ -123,6 +163,7 @@ def verify() -> dict:
     errors.extend(verify_h1_preimages(delta, recovery))
     return {'schema_version': 'bie.section17.adoption/1', 'adopted_files': adopted,
             'generated_caches_excluded': caches, 'reviewed_amendments': len(changes),
+            'reviewed_section18_maintenance_amendments': len(maintenance),
             'recovered_h1_preimages': len(recovery['files']),
             'errors': errors, 'passed': not errors, 'section_complete': False,
             'product_accepted': False}

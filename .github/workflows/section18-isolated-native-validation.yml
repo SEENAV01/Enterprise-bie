@@ -140,6 +140,7 @@ jobs:
         run: |
           dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
       - name: Complete canonical gate in a valid D-Bus session
+        # This full gate still requires ALL prior native gates to be green.
         run: |
           set -euo pipefail
           command -v dbus-run-session
@@ -210,6 +211,15 @@ jobs:
           PY
           python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
           BASH
+      - name: Independent complete Section 17 maintenance gate, never waiving render
+        if: ${{ always() && steps.components.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python -B tools/run_section18_campaign_regression.py --output "$RUNNER_TEMP/section18-evidence/campaign-race"
+          python -B tools/run_section18_posix_validation.py --scope campaign-race --output "$RUNNER_TEMP/section18-evidence/campaign-security"
+          python -B scripts/verify_section17_adoption.py --output "$RUNNER_TEMP/section18-evidence/campaign-adoption.json"
+          BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)" dbus-run-session -- \
+            python -B scripts/section17_gate.py --output-dir "$RUNNER_TEMP/section18-evidence/section17-maintenance"
       - name: Exact supplied corpus and adoption verification
         if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
         run: python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
