@@ -104,6 +104,10 @@ jobs:
         env:
           BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
         run: python -B tools/diagnose_section18_browser_memory.py --output "$RUNNER_TEMP/section18-evidence/browser-memory-diagnostic"
+      - name: Investigate existing pinned headless build without promoting render
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: python -B tools/diagnose_section18_browser_compatibility.py --output "$RUNNER_TEMP/section18-evidence/browser-compatibility-diagnostic"
       - name: Section 18 explicit local and native gates
         id: components
         env:
