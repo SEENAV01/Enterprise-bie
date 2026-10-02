@@ -16,7 +16,9 @@ let socket;const contexts=new Map(),sessions=new Map(),diagnostics=[];
 const pending=new Map();let seq=0;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function call(method,params={},sessionId=null){
- const id=++seq;return await new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(new Error('CDP_TIMEOUT'));},10000);
+ // Never include params/expression: they can contain the operator credential.
+ // Keep the original deadline; capture which real protocol call timed out.
+ const id=++seq;return await new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(new Error('CDP_TIMEOUT:'+method+':'+id));},10000);
  pending.set(id,{resolve,reject,timer});socket.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));});
 }
 async function evaluate(expression){

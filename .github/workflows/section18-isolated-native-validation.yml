@@ -73,6 +73,7 @@ jobs:
           npm install --ignore-scripts --no-audit --no-fund
           printf 'BIE_SECTION18_RENDER_PROJECT=%s\n' "$project" >> "$GITHUB_ENV"
       - name: Section 18 explicit local and native gates
+        id: components
         env:
           BIE_SECTION18_BROWSER: /opt/bie-game-chromium/chrome
         run: |
@@ -94,8 +95,16 @@ jobs:
           python -B tools/run_section18_posix_validation.py --scope wasm-bounds --output "$RUNNER_TEMP/section18-evidence/native-wasm-bounds"
           python -B tools/run_section18_posix_validation.py --scope bundle-cache --output "$RUNNER_TEMP/section18-evidence/native-bundle-cache"
           python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
-          dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
+      - name: Genuine native render gate
+        id: native-render
+        run: |
           python -B tools/run_section18_posix_validation.py --scope render --output "$RUNNER_TEMP/section18-evidence/native-render"
+      - name: Independent actual browser gate
+        if: ${{ always() && steps.components.outcome == 'success' }}
+        env:
+          BIE_SECTION18_BROWSER: /opt/bie-game-chromium/chrome
+        run: |
+          dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail
