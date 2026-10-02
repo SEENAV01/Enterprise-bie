@@ -19,6 +19,9 @@ sys.path.insert(0, str(ROOT))
 
 def load(relative):
     path = ROOT / relative
+    parent = str(path.parent)
+    if parent not in sys.path:
+        sys.path.insert(1, parent)
     name = 's18_posix_' + hashlib.sha256(relative.encode()).hexdigest()[:12]
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
