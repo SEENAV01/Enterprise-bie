@@ -16,7 +16,7 @@ async function evaluate(expression){
  const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});
  if(r.exceptionDetails)throw new Error('BROWSER_EXPRESSION_FAILED');return r.result.value;
 }
-async function until(expression){for(let n=0;n<100;n++){if(await evaluate(expression))return;await sleep(100);}throw new Error('BROWSER_STATE_TIMEOUT');}
+async function until(expression){for(let n=0;n<100;n++){if(await evaluate(expression))return;await sleep(100);}throw new Error('BROWSER_STATE_TIMEOUT:'+expression.slice(0,180));}
 function assert(value,code){if(!value)throw new Error(code);}
 try{
  let tabs;for(let n=0;n<300;n++){try{tabs=await (await fetch('http://127.0.0.1:'+debugPort+'/json/list')).json();break;}catch{}await sleep(100);}
@@ -166,7 +166,10 @@ try{
   assert(await evaluate("!document.getElementById('admin-content').textContent.includes('Canonical queueREADY')"),'QUEUE_FILTER_IGNORED');
   await evaluate("document.getElementById('admin-dead-letters').click()");
   await until("document.getElementById('admin-content').textContent.includes('DEAD_LETTER') && document.body.getAttribute('aria-busy')==='false'");
-  await evaluate("[...document.querySelectorAll('#admin-content button')].find(b=>b.textContent==='Open dead-letter events and recovery').click()");
+  // Desktop also created a genuinely cancelled queued run above. It correctly
+  // has a non-recoverable dead letter. Select the FAILED parent (READY admission),
+  // not whichever hash-sorted run happens to be first in a fresh fixture.
+  await evaluate("[...document.querySelectorAll('#admin-content article')].find(a=>a.textContent.includes('Executor admissionREADY')).querySelector('button').click()");
   await until("document.getElementById('admin-detail').textContent.includes('CREATE_GOVERNED_CHILD_RETRY') && document.body.getAttribute('aria-busy')==='false'");
   assert(await evaluate("document.querySelectorAll('#admin-detail tbody tr').length===3"),'DEADLETTER_CANONICAL_EVENTS_MISSING');
   await evaluate("[...document.querySelectorAll('#admin-detail button')].find(b=>b.textContent==='Create governed child retry').click()");
