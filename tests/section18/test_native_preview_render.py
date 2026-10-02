@@ -31,8 +31,18 @@ class NativePreviewRender(Base):
         cls.project=Path(raw).absolute()
         source=require_h3_workspace(cls.project)
         comp=CompositionDescriptor('BieQA'+digest('section18-native-preview')[:16],640,360,12,6)
+        # The default /opt copy used by GAME is deliberately absent inside the
+        # compiler chroot. CI provisions that exact browser under the existing
+        # read-only /usr mount; no namespace/mount/resource policy expansion.
+        browser=os.environ.get('BIE_SECTION18_RENDER_BROWSER')
+        if not browser:raise RuntimeError('explicit sandbox-visible browser required; no auto-download')
+        binary=Path(browser)
+        if binary.is_symlink() or not binary.is_file() or not binary.is_relative_to('/usr'):
+            raise RuntimeError('sandbox-visible browser must be a regular /usr tool')
+        with binary.open('rb') as stream:
+            if stream.read(4)!=b'\x7fELF':raise RuntimeError('native browser ELF required')
         request=RenderRequest(str(cls.project),'src/index.ts',comp,'out/preview.mp4',source.scene_fingerprint,
-                              'operator18-native-preview',browser_executable='/opt/bie-game-chromium/chrome',timeout_s=120)
+                              'operator18-native-preview',browser_executable=str(binary),timeout_s=120)
         cls.receipt=full_render(request)
         if not cls.receipt.passed:
             # Retain exact native typecheck evidence from the canonical producer.

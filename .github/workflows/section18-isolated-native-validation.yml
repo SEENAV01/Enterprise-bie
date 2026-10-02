@@ -48,6 +48,34 @@ jobs:
           ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
       - name: Install approved Section 15 isolated browser profile
         run: bash .integration/tools/setup_game_ci.sh
+      - name: Provision exact same native browser within existing compiler tool mount
+        run: |
+          set -euo pipefail
+          test ! -e /usr/local/lib/bie-section18-chromium
+          sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
+          cmp /opt/bie-game-chromium/chrome /usr/local/lib/bie-section18-chromium/chrome
+          mkdir -p "$RUNNER_TEMP/section18-evidence"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os
+          original=Path('/opt/bie-game-chromium');installed=Path('/usr/local/lib/bie-section18-chromium')
+          rows=[]
+          for old in sorted(original.rglob('*')):
+              new=installed/old.relative_to(original)
+              if old.is_symlink():
+                  assert new.is_symlink() and os.readlink(old)==os.readlink(new)
+              elif old.is_file():
+                  a=hashlib.sha256(old.read_bytes()).hexdigest();b=hashlib.sha256(new.read_bytes()).hexdigest()
+                  assert a==b
+                  rows.append({'path':str(old.relative_to(original)),'sha256':a})
+          assert rows and (installed/'chrome').read_bytes()[:4]==b'\x7fELF'
+          receipt={'schema':'bie.section18.browser-provisioning/1','files':rows,
+                   'source':'EXISTING_PINNED_PLAYWRIGHT_CHROMIUM','mount_policy_changed':False,
+                   'sandbox_browser':'/usr/local/lib/bie-section18-chromium/chrome','product_accepted':False}
+          out=Path(os.environ['RUNNER_TEMP'])/'section18-evidence/browser-provisioning.json'
+          out.write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps({'files_identical':len(rows),'mount_policy_changed':False}))
+          PY
       - name: Install scoped QA profile without downgrading canonical PDF dependencies
         run: |
           set -euo pipefail
@@ -97,6 +125,8 @@ jobs:
           python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
       - name: Genuine native render gate
         id: native-render
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
         run: |
           python -B tools/run_section18_posix_validation.py --scope render --output "$RUNNER_TEMP/section18-evidence/native-render"
       - name: Independent actual browser gate
