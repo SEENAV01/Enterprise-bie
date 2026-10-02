@@ -64,6 +64,14 @@ jobs:
           test -x "$BIE_SECTION17_CHROMIUM"
       - name: Install existing API test extras for the operator boundary
         run: python -m pip install -e ".[document-intelligence,document-intelligence-layout,api,api-test]"
+      - name: Prepare genuine canonical synthetic render project
+        run: |
+          set -euo pipefail
+          project="$RUNNER_TEMP/section18-native-render"
+          python -B tools/prepare_section18_native_render.py --destination "$project"
+          cd "$project"
+          npm install --ignore-scripts --no-audit --no-fund
+          printf 'BIE_SECTION18_RENDER_PROJECT=%s\n' "$project" >> "$GITHUB_ENV"
       - name: Section 18 explicit local and native gates
         env:
           BIE_SECTION18_BROWSER: /opt/bie-game-chromium/chrome
@@ -74,7 +82,14 @@ jobs:
           python -B tools/run_section18_tests.py --lane atomic --output "$RUNNER_TEMP/section18-evidence/atomic"
           python -B tools/run_section18_tests.py --lane regression --output "$RUNNER_TEMP/section18-evidence/regression"
           python -B tools/run_section18_tests.py --lane qa-regression --output "$RUNNER_TEMP/section18-evidence/qa-regression"
-          python -B tools/run_section18_posix_validation.py --output "$RUNNER_TEMP/section18-evidence/posix"
+          python -B tools/section18_process_controls.py "$RUNNER_TEMP/section18-evidence/h1-003-qualified-controls.json"
+          python -B tools/run_section18_posix_validation.py --scope repair --output "$RUNNER_TEMP/section18-evidence/posix"
+          # Canonical GAME's disposable supervisor must chown its private
+          # browser profile before dropping the browser to UID/GID 65534.
+          # Only this explicit native test process is elevated; no secrets.
+          sudo -n env "PATH=$PATH" "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-}" PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 \
+            "$(command -v python)" -B tools/run_section18_posix_validation.py --scope game --output "$RUNNER_TEMP/section18-evidence/native-game"
+          python -B tools/run_section18_posix_validation.py --scope render --output "$RUNNER_TEMP/section18-evidence/native-render"
           python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
           dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
       - name: Complete canonical gate in a valid D-Bus session

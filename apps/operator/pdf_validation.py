@@ -11,6 +11,7 @@ import sys
 import threading
 from .contracts import require, strict_json, MAX_PDF_BYTES
 from .process_limits import PdfProcessBudget
+from .process_supervision import child_environment
 
 CHILD = Path(__file__).with_name('pdf_validation_child.py')
 
@@ -21,9 +22,7 @@ def inspect_source(data, budget=None):
     require(type(budget) is PdfProcessBudget, 'pdf_process_budget_invalid', 400)
     # Explicit narrow environment. Do not propagate API/provider credentials,
     # PYTHONPATH, user-site settings or arbitrary execution configuration.
-    env = {key: value for key, value in os.environ.items() if key in
-           ('SystemRoot', 'WINDIR', 'TEMP', 'TMP', 'TMPDIR', 'LANG', 'LC_ALL', 'LD_LIBRARY_PATH')}
-    env.update(PYTHONDONTWRITEBYTECODE='1', PYTHONUTF8='1')
+    env = child_environment()
     process = subprocess.Popen([sys.executable, '-I', '-B', str(CHILD),
                                 str(budget.memory_bytes), str(budget.cpu_seconds)],
                                stdin=subprocess.PIPE, stdout=subprocess.PIPE,

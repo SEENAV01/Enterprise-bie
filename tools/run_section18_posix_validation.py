@@ -33,18 +33,26 @@ def load(relative):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--scope', choices=('all', 'repair', 'game', 'render'), default='all')
     args = parser.parse_args()
     if os.name != 'posix' or not hasattr(os, 'O_NOFOLLOW'):
         raise SystemExit('NOT_RUN: supported POSIX required; no security fallback')
-    repair = load('tests/section18/test_posix_assurance.py')
-    game = load('tests/section18/test_native_preview_game.py')
-    release = load('tests/section17/test_rel_004.py')
-    cases = list(unittest.defaultTestLoader.loadTestsFromTestCase(repair.NativePosixRepair))
-    cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(game.NativePreviewGame))
-    cases.extend(release.ReleaseLedger004(name) for name in
-                 ('test_symlink_database_refused', 'test_symlink_parent_refused'))
+    cases = []
+    if args.scope in ('all', 'repair'):
+        repair = load('tests/section18/test_posix_assurance.py')
+        release = load('tests/section17/test_rel_004.py')
+        cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(repair.NativePosixRepair))
+        cases.extend(release.ReleaseLedger004(name) for name in
+                     ('test_symlink_database_refused', 'test_symlink_parent_refused'))
+    if args.scope in ('all', 'game'):
+        game = load('tests/section18/test_native_preview_game.py')
+        cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(game.NativePreviewGame))
+    if args.scope in ('all', 'render'):
+        render = load('tests/section18/test_native_preview_render.py')
+        cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(render.NativePreviewRender))
     ids = [case.id() for case in cases]
-    assert len(ids) == len(set(ids)) == 8
+    expected = dict(all=11, repair=5, game=3, render=3)[args.scope]
+    assert len(ids) == len(set(ids)) == expected
     transcript = io.StringIO()
     result = unittest.TextTestRunner(stream=transcript, verbosity=2).run(unittest.TestSuite(cases))
     origins = {}
@@ -58,7 +66,11 @@ def main():
     receipt = dict(schema='bie.section18.posix-validation/1', tests_run=result.testsRun,
                    unique_method_ids=ids, failures=len(result.failures), errors=len(result.errors),
                    skipped=len(result.skipped), passed=result.wasSuccessful() and not result.skipped,
-                   origins=origins, real_native_repair_methods=3, real_native_game_methods=3, inherited_symlink_methods=2,
+                   origins=origins, scope=args.scope,
+                   real_native_repair_methods=3 if args.scope in ('all', 'repair') else 0,
+                   real_native_game_methods=3 if args.scope in ('all', 'game') else 0,
+                   real_native_render_methods=3 if args.scope in ('all', 'render') else 0,
+                   inherited_symlink_methods=2 if args.scope in ('all', 'repair') else 0,
                    security_guards_modified=False, synthetic_evidence=True,
                    real_book_acceptance=False, product_accepted=False)
     args.output.mkdir(parents=True, exist_ok=True)

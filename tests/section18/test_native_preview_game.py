@@ -22,6 +22,7 @@ class NativePreviewGame(Base):
     @classmethod
     def setUpClass(cls):
         if sys.platform!='linux':raise RuntimeError('supported native Linux required; no fixture fallback')
+        if os.geteuid()!=0:raise RuntimeError('approved disposable CI supervisor required; browser drops to canonical non-root UID')
         cls.workspace=tempfile.TemporaryDirectory(prefix='bie-app18-native-game-')
         cls.ctx,assets=build_inputs()
         cls.built=build_runtime_package(cls.ctx,assets,Path(cls.workspace.name))
