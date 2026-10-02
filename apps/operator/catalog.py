@@ -88,6 +88,8 @@ class Catalog:
         previous = '0'*64; n = 0; last = None
         for row in db.execute('SELECT * FROM audit ORDER BY n'):
             body = json.loads(row['body']); n += 1
+            if hasattr(self,'storage_policy_sha256') and 'storage_policy_sha256' in body:
+                require(body['storage_policy_sha256']==self.storage_policy_sha256,'cas_policy_tampered')
             require(row['n']==n and row['prev']==previous and
                     row['sha']==digest(dict(n=n,body=body,previous=previous)), 'catalog_tampered')
             previous, last = row['sha'], body
@@ -121,6 +123,7 @@ class Catalog:
             require(stats['events']+stats['reserved']<self.budget.max_events,'audit_capacity_reached',429)
         body = dict(actor=actor,action=action,target=target,timestamp=timestamp(),
                     details=details or {},projection=self.projection(db))
+        if hasattr(self,'storage_policy_sha256'):body['storage_policy_sha256']=self.storage_policy_sha256
         if tenant is not None:
             body.update(tenant=tenant,before_hash=before_hash,after_hash=after_hash,authorization=authorization)
         sha = digest(dict(n=n,body=body,previous=prev))

@@ -29,6 +29,16 @@ async function adminLoad(kind,more=false){const epoch=authEpoch,serial=++adminSe
    }else if(kind==='workers'){
     fields(article.appendChild(document.createElement('div')),{'Run':item.run_id,'Capabilities':item.capability_tags.join(', '),'Lifecycle':item.lifecycle,'Health':item.health,'Liveness':item.liveness,'Heartbeat':item.heartbeat_at,'Heartbeat mode':item.heartbeat_refresh_mode,'Capacity':item.capacity,'Recorded active tasks':item.active_tasks,'Actual queue':item.queue_state,'Lease':item.lease_status,'Outcome':item.outcome||'None','Process death inferred':'No','Measured hardware resources':'No'});
     qualityTable(article,'Actual lease-owned workload',['Run','Stage','Task'],item.current_workload.map(w=>[w.run_id,w.stage_id,w.task_id]));
+    const reconcile=document.createElement('button');reconcile.textContent='Fence abandoned dispatch; preserve job';
+    reconcile.disabled=!item.can_reconcile;
+    reconcile.onclick=()=>action(async()=>{
+     const identity=`worker-reconcile:${item.worker_id}:${item.record_sha256}`;
+     const result=await api('admin/workers/'+item.worker_id+'/reconcile','POST',
+       {expected_record_sha256:item.record_sha256,idempotency_key:adminIntent(identity)});
+     if(epoch!==authEpoch||serial!==adminSerial)throw new Error('stale_admin_response');
+     await adminLoad('workers');notice('Dispatch admission fenced; job remains '+result.engine_state+
+       ' / '+result.queue_state+'. No process termination or automatic retry is claimed.');
+    });article.append(reconcile);
    }else{
     fields(article.appendChild(document.createElement('div')),{'Run':item.run_id,'Canonical queue':item.state,'Stage':item.stage_id,'Attempt':item.attempt,'Deliveries':item.delivery_count,'Delivery ceiling':item.max_deliveries,'Consumer':item.consumer_id||'None','Lease':item.lease_status,'Visible at':item.visible_at,'Executor admission':item.executor_admission,'Source hash':item.source_hash,'Reason code':item.reason_code,'Reason hash':item.reason_sha256,'Queue digest':item.queue_digest});
     if(item.state==='DEAD_LETTER'){const detail=document.createElement('button');detail.textContent='Open dead-letter events and recovery';detail.onclick=()=>action(()=>adminDeadLetter(item.run_id));article.append(detail);}

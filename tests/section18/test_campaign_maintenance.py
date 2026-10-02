@@ -31,3 +31,6 @@ class CampaignMaintenance(unittest.TestCase):
     def test_exact_lf_git_preimage_remains_valid_without_semantic_reconstruction(self):
         self.before.write_bytes(self.before.read_bytes().replace(b'\r\n',b'\n'))
         self.assertEqual(gate.verified_maintenance(),{gate.CAMPAIGN_PATH:gate.CAMPAIGN_REPLACEMENT})
+    def test_exact_lf_git_amendment_document_remains_valid(self):
+        self.document.write_bytes(self.document.read_bytes().replace(b'\r\n',b'\n'))
+        self.assertEqual(gate.verified_maintenance(),{gate.CAMPAIGN_PATH:gate.CAMPAIGN_REPLACEMENT})

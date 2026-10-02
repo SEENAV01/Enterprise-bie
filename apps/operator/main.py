@@ -216,6 +216,14 @@ def create_app(service):
     def queue_view(request:Request,after:str|None=None,limit:int=25,state:str|None=None):
         return administration.queue(principal(request,'admin_read'),after,limit,state)
 
+    @app.post('/operator/v1/admin/workers/{worker_id}/reconcile')
+    async def reconcile_worker(worker_id:str,request:Request):
+        p=principal(request,'admin_recover');body=await body_json(request)
+        require(type(body) is dict and set(body)=={'expected_record_sha256','idempotency_key'},
+                'invalid_worker_recovery',400)
+        return await run_in_threadpool(administration.reconcile_worker,p,worker_id,
+                                      body['expected_record_sha256'],body['idempotency_key'])
+
     @app.get('/operator/v1/admin/dead-letters/{run_id}')
     def dead_letter(run_id:str,request:Request,after_sequence:int=0,limit:int=25):
         return administration.dead_letter(principal(request,'admin_read'),run_id,after_sequence,limit)

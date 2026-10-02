@@ -21,6 +21,13 @@ control uses the approved flag. All controls require exact Node22.16, unchanged
 native policy receipts and installed dependency identity; no process/witness
 double or budget widening is permitted.
 
-Native execution is PENDING until exact-head hosted receipts are inspected.
+The five genuine Wasm controls and two existing bundle-cache controls passed
+on retained Attempts010–013, including exact candidate400ff493 on run37041268764.
+Attempt013 artifact11242159751 has archive SHA256
+`bea31fe2110057f3d51602b6c5e410aaf45c32621a3bbdd2eb440255217a2997`.
+The real approved bundle passed with immutable dependencies; the original
+unflagged Wasm failure, real OOB trap and OS-bound controls remained active.
+This does not establish native render PASS: genuine Chromium launch exited
+SIGTRAP under the unchanged policy. Its independent first cause remains open.
 These are synthetic technical controls, not real-book/product acceptance.
 Attempt009 and earlier failed artifacts remain immutable. Task028 remains paused.

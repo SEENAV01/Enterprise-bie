@@ -6,6 +6,7 @@ Existing data above these ceilings needs an explicit governed storage decision.
 """
 from dataclasses import dataclass,fields
 from pathlib import Path
+import stat
 from .contracts import private_path,require
 
 TABLES=('sources','intents','graphs','provider_versions','workers','governance_versions','governance_active','audit_reservations','control_operations')
@@ -33,8 +34,14 @@ class CatalogBudget:
         path=Path(path)
         for suffix,limit in (('',self.max_database_bytes),('-wal',self.max_wal_bytes),('-shm',1024*1024)):
             target=private_path(path.parent,path.name+suffix)
-            require(not target.exists() or (target.is_file() and target.stat().st_size<=limit),
-                    'catalog_storage_capacity_reached',503)
+            # A last SQLite close may remove its volatile WAL/SHM at any point.
+            # One no-follow observation avoids exists/is_file/stat TOCTOU. A
+            # missing startup file is also valid; SQLite remains authoritative.
+            try: observed=target.stat(follow_symlinks=False)
+            except FileNotFoundError: continue
+            require(stat.S_ISREG(observed.st_mode) and observed.st_nlink==1,
+                    'storage_link_rejected')
+            require(observed.st_size<=limit,'catalog_storage_capacity_reached',503)
 
     def inventory(self,db):
         rows=state_bytes=0

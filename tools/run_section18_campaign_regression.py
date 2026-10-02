@@ -9,7 +9,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     suite=unittest.TestSuite()
     for case in (CampaignSidecarRace,CampaignMaintenance):suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(case))
-    ids=[c.id() for c in suite];assert len(ids)==len(set(ids))==12
+    ids=[c.id() for c in suite];assert len(ids)==len(set(ids))==13
     transcript=io.StringIO();r=unittest.TextTestRunner(stream=transcript,verbosity=2).run(suite)
     receipt=dict(schema='bie.section18.campaign-maintenance-controls/1',tests_run=r.testsRun,
         unique_method_ids=ids,failures=len(r.failures),errors=len(r.errors),skipped=len(r.skipped),

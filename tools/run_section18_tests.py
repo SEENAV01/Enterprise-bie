@@ -54,11 +54,11 @@ def flatten(suite):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--lane',choices=['atomic','regression','qa-regression','browser'],default='atomic')
-    p.add_argument('--task');p.add_argument('--batch',choices=['001','002','003','003b','003c','003d','003e','004','h1b','h1c','all'],default='all');p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+    p.add_argument('--task');p.add_argument('--batch',choices=['001','002','003','003b','003c','003d','003e','004','h1b','h1c','h1d','all'],default='all');p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     a.output.mkdir(parents=True,exist_ok=True)
     if a.lane=='atomic':
         suite=unittest.TestSuite()
-        for batch in (('001','002','003','003b','003c','003d','003e','004','h1b','h1c') if a.batch=='all' else (a.batch,)):
+        for batch in (('001','002','003','003b','003c','003d','003e','004','h1b','h1c','h1d') if a.batch=='all' else (a.batch,)):
             module=load('tests/section18/test_batch'+batch+'.py')
             if a.task is None or a.task in module.TASK_CLASSES:suite.addTests(module.selected_suite(a.task))
         assert suite.countTestCases()>0,'UNKNOWN_ATOMIC_TASK'

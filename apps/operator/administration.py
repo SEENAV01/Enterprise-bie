@@ -219,15 +219,99 @@ class Administration:
         # No credential/worker registration endpoint exists; no exception details.
         require(outcome in ('ACKED','FAILED','IDLE','PAUSED','CANCELLED','TERMINAL','INTERRUPTED'),
                 'worker_outcome_invalid');ident(worker_id)
-        with self.s.catalog.tx(reservation=worker_id) as db:
+        with self.s.catalog.tx(read_only=True) as db:
             row=db.execute('SELECT body FROM workers WHERE id=? AND tenant=?',(worker_id,p.tenant)).fetchone()
-            require(row is not None,'worker_not_found',404);body=json.loads(row[0])
-            require(body['state']=='DISPATCHING','worker_already_finished')
-            body.update(state='STOPPED',timestamp=time.time(),finished_at=time.time(),active_tasks=0,
-                        error_rate=1.0 if outcome in ('FAILED','INTERRUPTED') else 0.0,outcome=outcome)
-            db.execute('UPDATE workers SET body=? WHERE id=?',(canonical(body).decode(),worker_id))
-            self.s.catalog.event(db,p.actor,'WORKER_DISPATCH_FINISHED',worker_id,
-                                 dict(run_id=body['run_id'],outcome=outcome),reservation=worker_id,final_reservation=True)
+            require(row is not None,'worker_not_found',404)
+            previous=json.loads(row[0])
+            if previous['state']=='STOPPED' and 'reconciliation' in previous:
+                # An authorized reconciliation may win the completion gap.
+                # It already released credits; never append a second completion.
+                return
+        try:
+            with self.s.catalog.tx(reservation=worker_id) as db:
+                row=db.execute('SELECT body FROM workers WHERE id=? AND tenant=?',(worker_id,p.tenant)).fetchone()
+                require(row is not None,'worker_not_found',404);body=json.loads(row[0])
+                require(body['state']=='DISPATCHING','worker_already_finished')
+                body.update(state='STOPPED',timestamp=time.time(),finished_at=time.time(),active_tasks=0,
+                            error_rate=1.0 if outcome in ('FAILED','INTERRUPTED') else 0.0,outcome=outcome)
+                db.execute('UPDATE workers SET body=? WHERE id=?',(canonical(body).decode(),worker_id))
+                self.s.catalog.event(db,p.actor,'WORKER_DISPATCH_FINISHED',worker_id,
+                                     dict(run_id=body['run_id'],outcome=outcome),reservation=worker_id,final_reservation=True)
+        except OperatorError as e:
+            if e.code!='audit_reservation_missing':raise
+            # Reconciliation can win after the read above but before admission
+            # to the reserved write transaction. Verify its durable, audit-bound
+            # STOPPED record before treating the completion as already settled.
+            # A missing reservation without that record remains an error.
+            with self.s.catalog.tx(read_only=True) as db:
+                row=db.execute('SELECT body FROM workers WHERE id=? AND tenant=?',(worker_id,p.tenant)).fetchone()
+                if row is not None:
+                    body=json.loads(row[0])
+                    if body['state']=='STOPPED' and 'reconciliation' in body:return
+            raise
+
+    def check_dispatch(self,db,p,worker_id,run_id):
+        row=db.execute('SELECT body FROM workers WHERE id=? AND tenant=?',(worker_id,p.tenant)).fetchone()
+        require(row is not None,'worker_not_found',404)
+        body=json.loads(row[0])
+        require(body['state']=='DISPATCHING' and body['run_id']==run_id,'worker_dispatch_fenced')
+
+    def reconcile_worker(self,p,worker_id,expected_record_sha256,key):
+        """Fence an abandoned dispatch and release its own unused audit credits.
+
+        No process is killed, no heartbeat proves death, no queue is redriven,
+        and no job state is changed. RUNNING work remains review-only. The same
+        catalogue write lock fences a late dispatch before native processing.
+        """
+        self._auth(p,'admin_recover');ident(worker_id);ident(key)
+        require(type(expected_record_sha256) is str and HASH.fullmatch(expected_record_sha256),
+                'invalid_worker_recovery',400)
+        fingerprint=digest(dict(worker=worker_id,before=expected_record_sha256,key=key,tenant=p.tenant))
+        def read(db):
+            row=db.execute('SELECT body FROM workers WHERE id=? AND tenant=?',(worker_id,p.tenant)).fetchone()
+            require(row is not None,'worker_not_found',404)
+            return json.loads(row[0])
+        def replay(body):
+            require(body['state']=='STOPPED' and 'reconciliation' in body,'worker_not_recoverable')
+            r=body['reconciliation'];require(r['fingerprint']==fingerprint,'idempotency_conflict')
+            return dict(r['result'],replayed=True)
+        with self.s.catalog.tx(read_only=True) as db:
+            body=read(db)
+            if body['state']=='STOPPED':return replay(body)
+        try:
+            with self.s.catalog.tx(reservation=worker_id) as db:
+                self._auth(p,'admin_recover');body=read(db)
+                require(body['state']=='DISPATCHING','worker_not_recoverable')
+                require(digest(body)==expected_record_sha256,'stale_worker_record')
+                _,run=self.s.catalog.intent(db,p,body['run_id'])
+                require(run['native_job_id']==body['native_job_id'],'worker_record_invalid')
+                self.s._no_pending_control(db,p,body['run_id'])
+                with self.s.native(run) as native:
+                    _,attempt,q=self.s._snapshot(native,run)
+                    require(attempt['state']!='RUNNING','worker_recovery_requires_quiescent_state')
+                    # _snapshot verifies the full native transition/queue/CAS binding.
+                    self._queue_item(run,q,None,time.time())
+                outcome='INTERRUPTED' if attempt['state']=='READY' else 'TERMINAL'
+                result=dict(worker_id=worker_id,run_id=body['run_id'],lifecycle='STOPPED',outcome=outcome,
+                    engine_state=attempt['state'],queue_state=q.state,scope='DISPATCH_ADMISSION_ONLY',
+                    process_termination_claimed=False,job_state_modified=False,worker_dispatched=False,
+                    product_accepted=False)
+                now=time.time()
+                body.update(state='STOPPED',timestamp=now,finished_at=now,active_tasks=0,
+                    error_rate=1.0 if outcome=='INTERRUPTED' else 0.0,outcome=outcome,
+                    reconciliation=dict(fingerprint=fingerprint,before_sha256=expected_record_sha256,result=result))
+                db.execute('UPDATE workers SET body=? WHERE id=?',(canonical(body).decode(),worker_id))
+                self.s.catalog.event(db,p.actor,'WORKER_DISPATCH_RECONCILED',worker_id,
+                    dict(run_id=body['run_id'],before_sha256=expected_record_sha256,outcome=outcome,
+                         engine_state=attempt['state'],queue_state=q.state),
+                    reservation=worker_id,final_reservation=True)
+                return dict(result,replayed=False)
+        except OperatorError as e:
+            if e.code!='audit_reservation_missing':raise
+            # A concurrent same-intent reconciliation won. Read-only replay is
+            # allowed at exact quota; never borrow somebody else's credits.
+            with self.s.catalog.tx(read_only=True) as db:
+                self._auth(p,'admin_recover');return replay(read(db))
 
     def workers(self,p,after=None,limit=25):
         self._auth(p);page(after,limit);now=time.time();items=[]
@@ -265,6 +349,8 @@ class Administration:
                     lease_status=lease['lease_status'],lease_visible_at=q.visible_at if owns else None,
                     liveness='UNVERIFIED_STALE' if health=='STALE' and w['state']!='STOPPED' else w['state'],
                     outcome=w['outcome'],resources_measured=False,heartbeat_refresh_mode='START_AND_COMPLETION_ONLY',
+                    record_sha256=digest(w),can_reconcile=('admin_recover' in p.permissions and
+                        w['state']=='DISPATCHING' and attempt['state']!='RUNNING'),
                     death_inferred_from_stale=False,product_accepted=False))
         return dict(status='AVAILABLE' if items else 'NOT_RUN',items=items,next_after=items[-1]['worker_id'] if len(rows)>limit else None,
                     current_health_not_process_attestation=True,product_accepted=False)

@@ -22,17 +22,21 @@ from .contracts import (OperatorError, require, ident, digest, canonical, privat
 from .pdf_validation import inspect_source
 
 SAFE_REASONS = {'source_stored','worker_started','inspection_complete','pdf_inspection_failed',
-                'internal_worker_error','operator_cancelled'}
+                'internal_worker_error','operator_cancelled','cas_capacity_reached','cas_blob_too_large'}
 
 class Service:
-    def __init__(self, root, credentials, max_pdf_bytes=MAX_PDF_BYTES):
+    def __init__(self, root, credentials, max_pdf_bytes=MAX_PDF_BYTES,cas_limits=None):
         self.root = private_path(root)
         self.root.mkdir(parents=True,exist_ok=True)
         self.credentials = credentials
         require(type(max_pdf_bytes) is int and 0 < max_pdf_bytes <= MAX_PDF_BYTES, 'invalid_size_configuration')
         self.limit = max_pdf_bytes
         self.catalog = Catalog(self.root)
-        self.cas = FileSystemCAS(private_path(self.root,'sources-cas'))
+        from .cas_budget import CASBudget,BudgetedCAS
+        self.cas_budget=CASBudget(self.root,cas_limits)
+        self.catalog.storage_policy_sha256=self.cas_budget.policy_sha256
+        with self.catalog.tx(read_only=True):pass
+        self.cas = BudgetedCAS(private_path(self.root,'sources-cas'),self.cas_budget)
         private_path(self.root,'staging').mkdir(exist_ok=True)
         private_path(self.root,'runs').mkdir(exist_ok=True)
         from .administration import Administration
@@ -81,6 +85,8 @@ class Service:
         if root.exists():
             require(not any(p.is_symlink() for p in root.rglob('*')), 'storage_link_rejected')
         svc = PdfInspectionJobService(root)
+        from .cas_budget import BudgetedCAS
+        svc.cas = BudgetedCAS(root/'cas',self.cas_budget)
         svc.persistence = OwnedPersistence(root/'runs.sqlite3')
         try: yield svc
         finally: svc.close()
@@ -482,9 +488,12 @@ class Service:
 
     def _execute_once(self,p,run_id,worker_id):
         self.authorize(p,'worker'); ident(run_id)
+        with self.catalog.tx(read_only=True) as db:
+            self.administration.check_dispatch(db,p,worker_id,run_id)
         # This local transaction serializes dispatch/control; no distributed guarantee.
         with self.catalog.tx(reservation=worker_id) as db:
             self.authorize(p,'worker')
+            self.administration.check_dispatch(db,p,worker_id,run_id)
             row,body = self.catalog.intent(db,p,run_id)
             self._no_pending_control(db,p,run_id)
             if row['control']=='PAUSED': return {'outcome':'PAUSED','dispatched':False}
@@ -493,7 +502,22 @@ class Service:
                 _,attempt,_ = self._snapshot(native,body)
                 require(attempt['state']!='RUNNING','interrupted_worker_review_required')
                 if attempt['state']!='READY': return {'outcome':'TERMINAL','dispatched':False}
-                result = native.run_once(worker_id).to_safe_dict()
+                try:
+                    result = native.run_once(worker_id).to_safe_dict()
+                except OperatorError as e:
+                    if e.code not in ('cas_capacity_reached','cas_blob_too_large'):raise
+                    # The native failure writer also needs CAS capacity. Only
+                    # settle our proven RUNNING delivery; do not manufacture an
+                    # evidence artifact or rewrite an inconsistent transition.
+                    _,failed_attempt,q=self._snapshot(native,body)
+                    require(failed_attempt['state']=='RUNNING' and q.state=='DELIVERED' and
+                            q.consumer_id==worker_id,'quota_failure_review_required')
+                    source_id='source-'+body['native_job_id'][4:]
+                    native._transition(body['native_job_id'],'RUNNING','FAILED',input_refs=[source_id],
+                        diagnostics=[e.code],reason=e.code)
+                    native.persistence.set_run_state(body['native_job_id'],'BLOCKED')
+                    native.queue.dead_letter(q.task.task_id,e.code)
+                    result=dict(outcome='FAILED',job_id=body['native_job_id'],task_id=q.task.task_id)
             self.catalog.event(db,p.actor,'WORKER_FINISHED',run_id,dict(outcome=result['outcome']),reservation=worker_id)
         return dict(result,dispatched=True)
 

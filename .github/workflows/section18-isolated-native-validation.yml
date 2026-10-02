@@ -100,6 +100,10 @@ jobs:
           cd "$project"
           npm install --ignore-scripts --no-audit --no-fund
           printf 'BIE_SECTION18_RENDER_PROJECT=%s\n' "$project" >> "$GITHUB_ENV"
+      - name: Observe native browser reservations under the unchanged worker policy
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: python -B tools/diagnose_section18_browser_memory.py --output "$RUNNER_TEMP/section18-evidence/browser-memory-diagnostic"
       - name: Section 18 explicit local and native gates
         id: components
         env:
