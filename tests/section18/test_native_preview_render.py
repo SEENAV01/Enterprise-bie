@@ -69,6 +69,13 @@ class NativePreviewRender(Base):
         self.assertEqual(self.receipt.media.decoded_frames,6)
         self.assertTrue((self.project/self.receipt.evidence_directory/'actual-paint-witness.json').is_file())
         self.assertTrue((self.project/self.receipt.evidence_directory/'isolation.json').is_file())
+        typecheck=json.loads((self.project/self.receipt.evidence_directory/
+                              'actual-paint/typecheck/TYPECHECK.json').read_text())
+        self.assertEqual(typecheck['receipt']['status'],'PASS')
+        coverage=typecheck['executions'][0]['process']['process']['stdout']
+        self.assertIn('/work/qa-paint-helper.js',coverage)
+        self.assertIn('/work/qa-capture-entry.tsx',coverage)
+        self.assertNotIn('qa-paint-helper.d.ts',coverage)
 
     def test_actual_native_decode_cas_binding_and_range_preview(self):
         view=self.publish();self.assertEqual(view['status'],'AVAILABLE')

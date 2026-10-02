@@ -89,9 +89,10 @@ jobs:
           # Only this explicit native test process is elevated; no secrets.
           sudo -n env "PATH=$PATH" "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-}" PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 \
             "$(command -v python)" -B tools/run_section18_posix_validation.py --scope game --output "$RUNNER_TEMP/section18-evidence/native-game"
-          python -B tools/run_section18_posix_validation.py --scope render --output "$RUNNER_TEMP/section18-evidence/native-render"
+          python -B tools/run_section18_posix_validation.py --scope paint-typecheck --output "$RUNNER_TEMP/section18-evidence/native-typecheck"
           python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
           dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
+          python -B tools/run_section18_posix_validation.py --scope render --output "$RUNNER_TEMP/section18-evidence/native-render"
       - name: Complete canonical gate in a valid D-Bus session
         run: |
           set -euo pipefail

@@ -127,15 +127,21 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         helper += 'export const rasterMode = '+(support/'raster_modes.js').read_text().strip()+';\n'
         # Observer entry imports a typed trusted JS helper. No user source typechecks are relaxed.
         source=capture_entry_h8(req,'(options: {frame:number;equationFonts:Record<string,number>}) => baseMeasureImpl(options)','(options: {frame:number;equationFonts:Record<string,number>}) => paintMeasureImpl(options)')
-        source='import {baseMeasure as baseMeasureImpl,paintMeasure as paintMeasureImpl,rasterMode as rasterModeImpl} from "./qa-paint-helper";\n'+source
+        # A same-basename .d.ts shadows the executable .js in the TS program.
+        # Keep the trusted helper itself in exhaustive coverage and declare its
+        # observation boundary in the strict observer, not a shadowing module.
+        source='''import {baseMeasure as rawBaseMeasure,paintMeasure as rawPaintMeasure,rasterMode as rawRasterMode} from "./qa-paint-helper";
+const baseMeasureImpl: (options:{frame:number;equationFonts:Record<string,number>}) => unknown[] = rawBaseMeasure;
+const paintMeasureImpl: (options:{frame:number;equationFonts:Record<string,number>}) => unknown[] = rawPaintMeasure;
+const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
+'''+source
         (stage/'qa-capture-entry.tsx').write_text(source)
         (stage/'qa-paint-helper.js').write_text(helper)
-        (stage/'qa-paint-helper.d.ts').write_text('export function baseMeasure(options:{frame:number;equationFonts:Record<string,number>}):unknown[];\nexport function paintMeasure(options:{frame:number;equationFonts:Record<string,number>}):unknown[];\nexport function rasterMode(options:unknown):unknown;\n')
         (stage/'capture-request.json').write_bytes(canonical_json(req))
-        # Strict TS remains enabled. Only trusted JS measurement helpers use declarations.
+        # Strict TS and exhaustive source coverage remain enabled.
         stage_cfg=json.loads((stage/'tsconfig.json').read_text())
         stage_cfg['compilerOptions'].update(allowJs=True,checkJs=False)
-        stage_cfg['include']+=['qa-capture-entry.tsx','qa-paint-helper.js','qa-paint-helper.d.ts']
+        stage_cfg['include']+=['qa-capture-entry.tsx','qa-paint-helper.js']
         (stage/'tsconfig.json').write_bytes(canonical_json(stage_cfg))
         tc=isolated_typecheck(stage,node=node,evidence_directory=out/'typecheck')
         if tc.status!='PASS':raise CompilerQAError('ACTUAL_PAINT_TYPECHECK_BLOCKED:'+tc.status)

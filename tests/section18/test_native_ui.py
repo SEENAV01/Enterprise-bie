@@ -76,10 +76,26 @@ class NativeUi(unittest.TestCase):
                             self.assertEqual(r.status,200);break
                     except OSError:time.sleep(.1)
                 else:self.fail('Native HTTP server did not start')
-                result=subprocess.run(['node',str(ROOT/'tests/section18/browser_journey.mjs'),str(browser),
+                command=['node',str(ROOT/'tests/section18/browser_journey.mjs'),str(browser),
                     str(root/'edge-profile'),str(debug_port),f'http://127.0.0.1:{http_port}/',run,mode,str(fixture),
-                    'batch004' if batch004 else 'batch003d' if batch003d else 'batch003c' if batch003c else 'batch003b' if batch003b else 'batch003' if batch003 else 'batch002' if batch002 else 'batch001'],
-                    cwd=ROOT,env=env,capture_output=True,text=True,timeout=90)
+                    'batch004' if batch004 else 'batch003d' if batch003d else 'batch003c' if batch003c else 'batch003b' if batch003b else 'batch003' if batch003 else 'batch002' if batch002 else 'batch001']
+                if os.name=='nt':
+                    from windows_browser_lifecycle import WindowsBrowserJob
+                    job=WindowsBrowserJob();node=None
+                    try:
+                        node=subprocess.Popen(command,cwd=ROOT,env=env,stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,creationflags=subprocess.CREATE_NO_WINDOW)
+                        job.attach(node)
+                        stdout,stderr=node.communicate('GO\n',timeout=90)
+                        result=subprocess.CompletedProcess(command,node.returncode,stdout,stderr)
+                    finally:
+                        job.close()
+                        if node is not None:
+                            if node.poll() is None:node.kill();node.wait(timeout=5)
+                            for stream in (node.stdin,node.stdout,node.stderr):
+                                if stream is not None:stream.close()
+                else:
+                    result=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True,timeout=90)
                 self.assertEqual(result.returncode,0,result.stderr)
                 receipt=json.loads(result.stdout);self.assertTrue(receipt['passed']);self.assertTrue(receipt['ax_tree'])
                 self.assertEqual(service.status(p,run)['status'],'READY')

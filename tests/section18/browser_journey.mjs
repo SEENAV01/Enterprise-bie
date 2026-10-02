@@ -2,6 +2,13 @@
 import {spawn} from 'node:child_process';
 import fs from 'node:fs';
 const [browser,profile,debugPort,base,runId,mode,fixture,scenario]=process.argv.slice(2);
+if(process.platform==='win32'){
+ // The Python parent owns a private Job Object. Do not launch a browser before
+ // assignment, including when job creation/assignment fails closed.
+ const gate=await new Promise(resolve=>{process.stdin.once('data',data=>resolve(data));process.stdin.once('end',()=>resolve(null));process.stdin.resume();});
+ if(!gate || !['GO\n','GO\r\n'].includes(gate.toString()))throw new Error('WINDOWS_BROWSER_OWNERSHIP_NOT_ESTABLISHED');
+ process.stdin.pause();
+}
 const child=spawn(browser,['--headless=new','--no-first-run','--no-default-browser-check',
   '--remote-debugging-address=127.0.0.1','--remote-debugging-port='+debugPort,
   '--user-data-dir='+profile,'about:blank'],{stdio:'ignore',windowsHide:true});
