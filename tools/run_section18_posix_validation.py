@@ -33,7 +33,7 @@ def load(relative):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--scope', choices=('all', 'repair', 'game', 'render', 'paint-typecheck'), default='all')
+    parser.add_argument('--scope', choices=('all', 'repair', 'game', 'render', 'paint-typecheck', 'bundle-cache'), default='all')
     args = parser.parse_args()
     if os.name != 'posix' or not hasattr(os, 'O_NOFOLLOW'):
         raise SystemExit('NOT_RUN: supported POSIX required; no security fallback')
@@ -53,8 +53,11 @@ def main():
     if args.scope in ('all', 'paint-typecheck'):
         paint = load('tests/section18/test_native_paint_typecheck.py')
         cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(paint.NativePaintTypecheck))
+    if args.scope in ('all', 'bundle-cache'):
+        cache = load('tests/section18/test_native_bundle_cache.py')
+        cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(cache.NativeBundleCache))
     ids = [case.id() for case in cases]
-    expected = dict(all=15, repair=5, game=3, render=3, **{'paint-typecheck':4})[args.scope]
+    expected = dict(all=17, repair=5, game=3, render=3, **{'paint-typecheck':4, 'bundle-cache':2})[args.scope]
     assert len(ids) == len(set(ids)) == expected
     transcript = io.StringIO()
     result = unittest.TextTestRunner(stream=transcript, verbosity=2).run(unittest.TestSuite(cases))
@@ -74,6 +77,7 @@ def main():
                    real_native_game_methods=3 if args.scope in ('all', 'game') else 0,
                    real_native_render_methods=3 if args.scope in ('all', 'render') else 0,
                    real_native_typecheck_methods=4 if args.scope in ('all', 'paint-typecheck') else 0,
+                   real_native_bundle_cache_methods=2 if args.scope in ('all', 'bundle-cache') else 0,
                    inherited_symlink_methods=2 if args.scope in ('all', 'repair') else 0,
                    security_guards_modified=False, synthetic_evidence=True,
                    real_book_acceptance=False, product_accepted=False)

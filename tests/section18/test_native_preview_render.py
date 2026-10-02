@@ -46,7 +46,7 @@ class NativePreviewRender(Base):
                 if len(raw)<=8*1024**2:
                     report=json.loads(raw);gate=report['receipt']
                     cls.failure_diagnostic.update(typecheck_status=gate['status'],
-                        listed_sources=[line.rsplit('/',1)[-1] for line in gate['stdout'].splitlines()
+                        listed_sources=[line.rsplit('/',1)[-1] for line in report['executions'][0]['process']['process']['stdout'].splitlines()
                                         if '/node_modules/' not in line],
                         processes=[dict(outcome=e['process']['outcome'],
                                         started=e['process']['started'],
