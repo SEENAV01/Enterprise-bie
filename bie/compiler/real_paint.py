@@ -145,10 +145,13 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
         (stage/'tsconfig.json').write_bytes(canonical_json(stage_cfg))
         tc=isolated_typecheck(stage,node=node,evidence_directory=out/'typecheck')
         if tc.status!='PASS':raise CompilerQAError('ACTUAL_PAINT_TYPECHECK_BLOCKED:'+tc.status)
-        process,kernel=run_isolated([str(node),'/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json'],
+        # Use inline Wasm bounds checks under the unchanged 8 GiB address ceiling.
+        # The option is scoped to this Wasm-using producer, never NODE_OPTIONS.
+        command=[str(node),'--disable-wasm-trap-handler','/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json']
+        process,kernel=run_isolated(command,
                                    workspace=stage,engine=Path(__file__).resolve().parents[2],writable=['capture-output'],
                                    policy=policy or WorkerPolicy(),timeout_s=max(120,min(3600,n*4)),max_output_bytes=8*1024**2)
-        (out/'PROCESS.json').write_bytes(canonical_json({'process':asdict(process),'kernel_policy':kernel}))
+        (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
         if not process.process.passed:raise CompilerQAError('ACTUAL_PAINT_EXECUTION_BLOCKED:'+process.outcome+':'+process.process.stderr[:500])
         data=json.loads((capture/'RESULT.json').read_text())
         if data.get('scope')!='REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE' or data.get('nonce')!=nonce or data.get('real_remotion') is not True or data.get('browser_errors')!=[]:
