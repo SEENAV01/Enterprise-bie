@@ -33,6 +33,7 @@ class Catalog:
             CREATE TABLE IF NOT EXISTS governance_active(tenant TEXT NOT NULL,kind TEXT NOT NULL,body TEXT NOT NULL,
               PRIMARY KEY(tenant,kind));
             CREATE TABLE IF NOT EXISTS audit_reservations(id TEXT PRIMARY KEY,credits INTEGER NOT NULL CHECK(credits BETWEEN 1 AND 3));
+            CREATE TABLE IF NOT EXISTS control_operations(id TEXT PRIMARY KEY,tenant TEXT NOT NULL,body TEXT NOT NULL);
             ''')
             # executescript commits its initial DDL. Re-enter the transaction.
             db.execute('BEGIN IMMEDIATE')
@@ -74,7 +75,7 @@ class Catalog:
         # Addition-only schema migration: an unused new table must not invalidate
         # a verified older catalog. Once populated its complete rows are bound
         # into the same append-only projection; deletion still fails verification.
-        for t in ('provider_versions','workers','governance_versions','governance_active'):
+        for t in ('provider_versions','workers','governance_versions','governance_active','control_operations'):
             order='1,2,3,4' if t=='governance_versions' else '1,2,3'
             rows=[list(r) for r in db.execute('SELECT * FROM '+t+' ORDER BY '+order)]
             if rows:state[t]=rows
@@ -92,7 +93,7 @@ class Catalog:
             previous, last = row['sha'], body
         if last is None:
             require(all(db.execute('SELECT COUNT(*) FROM '+t).fetchone()[0] == 0
-                        for t in ('sources','intents','graphs','provider_versions','workers','governance_versions','governance_active','audit_reservations')),
+                        for t in ('sources','intents','graphs','provider_versions','workers','governance_versions','governance_active','audit_reservations','control_operations')),
                     'catalog_missing_history')
         else: require(last['projection']==self.projection(db), 'catalog_state_tampered')
         return n, previous

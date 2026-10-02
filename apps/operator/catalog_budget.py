@@ -8,7 +8,7 @@ from dataclasses import dataclass,fields
 from pathlib import Path
 from .contracts import private_path,require
 
-TABLES=('sources','intents','graphs','provider_versions','workers','governance_versions','governance_active','audit_reservations')
+TABLES=('sources','intents','graphs','provider_versions','workers','governance_versions','governance_active','audit_reservations','control_operations')
 BODY_TABLES=frozenset(TABLES)-{'graphs','audit_reservations'}
 
 @dataclass(frozen=True)

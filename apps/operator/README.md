@@ -404,3 +404,19 @@ This reserves catalogue receipts only; it does not make canonical queue,
 persistence, CAS and catalogue writes a distributed transaction. Crash/control
 reconciliation, parser-process isolation, aggregate CAS/storage quotas, producer
 trust, supported-POSIX QA003, and the full-section re-audit remain open.
+
+## Current mutable H1-003 candidate (not yet a final section seal)
+
+[H1-003 specification](../../docs/section18/H1_003_SPEC.md) supersedes the
+historical parser/cancellation observations above **only** for these tested
+scopes: source parsing is delegated to a genuinely OS-bounded child; controlled
+worker CLI execution has independent parent wall-time/output supervision; queued
+cancellation has durable intent, partial-transition replay and exact completion
+proof. Canonical engine/infrastructure code remains unchanged.
+
+The current dedicated local suite passes 31 distinct methods. A previous 590-
+method cumulative pass predates the final concurrency/worker-supervision changes
+and is retained as historical evidence, not a current full-suite receipt.
+Supported-Linux current-candidate validation, aggregate CAS/storage quotas,
+crashed-worker receipt recovery, full33 capability/security re-audit, final master
+fresh extraction and integration gates are still open. Task028 remains paused.

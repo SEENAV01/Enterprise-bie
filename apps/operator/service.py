@@ -19,6 +19,7 @@ from .catalog import Catalog, timestamp
 from .resources import OwnedPersistence
 from .contracts import (OperatorError, require, ident, digest, canonical, private_path,
                         run_options, MAX_PDF_BYTES, HASH)
+from .pdf_validation import inspect_source
 
 SAFE_REASONS = {'source_stored','worker_started','inspection_complete','pdf_inspection_failed',
                 'internal_worker_error','operator_cancelled'}
@@ -56,13 +57,7 @@ class Service:
             existing = db.execute('SELECT body FROM sources WHERE id=? AND tenant=?',(source_id,p.tenant)).fetchone()
             if existing: return dict(json.loads(existing[0]),duplicate=True)
             require(db.execute('SELECT COUNT(*) FROM sources').fetchone()[0] < 10000,'source_catalog_full',429)
-            try:
-                inspection = inspect_real_pdf(data)
-                require(inspection.source_hash == sha,'source_identity_mismatch')
-                validation = dict(status='VALID',diagnostic_codes=[],page_count=inspection.page_count,
-                                  native_text_pages=inspection.text_pages)
-            except RealPdfRuntimeError:
-                validation = dict(status='INVALID',diagnostic_codes=['pdf_validation_failed'],page_count=None,native_text_pages=None)
+            validation = inspect_source(data)
             blob = self.cas.put_bytes(data) if validation['status']=='VALID' else None
             body = dict(source_id=source_id,sha256=sha,size_bytes=len(data),media_type='application/pdf',
                         validation=validation,stored=blob is not None,source_privacy='PRIVATE_LOCAL_CAS',
@@ -228,6 +223,7 @@ class Service:
         self.authorize(p,'read'); ident(run_id)
         with self.catalog.tx(read_only=True) as db:
             row,body = self.catalog.intent(db,p,run_id)
+            self._no_pending_control(db,p,run_id)
             with self.native(body) as native:
                 snap,attempt,queue = self._snapshot(native,body)
                 engine_state = attempt['state']
@@ -321,8 +317,16 @@ class Service:
         self.authorize(p,'control'); ident(run_id)
         require(action in ('pause','resume','cancel'),'unsupported_control',400)
         require(type(expected_revision) is int and expected_revision>=1,'revision_required',400)
+        if action=='cancel':
+            key='control-cancel-'+digest(dict(tenant=p.tenant,run_id=run_id,revision=expected_revision))
+            result,coalesced=self._creation_admission.run(key,lambda:self._cancel(p,run_id,expected_revision))
+            # A waiter never inherits the owner's authorization after revocation.
+            self.authorize(p,'control')
+            if coalesced:result['replayed']=True
+            return result
         with self.catalog.tx() as db:
             row,body = self.catalog.intent(db,p,run_id)
+            self._no_pending_control(db,p,run_id)
             require(row['revision']==expected_revision,'stale_revision')
             with self.native(body) as native:
                 snap,a,q = self._snapshot(native,body)
@@ -333,19 +337,138 @@ class Service:
                 target = {'pause':'PAUSED','resume':'READY','cancel':'CANCELLED'}[action]
                 if target==row['control']: return dict(run_id=run_id,status=target,revision=row['revision'],replayed=True)
                 require(action!='resume' or row['control']=='PAUSED','run_not_paused')
-                if action=='cancel':
-                    source_refs = a['input_artifact_refs']
-                    # Queue kill precedes terminal event; a crash cannot dispatch.
-                    native.queue.dead_letter(q.task.task_id,'operator_cancelled')
-                    native.persistence.save_attempt(body['native_job_id'],PersistedAttempt(STAGE_ID,1,'BLOCKED',
-                        input_artifact_refs=source_refs,diagnostics=['operator_cancelled']))
-                    native.persistence.append_event(body['native_job_id'],PersistedEvent(0,STAGE_ID,'READY','BLOCKED',1,
-                        timestamp(),'operator_cancelled',[]))
-                    native.persistence.set_run_state(body['native_job_id'],'BLOCKED')
             db.execute('UPDATE intents SET control=?,revision=revision+1 WHERE id=?',(target,run_id))
             self.catalog.event(db,p.actor,'RUN_'+target,run_id)
         return dict(run_id=run_id,status=target,revision=expected_revision+1,replayed=False,
                     control_scope='QUEUED_OPERATOR_EXECUTOR_ONLY')
+
+    def _no_pending_control(self,db,p,run_id):
+        rows=db.execute('SELECT body FROM control_operations WHERE tenant=?',(p.tenant,))
+        require(not any(json.loads(row[0]).get('run_id')==run_id and
+                        json.loads(row[0]).get('state')=='PENDING' for row in rows),
+                'control_reconciliation_required')
+
+    def _cancel(self,p,run_id,expected_revision):
+        """Durable intent before canonical queue kill, replay exact partial steps.
+
+        This is not a cross-database atomic transaction. Pending state prevents
+        controlled dispatch; reads never claim cancelled before native proof.
+        Only an authorized identical cancel can reconcile; no automatic retry.
+        """
+        operation='cancel-'+digest(dict(tenant=p.tenant,run_id=run_id,revision=expected_revision))
+        with self.catalog.tx() as db:
+            self.authorize(p,'control')
+            row,body=self.catalog.intent(db,p,run_id)
+            existing=db.execute('SELECT body FROM control_operations WHERE id=? AND tenant=?',
+                                (operation,p.tenant)).fetchone()
+            if row['control']=='CANCELLED':
+                require(row['revision'] in (expected_revision,expected_revision+1),'stale_revision')
+                with self.native(body) as native:
+                    snap,a,q=self._snapshot(native,body)
+                    require(a['state']=='BLOCKED' and any(e['reason']=='operator_cancelled' for e in snap['events']),
+                            'cancel_receipt_missing')
+                return dict(run_id=run_id,status='CANCELLED',revision=row['revision'],replayed=True)
+            require(row['revision']==expected_revision,'stale_revision')
+            if not existing:
+                self._no_pending_control(db,p,run_id)
+                with self.native(body) as native:
+                    _,a,q=self._snapshot(native,body)
+                    require(a['state']=='READY' and q.state=='READY','running_or_terminal_control_unavailable')
+                self.catalog.reserve_worker(db,operation)
+                document=dict(run_id=run_id,revision=expected_revision,source_hash=body['source_hash'],
+                              native_job_id=body['native_job_id'],state='PENDING',action='cancel',
+                              prepared_at=timestamp(),completed_at=None)
+                db.execute('INSERT INTO control_operations VALUES(?,?,?)',
+                           (operation,p.tenant,canonical(document).decode()))
+                self.catalog.event(db,p.actor,'CANCEL_INTENT_PREPARED',run_id,
+                                   dict(operation_id=operation),reservation=operation)
+        try:
+            return self._complete_cancel(p,run_id,expected_revision,operation,existing is not None)
+        except OperatorError as exc:
+            if exc.code!='audit_reservation_missing':raise
+            # Another process may finish the same durable intent between the
+            # prepare and complete transactions. Replay only exact committed
+            # catalogue + native cancellation proof, never recreate credits.
+            with self.catalog.tx(read_only=True) as db:
+                self.authorize(p,'control')
+                row,body=self.catalog.intent(db,p,run_id)
+                saved=db.execute('SELECT body FROM control_operations WHERE id=? AND tenant=?',
+                                 (operation,p.tenant)).fetchone()
+                require(saved is not None,'cancel_intent_missing')
+                document=json.loads(saved[0])
+                require(row['control']=='CANCELLED' and row['revision']==expected_revision+1 and
+                        document['state']=='COMPLETED' and document['action']=='cancel' and
+                        document['revision']==expected_revision and document['run_id']==run_id and
+                        document['source_hash']==body['source_hash'] and
+                        document['native_job_id']==body['native_job_id'],'cancel_receipt_missing')
+                with self.native(body) as native:
+                    snap,a,q=self._snapshot(native,body)
+                    require(snap['run_state']==a['state']=='BLOCKED' and q.state=='DEAD_LETTER' and
+                            q.last_reason=='operator_cancelled' and
+                            sum(e['reason']=='operator_cancelled' for e in snap['events'])==1,
+                            'cancel_receipt_missing')
+                return dict(run_id=run_id,status='CANCELLED',revision=row['revision'],replayed=True)
+
+    def _complete_cancel(self,p,run_id,expected_revision,operation,replayed):
+        with self.catalog.tx(reservation=operation) as db:
+            self.authorize(p,'control')
+            row,body=self.catalog.intent(db,p,run_id)
+            saved=db.execute('SELECT body FROM control_operations WHERE id=? AND tenant=?',
+                             (operation,p.tenant)).fetchone()
+            require(saved is not None,'cancel_intent_missing')
+            document=json.loads(saved[0])
+            require(document['state']=='PENDING' and document['action']=='cancel' and
+                    document['run_id']==run_id and document['revision']==row['revision']==expected_revision and
+                    document['source_hash']==body['source_hash'] and document['native_job_id']==body['native_job_id'],
+                    'cancel_intent_binding_invalid')
+            with self.native(body) as native:
+                self._finish_cancel_native(native,body)
+                snap,a,q=self._snapshot(native,body)
+                require(a['state']=='BLOCKED' and snap['run_state']=='BLOCKED' and q.state=='DEAD_LETTER',
+                        'cancel_receipt_missing')
+            document.update(state='COMPLETED',completed_at=timestamp())
+            db.execute('UPDATE control_operations SET body=? WHERE id=?',
+                       (canonical(document).decode(),operation))
+            db.execute("UPDATE intents SET control='CANCELLED',revision=revision+1 WHERE id=?",(run_id,))
+            self.catalog.event(db,p.actor,'RUN_CANCELLED',run_id,dict(operation_id=operation),
+                               reservation=operation,final_reservation=True)
+        return dict(run_id=run_id,status='CANCELLED',revision=expected_revision+1,replayed=replayed,
+                    control_scope='QUEUED_OPERATOR_EXECUTOR_ONLY')
+
+    def _finish_cancel_native(self,native,body):
+        snap=native.persistence.load_run_state(body['native_job_id'])
+        require(set(snap['stages'])=={STAGE_ID},'cancel_native_inventory_invalid')
+        attempts=snap['stages'][STAGE_ID]['attempts']
+        require(len(attempts)==1,'cancel_native_inventory_invalid')
+        a=attempts[0];source_ref='source-'+body['native_job_id'][4:]
+        q=native.queue.get('inspect-'+body['native_job_id'][4:])
+        require(a['state'] in ('READY','BLOCKED') and a['input_artifact_refs']==[source_ref] and
+                a['output_artifact_refs']==[] and a['evidence_refs']==[], 'cancel_native_state_invalid')
+        self.administration._queue_item(body,q,None,time.time())
+        require(q.state in ('READY','DEAD_LETTER') and q.delivery_count==0 and q.consumer_id is None and
+                (q.state!='DEAD_LETTER' or q.last_reason=='operator_cancelled'), 'cancel_queue_state_invalid')
+        source=native.persistence.load_artifact(source_ref)
+        require(source.blob_digest==body['source_hash'] and source.run_id==body['native_job_id'],
+                'native_source_tampered')
+        _,sha=self._config_ref(native,body);require(sha==body['config_hash'],'native_config_tampered')
+        previous='PENDING';cancelled=False
+        for e in snap['events']:
+            require(e['stage_id']==STAGE_ID and e['attempt']==1 and e['from_state']==previous and
+                    e['to_state'] in ('READY','BLOCKED'),'cancel_transition_invalid')
+            if e['to_state']=='BLOCKED':
+                require(previous=='READY' and e['reason']=='operator_cancelled' and not cancelled,
+                        'cancel_transition_invalid');cancelled=True
+            previous=e['to_state']
+        require(previous in ('READY','BLOCKED') and (not cancelled or a['state']=='BLOCKED') and
+                (a['state']!='BLOCKED' or a['diagnostics']==['operator_cancelled']), 'cancel_transition_invalid')
+        if q.state=='READY':native.queue.dead_letter(q.task.task_id,'operator_cancelled')
+        if a['state']=='READY':
+            native.persistence.save_attempt(body['native_job_id'],PersistedAttempt(STAGE_ID,1,'BLOCKED',
+                input_artifact_refs=[source_ref],diagnostics=['operator_cancelled']))
+        if not cancelled:
+            native.persistence.append_event(body['native_job_id'],PersistedEvent(0,STAGE_ID,'READY','BLOCKED',1,
+                timestamp(),'operator_cancelled',[]))
+        native.persistence.set_run_state(body['native_job_id'],'BLOCKED')
 
     def work_once(self,p,run_id):
         worker_id=self.administration.begin_worker(p,run_id)
@@ -363,6 +486,7 @@ class Service:
         with self.catalog.tx(reservation=worker_id) as db:
             self.authorize(p,'worker')
             row,body = self.catalog.intent(db,p,run_id)
+            self._no_pending_control(db,p,run_id)
             if row['control']=='PAUSED': return {'outcome':'PAUSED','dispatched':False}
             if row['control']=='CANCELLED': return {'outcome':'CANCELLED','dispatched':False}
             with self.native(body) as native:
