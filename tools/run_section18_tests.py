@@ -71,6 +71,7 @@ def main():
         if a.batch in ('003c','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch003c.py')))
         if a.batch in ('003d','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch003d.py')))
         if a.batch in ('004','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch004.py')))
+        if a.batch in ('h1d','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_terminal_recovery.py')))
     elif a.lane=='qa-regression':
         suite=unittest.TestSuite()
         suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section17/test_reg_004.py')))

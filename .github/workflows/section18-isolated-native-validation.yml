@@ -147,8 +147,12 @@ jobs:
           BIE_SECTION18_BROWSER: /opt/bie-game-chromium/chrome
         run: |
           dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
-      - name: Complete canonical gate in a valid D-Bus session
-        # This full gate still requires ALL prior native gates to be green.
+      - name: Independent complete canonical gate in a valid D-Bus session
+        id: canonical
+        # Collect independent regressions even when native render is red.
+        # The render step remains required, non-continue-on-error and unchanged;
+        # this cannot turn the job green or authorize sign-off/PR/merge.
+        if: ${{ !cancelled() && steps.components.outcome == 'success' }}
         run: |
           set -euo pipefail
           command -v dbus-run-session
@@ -229,9 +233,10 @@ jobs:
           BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)" dbus-run-session -- \
             python -B scripts/section17_gate.py --output-dir "$RUNNER_TEMP/section18-evidence/section17-maintenance"
       - name: Exact supplied corpus and adoption verification
-        if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        if: ${{ !cancelled() && steps.canonical.outcome == 'success' && hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
         run: python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
       - name: Require complete Section 17 suite identity
+        if: ${{ !cancelled() && steps.canonical.outcome == 'success' }}
         run: |
           python - <<'PY'
           import json, os
@@ -245,7 +250,7 @@ jobs:
           print(json.dumps(result,indent=2))
           PY
       - name: Require complete passing post-DIR regression, never skipped tests
-        if: ${{ hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        if: ${{ !cancelled() && steps.canonical.outcome == 'success' && hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
         run: |
           python - <<'PY'
           import json, os

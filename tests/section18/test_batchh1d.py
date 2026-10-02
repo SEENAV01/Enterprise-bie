@@ -12,6 +12,8 @@ from test_campaign_sidecar_race import CampaignSidecarRace
 from test_campaign_maintenance import CampaignMaintenance
 from test_worker_recovery import WorkerRecovery
 from test_catalog_file_race import CatalogFileSafety
+from test_terminal_worker_recovery import TerminalWorkerRecovery
+from test_failed_terminal_recovery import FailedTerminalRecovery
 
 CHILD='''from pathlib import Path
 import json,os,sys,time
@@ -166,7 +168,7 @@ class CASCapacity(unittest.TestCase):
         nested.mkdir(parents=True)
         self.error('cas_inventory_depth_reached',lambda:self.budget.inventory(),503)
 
-TASK_CLASSES={'BIE-APP-H1-005':[CASCapacity,WorkerRecovery,CatalogFileSafety],'BIE-APP-H1-006':[CampaignSidecarRace,CampaignMaintenance]}
+TASK_CLASSES={'BIE-APP-H1-005':[CASCapacity,WorkerRecovery,CatalogFileSafety,TerminalWorkerRecovery,FailedTerminalRecovery],'BIE-APP-H1-006':[CampaignSidecarRace,CampaignMaintenance]}
 def selected_suite(task=None):
     suite=unittest.TestSuite()
     for name,classes in TASK_CLASSES.items():

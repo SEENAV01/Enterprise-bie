@@ -2,6 +2,10 @@
 import {spawn} from 'node:child_process';
 import fs from 'node:fs';
 const [browser,profile,debugPort,base,runId,mode,fixture,scenario]=process.argv.slice(2);
+// Opt-in diagnostic breadcrumbs contain only authored stage names, never
+// protocol params, expressions, credentials, source data or local paths.
+const progress=stage=>{if(process.env.BIE_SECTION18_UI_DIAGNOSTIC==='1')console.error('NATIVE_UI_PROGRESS:'+stage);};
+progress('OWNERSHIP_GATE');
 if(process.platform==='win32'){
  // The Python parent owns a private Job Object. Do not launch a browser before
  // assignment, including when job creation/assignment fails closed.
@@ -29,6 +33,7 @@ async function evaluate(expression){
 async function until(expression){for(let n=0;n<100;n++){if(await evaluate(expression))return;await sleep(100);}throw new Error('BROWSER_STATE_TIMEOUT:'+expression.slice(0,180));}
 function assert(value,code){if(!value)throw new Error(code);}
 try{
+ progress('BROWSER_START');
  let tabs;for(let n=0;n<300;n++){try{tabs=await (await fetch('http://127.0.0.1:'+debugPort+'/json/list')).json();break;}catch{}await sleep(100);}
  assert(tabs?.length,'BROWSER_START_FAILED');
  socket=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
@@ -53,12 +58,14 @@ try{
  const dimensions=mode==='phone'?{width:390,height:844,mobile:true}:mode==='tablet'?{width:820,height:1180,mobile:true}:{width:1440,height:1000,mobile:false};
  await call('Emulation.setDeviceMetricsOverride',{...dimensions,deviceScaleFactor:1});
  await call('Page.navigate',{url:base});await until("document.readyState==='complete' && typeof action==='function'");
+ progress('WORKSPACE_AUTH');
  assert(await evaluate("document.querySelector('#create').disabled"),'INITIAL_STATE_NOT_FAIL_CLOSED');
  const credential=process.env.BIE_OPERATOR_TOKEN;
  await evaluate(`document.getElementById('token').value=${JSON.stringify(credential)}; document.getElementById('connect').click();`);
  await until("!document.getElementById('upload').disabled && document.body.getAttribute('aria-busy')==='false'");
  await evaluate(`document.getElementById('run-id').value=${JSON.stringify(runId)};document.getElementById('open-run').click();`);
  await until("document.getElementById('run-summary').textContent.includes('READY') && document.body.getAttribute('aria-busy')==='false'");
+ progress('RUN_READY');
  if(mode==='desktop'){
    await evaluate("document.getElementById('pause').click()");await until("document.getElementById('run-summary').textContent.includes('PAUSED') && document.body.getAttribute('aria-busy')==='false'");
    await evaluate("document.getElementById('resume').click()");await until("!document.getElementById('pause').disabled && document.body.getAttribute('aria-busy')==='false'");
@@ -72,12 +79,23 @@ try{
    await until("!document.getElementById('pause').disabled && document.body.getAttribute('aria-busy')==='false'");
  }
  await evaluate("document.getElementById('concept').click()");await until("document.querySelector('#graph svg') && document.body.getAttribute('aria-busy')==='false'");
+ progress('CONCEPT_GRAPH');
  assert(await evaluate("document.querySelectorAll('#graph svg circle').length===2 && document.querySelectorAll('#graph-fallback table tr').length===3"),'GRAPH_NOT_STRUCTURED');
  assert(await evaluate("document.querySelectorAll('#graph img,#graph script').length===0"),'GRAPH_SCRIPT_INJECTION');
  await evaluate("document.getElementById('prerequisite').click()");await until("document.getElementById('graph-fallback').textContent.includes('Teaching order:') && document.body.getAttribute('aria-busy')==='false'");
  assert(await evaluate("document.querySelector('#graph svg line').getAttribute('marker-end')==='url(#arrow)'"),'PREREQUISITE_DIRECTION_MISSING');
+ if(scenario==='terminal-recovery'){
+  await evaluate("document.getElementById('admin-workers').click()");
+  await until("document.getElementById('admin-content').textContent.includes('REVIEW_REQUIRED_PARTIAL_FINALIZATION') && document.body.getAttribute('aria-busy')==='false'");
+  assert(await evaluate("document.getElementById('admin-content').textContent.includes('DELIVERED') && !document.getElementById('admin-content').textContent.includes('ACKED')"),'PARTIAL_WORKER_FALSE_COMPLETE');
+  await evaluate("[...document.querySelectorAll('#admin-content article')].find(a=>a.textContent.includes('REVIEW_REQUIRED_PARTIAL_FINALIZATION')).querySelector('button').click()");
+  await until("document.getElementById('notice').textContent.includes('Verified terminal bookkeeping completed') && document.body.getAttribute('aria-busy')==='false'");
+  assert(await evaluate("document.getElementById('admin-content').textContent.includes('ACKED') && document.getElementById('notice').textContent.includes('inspection not rerun') && !document.getElementById('admin-content').textContent.includes('REVIEW_REQUIRED_PARTIAL_FINALIZATION')"),'TERMINAL_RECOVERY_NOT_DURABLE');
+  assert(await evaluate("[...document.querySelectorAll('#admin-content button')].every(b=>b.disabled)"),'SETTLED_WORKER_RECONCILE_STILL_ENABLED');
+ }
  if(scenario==='batch002'){
   for(const kind of ['reasoning','curriculum','lesson','director','scene_ir','game_plan']){
+   progress('VIEW_'+kind.toUpperCase());
    await evaluate(`document.getElementById('view-${kind}').click()`);
    await until("document.getElementById('view-state').textContent.includes('SYNTHETIC_TEST') && document.body.getAttribute('aria-busy')==='false'");
    assert(await evaluate("document.querySelectorAll('#artifact-view table').length>=1"),'STRUCTURED_VIEW_MISSING:'+kind);
@@ -85,14 +103,18 @@ try{
    assert(await evaluate("document.documentElement.scrollWidth<=window.innerWidth"),'VIEW_HORIZONTAL_OVERFLOW:'+kind);
   }
   await evaluate("document.getElementById('browse-artifacts').click()");
+  progress('ARTIFACT_BROWSER');
   await until("document.getElementById('artifact-list').textContent.includes('operator.generated_code') && document.body.getAttribute('aria-busy')==='false'");
   await evaluate("[...document.querySelectorAll('#artifact-list button')].find(b=>b.textContent==='Open verified code').click()");
+  progress('GENERATED_CODE');
   await until("document.getElementById('code-view').textContent.includes('window.injected') && document.body.getAttribute('aria-busy')==='false'");
   assert(await evaluate("window.injected===undefined && !document.querySelector('#code-view script')"),'CODE_EXECUTED');
   await evaluate("[...document.querySelectorAll('#artifact-list button')].find(b=>b.textContent==='Open artifact lineage').click()");
+  progress('LINEAGE');
   await until("document.querySelector('#lineage-view svg') && document.body.getAttribute('aria-busy')==='false'");
   assert(await evaluate("document.getElementById('lineage-view').textContent.includes('Passed')"),'LINEAGE_NOT_VERIFIED');
   await evaluate("[...document.querySelectorAll('#artifact-list button')].find(b=>b.textContent==='Open evidence').click()");
+  progress('EVIDENCE');
   await until("document.getElementById('evidence-view').textContent.includes('SYNTHETIC_TEST') && document.body.getAttribute('aria-busy')==='false'");
  }
  if(scenario==='batch003'){
@@ -223,6 +245,7 @@ try{
  assert(metrics.nodes.some(n=>n.role?.value==='heading'&&n.name?.value==='Source-linked graphs'),'AX_GRAPH_HEADING_MISSING');
  assert(metrics.nodes.some(n=>n.role?.value==='table'),'AX_TABLE_FALLBACK_MISSING');
  if(scenario==='batch002'){
+  progress('HELD_RESPONSE_REVOCATION');
   // Hold a real HTTP response in the client to reproduce credential-clear
   // during an in-flight read. It must not repopulate private artifact state.
   await evaluate("window.savedFetch=window.fetch;window.fetch=async(...args)=>{const r=await window.savedFetch(...args);if(String(args[0]).includes('/views/reasoning'))await new Promise(resolve=>{window.releaseHeldResponse=resolve});return r;};document.getElementById('view-reasoning').click();");
@@ -263,7 +286,8 @@ try{
  if(scenario==='batch003')assert(await evaluate("document.getElementById('preview-content').textContent==='' && document.getElementById('preview-game').disabled && mediaURL===null"),'PRIVATE_PREVIEW_CLEAR_FAILED');
  if(scenario==='batch003b')assert(await evaluate("document.getElementById('quality-content').textContent==='' && document.getElementById('quality-benchmark').disabled"),'PRIVATE_QUALITY_CLEAR_FAILED');
  console.log(JSON.stringify({mode,passed:true,native_browser:true,structured_graph:true,keyboard:true,ax_tree:true,
-    horizontal_overflow:false,synthetic_fixture:true,real_book_executed:false,product_accepted:false}));
+    horizontal_overflow:false,synthetic_fixture:true,real_book_executed:false,product_accepted:false,
+    cleanup_owner:process.platform==='win32'?'PRIVATE_WINDOWS_JOB':'CHILD_PROCESS_HANDLE'}));
 }catch(e){
  if(e.message.startsWith('CDP_TIMEOUT:')){
   let healthStatus=null;
@@ -275,20 +299,23 @@ try{
  console.error('NATIVE_UI_FAILED:'+e.message);process.exitCode=1;
 }
 finally{
+ progress('OWNED_BROWSER_SHUTDOWN');
  if(socket?.readyState===1){try{await call('Browser.close');}catch{}socket.close();}
  for(const p of pending.values())clearTimeout(p.timer);
  // Wait for the browser we created, not just its CDP socket. In particular,
  // Windows Crashpad can hold the isolated profile during asynchronous exit.
  async function waitForExit(){for(let n=0;n<100;n++){if(child.exitCode!==null||child.signalCode!==null)return true;await sleep(100);}return false;}
- if(!await waitForExit()){
-  if(process.platform==='win32'){
-   const stop=spawn('taskkill',['/PID',String(child.pid),'/T','/F'],{stdio:'ignore',windowsHide:true});
-   await new Promise(resolve=>{stop.on('error',resolve);stop.on('exit',resolve);});
-   // taskkill's process-tree enumeration can race Chromium's asynchronous
-   // shutdown. Node still owns the original process handle: terminate that
-   // handle as well, never enumerate or kill unrelated user browsers.
-   if(child.exitCode===null && child.signalCode===null)child.kill('SIGKILL');
-  }else child.kill('SIGKILL');
+ if(process.platform==='win32'){
+  // There is exactly one forced-cleanup owner: Python's private Job Object.
+  // The startup handshake guaranteed assignment before browser creation.
+  // Node must not race taskkill PID enumeration against that owner. Unref
+  // only allows this harness to exit; the parent MUST terminate the private
+  // job, observe zero active processes and clean the confined profile before
+  // it can declare the test passed. No user browser is enumerated or killed.
+  child.unref();progress('PARENT_PRIVATE_JOB_CLEANUP_REQUIRED');
+ }else if(!await waitForExit()){
+  child.kill('SIGKILL');
   if(!await waitForExit()){console.error('NATIVE_UI_FAILED:BROWSER_SHUTDOWN_FAILED');process.exitCode=1;}
  }
+ if(process.platform!=='win32')progress('OWNED_BROWSER_REAPED');
 }

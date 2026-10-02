@@ -259,8 +259,10 @@ class Administration:
     def reconcile_worker(self,p,worker_id,expected_record_sha256,key):
         """Fence an abandoned dispatch and release its own unused audit credits.
 
-        No process is killed, no heartbeat proves death, no queue is redriven,
-        and no job state is changed. RUNNING work remains review-only. The same
+        No process is killed, no heartbeat proves death, no queue is redriven.
+        A proven terminal result may finish its interrupted acknowledgement and
+        idempotency/run finalization; its attempt/result is never rewritten.
+        RUNNING work remains review-only. The same
         catalogue write lock fences a late dispatch before native processing.
         """
         self._auth(p,'admin_recover');ident(worker_id);ident(key)
@@ -287,14 +289,18 @@ class Administration:
                 require(run['native_job_id']==body['native_job_id'],'worker_record_invalid')
                 self.s._no_pending_control(db,p,body['run_id'])
                 with self.s.native(run) as native:
+                    from .terminal_recovery import finalize_verified_terminal
+                    finalization=finalize_verified_terminal(self.s,p,native,run,worker_id)
                     _,attempt,q=self.s._snapshot(native,run)
                     require(attempt['state']!='RUNNING','worker_recovery_requires_quiescent_state')
                     # _snapshot verifies the full native transition/queue/CAS binding.
                     self._queue_item(run,q,None,time.time())
                 outcome='INTERRUPTED' if attempt['state']=='READY' else 'TERMINAL'
                 result=dict(worker_id=worker_id,run_id=body['run_id'],lifecycle='STOPPED',outcome=outcome,
-                    engine_state=attempt['state'],queue_state=q.state,scope='DISPATCH_ADMISSION_ONLY',
-                    process_termination_claimed=False,job_state_modified=False,worker_dispatched=False,
+                    engine_state=attempt['state'],queue_state=q.state,
+                    scope='VERIFIED_TERMINAL_FINALIZATION' if any(finalization.values()) else 'DISPATCH_ADMISSION_ONLY',
+                    process_termination_claimed=False,job_state_modified=finalization['native_run_state_modified'],
+                    worker_dispatched=False,**finalization,
                     product_accepted=False)
                 now=time.time()
                 body.update(state='STOPPED',timestamp=now,finished_at=now,active_tasks=0,
@@ -339,7 +345,15 @@ class Administration:
                 _,run=self.s.catalog.intent(db,p,w['run_id'])
                 require(w['native_job_id']==run['native_job_id'],'worker_record_invalid')
                 with self.s.native(run) as native:
-                    _,attempt,q=self.s._snapshot(native,run)
+                    consistency='VERIFIED'
+                    try:_,attempt,q=self.s._snapshot(native,run)
+                    except OperatorError as error:
+                        if error.code!='native_state_inconsistent':raise
+                        _,attempt,q=self.s._native_identity(native,run)
+                        require(attempt['state'] in ('SUCCEEDED','FAILED') and q.state=='DELIVERED' and
+                                q.consumer_id==w['worker_id'] and w['state']=='DISPATCHING',
+                                'native_state_inconsistent')
+                        consistency='REVIEW_REQUIRED_PARTIAL_FINALIZATION'
                     lease=self._queue_item(run,q,None,now)
                 owns=q.consumer_id==w['worker_id'] and q.state=='DELIVERED'
                 items.append(dict(worker_id=w['worker_id'],run_id=w['run_id'],capability_tags=w['capabilities'],
@@ -349,6 +363,7 @@ class Administration:
                     lease_status=lease['lease_status'],lease_visible_at=q.visible_at if owns else None,
                     liveness='UNVERIFIED_STALE' if health=='STALE' and w['state']!='STOPPED' else w['state'],
                     outcome=w['outcome'],resources_measured=False,heartbeat_refresh_mode='START_AND_COMPLETION_ONLY',
+                    native_consistency=consistency,
                     record_sha256=digest(w),can_reconcile=('admin_recover' in p.permissions and
                         w['state']=='DISPATCHING' and attempt['state']!='RUNNING'),
                     death_inferred_from_stale=False,product_accepted=False))

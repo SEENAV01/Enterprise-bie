@@ -190,6 +190,17 @@ class Service:
         return artifact,blob.digest
 
     def _snapshot(self,native,body):
+        snap,attempt,queue=self._native_identity(native,body)
+        consistent = {'READY':{'READY'},'RUNNING':{'DELIVERED','DEAD_LETTER'},
+                      'SUCCEEDED':{'ACKED'},'FAILED':{'DEAD_LETTER'},'BLOCKED':{'DEAD_LETTER'}}
+        require(attempt['state'] in consistent and queue.state in consistent[attempt['state']],
+                'native_state_inconsistent')
+        return snap,attempt,queue
+
+    def _native_identity(self,native,body):
+        # Shared immutable identity/history checks only. Ordinary reads still
+        # require _snapshot's strict queue/attempt consistency. Only the explicit
+        # authorized terminal reconciler can inspect a partially finalized queue.
         snap = native.persistence.load_run_state(body['native_job_id'])
         stages = snap['stages']
         require(set(stages)=={STAGE_ID},'native_stage_inventory_changed')
@@ -204,9 +215,6 @@ class Service:
                     'native_transition_history_inconsistent')
             prior=event['to_state']
         require(prior==state,'native_transition_history_inconsistent')
-        consistent = {'READY':{'READY'},'RUNNING':{'DELIVERED','DEAD_LETTER'},
-                      'SUCCEEDED':{'ACKED'},'FAILED':{'DEAD_LETTER'},'BLOCKED':{'DEAD_LETTER'}}
-        require(state in consistent and queue.state in consistent[state],'native_state_inconsistent')
         source = native.persistence.load_artifact('source-'+body['native_job_id'][4:])
         require(source.blob_digest==body['source_hash'] and source.run_id==body['native_job_id'], 'native_source_tampered')
         # Config integrity is re-read from canonical CAS, not just the mutable index.

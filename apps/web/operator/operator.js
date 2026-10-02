@@ -24,7 +24,7 @@ function reset(){authEpoch++;token='';byId('token').value='';source=null;run=nul
  for(const id of ['upload','create','refresh','open-run','pause','resume','cancel','retry','concept','prerequisite','more-timeline'])byId(id).disabled=true;
  for(const id of ['validation','run-summary','timeline','graph','graph-fallback','failure','evidence-view'])byId(id).replaceChildren();resetViews(false);notice('Credential cleared · private state removed from this page.');}
 byId('disconnect').onclick=reset;
-byId('connect').onclick=()=>action(async()=>{const nextCredential=byId('token').value;reset();token=nextCredential;byId('token').value=token;await api('runs?limit=1');byId('upload').disabled=false;byId('open-run').disabled=false;resetAdministration(true);resetGovernance(true);notice('Authorized workspace opened · no automatic work dispatched.');});
+byId('connect').onclick=()=>action(async()=>{const nextCredential=byId('token').value;reset();token=nextCredential;byId('token').value=token;await api('workspace');byId('upload').disabled=false;byId('open-run').disabled=false;resetAdministration(true);resetGovernance(true);notice('Authorized workspace opened · individual run health not inferred; no automatic work dispatched.');});
 byId('pdf').onchange=()=>{source=null;intentKey=null;byId('create').disabled=true;byId('validation').replaceChildren();};
 byId('locale').onchange=()=>{if(source)intentKey=key();};
 byId('upload').onclick=()=>action(async()=>{const file=byId('pdf').files[0];if(!file)throw new Error('source_required');if(file.size>25*1024*1024)throw new Error('payload_too_large');

@@ -25,6 +25,16 @@ remain false.
 - Genuine CAS exhaustion during a canonical inspection can also exhaust the
   failure artifact write. The adapter performs only verified RUNNING/DELIVERED
   failure/dead-letter transitions, with no invented evidence artifact.
+- Real worker termination before ACK, or after ACK before idempotency completion,
+  leaves a persisted successful attempt but interrupted bookkeeping. An explicit
+  authorized action may finalize only that already-produced, hash-verified
+  source/result/evidence and own queue/claim identity. It never re-extracts the
+  PDF or rewrites the attempt/result. A second actual process cut during this
+  recovery is safely replayable; one audit settlement is retained.
+- A partial native run previously prevented the operator login flow from
+  reaching recovery controls. `/operator/v1/workspace` now authenticates and
+  verifies the catalogue independently of run health. It explicitly says
+  `run_health_checked:false`; a partial run remains REVIEW_REQUIRED, not success.
 
 ## Evidence and scope
 
@@ -46,3 +56,42 @@ not label the native job cancelled, kill a worker, retry automatically, infer
 death, or imply distributed transaction atomicity. Full quota/recovery audit,
 native render, coherent full-flow, re-audit, final master and complete canonical
 regression are still required before any integration PR.
+
+## Current terminal recovery qualification (not final sign-off)
+
+Twelve additional distinct terminal/workspace methods passed locally, including
+real worker/reconciliation process termination, CAS corruption, foreign claim
+owner, unauthorized/revoked access and catalogue tampering. The actual browser
+desktop and phone recovery journeys passed two distinct methods over TCP. A
+failed Windows sandbox Node EPERM attempt remains retained as environment
+evidence, not a product failure or a passing assertion.
+
+These12 methods extend H1-005 from46 to58; H1-006's13 controls remain separately
+owned. The focused collection is71, and cumulative atomic identity is670.
+Actual counts are promoted only from their executed receipts. Native render,
+failed-terminal partial-transition disposition, full producer binding/full-flow,
+complete audit/re-audit and full canonical regression are still open.
+
+## Failed-terminal recovery controls
+
+A genuine native-text PDF with an empty native outline title passes base source
+inventory but fails canonical TOC inspection. Two actual worker process cuts
+reproduced stranded FAILED/DELIVERED bookkeeping (three selected controls:
+one PASS, two FAIL before repair). The minimal adapter correction verifies the
+original failure transition, source identity, exact failure evidence, own
+delivery and own CLAIMED idempotency record before finishing BLOCKED/dead-letter
+bookkeeping. It creates no result/evidence, changes no attempt, does not rerun
+inspection, and leaves the failed claim without a completed result.
+
+All three controls passed after repair, including corrupted evidence refusal.
+The fresh focused collection is74 distinct methods: H1-00561 and H1-00613;
+zero failures/errors/skips. The cumulative expected identity becomes673 but
+must not be claimed passed until its fresh receipt exists. The previous670
+receipt predates these three methods and a strengthened restart-route check.
+
+The retained full Windows browser run has23 methods,21 PASS and two teardown
+ERRORs. A stage-only diagnostic rerun proved UI assertions reached completion
+before duplicate JS/Windows forced-cleanup ownership failed. The correction
+uses only the established private Job Object owner, still requires zero active
+processes and confined profile cleanup, and does not change Linux cleanup or
+product/security assertions. Fresh whole-browser qualification is still required.

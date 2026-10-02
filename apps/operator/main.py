@@ -78,6 +78,15 @@ def create_app(service):
     @app.get('/healthz')
     def health(): return dict(status='ok',service='bie-local-operator',product_accepted=False)
 
+    @app.get('/operator/v1/workspace')
+    def workspace(request:Request):
+        # Authorization and catalogue integrity are independent of any run's
+        # native health. A partial run must not lock out its recovery controls.
+        p=principal(request,'read')
+        with service.catalog.tx(read_only=True):service.authorize(p,'read')
+        return dict(status='AUTHORIZED_WORKSPACE',run_health_checked=False,
+                    tenant_scoped=True,product_accepted=False)
+
     @app.get('/')
     def home(): return FileResponse(WEB/'index.html',media_type='text/html')
 
