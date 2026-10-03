@@ -95,5 +95,25 @@ class ChromiumResourceAdmission(unittest.TestCase):
         receipt=dict(node_limit=boundary.NODE_AS,browser_limit=boundary.CHROME_AS,memory=boundary.PHYSICAL_MEMORY,
                      browser_sha256=boundary.CHROME_SHA,entry=boundary.ENTRY)
         self.assertEqual(json.loads(json.dumps(receipt)),receipt)
+    def test_existing_readonly_lib_mount_mapping_accepted(self):
+        mounts='1 0 1:1 / / rw - tmpfs tmpfs rw\n2 1 1:2 / /lib ro - ext4 host rw'
+        maps='1000-2000 r-xp 0 01:02 3 /lib/x86_64-linux-gnu/libc.so.6'
+        self.assertEqual(boundary.validate_entry_mappings(maps,mounts),[
+            dict(path='/lib/x86_64-linux-gnu/libc.so.6',read_only_mount='/lib')])
+    def test_writable_library_mount_rejected(self):
+        self.rejects(lambda:boundary.validate_entry_mappings('1-2 r-xp 0 1:2 3 /lib/evil.so',
+            '1 0 1:1 / /lib rw - ext4 host rw'),'EXECUTABLE_MAPPING_WRITABLE')
+    def test_nested_writable_submount_never_accepted_by_readonly_parent(self):
+        mounts='1 0 1:1 / /usr ro - ext4 host rw\n2 1 1:2 / /usr/lib rw - tmpfs tmpfs rw'
+        self.rejects(lambda:boundary.validate_entry_mappings('1-2 r-xp 0 1:2 3 /usr/lib/evil.so',mounts),'EXECUTABLE_MAPPING_WRITABLE')
+    def test_anonymous_executable_mapping_rejected(self):
+        self.rejects(lambda:boundary.validate_entry_mappings('1-2 r-xp 0 00:00 0',
+            '1 0 1:1 / /usr ro - ext4 host rw'),'EXECUTABLE_MAPPING')
+    def test_workspace_executable_mapping_rejected(self):
+        self.rejects(lambda:boundary.validate_entry_mappings('1-2 r-xp 0 1:2 3 /work/evil.so',
+            '1 0 1:1 / /work ro - ext4 host rw'),'EXECUTABLE_MAPPING')
+    def test_writable_executable_page_rejected_even_on_readonly_mount(self):
+        self.rejects(lambda:boundary.validate_entry_mappings('1-2 rwxp 0 1:2 3 /usr/evil.so',
+            '1 0 1:1 / /usr ro - ext4 host rw'),'EXECUTABLE_MAPPING')
 
 if __name__=='__main__':unittest.main(verbosity=2)

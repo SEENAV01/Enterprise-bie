@@ -85,6 +85,34 @@ def stopped(pid):
 
 def counters(path):return dict((k,int(v)) for k,v in (row.split() for row in bounded_read(path).decode().splitlines()))
 
+def validate_entry_mappings(mappings, mountinfo):
+    """Admit executable libraries ONLY on the existing canonical read-only mounts.
+
+    Namespace bind-mounts retain /lib and /lib64 target names, even on merged-/usr
+    hosts. Prefix alone is not enough: inspect the deepest actual mount's ro bit.
+    Anonymous, deleted, workspace/engine or writable executable mappings fail.
+    """
+    fixed=('/usr','/lib','/lib64','/bin','/sbin','/opt/pyvenv')
+    mounts=[]
+    for row in mountinfo.splitlines():
+        fields=row.split();require(len(fields)>=10 and '-' in fields,'MOUNTINFO')
+        mounts.append((fields[4],set(fields[5].split(','))))
+    checked=[]
+    for row in mappings.splitlines():
+        fields=row.split();require(len(fields)>=5,'EXECUTABLE_MAPPING')
+        permissions=fields[1]
+        if 'x' not in permissions:continue
+        require('w' not in permissions and len(fields)==6,'EXECUTABLE_MAPPING')
+        name=fields[5]
+        if name in ('[vdso]','[vsyscall]'):continue
+        require(any(name.startswith(prefix+'/') for prefix in fixed),'EXECUTABLE_MAPPING')
+        candidates=[(path,flags) for path,flags in mounts if name==path or name.startswith(path.rstrip('/')+'/')]
+        require(bool(candidates),'EXECUTABLE_MAPPING_MOUNT')
+        path,flags=max(candidates,key=lambda r:len(r[0]))
+        require(path in fixed and 'ro' in flags and 'rw' not in flags,'EXECUTABLE_MAPPING_WRITABLE')
+        checked.append(dict(path=name,read_only_mount=path))
+    require(bool(checked),'EXECUTABLE_MAPPING_EMPTY');return checked
+
 class OwnedMemoryGroup:
     def __init__(self):
         require(sys.platform=='linux' and os.getuid()==0,'HOST_SUPERVISOR_REQUIRED')
@@ -183,11 +211,8 @@ def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_
             all(status[name].strip()=='0000000000000000' for name in ('CapEff','CapPrm','CapInh','CapBnd')),'ENTRY_SECURITY')
         environment=bounded_read(proc/'environ').split(b'\0')
         require(not any(row.startswith((b'LD_',b'NODE_OPTIONS=',b'PYTHONHOME=',b'PYTHONSTARTUP=')) for row in environment),'ENTRY_ENVIRONMENT')
-        for row in bounded_read(proc/'maps',2*1024**2).decode().splitlines():
-            fields=row.split();permissions=fields[1]
-            if 'x' in permissions:
-                require((len(fields)>=6 and (fields[-1].startswith(('/usr/','/opt/pyvenv/')) or fields[-1] in ('[vdso]','[vsyscall]')))
-                        and 'w' not in permissions,'ENTRY_EXECUTABLE_MAPPING')
+        mappings=validate_entry_mappings(bounded_read(proc/'maps',2*1024**2).decode(),
+                                        bounded_read(proc/'mountinfo',1024**2).decode())
         node_before=resource.prlimit(parent,resource.RLIMIT_AS)
         require(node_before==(NODE_AS,NODE_AS),'PARENT_LIMIT')
         require(resource.prlimit(pid,resource.RLIMIT_AS)==(NODE_AS,NODE_AS),'ENTRY_LIMIT')
@@ -204,7 +229,8 @@ def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_
         return dict(pid=pid,parent_node_pid=parent,node_limit_before=list(node_before),
             node_limit_after=list(resource.prlimit(parent,resource.RLIMIT_AS)),chrome_limit=[CHROME_AS]*2,
             only_verified_browser_entry_modified=True,workload_frozen_during_grant=True,pidfd_used=True,
-            entry_sha256=entry_hash,immutable_policy_sha256=source_policy_hash)
+            entry_sha256=entry_hash,immutable_policy_sha256=source_policy_hash,
+            readonly_executable_mappings=mappings)
     finally:group.freeze(False)
 
 def approved_command(command, root, browser, kind):
