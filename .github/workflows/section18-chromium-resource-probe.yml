@@ -1,0 +1,49 @@
+name: BIE Section18 Bounded Chromium Resource Diagnostic
+
+on:
+  push:
+    branches: [codex/section18-chromium-resource-probe-20261003]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: section18-chromium-resource-probe-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  bounded-diagnostic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Provision unchanged governed toolchain and kernel worker dependencies
+        run: |
+          set -euo pipefail
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+          bash .integration/tools/setup_game_ci.sh
+          test ! -e /usr/local/lib/bie-section18-chromium
+          sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
+          cmp /opt/bie-game-chromium/chrome /usr/local/lib/bie-section18-chromium/chrome
+      - name: Real cgroup OOM and Chromium-only virtual-reservation diagnostic
+        run: |
+          set -euo pipefail
+          sudo -n /opt/pyvenv/bin/python -B tools/diagnose_section18_chromium_resource_policy.py --output "$RUNNER_TEMP/chromium-resource-evidence"
+      - name: Retain authentic diagnostic including failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: section18-chromium-resource-diagnostic
+          path: ${{ runner.temp }}/chromium-resource-evidence
+          if-no-files-found: error
+          retention-days: 14
