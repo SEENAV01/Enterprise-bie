@@ -80,6 +80,20 @@ class NativePreviewRender(Base):
             path=cls.project/cls.receipt.evidence_directory/'actual-paint/typecheck/TYPECHECK.json'
             cls.failure_diagnostic=dict(failure_code=cls.receipt.failure_code,
                                         errors=list(cls.receipt.errors),synthetic_source=True)
+            # Metadata from the real, already executed decode probe. Preserve
+            # its exact identity before the private CI project is cleaned up;
+            # no filename, title, raw process output or media is exported here.
+            probe_path=cls.project/cls.receipt.evidence_directory/'probe-process.json'
+            if probe_path.is_file():
+                probe_raw=probe_path.read_bytes()
+                if len(probe_raw)>8*1024**2:raise AssertionError('probe receipt size rejected')
+                probe=json.loads(probe_raw);metadata=json.loads(probe['process']['stdout'])
+                keys=('codec_type','codec_name','pix_fmt','color_range','color_space','color_transfer',
+                      'color_primaries','width','height','avg_frame_rate','nb_read_frames','duration')
+                cls.failure_diagnostic['decoded_media_metadata']=dict(
+                    probe_receipt_sha256=hashlib.sha256(probe_raw).hexdigest(),
+                    process_passed=probe['process']['passed'],outcome=probe['outcome'],
+                    streams=[{k:v for k,v in row.items() if k in keys} for row in metadata['streams']])
             if path.is_file():
                 raw=path.read_bytes()
                 if len(raw)<=8*1024**2:

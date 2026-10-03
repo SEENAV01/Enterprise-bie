@@ -53,7 +53,8 @@ def main():
                     duration_s=round(time.monotonic()-started,3),passed=completed.returncode==0))
                 (args.output/'VALIDATION.json').write_text(json.dumps(result,indent=2)+'\n')
                 if name=='resource-controls' and completed.returncode!=0:break
-            for name in ('actual-paint/CHROMIUM_RESOURCE.json','actual-paint/PROCESS.json','CHROMIUM_RESOURCE.json','isolation.json'):
+            for name in ('actual-paint/CHROMIUM_RESOURCE.json','actual-paint/PROCESS.json','actual-paint-witness.json',
+                         'CHROMIUM_RESOURCE.json','isolation.json','RENDER_RECEIPT.json','recipe.json'):
                 path=project/'render-evidence/operator18-native-preview'/name
                 if path.is_file():
                     target=args.output/'producer'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,target)
