@@ -62,7 +62,7 @@ def validate_browser_args(args):
         if re.fullmatch(r'--window-size=[1-9][0-9]{1,3},[1-9][0-9]{1,3}',arg):continue
         raise CompilerQAError('CHROMIUM_RESOURCE_ARG_NOT_PINNED')
     require(all(a in args for a in ('about:blank','--no-sandbox','--remote-debugging-port=0')),'REQUIRED_ARG')
-    require(sum(a.startswith('--headless=') for a in args)==1,'HEADLESS_ARG')
+    require(sum(a.startswith('--headless=') for a in args)==1 and '--headless=new' in args,'HEADLESS_ARG')
     require(sum(a.startswith('--user-data-dir=') for a in args)==1,'PROFILE_ARG')
     return tuple(args)
 
@@ -85,7 +85,7 @@ def stopped(pid):
 
 def counters(path):return dict((k,int(v)) for k,v in (row.split() for row in bounded_read(path).decode().splitlines()))
 
-def validate_entry_mappings(mappings, mountinfo):
+def validate_entry_mappings(mappings, mountinfo, host_root=None):
     """Admit executable libraries ONLY on the existing canonical read-only mounts.
 
     Namespace bind-mounts retain /lib and /lib64 target names, even on merged-/usr
@@ -105,6 +105,10 @@ def validate_entry_mappings(mappings, mountinfo):
         require('w' not in permissions and len(fields)==6,'EXECUTABLE_MAPPING')
         name=fields[5]
         if name in ('[vdso]','[vsyscall]'):continue
+        if host_root is not None and name.startswith(host_root+'/'):
+            # Host proc maps use the exact sandbox-root prefix; mountinfo is
+            # already relative to the frozen child's chroot. No fuzzy alias.
+            name=name[len(host_root):]
         require(any(name.startswith(prefix+'/') for prefix in fixed),'EXECUTABLE_MAPPING')
         candidates=[(path,flags) for path,flags in mounts if name==path or name.startswith(path.rstrip('/')+'/')]
         require(bool(candidates),'EXECUTABLE_MAPPING_MOUNT')
@@ -190,7 +194,7 @@ def _driver(config):
         return 2
     return 0
 
-def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_hash):
+def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_hash,owned_control_root=None):
     """Freeze this whole owned workload, preventing parent reap/PID reuse.
 
     Parent Node is a governed immutable H3 producer. No arbitrary command or
@@ -213,8 +217,13 @@ def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_
         require(not any(row.startswith((b'LD_',b'NODE_OPTIONS=',b'PYTHONHOME=',b'PYTHONSTARTUP=')) for row in environment),'ENTRY_ENVIRONMENT')
         map_text=bounded_read(proc/'maps',2*1024**2).decode()
         mount_text=bounded_read(proc/'mountinfo',1024**2).decode()
+        sandbox_root=os.readlink(proc/'root')
+        require(owned_control_root is not None and Path(sandbox_root).name=='root' and
+                Path(sandbox_root).parent.parent==Path(owned_control_root) and
+                Path(sandbox_root).parent.name.startswith('bie-worker-control-') and
+                sandbox_root==os.readlink(pp/'root'),'OWNED_SANDBOX_ROOT')
         try:
-            mappings=validate_entry_mappings(map_text,mount_text)
+            mappings=validate_entry_mappings(map_text,mount_text,sandbox_root)
         except CompilerQAError as error:
             # Retain the exact owned-entry mapping cause before any grant.
             # Metadata only: no environment, source content or secrets.
@@ -259,8 +268,10 @@ def approved_command(command, root, browser, kind):
         browser_args=[a for a in command if a.startswith('--browser-executable=')]
         require(browser_args==['--browser-executable='+str(browser)],'RENDER_BROWSER')
         require(not any(a.startswith(('--disable-wasm','--js-flags','--node-options')) for a in command),'RENDER_NODE_FLAGS')
+        require(not any(a.startswith('--chrome-mode') for a in command),'RENDER_CHROME_MODE')
         command.insert(1,'--disable-wasm-trap-handler')
         command=[('--browser-executable='+ENTRY) if a.startswith('--browser-executable=') else a for a in command]
+        command.append('--chrome-mode=chrome-for-testing')
     return command
 
 def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),policy=None,timeout_s=120,
@@ -324,7 +335,7 @@ def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),po
                     if argv[:3]==prefix and stopped(pid):
                         require(len(grants)<4 and pid not in {g['pid'] for g in grants},'GRANT_BOUND')
                         validate_browser_args([x.decode() for x in argv[3:]])
-                        grants.append(_grant(group,pid,expected,entry_hash,node_hash,source_policy_hash))
+                        grants.append(_grant(group,pid,expected,entry_hash,node_hash,source_policy_hash,private_temporary))
                     try:
                         if os.readlink(proc/'exe')==str(browser):
                             require(resource.prlimit(pid,resource.RLIMIT_AS)==(CHROME_AS,CHROME_AS),'CHROME_LIMIT')

@@ -115,5 +115,31 @@ class ChromiumResourceAdmission(unittest.TestCase):
     def test_writable_executable_page_rejected_even_on_readonly_mount(self):
         self.rejects(lambda:boundary.validate_entry_mappings('1-2 rwxp 0 1:2 3 /usr/evil.so',
             '1 0 1:1 / /usr ro - ext4 host rw'),'EXECUTABLE_MAPPING')
+    def test_exact_owned_chroot_mapping_prefix_normalized(self):
+        root='/tmp/bie-chromium-private-unit/worker-temporary/bie-worker-control-unit/root'
+        value=boundary.validate_entry_mappings('1-2 r-xp 0 1:2 3 '+root+'/lib/libc.so',
+            '1 0 1:1 / /lib ro - ext4 host rw',root)
+        self.assertEqual(value,[dict(path='/lib/libc.so',read_only_mount='/lib')])
+    def test_similar_but_foreign_chroot_prefix_never_normalized(self):
+        root='/tmp/bie-chromium-private-unit/worker-temporary/bie-worker-control-unit/root'
+        self.rejects(lambda:boundary.validate_entry_mappings('1-2 r-xp 0 1:2 3 '+root+'-foreign/lib/libc.so',
+            '1 0 1:1 / /lib ro - ext4 host rw',root),'EXECUTABLE_MAPPING')
+    def test_renderer_chrome_mode_is_explicit_and_scoped(self):
+        out=boundary.approved_command(RENDER,WORK,BROWSER,'renderer')
+        self.assertEqual([s for s in out if s.startswith('--chrome-mode')],['--chrome-mode=chrome-for-testing'])
+        self.assertFalse(any(s.startswith('--chrome-mode') for s in RENDER))
+    def test_renderer_chrome_mode_override_rejected(self):
+        self.rejects(lambda:boundary.approved_command([*RENDER,'--chrome-mode=headless-shell'],WORK,BROWSER,'renderer'),
+                     'RENDER_CHROME_MODE')
+    def test_removed_old_headless_mode_rejected(self):
+        self.rejects(lambda:boundary.validate_browser_args([s.replace('--headless=new','--headless=old') for s in ARGS]),
+                     'HEADLESS_ARG')
+    def test_capture_uses_documented_new_headless_without_version_change(self):
+        source=(ROOT/'bie/compiler/qa_support/remotion_raster_capture.cjs').read_text()
+        self.assertIn("chromeMode:'chrome-for-testing'",source)
+        self.assertIn('enableCaching:false',source)
+        self.assertIn('req.remotion_version',source)
+        self.assertNotIn('--js-flags',source)
+        self.assertNotIn('--disable-wasm-trap-handler',source)
 
 if __name__=='__main__':unittest.main(verbosity=2)

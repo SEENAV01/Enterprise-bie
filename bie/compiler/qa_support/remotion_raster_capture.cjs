@@ -14,7 +14,8 @@ async function main(){
  const out=req.output;fs.mkdirSync(out,{recursive:true});
  // Dependencies are immutable in the guarded workload; never cache in node_modules.
  const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public'),enableCaching:false});
- const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromiumOptions:{enableMultiProcessOnLinux:true}});
+ // The pinned executable is full Chrome, not the separate legacy headless shell.
+ const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromeMode:'chrome-for-testing',chromiumOptions:{enableMultiProcessOnLinux:true}});
  const frames=[],rasterFrames=[],errors=[];
  try{
   const composition=await selectComposition({serveUrl,id:req.composition_id,puppeteerInstance:browser});
