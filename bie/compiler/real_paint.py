@@ -69,7 +69,10 @@ def capture_entry_h8(request, measure_js, paint_js):
     source = source.replace('useCurrentFrame,delayRender', 'getInputProps,useCurrentFrame,delayRender')
     source = source.replace(' const frame=useCurrentFrame();', ' const frame=useCurrentFrame();\n const input=getInputProps() as {__bieRasterMode?: {kind:string;target_id?:string}};\n const mode=input.__bieRasterMode ?? {kind:"full"};\n const modeKey=JSON.stringify(mode);')
     source = source.replace('[frame]);', '[frame,modeKey]);')
-    source = source.replace('   await document.fonts.ready;', '   await document.fonts.ready;\n   const raster = rasterModeImpl({targets:req.rasterTargets,mode,frame});')
+    # Measure inventory only after the original two-RAF layout readiness wait.
+    # Remotion may initially position its capture root off-screen; observing it
+    # before that wait creates false full/repeat drift. No equality check waived.
+    source = source.replace('   if(closed)return;', '   if(closed)return;\n   const raster = rasterModeImpl({targets:req.rasterTargets,mode,frame});')
     source = source.replace('nonce:req.nonce,frame,fonts_ready:', 'nonce:req.nonce,frame,raster,fonts_ready:')
     source = source.replace('[frame,handle]);', '[frame,handle,modeKey]);')
     return source

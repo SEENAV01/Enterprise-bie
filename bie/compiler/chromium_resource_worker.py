@@ -85,6 +85,10 @@ def stopped(pid):
 
 def counters(path):return dict((k,int(v)) for k,v in (row.split() for row in bounded_read(path).decode().splitlines()))
 
+def owned_browser_executable(executable,child_root,browser,owned_root):
+    """Host proc links may include the exact admitted child's private root."""
+    return child_root==owned_root and executable in (str(browser),owned_root+str(browser))
+
 def validate_entry_mappings(mappings, mountinfo, host_root=None):
     """Admit executable libraries ONLY on the existing canonical read-only mounts.
 
@@ -248,7 +252,7 @@ def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_
             node_limit_after=list(resource.prlimit(parent,resource.RLIMIT_AS)),chrome_limit=[CHROME_AS]*2,
             only_verified_browser_entry_modified=True,workload_frozen_during_grant=True,pidfd_used=True,
             entry_sha256=entry_hash,immutable_policy_sha256=source_policy_hash,
-            readonly_executable_mappings=mappings)
+            readonly_executable_mappings=mappings,owned_sandbox_root=sandbox_root)
     finally:group.freeze(False)
 
 def approved_command(command, root, browser, kind):
@@ -335,9 +339,13 @@ def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),po
                     if argv[:3]==prefix and stopped(pid):
                         require(len(grants)<4 and pid not in {g['pid'] for g in grants},'GRANT_BOUND')
                         validate_browser_args([x.decode() for x in argv[3:]])
-                        grants.append(_grant(group,pid,expected,entry_hash,node_hash,source_policy_hash,private_temporary))
+                        granted=_grant(group,pid,expected,entry_hash,node_hash,source_policy_hash,private_temporary)
+                        granted['browser_argv']=[x.decode() for x in argv[3:]]
+                        grants.append(granted)
                     try:
-                        if os.readlink(proc/'exe')==str(browser):
+                        granted=next((g for g in grants if g['pid']==pid),None)
+                        if granted and owned_browser_executable(os.readlink(proc/'exe'),os.readlink(proc/'root'),
+                                                               browser,granted['owned_sandbox_root']):
                             require(resource.prlimit(pid,resource.RLIMIT_AS)==(CHROME_AS,CHROME_AS),'CHROME_LIMIT')
                             maps=bounded_read(proc/'maps',2*1024**2).decode();spans=[]
                             for row in maps.splitlines():
