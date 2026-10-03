@@ -42,3 +42,25 @@ to16 unique methods. It is not counted as atomic methods, and replays are not
 new tests. The native compiler, security/resource policy, toolchain and original
 cache amendment are unchanged by this second source-origin accounting repair.
 Complete hosted canonical regression must still be executed on the new candidate.
+
+Attempt019 (run37093009460, artifact11264015182) independently executed the full
+9,492-method canonical regression. Exactly one test failed, with zero errors or
+skips: the legacy `PreservedInputs.test_source_mapping_exact` caller compared
+the approved active cache producer directly to the sealed original hash. The
+original archive verifier passed all four manifests,387archives,74,518members
+and7,806targets with both reviewed amendments. This was a caller integration
+defect, not permission to change a historical hash or waive verification.
+
+The legacy caller now authenticates the complete sealed inventory, validates
+both active producers and both exact original preimages, and checks every one
+of the original6,014source rows. Only the two approved paths are redirected to
+their original preimages for the historical-byte check. All row fields and all
+other paths remain unchanged. The old caller's22method identities are retained;
+only that one method body is changed. Its exact original canonical Git preimage
+and AST comparison receipt are retained in `source-member-caller/`.
+
+Five new positive/seeded-negative caller controls extend the separate
+source-ledger lane to21unique methods. Local qualification passed21/21with
+zero failures/errors/skips. The complete Linux canonical gate must still rerun;
+this correction changes no production compiler or worker policy and never
+promotes the currently failing genuine render gate.

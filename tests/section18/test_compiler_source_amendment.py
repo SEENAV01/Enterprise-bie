@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib,json,os,shutil,tempfile,unittest
 from scripts.compiler_cache_source_amendment import resolve,EXPECTED,MANIFEST,MANIFEST_SHA,TARGET,DOCUMENT,BEFORE
 from scripts.compiler_cache_source_amendment import PAINT_TARGET,PAINT_DOCUMENT,PAINT_BEFORE,PAINT_EXPECTED
+from scripts.compiler_cache_source_amendment import resolve_source_members
 ROOT=Path(__file__).resolve().parents[2]
 class CompilerSourceAmendment(unittest.TestCase):
     def setUp(self):
@@ -84,7 +85,39 @@ class CompilerPaintAmendment(unittest.TestCase):
         (self.root/PAINT_DOCUMENT).write_text('{"schema":"a","schema":"b"}')
         with self.assertRaisesRegex(ValueError,'DUPLICATE_KEY'):self.run_gate()
 
+class CompilerSourceMemberCaller(unittest.TestCase):
+    setUp=CompilerSourceAmendment.setUp
+    def run_gate(self):return resolve_source_members(self.root,self.manifest_path,self.manifest)
+    def test_legacy_caller_preserves_all_original_rows_and_verifies_both_active_replacements(self):
+        before=self.manifest_path.read_bytes();rows=self.run_gate()
+        self.assertEqual(self.manifest_path.read_bytes(),before)
+        self.assertEqual(len(rows),len(self.manifest['source_members']))
+        changed=[(a,b) for a,b in zip(self.manifest['source_members'],rows) if a!=b]
+        self.assertEqual(len(changed),2)
+        self.assertEqual({a['canonical_path'] for a,b in changed},{TARGET,PAINT_TARGET})
+        self.assertEqual({b['canonical_path'] for a,b in changed},{BEFORE,PAINT_BEFORE})
+        for original,amended in changed:
+            self.assertEqual({k:v for k,v in original.items() if k!='canonical_path'},
+                             {k:v for k,v in amended.items() if k!='canonical_path'})
+            self.assertEqual(hashlib.sha256((self.root/amended['canonical_path']).read_bytes()).hexdigest(),
+                             original['canonical_sha256'])
+        (self.root/TARGET).write_bytes(b'caller must not skip active producer verification\n')
+        with self.assertRaisesRegex(ValueError,'ACTIVE_BYTES'):self.run_gate()
+    def test_original_source_hash_override_is_rejected(self):
+        next(r for r in self.manifest['source_members'] if r['canonical_path']==TARGET)['canonical_sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'SOURCE_MEMBER_INVENTORY'):self.run_gate()
+    def test_missing_original_source_row_is_rejected(self):
+        self.manifest['source_members']=[r for r in self.manifest['source_members'] if r['canonical_path']!=PAINT_TARGET]
+        with self.assertRaisesRegex(ValueError,'SOURCE_MEMBER_INVENTORY'):self.run_gate()
+    def test_duplicate_original_source_row_is_rejected(self):
+        self.manifest['source_members'].append(dict(next(r for r in self.manifest['source_members'] if r['canonical_path']==TARGET)))
+        with self.assertRaisesRegex(ValueError,'SOURCE_MEMBER_INVENTORY'):self.run_gate()
+    def test_unrelated_source_redirect_is_rejected(self):
+        row=next(r for r in self.manifest['source_members'] if r['canonical_path'] not in (TARGET,PAINT_TARGET))
+        row['canonical_path']=BEFORE
+        with self.assertRaisesRegex(ValueError,'SOURCE_MEMBER_INVENTORY'):self.run_gate()
+
 def selected_suite():
     return unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(cls) for cls in
-        (CompilerSourceAmendment,CompilerPaintAmendment))
+        (CompilerSourceAmendment,CompilerPaintAmendment,CompilerSourceMemberCaller))
 if __name__=='__main__':unittest.main(verbosity=2)

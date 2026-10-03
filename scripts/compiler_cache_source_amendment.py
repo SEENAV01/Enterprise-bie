@@ -96,3 +96,33 @@ def resolve(root,manifest_path,manifest):
     redirected=dict(expected,canonical_path=PAINT_BEFORE,state='ARCHIVED_EVIDENCE',
         transformation='Exact reviewed TypeScript coverage and bounded Wasm invocation; original canonical bytes retained')
     return dict(manifest,members=[redirected if r==expected else r for r in manifest['members']]),2
+
+def resolve_source_members(root,manifest_path,manifest):
+    """Reconcile the legacy exact-source caller, never skip an active source.
+
+    Original source_members stay sealed. Resolve validates both active producer
+    replacements and both preimages first; every unrelated source is unchanged.
+    No caller-mutated inventory or arbitrary replacement is accepted.
+    """
+    if manifest_path.name!=MANIFEST:raise ValueError('COMP_SOURCE_MEMBER_MANIFEST')
+    root=Path(root).resolve()
+    sealed_bytes=regular(root,'manifests/'+MANIFEST,42*1024**2).replace(b'\r\n',b'\n')
+    if b'\r' in sealed_bytes or hashlib.sha256(sealed_bytes).hexdigest()!=MANIFEST_SHA:
+        raise ValueError('COMP_CACHE_AMENDMENT_ORIGINAL_MANIFEST')
+    sealed=json.loads(sealed_bytes,object_pairs_hook=unique)
+    if manifest!=sealed:raise ValueError('COMP_SOURCE_MEMBER_INVENTORY')
+    _,count=resolve(root,manifest_path,manifest)
+    if count!=2:raise ValueError('COMP_SOURCE_MEMBER_AMENDMENT_COUNT')
+    remap={TARGET:(ORIGINAL,BEFORE),PAINT_TARGET:(PAINT_ORIGINAL,PAINT_BEFORE)}
+    selected=[r for r in manifest['source_members'] if r['canonical_path'] in remap]
+    if len(selected)!=2 or {r['canonical_path'] for r in selected}!=set(remap):
+        raise ValueError('COMP_SOURCE_MEMBER_ORIGINAL_ROWS')
+    result=[]
+    for row in manifest['source_members']:
+        selected=remap.get(row['canonical_path'])
+        if selected is not None:
+            original,before=selected
+            if row['canonical_sha256']!=original:raise ValueError('COMP_SOURCE_MEMBER_ORIGINAL_HASH')
+            row=dict(row,canonical_path=before)
+        result.append(row)
+    return result
