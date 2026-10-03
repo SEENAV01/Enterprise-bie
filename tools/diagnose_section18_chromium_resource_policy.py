@@ -157,9 +157,29 @@ def browser_probe(limit,output):
     group=Group(2*GIB);outer=None;grant=None;snapshots={}
     try:
         with tempfile.TemporaryDirectory(prefix='bie-s18-browser-boundary-') as tmp:
-            stage=Path(tmp);shutil.copyfile(ROOT/'tools/section18_chromium_resource_probe.cjs',stage/'probe.cjs')
+            private=Path(tmp);stage=private/'project';stage.mkdir()
+            # A host-root process mapped into a new user namespace does NOT
+            # retain init-namespace DAC override for runner-owned private HOME.
+            # Stage ONLY the required trusted code under this root-owned private
+            # temp parent. Do not chmod/chown the runner's checkout or HOME.
+            engine=private/'engine';(engine/'bie').mkdir(parents=True);(engine/'tools').mkdir()
+            shutil.copyfile(ROOT/'bie/__init__.py',engine/'bie/__init__.py')
+            source_compiler=ROOT/'bie/compiler'
+            source_rows=[]
+            for path in sorted(source_compiler.rglob('*')):
+                assert not path.is_symlink(), 'TRUSTED_DIAGNOSTIC_SOURCE_LINK'
+                if path.is_file() and path.suffix in ('.py','.js','.cjs','.json'):
+                    assert len(source_rows)<1500 and path.stat().st_size<=8*MIB
+                    source_rows.append((path.relative_to(ROOT).as_posix(),sha(path)))
+            assert source_rows and sum((ROOT/name).stat().st_size for name,digest in source_rows)<=64*MIB
+            for name,digest in source_rows:
+                destination=engine/name;destination.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(ROOT/name,destination);assert sha(destination)==digest
+            for name in (SCRIPT_NAME,'tools/section18_chromium_resource_probe.cjs'):
+                shutil.copyfile(ROOT/name,engine/name);assert sha(engine/name)==sha(ROOT/name)
+            shutil.copyfile(ROOT/'tools/section18_chromium_resource_probe.cjs',stage/'probe.cjs')
             (stage/'worker-slots').mkdir()
-            argv=[sys.executable,'-I',str(Path(__file__).resolve()),'child','namespace',str(stage),str(output)]
+            argv=[sys.executable,'-I','-B',str(engine/SCRIPT_NAME),'child','namespace',str(stage),str(output)]
             outer=subprocess.Popen(argv,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
             wait_stopped(outer);group.join(outer.pid);os.kill(outer.pid,signal.SIGCONT)
             end=time.monotonic()+40
@@ -201,7 +221,11 @@ def browser_probe(limit,output):
             # failure behind a secondary diagnostic-supervisor error.
             host_result=dict(outer_exit_code=outer.returncode,stdout=stdout.decode(),stderr=stderr.decode(),
                              grant=grant,kernel_cgroup=receipt,snapshots=list(snapshots.values()),
-                             browser_limit=limit,diagnostic_only=True)
+                             browser_limit=limit,diagnostic_only=True,
+                             trusted_source_rows=[dict(path=name,sha256=digest) for name,digest in source_rows],
+                             source_bytes_unchanged=all(sha(engine/name)==digest for name,digest in source_rows),
+                             original_checkout_or_HOME_permissions_changed=False)
+            assert host_result['source_bytes_unchanged']
             output.with_name(output.stem+'_HOST.json').write_text(json.dumps(host_result,indent=2)+'\n')
             assert grant is not None,'NO_VERIFIED_BROWSER_ADMISSION'
             assert outer.returncode==0,(stdout.decode(),stderr.decode(),output.read_text() if output.exists() else '')
