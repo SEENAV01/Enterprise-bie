@@ -7,7 +7,7 @@ the old unguarded worker at one. No running-process interruption is claimed.
 """
 from contextlib import contextmanager
 from pathlib import Path
-import hashlib, json, os, tempfile, time
+import hashlib, json, os, stat, tempfile, time
 
 from apps.api.job_service import PdfInspectionJobService, STAGE_ID
 from bie.document_intelligence.real_pdf_runtime import inspect_real_pdf, RealPdfRuntimeError
@@ -81,15 +81,43 @@ class Service:
     @contextmanager
     def native(self,body):
         root = private_path(self.root,'runs',ident(body['run_id']))
-        # Recheck existing subtree before delegating to canonical stores.
-        if root.exists():
-            require(not any(p.is_symlink() for p in root.rglob('*')), 'storage_link_rejected')
+        # Bound the read-side preflight too: non-CAS entries must not bypass
+        # the existing inventory ceilings via an unbounded rglob traversal.
+        self._verify_native_tree(root)
         svc = PdfInspectionJobService(root)
         from .cas_budget import BudgetedCAS
         svc.cas = BudgetedCAS(root/'cas',self.cas_budget)
         svc.persistence = OwnedPersistence(root/'runs.sqlite3')
         try: yield svc
         finally: svc.close()
+
+    def _verify_native_tree(self,root):
+        entries=0
+        def visit(directory,depth=0):
+            nonlocal entries
+            require(depth<=16,'native_inventory_depth_reached',503)
+            private_path(self.root,directory.relative_to(self.root))
+            with os.scandir(directory) as children:
+                for item in children:
+                    entries+=1
+                    require(entries<=self.cas_budget.limits.max_inventory_entries,
+                            'native_inventory_capacity_reached',503)
+                    require(not item.is_symlink(),'storage_link_rejected')
+                    try:info=os.stat(item.path,follow_symlinks=False)
+                    except FileNotFoundError:
+                        # A volatile SQLite sidecar can vanish on last close.
+                        # Native stores still verify their own opened records.
+                        require(item.name in ('runs.sqlite3-wal','runs.sqlite3-shm',
+                            'queue.sqlite3-wal','queue.sqlite3-shm',
+                            'idempotency.sqlite3-wal','idempotency.sqlite3-shm'),
+                            'native_inventory_changed',503)
+                        continue
+                    if stat.S_ISDIR(info.st_mode):visit(Path(item.path),depth+1)
+                    else:require(stat.S_ISREG(info.st_mode) and info.st_nlink==1,'storage_link_rejected')
+        try:
+            if root.exists():visit(root)
+        except OSError:
+            raise OperatorError('native_inventory_unavailable',503) from None
 
     def create(self,p,source_id,options,key,parent=None,expected_parent_revision=None,expected_parent_queue_digest=None,policy_binding=None):
         self.authorize(p,'create');ident(source_id);ident(key)

@@ -2,10 +2,6 @@
 from pathlib import Path, PurePosixPath
 from hashlib import sha256
 import argparse, ast, io, json, stat, zipfile
-try:
-    from compiler_cache_source_amendment import resolve_source_members
-except ImportError:
-    from scripts.compiler_cache_source_amendment import resolve_source_members
 ROOT = Path(__file__).resolve().parents[1]
 
 def digest(data): return sha256(data).hexdigest()
@@ -58,9 +54,7 @@ def verify(root=ROOT, *, recursive=True):
         if recursive:
             try: visit(safe_file(root, item['repository_path']).read_bytes())
             except (OSError, ValueError, zipfile.BadZipFile) as exc: errors.append(str(exc))
-    # Validate both exact active producer replacements and original preimages;
-    # keep the supplied sealed manifest and every unrelated member unchanged.
-    for item in resolve_source_members(root, root / 'manifests/post_dir_integration_004.json', source):
+    for item in source['source_members']:
         check_file(item['canonical_path'], item['canonical_sha256'])
     if recursive:
         declared=json.loads((root/'manifests/post_dir_nested_members.json').read_text())['records']

@@ -117,7 +117,61 @@ class CompilerSourceMemberCaller(unittest.TestCase):
         row['canonical_path']=BEFORE
         with self.assertRaisesRegex(ValueError,'SOURCE_MEMBER_INVENTORY'):self.run_gate()
 
+class CompilerPreservationCLI(unittest.TestCase):
+    """Real CLI/hash seam controls; complete6014-member qualification is hosted.
+
+    The resolver always validates the complete sealed inventory. These focused
+    controls select two amended rows plus one actual unchanged source afterward
+    to avoid pretending that this small temporary fixture is the full corpus.
+    """
+    def setUp(self):
+        CompilerSourceAmendment.setUp(self)
+        from unittest.mock import patch
+        from scripts import verify_post_dir
+        self.cli=verify_post_dir;self.patch=patch;self.resolver=resolve_source_members
+        (self.root/'manifests/post_dir_supplied_inputs.json').write_text(json.dumps(dict(
+            files=[],unavailable_declared_archives=[])))
+        self.other=None
+        for row in self.manifest['source_members']:
+            name=row['canonical_path'];path=ROOT/name
+            if name not in (TARGET,PAINT_TARGET) and path.is_file():
+                raw=path.read_bytes()
+                if hashlib.sha256(raw).hexdigest()==row['canonical_sha256']:
+                    self.other=name;target=self.root/name;target.parent.mkdir(parents=True,exist_ok=True)
+                    target.write_bytes(raw);break
+        self.assertIsNotNone(self.other)
+    def selected_rows(self,*args):
+        # Not a replacement matcher: validate the genuine unchanged sealed
+        # ledger, both live replacements and both originals before selecting.
+        rows=self.resolver(*args)
+        return [row for row in rows if row['canonical_path'] in (BEFORE,PAINT_BEFORE,self.other)]
+    def cli_gate(self):
+        with self.patch.object(self.cli,'resolve_source_members',side_effect=self.selected_rows) as called:
+            result=self.cli.verify(self.root,recursive=False)
+            self.assertEqual(called.call_count,1)
+        return result
+    def test_actual_cli_uses_governed_rows_and_keeps_full_original_inventory(self):
+        before=self.manifest_path.read_bytes();result=self.cli_gate()
+        self.assertTrue(result['passed'],result['errors']);self.assertEqual(result['errors'],[])
+        self.assertEqual(result['source_member_mappings_verified'],6014)
+        self.assertEqual(result['unique_paths_hashed'],3)
+        self.assertEqual(self.manifest_path.read_bytes(),before)
+        self.assertFalse(result['accepted'])
+    def test_cli_rejects_unreviewed_active_cache_producer(self):
+        (self.root/TARGET).write_bytes(b'unreviewed cache producer\n')
+        with self.assertRaisesRegex(ValueError,'COMP_CACHE_AMENDMENT_ACTIVE_BYTES'):self.cli_gate()
+    def test_cli_rejects_unreviewed_active_paint_producer(self):
+        (self.root/PAINT_TARGET).write_bytes(b'unreviewed paint producer\n')
+        with self.assertRaisesRegex(ValueError,'COMP_PAINT_AMENDMENT_ACTIVE_BYTES'):self.cli_gate()
+    def test_cli_rejects_original_ledger_tamper(self):
+        self.manifest_path.write_bytes(self.manifest_path.read_bytes()+b' ')
+        with self.assertRaisesRegex(ValueError,'ORIGINAL_MANIFEST'):self.cli_gate()
+    def test_cli_does_not_skip_unrelated_member_hash_checks(self):
+        (self.root/self.other).write_bytes(b'# corrupted unrelated original source\n')
+        result=self.cli_gate();self.assertFalse(result['passed'])
+        self.assertEqual(result['errors'],['HASH_OR_SIZE_MISMATCH:'+self.other])
+
 def selected_suite():
     return unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(cls) for cls in
-        (CompilerSourceAmendment,CompilerPaintAmendment,CompilerSourceMemberCaller))
+        (CompilerSourceAmendment,CompilerPaintAmendment,CompilerSourceMemberCaller,CompilerPreservationCLI))
 if __name__=='__main__':unittest.main(verbosity=2)

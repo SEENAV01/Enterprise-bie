@@ -64,3 +64,20 @@ source-ledger lane to21unique methods. Local qualification passed21/21with
 zero failures/errors/skips. The complete Linux canonical gate must still rerun;
 this correction changes no production compiler or worker policy and never
 promotes the currently failing genuine render gate.
+
+Attempt021 run37097383410/artifact11265717029 executed9492canonical methods with
+zero failures/errors/skips, and the fullSection17gate2023passed independently.
+The separate `verify_post_dir.py` CLI still directly compared the same two
+approved active producers to their sealed original hashes. Its authentic red
+preservation receipt is retained; test-suite PASS does not waive that gate.
+
+The CLI now delegates its original6014source rows through the already-qualified
+exact resolver, leaving its supplied archive recursion, CRC/member ledger,
+unrelated hash checks and noncanonical-import detection unchanged. Both active
+replacements and both originals remain verified before historical checks.
+No original manifest/archive is rewritten. Its exact original source and
+function-identity proof are preserved in `post-dir-caller/`. Five focused
+CLIpositive/tamper controls extend the separate source-ledger lane from21to26.
+These select three actual source rows only after complete sealed-inventory
+validation; they are not a full6014-member or supplied-corpus PASS. A fresh
+hosted full-corpus gate remains mandatory, with native render independently red.

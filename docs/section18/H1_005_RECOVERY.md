@@ -145,3 +145,29 @@ Attempt018 independently qualified atomic678, source-ledger9, browser23 and
 the exact full Section17 2023-method suite. Its native render remained red,
 and the complete canonical gate exposed the next approved compiler source-origin
 amendment requirement. None of those failures is waived.
+
+## Bounded native read-side inventory (current candidate)
+
+An actual private synthetic run with17nested non-CAS directories reproduced a
+200status response despite the existing16depth storage bound. The old native
+preflight used an unbounded `rglob` and checked symlinks only. Its exact source
+preimage and the one-failure seed are retained in `native-inventory-before022`
+and `native-inventory-seed022`, outside Git. No historical receipt is rewritten.
+
+The adapter now stream-scans entries with the existing lower-only inventory
+ceiling and depth16, rejects symlinks/hardlinks/nonregular files, and fails
+closed on unexpected disappearance or I/O failure. Only the six canonical
+SQLite volatile sidecar basenames may disappear on actual last-close. No
+unknown data is deleted. Foreign/revoked access is rejected before scanning.
+The canonical infrastructure, CAS limits and sandbox/resource policy are intact.
+
+Eight distinct controls exercise actual HTTP over-depth refusal/restart,
+exact-depth and entry boundaries, no unbounded traversal, hardlinks, access
+revocation/tenant isolation, unexpected file disappearance and a real SQLite
+WALlast-close race. An early harness expected the wrong canonical error code;
+another used a non-last SQLite connection. Both failures are retained. The
+independent probe database now provides a deterministic real last-close, not a
+fake exception. Fresh narrow8passed0failures/errors/skips. Atomic692passed before
+that fixture-only adjustment; the final cumulative candidate must rerun and
+receive its own receipt before promotion. H1-005 now owns80methods and H1-006
+still owns13. This is component hardening, not Section18 sign-off.
