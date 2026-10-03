@@ -211,8 +211,17 @@ def _grant(group,pid,expected_parent_command,entry_hash,node_hash,source_policy_
             all(status[name].strip()=='0000000000000000' for name in ('CapEff','CapPrm','CapInh','CapBnd')),'ENTRY_SECURITY')
         environment=bounded_read(proc/'environ').split(b'\0')
         require(not any(row.startswith((b'LD_',b'NODE_OPTIONS=',b'PYTHONHOME=',b'PYTHONSTARTUP=')) for row in environment),'ENTRY_ENVIRONMENT')
-        mappings=validate_entry_mappings(bounded_read(proc/'maps',2*1024**2).decode(),
-                                        bounded_read(proc/'mountinfo',1024**2).decode())
+        map_text=bounded_read(proc/'maps',2*1024**2).decode()
+        mount_text=bounded_read(proc/'mountinfo',1024**2).decode()
+        try:
+            mappings=validate_entry_mappings(map_text,mount_text)
+        except CompilerQAError as error:
+            # Retain the exact owned-entry mapping cause before any grant.
+            # Metadata only: no environment, source content or secrets.
+            error.mapping_diagnostic=dict(executable_rows=[r for r in map_text.splitlines() if 'x' in r.split()[1]],
+                mountinfo=mount_text,maps_sha256=hashlib.sha256(map_text.encode()).hexdigest(),
+                browser_grant_made=False)
+            raise
         node_before=resource.prlimit(parent,resource.RLIMIT_AS)
         require(node_before==(NODE_AS,NODE_AS),'PARENT_LIMIT')
         require(resource.prlimit(pid,resource.RLIMIT_AS)==(NODE_AS,NODE_AS),'ENTRY_LIMIT')
@@ -348,6 +357,7 @@ def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),po
             receipt['browser_bytes_unchanged']=file_sha(browser)==CHROME_SHA
     except BaseException as error:
         failure=failure or (str(error) if isinstance(error,CompilerQAError) else type(error).__name__)
+        if hasattr(error,'mapping_diagnostic'):receipt['entry_mapping_diagnostic']=error.mapping_diagnostic
     finally:
         receipt['memory_cgroup']=group.receipt();receipt['browser_mappings']=observed
         if receipt['memory_cgroup']['memory_events']['oom_kill']:
