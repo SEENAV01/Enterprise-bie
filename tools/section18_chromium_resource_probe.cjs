@@ -5,6 +5,12 @@ const http = require('http');
 const {spawn} = require('child_process');
 const readLimits = () => fs.readFileSync('/proc/self/limits', 'utf8');
 const readStatus = () => fs.readFileSync('/proc/self/status', 'utf8');
+function exactNodeLimit(text) {
+  // /proc/self/limits pads the units column with trailing spaces. Only trim
+  // that formatting; both numeric soft/hard limits remain exact requirements.
+  const line = text.split('\n').find(row => row.startsWith('Max address space'));
+  return line !== undefined && /^Max address space\s+8589934592\s+8589934592\s+bytes$/.test(line.trimEnd());
+}
 function get(path) {
   return new Promise((resolve, reject) => {
     const request = http.get({hostname:'127.0.0.1', port:9222, path, timeout:1000}, response => {
@@ -38,7 +44,7 @@ function evaluate(url) {
 async function main() {
   if (process.version !== 'v22.16.0' || process.execArgv.length) throw new Error('NODE_IDENTITY_OR_SCOPE');
   const before = readLimits();
-  if (!/^Max address space\s+8589934592\s+8589934592\s+bytes$/m.test(before)) throw new Error('NODE_AS_NOT_8GIB');
+  if (!exactNodeLimit(before)) throw new Error('NODE_AS_NOT_8GIB');
   const child = spawn('/opt/pyvenv/bin/python', ['-I',
     '/engine/tools/diagnose_section18_chromium_resource_policy.py', 'browser'],
     {stdio:['ignore','pipe','pipe']});
@@ -74,4 +80,5 @@ async function main() {
     child.kill('SIGKILL');
   }
 }
-main().catch(error => {console.error(error.message);process.exitCode=1;});
+module.exports = {exactNodeLimit};
+if (require.main === module) main().catch(error => {console.error(error.message);process.exitCode=1;});

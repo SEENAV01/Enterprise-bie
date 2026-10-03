@@ -89,8 +89,8 @@ def child(mode,stage=None,output=None):
     node=Path('/opt/nvm/versions/node/v22.16.0/bin/node')
     result,kernel=run_isolated([str(node),str(Path(stage)/'probe.cjs')],workspace=stage,engine=ROOT,
         policy=policy,timeout_s=35,max_output_bytes=256*1024,lock_root=Path(stage)/'worker-slots')
-    assert kernel['kernel_enforced'] and kernel['resource_limits']==asdict(policy)
     Path(output).write_text(json.dumps(dict(process=asdict(result),kernel_policy=kernel),indent=2)+'\n')
+    assert kernel['kernel_enforced'] and kernel['resource_limits']==asdict(policy)
     return 0 if result.process.passed else 1
 
 def browser_child():
@@ -196,6 +196,13 @@ def browser_probe(limit,output):
             if outer.poll() is None:raise RuntimeError('PROBE_HOST_DEADLINE')
             stdout,stderr=outer.communicate(timeout=2)
             receipt=group.receipt()
+            # Retain the FIRST inner failure before enforcing the admission
+            # assertion. A missing browser grant must not hide namespace/Node
+            # failure behind a secondary diagnostic-supervisor error.
+            host_result=dict(outer_exit_code=outer.returncode,stdout=stdout.decode(),stderr=stderr.decode(),
+                             grant=grant,kernel_cgroup=receipt,snapshots=list(snapshots.values()),
+                             browser_limit=limit,diagnostic_only=True)
+            output.with_name(output.stem+'_HOST.json').write_text(json.dumps(host_result,indent=2)+'\n')
             assert grant is not None,'NO_VERIFIED_BROWSER_ADMISSION'
             assert outer.returncode==0,(stdout.decode(),stderr.decode(),output.read_text() if output.exists() else '')
             original=json.loads(output.read_text());kernel=original['kernel_policy']
@@ -236,9 +243,18 @@ def main():
         for negative in (False,True):
             result['controls'].append(memory_control(negative));receipt.write_text(json.dumps(result,indent=2)+'\n')
         for limit in (512*GIB,2*1024*GIB):
-            result['browser_probes'].append(browser_probe(limit,args.output/f'WORKER_{limit}.json'))
+            try:
+                probe=browser_probe(limit,args.output/f'WORKER_{limit}.json')
+            except (AssertionError,RuntimeError) as error:
+                # A lower reservation experiment may fail. Preserve it and
+                # still execute the separately bounded larger experiment; never
+                # turn this diagnostic failure into a native renderer PASS.
+                probe=dict(browser_limit=limit,diagnostic_passed=False,
+                           failure_type=type(error).__name__,failure=str(error)[:6000])
+            result['browser_probes'].append(probe)
             receipt.write_text(json.dumps(result,indent=2)+'\n')
-        result['diagnostic_completed']=True
+        result['diagnostic_completed']=all(p['diagnostic_passed'] for p in result['browser_probes'])
+        assert result['browser_probes'][-1]['diagnostic_passed'], 'BOUNDED_2TIB_BROWSER_EXPERIMENT_FAILED'
     except BaseException as error:
         result.update(diagnostic_completed=False,failure_type=type(error).__name__,failure=str(error)[:6000])
         raise
