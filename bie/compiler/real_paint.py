@@ -116,7 +116,8 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         (stage/'public').mkdir(exist_ok=True)
         # hash every staged dependency; an interrupted copy or changed root cannot slip in.
         staged=collect_installed_toolchain(stage,node=node,browser=browser);require_same_toolchain(before,staged)
-        req={'workspace':'/work','output':'/work/capture-output','browser':str(browser),'remotion_version':target.remotion_version,
+        from .chromium_resource_worker import ENTRY,run_chromium_isolated
+        req={'workspace':'/work','output':'/work/capture-output','browser':ENTRY,'remotion_version':target.remotion_version,
              'composition_id':'BieQA'+digest(raw['scene_id'])[:16],'width':target.width,'height':target.height,
              'fps':target.fps,'frame_count':n,'nonce':nonce,'rasterTargets':raster_targets,
              'scene_sha256':digest(raw),'manifest_sha256':checked.manifest_sha256,
@@ -148,7 +149,7 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
         # Use inline Wasm bounds checks under the unchanged 8 GiB address ceiling.
         # The option is scoped to this Wasm-using producer, never NODE_OPTIONS.
         command=[str(node),'--disable-wasm-trap-handler','/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json']
-        process,kernel=run_isolated(command,
+        process,kernel=run_chromium_isolated(command,browser=browser,kind='actual-paint',receipt_path=out/'CHROMIUM_RESOURCE.json',
                                    workspace=stage,engine=Path(__file__).resolve().parents[2],writable=['capture-output'],
                                    policy=policy or WorkerPolicy(),timeout_s=max(120,min(3600,n*4)),max_output_bytes=8*1024**2)
         (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
