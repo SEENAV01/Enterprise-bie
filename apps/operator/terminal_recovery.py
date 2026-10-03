@@ -101,12 +101,30 @@ def finalize_verified_failure(service,p,native,body,worker_id,snap,attempt,q,cha
         # The existing governed quota fallback records FAILED in the native
         # transition journal precisely because even its failure evidence cannot
         # be stored. Do not demand or synthesize a CAS receipt. Require the exact
-        # source/config/worker/claim/history binding above, unchanged budget
-        # policy and absence of result/evidence registration before finalizing.
+        # source/config/worker/claim/history binding above and unchanged budget.
+        # A result may have been published before the next evidence write ran
+        # out of space. Verify and retain it as UNCOMMITTED to the attempt; never
+        # promote it, delete it, complete its claim, or report result_available.
         service.cas_budget.verify_policy()
         records=native.persistence.artifacts_for_run(job)
-        require(evidence_id not in records and 'result-'+suffix not in records,
-                'terminal_recovery_evidence_invalid')
+        require(evidence_id not in records,'terminal_recovery_evidence_invalid')
+        result_id='result-'+suffix
+        if result_id in records:
+            from bie.document_intelligence.real_pdf_toc_runtime import RealPdfTocInspection,TOC_RECONCILIATION_POLICY
+            from bie.document_intelligence.real_pdf_hierarchy_runtime import HIERARCHY_POLICY
+            from .contracts import canonical
+            result=native.persistence.load_artifact(result_id)
+            require(result.artifact_id==result_id and result.run_id==job and result.stage_id==STAGE_ID and
+                    result.artifact_type=='document.inspection.safe_json' and result.evidence is False and
+                    result.parent_artifact_ids==[source_id] and result.metadata=={'source_hash':body['source_hash']} and
+                    0<result.blob_size<=8*1024**2,'terminal_recovery_result_invalid')
+            raw=native.cas.get_bytes(BlobRef(result.blob_algorithm,result.blob_digest,result.blob_size))
+            value=strict_json(raw,8*1024**2)
+            require(type(value) is dict and set(value)==set(RealPdfTocInspection.__dataclass_fields__) and
+                    value['source_hash']==body['source_hash'] and value['byte_length']==len(raw_source) and
+                    value['hierarchy_policy']==HIERARCHY_POLICY and
+                    value['toc_reconciliation_policy']==TOC_RECONCILIATION_POLICY and canonical(value)==raw,
+                    'terminal_recovery_result_invalid')
     else:
         evidence=native.persistence.load_artifact(evidence_id)
         require(evidence.artifact_id==evidence_id and evidence.run_id==job and evidence.stage_id==STAGE_ID and

@@ -118,3 +118,30 @@ Attempt017 independently passed673 atomic,300 inherited,67 QA,23 browser and
 the original complete Section17 2023-method gate. Native render remains red.
 The later Windows23 rerun has22 PASS/one ERROR, retaining a tablet child-retry
 timeout plus profile teardown error; no Windows whole-suite PASS is claimed.
+
+## Published-result / exhausted-evidence cut
+
+A later actual worker cut reproduced a separate boundary: the canonical result
+blob and registration existed, but the next success/failure evidence writes
+exhausted CAS capacity. The fallback correctly persisted FAILED with no output
+or evidence references. Recovery incorrectly rejected that uncommitted result.
+
+The narrow correction verifies its exact result ID, run/stage/type, source parent,
+metadata, canonical CAS digest/size, bound source identity and governed safe
+result field/policy identity before settling FAILED bookkeeping. It preserves
+the result as uncommitted historical data; it neither promotes nor deletes it,
+never reports result availability, never completes the failed claim, never
+reruns inspection and never invents evidence. Existing failure transitions and
+capacity/security limits remain unchanged.
+
+Six new controls cover the real cut, capacity replay, restart, corrupted CAS,
+foreign source metadata, revoked/foreign access and competing recovery processes
+with exactly one audit settlement. These are H1-005 controls, not new original
+tasks. Counts and PASS are claimed only from executed receipts. The first real
+failure and an erroneous private-connection name in a negative-control harness
+are both retained; the canonical persistence implementation was not changed.
+
+Attempt018 independently qualified atomic678, source-ledger9, browser23 and
+the exact full Section17 2023-method suite. Its native render remained red,
+and the complete canonical gate exposed the next approved compiler source-origin
+amendment requirement. None of those failures is waived.

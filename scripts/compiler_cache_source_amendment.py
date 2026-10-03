@@ -1,4 +1,4 @@
-"""One exact reviewed cache fix; original source ledger and ZIP stay sealed.
+"""Two exact authorized compiler fixes; original source ledger and ZIP stay sealed.
 
 Never accept a caller-provided replacement hash. This gate verifies both the
 exact original LF Git bytes and the approved producer, not just an old preimage.
@@ -21,6 +21,21 @@ EXPECTED=dict(schema='bie.section18.compiler-cache-source-amendment/1',
     authority='EXPLICIT_USER_KEEP_APPROVED_CACHE_CORRECTION',failed_gate_run=37066598268,
     original_ledgers_and_archives_unchanged=True,security_controls_unchanged=True,
     product_accepted=False,section_implementation_complete=False)
+PAINT_TARGET='bie/compiler/real_paint.py'
+PAINT_DOCUMENT='docs/section18/compiler-paint-source-amendment/AMENDMENT.json'
+PAINT_BEFORE='docs/section18/compiler-paint-source-amendment/real_paint.py.before'
+PAINT_ORIGINAL='fc320220631020b0bc246786e659ea105313e11b6a47ef97b99db6ed043e07bf'
+PAINT_REPLACEMENT='e2a5765f9c5a67e510dca68c1a70e35a13d9366ff6b9728d9b412776e8d174b9'
+PAINT_EXPECTED=dict(schema='bie.section18.compiler-paint-source-amendment/1',
+    original_manifest_git_lf_sha256=MANIFEST_SHA,source_archive=EXPECTED['source_archive'],
+    source_archive_sha256=EXPECTED['source_archive_sha256'],original_member='app/bie/compiler/real_paint.py',
+    archive_original_sha256='53d36304609c6150ab29d42992d8391046e20bde632acb76cbed70cb8f534afd',
+    archive_original_bytes=13450,active_path=PAINT_TARGET,canonical_original_sha256=PAINT_ORIGINAL,
+    canonical_original_bytes=13446,preimage_path=PAINT_BEFORE,replacement_git_lf_sha256=PAINT_REPLACEMENT,
+    scope='APPROVED_STRICT_TYPESCRIPT_HELPER_COVERAGE_AND_NARROW_WASM_INVOCATION',
+    authority='EXPLICIT_HUMAN_APPROVAL_MINIMAL_COVERAGE_FIX_AND_BOUNDED_WASM_OPTION',failed_gate_run=37083405153,
+    original_ledgers_and_archives_unchanged=True,address_space_bytes=8589934592,
+    security_controls_unchanged=True,product_accepted=False,section_implementation_complete=False)
 
 def regular(root,relative,max_bytes):
     p=root/relative
@@ -63,4 +78,21 @@ def resolve(root,manifest_path,manifest):
     if rows!=[expected]:raise ValueError('COMP_CACHE_AMENDMENT_ORIGINAL_ROW')
     redirected=dict(expected,canonical_path=BEFORE,state='ARCHIVED_EVIDENCE',
         transformation='Exact reviewed immutable-cache correction; sealed original bytes preserved separately')
-    return dict(manifest,members=[redirected if r==expected else r for r in manifest['members']]),1
+    manifest=dict(manifest,members=[redirected if r==expected else r for r in manifest['members']])
+    document=json.loads(regular(root,PAINT_DOCUMENT,16*1024),object_pairs_hook=unique)
+    if document!=PAINT_EXPECTED:raise ValueError('COMP_PAINT_AMENDMENT_DOCUMENT_IDENTITY')
+    original=regular(root,PAINT_BEFORE,64*1024)
+    if len(original)!=13446 or hashlib.sha256(original).hexdigest()!=PAINT_ORIGINAL:
+        raise ValueError('COMP_PAINT_AMENDMENT_PREIMAGE')
+    active=regular(root,PAINT_TARGET,64*1024);lf=active.replace(b'\r\n',b'\n')
+    if b'\r' in lf or hashlib.sha256(lf).hexdigest()!=PAINT_REPLACEMENT:
+        raise ValueError('COMP_PAINT_AMENDMENT_ACTIVE_BYTES')
+    rows=[r for r in manifest['members'] if r['canonical_path']==PAINT_TARGET]
+    expected=dict(archive=PAINT_EXPECTED['source_archive'],canonical_path=PAINT_TARGET,
+        canonical_sha256=PAINT_ORIGINAL,member=PAINT_EXPECTED['original_member'],
+        original_bytes=PAINT_EXPECTED['archive_original_bytes'],original_sha256=PAINT_EXPECTED['archive_original_sha256'],
+        state='MIGRATED',transformation='CANONICAL_PATH_ADAPTATION_OR_DOCUMENTED_AMENDMENT')
+    if rows!=[expected]:raise ValueError('COMP_PAINT_AMENDMENT_ORIGINAL_ROW')
+    redirected=dict(expected,canonical_path=PAINT_BEFORE,state='ARCHIVED_EVIDENCE',
+        transformation='Exact reviewed TypeScript coverage and bounded Wasm invocation; original canonical bytes retained')
+    return dict(manifest,members=[redirected if r==expected else r for r in manifest['members']]),2

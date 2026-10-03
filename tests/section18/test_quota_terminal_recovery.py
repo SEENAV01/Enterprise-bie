@@ -11,12 +11,16 @@ from test_worker_recovery import WorkerRecovery
 class QuotaTerminalRecovery(Base):
     body=WorkerRecovery.body;stats=WorkerRecovery.stats
     request=WorkerRecovery.request;recover=WorkerRecovery.recover
-    def quota_cut(self,mode='dead_letter'):
-        self.make_run();used=self.service.cas_budget.inventory()['bytes']
+    def quota_cut(self,mode='dead_letter',reserve_result=False):
+        self.make_run();admission=self.service.cas_budget.inventory()['bytes'];used=admission
+        if reserve_result:
+            from apps.operator.contracts import canonical
+            from bie.document_intelligence.real_pdf_toc_runtime import inspect_real_pdf_toc
+            used+=len(canonical(inspect_real_pdf_toc(DATA).to_safe_dict()))
         root=self.root/'quota-root';limited=Service(root,self.creds,cas_limits=CASLimits(max_bytes=used))
         source=limited.import_pdf(self.p,DATA)
         run=limited.create(self.p,source['source_id'],{},'test-run')['run_id']
-        self.assertEqual(limited.cas_budget.inventory()['bytes'],used)
+        self.assertEqual(limited.cas_budget.inventory()['bytes'],admission)
         self.client.close();self.service=limited;self.root=root
         self.client=TestClient(create_app(limited),base_url='http://localhost',raise_server_exceptions=False)
         source_root=Path(__file__).resolve().parents[2]
@@ -35,6 +39,10 @@ class QuotaTerminalRecovery(Base):
             self.assertEqual((attempt['state'],attempt['diagnostics'],attempt['output_artifact_refs'],attempt['evidence_refs']),
                              ('FAILED',['cas_capacity_reached'],[],[]))
             self.assertEqual(native.queue.get('inspect-'+body['native_job_id'][4:]).state,'DELIVERED')
+            records=native.persistence.artifacts_for_run(body['native_job_id'])
+            self.assertEqual('result-'+body['native_job_id'][4:] in records,reserve_result)
+            self.assertNotIn('evidence-'+body['native_job_id'][4:],records)
+        self.assertEqual(limited.cas_budget.inventory()['bytes'],used)
         self.assertEqual(self.get('runs/'+run).status_code,409)
         return run,worker,body,used
     def unchanged(self,body):

@@ -27,3 +27,18 @@ standalone source intentionally excludes historical ZIP/manifest backups.
 Task028 remains paused. Section implementation, integration, product acceptance
 and deployment remain false. No sandbox/resource/coverage/toolchain constraint
 is changed by this source-origin amendment.
+
+Attempt018 verified the cache amendment and then stopped at the next original
+target: the separately authorized strict-TypeScript helper coverage / narrowly
+scoped Wasm invocation correction in `real_paint.py`. A second exact document
+now records its original archive member (already adapted on canonical main),
+its original canonical preimage, and the exact approved active Git bytes. Those
+three identities are distinct and retained, not silently conflated. The original
+archive and entire manifest remain unchanged. Both rows are independently pinned;
+no arbitrary source-origin replacement or general override exists.
+
+Seven new paint-specific preservation/tamper controls extend this separate lane
+to16 unique methods. It is not counted as atomic methods, and replays are not
+new tests. The native compiler, security/resource policy, toolchain and original
+cache amendment are unchanged by this second source-origin accounting repair.
+Complete hosted canonical regression must still be executed on the new candidate.
