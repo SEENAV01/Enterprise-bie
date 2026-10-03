@@ -1,8 +1,7 @@
 name: BIE Section18 Bounded Chromium Resource Diagnostic
 
 on:
-  push:
-    branches: [codex/section18-chromium-resource-probe-20261003]
+  # Retained authentic experiments; no automatic repeat after green036.
   workflow_dispatch:
 
 permissions:
