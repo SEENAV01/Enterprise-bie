@@ -175,5 +175,19 @@ class ChromiumResourceAdmission(unittest.TestCase):
         root='/tmp/bie-owned/worker-temporary/bie-worker-control-unit/root'
         self.assertFalse(boundary.owned_browser_executable(root+BROWSER,root+'-foreign',BROWSER,root))
         self.assertFalse(boundary.owned_browser_executable(root+BROWSER+'-impostor',root,BROWSER,root))
+    def test_owned_renderer_descendant_observed_without_an_extra_grant(self):
+        root='/tmp/bie-owned/worker-temporary/bie-worker-control-unit/root'
+        grants=[dict(pid=123,owned_sandbox_root=root)]
+        original=json.loads(json.dumps(grants))
+        # No PID is passed to the selector: renderer descendants need not have
+        # the original entry's PID, and this lookup cannot change their limits.
+        self.assertIs(boundary.admitted_browser_grant(root+BROWSER,root,BROWSER,grants),grants[0])
+        self.assertEqual(grants,original)
+    def test_unadmitted_root_and_impostor_cannot_supply_reservation_evidence(self):
+        root='/tmp/bie-owned/worker-temporary/bie-worker-control-unit/root'
+        grants=[dict(pid=123,owned_sandbox_root=root)]
+        self.assertIsNone(boundary.admitted_browser_grant(root+BROWSER,root+'-foreign',BROWSER,grants))
+        self.assertIsNone(boundary.admitted_browser_grant(root+BROWSER+'-impostor',root,BROWSER,grants))
+        self.assertIsNone(boundary.admitted_browser_grant(root+BROWSER,root,BROWSER,[]))
 
 if __name__=='__main__':unittest.main(verbosity=2)

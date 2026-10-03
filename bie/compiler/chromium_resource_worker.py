@@ -89,6 +89,17 @@ def owned_browser_executable(executable,child_root,browser,owned_root):
     """Host proc links may include the exact admitted child's private root."""
     return child_root==owned_root and executable in (str(browser),owned_root+str(browser))
 
+def admitted_browser_grant(executable,child_root,browser,grants):
+    """Read-only observation of already-owned browser descendants.
+
+    Chrome's renderer has a different PID from the frozen/admitted entry, but
+    inherits that entry's private root and resource limit. This does not grant
+    any resource to a descendant; callers must enumerate only their own cgroup.
+    A foreign root or executable cannot contribute reservation evidence.
+    """
+    return next((g for g in grants if owned_browser_executable(
+        executable,child_root,browser,g['owned_sandbox_root'])),None)
+
 def validate_entry_mappings(mappings, mountinfo, host_root=None):
     """Admit executable libraries ONLY on the existing canonical read-only mounts.
 
@@ -343,9 +354,11 @@ def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),po
                         granted['browser_argv']=[x.decode() for x in argv[3:]]
                         grants.append(granted)
                     try:
-                        granted=next((g for g in grants if g['pid']==pid),None)
-                        if granted and owned_browser_executable(os.readlink(proc/'exe'),os.readlink(proc/'root'),
-                                                               browser,granted['owned_sandbox_root']):
+                        # The 1TiB V8 reservation belongs to a renderer child,
+                        # not necessarily the admitted main Chrome PID. These
+                        # PIDs are already from this private bounded cgroup.
+                        granted=admitted_browser_grant(os.readlink(proc/'exe'),os.readlink(proc/'root'),browser,grants)
+                        if granted:
                             require(resource.prlimit(pid,resource.RLIMIT_AS)==(CHROME_AS,CHROME_AS),'CHROME_LIMIT')
                             maps=bounded_read(proc/'maps',2*1024**2).decode();spans=[]
                             for row in maps.splitlines():
