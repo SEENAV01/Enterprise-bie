@@ -45,6 +45,29 @@ class NativePreviewRender(Base):
             if stream.read(4)!=b'\x7fELF':raise RuntimeError('native browser ELF required')
         request=RenderRequest(str(cls.project),'src/index.ts',comp,'out/preview.mp4',source.scene_fingerprint,
                               'operator18-native-preview',browser_executable=str(binary),timeout_s=120)
+        # Alive native negative control: run the exact old encoder command with
+        # the same genuine renderer/paint/decode/security path. Only remove the
+        # newly explicit color conversion; never inject a renderer or witness.
+        from unittest.mock import patch
+        from bie.compiler import render_runtime
+        builder=render_runtime.build_render_command
+        def legacy_command(*args,**kwargs):
+            return tuple(a for a in builder(*args,**kwargs) if not a.startswith('--color-space='))
+        legacy_request=replace(request,run_id='operator18-native-colour-negative',output_path='out/legacy-colour.mp4')
+        with patch.object(render_runtime,'build_render_command',side_effect=legacy_command):
+            cls.legacy_receipt=full_render(legacy_request)
+        old_probe=cls.project/cls.legacy_receipt.evidence_directory/'probe-process.json'
+        if not old_probe.is_file() or old_probe.stat().st_size>8*1024**2:
+            raise AssertionError('real legacy media negative probe required')
+        old_raw=old_probe.read_bytes();old=json.loads(old_raw)
+        cls.legacy_media_control=dict(probe_receipt_sha256=hashlib.sha256(old_raw).hexdigest(),
+            process_passed=old['process']['passed'],outcome=old['outcome'],
+            videos=[{k:v for k,v in row.items() if k in ('codec_type','codec_name','pix_fmt','color_range','nb_read_frames')}
+                    for row in json.loads(old['process']['stdout'])['streams'] if row.get('codec_type')=='video'])
+        if (cls.legacy_receipt.passed or cls.legacy_receipt.errors!=('rendered codec/pixel-format mismatch',) or
+            not cls.legacy_media_control['process_passed'] or len(cls.legacy_media_control['videos'])!=1 or
+            cls.legacy_media_control['videos'][0].get('pix_fmt')!='yuvj420p'):
+            raise AssertionError('old full-range encoder negative control did not reproduce exact failure')
         cls.receipt=full_render(request)
         # Keep the real producer's exact invocation even on a failed render.
         # Export only execution/policy metadata, never raw stdout/stderr or scene
@@ -132,6 +155,17 @@ class NativePreviewRender(Base):
         self.assertIn('/work/qa-paint-helper.js',coverage)
         self.assertIn('/work/qa-capture-entry.tsx',coverage)
         self.assertNotIn('qa-paint-helper.d.ts',coverage)
+
+    def test_real_legacy_full_range_rejected_and_explicit_conversion_verified(self):
+        self.assertFalse(self.legacy_receipt.passed)
+        self.assertEqual(self.legacy_receipt.errors,('rendered codec/pixel-format mismatch',))
+        self.assertEqual(self.legacy_media_control['videos'][0]['color_range'],'pc')
+        self.assertEqual(self.receipt.media.pixel_format,'yuv420p')
+        probe=json.loads((self.project/self.receipt.evidence_directory/'probe-process.json').read_text())
+        video=next(r for r in json.loads(probe['process']['stdout'])['streams'] if r['codec_type']=='video')
+        self.assertEqual((video['pix_fmt'],video['color_range'],video['color_space']),('yuv420p','tv','bt709'))
+        recipe=json.loads((self.project/self.receipt.evidence_directory/'recipe.json').read_text())
+        self.assertEqual(recipe['color_space'],'bt709')
 
     def test_actual_native_decode_cas_binding_and_range_preview(self):
         view=self.publish();self.assertEqual(view['status'],'AVAILABLE')

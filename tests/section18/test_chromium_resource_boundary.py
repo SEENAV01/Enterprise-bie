@@ -189,5 +189,30 @@ class ChromiumResourceAdmission(unittest.TestCase):
         self.assertIsNone(boundary.admitted_browser_grant(root+BROWSER,root+'-foreign',BROWSER,grants))
         self.assertIsNone(boundary.admitted_browser_grant(root+BROWSER+'-impostor',root,BROWSER,grants))
         self.assertIsNone(boundary.admitted_browser_grant(root+BROWSER,root,BROWSER,[]))
+    def test_governed_encoder_command_explicitly_converts_limited_range(self):
+        from bie.compiler.render_contracts import RenderRequest,make_render_plan
+        from bie.compiler.remotion_composition_discovery import CompositionDescriptor
+        parsed=ast.parse((ROOT/'bie/compiler/render_runtime.py').read_text())
+        fn=next(n for n in parsed.body if isinstance(n,ast.FunctionDef) and n.name=='build_render_command')
+        future=ast.ImportFrom(module='__future__',names=[ast.alias(name='annotations')],level=0)
+        scope={'Path':Path}
+        exec(compile(ast.fix_missing_locations(ast.Module(body=[future,fn],type_ignores=[])),
+                     'render_runtime.py','exec'),scope)
+        request=RenderRequest(str(ROOT),'src/index.ts',CompositionDescriptor('ColourControl',640,360,12,6),
+                              'out/colour.mp4','a'*64,'colour-control')
+        command=scope['build_render_command'](request,make_render_plan(request,'full'),cli='pinned-cli',node=NODE,
+                                            staged_output='staged.mp4',empty_env='empty.env')
+        self.assertEqual([a for a in command if a.startswith('--color-space=')],['--color-space=bt709'])
+        self.assertIn('--pixel-format=yuv420p',command);self.assertIn('--codec=h264',command)
+    def test_full_range_pixel_format_is_still_strictly_rejected(self):
+        from bie.compiler.render_contracts import RenderRequest,make_render_plan,parse_media_probe
+        from bie.compiler.remotion_composition_discovery import CompositionDescriptor
+        from bie.compiler.build_common import BuildError
+        request=RenderRequest(str(ROOT),'src/index.ts',CompositionDescriptor('ColourControl',640,360,12,6),
+                              'out/colour.mp4','a'*64,'colour-control')
+        video=dict(codec_type='video',codec_name='h264',pix_fmt='yuvj420p',width=640,height=360,
+                   nb_read_frames='6',avg_frame_rate='12/1',duration='0.5',color_range='pc')
+        with self.assertRaisesRegex(BuildError,'codec/pixel-format mismatch'):
+            parse_media_probe(json.dumps(dict(streams=[video])),request,make_render_plan(request,'full'))
 
 if __name__=='__main__':unittest.main(verbosity=2)

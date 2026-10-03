@@ -115,7 +115,7 @@ def build_render_command(request: RenderRequest, plan: RenderPlan, *, cli: str,
                          node: str, staged_output: str, empty_env: str) -> tuple[str, ...]:
     command = [node, cli, "render", str(Path(request.workspace).resolve() / request.entrypoint),
                request.composition.composition_id, staged_output,
-               "--codec=h264", "--pixel-format=yuv420p", f"--crf={request.crf}",
+               "--codec=h264", "--pixel-format=yuv420p", "--color-space=bt709", f"--crf={request.crf}",
                f"--concurrency={request.concurrency}", "--overwrite=false", "--log=info",
                f"--timeout={request.frame_timeout_ms}", "--bundle-cache=false", f"--env-file={empty_env}"]
     if plan.mode == "smoke":
@@ -232,7 +232,7 @@ def execute_render(request: RenderRequest, plan: RenderPlan, *,
                     return process
             recipe = {"schema_version": "bie.render-recipe.v1", "scene_fingerprint": request.scene_fingerprint,
                       "input_sha256": input_sha, "composition": asdict(request.composition),
-                      "plan": asdict(plan), "codec": "h264", "pixel_format": "yuv420p", "crf": request.crf,
+                      "plan": asdict(plan), "codec": "h264", "pixel_format": "yuv420p", "color_space": "bt709", "crf": request.crf,
                       "concurrency": request.concurrency, "frame_timeout_ms": request.frame_timeout_ms,
                       "require_audio": request.require_audio, "props_file": request.props_file,
                       "tool_versions": tools["versions"], "cli_sha256": tools["cli_sha256"],

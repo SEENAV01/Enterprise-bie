@@ -63,7 +63,7 @@ def main():
         race = load('tests/section18/test_campaign_sidecar_race.py')
         cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(race.CampaignSidecarPosix))
     ids = [case.id() for case in cases]
-    expected = dict(all=24, repair=5, game=3, render=3, **{'paint-typecheck':4, 'bundle-cache':2, 'wasm-bounds':5, 'campaign-race':2})[args.scope]
+    expected = dict(all=25, repair=5, game=3, render=4, **{'paint-typecheck':4, 'bundle-cache':2, 'wasm-bounds':5, 'campaign-race':2})[args.scope]
     assert len(ids) == len(set(ids)) == expected
     transcript = io.StringIO()
     result = unittest.TextTestRunner(stream=transcript, verbosity=2).run(unittest.TestSuite(cases))
@@ -81,7 +81,7 @@ def main():
                    origins=origins, scope=args.scope,
                    real_native_repair_methods=3 if args.scope in ('all', 'repair') else 0,
                    real_native_game_methods=3 if args.scope in ('all', 'game') else 0,
-                   real_native_render_methods=3 if args.scope in ('all', 'render') else 0,
+                   real_native_render_methods=4 if args.scope in ('all', 'render') else 0,
                    real_native_typecheck_methods=4 if args.scope in ('all', 'paint-typecheck') else 0,
                    real_native_bundle_cache_methods=2 if args.scope in ('all', 'bundle-cache') else 0,
                    real_native_wasm_bounds_methods=5 if args.scope in ('all', 'wasm-bounds') else 0,
@@ -93,6 +93,8 @@ def main():
         receipt['native_render_failure']=render.NativePreviewRender.failure_diagnostic
     if args.scope in ('all', 'render') and hasattr(render.NativePreviewRender, 'actual_paint_command_receipt'):
         receipt['native_actual_paint_command']=render.NativePreviewRender.actual_paint_command_receipt
+    if args.scope in ('all', 'render') and hasattr(render.NativePreviewRender, 'legacy_media_control'):
+        receipt['native_legacy_media_negative_control']=render.NativePreviewRender.legacy_media_control
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'TEST_RESULT.json').write_text(json.dumps(receipt, indent=2) + '\n')
     (args.output / 'TEST_RESULT.txt').write_text(transcript.getvalue(), encoding='utf-8')

@@ -14,7 +14,7 @@ def main():
         path=ROOT/'tests/section18'/(name+'.py');spec=importlib.util.spec_from_file_location(name,path)
         module=importlib.util.module_from_spec(spec);sys.modules[name]=module;spec.loader.exec_module(module)
         modules.append(module);cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(getattr(module,klass)))
-    ids=[case.id() for case in cases];assert len(ids)==len(set(ids))==(56 if args.native else 49)
+    ids=[case.id() for case in cases];assert len(ids)==len(set(ids))==(58 if args.native else 51)
     stream=io.StringIO();result=unittest.TextTestRunner(stream=stream,verbosity=2).run(unittest.TestSuite(cases))
     receipt=dict(schema='bie.section18.chromium-controls/1',tests_run=result.testsRun,unique_method_ids=ids,
         failures=len(result.failures),errors=len(result.errors),skips=len(result.skipped),
