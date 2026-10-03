@@ -31,6 +31,9 @@ jobs:
           set -euo pipefail
           cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
           bash .integration/tools/setup_ci_environment.sh
+      - name: Provision unchanged pinned browser after the explicit runtime handoff
+        run: |
+          set -euo pipefail
           bash .integration/tools/setup_game_ci.sh
           test ! -e /usr/local/lib/bie-section18-chromium
           sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
@@ -44,6 +47,8 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: section18-chromium-resource-diagnostic
-          path: ${{ runner.temp }}/chromium-resource-evidence
+          path: |
+            ${{ runner.temp }}/chromium-resource-evidence
+            ${{ runner.temp }}/bie-ci-setup
           if-no-files-found: error
           retention-days: 14
