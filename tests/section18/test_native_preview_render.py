@@ -5,10 +5,11 @@ is explicitly a tiny synthetic technical scene, not learning or book acceptance.
 """
 from pathlib import Path
 import os
+import hashlib
 import json
 import sys
 import unittest
-from dataclasses import replace
+from dataclasses import asdict,replace
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT));sys.path.insert(0,str(Path(__file__).parent))
@@ -19,6 +20,7 @@ from bie.compiler.render_contracts import RenderRequest
 from bie.compiler.remotion_composition_discovery import CompositionDescriptor
 from bie.compiler.full_render import full_render
 from bie.compiler.qa_common import digest
+from bie.compiler.linux_worker import WorkerPolicy
 from bie.qa.video_v2.models import VideoPolicy
 
 
@@ -44,6 +46,33 @@ class NativePreviewRender(Base):
         request=RenderRequest(str(cls.project),'src/index.ts',comp,'out/preview.mp4',source.scene_fingerprint,
                               'operator18-native-preview',browser_executable=str(binary),timeout_s=120)
         cls.receipt=full_render(request)
+        # Keep the real producer's exact invocation even on a failed render.
+        # Export only execution/policy metadata, never raw stdout/stderr or scene
+        # content. This record cannot manufacture an ActualPaintWitness or PASS.
+        command_path=cls.project/cls.receipt.evidence_directory/'actual-paint/PROCESS.json'
+        if command_path.is_file():
+            if command_path.is_symlink() or not command_path.resolve().is_relative_to(cls.project.resolve()):
+                raise AssertionError('actual-paint command evidence path rejected')
+            if not 0<command_path.stat().st_size<=8*1024**2:
+                raise AssertionError('actual-paint command evidence size rejected')
+            raw=command_path.read_bytes()
+            process_record=json.loads(raw)
+            command=process_record['command'];kernel=process_record['kernel_policy']
+            if (type(command) is not list or len(command)!=4 or type(command[0]) is not str or
+                not Path(command[0]).is_absolute() or Path(command[0]).name!='node' or
+                command[1:]!=['--disable-wasm-trap-handler',
+                    '/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json']):
+                raise AssertionError('actual-paint command scope rejected')
+            if (kernel['resource_limits']!=asdict(WorkerPolicy()) or kernel['kernel_enforced'] is not True or
+                kernel['capabilities_dropped'] is not True or kernel['no_new_privileges'] is not True or
+                kernel['private_network']!='LOOPBACK_ONLY_NO_HOST_ROUTE'):
+                raise AssertionError('actual-paint unchanged kernel policy required')
+            process=process_record['process']
+            cls.actual_paint_command_receipt=dict(schema='bie.section18.actual-paint-command/1',
+                producer_receipt_sha256=hashlib.sha256(raw).hexdigest(),command=command,kernel_policy=kernel,
+                process_started=process['started'],process_outcome=process['outcome'],
+                process_passed=process['process']['passed'],actual_paint_pass_claimed=False,
+                stdout_stderr_or_scene_content_exported=False,synthetic_test=True,product_accepted=False)
         if not cls.receipt.passed:
             # Retain exact native typecheck evidence from the canonical producer.
             # This diagnostic reads the synthetic CI workspace only and does not
@@ -79,6 +108,9 @@ class NativePreviewRender(Base):
         self.assertEqual(self.receipt.media.decoded_frames,6)
         self.assertTrue((self.project/self.receipt.evidence_directory/'actual-paint-witness.json').is_file())
         self.assertTrue((self.project/self.receipt.evidence_directory/'isolation.json').is_file())
+        self.assertTrue(self.actual_paint_command_receipt['process_started'])
+        self.assertTrue(self.actual_paint_command_receipt['process_passed'])
+        self.assertEqual(self.actual_paint_command_receipt['kernel_policy']['resource_limits']['address_space_bytes'],8589934592)
         typecheck=json.loads((self.project/self.receipt.evidence_directory/
                               'actual-paint/typecheck/TYPECHECK.json').read_text())
         self.assertEqual(typecheck['receipt']['status'],'PASS')

@@ -91,6 +91,8 @@ def main():
                    real_book_acceptance=False, product_accepted=False)
     if args.scope in ('all', 'render') and hasattr(render.NativePreviewRender, 'failure_diagnostic'):
         receipt['native_render_failure']=render.NativePreviewRender.failure_diagnostic
+    if args.scope in ('all', 'render') and hasattr(render.NativePreviewRender, 'actual_paint_command_receipt'):
+        receipt['native_actual_paint_command']=render.NativePreviewRender.actual_paint_command_receipt
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'TEST_RESULT.json').write_text(json.dumps(receipt, indent=2) + '\n')
     (args.output / 'TEST_RESULT.txt').write_text(transcript.getvalue(), encoding='utf-8')

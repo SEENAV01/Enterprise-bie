@@ -113,6 +113,17 @@ console.log(JSON.stringify({wasm_pages:2,growth_bound_trapped:true,...receipt}))
         self.assertIn("'command': command",text)
         self.assertIn("'/engine/bie/compiler/qa_support/remotion_raster_capture.cjs'",text)
         self.assertEqual(text.count('--disable-wasm-trap-handler'),1)
+        # The real producer writes its command already. The native gate must
+        # also retain that safe receipt in the uploaded TEST_RESULT on failure.
+        native=ast.parse((ROOT/'tests/section18/test_native_preview_render.py').read_text())
+        cls=next(n for n in native.body if isinstance(n,ast.ClassDef) and n.name=='NativePreviewRender')
+        setup=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='setUpClass')
+        setup_text=ast.unparse(setup)
+        self.assertIn('cls.actual_paint_command_receipt',setup_text)
+        self.assertIn("'actual-paint/PROCESS.json'",setup_text)
+        self.assertIn('asdict(WorkerPolicy())',setup_text)
+        runner=ast.parse((ROOT/'tools/run_section18_posix_validation.py').read_text())
+        self.assertIn("receipt['native_actual_paint_command']",ast.unparse(runner))
 
 
 if __name__=='__main__':unittest.main(verbosity=2)
