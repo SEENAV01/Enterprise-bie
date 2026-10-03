@@ -2,6 +2,8 @@
 // Forensic probe ONLY. No arbitrary URL, script, executable, or command input.
 const fs = require('fs');
 const http = require('http');
+const net = require('net');
+const crypto = require('crypto');
 const {spawn} = require('child_process');
 const readLimits = () => fs.readFileSync('/proc/self/limits', 'utf8');
 const readStatus = () => fs.readFileSync('/proc/self/status', 'utf8');
@@ -29,15 +31,61 @@ function evaluate(url) {
   if (!/^ws:\/\/127\.0\.0\.1:9222\/devtools\/page\/[a-zA-Z0-9-]+$/.test(url)) {
     throw new Error('CDP_FOREIGN_TARGET');
   }
+  // Node22's built-in WebSocket starts Undici's llhttp Wasm. This unrelated
+  // diagnostic Node must keep its original 8GiB / unflagged invocation. Use a
+  // tiny bounded RFC6455 wire transport for this single trusted local CDP call,
+  // not a VM option or a dependency change. No extensions/foreign targets.
   return new Promise((resolve,reject) => {
-    const ws = new WebSocket(url);
-    const timer = setTimeout(() => {ws.close();reject(new Error('CDP_EVALUATION_TIMEOUT'));},3000);
-    ws.addEventListener('open', () => ws.send(JSON.stringify({id:1,method:'Runtime.evaluate',
-      params:{expression:'JSON.stringify({arithmetic:6*7,title:document.title})',returnByValue:true}})));
-    ws.addEventListener('error', () => {clearTimeout(timer);reject(new Error('CDP_EVALUATION_ERROR'));});
-    ws.addEventListener('message', event => {
-      const data = JSON.parse(event.data);
-      if (data.id === 1) {clearTimeout(timer);ws.close();resolve(data);}
+    const key=crypto.randomBytes(16).toString('base64');
+    const accept=crypto.createHash('sha1').update(key+'258EAFA5-E914-47DA-95CA-C5AB0DC85B11').digest('base64');
+    const socket=net.createConnection({host:'127.0.0.1',port:9222});
+    let pending=Buffer.alloc(0), upgraded=false, finished=false;
+    const timer=setTimeout(()=>done(new Error('CDP_EVALUATION_TIMEOUT')),3000);
+    function done(error,value) {
+      if(finished)return;finished=true;clearTimeout(timer);socket.destroy();
+      if(error)reject(error);else resolve(value);
+    }
+    function send(opcode,body) {
+      if(body.length>65535)throw new Error('CDP_SIZE_LIMIT');
+      const mask=crypto.randomBytes(4),long=body.length>=126;
+      const header=Buffer.alloc(long?8:6);header[0]=0x80|opcode;header[1]=0x80|(long?126:body.length);
+      if(long)header.writeUInt16BE(body.length,2);mask.copy(header,long?4:2);
+      const data=Buffer.from(body);for(let i=0;i<data.length;i++)data[i]^=mask[i%4];
+      socket.write(Buffer.concat([header,data]));
+    }
+    socket.on('connect',()=>socket.write('GET '+new URL(url).pathname+' HTTP/1.1\r\nHost: 127.0.0.1:9222\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: '+key+'\r\nSec-WebSocket-Version: 13\r\n\r\n'));
+    socket.on('error',()=>done(new Error('CDP_EVALUATION_ERROR')));
+    socket.on('close',()=>{if(!finished)done(new Error('CDP_EARLY_CLOSE'));});
+    socket.on('data',chunk=>{
+      try {
+        if(pending.length+chunk.length>131072)throw new Error('CDP_SIZE_LIMIT');
+        pending=Buffer.concat([pending,chunk]);
+        if(!upgraded) {
+          const end=pending.indexOf('\r\n\r\n');
+          if(end<0){if(pending.length>8192)throw new Error('CDP_HANDSHAKE_LIMIT');return;}
+          const rows=pending.subarray(0,end).toString('ascii').split('\r\n');
+          if(!/^HTTP\/1\.1 101(?: |$)/.test(rows.shift()))throw new Error('CDP_UPGRADE_REJECTED');
+          const headers={};for(const row of rows){const at=row.indexOf(':');if(at<1)throw new Error('CDP_HEADER_INVALID');
+            const name=row.slice(0,at).toLowerCase();if(headers[name]!==undefined)throw new Error('CDP_DUPLICATE_HEADER');headers[name]=row.slice(at+1).trim();}
+          if(headers['sec-websocket-accept']!==accept || headers.upgrade?.toLowerCase()!=='websocket' ||
+             !headers.connection?.toLowerCase().split(',').map(x=>x.trim()).includes('upgrade') ||
+             headers['sec-websocket-extensions'])throw new Error('CDP_HANDSHAKE_INVALID');
+          pending=pending.subarray(end+4);upgraded=true;
+          send(1,Buffer.from(JSON.stringify({id:1,method:'Runtime.evaluate',params:{
+            expression:'JSON.stringify({arithmetic:6*7,title:document.title})',returnByValue:true}})));
+        }
+        while(pending.length>=2) {
+          const opcode=pending[0]&15;let length=pending[1]&127,offset=2;
+          if(!(pending[0]&128)||(pending[0]&112)||(pending[1]&128))throw new Error('CDP_FRAME_INVALID');
+          if(length===126){if(pending.length<4)return;length=pending.readUInt16BE(2);offset=4;}
+          if(length===127)throw new Error('CDP_SIZE_LIMIT');
+          if(pending.length<offset+length)return;
+          const body=pending.subarray(offset,offset+length);pending=pending.subarray(offset+length);
+          if(opcode===9){if(length>125)throw new Error('CDP_PING_INVALID');send(10,body);continue;}
+          if(opcode!==1)throw new Error('CDP_FRAME_OPCODE');
+          const data=JSON.parse(body.toString('utf8'));if(data.id===1){done(null,data);return;}
+        }
+      } catch(error){done(error);}
     });
   });
 }
@@ -80,5 +128,5 @@ async function main() {
     child.kill('SIGKILL');
   }
 }
-module.exports = {exactNodeLimit};
+module.exports = {exactNodeLimit,evaluate};
 if (require.main === module) main().catch(error => {console.error(error.message);process.exitCode=1;});

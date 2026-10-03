@@ -41,6 +41,7 @@ jobs:
       - name: Real cgroup OOM and Chromium-only virtual-reservation diagnostic
         run: |
           set -euo pipefail
+          node tools/test_section18_chromium_probe_transport.cjs
           sudo -n /opt/pyvenv/bin/python -B tools/diagnose_section18_chromium_resource_policy.py --output "$RUNNER_TEMP/chromium-resource-evidence"
       - name: Retain authentic diagnostic including failure
         if: always()
