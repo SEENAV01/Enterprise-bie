@@ -5,6 +5,10 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import zipfile
+try:
+    from compiler_cache_source_amendment import resolve as resolve_cache_fix
+except ImportError:
+    from scripts.compiler_cache_source_amendment import resolve as resolve_cache_fix
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -13,6 +17,7 @@ def audit(root=ROOT):
     root = Path(root)
     errors = []
     archives_checked = members_checked = targets_checked = 0
+    reviewed_amendments = 0
     sha = lambda data: hashlib.sha256(data).hexdigest()
 
     def path(value):
@@ -30,6 +35,8 @@ def audit(root=ROOT):
     for manifest_path in manifests:
         try:
             m = json.loads(manifest_path.read_text())
+            m, amended = resolve_cache_fix(root, manifest_path, m)
+            reviewed_amendments += amended
             if 'archives' not in m or 'members' not in m:
                 raise ValueError('integration manifest lacks archives/members')
             if len(m['archives']) != m['archive_count'] or len(m['members']) != m['member_count']:
@@ -69,6 +76,7 @@ def audit(root=ROOT):
             errors.append(manifest_path.name+': '+str(exc))
     return dict(passed=not errors, errors=errors, manifests=len(manifests), archives_checked=archives_checked,
                 original_members_checked=members_checked, canonical_targets_checked=targets_checked,
+                reviewed_compiler_cache_amendments=reviewed_amendments,
                 acceptance='NOT_ACCEPTED', scope='Original ZIP/member preservation and declared canonical hashes')
 
 

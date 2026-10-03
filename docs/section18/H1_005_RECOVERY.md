@@ -95,3 +95,26 @@ before duplicate JS/Windows forced-cleanup ownership failed. The correction
 uses only the established private Job Object owner, still requires zero active
 processes and confined profile cleanup, and does not change Linux cleanup or
 product/security assertions. Fresh whole-browser qualification is still required.
+
+## Exact-capacity terminal process-cut repair
+
+A later genuine worker process cut at the canonical dead-letter call reproduced
+FAILED/DELIVERED with `cas_capacity_reached` and no CAS failure artifact. The
+original quota fallback had correctly recorded FAILED; the recovery adapter
+incorrectly demanded the receipt that exhausted storage cannot create.
+
+The repair accepts only the existing two quota fallback diagnostics, exact
+three-transition journal, bound source/config/worker/claim identity, unchanged
+budget policy and absent output/evidence registrations. It finalizes canonical
+BLOCKED/dead-letter bookkeeping without manufacturing evidence or re-executing
+inspection. Missing failure evidence remains explicit. Non-quota failures still
+require the exact hash-verified failure artifact. Five distinct controls passed:
+real cuts before dead-letter and BLOCKED, restart/replay at capacity, source
+corruption, quota-policy tampering and foreign claim refusal. These belong to
+H1-005, not new original tasks. The focused collection is79; expected cumulative
+atomic678 must be promoted only from a fresh executed receipt.
+
+Attempt017 independently passed673 atomic,300 inherited,67 QA,23 browser and
+the original complete Section17 2023-method gate. Native render remains red.
+The later Windows23 rerun has22 PASS/one ERROR, retaining a tablet child-retry
+timeout plus profile teardown error; no Windows whole-suite PASS is claimed.

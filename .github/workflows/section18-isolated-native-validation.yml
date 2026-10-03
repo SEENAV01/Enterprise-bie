@@ -117,6 +117,7 @@ jobs:
           mkdir -p "$RUNNER_TEMP/section18-evidence"
           python -m pip check
           python -B tools/run_section18_tests.py --lane atomic --output "$RUNNER_TEMP/section18-evidence/atomic"
+          python -B tools/run_section18_tests.py --lane source-ledger --output "$RUNNER_TEMP/section18-evidence/source-ledger"
           python -B tools/run_section18_tests.py --lane regression --output "$RUNNER_TEMP/section18-evidence/regression"
           python -B tools/run_section18_tests.py --lane qa-regression --output "$RUNNER_TEMP/section18-evidence/qa-regression"
           python -B tools/section18_process_controls.py "$RUNNER_TEMP/section18-evidence/h1-003-qualified-controls.json"

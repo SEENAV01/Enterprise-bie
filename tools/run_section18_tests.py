@@ -53,9 +53,13 @@ def flatten(suite):
         else:yield item
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--lane',choices=['atomic','regression','qa-regression','browser'],default='atomic')
+    p=argparse.ArgumentParser();p.add_argument('--lane',choices=['atomic','regression','qa-regression','browser','source-ledger'],default='atomic')
+    p.add_argument('--canonical-source-ledger',type=Path,help='Read-only exact canonical ledger for standalone preservation tests; hash checked by tests')
     p.add_argument('--task');p.add_argument('--batch',choices=['001','002','003','003b','003c','003d','003e','004','h1b','h1c','h1d','all'],default='all');p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     a.output.mkdir(parents=True,exist_ok=True)
+    if a.canonical_source_ledger is not None:
+        assert a.lane=='source-ledger','LEDGER_OVERRIDE_ONLY_FOR_PRESERVATION_CONTROLS'
+        os.environ['BIE_SECTION18_SOURCE_LEDGER']=str(a.canonical_source_ledger.resolve())
     if a.lane=='atomic':
         suite=unittest.TestSuite()
         for batch in (('001','002','003','003b','003c','003d','003e','004','h1b','h1c','h1d') if a.batch=='all' else (a.batch,)):
@@ -72,6 +76,8 @@ def main():
         if a.batch in ('003d','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch003d.py')))
         if a.batch in ('004','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch004.py')))
         if a.batch in ('h1d','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_terminal_recovery.py')))
+    elif a.lane=='source-ledger':
+        suite=load('tests/section18/test_compiler_source_amendment.py').selected_suite()
     elif a.lane=='qa-regression':
         suite=unittest.TestSuite()
         suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section17/test_reg_004.py')))
@@ -98,7 +104,7 @@ def main():
     origins={}
     for name,module in sys.modules.copy().items():
         file=getattr(module,'__file__',None)
-        if file and (name.startswith('bie.') or name.startswith('apps.')):
+        if file and (name.startswith('bie.') or name.startswith('apps.') or name=='scripts.compiler_cache_source_amendment'):
             path=Path(file).resolve();assert path.is_relative_to(ROOT.resolve()),'EXTERNAL_SOURCE_IMPORTED:'+name
             origins[name]=dict(path=path.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
     receipt=dict(schema='bie.section18.test-receipt/1',lane=a.lane,task=a.task,

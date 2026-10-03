@@ -77,9 +77,13 @@ def finalize_verified_failure(service,p,native,body,worker_id,snap,attempt,q,cha
     service.administration._queue_item(body,q,None,time.time())
     require(q.state=='DELIVERED' and q.consumer_id==worker_id,'terminal_recovery_delivery_mismatch')
     codes=attempt['diagnostics']
+    quota_failure=(type(codes) is list and len(codes)==1 and
+                   codes[0] in ('cas_capacity_reached','cas_blob_too_large'))
     require(snap['run_state'] in ('ACTIVE','BLOCKED') and attempt['input_artifact_refs']==[source_id] and
-            attempt['output_artifact_refs']==[] and attempt['evidence_refs']==[evidence_id] and
-            type(codes) is list and len(codes)==1 and codes[0] in ('pdf_inspection_failed','internal_worker_error'),
+            attempt['output_artifact_refs']==[] and
+            ((quota_failure and attempt['evidence_refs']==[]) or
+             (type(codes) is list and len(codes)==1 and codes[0] in ('pdf_inspection_failed','internal_worker_error')
+              and attempt['evidence_refs']==[evidence_id])),
             'terminal_recovery_failure_invalid')
     code=codes[0]
     require([(e['from_state'],e['to_state'],e['reason']) for e in snap['events']]==
@@ -93,14 +97,25 @@ def finalize_verified_failure(service,p,native,body,worker_id,snap,attempt,q,cha
             'terminal_recovery_source_invalid')
     raw_source=native.cas.get_bytes(BlobRef(source.blob_algorithm,source.blob_digest,source.blob_size))
     require(len(raw_source)==source.blob_size,'terminal_recovery_source_invalid')
-    evidence=native.persistence.load_artifact(evidence_id)
-    require(evidence.artifact_id==evidence_id and evidence.run_id==job and evidence.stage_id==STAGE_ID and
-            evidence.artifact_type=='document.inspection.evidence' and evidence.evidence is True and
-            evidence.parent_artifact_ids==[source_id] and evidence.metadata=={'status':'FAILED'} and
-            0<evidence.blob_size<=16*1024,'terminal_recovery_evidence_invalid')
-    raw=native.cas.get_bytes(BlobRef(evidence.blob_algorithm,evidence.blob_digest,evidence.blob_size))
-    require(strict_json(raw)==dict(job_id=job,source_hash=body['source_hash'],status='FAILED',diagnostic_code=code),
-            'terminal_recovery_evidence_invalid')
+    if quota_failure:
+        # The existing governed quota fallback records FAILED in the native
+        # transition journal precisely because even its failure evidence cannot
+        # be stored. Do not demand or synthesize a CAS receipt. Require the exact
+        # source/config/worker/claim/history binding above, unchanged budget
+        # policy and absence of result/evidence registration before finalizing.
+        service.cas_budget.verify_policy()
+        records=native.persistence.artifacts_for_run(job)
+        require(evidence_id not in records and 'result-'+suffix not in records,
+                'terminal_recovery_evidence_invalid')
+    else:
+        evidence=native.persistence.load_artifact(evidence_id)
+        require(evidence.artifact_id==evidence_id and evidence.run_id==job and evidence.stage_id==STAGE_ID and
+                evidence.artifact_type=='document.inspection.evidence' and evidence.evidence is True and
+                evidence.parent_artifact_ids==[source_id] and evidence.metadata=={'status':'FAILED'} and
+                0<evidence.blob_size<=16*1024,'terminal_recovery_evidence_invalid')
+        raw=native.cas.get_bytes(BlobRef(evidence.blob_algorithm,evidence.blob_digest,evidence.blob_size))
+        require(strict_json(raw)==dict(job_id=job,source_hash=body['source_hash'],status='FAILED',diagnostic_code=code),
+                'terminal_recovery_evidence_invalid')
     claim=native.idempotency.get(body['native_key'])
     require(claim.owner==job and claim.fingerprint==body['source_hash'] and claim.state=='CLAIMED' and
             claim.result_ref is None,'terminal_recovery_idempotency_invalid')
