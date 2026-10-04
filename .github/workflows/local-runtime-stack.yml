@@ -56,10 +56,17 @@ jobs:
             python -B tests/productization/api/test_pdf_worker_service.py
             python -B tests/productization/api/test_local_runtime_stack.py
             python -B tests/productization/api/test_local_stack_smoke.py
+            python -B tests/productization/api/test_posix_port_probe_contract.py
             python -B tests/productization/api/test_persistent_pdf_jobs.py
             python -B tests/productization/api/test_pdf_inspection_api.py
             python -B tests/productization/document_intelligence/test_real_pdf_toc_runtime.py
           } 2>&1 | tee "$RUNNER_TEMP/local-runtime-evidence/targeted-tests.log"
+      - name: R1 real Linux TCP immediate port reuse diagnostic
+        run: |
+          set -euo pipefail
+          python -B tests/productization/api/probe_posix_port_restart.py \
+            --output "$RUNNER_TEMP/local-runtime-evidence/posix-port-restart.json" \
+            | tee "$RUNNER_TEMP/local-runtime-evidence/posix-port-restart.log"
       - name: Real process automatic success failure continuity and restart
         run: |
           set -euo pipefail
