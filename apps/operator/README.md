@@ -1,8 +1,15 @@
-# Section 18 operator candidate — cumulative Batch 002
+# Section 18 local operator boundary
 
-This is a new product boundary over **unchanged canonical BIE source**, not a
-parallel document engine. The existing Android client and `apps/api` remain
-unchanged. This is ZIP-development source, not integrated or deployed software.
+This is a product boundary delegating to canonical BIE services, not a parallel
+document engine. Existing Android, `apps/api`, infrastructure contracts and the
+global task registry are preserved. The narrowly documented compiler compatibility
+and Section17 sidecar-race corrections are explicit exceptions; engine source is
+not claimed wholly unchanged. Integration and acceptance states are evidence-gated,
+not implied by this README. See [current integration scope](../../docs/section18/INTEGRATION.md).
+
+The batch sections below retain historical checkpoints and their authentic open
+findings. The current scope/evidence references supersede their old pending-state
+observations without rewriting those earlier results.
 
 ## Executable scope
 
