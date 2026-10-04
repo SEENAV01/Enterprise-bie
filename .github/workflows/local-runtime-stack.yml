@@ -55,6 +55,7 @@ jobs:
           {
             python -B tests/productization/api/test_pdf_worker_service.py
             python -B tests/productization/api/test_local_runtime_stack.py
+            python -B tests/productization/api/test_local_stack_smoke.py
             python -B tests/productization/api/test_persistent_pdf_jobs.py
             python -B tests/productization/api/test_pdf_inspection_api.py
             python -B tests/productization/document_intelligence/test_real_pdf_toc_runtime.py
