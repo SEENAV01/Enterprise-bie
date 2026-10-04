@@ -3,10 +3,16 @@ from pathlib import Path, PurePosixPath
 from hashlib import sha256
 import argparse, ast, io, json, stat, zipfile
 try:
-    from compiler_cache_source_amendment import resolve_source_members
+    from compiler_cache_source_amendment import resolve_source_members as resolve_native_members
+    from compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
 except ImportError:
-    from scripts.compiler_cache_source_amendment import resolve_source_members
+    from scripts.compiler_cache_source_amendment import resolve_source_members as resolve_native_members
+    from scripts.compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
 ROOT = Path(__file__).resolve().parents[1]
+
+def resolve_source_members(root,manifest_path,manifest):
+    rows=resolve_native_members(root,manifest_path,manifest)
+    return resolve_caller_members(root,manifest_path,manifest,rows)
 
 def digest(data): return sha256(data).hexdigest()
 

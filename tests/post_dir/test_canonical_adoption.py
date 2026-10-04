@@ -39,7 +39,7 @@ class PreservedInputs(unittest.TestCase):
         # Authenticate the sealed original inventory, both exact preimages and
         # both approved active replacements before checking every source row.
         # This is not a skip or a replacement of the historical ledger.
-        from scripts.compiler_cache_source_amendment import resolve_source_members
+        from scripts.verify_post_dir import resolve_source_members
         rows=resolve_source_members(ROOT,ROOT/'manifests/post_dir_integration_004.json',self.adoption)
         self.assertEqual(len(rows),len(self.adoption['source_members']))
         for item in rows:

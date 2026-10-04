@@ -116,6 +116,7 @@ jobs:
           python -B tools/run_section18_tests.py --lane qa-regression --output "$RUNNER_TEMP/section18-evidence/qa-regression"
           python -B tools/section18_process_controls.py "$RUNNER_TEMP/section18-evidence/h1-003-qualified-controls.json"
           python -B tools/run_section18_posix_validation.py --scope repair --output "$RUNNER_TEMP/section18-evidence/posix"
+          python -B tools/run_section18_posix_validation.py --scope compiler-callers --output "$RUNNER_TEMP/section18-evidence/compiler-callers"
           # Canonical GAME's disposable supervisor must chown its private
           # browser profile before dropping the browser to UID/GID 65534.
           # Only this explicit native test process is elevated; no secrets.
@@ -124,17 +125,6 @@ jobs:
           python -B tools/run_section18_posix_validation.py --scope paint-typecheck --output "$RUNNER_TEMP/section18-evidence/native-typecheck"
           python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
           python -B tools/run_section18_supported_flow.py --output "$RUNNER_TEMP/section18-evidence/supported-flow"
-      - name: Genuine native render gate
-        id: native-render
-        env:
-          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
-        run: |
-          set -euo pipefail
-          # The verified private root-owned boundary is unchanged from036.
-          # This is cumulative qualification, not the retired diagnostic job.
-          sudo -n /opt/pyvenv/bin/python -B tools/validate_section18_chromium_production.py \
-            --project "$BIE_SECTION18_RENDER_PROJECT" \
-            --output "$RUNNER_TEMP/section18-evidence/native-pipeline"
       - name: Independent actual browser gate
         if: ${{ always() && steps.components.outcome == 'success' }}
         env:
@@ -180,7 +170,7 @@ jobs:
               }
               browser.close()
           out=Path(os.environ['RUNNER_TEMP'])/'bie-ci-setup/chromium-session-preflight.json'
-          out.write_text(json.dumps(receipt,indent=2)+'\\n')
+          out.write_text(json.dumps(receipt,indent=2)+'\n')
           print(json.dumps(receipt,indent=2))
           PY
           # The preflight above proves the system Chromium can launch inside this
@@ -278,6 +268,59 @@ jobs:
             ${{ runner.temp }}/canonical-evidence/
             ${{ runner.temp }}/bie-ci-setup/
           if-no-files-found: warn
+          retention-days: 14
+
+  native-render:
+    # Generic worker locks deliberately reject another UID's root. This job
+    # gives the verified root-owned036 native lane its own disposable VM;
+    # never delete/change ownership of runner locks or weaken their guard.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Provision unchanged governed native toolchain
+        run: |
+          set -euo pipefail
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+          bash .integration/tools/setup_game_ci.sh
+          test ! -e /usr/local/lib/bie-section18-chromium
+          sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
+          cmp /opt/bie-game-chromium/chrome /usr/local/lib/bie-section18-chromium/chrome
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install -e ".[document-intelligence,document-intelligence-layout,api,api-test]"
+          python -m pip check
+      - name: Prepare exact pinned genuine synthetic H3 project
+        run: |
+          set -euo pipefail
+          project="$RUNNER_TEMP/section18-production-boundary-project"
+          python -B tools/prepare_section18_native_render.py --destination "$project"
+          cd "$project"
+          npm install --ignore-scripts --no-audit --no-fund
+      - name: Required genuine resource Wasm bundle and actual-paint render gates
+        run: |
+          set -euo pipefail
+          sudo -n /opt/pyvenv/bin/python -B tools/validate_section18_chromium_production.py \
+            --project "$RUNNER_TEMP/section18-production-boundary-project" \
+            --output "$RUNNER_TEMP/section18-native-evidence"
+      - name: Preserve exact native success or failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: section18-native-render-evidence
+          path: |
+            ${{ runner.temp }}/section18-native-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: error
           retention-days: 14
 
   section16-regression:

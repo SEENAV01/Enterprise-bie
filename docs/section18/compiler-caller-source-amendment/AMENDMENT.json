@@ -1,0 +1,34 @@
+{
+  "schema": "bie.section18.compiler-caller-maintenance/1",
+  "finding": "BIE-APP-H1-011",
+  "original_manifest_git_lf_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+  "files": [
+    {
+      "path": "tests/compiler/test_comp_h7_007.py",
+      "original_sha256": "f4c6da0393840cdc0469dbb8d1817c63dd975846fcffddecdd22c7ad8e01f669",
+      "original_bytes": 5153,
+      "active_sha256": "18f74637da5e6b3f20d40e020731850911333cc7dd172100712874ec50a8f9a1",
+      "active_bytes": 5447,
+      "preimage": "docs/section18/compiler-caller-source-amendment/test_comp_h7_007.py.before",
+      "methods": 12
+    },
+    {
+      "path": "tests/compiler/test_comp_h8_005.py",
+      "original_sha256": "189fd2ceda43553f11651eff700e3113eb08c1adaeb1af690b4db5ac3f5d3227",
+      "original_bytes": 5580,
+      "active_sha256": "1054b0a2f91aa4604e74a5774ef96a61f097a761887315c5b2eb48e241bb9cdc",
+      "active_bytes": 5977,
+      "preimage": "docs/section18/compiler-caller-source-amendment/test_comp_h8_005.py.before",
+      "methods": 15
+    }
+  ],
+  "failure_run": 37153626015,
+  "failure_type": "STATIC_CALLER_NAME_AFTER_APPROVED_KERNEL_WRAPPER",
+  "original_method_ids_preserved": 27,
+  "assertion_strengthened": "Verify real paint calls scoped wrapper and wrapper driver delegates canonical kernel under8GiB",
+  "production_bytes_changed": false,
+  "kernel_security_unchanged": true,
+  "original_ledgers_unchanged": true,
+  "authority": "HUMAN_MINIMAL_EVIDENCE_BACKED_INTEGRATION_REGRESSION_REPAIR",
+  "product_accepted": false
+}

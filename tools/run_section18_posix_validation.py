@@ -33,7 +33,7 @@ def load(relative):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--scope', choices=('all', 'repair', 'game', 'render', 'paint-typecheck', 'bundle-cache', 'wasm-bounds', 'campaign-race'), default='all')
+    parser.add_argument('--scope', choices=('all', 'repair', 'game', 'render', 'paint-typecheck', 'bundle-cache', 'wasm-bounds', 'campaign-race', 'compiler-callers'), default='all')
     args = parser.parse_args()
     if os.name != 'posix' or not hasattr(os, 'O_NOFOLLOW'):
         raise SystemExit('NOT_RUN: supported POSIX required; no security fallback')
@@ -62,8 +62,11 @@ def main():
     if args.scope in ('all', 'campaign-race'):
         race = load('tests/section18/test_campaign_sidecar_race.py')
         cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(race.CampaignSidecarPosix))
+    if args.scope in ('all', 'compiler-callers'):
+        callers=load('tests/section18/test_compiler_kernel_caller_posix.py')
+        cases.extend(unittest.defaultTestLoader.loadTestsFromTestCase(callers.KernelCallerControls))
     ids = [case.id() for case in cases]
-    expected = dict(all=25, repair=5, game=3, render=4, **{'paint-typecheck':4, 'bundle-cache':2, 'wasm-bounds':5, 'campaign-race':2})[args.scope]
+    expected = dict(all=27, repair=5, game=3, render=4, **{'paint-typecheck':4, 'bundle-cache':2, 'wasm-bounds':5, 'campaign-race':2, 'compiler-callers':2})[args.scope]
     assert len(ids) == len(set(ids)) == expected
     transcript = io.StringIO()
     result = unittest.TextTestRunner(stream=transcript, verbosity=2).run(unittest.TestSuite(cases))

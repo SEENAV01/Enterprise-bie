@@ -78,6 +78,7 @@ def main():
         if a.batch in ('h1d','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_terminal_recovery.py')))
     elif a.lane=='source-ledger':
         suite=load('tests/section18/test_compiler_source_amendment.py').selected_suite()
+        suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_compiler_caller_amendment.py')))
     elif a.lane=='qa-regression':
         suite=unittest.TestSuite()
         suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section17/test_reg_004.py')))

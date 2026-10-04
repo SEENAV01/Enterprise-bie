@@ -55,11 +55,5 @@ class IntegratedProductionGateTests(unittest.TestCase):
         import inspect,bie.compiler.real_paint as p,bie.compiler.linux_worker as s
         source=inspect.getsource(p)+inspect.getsource(s);self.assertNotIn('npm install',source);self.assertNotIn('npx ',source)
     def test_kernel_producer_not_bridge(self):
-        import inspect,bie.compiler.real_paint as p,bie.compiler.chromium_resource_worker as worker
-        s=inspect.getsource(p.produce_actual_paint)
-        self.assertIn('run_chromium_isolated(',s)
-        driver=inspect.getsource(worker._driver)
-        self.assertIn('run_isolated(',driver)
-        self.assertIn('policy=WorkerPolicy(**config[\'policy\'])',driver)
-        self.assertEqual(worker.NODE_AS,8*1024**3)
-        self.assertNotIn('ChromiumLayoutProbe',s);self.assertNotIn('layout_bridge',s)
+        import inspect,bie.compiler.real_paint as p
+        s=inspect.getsource(p.produce_actual_paint);self.assertIn('run_isolated',s);self.assertNotIn('ChromiumLayoutProbe',s);self.assertNotIn('layout_bridge',s)
