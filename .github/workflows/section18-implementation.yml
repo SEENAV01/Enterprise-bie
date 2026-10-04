@@ -291,6 +291,11 @@ jobs:
           set -euo pipefail
           cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
           bash .integration/tools/setup_ci_environment.sh
+      - name: Provision existing pinned browser after the runtime PATH handoff
+        run: |
+          set -euo pipefail
+          test "$(command -v python)" = /opt/pyvenv/bin/python
+          python -c 'import playwright'
           bash .integration/tools/setup_game_ci.sh
           test ! -e /usr/local/lib/bie-section18-chromium
           sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
