@@ -69,7 +69,10 @@ def capture_entry_h8(request, measure_js, paint_js):
     source = source.replace('useCurrentFrame,delayRender', 'getInputProps,useCurrentFrame,delayRender')
     source = source.replace(' const frame=useCurrentFrame();', ' const frame=useCurrentFrame();\n const input=getInputProps() as {__bieRasterMode?: {kind:string;target_id?:string}};\n const mode=input.__bieRasterMode ?? {kind:"full"};\n const modeKey=JSON.stringify(mode);')
     source = source.replace('[frame]);', '[frame,modeKey]);')
-    source = source.replace('   await document.fonts.ready;', '   await document.fonts.ready;\n   const raster = rasterModeImpl({targets:req.rasterTargets,mode,frame});')
+    # Measure inventory only after the original two-RAF layout readiness wait.
+    # Remotion may initially position its capture root off-screen; observing it
+    # before that wait creates false full/repeat drift. No equality check waived.
+    source = source.replace('   if(closed)return;', '   if(closed)return;\n   const raster = rasterModeImpl({targets:req.rasterTargets,mode,frame});')
     source = source.replace('nonce:req.nonce,frame,fonts_ready:', 'nonce:req.nonce,frame,raster,fonts_ready:')
     source = source.replace('[frame,handle]);', '[frame,handle,modeKey]);')
     return source
@@ -116,7 +119,8 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         (stage/'public').mkdir(exist_ok=True)
         # hash every staged dependency; an interrupted copy or changed root cannot slip in.
         staged=collect_installed_toolchain(stage,node=node,browser=browser);require_same_toolchain(before,staged)
-        req={'workspace':'/work','output':'/work/capture-output','browser':str(browser),'remotion_version':target.remotion_version,
+        from .chromium_resource_worker import ENTRY,run_chromium_isolated
+        req={'workspace':'/work','output':'/work/capture-output','browser':ENTRY,'remotion_version':target.remotion_version,
              'composition_id':'BieQA'+digest(raw['scene_id'])[:16],'width':target.width,'height':target.height,
              'fps':target.fps,'frame_count':n,'nonce':nonce,'rasterTargets':raster_targets,
              'scene_sha256':digest(raw),'manifest_sha256':checked.manifest_sha256,
@@ -127,22 +131,31 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         helper += 'export const rasterMode = '+(support/'raster_modes.js').read_text().strip()+';\n'
         # Observer entry imports a typed trusted JS helper. No user source typechecks are relaxed.
         source=capture_entry_h8(req,'(options: {frame:number;equationFonts:Record<string,number>}) => baseMeasureImpl(options)','(options: {frame:number;equationFonts:Record<string,number>}) => paintMeasureImpl(options)')
-        source='import {baseMeasure as baseMeasureImpl,paintMeasure as paintMeasureImpl,rasterMode as rasterModeImpl} from "./qa-paint-helper";\n'+source
+        # A same-basename .d.ts shadows the executable .js in the TS program.
+        # Keep the trusted helper itself in exhaustive coverage and declare its
+        # observation boundary in the strict observer, not a shadowing module.
+        source='''import {baseMeasure as rawBaseMeasure,paintMeasure as rawPaintMeasure,rasterMode as rawRasterMode} from "./qa-paint-helper";
+const baseMeasureImpl: (options:{frame:number;equationFonts:Record<string,number>}) => unknown[] = rawBaseMeasure;
+const paintMeasureImpl: (options:{frame:number;equationFonts:Record<string,number>}) => unknown[] = rawPaintMeasure;
+const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
+'''+source
         (stage/'qa-capture-entry.tsx').write_text(source)
         (stage/'qa-paint-helper.js').write_text(helper)
-        (stage/'qa-paint-helper.d.ts').write_text('export function baseMeasure(options:{frame:number;equationFonts:Record<string,number>}):unknown[];\nexport function paintMeasure(options:{frame:number;equationFonts:Record<string,number>}):unknown[];\nexport function rasterMode(options:unknown):unknown;\n')
         (stage/'capture-request.json').write_bytes(canonical_json(req))
-        # Strict TS remains enabled. Only trusted JS measurement helpers use declarations.
+        # Strict TS and exhaustive source coverage remain enabled.
         stage_cfg=json.loads((stage/'tsconfig.json').read_text())
         stage_cfg['compilerOptions'].update(allowJs=True,checkJs=False)
-        stage_cfg['include']+=['qa-capture-entry.tsx','qa-paint-helper.js','qa-paint-helper.d.ts']
+        stage_cfg['include']+=['qa-capture-entry.tsx','qa-paint-helper.js']
         (stage/'tsconfig.json').write_bytes(canonical_json(stage_cfg))
         tc=isolated_typecheck(stage,node=node,evidence_directory=out/'typecheck')
         if tc.status!='PASS':raise CompilerQAError('ACTUAL_PAINT_TYPECHECK_BLOCKED:'+tc.status)
-        process,kernel=run_isolated([str(node),'/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json'],
+        # Use inline Wasm bounds checks under the unchanged 8 GiB address ceiling.
+        # The option is scoped to this Wasm-using producer, never NODE_OPTIONS.
+        command=[str(node),'--disable-wasm-trap-handler','/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json']
+        process,kernel=run_chromium_isolated(command,browser=browser,kind='actual-paint',receipt_path=out/'CHROMIUM_RESOURCE.json',
                                    workspace=stage,engine=Path(__file__).resolve().parents[2],writable=['capture-output'],
                                    policy=policy or WorkerPolicy(),timeout_s=max(120,min(3600,n*4)),max_output_bytes=8*1024**2)
-        (out/'PROCESS.json').write_bytes(canonical_json({'process':asdict(process),'kernel_policy':kernel}))
+        (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
         if not process.process.passed:raise CompilerQAError('ACTUAL_PAINT_EXECUTION_BLOCKED:'+process.outcome+':'+process.process.stderr[:500])
         data=json.loads((capture/'RESULT.json').read_text())
         if data.get('scope')!='REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE' or data.get('nonce')!=nonce or data.get('real_remotion') is not True or data.get('browser_errors')!=[]:

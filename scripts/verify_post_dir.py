@@ -2,7 +2,17 @@
 from pathlib import Path, PurePosixPath
 from hashlib import sha256
 import argparse, ast, io, json, stat, zipfile
+try:
+    from compiler_cache_source_amendment import resolve_source_members as resolve_native_members
+    from compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
+except ImportError:
+    from scripts.compiler_cache_source_amendment import resolve_source_members as resolve_native_members
+    from scripts.compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
 ROOT = Path(__file__).resolve().parents[1]
+
+def resolve_source_members(root,manifest_path,manifest):
+    rows=resolve_native_members(root,manifest_path,manifest)
+    return resolve_caller_members(root,manifest_path,manifest,rows)
 
 def digest(data): return sha256(data).hexdigest()
 
@@ -54,7 +64,9 @@ def verify(root=ROOT, *, recursive=True):
         if recursive:
             try: visit(safe_file(root, item['repository_path']).read_bytes())
             except (OSError, ValueError, zipfile.BadZipFile) as exc: errors.append(str(exc))
-    for item in source['source_members']:
+    # Validate both exact active producer replacements and original preimages;
+    # keep the supplied sealed manifest and every unrelated member unchanged.
+    for item in resolve_source_members(root, root / 'manifests/post_dir_integration_004.json', source):
         check_file(item['canonical_path'], item['canonical_sha256'])
     if recursive:
         declared=json.loads((root/'manifests/post_dir_nested_members.json').read_text())['records']

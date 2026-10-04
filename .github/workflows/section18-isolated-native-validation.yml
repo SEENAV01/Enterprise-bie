@@ -1,0 +1,351 @@
+name: BIE Section 18 Isolated Native Validation
+
+on:
+  push:
+    branches: [codex/section18-native-validation-20261002]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: section18-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  canonical-regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      BIE_GAME_CI_SUPERVISOR: '1'
+      BIE_SECTION17_CHROMIUM: /opt/bie-game-chromium/chrome
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
+        with:
+          node-version: '22.16.0'
+      - name: Install the verified hosted-worker profile when present
+        if: ${{ hashFiles('requirements-comp-h3.txt') != '' }}
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Install AUDIO validation profile when present
+        if: ${{ hashFiles('requirements-audio-mix.txt') != '' && hashFiles('requirements-audio-acoustic.txt') != '' }}
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-audio-mix.txt -r requirements-audio-acoustic.txt
+          python -m pip check
+          sudo apt-get update
+          sudo apt-get install -y espeak libpocketsphinx3 libsphinxbase3t64 pocketsphinx-en-us pocketsphinx
+          /usr/bin/espeak --version 2>&1 | head -n 2
+          ldconfig -p | grep -E 'libpocketsphinx\.so\.3|libsphinxbase\.so\.3'
+      - name: Install approved Section 15 isolated browser profile
+        run: bash .integration/tools/setup_game_ci.sh
+      - name: Provision exact same native browser within existing compiler tool mount
+        run: |
+          set -euo pipefail
+          test ! -e /usr/local/lib/bie-section18-chromium
+          sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
+          cmp /opt/bie-game-chromium/chrome /usr/local/lib/bie-section18-chromium/chrome
+          mkdir -p "$RUNNER_TEMP/section18-evidence"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os
+          original=Path('/opt/bie-game-chromium');installed=Path('/usr/local/lib/bie-section18-chromium')
+          rows=[]
+          for old in sorted(original.rglob('*')):
+              new=installed/old.relative_to(original)
+              if old.is_symlink():
+                  assert new.is_symlink() and os.readlink(old)==os.readlink(new)
+              elif old.is_file():
+                  a=hashlib.sha256(old.read_bytes()).hexdigest();b=hashlib.sha256(new.read_bytes()).hexdigest()
+                  assert a==b
+                  rows.append({'path':str(old.relative_to(original)),'sha256':a})
+          assert rows and (installed/'chrome').read_bytes()[:4]==b'\x7fELF'
+          receipt={'schema':'bie.section18.browser-provisioning/1','files':rows,
+                   'source':'EXISTING_PINNED_PLAYWRIGHT_CHROMIUM','mount_policy_changed':False,
+                   'sandbox_browser':'/usr/local/lib/bie-section18-chromium/chrome','product_accepted':False}
+          out=Path(os.environ['RUNNER_TEMP'])/'section18-evidence/browser-provisioning.json'
+          out.write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps({'files_identical':len(rows),'mount_policy_changed':False}))
+          PY
+      - name: Install scoped QA profile without downgrading canonical PDF dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+          python -m pip freeze > "$RUNNER_TEMP/bie-ci-setup/qa-python-freeze.txt"
+      - name: Provision native Section 17 media tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          command -v ffmpeg
+          command -v ffprobe
+          test -x "$BIE_SECTION17_CHROMIUM"
+      - name: Install existing API test extras for the operator boundary
+        run: python -m pip install -e ".[document-intelligence,document-intelligence-layout,api,api-test]"
+      - name: Prepare genuine canonical synthetic render project
+        run: |
+          set -euo pipefail
+          project="$RUNNER_TEMP/section18-native-render"
+          python -B tools/prepare_section18_native_render.py --destination "$project"
+          cd "$project"
+          npm install --ignore-scripts --no-audit --no-fund
+          printf 'BIE_SECTION18_RENDER_PROJECT=%s\n' "$project" >> "$GITHUB_ENV"
+      - name: Observe native browser reservations under the unchanged worker policy
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: python -B tools/diagnose_section18_browser_memory.py --output "$RUNNER_TEMP/section18-evidence/browser-memory-diagnostic"
+      - name: Investigate existing pinned headless build without promoting render
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: python -B tools/diagnose_section18_browser_compatibility.py --output "$RUNNER_TEMP/section18-evidence/browser-compatibility-diagnostic"
+      - name: Section 18 explicit local and native gates
+        id: components
+        env:
+          BIE_SECTION18_BROWSER: /opt/bie-game-chromium/chrome
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/section18-evidence"
+          python -m pip check
+          python -B tools/run_section18_tests.py --lane atomic --output "$RUNNER_TEMP/section18-evidence/atomic"
+          python -B tools/run_section18_tests.py --lane source-ledger --output "$RUNNER_TEMP/section18-evidence/source-ledger"
+          python -B tools/run_section18_tests.py --lane regression --output "$RUNNER_TEMP/section18-evidence/regression"
+          python -B tools/run_section18_tests.py --lane qa-regression --output "$RUNNER_TEMP/section18-evidence/qa-regression"
+          python -B tools/section18_process_controls.py "$RUNNER_TEMP/section18-evidence/h1-003-qualified-controls.json"
+          python -B tools/run_section18_posix_validation.py --scope repair --output "$RUNNER_TEMP/section18-evidence/posix"
+          # Canonical GAME's disposable supervisor must chown its private
+          # browser profile before dropping the browser to UID/GID 65534.
+          # Only this explicit native test process is elevated; no secrets.
+          sudo -n env "PATH=$PATH" "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-}" PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 \
+            "$(command -v python)" -B tools/run_section18_posix_validation.py --scope game --output "$RUNNER_TEMP/section18-evidence/native-game"
+          python -B tools/run_section18_posix_validation.py --scope paint-typecheck --output "$RUNNER_TEMP/section18-evidence/native-typecheck"
+          export BIE_SECTION18_WASM_EVIDENCE="$RUNNER_TEMP/section18-evidence/native-wasm-commands"
+          python -B tools/run_section18_posix_validation.py --scope wasm-bounds --output "$RUNNER_TEMP/section18-evidence/native-wasm-bounds"
+          python -B tools/run_section18_posix_validation.py --scope bundle-cache --output "$RUNNER_TEMP/section18-evidence/native-bundle-cache"
+          python -B tools/smoke_section18_admin_worker.py --receipt "$RUNNER_TEMP/section18-evidence/worker.json"
+      - name: Collect bounded native browser-launch diagnostic, not a render gate
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: python -B tools/diagnose_section18_native_browser.py --output "$RUNNER_TEMP/section18-evidence/browser-launch-diagnostic"
+      - name: Genuine native render gate
+        id: native-render
+        env:
+          BIE_SECTION18_RENDER_BROWSER: /usr/local/lib/bie-section18-chromium/chrome
+        run: |
+          python -B tools/run_section18_posix_validation.py --scope render --output "$RUNNER_TEMP/section18-evidence/native-render"
+      - name: Independent actual browser gate
+        if: ${{ always() && steps.components.outcome == 'success' }}
+        env:
+          BIE_SECTION18_BROWSER: /opt/bie-game-chromium/chrome
+        run: |
+          dbus-run-session -- python -B tools/run_section18_tests.py --lane browser --output "$RUNNER_TEMP/section18-evidence/browser"
+      - name: Independent complete canonical gate in a valid D-Bus session
+        id: canonical
+        # Collect independent regressions even when native render is red.
+        # The render step remains required, non-continue-on-error and unchanged;
+        # this cannot turn the job green or authorize sign-off/PR/merge.
+        if: ${{ !cancelled() && steps.components.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          command -v dbus-run-session
+          unset DBUS_SESSION_BUS_ADDRESS DBUS_SYSTEM_BUS_ADDRESS DBUS_STARTER_ADDRESS DBUS_STARTER_BUS_TYPE
+          mkdir -p "$RUNNER_TEMP/canonical-evidence" "$RUNNER_TEMP/bie-ci-setup"
+          dbus-run-session -- bash -s <<'BASH'
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json, os, time
+          from playwright.sync_api import sync_playwright
+
+          address=os.environ.get('DBUS_SESSION_BUS_ADDRESS','')
+          if not address.startswith('unix:'):
+              raise SystemExit('INVALID_DBUS_SESSION_ADDRESS:'+address)
+          started=time.monotonic()
+          with sync_playwright() as p:
+              browser=p.chromium.launch(
+                  executable_path='/usr/bin/chromium',
+                  headless=True,
+                  args=['--no-sandbox','--disable-dev-shm-usage'],
+                  timeout=120000,
+              )
+              receipt={
+                  'schema_version':'bie.ci.chromium-session-preflight/1',
+                  'dbus_session_address_kind':'unix',
+                  'chromium_version':browser.version,
+                  'startup_seconds':round(time.monotonic()-started,3),
+                  'node_version':os.popen('node --version').read().strip(),
+                  'preflight_passed':True,
+                  'product_accepted':False,
+              }
+              browser.close()
+          out=Path(os.environ['RUNNER_TEMP'])/'bie-ci-setup/chromium-session-preflight.json'
+          out.write_text(json.dumps(receipt,indent=2)+'\\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          # The preflight above proves the system Chromium can launch inside this
+          # exact D-Bus session. Section 17 must use that validated executable;
+          # the separately copied Section 15 browser remains available for its
+          # own isolation contract.
+          BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)"
+          export BIE_SECTION17_CHROMIUM
+          python - "$BIE_SECTION17_CHROMIUM" "$RUNNER_TEMP/bie-ci-setup/section17-chromium.txt" <<'PY'
+          from pathlib import Path
+          import hashlib,sys
+          path=Path(sys.argv[1])
+          if path.is_symlink() or not path.is_file():
+              raise SystemExit('SECTION17_CHROMIUM_NOT_REGULAR:'+str(path))
+          raw=path.read_bytes()
+          if raw[:4] != b'\x7fELF':
+              raise SystemExit('SECTION17_CHROMIUM_NOT_ELF:'+str(path))
+          Path(sys.argv[2]).write_text(
+              f'path={path}\nsha256={hashlib.sha256(raw).hexdigest()}\nbytes={len(raw)}\n',
+              encoding='utf-8',
+          )
+          print(f'SECTION17_CHROMIUM_NATIVE={path}')
+          PY
+          # Exercise authored AX assertions using the exact validated executable
+          # in this session before the expensive full regression.
+          python -B tools/run_section17_native_api_tests.py --pattern test_h5_006.py --output-dir "$RUNNER_TEMP/canonical-evidence/section17-browser-preflight"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          result=json.loads((Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17-browser-preflight/TEST_RESULT.json').read_text())
+          assert result['all_passed'] and result['tests_run']==result['unique_test_method_ids']==8
+          assert result['fixture_events']==[] and result['native_module_origins_valid']
+          PY
+          python -B scripts/integrated_check.py --output-dir "$RUNNER_TEMP/canonical-evidence" 2>&1 | tee "$RUNNER_TEMP/canonical-evidence/run.log"
+          BASH
+      - name: Independent complete Section 17 maintenance gate, never waiving render
+        if: ${{ always() && steps.components.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python -B tools/run_section18_campaign_regression.py --output "$RUNNER_TEMP/section18-evidence/campaign-race"
+          python -B tools/run_section18_posix_validation.py --scope campaign-race --output "$RUNNER_TEMP/section18-evidence/campaign-security"
+          python -B scripts/verify_section17_adoption.py --output "$RUNNER_TEMP/section18-evidence/campaign-adoption.json"
+          BIE_SECTION17_CHROMIUM="$(readlink -f /usr/bin/chromium)" dbus-run-session -- \
+            python -B scripts/section17_gate.py --output-dir "$RUNNER_TEMP/section18-evidence/section17-maintenance"
+      - name: Exact supplied corpus and adoption verification
+        if: ${{ !cancelled() && steps.canonical.outcome == 'success' && hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        run: python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/canonical-evidence/post-dir-preservation.json"
+      - name: Require complete Section 17 suite identity
+        if: ${{ !cancelled() && steps.canonical.outcome == 'success' }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence/section17/GATE_RESULT.json'
+          result=json.loads(p.read_text())
+          if result.get('suite_passed') is not True or result.get('section17_methods_observed') != 2023:
+              raise SystemExit('SECTION17_GATE_INCOMPLETE: '+str(result))
+          if result.get('product_accepted') is not False or result.get('section_complete') is not False:
+              raise SystemExit('SECTION17_UNSUPPORTED_PROMOTION')
+          print(json.dumps(result,indent=2))
+          PY
+      - name: Require complete passing post-DIR regression, never skipped tests
+        if: ${{ !cancelled() && steps.canonical.outcome == 'success' && hashFiles('manifests/post_dir_supplied_inputs.json') != '' }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])/'canonical-evidence'
+          data=json.loads((root/'integrated_tests.json').read_text())
+          s=data['summary'];rows=data['results']
+          p=json.loads((root/'post-dir-preservation.json').read_text())
+          if s.get('passed') is not True or s.get('tests_run',0) < 9298:
+              raise SystemExit('INCOMPLETE_REGRESSION: '+str(s))
+          if any(s.get(k) != 0 for k in ('failed_files','failures','errors','skipped')):
+              raise SystemExit('FAILURES_ERRORS_OR_SKIPS: '+str(s))
+          audio=[r for r in rows if r['path'].startswith('tests/audio/')]
+          counts=(len(audio),sum(r['tests'] for r in audio),sum(r['failures'] for r in audio),sum(r['errors'] for r in audio),sum(r['skipped'] for r in audio))
+          if counts != (82,1684,0,0,0):
+              raise SystemExit('AUDIO_GATE_FAILED: '+str(counts))
+          manifest=json.loads(Path('manifests/game_section15_adoption.json').read_text())
+          expected=set(manifest['test_paths']);game=[r for r in rows if r['path'] in expected]
+          if len(game)!=len(expected) or sum(r['tests'] for r in game)!=1123:
+              raise SystemExit('GAME_GATE_COVERAGE_FAILED')
+          if p.get('passed') is not True or p.get('errors') != []:
+              raise SystemExit('PRESERVATION_FAILED: '+str(p))
+          print(json.dumps({'regression':s,'audio':counts,'preservation':p,'product_accepted':False},indent=2))
+          PY
+      - name: Preserve actual results, including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: canonical-regression-evidence
+          path: |
+            ${{ runner.temp }}/section18-evidence/
+            ${{ runner.temp }}/canonical-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: warn
+          retention-days: 14
+
+  section16-regression:
+    # integrated_check includes the Section17 gate, but not the explicit
+    # Section16 suite. Preserve it independently; a red render is never waived.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      BIE_GAME_CI_SUPERVISOR: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Install the existing governed hosted-worker profile
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Install the existing approved isolated browser profile
+        run: bash .integration/tools/setup_game_ci.sh
+      - name: Install unchanged Section16 validation dependency profile
+        run: |
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Execute all original Section16 canonical suites
+        run: |
+          sudo -n env PATH="$PATH" PYTHONPATH="$GITHUB_WORKSPACE" PYTHONDONTWRITEBYTECODE=1 \
+            /opt/pyvenv/bin/python -B scripts/section16_gate.py --output "$RUNNER_TEMP/section16-evidence"
+      - name: Require exact suite identity and unchanged clean candidate
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          qa=json.loads((Path(os.environ['RUNNER_TEMP'])/'section16-evidence/TEST_RESULT.json').read_text())
+          head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          tree=subprocess.check_output(['git','rev-parse','HEAD^{tree}'],text=True).strip()
+          assert qa['passed'] and qa['full_section_suite'] and qa['candidate_unchanged']
+          assert qa['candidate']['commit']==head and qa['candidate']['tree']==tree
+          assert not qa['candidate']['dirty']
+          assert qa['executed_tests']==qa['unique_test_ids']==4856 and len(qa['suites'])==32
+          assert all(r['passed'] and r['origins_valid'] for r in qa['suites'])
+          assert all(all(r[k]==0 for k in ('failures','errors','skipped','expected_failures','unexpected_successes')) for r in qa['suites'])
+          assert qa['product_accepted'] is False
+          print(json.dumps({'candidate':head,'tree':tree,'section16_methods':4856,
+              'original_release_overlap':10,'section16_signed_off':False,
+              'section18_signoff':False,'product_accepted':False,'task028':'PAUSED'}))
+          PY
+      - name: Preserve actual Section16 results including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: section18-full-section16-regression-evidence
+          path: |
+            ${{ runner.temp }}/section16-evidence/
+            ${{ runner.temp }}/bie-ci-setup/
+          if-no-files-found: warn
+          retention-days: 14

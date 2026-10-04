@@ -115,7 +115,7 @@ def build_render_command(request: RenderRequest, plan: RenderPlan, *, cli: str,
                          node: str, staged_output: str, empty_env: str) -> tuple[str, ...]:
     command = [node, cli, "render", str(Path(request.workspace).resolve() / request.entrypoint),
                request.composition.composition_id, staged_output,
-               "--codec=h264", "--pixel-format=yuv420p", f"--crf={request.crf}",
+               "--codec=h264", "--pixel-format=yuv420p", "--color-space=bt709", f"--crf={request.crf}",
                f"--concurrency={request.concurrency}", "--overwrite=false", "--log=info",
                f"--timeout={request.frame_timeout_ms}", "--bundle-cache=false", f"--env-file={empty_env}"]
     if plan.mode == "smoke":
@@ -219,15 +219,20 @@ def execute_render(request: RenderRequest, plan: RenderPlan, *,
                 isolated_calls=[]
                 def execute(command, **kwargs):
                     profile=WorkerPolicy(procfs=(str(command[0])!=tools['ffprobe']))
-                    process,kernel=run_isolated(command,workspace=root,writable=[evidence_relative],policy=profile,
+                    from .chromium_resource_worker import run_chromium_isolated
+                    render_command=str(command[0])==tools['node']
+                    boundary=run_chromium_isolated if render_command else run_isolated
+                    extra=dict(engine=Path(__file__).resolve().parents[2],browser=tools['browser'],kind='renderer',
+                               receipt_path=attempt/'CHROMIUM_RESOURCE.json') if render_command else {}
+                    process,kernel=boundary(command,workspace=root,writable=[evidence_relative],policy=profile,
                                       timeout_s=kwargs.get('timeout_s',request.timeout_s),cancel_event=kwargs.get('cancel_event'),
-                                      max_output_bytes=kwargs.get('max_output_bytes',request.max_output_bytes),secrets=secrets)
+                                      max_output_bytes=kwargs.get('max_output_bytes',request.max_output_bytes),secrets=secrets,**extra)
                     isolated_calls.append({'kernel_policy':kernel,'outcome':process.outcome})
                     _write_json(attempt/'isolation.json',{'calls':isolated_calls,'accepted':False})
                     return process
             recipe = {"schema_version": "bie.render-recipe.v1", "scene_fingerprint": request.scene_fingerprint,
                       "input_sha256": input_sha, "composition": asdict(request.composition),
-                      "plan": asdict(plan), "codec": "h264", "pixel_format": "yuv420p", "crf": request.crf,
+                      "plan": asdict(plan), "codec": "h264", "pixel_format": "yuv420p", "color_space": "bt709", "crf": request.crf,
                       "concurrency": request.concurrency, "frame_timeout_ms": request.frame_timeout_ms,
                       "require_audio": request.require_audio, "props_file": request.props_file,
                       "tool_versions": tools["versions"], "cli_sha256": tools["cli_sha256"],

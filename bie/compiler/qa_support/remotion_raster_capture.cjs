@@ -12,8 +12,10 @@ async function main(){
   if(fromProject(name+'/package.json').version!==req.remotion_version)throw new Error('CAPTURE_PIN_MISMATCH:'+name);
  }
  const out=req.output;fs.mkdirSync(out,{recursive:true});
- const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public')});
- const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromiumOptions:{enableMultiProcessOnLinux:true}});
+ // Dependencies are immutable in the guarded workload; never cache in node_modules.
+ const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public'),enableCaching:false});
+ // The pinned executable is full Chrome, not the separate legacy headless shell.
+ const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromeMode:'chrome-for-testing',chromiumOptions:{enableMultiProcessOnLinux:true}});
  const frames=[],rasterFrames=[],errors=[];
  try{
   const composition=await selectComposition({serveUrl,id:req.composition_id,puppeteerInstance:browser});

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIE · Local operator</title><link rel="stylesheet" href="/static/operator.css"><link rel="stylesheet" href="/static/viewers.css"><script src="/static/operator.js" defer></script><script src="/static/viewers.js" defer></script><script src="/static/previews.js" defer></script><script src="/static/quality.js" defer></script><script src="/static/assurance.js" defer></script><script src="/static/administration.js" defer></script><script src="/static/governance.js" defer></script></head>
+<body><a href="#workspace" class="skip">Skip to workspace</a>
+<header><p class="eyebrow">MY BOOK INTELLIGENCE ENGINE</p><h1>Source → governed run</h1>
+<p>Local operator workspace · PDF inspection is executable. Learning-video/game production is not bound here.</p></header>
+<main id="workspace"><section aria-labelledby="access-title"><h2 id="access-title">Operator access</h2>
+<p>Use a provisioned local operator credential. It stays in this page's memory; closing the page clears it.</p>
+<label for="token">Local bearer credential</label><input id="token" type="password" autocomplete="off" maxlength="256">
+<button id="connect" type="button">Open workspace</button><button id="disconnect" type="button">Clear credential</button>
+<p id="notice" role="status" aria-live="polite">Not connected. No run has been created.</p></section>
+<section aria-labelledby="source-title"><h2 id="source-title">1. Validate source</h2>
+<label for="pdf">Authorized PDF · maximum 25 MiB</label><input id="pdf" type="file" accept="application/pdf,.pdf">
+<button id="upload" type="button" disabled>Import &amp; validate</button><dl id="validation"></dl>
+<p>Raw source is stored only in the private local CAS. Invalid PDFs cannot create runs.</p></section>
+<section aria-labelledby="run-title"><h2 id="run-title">2. Create an inspection run</h2>
+<label for="locale">Requested learning locale</label><select id="locale"><option value="en">English</option><option value="hi">Hindi</option></select>
+<p>Canonical config records requested video + game outputs; both remain NOT_RUN until a genuine producer is bound.</p>
+<button id="create" type="button" disabled>Create governed run</button><button id="refresh" type="button" disabled>Refresh persisted state</button>
+<p id="policy-binding-state">No versioned policy selected; fixed inspection defaults apply.</p>
+<label for="run-id">Existing run identity</label><input id="run-id" maxlength="100" autocomplete="off"><button id="open-run" type="button" disabled>Open run</button>
+<div id="run-summary"></div><div class="actions"><button id="pause" disabled>Pause queued work</button><button id="resume" disabled>Resume queued work</button><button id="cancel" disabled>Cancel queued work</button><button id="retry" disabled>Retry failed run</button></div>
+<p>Controls affect the controlled operator executor only. Running-process interruption is not supported and is rejected.</p></section>
+<section aria-labelledby="timeline-title"><h2 id="timeline-title">Persisted timeline</h2><ol id="timeline"></ol><button id="more-timeline" disabled>More events</button><h3>Safe failure diagnostics</h3><div id="failure">No failure loaded.</div></section>
+<section aria-labelledby="evidence-title"><h2 id="evidence-title">Linked evidence receipt</h2><dl id="evidence-view"></dl></section>
+<section aria-labelledby="graph-title"><h2 id="graph-title">Source-linked graphs</h2><div class="actions"><button id="concept" disabled>Concept graph</button><button id="prerequisite" disabled>Prerequisite graph</button></div>
+<p id="graph-state">NOT_RUN · no graph artifact loaded.</p><div id="graph"></div><div id="graph-fallback"></div></section>
+<section aria-labelledby="views-title"><h2 id="views-title">Learning artifact window</h2>
+<p>Only persisted, hash-verified artifacts can be opened. A plan is not rendered video or a playable game. Synthetic evidence is labelled.</p>
+<div class="actions"><button id="view-reasoning" disabled>Reasoning decisions</button><button id="view-curriculum" disabled>Curriculum</button>
+<button id="view-lesson" disabled>Lesson</button><button id="view-director" disabled>Director plan</button>
+<button id="view-scene_ir" disabled>Scene IR</button><button id="view-game_plan" disabled>Game plan</button></div>
+<p id="view-state" role="status">NOT_RUN · no artifact loaded.</p><div id="artifact-view"></div></section>
+<section aria-labelledby="artifacts-title"><h2 id="artifacts-title">Persisted artifacts and lineage</h2>
+<label for="artifact-type">Artifact type filter (blank means all)</label><input id="artifact-type" maxlength="100" autocomplete="off">
+<label for="evidence-only">Evidence filter</label><select id="evidence-only"><option value="false">All artifacts</option><option value="true">Evidence only</option></select>
+<button id="browse-artifacts" disabled>Browse artifacts</button><button id="more-artifacts" disabled>More artifacts</button>
+<div id="artifact-list"></div><h3>Verified lineage</h3><div id="lineage-view"></div>
+<h3>Verified generated code · display only</h3><p>No code is executed in this viewer.</p><div id="code-view"></div><button id="more-code" disabled>More code lines</button>
+</section>
+<section aria-labelledby="previews-title"><h2 id="previews-title">Native artifact previews</h2>
+<p>Only actual persisted media/compiled package bytes are previewed. Scene IR and game plans cannot substitute. Hash verification is not QA or learning-quality acceptance.</p>
+<button id="preview-render" disabled>Open render artifact</button><button id="preview-game" disabled>Open isolated game package</button><button id="stop-preview" disabled>Stop and revoke preview</button>
+<p id="preview-state" role="status">NOT_RUN · no native output loaded.</p><div id="preview-content"></div></section>
+<section aria-labelledby="quality-title"><h2 id="quality-title">Native evaluation and release decisions</h2>
+<p>Verified historical ledger snapshots only. Diagnostic benchmark PASS is not release permission. Missing evaluators and coverage remain explicit; no learner improvement is inferred.</p>
+<button id="quality-benchmark" disabled>Benchmark dashboard</button><button id="quality-release" disabled>Release report</button><button id="quality-more" disabled>More evaluation attempts</button>
+<p id="quality-state" role="status">NOT_RUN · no native ledger snapshot loaded.</p><div id="quality-content"></div></section>
+<section aria-labelledby="assurance-title"><h2 id="assurance-title">Canonical QA gates and repair history</h2>
+<p>Missing evidence is NOT_RUN, never PASS. Gate snapshots are historical, not release authority. Repair history requires a verified native journal; staged-for-review is not a completed release. Unsupported secure execution remains blocked.</p>
+<button id="assurance-gates" disabled>Gate dashboard</button><button id="assurance-repairs" disabled>Repair history</button><button id="assurance-more" disabled>More QA snapshots</button>
+<p id="assurance-state" role="status">NOT_RUN · no native QA or repair snapshot loaded.</p><div id="assurance-content"></div></section>
+<section aria-labelledby="admin-title"><h2 id="admin-title">Actual local control plane</h2>
+<p>Tenant-owned persisted state only. Provider adapters must be provisioned by the trusted process. No secret values, live provider probes, worker-launch buttons or global/distributed health claims.</p>
+<button id="admin-providers" disabled>Provider configuration</button><button id="admin-workers" disabled>Worker pool</button><button id="admin-queue" disabled>Canonical queue</button><button id="admin-dead-letters" disabled>Dead letters</button>
+<label for="queue-state">Queue state filter</label><select id="queue-state"><option value="">All states</option><option>READY</option><option>DELIVERED</option><option>ACKED</option><option>DEAD_LETTER</option></select>
+<button id="admin-more" disabled>More control-plane records</button>
+<p id="admin-state" role="status">NOT_RUN · control plane not loaded.</p><div id="admin-content"></div><h3>Selected configuration history or dead-letter detail</h3><div id="admin-detail"></div>
+<p>Worker heartbeats record dispatch start/completion only. Stale does not prove process death. Recovering a failed job creates an idempotent child; the failed parent/dead-letter remains unchanged. Cancelled or interrupted work requires review, never fake recovery.</p></section>
+<section aria-labelledby="governance-title"><h2 id="governance-title">Versioned policy, benchmark configuration and audit</h2>
+<p>Local governed configuration, not release approval. Policy binding applies only to explicitly selected new inspection runs. Historical runs/evaluations remain immutable. Benchmark configuration is not a measured score.</p>
+<button id="governance-policy" disabled>Policy configuration</button><button id="governance-benchmark" disabled>Benchmark configuration</button><button id="governance-audit" disabled>Audit history</button><button id="governance-more" disabled>More governed records</button>
+<p id="governance-state" role="status">NOT_RUN · configuration not loaded.</p><div id="governance-content"></div><div id="governance-detail"></div>
+<h3>Save a new immutable policy version</h3>
+<label for="policy-id">Policy identity</label><input id="policy-id" maxlength="100" autocomplete="off">
+<label for="policy-revision">Expected latest revision (0 for new)</label><input id="policy-revision" type="number" min="0" max="256" value="0">
+<label for="policy-locale">Policy locale</label><select id="policy-locale"><option value="en">English</option><option value="hi">Hindi</option></select>
+<label for="policy-limit">Policy source admission maximum bytes</label><input id="policy-limit" type="number" min="1" max="26214400" value="26214400">
+<button id="policy-save" disabled>Save immutable policy</button><button id="policy-clear-binding" disabled>Use fixed inspection defaults</button>
+<h3>Import pinned benchmark configuration</h3>
+<p>Supply canonical manifest + policy JSON, maximum 16 KiB. No raw source, secrets, assessments, scores or runner code. Saves a new candidate-specific version only; executes no evaluator.</p>
+<label for="benchmark-id">Benchmark configuration identity</label><input id="benchmark-id" maxlength="100" autocomplete="off">
+<label for="benchmark-revision">Expected latest benchmark revision</label><input id="benchmark-revision" type="number" min="0" max="256" value="0">
+<label for="benchmark-file">Canonical manifest + policy JSON</label><input id="benchmark-file" type="file" accept="application/json,.json">
+<button id="benchmark-save" disabled>Save frozen benchmark version</button>
+<label for="audit-action">Audit action filter (blank means all)</label><input id="audit-action" maxlength="100" autocomplete="off">
+<label for="audit-target">Audit resource filter (blank means all)</label><input id="audit-target" maxlength="100" autocomplete="off">
+<p>Local audit chain is tamper-evident, not externally notarized or protected from a privileged whole-store rewrite. Unattributable historical events are omitted, not assigned by actor name. No secret details are shown.</p></section>
+<section><h2>Acceptance boundary</h2><p>Not deployed. Not product-accepted. No fabricated percentage, video, playable game or learner score. Task 028 remains paused.</p></section></main>
+<footer>Section 18 · Batch 004 in progress · canonical engines preserved</footer></body></html>

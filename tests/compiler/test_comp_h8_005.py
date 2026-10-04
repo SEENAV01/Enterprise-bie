@@ -19,7 +19,16 @@ class ActualProducerAdoptionTests(unittest.TestCase):
     def test_modes_are_explicit_real_render_props(self):s=(SUPPORT/'remotion_raster_capture.cjs').read_text();self.assertIn('inputProps:{__bieRasterMode:mode}',s);self.assertIn("['baseline','isolated','muted']",s);self.assertIn("shot('repeat')",s)
     def test_pinned_renderer_and_mode_drift_check(self):s=(SUPPORT/'remotion_raster_capture.cjs').read_text();self.assertIn('CAPTURE_PIN_MISMATCH',s);self.assertIn('CAPTURE_DOM_MODE_DRIFT',s);self.assertIn('CAPTURE_DOM_NONDETERMINISM',s)
     def test_new_counterfactual_result_required_for_witness(self):s=inspect.getsource(produce_actual_paint);self.assertIn("data.get('counterfactual')",s);self.assertIn("quality['passed'] and raster['passed']",s);self.assertIn('REAL_SCOPE',s)
-    def test_real_producer_keeps_kernel_policy(self):s=inspect.getsource(produce_actual_paint);self.assertIn('run_isolated',s);self.assertNotIn('no-sandbox',s);self.assertNotIn('measure_raster_scene',s)
+    def test_real_producer_keeps_kernel_policy(self):
+        from bie.compiler import chromium_resource_worker as worker
+        s=inspect.getsource(produce_actual_paint)
+        self.assertIn('run_chromium_isolated(',s)
+        driver=inspect.getsource(worker._driver)
+        self.assertIn('run_isolated(',driver)
+        self.assertIn('resource.setrlimit(resource.RLIMIT_AS,(NODE_AS,NODE_AS))',driver)
+        self.assertEqual(worker.NODE_AS,8*1024**3)
+        self.assertEqual(worker.PHYSICAL_MEMORY,2*1024**3)
+        self.assertNotIn('no-sandbox',s);self.assertNotIn('measure_raster_scene',s)
     def test_diagnostic_report_not_witness(self):self.assertRaisesRegex(ValueError,'WITNESS_REQUIRED',require_actual_witness,{'scope':DIAGNOSTIC_SCOPE,'passed':True},'a'*64)
     def test_helper_uses_selected_subtree_and_restores_priorities(self):s=(SUPPORT/'raster_modes.js').read_text();self.assertIn('getPropertyPriority',s);self.assertIn("setProperty('visibility', 'hidden', 'important')",s);self.assertIn('changed.reverse()',s)
     def test_helper_typescript_with_explicit_stub_declarations(self):

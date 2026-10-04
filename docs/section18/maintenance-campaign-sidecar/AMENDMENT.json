@@ -1,0 +1,15 @@
+{
+  "schema": "bie.section18.cross-section-maintenance/1",
+  "finding": "BIE-APP-H1-006",
+  "path": "bie/evaluation/benchmarks/native_campaign/runtime.py",
+  "original_adopted_sha256": "d471bb8372696fa471dfd386d13b8003ed0e8980fb7057991819955fb1477a82",
+  "before_image": "docs/section18/maintenance-campaign-sidecar/runtime.py.before",
+  "before_image_sha256": "59f2938c6e496c024448fc60d40120ad2fa9dd9146c366d92222863ad0bf88e5",
+  "replacement_sha256": "22de09eeab7b7d7091d5c3a7a493d27d865faebeda696bc90b1abfb5a00c387a",
+  "reproduction": "REAL_SQLITE_LAST_CLOSE_EXISTS_STAT_TOCTOU",
+  "scope": "ONLY_CAMPAIGN_DATABASE_PATH_GUARD",
+  "original_section17_test_methods": 2023,
+  "required_full_gate": "NOT_RUN",
+  "product_accepted": false,
+  "section18_signoff": false
+}
