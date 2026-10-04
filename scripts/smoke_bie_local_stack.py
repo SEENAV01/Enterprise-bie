@@ -29,6 +29,11 @@ from structural_pdf_fixtures import structural_pdf
 
 PHASES = frozenset({"startup_readiness", "success_lifecycle", "failure_continuity",
                     "multi_job_continuity", "pre_restart_ready_state", "restart_lifecycle", "shutdown", "smoke"})
+STACK_STOP_CODES = {
+    "startup_failed": "stack_startup_failed", "api_exited": "stack_api_exited",
+    "worker_exited": "stack_worker_exited", "readiness_timeout": "stack_readiness_timeout",
+    "requested": "stack_requested",
+}
 CHECK_CODES = frozenset({
     "stack_exited_before_readiness", "invalid_health", "stack_readiness_timeout",
     "response_bound_exceeded", "submission_failed", "submission_identity_failed",
@@ -37,7 +42,17 @@ CHECK_CODES = frozenset({
     "children_not_reaped", "api_process_still_listening", "initial_job_not_ready", "result_identity_failed",
     "durable_transition_failed", "governed_failure_failed", "capability_contract_changed",
     "restart_ready_state_failed", "restart_identity_failed", "restart_result_failed", "distinct_sources_failed",
-})
+    "restart_port_changed",
+}) | frozenset(STACK_STOP_CODES.values())
+
+
+def safe_stack_stop_code(value):
+    """Only enumerated reasons from the owned child's stdout can leave smoke."""
+    if isinstance(value, dict) and value.get("event") == "stack_stopped":
+        reason = value.get("reason")
+        if isinstance(reason, str):
+            return STACK_STOP_CODES.get(reason, "stack_exited_before_readiness")
+    return "stack_exited_before_readiness"
 
 
 class SmokeCheck(RuntimeError):
@@ -120,14 +135,30 @@ class StackProcess:
         for reader in self.readers:
             reader.start()
 
+    def early_exit_code(self):
+        # Process exit may be observed before the stdout reader publishes its
+        # final receipt. Wait boundedly for that reader, not a scheduling sleep.
+        self.readers[0].join(timeout=1.0)
+        for line in reversed(self.lines):
+            try:
+                value = json.loads(line)
+            except (ValueError, TypeError):
+                continue
+            if isinstance(value, dict) and value.get("event") == "stack_stopped":
+                return safe_stack_stop_code(value)
+        return "stack_exited_before_readiness"
+
     def ready(self):
         deadline = time.monotonic() + 30
         while time.monotonic() < deadline:
-            require(self.process.poll() is None, "stack_exited_before_readiness")
+            if self.process.poll() is not None:
+                raise SmokeCheck(self.early_exit_code())
             try:
                 value = json.loads(self.messages.get(timeout=.2))
             except queue.Empty:
                 continue
+            if isinstance(value, dict) and value.get("event") == "stack_stopped":
+                raise SmokeCheck(safe_stack_stop_code(value))
             if value.get("event") == "stack_ready":
                 status, body = self.request("GET", "/healthz")
                 require(status == 200 and body == {"status": "ok", "service": "bie-api", "api_version": "v1"}, "invalid_health")
@@ -283,6 +314,7 @@ def smoke(port: int) -> dict:
         try:
             with phase("restart_lifecycle"):
                 restarted = StackProcess(root, port)
+                require(restarted.port == process.port == port, "restart_port_changed")
                 restarted.ready()
                 complete = restarted.terminal(pending)
                 code, value = restarted.request("GET", f"/v1/jobs/{pending['job_id']}/result")
@@ -291,7 +323,7 @@ def smoke(port: int) -> dict:
                 require(states == ["READY", "RUNNING", "SUCCEEDED"], "durable_transition_failed")
                 report["restart_durability"] = {"before_restart": "READY", "after_restart": complete["status"],
                                                 "queue_state": complete["queue_state"], "identity_preserved": True,
-                                                "http_status": code, "transitions": states}
+                                                "http_status": code, "transitions": states, "same_port": True}
         finally:
             if restarted is not None:
                 finish_process(restarted, report, "restart_shutdown")

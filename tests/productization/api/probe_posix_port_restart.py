@@ -1,12 +1,14 @@
-"""R1 Linux-only, real TCP experiment; never changes production socket policy.
+"""R1/R2 Linux TCP controls invoking the actual Task028 production preflight.
 
 The original listener uses SO_REUSEADDR, like the existing Uvicorn listener.
 The server actively closes its accepted connection: FIN -> peer EOF -> peer
 FIN -> server EOF. A single /proc/net/tcp snapshot then checks the exact tuple
 for TIME_WAIT (06) and the listening address for absence of LISTEN (0A).
-There are no sleeps or retry loops. NOT_REPRODUCED is a valid diagnostic result,
-not authorization to repair production. Raw proc rows and exceptions never leave
-the diagnostic. The core experiment is not mocked.
+There are no sleeps or retry loops. The legacy kernel condition, current
+production defect, and verified production repair are reported separately.
+R1's reproduced() predicate retains its original semantics: current production
+preflight also fails. With --require-repair, missing repair evidence fails CI.
+Raw proc rows and exceptions never leave the diagnostic. Core sockets are real.
 """
 from __future__ import annotations
 
@@ -56,7 +58,7 @@ def bind_result(port: int, *, reuse: bool = False) -> str:
 
 
 def current_preflight_result(port: int) -> str:
-    # Execute the unchanged Task028 production preflight, not a copied repair.
+    # Execute actual Task028 production preflight, never a copied replacement.
     sys.path.insert(0, str(ROOT))
     from scripts.run_bie_local_stack import StackConfig, assert_port_available
     try:
@@ -66,7 +68,7 @@ def current_preflight_result(port: int) -> str:
     return "SUCCESS"
 
 
-def reproduced(result: dict) -> bool:
+def legacy_condition_reproduced(result: dict) -> bool:
     required = (
         "active_listener_plain_bind_rejected", "genuine_connection_accepted",
         "payload_exchange_verified", "close_order_verified", "listener_closed",
@@ -75,12 +77,24 @@ def reproduced(result: dict) -> bool:
     )
     return (all(result.get(key) is True for key in required)
             and result.get("closed_listener_plain_bind") == "EADDRINUSE"
-            and result.get("current_production_preflight") == "EADDRINUSE"
             and result.get("closed_listener_reuseaddr_bind") == "SUCCESS")
+
+
+def reproduced(result: dict) -> bool:
+    """Preserve the R1 current-production defect predicate."""
+    return (legacy_condition_reproduced(result)
+            and result.get("current_production_preflight") == "EADDRINUSE")
+
+
+def repair_verified(result: dict) -> bool:
+    return (legacy_condition_reproduced(result)
+            and result.get("current_production_preflight") == "SUCCESS"
+            and result.get("active_listener_production_preflight_rejected") is True)
 
 
 def run_probe() -> dict:
     result = {
+        "schema_version": "2.0",
         "platform": "linux" if sys.platform.startswith("linux") else "unsupported",
         "diagnostic_completed": False, "outcome": "NOT_RUN",
         "active_listener_plain_bind_rejected": False,
@@ -92,9 +106,12 @@ def run_probe() -> dict:
         "current_production_preflight": "NOT_RUN",
         "closed_listener_reuseaddr_bind": "NOT_RUN",
         "active_listener_reuseaddr_bind_rejected": False,
+        "active_listener_production_preflight_rejected": False,
         "time_wait_condition_observed": False, "suspected_defect_reproduced": False,
+        "legacy_defect_condition_reproduced": False, "production_repair_verified": False,
+        "suspected_defect_reproduced_scope": "current_production_preflight",
         "original_listener_reuseaddr": True, "sleep_or_retry_used": False,
-        "production_modified": False, "historical_hosted_cause_proven": False,
+        "probe_mutates_production": False, "historical_hosted_cause_proven": False,
     }
     if result["platform"] != "linux":
         result["outcome"] = "NOT_AVAILABLE"
@@ -150,9 +167,13 @@ def run_probe() -> dict:
                 active.bind((LOOPBACK, 0))
                 active.listen(1)
                 result["active_listener_reuseaddr_bind_rejected"] = bind_result(active.getsockname()[1], reuse=True) == "EADDRINUSE"
+                result["active_listener_production_preflight_rejected"] = current_preflight_result(active.getsockname()[1]) == "EADDRINUSE"
         result["diagnostic_completed"] = True
+        result["legacy_defect_condition_reproduced"] = legacy_condition_reproduced(result)
         result["suspected_defect_reproduced"] = reproduced(result)
-        result["outcome"] = "REPRODUCED" if result["suspected_defect_reproduced"] else "NOT_REPRODUCED"
+        result["production_repair_verified"] = repair_verified(result)
+        result["outcome"] = ("REPAIR_VERIFIED" if result["production_repair_verified"] else
+                             "REPRODUCED" if result["suspected_defect_reproduced"] else "NOT_REPRODUCED")
     except Exception:
         # phase is assigned only literal values above; no exception text escapes.
         result["outcome"] = "NOT_REPRODUCED"
@@ -163,6 +184,8 @@ def run_probe() -> dict:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--require-repair", action="store_true",
+                        help="Fail unless real Linux evidence verifies current production repair")
     args = parser.parse_args(argv)
     result = run_probe()
     encoded = json.dumps(result, indent=2, sort_keys=True) + "\n"
@@ -175,7 +198,8 @@ def main(argv=None) -> int:
     print(encoded, end="")
     # A reproduced bug is evidence, not an intentionally failing regression.
     # A completed NOT_REPRODUCED experiment is also recorded truthfully.
-    return 0 if result["diagnostic_completed"] else 1
+    return 0 if (result["diagnostic_completed"] and
+                 (not args.require_repair or result.get("production_repair_verified") is True)) else 1
 
 
 if __name__ == "__main__":

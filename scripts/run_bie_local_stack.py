@@ -72,6 +72,8 @@ def assert_port_available(config: StackConfig) -> None:
     with socket.socket(family, socket.SOCK_STREAM) as sock:
         if os.name == "nt":
             sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        elif os.name == "posix":
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((config.host, config.port))
 
 
