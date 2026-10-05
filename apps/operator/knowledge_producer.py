@@ -13,21 +13,26 @@ from .contracts import private_path, ident, require
 
 
 class KnowledgeProducerControlPlane:
+    profile = PROFILE
+    native_service = KnowledgeProducerService
+    config_for = staticmethod(profile_config)
+    identity_for = staticmethod(run_identity)
+
     def __init__(self, operator, *, enabled_profiles=()):
         self.operator = operator
         self.enabled = frozenset(enabled_profiles)
-        require(self.enabled <= {PROFILE}, "producer_profile_invalid")
+        require(self.enabled <= {self.profile}, "producer_profile_invalid")
 
     def authorize(self, principal, permission):
         self.operator.authorize(principal,permission)
-        require(PROFILE in self.enabled, "producer_profile_not_enabled",409)
+        require(self.profile in self.enabled, "producer_profile_not_enabled",409)
 
     @contextmanager
     def native(self, principal, run_id, permission, **options):
         self.authorize(principal,permission);ident(run_id)
         root=private_path(self.operator.root,"runs",run_id)
         self.operator._verify_native_tree(root)
-        native=KnowledgeProducerService(root,self.operator.cas,
+        native=self.native_service(root,self.operator.cas,
             authorize=lambda:self.authorize(principal,permission),**options)
         try:
             yield native
@@ -43,8 +48,8 @@ class KnowledgeProducerControlPlane:
         admitted=dict(source_id=source["source_id"],sha256=source["sha256"],
             size_bytes=source["byte_length"],media_type=source["media_type"],
             tenant=principal.tenant,privacy=source["source_privacy"],rights="LOCAL_PROCESSING_ONLY")
-        config=profile_config() if provider is None and model is None else profile_config(provider,model)
-        run_id=run_identity(principal.tenant,key)
+        config=self.config_for() if provider is None and model is None else self.config_for(provider,model)
+        run_id=self.identity_for(principal.tenant,key)
         with self.operator.catalog.tx() as db:
             operation="prodop-"+uuid.uuid4().hex
             self.operator.catalog.reserve_worker(db,operation)
@@ -52,7 +57,7 @@ class KnowledgeProducerControlPlane:
                 native.admit(admitted,principal.tenant,key,config)
                 result=native.status(run_id,principal.tenant)
             self.operator.catalog.event(db,principal.actor,"PRODUCER_ADMITTED",run_id,
-                dict(profile=PROFILE,source_sha256=source["sha256"]),tenant=principal.tenant,
+                dict(profile=self.profile,source_sha256=source["sha256"]),tenant=principal.tenant,
                 reservation=operation,final_reservation=True)
         return result
 
