@@ -1,0 +1,88 @@
+name: BIE Local Runtime Stack
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/local-runtime-stack-001]
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/api/**"
+      - "scripts/run_bie_api.py"
+      - "scripts/run_bie_pdf_worker.py"
+      - "scripts/run_bie_local_stack.py"
+      - "scripts/smoke_bie_local_stack.py"
+      - "tests/productization/api/**"
+      - ".github/workflows/local-runtime-stack.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bie-local-runtime-stack-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.13.5"
+      - name: Install existing API and DI profiles
+        run: |
+          set -euo pipefail
+          python -m pip install -e ".[document-intelligence,document-intelligence-layout,api,api-test]"
+          python -m pip check
+      - name: Record safe versions
+        run: |
+          mkdir -p "$RUNNER_TEMP/local-runtime-evidence"
+          python - <<'PY'
+          import importlib.metadata,json,os,platform
+          from pathlib import Path
+          result={'python':platform.python_version(),**{p:importlib.metadata.version(p) for p in ('fastapi','uvicorn','pypdf','pdfplumber','httpx')}}
+          Path(os.environ['RUNNER_TEMP'],'local-runtime-evidence','versions.json').write_text(json.dumps(result,sort_keys=True)+'\n')
+          PY
+      - name: Explicit worker, supervisor and API regression tests
+        run: |
+          set -euo pipefail
+          {
+            python -B tests/productization/api/test_pdf_worker_service.py
+            python -B tests/productization/api/test_local_runtime_stack.py
+            python -B tests/productization/api/test_local_stack_smoke.py
+            python -B tests/productization/api/test_posix_port_probe_contract.py
+            python -B tests/productization/api/test_runtime_stack_restart_repair.py
+            python -B tests/productization/api/test_persistent_pdf_jobs.py
+            python -B tests/productization/api/test_pdf_inspection_api.py
+            python -B tests/productization/document_intelligence/test_real_pdf_toc_runtime.py
+          } 2>&1 | tee "$RUNNER_TEMP/local-runtime-evidence/targeted-tests.log"
+      - name: R2 real Linux TCP condition and production repair gate
+        run: |
+          set -euo pipefail
+          python -B tests/productization/api/probe_posix_port_restart.py \
+            --require-repair \
+            --output "$RUNNER_TEMP/local-runtime-evidence/posix-port-restart.json" \
+            | tee "$RUNNER_TEMP/local-runtime-evidence/posix-port-restart.log"
+      - name: Real process automatic success failure continuity and restart
+        run: |
+          set -euo pipefail
+          python -B scripts/smoke_bie_local_stack.py --port 8765 \
+            --evidence-dir "$RUNNER_TEMP/local-runtime-evidence" \
+            | tee "$RUNNER_TEMP/local-runtime-evidence/stack-smoke.log"
+          python -B scripts/smoke_bie_local_stack.py --port 8765 \
+            --evidence-dir "$RUNNER_TEMP/local-runtime-evidence/smoke002" \
+            | tee "$RUNNER_TEMP/local-runtime-evidence/stack-smoke002.log"
+      - name: Upload safe evidence only
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-local-runtime-stack-evidence
+          path: ${{ runner.temp }}/local-runtime-evidence
+          if-no-files-found: error
+          retention-days: 14
