@@ -72,9 +72,9 @@ class PersistedRunAdapter:
         self.service, self.run_id = service, run_id
         saved = service.persistence.load_run_state(run_id)
         self.state = build_run_state(run_id, {s:list(saved["stages"][s]["required_predecessors"])
-                                            for s in STAGES})
+                                            for s in service.stages})
         self.state.run_state = saved["run_state"]
-        for stage in STAGES:
+        for stage in service.stages:
             self.state.stages[stage].attempts = [StageAttempt(**{
                 k:v for k,v in a.items() if k != "stage_id"})
                 for a in saved["stages"][stage]["attempts"]]
@@ -107,6 +107,16 @@ class KnowledgeProducerService:
     Uses a governed per-run namespace and the already admitted budgeted CAS.
     It does not construct a second CAS or alter PdfInspectionJobService.
     """
+    # Versioned composition hooks; the Task029 defaults/intent remain unchanged.
+    stages = STAGES
+    profile = PROFILE
+    capability = CAPABILITY
+    downstream = DOWNSTREAM
+    completion_stage = "KNOWLEDGE"
+    config_for = staticmethod(profile_config)
+    identity_for = staticmethod(run_identity)
+    blocked_codes = frozenset({"provider_unavailable"})
+
     def __init__(self, root, cas, *, registry=None, fault=None, authorize=None):
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
@@ -158,7 +168,7 @@ class KnowledgeProducerService:
         self.write_guard()
         self.persistence.register_artifact(PersistedArtifactRecord(artifact_id,kind,
             blob.algorithm,blob.digest,blob.size,run_id,stage,evidence,
-            {"privacy":"SAFE_EVIDENCE" if evidence else "PRIVATE", "profile":PROFILE},list(parents)))
+            {"privacy":"SAFE_EVIDENCE" if evidence else "PRIVATE", "profile":self.profile},list(parents)))
         self.record(run_id, artifact_id)
         return artifact_id
 
@@ -167,8 +177,10 @@ class KnowledgeProducerService:
         require(run_id.startswith("prod-"), "foreign_run")
         config = self.read(run_id, run_id + "-config")
         require(config["tenant"] == tenant and config["config"] ==
-                profile_config(config["config"]["provider"],config["config"]["model"]), "foreign_run")
+                self.config_for(config["config"]["provider"],config["config"]["model"]), "foreign_run")
         require(config["run_id"] == run_id and self.root.name == run_id, "foreign_run")
+        require(set(self.persistence.load_run_state(run_id)["stages"])==set(self.stages),
+                "producer_profile_scope_mismatch")
         require(config["fingerprint"] == digest({k:v for k,v in config.items()
                 if k not in ("run_id","fingerprint")}), "intent_tampered")
         require(config["privacy"] == "PRIVATE_LOCAL_CAS" and config["rights"] == "LOCAL_PROCESSING_ONLY",
@@ -179,8 +191,8 @@ class KnowledgeProducerService:
         """source is obtained from the authoritative control-plane source index."""
         self.write_guard()
         identifier(tenant); identifier(key)
-        config = profile_config() if config is None else config
-        require(config == profile_config(config.get("provider"),config.get("model")), "profile_config")
+        config = self.config_for() if config is None else config
+        require(config == self.config_for(config.get("provider"),config.get("model")), "profile_config")
         require(source["tenant"] == tenant and source["media_type"] == "application/pdf"
                 and source["privacy"] == "PRIVATE_LOCAL_CAS"
                 and source["rights"] == "LOCAL_PROCESSING_ONLY", "foreign_source")
@@ -192,7 +204,7 @@ class KnowledgeProducerService:
                       source_bytes=source_ref.size, config=config,
                       privacy=source["privacy"], rights=source["rights"])
         fingerprint = digest(intent)
-        run_id = run_identity(tenant,key)
+        run_id = self.identity_for(tenant,key)
         require(self.root.name == run_id, "namespace_mismatch")
         claim = self.idempotency.claim("producer:"+tenant+":"+key, fingerprint, "admission")
         if claim.state == "COMPLETED":
@@ -202,11 +214,11 @@ class KnowledgeProducerService:
         graph = default_enterprise_graph()
         self.write_guard()
         try:
-            self.persistence.create_run(run_id, {s:list(graph.stages[s].required_predecessors) for s in STAGES})
+            self.persistence.create_run(run_id, {s:list(graph.stages[s].required_predecessors) for s in self.stages})
         except Exception:
             # Only a verified already-created exact run is a valid admission replay.
             saved = self.persistence.load_run_state(run_id)
-            require(set(saved["stages"]) == set(STAGES), "admission_inconsistent")
+            require(set(saved["stages"]) == set(self.stages), "admission_inconsistent")
         cfg = dict(intent, run_id=run_id, fingerprint=fingerprint)
         self.write_guard()
         blob = self.cas.put_bytes(canonical(cfg))
@@ -227,15 +239,16 @@ class KnowledgeProducerService:
 
     def schedule(self, run_id):
         adapter = PersistedRunAdapter(self,run_id)
-        for stage in STAGES:
+        for stage in self.stages:
             runtime = adapter.state.stages[stage]
             if runtime.current.state in ("PENDING","READY") and adapter.state.predecessors_succeeded(stage):
                 if runtime.current.state == "PENDING": adapter.state.mark_ready(stage)
-                refs = [run_id+"-source"] if stage == "SOURCE" else DurableArtifactResolver(self,run_id).outputs_for_stage(
-                    run_id, default_enterprise_graph().stages[stage].required_predecessors[0])
+                refs = [run_id+"-source"] if stage == "SOURCE" else [ref
+                    for predecessor in default_enterprise_graph().stages[stage].required_predecessors
+                    for ref in DurableArtifactResolver(self,run_id).outputs_for_stage(run_id,predecessor)]
                 self.write_guard()
                 self.queue.enqueue(DurableTaskMessage(self.task_id(run_id,stage,runtime.current.attempt),
-                    run_id,stage,runtime.current.attempt,digest(refs),[CAPABILITY],refs,max_deliveries=1))
+                    run_id,stage,runtime.current.attempt,digest(refs),[self.capability],refs,max_deliveries=1))
                 adapter.finish()
                 return
 
@@ -273,7 +286,7 @@ class KnowledgeProducerService:
                 self.leases.assert_active(lease)
                 self.authorize()
                 receipt = dict(receipt,schema="bie.producer.stage-evidence/1",run_id=run_id,stage=stage,
-                    attempt=context.attempt,profile=PROFILE,input_artifact_ids=parents,output_artifact_id=output,
+                    attempt=context.attempt,profile=self.profile,input_artifact_ids=parents,output_artifact_id=output,
                     output_sha256=self.record(run_id,output).blob_digest,fencing_epoch=lease.epoch,
                     evidence_kind="TECHNICAL_SOURCE_DERIVED",academic_acceptance=False,product_accepted=False)
                 evidence = self.put(run_id,stage,"producer.evidence",receipt,parents+[output],True)
@@ -291,10 +304,10 @@ class KnowledgeProducerService:
         self.authorize()
         config = self.configuration(run_id,tenant)
         self.schedule(run_id)
-        delivery = self.queue.poll(self.owner,visibility_timeout=120,capability_tags=[CAPABILITY])
+        delivery = self.queue.poll(self.owner,visibility_timeout=120,capability_tags=[self.capability])
         if delivery is None: return self.status(run_id,tenant)
         task = delivery.task
-        require(task.run_id == run_id and task.stage_id in STAGES and task.required_capability_tags == [CAPABILITY],
+        require(task.run_id == run_id and task.stage_id in self.stages and task.required_capability_tags == [self.capability],
                 "foreign_task")
         lease = self.leases.acquire(task.task_id,config["fingerprint"],self.owner,ttl_seconds=120)
         self.active_lease = lease
@@ -306,7 +319,7 @@ class KnowledgeProducerService:
             require(adapter.state.stages[task.stage_id].current.attempt == task.attempt, "stale_worker")
             graph = default_enterprise_graph()
             definitions = {s:StageDefinition(s,list(graph.stages[s].required_predecessors),
-                graph.stages[s].consumes,graph.stages[s].emits,"PROD029") for s in STAGES}
+                graph.stages[s].consumes,graph.stages[s].emits,"PROD029") for s in self.stages}
             orchestrator = EnterpriseOrchestrator(adapter.state,definitions,
                 {task.stage_id:self.executor(config,task.stage_id,lease)},
                 DurableArtifactResolver(self,run_id),config["config"])
@@ -314,8 +327,10 @@ class KnowledgeProducerService:
                 orchestrator.execute_stage(task.stage_id)
             except StageExecutionFailure:
                 runtime = adapter.state.stages[task.stage_id]
-                if runtime.current.diagnostics == ["provider_unavailable"]:
-                    adapter.state._transition(runtime,"BLOCKED","provider unavailable",runtime.current.evidence_refs)
+                if len(runtime.current.diagnostics)==1 and runtime.current.diagnostics[0] in self.blocked_codes:
+                    code=runtime.current.diagnostics[0]
+                    # Preserve Task029's historical provider-unavailable event text.
+                    adapter.state._transition(runtime,"BLOCKED","provider unavailable" if code=="provider_unavailable" else code,runtime.current.evidence_refs)
             self.leases.assert_active(lease)
             adapter.finish()
             self.fault("after_"+task.stage_id+"_terminal")
@@ -337,7 +352,7 @@ class KnowledgeProducerService:
         """Explicit authorized recovery; active leases may never be overridden."""
         config = self.configuration(run_id,tenant)
         adapter = PersistedRunAdapter(self,run_id)
-        for stage in STAGES:
+        for stage in self.stages:
             runtime = adapter.state.stages[stage]; attempt=runtime.current
             task_id=self.task_id(run_id,stage,attempt.attempt)
             try: delivery=self.queue.get(task_id)
@@ -367,9 +382,9 @@ class KnowledgeProducerService:
     def status(self, run_id, tenant):
         config=self.configuration(run_id,tenant)
         saved=self.persistence.load_run_state(run_id)
-        states={s:saved["stages"][s]["attempts"][-1]["state"] for s in STAGES}
+        states={s:saved["stages"][s]["attempts"][-1]["state"] for s in self.stages}
         graph_summary=None
-        for stage in STAGES:
+        for stage in self.stages:
             attempt=saved["stages"][stage]["attempts"][-1]
             if attempt["state"] == "SUCCEEDED":
                 for ref in attempt["output_artifact_refs"]+attempt["evidence_refs"]:self.record(run_id,ref)
@@ -385,7 +400,7 @@ class KnowledgeProducerService:
                 anchor_count=len({a for c in graph["claims"] for a in c["anchor_ids"]}),
                 concept_ids=sorted(graph["nodes"]),source_pages=sorted({b["physical_page"] for b in document["blocks"]}),
                 validation="PASS",grounding="VERBATIM_SOURCE_BOUND",evidence_kind=graph["evidence_kind"])
-        return dict(run_id=run_id,profile=PROFILE,source_sha256=config["source_sha256"],stages=states,
-            downstream={s:"NOT_RUN" for s in DOWNSTREAM},knowledge=graph_summary,
-            slice_complete=states["KNOWLEDGE"]=="SUCCEEDED",product_accepted=False,
+        return dict(run_id=run_id,profile=self.profile,source_sha256=config["source_sha256"],stages=states,
+            downstream={s:"NOT_RUN" for s in self.downstream},knowledge=graph_summary,
+            slice_complete=states[self.completion_stage]=="SUCCEEDED",product_accepted=False,
             academic_acceptance=False,live_provider_executed=False)
