@@ -122,12 +122,13 @@ class KnowledgeProducerService:
     run_identity_valid = staticmethod(lambda run_id: run_id.startswith("prod-"))
     blocked_codes = frozenset({"provider_unavailable"})
     graph_for = staticmethod(legacy_enterprise_graph_v1)
+    persistence_factory = ClosedPersistence
 
     def __init__(self, root, cas, *, registry=None, fault=None, authorize=None):
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
         self.cas, self.registry = cas, registry
-        self.persistence = ClosedPersistence(self.root / "runs.sqlite3")
+        self.persistence = self.persistence_factory(self.root / "runs.sqlite3")
         self.queue = SQLiteDurableTaskQueue(self.root / "queue.sqlite3")
         self.idempotency = SQLiteIdempotencyStore(str(self.root / "idempotency.sqlite3"))
         # Existing generic fenced DIR lease primitive; no DIR execution occurs.
@@ -187,7 +188,7 @@ class KnowledgeProducerService:
         require(self.run_identity_valid(run_id), "foreign_run")
         config = self.read(run_id, run_id + "-config")
         require(config["tenant"] == tenant and config["config"] ==
-                self.config_for(config["config"]["provider"],config["config"]["model"]), "foreign_run")
+                self.canonical_config(config["config"]), "foreign_run")
         require(config["run_id"] == run_id and self.root.name == run_id, "foreign_run")
         require(set(self.persistence.load_run_state(run_id)["stages"])==set(self.stages),
                 "producer_profile_scope_mismatch")
@@ -197,12 +198,16 @@ class KnowledgeProducerService:
                 "source_rights")
         return config
 
+    def canonical_config(self, config):
+        """Versioned composition hook; historical profiles retain exact intent."""
+        return self.config_for(config["provider"], config["model"])
+
     def admit(self, source, tenant, key, config=None):
         """source is obtained from the authoritative control-plane source index."""
         self.write_guard()
         identifier(tenant); identifier(key)
         config = self.config_for() if config is None else config
-        require(config == self.config_for(config.get("provider"),config.get("model")), "profile_config")
+        require(config == self.canonical_config(config), "profile_config")
         require(source["tenant"] == tenant and source["media_type"] == "application/pdf"
                 and source["privacy"] == "PRIVATE_LOCAL_CAS"
                 and source["rights"] == "LOCAL_PROCESSING_ONLY", "foreign_source")

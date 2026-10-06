@@ -70,7 +70,8 @@ class ProducerArtifactCatalog(ArtifactCatalog):
 
 class ProducerDirectorIO(DirectorArtifactIO):
     def __init__(self, service, run_id, pedagogy_metadata=None):
-        super().__init__(ProducerArtifactCatalog(service, run_id))
+        catalog = getattr(service, "director_input_catalog", ProducerArtifactCatalog)
+        super().__init__(catalog(service, run_id))
         self.pedagogy_metadata = pedagogy_metadata
 
     def derive(self, artifact_type, run_id, parents, payload, *, stage_id, metadata,
