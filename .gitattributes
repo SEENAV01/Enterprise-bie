@@ -837,3 +837,5 @@
 /tests/qa_visual16/test_overlap.py -text
 /tests/qa_visual16/vis_helpers.py -text
 /manifests/qa_section16_amendments.json text eol=lf
+# Task031 exact legacy graph bytes must survive Windows checkout unchanged.
+/bie/infrastructure/execution_graph_v1.py -text
