@@ -74,7 +74,7 @@ class MathProducerService(ReasoningProducerService):
                 candidate=self.put(run,stage,kind+".candidates",value,context.input_artifact_refs)
                 output=self.put(run,stage,kind,value,context.input_artifact_refs+[candidate])
                 receipt=dict(schema="bie.producer.stage-evidence/1",run_id=run,stage=stage,
-                    profile=PROFILE,attempt=context.attempt,source_sha256=config["source_sha256"],
+                    profile=self.profile,attempt=context.attempt,source_sha256=config["source_sha256"],
                     input_artifact_ids=context.input_artifact_refs,
                     input_sha256=[self.record(run,r).blob_digest for r in context.input_artifact_refs],
                     output_artifact_id=output,output_sha256=digest(value),candidate_artifact_id=candidate,
