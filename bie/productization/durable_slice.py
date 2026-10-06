@@ -119,6 +119,7 @@ class KnowledgeProducerService:
     completion_stage = "KNOWLEDGE"
     config_for = staticmethod(profile_config)
     identity_for = staticmethod(run_identity)
+    run_identity_valid = staticmethod(lambda run_id: run_id.startswith("prod-"))
     blocked_codes = frozenset({"provider_unavailable"})
     graph_for = staticmethod(legacy_enterprise_graph_v1)
 
@@ -183,7 +184,7 @@ class KnowledgeProducerService:
 
     def configuration(self, run_id, tenant):
         identifier(run_id); identifier(tenant)
-        require(run_id.startswith("prod-"), "foreign_run")
+        require(self.run_identity_valid(run_id), "foreign_run")
         config = self.read(run_id, run_id + "-config")
         require(config["tenant"] == tenant and config["config"] ==
                 self.config_for(config["config"]["provider"],config["config"]["model"]), "foreign_run")
