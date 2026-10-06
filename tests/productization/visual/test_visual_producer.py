@@ -76,6 +76,15 @@ def decoded_strings(value):
             yield from decoded_strings(cell)
 
 
+def canonical_repository_paths(root, folder):
+    """Order case-sensitive repository identities by raw POSIX path."""
+    return sorted(
+        (p for p in (root / folder).rglob("*") if p.is_file()
+         and "__pycache__" not in p.parts and ".gradle" not in p.parts),
+        key=lambda p: p.relative_to(root).as_posix(),
+    )
+
+
 class VisualFixture(unittest.TestCase):
     """Genuine PDF and durable native predecessor runtime, never fixture intents."""
 
@@ -277,19 +286,32 @@ class ProfileAndPreservationTests(unittest.TestCase):
                 self.assertEqual(sha256((ROOT / name).read_bytes().replace(b"\r\n", b"\n")).hexdigest(), identity)
 
     def test_native_visual_director_animation_sceneir_and_android_trees_preserved(self):
-        expected = {"apps/android": (33, "2f84b313cb6bf380157339adb626800362832d376426d7c66002ca90a992faa7"),
+        expected = {"apps/android": (33, "1bfff6567ca053bb03d70dcb2292c43d40bfc1d2d20ee90852ba01723a452289"),
             "bie/visual_intelligence": (84, "c9ec6588f00b3cce8b16f340a7940bff57a7d74e8f7d2fa83fc10ff204817544"),
             "bie/director": (71, "62abca7d4f1f613aa38907128f528bccddb2e3c1bfeb105cdf2ba79599d93824"),
             "bie/animation_intelligence": (67, "d34eedf95497788585dd42a54b45cbfbc7a6d3c5808aa85707ce172743598252"),
             "bie/scene_ir": (80, "21c2c479c1b1880e43f0f9ba0f0f4685bafd0ec374985932b9c67f480066e3c0")}
         for folder, (count, identity) in expected.items():
-            paths = sorted(p for p in (ROOT / folder).rglob("*") if p.is_file() and
-                "__pycache__" not in p.parts and ".gradle" not in p.parts)
+            paths = canonical_repository_paths(ROOT, folder)
             items = [(p.relative_to(ROOT).as_posix(), sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest())
                      for p in paths]
             with self.subTest(folder=folder):
                 self.assertEqual(len(items), count)
                 self.assertEqual(sha256(json.dumps(items, sort_keys=True, separators=(",", ":")).encode()).hexdigest(), identity)
+
+    def test_preservation_order_uses_raw_case_sensitive_posix_paths(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            names = ("mixed/lowercase.kt", "mixed/FoundationRuntimeStatus.kt",
+                     "mixed/MainActivity.kt")
+            for name in names:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(name, encoding="utf-8")
+            actual = [p.relative_to(root).as_posix()
+                      for p in canonical_repository_paths(root, "mixed")]
+            self.assertEqual(actual, sorted(names))
+            self.assertEqual(len(actual), len(set(names)))
 
 
 class ActualProducerTests(VisualFixture):
