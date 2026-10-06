@@ -2,7 +2,7 @@
 import json
 from bie.infrastructure.orchestrator import StageExecutionResult, StageExecutionFailure
 from bie.infrastructure.persistence import PersistedArtifactRecord
-from bie.infrastructure.execution_graph import default_enterprise_graph
+from bie.infrastructure.execution_graph import legacy_enterprise_graph_v1
 from .durable_slice import KnowledgeProducerService, PersistedRunAdapter, run_identity, STAGES as ORIGINAL_STAGES
 from .contracts import ProducerError, require, digest, canonical, identifier, profile_config as old_config
 from .pr_reasoning import (PROFILE, PR_SCHEMA, RE_SCHEMA, POLICY, profile_config, verify_knowledge,
@@ -15,7 +15,7 @@ class ReasoningProducerService(KnowledgeProducerService):
     stages=STAGES
     profile=PROFILE
     capability="producer:"+PROFILE
-    downstream=tuple(s for s in default_enterprise_graph().stages if s not in STAGES)
+    downstream=tuple(s for s in legacy_enterprise_graph_v1().stages if s not in STAGES)
     completion_stage="REASONING"
     config_for=staticmethod(profile_config)
     # Preserve the existing admitted Task029 tenant/key run identity.
@@ -81,7 +81,7 @@ class ReasoningProducerService(KnowledgeProducerService):
         cfg=dict(intent,run_id=run_id,fingerprint=fingerprint)
         self.put_continuation(run_id,cfg,kid)
         self.fault("after_continuation_publication")
-        graph=default_enterprise_graph()
+        graph=self.graph_for()
         self.write_guard()
         with self.persistence._lock,self.persistence._conn() as db:
             db.execute("BEGIN IMMEDIATE")
@@ -108,7 +108,7 @@ class ReasoningProducerService(KnowledgeProducerService):
         saved=self.persistence.load_run_state(run_id)["stages"][stage]["attempts"][-1]
         require(saved["state"]=="SUCCEEDED" and len(saved["output_artifact_refs"])==1,"predecessor_not_succeeded")
         ref=saved["output_artifact_refs"][0];record=self.record(run_id,ref)
-        require(record.stage_id==stage and record.artifact_type==default_enterprise_graph().stages[stage].emits,
+        require(record.stage_id==stage and record.artifact_type==self.graph_for().stages[stage].emits,
             "upstream_contract")
         return ref,record
 
@@ -151,7 +151,7 @@ class ReasoningProducerService(KnowledgeProducerService):
                 candidate=self.put(context.run_id,stage,kind+".candidates",value,context.input_artifact_refs)
                 output=self.put(context.run_id,stage,kind,output_value,context.input_artifact_refs+[candidate])
                 receipt.update(schema="bie.producer.stage-evidence/1",run_id=context.run_id,stage=stage,
-                    attempt=context.attempt,profile=PROFILE,source_sha256=config["source_sha256"],
+                    attempt=context.attempt,profile=self.profile,source_sha256=config["source_sha256"],
                     input_artifact_ids=context.input_artifact_refs,input_sha256=[self.record(context.run_id,r).blob_digest for r in context.input_artifact_refs],
                     output_artifact_id=output,output_sha256=digest(output_value),candidate_artifact_id=candidate,
                     schema_version=PR_SCHEMA if stage=="PREREQUISITE" else RE_SCHEMA,

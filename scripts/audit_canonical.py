@@ -28,6 +28,9 @@ def audit(root=ROOT):
     from section16_native_math_amendment import resolve as resolve_native_math
     try: rows = resolve_native_math(root, rows)
     except (ValueError, OSError, KeyError) as exc: errors.append(str(exc))
+    from task031_graph_amendment import resolve as resolve_math_graph
+    try: rows = resolve_math_graph(root, rows)
+    except (ValueError, OSError, KeyError) as exc: errors.append(str(exc))
     original = json.loads((root / "manifests/archive_inventory.json").read_text())["archives"]
     supplemental = json.loads((root / "manifests/supplemental_archives.json").read_text())
     expected_members = json.loads((root / "manifests/file_inventory.json").read_text())["files"] + [f for a in supplemental for f in a["files"]]

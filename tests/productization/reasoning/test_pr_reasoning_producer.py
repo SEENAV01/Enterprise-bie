@@ -123,8 +123,9 @@ class ContractTests(unittest.TestCase):
     def test_gateway_invented_relationship(self):
         with self.assertRaises(ProducerError):gateway_candidate("PREREQUISITE",self.k,self.doc,profile_config(),registry=self.fake('{"edges":[],"order":[],"review":[],"roots":[]}'))
     def test_global_math_stage_not_invented(self):
-        from bie.infrastructure.execution_graph import default_enterprise_graph
-        self.assertNotIn("MATH",default_enterprise_graph().stages)
+        # Task031 authorizes global migration, NOT mutation of this legacy profile.
+        from bie.productization.reasoning_slice import ReasoningProducerService
+        self.assertNotIn("MATH",ReasoningProducerService.graph_for().stages)
 
 
 class DurableTests(unittest.TestCase):

@@ -18,7 +18,7 @@ from bie.infrastructure.durable_task_queue import SQLiteDurableTaskQueue, Durabl
 from bie.infrastructure.run_state import build_run_state, StageAttempt
 from bie.infrastructure.orchestrator import (EnterpriseOrchestrator, StageDefinition,
     StageExecutionResult, StageExecutionFailure)
-from bie.infrastructure.execution_graph import default_enterprise_graph
+from bie.infrastructure.execution_graph import legacy_enterprise_graph_v1
 from bie.director.director_durable_recovery import DirectorLeaseStore
 from bie.document_intelligence.real_pdf_text_runtime import inspect_real_pdf_text
 from .contracts import (PROFILE, ProducerError, require, canonical, strict_json,
@@ -27,7 +27,7 @@ from .candidates import produce
 
 STAGES = ("SOURCE", "DOCUMENT_INTELLIGENCE", "KNOWLEDGE")
 CAPABILITY = "producer:" + PROFILE
-DOWNSTREAM = tuple(s for s in default_enterprise_graph().stages if s not in STAGES)
+DOWNSTREAM = tuple(s for s in legacy_enterprise_graph_v1().stages if s not in STAGES)
 
 
 def run_identity(tenant, key):
@@ -59,7 +59,7 @@ class DurableArtifactResolver:
 
     def register_stage_outputs(self, run_id, stage, refs):
         require(run_id == self.run_id and refs, "foreign_run")
-        expected = default_enterprise_graph().stages[stage].emits
+        expected = self.service.graph_for().stages[stage].emits
         for ref in refs:
             record = self.service.record(run_id, ref)
             require(record.stage_id == stage and record.artifact_type == expected,
@@ -71,6 +71,10 @@ class PersistedRunAdapter:
     def __init__(self, service, run_id):
         self.service, self.run_id = service, run_id
         saved = service.persistence.load_run_state(run_id)
+        graph = service.graph_for()
+        require(set(saved["stages"]) == set(service.stages) and all(
+            saved["stages"][s]["required_predecessors"] == graph.stages[s].required_predecessors
+            for s in service.stages), "producer_profile_scope_mismatch")
         self.state = build_run_state(run_id, {s:list(saved["stages"][s]["required_predecessors"])
                                             for s in service.stages})
         self.state.run_state = saved["run_state"]
@@ -116,6 +120,7 @@ class KnowledgeProducerService:
     config_for = staticmethod(profile_config)
     identity_for = staticmethod(run_identity)
     blocked_codes = frozenset({"provider_unavailable"})
+    graph_for = staticmethod(legacy_enterprise_graph_v1)
 
     def __init__(self, root, cas, *, registry=None, fault=None, authorize=None):
         self.root = Path(root)
@@ -138,6 +143,10 @@ class KnowledgeProducerService:
 
     def close(self):
         self.idempotency.close(); self.leases.close()
+
+    def verify_terminal_for_ack(self, run_id, tenant):
+        """Profile-specific semantic revalidation hook; legacy ACK policy unchanged."""
+        return None
 
     def record(self, run_id, artifact_id):
         record = self.persistence.load_artifact(identifier(artifact_id))
@@ -211,7 +220,7 @@ class KnowledgeProducerService:
             require(claim.result_ref == run_id, "intent_conflict")
             self.configuration(run_id,tenant)
             return run_id
-        graph = default_enterprise_graph()
+        graph = self.graph_for()
         self.write_guard()
         try:
             self.persistence.create_run(run_id, {s:list(graph.stages[s].required_predecessors) for s in self.stages})
@@ -244,7 +253,7 @@ class KnowledgeProducerService:
             if runtime.current.state in ("PENDING","READY") and adapter.state.predecessors_succeeded(stage):
                 if runtime.current.state == "PENDING": adapter.state.mark_ready(stage)
                 refs = [run_id+"-source"] if stage == "SOURCE" else [ref
-                    for predecessor in default_enterprise_graph().stages[stage].required_predecessors
+                    for predecessor in self.graph_for().stages[stage].required_predecessors
                     for ref in DurableArtifactResolver(self,run_id).outputs_for_stage(run_id,predecessor)]
                 self.write_guard()
                 self.queue.enqueue(DurableTaskMessage(self.task_id(run_id,stage,runtime.current.attempt),
@@ -317,7 +326,7 @@ class KnowledgeProducerService:
             self.authorize()
             adapter = PersistedRunAdapter(self,run_id)
             require(adapter.state.stages[task.stage_id].current.attempt == task.attempt, "stale_worker")
-            graph = default_enterprise_graph()
+            graph = self.graph_for()
             definitions = {s:StageDefinition(s,list(graph.stages[s].required_predecessors),
                 graph.stages[s].consumes,graph.stages[s].emits,"PROD029") for s in self.stages}
             orchestrator = EnterpriseOrchestrator(adapter.state,definitions,
@@ -337,6 +346,7 @@ class KnowledgeProducerService:
             succeeded = adapter.state.stages[task.stage_id].current.state == "SUCCEEDED"
             if succeeded:
                 for ref in adapter.state.stages[task.stage_id].current.evidence_refs: self.record(run_id,ref)
+                self.verify_terminal_for_ack(run_id, tenant)
                 self.write_guard()
                 self.queue.ack(task.task_id,self.owner)
             else:
@@ -365,6 +375,7 @@ class KnowledgeProducerService:
                     self.leases.db.execute("BEGIN IMMEDIATE"); self.leases.assert_active(lease)
                     if attempt.state == "SUCCEEDED":
                         for ref in attempt.output_artifact_refs+attempt.evidence_refs: self.record(run_id,ref)
+                        self.verify_terminal_for_ack(run_id, tenant)
                         self.write_guard()
                         self.queue.ack(task_id,delivery.consumer_id)
                     else:
