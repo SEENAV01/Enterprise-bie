@@ -39,16 +39,19 @@ class KnowledgeProducerControlPlane:
             self.authorize(principal,permission)
         finally:native.close()
 
-    def admit(self, principal, source_id, key, *, provider=None, model=None):
+    def admit(self, principal, source_id, key, *, provider=None, model=None, producer_config=None):
         self.authorize(principal,"create")
         self.authorize(principal,"worker")  # Explicit permission to this producer lane.
+        require(producer_config is None or (provider is None and model is None),
+                "producer_configuration_conflict")
         source=self.operator.source(principal,source_id)
         require(source["stored"] and source["validation"]["status"]=="VALID","source_not_valid")
         self.operator._raw_source(source)  # Authoritative digest/length/path validation.
         admitted=dict(source_id=source["source_id"],sha256=source["sha256"],
             size_bytes=source["byte_length"],media_type=source["media_type"],
             tenant=principal.tenant,privacy=source["source_privacy"],rights="LOCAL_PROCESSING_ONLY")
-        config=self.config_for() if provider is None and model is None else self.config_for(provider,model)
+        config=producer_config if producer_config is not None else (
+            self.config_for() if provider is None and model is None else self.config_for(provider,model))
         run_id=self.identity_for(principal.tenant,key)
         with self.operator.catalog.tx() as db:
             operation="prodop-"+uuid.uuid4().hex
