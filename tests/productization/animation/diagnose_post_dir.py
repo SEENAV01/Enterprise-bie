@@ -238,7 +238,9 @@ def tool_version(name: str) -> dict:
         return {"available": True, "version": "UNKNOWN"}
 
 
-def environment_observation() -> dict:
+def environment_observation(provisioning_phase: str = "original") -> dict:
+    if provisioning_phase not in {"original", "approved_after"}:
+        raise ValueError("UNKNOWN_PROVISIONING_PHASE")
     dependencies = {}
     for module, distribution in PACKAGES.items():
         try:
@@ -274,7 +276,8 @@ def environment_observation() -> dict:
             "canonical_node_prefix_present": Path("/opt/nvm/versions/node/v22.16.0/bin/node").is_file() if os.name == "posix" else False,
             "unshare_available": shutil.which("unshare") is not None,
             "bubblewrap_available": shutil.which("bwrap") is not None,
-            "provisioning_changed": False}
+            "provisioning_changed": provisioning_phase == "approved_after",
+            "provisioning_phase": provisioning_phase}
 
 
 def _validate_child_receipt(value: object, selection: str) -> bool:
@@ -372,7 +375,9 @@ def git_text(*args: str) -> str:
     return value.stdout.decode("ascii").strip()
 
 
-def collect() -> dict:
+def collect(provisioning_phase: str = "original") -> dict:
+    if provisioning_phase not in {"original", "approved_after"}:
+        raise ValueError("UNKNOWN_PROVISIONING_PHASE")
     identities = {}
     for path, expected in BLOBS.items():
         base = git_text("rev-parse", BASE + ":" + path)
@@ -386,7 +391,7 @@ def collect() -> dict:
         raise ValueError("INVALID_HEAD_IDENTITY")
     receipt = {"schema": "bie.task035.post-dir-diagnostic/1", "scope": "SYNTHETIC_TEST_DIAGNOSTICS_ONLY",
                "original_run_traceback_recovered": False, "base": BASE, "candidate": head,
-               "unchanged_blobs": identities, "environment": environment_observation(),
+               "unchanged_blobs": identities, "environment": environment_observation(provisioning_phase),
                "probes": [], "mandatory_regression_substituted": False, "product_accepted": False}
     with tempfile.TemporaryDirectory(prefix="bie-task035-ci-r1-") as temporary:
         private = Path(temporary)

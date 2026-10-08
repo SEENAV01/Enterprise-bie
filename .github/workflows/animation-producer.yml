@@ -48,6 +48,24 @@ jobs:
         # Observation receipt only; the original affected lane below is mandatory.
         # Do not install the hypothesized compiler fix before collecting evidence.
         run: python -I -B tests/productization/animation/diagnose_post_dir.py --output "$RUNNER_TEMP/task035-evidence/ci-r1-diagnostics.json"
+      - name: Task035 CI-R2 provisioning receipt safety controls only
+        run: python -I -B -m unittest discover -s tests/productization/animation -p test_ci_r2_provisioning.py -v
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Provision approved H3 source compiler and parser profiles
+        # These unchanged text-only tests use host identity and the TS parser,
+        # not the isolated equation worker, browser, or render setup.
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          python -m pip install -r requirements-comp-h3.txt
+          npm install --global typescript@5.8.3
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Require actual post-provision compiler passes on candidate and base
+        # Fresh same-interpreter children; completion without six PASS results fails.
+        run: python -I -B tests/productization/animation/verify_post_dir_provisioning.py --output "$RUNNER_TEMP/task035-evidence/ci-r2-after.json"
       - name: Governed current Visual Animation synchronization grounding QA and recovery
         run: python -B tools/run_task035_tests.py --lane new --output "$RUNNER_TEMP/task035-evidence/new.json"
       - name: Complete inherited producers native Animation QA and store preservation

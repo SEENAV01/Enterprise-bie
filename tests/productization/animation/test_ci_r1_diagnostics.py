@@ -177,9 +177,15 @@ class OriginalGatePreservation(unittest.TestCase):
             "          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'\n"
             "          python -m pip install -r requirements-qa-section16-validation.txt\n"
             "          python -m pip check\n")
-        self.assertEqual(text.count("pip install"), 2)
-        self.assertNotIn("setup_ci_environment.sh", text)
-        self.assertNotIn("requirements-comp-h3.txt", text)
+        # R1's before observation must retain its original provisioning even
+        # when the separately authorized R2 repair follows that observation.
+        before_name = "Diagnose unchanged Post-DIR tests without changing provisioning"
+        self.assertEqual(text.count("      - name: " + before_name + "\n"), 1)
+        before_end = text.index(steps[before_name]) + len(steps[before_name])
+        before = text[:before_end]
+        self.assertEqual(before.count("pip install"), 2)
+        self.assertNotIn("setup_ci_environment.sh", before)
+        self.assertNotIn("requirements-comp-h3.txt", before)
         self.assertIn("python-version: '3.13.5'", text)
         self.assertIn("runs-on: ubuntu-24.04", text)
 

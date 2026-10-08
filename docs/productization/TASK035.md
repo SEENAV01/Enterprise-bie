@@ -260,3 +260,96 @@ The local integrated gate again stopped at the four retained historical
 long-path preservation mismatches; no integrated full-green is claimed.
 Clean Linux base/candidate diagnostic execution, full new/affected gates and
 positive process/restart closure remain pending the new hosted run.
+
+## CI-R2: approved compiler provisioning repair
+
+The externally reviewed CI-R1 run `37719097607`, attempt 1, job `113122358623`,
+ran exact diagnostic head `de15f7ee05bff478ef4278f69910974383cd2c57` on Ubuntu
+24.04 with Python 3.13.5. Artifact `11525542143` was downloaded and its ZIP
+SHA256 independently verified before this repair:
+`54c1955a30f36522c8edb844500e3dadde21b9d1e7c098d45f8cea9c97a385b0`.
+Its members are `new.json`, `affected.json` and `ci-r1-diagnostics.json`.
+
+All six diagnostic observations were complete and import-origin valid, with
+zero foreign canonical module locations. On BOTH the exact unchanged base and
+candidate, each of the two methods listed above errored independently; each
+whole-file execution ran 22 tests with zero failures, two errors and zero skips.
+Both errors were `CompilerQAError / HOST_TOOLCHAIN_UNAVAILABLE`, caused by
+`ModuleNotFoundError / missing_module=matplotlib`, at canonical
+`bie/compiler/host_toolchain.py` lines 59, 56 and 38. The four inherited Git blob
+identities above remained identical on both revisions. This proves a missing
+compiler prerequisite for these reproduced Linux errors, not a changed Task035
+production regression. It does NOT recover the unavailable traceback from the
+original run `37710834567`.
+
+CI-R1 also observed other missing H3 Python dependencies, Node 22.23.3,
+TypeScript 7.0.2 and no JS parser library at the compiler's resolved location.
+Those latter observations are not independently observed TypeScript test
+failures: compilation stopped at the earlier Matplotlib import. The original
+129-test lane passed; the mandatory 4,972-test lane had two errors and no
+failures/skips. Later process/restart/final source-preservation steps were
+skipped. Neither hosted attempt establishes 5,101/5,101 PASS or positive
+ten-stage process closure.
+
+The repair retains the original before-provisioning observation step and its
+truthful `provisioning_changed=false` receipt. After that step it installs the
+complete, unchanged `requirements-comp-h3.txt`, first comparing it byte-for-byte
+with `.integration/tools/requirements-validation.txt`. It reuses the canonical
+pinned setup-node action with Node 22.16.0 and the canonical global TypeScript
+5.8.3 install command. Generated-project npm pins remain separate and unchanged.
+The API/DI and Section16 profiles are rechecked in the same Python 3.13.5
+interpreter, with `python -m pip check` after the final installation. The pinned
+setup actions perform PATH handoff to later workflow steps; no second Python
+runtime or alternate child interpreter is introduced.
+
+Call-path review of the two unchanged synthetic text/reveal fixtures found
+that H3 always collects the host-toolchain identity and invokes the real
+TypeScript AST probe. It does not execute the isolated equation worker or a
+browser/render path for these fixtures. The native parser's bounded POSIX
+process adapter retains PATH in its sanitized environment. Therefore this
+repair uses the existing source-compiler dependency and parser provisions,
+without copying runtimes into `/opt`, modifying sysconfig, installing bubblewrap,
+downloading browsers or adding media jobs. Native host hashing, source validation
+and all existing isolation contracts are untouched. The approved H3 profile
+includes the Playwright Python package; this does not authorize browser download
+or claim browser validation.
+
+A separate strict after-provisioning receipt uses the same safe R1 child
+harness to execute each unchanged method and the entire 22-test file on both
+candidate and isolated exact-base export. It verifies the actual interpreter,
+dependency imports, Node executable and resolved TypeScript JS library, not
+merely a `tsc --version` string. Its phase explicitly records changed approved
+provisioning. All six observations must be complete PASS results with exact
+counts, zero failures/errors/skips and zero foreign import origins; missing or
+UNKNOWN results fail the after gate. Diagnostic collection alone cannot pass
+this gate. Receipts contain bounded allowlisted observations and identities,
+not raw test output, source lines, local machine paths or font bytes.
+
+All original 129 new and 4,972 affected tests, 12 separate R1 safety tests, legacy
+process smokes, positive quantitative/chronology/cellular Task035 processes,
+unsupported-Math control, restart/replay/queue checks and final source audit
+remain mandatory. New R2 safety tests are counted separately; repeated diagnostic
+and base executions do not inflate authored counts. The R1 dependency-policy
+test retains its original before-phase assertions while allowing this explicitly
+authorized after-phase provisioning.
+
+Linux after-provisioning and process results must be read from the new exact-head
+hosted run; they are not predeclared successful by this repair. The local positive
+45.049/45.079/45.052-second supervision outcomes remain separate and unresolved.
+No child, workflow, resource or output limit is increased. No production engine,
+inherited test, canonical installer/requirements, source ledger, historical pin
+or shared test runner is modified. Compiler preservation tests do not extend the
+source-derived Animation pipeline to global Scene IR, code production or render.
+All review-only, Audio-open and non-acceptance boundaries remain unchanged.
+No PR, merge or Task036 is authorized by CI-R2.
+
+Local CI-R2 validation on Windows 10.0.19045 / isolated Python 3.13.5 passed all
+12 retained R1 safety tests and 20 separately authored R2 controls: 32 tests,
+zero failures/errors/skips. These test receipt rejection, profile identities,
+provisioning order and gate preservation; they are not Linux compiler after-proof.
+The integrated gate again stopped at the four retained historical long-path
+preservation mismatches (766 archives, 12,259 imported members, 11,151 expanded
+files checked). No Windows full-green or final source-audit PASS is claimed.
+The real after-provisioning six-probe comparison, original new/affected lanes,
+legacy smokes and positive ten-stage/restart journeys are NOT_RUN locally in
+this repair; the new exact-head Linux workflow must establish those outcomes.
