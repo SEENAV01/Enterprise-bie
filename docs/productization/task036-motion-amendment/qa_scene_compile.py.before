@@ -72,13 +72,12 @@ class CompilerQATarget:
             raise CompilerQAError("target seed must be an integer")
 
 
-def native_qa_capabilities(profile="web") -> CapabilityRegistry:
-    from .governed_motion import add_capabilities, PROFILE
+def native_qa_capabilities() -> CapabilityRegistry:
     registry = CapabilityRegistry()
     for kind in sorted(EMITTERS):
         from .registered_actions import registered_actions_for_kind
-        registry.register(CompilerCapability("comp:" + kind, "1.2.0", (kind,), tuple(sorted({"render"}|registered_actions_for_kind(kind))), ("web", PROFILE) if profile == PROFILE else ("web",), True))
-    return add_capabilities(registry, profile)
+        registry.register(CompilerCapability("comp:" + kind, "1.2.0", (kind,), tuple(sorted({"render"}|registered_actions_for_kind(kind))), ("web",), True))
+    return registry
 
 @dataclass(frozen=True)
 class GeneratedSceneQABundle:
@@ -111,9 +110,7 @@ def compile_scene_for_qa(payload, *, target: CompilerQATarget | None = None,
     element_results, animation_results, findings, origins = [], [], [], {}
     files, layers = [], []
     duration = (doc.duration_ms * target.fps + 999) // 1000
-    from .governed_motion import validate_document, is_governed
-    profile = validate_document(raw, target)
-    native = native_qa_capabilities(profile)
+    native = native_qa_capabilities()
     extra = dict(extra_dependency_versions or {})
     from .media_presentation import media_presentations
     media_plan = media_presentations(raw, target, required=False)
@@ -186,7 +183,7 @@ def compile_scene_for_qa(payload, *, target: CompilerQATarget | None = None,
                 from .specialized_motion import is_specialized
                 from .registered_actions import is_registered
                 result_track = (compile_animation_track(track, element=element, typesetter=typesetter)
-                                if is_specialized(track) or is_registered(track) or is_governed(track) else compile_animation_track(track))
+                                if is_specialized(track) or is_registered(track) else compile_animation_track(track))
             except ValueError as exc:
                 import re
                 from .animation_compiler_common import compile_result as track_result, component_name as track_name
@@ -279,7 +276,7 @@ def compile_scene_for_qa(payload, *, target: CompilerQATarget | None = None,
             findings.append(QAFinding("UNCONSUMED_SCENE_CONTRACT", "ERROR",
                        "QA adapter does not silently consume or discard: " + field, "$." + field))
     from .action_realization import inspect_action_realization
-    action_findings, action_receipt = inspect_action_realization(doc, native, animation_results, profile=profile)
+    action_findings, action_receipt = inspect_action_realization(doc, native, animation_results)
     findings.extend(action_findings)
     if action_receipt['requests']:
         files.append(emitted_file('src/bie-action-realization.json', canonical_json(action_receipt).decode()+'\n'))
@@ -316,7 +313,7 @@ def compile_scene_for_qa(payload, *, target: CompilerQATarget | None = None,
                  digest({"dependencies": deps["dependencies"], "devDependencies": deps["devDependencies"],
                          "target": asdict(target), "lock_state": "PACKAGE_DECLARATIONS_NOT_INSTALLED_LOCK"}),
                  digest(native.snapshot()))
-    capability = evaluate_capability_fallbacks(doc, native, element_results, profile=profile, typesetter=typesetter, frozen_simulation_frames=frozen_simulation_frames, target=target)
+    capability = evaluate_capability_fallbacks(doc, native, element_results, typesetter=typesetter, frozen_simulation_frames=frozen_simulation_frames, target=target)
     findings.extend(capability.findings)
     ordered = ordered_findings(findings)
     return GeneratedSceneQABundle(doc.scene_id, doc.fingerprint, codegen, source_map, context,

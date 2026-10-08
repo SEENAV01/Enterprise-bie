@@ -46,9 +46,6 @@ class MotionContract:
 
 def motion_contract(track) -> MotionContract:
     tid, eid, action, start, end, params, src, rsn = normalize_track(track)
-    if params.get("schema_version") == "bie.comp-producer-motion/1":
-        from .governed_motion import contract
-        return contract(track)
     from .registered_actions import ACTIONS as REGISTERED_ACTIONS, registered_contract
     if action in REGISTERED_ACTIONS:
         return registered_contract(track)
@@ -128,9 +125,6 @@ def frame_window(c: MotionContract, fps: int):
 def motion_state(c: MotionContract, frame: int, fps: int):
     if type(frame) is not int or frame < 0:
         fail("ANIMATION_FRAME_INVALID", "nonnegative integer frame required")
-    if c.parameters.get("schema_version") == "bie.comp-producer-motion/1":
-        from .governed_motion import state
-        return state(c, frame, fps)
     if c.parameters.get("schema_version") == "bie.comp-registered-action.v1":
         from .registered_actions import registered_motion_state
         return registered_motion_state(c, frame, fps)

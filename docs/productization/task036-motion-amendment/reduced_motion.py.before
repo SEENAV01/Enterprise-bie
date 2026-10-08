@@ -14,8 +14,6 @@ def resolve_reduced_motion(raw, target, preference='standard'):
     if DERIVATION_KEY in raw.get('metadata',{}):
         fail('MOTION_DERIVATION_RESERVED','input may not impersonate compiler derivation metadata')
     from .specialized_motion import is_specialized
-    from .governed_motion import is_governed, validate_document, validate_replacement
-    validate_document(raw, target)
     from .motion_milestones import prepare_specialized_variants
     prepared, specialized_variants = prepare_specialized_variants(raw,target,preference)
     registry=h3_metadata(raw).get('reduced_motion_variants',{})
@@ -31,7 +29,7 @@ def resolve_reduced_motion(raw, target, preference='standard'):
     # receive a fresh fingerprint rather than carrying a stale input identity.
     effective.pop('fingerprint',None)
     original_identity=digest(raw)
-    selection=[];frozen={};replacements={};referenced=[];governed=[]
+    selection=[];frozen={};replacements={};referenced=[]
     for e in raw['elements']:
         eid=e['element_id'];kind=e['element_type']
         from .registered_actions import ACTIONS as REGISTERED_ACTIONS
@@ -59,13 +57,6 @@ def resolve_reduced_motion(raw, target, preference='standard'):
             fail('REDUCED_VARIANT_TRACK_COVERAGE','each original track needs exactly one explicit replacement')
         for t in tracks:
             row=mapping[t['track_id']]
-            if is_governed(t):
-                if not isinstance(row,dict) or set(row)!={'action','parameters'}:
-                    fail('REDUCED_VARIANT_MOTION_UNSUPPORTED','explicit versioned replacement required')
-                new={**deepcopy(t),'action':row['action'],'parameters':deepcopy(row['parameters'])}
-                governed.append(validate_replacement(t,new,e,raw,target))
-                replacements[t['track_id']]=new
-                continue
             if not isinstance(row,dict) or set(row)!={'action','parameters'} or row['action'] not in {'enter','exit'}:
                 fail('REDUCED_VARIANT_MOTION_UNSUPPORTED','only explicit opacity enter/exit tracks are supported')
             new={**deepcopy(t),'action':row['action'],'parameters':deepcopy(row['parameters'])}
@@ -91,7 +82,6 @@ def resolve_reduced_motion(raw, target, preference='standard'):
              'standard_unresolved_references':sorted(set(referenced)-set(registry)) if preference=='standard' else [],
              'learning_equivalence':'NOT_EVALUATED','accepted':False}
     if specialized_variants:receipt['specialized_milestones']=specialized_variants
-    if governed:receipt['producer_motion_v1']=governed
     effective.setdefault('metadata',{})[DERIVATION_KEY]=deepcopy(receipt)
     receipt['effective_document_identity']=digest(effective)
     return effective,receipt

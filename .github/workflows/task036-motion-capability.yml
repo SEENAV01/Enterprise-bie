@@ -1,0 +1,183 @@
+name: BIE Task036 Motion Capability Prerequisite
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/scene-ir-producer-001]
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bie/compiler/**'
+      - 'tests/compiler/**'
+      - 'scripts/compiler_motion_source_amendment.py'
+      - 'scripts/verify_post_dir.py'
+      - 'scripts/verify_ingested_archives.py'
+      - 'docs/productization/TASK036*'
+      - 'docs/productization/task036-motion-amendment/**'
+      - '.github/workflows/task036-motion-capability.yml'
+
+permissions:
+  contents: read
+concurrency:
+  group: bie-task036-motion-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Approved canonical compiler runtime and isolation profile
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Recheck approved API DI and Section16 dependencies in actual runtime
+        run: |
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Preserve twelve R1 and twenty R2 safety controls separately
+        run: python -B tests/compiler/run_m1_tests.py --lane safety --output "$RUNNER_TEMP/m1-evidence/task035-safety.json"
+      - name: Strict real H3 AFTER on candidate and unchanged canonical base
+        # CI-R1's historical BEFORE receipt is retained; this is not unchanged provisioning.
+        run: python -I -B tests/productization/animation/verify_post_dir_provisioning.py --output "$RUNNER_TEMP/m1-evidence/ci-r2-after.json"
+      - name: M1 actual upstream admission reduced selection legacy and amendment controls
+        run: python -B tests/compiler/run_m1_tests.py --lane new --output "$RUNNER_TEMP/m1-evidence/m1-new.json"
+      - name: Full current timeline standard and reduced H3 plus emitted frame execution
+        # Class A source admission: actual upstream duration/layout, NOT rendered PASS.
+        run: python -I -B tests/compiler/run_motion_m1.py --mode source --output "$RUNNER_TEMP/m1-evidence/m1-h3-source.json"
+      - name: Original Task035 129 new tests unchanged
+        run: python -B tools/run_task035_tests.py --lane new --output "$RUNNER_TEMP/m1-evidence/task035-new.json"
+      - name: Original Task035 4972 affected tests unchanged
+        run: python -B tools/run_task035_tests.py --lane affected --output "$RUNNER_TEMP/m1-evidence/task035-affected.json"
+      - name: Preserved Task029 real process
+        run: python -B scripts/smoke_bie_di_knowledge.py --output "$RUNNER_TEMP/m1-evidence/task029-process.json"
+      - name: Preserved Task030 real process and historical Math block
+        run: python -B scripts/smoke_bie_pr_reasoning.py --output "$RUNNER_TEMP/m1-evidence/task030-process.json"
+      - name: Preserved Task031 real process
+        run: python -B scripts/smoke_bie_math_evidence.py --output "$RUNNER_TEMP/m1-evidence/task031-process.json"
+      - name: Preserved Task032 real process
+        run: python -B scripts/smoke_bie_pedagogy.py --output "$RUNNER_TEMP/m1-evidence/task032-process.json"
+      - name: Preserved Task033 real process
+        run: python -B scripts/smoke_bie_director.py --output "$RUNNER_TEMP/m1-evidence/task033-process.json"
+      - name: Preserved Task034 real process
+        run: python -B scripts/smoke_bie_visual.py --output "$RUNNER_TEMP/m1-evidence/task034-process.json"
+      - name: Preserved Task035 ten-stage process restart replay and blocked Math
+        run: python -B scripts/smoke_bie_animation.py --output "$RUNNER_TEMP/m1-evidence/task035-process.json"
+      - name: Complete canonical source audit with exact M1 preimages and replacements
+        run: |
+          python -B scripts/audit_canonical.py --output "$RUNNER_TEMP/m1-evidence/source-preservation.json"
+          python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/m1-evidence/post-dir-source.json"
+          python -B scripts/verify_ingested_archives.py --output "$RUNNER_TEMP/m1-evidence/ingested-source.json"
+      - name: Preserve only allowlisted safe receipts
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-task036-motion-prerequisite-evidence
+          path: ${{ runner.temp }}/m1-evidence/*.json
+          if-no-files-found: error
+          retention-days: 14
+
+  native-extra:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Approved canonical native compiler setup unchanged
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Approved dependency profiles
+        run: |
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Additional native compiler and Scene IR tests excluding Task035 and new duplicates
+        run: python -B tests/compiler/run_m1_tests.py --lane native-extra --output "$RUNNER_TEMP/m1-evidence/native-extra.json"
+      - name: Safe unique native test receipt
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-task036-motion-native-regression
+          path: ${{ runner.temp }}/m1-evidence/*.json
+          if-no-files-found: error
+          retention-days: 14
+
+  render:
+    needs: verify
+    runs-on: ubuntu-24.04
+    # Existing canonical native-render job deadline; native worker limits unchanged.
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        family: [quantitative, chronology, cellular, cellular_reduced]
+        preference: [standard, reduced]
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing governed compiler and browser provisioning
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+      - name: Install existing pinned browser within existing compiler tool mount
+        run: |
+          bash .integration/tools/setup_game_ci.sh
+          test ! -e /usr/local/lib/bie-section18-chromium
+          sudo cp -a /opt/bie-game-chromium /usr/local/lib/bie-section18-chromium
+          cmp /opt/bie-game-chromium/chrome /usr/local/lib/bie-section18-chromium/chrome
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Actual unchanged H3 call order generated consumer and exhaustive native rendered frames
+        # Existing Chromium boundary requires a root-owned private engine. Only
+        # this declared synthetic native test supervisor is elevated; unchanged
+        # worker still drops capabilities and enforces kernel/resource policy.
+        # Class B is a declared 2-second compiler fixture, not a shortened lesson.
+        run: |
+          sudo -n env "PATH=$PATH" "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-}" PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 \
+            "$(command -v python)" -I -B tests/compiler/run_m1_owned_render.py \
+            --family '${{ matrix.family }}' --preference '${{ matrix.preference }}' \
+            --output "$RUNNER_TEMP/m1-evidence/render-${{ matrix.family }}-${{ matrix.preference }}.json"
+      - name: Safe native render receipt only no media private payload or generated code
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-task036-motion-render-${{ matrix.family }}-${{ matrix.preference }}
+          path: ${{ runner.temp }}/m1-evidence/*.json
+          if-no-files-found: error
+          retention-days: 14

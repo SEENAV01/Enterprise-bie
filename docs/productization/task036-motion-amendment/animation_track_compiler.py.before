@@ -4,10 +4,6 @@ from .animation_behavior import motion_contract, SUPPORTED_ACTIONS
 
 
 def compile_animation_track(track, *, element=None, typesetter=None):
-    from .governed_motion import is_governed
-    if is_governed(track):
-        from .governed_motion_emitter import compile_governed_track
-        return compile_governed_track(track, element)
     from .registered_actions import is_registered
     if is_registered(track):
         from .registered_action_compiler import compile_registered_track
