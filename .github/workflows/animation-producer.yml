@@ -32,6 +32,8 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+          # CI-R1 diagnostics compare unchanged tests with the exact canonical base.
+          fetch-depth: 0
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.13.5'
@@ -40,6 +42,12 @@ jobs:
           python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
           python -m pip install -r requirements-qa-section16-validation.txt
           python -m pip check
+      - name: Task035 CI-R1 diagnostic safety controls only
+        run: python -I -B -m unittest discover -s tests/productization/animation -p test_ci_r1_diagnostics.py -v
+      - name: Diagnose unchanged Post-DIR tests without changing provisioning
+        # Observation receipt only; the original affected lane below is mandatory.
+        # Do not install the hypothesized compiler fix before collecting evidence.
+        run: python -I -B tests/productization/animation/diagnose_post_dir.py --output "$RUNNER_TEMP/task035-evidence/ci-r1-diagnostics.json"
       - name: Governed current Visual Animation synchronization grounding QA and recovery
         run: python -B tools/run_task035_tests.py --lane new --output "$RUNNER_TEMP/task035-evidence/new.json"
       - name: Complete inherited producers native Animation QA and store preservation

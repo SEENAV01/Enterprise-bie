@@ -173,3 +173,90 @@ exact failed/errored method set matched the candidate. Safe baseline diagnostics
 were retained separately; these baseline reruns are not added to the candidate
 test count. This corroborates those specific failures without declaring every
 Windows issue identical or waiving hosted Linux validation.
+
+## CI-R1: diagnostic-only continuation (not a provisioning repair)
+
+Hosted run `37710834567`, attempt 1, job `113096114402` failed at
+`Complete inherited producers native Animation QA and store preservation`.
+The new lane passed 129 tests with zero failures/errors/skips. The affected
+lane ran 4,972 tests with zero failures, two errors and zero skips. Both errors
+belong to `tests/post_dir/test_canonical_adoption.py`, class
+`CanonicalIdentityAndHandoff`:
+
+- `test_actual_cross_section_source_publication`
+- `test_actual_dsl_output_compiles_to_source`
+
+Artifact `11523060471` (`bie-animation-producer-evidence`) retained `new.json`
+and `affected.json`; the supplied ZIP SHA256 is
+`ab564f82e9244782511a854c449c2165688e947b8107079bb03f0d946c0c8db9`.
+Neither those summaries nor the original reported job log retains the exact
+exception tracebacks. The exception classes/codes for that original run remain
+UNKNOWN. Later dedicated legacy process smokes, the Task035 ten-stage/restart
+smoke and final source-preservation step were SKIPPED, not passed. This run is
+not 5,101/5,101 PASS and did not exercise the local process-timeout boundary.
+
+The following Git blobs are identical on canonical base
+`46977a2fb1d43fb655fb4be01d93a34f6151af09` and implementation head
+`1f10df341e74e47541e87a3b4ddda5a0d8ad3b6b`:
+
+| Path | Git blob |
+| --- | --- |
+| `tests/post_dir/test_canonical_adoption.py` | `6801194add84de0f752a18aaac86c8c4005bebce` |
+| `bie/compiler/hardened_scene_compile.py` | `082745cdc787495e68b419526a6d7008a38bb0c5` |
+| `bie/compiler/host_toolchain.py` | `9c113ec948a9324cf76032f2de937a6ae27e8cf5` |
+| `bie/compiler/generated_code_regression.py` | `1d350a3676728256653c26b2d94bead339704e6d` |
+
+Source review shows that the real H3 compiler unconditionally collects its
+Matplotlib/NumPy and associated host-toolchain profile, then performs real
+TypeScript parsing. The Animation workflow installs the API/DI and Section16
+profiles but not the existing compiler profile. The canonical Post-DIR workflow
+uses `requirements-comp-h3.txt`, the identical versioned validation requirements,
+and `.integration/tools/setup_ci_environment.sh`, with Python 3.13.5, Node
+22.16.0, TypeScript 5.8.3, runtime placement and GitHub PATH/environment handoff.
+These are source-backed provisioning leads, NOT reconstructed historical
+exceptions. A single-package installation would not prove complete setup.
+The broader canonical installer also includes browser/media/isolation setup;
+its presence alone does not prove every component is required by these two
+text-only synthetic tests.
+
+No usable matching local Linux runtime was available: the local host is Windows
+10.0.19045, Docker/Podman were unavailable, and WSL did not launch Linux.
+Windows compiler imports can fail earlier on `fcntl`; that is not a Linux
+reproduction. CI-R1 therefore selects the authorized **Path B**, not Path A.
+No hypothesized dependency fix is installed in this diagnostic commit.
+
+The Task035-only diagnostic executes each unchanged erroring method directly
+and the whole unchanged test file in fresh isolated child interpreters, on the
+candidate and a separate export of the exact base. It records actual bounded
+runtime/dependency observations, Git identities, import-origin checks and
+allowlisted exception classes/codes/canonical stack locations without source
+lines, exception messages, raw stdout/stderr or user-specific absolute paths.
+Only sanitized JSON is uploaded. Diagnostic observations are not regression
+passes; successful receipt collection does not waive test failures. Empty,
+invalid or incomplete diagnostics cannot establish PASS.
+
+The original 129 new and 4,972 affected selected tests remain unchanged and
+mandatory, as do every legacy/process/restart/source-preservation gate.
+Diagnostic repeats and base comparisons are not additional authored tests.
+Separate diagnostic safety tests are reported independently. Compiler, native
+engines, inherited tests, canonical installers and historical runners are
+unchanged. The workflow limit and 45-second child supervision/resource limits
+are unchanged. The retained local positive limits remain quantitative 45.049 s,
+chronology 45.079 s and cellular 45.052 s, with causes still unproven.
+
+New hosted diagnostics require external review before any provisioning repair.
+Executing the existing synthetic H3 preservation tests does not extend the
+Task035 product pipeline to global Scene IR, code generation or render. All
+review-only, Audio, downstream and product non-acceptance boundaries above
+remain unchanged. No PR, merge or Task036 is authorized by CI-R1.
+
+Local CI-R1 validation: 12 additional diagnostic-safety tests passed in a clean
+Windows Python 3.13.5 environment without system site-packages, with zero
+failures/errors/skips. They do not execute or replace the inherited H3 tests.
+A separate enriched-Windows child harness observation saw `ModuleNotFoundError`
+for `fcntl`; it is only diagnostic-harness validation, not a matching-provisioning
+or Linux reproduction and not an explanation of the original hosted errors.
+The local integrated gate again stopped at the four retained historical
+long-path preservation mismatches; no integrated full-green is claimed.
+Clean Linux base/candidate diagnostic execution, full new/affected gates and
+positive process/restart closure remain pending the new hosted run.
