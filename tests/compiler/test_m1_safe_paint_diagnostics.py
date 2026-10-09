@@ -894,5 +894,220 @@ class TypedWrapperRetention(unittest.TestCase):
             self.assertEqual(ns["phase"], before)
 
 
+class WorkerGuardPrivacy(unittest.TestCase):
+    """Synthetic parent-boundary probes; never a native Linux/render verdict."""
+    def safe(self, observer):
+        value = observer.snapshot()
+        self.assertTrue(diag.is_safe_guard_observation(value))
+        self.assertNotIn(MARKER, json.dumps(value))
+        for key in ("render_passed", "accepted", "product_accepted"):
+            self.assertIs(value[key], False)
+        return value
+
+    def test_static_guard_recorded_without_reading_exception_message(self):
+        from bie.compiler.qa_common import CompilerQAError
+        observer = diag.WorkerGuardObserver(True)
+        error = CompilerQAError(MARKER)
+        def original(condition, code): raise error
+        with self.assertRaises(CompilerQAError) as caught:
+            observer.delegate_require(original, False, "ENTRY_SECURITY")
+        self.assertIs(caught.exception, error)
+        self.assertEqual(self.safe(observer)["last_static_guard_code"], "ENTRY_SECURITY")
+
+    def test_unknown_private_code_cannot_escape_or_erase_known_guard(self):
+        observer = diag.WorkerGuardObserver(True)
+        def original(condition, code): raise ValueError(MARKER)
+        for code in ("CONTROL_SIZE", MARKER, "FAILED:" + MARKER, MARKER * 100000):
+            with self.assertRaises(ValueError): observer.delegate_require(original, False, code)
+        value = self.safe(observer)
+        self.assertEqual(value["last_static_guard_code"], "CONTROL_SIZE")
+        self.assertEqual(value["static_guard_rejections"], 1)
+        self.assertEqual(value["unclassified_guard_rejections"], 3)
+
+    def test_require_success_returns_original_object_and_arguments_once(self):
+        observer = diag.WorkerGuardObserver(True); seen = []; returned = object()
+        condition, code = object(), object()
+        def original(c, k): seen.append((c, k)); return returned
+        self.assertIs(observer.delegate_require(original, condition, code), returned)
+        self.assertEqual(len(seen), 1)
+        self.assertIs(seen[0][0], condition); self.assertIs(seen[0][1], code)
+        self.assertEqual(self.safe(observer)["static_guard_rejections"], 0)
+
+    def test_require_preserves_original_exception_and_native_cleanup(self):
+        observer = diag.WorkerGuardObserver(True); error = RuntimeError(MARKER); seen = []
+        def original(condition, code):
+            try: seen.append("call"); raise error
+            finally: seen.append("native_cleanup")
+        with self.assertRaises(RuntimeError) as caught: observer.delegate_require(original, False, "GRANT_SCOPE")
+        self.assertIs(caught.exception, error); self.assertEqual(seen, ["call", "native_cleanup"])
+
+    def test_grant_returns_identical_result_unchanged_arguments_once(self):
+        observer = diag.WorkerGuardObserver(True); returned = object(); private = object(); seen = []
+        def original(*args, **kwargs): seen.append((args, kwargs)); return returned
+        self.assertIs(observer.delegate_grant(original, private, owned_control_root=private), returned)
+        self.assertEqual(len(seen), 1); self.assertIs(seen[0][0][0], private)
+        self.assertIs(seen[0][1]["owned_control_root"], private)
+        self.assertEqual(self.safe(observer)["last_browser_admission_outcome"], "RETURNED")
+
+    def test_grant_records_exact_escaping_exception_type_after_cleanup(self):
+        observer = diag.WorkerGuardObserver(True); error = FileNotFoundError(MARKER); seen = []
+        def original(*args, **kwargs):
+            try: raise error
+            finally: seen.append("unfreeze")
+        with self.assertRaises(FileNotFoundError) as caught: observer.delegate_grant(original, MARKER)
+        self.assertIs(caught.exception, error); self.assertEqual(seen, ["unfreeze"])
+        value = self.safe(observer)
+        self.assertEqual(value["browser_admission_exception"], "FILE_NOT_FOUND")
+        self.assertEqual(value["last_browser_admission_outcome"], "RAISED")
+
+    def test_exception_subclass_and_spoofed_name_are_unknown(self):
+        class FileNotFoundError(ValueError):
+            def __str__(self): raise AssertionError("PRIVATE_MESSAGE_READ")
+        observer = diag.WorkerGuardObserver(True)
+        def original(): raise FileNotFoundError(MARKER)
+        with self.assertRaises(FileNotFoundError): observer.delegate_grant(original)
+        self.assertEqual(self.safe(observer)["browser_admission_exception"], "UNKNOWN")
+
+    def test_result_and_private_call_arguments_not_retained(self):
+        import gc, weakref
+        class Private: pass
+        observer = diag.WorkerGuardObserver(True); private = Private(); returned = Private()
+        a, b = weakref.ref(private), weakref.ref(returned)
+        observer.delegate_grant(lambda *a, **k: returned, private, payload=private)
+        del private, returned; gc.collect()
+        self.assertIsNone(a()); self.assertIsNone(b())
+        self.assertEqual(set(observer.__dict__), {"_safe"})
+
+    def test_not_observed_is_not_inner_process_success_or_zero_resource_violations(self):
+        value = self.safe(diag.WorkerGuardObserver(True))
+        self.assertEqual(value["last_browser_admission_outcome"], "NOT_CALLED")
+        self.assertEqual(value["browser_admission_exception"], "UNKNOWN")
+        self.assertNotIn("process_passed", value); self.assertNotIn("memory_events", value)
+        self.assertEqual(value["scope"], "OBSERVED_PARENT_BOUNDARIES_NOT_INNER_PROCESS_VERDICT")
+
+    def test_recorder_failure_cannot_mask_require_exception(self):
+        error = ValueError(MARKER); observer = diag.WorkerGuardObserver(True)
+        def original(*args): raise error
+        with patch.object(diag, "integer", side_effect=KeyboardInterrupt()):
+            with self.assertRaises(ValueError) as caught: observer.delegate_require(original, False, "GRANT_BOUND")
+        self.assertIs(caught.exception, error); self.assertEqual(self.safe(observer)["availability"], "INVALID")
+
+    def test_projection_failure_cannot_mask_grant_exception(self):
+        error = FileNotFoundError(MARKER); observer = diag.WorkerGuardObserver(True)
+        def original(): raise error
+        with patch.object(diag, "guard_exception_code", side_effect=KeyboardInterrupt()):
+            with self.assertRaises(FileNotFoundError) as caught: observer.delegate_grant(original)
+        self.assertIs(caught.exception, error); self.assertEqual(self.safe(observer)["availability"], "INVALID")
+
+    def test_binding_unavailable_does_not_mutate_native_binding(self):
+        from bie.compiler import chromium_resource_worker as worker
+        before = worker.require, worker._grant
+        with patch.object(diag, "canonical_guard_binding", side_effect=RuntimeError(MARKER)):
+            with diag.observe_worker_rejections() as observer: self.assertIsNone(observer)
+        self.assertEqual((worker.require, worker._grant), before)
+
+    def test_context_restores_both_bindings_on_baseexception(self):
+        worker, required, grant = diag.canonical_guard_binding()
+        with self.assertRaises(KeyboardInterrupt):
+            with diag.observe_worker_rejections() as observer:
+                self.assertIsNot(worker.require, required); self.assertIsNot(worker._grant, grant)
+                raise KeyboardInterrupt()
+        self.assertIs(worker.require, required); self.assertIs(worker._grant, grant)
+
+    def test_allowlist_matches_actual_static_native_guard_literals(self):
+        tree = ast.parse((ROOT / "bie/compiler/chromium_resource_worker.py").read_text())
+        codes = {n.args[1].value for n in ast.walk(tree) if isinstance(n, ast.Call)
+            and isinstance(n.func, ast.Name) and n.func.id == "require" and len(n.args) == 2
+            and isinstance(n.args[1], ast.Constant) and type(n.args[1].value) is str}
+        self.assertLessEqual(diag.GUARD_CODES, codes)
+        self.assertNotIn("FAILED:*", diag.GUARD_CODES)
+
+    def test_native_source_and_original_limits_are_byte_unchanged(self):
+        from hashlib import sha256
+        self.assertEqual(sha256((ROOT / "bie/compiler/chromium_resource_worker.py").read_bytes()).hexdigest(),
+            "aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963")
+        self.assertEqual(diag.MAX_INPUT_BYTES, 262144)
+
+    def test_raw_too_large_invalid_states_remain_separate(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve(); output = root / "paint-standard"; output.mkdir()
+            (output / "PROCESS.json").write_bytes(b" " * (diag.MAX_INPUT_BYTES + 1))
+            (output / "CHROMIUM_RESOURCE.json").write_text('{"bad":true}')
+            value = diag.capture_paint_diagnostic(root, family="chronology", preference="standard",
+                frame_count=48, duration_ms=2000, fps=24)
+            self.assertEqual(value["process"]["receipt_state"], "TOO_LARGE")
+            self.assertEqual(value["resource"]["receipt_state"], "INVALID")
+            self.assertEqual(self.safe(diag.WorkerGuardObserver(True))["last_static_guard_code"], "UNKNOWN")
+
+    def test_no_message_receipt_path_or_broad_serialization_in_observer(self):
+        import inspect
+        tree = ast.parse(inspect.getsource(diag.WorkerGuardObserver))
+        forbidden = {"str", "repr", "vars", "asdict", "open", "read_text", "read_bytes", "loads", "dumps"}
+        calls = {n.func.id if isinstance(n.func, ast.Name) else n.func.attr
+            for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, (ast.Name, ast.Attribute))}
+        self.assertFalse(calls & forbidden)
+
+    def test_closed_schema_rejects_extra_fields_bad_counters_and_false_origin(self):
+        valid = self.safe(diag.WorkerGuardObserver(True))
+        for key, bad in (("private", MARKER), ("static_guard_rejections", True),
+            ("browser_admission_calls", -1), ("unclassified_guard_rejections", 1025),
+            ("last_static_guard_code", MARKER), ("call_origin_verified", False)):
+            with self.subTest(key=key):
+                changed = deepcopy(valid); changed[key] = bad
+                self.assertFalse(diag.is_safe_guard_observation(changed))
+
+    def test_snapshot_detached_and_counterfeit_record_stays_invalid(self):
+        observer = diag.WorkerGuardObserver(True); value = self.safe(observer)
+        value["browser_admission_calls"] = 1
+        self.assertEqual(self.safe(observer)["browser_admission_calls"], 0)
+        observer._safe["private"] = MARKER
+        self.assertEqual(self.safe(observer)["availability"], "INVALID")
+
+    def test_successful_wrapper_phase_is_byte_equivalent_and_bindings_restored(self):
+        worker, required, grant = diag.canonical_guard_binding()
+        witness = object()
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve()
+            ns = TypedWrapperRetention.namespace(self, root, lambda *a, **k: witness)
+            before = deepcopy(ns["phase"])
+            exec(TypedWrapperRetention.block(self), ns)
+            self.assertIs(ns["witness"], witness); self.assertEqual(ns["phase"], before)
+        self.assertIs(worker.require, required); self.assertIs(worker._grant, grant)
+
+    def test_oversized_private_payload_and_exception_args_are_never_read(self):
+        class Private:
+            def __str__(self): raise AssertionError("PRIVATE_STRINGIFIED")
+            def __repr__(self): raise AssertionError("PRIVATE_REPRESENTED")
+        private = Private(); observer = diag.WorkerGuardObserver(True)
+        error = FileNotFoundError(MARKER * 1000000, private)
+        def original(*args, **kwargs): raise error
+        with self.assertRaises(FileNotFoundError) as caught: observer.delegate_grant(original, private, stdout=private)
+        self.assertIs(caught.exception, error); self.assertEqual(self.safe(observer)["browser_admission_exception"], "FILE_NOT_FOUND")
+
+    def test_counter_overflow_cannot_change_execution(self):
+        observer = diag.WorkerGuardObserver(True); returned = object(); calls = []
+        observer._safe["browser_admission_calls"] = 1024
+        def original(): calls.append(1); return returned
+        self.assertIs(observer.delegate_grant(original), returned); self.assertEqual(calls, [1])
+        self.assertEqual(self.safe(observer)["availability"], "INVALID")
+
+    def test_foreign_origin_rejected_without_replacing_existing_function(self):
+        from bie.compiler import chromium_resource_worker as worker
+        foreign = lambda *a: None
+        with patch.object(worker, "require", foreign):
+            with diag.observe_worker_rejections() as observer: self.assertIsNone(observer)
+            self.assertIs(worker.require, foreign)
+
+    def test_nonboolean_condition_not_evaluated_twice_or_labelled_static_failure(self):
+        class Condition:
+            def __init__(self): self.calls = 0
+            def __bool__(self): self.calls += 1; return False
+        condition = Condition(); observer = diag.WorkerGuardObserver(True)
+        def original(c, code):
+            if not c: raise ValueError(MARKER)
+        with self.assertRaises(ValueError): observer.delegate_require(original, condition, "CONTROL_SIZE")
+        self.assertEqual(condition.calls, 1); self.assertEqual(self.safe(observer)["static_guard_rejections"], 0)
+
+
 if __name__ == "__main__":
     unittest.main()

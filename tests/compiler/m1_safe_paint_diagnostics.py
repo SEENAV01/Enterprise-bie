@@ -623,3 +623,183 @@ def observe_paint_process():
         finally:
             worker.run_chromium_isolated = original
     return scope()
+
+
+# The parent worker can reject before returning a typed result. Observe ONLY
+# its fixed require codes and the exception TYPE escaping its frozen _grant
+# boundary. No receipt/file/message, call argument, result or traceback is read.
+GUARD_SCHEMA = "bie.task036.m1.paint-worker-guard-observation/1"
+GUARD_CODES = frozenset({
+    "ARGS", "DUPLICATE_ARG", "REQUIRED_ARG", "HEADLESS_ARG", "PROFILE_ARG",
+    "CONTROL_SIZE", "MOUNTINFO", "EXECUTABLE_MAPPING", "EXECUTABLE_MAPPING_MOUNT",
+    "EXECUTABLE_MAPPING_WRITABLE", "EXECUTABLE_MAPPING_EMPTY", "ADMISSION_STOP",
+    "FOREIGN_PROCESS", "FREEZE_DEADLINE", "CLEANUP_IDENTITY", "CLEANUP_DEADLINE",
+    "ENTRY_NOT_STOPPED", "PARENT_COMMAND", "EXECUTABLE_IDENTITY", "ENTRY_CHANGED",
+    "POLICY_CHANGED", "ENTRY_SECURITY", "ENTRY_ENVIRONMENT", "OWNED_SANDBOX_ROOT",
+    "PARENT_LIMIT", "ENTRY_LIMIT", "ENTRY_NAMESPACE", "GRANT_SCOPE", "PID_IDENTITY",
+    "DRIVER_ADMISSION", "HOST_DEADLINE", "PROCESS_BOUND", "GRANT_BOUND", "CHROME_LIMIT",
+    "DRIVER_RESULT", "DRIVER_EXIT", "KERNEL_POLICY", "NO_BROWSER_ADMISSION",
+    "FULL_RESERVATION_NOT_OBSERVED", "ENGINE_CHANGED_AFTER_RUN", "MISSING_RESULT",
+    "MEMORY_EXHAUSTED",
+})
+GUARD_ERROR_CODES = frozenset({"COMPILER_QA_ERROR", "FILE_NOT_FOUND", "PROCESS_LOOKUP",
+    "PERMISSION_ERROR", "OS_ERROR", "VALUE_ERROR", "TYPE_ERROR", "KEY_ERROR",
+    "TIMEOUT_EXPIRED", "UNICODE_DECODE_ERROR", "MEMORY_ERROR", "INTERRUPTED"})
+
+
+def empty_guard(verified=False, availability="UNAVAILABLE"):
+    return {"schema": GUARD_SCHEMA, "phase": "REAL_GENERATED_CONSUMER",
+        "provenance": "CANONICAL_PARENT_REQUIRE_AND_BROWSER_ADMISSION",
+        "call_origin_verified": verified is True, "availability": availability,
+        "static_guard_rejections": UNKNOWN, "last_static_guard_code": UNKNOWN,
+        "unclassified_guard_rejections": UNKNOWN, "browser_admission_calls": UNKNOWN,
+        "last_browser_admission_outcome": UNKNOWN, "browser_admission_exception": UNKNOWN,
+        "scope": "OBSERVED_PARENT_BOUNDARIES_NOT_INNER_PROCESS_VERDICT",
+        "render_passed": False, "accepted": False, "product_accepted": False}
+
+
+def is_safe_guard_observation(value):
+    try:
+        template = empty_guard()
+        require(type(value) is dict and len(value) == len(template)
+            and all(type(k) is str and len(k) <= 64 for k in value) and set(value) == set(template))
+        for key in ("schema", "phase", "provenance", "scope"):
+            require(type(value[key]) is str and value[key] == template[key])
+        require(type(value["call_origin_verified"]) is bool)
+        require(type(value["availability"]) is str and value["availability"] in {"VALID", "UNAVAILABLE", "INVALID"})
+        for key in ("render_passed", "accepted", "product_accepted"):
+            require(value[key] is False)
+        for key in ("static_guard_rejections", "unclassified_guard_rejections", "browser_admission_calls"):
+            require(typed_unknown(value[key]) or integer(value[key], 0, 1024) == value[key])
+        for key, allowed in (("last_static_guard_code", GUARD_CODES),
+            ("last_browser_admission_outcome", {"NOT_CALLED", "RETURNED", "RAISED"}),
+            ("browser_admission_exception", GUARD_ERROR_CODES)):
+            require(type(value[key]) is str and len(value[key]) <= 64 and value[key] in allowed | {UNKNOWN})
+        if value["availability"] == "VALID":
+            require(value["call_origin_verified"] is True)
+            for key in ("static_guard_rejections", "unclassified_guard_rejections", "browser_admission_calls"):
+                integer(value[key], 0, 1024)
+            require((value["static_guard_rejections"] == 0) is typed_unknown(value["last_static_guard_code"]))
+            if value["browser_admission_calls"] == 0:
+                require(value["last_browser_admission_outcome"] == "NOT_CALLED")
+            else:
+                require(value["last_browser_admission_outcome"] in {"RETURNED", "RAISED"})
+            if value["last_browser_admission_outcome"] != "RAISED":
+                require(typed_unknown(value["browser_admission_exception"]))
+        else:
+            for key in ("static_guard_rejections", "unclassified_guard_rejections", "browser_admission_calls",
+                        "last_static_guard_code", "last_browser_admission_outcome", "browser_admission_exception"):
+                require(typed_unknown(value[key]))
+        return True
+    except BaseException:
+        return False
+
+
+def guard_exception_code(error_type):
+    from subprocess import TimeoutExpired
+    from bie.compiler.qa_common import CompilerQAError
+    # Exact class identity, not __name__, str, repr, args or exception attributes.
+    return {CompilerQAError: "COMPILER_QA_ERROR", FileNotFoundError: "FILE_NOT_FOUND",
+        ProcessLookupError: "PROCESS_LOOKUP", PermissionError: "PERMISSION_ERROR", OSError: "OS_ERROR",
+        ValueError: "VALUE_ERROR", TypeError: "TYPE_ERROR", KeyError: "KEY_ERROR",
+        TimeoutExpired: "TIMEOUT_EXPIRED", UnicodeDecodeError: "UNICODE_DECODE_ERROR",
+        MemoryError: "MEMORY_ERROR", KeyboardInterrupt: "INTERRUPTED"}.get(error_type, UNKNOWN)
+
+
+class WorkerGuardObserver:
+    def __init__(self, verified=False):
+        self._safe = empty_guard(verified)
+        if verified is True:
+            self._safe.update(availability="VALID", static_guard_rejections=0,
+                unclassified_guard_rejections=0, browser_admission_calls=0,
+                last_browser_admission_outcome="NOT_CALLED")
+
+    def _invalid(self):
+        self._safe = empty_guard(self._safe["call_origin_verified"], "INVALID")
+
+    def delegate_require(self, original, condition, code):
+        try:
+            return original(condition, code)
+        except BaseException:
+            try:
+                if self._safe["availability"] == "VALID" and type(condition) is bool and condition is False:
+                    known = type(code) is str and len(code) <= 64 and code in GUARD_CODES
+                    key = "static_guard_rejections" if known else "unclassified_guard_rejections"
+                    count = integer(self._safe[key] + 1, 0, 1024)
+                    self._safe[key] = count
+                    if known:
+                        self._safe["last_static_guard_code"] = code
+            except BaseException:
+                try: self._invalid()
+                except BaseException: pass
+            raise
+
+    def delegate_grant(self, original, *args, **kwargs):
+        # Count only calls, never examine or retain the PID/path/command args.
+        try:
+            if self._safe["availability"] == "VALID":
+                self._safe["browser_admission_calls"] = integer(self._safe["browser_admission_calls"] + 1, 0, 1024)
+        except BaseException:
+            try: self._invalid()
+            except BaseException: pass
+        try:
+            returned = original(*args, **kwargs)
+        except BaseException as error:
+            try:
+                if self._safe["availability"] == "VALID":
+                    self._safe["last_browser_admission_outcome"] = "RAISED"
+                    self._safe["browser_admission_exception"] = guard_exception_code(type(error))
+            except BaseException:
+                try: self._invalid()
+                except BaseException: pass
+            raise
+        try:
+            if self._safe["availability"] == "VALID":
+                self._safe["last_browser_admission_outcome"] = "RETURNED"
+                self._safe["browser_admission_exception"] = UNKNOWN
+        except BaseException:
+            try: self._invalid()
+            except BaseException: pass
+        return returned
+
+    def snapshot(self):
+        return dict(self._safe) if is_safe_guard_observation(self._safe) else empty_guard(availability="INVALID")
+
+
+def canonical_guard_binding():
+    from types import ModuleType, FunctionType
+    from bie.compiler import chromium_resource_worker as worker
+    expected = Path(__file__).resolve().parents[2] / "bie/compiler/chromium_resource_worker.py"
+    require(type(worker) is ModuleType and Path(worker.__file__).resolve() == expected)
+    for name in ("require", "_grant"):
+        original = getattr(worker, name)
+        require(type(original) is FunctionType and Path(original.__code__.co_filename).resolve() == expected
+            and original.__module__ == "bie.compiler.chromium_resource_worker" and original.__name__ == name)
+    return worker, worker.require, worker._grant
+
+
+def observe_worker_rejections():
+    from contextlib import contextmanager
+
+    @contextmanager
+    def scope():
+        observer = None
+        try:
+            worker, original_require, original_grant = canonical_guard_binding()
+            observer = WorkerGuardObserver(verified=True)
+        except BaseException:
+            yield observer
+            return
+
+        def observed_require(condition, code):
+            return observer.delegate_require(original_require, condition, code)
+
+        def observed_grant(*args, **kwargs):
+            return observer.delegate_grant(original_grant, *args, **kwargs)
+
+        worker.require, worker._grant = observed_require, observed_grant
+        try:
+            yield observer
+        finally:
+            worker.require, worker._grant = original_require, original_grant
+    return scope()

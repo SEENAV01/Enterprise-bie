@@ -209,7 +209,9 @@ def run(args):
                         phase["phase"] = "REAL_GENERATED_CONSUMER"
                         with observe_paint_process() as typed_observer:
                             try:
-                                witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
+                                from tests.compiler.m1_safe_paint_diagnostics import observe_worker_rejections, is_safe_guard_observation
+                                with observe_worker_rejections() as guard_observer:
+                                    witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
                             except Exception:
                                 # Snapshot only fixed private receipt fields BEFORE
                                 # TemporaryDirectory cleanup. Evidence cannot mask
@@ -225,6 +227,12 @@ def run(args):
                                     typed = typed_observer.snapshot()
                                     if is_safe_typed_observation(typed):
                                         phase["paint_process_typed_observation"] = typed
+                                except BaseException:
+                                    pass
+                                try:
+                                    guarded = guard_observer.snapshot()
+                                    if is_safe_guard_observation(guarded):
+                                        phase["paint_worker_guard_observation"] = guarded
                                 except BaseException:
                                     pass
                                 raise
