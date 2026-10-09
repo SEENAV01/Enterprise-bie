@@ -399,5 +399,500 @@ class WrapperFailureRetention(unittest.TestCase):
         self.assertNotIn(name, selected["native-extra"] + selected["safety"])
 
 
+def typed_return(outcome="FAILED", code=2, started=True, *, private=MARKER):
+    from bie.compiler.build_common import ProcessReceipt
+    from bie.compiler.render_process import RenderProcessResult
+    p = ProcessReceipt((private,), private, code, private, private, 1234, outcome == "SUCCEEDED")
+    result = RenderProcessResult(p, outcome, started, 100, 100)
+    boundary = resource_receipt()
+    boundary["process_passed"] = p.passed
+    return result, {"kernel_enforced": True, "chromium_resource_boundary": boundary}
+
+
+class TypedReturnPrivacy(unittest.TestCase):
+    def project(self, value):
+        safe = diag.project_typed_return(value)
+        self.assertTrue(diag.is_safe_typed_observation(safe))
+        text = json.dumps(safe)
+        self.assertNotIn(MARKER, text)
+        self.assertLess(len(text), 2048)
+        self.assertFalse(safe["accepted"])
+        self.assertFalse(safe["render_passed"])
+        self.assertFalse(safe["product_accepted"])
+        return safe
+
+    def test_frozen_canonical_process_types_and_actual_scalar_values(self):
+        value = typed_return()
+        self.assertTrue(type(value[0]).__dataclass_params__.frozen)
+        self.assertTrue(type(value[0].process).__dataclass_params__.frozen)
+        safe = self.project(value)
+        self.assertEqual(safe["process"], {"availability": "VALID", "outcome": "FAILED",
+            "started": True, "process_passed": False, "exit_code": 2,
+            "signal_number": "UNKNOWN", "duration_ms": 1234})
+        self.assertFalse(safe["call_origin_verified"])
+        self.assertEqual(safe["provenance"], "UNVERIFIED_TEST_RETURN")
+
+    def test_success_remains_observation_not_a_render_or_acceptance_verdict(self):
+        safe = self.project(typed_return("SUCCEEDED", 0))
+        self.assertTrue(safe["process"]["process_passed"])
+        self.assertFalse(safe["render_passed"])
+
+    def test_typed_timeout_cancel_output_limit_and_spawn_are_not_guessed(self):
+        for outcome, code, started in (("TIMED_OUT", -15, True), ("CANCELLED", -1, False),
+                ("OUTPUT_LIMIT", -9, True), ("SPAWN_ERROR", -1, False)):
+            with self.subTest(outcome=outcome):
+                p = self.project(typed_return(outcome, code, started))["process"]
+                self.assertEqual(p["outcome"], outcome)
+                self.assertEqual(p["exit_code"], code)
+                self.assertEqual(p["started"], started)
+
+    def test_posix_negative_exit_not_shell_code_or_unstarted_sentinel(self):
+        for outcome, code, started, expected in (("FAILED", -9, True, 9),
+                ("FAILED", 137, True, "UNKNOWN"), ("SPAWN_ERROR", -1, False, "UNKNOWN")):
+            self.assertEqual(self.project(typed_return(outcome, code, started))["process"]["signal_number"], expected)
+
+    def test_unknown_outcome_does_not_read_or_infer_private_failure_text(self):
+        safe = self.project(typed_return("NOT_A_KNOWN_OUTCOME"))
+        self.assertEqual(safe["process"]["outcome"], "UNKNOWN")
+        self.assertNotIn("failure_code", safe["resource"])
+        self.assertEqual(self.project(typed_return(MARKER * 10000))["process"]["availability"], "INVALID")
+
+    def test_oversized_private_stdout_stderr_do_not_change_or_leak_observation(self):
+        from dataclasses import replace
+        base, kernel = typed_return()
+        huge = MARKER * (8 * 1024**2 // len(MARKER) + 1)
+        changed = replace(base, process=replace(base.process, stdout=huge, stderr=huge),
+                          stdout_bytes=2**62, stderr_bytes=2**62)
+        self.assertEqual(self.project((changed, kernel)), self.project((base, kernel)))
+
+    def test_private_attributes_are_never_accessed_even_for_validation(self):
+        from bie.compiler.build_common import ProcessReceipt
+        from bie.compiler.render_process import RenderProcessResult
+        value = typed_return()
+        old_p, old_r = ProcessReceipt.__getattribute__, RenderProcessResult.__getattribute__
+        def read_p(instance, name):
+            if name in {"stdout", "stderr", "command", "cwd"}:
+                raise AssertionError("PRIVATE_ATTRIBUTE_ACCESS")
+            return old_p(instance, name)
+        def read_r(instance, name):
+            if name in {"stdout_bytes", "stderr_bytes"}:
+                raise AssertionError("PRIVATE_ATTRIBUTE_ACCESS")
+            return old_r(instance, name)
+        with patch.object(ProcessReceipt, "__getattribute__", read_p), patch.object(RenderProcessResult, "__getattribute__", read_r):
+            self.assertEqual(self.project(value)["process"]["availability"], "VALID")
+
+    def test_private_values_and_unknown_nested_objects_are_not_serialized_or_traversed(self):
+        from dataclasses import replace
+        class Forbidden:
+            def __repr__(self): raise AssertionError("PRIVATE_REPR")
+            def __str__(self): raise AssertionError("PRIVATE_STR")
+            def __iter__(self): raise AssertionError("PRIVATE_TRAVERSAL")
+        base, kernel = typed_return(private=Forbidden())
+        boundary = kernel["chromium_resource_boundary"]
+        for key in ("command", "grants", "driver_failure", "driver_stderr", "kernel", "browser_mappings",
+                "entry_mapping_diagnostic", "failure", "cleanup_failure"):
+            boundary[key] = Forbidden()
+        boundary["memory_cgroup"]["events"] = Forbidden()
+        changed = replace(base, stdout_bytes=Forbidden(), stderr_bytes=Forbidden())
+        self.assertEqual(self.project((changed, kernel))["resource"]["availability"], "VALID")
+
+    def test_no_receipt_file_read_or_broad_serializer_in_typed_projection(self):
+        value = typed_return()
+        with patch.object(Path, "open", side_effect=AssertionError("NO_FILE_READ")), \
+                patch.object(diag, "read_receipt", side_effect=AssertionError("NO_FILE_READ")), \
+                patch("dataclasses.asdict", side_effect=AssertionError("NO_BROAD_SERIALIZER")), \
+                patch("builtins.repr", side_effect=AssertionError("NO_PRIVATE_REPR")):
+            self.assertEqual(diag.project_typed_return(value)["process"]["availability"], "VALID")
+
+    def test_absent_resource_and_missing_counters_are_unknown_not_zero(self):
+        base, kernel = typed_return()
+        del kernel["chromium_resource_boundary"]
+        safe = self.project((base, kernel))["resource"]
+        self.assertEqual(safe["availability"], "UNKNOWN")
+        self.assertTrue(safe["kernel_enforced"])
+        self.assertTrue(all(v == "UNKNOWN" for v in safe["memory_events"].values()))
+        base, kernel = typed_return()
+        del kernel["chromium_resource_boundary"]["memory_cgroup"]["memory_events"]["oom"]
+        self.assertEqual(self.project((base, kernel))["resource"]["memory_events"],
+                         {"oom": "UNKNOWN", "oom_kill": 0, "high": 2, "max": 3})
+
+    def test_present_counters_and_enforcement_cleanup_flags_are_exact(self):
+        base, kernel = typed_return()
+        kernel["chromium_resource_boundary"]["memory_cgroup"]["memory_events"]["oom_kill"] = 1
+        safe = self.project((base, kernel))["resource"]
+        self.assertEqual(safe["memory_events"], {"oom": 0, "oom_kill": 1, "high": 2, "max": 3})
+        self.assertEqual(safe["memory_peak_bytes"], 1024)
+        self.assertTrue(safe["kernel_enforced"])
+        self.assertFalse(safe["security_policy_weakened"])
+        self.assertTrue(safe["owned_processes_reaped"])
+        self.assertTrue(safe["owned_cgroup_removed"])
+
+    def test_boolean_as_integer_negative_overflow_and_invalid_process_fields(self):
+        from dataclasses import replace
+        for key, bad in (("exit_code", True), ("exit_code", -256), ("exit_code", 256),
+                ("duration_ms", True), ("duration_ms", -1), ("duration_ms", diag.MAX_DURATION_MS + 1),
+                ("passed", 0), ("accepted", True)):
+            with self.subTest(field=key):
+                base, kernel = typed_return()
+                p = self.project((replace(base, process=replace(base.process, **{key: bad})), kernel))["process"]
+                self.assertEqual(p["availability"], "INVALID")
+                self.assertEqual(p["exit_code"], "UNKNOWN")
+
+    def test_wrong_result_receipt_types_and_subclasses_are_not_introspected(self):
+        from dataclasses import replace
+        from bie.compiler.build_common import ProcessReceipt
+        class Foreign(ProcessReceipt): pass
+        base, kernel = typed_return()
+        foreign = Foreign((), "", 2, "", "", 1234, False)
+        for bad in (object(), replace(base, process=object()), replace(base, process=foreign)):
+            self.assertEqual(self.project((bad, kernel))["observation_stage"], "PROCESS_TYPE")
+
+    def test_wrong_return_shape_does_not_traverse_arbitrary_objects(self):
+        class Foreign:
+            def __iter__(self): raise AssertionError("NO_TRAVERSAL")
+        for value in (None, Foreign(), [], (object(),), (object(), object(), object())):
+            safe = self.project(value)
+            self.assertEqual(safe["observation_stage"], "RETURN_SHAPE")
+            self.assertEqual(safe["process"]["exit_code"], "UNKNOWN")
+
+    def test_contradictory_process_outcome_started_and_passed_rejected(self):
+        from dataclasses import replace
+        for outcome, code, started in (("SUCCEEDED", 2, True), ("FAILED", 0, True),
+                ("FAILED", 2, False), ("TIMED_OUT", -1, False), ("SPAWN_ERROR", -1, True)):
+            self.assertEqual(self.project(typed_return(outcome, code, started))["process"]["availability"], "INVALID")
+        base, kernel = typed_return()
+        self.assertEqual(self.project((replace(base, started=1), kernel))["process"]["availability"], "INVALID")
+        self.assertEqual(self.project((replace(base, process=replace(base.process, passed=True)), kernel))["process"]["availability"], "INVALID")
+
+    def test_resource_wrong_schema_kind_shape_or_flags_rejected_without_false_leaf_claim(self):
+        for key, bad in (("schema", MARKER), ("kind", MARKER), ("memory_cgroup", None),
+                ("memory_cgroup", []), ("process_passed", 0), ("accepted", True), ("owned_cgroup_removed", 1)):
+            with self.subTest(field=key):
+                base, kernel = typed_return(); kernel["chromium_resource_boundary"][key] = bad
+                safe = self.project((base, kernel))
+                self.assertEqual(safe["resource"]["availability"], "INVALID")
+                self.assertEqual(safe["observation_stage"], "RESOURCE_FIELDS")
+                self.assertEqual(safe["resource"]["memory_peak_bytes"], "UNKNOWN")
+        base, kernel = typed_return(); kernel["chromium_resource_boundary"] = None
+        self.assertEqual(self.project((base, kernel))["resource"]["availability"], "INVALID")
+
+    def test_resource_counters_reject_bool_negative_overflow_strings(self):
+        for bad in (True, -1, diag.MAX_COUNTER + 1, "0", float("nan")):
+            base, kernel = typed_return()
+            kernel["chromium_resource_boundary"]["memory_cgroup"]["memory_events"]["oom"] = bad
+            safe = self.project((base, kernel))
+            self.assertEqual(safe["resource"]["availability"], "INVALID")
+            self.assertEqual(safe["resource"]["memory_events"]["oom"], "UNKNOWN")
+
+    def test_wrong_resource_ceilings_peak_or_duplicate_pass_status_rejected(self):
+        for key, bad in (("memory_max", 4 * 1024**3), ("swap_max", 1), ("pids_max", True),
+                ("memory_peak", -1), ("memory_peak", 1024**4 + 1), ("memory_events", [])):
+            base, kernel = typed_return()
+            kernel["chromium_resource_boundary"]["memory_cgroup"][key] = bad
+            self.assertEqual(self.project((base, kernel))["resource"]["availability"], "INVALID")
+        base, kernel = typed_return(); kernel["chromium_resource_boundary"]["process_passed"] = True
+        self.assertEqual(self.project((base, kernel))["resource"]["availability"], "INVALID")
+
+    def test_dict_subclass_and_counterfeit_receipt_not_traversed(self):
+        class Foreign(dict):
+            def get(self, *args): raise AssertionError("NO_FOREIGN_LOOKUP")
+            def __getitem__(self, key): raise AssertionError("NO_FOREIGN_LOOKUP")
+        base, kernel = typed_return()
+        self.assertEqual(self.project((base, Foreign(kernel)))["resource"]["availability"], "INVALID")
+        kernel["chromium_resource_boundary"] = Foreign()
+        self.assertEqual(self.project((base, kernel))["resource"]["availability"], "INVALID")
+
+    def test_closed_output_rejects_extras_acceptance_unknown_stage_and_counterfeits(self):
+        safe = self.project(typed_return())
+        for changed in (dict(safe, private=MARKER), dict(safe, accepted=True),
+                dict(safe, observation_stage=MARKER), dict(safe, call_origin_verified=True)):
+            self.assertFalse(diag.is_safe_typed_observation(changed))
+        changed = deepcopy(safe); changed["resource"]["memory_events"]["foreign"] = 0
+        self.assertFalse(diag.is_safe_typed_observation(changed))
+        changed = deepcopy(safe); changed["process"]["duration_ms"] = "UNKNOWN"
+        self.assertFalse(diag.is_safe_typed_observation(changed))
+        changed = diag.empty_typed("CALL_RAISED"); changed["process"]["exit_code"] = 0
+        self.assertFalse(diag.is_safe_typed_observation(changed))
+        changed = deepcopy(safe); changed["resource"]["availability"] = "UNKNOWN"
+        self.assertFalse(diag.is_safe_typed_observation(changed))
+        changed = deepcopy(safe); changed["observation_stage"] = "RESOURCE_FIELDS"
+        self.assertFalse(diag.is_safe_typed_observation(changed))
+
+    def test_malformed_observation_stage_and_origin_flags_cannot_be_retained_or_exported(self):
+        safe = diag.empty_typed(MARKER, MARKER)
+        self.assertTrue(diag.is_safe_typed_observation(safe))
+        self.assertNotIn(MARKER, json.dumps(safe))
+        self.assertEqual(safe["observation_stage"], "OBSERVER_ERROR")
+        self.assertFalse(safe["call_origin_verified"])
+        observer = diag.TypedPaintObserver(verified=MARKER)
+        self.assertIs(observer._verified, False)
+        self.assertNotIn(MARKER, json.dumps(observer.snapshot()))
+
+    def test_counterfeit_scalar_subclasses_cannot_escape_closed_schema(self):
+        class Foreign(str):
+            def __eq__(self, other): return True
+            __hash__ = str.__hash__
+        safe = self.project(typed_return())
+        for key in ("schema", "phase", "capture_point", "provenance", "observation_stage"):
+            changed = deepcopy(safe); changed[key] = Foreign(MARKER)
+            self.assertFalse(diag.is_safe_typed_observation(changed))
+        for section, key in (("process", "exit_code"), ("process", "started"),
+                ("process", "outcome"), ("resource", "memory_peak_bytes"),
+                ("resource", "owned_cgroup_removed")):
+            changed = deepcopy(safe); changed[section][key] = Foreign(MARKER)
+            self.assertFalse(diag.is_safe_typed_observation(changed))
+        changed = deepcopy(safe); changed["resource"]["memory_events"]["oom"] = Foreign(MARKER)
+        self.assertFalse(diag.is_safe_typed_observation(changed))
+
+
+class TypedObserverNoninterference(unittest.TestCase):
+    def test_delegate_exactly_once_arguments_and_return_object_identity_preserved(self):
+        observer = diag.TypedPaintObserver()
+        positional, keyword, returned = object(), object(), typed_return()
+        seen = []
+        def original(*args, **kwargs):
+            seen.append((args, kwargs))
+            return returned
+        actual = observer.delegate(original, positional, workspace=keyword, timeout_s=192)
+        self.assertIs(actual, returned)
+        self.assertEqual(len(seen), 1)
+        self.assertIs(seen[0][0][0], positional)
+        self.assertIs(seen[0][1]["workspace"], keyword)
+        self.assertEqual(seen[0][1]["timeout_s"], 192)
+        self.assertEqual(observer.snapshot()["process"]["exit_code"], 2)
+
+    def test_native_exception_object_and_cleanup_order_preserved_without_message_access(self):
+        class PrivateError(ValueError):
+            def __str__(self): raise AssertionError("NO_MESSAGE_ACCESS")
+            def __repr__(self): raise AssertionError("NO_MESSAGE_ACCESS")
+        original_error = PrivateError()
+        observer = diag.TypedPaintObserver(); steps = []
+        def original(*args, **kwargs):
+            try:
+                steps.append("call")
+                raise original_error
+            finally:
+                steps.append("native_cleanup")
+        try:
+            observer.delegate(original)
+        except PrivateError as caught:
+            self.assertIs(caught, original_error)
+            steps.append("painter_catch")
+        self.assertEqual(steps, ["call", "native_cleanup", "painter_catch"])
+        safe = observer.snapshot()
+        self.assertEqual(safe["observation_stage"], "CALL_RAISED")
+        self.assertEqual(safe["process"]["exit_code"], "UNKNOWN")
+        self.assertTrue(all(v == "UNKNOWN" for v in safe["resource"]["memory_events"].values()))
+
+    def test_projector_error_and_baseexception_cannot_change_return(self):
+        returned = typed_return()
+        for error in (RuntimeError(MARKER), KeyboardInterrupt()):
+            observer = diag.TypedPaintObserver()
+            with patch.object(diag, "project_typed_return", side_effect=error):
+                self.assertIs(observer.delegate(lambda: returned), returned)
+            self.assertEqual(observer.snapshot()["observation_stage"], "OBSERVER_ERROR")
+            self.assertNotIn(MARKER, json.dumps(observer.snapshot()))
+
+    def test_recording_failure_does_not_mask_original_exception(self):
+        original_error = ValueError(MARKER)
+        observer = diag.TypedPaintObserver()
+        def original(): raise original_error
+        with patch.object(diag, "empty_typed", side_effect=RuntimeError("OBSERVER_ONLY")):
+            try:
+                observer.delegate(original)
+            except ValueError as caught:
+                self.assertIs(caught, original_error)
+
+    def test_result_and_private_payload_not_retained_in_observer_state(self):
+        import gc
+        import weakref
+        observer = diag.TypedPaintObserver()
+        returned = typed_return()
+        ref = weakref.ref(returned[0]); inner_ref = weakref.ref(returned[0].process)
+        observer.delegate(lambda: returned)
+        del returned
+        gc.collect()
+        self.assertIsNone(ref())
+        self.assertIsNone(inner_ref())
+        self.assertNotIn(MARKER, json.dumps(observer.snapshot()))
+        self.assertEqual(set(observer.__dict__), {"_verified", "_called", "_multiple", "_safe"})
+
+    def test_not_called_and_multiple_calls_are_unknown_not_a_chosen_success(self):
+        observer = diag.TypedPaintObserver()
+        self.assertEqual(observer.snapshot()["observation_stage"], "NOT_CALLED")
+        seen = []
+        def original():
+            seen.append(1)
+            return typed_return()
+        observer.delegate(original); observer.delegate(original)
+        self.assertEqual(len(seen), 2)
+        self.assertEqual(observer.snapshot()["observation_stage"], "MULTIPLE_CALLS")
+        self.assertEqual(observer.snapshot()["process"]["outcome"], "UNKNOWN")
+
+    def test_snapshot_is_closed_detached_safe_record_not_a_sidecar_reference(self):
+        observer = diag.TypedPaintObserver()
+        observer.delegate(typed_return)
+        first = observer.snapshot()
+        first["process"]["exit_code"] = 0; first["resource"]["memory_events"]["oom"] = 99
+        self.assertEqual(observer.snapshot()["process"]["exit_code"], 2)
+        self.assertEqual(observer.snapshot()["resource"]["memory_events"]["oom"], 0)
+        observer._safe["private"] = MARKER
+        self.assertEqual(observer.snapshot()["observation_stage"], "OBSERVER_ERROR")
+
+    def test_canonical_binding_origin_and_scope_restoration_without_worker_execution(self):
+        worker, original = diag.canonical_paint_binding()
+        with diag.observe_paint_process() as observer:
+            self.assertIsNot(worker.run_chromium_isolated, original)
+            self.assertTrue(observer.snapshot()["call_origin_verified"])
+            self.assertEqual(observer.snapshot()["observation_stage"], "NOT_CALLED")
+        self.assertIs(worker.run_chromium_isolated, original)
+
+    def test_binding_unavailable_does_not_change_painter_execution_or_exception(self):
+        original_error = ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED")
+        seen = []
+        with patch.object(diag, "canonical_paint_binding", side_effect=RuntimeError(MARKER)):
+            try:
+                with diag.observe_paint_process() as observer:
+                    seen.append(1)
+                    raise original_error
+            except ValueError as caught:
+                self.assertIs(caught, original_error)
+        self.assertEqual(seen, [1])
+        self.assertEqual(observer.snapshot()["observation_stage"], "BINDING_UNAVAILABLE")
+
+    def test_observer_construction_failure_still_executes_unmodified_painter_scope(self):
+        original_error = ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED")
+        seen = []
+        with patch.object(diag, "TypedPaintObserver", side_effect=RuntimeError(MARKER)):
+            try:
+                with diag.observe_paint_process() as observer:
+                    self.assertIsNone(observer)
+                    seen.append(1)
+                    raise original_error
+            except ValueError as caught:
+                self.assertIs(caught, original_error)
+        self.assertEqual(seen, [1])
+
+    def test_foreign_binding_is_not_wrapped_or_certified_and_original_remains(self):
+        worker, original = diag.canonical_paint_binding()
+        def foreign(*args, **kwargs): return object()
+        with patch.object(worker, "run_chromium_isolated", foreign):
+            with diag.observe_paint_process() as observer:
+                self.assertIs(worker.run_chromium_isolated, foreign)
+                self.assertFalse(observer.snapshot()["call_origin_verified"])
+                self.assertEqual(observer.snapshot()["observation_stage"], "BINDING_UNAVAILABLE")
+        self.assertIs(worker.run_chromium_isolated, original)
+
+    def test_scope_delegates_once_returns_original_and_restores_after_painter_failure(self):
+        worker, actual = diag.canonical_paint_binding()
+        returned = typed_return(); seen = []
+        def original(*args, **kwargs):
+            seen.append((args, kwargs))
+            return returned
+        error = ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED")
+        with patch.object(diag, "canonical_paint_binding", return_value=(worker, original)):
+            try:
+                with diag.observe_paint_process() as observer:
+                    from bie.compiler.chromium_resource_worker import run_chromium_isolated
+                    self.assertIs(run_chromium_isolated("private-call", kind="actual-paint"), returned)
+                    raise error
+            except ValueError as caught:
+                self.assertIs(caught, error)
+            finally:
+                self.assertIs(worker.run_chromium_isolated, original)
+                worker.run_chromium_isolated = actual
+        self.assertEqual(len(seen), 1)
+        self.assertEqual(observer.snapshot()["process"]["outcome"], "FAILED")
+
+
+class TypedWrapperRetention(unittest.TestCase):
+    def block(self):
+        tree = ast.parse((ROOT / "tests/compiler/run_motion_m1.py").read_text(encoding="utf-8"))
+        node = next(n for n in ast.walk(tree) if isinstance(n, ast.With) and
+                    any(isinstance(i.context_expr, ast.Call) and isinstance(i.context_expr.func, ast.Name)
+                        and i.context_expr.func.id == "observe_paint_process" for i in n.items))
+        return compile(ast.fix_missing_locations(ast.Module(body=[node], type_ignores=[])), "typed-call-site", "exec")
+
+    def namespace(self, root, painter):
+        ns = WrapperFailureRetention.namespace(self, root, painter)
+        ns.update(observe_paint_process=diag.observe_paint_process,
+                  is_safe_typed_observation=diag.is_safe_typed_observation)
+        return ns
+
+    def test_typed_observation_survives_original_failure_and_temporary_cleanup(self):
+        worker, actual = diag.canonical_paint_binding()
+        returned = typed_return(); error = ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED:" + MARKER)
+        def original(*args, **kwargs): return returned
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve()
+            def painter(*args, **kwargs):
+                from bie.compiler.chromium_resource_worker import run_chromium_isolated
+                self.assertIs(run_chromium_isolated("synthetic-private", workspace=root), returned)
+                raise error
+            ns = self.namespace(root, painter)
+            with patch.object(diag, "canonical_paint_binding", return_value=(worker, original)):
+                try:
+                    with self.assertRaises(ValueError) as caught: exec(self.block(), ns)
+                    self.assertIs(caught.exception, error)
+                    self.assertEqual(ns["phase"]["paint_process_typed_observation"]["process"]["exit_code"], 2)
+                    self.assertEqual(ns["phase"]["paint_process_diagnostic"]["process"]["receipt_state"], "ABSENT")
+                finally:
+                    worker.run_chromium_isolated = actual
+        self.assertFalse(root.exists())
+        self.assertNotIn(MARKER, json.dumps(ns["phase"]))
+        self.assertFalse(ns["phase"]["render_passed"])
+
+    def test_existing_too_large_invalid_states_not_reinterpreted_by_typed_return(self):
+        worker, actual = diag.canonical_paint_binding()
+        returned = typed_return(); error = ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED")
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve(); output = root / "paint-standard"; output.mkdir()
+            (output / "PROCESS.json").write_bytes(b" " * (diag.MAX_INPUT_BYTES + 1))
+            (output / "CHROMIUM_RESOURCE.json").write_text('{"bad":true}')
+            def painter(*args, **kwargs):
+                from bie.compiler.chromium_resource_worker import run_chromium_isolated
+                run_chromium_isolated("synthetic-private")
+                raise error
+            ns = self.namespace(root, painter)
+            with patch.object(diag, "canonical_paint_binding", return_value=(worker, lambda *a, **k: returned)):
+                try:
+                    with self.assertRaises(ValueError): exec(self.block(), ns)
+                finally:
+                    worker.run_chromium_isolated = actual
+            raw = ns["phase"]["paint_process_diagnostic"]
+            self.assertEqual(raw["process"]["receipt_state"], "TOO_LARGE")
+            self.assertEqual(raw["resource"]["receipt_state"], "INVALID")
+            self.assertEqual(raw["resource"]["memory_events"]["oom"], "UNKNOWN")
+            self.assertEqual(ns["phase"]["paint_process_typed_observation"]["process"]["outcome"], "FAILED")
+
+    def test_snapshot_failure_and_counterfeit_do_not_mask_painter_exception(self):
+        from contextlib import contextmanager
+        error = ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED")
+        def painter(*args, **kwargs): raise error
+        for mode in ("ERROR", "COUNTERFEIT", "INTERRUPT"):
+            class Broken:
+                def snapshot(self):
+                    if mode == "COUNTERFEIT": return {"private": MARKER}
+                    if mode == "INTERRUPT": raise KeyboardInterrupt()
+                    raise RuntimeError(MARKER)
+            @contextmanager
+            def scope(): yield Broken()
+            with tempfile.TemporaryDirectory() as temp:
+                ns = self.namespace(Path(temp).resolve(), painter)
+                ns["observe_paint_process"] = scope
+                with self.assertRaises(ValueError) as caught: exec(self.block(), ns)
+                self.assertIs(caught.exception, error)
+                self.assertNotIn("paint_process_typed_observation", ns["phase"])
+
+    def test_success_phase_and_existing_receipt_behavior_unchanged(self):
+        witness = object()
+        with tempfile.TemporaryDirectory() as temp:
+            ns = self.namespace(Path(temp).resolve(), lambda *a, **k: witness)
+            before = deepcopy(ns["phase"])
+            exec(self.block(), ns)
+            self.assertIs(ns["witness"], witness)
+            self.assertEqual(ns["phase"], before)
+
+
 if __name__ == "__main__":
     unittest.main()

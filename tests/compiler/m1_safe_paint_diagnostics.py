@@ -330,3 +330,296 @@ def capture_paint_diagnostic(owned_root, *, family, preference, frame_count, dur
         return result if is_safe_diagnostic(result) else empty(result["family"], result["preference"])
     except Exception:
         return empty(result["family"], result["preference"])
+
+
+# Separate from file admission above: no private receipt file or output is read.
+TYPED_SCHEMA = "bie.task036.m1.paint-process-typed-observation/1"
+TYPED_STATES = frozenset({"VALID", "INVALID", "UNAVAILABLE", UNKNOWN})
+TYPED_STAGES = frozenset({"NONE", "NOT_CALLED", "CALL_RAISED", "RETURN_SHAPE",
+    "PROCESS_TYPE", "PROCESS_FIELDS", "RESOURCE_FIELDS", "OBSERVER_ERROR",
+    "BINDING_UNAVAILABLE", "MULTIPLE_CALLS"})
+
+
+def empty_typed(stage="NOT_CALLED", verified=False):
+    verified = verified is True
+    stage = stage if type(stage) is str and len(stage) <= 32 and stage in TYPED_STAGES else "OBSERVER_ERROR"
+    return {"schema": TYPED_SCHEMA, "phase": "REAL_GENERATED_CONSUMER",
+        "provenance": "CANONICAL_WORKER_RETURN" if verified else "UNVERIFIED_TEST_RETURN",
+        "capture_point": "AFTER_WORKER_RETURN_BEFORE_PROCESS_JSON",
+        "call_origin_verified": verified, "observation_stage": stage,
+        "process": {"availability": "UNAVAILABLE", "outcome": UNKNOWN, "started": UNKNOWN,
+            "process_passed": UNKNOWN, "exit_code": UNKNOWN, "signal_number": UNKNOWN,
+            "duration_ms": UNKNOWN},
+        "resource": {"availability": "UNAVAILABLE", "kernel_enforced": UNKNOWN,
+            "process_passed": UNKNOWN, "security_policy_weakened": UNKNOWN,
+            "owned_processes_reaped": UNKNOWN, "owned_cgroup_removed": UNKNOWN,
+            "memory_events": {key: UNKNOWN for key in EVENTS}, "memory_peak_bytes": UNKNOWN,
+            "physical_memory_bytes": UNKNOWN, "swap_max_bytes": UNKNOWN, "pids_max": UNKNOWN},
+        "render_passed": False, "accepted": False, "product_accepted": False}
+
+
+def typed_process_fields(value):
+    """Exact frozen types; never touch command/cwd/stdout/stderr/byte counts."""
+    from bie.compiler.build_common import ProcessReceipt
+    from bie.compiler.render_process import RenderProcessResult
+    require(type(value) is RenderProcessResult and type(value.process) is ProcessReceipt)
+    inner = value.process
+    require(value.accepted is False and inner.accepted is False)
+    require(type(value.outcome) is str and len(value.outcome) <= 32)
+    outcome = value.outcome if value.outcome in OUTCOMES else UNKNOWN
+    started, passed = boolean(value.started), boolean(inner.passed)
+    code = integer(inner.exit_code, -255, 255)
+    duration = integer(inner.duration_ms, 0, MAX_DURATION_MS)
+    if outcome in OUTCOMES:
+        require(passed == (outcome == "SUCCEEDED"))
+        if outcome == "SUCCEEDED":
+            require(started and code == 0)
+        if outcome == "FAILED":
+            require(started and code != 0)
+        if outcome in {"SPAWN_ERROR", "TIMED_OUT", "OUTPUT_LIMIT"}:
+            require(started == (outcome != "SPAWN_ERROR"))
+    return {"availability": "VALID", "outcome": outcome, "started": started,
+        "process_passed": passed, "exit_code": code,
+        "signal_number": -code if started and -64 <= code < 0 else UNKNOWN,
+        "duration_ms": duration}
+
+
+def typed_resource_fields(kernel):
+    """Read fixed scalar keys only, not entire kernel/driver/grant structures."""
+    require(type(kernel) is dict)
+    safe = empty_typed()["resource"]
+    if "kernel_enforced" in kernel:
+        safe["kernel_enforced"] = boolean(kernel["kernel_enforced"])
+    if "chromium_resource_boundary" not in kernel:
+        safe["availability"] = UNKNOWN
+        return safe
+    boundary = kernel["chromium_resource_boundary"]
+    require(type(boundary) is dict
+        and type(boundary.get("schema")) is str and boundary["schema"] == "bie.chromium-resource-boundary/1"
+        and type(boundary.get("kind")) is str and boundary["kind"] == "actual-paint")
+    if "accepted" in boundary:
+        require(boundary["accepted"] is False)
+    for key in ("process_passed", "security_policy_weakened", "owned_processes_reaped", "owned_cgroup_removed"):
+        if key in boundary:
+            safe[key] = boolean(boundary[key])
+    for key, dest, expected in (("physical_memory_bytes", "physical_memory_bytes", 2 * 1024**3),
+            ("swap_max", "swap_max_bytes", 0)):
+        if key in boundary:
+            require(integer(boundary[key]) == expected)
+            safe[dest] = boundary[key]
+    # This is the same fixed memory-cgroup summary returned by the worker.
+    if "memory_cgroup" in boundary:
+        group = boundary["memory_cgroup"]
+        require(type(group) is dict)
+        for key, dest, expected in (("memory_max", "physical_memory_bytes", 2 * 1024**3),
+                ("swap_max", "swap_max_bytes", 0), ("pids_max", "pids_max", 128)):
+            if key in group:
+                require(integer(group[key]) == expected and safe[dest] in (UNKNOWN, expected))
+                safe[dest] = group[key]
+        if "memory_peak" in group:
+            safe["memory_peak_bytes"] = integer(group["memory_peak"], 0, 1024**4)
+        if "memory_events" in group:
+            events = group["memory_events"]
+            require(type(events) is dict)
+            for key in EVENTS:
+                if key in events:
+                    safe["memory_events"][key] = integer(events[key])
+    safe["availability"] = "VALID"
+    return safe
+
+
+def project_typed_return(returned, *, verified=False):
+    """Immediate scalar projection; the original objects are never retained."""
+    safe = empty_typed("NONE", verified)
+    if type(returned) is not tuple or len(returned) != 2:
+        return empty_typed("RETURN_SHAPE", verified)
+    try:
+        from bie.compiler.build_common import ProcessReceipt
+        from bie.compiler.render_process import RenderProcessResult
+        require(type(returned[0]) is RenderProcessResult and type(returned[0].process) is ProcessReceipt)
+    except Exception:
+        safe["process"]["availability"] = "INVALID"
+        safe["observation_stage"] = "PROCESS_TYPE"
+    else:
+        try:
+            safe["process"] = typed_process_fields(returned[0])
+        except Exception:
+            safe["process"]["availability"] = "INVALID"
+            safe["observation_stage"] = "PROCESS_FIELDS"
+    try:
+        safe["resource"] = typed_resource_fields(returned[1])
+        if safe["process"]["availability"] == "VALID" and safe["resource"]["process_passed"] != UNKNOWN:
+            require(safe["resource"]["process_passed"] is safe["process"]["process_passed"])
+    except Exception:
+        safe["resource"] = empty_typed()["resource"]
+        safe["resource"]["availability"] = "INVALID"
+        if safe["observation_stage"] == "NONE":
+            safe["observation_stage"] = "RESOURCE_FIELDS"
+    return safe if is_safe_typed_observation(safe) else empty_typed("OBSERVER_ERROR", verified)
+
+
+def typed_unknown(value):
+    return type(value) is str and value == UNKNOWN
+
+
+def is_safe_typed_observation(value):
+    """Closed scalar-only schema, independent of the historical JSON diagnostics."""
+    try:
+        template = empty_typed()
+        require(type(value) is dict and len(value) == len(template)
+            and all(type(k) is str and len(k) <= 64 for k in value) and set(value) == set(template))
+        require(all(type(value[k]) is str for k in ("schema", "phase", "capture_point", "provenance")))
+        require(value["schema"] == TYPED_SCHEMA and value["phase"] == template["phase"]
+            and value["capture_point"] == template["capture_point"])
+        require(type(value["call_origin_verified"]) is bool
+            and value["provenance"] == empty_typed(verified=value["call_origin_verified"])["provenance"])
+        require(type(value["observation_stage"]) is str and len(value["observation_stage"]) <= 32
+            and value["observation_stage"] in TYPED_STAGES)
+        for key in ("accepted", "product_accepted", "render_passed"):
+            require(value[key] is False)
+        for section in ("process", "resource"):
+            row = value[section]
+            require(type(row) is dict and len(row) == len(template[section])
+                and all(type(k) is str and len(k) <= 64 for k in row) and set(row) == set(template[section])
+                and type(row["availability"]) is str and len(row["availability"]) <= 16
+                and row["availability"] in TYPED_STATES)
+            for key in ("started", "process_passed", "kernel_enforced", "security_policy_weakened",
+                    "owned_processes_reaped", "owned_cgroup_removed"):
+                if key in row:
+                    require(typed_unknown(row[key]) or type(row[key]) is bool)
+            if row["availability"] in {"INVALID", "UNAVAILABLE", UNKNOWN}:
+                for key, item in row.items():
+                    if key == "memory_events":
+                        require(type(item) is dict and len(item) == len(EVENTS)
+                            and all(type(k) is str for k in item) and set(item) == set(EVENTS)
+                            and all(typed_unknown(v) for v in item.values()))
+                    elif section == "resource" and row["availability"] == UNKNOWN and key == "kernel_enforced":
+                        pass  # Root kernel flag may exist without the boundary summary.
+                    elif key != "availability":
+                        require(typed_unknown(item))
+        p, r = value["process"], value["resource"]
+        require(p["availability"] != UNKNOWN)
+        if value["observation_stage"] == "NONE":
+            require(p["availability"] == "VALID" and r["availability"] in {"VALID", UNKNOWN})
+        if value["observation_stage"] in {"PROCESS_TYPE", "PROCESS_FIELDS"}:
+            require(p["availability"] == "INVALID")
+        if value["observation_stage"] == "RESOURCE_FIELDS":
+            require(p["availability"] == "VALID" and r["availability"] == "INVALID")
+        require(type(p["outcome"]) is str and len(p["outcome"]) <= 32 and p["outcome"] in OUTCOMES | {UNKNOWN})
+        for key, low, high in (("exit_code", -255, 255), ("signal_number", 1, 64),
+                ("duration_ms", 0, MAX_DURATION_MS)):
+            require(typed_unknown(p[key]) or integer(p[key], low, high) == p[key])
+        if p["signal_number"] != UNKNOWN:
+            require(p["started"] is True and p["exit_code"] == -p["signal_number"])
+        if p["outcome"] in OUTCOMES:
+            require(p["availability"] == "VALID" and p["process_passed"] is (p["outcome"] == "SUCCEEDED"))
+            if p["outcome"] == "SUCCEEDED":
+                require(p["started"] is True and p["exit_code"] == 0)
+            if p["outcome"] == "FAILED":
+                require(p["started"] is True and p["exit_code"] != 0)
+        if p["availability"] == "VALID":
+            boolean(p["started"]); boolean(p["process_passed"])
+            integer(p["exit_code"], -255, 255); integer(p["duration_ms"], 0, MAX_DURATION_MS)
+        if value["observation_stage"] in {"NOT_CALLED", "CALL_RAISED", "RETURN_SHAPE",
+                "OBSERVER_ERROR", "BINDING_UNAVAILABLE", "MULTIPLE_CALLS"}:
+            require(p["availability"] == r["availability"] == "UNAVAILABLE")
+        require(type(r["memory_events"]) is dict and len(r["memory_events"]) == len(EVENTS)
+            and all(type(k) is str for k in r["memory_events"]) and set(r["memory_events"]) == set(EVENTS))
+        for counter in r["memory_events"].values():
+            require(typed_unknown(counter) or integer(counter) == counter)
+        for key, expected in (("physical_memory_bytes", 2 * 1024**3), ("swap_max_bytes", 0), ("pids_max", 128)):
+            require(typed_unknown(r[key]) or (type(r[key]) is int and r[key] == expected))
+        require(typed_unknown(r["memory_peak_bytes"]) or integer(r["memory_peak_bytes"], 0, 1024**4) == r["memory_peak_bytes"])
+        if p["availability"] == "VALID" and type(r["process_passed"]) is bool:
+            require(r["process_passed"] is p["process_passed"])
+        return True
+    except Exception:
+        return False
+
+
+class TypedPaintObserver:
+    """Only a safe scalar record survives a call; never its args/result/exception."""
+    def __init__(self, *, verified=False):
+        self._verified = verified is True
+        self._called = False
+        self._multiple = False
+        self._safe = empty_typed(verified=self._verified)
+
+    def delegate(self, original, *args, **kwargs):
+        try:
+            returned = original(*args, **kwargs)
+        except BaseException:
+            try:
+                self._safe = empty_typed("CALL_RAISED", self._verified)
+                self._called = True
+            except BaseException:
+                pass
+            raise
+        # No observation error can replace the original return or native failure.
+        try:
+            self._multiple = self._multiple or self._called
+            self._called = True
+            self._safe = (empty_typed("MULTIPLE_CALLS", self._verified) if self._multiple else
+                          project_typed_return(returned, verified=self._verified))
+        except BaseException:
+            try:
+                self._safe = empty_typed("OBSERVER_ERROR", self._verified)
+            except BaseException:
+                pass
+        return returned
+
+    def snapshot(self):
+        # This copies only the closed, already projected safe record.
+        if not is_safe_typed_observation(self._safe):
+            return empty_typed("OBSERVER_ERROR", self._verified)
+        value = dict(self._safe)
+        value["process"] = dict(self._safe["process"])
+        value["resource"] = dict(self._safe["resource"])
+        value["resource"]["memory_events"] = dict(self._safe["resource"]["memory_events"])
+        return value
+
+
+def canonical_paint_binding():
+    """Source-origin admission only; no worker invocation or private field read."""
+    from types import ModuleType, FunctionType
+    from bie.compiler import chromium_resource_worker as worker
+    expected = Path(__file__).resolve().parents[2] / "bie/compiler/chromium_resource_worker.py"
+    original = worker.run_chromium_isolated
+    require(type(worker) is ModuleType and type(original) is FunctionType
+        and Path(worker.__file__).resolve() == expected
+        and Path(original.__code__.co_filename).resolve() == expected
+        and original.__module__ == "bie.compiler.chromium_resource_worker"
+        and original.__name__ == "run_chromium_isolated")
+    return worker, original
+
+
+def observe_paint_process():
+    """Test-owned scope around the unchanged painter's locally imported call."""
+    from contextlib import contextmanager
+
+    @contextmanager
+    def scope():
+        observer = None
+        try:
+            observer = TypedPaintObserver()
+            worker, original = canonical_paint_binding()
+            observer._verified = True
+            observer._safe = empty_typed(verified=True)
+        except BaseException:
+            try:
+                if observer is not None:
+                    observer._safe = empty_typed("BINDING_UNAVAILABLE")
+            except BaseException:
+                pass
+            yield observer
+            return
+
+        def observed(*args, **kwargs):
+            return observer.delegate(original, *args, **kwargs)
+
+        worker.run_chromium_isolated = observed
+        try:
+            yield observer
+        finally:
+            worker.run_chromium_isolated = original
+    return scope()
