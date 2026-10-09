@@ -247,6 +247,11 @@ def selected_suite():
         self.assertEqual(selected["new"].count(relative), 1)
         self.assertNotIn(relative, selected["native-extra"])
         self.assertFalse(set(selected["native-extra"]) & inherited)
+        diagnostic = "tests/compiler/test_m1_safe_paint_diagnostics.py"
+        self.assertEqual(selected["new"].count(diagnostic), 1)
+        self.assertNotIn(diagnostic, selected["native-extra"])
+        self.assertNotIn(diagnostic, selected["safety"])
+        self.assertNotIn(diagnostic, inherited)
 
     def test_explicit_native_preimage_alias_checks_actual_checkout_origin(self):
         self.package("r1_native")

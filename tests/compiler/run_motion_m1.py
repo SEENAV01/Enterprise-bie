@@ -26,6 +26,7 @@ from bie.compiler.animation_behavior import motion_contract, motion_state, frame
 from bie.compiler.animation_track_compiler import compile_animation_track
 from bie.compiler.qa_common import digest
 from bie.compiler.render_process import run_bounded_process
+from tests.compiler.m1_safe_paint_diagnostics import capture_paint_diagnostic, is_safe_diagnostic
 
 
 def require(value, code):
@@ -205,7 +206,20 @@ def run(args):
                         require(process.process.passed,"NPM_SETUP")
                         output = root / ("paint-" + preference)
                         phase["phase"] = "REAL_GENERATED_CONSUMER"
-                        witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
+                        try:
+                            witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
+                        except Exception:
+                            # Snapshot only fixed private receipt fields BEFORE
+                            # TemporaryDirectory cleanup. Evidence cannot mask
+                            # or downgrade the original fail-closed rejection.
+                            try:
+                                diagnostic = capture_paint_diagnostic(root, family=family, preference=preference,
+                                    frame_count=phase["layer_frames"], duration_ms=raw["duration_ms"], fps=target.fps)
+                                if is_safe_diagnostic(diagnostic):
+                                    phase["paint_process_diagnostic"] = diagnostic
+                            except Exception:
+                                pass
+                            raise
                         phase["native_qa"] = {name: {"passed": witness.evidence[name]["passed"],
                             "codes": sorted({f["code"] for f in witness.evidence[name]["findings"]})}
                             for name in ("fit", "paint", "raster")}
