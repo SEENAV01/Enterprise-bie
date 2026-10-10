@@ -62,6 +62,12 @@ def validate(root):
             except ImportError:
                 from scripts.compiler_media_source_pin_amendment import authenticated_previous_bytes
             active=authenticated_previous_bytes(root,row['path'],row['active_sha256'])
+        if row['path']=='bie/compiler/qa_support/bounded_media_threads.cjs' and sha256(active).hexdigest()!=row['active_sha256']:
+            try:
+                from compiler_stitch_input_amendment import authenticated_previous_bytes
+            except ImportError:
+                from scripts.compiler_stitch_input_amendment import authenticated_previous_bytes
+            active=authenticated_previous_bytes(root,row['path'],row['active_sha256'])
         if b'\r' in active or len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
             raise ValueError('MEDIA_POLICY_OBSERVATION_ACTIVE_BYTES')
     return doc

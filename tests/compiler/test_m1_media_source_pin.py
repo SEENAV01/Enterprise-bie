@@ -13,6 +13,10 @@ from scripts import compiler_media_source_pin_amendment as audit
 ROOT=Path(__file__).resolve().parents[2]
 PAINTER=ROOT/'bie/compiler/real_paint.py'
 OLD=ROOT/'docs/productization/task036-media-source-pin-amendment/real_paint.py.before'
+# Original source-pin assertions remain bound to its immutable 17da preimages;
+# active follow-on helper/painter identity is checked by StitchInputAudit below.
+PINNED=ROOT/'docs/productization/task036-stitch-input-amendment/real_paint.py.before'
+PINNED_HELPER=ROOT/'docs/productization/task036-stitch-input-amendment/bounded_media_threads.cjs.before'
 
 
 def source_guard(source):
@@ -37,12 +41,12 @@ class MediaSourcePin(unittest.TestCase):
             execute_guard(OLD.read_text(),audit.HELPER_SHA256)
 
     def test_after_actual_helper_matches_explicit_pin(self):
-        actual=sha256((ROOT/audit.HELPER).read_bytes().replace(b'\r\n',b'\n')).hexdigest()
-        self.assertEqual(execute_guard(PAINTER.read_text(),actual),audit.HELPER_SHA256)
+        actual=sha256(PINNED_HELPER.read_bytes()).hexdigest()
+        self.assertEqual(execute_guard(PINNED.read_text(),actual),audit.HELPER_SHA256)
 
     def test_changed_helper_still_rejected(self):
         with self.assertRaisesRegex(CompilerQAError,'^M1_MEDIA_THREAD_SOURCE_IDENTITY$'):
-            execute_guard(PAINTER.read_text(),'a'*64)
+            execute_guard(PINNED.read_text(),'a'*64)
 
     def test_legacy_no_policy_does_not_read_helper(self):
         for path in (OLD,PAINTER):
@@ -53,7 +57,7 @@ class MediaSourcePin(unittest.TestCase):
             self.assertEqual(calls,[])
 
     def test_painter_only_literal_pin_changed(self):
-        old=OLD.read_text();new=PAINTER.read_text()
+        old=OLD.read_text();new=PINNED.read_text()
         self.assertEqual(old.replace("media_helper_sha256='1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d'",
                                     "media_helper_sha256='"+audit.HELPER_SHA256+"'"),new)
 

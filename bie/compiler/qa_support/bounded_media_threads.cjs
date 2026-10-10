@@ -26,17 +26,34 @@ function lowerArguments(type,args){
  // Ambiguous or already-thread-configured calls cannot silently override policy.
  if(args.some(v=>typeof v==='string'&&/^-(?:threads|filter_threads|filter_complex_threads)(?::|=|$)/.test(v)))fail('ARGUMENT_THREADS');
  const inputs=[];for(let i=0;i<args.length;i++)if(args[i]==='-i')inputs.push(i);
- if(inputs.length!==1||inputs[0]+1>=args.length-2)fail('ARGUMENT_INPUT');
+ // Pinned renderMedia may normalize a silent audio stream even when the
+ // per-frame media arrays are empty. Admit only that final video/audio pair,
+ // never a generic multi-input request. Pre-stitching remains one PNG pipe.
+ if((type==='pre-stitcher'&&inputs.length!==1)||
+  (type==='stitcher'&&inputs.length!==1&&inputs.length!==2)||
+  inputs.some(i=>i+1>=args.length-2))fail('ARGUMENT_INPUT');
+ if(inputs.length===2){
+  const video=inputs[0],audio=inputs[1];
+  const audioCodecs=args.filter(v=>v==='-c:a').length;
+  if(audio!==video+2||args[audio+2]!=='-c:a'||args[audio+3]!=='copy'||
+   audioCodecs!==1||args.includes('-an')||
+   inputs.some(i=>typeof args[i+1]!=='string'||!args[i+1].length||args[i+1].startsWith('-'))||
+   args[video+1]===args[audio+1])fail('ARGUMENT_INPUT');
+ }
  if(args[args.length-2]!=='-y'||args[args.length-1].startsWith('-'))fail('ARGUMENT_OUTPUT');
  const codec=args.indexOf('-c:v');
  if(codec<0||codec+1>=args.length||!['libx264','copy'].includes(args[codec+1]))fail('ARGUMENT_CODEC');
+ if(inputs.length===2&&codec<=inputs[1]+3)fail('ARGUMENT_INPUT');
  if(type==='pre-stitcher'&&(args[inputs[0]+1]!=='-'||args[codec+1]!=='libx264'))fail('ARGUMENT_PIPE');
  // FFmpeg applies codec options to the next input/output. Keep every original
  // token in its original order; add only explicit decoder/encoder/filter bounds.
  // No codec, quality, pixel format, geometry, frame, timing or media change.
- return ['-filter_threads','1','-filter_complex_threads','1',
-  ...args.slice(0,inputs[0]),'-threads','1',...args.slice(inputs[0],args.length-2),
-  '-threads','1',...args.slice(args.length-2)];
+ const lowered=['-filter_threads','1','-filter_complex_threads','1'];
+ for(let i=0;i<args.length;i++){
+  if(inputs.includes(i)||i===args.length-2)lowered.push('-threads','1');
+  lowered.push(args[i]);
+ }
+ return lowered;
 }
 function createOverride(value){
  const policy=validatePolicy(value),calls={'pre-stitcher':0,stitcher:0};

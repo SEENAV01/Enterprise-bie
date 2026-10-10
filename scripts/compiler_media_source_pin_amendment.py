@@ -13,12 +13,28 @@ HELPER='bie/compiler/qa_support/bounded_media_threads.cjs'
 HELPER_SHA256='af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5'
 
 
+def stitch_input_preimage(root,path,expected):
+    try:
+        from compiler_stitch_input_amendment import authenticated_previous_bytes
+    except ImportError:
+        from scripts.compiler_stitch_input_amendment import authenticated_previous_bytes
+    return authenticated_previous_bytes(root,path,expected)
+
+
 def validate(root):
     try:
         from compiler_cache_source_amendment import regular, unique
     except ImportError:
         from scripts.compiler_cache_source_amendment import regular, unique
     root=Path(root).resolve()
+    # Authenticate the latest chain even if every active file was rolled back
+    # together to this historical amendment's bytes. The latest resolver does
+    # not call older validators, so this cannot recurse through the chain.
+    try:
+        from compiler_stitch_input_amendment import validate as latest
+    except ImportError:
+        from scripts.compiler_stitch_input_amendment import validate as latest
+    latest(root)
     raw=regular(root,DOCUMENT,16*1024).replace(b'\r\n',b'\n')
     if b'\r' in raw or sha256(raw).hexdigest()!=DOCUMENT_SHA256:
         raise ValueError('MEDIA_SOURCE_PIN_DOCUMENT')
@@ -42,9 +58,13 @@ def validate(root):
     for row in prior['replacements']:
         if row['path'] not in TARGETS:
             active=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+            if row['path']==HELPER and sha256(active).hexdigest()!=row['active_sha256']:
+                active=stitch_input_preimage(root,row['path'],row['active_sha256'])
             if len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
                 raise ValueError('MEDIA_SOURCE_PIN_UNLISTED_CHANGE')
     helper=regular(root,HELPER,64*1024).replace(b'\r\n',b'\n')
+    if sha256(helper).hexdigest()!=HELPER_SHA256:
+        helper=stitch_input_preimage(root,HELPER,HELPER_SHA256)
     if len(helper)!=3632 or sha256(helper).hexdigest()!=HELPER_SHA256:raise ValueError('MEDIA_SOURCE_PIN_HELPER')
     for row in doc['replacements']:
         if (set(row)!={'path','preimage','original_bytes','original_sha256','original_git_blob','active_bytes','active_sha256'} or
@@ -55,6 +75,8 @@ def validate(root):
         if (len(old)!=row['original_bytes'] or sha256(old).hexdigest()!=row['original_sha256'] or
             blob!=row['original_git_blob']):raise ValueError('MEDIA_SOURCE_PIN_PREIMAGE')
         current=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+        if sha256(current).hexdigest()!=row['active_sha256']:
+            current=stitch_input_preimage(root,row['path'],row['active_sha256'])
         if b'\r' in current or len(current)!=row['active_bytes'] or sha256(current).hexdigest()!=row['active_sha256']:
             raise ValueError('MEDIA_SOURCE_PIN_ACTIVE')
     return doc
