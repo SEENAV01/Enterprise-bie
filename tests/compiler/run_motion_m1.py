@@ -11,7 +11,6 @@ import io
 import json
 from pathlib import Path
 import platform
-import re
 import shutil
 import subprocess
 import sys
@@ -25,6 +24,8 @@ from bie.compiler.governed_motion import EXACT_LAYOUT, FIXTURE_LAYOUT
 from bie.compiler.animation_behavior import motion_contract, motion_state, frame_window
 from bie.compiler.animation_track_compiler import compile_animation_track
 from bie.compiler.qa_common import digest
+from bie.compiler.qa_common import CompilerQAError
+from bie.compiler.animation_compiler_common import AnimationCompilerError
 from bie.compiler.render_process import run_bounded_process
 from tests.compiler.m1_safe_paint_diagnostics import capture_paint_diagnostic, is_safe_diagnostic
 from tests.compiler.m1_safe_paint_diagnostics import observe_paint_process, is_safe_typed_observation
@@ -35,13 +36,76 @@ def require(value, code):
         raise ValueError("M1_PROOF_" + code)
 
 
+ERROR_CLASSES = (
+    (CompilerQAError, "CompilerQAError"), (AnimationCompilerError, "AnimationCompilerError"),
+    (ValueError, "ValueError"), (TypeError, "TypeError"), (RuntimeError, "RuntimeError"),
+    (AssertionError, "AssertionError"), (ImportError, "ImportError"),
+    (ModuleNotFoundError, "ModuleNotFoundError"), (OSError, "OSError"),
+    (FileNotFoundError, "FileNotFoundError"), (PermissionError, "PermissionError"),
+    (TimeoutError, "TimeoutError"), (subprocess.TimeoutExpired, "TimeoutExpired"),
+    (subprocess.CalledProcessError, "CalledProcessError"),
+)
+# Exact constants from the inspected native painter/H3/worker and these two M1
+# wrappers. Shape-only uppercase admission is not a privacy boundary. Other
+# native failures still fail the gate, but receive UNCLASSIFIED, not raw text.
+ERROR_CODES = (
+    "ACTUAL_PAINT_EXECUTION_BLOCKED", "ACTUAL_PAINT_WITNESS_REQUIRED",
+    "ACTUAL_PAINT_OUTPUT_EXISTS_OR_SYMLINK", "ACTUAL_PAINT_TARGET_MISMATCH",
+    "ACTUAL_PAINT_WORK_BUDGET_NO_SAMPLED_PASS", "ACTUAL_PAINT_FONT_COVERAGE_BLOCKED",
+    "ACTUAL_PAINT_RENDERER_DEPENDENCY_MISSING", "ACTUAL_PAINT_TYPECHECK_BLOCKED",
+    "ACTUAL_PAINT_PRODUCER_MISMATCH", "ACTUAL_PAINT_FRAME_COVERAGE",
+    "ACTUAL_PAINT_IMAGE_CHANGED", "ACTUAL_PAINT_MEASUREMENT_IDENTITY", "ACTUAL_PAINT_MEDIA_CHANGED",
+    "CHROMIUM_RESOURCE_FAILED", "CHROMIUM_RESOURCE_DRIVER_FAILED", "CHROMIUM_RESOURCE_HOST_DEADLINE",
+    "CHROMIUM_RESOURCE_DRIVER_EXIT", "CHROMIUM_RESOURCE_KERNEL_POLICY", "CHROMIUM_RESOURCE_MEMORY_EXHAUSTED",
+    "H3_TARGET_VERSION_REQUIRED", "H3_TOOLCHAIN_CHANGED_DURING_COMPILE", "H3_SOURCE_PUBLICATION_BLOCKED",
+    "H3_SOURCE_REQUIRED", "H3_HOST_IDENTITY_CHANGED", "H3_REVALIDATION_BLOCKED",
+    "ANIMATION_PARAMETER_UNCONSUMED", "ANIMATION_PARAMETER_INVALID",
+    "M1_PROOF_GENERATED_TS_EXECUTION", "M1_PROOF_TS_RUNTIME_IDENTITY", "M1_PROOF_FRAME_PARITY",
+    "M1_PROOF_STYLE_PARITY", "M1_PROOF_CAPTURE_COMPLETENESS", "M1_PROOF_NATIVE_BAR_INVENTORY",
+    "M1_PROOF_FRAME_ORDER", "M1_PROOF_STATIC_CONTEXT_CHANGED", "M1_PROOF_TARGET_GEOMETRY_CHANGED",
+    "M1_PROOF_FOCUS_CONTENT_CHANGED", "M1_PROOF_FOCUS_INNER_CONTENT_CHANGED", "M1_PROOF_FOCUS_OUTSIDE_WINDOW",
+    "M1_PROOF_FOCUS_NO_VISIBLE_CHANGE", "M1_PROOF_REVEAL_VALUE_OR_ORDER_CHANGED",
+    "M1_PROOF_REVEAL_NO_VISIBLE_CHANGE", "M1_PROOF_CHART_STATIC_LABELS_CHANGED",
+    "M1_PROOF_REVEAL_CONTENT_CHANGED", "M1_PROOF_VISIBLE_LAYOUT_CHANGED", "M1_PROOF_FOCUS_NOT_OBSERVED",
+    "M1_PROOF_REVEAL_SEQUENCE_CHANGED", "M1_PROOF_H3_SOURCE_BLOCKED", "M1_PROOF_NPM_SETUP",
+    "M1_SUPERVISOR_ROOT_LINUX_REQUIRED", "M1_SUPERVISOR_OUTPUT_EXISTS", "M1_SUPERVISOR_SOURCE_FILE",
+    "M1_SUPERVISOR_SOURCE_BUDGET", "M1_SUPERVISOR_COPY_IDENTITY", "M1_SUPERVISOR_OUTPUT_BUDGET",
+    "M1_SUPERVISOR_RECEIPT_REQUIRED", "M1_SUPERVISOR_CHILD_GATE", "M1_SUPERVISOR_ENGINE_CHANGED",
+    "M1_SUPERVISOR_CHECKOUT_CHANGED",
+)
+
+
 def safe_error(exc):
-    if isinstance(exc, ModuleNotFoundError) and exc.name in {"fcntl", "matplotlib", "numpy", "PIL"}:
-        return {"exception_class": type(exc).__name__, "safe_code": "M1_HOST_MODULE_UNAVAILABLE",
-                "missing_module": exc.name}
-    code = str(exc).split(":", 1)[0]
-    return {"exception_class": type(exc).__name__,
-            "safe_code": code if re.fullmatch(r"[A-Z][A-Z0-9_]{1,90}", code) else "UNCLASSIFIED"}
+    """Closed failure labels; never invoke exception/user-value stringification.
+
+    This is shared by the private render child and its owner. Only exact known
+    types may expose a bounded native string prefix, which is mapped back to a
+    constant, never exported verbatim. Subclasses cannot impersonate that type.
+    Classification failure cannot mask the original fail-closed gate.
+    """
+    fallback = {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"}
+    try:
+        label = next((name for kind, name in ERROR_CLASSES if type(exc) is kind), None)
+        if label is None:
+            return fallback
+        result = {"exception_class": label, "safe_code": "UNCLASSIFIED"}
+        if type(exc) is ModuleNotFoundError:
+            module = ImportError.name.__get__(exc)
+            if type(module) is str:
+                for allowed in ("fcntl", "matplotlib", "numpy", "PIL"):
+                    if module == allowed:
+                        return {"exception_class": label, "safe_code": "M1_HOST_MODULE_UNAVAILABLE",
+                                "missing_module": allowed}
+        args = BaseException.args.__get__(exc)
+        if type(args) is tuple and len(args) == 1 and type(args[0]) is str:
+            prefix = args[0][:96].partition(":")[0]
+            for allowed in ERROR_CODES:
+                if prefix == allowed:
+                    result["safe_code"] = allowed
+                    break
+        return result
+    except BaseException:
+        return fallback
 
 
 def emitted_frames(raw, target, temporary):

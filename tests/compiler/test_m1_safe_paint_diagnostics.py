@@ -1109,5 +1109,146 @@ class WorkerGuardPrivacy(unittest.TestCase):
         self.assertEqual(condition.calls, 1); self.assertEqual(self.safe(observer)["static_guard_rejections"], 0)
 
 
+class ClosedFailureFormatterPrivacy(unittest.TestCase):
+    """Adversarial outer-receipt checks, not another native render execution."""
+    def format(self, exc):
+        from tests.compiler.run_motion_m1 import safe_error
+        value = safe_error(exc)
+        self.assertEqual(set(value) - {"exception_class", "safe_code", "missing_module"}, set())
+        self.assertNotIn(MARKER, json.dumps(value))
+        return value
+
+    def test_uppercase_private_message_is_not_a_code(self):
+        self.assertEqual(self.format(ValueError(MARKER))["safe_code"], "UNCLASSIFIED")
+
+    def test_uppercase_private_prefix_with_suffix_is_not_a_code(self):
+        self.assertEqual(self.format(ValueError(MARKER + ": private text"))["safe_code"], "UNCLASSIFIED")
+
+    def test_arbitrary_private_class_name_is_not_exported(self):
+        private_class = type(MARKER, (ValueError,), {})
+        self.assertEqual(self.format(private_class("unclassified")),
+            {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"})
+
+    def test_spoofed_approved_class_name_has_no_authority(self):
+        spoofed = type("CompilerQAError", (ValueError,), {})
+        self.assertEqual(self.format(spoofed("ACTUAL_PAINT_EXECUTION_BLOCKED")),
+            {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"})
+
+    def test_custom_str_failure_cannot_escape(self):
+        class PrivateError(ValueError):
+            def __str__(self): raise RuntimeError(MARKER)
+        self.assertEqual(self.format(PrivateError()),
+            {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"})
+
+    def test_custom_attribute_failure_cannot_escape(self):
+        class PrivateError(ValueError):
+            def __getattribute__(self, name): raise RuntimeError(MARKER)
+        self.assertEqual(self.format(PrivateError()),
+            {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"})
+
+    def test_nonstring_argument_is_never_coerced(self):
+        class Private:
+            def __str__(self): raise AssertionError(MARKER)
+            def __repr__(self): raise AssertionError(MARKER)
+        self.assertEqual(self.format(ValueError(Private()))["safe_code"], "UNCLASSIFIED")
+
+    def test_string_subclass_is_never_coerced(self):
+        class Private(str):
+            def split(self, *args): raise AssertionError(MARKER)
+            def __str__(self): raise AssertionError(MARKER)
+        self.assertEqual(self.format(ValueError(Private("ACTUAL_PAINT_EXECUTION_BLOCKED")))["safe_code"], "UNCLASSIFIED")
+
+    def test_large_private_argument_remains_unclassified(self):
+        self.assertEqual(self.format(ValueError(MARKER * 100000))["safe_code"], "UNCLASSIFIED")
+
+    def test_large_private_suffix_is_not_exported(self):
+        self.assertEqual(self.format(ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED:" + MARKER * 100000)),
+            {"exception_class": "ValueError", "safe_code": "ACTUAL_PAINT_EXECUTION_BLOCKED"})
+
+    def test_prefix_extension_cannot_impersonate_approved_code(self):
+        self.assertEqual(self.format(ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED_PRIVATE"))["safe_code"], "UNCLASSIFIED")
+
+    def test_no_argument_and_multiple_arguments_fail_closed(self):
+        for exc in (ValueError(), ValueError("ACTUAL_PAINT_EXECUTION_BLOCKED", MARKER)):
+            with self.subTest(count=len(exc.args)):
+                self.assertEqual(self.format(exc)["safe_code"], "UNCLASSIFIED")
+
+    def test_known_native_class_and_code_are_constant_outputs(self):
+        from bie.compiler.qa_common import CompilerQAError
+        self.assertEqual(self.format(CompilerQAError("CHROMIUM_RESOURCE_FAILED: " + MARKER)),
+            {"exception_class": "CompilerQAError", "safe_code": "CHROMIUM_RESOURCE_FAILED"})
+
+    def test_native_failure_preserves_exception_identity_and_arguments(self):
+        from bie.compiler.qa_common import CompilerQAError
+        exc = CompilerQAError("ACTUAL_PAINT_EXECUTION_BLOCKED: " + MARKER)
+        args = exc.args
+        self.format(exc)
+        self.assertIs(exc.args, args)
+        self.assertIs(type(exc), CompilerQAError)
+
+    def test_module_names_are_exact_closed_values(self):
+        for module in ("fcntl", "matplotlib", "numpy", "PIL"):
+            value = self.format(ModuleNotFoundError(MARKER, name=module))
+            self.assertEqual(value, {"exception_class": "ModuleNotFoundError",
+                "safe_code": "M1_HOST_MODULE_UNAVAILABLE", "missing_module": module})
+        self.assertEqual(self.format(ModuleNotFoundError(MARKER, name=MARKER)),
+            {"exception_class": "ModuleNotFoundError", "safe_code": "UNCLASSIFIED"})
+
+    def test_unknown_baseexception_and_nonexception_are_safe(self):
+        for exc in (KeyboardInterrupt(MARKER), object(), None):
+            self.assertEqual(self.format(exc), {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"})
+
+    def test_shared_owner_formatter_is_identical_and_keeps_child_gate(self):
+        from tests.compiler import run_motion_m1, run_m1_owned_render
+        self.assertIs(run_m1_owned_render.safe_error, run_motion_m1.safe_error)
+        self.assertEqual(self.format(ValueError("M1_SUPERVISOR_CHILD_GATE"))["safe_code"], "M1_SUPERVISOR_CHILD_GATE")
+        self.assertIn('return 0 if result["passed"] else 1',
+            (ROOT / "tests/compiler/run_m1_owned_render.py").read_text())
+
+    def test_formatter_does_not_stringify_or_traverse_private_objects(self):
+        import inspect
+        from tests.compiler.run_motion_m1 import safe_error
+        tree = ast.parse(inspect.getsource(safe_error))
+        calls = {n.func.id if isinstance(n.func, ast.Name) else n.func.attr for n in ast.walk(tree)
+            if isinstance(n, ast.Call) and isinstance(n.func, (ast.Name, ast.Attribute))}
+        self.assertFalse(calls & {"str", "repr", "vars", "asdict", "dumps", "__dict__"})
+
+    def test_classifier_internal_failure_returns_closed_fallback(self):
+        from tests.compiler import run_motion_m1
+        with patch.object(run_motion_m1, "ERROR_CLASSES", None):
+            self.assertEqual(self.format(ValueError(MARKER)),
+                {"exception_class": "OTHER", "safe_code": "UNCLASSIFIED"})
+
+    def test_code_vocabulary_is_unique_and_source_verified(self):
+        from tests.compiler.run_motion_m1 import ERROR_CODES
+        sources = ("bie/compiler/real_paint.py", "bie/compiler/hardened_scene_compile.py",
+            "bie/compiler/animation_behavior.py", "bie/compiler/chromium_resource_worker.py",
+            "tests/compiler/run_motion_m1.py", "tests/compiler/run_m1_owned_render.py")
+        verified = set()
+        for path in sources:
+            tree = ast.parse((ROOT / path).read_text())
+            # Exclude the allowlist declaration itself: a new unverified enum
+            # cannot acquire authority just by being written into ERROR_CODES.
+            for statement in tree.body:
+                if isinstance(statement, ast.Assign) and any(isinstance(t, ast.Name) and
+                        t.id == "ERROR_CODES" for t in statement.targets):
+                    continue
+                for node in ast.walk(statement):
+                    if isinstance(node, ast.Constant) and type(node.value) is str:
+                        verified.add(node.value.partition(":")[0])
+                    if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "require" and len(node.args) == 2:
+                        code = node.args[1]
+                        # The worker's final FAILED:<private> guard has a fixed
+                        # literal prefix and a private dynamic suffix. Verify
+                        # only that literal, never admit the dynamic expression.
+                        if isinstance(code, ast.BinOp) and isinstance(code.op, ast.Add):
+                            code = code.left
+                        if isinstance(code, ast.Constant) and type(code.value) is str:
+                            prefix = "CHROMIUM_RESOURCE_" if path.endswith("chromium_resource_worker.py") else "M1_SUPERVISOR_" if path.endswith("run_m1_owned_render.py") else "M1_PROOF_"
+                            verified.add(prefix + code.value.partition(":")[0])
+        self.assertEqual(len(ERROR_CODES), len(set(ERROR_CODES)))
+        self.assertTrue(set(ERROR_CODES) <= verified)
+
+
 if __name__ == "__main__":
     unittest.main()
