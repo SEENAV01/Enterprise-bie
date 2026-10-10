@@ -1,0 +1,35 @@
+{
+  "schema": "bie.task036.media-source-pin-amendment/1",
+  "authority": "OWNER_CONTINUING_TASK036_PHASE3_EVIDENCE_SUPPORTED_SOURCE_IDENTITY_REPAIR",
+  "scope": "EXACT_PAINTER_HELPER_SOURCE_PIN_AND_AUTHENTICATED_AUDIT_CHAIN_ONLY",
+  "parent_commit": "f55f6915647816edc14cdb5ad043dedd2cdb39b2",
+  "parent_tree": "2d71be0c97dee32f0614ef1356393340a18aeaae",
+  "previous_amendment_sha256": "ec4108cd8307b6c6511e61cd43e39a78ed5b8e92b6f3611b65ad365f03096fc4",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "helper_path": "bie/compiler/qa_support/bounded_media_threads.cjs",
+  "helper_bytes": 3632,
+  "helper_sha256": "af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5",
+  "replacements": [
+    {
+      "path": "bie/compiler/real_paint.py",
+      "preimage": "docs/productization/task036-media-source-pin-amendment/real_paint.py.before",
+      "original_bytes": 26969,
+      "original_sha256": "f13dd3b17ffa8173def196be1cd8098e60bc5b149ebc86b3ad0197a097284118",
+      "original_git_blob": "d8ade88cc0a71f46c4018a26ffb9faedbd1f5b57",
+      "active_bytes": 26969,
+      "active_sha256": "6157f3743a53661ce9327c14dc924b3040c5bce881d808d8502494c08d1f4afe"
+    },
+    {
+      "path": "scripts/compiler_media_policy_observation_amendment.py",
+      "preimage": "docs/productization/task036-media-source-pin-amendment/compiler_media_policy_observation_amendment.py.before",
+      "original_bytes": 5041,
+      "original_sha256": "74c470bbf26006c275629cd93de0fbf9d41b3180ab901e1b796ce703c0721ea4",
+      "original_git_blob": "7118c45258a478ff2b050424a5ae2a71fd9edb24",
+      "active_bytes": 5425,
+      "active_sha256": "25e5b5c85618397351c5c081e28fbba0dfb7f001dffd6a1cdfcc5dbaea335d54"
+    }
+  ],
+  "rendering_and_resource_limits_unchanged": true,
+  "product_accepted": false,
+  "independent_review_status": "PENDING_SEPARATE_REVIEW"
+}

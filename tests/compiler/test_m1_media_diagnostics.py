@@ -360,6 +360,11 @@ class MediaAmendmentChain(unittest.TestCase):
         paths.add(policy_observation.DOCUMENT)
         paths.update(r['path'] for r in policy_doc['replacements'])
         paths.update(r['preimage'] for r in policy_doc['replacements'])
+        from scripts import compiler_media_source_pin_amendment as source_pin
+        pin_doc=source_pin.validate(ROOT)
+        paths.add(source_pin.DOCUMENT)
+        paths.update(r['path'] for r in pin_doc['replacements'])
+        paths.update(r['preimage'] for r in pin_doc['replacements'])
         for name in paths:
             target = cls.root / name; target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / name).read_bytes())

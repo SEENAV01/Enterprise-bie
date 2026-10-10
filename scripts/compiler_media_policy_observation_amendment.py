@@ -56,6 +56,12 @@ def validate(root):
         if len(original)!=row['original_bytes'] or sha256(original).hexdigest()!=row['original_sha256'] or blob!=row['original_git_blob']:
             raise ValueError('MEDIA_POLICY_OBSERVATION_PREIMAGE')
         active=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+        if row['path']=='bie/compiler/real_paint.py':
+            try:
+                from compiler_media_source_pin_amendment import authenticated_previous_bytes
+            except ImportError:
+                from scripts.compiler_media_source_pin_amendment import authenticated_previous_bytes
+            active=authenticated_previous_bytes(root,row['path'],row['active_sha256'])
         if b'\r' in active or len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
             raise ValueError('MEDIA_POLICY_OBSERVATION_ACTIVE_BYTES')
     return doc

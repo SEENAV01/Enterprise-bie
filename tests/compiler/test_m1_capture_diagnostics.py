@@ -294,6 +294,11 @@ class CaptureSourceAmendment(unittest.TestCase):
         selected.add(policy_observation.DOCUMENT)
         selected.update(r['path'] for r in policy_doc['replacements'])
         selected.update(r['preimage'] for r in policy_doc['replacements'])
+        from scripts import compiler_media_source_pin_amendment as source_pin
+        pin_doc=source_pin.validate(ROOT)
+        selected.add(source_pin.DOCUMENT)
+        selected.update(r['path'] for r in pin_doc['replacements'])
+        selected.update(r['preimage'] for r in pin_doc['replacements'])
         for relative in selected:
             target = cls.fixture / relative
             target.parent.mkdir(parents=True, exist_ok=True)

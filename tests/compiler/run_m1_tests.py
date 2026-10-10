@@ -18,7 +18,7 @@ NEW = ("tests/compiler/test_producer_motion_m1.py", "tests/compiler/test_motion_
        "tests/compiler/test_motion_m1_evidence.py", "tests/compiler/test_m1_runner_loading.py",
        "tests/compiler/test_m1_safe_paint_diagnostics.py", "tests/compiler/test_m1_capture_diagnostics.py",
        "tests/compiler/test_m1_media_diagnostics.py", "tests/compiler/test_m1_media_threads.py",
-       "tests/compiler/test_m1_media_policy_observation.py")
+       "tests/compiler/test_m1_media_policy_observation.py", "tests/compiler/test_m1_media_source_pin.py")
 SAFETY = ("tests/productization/animation/test_ci_r1_diagnostics.py",
           "tests/productization/animation/test_ci_r2_provisioning.py")
 

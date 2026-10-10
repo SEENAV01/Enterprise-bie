@@ -287,7 +287,7 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
     out.mkdir(parents=True)
     nonce=secrets.token_hex(24);support=Path(__file__).parent/'qa_support'
     media_helper=support/'bounded_media_threads.cjs'
-    media_helper_sha256='1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d'
+    media_helper_sha256='af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5'
     if media_thread_policy is not None and file_hash(media_helper)[0]!=media_helper_sha256:
         raise CompilerQAError('M1_MEDIA_THREAD_SOURCE_IDENTITY')
     with tempfile.TemporaryDirectory(prefix='bie-real-paint-') as td:
