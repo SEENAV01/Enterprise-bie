@@ -6,48 +6,6 @@ const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex
 // Failure-only scalar observations. No exception, log, source or path is copied.
 // These never grant a paint witness and never change rendering or its limits.
 let diagnosticOutput=null,failedObservation=null;
-let mediaFailure=null;
-async function observeMedia(call){
- let proto,original,prior,nativeError,signals,codes,record;
- try{
-  proto=require('node:child_process').ChildProcess.prototype;
-  original=proto.emit;
-  prior=Object.getOwnPropertyDescriptor(proto,'emit');
-  nativeError=require('node:util').types.isNativeError;
-  signals=new Set(['SIGABRT','SIGALRM','SIGBUS','SIGFPE','SIGHUP','SIGILL','SIGINT','SIGKILL','SIGPIPE','SIGQUIT','SIGSEGV','SIGTERM','SIGTRAP','SIGXCPU','SIGXFSZ']);
-  codes=new Set(['EAGAIN','ENOMEM','EMFILE','ENFILE','EACCES','ENOENT','EBADF','EPIPE','ETIMEDOUT','ECONNRESET','ECONNREFUSED']);
-  record={schema:'bie.capture-media-process-failure/1',phase:'RENDER_MEDIA',
-   manifest_sha256:observation.manifest_sha256,frame_count:observation.frame_count,
-   state:'VALID',spawn_events:0,events:[],accepted:false};
- }catch(_){return call();}
- function observed(...args){
-  try{
-   if(record.state==='VALID'){
-    if(args[0]==='spawn'){
-     if(record.spawn_events>=128)throw new Error();
-     record.spawn_events++;
-    }else if(args[0]==='exit'||args[0]==='error'){
-     if(record.events.length>=4)throw new Error();
-     const row={event:args[0]==='exit'?'EXIT':'ERROR',exit_code:'UNKNOWN',signal:'UNKNOWN',error_code:'UNKNOWN'};
-     if(args[0]==='exit'){
-      if(Number.isInteger(args[1])&&args[1]>=-255&&args[1]<=255)row.exit_code=args[1];
-      if(typeof args[2]==='string'&&args[2].length<=16&&signals.has(args[2]))row.signal=args[2];
-     }else if(nativeError(args[1])){
-      const descriptor=Object.getOwnPropertyDescriptor(args[1],'code');
-      if(descriptor&&Object.hasOwn(descriptor,'value')&&typeof descriptor.value==='string'&&descriptor.value.length<=16&&codes.has(descriptor.value))row.error_code=descriptor.value;
-     }
-     record.events.push(row);
-    }
-   }
-  }catch(_){record.state='UNAVAILABLE';record.spawn_events='UNKNOWN';record.events=[];}
-  return Reflect.apply(original,this,args);
- }
- if(typeof original!=='function')return call();
- try{Object.defineProperty(proto,'emit',{value:observed,writable:true,configurable:true,enumerable:prior?prior.enumerable:false});}catch(_){return call();}
- try{return await call();}
- catch(error){try{mediaFailure=record;}catch(_){}throw error;}
- finally{try{if(prior)Object.defineProperty(proto,'emit',prior);else delete proto.emit;}catch(_){/* Never mask the original call. */}}
-}
 const observation={schema:'bie.capture-controller-failure/1',phase:'REQUEST_READ',
  guard_code:'NONE_RECORDED',frame:-1,shot_kind:'NONE',target_index:-1,
  frame_count:0,manifest_sha256:'UNKNOWN',accepted:false};
@@ -66,13 +24,6 @@ function retainFailure(){
   fs.writeFileSync(path.join(diagnosticOutput,'CAPTURE_PROCESS_DIAGNOSTIC.json'),
    JSON.stringify(failedObservation),{flag:'wx',mode:0o600});
  }catch(_){/* Must not mask rejection, change exit status or interfere with cleanup. */}
- try{
-  if(diagnosticOutput&&mediaFailure){
-   const bytes=JSON.stringify(mediaFailure);
-   if(Buffer.byteLength(bytes,'utf8')<=1024)fs.writeFileSync(path.join(diagnosticOutput,'MEDIA_PROCESS_DIAGNOSTIC.json'),
-    bytes,{flag:'wx',mode:0o600});
-  }
- }catch(_){/* Separate bounded observation; original rejection remains intact. */}
 }
 async function main(){
  const req=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
@@ -145,8 +96,8 @@ async function main(){
   }
   const outputLocation=path.join(out,'captured.mp4');
   mark('RENDER_MEDIA');observation.shot_kind='NONE';observation.target_index=-1;
-  await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
-    inputProps:{__bieRasterMode:{kind:'full'}}}));
+  await renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
+    inputProps:{__bieRasterMode:{kind:'full'}}});
   const counterfactual={schema_version:'bie.counterfactual-capture.v1',scope:'REAL_REMOTION_COUNTERFACTUAL_PIXELS',
     scene_sha256:req.scene_sha256,manifest_sha256:req.manifest_sha256,width:req.width,height:req.height,fps:req.fps,
     frame_count:req.frame_count,targets:req.rasterTargets,frames:rasterFrames,browser_errors:errors};

@@ -277,6 +277,13 @@ class CaptureSourceAmendment(unittest.TestCase):
         selected = {amendment.DOCUMENT, amendment.M1_DOCUMENT, "manifests/" + MANIFEST}
         selected.update(r["path"] for r in doc["replacements"])
         selected.update(r["preimage"] for r in doc["replacements"])
+        # The sealed old assertions now exercise the complete exact follow-on
+        # chain, rather than substituting old sources for current active bytes.
+        from scripts import compiler_media_observation_amendment as media_amendment
+        media_doc = media_amendment.validate(ROOT)
+        selected.add(media_amendment.DOCUMENT)
+        selected.update(r["path"] for r in media_doc["replacements"])
+        selected.update(r["preimage"] for r in media_doc["replacements"])
         for relative in selected:
             target = cls.fixture / relative
             target.parent.mkdir(parents=True, exist_ok=True)

@@ -274,7 +274,8 @@ def run(args):
                         with observe_paint_process() as typed_observer:
                             try:
                                 from tests.compiler.m1_safe_paint_diagnostics import observe_worker_rejections, is_safe_guard_observation
-                                with observe_worker_rejections() as guard_observer:
+                                from tests.compiler.m1_media_diagnostics import observe_owned_pids, is_safe_pids, capture_media_observation, is_safe_media
+                                with observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
                                     witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
                             except Exception:
                                 # Snapshot only fixed private receipt fields BEFORE
@@ -305,6 +306,14 @@ def run(args):
                                     guarded = guard_observer.snapshot()
                                     if is_safe_guard_observation(guarded):
                                         phase["paint_worker_guard_observation"] = guarded
+                                except BaseException:
+                                    pass
+                                try:
+                                    media = capture_media_observation(root, preference=preference,
+                                        manifest_sha256=receipt.manifest_sha256, frame_count=phase["layer_frames"])
+                                    if is_safe_media(media): phase["media_process_observation"] = media
+                                    pids = pid_observer.snapshot()
+                                    if is_safe_pids(pids): phase["owned_pid_observation"] = pids
                                 except BaseException:
                                     pass
                                 raise

@@ -85,67 +85,6 @@ def _retain_capture_failure_observation(capture,out,manifest):
     except BaseException:
         pass
 
-def validate_media_failure_observation(value,manifest):
-    """Closed anonymous child-event scalars, not a media success witness."""
-    keys={'schema','phase','manifest_sha256','frame_count','state','spawn_events','events','accepted'}
-    signals={'SIGABRT','SIGALRM','SIGBUS','SIGFPE','SIGHUP','SIGILL','SIGINT','SIGKILL','SIGPIPE','SIGQUIT','SIGSEGV','SIGTERM','SIGTRAP','SIGXCPU','SIGXFSZ'}
-    codes={'EAGAIN','ENOMEM','EMFILE','ENFILE','EACCES','ENOENT','EBADF','EPIPE','ETIMEDOUT','ECONNRESET','ECONNREFUSED','UNKNOWN'}
-    if (type(value) is not dict or set(value)!=keys or
-        value['schema']!='bie.capture-media-process-failure/1' or value['phase']!='RENDER_MEDIA' or
-        value['accepted'] is not False or type(manifest) is not str or len(manifest)!=64 or
-        any(c not in '0123456789abcdef' for c in manifest) or value['manifest_sha256']!=manifest or
-        type(value['frame_count']) is not int or not 1<=value['frame_count']<=2400 or
-        type(value['events']) is not list or len(value['events'])>4):
-        raise ValueError('MEDIA_DIAGNOSTIC_IDENTITY')
-    if value['state']=='UNAVAILABLE':
-        if value['spawn_events']!='UNKNOWN' or value['events']!=[]:raise ValueError('MEDIA_DIAGNOSTIC_UNAVAILABLE')
-        return value
-    if value['state']!='VALID' or type(value['spawn_events']) is not int or not 0<=value['spawn_events']<=128:
-        raise ValueError('MEDIA_DIAGNOSTIC_STATE')
-    for row in value['events']:
-        if type(row) is not dict or set(row)!={'event','exit_code','signal','error_code'} or row['event'] not in ('EXIT','ERROR'):
-            raise ValueError('MEDIA_DIAGNOSTIC_EVENT')
-        if not (row['exit_code']=='UNKNOWN' or type(row['exit_code']) is int and -255<=row['exit_code']<=255):
-            raise ValueError('MEDIA_DIAGNOSTIC_EXIT')
-        if row['signal'] not in signals|{'UNKNOWN'} or row['error_code'] not in codes:
-            raise ValueError('MEDIA_DIAGNOSTIC_ENUM')
-        if ((row['event']=='EXIT' and row['error_code']!='UNKNOWN') or
-            (row['event']=='ERROR' and (row['exit_code']!='UNKNOWN' or row['signal']!='UNKNOWN'))):
-            raise ValueError('MEDIA_DIAGNOSTIC_PAIR')
-    return value
-
-
-def _retain_media_failure_observation(capture,out,manifest):
-    """One fixed bounded file before temporary cleanup. Failure cannot mask paint."""
-    import os,stat
-    try:
-        source=Path(capture)/'MEDIA_PROCESS_DIAGNOSTIC.json'
-        if any(p.is_symlink() for p in (source,*source.parents)):return
-        before=source.stat()
-        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or not 0<before.st_size<=1024:return
-        fd=os.open(source,os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_BINARY',0))
-        def stable(info):
-            return (info.st_dev,info.st_ino,info.st_mode,info.st_nlink,info.st_size,info.st_mtime_ns,info.st_ctime_ns)
-        with os.fdopen(fd,'rb') as stream:
-            handle=os.fstat(stream.fileno())
-            if (handle.st_dev,handle.st_ino,handle.st_size)!=(before.st_dev,before.st_ino,before.st_size):return
-            raw=stream.read(1025)
-            if stable(os.fstat(stream.fileno()))!=stable(handle):return
-        if stable(source.stat())!=stable(before) or len(raw)!=before.st_size:return
-        def pairs(items):
-            result={}
-            for key,item in items:
-                if key in result:raise ValueError('MEDIA_DIAGNOSTIC_DUPLICATE')
-                result[key]=item
-            return result
-        def constant(_):raise ValueError('MEDIA_DIAGNOSTIC_NONFINITE')
-        value=validate_media_failure_observation(json.loads(raw,object_pairs_hook=pairs,parse_constant=constant),manifest)
-        with (Path(out)/'MEDIA_PROCESS_DIAGNOSTIC.json').open('xb') as stream:
-            stream.write(canonical_json(value))
-    except BaseException:
-        pass
-
-
 @dataclass(frozen=True)
 class ActualPaintWitness:
     source_manifest_sha256:str
@@ -287,11 +226,9 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
                                    policy=policy or WorkerPolicy(),timeout_s=max(120,min(3600,n*4)),max_output_bytes=8*1024**2)
         except BaseException:
             _retain_capture_failure_observation(capture,out,checked.manifest_sha256)
-            _retain_media_failure_observation(capture,out,checked.manifest_sha256)
             raise
         if not process.process.passed:
             _retain_capture_failure_observation(capture,out,checked.manifest_sha256)
-            _retain_media_failure_observation(capture,out,checked.manifest_sha256)
         (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
         if not process.process.passed:raise CompilerQAError('ACTUAL_PAINT_EXECUTION_BLOCKED:'+process.outcome+':'+process.process.stderr[:500])
         data=json.loads((capture/'RESULT.json').read_text())
