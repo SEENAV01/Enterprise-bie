@@ -252,6 +252,11 @@ def selected_suite():
         self.assertNotIn(diagnostic, selected["native-extra"])
         self.assertNotIn(diagnostic, selected["safety"])
         self.assertNotIn(diagnostic, inherited)
+        capture = "tests/compiler/test_m1_capture_diagnostics.py"
+        self.assertEqual(selected["new"].count(capture), 1)
+        self.assertNotIn(capture, selected["native-extra"])
+        self.assertNotIn(capture, selected["safety"])
+        self.assertNotIn(capture, inherited)
 
     def test_explicit_native_preimage_alias_checks_actual_checkout_origin(self):
         self.package("r1_native")

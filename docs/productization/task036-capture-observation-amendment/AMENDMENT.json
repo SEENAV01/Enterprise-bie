@@ -1,0 +1,41 @@
+{
+  "schema": "bie.task036.capture-observation-source-amendment/1",
+  "authority": "OWNER_BROAD_TASK036_IMPLEMENTATION_AUTHORIZATION_PHASE3_MINIMUM_SAFE_PHASE_INSTRUMENTATION",
+  "scope": "FAILURE_ONLY_CAPTURE_CONTROLLER_PHASE_AND_STATIC_GUARD_OBSERVATION; NOT_A_RENDERER_SEMANTIC_REPAIR",
+  "parent_commit": "f9e0adb2b3fb123c19038bc61c647d02bd688d92",
+  "parent_tree": "3aef613086dfffd2f1e10d151b32a8562364faac",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "original_manifest_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+  "replacements": [
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "preimage": "docs/productization/task036-capture-observation-amendment/remotion_raster_capture.cjs.before",
+      "original_bytes": 5060,
+      "original_sha256": "c5e7f4a322c592dd87dfcb557924e4210ab94aed5a9bea94e9c851739dd50503",
+      "original_git_blob": "22ec19485ed028918c7a8d9fcfdc81dfc7006903",
+      "active_bytes": 7458,
+      "active_sha256": "5c1a1a4a8fd30d2c9b64af2f05f308e5901c33765b3f3a362a590e99b339bf26"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "preimage": "docs/productization/task036-capture-observation-amendment/real_paint.py.before",
+      "original_bytes": 14237,
+      "original_sha256": "9ddc3d9d9898e089f83be97971eb12e7b92957f9454f6e30bae00beadb69284c",
+      "original_git_blob": "ae785aec4e2328a94acf87acfba2dfe079c05a3d",
+      "active_bytes": 18698,
+      "active_sha256": "198c98b11d98199daf75a9900a13bae592dc6f29b5fef9bdcaf12eb37a61232f"
+    },
+    {
+      "path": "scripts/compiler_cache_source_amendment.py",
+      "preimage": "docs/productization/task036-capture-observation-amendment/compiler_cache_source_amendment.py.before",
+      "original_bytes": 12436,
+      "original_sha256": "570915c81134eb6bec2bcfaf0cb1d0aeb5d22e83e6710a8a9ac1d5b03a985ae2",
+      "original_git_blob": "056861ff518bbb3aeaa695ded57097ea73eaee87",
+      "active_bytes": 12883,
+      "active_sha256": "9c040865300c73ac0322f70e6eb017e0dbd591798fe3175a9d73acd9ac3a84ba"
+    }
+  ],
+  "native_calls_and_limits_unchanged": true,
+  "product_accepted": false,
+  "independent_review_status": "PENDING_SEPARATE_REVIEW"
+}

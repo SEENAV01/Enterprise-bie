@@ -288,6 +288,14 @@ def run(args):
                                 except Exception:
                                     pass
                                 try:
+                                    from tests.compiler.m1_safe_paint_diagnostics import capture_controller_observation, is_safe_capture_observation
+                                    captured = capture_controller_observation(root, preference=preference,
+                                        manifest_sha256=receipt.manifest_sha256, frame_count=phase["layer_frames"])
+                                    if is_safe_capture_observation(captured):
+                                        phase["capture_controller_observation"] = captured
+                                except BaseException:
+                                    pass
+                                try:
                                     typed = typed_observer.snapshot()
                                     if is_safe_typed_observation(typed):
                                         phase["paint_process_typed_observation"] = typed

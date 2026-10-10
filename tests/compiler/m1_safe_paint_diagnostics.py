@@ -120,9 +120,10 @@ def directory(path):
     return signature(path.lstat())
 
 
-def read_receipt(root, output, name):
+def read_receipt(root, output, name, max_bytes=MAX_INPUT_BYTES):
     """No traversal or link following; Linux opens against an anchored dir fd."""
     try:
+        integer(max_bytes, 1, MAX_INPUT_BYTES)
         root_before = directory(root)
         try:
             output.lstat()
@@ -132,7 +133,7 @@ def read_receipt(root, output, name):
         path = output / name
         before = path.lstat()
         require(stat.S_ISREG(before.st_mode) and before.st_nlink == 1 and not path.is_symlink())
-        if before.st_size > MAX_INPUT_BYTES:
+        if before.st_size > max_bytes:
             return "TOO_LARGE", None
         flags = os.O_RDONLY | getattr(os, "O_BINARY", 0) | getattr(os, "O_NOFOLLOW", 0)
         dfd = None
@@ -146,14 +147,14 @@ def read_receipt(root, output, name):
             with os.fdopen(fd, "rb") as stream:
                 handle_before = os.fstat(stream.fileno())
                 require(file_identity(handle_before) == file_identity(before))
-                data = stream.read(MAX_INPUT_BYTES + 1)
+                data = stream.read(max_bytes + 1)
                 require(signature(os.fstat(stream.fileno())) == signature(handle_before))
             require(signature(path.lstat()) == signature(before)
                     and directory(root) == root_before and directory(output) == output_before)
         finally:
             if dfd is not None:
                 os.close(dfd)
-        if len(data) > MAX_INPUT_BYTES:
+        if len(data) > max_bytes:
             return "TOO_LARGE", None
         require(len(data) == before.st_size)
         return "VALID", strict_json(data)
@@ -330,6 +331,77 @@ def capture_paint_diagnostic(owned_root, *, family, preference, frame_count, dur
         return result if is_safe_diagnostic(result) else empty(result["family"], result["preference"])
     except Exception:
         return empty(result["family"], result["preference"])
+
+
+CAPTURE_SCHEMA = "bie.task036.m1.capture-controller-observation/1"
+CAPTURE_PHASES = frozenset({"REQUEST_READ", "MODULE_LOAD", "PIN_CHECK", "BUNDLE", "OPEN_BROWSER",
+    "SELECT_COMPOSITION", "COMPOSITION_CHECK", "RENDER_STILL", "MEASUREMENT_CHECK", "FRAME_HASH",
+    "MODE_INVENTORY", "RESTORE_INVENTORY", "RENDER_MEDIA", "MEDIA_HASH", "RESULT_WRITE", "BROWSER_CLOSE"})
+CAPTURE_GUARDS = {"CAPTURE_PIN_MISMATCH": "PIN_CHECK", "CAPTURE_COMPOSITION_MISMATCH": "COMPOSITION_CHECK",
+    "CAPTURE_DOM_MEASUREMENT_MISSING": "MEASUREMENT_CHECK", "CAPTURE_DOM_NONDETERMINISM": "MEASUREMENT_CHECK",
+    "CAPTURE_ASSET_READINESS": "MEASUREMENT_CHECK", "CAPTURE_DOM_MODE_DRIFT": "MODE_INVENTORY",
+    "CAPTURE_DOM_RESTORE_DRIFT": "RESTORE_INVENTORY"}
+
+
+def empty_capture():
+    return {"schema": CAPTURE_SCHEMA, "provenance": "CANONICAL_CAPTURE_CONTROLLER_FAILURE_FILE",
+        "receipt_state": UNKNOWN, "controller_phase": UNKNOWN, "guard_code": UNKNOWN,
+        "frame": UNKNOWN, "shot_kind": UNKNOWN, "target_index": UNKNOWN,
+        "frame_count": UNKNOWN, "manifest_sha256": UNKNOWN,
+        "render_passed": False, "accepted": False, "product_accepted": False}
+
+
+def is_safe_capture_observation(value):
+    try:
+        template = empty_capture()
+        require(type(value) is dict and set(value) == set(template))
+        require(value["schema"] == CAPTURE_SCHEMA and value["provenance"] == template["provenance"]
+            and value["receipt_state"] in STATES)
+        require(all(value[key] is False for key in ("render_passed", "accepted", "product_accepted")))
+        keys = ("controller_phase", "guard_code", "frame", "shot_kind", "target_index", "frame_count", "manifest_sha256")
+        if value["receipt_state"] != "VALID":
+            require(all(value[key] == UNKNOWN for key in keys))
+        else:
+            for key in ("controller_phase", "guard_code", "shot_kind", "manifest_sha256"):
+                require(type(value[key]) is str and len(value[key]) <= 64)
+            require(value["controller_phase"] in CAPTURE_PHASES)
+            code = value["guard_code"]
+            require(code == "NONE_RECORDED" or CAPTURE_GUARDS.get(code) == value["controller_phase"])
+            integer(value["frame_count"], 1, 2400)
+            integer(value["frame"], -1, value["frame_count"] - 1)
+            integer(value["target_index"], -1, 11999)
+            require(value["shot_kind"] in {"NONE", "FULL", "BASELINE", "ISOLATED", "MUTED", "REPEAT"})
+            require((value["target_index"] == -1) == (value["shot_kind"] in {"NONE", "FULL", "REPEAT"}))
+            require(len(value["manifest_sha256"]) == 64 and all(c in "0123456789abcdef" for c in value["manifest_sha256"]))
+        return True
+    except BaseException:
+        return False
+
+
+def capture_controller_observation(owned_root, *, preference, manifest_sha256, frame_count):
+    result = empty_capture()
+    try:
+        require(type(preference) is str and preference in PREFERENCES and isinstance(owned_root, Path))
+        require(type(manifest_sha256) is str and len(manifest_sha256) == 64
+            and all(c in "0123456789abcdef" for c in manifest_sha256))
+        integer(frame_count, 1, 2400)
+        state, raw = read_receipt(owned_root, owned_root / ("paint-" + preference),
+            "CAPTURE_PROCESS_DIAGNOSTIC.json", max_bytes=1024)
+        result["receipt_state"] = state
+        if state == "VALID":
+            require(type(raw) is dict and set(raw) == {"schema", "phase", "guard_code", "frame", "shot_kind",
+                "target_index", "frame_count", "manifest_sha256", "accepted"})
+            require(raw["schema"] == "bie.capture-controller-failure/1" and raw["accepted"] is False
+                and raw["manifest_sha256"] == manifest_sha256 and raw["frame_count"] == frame_count)
+            for key in ("guard_code", "frame", "shot_kind", "target_index", "frame_count", "manifest_sha256"):
+                result[key] = raw[key]
+            result["controller_phase"] = raw["phase"]
+            require(is_safe_capture_observation(result))
+        return result
+    except BaseException:
+        result = empty_capture()
+        result["receipt_state"] = "INVALID"
+        return result
 
 
 # Separate from file admission above: no private receipt file or output is read.

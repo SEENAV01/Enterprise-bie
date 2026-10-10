@@ -105,13 +105,7 @@ def resolve(root,manifest_path,manifest):
     original=regular(root,BEFORE,64*1024)
     if len(original)!=4841 or hashlib.sha256(original).hexdigest()!=ORIGINAL:
         raise ValueError('COMP_CACHE_AMENDMENT_PREIMAGE')
-    try:
-        from compiler_capture_observation_amendment import authenticated_previous_bytes
-    except ImportError:
-        from scripts.compiler_capture_observation_amendment import authenticated_previous_bytes
-    # Follow-on validates exact current bytes and the sealed previous version;
-    # the original identities/documents below retain their historical meaning.
-    active=authenticated_previous_bytes(root,TARGET,NATIVE_PINS[TARGET]);lf=active.replace(b'\r\n',b'\n')
+    active=regular(root,TARGET,64*1024);lf=active.replace(b'\r\n',b'\n')
     # Git checkouts can contain mixed CRLF/LF after an apply_patch edit. Only
     # standard newline conversion is allowed; every normalized byte is pinned.
     if b'\r' in lf or hashlib.sha256(lf).hexdigest()!=NATIVE_PINS[TARGET]:
@@ -129,7 +123,7 @@ def resolve(root,manifest_path,manifest):
     original=regular(root,PAINT_BEFORE,64*1024)
     if len(original)!=13446 or hashlib.sha256(original).hexdigest()!=PAINT_ORIGINAL:
         raise ValueError('COMP_PAINT_AMENDMENT_PREIMAGE')
-    active=authenticated_previous_bytes(root,PAINT_TARGET,NATIVE_PINS[PAINT_TARGET]);lf=active.replace(b'\r\n',b'\n')
+    active=regular(root,PAINT_TARGET,64*1024);lf=active.replace(b'\r\n',b'\n')
     if b'\r' in lf or hashlib.sha256(lf).hexdigest()!=NATIVE_PINS[PAINT_TARGET]:
         raise ValueError('COMP_PAINT_AMENDMENT_ACTIVE_BYTES')
     rows=[r for r in manifest['members'] if r['canonical_path']==PAINT_TARGET]

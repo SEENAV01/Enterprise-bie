@@ -17,74 +17,6 @@ from .content_fit_qa import DECLARED_SCOPE
 from .paint_quality import inspect_paint_quality
 
 _SEAL=object()
-CAPTURE_DIAGNOSTIC_SCHEMA='bie.capture-controller-failure/1'
-CAPTURE_DIAGNOSTIC_PHASES=frozenset(('REQUEST_READ','MODULE_LOAD','PIN_CHECK','BUNDLE','OPEN_BROWSER',
-    'SELECT_COMPOSITION','COMPOSITION_CHECK','RENDER_STILL','MEASUREMENT_CHECK','FRAME_HASH',
-    'MODE_INVENTORY','RESTORE_INVENTORY','RENDER_MEDIA','MEDIA_HASH','RESULT_WRITE','BROWSER_CLOSE'))
-CAPTURE_DIAGNOSTIC_GUARDS={
-    'CAPTURE_PIN_MISMATCH':'PIN_CHECK','CAPTURE_COMPOSITION_MISMATCH':'COMPOSITION_CHECK',
-    'CAPTURE_DOM_MEASUREMENT_MISSING':'MEASUREMENT_CHECK','CAPTURE_DOM_NONDETERMINISM':'MEASUREMENT_CHECK',
-    'CAPTURE_ASSET_READINESS':'MEASUREMENT_CHECK','CAPTURE_DOM_MODE_DRIFT':'MODE_INVENTORY',
-    'CAPTURE_DOM_RESTORE_DRIFT':'RESTORE_INVENTORY'}
-
-
-def validate_capture_failure_observation(value,manifest):
-    """Closed failure scalars only. This does not admit paint or inspect errors."""
-    keys={'schema','phase','guard_code','frame','shot_kind','target_index','frame_count','manifest_sha256','accepted'}
-    if type(value) is not dict or set(value)!=keys:raise ValueError('CAPTURE_DIAGNOSTIC_SHAPE')
-    for key in ('schema','phase','guard_code','shot_kind','manifest_sha256'):
-        if type(value[key]) is not str or len(value[key])>64:raise ValueError('CAPTURE_DIAGNOSTIC_TYPE')
-    if (value['schema']!=CAPTURE_DIAGNOSTIC_SCHEMA or value['phase'] not in CAPTURE_DIAGNOSTIC_PHASES or
-        value['accepted'] is not False or type(manifest) is not str or len(manifest)!=64 or
-        any(c not in '0123456789abcdef' for c in manifest) or value['manifest_sha256']!=manifest):
-        raise ValueError('CAPTURE_DIAGNOSTIC_IDENTITY')
-    code=value['guard_code']
-    if code!='NONE_RECORDED' and CAPTURE_DIAGNOSTIC_GUARDS.get(code)!=value['phase']:
-        raise ValueError('CAPTURE_DIAGNOSTIC_GUARD')
-    if (type(value['frame_count']) is not int or not 1<=value['frame_count']<=2400 or
-        type(value['frame']) is not int or not -1<=value['frame']<value['frame_count'] or
-        type(value['target_index']) is not int or not -1<=value['target_index']<12000 or
-        value['shot_kind'] not in ('NONE','FULL','BASELINE','ISOLATED','MUTED','REPEAT')):
-        raise ValueError('CAPTURE_DIAGNOSTIC_BOUNDS')
-    if ((value['shot_kind'] in ('NONE','FULL','REPEAT') and value['target_index']!=-1) or
-        (value['shot_kind'] in ('BASELINE','ISOLATED','MUTED') and value['target_index']<0)):
-        raise ValueError('CAPTURE_DIAGNOSTIC_TARGET')
-    return value
-
-
-def _retain_capture_failure_observation(capture,out,manifest):
-    """Before private temporary cleanup; no stderr, receipts or arbitrary traversal.
-
-    Missing/invalid observations are left absent. Any diagnostic failure is
-    contained; the caller preserves the original process/painter rejection.
-    """
-    import os,stat
-    try:
-        source=Path(capture)/'CAPTURE_PROCESS_DIAGNOSTIC.json'
-        if any(p.is_symlink() for p in (source,*source.parents)):return
-        before=source.stat()
-        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or not 0<before.st_size<=1024:return
-        fd=os.open(source,os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_BINARY',0))
-        def stable(info):
-            return (info.st_dev,info.st_ino,info.st_mode,info.st_nlink,info.st_size,info.st_mtime_ns,info.st_ctime_ns)
-        with os.fdopen(fd,'rb') as stream:
-            handle=os.fstat(stream.fileno())
-            if (handle.st_dev,handle.st_ino,handle.st_size)!=(before.st_dev,before.st_ino,before.st_size):return
-            raw=stream.read(1025)
-            if stable(os.fstat(stream.fileno()))!=stable(handle):return
-        if stable(source.stat())!=stable(before) or len(raw)!=before.st_size:return
-        def pairs(items):
-            result={}
-            for key,item in items:
-                if key in result:raise ValueError('CAPTURE_DIAGNOSTIC_DUPLICATE')
-                result[key]=item
-            return result
-        value=validate_capture_failure_observation(json.loads(raw,object_pairs_hook=pairs),manifest)
-        with (Path(out)/'CAPTURE_PROCESS_DIAGNOSTIC.json').open('xb') as stream:
-            stream.write(canonical_json(value))
-    except BaseException:
-        pass
-
 @dataclass(frozen=True)
 class ActualPaintWitness:
     source_manifest_sha256:str
@@ -220,15 +152,9 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
         # Use inline Wasm bounds checks under the unchanged 8 GiB address ceiling.
         # The option is scoped to this Wasm-using producer, never NODE_OPTIONS.
         command=[str(node),'--disable-wasm-trap-handler','/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json']
-        try:
-            process,kernel=run_chromium_isolated(command,browser=browser,kind='actual-paint',receipt_path=out/'CHROMIUM_RESOURCE.json',
+        process,kernel=run_chromium_isolated(command,browser=browser,kind='actual-paint',receipt_path=out/'CHROMIUM_RESOURCE.json',
                                    workspace=stage,engine=Path(__file__).resolve().parents[2],writable=['capture-output'],
                                    policy=policy or WorkerPolicy(),timeout_s=max(120,min(3600,n*4)),max_output_bytes=8*1024**2)
-        except BaseException:
-            _retain_capture_failure_observation(capture,out,checked.manifest_sha256)
-            raise
-        if not process.process.passed:
-            _retain_capture_failure_observation(capture,out,checked.manifest_sha256)
         (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
         if not process.process.passed:raise CompilerQAError('ACTUAL_PAINT_EXECUTION_BLOCKED:'+process.outcome+':'+process.process.stderr[:500])
         data=json.loads((capture/'RESULT.json').read_text())

@@ -3,58 +3,25 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {createRequire}=require('node:module');
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
-// Failure-only scalar observations. No exception, log, source or path is copied.
-// These never grant a paint witness and never change rendering or its limits.
-let diagnosticOutput=null,failedObservation=null;
-const observation={schema:'bie.capture-controller-failure/1',phase:'REQUEST_READ',
- guard_code:'NONE_RECORDED',frame:-1,shot_kind:'NONE',target_index:-1,
- frame_count:0,manifest_sha256:'UNKNOWN',accepted:false};
-function mark(phase){observation.phase=phase;observation.guard_code='NONE_RECORDED';}
-function reject(code,message){observation.guard_code=code;throw new Error(message);}
-function snapshotFailure(){
- try{failedObservation={schema:observation.schema,phase:observation.phase,
-  guard_code:observation.guard_code,frame:observation.frame,shot_kind:observation.shot_kind,
-  target_index:observation.target_index,frame_count:observation.frame_count,
-  manifest_sha256:observation.manifest_sha256,accepted:false};}catch(_){/* diagnostic only */}
-}
-function retainFailure(){
- try{
-  if(!diagnosticOutput)return;
-  if(!failedObservation)snapshotFailure();
-  fs.writeFileSync(path.join(diagnosticOutput,'CAPTURE_PROCESS_DIAGNOSTIC.json'),
-   JSON.stringify(failedObservation),{flag:'wx',mode:0o600});
- }catch(_){/* Must not mask rejection, change exit status or interfere with cleanup. */}
-}
 async function main(){
  const req=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
- if(Number.isInteger(req.frame_count)&&req.frame_count>0&&req.frame_count<=2400)observation.frame_count=req.frame_count;
- if(typeof req.manifest_sha256==='string'&&/^[a-f0-9]{64}$/.test(req.manifest_sha256))observation.manifest_sha256=req.manifest_sha256;
- mark('MODULE_LOAD');
  const fromProject=createRequire(path.join(req.workspace,'package.json'));
  const {bundle}=fromProject('@remotion/bundler');
  const {selectComposition,renderStill,renderMedia,openBrowser}=fromProject('@remotion/renderer');
- mark('PIN_CHECK');
  for(const name of ['remotion','@remotion/renderer','@remotion/bundler']){
-  if(fromProject(name+'/package.json').version!==req.remotion_version)reject('CAPTURE_PIN_MISMATCH','CAPTURE_PIN_MISMATCH:'+name);
+  if(fromProject(name+'/package.json').version!==req.remotion_version)throw new Error('CAPTURE_PIN_MISMATCH:'+name);
  }
  const out=req.output;fs.mkdirSync(out,{recursive:true});
- diagnosticOutput=out;
  // Dependencies are immutable in the guarded workload; never cache in node_modules.
- mark('BUNDLE');
  const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public'),enableCaching:false});
  // The pinned executable is full Chrome, not the separate legacy headless shell.
- mark('OPEN_BROWSER');
  const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromeMode:'chrome-for-testing',chromiumOptions:{enableMultiProcessOnLinux:true}});
  const frames=[],rasterFrames=[],errors=[];
  try{
-  mark('SELECT_COMPOSITION');
   const composition=await selectComposition({serveUrl,id:req.composition_id,puppeteerInstance:browser});
-  mark('COMPOSITION_CHECK');
-  if(composition.width!==req.width||composition.height!==req.height||composition.fps!==req.fps||composition.durationInFrames!==req.frame_count)reject('CAPTURE_COMPOSITION_MISMATCH','CAPTURE_COMPOSITION_MISMATCH');
+  if(composition.width!==req.width||composition.height!==req.height||composition.fps!==req.fps||composition.durationInFrames!==req.frame_count)throw new Error('CAPTURE_COMPOSITION_MISMATCH');
   for(let frame=0;frame<req.frame_count;frame++){
-   observation.frame=frame;
    async function shot(kind,index){
-    observation.shot_kind=kind.toUpperCase();observation.target_index=Number.isInteger(index)?index:-1;
     const mode=(kind==='full'||kind==='repeat')?{kind:'full'}:{kind,target_id:req.rasterTargets[index].target_id};
     const measurements=[];
     const onBrowserLog=log=>{
@@ -65,16 +32,13 @@ async function main(){
     };
     const name=`frame-${String(frame).padStart(6,'0')}`+((kind==='full'||kind==='repeat')?`-${kind}`:`-target-${String(index).padStart(3,'0')}-${kind}`)+'.png';
     const output=path.join(out,name);
-    mark('RENDER_STILL');
     await renderStill({composition,serveUrl,frame,output,imageFormat:'png',puppeteerInstance:browser,onBrowserLog,
       inputProps:{__bieRasterMode:mode},timeoutInMilliseconds:30000});
-    mark('MEASUREMENT_CHECK');
-    if(!measurements.length)reject('CAPTURE_DOM_MEASUREMENT_MISSING','CAPTURE_DOM_MEASUREMENT_MISSING:'+frame+':'+kind);
+    if(!measurements.length)throw new Error('CAPTURE_DOM_MEASUREMENT_MISSING:'+frame+':'+kind);
     const unique=[...new Set(measurements.map(m=>JSON.stringify(m)))];
-    if(unique.length!==1)reject('CAPTURE_DOM_NONDETERMINISM','CAPTURE_DOM_NONDETERMINISM:'+frame+':'+kind);
+    if(unique.length!==1)throw new Error('CAPTURE_DOM_NONDETERMINISM:'+frame+':'+kind);
     const m=measurements[0];
-    if(m.raster.fonts_ready!==true||m.raster.image_errors.length)reject('CAPTURE_ASSET_READINESS','CAPTURE_ASSET_READINESS');
-    mark('FRAME_HASH');
+    if(m.raster.fonts_ready!==true||m.raster.image_errors.length)throw new Error('CAPTURE_ASSET_READINESS');
     return {file:{file:name,sha256:hash(output)},measurement:m};
    }
    const full=await shot('full');const targets=[];
@@ -82,34 +46,25 @@ async function main(){
     const row={target_id:req.rasterTargets[i].target_id};
     for(const kind of ['baseline','isolated','muted']){
      const value=await shot(kind,i);
-     mark('MODE_INVENTORY');
-     if(JSON.stringify(value.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))reject('CAPTURE_DOM_MODE_DRIFT','CAPTURE_DOM_MODE_DRIFT');
+     if(JSON.stringify(value.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))throw new Error('CAPTURE_DOM_MODE_DRIFT');
      row[kind]=value.file;
     }
     targets.push(row);
    }
    const repeat=await shot('repeat');
-   mark('RESTORE_INVENTORY');
-   if(JSON.stringify(repeat.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))reject('CAPTURE_DOM_RESTORE_DRIFT','CAPTURE_DOM_RESTORE_DRIFT');
+   if(JSON.stringify(repeat.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))throw new Error('CAPTURE_DOM_RESTORE_DRIFT');
    frames.push({frame,image:full.file.file,image_sha256:full.file.sha256,measurement:full.measurement});
    rasterFrames.push({frame,full:full.file,repeat:repeat.file,inventory:full.measurement.raster.inventory,targets});
   }
   const outputLocation=path.join(out,'captured.mp4');
-  mark('RENDER_MEDIA');observation.shot_kind='NONE';observation.target_index=-1;
   await renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
     inputProps:{__bieRasterMode:{kind:'full'}}});
   const counterfactual={schema_version:'bie.counterfactual-capture.v1',scope:'REAL_REMOTION_COUNTERFACTUAL_PIXELS',
     scene_sha256:req.scene_sha256,manifest_sha256:req.manifest_sha256,width:req.width,height:req.height,fps:req.fps,
     frame_count:req.frame_count,targets:req.rasterTargets,frames:rasterFrames,browser_errors:errors};
-  mark('MEDIA_HASH');
   const result={schema_version:'bie.actual-remotion-paint.v1',nonce:req.nonce,frames,browser_errors:errors,counterfactual,
     scope:'REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE',real_react:true,real_remotion:true,media_sha256:hash(outputLocation),accepted:false};
-  mark('RESULT_WRITE');
   fs.writeFileSync(path.join(out,'RESULT.json'),JSON.stringify(result,null,2));
- }catch(error){snapshotFailure();throw error;}
- finally{
-  mark('BROWSER_CLOSE');
-  try{await browser.close({silent:true});}catch(error){snapshotFailure();throw error;}
- }
+ }finally{await browser.close({silent:true});}
 }
-main().catch(e=>{retainFailure();console.error(e.stack||String(e));process.exitCode=2;});
+main().catch(e=>{console.error(e.stack||String(e));process.exitCode=2;});
