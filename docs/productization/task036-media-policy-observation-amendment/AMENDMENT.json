@@ -1,0 +1,52 @@
+{
+  "schema": "bie.task036.media-policy-observation-source-amendment/1",
+  "authority": "OWNER_CONTINUING_TASK036_PHASE3_BOUNDED_DIAGNOSTIC_NONINTERFERENCE",
+  "scope": "FAILURE_ONLY_POLICY_GUARD_PHASES; NO_LOWERING_MOTION_RESOURCE_OR_ACCEPTANCE_CHANGE",
+  "parent_commit": "2e08e31b1f16d044af3204d0e12afab5362a9765",
+  "parent_tree": "c1e8262c568a60e4a232c3a5e1b124a101622bff",
+  "previous_amendment_sha256": "6b08edb6b6bbacba67c1c87780809a449a8073dbf882cf5e35a247a81ddc940c",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "original_manifest_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+  "replacements": [
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "preimage": "docs/productization/task036-media-policy-observation-amendment/remotion_raster_capture.cjs.before",
+      "original_bytes": 10718,
+      "original_sha256": "2d3a4983e0bc6b38204dc41c9a6f92a15a04ed9691f9ac7680fc142e9679eee4",
+      "original_git_blob": "8c21a9e977e027701edab81c1ca1b43f0cf9e475",
+      "active_bytes": 13198,
+      "active_sha256": "dd0bc9f3db0b371608e37938569a546ab4a14398bcbc2a6d891be6d00c9014ff"
+    },
+    {
+      "path": "bie/compiler/qa_support/bounded_media_threads.cjs",
+      "preimage": "docs/productization/task036-media-policy-observation-amendment/bounded_media_threads.cjs.before",
+      "original_bytes": 3260,
+      "original_sha256": "1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d",
+      "original_git_blob": "ec99116574cd1c4a61e35dd135fcc10d083799d0",
+      "active_bytes": 3632,
+      "active_sha256": "af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "preimage": "docs/productization/task036-media-policy-observation-amendment/real_paint.py.before",
+      "original_bytes": 25174,
+      "original_sha256": "d068d65f78c4b97f3b413fc1b440d78437d885200efee9a3f82f8d5f922fdb54",
+      "original_git_blob": "81f9a81830375be3c5756443bb45f9cbe5ac645f",
+      "active_bytes": 26969,
+      "active_sha256": "f13dd3b17ffa8173def196be1cd8098e60bc5b149ebc86b3ad0197a097284118"
+    },
+    {
+      "path": "scripts/compiler_media_thread_amendment.py",
+      "preimage": "docs/productization/task036-media-policy-observation-amendment/compiler_media_thread_amendment.py.before",
+      "original_bytes": 6621,
+      "original_sha256": "981344179a3b90c8402b544fdca52840dc1621de6b842325d4b7b1f1248ee062",
+      "original_git_blob": "dc5a05ac57f9a1fd287f0f3431e9915bffd91f9a",
+      "active_bytes": 7339,
+      "active_sha256": "061ab40c34516c8b635ea41b2bc43f0f656f6baa3a64411ce7ad0ebc4ccb50f0"
+    }
+  ],
+  "native_calls_and_limits_unchanged": true,
+  "diagnostic_schema": "bie.capture-controller-failure/2",
+  "product_accepted": false,
+  "independent_review_status": "PENDING_SEPARATE_REVIEW"
+}

@@ -354,19 +354,39 @@ def empty_capture():
 def is_safe_capture_observation(value):
     try:
         template = empty_capture()
-        require(type(value) is dict and set(value) == set(template))
-        require(value["schema"] == CAPTURE_SCHEMA and value["provenance"] == template["provenance"]
+        require(type(value) is dict)
+        keys=set(template)
+        if value.get('schema')=='bie.task036.m1.capture-controller-observation/2':keys.add('policy_calls')
+        require(set(value)==keys)
+        require(type(value["schema"]) is str and value["schema"] in {CAPTURE_SCHEMA,"bie.task036.m1.capture-controller-observation/2"} and value["provenance"] == template["provenance"]
             and value["receipt_state"] in STATES)
         require(all(value[key] is False for key in ("render_passed", "accepted", "product_accepted")))
+        if value['schema']=='bie.task036.m1.capture-controller-observation/2':require(value['receipt_state']=='VALID')
         keys = ("controller_phase", "guard_code", "frame", "shot_kind", "target_index", "frame_count", "manifest_sha256")
         if value["receipt_state"] != "VALID":
             require(all(value[key] == UNKNOWN for key in keys))
         else:
             for key in ("controller_phase", "guard_code", "shot_kind", "manifest_sha256"):
                 require(type(value[key]) is str and len(value[key]) <= 64)
-            require(value["controller_phase"] in CAPTURE_PHASES)
+            policy=value["schema"]=="bie.task036.m1.capture-controller-observation/2"
+            policy_guards={
+                "MEDIA_POLICY_CREATE":{"POLICY_SHAPE","POLICY_IDENTITY"},
+                "MEDIA_CALLBACK_PRE":{"REQUEST_SHAPE","ARGUMENT_SHAPE","ARGUMENT_THREADS","ARGUMENT_INPUT","ARGUMENT_OUTPUT","ARGUMENT_CODEC","ARGUMENT_PIPE","CALLBACK_DUPLICATE"},
+                "MEDIA_CALLBACK_STITCH":{"REQUEST_SHAPE","ARGUMENT_SHAPE","ARGUMENT_THREADS","ARGUMENT_INPUT","ARGUMENT_OUTPUT","ARGUMENT_CODEC","CALLBACK_DUPLICATE"},
+                "MEDIA_CALLBACK_UNKNOWN":{"REQUEST_SHAPE","CALLBACK_KIND"},
+                "MEDIA_POLICY_COMPLETE":{"COMPLETION_COUNTS"}}
+            require(value["controller_phase"] in (policy_guards if policy else CAPTURE_PHASES))
+            if policy:
+                calls=value['policy_calls']
+                require(type(calls) is dict and set(calls)=={'create','pre_stitcher','stitcher','unknown_callback','completion'})
+                require(all(type(v) is int and 0<=v<=2 for v in calls.values()) and calls['create']==1
+                    and calls['completion']<=1 and sum(calls.values())<=6)
+                key={'MEDIA_POLICY_CREATE':'create','MEDIA_CALLBACK_PRE':'pre_stitcher','MEDIA_CALLBACK_STITCH':'stitcher',
+                    'MEDIA_CALLBACK_UNKNOWN':'unknown_callback','MEDIA_POLICY_COMPLETE':'completion'}[value['controller_phase']]
+                require(calls[key]>=1)
             code = value["guard_code"]
-            require(code == "NONE_RECORDED" or CAPTURE_GUARDS.get(code) == value["controller_phase"])
+            require(code == "NONE_RECORDED" or (code in policy_guards[value["controller_phase"]] if policy
+                else CAPTURE_GUARDS.get(code) == value["controller_phase"]))
             integer(value["frame_count"], 1, 2400)
             integer(value["frame"], -1, value["frame_count"] - 1)
             integer(value["target_index"], -1, 11999)
@@ -389,10 +409,15 @@ def capture_controller_observation(owned_root, *, preference, manifest_sha256, f
             "CAPTURE_PROCESS_DIAGNOSTIC.json", max_bytes=1024)
         result["receipt_state"] = state
         if state == "VALID":
-            require(type(raw) is dict and set(raw) == {"schema", "phase", "guard_code", "frame", "shot_kind",
-                "target_index", "frame_count", "manifest_sha256", "accepted"})
-            require(raw["schema"] == "bie.capture-controller-failure/1" and raw["accepted"] is False
+            require(type(raw) is dict)
+            keys={"schema", "phase", "guard_code", "frame", "shot_kind","target_index", "frame_count", "manifest_sha256", "accepted"}
+            if raw.get('schema')=='bie.capture-controller-failure/2':keys.add('policy_calls')
+            require(set(raw)==keys)
+            require(raw["schema"] in {"bie.capture-controller-failure/1","bie.capture-controller-failure/2"} and raw["accepted"] is False
                 and raw["manifest_sha256"] == manifest_sha256 and raw["frame_count"] == frame_count)
+            if raw["schema"]=="bie.capture-controller-failure/2":
+                result["schema"]="bie.task036.m1.capture-controller-observation/2"
+                result['policy_calls']=raw['policy_calls']
             for key in ("guard_code", "frame", "shot_kind", "target_index", "frame_count", "manifest_sha256"):
                 result[key] = raw[key]
             result["controller_phase"] = raw["phase"]

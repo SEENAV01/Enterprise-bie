@@ -51,43 +51,13 @@ async function observeMedia(call){
 const observation={schema:'bie.capture-controller-failure/1',phase:'REQUEST_READ',
  guard_code:'NONE_RECORDED',frame:-1,shot_kind:'NONE',target_index:-1,
  frame_count:0,manifest_sha256:'UNKNOWN',accepted:false};
-const policyCalls={create:0,pre_stitcher:0,stitcher:0,unknown_callback:0,completion:0};
-function mark(phase){observation.schema='bie.capture-controller-failure/1';observation.phase=phase;observation.guard_code='NONE_RECORDED';}
-function mediaPolicyPhase(phase,call){
- // Exactly one delegate call; returned object and original exception unchanged.
- // A data descriptor only: no private message, argument or getter is inspected.
- try{
-  mark(phase);observation.schema='bie.capture-controller-failure/2';
-  const key={MEDIA_POLICY_CREATE:'create',MEDIA_CALLBACK_PRE:'pre_stitcher',MEDIA_CALLBACK_STITCH:'stitcher',
-   MEDIA_CALLBACK_UNKNOWN:'unknown_callback',MEDIA_POLICY_COMPLETE:'completion'}[phase];
-  policyCalls[key]++;
- }catch(_){/* Failure-only observation; delegate still executes exactly once. */}
- try{
-  const result=call();
-  try{observation.schema='bie.capture-controller-failure/1';mark('RENDER_MEDIA');}
-  catch(_){/* A post-call diagnostic fault cannot replace the returned object. */}
-  return result;
- }catch(error){
-  try{
-   const descriptor=require('node:util').types.isNativeError(error)?Object.getOwnPropertyDescriptor(error,'m1_media_guard'):null;
-   const allowed=new Set(['POLICY_SHAPE','POLICY_IDENTITY','REQUEST_SHAPE','CALLBACK_KIND',
-    'ARGUMENT_SHAPE','ARGUMENT_THREADS','ARGUMENT_INPUT','ARGUMENT_OUTPUT','ARGUMENT_CODEC',
-    'ARGUMENT_PIPE','CALLBACK_DUPLICATE','COMPLETION_COUNTS']);
-   if(descriptor&&Object.hasOwn(descriptor,'value')&&typeof descriptor.value==='string'&&allowed.has(descriptor.value))
-    observation.guard_code=descriptor.value;
-  }catch(_){/* Observation failure never masks the delegate exception. */}
-  throw error;
- }
-}
+function mark(phase){observation.phase=phase;observation.guard_code='NONE_RECORDED';}
 function reject(code,message){observation.guard_code=code;throw new Error(message);}
 function snapshotFailure(){
  try{failedObservation={schema:observation.schema,phase:observation.phase,
   guard_code:observation.guard_code,frame:observation.frame,shot_kind:observation.shot_kind,
   target_index:observation.target_index,frame_count:observation.frame_count,
   manifest_sha256:observation.manifest_sha256,accepted:false};}catch(_){/* diagnostic only */}
- try{if(failedObservation&&failedObservation.schema==='bie.capture-controller-failure/2')failedObservation.policy_calls={
-  create:policyCalls.create,pre_stitcher:policyCalls.pre_stitcher,stitcher:policyCalls.stitcher,
-  unknown_callback:policyCalls.unknown_callback,completion:policyCalls.completion};}catch(_){/* diagnostic only */}
 }
 function retainFailure(){
  try{
@@ -177,21 +147,10 @@ async function main(){
   mark('RENDER_MEDIA');observation.shot_kind='NONE';observation.target_index=-1;
   let mediaThreadExecution;
   if(Object.hasOwn(req,'media_thread_policy')){
-   const bound=mediaPolicyPhase('MEDIA_POLICY_CREATE',()=>require('./bounded_media_threads.cjs').createOverride(req.media_thread_policy));
-   const override=request=>{
-    let phase='MEDIA_CALLBACK_UNKNOWN';
-    try{
-     const kind=Object.getOwnPropertyDescriptor(request,'type');
-     if(kind&&Object.hasOwn(kind,'value')){
-      if(kind.value==='pre-stitcher')phase='MEDIA_CALLBACK_PRE';
-      else if(kind.value==='stitcher')phase='MEDIA_CALLBACK_STITCH';
-     }
-    }catch(_){/* No request traversal or diagnostic-only throw. */}
-    return mediaPolicyPhase(phase,()=>bound.override(request));
-   };
+   const bound=require('./bounded_media_threads.cjs').createOverride(req.media_thread_policy);
    await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
-     inputProps:{__bieRasterMode:{kind:'full'}},ffmpegOverride:override}));
-   mediaThreadExecution=mediaPolicyPhase('MEDIA_POLICY_COMPLETE',()=>bound.completed());
+     inputProps:{__bieRasterMode:{kind:'full'}},ffmpegOverride:bound.override}));
+   mediaThreadExecution=bound.completed();
   }else{
    await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
     inputProps:{__bieRasterMode:{kind:'full'}}}));

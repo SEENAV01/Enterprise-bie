@@ -68,22 +68,11 @@ def validate(root):
         if (len(original)!=row['original_bytes'] or sha256(original).hexdigest()!=row['original_sha256'] or
             blob!=row['original_git_blob']):raise ValueError('MEDIA_THREAD_AMENDMENT_PREIMAGE')
         active = regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
-        if row['path'] in NATIVE_TARGETS:
-            try:
-                from compiler_media_policy_observation_amendment import authenticated_previous_bytes
-            except ImportError:
-                from scripts.compiler_media_policy_observation_amendment import authenticated_previous_bytes
-            active = authenticated_previous_bytes(root,row['path'],row['active_sha256'])
         if b'\r' in active or len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
             raise ValueError('MEDIA_THREAD_AMENDMENT_ACTIVE_BYTES')
     for row in doc['additions']:
         if set(row)!={'path','active_bytes','active_sha256'}:raise ValueError('MEDIA_THREAD_AMENDMENT_ADDITION')
         active = regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
-        try:
-            from compiler_media_policy_observation_amendment import authenticated_previous_bytes
-        except ImportError:
-            from scripts.compiler_media_policy_observation_amendment import authenticated_previous_bytes
-        active = authenticated_previous_bytes(root,row['path'],row['active_sha256'])
         if b'\r' in active or len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
             raise ValueError('MEDIA_THREAD_AMENDMENT_ADDED_BYTES')
     return doc

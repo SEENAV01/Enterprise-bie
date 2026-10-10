@@ -272,6 +272,11 @@ class MediaThreadAmendment(unittest.TestCase):
             'scripts/compiler_capture_observation_amendment.py'}
         paths.update(r['path'] for r in cls.document['replacements']+cls.document['additions'])
         paths.update(r['preimage'] for r in cls.document['replacements'])
+        from scripts import compiler_media_policy_observation_amendment as policy_observation
+        policy_doc=policy_observation.validate(ROOT)
+        paths.add(policy_observation.DOCUMENT)
+        paths.update(r['path'] for r in policy_doc['replacements'])
+        paths.update(r['preimage'] for r in policy_doc['replacements'])
         for name in paths:
             p=cls.root/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,p)
 

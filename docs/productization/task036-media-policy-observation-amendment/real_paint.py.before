@@ -31,33 +31,15 @@ CAPTURE_DIAGNOSTIC_GUARDS={
 def validate_capture_failure_observation(value,manifest):
     """Closed failure scalars only. This does not admit paint or inspect errors."""
     keys={'schema','phase','guard_code','frame','shot_kind','target_index','frame_count','manifest_sha256','accepted'}
-    if type(value) is dict and value.get('schema')=='bie.capture-controller-failure/2':keys.add('policy_calls')
     if type(value) is not dict or set(value)!=keys:raise ValueError('CAPTURE_DIAGNOSTIC_SHAPE')
     for key in ('schema','phase','guard_code','shot_kind','manifest_sha256'):
         if type(value[key]) is not str or len(value[key])>64:raise ValueError('CAPTURE_DIAGNOSTIC_TYPE')
-    policy_phases={'MEDIA_POLICY_CREATE','MEDIA_CALLBACK_PRE','MEDIA_CALLBACK_STITCH','MEDIA_CALLBACK_UNKNOWN','MEDIA_POLICY_COMPLETE'}
-    if value['schema']=='bie.capture-controller-failure/2':
-        calls=value['policy_calls']
-        if (type(calls) is not dict or set(calls)!={'create','pre_stitcher','stitcher','unknown_callback','completion'} or
-            any(type(v) is not int or not 0<=v<=2 for v in calls.values()) or calls['create']!=1 or
-            calls['completion']>1 or sum(calls.values())>6):raise ValueError('CAPTURE_DIAGNOSTIC_CALLS')
-        key={'MEDIA_POLICY_CREATE':'create','MEDIA_CALLBACK_PRE':'pre_stitcher','MEDIA_CALLBACK_STITCH':'stitcher',
-             'MEDIA_CALLBACK_UNKNOWN':'unknown_callback','MEDIA_POLICY_COMPLETE':'completion'}.get(value['phase'])
-        if key is None or calls[key]<1:raise ValueError('CAPTURE_DIAGNOSTIC_CALL_PHASE')
-    phases=policy_phases if value['schema']=='bie.capture-controller-failure/2' else CAPTURE_DIAGNOSTIC_PHASES
-    if (value['schema'] not in (CAPTURE_DIAGNOSTIC_SCHEMA,'bie.capture-controller-failure/2') or value['phase'] not in phases or
+    if (value['schema']!=CAPTURE_DIAGNOSTIC_SCHEMA or value['phase'] not in CAPTURE_DIAGNOSTIC_PHASES or
         value['accepted'] is not False or type(manifest) is not str or len(manifest)!=64 or
         any(c not in '0123456789abcdef' for c in manifest) or value['manifest_sha256']!=manifest):
         raise ValueError('CAPTURE_DIAGNOSTIC_IDENTITY')
     code=value['guard_code']
-    policy_guards={
-        'MEDIA_POLICY_CREATE':{'POLICY_SHAPE','POLICY_IDENTITY'},
-        'MEDIA_CALLBACK_PRE':{'REQUEST_SHAPE','ARGUMENT_SHAPE','ARGUMENT_THREADS','ARGUMENT_INPUT','ARGUMENT_OUTPUT','ARGUMENT_CODEC','ARGUMENT_PIPE','CALLBACK_DUPLICATE'},
-        'MEDIA_CALLBACK_STITCH':{'REQUEST_SHAPE','ARGUMENT_SHAPE','ARGUMENT_THREADS','ARGUMENT_INPUT','ARGUMENT_OUTPUT','ARGUMENT_CODEC','CALLBACK_DUPLICATE'},
-        'MEDIA_CALLBACK_UNKNOWN':{'REQUEST_SHAPE','CALLBACK_KIND'},
-        'MEDIA_POLICY_COMPLETE':{'COMPLETION_COUNTS'}}
-    if code!='NONE_RECORDED' and (code not in policy_guards.get(value['phase'],set()) if value['schema']=='bie.capture-controller-failure/2'
-            else CAPTURE_DIAGNOSTIC_GUARDS.get(code)!=value['phase']):
+    if code!='NONE_RECORDED' and CAPTURE_DIAGNOSTIC_GUARDS.get(code)!=value['phase']:
         raise ValueError('CAPTURE_DIAGNOSTIC_GUARD')
     if (type(value['frame_count']) is not int or not 1<=value['frame_count']<=2400 or
         type(value['frame']) is not int or not -1<=value['frame']<value['frame_count'] or

@@ -355,6 +355,11 @@ class MediaAmendmentChain(unittest.TestCase):
         paths.add(threads.DOCUMENT)
         paths.update(row["path"] for row in thread_doc["replacements"] + thread_doc["additions"])
         paths.update(row["preimage"] for row in thread_doc["replacements"])
+        from scripts import compiler_media_policy_observation_amendment as policy_observation
+        policy_doc=policy_observation.validate(ROOT)
+        paths.add(policy_observation.DOCUMENT)
+        paths.update(r['path'] for r in policy_doc['replacements'])
+        paths.update(r['preimage'] for r in policy_doc['replacements'])
         for name in paths:
             target = cls.root / name; target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / name).read_bytes())
