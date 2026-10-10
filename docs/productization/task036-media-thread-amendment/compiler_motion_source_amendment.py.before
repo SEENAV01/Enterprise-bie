@@ -60,13 +60,7 @@ def validate(root):
             raise ValueError("M1_AMENDMENT_NEW_MODULE_BYTES")
     actual = {p.relative_to(root).as_posix() for p in (root / "bie/compiler").rglob("*")
         if p.is_file() and "__pycache__" not in p.parts}
-    # The original sealed inventory stays historical. Exactly one separately
-    # authenticated new media-policy helper is admitted by the follow-on chain.
-    try:
-        from compiler_media_thread_amendment import authenticated_added_paths
-    except ImportError:
-        from scripts.compiler_media_thread_amendment import authenticated_added_paths
-    if actual != set(doc["compiler_paths"]) | authenticated_added_paths(root):
+    if actual != set(doc["compiler_paths"]):
         raise ValueError("M1_AMENDMENT_UNEXPECTED_COMPILER_PATH")
     return sealed, doc
 

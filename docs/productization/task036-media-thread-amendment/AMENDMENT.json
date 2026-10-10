@@ -1,0 +1,69 @@
+{
+  "schema": "bie.task036.media-thread-source-amendment/1",
+  "authority": "OWNER_CONTINUING_TASK036_PHASE3_EVIDENCE_BASED_MINIMUM_NATIVE_REPAIR",
+  "scope": "EXPLICIT_GOVERNED_M1_BOUNDED_MEDIA_THREADS; LEGACY_DEFAULT_AND_SANDBOX_LIMITS_UNCHANGED",
+  "parent_commit": "7c9bafce7cc025f7e134ec6fb46a66197686ec5e",
+  "parent_tree": "01eb1a9e52a41f1fd1488e06f056a0aab437d396",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "previous_amendment_sha256": "7a624cfa43285762b26cd6987141a574721ccfda140e6cc5585c3cbd6c24b6a7",
+  "capture_amendment_sha256": "1526b7588616a16d468e98e8047823a19619fd9bbe555005856f3757b76e1024",
+  "original_manifest_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+  "replacements": [
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "preimage": "docs/productization/task036-media-thread-amendment/remotion_raster_capture.cjs.before",
+      "original_bytes": 10179,
+      "original_sha256": "16ef54154246460bd82cbc99c61a4356323a473764a54be60ac5e07432dc0790",
+      "original_git_blob": "8d2393cf2b6a95fff7d7e4b9d9a8f0d01e3ddfdb",
+      "active_bytes": 10718,
+      "active_sha256": "2d3a4983e0bc6b38204dc41c9a6f92a15a04ed9691f9ac7680fc142e9679eee4"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "preimage": "docs/productization/task036-media-thread-amendment/real_paint.py.before",
+      "original_bytes": 22704,
+      "original_sha256": "3c00fb7b83213bb511ee0e76a4380947510620b920bf10a01fa53fa30acf4b72",
+      "original_git_blob": "dfaa6c36ec63cd05dac9e321abeb9b8271e8bcb6",
+      "active_bytes": 25174,
+      "active_sha256": "d068d65f78c4b97f3b413fc1b440d78437d885200efee9a3f82f8d5f922fdb54"
+    },
+    {
+      "path": "scripts/compiler_media_observation_amendment.py",
+      "preimage": "docs/productization/task036-media-thread-amendment/compiler_media_observation_amendment.py.before",
+      "original_bytes": 4849,
+      "original_sha256": "b96c7b3627869cff5381593b84555560eff1c866489d3a83e7426bfc28eee79c",
+      "original_git_blob": "eada013c0f0c0b76b7b472ef8993553dc272c453",
+      "active_bytes": 5221,
+      "active_sha256": "ac0fc8c084ff5ed7aa75670e1ec42f35444b4c608d65fe28553f4bb6bd778796"
+    },
+    {
+      "path": "scripts/compiler_motion_source_amendment.py",
+      "preimage": "docs/productization/task036-media-thread-amendment/compiler_motion_source_amendment.py.before",
+      "original_bytes": 4524,
+      "original_sha256": "57cb85226fdbdb73047bcfaa5f454c38f57c7b78172614a45fa3b5736b074c33",
+      "original_git_blob": "c246c694a0c1baad5c1c605d9ba57e5434c9aa3a",
+      "active_bytes": 4912,
+      "active_sha256": "f322435ccab90ef652dadaf45b4baf380e7a2666728d6b3c5c3125965ef7f16e"
+    }
+  ],
+  "additions": [
+    {
+      "path": "bie/compiler/qa_support/bounded_media_threads.cjs",
+      "active_bytes": 3260,
+      "active_sha256": "1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d"
+    }
+  ],
+  "legacy_default_unchanged": true,
+  "resource_limits_unchanged": true,
+  "motion_semantics_unchanged": true,
+  "runtime_policy": {
+    "schema": "bie.comp-m1.media-threads/1",
+    "profile": "producer-motion-v1",
+    "remotion_version": "4.0.506",
+    "decoder_threads": 1,
+    "encoder_threads": 1,
+    "filter_threads": 1
+  },
+  "product_accepted": false,
+  "independent_review_status": "PENDING_SEPARATE_REVIEW"
+}

@@ -81,6 +81,14 @@ class ExactMotionAmendment(unittest.TestCase):
         shutil.copytree(ROOT/"docs/productization/task036-motion-amendment",self.root/"docs/productization/task036-motion-amendment")
         (self.root/"manifests").mkdir()
         shutil.copyfile(ROOT/"manifests"/audit.MANIFEST,self.root/"manifests"/audit.MANIFEST)
+        # Preserve every original assertion while exercising the exact current
+        # follow-on helper inventory through its sealed amendment chain.
+        for name in ('task036-capture-observation-amendment','task036-media-observation-amendment','task036-media-thread-amendment'):
+            shutil.copytree(ROOT/'docs/productization'/name,self.root/'docs/productization'/name)
+        (self.root/'scripts').mkdir()
+        for name in ('compiler_cache_source_amendment.py','compiler_capture_observation_amendment.py',
+                     'compiler_media_observation_amendment.py','compiler_motion_source_amendment.py'):
+            shutil.copyfile(ROOT/'scripts'/name,self.root/'scripts'/name)
 
     def tearDown(self):self.tmp.cleanup()
 

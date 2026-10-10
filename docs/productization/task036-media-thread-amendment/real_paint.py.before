@@ -222,32 +222,6 @@ def isolated_typecheck(root, *, node, evidence_directory):
     return result
 
 
-def _governed_media_thread_policy(raw,target):
-    """A new explicit media policy, selected only after live M1 admission.
-
-    No opaque metadata, caller safety flag or legacy action selects this path.
-    This changes media thread allocation, not native motion or resource limits.
-    """
-    from .governed_motion import validate_document,PROFILE,METADATA
-    profile=validate_document(raw,target)
-    if profile!=PROFILE:return None
-    if target.remotion_version!='4.0.506':raise CompilerQAError('M1_MEDIA_THREAD_PIN')
-    return {'schema':'bie.comp-m1.media-threads/1','profile':PROFILE,
-            'remotion_version':'4.0.506','admission_id':raw['metadata'][METADATA]['admission_id'],
-            'decoder_threads':1,'encoder_threads':1,'filter_threads':1}
-
-
-def _validate_media_thread_execution(value,policy):
-    """Closed scalar proof of the actual pinned callback path, no coercion."""
-    if (type(value) is not dict or set(value)!=set(policy)|{'pre_stitcher_calls','stitcher_calls'} or
-        any(type(value[k]) is not int or value[k]!=1 for k in
-            ('decoder_threads','encoder_threads','filter_threads','stitcher_calls')) or
-        type(value['pre_stitcher_calls']) is not int or value['pre_stitcher_calls'] not in (0,1) or
-        any(type(value[k]) is not str or value[k]!=v for k,v in policy.items() if type(v) is str)):
-        raise CompilerQAError('M1_MEDIA_THREAD_EXECUTION_IDENTITY')
-    return value
-
-
 def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
     from .hardened_scene_compile import require_h3_workspace,compile_h3_scene
     root=Path(workspace).absolute();out=Path(output).absolute()
@@ -255,7 +229,6 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
     checked=require_h3_workspace(root);envelope=json.loads((root/'CHECKED_SCENE.json').read_text())
     if asdict(target)!=envelope['target']:raise CompilerQAError('ACTUAL_PAINT_TARGET_MISMATCH')
     compiled=compile_h3_scene(envelope['document'],target=target,motion_preference=envelope['motion_preference']);raw=compiled.effective_document
-    media_thread_policy=_governed_media_thread_policy(raw,target)
     n=(raw['duration_ms']*target.fps+999)//1000
     if n>2400 or n*len(raw['elements'])>12000:raise CompilerQAError('ACTUAL_PAINT_WORK_BUDGET_NO_SAMPLED_PASS')
     from .raster_capture import build_raster_targets,capture_budget,inspect_counterfactual_capture,REAL_SCOPE
@@ -268,10 +241,6 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         if 'node_modules/'+name not in before['installed_packages']:raise CompilerQAError('ACTUAL_PAINT_RENDERER_DEPENDENCY_MISSING:'+name)
     out.mkdir(parents=True)
     nonce=secrets.token_hex(24);support=Path(__file__).parent/'qa_support'
-    media_helper=support/'bounded_media_threads.cjs'
-    media_helper_sha256='1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d'
-    if media_thread_policy is not None and file_hash(media_helper)[0]!=media_helper_sha256:
-        raise CompilerQAError('M1_MEDIA_THREAD_SOURCE_IDENTITY')
     with tempfile.TemporaryDirectory(prefix='bie-real-paint-') as td:
         stage=Path(td)/'project'
         shutil.copytree(root,stage,symlinks=True,ignore=shutil.ignore_patterns('out','render-evidence','validation-runs'))
@@ -285,7 +254,6 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
              'fps':target.fps,'frame_count':n,'nonce':nonce,'rasterTargets':raster_targets,
              'scene_sha256':digest(raw),'manifest_sha256':checked.manifest_sha256,
              'equationFonts':{e['element_id']:e['props'].get('font_size',32) for e in raw['elements'] if e['element_type']=='equation'}}
-        if media_thread_policy is not None:req['media_thread_policy']=media_thread_policy
         # JS measurement lives in checked-in trusted helpers, not the ingested book.
         # Enable checkJs=false only for helper DOM code in a separate module; original strict TS config unchanged.
         helper='export const baseMeasure = '+(support/'layout_measure.js').read_text().strip()+';\nexport const paintMeasure = '+(support/'paint_measure.js').read_text().strip()+';\n'
@@ -327,11 +295,6 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
         (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
         if not process.process.passed:raise CompilerQAError('ACTUAL_PAINT_EXECUTION_BLOCKED:'+process.outcome+':'+process.process.stderr[:500])
         data=json.loads((capture/'RESULT.json').read_text())
-        if media_thread_policy is not None:
-            expected_media=_validate_media_thread_execution(data.get('media_thread_execution'),media_thread_policy)
-            if file_hash(media_helper)[0]!=media_helper_sha256:
-                raise CompilerQAError('M1_MEDIA_THREAD_EXECUTION_IDENTITY')
-        elif 'media_thread_execution' in data:raise CompilerQAError('M1_MEDIA_THREAD_LEGACY_DRIFT')
         if data.get('scope')!='REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE' or data.get('nonce')!=nonce or data.get('real_remotion') is not True or data.get('browser_errors')!=[]:
             raise CompilerQAError('ACTUAL_PAINT_PRODUCER_MISMATCH')
         frames=data['frames']
@@ -358,8 +321,5 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
                   'helper_sha256':file_hash(stage/'qa-paint-helper.js')[0],'producer_sha256':file_hash(support/'remotion_raster_capture.cjs')[0],
                   'frame_count':n,'fit':fit,'paint':quality,'raster':raster,'font_coverage':font_evidence,'kernel_policy':kernel,'real_remotion':True,
                   'scope':'PROCESS_OWNED_INSTRUMENTED_ORIGINAL_SCENE','learning_quality':'NOT_EVALUATED','accepted':False}
-        if media_thread_policy is not None:
-            evidence['media_thread_execution']=expected_media
-            evidence['media_thread_helper_sha256']=media_helper_sha256
         (out/'EVIDENCE.json').write_bytes(canonical_json(evidence))
         return ActualPaintWitness(checked.manifest_sha256,digest(evidence),before['identity_sha256'],n,fit['passed'] and quality['passed'] and raster['passed'],evidence,_SEAL)

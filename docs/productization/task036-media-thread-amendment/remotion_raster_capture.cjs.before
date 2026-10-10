@@ -145,23 +145,14 @@ async function main(){
   }
   const outputLocation=path.join(out,'captured.mp4');
   mark('RENDER_MEDIA');observation.shot_kind='NONE';observation.target_index=-1;
-  let mediaThreadExecution;
-  if(Object.hasOwn(req,'media_thread_policy')){
-   const bound=require('./bounded_media_threads.cjs').createOverride(req.media_thread_policy);
-   await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
-     inputProps:{__bieRasterMode:{kind:'full'}},ffmpegOverride:bound.override}));
-   mediaThreadExecution=bound.completed();
-  }else{
-   await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
+  await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
     inputProps:{__bieRasterMode:{kind:'full'}}}));
-  }
   const counterfactual={schema_version:'bie.counterfactual-capture.v1',scope:'REAL_REMOTION_COUNTERFACTUAL_PIXELS',
     scene_sha256:req.scene_sha256,manifest_sha256:req.manifest_sha256,width:req.width,height:req.height,fps:req.fps,
     frame_count:req.frame_count,targets:req.rasterTargets,frames:rasterFrames,browser_errors:errors};
   mark('MEDIA_HASH');
   const result={schema_version:'bie.actual-remotion-paint.v1',nonce:req.nonce,frames,browser_errors:errors,counterfactual,
     scope:'REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE',real_react:true,real_remotion:true,media_sha256:hash(outputLocation),accepted:false};
-  if(mediaThreadExecution)result.media_thread_execution=mediaThreadExecution;
   mark('RESULT_WRITE');
   fs.writeFileSync(path.join(out,'RESULT.json'),JSON.stringify(result,null,2));
  }catch(error){snapshotFailure();throw error;}
