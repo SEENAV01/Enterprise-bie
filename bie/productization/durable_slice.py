@@ -123,6 +123,7 @@ class KnowledgeProducerService:
     blocked_codes = frozenset({"provider_unavailable"})
     graph_for = staticmethod(legacy_enterprise_graph_v1)
     persistence_factory = ClosedPersistence
+    orchestrator_type = EnterpriseOrchestrator
 
     def __init__(self, root, cas, *, registry=None, fault=None, authorize=None):
         self.root = Path(root)
@@ -252,15 +253,19 @@ class KnowledgeProducerService:
     def task_id(self, run_id, stage, attempt):
         return "work-" + digest(dict(run=run_id,stage=stage,attempt=attempt))
 
+    def stage_input_refs(self, run_id, stage):
+        """Historical default unchanged; explicit consumed-input composition hook."""
+        return [run_id+"-source"] if stage == "SOURCE" else [ref
+            for predecessor in self.graph_for().stages[stage].required_predecessors
+            for ref in DurableArtifactResolver(self,run_id).outputs_for_stage(run_id,predecessor)]
+
     def schedule(self, run_id):
         adapter = PersistedRunAdapter(self,run_id)
         for stage in self.stages:
             runtime = adapter.state.stages[stage]
             if runtime.current.state in ("PENDING","READY") and adapter.state.predecessors_succeeded(stage):
                 if runtime.current.state == "PENDING": adapter.state.mark_ready(stage)
-                refs = [run_id+"-source"] if stage == "SOURCE" else [ref
-                    for predecessor in self.graph_for().stages[stage].required_predecessors
-                    for ref in DurableArtifactResolver(self,run_id).outputs_for_stage(run_id,predecessor)]
+                refs = self.stage_input_refs(run_id, stage)
                 self.write_guard()
                 self.queue.enqueue(DurableTaskMessage(self.task_id(run_id,stage,runtime.current.attempt),
                     run_id,stage,runtime.current.attempt,digest(refs),[self.capability],refs,max_deliveries=1))
@@ -335,7 +340,7 @@ class KnowledgeProducerService:
             graph = self.graph_for()
             definitions = {s:StageDefinition(s,list(graph.stages[s].required_predecessors),
                 graph.stages[s].consumes,graph.stages[s].emits,"PROD029") for s in self.stages}
-            orchestrator = EnterpriseOrchestrator(adapter.state,definitions,
+            orchestrator = self.orchestrator_type(adapter.state,definitions,
                 {task.stage_id:self.executor(config,task.stage_id,lease)},
                 DurableArtifactResolver(self,run_id),config["config"])
             try:

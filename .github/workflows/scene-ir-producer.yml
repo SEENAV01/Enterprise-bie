@@ -1,0 +1,76 @@
+name: BIE Scene IR Producer
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/scene-ir-producer-001]
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bie/productization/**'
+      - 'apps/operator/*producer.py'
+      - 'apps/operator/*worker_child.py'
+      - 'scripts/smoke_bie_scene_ir.py'
+      - 'tests/productization/scene_ir/**'
+      - 'tools/run_task036_tests.py'
+      - 'docs/productization/TASK036*'
+      - 'docs/productization/m1-review/**'
+      - '.github/workflows/scene-ir-producer.yml'
+
+permissions:
+  contents: read
+concurrency:
+  group: bie-scene-ir-producer-${{ github.ref }}
+  cancel-in-progress: false
+
+# This new producer job does not replace the existing M1 full prerequisite
+# workflow: its Task035 129/4972, safety 12/20, M1 NEW, native-extra, strict AFTER,
+# legacy processes, audits and all eight real-render jobs remain mandatory on
+# the same final candidate. Neither workflow alone grants product acceptance.
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing approved source-admission dependency profiles
+        # No browser/render execution in this product-stage workflow. Those
+        # remain governed test-only M1 jobs with the unchanged full setup.
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          python -m pip install -r requirements-comp-h3.txt
+          npm install --global typescript@5.8.3
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Strict actual compiler interpreter and parser AFTER
+        run: python -I -B tests/productization/animation/verify_post_dir_provisioning.py --output "$RUNNER_TEMP/task036-evidence/ci-r2-after.json"
+      - name: Source-derived Scene IR admission conservation currentness and recovery
+        run: python -B tools/run_task036_tests.py --output "$RUNNER_TEMP/task036-evidence/new.json"
+      - name: Actual eleven-stage quantitative chronology cellular and blocked Math processes
+        run: python -B scripts/smoke_bie_scene_ir.py --output "$RUNNER_TEMP/task036-evidence/process.json"
+      - name: Canonical exact source and historical amendment preservation
+        run: |
+          python -B scripts/audit_canonical.py --output "$RUNNER_TEMP/task036-evidence/source-preservation.json"
+          python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/task036-evidence/post-dir-source.json"
+          python -B scripts/verify_ingested_archives.py --output "$RUNNER_TEMP/task036-evidence/ingested-source.json"
+      - name: Safe bounded technical receipts only
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-scene-ir-producer-evidence
+          path: ${{ runner.temp }}/task036-evidence/*.json
+          if-no-files-found: error
+          retention-days: 14
