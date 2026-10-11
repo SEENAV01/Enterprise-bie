@@ -1250,5 +1250,88 @@ class ClosedFailureFormatterPrivacy(unittest.TestCase):
         self.assertTrue(set(ERROR_CODES) <= verified)
 
 
+class ParentReturnGuardPrivacy(unittest.TestCase):
+    def reject(self, observer, code):
+        error = ValueError(MARKER)
+        def original(condition, actual):
+            self.assertIs(condition, False); self.assertIs(actual, code)
+            raise error
+        with self.assertRaises(ValueError) as caught:
+            observer.delegate_require(original, False, code)
+        self.assertIs(caught.exception, error)
+        value = observer.return_snapshot()
+        self.assertTrue(diag.is_safe_return_guard(value))
+        self.assertNotIn(MARKER, json.dumps(value))
+        self.assertEqual(value["inner_outcome"], "UNKNOWN")
+        return value
+
+    def test_exact_caught_type_labels_not_inner_exit_codes(self):
+        for code, category in diag.RETURN_FAILURES.items():
+            value = self.reject(diag.ParentReturnGuardObserver(True), code)
+            self.assertEqual((value["availability"], value["reported_failure_category"]), ("OBSERVED", category))
+
+    def test_unknown_private_suffix_is_not_exported(self):
+        value = self.reject(diag.ParentReturnGuardObserver(True), "FAILED:" + MARKER)
+        self.assertEqual(value["reported_failure_category"], "UNCLASSIFIED")
+
+    def test_oversized_private_failure_is_unobserved(self):
+        value = self.reject(diag.ParentReturnGuardObserver(True), "FAILED:" + MARKER * 100000)
+        self.assertEqual(value["availability"], "UNOBSERVED")
+
+    def test_unverified_origin_cannot_grant_observation(self):
+        self.assertEqual(self.reject(diag.ParentReturnGuardObserver(False), "FAILED:TimeoutExpired")["availability"], "UNOBSERVED")
+
+    def test_earlier_static_rejection_not_final_failure(self):
+        self.assertEqual(self.reject(diag.ParentReturnGuardObserver(True), "HOST_DEADLINE")["availability"], "UNOBSERVED")
+
+    def test_string_subclass_is_not_inspected(self):
+        class Foreign(str):
+            def startswith(self, *_): raise AssertionError(MARKER)
+            def __hash__(self): raise AssertionError(MARKER)
+        self.assertEqual(self.reject(diag.ParentReturnGuardObserver(True), Foreign("FAILED:TimeoutExpired"))["availability"], "UNOBSERVED")
+
+    def test_original_success_returned_identically_once(self):
+        observer = diag.ParentReturnGuardObserver(True); calls = []; result = object()
+        def original(*args): calls.append(args); return result
+        self.assertIs(observer.delegate_require(original, True, "FAILED:TimeoutExpired"), result)
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(observer.return_snapshot()["availability"], "UNOBSERVED")
+
+    def test_existing_guard_shape_and_classification_unchanged(self):
+        observer = diag.ParentReturnGuardObserver(True)
+        self.reject(observer, "FAILED:TimeoutExpired")
+        self.assertTrue(diag.is_safe_guard_observation(observer.snapshot()))
+        self.assertEqual(observer.snapshot()["unclassified_guard_rejections"], 1)
+        self.assertEqual(set(observer.snapshot()), set(diag.empty_guard()))
+
+    def test_tampered_observation_fails_closed(self):
+        for key, replacement in (("accepted", True), ("inner_outcome", "SUCCEEDED"),
+                ("reported_failure_category", MARKER), ("availability", "PASS")):
+            row = diag.empty_return_guard(); row[key] = replacement
+            self.assertFalse(diag.is_safe_return_guard(row))
+
+    def test_unknown_fields_and_whole_private_objects_rejected(self):
+        row = diag.empty_return_guard(); row["stderr"] = MARKER
+        self.assertFalse(diag.is_safe_return_guard(row))
+        self.assertFalse(diag.is_safe_return_guard(object()))
+
+    def test_dynamic_final_guard_source_is_explicit(self):
+        tree = ast.parse((ROOT / "bie/compiler/chromium_resource_worker.py").read_text())
+        calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+            and n.func.id == "require" and len(n.args) == 2 and isinstance(n.args[1], ast.BinOp)
+            and isinstance(n.args[1].left, ast.Constant) and n.args[1].left.value == "FAILED:"]
+        self.assertEqual(len(calls), 1)
+
+    def test_string_subclass_key_cannot_impersonate_closed_field(self):
+        class Foreign(str): pass
+        row = diag.empty_return_guard(); row[Foreign("schema")] = row.pop("schema")
+        self.assertFalse(diag.is_safe_return_guard(row))
+
+    def test_failed_snapshot_copy_is_contained_without_private_export(self):
+        observer = diag.ParentReturnGuardObserver(True)
+        observer._return_guard = object()
+        self.assertEqual(observer.return_snapshot(), diag.empty_return_guard())
+
+
 if __name__ == "__main__":
     unittest.main()

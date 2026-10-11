@@ -742,6 +742,44 @@ GUARD_CODES = frozenset({
 GUARD_ERROR_CODES = frozenset({"COMPILER_QA_ERROR", "FILE_NOT_FOUND", "PROCESS_LOOKUP",
     "PERMISSION_ERROR", "OS_ERROR", "VALUE_ERROR", "TYPE_ERROR", "KEY_ERROR",
     "TIMEOUT_EXPIRED", "UNICODE_DECODE_ERROR", "MEMORY_ERROR", "INTERRUPTED"})
+RETURN_GUARD_SCHEMA = "bie.task036.m1.parent-worker-return-guard/1"
+# Exact source-emitted caught-type names and fixed native failure codes. A
+# reported name is NOT a recovered traceback, inner exit code or root cause.
+RETURN_FAILURES = {
+    "FAILED:FileNotFoundError": "FILE_NOT_FOUND", "FAILED:ProcessLookupError": "PROCESS_LOOKUP",
+    "FAILED:PermissionError": "PERMISSION_ERROR", "FAILED:OSError": "OS_ERROR",
+    "FAILED:ValueError": "VALUE_ERROR", "FAILED:TypeError": "TYPE_ERROR", "FAILED:KeyError": "KEY_ERROR",
+    "FAILED:TimeoutExpired": "TIMEOUT_EXPIRED", "FAILED:UnicodeDecodeError": "UNICODE_DECODE_ERROR",
+    "FAILED:MemoryError": "MEMORY_ERROR", "FAILED:CANCELLED": "CANCELLED",
+    "FAILED:MEMORY_EXHAUSTED": "MEMORY_EXHAUSTED", "FAILED:CLEANUP_FAILED": "CLEANUP_FAILED",
+    "FAILED:CHROMIUM_RESOURCE_DRIVER_FAILED": "DRIVER_FAILED",
+}
+
+
+def empty_return_guard(verified=False):
+    return dict(schema=RETURN_GUARD_SCHEMA, provenance="CANONICAL_PARENT_FINAL_REQUIRE",
+        call_origin_verified=verified is True, availability="UNOBSERVED", reported_failure_category=UNKNOWN,
+        inner_outcome=UNKNOWN, render_passed=False, accepted=False, product_accepted=False)
+
+
+def is_safe_return_guard(value):
+    try:
+        template = empty_return_guard()
+        require(type(value) is dict)
+        value = value.copy()
+        require(all(type(key) is str for key in value) and set(value) == set(template))
+        for key in ("schema", "provenance", "inner_outcome"):
+            require(type(value[key]) is str and value[key] == template[key])
+        require(type(value["call_origin_verified"]) is bool)
+        require(type(value["availability"]) is str and value["availability"] in {"UNOBSERVED", "OBSERVED"})
+        category = value["reported_failure_category"]
+        require(type(category) is str and category in set(RETURN_FAILURES.values()) | {UNKNOWN, "UNCLASSIFIED"})
+        if value["availability"] == "OBSERVED": require(value["call_origin_verified"] is True)
+        else: require(category == UNKNOWN)
+        for key in ("render_passed", "accepted", "product_accepted"): require(value[key] is False)
+        return True
+    except BaseException:
+        return False
 
 
 def empty_guard(verified=False, availability="UNAVAILABLE"):
@@ -863,6 +901,34 @@ class WorkerGuardObserver:
         return dict(self._safe) if is_safe_guard_observation(self._safe) else empty_guard(availability="INVALID")
 
 
+class ParentReturnGuardObserver(WorkerGuardObserver):
+    """Distinct versioned extension; the original observer retains only _safe."""
+    def __init__(self, verified=False):
+        super().__init__(verified)
+        self._return_guard = empty_return_guard(verified)
+
+    def delegate_require(self, original, condition, code):
+        try:
+            return super().delegate_require(original, condition, code)
+        except BaseException:
+            try:
+                if (self._return_guard["call_origin_verified"] is True and type(condition) is bool
+                        and condition is False and type(code) is str and len(code) <= 128
+                        and code.startswith("FAILED:")):
+                    self._return_guard.update(availability="OBSERVED",
+                        reported_failure_category=RETURN_FAILURES.get(code, "UNCLASSIFIED"))
+            except BaseException:
+                pass
+            raise
+
+    def return_snapshot(self):
+        try:
+            value = self._return_guard.copy() if type(self._return_guard) is dict else None
+            return value if is_safe_return_guard(value) else empty_return_guard()
+        except BaseException:
+            return empty_return_guard()
+
+
 def canonical_guard_binding():
     from types import ModuleType, FunctionType
     from bie.compiler import chromium_resource_worker as worker
@@ -883,7 +949,7 @@ def observe_worker_rejections():
         observer = None
         try:
             worker, original_require, original_grant = canonical_guard_binding()
-            observer = WorkerGuardObserver(verified=True)
+            observer = ParentReturnGuardObserver(verified=True)
         except BaseException:
             yield observer
             return

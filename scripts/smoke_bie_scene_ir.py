@@ -13,6 +13,14 @@ sys.path.insert(0, str(ROOT))
 from scripts.smoke_bie_animation import SmokeFailure, check
 
 
+def _read_checkpoint(root):
+    try:
+        from tests.productization.scene_ir.positive_process_observations import read
+        return read(root)
+    except BaseException:
+        return "UNAVAILABLE", None
+
+
 def journey(lines, applicability):
     from apps.operator.contracts import Credentials, Principal
     from apps.operator.service import Service
@@ -54,6 +62,7 @@ def journey(lines, applicability):
         first = supervise(command, env, PdfProcessBudget())
         elapsed = round(time.monotonic()-started, 3)
         if not first.completed or first.exit_code != 0:
+            checkpoint_state, checkpoint = _read_checkpoint(root)
             with port.native(principal, run, "read") as service:
                 saved = service.persistence.load_run_state(run)
                 states = {s: a["attempts"][-1]["state"] for s, a in saved["stages"].items()}
@@ -62,6 +71,7 @@ def journey(lines, applicability):
                 queues = service.queue.stats()
             raise SmokeFailure("child_execution_failed" if first.completed else "child_supervision_incomplete",
                 dict(safe_diagnostics=safe, persisted_stage_states=states, queue_counts=queues,
+                    child_checkpoint_state=checkpoint_state, child_checkpoint=checkpoint,
                     exit_code=first.exit_code, child_wall_seconds=elapsed, child_output_bytes=len(first.output)))
         second = supervise(command + ["--verify-only"], env, PdfProcessBudget())
         check(second.completed and second.exit_code == 0, "restart_failed")

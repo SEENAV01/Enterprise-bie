@@ -307,6 +307,10 @@ def run(args):
                                     guarded = guard_observer.snapshot()
                                     if is_safe_guard_observation(guarded):
                                         phase["paint_worker_guard_observation"] = guarded
+                                    from tests.compiler.m1_safe_paint_diagnostics import is_safe_return_guard
+                                    returned_guard = guard_observer.return_snapshot() if guard_observer is not None else None
+                                    if is_safe_return_guard(returned_guard):
+                                        phase["paint_parent_return_guard"] = returned_guard
                                 except BaseException:
                                     pass
                                 try:
