@@ -262,6 +262,55 @@ class RecoveryObservationControls(unittest.TestCase):
         self.assertEqual(exits, [])
         self.assertEqual(reports, [])
 
+    def test_cpu_guard_is_closed_explicit_version_three(self):
+        row = safe.child_cpu_guard('RECOVERY', 'UNKNOWN', 'CHILD_OPERATION_STARTED', mode='RECOVER', process_cpu_ms=1234)
+        self.assertEqual(row['schema'], 'bie.task036.recovery-child-guard/3')
+        self.assertEqual(set(row), safe.CPU_FIELDS)
+        self.assertEqual(safe.validate_guard(row), row)
+
+    def test_cpu_unknown_is_not_zero(self):
+        args = ('WORK', self.boundary, 'CHILD_EXIT_BOUNDARY_REACHED')
+        self.assertIsNone(safe.child_cpu_guard(*args)['process_cpu_ms'])
+        self.assertEqual(safe.child_cpu_guard(*args, process_cpu_ms=0)['process_cpu_ms'], 0)
+
+    def test_cpu_bool_negative_and_overflow_fail_closed(self):
+        for value in (True, False, -1, 60001, 10**200):
+            with self.subTest(value_type=type(value).__name__), self.assertRaises(ValueError):
+                safe.child_cpu_guard('WORK', self.boundary, 'CHILD_EXIT_BOUNDARY_REACHED', process_cpu_ms=value)
+
+    def test_cpu_float_nonfinite_and_string_are_not_coerced(self):
+        for value in (1.0, float('nan'), float('inf'), 'PRIVATE_SYNTHETIC_CPU'):
+            with self.subTest(value_type=type(value).__name__), self.assertRaises(ValueError):
+                safe.child_cpu_guard('WORK', self.boundary, 'CHILD_EXIT_BOUNDARY_REACHED', process_cpu_ms=value)
+
+    def test_cpu_field_cannot_be_smuggled_into_prior_guard_versions(self):
+        for schema in (safe.LEGACY_CHILD_SCHEMA, safe.CHILD_SCHEMA):
+            row = self.row(schema=schema, process_cpu_ms=1)
+            with self.assertRaises(ValueError): safe.validate_guard(row)
+
+    def test_version_three_requires_cpu_field_even_when_unknown(self):
+        row = self.row(schema=safe.CPU_CHILD_SCHEMA)
+        with self.assertRaises(ValueError): safe.validate_guard(row)
+
+    def test_cpu_private_object_is_not_inspected_or_retained(self):
+        class Private:
+            def __str__(self): raise AssertionError('PRIVATE_STR')
+            def __repr__(self): raise AssertionError('PRIVATE_REPR')
+            def __int__(self): raise AssertionError('PRIVATE_INT')
+        with self.assertRaises(ValueError):
+            safe.child_cpu_guard('WORK', self.boundary, 'CHILD_EXIT_BOUNDARY_REACHED', process_cpu_ms=Private())
+
+    def test_actual_worker_cpu_clock_is_inside_optional_evidence_guard(self):
+        tree = ast.parse(Path(__file__).with_name('recovery_worker.py').read_text())
+        report = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'report')
+        self.assertEqual(len(report.body), 1)
+        self.assertIsInstance(report.body[0], ast.Try)
+        calls = [ast.unparse(n.func) for n in ast.walk(report) if isinstance(n, ast.Call)]
+        self.assertIn('time.process_time', calls)
+        self.assertNotIn('str', calls)
+        self.assertNotIn('repr', calls)
+        self.assertNotIn('vars', calls)
+
 
 if __name__ == '__main__':
     unittest.main()

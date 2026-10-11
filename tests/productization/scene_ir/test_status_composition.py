@@ -1,4 +1,5 @@
 """Status composition controls, not substitutes for native process evidence."""
+from contextlib import ExitStack
 from copy import deepcopy
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -107,6 +108,43 @@ class StatusCompositionControls(unittest.TestCase):
         del self.visual['output_sha256']
         with self.assertRaises(KeyError):
             self.status()
+
+    def ack_chain(self, *, bundle_error=None, lower_error=None):
+        # Exercise the actual inherited ACK methods, with only native I/O inert.
+        # This is call-chain conservation, not proof of native artifact admission.
+        with ExitStack() as stack:
+            refreshes = [stack.enter_context(patch(module + '.refresh_code_identity')) for module in (
+                'bie.productization.scene_ir_slice', 'bie.productization.animation_slice',
+                'bie.productization.visual_slice')]
+            lower = stack.enter_context(patch.object(DirectorProducerService, 'status',
+                side_effect=lower_error, return_value=deepcopy(self.base)))
+            verified = stack.enter_context(patch.object(self.service, '_verified_scene_bundle',
+                side_effect=bundle_error, return_value=self.bundle))
+            self.service.verify_terminal_for_ack('run', 'tenant')
+            for refresh in refreshes:
+                refresh.assert_called_once_with()
+            lower.assert_called_once_with(self.service, 'run', 'tenant')
+            return verified.call_count
+
+    def test_ack_inherited_dynamic_status_performs_one_full_bundle(self):
+        self.assertEqual(self.ack_chain(), 1)
+
+    def test_ack_each_operation_revalidates_without_receipt_cache(self):
+        self.assertEqual(self.ack_chain(), 1)
+        self.visual['output_sha256'] = 'changed-and-reverified'
+        self.assertEqual(self.ack_chain(), 1)
+
+    def test_ack_full_bundle_rejection_propagates_unchanged(self):
+        rejection = RuntimeError('synthetic currentness rejection')
+        with self.assertRaises(RuntimeError) as caught:
+            self.ack_chain(bundle_error=rejection)
+        self.assertIs(caught.exception, rejection)
+
+    def test_ack_lower_authority_rejection_propagates_unchanged(self):
+        rejection = RuntimeError('synthetic authority rejection')
+        with self.assertRaises(RuntimeError) as caught:
+            self.ack_chain(lower_error=rejection)
+        self.assertIs(caught.exception, rejection)
 
 
 if __name__ == '__main__':

@@ -18,11 +18,14 @@ def report(code, exc=None, state='UNKNOWN'):
     # Fixed test-owned safe receipt, not captured stdout/stderr or a private
     # native exception message. Evidence failure never changes the operation.
     try:
-        from tests.productization.scene_ir.recovery_observations import child_guard, write_guard, CLASSES
+        from tests.productization.scene_ir.recovery_observations import child_cpu_guard, write_guard, CLASSES
         name = type(exc).__name__ if exc is not None else 'NONE'
         name = name if name in CLASSES else 'UNKNOWN'
         if _ROOT is not None:
-            write_guard(_ROOT, child_guard(_PHASE, _BOUNDARY, code, name, state, _MODE))
+            cpu = time.process_time()
+            cpu_ms = int(cpu * 1000) if type(cpu) is float and 0 <= cpu <= 60 else None
+            write_guard(_ROOT, child_cpu_guard(_PHASE, _BOUNDARY, code, name, state, _MODE,
+                process_cpu_ms=cpu_ms))
     except Exception:
         pass
 

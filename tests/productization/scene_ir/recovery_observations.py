@@ -12,6 +12,7 @@ from apps.operator.process_supervision import ChildOutcome
 SCHEMA = 'bie.task036.recovery-child-observation/1'
 LEGACY_CHILD_SCHEMA = 'bie.task036.recovery-child-guard/1'
 CHILD_SCHEMA = 'bie.task036.recovery-child-guard/2'
+CPU_CHILD_SCHEMA = 'bie.task036.recovery-child-guard/3'
 NAME = 'scene_ir_recovery_probe.json'
 POSIX_SIGNALS = os.name == 'posix'
 PHASES = frozenset({'START', 'ENFORCE', 'WORK', 'RECOVERY'})
@@ -28,6 +29,7 @@ CLASSES = frozenset({'NONE', 'UNKNOWN', 'ProducerError', 'OperatorError', 'Compi
 STATES = frozenset({'UNKNOWN', 'SUCCEEDED', 'FAILED', 'BLOCKED', 'PENDING', 'READY', 'RUNNING'})
 FIELDS = frozenset({'schema', 'mode', 'phase', 'last_boundary', 'code', 'exception_class', 'scene_ir_state',
     'accepted', 'product_accepted'})
+CPU_FIELDS = FIELDS | frozenset({'process_cpu_ms'})
 _ROWS = ContextVar('task036_safe_recovery_test_observations', default=None)
 
 
@@ -40,14 +42,30 @@ def child_guard(phase, boundary, code, exception_class='NONE', state='UNKNOWN', 
         exception_class=exception_class, scene_ir_state=state, accepted=False, product_accepted=False)
 
 
+def child_cpu_guard(phase, boundary, code, exception_class='NONE', state='UNKNOWN', mode='CRASH', *, process_cpu_ms=None):
+    # Actual process CPU clock, not wall time or a kernel-cause inference. This
+    # deliberately separate version never rewrites a historical guard's schema.
+    if process_cpu_ms is not None and (type(process_cpu_ms) is not int or not 0 <= process_cpu_ms <= 60000):
+        raise ValueError('SAFE_CHILD_CPU')
+    row = child_guard(phase, boundary, code, exception_class, state, mode)
+    row.update(schema=CPU_CHILD_SCHEMA, process_cpu_ms=process_cpu_ms)
+    return row
+
+
 def validate_guard(row):
-    if type(row) is not dict or set(row) != FIELDS or type(row['schema']) is not str or row['schema'] not in (CHILD_SCHEMA, LEGACY_CHILD_SCHEMA) or row['accepted'] is not False or row['product_accepted'] is not False:
+    if type(row) is not dict or type(row.get('schema')) is not str or row['schema'] not in (CPU_CHILD_SCHEMA, CHILD_SCHEMA, LEGACY_CHILD_SCHEMA):
+        raise ValueError('SAFE_CHILD_SHAPE')
+    expected = CPU_FIELDS if row['schema'] == CPU_CHILD_SCHEMA else FIELDS
+    if set(row) != expected or row['accepted'] is not False or row['product_accepted'] is not False:
         raise ValueError('SAFE_CHILD_SHAPE')
     for key in ('mode', 'phase', 'last_boundary', 'code', 'exception_class', 'scene_ir_state'):
         if type(row[key]) is not str:
             raise ValueError('SAFE_CHILD_TYPE')
     if row['schema'] == LEGACY_CHILD_SCHEMA and row['code'] not in LEGACY_CODES:
         raise ValueError('SAFE_CHILD_VERSION')
+    if row['schema'] == CPU_CHILD_SCHEMA:
+        return child_cpu_guard(row['phase'], row['last_boundary'], row['code'], row['exception_class'],
+            row['scene_ir_state'], row['mode'], process_cpu_ms=row['process_cpu_ms'])
     result = child_guard(row['phase'], row['last_boundary'], row['code'], row['exception_class'], row['scene_ir_state'], row['mode'])
     result['schema'] = row['schema']  # Never relabel historical guard bytes.
     return result

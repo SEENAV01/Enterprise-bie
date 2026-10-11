@@ -86,10 +86,10 @@ class SceneIRProducerService(AnimationProducerService):
 
     def verify_terminal_for_ack(self, run, tenant):
         refresh_code_identity()
+        # The inherited Math ACK hook dispatches self.status: completed Scene
+        # IR status already performs one fresh full bundle validation. Preserve
+        # the complete refresh/authority chain, not a second identical rebuild.
         super().verify_terminal_for_ack(run, tenant)
-        state = self.persistence.load_run_state(run)["stages"]["SCENE_IR"]["attempts"][-1]["state"]
-        if state == "SUCCEEDED":
-            self.verified_scene_ir(run, tenant)
 
     def _parents(self, run, bundle, animation_receipt):
         return self.stage_input_refs(run, "SCENE_IR") + [

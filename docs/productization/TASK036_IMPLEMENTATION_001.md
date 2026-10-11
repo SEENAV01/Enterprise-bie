@@ -174,3 +174,61 @@ cause or certify recovery. Synthetic helper observations are no longer exported
 as actual child rows. Budgets, native source, M1 amendments and workflow are
 unchanged. Local pure tests do not establish Linux recovery or process success;
 the changed candidate requires fresh complete hosted gates and separate review.
+
+## ACK validation duplication and point-in-time CPU evidence
+
+Exact candidate 21677770, Scene IR run 38127512414 attempt 1, executed
+172 cases: 170 passed, the two original actual recovery controls failed,
+zero errors/skips/collection errors. Artifact 11698215791 (47,109 bytes,
+SHA256 6271c41b918c0dbf544cbb627c05bb5a1e198988d4705d884e69012ebf9c632c)
+passed ZIP CRC and strict JSON checks. First children reached their intended
+fault boundaries and exited 73 in 8.935/9.035 seconds. Second children exited
+-9, signal 9, in 30.034/30.033 seconds. Their valid version-2 guards recorded
+RECOVER mode, WORK phase and CHILD_OPERATION_STARTED: recover returned before
+work_once began. These observations do not establish the kernel kill cause.
+The fresh eleven-stage smoke and final Scene IR source audit were skipped.
+
+Separate exact-candidate M1 run 38127512399 passed eleven jobs. All eleven
+artifact ZIPs and 25 strict JSON receipts were checked, including eight real
+48-frame renders, complete conservation/fit/paint/raster witnesses, strict
+AFTER, legacy processes/restarts and source audits. That M1 evidence neither
+waives the Scene IR recovery failures nor verifies a subsequent candidate.
+
+The actual inherited Math ACK hook dynamically calls SceneIR.status, which
+already performs the full fresh Scene IR bundle validation. Scene IR's extra
+explicit verified_scene_ir call repeated that same validation. Independent
+read-only review and a local exact-method-chain probe confirmed two full bundles
+per successful ACK. Four new pure controls retain the complete three-refresh,
+lower-authority and dynamic-status chain; two reproduced the duplicate before
+the repair. Only the additional explicit rebuild is removed. No cross-operation
+cache, changed publication/ACK order or skipped native validation is introduced.
+Authority/currentness exceptions still propagate. Fresh post-operation status
+and all inherited guards remain unchanged. Duplication is a demonstrated source
+cost, not a proven explanation for the historical SIGKILL observations.
+
+Test-only guard version 3 separately records actual process CPU milliseconds
+from time.process_time at the existing observation boundaries. It is a bounded
+exact integer (0..60000) or unavailable/null, never wall time or a kill verdict.
+It covers this process, not descendant CPU. Versions 1 and 2 retain their exact
+closed shapes and historical meaning. Sampling/import/write errors stay inside
+optional bookkeeping; original recover/work delegation, crash exit, cleanup and
+assertions remain unchanged. Eight new controls cover types, bounds, unknown
+versus zero, version separation, hostile values and containment. No private
+process output is read or serialized. The 2048-byte guard, 30-second CPU,
+45-second child wall and all native/workflow limits remain unchanged.
+
+After the ACK repair, 123 scoped pure Windows controls passed (zero failures,
+errors/skips). This includes the 12 status controls, 44 observation controls,
+18 contract, 27 admission and 22 inherited runner controls. Focused repetitions
+are not additional authored tests. No new Linux recovery, fresh eleven-stage
+process or full producer completion is claimed by these local results.
+
+Guard phase and CPU are the last successfully written point-in-time sample.
+A contained failed write can leave an earlier same-mode guard valid; RECOVERY
+therefore does not prove recover had not returned. A retained WORK sample does
+positively establish that boundary was reached. CPU is not kill-time usage.
+Independent prospective source review ACK_CPU_A0AC566E found zero blocking
+source/privacy findings, verified 56 pure controls and all 184 collected cases
+(172 retained plus 12), and kept REVIEW_INCOMPLETE for missing fresh runtime
+proof. This paragraph follows that sealed review snapshot; it does not claim
+the reviewer attested the subsequent documentation bytes or eventual commit.
