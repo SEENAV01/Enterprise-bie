@@ -10,6 +10,7 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tests.compiler.run_m1_tests import run_file
+from tests.productization.scene_ir.recovery_observations import capture_observations
 
 NEW = (
     "tests/productization/scene_ir/test_scene_ir_admission.py",
@@ -18,6 +19,7 @@ NEW = (
     "tests/productization/scene_ir/test_scene_ir_conservation.py",
     "tests/productization/scene_ir/test_scene_ir_currentness.py",
     "tests/productization/scene_ir/test_scene_ir_recovery.py",
+    "tests/productization/scene_ir/test_recovery_observations.py",
 )
 
 
@@ -28,7 +30,10 @@ def main():
     started = time.monotonic()
     identities, rows = set(), []
     for path in NEW:
-        row = run_file(path, identities, ROOT)
+        with capture_observations() as observations:
+            row = run_file(path, identities, ROOT)
+        if observations:
+            row['recovery_process_observations'] = observations
         rows.append(row)
         # Only runner-allowlisted identities/counts/codes, never unittest stderr.
         print(json.dumps(row, sort_keys=True), flush=True)

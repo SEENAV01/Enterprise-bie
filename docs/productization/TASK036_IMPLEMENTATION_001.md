@@ -94,3 +94,45 @@ and returned only the generic rejection. Local contract/admission tests passed
 45/45 on Windows. This is not a claim of whole-producer or Linux/render success.
 The changed candidate still requires exact-head hosted gates and reviewer
 reassessment; the earlier source-review decision is not carried over as approval.
+
+## First candidate recovery evidence and bounded observations
+
+On exact candidate ae2bc429, Scene IR run 38114882968 attempt 1 executed
+122 selected tests: 120 passed, two failed, zero errors/skips/collection errors.
+The failures were the two actual OS-loss/reopen controls. Child exit/completion/
+phase evidence was not retained. Their cause remains UNKNOWN; neither timeout
+nor resource exhaustion is established. Later eleven-stage smoke and final
+source audit were skipped. Separate M1 run 38114882937 completed eleven jobs
+successfully; that result is not verification of a changed candidate.
+
+Follow-up test-only instrumentation writes a closed, at-most-2048-byte guard
+under the owned temporary fixture: actual worker phase, last fault boundary,
+and allowlisted exception class, never messages or source content. The parent
+projects validated ChildOutcome exit/completion scalars and measured test
+elapsed time, never private output. Missing, malformed, stale-mode or unknown
+guards remain ABSENT/INVALID/UNKNOWN, not success. Original calls, exit-73
+injection, assertions, cleanup, 45-second wall/30-second CPU/1-GiB ceilings remain
+unchanged. Observation failure cannot replace supervision assertions. Bounded
+I/O adds instrumentation overhead; absolute timing noninterference and recovery
+of historical private causes are not claimed.
+
+Thirty-one synthetic controls cover schema/privacy, oversized private output
+noninspection, unknown versus zero/false, malformed JSON/types, bounded reads,
+link/nonregular rejection, stale mode, context restoration, cleanup and real
+package capture binding. Local Windows passed these 31 and 45 contract/admission
+controls (76 total, no failures/errors/skips). These are not actual Linux recovery,
+fresh eleven-stage process or rendering proof; those gates remain mandatory.
+
+Post-review verification note: the separate reviewer reproduced an optional
+observer-import failure that could preempt the original crash callback. Only
+that bookkeeping is now contained; two controls compile the actual callback
+and prove matching exit 73 once and nonmatching no exception under import
+failure. All original 31 diagnostic controls remain, making 33 new controls;
+the scoped package-aware local suite executed 100/100 (including the 45
+contract/admission and 22 inherited runner controls), zero failures/errors/skips.
+All 127 previous Scene IR logical identities are retained: 160 selected total.
+The 898 protected source bindings and original M1 amendment hash are unchanged.
+Independent source-only reassessment record F4B8609C closed that prospective
+finding, with REVIEW_INCOMPLETE because fresh runtime proof is still required.
+This paragraph is a subsequent documentation append, not a claim that the
+uncommitted reviewer snapshot attested a later commit or whole Task036 approval.

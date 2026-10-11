@@ -2,8 +2,10 @@
 import unittest
 import secrets
 import sys
+import time
 from pathlib import Path
 from .test_scene_ir_producer import PreparedSceneFixture
+from .recovery_observations import record_observation
 
 
 class WorkerInterrupted(BaseException):
@@ -98,7 +100,11 @@ class SceneRecoveryControls(PreparedSceneFixture):
         env = child_environment(); env['BIE_OPERATOR_TOKEN'] = token
         worker = Path(__file__).with_name('recovery_worker.py')
         command = [sys.executable, '-I', '-B', str(worker), '--root', str(self.root), '--run', self.run]
+        started = time.monotonic()
         first = supervise(command + ['--phase', phase], env, PdfProcessBudget())
+        record_observation(first, self.root, phase, 'CRASH', time.monotonic() - started)
+        # Preserve every original assertion; the closed observation only makes
+        # a rejection diagnosable. It is never a successful crash witness.
         self.assertTrue(first.completed)
         self.assertEqual(first.exit_code, 73)
         before = None
@@ -106,7 +112,9 @@ class SceneRecoveryControls(PreparedSceneFixture):
             with self.port.native(self.p, self.run, 'read') as service:
                 before = service.verified_scene_ir(self.run, self.p.tenant)
         self.expire_test_lease()
+        started = time.monotonic()
         second = supervise(command + ['--recover'], env, PdfProcessBudget())
+        record_observation(second, self.root, phase, 'RECOVER', time.monotonic() - started)
         self.assertTrue(second.completed)
         self.assertEqual(second.exit_code, 0)
         with self.port.native(self.p, self.run, 'read') as service:
