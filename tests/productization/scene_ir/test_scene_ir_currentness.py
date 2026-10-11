@@ -20,6 +20,15 @@ class CommittedSceneFixture(PreparedSceneFixture):
 
 
 class CurrentnessControls(CommittedSceneFixture):
+    def test_completed_status_matches_all_inherited_safe_summaries(self):
+        from bie.productization.animation_slice import AnimationProducerService
+        with self.port.native(self.p, self.run, 'read') as service:
+            historical = AnimationProducerService.status(service, self.run, self.p.tenant)
+            current = service.status(self.run, self.p.tenant)
+            self.assertEqual({k: v for k, v in current.items() if k != 'scene_ir'}, historical)
+            self.assertTrue(current['scene_ir']['compiler_loader_admitted'])
+            self.assertFalse(current['scene_ir']['accepted'])
+
     def receipt(self):
         with self.port.native(self.p, self.run, 'read') as service:
             return service.verified_scene_ir(self.run, self.p.tenant)[1]

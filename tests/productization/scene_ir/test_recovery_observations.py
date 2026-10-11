@@ -35,6 +35,29 @@ class RecoveryObservationControls(unittest.TestCase):
         self.assertTrue(safe.write_guard(self.root, self.row()))
         self.assertEqual(safe.read_guard(self.root), ('VALID', self.row()))
 
+    def test_version_one_receipt_is_preserved_not_relabeled(self):
+        row = self.row(schema=safe.LEGACY_CHILD_SCHEMA)
+        self.assertEqual(safe.validate_guard(row), row)
+
+    def test_operation_started_requires_explicit_version_two(self):
+        row = safe.child_guard('RECOVERY', 'UNKNOWN', 'CHILD_OPERATION_STARTED', mode='RECOVER')
+        self.assertEqual(row['schema'], 'bie.task036.recovery-child-guard/2')
+        self.assertEqual(safe.validate_guard(row), row)
+        row['schema'] = safe.LEGACY_CHILD_SCHEMA
+        with self.assertRaises(ValueError):
+            safe.validate_guard(row)
+
+    def test_actual_worker_has_distinct_pre_recover_and_pre_work_guards(self):
+        tree = ast.parse(Path(__file__).with_name('recovery_worker.py').read_text())
+        main = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'main')
+        branch = next(n for n in main.body if isinstance(n, ast.If) and ast.unparse(n.test) == 'args.recover')
+        calls = [ast.unparse(n.value) for n in branch.body if isinstance(n, ast.Expr) and isinstance(n.value, ast.Call)]
+        self.assertEqual(calls[:3], ["report('CHILD_OPERATION_STARTED')", 'port.recover(p, args.run)',
+                                     "report('CHILD_OPERATION_STARTED')"])
+        phases = [n.value.value for n in branch.body if isinstance(n, ast.Assign) and
+                  any(isinstance(t, ast.Name) and t.id == '_PHASE' for t in n.targets)]
+        self.assertEqual(phases, ['RECOVERY', 'WORK'])
+
     def test_absence_is_not_success(self):
         row = self.observe()
         self.assertEqual(row['guard_state'], 'ABSENT')

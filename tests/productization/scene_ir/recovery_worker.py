@@ -50,7 +50,10 @@ def main():
     port = SceneIRProducerControlPlane(Service(args.root, credentials), enabled_profiles={PROFILE})
     if args.recover:
         _PHASE = 'RECOVERY'
+        report('CHILD_OPERATION_STARTED')
         port.recover(p, args.run)
+        _PHASE = 'WORK'
+        report('CHILD_OPERATION_STARTED')
         result = port.work_once(p, args.run)
         report('CHILD_RECOVERED' if result['stages']['SCENE_IR'] == 'SUCCEEDED' else 'CHILD_RECOVERY_INCOMPLETE',
                state=result['stages']['SCENE_IR'])

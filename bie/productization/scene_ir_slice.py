@@ -6,6 +6,7 @@ from bie.scene_ir.replay_currentness import DSLVersionVector, make_replay_record
 from bie.scene_ir.unified_scene_ir_codec import encode_scene_ir
 from bie.compiler.scene_ir_loader import load_scene_ir_payload
 from .animation_slice import AnimationProducerService, STAGES as ANIMATION_STAGES
+from .director_slice import DirectorProducerService
 from .contracts import require, ProducerError, canonical, digest, sha
 from .scene_ir_contract import PROFILE, POLICY, SCHEMA, profile_config, run_identity, refresh_code_identity, strict_document
 from .scene_ir_plan import build_current_scene
@@ -168,7 +169,13 @@ class SceneIRProducerService(AnimationProducerService):
             "scene_ir_persisted_loader_mismatch")
         return document
 
-    def verified_scene_ir(self, run, tenant):
+    def _verified_scene_bundle(self, run, tenant):
+        """One fresh complete validation, with its authenticated upstream rows.
+
+        This is not a cache or a receipt-only fast path. The same native rebuild,
+        currentness, exact parents, persisted loader, receipt and fencing checks
+        execute on every call. Its upstream receipts were reopened by that build.
+        """
         config = self.configuration(run, tenant)
         ref, row = self.stage_ref(run, "SCENE_IR")
         attempt = self.persistence.load_run_state(run)["stages"]["SCENE_IR"]["attempts"][-1]
@@ -200,13 +207,33 @@ class SceneIRProducerService(AnimationProducerService):
         lease = self.leases.get(self.task_id(run, "SCENE_IR", attempt["attempt"]))
         require(lease.fingerprint == config["fingerprint"] and type(receipt["fencing_epoch"]) is int and
             0 < receipt["fencing_epoch"] <= lease.epoch, "scene_ir_fencing_identity")
-        return document.to_dict(), receipt
+        return document.to_dict(), receipt, bundle, animation_receipt
+
+    def verified_scene_ir(self, run, tenant):
+        document, receipt, _, _ = self._verified_scene_bundle(run, tenant)
+        return document, receipt
 
     def status(self, run, tenant):
-        result = super().status(run, tenant)
+        # A completed Scene IR rebuild already verifies current Visual and
+        # Animation. Running their inherited status rebuilds first repeats that
+        # work without adding a different admission check. Keep all lower-stage
+        # status checks and the identical safe projections; never cache results
+        # across calls, publication, recovery, authorization or revisions.
+        saved = self.persistence.load_run_state(run)
+        complete = saved['stages']['SCENE_IR']['attempts'][-1]['state'] == 'SUCCEEDED'
+        result = DirectorProducerService.status(self, run, tenant) if complete else super().status(run, tenant)
         result["scene_ir"] = None
         if result["stages"]["SCENE_IR"] == "SUCCEEDED":
-            _, receipt = self.verified_scene_ir(run, tenant)
+            _, receipt, bundle, animation_receipt = self._verified_scene_bundle(run, tenant)
+            visual_receipt = bundle['visual_receipt']
+            result['visual'] = {k: visual_receipt[k] for k in ('output_artifact_id', 'output_sha256',
+                'schema_version', 'plan_fingerprint', 'visual_intent_count', 'abstention_count',
+                'internal_stage_count', 'validation', 'animation_input_compatibility', 'requires_review',
+                'accepted', 'release_ready')}
+            result['animation'] = {k: animation_receipt[k] for k in ('output_artifact_id', 'output_sha256',
+                'schema_version', 'plan_fingerprint', 'track_count', 'internal_stage_count', 'validation',
+                'sceneir_handoff_ready', 'requires_review', 'accepted', 'release_ready', 'audio_complete',
+                'audio_reconciliation_open')}
             result["scene_ir"] = {k: receipt[k] for k in ("output_artifact_id", "output_sha256", "schema_version",
                 "document_fingerprint", "element_count", "track_count", "native_validator_count", "single_scene",
                 "validation", "compiler_loader_admitted", "requires_review", "accepted", "release_ready",

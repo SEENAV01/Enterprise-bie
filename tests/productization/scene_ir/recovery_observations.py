@@ -10,7 +10,8 @@ import stat
 from apps.operator.process_supervision import ChildOutcome
 
 SCHEMA = 'bie.task036.recovery-child-observation/1'
-CHILD_SCHEMA = 'bie.task036.recovery-child-guard/1'
+LEGACY_CHILD_SCHEMA = 'bie.task036.recovery-child-guard/1'
+CHILD_SCHEMA = 'bie.task036.recovery-child-guard/2'
 NAME = 'scene_ir_recovery_probe.json'
 POSIX_SIGNALS = os.name == 'posix'
 PHASES = frozenset({'START', 'ENFORCE', 'WORK', 'RECOVERY'})
@@ -18,8 +19,9 @@ BOUNDARIES = frozenset({'UNKNOWN', 'after_SCENE_IR_inputs_verified', 'after_SCEN
     'after_SCENE_IR_adoption', 'after_SCENE_IR_validation', 'after_SCENE_IR_private_publication',
     'after_SCENE_IR_terminal'})
 REQUESTED = frozenset({'after_SCENE_IR_private_publication', 'after_SCENE_IR_terminal'})
-CODES = frozenset({'CHILD_EXIT_BOUNDARY_REACHED', 'CHILD_STAGE_RETURNED', 'CHILD_EXCEPTION',
+LEGACY_CODES = frozenset({'CHILD_EXIT_BOUNDARY_REACHED', 'CHILD_STAGE_RETURNED', 'CHILD_EXCEPTION',
     'CHILD_RECOVERED', 'CHILD_RECOVERY_INCOMPLETE'})
+CODES = LEGACY_CODES | frozenset({'CHILD_OPERATION_STARTED'})
 CLASSES = frozenset({'NONE', 'UNKNOWN', 'ProducerError', 'OperatorError', 'CompilerQAError',
     'ElementCompilerError', 'ValueError', 'RuntimeError', 'MemoryError', 'ModuleNotFoundError',
     'PermissionError', 'OSError', 'FileNotFoundError'})
@@ -39,12 +41,16 @@ def child_guard(phase, boundary, code, exception_class='NONE', state='UNKNOWN', 
 
 
 def validate_guard(row):
-    if type(row) is not dict or set(row) != FIELDS or type(row['schema']) is not str or row['schema'] != CHILD_SCHEMA or row['accepted'] is not False or row['product_accepted'] is not False:
+    if type(row) is not dict or set(row) != FIELDS or type(row['schema']) is not str or row['schema'] not in (CHILD_SCHEMA, LEGACY_CHILD_SCHEMA) or row['accepted'] is not False or row['product_accepted'] is not False:
         raise ValueError('SAFE_CHILD_SHAPE')
     for key in ('mode', 'phase', 'last_boundary', 'code', 'exception_class', 'scene_ir_state'):
         if type(row[key]) is not str:
             raise ValueError('SAFE_CHILD_TYPE')
-    return child_guard(row['phase'], row['last_boundary'], row['code'], row['exception_class'], row['scene_ir_state'], row['mode'])
+    if row['schema'] == LEGACY_CHILD_SCHEMA and row['code'] not in LEGACY_CODES:
+        raise ValueError('SAFE_CHILD_VERSION')
+    result = child_guard(row['phase'], row['last_boundary'], row['code'], row['exception_class'], row['scene_ir_state'], row['mode'])
+    result['schema'] = row['schema']  # Never relabel historical guard bytes.
+    return result
 
 
 def write_guard(root, row):

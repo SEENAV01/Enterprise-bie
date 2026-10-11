@@ -136,3 +136,41 @@ Independent source-only reassessment record F4B8609C closed that prospective
 finding, with REVIEW_INCOMPLETE because fresh runtime proof is still required.
 This paragraph is a subsequent documentation append, not a claim that the
 uncommitted reviewer snapshot attested a later commit or whole Task036 approval.
+
+## Fresh recovery evidence and status composition repair
+
+Exact candidate 15f61b19, Scene IR run 38120897163 attempt 1, executed all
+160 selected cases: 158 passed and the same two actual recovery controls
+failed, zero errors/skips/collection errors. Artifact 11695384421 was verified
+at 41,163 bytes, ZIP SHA256
+70c2fd51c18a7f0a33bab147db31157ecc2d269d75381365aa8ac01cf2cea44a,
+with valid CRC and strict JSON. Both first children reached their requested
+private-publication/terminal boundary and exited 73 (9.640/9.690 seconds).
+Both second children completed with negative exit -9, signal 9, after
+30.051/30.046 seconds. Their stale CRASH guards were rejected as INVALID.
+This establishes SIGKILL, not its kernel cause. The timing is consistent with
+the unchanged hard 30-second CPU policy; neither OOM nor wall timeout is proved.
+Destroyed historical child output is not reconstructed. Later fresh eleven-stage
+smoke/source audit were skipped. Separate full M1 run 38120897169 succeeded
+in all eleven jobs; its receipts and actual eight renders remain distinct.
+
+Successful Scene IR status previously performed standalone Visual/Animation
+status rebuilds and then the complete Scene IR rebuild of those same upstream
+artifacts. The new composition keeps the lower Director/historical status and
+uses one fresh complete Scene IR validation bundle's authenticated upstream
+receipts for the identical safe Visual/Animation projections. The native rebuild,
+source/currentness checks, complete parents, persisted document loader, private
+receipt and fencing checks remain unchanged. This is not a cache, receipt-only
+admission or skipped validator. Incomplete status uses the original inherited
+path. Public verified_scene_ir keeps its two-tuple contract. Actual source-store
+tamper controls and a new comparison to inherited status remain mandatory.
+
+Eight pure composition controls and the actual inherited-summary comparison are
+added without removing previous identities. Recovery guard version 2 adds only
+the closed CHILD_OPERATION_STARTED code at the actual pre-recover/pre-work
+boundaries, so a killed child need not leave only a stale earlier mode. Version-1
+guards retain their original schema and codes. It still cannot identify a kill
+cause or certify recovery. Synthetic helper observations are no longer exported
+as actual child rows. Budgets, native source, M1 amendments and workflow are
+unchanged. Local pure tests do not establish Linux recovery or process success;
+the changed candidate requires fresh complete hosted gates and separate review.

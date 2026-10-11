@@ -20,6 +20,7 @@ NEW = (
     "tests/productization/scene_ir/test_scene_ir_currentness.py",
     "tests/productization/scene_ir/test_scene_ir_recovery.py",
     "tests/productization/scene_ir/test_recovery_observations.py",
+    "tests/productization/scene_ir/test_status_composition.py",
 )
 
 
@@ -30,10 +31,15 @@ def main():
     started = time.monotonic()
     identities, rows = set(), []
     for path in NEW:
-        with capture_observations() as observations:
+        # Only the actual child/recovery suite exports process observations.
+        # Synthetic helper controls are a different evidence class, not workers.
+        if path == 'tests/productization/scene_ir/test_scene_ir_recovery.py':
+            with capture_observations() as observations:
+                row = run_file(path, identities, ROOT)
+            if observations:
+                row['recovery_process_observations'] = observations
+        else:
             row = run_file(path, identities, ROOT)
-        if observations:
-            row['recovery_process_observations'] = observations
         rows.append(row)
         # Only runner-allowlisted identities/counts/codes, never unittest stderr.
         print(json.dumps(row, sort_keys=True), flush=True)
