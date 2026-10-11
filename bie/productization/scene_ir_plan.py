@@ -153,8 +153,7 @@ def validate_handoff(handoff, plan, rows, catalog, scope):
 
 
 def build_current_scene(service, run, tenant, *, fault=lambda _: None):
-    plan, receipt = service.verified_animation(run, tenant)
-    bundle = service.animation_inputs(run, tenant, sync_ref=reference(receipt["sync_ref"]))
+    plan, receipt, bundle = service.verified_animation_with_inputs(run, tenant)
     rows = bundle["rows"]
     target = service.configuration(run, tenant)["config"]["visual"]["target"]
     with native_runtime(service, run, None) as assembly:

@@ -1,5 +1,6 @@
 """Eleven-stage delegation using existing durable stores and fenced publication."""
 from dataclasses import asdict
+from contextvars import ContextVar
 from bie.infrastructure.orchestrator import EnterpriseOrchestrator, StageExecutionResult, StageExecutionFailure
 from bie.infrastructure.artifact_store import BlobRef
 from bie.scene_ir.replay_currentness import DSLVersionVector, make_replay_record, evaluate_currentness, require_current
@@ -13,6 +14,7 @@ from .scene_ir_plan import build_current_scene
 
 STAGES = ANIMATION_STAGES + ("SCENE_IR",)
 INPUT_STAGES = ("VISUAL", "ANIMATION", "DIRECTOR")
+_ANIMATION_INPUT_CAPTURE = ContextVar("task036_verified_animation_input_capture", default=None)
 FAILURE_CODES = frozenset({"scene_ir_multiple_scenes_unsupported", "scene_ir_audio_replan_required",
     "scene_ir_structure_unsupported", "scene_ir_text_overflow", "scene_ir_domain_unsupported",
     "scene_ir_capability_blocked", "scene_ir_presentation_bounds", "scene_ir_upstream_identity",
@@ -79,6 +81,34 @@ class SceneIRProducerService(AnimationProducerService):
         if stage != "SCENE_IR":
             return super().stage_input_refs(run, stage)
         return [self.stage_ref(run, s)[0] for s in INPUT_STAGES]
+
+    def animation_inputs(self, run, tenant, *, publish=False, sync_ref=None):
+        capture = _ANIMATION_INPUT_CAPTURE.get()
+        if capture is not None:
+            require(capture["service"] is self and capture["run"] == run and capture["tenant"] == tenant
+                and publish is False and sync_ref is not None, "scene_ir_animation_capture_scope")
+        bundle = super().animation_inputs(run, tenant, publish=publish, sync_ref=sync_ref)
+        if capture is not None:
+            capture["bundles"].append(bundle)
+        return bundle
+
+    def verified_animation_with_inputs(self, run, tenant):
+        """Return the very bundle consumed by one fresh native verification.
+
+        Native Task035 verification still executes unchanged, including every
+        currentness, receipt, private artifact, parent, replay and fencing check.
+        Its already-verified input rows need not be reconstructed a second time
+        inside this same Scene IR build. Nothing survives the context scope;
+        no cross-call, ACK, publication, revision or authorization cache exists.
+        """
+        capture = dict(service=self, run=run, tenant=tenant, bundles=[])
+        token = _ANIMATION_INPUT_CAPTURE.set(capture)
+        try:
+            plan, receipt = super().verified_animation(run, tenant)
+            require(len(capture["bundles"]) == 1, "scene_ir_animation_capture_cardinality")
+            return plan, receipt, capture["bundles"][0]
+        finally:
+            _ANIMATION_INPUT_CAPTURE.reset(token)
 
     def require_parents(self, run, artifact_id, expected):
         actual = self.record(run, artifact_id).parent_artifact_ids
