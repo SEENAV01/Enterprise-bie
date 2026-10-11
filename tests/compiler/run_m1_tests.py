@@ -9,8 +9,10 @@ import json
 from pathlib import Path
 import platform
 import re
+import subprocess
 import sys
 import time
+from types import TracebackType
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -19,7 +21,7 @@ NEW = ("tests/compiler/test_producer_motion_m1.py", "tests/compiler/test_motion_
        "tests/compiler/test_m1_safe_paint_diagnostics.py", "tests/compiler/test_m1_capture_diagnostics.py",
        "tests/compiler/test_m1_media_diagnostics.py", "tests/compiler/test_m1_media_threads.py",
        "tests/compiler/test_m1_media_policy_observation.py", "tests/compiler/test_m1_media_source_pin.py",
-       "tests/compiler/test_m1_stitch_inputs.py")
+       "tests/compiler/test_m1_stitch_inputs.py", "tests/compiler/test_m1_lifecycle_diagnostics.py")
 SAFETY = ("tests/productization/animation/test_ci_r1_diagnostics.py",
           "tests/productization/animation/test_ci_r2_provisioning.py")
 
@@ -233,9 +235,131 @@ def collection_diagnostic(exc, root):
             "location": location, "package_aware": True}
 
 
+FAILURE_DIAGNOSTIC_SCHEMA = "bie.task036.m1.test-failure-diagnostic/1"
+FAILURE_LOCATIONS = frozenset({"tests/compiler/test_comp_h4_005.py", "bie/compiler/layout_repair.py",
+    "bie/compiler/layout_browser.py", "bie/compiler/hardened_scene_compile.py",
+    "bie/compiler/host_toolchain.py", "bie/compiler/generated_code_regression.py"})
+FAILURE_CODES = frozenset({"HOST_TOOLCHAIN_UNAVAILABLE", "TYPESCRIPT_PARSER_UNAVAILABLE",
+    "LAYOUT_BROWSER_UNAVAILABLE", "LAYOUT_BROWSER_TIMEOUT_INVALID", "LAYOUT_BROWSER_NOT_STARTED",
+    "LAYOUT_EVIDENCE_ALREADY_EXISTS", "LAYOUT_BROWSER_WORK_BUDGET", "LAYOUT_BRIDGE_FAILED",
+    "LAYOUT_BRIDGE_SCOPE_MISMATCH", "LAYOUT_BRIDGE_COVERAGE_MISMATCH",
+    "REPAIR_OUTPUT_EXISTS_OR_SYMLINK", "REPAIR_DESTINATION_EXISTS_OR_SYMLINK",
+    "REPAIR_PATHS_MUST_BE_SEPARATE", "REPAIR_RESULT_IDENTITY_CHANGED",
+    "REPAIR_SOURCE_CHANGED_DURING_PUBLICATION"})
+
+
+def failure_diagnostic(error, root, lifecycle):
+    """Project only fixed enums/booleans and known source locations, never messages.
+
+    H4's unchanged setup assertion can carry a PRIVATE repair result dictionary.
+    Only its explicitly typed status and already-classified attempt codes are
+    observed. runtime_block/error/stdout/stderr and every other member are unread.
+    This is evidence, not a gate verdict or a diagnosis of historical failures.
+    """
+    output = {"schema": FAILURE_DIAGNOSTIC_SCHEMA, "exception_class": "OTHER",
+              "lifecycle": lifecycle if type(lifecycle) is str and lifecycle in {"TEST", "LIFECYCLE"} else "UNKNOWN", "source_locations": [], "repair_observation": None,
+              "observation_complete": False}
+    try:
+        if type(error) is not tuple or len(error) != 3 or not isinstance(error[1], BaseException):
+            return output
+        exc, tb = error[1], error[2]
+        from bie.compiler.qa_common import CompilerQAError
+        allowed = ((AssertionError, "AssertionError"), (CompilerQAError, "CompilerQAError"),
+            (ValueError, "ValueError"), (TypeError, "TypeError"), (TimeoutError, "TimeoutError"),
+            (FileNotFoundError, "FileNotFoundError"), (PermissionError, "PermissionError"),
+            (OSError, "OSError"), (subprocess.CalledProcessError, "CalledProcessError"))
+        # Identity matching cannot invoke a foreign exception metaclass/name.
+        output["exception_class"] = next((label for cls, label in allowed if type(exc) is cls), "OTHER")
+        # No exception formatting, chained-message traversal or test repr/id.
+        count = 0
+        while tb is not None and count < 64:
+            if type(tb) is not TracebackType:
+                return output
+            filename = tb.tb_frame.f_code.co_filename
+            if type(filename) is not str or len(filename) > 4096:
+                return output
+            path = Path(filename).resolve()
+            if path.is_relative_to(Path(root).resolve()):
+                relative = path.relative_to(Path(root).resolve()).as_posix()
+                if relative in FAILURE_LOCATIONS and type(tb.tb_lineno) is int and 1 <= tb.tb_lineno <= 100000:
+                    output["source_locations"].append({"file": relative, "line": tb.tb_lineno})
+                    output["source_locations"] = output["source_locations"][-4:]
+            count += 1; tb = tb.tb_next
+        # Strict known H4 boundary only: do not project arbitrary exception args.
+        arguments = exc.args if type(exc) is AssertionError else None
+        payload = arguments[0] if type(arguments) is tuple and len(arguments) == 1 else None
+        if (type(exc) is AssertionError and output["lifecycle"] == "LIFECYCLE"
+                and any(p["file"] == "tests/compiler/test_comp_h4_005.py" for p in output["source_locations"])
+                and type(payload) is dict):
+            schema = payload.get("schema_version")
+            if type(schema) is str and schema == "bie.layout-repair-run.v1":
+                status = payload.get("status")
+                published, fitted = payload.get("source_published"), payload.get("local_fit_passed")
+                statuses = {"ENVIRONMENT_OR_VALIDATOR_BLOCKED", "LOCAL_MEASURED_CANDIDATE", "UPSTREAM_REVISION_REQUIRED"}
+                observation = {"status": status if type(status) is str and status in statuses else "UNKNOWN",
+                    "source_published": published if type(published) is bool else None,
+                    "local_fit_passed": fitted if type(fitted) is bool else None,
+                    "attempts": [], "attempts_available": False}
+                rows = payload.get("attempts")
+                bounded_rows = rows[:33] if type(rows) is list else None
+                if bounded_rows is not None and len(bounded_rows) <= 32:
+                    for row in bounded_rows:
+                        if type(row) is not dict: break
+                        codes = row.get("codes")
+                        bounded_codes = codes[:33] if type(codes) is list else None
+                        source_passed, fit_passed = row.get("source_gate_passed"), row.get("local_fit_passed")
+                        codes_available = bounded_codes is not None and len(bounded_codes) <= 32
+                        safe_codes = []
+                        if codes_available:
+                            safe_codes = [c if type(c) is str and c in FAILURE_CODES else "UNCLASSIFIED" for c in bounded_codes]
+                        observation["attempts"].append({
+                            "source_gate_passed": source_passed if type(source_passed) is bool else None,
+                            "local_fit_passed": fit_passed if type(fit_passed) is bool else None,
+                            "codes": safe_codes, "codes_available": codes_available})
+                    else: observation["attempts_available"] = True
+                output["repair_observation"] = observation
+        output["observation_complete"] = True
+    except BaseException:
+        # Diagnostic failure never replaces a unittest error or masks its verdict.
+        output["observation_complete"] = False
+    return output
+
+
+class SafeFailureResult(unittest.TextTestResult):
+    def __init__(self, *args, diagnostic_root=ROOT, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.diagnostic_root = diagnostic_root
+        self.safe_diagnostics = []
+
+    def observe(self, test, error):
+        lifecycle = "UNKNOWN"
+        try:
+            lifecycle = "TEST" if isinstance(test, unittest.TestCase) else "LIFECYCLE"
+            self.safe_diagnostics.append(failure_diagnostic(error, self.diagnostic_root, lifecycle))
+        except BaseException:
+            try:
+                self.safe_diagnostics.append({"schema": FAILURE_DIAGNOSTIC_SCHEMA,
+                    "exception_class": "OTHER", "lifecycle": lifecycle, "source_locations": [],
+                    "repair_observation": None, "observation_complete": False})
+            except BaseException:
+                pass  # Even a failed diagnostic sink cannot terminate the suite.
+
+    def addError(self, test, error):
+        super().addError(test, error)
+        self.observe(test, error)
+
+    def addFailure(self, test, error):
+        super().addFailure(test, error)
+        self.observe(test, error)
+
+    def addSubTest(self, test, subtest, error):
+        super().addSubTest(test, subtest, error)
+        if error is not None: self.observe(test, error)
+
+
 def run_file(path, identities, root=ROOT):
     row = {"file": path, "selected": 0, "executed": 0, "failures": 0, "errors": 0, "skips": 0,
-           "collection_errors": 0}
+           "collection_errors": 0, "failure_diagnostics": []}
     capture = io.StringIO()
     try:
         with redirect_stdout(capture), redirect_stderr(capture), repository_module(path, root) as (module, origins):
@@ -243,10 +367,12 @@ def run_file(path, identities, root=ROOT):
             identities.update(local); row["selected"] = len(local)
             row["logical_identities"] = local
             labels = {id(test): identity for test, identity in zip(cases(suite), local)}
-            result = unittest.TextTestRunner(stream=capture).run(suite)
+            result = unittest.TextTestRunner(stream=capture,
+                resultclass=lambda *a, **k: SafeFailureResult(*a, diagnostic_root=root, **k)).run(suite)
             row.update(executed=result.testsRun, failures=len(result.failures), errors=len(result.errors),
                 skips=len(result.skipped), failed_methods=[labels.get(id(t), labels.get(id(getattr(t, "test_case", None)),
-                    "M1_TEST_LIFECYCLE_ERROR")) for t, _ in result.failures + result.errors])
+                    "M1_TEST_LIFECYCLE_ERROR")) for t, _ in result.failures + result.errors],
+                failure_diagnostics=result.safe_diagnostics)
         row["import_origins"] = origins
         row["import_origins_verified"] = True
     except Exception as exc:
