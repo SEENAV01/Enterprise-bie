@@ -65,6 +65,59 @@ class SceneContractControls(unittest.TestCase):
     def test_unknown_code_type_does_not_escape(self):
         self.assertEqual(safe_failure_code(ProducerError(True)), 'scene_ir_execution_failed')
 
+    def test_changing_exception_property_never_executes_or_leaks(self):
+        class ChangingCode(ProducerError):
+            def __init__(self):
+                self.reads = 0
+
+            @property
+            def code(self):
+                self.reads += 1
+                return 'scene_ir_audio_replan_required' if self.reads < 3 else 'synthetic private marker'
+
+        exc = ChangingCode()
+        self.assertEqual(safe_failure_code(exc), 'scene_ir_execution_failed')
+        self.assertEqual(exc.reads, 0)
+
+    def test_raising_exception_property_never_executes(self):
+        class RaisingCode(ProducerError):
+            def __init__(self):
+                self.reads = 0
+
+            @property
+            def code(self):
+                self.reads += 1
+                raise RuntimeError('synthetic private marker')
+
+        exc = RaisingCode()
+        self.assertEqual(safe_failure_code(exc), 'scene_ir_execution_failed')
+        self.assertEqual(exc.reads, 0)
+
+    def test_hostile_subclass_attribute_hook_is_not_consulted(self):
+        class HostileCode(ProducerError):
+            def __init__(self):
+                pass
+
+            def __getattribute__(self, name):
+                if name == 'code':
+                    raise AssertionError('synthetic private marker')
+                return super().__getattribute__(name)
+
+        self.assertEqual(safe_failure_code(HostileCode()), 'scene_ir_execution_failed')
+
+    def test_string_subclass_cannot_self_certify_a_code(self):
+        class HostileString(str):
+            def __hash__(self):
+                raise AssertionError('synthetic private marker')
+
+        self.assertEqual(safe_failure_code(ProducerError(HostileString('scene_ir_audio_replan_required'))),
+                         'scene_ir_execution_failed')
+
+    def test_trusted_exception_missing_code_is_fail_closed(self):
+        exc = ProducerError('scene_ir_audio_replan_required')
+        del exc.code
+        self.assertEqual(safe_failure_code(exc), 'scene_ir_execution_failed')
+
     def test_engine_does_not_import_test_catalog_or_fixture_renderer(self):
         for path in (ROOT / 'bie/productization').glob('scene_ir_*.py'):
             tree = ast.parse(path.read_text(encoding='utf-8'))

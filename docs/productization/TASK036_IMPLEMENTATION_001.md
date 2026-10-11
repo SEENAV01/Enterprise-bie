@@ -74,3 +74,23 @@ Native review_required=true/accepted=false; product requires_review=true,
 accepted=false/release_ready=false/product_accepted=false. Audio stays OPEN and
 AUDIO_REPLAN_REQUIRED fail-closed. VIDEO_CODE and all later global stages remain
 NOT_RUN. No Task037 or product acceptance is granted here.
+
+## Independent source-review privacy correction
+
+The separate owner-appointed AI-assisted reviewer reproduced T36-EXT-001 on
+candidate ae2bc429: the new failure-code sanitizer repeatedly consulted an
+overridable exception property, permitting a hostile subclass to return an
+allowlisted value during checks and a non-allowlisted value during publication.
+This is a demonstrated adapter privacy defect, not a native rendering defect.
+The correction admits only the exact trusted ProducerError type, snapshots its
+code once, requires a builtin string in the fixed allowlist, and otherwise uses
+the generic rejection code. Subclass properties are never consulted. Five new
+adversarial controls cover changing/raising properties, attribute hooks, string
+subclasses and missing data. The original assertions remain unchanged.
+
+The exact reviewed function reproduced three reads and an unapproved returned
+value before the correction; the corrected function performed zero hostile reads
+and returned only the generic rejection. Local contract/admission tests passed
+45/45 on Windows. This is not a claim of whole-producer or Linux/render success.
+The changed candidate still requires exact-head hosted gates and reviewer
+reassessment; the earlier source-review decision is not carried over as approval.

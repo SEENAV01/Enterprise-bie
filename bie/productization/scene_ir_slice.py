@@ -25,7 +25,16 @@ FAILURE_CODES = frozenset({"scene_ir_multiple_scenes_unsupported", "scene_ir_aud
 def safe_failure_code(exc):
     # Even a ProducerError supplied by an extension/fault hook cannot export a
     # private exception message as its code. Native diagnostics stay private.
-    return exc.code if isinstance(exc, ProducerError) and type(exc.code) is str and exc.code in FAILURE_CODES else "scene_ir_execution_failed"
+    # Subclasses can override attribute access and change the value between
+    # validation and publication. Admit only the trusted native exception and
+    # snapshot its plain data once; never evaluate a hostile subclass property.
+    if type(exc) is not ProducerError:
+        return "scene_ir_execution_failed"
+    try:
+        code = exc.code
+    except Exception:
+        return "scene_ir_execution_failed"
+    return code if type(code) is str and code in FAILURE_CODES else "scene_ir_execution_failed"
 
 
 class SceneIRInputOrchestrator(EnterpriseOrchestrator):
