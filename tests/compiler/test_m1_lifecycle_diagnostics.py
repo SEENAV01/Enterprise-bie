@@ -183,4 +183,91 @@ class LifecycleDiagnosticControls(unittest.TestCase):
         self.assertEqual(sys.path, before)
 
 
+class CollectionDiagnosticPrivacyControls(unittest.TestCase):
+    def check(self, error):
+        result = runner.collection_diagnostic(error, runner.ROOT)
+        self.assertEqual(set(result), {"class", "code", "location", "package_aware"})
+        self.assertNotIn(SECRET, json.dumps(result))
+        return result
+
+    def test_changing_metaclass_name_never_read(self):
+        calls = []
+        class ChangingMeta(type):
+            def __getattribute__(cls, key):
+                if key == "__name__":
+                    calls.append(key)
+                    return "ValueError" if len(calls) == 1 else SECRET
+                return super().__getattribute__(key)
+        class ForeignError(Exception, metaclass=ChangingMeta): pass
+        self.assertEqual(self.check(ForeignError())["class"], "OTHER")
+        self.assertEqual(calls, [])
+
+    def test_raising_metaclass_name_contained(self):
+        class RaisingMeta(type):
+            def __getattribute__(cls, key):
+                if key == "__name__": raise RuntimeError(SECRET)
+                return super().__getattribute__(key)
+        class ForeignError(Exception, metaclass=RaisingMeta): pass
+        self.assertEqual(self.check(ForeignError())["class"], "OTHER")
+
+    def test_collection_subclass_stateful_string_never_formatted(self):
+        calls = []
+        class ForeignError(runner.CollectionError):
+            def __str__(self):
+                calls.append(True)
+                return "M1_COLLECTION_EMPTY_SUITE" if len(calls) == 1 else SECRET
+        result = self.check(ForeignError())
+        self.assertEqual((result["class"], result["code"]), ("OTHER", "M1_COLLECTION_EXCEPTION"))
+        self.assertEqual(calls, [])
+
+    def test_exact_collection_code_and_trusted_import_preserved(self):
+        self.assertEqual(self.check(runner.CollectionError("M1_COLLECTION_EMPTY_SUITE"))["code"], "M1_COLLECTION_EMPTY_SUITE")
+        for error, label in ((ImportError(SECRET), "ImportError"), (ModuleNotFoundError(SECRET), "ModuleNotFoundError")):
+            result = self.check(error)
+            self.assertEqual((result["class"], result["code"]), (label, "M1_COLLECTION_IMPORT_ERROR"))
+
+    def test_malformed_and_private_exact_collection_args_rejected(self):
+        for args in ((), (SECRET,), (True,), (1,), ({"private": SECRET},), ("M1_COLLECTION_EMPTY_SUITE", SECRET)):
+            with self.subTest(boundary=len(args)):
+                self.assertEqual(self.check(runner.CollectionError(*args))["code"], "M1_COLLECTION_EXCEPTION")
+
+    def test_string_subclass_is_not_code_authority(self):
+        class PrivateString(str):
+            def __hash__(self): raise AssertionError("must not hash")
+        self.assertEqual(self.check(runner.CollectionError(PrivateString("M1_COLLECTION_EMPTY_SUITE")))["code"], "M1_COLLECTION_EXCEPTION")
+
+    def test_foreign_traceback_getter_never_read(self):
+        class ForeignError(Exception):
+            @property
+            def __traceback__(self): raise AssertionError("foreign getter")
+        self.assertIsNone(self.check(ForeignError(SECRET))["location"])
+
+    def test_unregistered_identifier_filename_is_not_exported(self):
+        filename = runner.ROOT / "tests/compiler/PRIVATE_SYNTHETIC_FILENAME.py"
+        try:
+            exec(compile("raise ValueError('synthetic')", str(filename), "exec"), {})
+        except ValueError as error:
+            result = self.check(error)
+        self.assertIsNone(result["location"])
+        self.assertNotIn("PRIVATE_SYNTHETIC_FILENAME", json.dumps(result))
+
+    def test_fixed_runner_boundary_and_actual_line_are_preserved(self):
+        filename = runner.ROOT / "tests/compiler/run_m1_tests.py"
+        try:
+            exec(compile("\nraise ValueError('synthetic')", str(filename), "exec"), {})
+        except ValueError as error:
+            result = self.check(error)
+        self.assertEqual(result["location"], {"file": "tests/compiler/run_m1_tests.py", "line": 2})
+
+    def test_formatter_failure_preserves_collection_error_and_closed_capture(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with patch.object(runner, "collection_diagnostic", side_effect=RuntimeError(SECRET)):
+                row = runner.run_file("missing.py", set(), root)
+            self.assertFalse(row["passed"])
+            self.assertEqual((row["selected"], row["executed"], row["collection_errors"]), (0, 0, 1))
+            self.assertEqual(row["collector_error"]["code"], "M1_COLLECTION_EXCEPTION")
+            self.assertNotIn(SECRET, json.dumps(row))
+
+
 if __name__ == "__main__": unittest.main()

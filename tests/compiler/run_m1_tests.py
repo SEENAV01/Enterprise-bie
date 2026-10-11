@@ -57,6 +57,12 @@ COLLECTION_CODES = frozenset({"M1_COLLECTION_SOURCE_PATH", "M1_COLLECTION_SOURCE
     "M1_COLLECTION_PACKAGE_PATH", "M1_COLLECTION_FOREIGN_MODULE", "M1_COLLECTION_FOREIGN_TEST_CLASS",
     "M1_COLLECTION_TEST_SOURCE", "M1_COLLECTION_TEST_ID", "M1_COLLECTION_TEST_NAME",
     "M1_COLLECTION_EMPTY_SUITE", "M1_DUPLICATE_TEST_IDENTITY"})
+COLLECTION_LOCATIONS = frozenset({"tests/compiler/run_m1_tests.py",
+    "tests/compiler/test_comp_build_007.py", "tests/compiler/test_comp_build_008.py",
+    "tests/compiler/test_comp_render_integration.py", "tests/compiler/render_test_support.py",
+    "tests/compiler/test_comp_h10_001.py", "tests/compiler/test_comp_h4_005.py",
+    "bie/compiler/linux_worker.py", "bie/compiler/operational_math.py",
+    "bie/compiler/host_toolchain.py", "bie/compiler/generated_code_regression.py"})
 
 
 def require(value, code):
@@ -223,16 +229,40 @@ def collect_suite(module, root, identities):
 
 
 def collection_diagnostic(exc, root):
-    code = str(exc) if isinstance(exc, CollectionError) and str(exc) in COLLECTION_CODES else "M1_COLLECTION_IMPORT_ERROR" if isinstance(exc, ImportError) else "M1_COLLECTION_EXCEPTION"
-    allowed = {"ImportError", "ModuleNotFoundError", "ValueError", "TypeError", "SyntaxError", "FileNotFoundError", "CollectionError"}
-    location = None; tb = exc.__traceback__
-    while tb:
-        path = Path(tb.tb_frame.f_code.co_filename).resolve()
-        if path.is_relative_to(Path(root).resolve()):
-            location = {"file": path.relative_to(Path(root).resolve()).as_posix(), "line": tb.tb_lineno}
-        tb = tb.tb_next
-    return {"class": type(exc).__name__ if type(exc).__name__ in allowed else "OTHER", "code": code,
-            "location": location, "package_aware": True}
+    """Literal trusted types and bounded source locations; never format errors."""
+    output = {"class": "OTHER", "code": "M1_COLLECTION_EXCEPTION", "location": None, "package_aware": True}
+    try:
+        allowed = ((ImportError, "ImportError"), (ModuleNotFoundError, "ModuleNotFoundError"),
+            (ValueError, "ValueError"), (TypeError, "TypeError"), (SyntaxError, "SyntaxError"),
+            (FileNotFoundError, "FileNotFoundError"), (CollectionError, "CollectionError"))
+        actual_type = type(exc)
+        output["class"] = next((label for cls, label in allowed if actual_type is cls), "OTHER")
+        if actual_type is ImportError or actual_type is ModuleNotFoundError:
+            output["code"] = "M1_COLLECTION_IMPORT_ERROR"
+        elif actual_type is CollectionError:
+            arguments = exc.args
+            if type(arguments) is tuple and len(arguments) == 1:
+                code = arguments[0]
+                if type(code) is str and len(code) <= 80 and code in COLLECTION_CODES:
+                    output["code"] = code
+        # Use the base descriptor, not an overridden foreign traceback getter.
+        if not isinstance(exc, BaseException): return output
+        tb = BaseException.__traceback__.__get__(exc)
+        count = 0
+        while tb is not None and count < 64:
+            if type(tb) is not TracebackType: return output
+            filename, line = tb.tb_frame.f_code.co_filename, tb.tb_lineno
+            if type(filename) is not str or len(filename) > 4096: return output
+            path = Path(filename).resolve()
+            if path.is_relative_to(Path(root).resolve()):
+                relative = path.relative_to(Path(root).resolve()).as_posix()
+                if (relative in COLLECTION_LOCATIONS
+                        and type(line) is int and 1 <= line <= 100000):
+                    output["location"] = {"file": relative, "line": line}
+            count += 1; tb = tb.tb_next
+    except BaseException:
+        pass  # Optional observation cannot replace collection's original verdict.
+    return output
 
 
 FAILURE_DIAGNOSTIC_SCHEMA = "bie.task036.m1.test-failure-diagnostic/1"
@@ -376,7 +406,12 @@ def run_file(path, identities, root=ROOT):
         row["import_origins"] = origins
         row["import_origins_verified"] = True
     except Exception as exc:
-        row.update(collection_errors=1, collector_error=collection_diagnostic(exc, root))
+        row["collection_errors"] = 1
+        try:
+            row["collector_error"] = collection_diagnostic(exc, root)
+        except BaseException:
+            row["collector_error"] = {"class": "OTHER", "code": "M1_COLLECTION_EXCEPTION",
+                "location": None, "package_aware": True}
     finally:
         capture.close()
     row["passed"] = row["selected"] > 0 and row["executed"] == row["selected"] and not any(row[k] for k in ("failures", "errors", "skips", "collection_errors"))
