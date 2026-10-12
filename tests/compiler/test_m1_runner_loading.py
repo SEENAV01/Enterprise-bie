@@ -262,6 +262,11 @@ def selected_suite():
         self.assertNotIn(media, selected["native-extra"])
         self.assertNotIn(media, selected["safety"])
         self.assertNotIn(media, inherited)
+        exception_sites = "tests/compiler/test_m1_parent_exception_observation.py"
+        self.assertEqual(selected["new"].count(exception_sites), 1)
+        self.assertNotIn(exception_sites, selected["native-extra"])
+        self.assertNotIn(exception_sites, selected["safety"])
+        self.assertNotIn(exception_sites, inherited)
 
     def test_explicit_native_preimage_alias_checks_actual_checkout_origin(self):
         self.package("r1_native")

@@ -276,12 +276,25 @@ def run(args):
                             try:
                                 from tests.compiler.m1_safe_paint_diagnostics import observe_worker_rejections, is_safe_guard_observation
                                 from tests.compiler.m1_media_diagnostics import observe_owned_pids, is_safe_pids, capture_media_observation, is_safe_media
-                                with observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
+                                from contextlib import nullcontext
+                                exception_scope = nullcontext(None)
+                                try:
+                                    from tests.compiler.m1_parent_exception_observation import observe_parent_exception_sites, is_safe_observation as is_safe_exception_sites
+                                    exception_scope = observe_parent_exception_sites()
+                                except BaseException:
+                                    pass
+                                with exception_scope as exception_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
                                     witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
                             except Exception:
                                 # Snapshot only fixed private receipt fields BEFORE
                                 # TemporaryDirectory cleanup. Evidence cannot mask
                                 # or downgrade the original fail-closed rejection.
+                                try:
+                                    sites = exception_observer.snapshot()
+                                    if is_safe_exception_sites(sites):
+                                        phase["paint_parent_exception_observation"] = sites
+                                except BaseException:
+                                    pass
                                 try:
                                     diagnostic = capture_paint_diagnostic(root, family=family, preference=preference,
                                         frame_count=phase["layer_frames"], duration_ms=raw["duration_ms"], fps=target.fps)
