@@ -232,3 +232,56 @@ source/privacy findings, verified 56 pure controls and all 184 collected cases
 (172 retained plus 12), and kept REVIEW_INCOMPLETE for missing fresh runtime
 proof. This paragraph follows that sealed review snapshot; it does not claim
 the reviewer attested the subsequent documentation bytes or eventual commit.
+
+## Current M1 pass and fresh-entry catalog composition
+
+On a2da0f09, Scene IR run 38168854198 attempt 1 executed all 265 selected
+tests successfully, including both actual crash/reopen pairs. Its positive
+eleven-stage smoke nevertheless failed for quantitative, chronology and cellular:
+the first children exited -9 after about 30.19 seconds. All eleven stage states
+were durably SUCCEEDED; quantitative/chronology had ten ACKs and one delivered
+job, while cellular had eleven ACKs. Actual last-written checkpoints located
+the former after terminal commit and the latter before next admission. CPU
+samples were 24397, 23539 and 29207 ms respectively. These are point-in-time
+observations, not kill-time usage or proof of the exact kernel cause. The
+unsupported-Math process/restart/replay passed; final Scene IR source audit
+was not reached. That failure is not waived by passing unit/recovery evidence.
+
+The separate M1 run 38168854141 and canonical preservation dispatch 38169271905
+completed successfully on that same candidate. Actual archive contents and
+render witnesses require verification separately from their aggregate status;
+they do not close the positive-process failure or attest changed source.
+
+Read-only source analysis established three complete native Animation proofs
+inside each former Scene IR build: its preparatory input capture, unchanged M1
+entry, and unchanged M1 exit. A Windows service-only cost probe also observed
+three verifications in a failing Scene IR operation. This establishes duplicate
+work, not a causal explanation of historical SIGKILL or production throughput.
+Artifact/hash equality alone is NOT an authority substitute: native Director
+revision/claim/replay and durable publication metadata can reject unchanged CAS.
+
+The versioned Task036 policy `fresh-m1-entry-catalog-and-fresh-exit/1` removes
+only the preparatory third proof. A productization-only context now derives the
+complete scene scope, catalog and native adoption from the exact bundle consumed
+by M1's real fresh ENTRY verification, before canonical M1 lowering. Its EXIT
+still executes the complete, unchanged native verification and snapshot equality.
+The original plan/receipt objects are returned unchanged. Explicit ENTRY/BODY/
+EXIT phases, pre-delegation attempt accounting, exact service/run/tenant binding,
+one factory call, owned catalog identity, reentry/nesting rejection and context
+restoration prevent cached or extra proofs from substituting for these checks.
+No proof survives a build, status, publication, ACK or replay call. No publication
+occurs in the factory. All seven DSL validators, conservation, codec, loader,
+complete parents, native currentness, fencing and status checks remain intact.
+The policy is bound to canonical config, private validation and replay identity;
+old configuration/output is not silently reused under new code/policy.
+
+New controls distinguish inert adapter tests from two actual persisted-artifact
+integration cases. The latter require two fresh native proofs and actual SQLite
+Director invalidation on EXIT with unchanged artifact digest. Available Windows
+execution of these two real cases errored at the unchanged Linux worker's missing
+fcntl import during native layout; neither case is claimed passed. A prior launch
+while source was still being edited errored at configuration identity before
+executing a method and is not a baseline/platform proof. Linux integration and
+fresh full positive process/restart/source-audit gates remain mandatory. No native
+compiler, sealed amendment, dependency, workflow or resource budget changes are
+part of this composition repair; no exact historical painter cause is inferred.

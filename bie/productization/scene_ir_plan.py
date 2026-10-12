@@ -15,7 +15,6 @@ from bie.scene_ir.unified_scene_ir_codec import encode_scene_ir, roundtrip_scene
 from bie.scene_ir.dsl_orchestrator import validate_scene_ir_document, require_dsl_gate
 from bie.scene_ir.narration_cues import NarrationCue, validate_narration_cues
 from bie.scene_ir.compiler_capability_resolution import resolve_compiler_capabilities
-from bie.compiler.producer_motion_admission import current_motion_admission
 from bie.compiler import governed_motion as gm
 from bie.compiler.qa_scene_compile import CompilerQATarget, native_qa_capabilities
 from bie.compiler.scene_ir_loader import load_scene_ir_payload
@@ -24,7 +23,7 @@ from bie.compiler.frame_layout import evaluate_frame_layout
 from .director_storage import native_runtime
 from .contracts import require, canonical, digest
 from .scene_ir_catalog import build_catalog, verify_inventory
-from .scene_ir_contract import POLICY, SCHEMA, strict_document, finite_tree
+from .scene_ir_contract import POLICY, SCHEMA, INPUT_COMPOSITION_POLICY, strict_document, finite_tree
 
 VALIDATORS = frozenset("DSL-VALID-" + n for n in
     ("SCHEMA", "SEMANTIC", "REFERENCE", "TEMPORAL", "SPATIAL", "ACCESSIBILITY", "TRACE"))
@@ -153,37 +152,48 @@ def validate_handoff(handoff, plan, rows, catalog, scope):
 
 
 def build_current_scene(service, run, tenant, *, fault=lambda _: None):
-    plan, receipt, bundle = service.verified_animation_with_inputs(run, tenant)
-    rows = bundle["rows"]
-    target = service.configuration(run, tenant)["config"]["visual"]["target"]
-    with native_runtime(service, run, None) as assembly:
-        director, execution = DirectorConsumers(assembly.io, DirectorRevisionStore(assembly.idempotency))._director(
-            bundle["director"].to_ref())
-        scope = scene_scope(execution, rows)
-        scope["director_artifact_ref"] = asdict(director.to_ref())
-    fault("after_SCENE_IR_inputs_verified")
-    details = service.read(run, bundle["visual_receipt"]["validation_id"])
-    catalog, mappings = build_catalog(rows, target, details)
-    fault("after_SCENE_IR_catalog")
-    handoff = service.read(run, receipt["handoff_id"])
-    nodes = validate_handoff(handoff, plan, rows, catalog, scope)
-    adopted, adoption = adopt_ani_handoff(handoff, scene_id=scope["scene_id"], title=scope["title"],
-        duration_ms=scope["duration_ms"], element_catalog=catalog, ani_revision=plan["narration_revision"])
-    adopted_by = {t["track_id"]: t for t in adopted.to_dict()["tracks"]}
-    for node in nodes:
-        expected = dict(track_id=node["track_id"], element_id=node["target_ids"][0], action=node["action"],
-            start_ms=node["start_ms"], end_ms=node["end_ms"], parameters=node["parameters"],
-            source_refs=node["source_refs"], reasoning_refs=node["reasoning_refs"])
-        require(adopted_by.get(node["track_id"]) == expected, "scene_ir_adoption_field_loss")
-    require(len(adopted_by) == len(nodes), "scene_ir_adoption_track_loss")
-    fault("after_SCENE_IR_adoption")
-    animated = {tid for n in nodes for tid in n["target_ids"]}
-    # Accessibility declarations are part of the admitted element identity.
-    # Bind them before M1 seals that identity, never mutate the bound catalog.
-    for element in catalog:
-        if element["element_id"] in animated:
-            element["accessibility"]["reduced_motion_variant"] = "scene-ir-m1:" + element["element_id"]
-    with current_motion_admission(service, run, tenant, [e for e in catalog if e["element_id"] in animated]) as bound:
+    def derive(plan, receipt, bundle):
+        # Executed exactly once from the unchanged M1 ENTRY's native result and
+        # the actual inputs that result consumed. Nothing is published here.
+        rows = bundle["rows"]
+        config = service.configuration(run, tenant)["config"]
+        require(config["scene_ir"]["input_composition_policy"] == INPUT_COMPOSITION_POLICY,
+            "scene_ir_motion_composition_policy")
+        target = config["visual"]["target"]
+        with native_runtime(service, run, None) as assembly:
+            director, execution = DirectorConsumers(assembly.io, DirectorRevisionStore(assembly.idempotency))._director(
+                bundle["director"].to_ref())
+            scope = scene_scope(execution, rows)
+            scope["director_artifact_ref"] = asdict(director.to_ref())
+        fault("after_SCENE_IR_inputs_verified")
+        details = service.read(run, bundle["visual_receipt"]["validation_id"])
+        catalog, mappings = build_catalog(rows, target, details)
+        fault("after_SCENE_IR_catalog")
+        handoff = service.read(run, receipt["handoff_id"])
+        nodes = validate_handoff(handoff, plan, rows, catalog, scope)
+        adopted, adoption = adopt_ani_handoff(handoff, scene_id=scope["scene_id"], title=scope["title"],
+            duration_ms=scope["duration_ms"], element_catalog=catalog, ani_revision=plan["narration_revision"])
+        adopted_by = {t["track_id"]: t for t in adopted.to_dict()["tracks"]}
+        for node in nodes:
+            expected = dict(track_id=node["track_id"], element_id=node["target_ids"][0], action=node["action"],
+                start_ms=node["start_ms"], end_ms=node["end_ms"], parameters=node["parameters"],
+                source_refs=node["source_refs"], reasoning_refs=node["reasoning_refs"])
+            require(adopted_by.get(node["track_id"]) == expected, "scene_ir_adoption_field_loss")
+        require(len(adopted_by) == len(nodes), "scene_ir_adoption_track_loss")
+        fault("after_SCENE_IR_adoption")
+        animated = {tid for n in nodes for tid in n["target_ids"]}
+        # Bind accessibility before M1 seals the catalog, never afterward.
+        for element in catalog:
+            if element["element_id"] in animated:
+                element["accessibility"]["reduced_motion_variant"] = "scene-ir-m1:" + element["element_id"]
+        prepared = dict(plan=plan, receipt=receipt, bundle=bundle, rows=rows, target=target,
+            scope=scope, catalog=catalog, mappings=mappings, nodes=nodes, adoption=adoption)
+        return prepared, [e for e in catalog if e["element_id"] in animated]
+
+    with service.current_scene_motion_admission(run, tenant, derive) as (bound, prepared):
+        plan, receipt, bundle = (prepared[k] for k in ("plan", "receipt", "bundle"))
+        rows, target, scope, catalog, mappings, nodes, adoption = (prepared[k] for k in
+            ("rows", "target", "scope", "catalog", "mappings", "nodes", "adoption"))
         h3 = consumer_policy(catalog, list(bound["tracks"].values()), mappings)
         elements = tuple(UnifiedElement(e["element_id"], e["element_type"], e["props"], tuple(e["source_refs"]),
             tuple(e["reasoning_refs"]), e["accessibility"], e["normalized_box"]) for e in catalog)
@@ -230,6 +240,7 @@ def build_current_scene(service, run, tenant, *, fault=lambda _: None):
                 loaded.document.to_dict() == doc.to_dict() and loaded.validation_passed, "scene_ir_loader_mismatch")
         fault("after_SCENE_IR_validation")
         private = dict(scope=scope, catalog_mapping=mappings, original_adoption=asdict(adoption),
+            input_composition_policy=INPUT_COMPOSITION_POLICY,
             track_identity_map=[dict(node_id=n["node_id"], original_track_id=n["track_id"],
                 document_track_ids=[n["track_id"]], original_target_ids=n["target_ids"],
                 original_parameters=deepcopy(n["parameters"]), original_node_sha256=digest(n)) for n in nodes],

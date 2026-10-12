@@ -1,5 +1,6 @@
 """Eleven-stage delegation using existing durable stores and fenced publication."""
 from dataclasses import asdict
+from contextlib import contextmanager
 from contextvars import ContextVar
 from bie.infrastructure.orchestrator import EnterpriseOrchestrator, StageExecutionResult, StageExecutionFailure
 from bie.infrastructure.artifact_store import BlobRef
@@ -15,6 +16,7 @@ from .scene_ir_plan import build_current_scene
 STAGES = ANIMATION_STAGES + ("SCENE_IR",)
 INPUT_STAGES = ("VISUAL", "ANIMATION", "DIRECTOR")
 _ANIMATION_INPUT_CAPTURE = ContextVar("task036_verified_animation_input_capture", default=None)
+_MOTION_INPUT_COMPOSITION = ContextVar("task036_current_motion_input_composition", default=None)
 FAILURE_CODES = frozenset({"scene_ir_multiple_scenes_unsupported", "scene_ir_audio_replan_required",
     "scene_ir_structure_unsupported", "scene_ir_text_overflow", "scene_ir_domain_unsupported",
     "scene_ir_capability_blocked", "scene_ir_presentation_bounds", "scene_ir_upstream_identity",
@@ -101,6 +103,15 @@ class SceneIRProducerService(AnimationProducerService):
         inside this same Scene IR build. Nothing survives the context scope;
         no cross-call, ACK, publication, revision or authorization cache exists.
         """
+        composition = _MOTION_INPUT_COMPOSITION.get()
+        if composition is not None:
+            valid = (composition["service"] is self and composition["run"] == run and
+                composition["tenant"] == tenant and composition["phase"] in ("ENTRY", "EXIT") and
+                composition["delegating"] is True and _ANIMATION_INPUT_CAPTURE.get() is None and
+                not composition["invalid"])
+            if not valid:
+                composition["invalid"] = True
+            require(valid, "scene_ir_motion_composition_scope")
         capture = dict(service=self, run=run, tenant=tenant, bundles=[])
         token = _ANIMATION_INPUT_CAPTURE.set(capture)
         try:
@@ -109,6 +120,67 @@ class SceneIRProducerService(AnimationProducerService):
             return plan, receipt, capture["bundles"][0]
         finally:
             _ANIMATION_INPUT_CAPTURE.reset(token)
+
+    def verified_animation(self, run, tenant):
+        composition = _MOTION_INPUT_COMPOSITION.get()
+        if composition is None:
+            return super().verified_animation(run, tenant)
+        phase = composition["phase"]
+        expected = 0 if phase == "ENTRY" else 1 if phase == "EXIT" else None
+        valid = (composition["service"] is self and composition["run"] == run and
+            composition["tenant"] == tenant and expected is not None and
+            composition["attempts"] == expected and not composition["invalid"])
+        if not valid:
+            composition["invalid"] = True
+        require(valid, "scene_ir_motion_composition_scope")
+        # Count the attempt BEFORE delegation. A caught native/derivation failure
+        # cannot retry or substitute a cached proof within this operation.
+        composition["attempts"] += 1
+        composition["delegating"] = True
+        try:
+            plan, receipt, bundle = self.verified_animation_with_inputs(run, tenant)
+        finally:
+            composition["delegating"] = False
+        if phase == "ENTRY":
+            prepared, elements = composition["derive"](plan, receipt, bundle)
+            require(type(prepared) is dict and type(elements) is list and elements,
+                "scene_ir_motion_composition_catalog")
+            composition["catalog"].extend(elements)
+            composition["prepared"] = prepared
+        # Both ENTRY and EXIT executed the unchanged native super() verification.
+        # No receipt, authority, or native result is cached for the EXIT call.
+        return plan, receipt
+
+    @contextmanager
+    def current_scene_motion_admission(self, run, tenant, derive):
+        """Populate M1's owned catalog from its ACTUAL fresh entry verification.
+
+        The canonical M1 snapshot/lowering/exit checks are unchanged. Only the
+        separate preparatory verification is eliminated. No state survives the
+        scope; publication, ACK, status and replay each reopen current authority.
+        """
+        from bie.compiler.producer_motion_admission import current_motion_admission
+        prior = _MOTION_INPUT_COMPOSITION.get()
+        if prior is not None:
+            prior["invalid"] = True
+        require(prior is None and _ANIMATION_INPUT_CAPTURE.get() is None,
+            "scene_ir_motion_composition_nested")
+        require(callable(derive), "scene_ir_motion_composition_callback")
+        composition = dict(service=self, run=run, tenant=tenant, phase="ENTRY", attempts=0,
+            invalid=False, delegating=False, catalog=[], prepared=None, derive=derive)
+        marker = _MOTION_INPUT_COMPOSITION.set(composition)
+        try:
+            with current_motion_admission(self, run, tenant, composition["catalog"]) as bound:
+                require(composition["attempts"] == 1 and composition["prepared"] is not None and
+                    not composition["invalid"], "scene_ir_motion_composition_entry")
+                composition["phase"] = "BODY"
+                yield bound, composition["prepared"]
+                require(not composition["invalid"], "scene_ir_motion_composition_scope")
+                composition["phase"] = "EXIT"
+            require(composition["attempts"] == 2 and not composition["invalid"],
+                "scene_ir_motion_composition_exit")
+        finally:
+            _MOTION_INPUT_COMPOSITION.reset(marker)
 
     def require_parents(self, run, artifact_id, expected):
         actual = self.record(run, artifact_id).parent_artifact_ids
@@ -133,7 +205,8 @@ class SceneIRProducerService(AnimationProducerService):
         deps = {p: self.record(run, p).blob_digest for p in parents}
         vector = DSLVersionVector(document.upstream_revision, SCHEMA, settings["capability_profile"],
             digest(dict(dependencies=deps, mapping=private["catalog_mapping"], engines=settings["engines"],
-                motion=private["motion_admission_id"], scope=private["scope"])), digest([]))
+                motion=private["motion_admission_id"], scope=private["scope"],
+                input_composition=private["input_composition_policy"])), digest([]))
         record = make_replay_record(document, digest(dict(private=private, settings=settings, dependencies=deps)), vector, deps)
         require(set(dict(record.dependency_fingerprints)) == set(deps), "scene_ir_dependency_set")
         require_current(evaluate_currentness(record, document, vector, deps))

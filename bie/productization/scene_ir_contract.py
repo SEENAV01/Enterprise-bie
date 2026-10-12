@@ -14,6 +14,7 @@ PROFILE = "source_grounded_di_knowledge_pr_math_reasoning_pedagogy_director_visu
 SCHEMA = "1.0.0"
 POLICY = "current-complete-single-scene-native-ir/1"
 MAPPING_POLICY = "source-grammar-native-elements/1"
+INPUT_COMPOSITION_POLICY = "fresh-m1-entry-catalog-and-fresh-exit/1"
 REVIEW_SHA256 = "33458799eaf58951aa474a08d412b6b56361ec2f08aebdc23f150976a92410a5"
 _CODE_SCOPE = ContextVar("task036_scene_ir_code_identity", default=None)
 
@@ -68,6 +69,7 @@ def refresh_code_identity():
 
 def scene_ir_config():
     return dict(schema=SCHEMA, policy=POLICY, mapping_policy=MAPPING_POLICY,
+        input_composition_policy=INPUT_COMPOSITION_POLICY,
         scope="COMPLETE_SINGLE_SCENE", capability_profile="producer-motion-v1", fps=24,
         engines=engine_identity(), audio_complete=False, audio_reconciliation_open=True)
 

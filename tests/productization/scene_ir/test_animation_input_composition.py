@@ -110,7 +110,8 @@ class AnimationInputCompositionControls(unittest.TestCase):
         calls = [node.func.attr for node in ast.walk(function) if isinstance(node, ast.Call)
                  and isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name)
                  and node.func.value.id == "service"]
-        self.assertEqual(calls.count("verified_animation_with_inputs"), 1)
+        self.assertEqual(calls.count("current_scene_motion_admission"), 1)
+        self.assertNotIn("verified_animation_with_inputs", calls)
         self.assertNotIn("animation_inputs", calls)
         self.assertNotIn("verified_animation", calls)
 
