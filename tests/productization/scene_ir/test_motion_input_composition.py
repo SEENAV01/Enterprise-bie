@@ -362,6 +362,19 @@ class RealNativeAdmissionComposition(PreparedSceneFixture):
         with self.port.native(self.p, self.run, 'read') as service:
             ref, row = service.stage_ref(self.run, 'DIRECTOR')
             original_digest = row.blob_digest
+            original_attempt = deepcopy(service.persistence.load_run_state(self.run)
+                ['stages']['SCENE_IR']['attempts'][-1])
+            # Successful ANIMATION schedules its unexecuted successor READY.
+            # A read-only failed build must conserve that entire queued attempt,
+            # not incorrectly demand it return to the pre-scheduling PENDING state.
+            self.assertEqual(original_attempt['state'], 'READY')
+            self.assertEqual(original_attempt['output_artifact_refs'], [])
+            self.assertEqual(original_attempt['evidence_refs'], [])
+            def scene_artifacts():
+                return sorted(aid for aid in service.persistence.artifacts_for_run(self.run)
+                    if service.record(self.run, aid).stage_id == 'SCENE_IR')
+            original_scene_artifacts = scene_artifacts()
+            self.assertEqual(original_scene_artifacts, [])
             def invalidate(boundary):
                 if boundary == 'after_SCENE_IR_validation':
                     with closing(sqlite3.connect(service.root / 'director-state.sqlite3')) as db:
@@ -374,7 +387,9 @@ class RealNativeAdmissionComposition(PreparedSceneFixture):
                     build_current_scene(service, self.run, self.p.tenant, fault=invalidate)
             self.assertEqual(phases, ['ENTRY', 'EXIT'])
             self.assertEqual(service.record(self.run, ref).blob_digest, original_digest)
-            self.assertEqual(service.persistence.load_run_state(self.run)['stages']['SCENE_IR']['attempts'][-1]['state'], 'PENDING')
+            self.assertEqual(service.persistence.load_run_state(self.run)
+                ['stages']['SCENE_IR']['attempts'][-1], original_attempt)
+            self.assertEqual(scene_artifacts(), original_scene_artifacts)
         self.assertIsNone(_MOTION_INPUT_COMPOSITION.get())
         self.assertIsNone(_ANIMATION_INPUT_CAPTURE.get())
 

@@ -285,3 +285,27 @@ executing a method and is not a baseline/platform proof. Linux integration and
 fresh full positive process/restart/source-audit gates remain mandatory. No native
 compiler, sealed amendment, dependency, workflow or resource budget changes are
 part of this composition repair; no exact historical painter cause is inferred.
+
+## Fresh-entry native negative-control scheduling expectation
+
+The exact eba6c449 Scene IR run 38189879878, attempt 1, executed all 301
+selected cases: 300 passed, one failed, zero errors/skips/collection errors.
+Its safe artifact 11721008130 (80,167 bytes, SHA256
+c3d58f5e8625c7caacb90fae0af910ec2bf933fb9eef61850d86d37f73d56732)
+passed digest and ZIP CRC verification. The sole failed method was the new
+native Director revision-invalidation/EXIT control. The receipt reports
+AssertionError without a detailed assertion location; a historical traceback
+is not reconstructed. The positive child/restart and final source-audit steps
+were skipped and are not reported passed.
+
+Canonical durable_slice.work_once schedules the successor after successful
+ANIMATION, and schedule marks that unexecuted Scene IR attempt READY before
+enqueueing it. The new control incorrectly demanded PENDING after a read-only
+failed build. The correction explicitly requires the prior READY state, no
+output/evidence references, and equality of the complete attempt before/after.
+It also requires an empty, unchanged Scene IR artifact inventory.
+Actual native STALE state, RevisionError, fresh ENTRY and EXIT calls, unchanged
+Director bytes and context restoration remain required. This is a stricter
+state-conservation assertion, not a producer, authority or scheduler change.
+All 301 logical identities and inherited assertions remain selected; fresh
+Linux execution is still necessary to establish this test and process closure.
