@@ -22,6 +22,11 @@ def validate(root):
     except ImportError:
         from scripts.compiler_cache_source_amendment import regular, unique
     root=Path(root).resolve()
+    try:
+        from compiler_pr_source_contract_amendment import validate as current, authenticated_previous_bytes as previous
+    except ImportError:
+        from scripts.compiler_pr_source_contract_amendment import validate as current, authenticated_previous_bytes as previous
+    current(root)
     raw=regular(root,DOCUMENT,16*1024).replace(b'\r\n',b'\n')
     if b'\r' in raw or sha256(raw).hexdigest()!=DOCUMENT_SHA256:raise ValueError('STITCH_INPUT_DOCUMENT')
     doc=json.loads(raw,object_pairs_hook=unique)
@@ -56,6 +61,8 @@ def validate(root):
                 raise ValueError('STITCH_INPUT_PRIOR_PREIMAGE')
             if row['path'] not in TARGETS:
                 active=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+                if row['path']=='bie/compiler/qa_support/remotion_raster_capture.cjs':
+                    active=previous(root,row['path'],row['active_sha256'])
                 if len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
                     raise ValueError('STITCH_INPUT_UNLISTED_CHANGE')
     for row in doc['replacements']:
@@ -68,6 +75,9 @@ def validate(root):
             sha1(b'blob '+str(len(old)).encode()+b'\0'+old).hexdigest()!=row['original_git_blob']):
             raise ValueError('STITCH_INPUT_PREIMAGE')
         active=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+        if row['path'] in ('scripts/compiler_media_policy_observation_amendment.py',
+                          'scripts/compiler_media_source_pin_amendment.py'):
+            active=previous(root,row['path'],row['active_sha256'])
         if b'\r' in active or len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:
             raise ValueError('STITCH_INPUT_ACTIVE')
     return doc

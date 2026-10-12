@@ -35,6 +35,10 @@ def validate(root):
     except ImportError:
         from scripts.compiler_stitch_input_amendment import validate as latest
     latest(root)
+    try:
+        from compiler_pr_source_contract_amendment import authenticated_previous_bytes as current_preimage
+    except ImportError:
+        from scripts.compiler_pr_source_contract_amendment import authenticated_previous_bytes as current_preimage
     raw=regular(root,DOCUMENT,16*1024).replace(b'\r\n',b'\n')
     if b'\r' in raw or sha256(raw).hexdigest()!=DOCUMENT_SHA256:
         raise ValueError('MEDIA_SOURCE_PIN_DOCUMENT')
@@ -58,6 +62,8 @@ def validate(root):
     for row in prior['replacements']:
         if row['path'] not in TARGETS:
             active=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+            if row['path']=='bie/compiler/qa_support/remotion_raster_capture.cjs':
+                active=current_preimage(root,row['path'],row['active_sha256'])
             if row['path']==HELPER and sha256(active).hexdigest()!=row['active_sha256']:
                 active=stitch_input_preimage(root,row['path'],row['active_sha256'])
             if len(active)!=row['active_bytes'] or sha256(active).hexdigest()!=row['active_sha256']:

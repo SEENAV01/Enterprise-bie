@@ -267,6 +267,11 @@ def selected_suite():
         self.assertNotIn(exception_sites, selected["native-extra"])
         self.assertNotIn(exception_sites, selected["safety"])
         self.assertNotIn(exception_sites, inherited)
+        pr_contract = "tests/compiler/test_m1_pr_source_contract.py"
+        self.assertEqual(selected["new"].count(pr_contract), 1)
+        self.assertNotIn(pr_contract, selected["native-extra"])
+        self.assertNotIn(pr_contract, selected["safety"])
+        self.assertNotIn(pr_contract, inherited)
 
     def test_explicit_native_preimage_alias_checks_actual_checkout_origin(self):
         self.package("r1_native")

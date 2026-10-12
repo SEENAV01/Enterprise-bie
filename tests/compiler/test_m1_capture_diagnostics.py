@@ -304,6 +304,11 @@ class CaptureSourceAmendment(unittest.TestCase):
         selected.update({stitch_inputs.DOCUMENT,'scripts/compiler_stitch_input_amendment.py'})
         selected.update(r['path'] for r in input_doc['replacements'])
         selected.update(r['preimage'] for r in input_doc['replacements'])
+        from scripts import compiler_pr_source_contract_amendment as current
+        current_doc=current.validate(ROOT)
+        selected.update({current.DOCUMENT,'scripts/compiler_pr_source_contract_amendment.py'})
+        selected.update(r['path'] for r in current_doc['replacements'])
+        selected.update(r['preimage'] for r in current_doc['replacements'])
         for relative in selected:
             target = cls.fixture / relative
             target.parent.mkdir(parents=True, exist_ok=True)

@@ -18,6 +18,11 @@ def validate(root):
     except ImportError:
         from scripts.compiler_cache_source_amendment import regular, unique, MANIFEST, MANIFEST_SHA
     root=Path(root).resolve()
+    try:
+        from compiler_pr_source_contract_amendment import validate as current, authenticated_previous_bytes as previous
+    except ImportError:
+        from scripts.compiler_pr_source_contract_amendment import validate as current, authenticated_previous_bytes as previous
+    current(root)
     raw=regular(root,DOCUMENT,16*1024).replace(b'\r\n',b'\n')
     if b'\r' in raw or sha256(raw).hexdigest()!=DOCUMENT_SHA256:
         raise ValueError('MEDIA_POLICY_OBSERVATION_DOCUMENT')
@@ -56,6 +61,8 @@ def validate(root):
         if len(original)!=row['original_bytes'] or sha256(original).hexdigest()!=row['original_sha256'] or blob!=row['original_git_blob']:
             raise ValueError('MEDIA_POLICY_OBSERVATION_PREIMAGE')
         active=regular(root,row['path'],64*1024).replace(b'\r\n',b'\n')
+        if row['path']=='bie/compiler/qa_support/remotion_raster_capture.cjs':
+            active=previous(root,row['path'],row['active_sha256'])
         if row['path']=='bie/compiler/real_paint.py':
             try:
                 from compiler_media_source_pin_amendment import authenticated_previous_bytes

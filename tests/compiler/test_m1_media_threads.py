@@ -287,6 +287,11 @@ class MediaThreadAmendment(unittest.TestCase):
         paths.update({stitch_inputs.DOCUMENT,'scripts/compiler_stitch_input_amendment.py'})
         paths.update(r['path'] for r in input_doc['replacements'])
         paths.update(r['preimage'] for r in input_doc['replacements'])
+        from scripts import compiler_pr_source_contract_amendment as current
+        current_doc=current.validate(ROOT)
+        paths.update({current.DOCUMENT,'scripts/compiler_pr_source_contract_amendment.py'})
+        paths.update(r['path'] for r in current_doc['replacements'])
+        paths.update(r['preimage'] for r in current_doc['replacements'])
         for name in paths:
             p=cls.root/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,p)
 

@@ -162,14 +162,18 @@ async function main(){
     for(const kind of ['baseline','isolated','muted']){
      const value=await shot(kind,i);
      mark('MODE_INVENTORY');
-     if(JSON.stringify(value.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))reject('CAPTURE_DOM_MODE_DRIFT','CAPTURE_DOM_MODE_DRIFT');
+     if(JSON.stringify(value.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory)){
+      observation.guard_code='CAPTURE_DOM_MODE_DRIFT';throw new Error('CAPTURE_DOM_MODE_DRIFT');
+     }
      row[kind]=value.file;
     }
     targets.push(row);
    }
    const repeat=await shot('repeat');
    mark('RESTORE_INVENTORY');
-   if(JSON.stringify(repeat.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))reject('CAPTURE_DOM_RESTORE_DRIFT','CAPTURE_DOM_RESTORE_DRIFT');
+   if(JSON.stringify(repeat.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory)){
+    observation.guard_code='CAPTURE_DOM_RESTORE_DRIFT';throw new Error('CAPTURE_DOM_RESTORE_DRIFT');
+   }
    frames.push({frame,image:full.file.file,image_sha256:full.file.sha256,measurement:full.measurement});
    rasterFrames.push({frame,full:full.file,repeat:repeat.file,inventory:full.measurement.raster.inventory,targets});
   }

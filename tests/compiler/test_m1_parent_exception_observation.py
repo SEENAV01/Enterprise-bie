@@ -412,5 +412,43 @@ class ParentExceptionObservation(unittest.TestCase):
         self.assertNotIn(path, inherited)
         self.assertEqual(len(selected["native-extra"]), 214)
 
+    def test_actual_wrapper_authenticates_before_typed_binding_replacement(self):
+        import tempfile
+        from contextlib import contextmanager
+        from bie.compiler import chromium_resource_worker as worker
+        from tests.compiler.test_m1_safe_paint_diagnostics import TypedWrapperRetention
+        original = worker.run_chromium_isolated; prior = sys.gettrace()
+        observed = []; factory = d.observe_parent_exception_sites; token = object(); calls = []
+        @contextmanager
+        def checked():
+            with factory() as observer:
+                observed.append(observer)
+                self.assertEqual(observer.snapshot()["availability"], "VALID")
+                yield observer
+        def painter(*args, **kwargs): calls.append(1); return token
+        with tempfile.TemporaryDirectory() as temp:
+            helper = TypedWrapperRetention(); ns = helper.namespace(Path(temp).resolve(), painter)
+            with patch.object(d, "observe_parent_exception_sites", checked): exec(helper.block(), ns)
+        self.assertIs(ns["witness"], token); self.assertEqual(calls, [1])
+        self.assertTrue(observed[0].snapshot()["binding_restored"])
+        self.assertIs(worker.run_chromium_isolated, original); self.assertIs(sys.gettrace(), prior)
+
+    def test_actual_wrapper_failure_snapshot_follows_binding_restoration(self):
+        import tempfile
+        from bie.compiler import chromium_resource_worker as worker
+        from bie.compiler.qa_common import CompilerQAError
+        from tests.compiler.test_m1_safe_paint_diagnostics import TypedWrapperRetention
+        original = worker.run_chromium_isolated; prior = sys.gettrace(); calls = []
+        failure = CompilerQAError("ACTUAL_PAINT_EXECUTION_BLOCKED:PRIVATE")
+        def painter(*args, **kwargs): calls.append(1); raise failure
+        with tempfile.TemporaryDirectory() as temp:
+            helper = TypedWrapperRetention(); ns = helper.namespace(Path(temp).resolve(), painter)
+            with self.assertRaises(CompilerQAError) as caught: exec(helper.block(), ns)
+        self.assertIs(caught.exception, failure); self.assertEqual(calls, [1])
+        safe = ns["phase"]["paint_parent_exception_observation"]
+        self.assertEqual(safe["availability"], "VALID"); self.assertTrue(safe["binding_restored"])
+        self.assertIs(worker.run_chromium_isolated, original); self.assertIs(sys.gettrace(), prior)
+        self.assertNotIn("PRIVATE", json.dumps(ns["phase"]))
+
 
 if __name__ == "__main__": unittest.main()

@@ -330,7 +330,9 @@ class WrapperFailureRetention(unittest.TestCase):
             is_safe_diagnostic=diag.is_safe_diagnostic, root=root, project=root / "project-standard",
             output=root / "paint-standard", family="cellular", preference="standard",
             phase={"phase": "REAL_GENERATED_CONSUMER", "layer_frames": 48, "render_passed": False},
-            raw={"duration_ms": 2000}, target=SimpleNamespace(fps=24), args=SimpleNamespace(browser=None), shutil=shutil)
+            raw={"duration_ms": 2000}, target=SimpleNamespace(fps=24), args=SimpleNamespace(browser=None), shutil=shutil,
+            observe_paint_process=diag.observe_paint_process,
+            is_safe_typed_observation=diag.is_safe_typed_observation)
 
     def test_failure_snapshot_before_cleanup_original_exception_identity_preserved(self):
         from bie.compiler.qa_common import CompilerQAError
@@ -807,11 +809,9 @@ class TypedObserverNoninterference(unittest.TestCase):
 
 class TypedWrapperRetention(unittest.TestCase):
     def block(self):
-        tree = ast.parse((ROOT / "tests/compiler/run_motion_m1.py").read_text(encoding="utf-8"))
-        node = next(n for n in ast.walk(tree) if isinstance(n, ast.With) and
-                    any(isinstance(i.context_expr, ast.Call) and isinstance(i.context_expr.func, ast.Name)
-                        and i.context_expr.func.id == "observe_paint_process" for i in n.items))
-        return compile(ast.fix_missing_locations(ast.Module(body=[node], type_ignores=[])), "typed-call-site", "exec")
+        # Exercise the actual complete call-site try, including source-bound
+        # observer setup and post-restoration failure capture, not a detached With.
+        return WrapperFailureRetention.block(self)
 
     def namespace(self, root, painter):
         ns = WrapperFailureRetention.namespace(self, root, painter)

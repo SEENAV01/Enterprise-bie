@@ -21,6 +21,22 @@ class CompilerSourceAmendment(unittest.TestCase):
                      NATIVE_DOCUMENT,RENDER_TARGET,RENDER_BEFORE,
                      *(row['path'] for row in NATIVE_EXPECTED['previous_active_sources'])):
             p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,p)
+        # Current canonical callers require the exact follow-on chain as well.
+        # These are fixture inputs, not replacement gates or rewritten assertions.
+        shutil.copytree(ROOT/'bie/compiler',self.root/'bie/compiler',dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns('__pycache__'))
+        for directory in ('task036-motion-amendment','task036-capture-observation-amendment',
+                          'task036-media-observation-amendment','task036-media-thread-amendment',
+                          'task036-media-policy-observation-amendment','task036-media-source-pin-amendment',
+                          'task036-stitch-input-amendment','task036-pr-source-contract-amendment'):
+            shutil.copytree(ROOT/'docs/productization'/directory,self.root/'docs/productization'/directory)
+        (self.root/'scripts').mkdir(exist_ok=True)
+        for name in ('compiler_cache_source_amendment.py','compiler_capture_observation_amendment.py',
+                     'compiler_media_observation_amendment.py','compiler_motion_source_amendment.py',
+                     'compiler_media_thread_amendment.py','compiler_media_policy_observation_amendment.py',
+                     'compiler_media_source_pin_amendment.py','compiler_stitch_input_amendment.py',
+                     'compiler_pr_source_contract_amendment.py'):
+            shutil.copyfile(ROOT/'scripts'/name,self.root/'scripts'/name)
     def run_gate(self):return resolve(self.root,self.manifest_path,self.manifest)
     def test_original_ledger_unchanged_and_both_producer_versions_hash_bound(self):
         before=self.manifest_path.read_bytes();result,count=self.run_gate()

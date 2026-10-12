@@ -272,69 +272,71 @@ def run(args):
                         require(process.process.passed,"NPM_SETUP")
                         output = root / ("paint-" + preference)
                         phase["phase"] = "REAL_GENERATED_CONSUMER"
-                        with observe_paint_process() as typed_observer:
+                        try:
+                            from tests.compiler.m1_safe_paint_diagnostics import observe_worker_rejections, is_safe_guard_observation
+                            from tests.compiler.m1_media_diagnostics import observe_owned_pids, is_safe_pids, capture_media_observation, is_safe_media
+                            from contextlib import nullcontext
+                            exception_scope = nullcontext(None)
                             try:
-                                from tests.compiler.m1_safe_paint_diagnostics import observe_worker_rejections, is_safe_guard_observation
-                                from tests.compiler.m1_media_diagnostics import observe_owned_pids, is_safe_pids, capture_media_observation, is_safe_media
-                                from contextlib import nullcontext
-                                exception_scope = nullcontext(None)
-                                try:
-                                    from tests.compiler.m1_parent_exception_observation import observe_parent_exception_sites, is_safe_observation as is_safe_exception_sites
-                                    exception_scope = observe_parent_exception_sites()
-                                except BaseException:
-                                    pass
-                                with exception_scope as exception_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
-                                    witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
+                                from tests.compiler.m1_parent_exception_observation import observe_parent_exception_sites, is_safe_observation as is_safe_exception_sites
+                                exception_scope = observe_parent_exception_sites()
+                            except BaseException:
+                                pass
+                            # Authenticate original code before the typed observer
+                            # temporarily replaces its binding. Restore every scope
+                            # before exporting the failure-only snapshots below.
+                            with exception_scope as exception_observer, observe_paint_process() as typed_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
+                                witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
+                        except Exception:
+                            # Snapshot only fixed private receipt fields BEFORE
+                            # TemporaryDirectory cleanup. Evidence cannot mask
+                            # or downgrade the original fail-closed rejection.
+                            try:
+                                sites = exception_observer.snapshot()
+                                if is_safe_exception_sites(sites):
+                                    phase["paint_parent_exception_observation"] = sites
+                            except BaseException:
+                                pass
+                            try:
+                                diagnostic = capture_paint_diagnostic(root, family=family, preference=preference,
+                                    frame_count=phase["layer_frames"], duration_ms=raw["duration_ms"], fps=target.fps)
+                                if is_safe_diagnostic(diagnostic):
+                                    phase["paint_process_diagnostic"] = diagnostic
                             except Exception:
-                                # Snapshot only fixed private receipt fields BEFORE
-                                # TemporaryDirectory cleanup. Evidence cannot mask
-                                # or downgrade the original fail-closed rejection.
-                                try:
-                                    sites = exception_observer.snapshot()
-                                    if is_safe_exception_sites(sites):
-                                        phase["paint_parent_exception_observation"] = sites
-                                except BaseException:
-                                    pass
-                                try:
-                                    diagnostic = capture_paint_diagnostic(root, family=family, preference=preference,
-                                        frame_count=phase["layer_frames"], duration_ms=raw["duration_ms"], fps=target.fps)
-                                    if is_safe_diagnostic(diagnostic):
-                                        phase["paint_process_diagnostic"] = diagnostic
-                                except Exception:
-                                    pass
-                                try:
-                                    from tests.compiler.m1_safe_paint_diagnostics import capture_controller_observation, is_safe_capture_observation
-                                    captured = capture_controller_observation(root, preference=preference,
-                                        manifest_sha256=receipt.manifest_sha256, frame_count=phase["layer_frames"])
-                                    if is_safe_capture_observation(captured):
-                                        phase["capture_controller_observation"] = captured
-                                except BaseException:
-                                    pass
-                                try:
-                                    typed = typed_observer.snapshot()
-                                    if is_safe_typed_observation(typed):
-                                        phase["paint_process_typed_observation"] = typed
-                                except BaseException:
-                                    pass
-                                try:
-                                    guarded = guard_observer.snapshot()
-                                    if is_safe_guard_observation(guarded):
-                                        phase["paint_worker_guard_observation"] = guarded
-                                    from tests.compiler.m1_safe_paint_diagnostics import is_safe_return_guard
-                                    returned_guard = guard_observer.return_snapshot() if guard_observer is not None else None
-                                    if is_safe_return_guard(returned_guard):
-                                        phase["paint_parent_return_guard"] = returned_guard
-                                except BaseException:
-                                    pass
-                                try:
-                                    media = capture_media_observation(root, preference=preference,
-                                        manifest_sha256=receipt.manifest_sha256, frame_count=phase["layer_frames"])
-                                    if is_safe_media(media): phase["media_process_observation"] = media
-                                    pids = pid_observer.snapshot()
-                                    if is_safe_pids(pids): phase["owned_pid_observation"] = pids
-                                except BaseException:
-                                    pass
-                                raise
+                                pass
+                            try:
+                                from tests.compiler.m1_safe_paint_diagnostics import capture_controller_observation, is_safe_capture_observation
+                                captured = capture_controller_observation(root, preference=preference,
+                                    manifest_sha256=receipt.manifest_sha256, frame_count=phase["layer_frames"])
+                                if is_safe_capture_observation(captured):
+                                    phase["capture_controller_observation"] = captured
+                            except BaseException:
+                                pass
+                            try:
+                                typed = typed_observer.snapshot()
+                                if is_safe_typed_observation(typed):
+                                    phase["paint_process_typed_observation"] = typed
+                            except BaseException:
+                                pass
+                            try:
+                                guarded = guard_observer.snapshot()
+                                if is_safe_guard_observation(guarded):
+                                    phase["paint_worker_guard_observation"] = guarded
+                                from tests.compiler.m1_safe_paint_diagnostics import is_safe_return_guard
+                                returned_guard = guard_observer.return_snapshot() if guard_observer is not None else None
+                                if is_safe_return_guard(returned_guard):
+                                    phase["paint_parent_return_guard"] = returned_guard
+                            except BaseException:
+                                pass
+                            try:
+                                media = capture_media_observation(root, preference=preference,
+                                    manifest_sha256=receipt.manifest_sha256, frame_count=phase["layer_frames"])
+                                if is_safe_media(media): phase["media_process_observation"] = media
+                                pids = pid_observer.snapshot()
+                                if is_safe_pids(pids): phase["owned_pid_observation"] = pids
+                            except BaseException:
+                                pass
+                            raise
                         phase["native_qa"] = {name: {"passed": witness.evidence[name]["passed"],
                             "codes": sorted({f["code"] for f in witness.evidence[name]["findings"]})}
                             for name in ("fit", "paint", "raster")}

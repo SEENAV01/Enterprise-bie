@@ -1,0 +1,67 @@
+{
+  "schema": "bie.task036.pr-source-contract-amendment/1",
+  "authority": "OWNER_CONTINUING_IMPLEMENTATION_AUTHORIZATION_AFTER_ACTUAL_PR_GATES",
+  "scope": [
+    "PRESERVE_LITERAL_RUNTIME_REJECTION_SITES_AND_FAILURE_OBSERVATION",
+    "EXACT_CURRENT_TO_SEALED_PREDECESSOR_AUDIT_DELEGATION",
+    "LEGACY_ACTIVE_PRODUCER_REJECTION_CODE_COMPATIBILITY"
+  ],
+  "parent_commit": "2b8b63e328b6dc8a7ffa239f8610d24a39677062",
+  "parent_tree": "af39e0379fdadf0440a216c226295ff3009b40aa",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "original_manifest_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+  "previous_amendment_sha256": "aa24676ce86cc5e9dc64579139ffd43dac3fddc1ed61fae289d86a26ace7e102",
+  "replacements": [
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "preimage": "docs/productization/task036-pr-source-contract-amendment/remotion_raster_capture.cjs.before",
+      "original_bytes": 13198,
+      "original_sha256": "dd0bc9f3db0b371608e37938569a546ab4a14398bcbc2a6d891be6d00c9014ff",
+      "original_git_blob": "dd5633d58ce9c787c2afe36c61d5b529ecd3863a",
+      "active_bytes": 13288,
+      "active_sha256": "87925d247dc0ffc0444feb9456c48d1d610bee051ef0fd96a0db0ec7b12670d5"
+    },
+    {
+      "path": "scripts/compiler_stitch_input_amendment.py",
+      "preimage": "docs/productization/task036-pr-source-contract-amendment/compiler_stitch_input_amendment.py.before",
+      "original_bytes": 5715,
+      "original_sha256": "89c594618f968bff34577a3b1d742c047920d43a77fc63a562f9610f2469b7d6",
+      "original_git_blob": "d5307ede5ebf4762083069d55311f8506e9dcfa9",
+      "active_bytes": 6405,
+      "active_sha256": "e99b840d43b0112ffe640e6ee9dc319dcd43516368b012709938557d084d97a3"
+    },
+    {
+      "path": "scripts/compiler_media_policy_observation_amendment.py",
+      "preimage": "docs/productization/task036-pr-source-contract-amendment/compiler_media_policy_observation_amendment.py.before",
+      "original_bytes": 5877,
+      "original_sha256": "84d0adc999dff3733860d7ee8a28d42a254f5e98574afa5db273e3d2f9c8ff0d",
+      "original_git_blob": "814fee42d728b0d7c60e9a5db0a95dd58128254d",
+      "active_bytes": 6322,
+      "active_sha256": "1719358fa2f11a1c5cf55ea61bcf2170192597d535f6e6fcee29baf089a64f04"
+    },
+    {
+      "path": "scripts/compiler_media_source_pin_amendment.py",
+      "preimage": "docs/productization/task036-pr-source-contract-amendment/compiler_media_source_pin_amendment.py.before",
+      "original_bytes": 5688,
+      "original_sha256": "ee037a03fbdc26475642f1de1585eda0b20a68fd3532d26ac0bdcc3ba5484f21",
+      "original_git_blob": "aa56db679b9dfc8a36065b2f3577ebdcd38c5095",
+      "active_bytes": 6105,
+      "active_sha256": "392f0c5e234eb83387cdb89b3534884cf62c77d30aa821817d4f36e990fd9519"
+    }
+  ],
+  "rendering_semantics_and_limits_unchanged": true,
+  "product_accepted": false,
+  "independent_review_status": "PENDING_SEPARATE_EXACT_CANDIDATE_REVIEW",
+  "failure_evidence": {
+    "pr": 29,
+    "run": 38210943045,
+    "attempt": 1,
+    "native_job": 114684730980,
+    "canonical_job": 114684730851,
+    "artifact_hashes": [
+      "8b10bf2cd9aaaa778146415807cf60e380189bd8df4a64c59c33ca51838565e4",
+      "6f17a53eb7b1ddaca21b8dce9c8fd36da95e0d400d8fdfb4c38b79d3ea638f5e"
+    ],
+    "not_painter_root_cause_proof": true
+  }
+}
