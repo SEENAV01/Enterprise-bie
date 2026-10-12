@@ -309,3 +309,37 @@ Director bytes and context restoration remain required. This is a stricter
 state-conservation assertion, not a producer, authority or scheduler change.
 All 301 logical identities and inherited assertions remain selected; fresh
 Linux execution is still necessary to establish this test and process closure.
+
+## Fresh native EXIT Director status composition
+
+Exact candidate 660555b1 run 38191597380, attempt 1, passed all 301 Scene IR
+tests and strict H3 AFTER. Verified artifact 11722465295 (83,681 bytes,
+SHA256 02a95c64c88d8ea5bc179a852ea40b2d95ff3dc1477a6b6a65a33ad3b867af2f,
+ZIP CRC PASS) records cellular's full eleven-stage child/restart/replay and eleven
+ACKs passing at 29.844 seconds. Quantitative and chronology first children returned
+-9 at 30.146/30.149 seconds after all eleven durable stages and ACKs. Their last
+before_next_admission CPU samples were 27,407/26,420 ms. These samples do not
+identify the actual kill cause, which remains UNKNOWN; their restart and final
+source-audit gates did not pass. No resource or supervision limit is enlarged.
+
+The completed-status call graph separately verifies Director before the complete
+Scene rebuild, whose unchanged native M1 ENTRY and EXIT each already verify it.
+Task036 now retains only the exact successful native Director EXIT result within
+that same completed-status operation. Pedagogy status still performs all lower
+stage and source checks. Both full fresh native M1 proofs, final Scene support/
+loader/receipt/dependency/replay/fencing checks, and every inherited ACK refresh
+remain. The exact historical fourteen Director fields, annotations and both
+provider flags are projected only after that complete operation succeeds.
+
+Capture is bound to service/run/tenant and an actively delegating ENTRY/EXIT;
+one attempted native call per phase is mandatory. Extra, foreign, reentrant,
+nested, missing or wrong-phase calls fail closed, including caught violations.
+Original native return and rejection identity is unchanged; finally restores
+the scope, and no proof survives a read, ACK, publication or recovery call.
+Initial completed-branch disagreement with the fresh lower stage map rejects.
+Code identity binds this product-only change; old outputs are not reused under
+changed source. Inert controls are not runtime proof. Separate actual persisted
+fixture controls require full legacy projection equality, two fresh native calls,
+and STALE-on-EXIT rejection with unchanged Director bytes. Fresh Linux full
+positive-process/restart and preservation gates remain mandatory. This duplicate
+removal is not yet a proved explanation or closure of the observed signal-9 cases.

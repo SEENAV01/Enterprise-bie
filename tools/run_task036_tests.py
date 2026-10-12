@@ -26,6 +26,7 @@ NEW = (
     "tests/productization/scene_ir/test_animation_input_composition.py",
     "tests/productization/scene_ir/test_positive_process_observations.py",
     "tests/productization/scene_ir/test_motion_input_composition.py",
+    "tests/productization/scene_ir/test_director_status_composition.py",
 )
 
 

@@ -8,7 +8,7 @@ from bie.scene_ir.replay_currentness import DSLVersionVector, make_replay_record
 from bie.scene_ir.unified_scene_ir_codec import encode_scene_ir
 from bie.compiler.scene_ir_loader import load_scene_ir_payload
 from .animation_slice import AnimationProducerService, STAGES as ANIMATION_STAGES
-from .director_slice import DirectorProducerService
+from .pedagogy_slice import PedagogyProducerService
 from .contracts import require, ProducerError, canonical, digest, sha
 from .scene_ir_contract import PROFILE, POLICY, SCHEMA, profile_config, run_identity, refresh_code_identity, strict_document
 from .scene_ir_plan import build_current_scene
@@ -17,6 +17,7 @@ STAGES = ANIMATION_STAGES + ("SCENE_IR",)
 INPUT_STAGES = ("VISUAL", "ANIMATION", "DIRECTOR")
 _ANIMATION_INPUT_CAPTURE = ContextVar("task036_verified_animation_input_capture", default=None)
 _MOTION_INPUT_COMPOSITION = ContextVar("task036_current_motion_input_composition", default=None)
+_DIRECTOR_STATUS_CAPTURE = ContextVar("task036_fresh_exit_director_status", default=None)
 FAILURE_CODES = frozenset({"scene_ir_multiple_scenes_unsupported", "scene_ir_audio_replan_required",
     "scene_ir_structure_unsupported", "scene_ir_text_overflow", "scene_ir_domain_unsupported",
     "scene_ir_capability_blocked", "scene_ir_presentation_bounds", "scene_ir_upstream_identity",
@@ -93,6 +94,63 @@ class SceneIRProducerService(AnimationProducerService):
         if capture is not None:
             capture["bundles"].append(bundle)
         return bundle
+
+    def verified_director(self, run, tenant):
+        capture = _DIRECTOR_STATUS_CAPTURE.get()
+        if capture is None:
+            return super().verified_director(run, tenant)
+        composition = _MOTION_INPUT_COMPOSITION.get()
+        valid = (capture["service"] is self and capture["run"] == run and capture["tenant"] == tenant
+            and composition is not None and composition["service"] is self and
+            composition["run"] == run and composition["tenant"] == tenant and
+            composition["phase"] in ("ENTRY", "EXIT") and composition["delegating"] is True
+            and not composition["invalid"] and not capture["invalid"])
+        if not valid:
+            capture["invalid"] = True
+        require(valid, "scene_ir_director_status_scope")
+        exiting = composition["phase"] == "EXIT"
+        counter = "attempts" if exiting else "entry_attempts"
+        if capture[counter] != 0:
+            capture["invalid"] = True
+        require(not capture["invalid"], "scene_ir_director_status_cardinality")
+        capture[counter] += 1  # A caught failure cannot retry this proof.
+        try:
+            value = super().verified_director(run, tenant)
+        except BaseException:
+            capture["invalid"] = True
+            raise  # Preserve the exact native rejection, including BaseException.
+        if exiting:
+            capture["value"] = value
+        return value  # Exact unchanged native return, never a cached authority.
+
+    def _completed_status_bundle(self, run, tenant):
+        """Project only the exact Director proof inside this fresh M1 EXIT.
+
+        Both native ENTRY/EXIT checks still execute, and final Scene persisted
+        bytes, dependency equality, replay, receipt and lease checks complete
+        before this result is usable. No proof is retained by the service or
+        reused across status, ACK, recovery, publication or revision boundaries.
+        """
+        prior = _DIRECTOR_STATUS_CAPTURE.get()
+        if prior is not None:
+            prior["invalid"] = True
+        require(prior is None, "scene_ir_director_status_nested")
+        composition = _MOTION_INPUT_COMPOSITION.get()
+        if composition is not None:
+            composition["invalid"] = True
+        require(composition is None, "scene_ir_director_status_nested")
+        capture = dict(service=self, run=run, tenant=tenant, entry_attempts=0, attempts=0, invalid=False, value=None)
+        token = _DIRECTOR_STATUS_CAPTURE.set(capture)
+        try:
+            verified = self._verified_scene_bundle(run, tenant)
+            require(capture["entry_attempts"] == capture["attempts"] == 1 and
+                capture["value"] is not None and not capture["invalid"],
+                "scene_ir_director_status_cardinality")
+            output, director_receipt = capture["value"]
+            require(output.to_ref() == verified[2]["director"].to_ref(), "scene_ir_director_status_identity")
+            return verified, director_receipt
+        finally:
+            _DIRECTOR_STATUS_CAPTURE.reset(token)
 
     def verified_animation_with_inputs(self, run, tenant):
         """Return the very bundle consumed by one fresh native verification.
@@ -324,10 +382,20 @@ class SceneIRProducerService(AnimationProducerService):
         # across calls, publication, recovery, authorization or revisions.
         saved = self.persistence.load_run_state(run)
         complete = saved['stages']['SCENE_IR']['attempts'][-1]['state'] == 'SUCCEEDED'
-        result = DirectorProducerService.status(self, run, tenant) if complete else super().status(run, tenant)
+        result = PedagogyProducerService.status(self, run, tenant) if complete else super().status(run, tenant)
+        require(not complete or result["stages"]["SCENE_IR"] == "SUCCEEDED", "scene_ir_status_state_changed")
         result["scene_ir"] = None
         if result["stages"]["SCENE_IR"] == "SUCCEEDED":
-            _, receipt, bundle, animation_receipt = self._verified_scene_bundle(run, tenant)
+            verified, director_receipt = self._completed_status_bundle(run, tenant)
+            _, receipt, bundle, animation_receipt = verified
+            result["director"] = {k: director_receipt[k] for k in ("output_artifact_id", "output_sha256",
+                "schema_version", "scene_count", "beat_count", "assessment_count",
+                "generation_attempt_count", "critic_attempt_count", "annotation_attempt_count",
+                "review_attempt_count", "requires_review", "accepted", "release_ready", "evidence_kind")}
+            result["director"].update(validation="PASS", director_executed=True,
+                visual_input_validator="NOT_AVAILABLE_FOR_NATIVE_ARTIFACT_PAIR")
+            result["live_provider_executed"] = director_receipt["live_provider_executed"]
+            result["configured_provider_invoked"] = director_receipt["configured_provider_invoked"]
             visual_receipt = bundle['visual_receipt']
             result['visual'] = {k: visual_receipt[k] for k in ('output_artifact_id', 'output_sha256',
                 'schema_version', 'plan_fingerprint', 'visual_intent_count', 'abstention_count',
