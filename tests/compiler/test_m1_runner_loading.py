@@ -272,6 +272,11 @@ def selected_suite():
         self.assertNotIn(pr_contract, selected["native-extra"])
         self.assertNotIn(pr_contract, selected["safety"])
         self.assertNotIn(pr_contract, inherited)
+        proc_link = "tests/compiler/test_m1_proc_link_observation.py"
+        self.assertEqual(selected["new"].count(proc_link), 1)
+        self.assertNotIn(proc_link, selected["native-extra"])
+        self.assertNotIn(proc_link, selected["safety"])
+        self.assertNotIn(proc_link, inherited)
 
     def test_explicit_native_preimage_alias_checks_actual_checkout_origin(self):
         self.package("r1_native")

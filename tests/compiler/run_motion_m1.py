@@ -277,20 +277,32 @@ def run(args):
                             from tests.compiler.m1_media_diagnostics import observe_owned_pids, is_safe_pids, capture_media_observation, is_safe_media
                             from contextlib import nullcontext
                             exception_scope = nullcontext(None)
+                            proc_link_scope = nullcontext(None)
                             try:
                                 from tests.compiler.m1_parent_exception_observation import observe_parent_exception_sites, is_safe_observation as is_safe_exception_sites
                                 exception_scope = observe_parent_exception_sites()
                             except BaseException:
                                 pass
+                            try:
+                                from tests.compiler.m1_proc_link_observation import observe_proc_links, is_safe as is_safe_proc_links
+                                proc_link_scope = observe_proc_links()
+                            except BaseException:
+                                pass
                             # Authenticate original code before the typed observer
                             # temporarily replaces its binding. Restore every scope
                             # before exporting the failure-only snapshots below.
-                            with exception_scope as exception_observer, observe_paint_process() as typed_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
+                            with exception_scope as exception_observer, proc_link_scope as proc_link_observer, observe_paint_process() as typed_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
                                 witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
                         except Exception:
                             # Snapshot only fixed private receipt fields BEFORE
                             # TemporaryDirectory cleanup. Evidence cannot mask
                             # or downgrade the original fail-closed rejection.
+                            try:
+                                linked = proc_link_observer.snapshot()
+                                if is_safe_proc_links(linked):
+                                    phase["paint_proc_link_observation"] = linked
+                            except BaseException:
+                                pass
                             try:
                                 sites = exception_observer.snapshot()
                                 if is_safe_exception_sites(sites):
