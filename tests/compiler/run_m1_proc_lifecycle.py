@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from bie.compiler import chromium_resource_worker as worker
 
-SCHEMA = 'bie.task036.m1.proc-lifecycle-reproduction/1'
+SCHEMA = 'bie.task036.m1.proc-lifecycle-reproduction/2'
 WORKER_SHA = 'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963'
 CASES = ('LIVE_DUMPABLE', 'LIVE_NONDUMPABLE', 'WHOLE_PROCESS_EXITED',
          'DEAD_LEADER_LIVE_THREAD', 'ANCHORED_AFTER_REAP')
@@ -32,12 +32,28 @@ def require(value):
         raise ValueError('M1_PROC_LIFECYCLE_CONTROL_REJECTED')
 
 def classification(error):
+    if type(error) is worker.CompilerQAError:
+        values = error.args
+        codes = ('CHROMIUM_RESOURCE_FREEZE_DEADLINE', 'CHROMIUM_RESOURCE_CLEANUP_DEADLINE',
+            'CHROMIUM_RESOURCE_CLEANUP_IDENTITY', 'CHROMIUM_RESOURCE_FOREIGN_PROCESS',
+            'CHROMIUM_RESOURCE_CONTROL_SIZE')
+        if type(values) is tuple and len(values) == 1 and type(values[0]) is str and values[0] in codes:
+            return values[0]
+        return 'UNKNOWN'
     if type(error) not in (PermissionError, FileNotFoundError, ProcessLookupError, OSError):
         return 'UNKNOWN'
     code = error.errno
     if type(code) is not int:
         return 'UNKNOWN'
     return {1: 'EPERM', 2: 'ENOENT', 3: 'ESRCH', 13: 'EACCES'}.get(code, 'UNKNOWN')
+
+def supervisor_capabilities():
+    """One fixed kernel control file; no raw status/UID/PID/name projection."""
+    raw = worker.bounded_read(Path('/proc/self/status'), 16384)
+    rows = [line[7:].strip() for line in raw.splitlines() if line.startswith(b'CapEff:')]
+    require(len(rows) == 1 and len(rows[0]) == 16 and all(c in b'0123456789abcdefABCDEF' for c in rows[0]))
+    mask = int(rows[0], 16)
+    return dict(sys_ptrace=bool(mask & (1 << 19)), perfmon=bool(mask & (1 << 38)))
 
 def link(path, *, directory=None):
     try:
@@ -103,6 +119,28 @@ def reap_owned_child(pid, pidfd):
         require(time.monotonic() < end)
         time.sleep(.005)
 
+def cleanup_probe(group, pid, pidfd, fds, progress):
+    """Reap this fixture's direct child, then close group and all FDs.
+
+    Every cleanup step is attempted; the first actual rejection remains a
+    rejection and its fixed operation label is not overwritten by later steps.
+    """
+    first = None
+    for label, action in (
+        ('OWN_CHILD_REAP', lambda: reap_owned_child(pid, pidfd) if pid is not None else None),
+        ('GROUP_CLOSE', lambda: group.close() if group is not None else None),
+        ('FD_CLOSE', lambda: close_owned(fds)),
+    ):
+        try:
+            action()
+        except BaseException as error:
+            if first is None:
+                first = error
+                progress['phase'] = label
+    progress['cleanup_completed'] = first is None
+    if first is not None:
+        raise first
+
 def wait_for(predicate):
     end = time.monotonic() + 3
     while not predicate():
@@ -116,8 +154,11 @@ def child(mode, ready, release):
     os.kill(os.getpid(), signal.SIGSTOP)
     if libc.prctl(4, 0 if mode == 'LIVE_NONDUMPABLE' else 1, 0, 0, 0) != 0:
         os._exit(92)
+    actual_dumpable = libc.prctl(3, 0, 0, 0, 0)
+    if actual_dumpable not in (0, 1):
+        os._exit(95)
     def hold():
-        os.write(ready, b'R')
+        os.write(ready, b'R0' if actual_dumpable == 0 else b'R1')
         os.read(release, 1)
         os._exit(0)
     if mode == 'DEAD_LEADER_LIVE_THREAD':
@@ -194,11 +235,14 @@ def run_case(mode, progress):
         require(before == after and not os.get_inheritable(pidfd))
         progress['phase'] = 'READY'
         os.kill(pid, signal.SIGCONT)
-        require(bool(select.select([ready_r], [], [], 3)[0]) and os.read(ready_r, 1) == b'R')
+        require(bool(select.select([ready_r], [], [], 3)[0]))
+        readiness = os.read(ready_r, 2)
+        require(readiness == (b'R0' if mode == 'LIVE_NONDUMPABLE' else b'R1'))
         if mode == 'DEAD_LEADER_LIVE_THREAD':
             wait_for(lambda: fresh_identity(directory, pid)[1] == b'Z')
         progress['phase'] = 'INITIAL_SAMPLE'
         initial = sample(mode, pid, directory, pidfd, before, group)
+        initial['actor_dumpable_confirmed'] = readiness == b'R1'
         require(initial['whole_process_terminal_when_sampled'] is False)
         if mode == 'DEAD_LEADER_LIVE_THREAD':
             require(initial['leader_zombie'] is True)
@@ -230,23 +274,15 @@ def run_case(mode, progress):
         progress['observed'] = observed
         return observed
     finally:
-        # Only the freshly owned canonical group; cleanup must actually succeed.
-        cleanup_ok = False
-        try:
-            if group is not None:
-                group.close()
-            cleanup_ok = True
-        finally:
-            try:
-                if pid is not None:
-                    reap_owned_child(pid, pidfd)
-            finally:
-                close_owned((directory, pidfd, ready_r, ready_w, release_r, release_w))
-        progress['cleanup_completed'] = cleanup_ok
+        # Trusted probe owns its direct fork child. Reap it first: this is not
+        # a change to canonical group.close or production descendant cleanup.
+        cleanup_probe(group, pid, pidfd,
+            (directory, pidfd, ready_r, ready_w, release_r, release_w), progress)
 
 def run():
     require(sys.platform == 'linux' and os.getuid() == 0)
     require(hashlib.sha256(Path(worker.__file__).read_bytes()).hexdigest() == WORKER_SHA)
+    capabilities = supervisor_capabilities()
     observations = []
     for mode in CASES:
         progress = dict(case=mode, phase='CREATE_GROUP', observed=None, cleanup_completed=False)
@@ -256,6 +292,7 @@ def run():
             return dict(schema=SCHEMA, question='PROC_LINK_ACCESS_VERSUS_SAME_ACTOR_LIFECYCLE',
                 evidence_kind='CONTROLLED_LINUX_KERNEL_NOT_NATIVE_RENDER', worker_sha256=WORKER_SHA,
                 observations=observations, passed=False, render_passed=False, accepted=False,
+                supervisor_capabilities=capabilities,
                 product_accepted=False, failed_case=mode, failed_phase=progress['phase'],
                 last_observed=progress['observed'], cleanup_completed=progress['cleanup_completed'],
                 error_code=classification(error))
@@ -271,6 +308,7 @@ def run():
     return dict(schema=SCHEMA, question='PROC_LINK_ACCESS_VERSUS_SAME_ACTOR_LIFECYCLE',
         evidence_kind='CONTROLLED_LINUX_KERNEL_NOT_NATIVE_RENDER', worker_sha256=WORKER_SHA,
         observations=observations, controls_completed=True, access_contrast_observed=contrast,
+        supervisor_capabilities=capabilities,
         passed=contrast, render_passed=False, accepted=False,
         access_denial_cases=[r['case'] for r in observations if any(
             v in ('EACCES', 'EPERM') for v in r.get('anchored_links', {}).values())],

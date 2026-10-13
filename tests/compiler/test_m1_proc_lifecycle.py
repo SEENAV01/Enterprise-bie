@@ -136,6 +136,48 @@ class ProcLifecyclePortableControls(unittest.TestCase):
             probe.reap_owned_child(123, None)
         reap.assert_called_once_with(123, 1)
 
+    def test_cleanup_reaps_before_removing_group(self):
+        events = []
+        group = Mock(); group.close.side_effect = lambda: events.append('GROUP')
+        with patch.object(probe, 'reap_owned_child', side_effect=lambda *a: events.append('REAP')), patch.object(probe, 'close_owned', side_effect=lambda *a: events.append('FDS')):
+            state = {}
+            probe.cleanup_probe(group, 123, 9, (8, 9), state)
+        self.assertEqual(events, ['REAP', 'GROUP', 'FDS'])
+        self.assertTrue(state['cleanup_completed'])
+
+    def test_cleanup_first_rejection_not_replaced_by_later_phase(self):
+        first = ValueError('PRIVATE_FIRST'); second = OSError(13, 'PRIVATE_SECOND')
+        group = Mock(); group.close.side_effect = second
+        with patch.object(probe, 'reap_owned_child', side_effect=first), patch.object(probe, 'close_owned') as close:
+            state = {}
+            with self.assertRaises(ValueError) as result:
+                probe.cleanup_probe(group, 123, 9, (8, 9), state)
+        self.assertIs(result.exception, first)
+        self.assertEqual(state['phase'], 'OWN_CHILD_REAP')
+        self.assertFalse(state['cleanup_completed'])
+        close.assert_called_once_with((8, 9))
+
+    def test_native_cleanup_code_exact_allowlist_no_private_message(self):
+        trusted = probe.worker.CompilerQAError('CHROMIUM_RESOURCE_CLEANUP_DEADLINE')
+        self.assertEqual(probe.classification(trusted), 'CHROMIUM_RESOURCE_CLEANUP_DEADLINE')
+        self.assertEqual(probe.classification(probe.worker.CompilerQAError('CHROMIUM_RESOURCE_PRIVATE_TOKEN')), 'UNKNOWN')
+
+    def test_parent_capabilities_are_projected_as_two_booleans_only(self):
+        raw = b'Name:\tPRIVATE_PROCESS\nCapEff:\t0000004000080000\nPid:\t123\n'
+        with patch.object(probe.worker, 'bounded_read', return_value=raw):
+            value = probe.supervisor_capabilities()
+        self.assertEqual(value, dict(sys_ptrace=True, perfmon=True))
+        self.assertNotIn('PRIVATE', json.dumps(value))
+
+    def test_capability_status_duplicate_or_invalid_is_rejected(self):
+        for raw in (b'CapEff:\tprivate\n', b'Name:\tPRIVATE\n', b'CapEff:\t0000000000000000\nCapEff:\t0000000000000000\n'):
+            with patch.object(probe.worker, 'bounded_read', return_value=raw), self.assertRaises(ValueError):
+                probe.supervisor_capabilities()
+
+    def test_zero_capabilities_are_false_not_unknown(self):
+        with patch.object(probe.worker, 'bounded_read', return_value=b'CapEff:\t0000000000000000\n'):
+            self.assertEqual(probe.supervisor_capabilities(), dict(sys_ptrace=False, perfmon=False))
+
     def test_all_owned_fds_attempted_even_on_close_failure(self):
         error = OSError(9, 'PRIVATE_PATH')
         with patch.object(probe.os, 'close', side_effect=[error, None, None]) as close:

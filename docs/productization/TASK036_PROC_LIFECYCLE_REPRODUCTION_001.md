@@ -61,3 +61,32 @@ Task035 remains bounded canonical-complete. Task036 closure, worker repair and
 canonical verification remain open. Audio reconciliation is OPEN; review and
 acceptance flags are unchanged. No global VIDEO_CODE/COMPILE/RENDER product
 execution, Task037, release readiness or product acceptance is claimed.
+
+## First actual Linux observation and controlled version 2
+
+Run 38382486762, attempt 1, at e0f111340f9d16a26ea1923dd297bac63a899c7b
+FAILED. Artifact 11804096525 has SHA256
+f7159b2781fdbf212b238cb30202c4e76781c6c2b5cf34d492560791100e9626;
+ZIP CRC and strict JSON were verified. Both live actors had readable links;
+whole-process exit produced ENOENT and terminal readiness; dead leader/live thread
+produced ENOENT but remained nonterminal. Fixture cleanup then failed with UNKNOWN
+cause. The post-reap control did not execute. This is not a native cleanup defect
+finding, an EACCES reproduction or a successful experiment.
+
+Version 2 reaps the trusted fixture's directly owned child before canonical group
+close and attempts every cleanup operation, retaining the first fixed failure
+phase. It changes no native descendant cleanup or monitor policy. The explicit
+unresolved question is whether the nondumpable actor was actually nondumpable and
+whether the supervisor had access-override capabilities. Fixed R0/R1 markers
+confirm PR_GET_DUMPABLE; bounded status parsing projects only sys_ptrace/perfmon
+booleans. Raw status, masks, identifiers and paths are never exported. The original
+version-1 receipt remains immutable and cannot acquire these missing observations.
+
+Actual separate read-only AI-assisted reviewer /root/source_binding_reviewer_001
+returned APPROVED_FOR_CONTROLLED_PROC_LIFECYCLE_V2_SOURCE_ONLY at
+2026-10-13 10:43:38 UTC, zero source/privacy blockers. Independent Windows checks
+passed 88 methods: 27 probe, 39 retained observer and 22 runner controls. All 559
+prior M1 NEW methods remain, with 27 probe methods selected once (586 total).
+This source-only approval is not Linux proof, a worker repair, M1 sign-off,
+human/CODEOWNER approval or Scene/PR closure. Fresh controlled Linux evidence and
+all final-candidate gates remain required.
