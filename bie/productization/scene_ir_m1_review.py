@@ -1,6 +1,7 @@
 """Authenticate genuine current M1 review without rewriting its historical authority."""
 from pathlib import Path
 from hashlib import sha1
+import os
 import stat
 
 from .contracts import require, sha, strict_json
@@ -28,21 +29,32 @@ def read_regular(root, relative, limit=262144):
     parts = relative.split("/")
     require(parts and all(p and p not in (".", "..") and ":" not in p for p in parts),
             "scene_ir_m1_source_identity")
-    path = Path(root)
+    root = Path(root).resolve()
+    path = root
     try:
         for part in parts:
             path = path / part
             require(not path.is_symlink(), "scene_ir_m1_source_identity")
+        require(path.resolve().is_relative_to(root), "scene_ir_m1_source_identity")
         before = path.stat()
-        require(stat.S_ISREG(before.st_mode) and 0 <= before.st_size <= limit,
+        require(stat.S_ISREG(before.st_mode) and before.st_nlink == 1 and 0 <= before.st_size <= limit,
                 "scene_ir_m1_source_identity")
         with path.open("rb") as stream:
+            opened = os.fstat(stream.fileno())
+            require(stat.S_ISREG(opened.st_mode) and opened.st_nlink == 1 and
+                (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns) ==
+                (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns),
+                "scene_ir_m1_source_identity")
             data = stream.read(limit + 1)
+            closed = os.fstat(stream.fileno())
         after = path.stat()
     except OSError:
         require(False, "scene_ir_m1_source_identity")
-    require((before.st_ino, before.st_size, before.st_mtime_ns) ==
-            (after.st_ino, after.st_size, after.st_mtime_ns) and len(data) == before.st_size,
+    require(after.st_nlink == closed.st_nlink == 1 and
+            (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns) ==
+            (closed.st_dev, closed.st_ino, closed.st_size, closed.st_mtime_ns) ==
+            (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns) and
+            path.resolve().is_relative_to(root) and len(data) == before.st_size,
             "scene_ir_m1_source_identity")
     return data
 
@@ -184,13 +196,12 @@ def verified_m1_review(root):
                     sha(raw) == raw_row["raw_git_sha256"] and
                     sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest()
                     == raw_row["git_blob"], "scene_ir_m1_source_identity")
-    # Review authenticates source authority; the existing exact native audit
-    # still verifies raw preimages, sealed chain, ledger and current replacements.
-    from scripts.compiler_pr_source_contract_amendment import validate
-    try:
-        validate(Path(root))
-    except (OSError, ValueError):
-        require(False, "scene_ir_m1_source_identity")
+    # Complete fixed identity equality subsumes the already-reviewed native
+    # subset's constant schema/parent/preimage/active-byte checks. Reopen and
+    # authenticate ALL 210 rows, compiler census and immutable ledger once;
+    # never reuse a proof across operations. The reader retains the native
+    # single-link/containment requirements and strengthens changing-read checks.
+    # Full canonical native audit execution remains an independent CI gate.
     chain_identity = verified_source_chain(root)
     return dict(m1_review=HISTORICAL_SHA, m1_current_review=FINAL_SHA,
                 m1_current_source_bindings=ADDENDUM_SHA, m1_source_chain=chain_identity)

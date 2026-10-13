@@ -1,5 +1,8 @@
 """Actual independent review admission and adversarial read controls, not renderer proof."""
 from pathlib import Path
+import os
+import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -10,6 +13,71 @@ ROOT = Path(__file__).resolve().parents[3]
 
 
 class CurrentM1ReviewControls(unittest.TestCase):
+    def test_actual_hardlinked_identical_source_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            first = root / "first.py"
+            first.write_bytes(b"# fixed synthetic bytes\n")
+            os.link(first, root / "second.py")
+            with self.assertRaises(ProducerError):
+                admission.read_regular(root, "first.py")
+
+    def test_reader_rejects_resolved_path_escape(self):
+        actual = Path.resolve
+        target = ROOT / admission.FINAL
+        def resolved(path, *args, **kwargs):
+            return ROOT.parent / "foreign-review.json" if path == target else actual(path, *args, **kwargs)
+        with patch.object(Path, "resolve", resolved), self.assertRaises(ProducerError):
+            admission.read_regular(ROOT, admission.FINAL)
+
+    def test_reader_rejects_opened_descriptor_identity_disagreement(self):
+        actual = admission.os.fstat
+        def changed(fd):
+            info = actual(fd)
+            return SimpleNamespace(st_mode=info.st_mode, st_nlink=info.st_nlink,
+                st_dev=info.st_dev, st_ino=info.st_ino + 1, st_size=info.st_size, st_mtime_ns=info.st_mtime_ns)
+        with patch.object(admission.os, "fstat", changed), self.assertRaises(ProducerError):
+            admission.read_regular(ROOT, admission.FINAL)
+
+    def test_reader_rejects_hardlink_added_during_read(self):
+        actual = admission.os.fstat
+        calls = []
+        def changed(fd):
+            info = actual(fd); calls.append(fd)
+            return SimpleNamespace(st_mode=info.st_mode, st_nlink=1 if len(calls) == 1 else 2,
+                st_dev=info.st_dev, st_ino=info.st_ino, st_size=info.st_size, st_mtime_ns=info.st_mtime_ns)
+        with patch.object(admission.os, "fstat", changed), self.assertRaises(ProducerError):
+            admission.read_regular(ROOT, admission.FINAL)
+
+    def test_native_subset_known_valid_reads_are_all_in_complete_fixed_chain(self):
+        from scripts import compiler_pr_source_contract_amendment as native
+        original_reader = native.reader
+        regular, unique, manifest, manifest_sha = original_reader()
+        requested = []
+        def observed(root, relative, limit):
+            requested.append(relative)
+            return regular(root, relative, limit)
+        with patch.object(native, "reader", return_value=(observed, unique, manifest, manifest_sha)):
+            document = native.validate(ROOT)
+        chain = strict_json((ROOT / admission.CHAIN).read_bytes())
+        covered = {r["path"] for r in chain["files"]} | {chain["ledger"]["path"]}
+        self.assertTrue(requested)
+        self.assertLessEqual(set(requested), covered)
+        self.assertEqual(document["original_m1_sha256"], native.M1_SHA256)
+        self.assertEqual(document["previous_amendment_sha256"], native.PREVIOUS_SHA256)
+
+    def test_each_current_admission_authenticates_ledger_once_no_cross_call_cache(self):
+        actual = admission.read_regular
+        calls = []
+        def read(root, relative, limit=262144):
+            calls.append(relative)
+            return actual(root, relative, limit)
+        with patch.object(admission, "read_regular", read):
+            admission.verified_m1_review(ROOT)
+            admission.verified_m1_review(ROOT)
+        self.assertEqual(calls.count("manifests/post_dir_integration_004.json"), 2)
+        self.assertEqual(calls.count(admission.CHAIN), 2)
+
     def tamper(self, target, replacement=None):
         actual = admission.read_regular
         def read(root, relative, limit=262144):

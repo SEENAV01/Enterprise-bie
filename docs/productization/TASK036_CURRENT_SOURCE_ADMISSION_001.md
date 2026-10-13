@@ -56,3 +56,27 @@ Task035 remains bounded canonical-complete. Scene IR/Animation are review-requir
 and unaccepted. Audio reconciliation is OPEN and AUDIO_REPLAN_REQUIRED fail-closed.
 Global VIDEO_CODE/COMPILE/RENDER and later product stages remain NOT_RUN. No Task037
 or product acceptance is claimed.
+## Single fresh complete authority proof, not duplicate subset reads
+
+The unchanged native four-path validator performs 19 reads of 18 distinct paths,
+all covered by the complete fixed 210-row source index or its sealed ledger.
+Exact reviewed byte equality already supplies its constant document/schema/
+parent/preimage/replacement assertions. The product adapter now executes the
+complete proof once per admission rather than repeating that subset first.
+The independent full native audit remains mandatory in hosted canonical gates.
+
+The reader now explicitly rejects hardlinks and resolved containment escape and
+checks opened-descriptor device/inode/size/mtime/link count throughout reading.
+No old review, addendum, index, native source, preimage, seal or ledger changes.
+No proof is cached across operations, and no current worktree hash becomes its
+own expected authority. All original 39 controls remain; six new negatives and
+subset-coverage/read-count controls bring this file to 45 methods and Scene NEW
+to 376 (the original 370 are retained).
+
+Actual separate AI-assisted reviewer /root/source_binding_reviewer_001 returned
+APPROVED_FOR_SOURCE_AUTHORITY_READ_ONCE_REPAIR_ONLY at 2026-10-13 11:33:06 UTC,
+zero blocking findings, with 124 focused Windows methods passing. This is not
+historical signal-9 causality, runtime-speed proof, human/PR approval or closure.
+Three Windows source-admission microprobes before and after had overlapping CPU
+times; no speedup is established by those measurements. Fresh Linux process and
+full canonical audit outcomes remain required under unchanged budgets.
