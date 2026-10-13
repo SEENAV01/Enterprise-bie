@@ -1024,7 +1024,11 @@ class WorkerGuardPrivacy(unittest.TestCase):
 
     def test_native_source_and_original_limits_are_byte_unchanged(self):
         from hashlib import sha256
-        self.assertEqual(sha256((ROOT / "bie/compiler/chromium_resource_worker.py").read_bytes()).hexdigest(),
+        # The diagnostic-only checkpoint remains byte-authenticated history.
+        # A separately governed native amendment must authenticate both sides,
+        # not reinterpret its active replacement as unchanged original source.
+        from scripts.compiler_monitor_snapshot_amendment import authenticated_original_worker
+        self.assertEqual(sha256(authenticated_original_worker(ROOT)).hexdigest(),
             "aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963")
         self.assertEqual(diag.MAX_INPUT_BYTES, 262144)
 

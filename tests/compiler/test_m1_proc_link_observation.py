@@ -196,7 +196,7 @@ class ContextControls(unittest.TestCase):
         stack=ExitStack();self.addCleanup(stack.close)
         stack.enter_context(patch.object(diag,'PosixPath',PROC_PATH))
         namespace={'os':os}
-        exec(compile('\n'*358+'def monitor(value):\n    return os.readlink(value)\n',
+        exec(compile('\n'*374+'def monitor(value):\n    return os.readlink(value)\n',
             'EXPLICIT_SYNTHETIC_MONITOR_NOT_NATIVE','exec'),namespace)
         original.__module__='posix';original.__name__='readlink'
         stack.enter_context(patch.object(diag.sys,'platform','linux'))

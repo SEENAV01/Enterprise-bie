@@ -24,7 +24,8 @@ class ParentExceptionObservation(unittest.TestCase):
     def setUp(self):
         self.previous = sys.gettrace()
         self.run, self.read = synthetic()
-        self.targets = ((self.run.__code__, "run_chromium_isolated"), (self.read.__code__, "bounded_read"))
+        self.targets = ((self.run.__code__, "run_chromium_isolated", self.run.__globals__),
+            (self.read.__code__, "bounded_read", self.read.__globals__))
 
     def tearDown(self):
         self.assertIs(sys.gettrace(), self.previous)
@@ -281,7 +282,9 @@ class ParentExceptionObservation(unittest.TestCase):
         self.assertFalse(saved[0].exists())
 
     def test_source_location_contracts_match_pinned_public_lines(self):
-        source = (Path(__file__).resolve().parents[2]/"bie/compiler/chromium_resource_worker.py").read_text().splitlines()
+        # Preserve every original line assertion against the immutable actual
+        # preimage; version-2 live sites have separate exact source-pin checks.
+        source = (Path(__file__).resolve().parents[2]/"docs/productization/task036-monitor-snapshot-amendment/chromium_resource_worker.py.before").read_text().splitlines()
         self.assertIn("os.readlink(proc/'exe'),os.readlink(proc/'root')", source[359])
         self.assertIn("resource.prlimit(pid", source[361])
         self.assertIn("bounded_read(proc/'maps'", source[362])
@@ -311,14 +314,14 @@ class ParentExceptionObservation(unittest.TestCase):
             self.assertFalse(d.is_safe_observation(safe))
 
     def test_link_site_does_not_claim_which_subexpression(self):
-        self.assertEqual(d.LOCATIONS["run_chromium_isolated"][360], "MONITOR_EXE_OR_ROOT_LINK")
+        self.assertEqual(d.LEGACY_LOCATIONS["run_chromium_isolated"][360], "MONITOR_EXE_OR_ROOT_LINK")
 
     def test_exact_canonical_source_and_function_binding(self):
         path = Path(__file__).resolve().parents[2]/"bie/compiler/chromium_resource_worker.py"
         self.assertEqual(sha256(path.read_bytes()).hexdigest(), d.SOURCE_SHA256)
         targets = d.canonical_targets()
-        self.assertEqual({name for _, name in targets}, set(d.LOCATIONS))
-        self.assertTrue(all(type(code) is CodeType for code, _ in targets))
+        self.assertEqual({name for _, name, _ in targets}, set(d.LOCATIONS))
+        self.assertTrue(all(type(code) is CodeType for code, _, _ in targets))
 
     def test_foreign_function_with_canonical_filename_rejected(self):
         from bie.compiler import chromium_resource_worker as worker

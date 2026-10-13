@@ -14,8 +14,10 @@ import select
 import sys
 from types import BuiltinFunctionType, CodeType, FrameType, FunctionType, ModuleType
 
-SCHEMA = 'bie.task036.m1.proc-link-identity-observation/1'
-SOURCE_SHA256 = 'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963'
+LEGACY_SCHEMA = 'bie.task036.m1.proc-link-identity-observation/1'
+LEGACY_SOURCE_SHA256 = 'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963'
+SCHEMA = 'bie.task036.m1.proc-link-identity-observation/2'
+SOURCE_SHA256 = 'dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb'
 MAX_EVENTS = 32
 UNKNOWN = 'UNKNOWN'
 REASONS = frozenset({'NONE', 'SOURCE_UNAVAILABLE', 'KERNEL_API_UNAVAILABLE',
@@ -88,6 +90,25 @@ def terminal_sample(fd, *, poll_factory=None, poll_in=None, poll_hup=None):
     allowed = poll_in | poll_hup
     if flags <= 0 or flags & ~allowed: return UNKNOWN
     return bool(flags & allowed)
+
+def anchored_monitor_request(args,kwargs,original):
+    """Only a fixed native monitor's owned proc-directory FD, no path export.
+
+    The extra fd-link lookup does NOT create atomic identity/ownership evidence.
+    Its temporary target is parsed strictly and discarded, never retained.
+    """
+    if type(args) is not tuple or len(args)!=1 or type(args[0]) is not str or args[0] not in ('exe','root'):
+        return None
+    if type(kwargs) is not dict or set(kwargs)!={'dir_fd'} or type(kwargs['dir_fd']) is not int or not 0<=kwargs['dir_fd']<2**31:
+        return None
+    target=original(f'/proc/self/fd/{kwargs["dir_fd"]}')
+    if type(target) is not str or not target.startswith('/proc/'):
+        return None
+    number=target[6:]
+    if not 1<=len(number)<=10 or number[0]=='0' or not number.isascii() or not number.isdigit():
+        return None
+    pid=int(number)
+    return (pid,args[0].upper()) if 0<pid<2**31 else None
 
 _PINNED_SAMPLE = terminal_sample
 
@@ -193,10 +214,10 @@ def canonical_monitor():
     with path.open('rb') as stream: raw = stream.read(65537)
     if len(raw) > 65536 or sha256(raw).hexdigest() != SOURCE_SHA256: raise ValueError('SOURCE')
     code, = [c for c in compile(raw, path.resolve().as_posix(), 'exec', dont_inherit=True).co_consts
-        if type(c) is CodeType and c.co_name == 'run_chromium_isolated']
-    function = worker.run_chromium_isolated
+        if type(c) is CodeType and c.co_name == 'observe_frozen_member']
+    function = worker.observe_frozen_member
     if (type(function) is not FunctionType or function.__module__!=worker.__name__ or
-            function.__name__!='run_chromium_isolated' or function.__code__ != code or
+            function.__name__!='observe_frozen_member' or function.__code__ != code or
             function.__globals__ is not worker.__dict__): raise ValueError('SOURCE')
     return function.__code__, function.__globals__
 
@@ -225,8 +246,10 @@ def observe_proc_links():
                 try:
                     caller = frame_reader(1)
                     if (type(caller) is FrameType and caller.f_code is target
-                            and caller.f_globals is namespace and caller.f_lineno == 360):
+                            and caller.f_globals is namespace and caller.f_lineno in (376,377)):
                         request = monitor_request(args, kwargs)
+                        if request is None:
+                            request = anchored_monitor_request(args,kwargs,original)
                     del caller
                 except BaseException: pass
                 if request is None: return original(*args, **kwargs)

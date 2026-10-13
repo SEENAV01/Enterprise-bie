@@ -1,0 +1,59 @@
+{
+  "schema": "bie.task036.monitor-snapshot-source-amendment/1",
+  "authority": "OWNER_TASK036_IMPLEMENTATION_CONTINUATION_TARGETED_NATIVE_REPAIR",
+  "scope": "OWNED_LEAF_QUIESCENT_READ_ONLY_PROC_OBSERVATION_NO_PERMISSION_OMISSION",
+  "parent_commit": "9f6b2560b50375e9426add0071c693faf46734ac",
+  "parent_tree": "529355cfc97a894d2162260320c70625b9a2c2b0",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "reviewed_source_index_sha256": "1b60a9dc298e62b2c34a75c0959222abab2738801ba3d6dc2ce2e22e76f658ed",
+  "monitor_policy": "owned-leaf-quiescent-proc-observation/1",
+  "replacements": [
+    {
+      "path": "bie/compiler/chromium_resource_worker.py",
+      "preimage": "docs/productization/task036-monitor-snapshot-amendment/chromium_resource_worker.py.before",
+      "original_bytes": 28552,
+      "original_sha256": "aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963",
+      "original_git_blob": "a5153925d4a4b940d0778e5018cc332f1ad08bdc",
+      "active_bytes": 33561,
+      "active_sha256": "dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb"
+    },
+    {
+      "path": "scripts/verify_post_dir.py",
+      "preimage": "docs/productization/task036-monitor-snapshot-amendment/verify_post_dir.py.before",
+      "original_bytes": 6136,
+      "original_sha256": "5ac8affa8795961faf8afeb03a667b3eff10dda81e00984ce2520f9def5bac0f",
+      "original_git_blob": "7e143f40df1405c53ac75b96475e09365807be1d",
+      "active_bytes": 6360,
+      "active_sha256": "9a445227e09fd487139b2dbd7be67d83af4b412b5a5f2c7be5a0f2a0120d15c8"
+    },
+    {
+      "path": ".gitattributes",
+      "preimage": "docs/productization/task036-monitor-snapshot-amendment/.gitattributes.before",
+      "original_bytes": 43352,
+      "original_sha256": "09543bce9b1b46452ac54bcf201242d094255f89ce98ca3ca5f453ff29e67d9b",
+      "original_git_blob": "03efa1c198a882c85d97749ad0718f1c97978b8e",
+      "active_bytes": 43758,
+      "active_sha256": "19ad19dce97c49b9c4cd90de345dc46afb3e4a408991b6e6945c79ce22eb1823"
+    }
+  ],
+  "audit_module": "scripts/compiler_monitor_snapshot_amendment.py",
+  "compiler_file_inventory_changed": false,
+  "resource_limits_unchanged": true,
+  "rendering_and_motion_semantics_unchanged": true,
+  "execution_scheduling_changed": true,
+  "permission_errors_preserved": true,
+  "terminal_after_error_omission": false,
+  "independent_review_status": "REQUIRES_REASSESSMENT_AND_ACTUAL_LINUX_RENDER_PROOF",
+  "ordinary_task036_admission_requires_current_review": true,
+  "historical_painter_cause": "UNKNOWN",
+  "controlled_removal_evidence": {
+    "run": 38390449988,
+    "attempt": 1,
+    "head": "acec08ab66fd1bf953b9a3fce709af72fe6aa58f",
+    "artifact": 11807767892,
+    "sha256": "fe72bc0d08c9bb5bc38b1cb50dcd15c9168d36ad2c7a7c784bcecb526ee8524f",
+    "scope": "SYNTHETIC_KERNEL_TASK_REMOVAL_NOT_HISTORICAL_CAUSE_OR_RENDER_WITNESS"
+  },
+  "accepted": false,
+  "product_accepted": false
+}

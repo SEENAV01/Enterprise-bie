@@ -7,6 +7,10 @@ on:
     paths:
       - 'tests/compiler/run_m1_proc_lifecycle.py'
       - 'tests/compiler/test_m1_proc_lifecycle.py'
+      - 'tests/compiler/run_m1_monitor_snapshot_kernel.py'
+      - 'tests/compiler/test_m1_monitor_snapshot.py'
+      - 'bie/compiler/chromium_resource_worker.py'
+      - 'scripts/compiler_monitor_snapshot_amendment.py'
       - '.github/workflows/task036-proc-lifecycle.yml'
 
 permissions:
@@ -38,12 +42,12 @@ jobs:
           cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
           bash .integration/tools/setup_ci_environment.sh
           python -m pip check
-      - name: Actual fresh-owned-cgroup same-actor access and lifecycle controls
+      - name: Actual baseline lifecycle plus owned-leaf monitor quiescence and restoration
         # No browser launch/render, privilege bypass, monitor skip or grants.
         # Only the declared trusted test supervisor creates/cleans its own group.
         run: |
           sudo -n env "PATH=$PATH" "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-}" PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 \
-            "$(command -v python)" -I -B tests/compiler/run_m1_proc_lifecycle.py \
+            "$(command -v python)" -I -B tests/compiler/run_m1_monitor_snapshot_kernel.py \
             --output "$RUNNER_TEMP/proc-lifecycle-evidence/kernel.json"
       - name: Preserve bounded synthetic kernel facts only
         if: always()

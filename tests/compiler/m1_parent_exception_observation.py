@@ -10,8 +10,10 @@ from pathlib import Path
 import sys
 from types import CodeType, FrameType, FunctionType, ModuleType
 
-SCHEMA = "bie.task036.m1.parent-exception-site-observation/1"
-SOURCE_SHA256 = "aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963"
+LEGACY_SCHEMA = "bie.task036.m1.parent-exception-site-observation/1"
+LEGACY_SOURCE_SHA256 = "aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963"
+SCHEMA = "bie.task036.m1.parent-exception-site-observation/2"
+SOURCE_SHA256 = "dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb"
 UNKNOWN = "UNKNOWN"
 MAX_EVENTS = 32
 REASONS = frozenset({"NONE", "SOURCE_UNAVAILABLE", "EXISTING_TRACER", "SETUP_FAILED",
@@ -21,7 +23,7 @@ SITES = frozenset({"MONITOR_COMMAND_READ", "MONITOR_EXE_OR_ROOT_LINK", "MONITOR_
     "POST_RUN_BROWSER_HASH", "CLEANUP_GROUP", "CLEANUP_DRIVER", "CLEANUP_TEMPORARY",
     "RESOURCE_RECEIPT_PUBLICATION", "RUN_OTHER", "GRANT_OTHER", "BOUNDED_READ_OPEN_OR_READ", "BOUNDED_READ_OTHER", "FILE_HASH_OPEN",
     "FILE_HASH_READ", "FILE_HASH_OTHER"})
-LOCATIONS = {
+LEGACY_LOCATIONS = {
     "run_chromium_isolated": {347: "MONITOR_COMMAND_READ", 360: "MONITOR_EXE_OR_ROOT_LINK",
         362: "MONITOR_LIMIT_READ", 363: "MONITOR_MAPS_READ", 372: "DRIVER_COMMUNICATE",
         375: "DRIVER_RESULT_READ", 388: "POST_RUN_ENGINE_HASH", 389: "POST_RUN_BROWSER_HASH",
@@ -32,6 +34,16 @@ LOCATIONS = {
 }
 DEFAULTS = {"run_chromium_isolated": "RUN_OTHER", "_grant": "GRANT_OTHER",
     "bounded_read": "BOUNDED_READ_OTHER", "file_sha": "FILE_HASH_OTHER"}
+LOCATIONS = {"run_chromium_isolated": {}, "_grant": {},
+    "bounded_read": {76: "BOUNDED_READ_OPEN_OR_READ"},
+    "file_sha": {71: "FILE_HASH_OPEN",72: "FILE_HASH_READ"},
+    "observe_frozen_member": {376:"MONITOR_EXE_OR_ROOT_LINK",377:"MONITOR_EXE_OR_ROOT_LINK"},
+    "_monitor_read": {}, "_monitor_identity": {}}
+DEFAULTS.update(observe_frozen_member="RUN_OTHER",_monitor_read="BOUNDED_READ_OTHER",
+    _monitor_identity="RUN_OTHER")
+LOCATIONS['run_chromium_isolated'].update({459:'MONITOR_COMMAND_READ',481:'DRIVER_COMMUNICATE',
+    484:'DRIVER_RESULT_READ',497:'POST_RUN_ENGINE_HASH',498:'POST_RUN_BROWSER_HASH',
+    507:'CLEANUP_GROUP',514:'CLEANUP_DRIVER',516:'CLEANUP_TEMPORARY',521:'RESOURCE_RECEIPT_PUBLICATION'})
 
 
 def empty_observation(reason="SOURCE_UNAVAILABLE"):
@@ -99,7 +111,7 @@ def canonical_targets():
                 or function.__name__ != name or function.__code__ != expected.get(name)
                 or function.__globals__ is not worker.__dict__):
             raise ValueError("SOURCE_BINDING")
-        targets.append((function.__code__, name))
+        targets.append((function.__code__, name, function.__globals__))
     return tuple(targets)
 
 
@@ -122,7 +134,9 @@ class ExceptionSiteObserver:
     def trace(self, frame, event, arg):
         try:
             if type(frame) is not FrameType: return None
-            name = next((name for code, name in self._targets if frame.f_code is code), None)
+            # Identity-only namespace binding; never inspect its contents.
+            name = next((name for code, name, namespace in self._targets
+                if frame.f_code is code and frame.f_globals is namespace), None)
             if name is None: return None
             # No locals/globals/arguments/exception value/traceback access.
             frame.f_trace_lines = False
