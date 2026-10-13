@@ -13,6 +13,7 @@ from tests.compiler.run_m1_tests import run_file
 from tests.productization.scene_ir.recovery_observations import capture_observations
 
 NEW = (
+    "tests/productization/scene_ir/test_current_m1_review.py",
     "tests/productization/scene_ir/test_scene_ir_admission.py",
     "tests/productization/scene_ir/test_scene_ir_contract.py",
     "tests/productization/scene_ir/test_scene_ir_producer.py",

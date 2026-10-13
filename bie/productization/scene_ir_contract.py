@@ -8,6 +8,7 @@ import uuid
 
 from .contracts import require, canonical, strict_json, digest, sha, identifier
 from .animation_contract import profile_config as animation_profile, code_identity_scope as animation_scope
+from .scene_ir_m1_review import verified_m1_review
 from bie.scene_ir.unified_scene_ir_codec import ROOT_FIELDS, ELEMENT_FIELDS, TRACK_FIELDS, decode_scene_ir
 
 PROFILE = "source_grounded_di_knowledge_pr_math_reasoning_pedagogy_director_visual_animation_scene_ir_v1"
@@ -34,27 +35,13 @@ def engine_identity():
     if cached is not None and "identity" in cached:
         return dict(cached["identity"])
     root = Path(__file__).resolve().parents[2]
-    raw = (root / "docs/productization/m1-review/REVIEW_87320CB0.json").read_bytes()
-    require(sha(raw) == REVIEW_SHA256, "scene_ir_m1_review_identity")
-    review = strict_json(raw)
-    require(review["decision"] == "APPROVED_FOR_BOUNDED_M1_TASK036_PREREQUISITE" and
-            review["blocking_findings_remaining"] == 0 and
-            review["reviewer"]["execution_identity"] == "/root/m1_external_technical_reviewer_001",
-            "scene_ir_m1_review_required")
-    bindings = review["cumulative_source_review"]["exact_reviewed_file_bindings"]
-    require(len({r["path"] for r in bindings}) == len(bindings), "scene_ir_m1_source_identity")
-    # The reviewed compiler/amendment chain is fixed, not a caller's approval
-    # flag. These historical sources stay unchanged during ordinary Task036.
-    for row in bindings:
-        if row["path"].startswith(("bie/compiler/", "scripts/compiler_", "docs/productization/task036-")):
-            data = (root / row["path"]).read_bytes().replace(b"\r\n", b"\n")
-            require(len(data) == row["bytes"] and sha(data) == row["sha256"], "scene_ir_m1_source_identity")
-    names = ["bie.productization.scene_ir_" + n for n in ("contract", "catalog", "plan", "slice")]
+    review_identity = verified_m1_review(root)
+    names = ["bie.productization.scene_ir_" + n for n in ("contract", "catalog", "plan", "slice", "m1_review")]
     names += ["bie.productization.durable_slice", "apps.operator.scene_ir_producer", "apps.operator.scene_ir_worker_child"]
     result = {n: sha(Path(import_module(n).__file__).read_bytes().replace(b"\r\n", b"\n")) for n in names}
     for p in sorted((root / "bie/scene_ir").glob("*.py")):
         result["bie.scene_ir." + p.stem] = sha(p.read_bytes().replace(b"\r\n", b"\n"))
-    result["m1_review"] = REVIEW_SHA256
+    result.update(review_identity)
     if cached is not None:
         cached["identity"] = result
     return dict(result)

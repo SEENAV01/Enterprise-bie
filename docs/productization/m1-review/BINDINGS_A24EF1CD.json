@@ -1,0 +1,1100 @@
+{
+  "schema": "bie.task036.reviewed-current-m1-source-binding-addendum/1",
+  "record_kind": "REVIEWER_AUTHORED_EXACT_BINDING_OF_ALREADY_REVIEWED_SOURCE",
+  "prepared_utc": "2026-10-12T20:39:00Z",
+  "reviewer_execution": "/root/task036_external_reviewer_replacement_001",
+  "implementation_execution": "/root",
+  "actual_separate_ai_assisted_execution": true,
+  "original_reviewer_execution": "/root/m1_external_technical_reviewer_001",
+  "human_signature": false,
+  "CODEOWNER_or_org_approval": false,
+  "PR_approval": false,
+  "decision": "APPROVED_FOR_BOUNDED_M1_TASK036_PREREQUISITE",
+  "blocking_findings_in_bounded_M1_scope": 0,
+  "decision_role": "Exact source-binding addendum to the completed actual bounded M1 final review, not an independent broader Task036/runtime/merge decision or a future-source approval.",
+  "final_review": {
+    "file": "TASK036_REVIEWER_A24_BOUNDED_M1_FINAL.json",
+    "bytes": 22161,
+    "sha256": "9eb3ff17a7e128d5dd9ac6da6210c9461dfbecf6002c33bb499c8215a492612a",
+    "personally_rechecked": true
+  },
+  "exact_reviewed_candidate": {
+    "repository": "SEENAV01/Enterprise-bie",
+    "head": "a24ef1cdce0bb56401837f2dd060f590d1ddda78",
+    "tree": "6e2675731f6cfb0eb134e41dd8c48db9921bdff6",
+    "parent": "f192ceb1cb92c111e7f081afc834d4f630b0d11c",
+    "base": "5b1cafc766c9df9c3e0748f459e6beb9b8f1f243",
+    "synthetic_PR": "be44601db676ec4a775481fba8daa8cb009d0533",
+    "synthetic_tree": "6e2675731f6cfb0eb134e41dd8c48db9921bdff6"
+  },
+  "historical_review": {
+    "path": "docs/productization/m1-review/REVIEW_87320CB0.json",
+    "sha256": "33458799eaf58951aa474a08d412b6b56361ec2f08aebdc23f150976a92410a5",
+    "source_candidate": "87320cb0889d27ddc3340197213a9a509588ac3c",
+    "total_original_rows": 83,
+    "selected_original_prefix_rows": 52,
+    "prefixes": [
+      "bie/compiler/",
+      "scripts/compiler_",
+      "docs/productization/task036-"
+    ],
+    "historical_record_unchanged": true,
+    "complete_original_prefix_set_retained": true,
+    "unchanged_rows_retained_exactly": 48,
+    "changed_rows": 4,
+    "source_justification": "Unchanged48 selected rows derive their review authority from the genuine immutable original873 review plus current cumulative M1 review; actual original873 and current raw Git bytes/identities personally verified. This addendum does not claim all48 source bodies were reread from scratch. Only four historical row identities change, precisely the individually reviewed and sealed f192 repair below."
+  },
+  "normalization_contract": {
+    "exact_reviewed_file_bindings": "The historical four-field row shape is preserved: bytes and sha256 denote data.replace(CRLF,LF), exactly the current Scene engine_identity historical comparison. git_blob denotes the ACTUAL RAW Git blob SHA1, never a normalized-file blob invented at review time.",
+    "raw_git_file_bindings": "raw_git_bytes/raw_git_sha256 denote exact committed unnormalized bytes; git_blob independently recomputed as SHA1('blob '+rawlength+NUL+rawbytes) and matched actual Git object. LF-normalized count/hash recorded separately. No other newline, whitespace, UTF8 or parser normalization admitted.",
+    "runtime_consumer": "For historical portable working-text comparisons retain LF-only semantics. For immutable seal/preimage validation use its existing raw-byte contracts, not a new normalization waiver. Do not equate actual raw Git hashes with transformed working bytes.",
+    "identity_not_approval_algorithm": "Current hashes were computed only AFTER the concrete source reviews and matched fixed prior seals, individually reviewed exact replacement identities and native evidence. No 'whatever current bytes are' authorization, arbitrary runtime-generated pin or future unchanged-source assumption."
+  },
+  "reviewed_correction": {
+    "parent": "2b8b63e328b6dc8a7ffa239f8610d24a39677062",
+    "parent_tree": "af39e0379fdadf0440a216c226295ff3009b40aa",
+    "fixed_amendment": "docs/productization/task036-pr-source-contract-amendment/AMENDMENT.json",
+    "fixed_amendment_sha256": "5f0e67c886dcd312034d0de2f0ce18943a381a6c20e3effa201e22643a3b3b54",
+    "source_review_records": [
+      {
+        "file": "TASK036_EXTERNAL_REVIEW_REPLACEMENT_001_PR_REPAIR_SOURCE_REASSESSMENT.json",
+        "sha256": "21e59e155d1871259a8b09460d51751d1f3434d908ef322f73531ac4de348878"
+      },
+      {
+        "file": "TASK036_REVIEWER_REPLACEMENT_F192_SOURCE.json",
+        "sha256": "1026006536fc2e852e43a2121b85727a29c85e678db9db85d234d66394871064"
+      },
+      {
+        "file": "TASK036_REVIEWER_A24_BOUNDED_M1_FINAL.json",
+        "sha256": "9eb3ff17a7e128d5dd9ac6da6210c9461dfbecf6002c33bb499c8215a492612a"
+      }
+    ],
+    "specific_source_assessment": "CJS only restores two literal Error rejection expressions after the identical guard_code assignment, with unchanged comparisons/arguments/renderer behavior. Three resolvers delegate only exact listed current-to-authenticated-predecessor bytes; latest validation is unconditional, closed to unlisted/rollback/tamper, exact legacy native active-mismatch codes preserved without blanket exception remap. Individually source reviewed before final native proof, and complete diff reread for this addendum. Current M1 final record gives full exact-tree PR8/8/559NEW/native/source audit proof, not a native availability repair.",
+    "changed_historical_bindings": [
+      {
+        "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+        "historical_binding": {
+          "bytes": 13198,
+          "git_blob": "dd5633d58ce9c787c2afe36c61d5b529ecd3863a",
+          "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+          "sha256": "dd0bc9f3db0b371608e37938569a546ab4a14398bcbc2a6d891be6d00c9014ff"
+        },
+        "current_binding": {
+          "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+          "bytes": 13288,
+          "sha256": "87925d247dc0ffc0444feb9456c48d1d610bee051ef0fd96a0db0ec7b12670d5",
+          "git_blob": "e16dc73205debd5a385e921f01e6abd87579a2a7"
+        },
+        "preimage": "docs/productization/task036-pr-source-contract-amendment/remotion_raster_capture.cjs.before",
+        "proof": "Preimage raw bytes equal actual2b parent Git blob AND actual873 historical Git bytes; original length/hash/blob equal historical row. Current active length/hash equal exact fixed5f0e replacement row."
+      },
+      {
+        "path": "scripts/compiler_media_policy_observation_amendment.py",
+        "historical_binding": {
+          "path": "scripts/compiler_media_policy_observation_amendment.py",
+          "bytes": 5877,
+          "git_blob": "814fee42d728b0d7c60e9a5db0a95dd58128254d",
+          "sha256": "84d0adc999dff3733860d7ee8a28d42a254f5e98574afa5db273e3d2f9c8ff0d"
+        },
+        "current_binding": {
+          "path": "scripts/compiler_media_policy_observation_amendment.py",
+          "bytes": 6322,
+          "sha256": "1719358fa2f11a1c5cf55ea61bcf2170192597d535f6e6fcee29baf089a64f04",
+          "git_blob": "fb0d66775229eda918062ec560189942de2c2395"
+        },
+        "preimage": "docs/productization/task036-pr-source-contract-amendment/compiler_media_policy_observation_amendment.py.before",
+        "proof": "Preimage raw bytes equal actual2b parent Git blob AND actual873 historical Git bytes; original length/hash/blob equal historical row. Current active length/hash equal exact fixed5f0e replacement row."
+      },
+      {
+        "path": "scripts/compiler_media_source_pin_amendment.py",
+        "historical_binding": {
+          "path": "scripts/compiler_media_source_pin_amendment.py",
+          "bytes": 5688,
+          "git_blob": "aa56db679b9dfc8a36065b2f3577ebdcd38c5095",
+          "sha256": "ee037a03fbdc26475642f1de1585eda0b20a68fd3532d26ac0bdcc3ba5484f21"
+        },
+        "current_binding": {
+          "path": "scripts/compiler_media_source_pin_amendment.py",
+          "bytes": 6105,
+          "sha256": "392f0c5e234eb83387cdb89b3534884cf62c77d30aa821817d4f36e990fd9519",
+          "git_blob": "14ed8ca27b3dcb535d7277dfcca663c604648ae1"
+        },
+        "preimage": "docs/productization/task036-pr-source-contract-amendment/compiler_media_source_pin_amendment.py.before",
+        "proof": "Preimage raw bytes equal actual2b parent Git blob AND actual873 historical Git bytes; original length/hash/blob equal historical row. Current active length/hash equal exact fixed5f0e replacement row."
+      },
+      {
+        "path": "scripts/compiler_stitch_input_amendment.py",
+        "historical_binding": {
+          "path": "scripts/compiler_stitch_input_amendment.py",
+          "bytes": 5715,
+          "git_blob": "d5307ede5ebf4762083069d55311f8506e9dcfa9",
+          "sha256": "89c594618f968bff34577a3b1d742c047920d43a77fc63a562f9610f2469b7d6"
+        },
+        "current_binding": {
+          "path": "scripts/compiler_stitch_input_amendment.py",
+          "bytes": 6405,
+          "sha256": "e99b840d43b0112ffe640e6ee9dc319dcd43516368b012709938557d084d97a3",
+          "git_blob": "ddad42739e8d63727d3443cbb96d247bb754a450"
+        },
+        "preimage": "docs/productization/task036-pr-source-contract-amendment/compiler_stitch_input_amendment.py.before",
+        "proof": "Preimage raw bytes equal actual2b parent Git blob AND actual873 historical Git bytes; original length/hash/blob equal historical row. Current active length/hash equal exact fixed5f0e replacement row."
+      }
+    ]
+  },
+  "exact_reviewed_file_bindings": [
+    {
+      "path": "bie/compiler/animation_behavior.py",
+      "bytes": 8384,
+      "git_blob": "8c100c6dc230fd98ca132da14f37f01e1a59bdcc",
+      "sha256": "67d269c3a5a3ee8ad73b861f8c60dd96cacc2f3310e0841f97ef5dc49e616c1e"
+    },
+    {
+      "path": "bie/compiler/animation_track_compiler.py",
+      "bytes": 4192,
+      "git_blob": "c93164968a8723332ed9ef60c05bd9be893a163c",
+      "sha256": "b2a20cae1ffaefd1cf4076382b87d2c232c53b01fd2d33602ccda534467635fb"
+    },
+    {
+      "path": "bie/compiler/governed_motion.py",
+      "bytes": 14054,
+      "git_blob": "3016bc804836ac56240289ccee572a6f9ba8ac06",
+      "sha256": "fabab343d1b176c27940bb2a010fc59c144241dcef341b7f6656d27d6d764e86"
+    },
+    {
+      "path": "bie/compiler/governed_motion_emitter.py",
+      "bytes": 3786,
+      "git_blob": "37be429ef061e89bdbbdb557e3f03cd4e5cee8bb",
+      "sha256": "92364adcd2e146fffc7ad5a5c2f202db22557038fbbd4114f0d7f8bf68898324"
+    },
+    {
+      "path": "bie/compiler/producer_motion_admission.py",
+      "bytes": 9917,
+      "git_blob": "bc2ce9e04f83c04f96064210ce0409dca2b38549",
+      "sha256": "24a29bf80d810abb3d8a02d52ae85af2a710b94b4b3972d46a97b05512a6f85c"
+    },
+    {
+      "path": "bie/compiler/qa_scene_compile.py",
+      "bytes": 21500,
+      "git_blob": "52c429ae677085c9c6583c43f445097abfe8ef3b",
+      "sha256": "6a146f39527fecc2fc7619f21daa09d0e4438eb8269b5fda1aafa97d4c310b58"
+    },
+    {
+      "path": "bie/compiler/qa_support/bounded_media_threads.cjs",
+      "bytes": 4440,
+      "git_blob": "e31eeeef07a6ab5f5f7ab458733260f7f4f9bda7",
+      "sha256": "2f2788895f598cea5c37449f1b54761c420a9c03e0d4e56cf4bd8fdd84fd0bb9"
+    },
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "bytes": 13288,
+      "git_blob": "e16dc73205debd5a385e921f01e6abd87579a2a7",
+      "sha256": "87925d247dc0ffc0444feb9456c48d1d610bee051ef0fd96a0db0ec7b12670d5"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "bytes": 26969,
+      "git_blob": "f7c5f76ced9fb2a66e850e4677cfb42172713228",
+      "sha256": "a7ede9b87fcc7edf1c4385c8bb640fac65656bf8901089ed89c66c7725f67d43"
+    },
+    {
+      "path": "bie/compiler/reduced_motion.py",
+      "bytes": 6519,
+      "git_blob": "086281c9d0b0c008c999062527a5e4772a8aa2cb",
+      "sha256": "addff85cc90b4b71aa5eae2a422879a8f94ba35d62c62e64d9a5f95f58743fd3"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/.gitattributes",
+      "bytes": 42,
+      "git_blob": "9e64dc6045c3a379936039593c65579904a31d83",
+      "sha256": "6fd7759bbef7a481ddb39666ca7cd7185916d95ec948a0f559c3a586b1396a4d"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/AMENDMENT.json",
+      "bytes": 2248,
+      "git_blob": "d52a9e83059b91b6a799731366cf61bd4ad3c252",
+      "sha256": "1526b7588616a16d468e98e8047823a19619fd9bbe555005856f3757b76e1024"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/compiler_cache_source_amendment.py.before",
+      "bytes": 12436,
+      "git_blob": "056861ff518bbb3aeaa695ded57097ea73eaee87",
+      "sha256": "570915c81134eb6bec2bcfaf0cb1d0aeb5d22e83e6710a8a9ac1d5b03a985ae2"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/real_paint.py.before",
+      "bytes": 14237,
+      "git_blob": "ae785aec4e2328a94acf87acfba2dfe079c05a3d",
+      "sha256": "9ddc3d9d9898e089f83be97971eb12e7b92957f9454f6e30bae00beadb69284c"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/remotion_raster_capture.cjs.before",
+      "bytes": 5060,
+      "git_blob": "22ec19485ed028918c7a8d9fcfdc81dfc7006903",
+      "sha256": "c5e7f4a322c592dd87dfcb557924e4210ab94aed5a9bea94e9c851739dd50503"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/.gitattributes",
+      "bytes": 42,
+      "git_blob": "9e64dc6045c3a379936039593c65579904a31d83",
+      "sha256": "6fd7759bbef7a481ddb39666ca7cd7185916d95ec948a0f559c3a586b1396a4d"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/AMENDMENT.json",
+      "bytes": 2319,
+      "git_blob": "42ef2dce6c8bfc7ee696b6df8b23384bb2ba1732",
+      "sha256": "7a624cfa43285762b26cd6987141a574721ccfda140e6cc5585c3cbd6c24b6a7"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/compiler_capture_observation_amendment.py.before",
+      "bytes": 4536,
+      "git_blob": "2708915bc7644ef3097ca27a6f34c9b7992ab797",
+      "sha256": "9e163acc78c0a58856a69cfe8f565073c7cd0ec706b07796bf05c015a5be7c95"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/real_paint.py.before",
+      "bytes": 18698,
+      "git_blob": "afa874a6bdd0315b7a0bb11801e5e757272eb1ee",
+      "sha256": "198c98b11d98199daf75a9900a13bae592dc6f29b5fef9bdcaf12eb37a61232f"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/remotion_raster_capture.cjs.before",
+      "bytes": 7458,
+      "git_blob": "833a40952f07a3df26849edd4845192bae06a820",
+      "sha256": "5c1a1a4a8fd30d2c9b64af2f05f308e5901c33765b3f3a362a590e99b339bf26"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/AMENDMENT.json",
+      "bytes": 2895,
+      "git_blob": "173b075eec888c20cd734db59951bad2ebbf7f1b",
+      "sha256": "ec4108cd8307b6c6511e61cd43e39a78ed5b8e92b6f3611b65ad365f03096fc4"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/bounded_media_threads.cjs.before",
+      "bytes": 3260,
+      "git_blob": "ec99116574cd1c4a61e35dd135fcc10d083799d0",
+      "sha256": "1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/compiler_media_thread_amendment.py.before",
+      "bytes": 6621,
+      "git_blob": "dc5a05ac57f9a1fd287f0f3431e9915bffd91f9a",
+      "sha256": "981344179a3b90c8402b544fdca52840dc1621de6b842325d4b7b1f1248ee062"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/real_paint.py.before",
+      "bytes": 25174,
+      "git_blob": "81f9a81830375be3c5756443bb45f9cbe5ac645f",
+      "sha256": "d068d65f78c4b97f3b413fc1b440d78437d885200efee9a3f82f8d5f922fdb54"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/remotion_raster_capture.cjs.before",
+      "bytes": 10718,
+      "git_blob": "8c21a9e977e027701edab81c1ca1b43f0cf9e475",
+      "sha256": "2d3a4983e0bc6b38204dc41c9a6f92a15a04ed9691f9ac7680fc142e9679eee4"
+    },
+    {
+      "path": "docs/productization/task036-media-source-pin-amendment/AMENDMENT.json",
+      "bytes": 1885,
+      "git_blob": "4ef6daf16e870ad3d736da5f008da842a8fe2db4",
+      "sha256": "101ba72e26da7f25ff4807111548987e1414f7c3d4a05d99b3338939f69e53b8"
+    },
+    {
+      "path": "docs/productization/task036-media-source-pin-amendment/compiler_media_policy_observation_amendment.py.before",
+      "bytes": 5041,
+      "git_blob": "7118c45258a478ff2b050424a5ae2a71fd9edb24",
+      "sha256": "74c470bbf26006c275629cd93de0fbf9d41b3180ab901e1b796ce703c0721ea4"
+    },
+    {
+      "path": "docs/productization/task036-media-source-pin-amendment/real_paint.py.before",
+      "bytes": 26969,
+      "git_blob": "d8ade88cc0a71f46c4018a26ffb9faedbd1f5b57",
+      "sha256": "f13dd3b17ffa8173def196be1cd8098e60bc5b149ebc86b3ad0197a097284118"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/AMENDMENT.json",
+      "bytes": 3400,
+      "git_blob": "17a2e94ca9558bb5f3c34e5fd7feaf4f165a2acb",
+      "sha256": "6b08edb6b6bbacba67c1c87780809a449a8073dbf882cf5e35a247a81ddc940c"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/compiler_media_observation_amendment.py.before",
+      "bytes": 4849,
+      "git_blob": "eada013c0f0c0b76b7b472ef8993553dc272c453",
+      "sha256": "b96c7b3627869cff5381593b84555560eff1c866489d3a83e7426bfc28eee79c"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/compiler_motion_source_amendment.py.before",
+      "bytes": 4524,
+      "git_blob": "c246c694a0c1baad5c1c605d9ba57e5434c9aa3a",
+      "sha256": "57cb85226fdbdb73047bcfaa5f454c38f57c7b78172614a45fa3b5736b074c33"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/real_paint.py.before",
+      "bytes": 22704,
+      "git_blob": "dfaa6c36ec63cd05dac9e321abeb9b8271e8bcb6",
+      "sha256": "3c00fb7b83213bb511ee0e76a4380947510620b920bf10a01fa53fa30acf4b72"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/remotion_raster_capture.cjs.before",
+      "bytes": 10179,
+      "git_blob": "8d2393cf2b6a95fff7d7e4b9d9a8f0d01e3ddfdb",
+      "sha256": "16ef54154246460bd82cbc99c61a4356323a473764a54be60ac5e07432dc0790"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/.gitattributes",
+      "bytes": 217,
+      "git_blob": "401c2e2ad20dd1f5a27ca4a12a101a0285f569f8",
+      "sha256": "45fc178dfb68c6f37d19323d52447cda30132bbaddfb601f33595b002f6a7fbc"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/AMENDMENT.json",
+      "bytes": 8942,
+      "git_blob": "1101bf40f9655f07f295a65377dc5174bbb98e95",
+      "sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/animation_behavior.py.before",
+      "bytes": 8084,
+      "git_blob": "53723ce82994665af88bffa5000927808c58c7d2",
+      "sha256": "b419fa6f3f266639c87f22732e1b3421217b73719ead4fd52e6fcd3910e38400"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/animation_track_compiler.py.before",
+      "bytes": 3998,
+      "git_blob": "dd7fb6edaee1b5826acfcdf92333909367125d2c",
+      "sha256": "8d13e691b8a7a6ebb41096859095f8e7adde2105fd3e506fbefa6c8be6ef99e7"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/qa_scene_compile.py.before",
+      "bytes": 21185,
+      "git_blob": "10ecd8e7485256b8b3e313c2b4935543544f487c",
+      "sha256": "133f2ea155a395fbc0f9bb7cbe2809359b59bbe923ad7498e84c5df834d13cba"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/reduced_motion.py.before",
+      "bytes": 5866,
+      "git_blob": "d91babc66610310e2b4568a6515a2ccb831dce06",
+      "sha256": "b7a53666c519b8d7bd186ea14762291c799c911bbb0115d43423766cc3f3fa08"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/AMENDMENT.json",
+      "bytes": 3642,
+      "git_blob": "29eea01d6ea91a954065cff5868683c2e6c057f7",
+      "sha256": "aa24676ce86cc5e9dc64579139ffd43dac3fddc1ed61fae289d86a26ace7e102"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/bounded_media_threads.cjs.before",
+      "bytes": 3632,
+      "git_blob": "e5974587a4387f4952904d0f27cb082bed17883c",
+      "sha256": "af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/compiler_media_policy_observation_amendment.py.before",
+      "bytes": 5425,
+      "git_blob": "da7e7d6be92ebb009b7173e71e86bf75baac4768",
+      "sha256": "25e5b5c85618397351c5c081e28fbba0dfb7f001dffd6a1cdfcc5dbaea335d54"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/compiler_media_source_pin_amendment.py.before",
+      "bytes": 4515,
+      "git_blob": "78fb0d6e55f80454b9af85e09e91d4db9c32da07",
+      "sha256": "c9d4d4df30659ce41f6f292dee16936ea571872bfcdff75bb4a5b17c9a9b614f"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/real_paint.py.before",
+      "bytes": 26969,
+      "git_blob": "780202e5d62c94bb7d66a40432798ffa6491171f",
+      "sha256": "6157f3743a53661ce9327c14dc924b3040c5bce881d808d8502494c08d1f4afe"
+    },
+    {
+      "path": "scripts/compiler_cache_source_amendment.py",
+      "bytes": 12883,
+      "git_blob": "3f02d2344c892f25adf86bf41982bea732a72455",
+      "sha256": "9c040865300c73ac0322f70e6eb017e0dbd591798fe3175a9d73acd9ac3a84ba"
+    },
+    {
+      "path": "scripts/compiler_capture_observation_amendment.py",
+      "bytes": 5075,
+      "git_blob": "75a0a37338569bc044d4b524b89e1e8eea4e1548",
+      "sha256": "6681cdcb6c8965316b786032cd771531402d2028f701a02d9ed8a21c9ce057b4"
+    },
+    {
+      "path": "scripts/compiler_media_observation_amendment.py",
+      "bytes": 5221,
+      "git_blob": "7d9e61bf76d1dbe0720e0894fcd009b7766ac740",
+      "sha256": "ac0fc8c084ff5ed7aa75670e1ec42f35444b4c608d65fe28553f4bb6bd778796"
+    },
+    {
+      "path": "scripts/compiler_media_policy_observation_amendment.py",
+      "bytes": 6322,
+      "git_blob": "fb0d66775229eda918062ec560189942de2c2395",
+      "sha256": "1719358fa2f11a1c5cf55ea61bcf2170192597d535f6e6fcee29baf089a64f04"
+    },
+    {
+      "path": "scripts/compiler_media_source_pin_amendment.py",
+      "bytes": 6105,
+      "git_blob": "14ed8ca27b3dcb535d7277dfcca663c604648ae1",
+      "sha256": "392f0c5e234eb83387cdb89b3534884cf62c77d30aa821817d4f36e990fd9519"
+    },
+    {
+      "path": "scripts/compiler_media_thread_amendment.py",
+      "bytes": 7339,
+      "git_blob": "5b5a1e86792255227e961ed870d99cd8b1ea34f3",
+      "sha256": "061ab40c34516c8b635ea41b2bc43f0f656f6baa3a64411ce7ad0ebc4ccb50f0"
+    },
+    {
+      "path": "scripts/compiler_motion_source_amendment.py",
+      "bytes": 4912,
+      "git_blob": "53c6f0156cffd5e766466c5b3af944653df4f7ed",
+      "sha256": "f322435ccab90ef652dadaf45b4baf380e7a2666728d6b3c5c3125965ef7f16e"
+    },
+    {
+      "path": "scripts/compiler_stitch_input_amendment.py",
+      "bytes": 6405,
+      "git_blob": "ddad42739e8d63727d3443cbb96d247bb754a450",
+      "sha256": "e99b840d43b0112ffe640e6ee9dc319dcd43516368b012709938557d084d97a3"
+    }
+  ],
+  "raw_git_file_bindings": [
+    {
+      "path": "bie/compiler/animation_behavior.py",
+      "raw_git_bytes": 8384,
+      "raw_git_sha256": "67d269c3a5a3ee8ad73b861f8c60dd96cacc2f3310e0841f97ef5dc49e616c1e",
+      "git_blob": "8c100c6dc230fd98ca132da14f37f01e1a59bdcc",
+      "lf_normalized_bytes": 8384,
+      "lf_normalized_sha256": "67d269c3a5a3ee8ad73b861f8c60dd96cacc2f3310e0841f97ef5dc49e616c1e",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/animation_track_compiler.py",
+      "raw_git_bytes": 4192,
+      "raw_git_sha256": "b2a20cae1ffaefd1cf4076382b87d2c232c53b01fd2d33602ccda534467635fb",
+      "git_blob": "c93164968a8723332ed9ef60c05bd9be893a163c",
+      "lf_normalized_bytes": 4192,
+      "lf_normalized_sha256": "b2a20cae1ffaefd1cf4076382b87d2c232c53b01fd2d33602ccda534467635fb",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/governed_motion.py",
+      "raw_git_bytes": 14054,
+      "raw_git_sha256": "fabab343d1b176c27940bb2a010fc59c144241dcef341b7f6656d27d6d764e86",
+      "git_blob": "3016bc804836ac56240289ccee572a6f9ba8ac06",
+      "lf_normalized_bytes": 14054,
+      "lf_normalized_sha256": "fabab343d1b176c27940bb2a010fc59c144241dcef341b7f6656d27d6d764e86",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/governed_motion_emitter.py",
+      "raw_git_bytes": 3786,
+      "raw_git_sha256": "92364adcd2e146fffc7ad5a5c2f202db22557038fbbd4114f0d7f8bf68898324",
+      "git_blob": "37be429ef061e89bdbbdb557e3f03cd4e5cee8bb",
+      "lf_normalized_bytes": 3786,
+      "lf_normalized_sha256": "92364adcd2e146fffc7ad5a5c2f202db22557038fbbd4114f0d7f8bf68898324",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/producer_motion_admission.py",
+      "raw_git_bytes": 9917,
+      "raw_git_sha256": "24a29bf80d810abb3d8a02d52ae85af2a710b94b4b3972d46a97b05512a6f85c",
+      "git_blob": "bc2ce9e04f83c04f96064210ce0409dca2b38549",
+      "lf_normalized_bytes": 9917,
+      "lf_normalized_sha256": "24a29bf80d810abb3d8a02d52ae85af2a710b94b4b3972d46a97b05512a6f85c",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/qa_scene_compile.py",
+      "raw_git_bytes": 21500,
+      "raw_git_sha256": "6a146f39527fecc2fc7619f21daa09d0e4438eb8269b5fda1aafa97d4c310b58",
+      "git_blob": "52c429ae677085c9c6583c43f445097abfe8ef3b",
+      "lf_normalized_bytes": 21500,
+      "lf_normalized_sha256": "6a146f39527fecc2fc7619f21daa09d0e4438eb8269b5fda1aafa97d4c310b58",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/qa_support/bounded_media_threads.cjs",
+      "raw_git_bytes": 4440,
+      "raw_git_sha256": "2f2788895f598cea5c37449f1b54761c420a9c03e0d4e56cf4bd8fdd84fd0bb9",
+      "git_blob": "e31eeeef07a6ab5f5f7ab458733260f7f4f9bda7",
+      "lf_normalized_bytes": 4440,
+      "lf_normalized_sha256": "2f2788895f598cea5c37449f1b54761c420a9c03e0d4e56cf4bd8fdd84fd0bb9",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "raw_git_bytes": 13288,
+      "raw_git_sha256": "87925d247dc0ffc0444feb9456c48d1d610bee051ef0fd96a0db0ec7b12670d5",
+      "git_blob": "e16dc73205debd5a385e921f01e6abd87579a2a7",
+      "lf_normalized_bytes": 13288,
+      "lf_normalized_sha256": "87925d247dc0ffc0444feb9456c48d1d610bee051ef0fd96a0db0ec7b12670d5",
+      "review_basis": "PERSONALLY_REVIEWED_F192_EXACT_FOUR_PATH_CORRECTION_UNCHANGED_AT_A24"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "raw_git_bytes": 26969,
+      "raw_git_sha256": "a7ede9b87fcc7edf1c4385c8bb640fac65656bf8901089ed89c66c7725f67d43",
+      "git_blob": "f7c5f76ced9fb2a66e850e4677cfb42172713228",
+      "lf_normalized_bytes": 26969,
+      "lf_normalized_sha256": "a7ede9b87fcc7edf1c4385c8bb640fac65656bf8901089ed89c66c7725f67d43",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "bie/compiler/reduced_motion.py",
+      "raw_git_bytes": 6519,
+      "raw_git_sha256": "addff85cc90b4b71aa5eae2a422879a8f94ba35d62c62e64d9a5f95f58743fd3",
+      "git_blob": "086281c9d0b0c008c999062527a5e4772a8aa2cb",
+      "lf_normalized_bytes": 6519,
+      "lf_normalized_sha256": "addff85cc90b4b71aa5eae2a422879a8f94ba35d62c62e64d9a5f95f58743fd3",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/.gitattributes",
+      "raw_git_bytes": 42,
+      "raw_git_sha256": "6fd7759bbef7a481ddb39666ca7cd7185916d95ec948a0f559c3a586b1396a4d",
+      "git_blob": "9e64dc6045c3a379936039593c65579904a31d83",
+      "lf_normalized_bytes": 42,
+      "lf_normalized_sha256": "6fd7759bbef7a481ddb39666ca7cd7185916d95ec948a0f559c3a586b1396a4d",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/AMENDMENT.json",
+      "raw_git_bytes": 2248,
+      "raw_git_sha256": "1526b7588616a16d468e98e8047823a19619fd9bbe555005856f3757b76e1024",
+      "git_blob": "d52a9e83059b91b6a799731366cf61bd4ad3c252",
+      "lf_normalized_bytes": 2248,
+      "lf_normalized_sha256": "1526b7588616a16d468e98e8047823a19619fd9bbe555005856f3757b76e1024",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/compiler_cache_source_amendment.py.before",
+      "raw_git_bytes": 12436,
+      "raw_git_sha256": "570915c81134eb6bec2bcfaf0cb1d0aeb5d22e83e6710a8a9ac1d5b03a985ae2",
+      "git_blob": "056861ff518bbb3aeaa695ded57097ea73eaee87",
+      "lf_normalized_bytes": 12436,
+      "lf_normalized_sha256": "570915c81134eb6bec2bcfaf0cb1d0aeb5d22e83e6710a8a9ac1d5b03a985ae2",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/real_paint.py.before",
+      "raw_git_bytes": 14237,
+      "raw_git_sha256": "9ddc3d9d9898e089f83be97971eb12e7b92957f9454f6e30bae00beadb69284c",
+      "git_blob": "ae785aec4e2328a94acf87acfba2dfe079c05a3d",
+      "lf_normalized_bytes": 14237,
+      "lf_normalized_sha256": "9ddc3d9d9898e089f83be97971eb12e7b92957f9454f6e30bae00beadb69284c",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-capture-observation-amendment/remotion_raster_capture.cjs.before",
+      "raw_git_bytes": 5060,
+      "raw_git_sha256": "c5e7f4a322c592dd87dfcb557924e4210ab94aed5a9bea94e9c851739dd50503",
+      "git_blob": "22ec19485ed028918c7a8d9fcfdc81dfc7006903",
+      "lf_normalized_bytes": 5060,
+      "lf_normalized_sha256": "c5e7f4a322c592dd87dfcb557924e4210ab94aed5a9bea94e9c851739dd50503",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/.gitattributes",
+      "raw_git_bytes": 42,
+      "raw_git_sha256": "6fd7759bbef7a481ddb39666ca7cd7185916d95ec948a0f559c3a586b1396a4d",
+      "git_blob": "9e64dc6045c3a379936039593c65579904a31d83",
+      "lf_normalized_bytes": 42,
+      "lf_normalized_sha256": "6fd7759bbef7a481ddb39666ca7cd7185916d95ec948a0f559c3a586b1396a4d",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/AMENDMENT.json",
+      "raw_git_bytes": 2319,
+      "raw_git_sha256": "7a624cfa43285762b26cd6987141a574721ccfda140e6cc5585c3cbd6c24b6a7",
+      "git_blob": "42ef2dce6c8bfc7ee696b6df8b23384bb2ba1732",
+      "lf_normalized_bytes": 2319,
+      "lf_normalized_sha256": "7a624cfa43285762b26cd6987141a574721ccfda140e6cc5585c3cbd6c24b6a7",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/compiler_capture_observation_amendment.py.before",
+      "raw_git_bytes": 4536,
+      "raw_git_sha256": "9e163acc78c0a58856a69cfe8f565073c7cd0ec706b07796bf05c015a5be7c95",
+      "git_blob": "2708915bc7644ef3097ca27a6f34c9b7992ab797",
+      "lf_normalized_bytes": 4536,
+      "lf_normalized_sha256": "9e163acc78c0a58856a69cfe8f565073c7cd0ec706b07796bf05c015a5be7c95",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/real_paint.py.before",
+      "raw_git_bytes": 18698,
+      "raw_git_sha256": "198c98b11d98199daf75a9900a13bae592dc6f29b5fef9bdcaf12eb37a61232f",
+      "git_blob": "afa874a6bdd0315b7a0bb11801e5e757272eb1ee",
+      "lf_normalized_bytes": 18698,
+      "lf_normalized_sha256": "198c98b11d98199daf75a9900a13bae592dc6f29b5fef9bdcaf12eb37a61232f",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-observation-amendment/remotion_raster_capture.cjs.before",
+      "raw_git_bytes": 7458,
+      "raw_git_sha256": "5c1a1a4a8fd30d2c9b64af2f05f308e5901c33765b3f3a362a590e99b339bf26",
+      "git_blob": "833a40952f07a3df26849edd4845192bae06a820",
+      "lf_normalized_bytes": 7458,
+      "lf_normalized_sha256": "5c1a1a4a8fd30d2c9b64af2f05f308e5901c33765b3f3a362a590e99b339bf26",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/AMENDMENT.json",
+      "raw_git_bytes": 2895,
+      "raw_git_sha256": "ec4108cd8307b6c6511e61cd43e39a78ed5b8e92b6f3611b65ad365f03096fc4",
+      "git_blob": "173b075eec888c20cd734db59951bad2ebbf7f1b",
+      "lf_normalized_bytes": 2895,
+      "lf_normalized_sha256": "ec4108cd8307b6c6511e61cd43e39a78ed5b8e92b6f3611b65ad365f03096fc4",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/bounded_media_threads.cjs.before",
+      "raw_git_bytes": 3260,
+      "raw_git_sha256": "1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d",
+      "git_blob": "ec99116574cd1c4a61e35dd135fcc10d083799d0",
+      "lf_normalized_bytes": 3260,
+      "lf_normalized_sha256": "1c6797c23509346cca5626c3c9e760624401cf4c2e46f79aa849f9eb5e540c8d",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/compiler_media_thread_amendment.py.before",
+      "raw_git_bytes": 6621,
+      "raw_git_sha256": "981344179a3b90c8402b544fdca52840dc1621de6b842325d4b7b1f1248ee062",
+      "git_blob": "dc5a05ac57f9a1fd287f0f3431e9915bffd91f9a",
+      "lf_normalized_bytes": 6621,
+      "lf_normalized_sha256": "981344179a3b90c8402b544fdca52840dc1621de6b842325d4b7b1f1248ee062",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/real_paint.py.before",
+      "raw_git_bytes": 25174,
+      "raw_git_sha256": "d068d65f78c4b97f3b413fc1b440d78437d885200efee9a3f82f8d5f922fdb54",
+      "git_blob": "81f9a81830375be3c5756443bb45f9cbe5ac645f",
+      "lf_normalized_bytes": 25174,
+      "lf_normalized_sha256": "d068d65f78c4b97f3b413fc1b440d78437d885200efee9a3f82f8d5f922fdb54",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-policy-observation-amendment/remotion_raster_capture.cjs.before",
+      "raw_git_bytes": 10718,
+      "raw_git_sha256": "2d3a4983e0bc6b38204dc41c9a6f92a15a04ed9691f9ac7680fc142e9679eee4",
+      "git_blob": "8c21a9e977e027701edab81c1ca1b43f0cf9e475",
+      "lf_normalized_bytes": 10718,
+      "lf_normalized_sha256": "2d3a4983e0bc6b38204dc41c9a6f92a15a04ed9691f9ac7680fc142e9679eee4",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-source-pin-amendment/AMENDMENT.json",
+      "raw_git_bytes": 1885,
+      "raw_git_sha256": "101ba72e26da7f25ff4807111548987e1414f7c3d4a05d99b3338939f69e53b8",
+      "git_blob": "4ef6daf16e870ad3d736da5f008da842a8fe2db4",
+      "lf_normalized_bytes": 1885,
+      "lf_normalized_sha256": "101ba72e26da7f25ff4807111548987e1414f7c3d4a05d99b3338939f69e53b8",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-source-pin-amendment/compiler_media_policy_observation_amendment.py.before",
+      "raw_git_bytes": 5041,
+      "raw_git_sha256": "74c470bbf26006c275629cd93de0fbf9d41b3180ab901e1b796ce703c0721ea4",
+      "git_blob": "7118c45258a478ff2b050424a5ae2a71fd9edb24",
+      "lf_normalized_bytes": 5041,
+      "lf_normalized_sha256": "74c470bbf26006c275629cd93de0fbf9d41b3180ab901e1b796ce703c0721ea4",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-source-pin-amendment/real_paint.py.before",
+      "raw_git_bytes": 26969,
+      "raw_git_sha256": "f13dd3b17ffa8173def196be1cd8098e60bc5b149ebc86b3ad0197a097284118",
+      "git_blob": "d8ade88cc0a71f46c4018a26ffb9faedbd1f5b57",
+      "lf_normalized_bytes": 26969,
+      "lf_normalized_sha256": "f13dd3b17ffa8173def196be1cd8098e60bc5b149ebc86b3ad0197a097284118",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/AMENDMENT.json",
+      "raw_git_bytes": 3400,
+      "raw_git_sha256": "6b08edb6b6bbacba67c1c87780809a449a8073dbf882cf5e35a247a81ddc940c",
+      "git_blob": "17a2e94ca9558bb5f3c34e5fd7feaf4f165a2acb",
+      "lf_normalized_bytes": 3400,
+      "lf_normalized_sha256": "6b08edb6b6bbacba67c1c87780809a449a8073dbf882cf5e35a247a81ddc940c",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/compiler_media_observation_amendment.py.before",
+      "raw_git_bytes": 4849,
+      "raw_git_sha256": "b96c7b3627869cff5381593b84555560eff1c866489d3a83e7426bfc28eee79c",
+      "git_blob": "eada013c0f0c0b76b7b472ef8993553dc272c453",
+      "lf_normalized_bytes": 4849,
+      "lf_normalized_sha256": "b96c7b3627869cff5381593b84555560eff1c866489d3a83e7426bfc28eee79c",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/compiler_motion_source_amendment.py.before",
+      "raw_git_bytes": 4524,
+      "raw_git_sha256": "57cb85226fdbdb73047bcfaa5f454c38f57c7b78172614a45fa3b5736b074c33",
+      "git_blob": "c246c694a0c1baad5c1c605d9ba57e5434c9aa3a",
+      "lf_normalized_bytes": 4524,
+      "lf_normalized_sha256": "57cb85226fdbdb73047bcfaa5f454c38f57c7b78172614a45fa3b5736b074c33",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/real_paint.py.before",
+      "raw_git_bytes": 22704,
+      "raw_git_sha256": "3c00fb7b83213bb511ee0e76a4380947510620b920bf10a01fa53fa30acf4b72",
+      "git_blob": "dfaa6c36ec63cd05dac9e321abeb9b8271e8bcb6",
+      "lf_normalized_bytes": 22704,
+      "lf_normalized_sha256": "3c00fb7b83213bb511ee0e76a4380947510620b920bf10a01fa53fa30acf4b72",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-media-thread-amendment/remotion_raster_capture.cjs.before",
+      "raw_git_bytes": 10179,
+      "raw_git_sha256": "16ef54154246460bd82cbc99c61a4356323a473764a54be60ac5e07432dc0790",
+      "git_blob": "8d2393cf2b6a95fff7d7e4b9d9a8f0d01e3ddfdb",
+      "lf_normalized_bytes": 10179,
+      "lf_normalized_sha256": "16ef54154246460bd82cbc99c61a4356323a473764a54be60ac5e07432dc0790",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/.gitattributes",
+      "raw_git_bytes": 217,
+      "raw_git_sha256": "45fc178dfb68c6f37d19323d52447cda30132bbaddfb601f33595b002f6a7fbc",
+      "git_blob": "401c2e2ad20dd1f5a27ca4a12a101a0285f569f8",
+      "lf_normalized_bytes": 217,
+      "lf_normalized_sha256": "45fc178dfb68c6f37d19323d52447cda30132bbaddfb601f33595b002f6a7fbc",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/AMENDMENT.json",
+      "raw_git_bytes": 8942,
+      "raw_git_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+      "git_blob": "1101bf40f9655f07f295a65377dc5174bbb98e95",
+      "lf_normalized_bytes": 8942,
+      "lf_normalized_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/animation_behavior.py.before",
+      "raw_git_bytes": 8084,
+      "raw_git_sha256": "b419fa6f3f266639c87f22732e1b3421217b73719ead4fd52e6fcd3910e38400",
+      "git_blob": "53723ce82994665af88bffa5000927808c58c7d2",
+      "lf_normalized_bytes": 8084,
+      "lf_normalized_sha256": "b419fa6f3f266639c87f22732e1b3421217b73719ead4fd52e6fcd3910e38400",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/animation_track_compiler.py.before",
+      "raw_git_bytes": 3998,
+      "raw_git_sha256": "8d13e691b8a7a6ebb41096859095f8e7adde2105fd3e506fbefa6c8be6ef99e7",
+      "git_blob": "dd7fb6edaee1b5826acfcdf92333909367125d2c",
+      "lf_normalized_bytes": 3998,
+      "lf_normalized_sha256": "8d13e691b8a7a6ebb41096859095f8e7adde2105fd3e506fbefa6c8be6ef99e7",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/qa_scene_compile.py.before",
+      "raw_git_bytes": 21185,
+      "raw_git_sha256": "133f2ea155a395fbc0f9bb7cbe2809359b59bbe923ad7498e84c5df834d13cba",
+      "git_blob": "10ecd8e7485256b8b3e313c2b4935543544f487c",
+      "lf_normalized_bytes": 21185,
+      "lf_normalized_sha256": "133f2ea155a395fbc0f9bb7cbe2809359b59bbe923ad7498e84c5df834d13cba",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-motion-amendment/reduced_motion.py.before",
+      "raw_git_bytes": 5866,
+      "raw_git_sha256": "b7a53666c519b8d7bd186ea14762291c799c911bbb0115d43423766cc3f3fa08",
+      "git_blob": "d91babc66610310e2b4568a6515a2ccb831dce06",
+      "lf_normalized_bytes": 5866,
+      "lf_normalized_sha256": "b7a53666c519b8d7bd186ea14762291c799c911bbb0115d43423766cc3f3fa08",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/AMENDMENT.json",
+      "raw_git_bytes": 3642,
+      "raw_git_sha256": "aa24676ce86cc5e9dc64579139ffd43dac3fddc1ed61fae289d86a26ace7e102",
+      "git_blob": "29eea01d6ea91a954065cff5868683c2e6c057f7",
+      "lf_normalized_bytes": 3642,
+      "lf_normalized_sha256": "aa24676ce86cc5e9dc64579139ffd43dac3fddc1ed61fae289d86a26ace7e102",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/bounded_media_threads.cjs.before",
+      "raw_git_bytes": 3632,
+      "raw_git_sha256": "af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5",
+      "git_blob": "e5974587a4387f4952904d0f27cb082bed17883c",
+      "lf_normalized_bytes": 3632,
+      "lf_normalized_sha256": "af0eae48357c10fbdfbda113b945c9f443684dac593b56d2049f57502f5b6ad5",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/compiler_media_policy_observation_amendment.py.before",
+      "raw_git_bytes": 5425,
+      "raw_git_sha256": "25e5b5c85618397351c5c081e28fbba0dfb7f001dffd6a1cdfcc5dbaea335d54",
+      "git_blob": "da7e7d6be92ebb009b7173e71e86bf75baac4768",
+      "lf_normalized_bytes": 5425,
+      "lf_normalized_sha256": "25e5b5c85618397351c5c081e28fbba0dfb7f001dffd6a1cdfcc5dbaea335d54",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/compiler_media_source_pin_amendment.py.before",
+      "raw_git_bytes": 4515,
+      "raw_git_sha256": "c9d4d4df30659ce41f6f292dee16936ea571872bfcdff75bb4a5b17c9a9b614f",
+      "git_blob": "78fb0d6e55f80454b9af85e09e91d4db9c32da07",
+      "lf_normalized_bytes": 4515,
+      "lf_normalized_sha256": "c9d4d4df30659ce41f6f292dee16936ea571872bfcdff75bb4a5b17c9a9b614f",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "docs/productization/task036-stitch-input-amendment/real_paint.py.before",
+      "raw_git_bytes": 26969,
+      "raw_git_sha256": "6157f3743a53661ce9327c14dc924b3040c5bce881d808d8502494c08d1f4afe",
+      "git_blob": "780202e5d62c94bb7d66a40432798ffa6491171f",
+      "lf_normalized_bytes": 26969,
+      "lf_normalized_sha256": "6157f3743a53661ce9327c14dc924b3040c5bce881d808d8502494c08d1f4afe",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "scripts/compiler_cache_source_amendment.py",
+      "raw_git_bytes": 12883,
+      "raw_git_sha256": "9c040865300c73ac0322f70e6eb017e0dbd591798fe3175a9d73acd9ac3a84ba",
+      "git_blob": "3f02d2344c892f25adf86bf41982bea732a72455",
+      "lf_normalized_bytes": 12883,
+      "lf_normalized_sha256": "9c040865300c73ac0322f70e6eb017e0dbd591798fe3175a9d73acd9ac3a84ba",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "scripts/compiler_capture_observation_amendment.py",
+      "raw_git_bytes": 5075,
+      "raw_git_sha256": "6681cdcb6c8965316b786032cd771531402d2028f701a02d9ed8a21c9ce057b4",
+      "git_blob": "75a0a37338569bc044d4b524b89e1e8eea4e1548",
+      "lf_normalized_bytes": 5075,
+      "lf_normalized_sha256": "6681cdcb6c8965316b786032cd771531402d2028f701a02d9ed8a21c9ce057b4",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "scripts/compiler_media_observation_amendment.py",
+      "raw_git_bytes": 5221,
+      "raw_git_sha256": "ac0fc8c084ff5ed7aa75670e1ec42f35444b4c608d65fe28553f4bb6bd778796",
+      "git_blob": "7d9e61bf76d1dbe0720e0894fcd009b7766ac740",
+      "lf_normalized_bytes": 5221,
+      "lf_normalized_sha256": "ac0fc8c084ff5ed7aa75670e1ec42f35444b4c608d65fe28553f4bb6bd778796",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "scripts/compiler_media_policy_observation_amendment.py",
+      "raw_git_bytes": 6322,
+      "raw_git_sha256": "1719358fa2f11a1c5cf55ea61bcf2170192597d535f6e6fcee29baf089a64f04",
+      "git_blob": "fb0d66775229eda918062ec560189942de2c2395",
+      "lf_normalized_bytes": 6322,
+      "lf_normalized_sha256": "1719358fa2f11a1c5cf55ea61bcf2170192597d535f6e6fcee29baf089a64f04",
+      "review_basis": "PERSONALLY_REVIEWED_F192_EXACT_FOUR_PATH_CORRECTION_UNCHANGED_AT_A24"
+    },
+    {
+      "path": "scripts/compiler_media_source_pin_amendment.py",
+      "raw_git_bytes": 6105,
+      "raw_git_sha256": "392f0c5e234eb83387cdb89b3534884cf62c77d30aa821817d4f36e990fd9519",
+      "git_blob": "14ed8ca27b3dcb535d7277dfcca663c604648ae1",
+      "lf_normalized_bytes": 6105,
+      "lf_normalized_sha256": "392f0c5e234eb83387cdb89b3534884cf62c77d30aa821817d4f36e990fd9519",
+      "review_basis": "PERSONALLY_REVIEWED_F192_EXACT_FOUR_PATH_CORRECTION_UNCHANGED_AT_A24"
+    },
+    {
+      "path": "scripts/compiler_media_thread_amendment.py",
+      "raw_git_bytes": 7339,
+      "raw_git_sha256": "061ab40c34516c8b635ea41b2bc43f0f656f6baa3a64411ce7ad0ebc4ccb50f0",
+      "git_blob": "5b5a1e86792255227e961ed870d99cd8b1ea34f3",
+      "lf_normalized_bytes": 7339,
+      "lf_normalized_sha256": "061ab40c34516c8b635ea41b2bc43f0f656f6baa3a64411ce7ad0ebc4ccb50f0",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "scripts/compiler_motion_source_amendment.py",
+      "raw_git_bytes": 4912,
+      "raw_git_sha256": "f322435ccab90ef652dadaf45b4baf380e7a2666728d6b3c5c3125965ef7f16e",
+      "git_blob": "53c6f0156cffd5e766466c5b3af944653df4f7ed",
+      "lf_normalized_bytes": 4912,
+      "lf_normalized_sha256": "f322435ccab90ef652dadaf45b4baf380e7a2666728d6b3c5c3125965ef7f16e",
+      "review_basis": "UNCHANGED_HISTORICAL_873_GENUINE_REVIEW_IDENTITY_PLUS_CUMULATIVE_REPLACEMENT_M1_REVIEW"
+    },
+    {
+      "path": "scripts/compiler_stitch_input_amendment.py",
+      "raw_git_bytes": 6405,
+      "raw_git_sha256": "e99b840d43b0112ffe640e6ee9dc319dcd43516368b012709938557d084d97a3",
+      "git_blob": "ddad42739e8d63727d3443cbb96d247bb754a450",
+      "lf_normalized_bytes": 6405,
+      "lf_normalized_sha256": "e99b840d43b0112ffe640e6ee9dc319dcd43516368b012709938557d084d97a3",
+      "review_basis": "PERSONALLY_REVIEWED_F192_EXACT_FOUR_PATH_CORRECTION_UNCHANGED_AT_A24"
+    }
+  ],
+  "authenticated_followon_file_bindings": [
+    {
+      "path": "docs/productization/task036-ci-history-amendment/AMENDMENT.json",
+      "bytes": 1476,
+      "sha256": "639e87119a2cf8f6cf35e8062dbd66df4b021f05b689a5602674e9eb4992df00",
+      "git_blob": "ee824397e4a9d76eef84de75bd1938e36d7278a0",
+      "raw_git_bytes": 1476,
+      "raw_git_sha256": "639e87119a2cf8f6cf35e8062dbd66df4b021f05b689a5602674e9eb4992df00",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_CI_HISTORY_PROFILE_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-ci-history-amendment/REPLACEMENTS.json",
+      "bytes": 874,
+      "sha256": "67afd0ce2f0540922eca99110c6d2935c4a72ffe3ca8a40a75ef232ab126b927",
+      "git_blob": "2abf2ad7ad6b422dd5f92e380ee23cbf7f2ed0c2",
+      "raw_git_bytes": 874,
+      "raw_git_sha256": "67afd0ce2f0540922eca99110c6d2935c4a72ffe3ca8a40a75ef232ab126b927",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_CI_HISTORY_PROFILE_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-ci-history-amendment/post-dir-canonical-catchup.yml.before",
+      "bytes": 9418,
+      "sha256": "22763cd888f9434bd2ad544ab40bf55bfd5837bc87ead3d549012ba33f652e3e",
+      "git_blob": "3f95bbff25fa7e9cd18d054eb5bee04d76933655",
+      "raw_git_bytes": 9418,
+      "raw_git_sha256": "22763cd888f9434bd2ad544ab40bf55bfd5837bc87ead3d549012ba33f652e3e",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_CI_HISTORY_PROFILE_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-ci-history-amendment/verify_post_dir_provisioning.py.before",
+      "bytes": 20244,
+      "sha256": "488673c818ee3eb4d869391e95708ea50ddeaaaad20a5aa543d5cda61e6a5b97",
+      "git_blob": "57d32e0c7b93e2c2c4a71ee05239c3630c21f60f",
+      "raw_git_bytes": 20244,
+      "raw_git_sha256": "488673c818ee3eb4d869391e95708ea50ddeaaaad20a5aa543d5cda61e6a5b97",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_CI_HISTORY_PROFILE_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-pr-source-contract-amendment/.gitattributes",
+      "bytes": 36,
+      "sha256": "8436ffd070b360eac129e8058f2c63cd9fb8e71f2f4e3212fc1878dfe2ed5556",
+      "git_blob": "5407c51769d6cb8e4ed5a9c4a437eb384e1fff00",
+      "raw_git_bytes": 36,
+      "raw_git_sha256": "8436ffd070b360eac129e8058f2c63cd9fb8e71f2f4e3212fc1878dfe2ed5556",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-pr-source-contract-amendment/AMENDMENT.json",
+      "bytes": 3375,
+      "sha256": "5f0e67c886dcd312034d0de2f0ce18943a381a6c20e3effa201e22643a3b3b54",
+      "git_blob": "d3c8311b8730451714f52a032f35ed6df014aac1",
+      "raw_git_bytes": 3375,
+      "raw_git_sha256": "5f0e67c886dcd312034d0de2f0ce18943a381a6c20e3effa201e22643a3b3b54",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-pr-source-contract-amendment/compiler_media_policy_observation_amendment.py.before",
+      "bytes": 5877,
+      "sha256": "84d0adc999dff3733860d7ee8a28d42a254f5e98574afa5db273e3d2f9c8ff0d",
+      "git_blob": "814fee42d728b0d7c60e9a5db0a95dd58128254d",
+      "raw_git_bytes": 5877,
+      "raw_git_sha256": "84d0adc999dff3733860d7ee8a28d42a254f5e98574afa5db273e3d2f9c8ff0d",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-pr-source-contract-amendment/compiler_media_source_pin_amendment.py.before",
+      "bytes": 5688,
+      "sha256": "ee037a03fbdc26475642f1de1585eda0b20a68fd3532d26ac0bdcc3ba5484f21",
+      "git_blob": "aa56db679b9dfc8a36065b2f3577ebdcd38c5095",
+      "raw_git_bytes": 5688,
+      "raw_git_sha256": "ee037a03fbdc26475642f1de1585eda0b20a68fd3532d26ac0bdcc3ba5484f21",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-pr-source-contract-amendment/compiler_stitch_input_amendment.py.before",
+      "bytes": 5715,
+      "sha256": "89c594618f968bff34577a3b1d742c047920d43a77fc63a562f9610f2469b7d6",
+      "git_blob": "d5307ede5ebf4762083069d55311f8506e9dcfa9",
+      "raw_git_bytes": 5715,
+      "raw_git_sha256": "89c594618f968bff34577a3b1d742c047920d43a77fc63a562f9610f2469b7d6",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    },
+    {
+      "path": "docs/productization/task036-pr-source-contract-amendment/remotion_raster_capture.cjs.before",
+      "bytes": 13198,
+      "sha256": "dd0bc9f3db0b371608e37938569a546ab4a14398bcbc2a6d891be6d00c9014ff",
+      "git_blob": "dd5633d58ce9c787c2afe36c61d5b529ecd3863a",
+      "raw_git_bytes": 13198,
+      "raw_git_sha256": "dd0bc9f3db0b371608e37938569a546ab4a14398bcbc2a6d891be6d00c9014ff",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    },
+    {
+      "path": "scripts/compiler_pr_source_contract_amendment.py",
+      "bytes": 5699,
+      "sha256": "9af3525db6c7d8a15caab080dd165a9be02673fb072ff715594883fcaa82c350",
+      "git_blob": "7a06263f962cd2f910d4bcca8914714a2819ee18",
+      "raw_git_bytes": 5699,
+      "raw_git_sha256": "9af3525db6c7d8a15caab080dd165a9be02673fb072ff715594883fcaa82c350",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_REVIEWED_EXACT_F192_PR_SOURCE_CONTRACT_CHAIN"
+    }
+  ],
+  "auxiliary_reviewed_authority_bindings": [
+    {
+      "path": ".github/workflows/post-dir-canonical-catchup.yml",
+      "bytes": 9443,
+      "sha256": "c35d09469afedc7393ed217bbb87c3fd7fa000a27094d1c21e130cf45b3e4847",
+      "git_blob": "26577340fc2935c169202bf48c622fe0c30c4b99",
+      "raw_git_bytes": 9443,
+      "raw_git_sha256": "c35d09469afedc7393ed217bbb87c3fd7fa000a27094d1c21e130cf45b3e4847",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_READ_CI_PROFILE_BOOTSTRAP_WITH_EXACT_CURRENT_AFTER_RECEIPT_VALIDATION"
+    },
+    {
+      "path": "tests/productization/animation/verify_post_dir_provisioning.py",
+      "bytes": 23564,
+      "sha256": "2bbd0c6c7df6e5f5d2b98235cb1bceab1c5fcb1024a4d40e6ce870cbecdac517",
+      "git_blob": "415e3d057654ba0f381b8a4b6ed392c7c6e815f8",
+      "raw_git_bytes": 23564,
+      "raw_git_sha256": "2bbd0c6c7df6e5f5d2b98235cb1bceab1c5fcb1024a4d40e6ce870cbecdac517",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_READ_CI_PROFILE_BOOTSTRAP_WITH_EXACT_CURRENT_AFTER_RECEIPT_VALIDATION"
+    },
+    {
+      "path": "tests/productization/scene_ir/canonical_history_profile.py",
+      "bytes": 5828,
+      "sha256": "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e",
+      "git_blob": "3bb4dd683307ec3f3cad91f0c710b72da8348b19",
+      "raw_git_bytes": 5828,
+      "raw_git_sha256": "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e",
+      "normalization": "CRLF_TO_LF_ONLY_FOR_bytes_AND_sha256",
+      "review_basis": "PERSONALLY_READ_CI_PROFILE_BOOTSTRAP_WITH_EXACT_CURRENT_AFTER_RECEIPT_VALIDATION"
+    }
+  ],
+  "followon_review_justification": {
+    "PR_chain": "New latest compiler_pr_source_contract_amendment.py, fixed5f0e document, four exact original Git preimages and local .gitattributes personally reviewed. All four preimages equal actual2b/873 originals; source helper validates fixed document/parent seal/M1 seal/ledger/current four paths/unchanged unrelated prior paths without older-resolver recursion. Local attribute file retains raw preimages/manifest bytes, not a source waiver.",
+    "CI_history_chain": "Four exact CI-history records personally read/reviewed in cumulative source and scheduling assessment; raw original workflow and test guard preimages independently equal actual canonicalbase Git bytes/SHA1/size/SHA256. Exact current workflow differs from original only by one fetch-depth:0 line; fixed REPLACEMENTS attests current reviewed guard/helper/document and grants no admission. Current bootstrap source authenticates/captures exact helper checked bytes; real current PR/push AFTER receipts validated by current guard in final review.",
+    "all_11_followon_records_authentic": true,
+    "fixed_seals_preserved": true,
+    "pending_strings_are_historical_sealed_fields": "Original PR amendment's PENDING_SEPARATE_EXACT_CANDIDATE_REVIEW field remains immutable. The separately authored final actual approval and this binding record supply later bounded review evidence; do not edit that sealed historical field or treat it as self-approval."
+  },
+  "coverage_boundary": {
+    "current_Git_prefix_census": 197,
+    "original_historical_prefix_bindings": 52,
+    "post873_followon_bindings_added": 11,
+    "remaining_baseline_paths_not_newly_source_approved_by_this_addendum": 134,
+    "meaning": "This is the COMPLETE selected historical873 binding set plus explicitly reviewed follow-on chain records, NOT a claim of independent source-body approval for every one of197 baseline/current prefix files. Remaining baseline paths existed at873 and are not post873 source changes under these prefixes; original scope did not bind them individually. Current native worker and broader M1 source were personally reviewed as stated in final review, but this addendum does not silently expand historical binding coverage or permit edits to unlisted baseline files.",
+    "no_new_unreviewed_post873_prefix_path_found": true,
+    "no_row_removed_or_unknown_path_blessed": true,
+    "all_post873_source_changes_within_four_targets_and_followon_records": true
+  },
+  "consumption_requirements": [
+    "Authenticate immutable original873review bytes/decision/provenance; preserve its52-row set and every unaffected row. Authenticate exact final replacementreview9eb3 and this exact addendum, actual replacement identity and current approved-source tree. Neither owner/implementation-authored bool nor arbitrary appended row substitutes for reviewer authority.",
+    "Consumer's changed source/continuation is a FUTURE candidate and requires its own actual read-only source review, tests/tamper/unlisted/rollback guards and fresh required runtime evidence. This record is not approval of that future implementation or changing Scene configuration silently.",
+    "Authenticate all applicable follow-on rows/preimages/seals with their precise raw-versus-LF contracts; reject missing/extra/duplicate/unknown rows, altered source, partial rollback or fallback to historical pin for the changed candidate.",
+    "Do not use additive closure records to mutate REVIEW_87320CB0.json, its old approval/source pins or sealed amendments. Any self-referential new-record Git head assumption is invalid: this external record is later than the exact reviewed source.",
+    "Current Scene four-pin mismatch remains a valid rejection until a precise separately reviewed consumer incorporates current independent source authority. Current Scene/canonical/Section18/merge/main proof remains required; this addendum does not supply it.",
+    "Same-head failed push remains distinct FAILURE and unresolved availability risk. Full current PR proof supports only the exact bounded M1 final decision; no repaired renderer, atomic terminal cause, production reliability or human/org/PR approval is conferred."
+  ],
+  "actually_performed": "Independent original52prefix-row set census and actual873Git hash/byte/blob validation; current52rawGit objects authenticated; exact48 historical tuples unchanged and only4fixed replacement tuples differ; all4rawpreimages equal2b and873Git; eleven post873 follow-on objects hashed/bound after personally reviewing their source/chain, CI rawpreimages equal canonicalbase, exact workflow single-line relationship and fixed attestation current hashes checked. Existing final22161B hash checked. Only read-only analytical tools; no tests/native/render/CI/source edits.",
+  "writes": "Only this separate safe reviewer addendum outsideGit usingapply_patch; all historical review, source, seals and evidence remain unchanged.",
+  "limitations": "No expanded whole197-file personal source review, future Scene implementation review, current broader Task036/runtime/PR/merge/main acceptance, human/CODEOWNER/org signature or authority waiver; AudioOPEN,product/release/sceneacceptedfalse,reviewrequired,laterglobalstagesNOT_RUN."
+}
