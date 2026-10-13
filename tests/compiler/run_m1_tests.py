@@ -24,7 +24,7 @@ NEW = ("tests/compiler/test_producer_motion_m1.py", "tests/compiler/test_motion_
        "tests/compiler/test_m1_stitch_inputs.py", "tests/compiler/test_m1_lifecycle_diagnostics.py",
        "tests/compiler/test_m1_parent_exception_observation.py", "tests/compiler/test_m1_pr_source_contract.py",
        "tests/compiler/test_m1_proc_link_observation.py", "tests/compiler/test_m1_proc_lifecycle.py",
-       "tests/compiler/test_m1_monitor_snapshot.py")
+       "tests/compiler/test_m1_monitor_snapshot.py", "tests/compiler/test_m1_monitor_schedule_observation.py")
 SAFETY = ("tests/productization/animation/test_ci_r1_diagnostics.py",
           "tests/productization/animation/test_ci_r2_provisioning.py")
 

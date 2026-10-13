@@ -278,6 +278,12 @@ def run(args):
                             from contextlib import nullcontext
                             exception_scope = nullcontext(None)
                             proc_link_scope = nullcontext(None)
+                            schedule_scope = nullcontext(None)
+                            try:
+                                from tests.compiler.m1_monitor_schedule_observation import observe_monitor_schedule, is_safe as is_safe_schedule
+                                schedule_scope = observe_monitor_schedule()
+                            except BaseException:
+                                pass
                             try:
                                 from tests.compiler.m1_parent_exception_observation import observe_parent_exception_sites, is_safe_observation as is_safe_exception_sites
                                 exception_scope = observe_parent_exception_sites()
@@ -291,12 +297,17 @@ def run(args):
                             # Authenticate original code before the typed observer
                             # temporarily replaces its binding. Restore every scope
                             # before exporting the failure-only snapshots below.
-                            with exception_scope as exception_observer, proc_link_scope as proc_link_observer, observe_paint_process() as typed_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
+                            with schedule_scope as schedule_observer, exception_scope as exception_observer, proc_link_scope as proc_link_observer, observe_paint_process() as typed_observer, observe_worker_rejections() as guard_observer, observe_owned_pids() as pid_observer:
                                 witness = produce_actual_paint(project,output,node=shutil.which("node"),browser=args.browser,target=target)
                         except Exception:
                             # Snapshot only fixed private receipt fields BEFORE
                             # TemporaryDirectory cleanup. Evidence cannot mask
                             # or downgrade the original fail-closed rejection.
+                            try:
+                                scheduled = schedule_observer.snapshot()
+                                if is_safe_schedule(scheduled):phase["monitor_scheduling_observation"] = scheduled
+                            except BaseException:
+                                pass
                             try:
                                 linked = proc_link_observer.snapshot()
                                 if is_safe_proc_links(linked):
@@ -349,6 +360,11 @@ def run(args):
                             except BaseException:
                                 pass
                             raise
+                        try:
+                            scheduled = schedule_observer.snapshot()
+                            if is_safe_schedule(scheduled):phase["monitor_scheduling_observation"] = scheduled
+                        except BaseException:
+                            pass
                         phase["native_qa"] = {name: {"passed": witness.evidence[name]["passed"],
                             "codes": sorted({f["code"] for f in witness.evidence[name]["findings"]})}
                             for name in ("fit", "paint", "raster")}
