@@ -3,6 +3,7 @@ import ast
 import errno
 import inspect
 import json
+import stat
 from pathlib import Path
 from contextlib import ExitStack
 import unittest
@@ -184,6 +185,26 @@ class ProcLifecyclePortableControls(unittest.TestCase):
             with self.assertRaises(OSError) as result: probe.close_owned((7, None, 8, 9))
         self.assertIs(result.exception, error)
         self.assertEqual([c.args for c in close.call_args_list], [(7,), (8,), (9,)])
+
+    def test_fixed_link_pinning_uses_only_owned_directory_and_no_target_read(self):
+        with patch.object(probe.os, 'O_PATH', 0x200000, create=True), patch.object(probe.os, 'O_NOFOLLOW', 0x20000, create=True), patch.object(probe.os, 'O_CLOEXEC', 0x80000, create=True), patch.object(probe.os, 'open', return_value=7) as opened, patch.object(probe.os, 'fstat', return_value=Mock(st_mode=stat.S_IFLNK)), patch.object(probe.os, 'get_inheritable', return_value=False):
+            self.assertEqual(probe.pin_executable_link(8), 7)
+        opened.assert_called_once_with('exe', 0x2a0000, dir_fd=8)
+
+    def test_fixed_link_rejection_closes_descriptor(self):
+        with patch.object(probe.os, 'O_PATH', 0x200000, create=True), patch.object(probe.os, 'O_NOFOLLOW', 0x20000, create=True), patch.object(probe.os, 'O_CLOEXEC', 0x80000, create=True), patch.object(probe.os, 'open', return_value=7), patch.object(probe.os, 'fstat', return_value=Mock(st_mode=stat.S_IFREG)), patch.object(probe.os, 'close') as close, self.assertRaises(ValueError):
+            probe.pin_executable_link(8)
+        close.assert_called_once_with(7)
+
+    def test_fixed_link_read_uses_same_native_api_and_returns_no_target(self):
+        with patch.object(probe.worker.os, 'readlink', return_value='PRIVATE_EXECUTABLE') as read:
+            self.assertEqual(probe.link('', directory=7), 'READABLE')
+        read.assert_called_once_with('', dir_fd=7)
+
+    def test_sixth_control_is_explicit_not_pid_reuse_or_render_proof(self):
+        self.assertEqual(probe.CASES[-1], 'PINNED_LINK_AFTER_REAP')
+        self.assertEqual(len(probe.CASES), 6)
+        self.assertEqual(probe.SCHEMA, 'bie.task036.m1.proc-lifecycle-reproduction/3')
 
     def test_probe_does_not_invoke_renderer_or_change_worker_admission(self):
         source = inspect.getsource(probe)

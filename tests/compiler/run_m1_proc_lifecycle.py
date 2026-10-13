@@ -21,10 +21,10 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from bie.compiler import chromium_resource_worker as worker
 
-SCHEMA = 'bie.task036.m1.proc-lifecycle-reproduction/2'
+SCHEMA = 'bie.task036.m1.proc-lifecycle-reproduction/3'
 WORKER_SHA = 'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963'
 CASES = ('LIVE_DUMPABLE', 'LIVE_NONDUMPABLE', 'WHOLE_PROCESS_EXITED',
-         'DEAD_LEADER_LIVE_THREAD', 'ANCHORED_AFTER_REAP')
+         'DEAD_LEADER_LIVE_THREAD', 'ANCHORED_AFTER_REAP', 'PINNED_LINK_AFTER_REAP')
 OUTCOMES = frozenset(('READABLE', 'EACCES', 'EPERM', 'ENOENT', 'ESRCH', 'UNKNOWN'))
 
 def require(value):
@@ -79,6 +79,16 @@ def fresh_identity(directory, pid):
     require(len(fields) >= 20 and fields[0] in (b'R', b'S', b'D', b'Z', b'T', b't', b'X', b'x', b'I'))
     require(fields[19].isdigit() and int(fields[19]) > 0)
     return (pid, int(fields[19])), fields[0]
+
+def pin_executable_link(directory):
+    """Pin only this owned proc directory's exe dentry, not its target bytes."""
+    fd = os.open('exe', os.O_PATH | os.O_NOFOLLOW | os.O_CLOEXEC, dir_fd=directory)
+    try:
+        require(stat.S_ISLNK(os.fstat(fd).st_mode) and not os.get_inheritable(fd))
+        return fd
+    except BaseException:
+        os.close(fd)
+        raise
 
 def terminal(fd):
     require(type(fd) is int and fd >= 0)
@@ -201,7 +211,7 @@ def sample(mode, pid, directory, pidfd, bound, group):
 
 def run_case(mode, progress):
     ready_r = ready_w = release_r = release_w = None
-    pid = pidfd = directory = None
+    pid = pidfd = directory = executable_link = None
     group = None
     try:
         progress['phase'] = 'CREATE_GROUP'
@@ -249,7 +259,10 @@ def run_case(mode, progress):
         else:
             require(initial['cgroup_before_links']['owned'] is True and
                     initial['cgroup_after_links']['owned'] is True)
-        if mode in ('WHOLE_PROCESS_EXITED', 'ANCHORED_AFTER_REAP'):
+        if mode == 'PINNED_LINK_AFTER_REAP':
+            executable_link = pin_executable_link(directory)
+            require(link('', directory=executable_link) == 'READABLE')
+        if mode in ('WHOLE_PROCESS_EXITED', 'ANCHORED_AFTER_REAP', 'PINNED_LINK_AFTER_REAP'):
             os.write(release_w, b'X')
             wait_for(lambda: terminal(pidfd))
             if mode == 'WHOLE_PROCESS_EXITED':
@@ -269,6 +282,9 @@ def run_case(mode, progress):
                     anchored_links={name: link(name, directory=directory) for name in ('exe', 'root')},
                     whole_process_terminal_when_sampled=terminal(pidfd),
                     anchored_identity_consistent=None, numeric_pid_reuse_tested=False)
+                if mode == 'PINNED_LINK_AFTER_REAP':
+                    observed['pinned_link_before_exit'] = 'READABLE'
+                    observed['pinned_link_after_reap'] = link('', directory=executable_link)
         else:
             observed = initial
         progress['observed'] = observed
@@ -277,7 +293,7 @@ def run_case(mode, progress):
         # Trusted probe owns its direct fork child. Reap it first: this is not
         # a change to canonical group.close or production descendant cleanup.
         cleanup_probe(group, pid, pidfd,
-            (directory, pidfd, ready_r, ready_w, release_r, release_w), progress)
+            (executable_link, directory, pidfd, ready_r, ready_w, release_r, release_w), progress)
 
 def run():
     require(sys.platform == 'linux' and os.getuid() == 0)
@@ -298,18 +314,24 @@ def run():
                 error_code=classification(error))
     # Kernel facts, not monitor policy. No terminal row grants successful
     # browser admission, maps/reservation evidence or actual-paint acceptance.
-    require(len(observations) == 5)
+    require(len(observations) == 6)
     by_case = {row['case']: row for row in observations}
     live = by_case['LIVE_DUMPABLE']
     non = by_case['LIVE_NONDUMPABLE']
     contrast = (all(value == 'READABLE' for value in live['anchored_links'].values()) and
         any(value in ('EACCES', 'EPERM') for value in non['anchored_links'].values()) and
         all(value != 'UNKNOWN' for value in non['anchored_links'].values()))
+    removed = by_case['PINNED_LINK_AFTER_REAP']
+    removal_denial = (removed['pinned_link_before_exit'] == 'READABLE' and
+        removed['pinned_link_after_reap'] == 'EACCES' and
+        removed['anchored_after_reap'] in ('ENOENT', 'ESRCH') and
+        removed['whole_process_terminal_when_sampled'] is True)
     return dict(schema=SCHEMA, question='PROC_LINK_ACCESS_VERSUS_SAME_ACTOR_LIFECYCLE',
         evidence_kind='CONTROLLED_LINUX_KERNEL_NOT_NATIVE_RENDER', worker_sha256=WORKER_SHA,
         observations=observations, controls_completed=True, access_contrast_observed=contrast,
         supervisor_capabilities=capabilities,
-        passed=contrast, render_passed=False, accepted=False,
+        passed=removal_denial, pinned_task_removal_denial_observed=removal_denial,
+        render_passed=False, accepted=False,
         access_denial_cases=[r['case'] for r in observations if any(
             v in ('EACCES', 'EPERM') for v in r.get('anchored_links', {}).values())],
         product_accepted=False, source_semantics_changed=False,

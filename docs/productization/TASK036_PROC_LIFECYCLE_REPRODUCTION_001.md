@@ -90,3 +90,35 @@ prior M1 NEW methods remain, with 27 probe methods selected once (586 total).
 This source-only approval is not Linux proof, a worker repair, M1 sign-off,
 human/CODEOWNER approval or Scene/PR closure. Fresh controlled Linux evidence and
 all final-candidate gates remain required.
+
+## Version-2 result and fixed-link removal discriminator
+
+Run 38386536738/1 at 271347ff665ed3509d6d2beaff5b96da353a9c80 FAILED
+its declared access-contrast requirement. Artifact 11807041615 (907 bytes) has
+SHA256 77e25e60086dfdfbd0b52e984fd89c34be00279ff03e08093f0b834bfa8368a2;
+digest, CRC and strict JSON were verified. All five controls and cleanup completed.
+Both supervisor capabilities were true. A confirmed nondumpable live actor still
+had readable exe/root links. A dead leader with a live thread was nonterminal;
+the post-reap anchored directory returned ESRCH. These are actual kernel facts,
+not a pass, an explanation of historical EACCES or authority to ignore errors.
+
+Kernel v6.8 fs/proc/base.c supplies a distinct possible EACCES path: when
+get_proc_task cannot obtain the inode's task, proc_fd_access_allowed returns false
+and proc_pid_readlink retains its initial EACCES. Version 3 tests this specific
+removal question using a sixth owned-actor control. It pins the exe symlink with
+O_PATH/NOFOLLOW/CLOEXEC (not the executable target), verifies READABLE before exit,
+then retains that exact FD through controlled whole-process exit and actual reap.
+Only the fixed after-reap readlink outcome is exported. No numeric PID reuse,
+historical cause, browser execution, monitor omission or resource grant is proved.
+The experiment's new explicit success criterion is observed removed-dentry EACCES;
+the old live nondumpable contrast remains separately reported. No old failed receipt
+is relabeled. Any future worker repair requires its own semantic/security proof.
+
+Actual reviewer /root/source_binding_reviewer_001 returned
+APPROVED_FOR_CONTROLLED_PROC_LIFECYCLE_V3_SOURCE_ONLY at 2026-10-13 11:20:43 UTC.
+Independent Windows portable checks passed 92 methods (31 probe, 39 retained
+observer, 22 runner). Three mandatory Linux-only methods in a broader local
+selection could not execute on Windows and are not claimed passed. An initial
+new test's missing stat import was fixed; neither limitation weakens a hosted gate.
+All 559 earlier M1 NEW identities remain, plus 31 probe identities selected once.
+Source-only review is not approval of a worker fix or Task036 closure.
