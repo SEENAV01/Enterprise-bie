@@ -516,3 +516,49 @@ class AuditControls(unittest.TestCase):
         for path,expected in document['additions'].items():
             actual=(self.root/path).read_bytes().replace(b'\r\n',b'\n')
             self.assertEqual(hashlib.sha256(actual).hexdigest(),expected)
+
+
+class KernelSourceLabelControls(unittest.TestCase):
+    """Portable receipt-label controls; mocks are NOT actual Linux kernel proof."""
+    def bindings(self):
+        from tests.compiler import run_m1_monitor_snapshot_kernel as kernel
+        return kernel.authenticated_worker_bindings()
+
+    def execute(self, baseline=None, bindings=None):
+        from tests.compiler import run_m1_monitor_snapshot_kernel as kernel
+        declared=self.bindings()
+        baseline=baseline if baseline is not None else dict(worker_sha256=declared['baseline_worker_sha256'])
+        with ExitStack() as stack:
+            stack.enter_context(patch.object(kernel.sys,'platform','linux'))
+            stack.enter_context(patch.object(kernel.os,'getuid',return_value=0,create=True))
+            stack.enter_context(patch.object(kernel,'baseline_controls',return_value=baseline))
+            stack.enter_context(patch.object(kernel,'fresh_actor_control',return_value=dict(passed=True)))
+            stack.enter_context(patch.object(kernel,'owned_reaper_control',return_value=dict(passed=True)))
+            if bindings is not None:
+                stack.enter_context(patch.object(kernel,'authenticated_worker_bindings',side_effect=bindings))
+            return kernel.run()
+
+    def test_fixed_authentic_active_previous_baseline_hashes_are_distinct(self):
+        value=self.bindings()
+        self.assertEqual(value['active_worker_sha256'],'be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea')
+        self.assertEqual(value['previous_worker_sha256'],'dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb')
+        self.assertEqual(value['baseline_worker_sha256'],'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963')
+        self.assertEqual(len(set(value[k] for k in ('active_worker_sha256','previous_worker_sha256','baseline_worker_sha256'))),3)
+        self.assertEqual(value['parse_amendment_sha256'],'a60c6bd3c343fcca66b44260040849c93e248fc8dd62a08ee6dbbb5640395df9')
+
+    def test_version_two_receipt_labels_actual_active_not_prior_target_table(self):
+        from tests.compiler import run_m1_monitor_snapshot_kernel as kernel
+        value=self.execute()
+        self.assertEqual(value['schema'],'bie.task036.m1.monitor-snapshot-kernel-proof/2')
+        self.assertEqual(value['worker_sha256'],self.bindings()['active_worker_sha256'])
+        self.assertNotEqual(value['worker_sha256'],value['baseline']['worker_sha256'])
+        self.assertEqual(value['source_bindings'],self.bindings())
+        self.assertFalse(value['render_passed']);self.assertFalse(value['accepted']);self.assertFalse(value['product_accepted'])
+
+    def test_counterfeit_baseline_label_cannot_publish_success(self):
+        with self.assertRaises(ValueError):
+            self.execute(baseline=dict(worker_sha256=self.bindings()['active_worker_sha256']))
+
+    def test_changed_authenticated_source_between_controls_rejects(self):
+        before=self.bindings();after=dict(before,active_worker_sha256=before['previous_worker_sha256'])
+        with self.assertRaises(ValueError):self.execute(bindings=[before,after])

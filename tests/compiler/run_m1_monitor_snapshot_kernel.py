@@ -18,12 +18,26 @@ import time
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from bie.compiler import chromium_resource_worker as worker
-from scripts.compiler_monitor_snapshot_amendment import validate,DIRECTORY,TARGETS
+from scripts.compiler_monitor_snapshot_amendment import validate,DIRECTORY,DOCUMENT_SHA256 as SNAPSHOT_SHA
+from scripts.compiler_monitor_parse_source_amendment import validate as validate_active,DOCUMENT_SHA as PARSE_SHA
 from tests.compiler import run_m1_proc_lifecycle as probe
 
-SCHEMA='bie.task036.m1.monitor-snapshot-kernel-proof/1'
+SCHEMA='bie.task036.m1.monitor-snapshot-kernel-proof/2'
 BASELINE_NAME='bie.compiler._m1_monitor_snapshot_baseline'
 KINDS=('LIVE_MEMBER','BODY_REJECTION_RESTORATION','PARTIAL_FREEZE_RESTORATION')
+
+def authenticated_worker_bindings():
+    """Fixed sealed authorities, NOT an expected digest computed from live bytes."""
+    previous=validate(ROOT);active=validate_active(ROOT)
+    path='bie/compiler/chromium_resource_worker.py'
+    prior=next(row for row in previous['replacements'] if row['path']==path)
+    current=next(row for row in active['replacements'] if row['path']==path)
+    require(current['original_sha256']==prior['active_sha256'])
+    return dict(schema='bie.task036.m1.kernel-source-bindings/1',
+        baseline_worker_sha256=prior['original_sha256'],
+        previous_worker_sha256=prior['active_sha256'],
+        active_worker_sha256=current['active_sha256'],
+        snapshot_amendment_sha256=SNAPSHOT_SHA,parse_amendment_sha256=PARSE_SHA)
 
 def require(value):
     if not value:raise ValueError('M1_MONITOR_KERNEL_CONTROL_REJECTED')
@@ -180,13 +194,14 @@ def owned_reaper_control():
 
 def run():
     require(sys.platform=='linux' and os.getuid()==0)
-    before=validate(ROOT)
+    before=authenticated_worker_bindings()
     baseline=baseline_controls()
+    require(baseline['worker_sha256']==before['baseline_worker_sha256'])
     rows=[fresh_actor_control(kind) for kind in KINDS]+[owned_reaper_control()]
     require(len(rows)==4 and all(row['passed'] for row in rows))
-    require(validate(ROOT)==before)
+    require(authenticated_worker_bindings()==before)
     return dict(schema=SCHEMA,passed=True,baseline=baseline,controls=rows,
-        worker_sha256=TARGETS['bie/compiler/chromium_resource_worker.py'][-1],
+        worker_sha256=before['active_worker_sha256'],source_bindings=before,
         security_policy_weakened=False,resource_limits_changed=False,
         historical_painter_cause='UNKNOWN',render_passed=False,accepted=False,product_accepted=False)
 
