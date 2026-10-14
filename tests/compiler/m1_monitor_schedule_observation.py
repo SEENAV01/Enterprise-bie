@@ -15,7 +15,7 @@ import threading
 from types import BuiltinFunctionType, CodeType, FunctionType, FrameType, ModuleType
 
 SCHEMA='bie.task036.m1.monitor-scheduling-observation/1'
-SOURCE_SHA='dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb'
+SOURCE_SHA='be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea'
 UNKNOWN='UNKNOWN'
 SCOPES=('MONITOR','ENTRY_GRANT','CLEANUP')
 FIELDS=('acquisitions','acquired','partial_acquisition_failures','thaw_requests','thaws',

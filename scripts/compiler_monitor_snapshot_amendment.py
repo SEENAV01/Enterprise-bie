@@ -63,7 +63,13 @@ def validate(root):
         original=regular(root,preimage,65536)
         require(len(original)==before_size and sha256(original).hexdigest()==before_sha and
             sha1(b'blob '+str(len(original)).encode()+b'\0'+original).hexdigest()==blob,'PREIMAGE')
-        active=regular(root,path,65536).replace(b'\r\n',b'\n')
+        # Exact follow-on supplies authenticated prior bytes, never a hash waiver.
+        # All new replacements are checked before any prior byte is usable.
+        try:
+            from compiler_monitor_parse_source_amendment import historical_bytes
+        except ImportError:
+            from scripts.compiler_monitor_parse_source_amendment import historical_bytes
+        active=historical_bytes(root,path,read=regular).replace(b'\r\n',b'\n')
         require(b'\r' not in active and len(active)==active_size and
             sha256(active).hexdigest()==active_sha,'ACTIVE_BYTES')
     actual=set()

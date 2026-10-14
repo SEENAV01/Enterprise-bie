@@ -17,7 +17,7 @@ from types import BuiltinFunctionType, CodeType, FrameType, FunctionType, Module
 LEGACY_SCHEMA = 'bie.task036.m1.proc-link-identity-observation/1'
 LEGACY_SOURCE_SHA256 = 'aeedfc527fb47df33c448ad2bf1a2553574015e3124a14e35fae1e94f75c2963'
 SCHEMA = 'bie.task036.m1.proc-link-identity-observation/2'
-SOURCE_SHA256 = 'dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb'
+SOURCE_SHA256 = 'be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea'
 MAX_EVENTS = 32
 UNKNOWN = 'UNKNOWN'
 REASONS = frozenset({'NONE', 'SOURCE_UNAVAILABLE', 'KERNEL_API_UNAVAILABLE',
@@ -214,10 +214,10 @@ def canonical_monitor():
     with path.open('rb') as stream: raw = stream.read(65537)
     if len(raw) > 65536 or sha256(raw).hexdigest() != SOURCE_SHA256: raise ValueError('SOURCE')
     code, = [c for c in compile(raw, path.resolve().as_posix(), 'exec', dont_inherit=True).co_consts
-        if type(c) is CodeType and c.co_name == 'observe_frozen_member']
-    function = worker.observe_frozen_member
+        if type(c) is CodeType and c.co_name == 'capture_frozen_member']
+    function = worker.capture_frozen_member
     if (type(function) is not FunctionType or function.__module__!=worker.__name__ or
-            function.__name__!='observe_frozen_member' or function.__code__ != code or
+            function.__name__!='capture_frozen_member' or function.__code__ != code or
             function.__globals__ is not worker.__dict__): raise ValueError('SOURCE')
     return function.__code__, function.__globals__
 

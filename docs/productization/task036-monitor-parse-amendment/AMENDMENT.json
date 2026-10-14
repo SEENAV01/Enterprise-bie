@@ -1,0 +1,65 @@
+{
+  "schema": "bie.task036.monitor-parse-source-amendment/1",
+  "authority": "OWNER_TASK036_IMPLEMENTATION_CONTINUATION_EVIDENCE_BACKED_TARGETED_REPAIR",
+  "parent_commit": "e8b07e9426c4d7d701b3b452e5be2c159cfbdc90",
+  "parent_tree": "87094caefec2c20edef6fdead06274609004cb80",
+  "previous_monitor_sha256": "e54734d10ab9d0bcecc396c9b48e39496d3fcf3d72a15c1b06de3fc17769b10d",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "policy": "coherent-owned-capture-pure-parse-after-thaw/1",
+  "replacements": [
+    {
+      "path": "bie/compiler/chromium_resource_worker.py",
+      "preimage": "docs/productization/task036-monitor-parse-amendment/chromium_resource_worker.py.before",
+      "original_bytes": 33561,
+      "original_sha256": "dea211dec77bbda9470c9f37331d236425c5dbf7dbf73d1769e8ba83e7c6f5eb",
+      "original_git_blob": "0b81e73273859de8a6dbd98e55a28f151e958c23",
+      "active_bytes": 35814,
+      "active_sha256": "be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea"
+    },
+    {
+      "path": "scripts/compiler_monitor_snapshot_amendment.py",
+      "preimage": "docs/productization/task036-monitor-parse-amendment/compiler_monitor_snapshot_amendment.py.before",
+      "original_bytes": 4898,
+      "original_sha256": "c21b98b6614c4bed85d0a101b410bd08322a04a6416e47cc543783515cd1b03a",
+      "original_git_blob": "b7ee86cb6b6d04e2b0171fb02b284cec38f8a2a5",
+      "active_bytes": 5284,
+      "active_sha256": "227cfada9176f1c8f742cb05afaa909e70135ddf9cac251a795f393ad1f2ec6d"
+    },
+    {
+      "path": ".gitattributes",
+      "preimage": "docs/productization/task036-monitor-parse-amendment/.gitattributes.before",
+      "original_bytes": 43758,
+      "original_sha256": "19ad19dce97c49b9c4cd90de345dc46afb3e4a408991b6e6945c79ce22eb1823",
+      "original_git_blob": "801341c120f949ea6a54753820e15dd2bc47d9b4",
+      "active_bytes": 44112,
+      "active_sha256": "368b9b6744f1a6b7fa8a85b2e7e50b20da8b983e48358bb69239ecabeedfe654"
+    }
+  ],
+  "resource_limits_changed": false,
+  "security_policy_weakened": false,
+  "permission_errors_preserved": true,
+  "terminal_after_error_omission": false,
+  "pending_capture_generations": 1,
+  "pending_capture_max_bytes": 268435456,
+  "partial_membership_sampling": false,
+  "compiler_file_inventory_changed": false,
+  "first_error_order": "LATER_CAPTURE_REJECTION_CAN_PRECEDE_EARLIER_DEFERRED_PARSE_REJECTION_BOTH_FAIL_CLOSED",
+  "evidence": {
+    "run": 38433908090,
+    "attempt": 1,
+    "scope": "EXACT_HEAD_INSTRUMENTED_FULL_48_FRAME_EIGHT_CASE_MATRIX_ALL_TIMED_OUT",
+    "monitors_held_seconds_range": [
+      134.0159164,
+      149.570807212
+    ],
+    "scope_parent_cpu_seconds_range": [
+      137.868617106,
+      153.146659685
+    ],
+    "cause_limit": "MEASURED_MONITOR_SCHEDULING_COST_NOT_EXACT_HISTORICAL_PAINTER_CAUSE_OR_PROVEN_REPAIR"
+  },
+  "ordinary_task036_requires_current_review": true,
+  "independent_review_status": "REASSESSMENT_AND_ACTUAL_LINUX_RENDER_REQUIRED",
+  "accepted": false,
+  "product_accepted": false
+}

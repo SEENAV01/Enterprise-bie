@@ -421,8 +421,9 @@ class SnapshotControls(unittest.TestCase):
 
     def test_grant_is_not_nested_under_observation_freeze(self):
         source=inspect.getsource(worker.run_chromium_isolated)
-        self.assertLess(source.index('granted=_grant('),source.index('with frozen_monitor_members('))
-        self.assertNotIn('_grant(',source[source.index('with frozen_monitor_members('):])
+        self.assertLess(source.index('granted=_grant('),source.index('captured=capture_monitor_cycle('))
+        self.assertNotIn('_grant(',source[source.index('captured=capture_monitor_cycle('):])
+        self.assertIn('with frozen_monitor_members(',inspect.getsource(worker.capture_monitor_cycle))
 
 
 class AuditControls(unittest.TestCase):

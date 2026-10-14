@@ -349,7 +349,7 @@ def _monitor_identity(directory,pid):
         fields[19].isdigit() and int(fields[19])>0,'MONITOR_IDENTITY')
     return pid,int(fields[19])
 
-def observe_frozen_member(group,pid,browser,grants):
+def capture_frozen_member(group,pid,browser,grants):
     """Read-only, identity-bound observation; no grant or terminal omission.
 
     Caller holds canonical whole-leaf freeze. A vanished proc retains the legacy
@@ -375,18 +375,14 @@ def observe_frozen_member(group,pid,browser,grants):
             'FOREIGN_PROCESS')
         granted=admitted_browser_grant(os.readlink('exe',dir_fd=directory),
             os.readlink('root',dir_fd=directory),browser,grants)
-        spans=None
+        mappings=None
         if granted:
             require(resource.prlimit(pid,resource.RLIMIT_AS)==(CHROME_AS,CHROME_AS),'CHROME_LIMIT')
-            maps=_monitor_read(directory,'maps',2*1024**2).decode();spans=[]
-            for row in maps.splitlines():
-                first,last=(int(x,16) for x in row.split()[0].split('-'))
-                require(0<=first<last<2**64,'MONITOR_MAPPING')
-                if last-first>=1024**3:spans.append(dict(bytes=last-first,permissions=row.split()[1]))
+            mappings=_monitor_read(directory,'maps',2*1024**2)
         require(_monitor_identity(directory,pid)==before and
             _monitor_read(directory,'cgroup',4096)==owned and pid in group.members(),
             'MONITOR_IDENTITY')
-        return spans
+        return (pid,before[1],mappings) if mappings is not None else None
     except BaseException as error:
         failure=error
         raise
@@ -400,6 +396,59 @@ def observe_frozen_member(group,pid,browser,grants):
         # An FD cleanup error cannot permit a successful observation. A body
         # rejection must retain its original identity instead of being masked.
         if first is not None and failure is None:raise first
+
+def parse_captured_member(captured):
+    """Pure processing of an earlier coherent private snapshot, NOT live authority.
+
+    No kernel reads, grants or resource mutation. Caller must complete capture,
+    close every descriptor and successfully thaw before using this result.
+    Preserve strict UTF-8/range rejection and the original >=1GiB span policy.
+    """
+    if captured is None:return None
+    require(type(captured) is tuple and len(captured)==3 and
+        type(captured[0]) is int and 0<captured[0]<2**31 and
+        type(captured[1]) is int and captured[1]>0 and
+        type(captured[2]) is bytes and len(captured[2])<=2*1024**2,'MONITOR_CAPTURE')
+    spans=[]
+    for row in captured[2].decode().splitlines():
+        first,last=(int(x,16) for x in row.split()[0].split('-'))
+        require(0<=first<last<2**64,'MONITOR_MAPPING')
+        if last-first>=1024**3:spans.append(dict(bytes=last-first,permissions=row.split()[1]))
+    return spans
+
+def observe_frozen_member(group,pid,browser,grants):
+    """Compatibility helper: unchanged list/None result and fail-closed checks.
+
+    Canonical execution separates these phases; direct legacy consumers retain
+    the complete native observation contract without a fabricated receipt.
+    """
+    return parse_captured_member(capture_frozen_member(group,pid,browser,grants))
+
+def capture_monitor_cycle(group,browser,grants):
+    """One complete owned cohort, bounded by existing member/read ceilings.
+
+    Private pending data is bounded to 128*2MiB, one generation only; decoded
+    strings/spans are never batched while frozen. No member sampling/truncation.
+    Failure discards all pending captures. Publication cannot precede thaw.
+    """
+    captured=[];total=0
+    try:
+        with frozen_monitor_members(group) as monitored:
+            for pid in monitored:
+                try:
+                    row=capture_frozen_member(group,pid,browser,grants)
+                    if row is not None:
+                        require(type(row) is tuple and len(row)==3 and row[0]==pid and
+                            type(row[0]) is int and type(row[1]) is int and row[1]>0 and
+                            type(row[2]) is bytes and len(row[2])<=2*1024**2,'MONITOR_CAPTURE')
+                        total+=len(row[2])
+                        require(len(captured)<128 and total<=128*2*1024**2,'MONITOR_PENDING_BOUND')
+                        captured.append(row)
+                except (FileNotFoundError,ProcessLookupError):pass
+        return captured
+    except BaseException:
+        captured.clear()
+        raise
 
 def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),policy=None,timeout_s=120,
                           cancel_event=None,max_output_bytes=2*1024**2,secrets=(),receipt_path=None):
@@ -468,14 +517,14 @@ def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),po
                 # Keep _grant outside this scope: its independent finally must
                 # not thaw a supposedly frozen observation. Snapshot membership
                 # AFTER freeze, not the earlier mutable admission enumeration.
-                with frozen_monitor_members(group) as monitored:
-                    for pid in monitored:
-                        try:
-                            spans=observe_frozen_member(group,pid,browser,grants)
-                            if spans is not None:
-                                old=observed.get(pid,[])
-                                if sum(r['bytes'] for r in spans)>sum(r['bytes'] for r in old):observed[pid]=spans
-                        except (FileNotFoundError,ProcessLookupError):pass
+                captured=capture_monitor_cycle(group,browser,grants)
+                try:
+                    for row in captured:
+                        pid=row[0];spans=parse_captured_member(row)
+                        old=observed.get(pid,[])
+                        if sum(r['bytes'] for r in spans)>sum(r['bytes'] for r in old):observed[pid]=spans
+                finally:
+                    captured.clear();row=None
                 time.sleep(.01)
             if failure is None:
                 _,stderr=outer.communicate(timeout=2)
