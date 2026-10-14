@@ -1,0 +1,32 @@
+{
+  "schema": "bie.task036.monitor-binding-source-amendment/1",
+  "scope": "EXACT_NEW_REVIEW_SEAL_EOL_AND_CHAINED_ATTRIBUTE_ADMISSION_ONLY",
+  "parent_commit": "ef6d83cccb938755890aebad9852a1fc6e246407",
+  "parent_tree": "03bb5d9c501bd39c5bfd40e0239495be50e39ed8",
+  "previous_amendment_sha256": "a60c6bd3c343fcca66b44260040849c93e248fc8dd62a08ee6dbbb5640395df9",
+  "native_compiler_sources_changed": false,
+  "resource_limits_changed": false,
+  "security_policy_weakened": false,
+  "independent_review_status": "EXACT_SOURCE_ADMISSION_REASSESSMENT_REQUIRED",
+  "product_accepted": false,
+  "replacements": [
+    {
+      "path": ".gitattributes",
+      "preimage": "docs/productization/task036-monitor-binding-amendment/.gitattributes.before",
+      "original_bytes": 44112,
+      "original_sha256": "368b9b6744f1a6b7fa8a85b2e7e50b20da8b983e48358bb69239ecabeedfe654",
+      "original_git_blob": "04a28643550748fd0c9a59306027b5ab7b0bee99",
+      "active_bytes": 44516,
+      "active_sha256": "6b5ffd6788ff349e53c7a32748c81e1c05160ccc6ad5ad271a1b1956c58ea4d9"
+    },
+    {
+      "path": "scripts/compiler_monitor_parse_source_amendment.py",
+      "preimage": "docs/productization/task036-monitor-binding-amendment/compiler_monitor_parse_source_amendment.py.before",
+      "original_bytes": 4900,
+      "original_sha256": "b641f3a1665100a2d8ad2b64b25866292c8aa5b1562a39c9bb72f5208b9c7975",
+      "original_git_blob": "0bb20a86848149df31f0b93ca9182b2e6b70fe11",
+      "active_bytes": 5246,
+      "active_sha256": "972ea3e88d489c12ea5896a635fe75a9f1d1c29e0d06eee4f49da77c06a80455"
+    }
+  ]
+}

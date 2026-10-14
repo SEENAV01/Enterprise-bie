@@ -97,6 +97,14 @@ def verified_source_chain(root):
         chain["binding_addendum_sha256"] == ADDENDUM_SHA and
         chain["product_accepted"] is False, "scene_ir_m1_source_identity")
     rows = keyed(chain["files"], 210)
+    # The original motion review/index remains immutable authority for every
+    # unchanged source. Only the exactly approved later monitor may replace its
+    # old census row, after current review, complete metadata-chain and raw
+    # preimage checks. Missing later authority cannot fall back to the old row.
+    from .scene_ir_monitor_review import verified_review,WORKER,BASELINE_SHA
+    monitor = verified_review(root,read=read_regular)
+    require(rows[WORKER]["sha256"]==BASELINE_SHA and rows[WORKER]["bytes"]==28552,
+        "scene_ir_m1_monitor_source_identity")
     expected = chain["compiler_paths"]
     require(type(expected) is list and len(expected) == len(set(expected)) == 143 and
         set(expected) == {p for p in rows if p.startswith("bie/compiler/")},
@@ -111,6 +119,8 @@ def verified_source_chain(root):
             actual.add(p.relative_to(root).as_posix())
     require(actual == set(expected), "scene_ir_m1_source_identity")
     for path, row in rows.items():
+        if path==WORKER:
+            row=monitor
         raw = read_regular(root, path)
         require(set(row) == {"path", "git_blob", "raw_git_bytes", "raw_git_sha256",
             "mode", "bytes", "sha256"}, "scene_ir_m1_source_identity")

@@ -55,7 +55,11 @@ def validate(root,*,read=None):
         raw=regular(root,before,65536)
         require(len(raw)==size and sha256(raw).hexdigest()==digest and
             sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()==blob,'PREIMAGE')
-        current=regular(root,path,65536).replace(b'\r\n',b'\n')
+        if path=='.gitattributes':
+            try:from compiler_monitor_binding_source_amendment import historical_attribute_bytes
+            except ImportError:from scripts.compiler_monitor_binding_source_amendment import historical_attribute_bytes
+            current=historical_attribute_bytes(root,read=regular).replace(b'\r\n',b'\n')
+        else:current=regular(root,path,65536).replace(b'\r\n',b'\n')
         require(b'\r' not in current and len(current)==new_size and sha256(current).hexdigest()==new_digest,'ACTIVE')
     actual=set()
     for path in (root/D).rglob('*'):
