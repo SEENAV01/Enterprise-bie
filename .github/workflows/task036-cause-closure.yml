@@ -1,0 +1,75 @@
+name: Task036 bounded cause closure
+on:
+  push:
+    branches: [diagnostic/task036-cause-closure-20261015]
+permissions:
+  contents: read
+jobs:
+  scene-accounting:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing Scene runtime unchanged
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          python -m pip install -r requirements-comp-h3.txt
+          npm install --global typescript@5.8.3
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: One unchanged actual quantitative journey with child CPU accounting
+        # Separate diagnostic controls are not added to the product inventory.
+        # Run after the same pinned dependency setup as the actual journey.
+        run: |
+          python -B tests/diagnostics/test_task036_cause_closure.py
+          python -B tools/task036_cause_closure.py --mode scene --output "$RUNNER_TEMP/cause-scene/scene.json"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: task036-cause-scene
+          path: ${{ runner.temp }}/cause-scene/*.json
+          if-no-files-found: error
+  native-accounting:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing governed native runtime unchanged
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+          python -m pip install -e '.[document-intelligence,document-intelligence-layout,api,api-test]'
+          python -m pip install -r requirements-qa-section16-validation.txt
+          python -m pip check
+      - name: Full unchanged native-extra order with bounded H4 exception categories
+        run: python -B tools/task036_cause_closure.py --mode native --output "$RUNNER_TEMP/cause-native/native-extra.json"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: task036-cause-native
+          path: ${{ runner.temp }}/cause-native/*.json
+          if-no-files-found: error
