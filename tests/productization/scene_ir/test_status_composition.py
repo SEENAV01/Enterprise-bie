@@ -77,14 +77,19 @@ class StatusCompositionControls(unittest.TestCase):
 
     def test_incomplete_status_preserves_inherited_path(self):
         self.states['SCENE_IR'] = 'READY'
-        legacy = dict(stages=deepcopy(self.states), visual={'existing': 1}, animation={'existing': 2})
-        with patch.object(AnimationProducerService, 'status', return_value=legacy) as inherited, \
-             patch.object(PedagogyProducerService, 'status', side_effect=AssertionError('WRONG_PATH')), \
-             patch.object(self.service, '_verified_scene_bundle', side_effect=AssertionError('PREMATURE')):
-            result = self.service.status('run', 'tenant')
-            inherited.assert_called_once_with('run', 'tenant')
-            self.assertIs(result, legacy)
-            self.assertIsNone(result['scene_ir'])
+        # Task036 status policy v1 composes one fresh proof only after durable
+        # Animation success. Every earlier/non-success state retains this path.
+        for state in ('PENDING', 'READY', 'RUNNING', 'FAILED', 'BLOCKED'):
+            with self.subTest(animation=state):
+                self.states['ANIMATION'] = state
+                legacy = dict(stages=deepcopy(self.states), visual={'existing': 1}, animation={'existing': 2})
+                with patch.object(AnimationProducerService, 'status', return_value=legacy) as inherited, \
+                     patch.object(PedagogyProducerService, 'status', side_effect=AssertionError('WRONG_PATH')), \
+                     patch.object(self.service, '_verified_scene_bundle', side_effect=AssertionError('PREMATURE')):
+                    result = self.service.status('run', 'tenant')
+                    inherited.assert_called_once_with('run', 'tenant')
+                    self.assertIs(result, legacy)
+                    self.assertIsNone(result['scene_ir'])
 
     def test_fresh_verification_rejection_propagates_unchanged(self):
         rejection = RuntimeError('synthetic guard rejection')

@@ -18,6 +18,8 @@ INPUT_STAGES = ("VISUAL", "ANIMATION", "DIRECTOR")
 _ANIMATION_INPUT_CAPTURE = ContextVar("task036_verified_animation_input_capture", default=None)
 _MOTION_INPUT_COMPOSITION = ContextVar("task036_current_motion_input_composition", default=None)
 _DIRECTOR_STATUS_CAPTURE = ContextVar("task036_fresh_exit_director_status", default=None)
+_INCOMPLETE_STATUS_CAPTURE = ContextVar("task036_fresh_animation_status", default=None)
+STATUS_COMPOSITION_POLICY = "fresh-animation-complete-scene-incomplete-status/1"
 FAILURE_CODES = frozenset({"scene_ir_multiple_scenes_unsupported", "scene_ir_audio_replan_required",
     "scene_ir_structure_unsupported", "scene_ir_text_overflow", "scene_ir_domain_unsupported",
     "scene_ir_capability_blocked", "scene_ir_presentation_bounds", "scene_ir_upstream_identity",
@@ -96,6 +98,27 @@ class SceneIRProducerService(AnimationProducerService):
         return bundle
 
     def verified_director(self, run, tenant):
+        status_capture = _INCOMPLETE_STATUS_CAPTURE.get()
+        if status_capture is not None:
+            animation_capture = _ANIMATION_INPUT_CAPTURE.get()
+            valid = (status_capture["service"] is self and status_capture["run"] == run and
+                status_capture["tenant"] == tenant and status_capture["delegating"] is True and
+                not status_capture["invalid"] and status_capture["proof_attempts"] == 1 and
+                animation_capture is not None and animation_capture is status_capture["animation_capture"] and
+                animation_capture["service"] is self and animation_capture["run"] == run and
+                animation_capture["tenant"] == tenant and _DIRECTOR_STATUS_CAPTURE.get() is None and
+                _MOTION_INPUT_COMPOSITION.get() is None and status_capture["director_attempts"] == 0)
+            if not valid:
+                status_capture["invalid"] = True
+            require(valid, "scene_ir_animation_status_scope")
+            status_capture["director_attempts"] += 1
+            try:
+                value = super().verified_director(run, tenant)
+            except BaseException:
+                status_capture["invalid"] = True
+                raise
+            status_capture["director_value"] = value
+            return value  # The exact native return, not a sidecar receipt.
         capture = _DIRECTOR_STATUS_CAPTURE.get()
         if capture is None:
             return super().verified_director(run, tenant)
@@ -131,6 +154,10 @@ class SceneIRProducerService(AnimationProducerService):
         before this result is usable. No proof is retained by the service or
         reused across status, ACK, recovery, publication or revision boundaries.
         """
+        status_capture = _INCOMPLETE_STATUS_CAPTURE.get()
+        if status_capture is not None:
+            status_capture["invalid"] = True
+        require(status_capture is None, "scene_ir_director_status_nested")
         prior = _DIRECTOR_STATUS_CAPTURE.get()
         if prior is not None:
             prior["invalid"] = True
@@ -152,6 +179,34 @@ class SceneIRProducerService(AnimationProducerService):
         finally:
             _DIRECTOR_STATUS_CAPTURE.reset(token)
 
+    def _incomplete_status_bundle(self, run, tenant):
+        """One fresh native Animation proof, with its actual Director return.
+
+        Only a status operation may own this scope. No proof survives a call or
+        crosses ACK/publication; completed Scene IR still uses native ENTRY/EXIT.
+        """
+        scopes = (_INCOMPLETE_STATUS_CAPTURE.get(), _DIRECTOR_STATUS_CAPTURE.get(),
+            _MOTION_INPUT_COMPOSITION.get(), _ANIMATION_INPUT_CAPTURE.get())
+        for prior in scopes:
+            if prior is not None:
+                prior["invalid"] = True
+        require(all(prior is None for prior in scopes), "scene_ir_animation_status_nested")
+        capture = dict(service=self, run=run, tenant=tenant, delegating=True, invalid=False,
+            proof_attempts=0, director_attempts=0, director_value=None, animation_capture=None)
+        token = _INCOMPLETE_STATUS_CAPTURE.set(capture)
+        try:
+            verified = self.verified_animation_with_inputs(run, tenant)
+            capture["delegating"] = False
+            require(not capture["invalid"] and capture["proof_attempts"] == 1 and
+                capture["director_attempts"] == 1 and capture["director_value"] is not None,
+                "scene_ir_animation_status_cardinality")
+            output, director_receipt = capture["director_value"]
+            require(output.to_ref() == verified[2]["director"].to_ref(),
+                "scene_ir_animation_status_identity")
+            return verified, director_receipt
+        finally:
+            _INCOMPLETE_STATUS_CAPTURE.reset(token)
+
     def verified_animation_with_inputs(self, run, tenant):
         """Return the very bundle consumed by one fresh native verification.
 
@@ -170,12 +225,29 @@ class SceneIRProducerService(AnimationProducerService):
             if not valid:
                 composition["invalid"] = True
             require(valid, "scene_ir_motion_composition_scope")
+        status_capture = _INCOMPLETE_STATUS_CAPTURE.get()
+        if status_capture is not None:
+            valid = (status_capture["service"] is self and status_capture["run"] == run and
+                status_capture["tenant"] == tenant and status_capture["delegating"] is True and
+                not status_capture["invalid"] and status_capture["proof_attempts"] == 0 and
+                composition is None and _DIRECTOR_STATUS_CAPTURE.get() is None and
+                _ANIMATION_INPUT_CAPTURE.get() is None)
+            if not valid:
+                status_capture["invalid"] = True
+            require(valid, "scene_ir_animation_status_scope")
+            status_capture["proof_attempts"] += 1
         capture = dict(service=self, run=run, tenant=tenant, bundles=[])
+        if status_capture is not None:
+            status_capture["animation_capture"] = capture
         token = _ANIMATION_INPUT_CAPTURE.set(capture)
         try:
             plan, receipt = super().verified_animation(run, tenant)
             require(len(capture["bundles"]) == 1, "scene_ir_animation_capture_cardinality")
             return plan, receipt, capture["bundles"][0]
+        except BaseException:
+            if status_capture is not None:
+                status_capture["invalid"] = True
+            raise
         finally:
             _ANIMATION_INPUT_CAPTURE.reset(token)
 
@@ -218,6 +290,10 @@ class SceneIRProducerService(AnimationProducerService):
         scope; publication, ACK, status and replay each reopen current authority.
         """
         from bie.compiler.producer_motion_admission import current_motion_admission
+        status_capture = _INCOMPLETE_STATUS_CAPTURE.get()
+        if status_capture is not None:
+            status_capture["invalid"] = True
+        require(status_capture is None, "scene_ir_motion_composition_nested")
         prior = _MOTION_INPUT_COMPOSITION.get()
         if prior is not None:
             prior["invalid"] = True
@@ -375,6 +451,10 @@ class SceneIRProducerService(AnimationProducerService):
         return document, receipt
 
     def status(self, run, tenant):
+        prior = _INCOMPLETE_STATUS_CAPTURE.get()
+        if prior is not None:
+            prior['invalid'] = True
+        require(prior is None, "scene_ir_animation_status_nested")
         # A completed Scene IR rebuild already verifies current Visual and
         # Animation. Running their inherited status rebuilds first repeats that
         # work without adding a different admission check. Keep all lower-stage
@@ -382,12 +462,38 @@ class SceneIRProducerService(AnimationProducerService):
         # across calls, publication, recovery, authorization or revisions.
         saved = self.persistence.load_run_state(run)
         complete = saved['stages']['SCENE_IR']['attempts'][-1]['state'] == 'SUCCEEDED'
-        result = PedagogyProducerService.status(self, run, tenant) if complete else super().status(run, tenant)
+        animation_complete = not complete and saved['stages']['ANIMATION']['attempts'][-1]['state'] == 'SUCCEEDED'
+        composing_animation = animation_complete and not complete
+        # This immutable operation-local comparison includes all attempts, refs
+        # and evidence of the selected stages. It is not a stored authority/cache.
+        snapshot = (canonical({s: saved['stages'][s] for s in INPUT_STAGES + ('SCENE_IR',)})
+            if composing_animation else None)
+        result = (PedagogyProducerService.status(self, run, tenant)
+            if complete or composing_animation else super().status(run, tenant))
         require(not complete or result["stages"]["SCENE_IR"] == "SUCCEEDED", "scene_ir_status_state_changed")
         result["scene_ir"] = None
+        verified = None
+        if composing_animation:
+            require(all(result['stages'][s] == saved['stages'][s]['attempts'][-1]['state']
+                for s in INPUT_STAGES + ('SCENE_IR',)), "scene_ir_status_state_changed")
+            verified, director_receipt = self._incomplete_status_bundle(run, tenant)
+            _, animation_receipt, bundle = verified
+            current = self.persistence.load_run_state(run)
+            require(canonical({s: current['stages'][s] for s in INPUT_STAGES + ('SCENE_IR',)}) == snapshot,
+                "scene_ir_status_state_changed")
+            for stage, upstream in (('DIRECTOR', director_receipt), ('VISUAL', bundle['visual_receipt']),
+                    ('ANIMATION', animation_receipt)):
+                aid, row = self.stage_ref(run, stage)
+                require(upstream['output_artifact_id'] == aid and upstream['output_sha256'] == row.blob_digest
+                    and upstream['attempt'] == current['stages'][stage]['attempts'][-1]['attempt'],
+                    "scene_ir_animation_status_identity")
+            final = self.persistence.load_run_state(run)
+            require(canonical({s: final['stages'][s]
+                for s in INPUT_STAGES + ('SCENE_IR',)}) == snapshot, "scene_ir_status_state_changed")
         if result["stages"]["SCENE_IR"] == "SUCCEEDED":
             verified, director_receipt = self._completed_status_bundle(run, tenant)
             _, receipt, bundle, animation_receipt = verified
+        if verified is not None:
             result["director"] = {k: director_receipt[k] for k in ("output_artifact_id", "output_sha256",
                 "schema_version", "scene_count", "beat_count", "assessment_count",
                 "generation_attempt_count", "critic_attempt_count", "annotation_attempt_count",
@@ -405,6 +511,7 @@ class SceneIRProducerService(AnimationProducerService):
                 'schema_version', 'plan_fingerprint', 'track_count', 'internal_stage_count', 'validation',
                 'sceneir_handoff_ready', 'requires_review', 'accepted', 'release_ready', 'audio_complete',
                 'audio_reconciliation_open')}
+        if result["stages"]["SCENE_IR"] == "SUCCEEDED":
             result["scene_ir"] = {k: receipt[k] for k in ("output_artifact_id", "output_sha256", "schema_version",
                 "document_fingerprint", "element_count", "track_count", "native_validator_count", "single_scene",
                 "validation", "compiler_loader_admitted", "requires_review", "accepted", "release_ready",
