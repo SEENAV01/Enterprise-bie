@@ -13,6 +13,29 @@ ROOT = Path(__file__).resolve().parents[3]
 
 
 class CurrentM1ReviewControls(unittest.TestCase):
+    def test_lf_source_preserves_all_non_crlf_bytes(self):
+        import itertools
+        # Include isolated CR, LF, NUL and non-UTF8; no universal newline or
+        # text decoding may erase a source change. Exercise adjacent pairs.
+        for length in range(7):
+            for sequence in itertools.product((0, 10, 13, 65, 255), repeat=length):
+                raw = bytes(sequence)
+                self.assertEqual(admission.lf_source(raw), raw.replace(b"\r\n", b"\n"))
+
+    def test_lf_source_complete_real_ledger_retains_fixed_identity(self):
+        raw = admission.read_regular(ROOT, "manifests/post_dir_integration_004.json", 42 * 1024**2)
+        normalized = admission.lf_source(raw)
+        self.assertEqual(len(normalized), 40505121)
+        self.assertEqual(sha(normalized), "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f")
+
+    def test_lf_source_mixed_crlf_ledger_retains_fixed_identity(self):
+        raw = admission.read_regular(ROOT, "manifests/post_dir_integration_004.json", 42 * 1024**2)
+        original = admission.lf_source(raw)
+        windows = original.replace(b"\n", b"\r\n")
+        self.assertEqual(admission.lf_source(windows), original)
+        # A content mutation still cannot be normalized into reviewed bytes.
+        self.assertNotEqual(sha(admission.lf_source(windows + b"\r")), sha(original))
+
     def test_actual_hardlinked_identical_source_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

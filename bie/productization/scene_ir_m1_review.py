@@ -23,6 +23,17 @@ PREFIXES = ("bie/compiler/", "scripts/compiler_", "docs/productization/task036-"
 DOCUMENT_BYTES = {HISTORICAL: 149689, FINAL: 22161, ADDENDUM: 63445, CHAIN: 90540}
 
 
+def lf_source(data):
+    """Same CRLF-only normalization without the slow replacement on LF files.
+
+    Bytes membership uses a single-byte scan. In particular the complete 40 MB
+    canonical ledger is still freshly read and hashed on every admission; this
+    neither caches an authority proof nor changes any expected source identity.
+    Raw immutable review documents and preimages never use this conversion.
+    """
+    return data if b"\r" not in data else data.replace(b"\r\n", b"\n")
+
+
 def read_regular(root, relative, limit=262144):
     """Fixed authenticated checkout paths; no symlink or changing-read admission."""
     require(type(relative) is str and "\\" not in relative, "scene_ir_m1_source_identity")
@@ -126,7 +137,7 @@ def verified_source_chain(root):
             "mode", "bytes", "sha256"}, "scene_ir_m1_source_identity")
         mode = "RAW_IMMUTABLE" if path.startswith("docs/") else "CRLF_TO_LF_ONLY"
         require(row["mode"] == mode, "scene_ir_m1_source_identity")
-        data = raw if mode == "RAW_IMMUTABLE" else raw.replace(b"\r\n", b"\n")
+        data = raw if mode == "RAW_IMMUTABLE" else lf_source(raw)
         require(type(row["bytes"]) is int and len(data) == row["bytes"] and
             sha(data) == row["sha256"], "scene_ir_m1_source_identity")
         if mode == "RAW_IMMUTABLE":
@@ -139,7 +150,7 @@ def verified_source_chain(root):
         "scene_ir_m1_source_identity")
     # Same canonical ledger bound/conversion, no archive traversal or repeated
     # recursive resolver parsing. It remains the exact immutable authority.
-    data = read_regular(root, ledger["path"], 42 * 1024**2).replace(b"\r\n", b"\n")
+    data = lf_source(read_regular(root, ledger["path"], 42 * 1024**2))
     require(len(data) == ledger["bytes"] and sha(data) == ledger["sha256"],
         "scene_ir_m1_source_identity")
     return CHAIN_SHA
@@ -186,7 +197,7 @@ def verified_m1_review(root):
                  set(followon) & set(auxiliary)), "scene_ir_m1_source_identity")
     for row in (*current.values(), *followon.values(), *auxiliary.values()):
         raw = read_regular(root, row["path"])
-        data = raw.replace(b"\r\n", b"\n")
+        data = lf_source(raw)
         require(type(row["bytes"]) is int and len(data) == row["bytes"] and
                 sha(data) == row["sha256"], "scene_ir_m1_source_identity")
         if row["path"] in current:
