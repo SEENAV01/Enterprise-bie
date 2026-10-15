@@ -9,7 +9,8 @@ from .director_artifacts import array, canonical, fields, fingerprint, parse_jso
 from .director_model import DirectingPolicy, DirectingFailure, ResourceLimit, invoke_structured
 from .contract_validation import ids, nonblank, finite
 from .qa_contract import (ScriptClaim, TextSpan, bind_span, span_text, spoken_words,
-                          sentence_spans, validate_snapshot, validate_claims, immutable)
+                          sentence_spans, validate_snapshot, validate_claims, immutable,
+                          SpeechUtterance, _bind_validated_span)
 from .script_coherence_qa import DiscourseBeat, NarratedTransition, coherence_qa
 from .transition_strategy import Transition
 from .repetition_detection import RepeatPurpose, repetition_qa
@@ -138,10 +139,17 @@ def _int(value,name):
 
 
 def selection(snapshot,raw,index=None):
-    fields(raw,SPAN['required'],'span selection');index=validate_snapshot(snapshot) if index is None else index
+    fields(raw,SPAN['required'],'span selection')
+    validated=validate_snapshot(snapshot)
+    # A caller index is a consistency assertion, never validation authority.
+    # Reject incomplete/foreign entries, including equality-spoofing objects.
+    if index is not None and (type(index) is not dict or
+            any(type(k) is not str or type(v) is not SpeechUtterance for k,v in index.items()) or
+            index!=validated):
+        raise ValueError('span index differs from current snapshot')
     if type(raw['start_char']) is not int or type(raw['end_char']) is not int:raise ValueError('integer character boundaries required')
-    span=bind_span(snapshot,raw['utterance_id'],raw['start_char'],raw['end_char'])
-    if raw['quote']!=span_text(index,span):raise ValueError('span quote differs from actual speech')
+    span=_bind_validated_span(validated,raw['utterance_id'],raw['start_char'],raw['end_char'])
+    if raw['quote']!=span_text(validated,span):raise ValueError('span quote differs from actual speech')
     if not spoken_words(raw['quote']):raise ValueError('span needs spoken content')
     return span
 

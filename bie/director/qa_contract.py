@@ -80,6 +80,15 @@ class TextSpan:
 
 def bind_span(snapshot, utterance_id, start_char=0, end_char=None):
     index = validate_snapshot(snapshot)
+    return _bind_validated_span(index, utterance_id, start_char, end_char)
+
+
+def _bind_validated_span(index, utterance_id, start_char=0, end_char=None):
+    """Bind using only the calling operation's freshly validated snapshot index.
+
+    Private implementation shared by bind_span and annotation selection; public
+    entry points remain responsible for fresh, complete snapshot validation.
+    """
     if utterance_id not in index:
         raise ValueError("unknown utterance")
     u = index[utterance_id]

@@ -9,10 +9,12 @@ try:
     from compiler_cache_source_amendment import resolve as resolve_cache_fix
     from compiler_caller_source_amendment import resolve as resolve_caller_fix
     from compiler_motion_source_amendment import resolve as resolve_motion_fix
+    from director_span_source_amendment import resolve as resolve_director_span
 except ImportError:
     from scripts.compiler_cache_source_amendment import resolve as resolve_cache_fix
     from scripts.compiler_caller_source_amendment import resolve as resolve_caller_fix
     from scripts.compiler_motion_source_amendment import resolve as resolve_motion_fix
+    from scripts.director_span_source_amendment import resolve as resolve_director_span
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,6 +24,7 @@ def audit(root=ROOT):
     errors = []
     archives_checked = members_checked = targets_checked = 0
     reviewed_amendments = 0
+    director_span_members = 0
     sha = lambda data: hashlib.sha256(data).hexdigest()
 
     def path(value):
@@ -45,6 +48,8 @@ def audit(root=ROOT):
             reviewed_amendments += amended
             m, amended = resolve_motion_fix(root, manifest_path, m)
             reviewed_amendments += amended
+            m, amended = resolve_director_span(root, manifest_path, m)
+            director_span_members += amended
             if 'archives' not in m or 'members' not in m:
                 raise ValueError('integration manifest lacks archives/members')
             if len(m['archives']) != m['archive_count'] or len(m['members']) != m['member_count']:
@@ -82,9 +87,13 @@ def audit(root=ROOT):
                     errors.append(a.get('archive','unknown')+': '+str(exc))
         except (OSError, ValueError, KeyError, TypeError) as exc:
             errors.append(manifest_path.name+': '+str(exc))
+    if director_span_members != 7:
+        errors.append('DIR_SPAN_AMENDMENT_REQUIRED_INVENTORY')
     return dict(passed=not errors, errors=errors, manifests=len(manifests), archives_checked=archives_checked,
                 original_members_checked=members_checked, canonical_targets_checked=targets_checked,
                 reviewed_compiler_cache_amendments=reviewed_amendments,
+                director_span_amendment_members=director_span_members,
+                director_span_independent_review='PENDING_NOT_SELF_APPROVED',
                 acceptance='NOT_ACCEPTED', scope='Original ZIP/member preservation and declared canonical hashes')
 
 
