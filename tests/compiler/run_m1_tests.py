@@ -1,6 +1,6 @@
 """Unique supplemental M1/native inventory; original Task035 lanes stay separate."""
 import argparse
-from contextlib import contextmanager, redirect_stderr, redirect_stdout
+from contextlib import contextmanager, nullcontext, redirect_stderr, redirect_stdout
 import hashlib
 import importlib
 import importlib.util
@@ -17,6 +17,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 NEW = ("tests/compiler/test_producer_motion_m1.py", "tests/compiler/test_motion_m1_preservation.py",
+       "tests/compiler/test_m1_h4_phase_observations.py",
        "tests/compiler/test_motion_m1_evidence.py", "tests/compiler/test_m1_runner_loading.py",
        "tests/compiler/test_m1_safe_paint_diagnostics.py", "tests/compiler/test_m1_capture_diagnostics.py",
        "tests/compiler/test_m1_media_diagnostics.py", "tests/compiler/test_m1_media_threads.py",
@@ -401,8 +402,19 @@ def run_file(path, identities, root=ROOT):
             identities.update(local); row["selected"] = len(local)
             row["logical_identities"] = local
             labels = {id(test): identity for test, identity in zip(cases(suite), local)}
-            result = unittest.TextTestRunner(stream=capture,
-                resultclass=lambda *a, **k: SafeFailureResult(*a, diagnostic_root=root, **k)).run(suite)
+            # One unchanged inherited fixture: identify the operation whose
+            # exception the native API deliberately converts to a blocked result.
+            # No private messages/arguments/results are read by this observer.
+            if path == "tests/compiler/test_comp_h4_005.py" and Path(root).resolve() == ROOT:
+                from tests.compiler.m1_h4_phase_observations import capture as phase_capture, snapshot
+                phase_scope = phase_capture(root)
+            else:
+                phase_scope = nullcontext(None)
+            with phase_scope as phase_state:
+                result = unittest.TextTestRunner(stream=capture,
+                    resultclass=lambda *a, **k: SafeFailureResult(*a, diagnostic_root=root, **k)).run(suite)
+            if phase_state is not None:
+                row["h4_operation_observation"] = snapshot(phase_state)
             row.update(executed=result.testsRun, failures=len(result.failures), errors=len(result.errors),
                 skips=len(result.skipped), failed_methods=[labels.get(id(t), labels.get(id(getattr(t, "test_case", None)),
                     "M1_TEST_LIFECYCLE_ERROR")) for t, _ in result.failures + result.errors],

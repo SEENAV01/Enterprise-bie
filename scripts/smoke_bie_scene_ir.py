@@ -69,10 +69,18 @@ def journey(lines, applicability):
                 safe = {s: a["attempts"][-1]["diagnostics"] for s, a in saved["stages"].items()
                     if a["attempts"][-1]["diagnostics"]}
                 queues = service.queue.stats()
+                # Separate read-only parent observation after the failed child
+                # has been reaped. Never changes that child's verdict/budget.
+                try:
+                    from tests.productization.scene_ir.status_cost_observations import observe
+                    status_cost = observe(service, run, principal.tenant, saved, queues)
+                except BaseException:
+                    status_cost = None
             raise SmokeFailure("child_execution_failed" if first.completed else "child_supervision_incomplete",
                 dict(safe_diagnostics=safe, persisted_stage_states=states, queue_counts=queues,
                     child_checkpoint_state=checkpoint_state, child_checkpoint=checkpoint,
-                    exit_code=first.exit_code, child_wall_seconds=elapsed, child_output_bytes=len(first.output)))
+                    exit_code=first.exit_code, child_wall_seconds=elapsed, child_output_bytes=len(first.output),
+                    post_failure_status_cost=status_cost))
         second = supervise(command + ["--verify-only"], env, PdfProcessBudget())
         check(second.completed and second.exit_code == 0, "restart_failed")
         original, reopened = json.loads(first.output), json.loads(second.output)
