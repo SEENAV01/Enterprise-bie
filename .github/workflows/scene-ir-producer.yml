@@ -13,6 +13,8 @@ on:
       - 'scripts/smoke_bie_scene_ir.py'
       - 'tests/productization/scene_ir/**'
       - 'tools/run_task036_tests.py'
+      - 'tools/task036_cause_closure.py'
+      - 'tests/diagnostics/test_task036_cause_closure.py'
       - 'docs/productization/TASK036*'
       - 'docs/productization/m1-review/**'
       - '.github/workflows/scene-ir-producer.yml'
@@ -59,8 +61,10 @@ jobs:
         run: python -I -B tests/productization/animation/verify_post_dir_provisioning.py --output "$RUNNER_TEMP/task036-evidence/ci-r2-after.json"
       - name: Source-derived Scene IR admission conservation currentness and recovery
         run: python -B tools/run_task036_tests.py --output "$RUNNER_TEMP/task036-evidence/new.json"
+      - name: Bounded diagnostic privacy and boundary controls
+        run: python -B tests/diagnostics/test_task036_cause_closure.py
       - name: Actual eleven-stage quantitative chronology cellular and blocked Math processes
-        run: python -B scripts/smoke_bie_scene_ir.py --output "$RUNNER_TEMP/task036-evidence/process.json"
+        run: python -B tools/task036_cause_closure.py --mode scene-full --output "$RUNNER_TEMP/task036-evidence/process.json"
       - name: Canonical exact source and historical amendment preservation
         run: |
           python -B scripts/audit_canonical.py --output "$RUNNER_TEMP/task036-evidence/source-preservation.json"
@@ -71,6 +75,6 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: bie-scene-ir-producer-evidence
-          path: ${{ runner.temp }}/task036-evidence/*.json
+          path: ${{ runner.temp }}/task036-evidence/**/*.json
           if-no-files-found: error
           retention-days: 14
