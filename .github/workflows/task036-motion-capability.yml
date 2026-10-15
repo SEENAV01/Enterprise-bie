@@ -9,8 +9,6 @@ on:
     paths:
       - 'bie/compiler/**'
       - 'tests/compiler/**'
-      - 'tools/task036_cause_closure.py'
-      - 'tests/diagnostics/test_task036_cause_closure.py'
       - 'scripts/compiler_motion_source_amendment.py'
       - 'scripts/verify_post_dir.py'
       - 'scripts/verify_ingested_archives.py'
@@ -199,7 +197,7 @@ jobs:
           python -m pip install -r requirements-qa-section16-validation.txt
           python -m pip check
       - name: Additional native compiler and Scene IR tests excluding Task035 and new duplicates
-        run: python -B tools/task036_cause_closure.py --mode native --output "$RUNNER_TEMP/m1-evidence/native-extra.json"
+        run: python -B tests/compiler/run_m1_tests.py --lane native-extra --output "$RUNNER_TEMP/m1-evidence/native-extra.json"
       - name: Safe unique native test receipt
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
