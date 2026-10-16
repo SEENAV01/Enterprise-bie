@@ -1,4 +1,4 @@
-"""Actual eleven-stage native-PDF child and second-process reopen, no rendering."""
+"""Eleven real stages in two bounded children, then separate reopen; no rendering."""
 import argparse
 import gc
 import json
@@ -19,6 +19,31 @@ def _read_checkpoint(root):
         return read(root)
     except BaseException:
         return "UNAVAILABLE", None
+
+
+def _partition_reply(reply, segment, stages, blocked, run_id):
+    """Validate an actual reaped child's declared cut, never infer execution from ACKs alone."""
+    from apps.operator.scene_ir_worker_child import _split_expected
+    check(type(reply) is dict and set(reply) == {"enforcement", "run_id", "status_sha256",
+        "stages", "scene_ir", "product_accepted", "partition"}, "split_reply_shape")
+    check(reply["run_id"] == run_id and reply["product_accepted"] is False and
+          reply["enforcement"] in ("LINUX_RLIMIT", "WINDOWS_JOB_OBJECT"), "split_reply_identity")
+    partition = reply["partition"]
+    check(type(partition) is dict and set(partition) == {"segment", "executed_stages",
+        "input_prefix_sha256", "output_prefix_sha256"}, "split_partition_shape")
+    expected = list(stages[:5] if blocked else stages[:10]) if segment == "through-animation" else ([] if blocked else ["SCENE_IR"])
+    check(partition["segment"] == segment and partition["executed_stages"] == expected, "split_execution_inventory")
+    check(reply["stages"] == _split_expected(stages, 10 if segment == "through-animation" else 11, blocked),
+          "split_terminal_states")
+    for value in (reply["status_sha256"], partition["input_prefix_sha256"], partition["output_prefix_sha256"]):
+        check(type(value) is str and len(value) == 64 and set(value) <= set("0123456789abcdef"), "split_identity_shape")
+    if segment == "scene-ir":
+        check(partition["input_prefix_sha256"] == partition["output_prefix_sha256"], "split_upstream_changed")
+    return {k: v for k, v in reply.items() if k != "partition"}, partition
+
+
+def _child_passed(outcome):
+    return outcome.completed is True and type(outcome.exit_code) is int and outcome.exit_code == 0
 
 
 def journey(lines, applicability):
@@ -58,29 +83,38 @@ def journey(lines, applicability):
         env = child_environment(); env["BIE_OPERATOR_TOKEN"] = token
         command = [sys.executable, "-I", "-B", str(ROOT / "apps/operator/scene_ir_worker_child.py"),
             "--data-root", str(root), "--run-id", run, "--tenant", "local", "--technical-test-providers"]
-        started = time.monotonic()
-        first = supervise(command, env, PdfProcessBudget())
-        elapsed = round(time.monotonic()-started, 3)
-        if not first.completed or first.exit_code != 0:
-            checkpoint_state, checkpoint = _read_checkpoint(root)
-            with port.native(principal, run, "read") as service:
-                saved = service.persistence.load_run_state(run)
-                states = {s: a["attempts"][-1]["state"] for s, a in saved["stages"].items()}
-                safe = {s: a["attempts"][-1]["diagnostics"] for s, a in saved["stages"].items()
-                    if a["attempts"][-1]["diagnostics"]}
-                queues = service.queue.stats()
-            raise SmokeFailure("child_execution_failed" if first.completed else "child_supervision_incomplete",
-                dict(safe_diagnostics=safe, persisted_stage_states=states, queue_counts=queues,
-                    child_checkpoint_state=checkpoint_state, child_checkpoint=checkpoint,
-                    exit_code=first.exit_code, child_wall_seconds=elapsed, child_output_bytes=len(first.output)))
-        second = supervise(command + ["--verify-only"], env, PdfProcessBudget())
-        check(second.completed and second.exit_code == 0, "restart_failed")
-        original, reopened = json.loads(first.output), json.loads(second.output)
+        children = {}
+        def execute(label, arguments):
+            started = time.monotonic()
+            outcome = supervise(command + arguments, env, PdfProcessBudget())
+            elapsed = round(time.monotonic() - started, 3)
+            children[label] = dict(wall_seconds=elapsed, exit_code=outcome.exit_code,
+                completed=outcome.completed, output_bytes=len(outcome.output))
+            if not _child_passed(outcome):
+                checkpoint_state, checkpoint = _read_checkpoint(root)
+                with port.native(principal, run, "read") as service:
+                    saved = service.persistence.load_run_state(run)
+                    states = {s: a["attempts"][-1]["state"] for s, a in saved["stages"].items()}
+                    safe = {s: a["attempts"][-1]["diagnostics"] for s, a in saved["stages"].items()
+                        if a["attempts"][-1]["diagnostics"]}
+                    queues = service.queue.stats()
+                raise SmokeFailure("child_execution_failed" if outcome.completed else "child_supervision_incomplete",
+                    dict(safe_diagnostics=safe, persisted_stage_states=states, queue_counts=queues,
+                        child_checkpoint_state=checkpoint_state, child_checkpoint=checkpoint,
+                        exit_code=outcome.exit_code, child_wall_seconds=elapsed, child_output_bytes=len(outcome.output),
+                        child_phase=label, child_processes=children))
+            return json.loads(outcome.output)
+        blocked = applicability == "REVIEW_REQUIRED"
+        _, first_partition = _partition_reply(execute("through-animation", ["--segment", "through-animation"]),
+            "through-animation", STAGES, blocked, run)
+        original, scene_partition = _partition_reply(execute("scene-ir", ["--segment", "scene-ir"]),
+            "scene-ir", STAGES, blocked, run)
+        check(first_partition["output_prefix_sha256"] == scene_partition["input_prefix_sha256"], "split_handoff_identity")
+        reopened = execute("reopen-replay", ["--verify-only"])
         check(original == reopened, "restart_identity_failed")
         final = port.status(principal, run)
         check(reopened["status_sha256"] == digest(final), "full_projection_binding_failed")
         check(port.admit(principal, source["source_id"], "smoke", producer_config=config) == final, "idempotent_replay_failed")
-        blocked = applicability == "REVIEW_REQUIRED"
         expected = dict.fromkeys(STAGES, "SUCCEEDED")
         if blocked:
             expected.update(MATH="BLOCKED", REASONING="PENDING", PEDAGOGY="PENDING", DIRECTOR="PENDING",
@@ -124,7 +158,10 @@ def journey(lines, applicability):
         return dict(passed=True, stages=final["stages"], source_sha256=source["sha256"], identities=identities,
             math_applicability=applicability, scene_ir=final["scene_ir"], real_native_pdf=True,
             real_child_process=True, second_process_restart=True, idempotent_replay=True,
-            child_wall_seconds=elapsed, child_output_bytes=len(first.output), queue_terminal_verified=True,
+            child_wall_seconds=children["through-animation"]["wall_seconds"],
+            child_output_bytes=children["through-animation"]["output_bytes"],
+            child_processes=children, execution_layout="SOURCE_TO_ANIMATION_THEN_SCENE_IR_THEN_REOPEN",
+            queue_terminal_verified=True,
             evidence_kind="SYNTHETIC_TEST", downstream_not_run=True, video_code_executed=False,
             audio_complete=False, audio_reconciliation_open=True, product_accepted=False)
 
