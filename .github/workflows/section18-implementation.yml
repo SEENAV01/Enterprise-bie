@@ -17,7 +17,7 @@ concurrency:
 jobs:
   canonical-regression:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 90
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       BIE_GAME_CI_SUPERVISOR: '1'

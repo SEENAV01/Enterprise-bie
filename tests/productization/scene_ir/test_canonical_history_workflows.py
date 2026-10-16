@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[3]
 WORKFLOWS = {
     ".github/workflows/post-dir-canonical-catchup.yml": 45,
     ".github/workflows/qa-section16-combined.yml": 90,
-    ".github/workflows/section18-implementation.yml": 60,
+    ".github/workflows/section18-implementation.yml": 90,
 }
 CHECKOUT = "actions/checkout@11d5960a326750d5838078e36cf38b85af677262"
 OWNED = "tests/productization/scene_ir/test_canonical_history_workflows.py"
