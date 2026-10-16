@@ -1,0 +1,629 @@
+{
+  "schema": "bie.task036.director-span-source-amendment/1",
+  "baseline_commit": "ed9f845859a32107c021ff826761ae2350cd3125",
+  "baseline_tree": "249065d3a5c748de7a52f5188c06ac194e3ecec1",
+  "scope": "One fresh complete snapshot validation per public span operation; no cross-call cache",
+  "authorization": "Owner TASK036 STEP 4 ONLY bounded local repair instruction",
+  "independent_review": "PENDING_NOT_SELF_APPROVED",
+  "hosted_verification": "NOT_RUN",
+  "product_accepted": false,
+  "manifest": {
+    "path": "manifests/director_integration_003.json",
+    "bytes": 455333,
+    "sha256": "02733513b9cca98b1255c7e615890ecd7e25726135a0d590a77b40ea5dba0285",
+    "git_blob": "43f4a4d3d1f92dc495f46587e02889b1199d42e5"
+  },
+  "files": [
+    {
+      "path": "bie/director/qa_contract.py",
+      "preimage": "docs/productization/director-span-step4-amendment/qa_contract.py.before",
+      "before": {
+        "bytes": 10204,
+        "sha256": "115d898dad34decdad7ba6b4b0e7d17f503f9e5ae39d5ffc251aa8fefd6dccee",
+        "git_blob": "6ee0237b12a2c049066c0bca943734fa6b6aa1f5"
+      },
+      "after": {
+        "bytes": 10604,
+        "sha256": "dd80a0c740378807456aa60ae3957b577ebb47ff53b92242729b883b73a8cb43",
+        "git_blob": "f73f1a076eb211727b77232bf2648587b15a0d54"
+      },
+      "member_rows": [
+        {
+          "archive": "BIE_DIR_QA_001.zip",
+          "task_id": "BIE-DIR-QA-001",
+          "member": "bie/director/qa_contract.py",
+          "original_bytes": 10204,
+          "original_sha256": "115d898dad34decdad7ba6b4b0e7d17f503f9e5ae39d5ffc251aa8fefd6dccee",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/qa_contract.py",
+          "canonical_sha256": "115d898dad34decdad7ba6b4b0e7d17f503f9e5ae39d5ffc251aa8fefd6dccee",
+          "transformation": "NONE",
+          "backup_path": "backups/ingested/BIE_DIR_QA_001.zip"
+        }
+      ],
+      "collision_rows": []
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "preimage": "docs/productization/director-span-step4-amendment/narration_annotations.py.before",
+      "before": {
+        "bytes": 24228,
+        "sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+        "git_blob": "6a4d0fdb73542564e58ca7734c7246220fc46d3d"
+      },
+      "after": {
+        "bytes": 24699,
+        "sha256": "e8cde839a10369689639048f248d0dc5cb50c3196bbfa7bfc80dcab006a07d07",
+        "git_blob": "55c0f99444d3bf831329709db27baaaba040c98c"
+      },
+      "member_rows": [
+        {
+          "archive": "BIE_DIR_HARD_ANNOTATIONS_001.zip",
+          "task_id": "BIE-DIR-HARD-ANNOTATIONS-001",
+          "member": "bie/director/narration_annotations.py",
+          "original_bytes": 21816,
+          "original_sha256": "17c3a8c89e1a5db75d5ac0846157696fd470dd9afe7aa2cd4df8e9024878ad72",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/narration_annotations.py",
+          "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK",
+          "backup_path": "backups/ingested/BIE_DIR_HARD_ANNOTATIONS_001.zip"
+        },
+        {
+          "archive": "BIE_DIR_HARD_ANNOTATION_WINDOWS_001.zip",
+          "task_id": "BIE-DIR-HARD-ANNOTATION-WINDOWS-001",
+          "member": "bie/director/narration_annotations.py",
+          "original_bytes": 23013,
+          "original_sha256": "3cc33758fc975028e49b46c8140313bc943f0d96891b3150c7ee885f970e606f",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/narration_annotations.py",
+          "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK",
+          "backup_path": "backups/ingested/BIE_DIR_HARD_ANNOTATION_WINDOWS_001.zip"
+        },
+        {
+          "archive": "BIE_DIR_HARD_LONG_DIRECTING_001.zip",
+          "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+          "member": "bie/director/narration_annotations.py",
+          "original_bytes": 22347,
+          "original_sha256": "f6abdc90f61191ddc411b9b13891ac9c9c449d7ddfa25feb669b8d1f35b6846a",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/narration_annotations.py",
+          "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK",
+          "backup_path": "backups/ingested/BIE_DIR_HARD_LONG_DIRECTING_001.zip"
+        },
+        {
+          "archive": "BIE_DIR_HARD_TEACHING_001.zip",
+          "task_id": "BIE-DIR-HARD-TEACHING-001",
+          "member": "bie/director/narration_annotations.py",
+          "original_bytes": 21928,
+          "original_sha256": "054701ff789a36667c24162c5c74568720e018c23e44e1e3d7b96b2df859ad1c",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/narration_annotations.py",
+          "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK",
+          "backup_path": "backups/ingested/BIE_DIR_HARD_TEACHING_001.zip"
+        },
+        {
+          "archive": "BIE_DIR_HARD_HIERARCHICAL_DISCOURSE_001.zip",
+          "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+          "member": "bie/director/narration_annotations.py",
+          "original_bytes": 24228,
+          "original_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/narration_annotations.py",
+          "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "transformation": "NONE",
+          "backup_path": "backups/ingested/BIE_DIR_HARD_HIERARCHICAL_DISCOURSE_001.zip"
+        },
+        {
+          "archive": "BIE_DIR_HARD_SCENE_CORRECTION_001.zip",
+          "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+          "member": "bie/director/narration_annotations.py",
+          "original_bytes": 24228,
+          "original_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "state": "MIGRATED",
+          "canonical_path": "bie/director/narration_annotations.py",
+          "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+          "transformation": "NONE",
+          "backup_path": "backups/ingested/BIE_DIR_HARD_SCENE_CORRECTION_001.zip"
+        }
+      ],
+      "collision_rows": [
+        {
+          "canonical_path": "bie/director/narration_annotations.py",
+          "contributors": [
+            {
+              "task_id": "BIE-DIR-HARD-ANNOTATIONS-001",
+              "archive": "BIE_DIR_HARD_ANNOTATIONS_001.zip",
+              "original_sha256": "17c3a8c89e1a5db75d5ac0846157696fd470dd9afe7aa2cd4df8e9024878ad72",
+              "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK"
+            },
+            {
+              "task_id": "BIE-DIR-HARD-ANNOTATION-WINDOWS-001",
+              "archive": "BIE_DIR_HARD_ANNOTATION_WINDOWS_001.zip",
+              "original_sha256": "3cc33758fc975028e49b46c8140313bc943f0d96891b3150c7ee885f970e606f",
+              "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK"
+            },
+            {
+              "task_id": "BIE-DIR-HARD-LONG-DIRECTING-001",
+              "archive": "BIE_DIR_HARD_LONG_DIRECTING_001.zip",
+              "original_sha256": "f6abdc90f61191ddc411b9b13891ac9c9c449d7ddfa25feb669b8d1f35b6846a",
+              "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK"
+            },
+            {
+              "task_id": "BIE-DIR-HARD-TEACHING-001",
+              "archive": "BIE_DIR_HARD_TEACHING_001.zip",
+              "original_sha256": "054701ff789a36667c24162c5c74568720e018c23e44e1e3d7b96b2df859ad1c",
+              "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "transformation": "SUPERSEDED_BY_LATER_DOCUMENTED_DIR_TASK"
+            },
+            {
+              "task_id": "BIE-DIR-HARD-HIERARCHICAL-DISCOURSE-001",
+              "archive": "BIE_DIR_HARD_HIERARCHICAL_DISCOURSE_001.zip",
+              "original_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "transformation": "NONE"
+            },
+            {
+              "task_id": "BIE-DIR-HARD-SCENE-CORRECTION-001",
+              "archive": "BIE_DIR_HARD_SCENE_CORRECTION_001.zip",
+              "original_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "canonical_sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+              "transformation": "NONE"
+            }
+          ],
+          "resolution": "final batch-014 canonical bytes selected; every earlier byte remains in its immutable ZIP and task archive evidence copy"
+        }
+      ]
+    }
+  ],
+  "original_director_inventory": [
+    {
+      "path": "bie/director/__init__.py",
+      "bytes": 69,
+      "sha256": "734f6b6ed1853106065c3dc5cddc10a9afe280589737c0c6883e29ad2db5d179",
+      "git_blob": "fef4174f99bf313783ec1408e36de1aeb2a1eca4"
+    },
+    {
+      "path": "bie/director/age_level_qa.py",
+      "bytes": 8265,
+      "sha256": "0125925a04c1e05bd30e8a730240ec5cd77702b75a263349c9bb55fcd2a115c0",
+      "git_blob": "05fd35f9cab9d879d4025451fbe398830da74a0d"
+    },
+    {
+      "path": "bie/director/annotated_directing.py",
+      "bytes": 7640,
+      "sha256": "29789708190824969d129eef5432b4fd92ef4e04725908e27ddf95c9a45fe620",
+      "git_blob": "246499f76fde0615dff0576a938705c308875bf1"
+    },
+    {
+      "path": "bie/director/annotation_review.py",
+      "bytes": 11574,
+      "sha256": "bd4a297b289645e2cc15c96c6cfec869e365600ff8bd660845735c6dad68d7bf",
+      "git_blob": "a609e5c9a1f451218292e47353efff9e3e4d1703"
+    },
+    {
+      "path": "bie/director/annotation_window_context.py",
+      "bytes": 7610,
+      "sha256": "f7715b61d0f9b54b80915c33ed6bbc3b6d038e468d425166d6bce21440b2ed98",
+      "git_blob": "0770fca516256bc612c00511e69c8c8326b2c042"
+    },
+    {
+      "path": "bie/director/assessment_prompts.py",
+      "bytes": 1033,
+      "sha256": "7fd9fe9f2a5241c7785b0c8ec2e061254fca9d6c26b7fa84952e250faa214999",
+      "git_blob": "2cf529ed53f9e41b51cc7bd8127fee31ad325e11"
+    },
+    {
+      "path": "bie/director/authenticated_assessment.py",
+      "bytes": 10414,
+      "sha256": "808bc883e389995e345f52843c3ab331a74ee0f0d72411b47dbceea6c1039efb",
+      "git_blob": "670b78e58011b6ffcf14da693058fec16d911cba"
+    },
+    {
+      "path": "bie/director/context_bridges.py",
+      "bytes": 11182,
+      "sha256": "6e47dd953e609def3042d57a7df6081f38a3d66d9d683037b63810c5d6bbf5f2",
+      "git_blob": "74c2d8e274707f51ccc2ee71e17e5ec1886aafa4"
+    },
+    {
+      "path": "bie/director/context_windows.py",
+      "bytes": 14184,
+      "sha256": "94ca59fb7d3910a53ced9fe7ba4e475a2c3323d2320d778f5126c63f57ee6a4a",
+      "git_blob": "fd32f37db5cda223d75a3605bef6067a9a131ab6"
+    },
+    {
+      "path": "bie/director/contextual_teaching.py",
+      "bytes": 8728,
+      "sha256": "915329a7bbf94fd973c1749114d35e0733cd0436308fe99a64643470ec5ba83f",
+      "git_blob": "062e96fad5caf4db275b0154691a9124a3accf9d"
+    },
+    {
+      "path": "bie/director/contract_validation.py",
+      "bytes": 2386,
+      "sha256": "ca7ab57f097318a9c79f31d3da49c8c4f3556d023615fdadd0b1819fcccd8e3f",
+      "git_blob": "efd4ac7cb2667f5f67e8b0ae9bc62b0a60e06004"
+    },
+    {
+      "path": "bie/director/curiosity_gaps.py",
+      "bytes": 626,
+      "sha256": "93878be9c6ae4ca6fd74f2e4b38143633b2d7a712b854945ef1c48dc183a173a",
+      "git_blob": "6bdace83c6658d0f518b1aacd97eb04b429dcf89"
+    },
+    {
+      "path": "bie/director/demonstration_narration.py",
+      "bytes": 674,
+      "sha256": "ee2f1d4d69e6d568f64f2a260b81306e8cef28714c5042a1e8abaca294eeb0f2",
+      "git_blob": "2fa7c4f562e85c8f6851b79da8eb29e48adbe197"
+    },
+    {
+      "path": "bie/director/derivation_narration.py",
+      "bytes": 856,
+      "sha256": "47ce31601f576552f9a8bf95ef565f687aac6e882e4d6d15a30c9178bdb1775d",
+      "git_blob": "80321a35d0eda318f5377aa36ddf44eedaf4dc1d"
+    },
+    {
+      "path": "bie/director/dialogue_generation.py",
+      "bytes": 970,
+      "sha256": "c8a2b4692d496db6db28d019d7a5375499212d5d4ef874795aa3110ae4c003db",
+      "git_blob": "e1aa5c8e27aebbecf3369fbe4938d4a169b8bb8b"
+    },
+    {
+      "path": "bie/director/director_artifacts.py",
+      "bytes": 8086,
+      "sha256": "44069a1c4e7ce32f6ad492f791cf75e6f594a116476b51076314f2929f991e32",
+      "git_blob": "441a0948319ff331e4218670cb11259f1296139a"
+    },
+    {
+      "path": "bie/director/director_benchmark.py",
+      "bytes": 17467,
+      "sha256": "d022e2b5fb980e5da6c3e4fa2fe2f48ee08e3d811faf06c5097a49a452075f07",
+      "git_blob": "53c7deb820a3ac6f42a7f0f0a0a5ec00e98288b0"
+    },
+    {
+      "path": "bie/director/director_consumers.py",
+      "bytes": 9598,
+      "sha256": "2c383964a8d6e7d9c23913187d7608df0436d606b1acc7918db5882cba30b366",
+      "git_blob": "87647454a104fe48bb7a4e29318eb532efa5b5d7"
+    },
+    {
+      "path": "bie/director/director_durable_recovery.py",
+      "bytes": 9000,
+      "sha256": "a5a68514ee1e5c8be1b1602370bab4b791d8c7a4c5085674b4d27e7d704fd1be",
+      "git_blob": "a06ca9bb25fd3492e1d053fcc88f97449675c646"
+    },
+    {
+      "path": "bie/director/director_executor.py",
+      "bytes": 17212,
+      "sha256": "4efab7e440cda1e0ab0dbd49ef65dde5a8b616e6439a93a875e7342e042db293",
+      "git_blob": "dceece0dca894911c74cfd44f46424a03460614a"
+    },
+    {
+      "path": "bie/director/director_inputs.py",
+      "bytes": 25459,
+      "sha256": "dbf6706ff33a1749a2c4399707144086ec4fa44724a71fd548889e6cd2cc974e",
+      "git_blob": "bf650168f4aded8f727b90451056d347ae7e234b"
+    },
+    {
+      "path": "bie/director/director_model.py",
+      "bytes": 6873,
+      "sha256": "02e02a5505a8a718f9d092c1e13a5ec17d3f64fc400dc188d7ce63bb8f6f76c6",
+      "git_blob": "e1a3d3d2fb6e38826d2fb9632d73f78cd35ee8bd"
+    },
+    {
+      "path": "bie/director/director_revisions.py",
+      "bytes": 8241,
+      "sha256": "1920285d4e4a467ad61568acf8b0d8e119d0aff0d954178fc9818eebfc393453",
+      "git_blob": "cd2d253aaaa0b9ec70dd6f1da75c65658845f13e"
+    },
+    {
+      "path": "bie/director/emphasis_plan.py",
+      "bytes": 1169,
+      "sha256": "50d2589763934fdc28c9662cb6adb3952c07e7969f1b24f37a532e5a09b9a54a",
+      "git_blob": "7dc1ed031da58d26422cb3ab563946494024ec0c"
+    },
+    {
+      "path": "bie/director/emphasis_timing.py",
+      "bytes": 4889,
+      "sha256": "fccb96d751a381132ef26964abbb4184dd6099fe7eb0eaf5029972c20c4f53d9",
+      "git_blob": "c27aca9cfb882ca61013833d1b49a86a4462f7ba"
+    },
+    {
+      "path": "bie/director/equation_narration_sync.py",
+      "bytes": 8362,
+      "sha256": "7bd6f6b392a9edce867577d2dc75bbbe4de6cd35900f926898ed33f4b2eec760",
+      "git_blob": "75b31c4859db3088150c7a3bc192d875004fb32c"
+    },
+    {
+      "path": "bie/director/factual_script_qa.py",
+      "bytes": 6074,
+      "sha256": "90009f8651870990a3d64ac532c23e85ddfea5d44e36da566b7caaa467126f69",
+      "git_blob": "ecb8f64433e2738ebe10268df8dbbb43781afdb1"
+    },
+    {
+      "path": "bie/director/game_handoff.py",
+      "bytes": 1346,
+      "sha256": "28971e6e7b3d3f0b1b23a9e55acc3ac1add1b242290218c790b49ad734804855",
+      "git_blob": "eed5908c96719e7bf662e0dc511189b938895e96"
+    },
+    {
+      "path": "bie/director/graph_narration_sync.py",
+      "bytes": 9446,
+      "sha256": "b673801f43b978085f72c473c054e46585114c7f6cdc21d522c7e47332e9b790",
+      "git_blob": "24d7e1e43ee43c125dc92e2ae81bd87d3e849671"
+    },
+    {
+      "path": "bie/director/grounded_directing.py",
+      "bytes": 27095,
+      "sha256": "72c69aef2eb283d87dc9e8d2953f665975d746f63a63f36cc054c988bff67b5d",
+      "git_blob": "e439321b92d4314f4930d1044b6e2fafc128f377"
+    },
+    {
+      "path": "bie/director/hierarchical_annotation_review.py",
+      "bytes": 9311,
+      "sha256": "0757cdea14aec2b936c804513c8395f6e5c6c47b81a6dc0bed08d427138d73fa",
+      "git_blob": "dee6bd4c455c02f1f59fec104189c14ee0e02457"
+    },
+    {
+      "path": "bie/director/hierarchical_annotations.py",
+      "bytes": 22364,
+      "sha256": "9bbf697e6a41b9b87daefdd6a40cb75d0987413fa66578726a969f86256602de",
+      "git_blob": "3e1398e776d435c138606fec335ca664adbb9174"
+    },
+    {
+      "path": "bie/director/hook_strategy.py",
+      "bytes": 1126,
+      "sha256": "5d6470da12c0571aa6ee4ab47404ae6358c0de11f2e04115a82316e80039ed6c",
+      "git_blob": "9b2275022d3ba957f1ca336c93c514715c94dab0"
+    },
+    {
+      "path": "bie/director/lesson_architecture_contract.py",
+      "bytes": 3448,
+      "sha256": "7e60312e0c81982b4992d526dc9a78475c5c64a9668787a9919e71d1abbf7778",
+      "git_blob": "e08d78e57bc49cbba68f47c81545de78900837a3"
+    },
+    {
+      "path": "bie/director/misconception_dialogue.py",
+      "bytes": 884,
+      "sha256": "88466f27e4522f27f7337634c79607fe3d8d697002d3b8dcf49c275318d09773",
+      "git_blob": "f36a5d10cb38feb9f0ba25ea1eb9ee3d54d715e0"
+    },
+    {
+      "path": "bie/director/narration_animation_sync.py",
+      "bytes": 4955,
+      "sha256": "53fb0631caf8c9880c33b0161b78c7985611b7e8f4de90a04887015206b7b0b5",
+      "git_blob": "90abb25854593724eaf9654957d5d67891707519"
+    },
+    {
+      "path": "bie/director/narration_annotations.py",
+      "bytes": 24228,
+      "sha256": "ee4c6ea3df5c6d8f3e8b41245f71b1c1bc07a3a21170ea5e976a31daee3b0544",
+      "git_blob": "6a4d0fdb73542564e58ca7734c7246220fc46d3d"
+    },
+    {
+      "path": "bie/director/narration_visual_sync.py",
+      "bytes": 2026,
+      "sha256": "468d7521fda3f70604ae8b30833a6c32ae1eb41f87c9911c0badb7ad10afd117",
+      "git_blob": "d62bb6d3af8ef11ef950f522133ce78b0d9356b7"
+    },
+    {
+      "path": "bie/director/narrative_arc.py",
+      "bytes": 974,
+      "sha256": "8f9e484351730e49950500d07c70cb729dce1cacc2dc0928a2579142adf4b84f",
+      "git_blob": "527fab308708339b4e8ebd78df13047091c27d26"
+    },
+    {
+      "path": "bie/director/pacing_plan.py",
+      "bytes": 1383,
+      "sha256": "bbc1bc10926d4f91a23f067798b236893674920e7220e208f0da92cf6f94122c",
+      "git_blob": "c59557f4313b7457cf0338f578c860abeed864ed"
+    },
+    {
+      "path": "bie/director/pacing_qa.py",
+      "bytes": 12345,
+      "sha256": "ce9641cf21ab04d5adb9458643f11c88564bae5c4dcc1479def5c8825c1f5c67",
+      "git_blob": "04d14459601b13e8c69d97cbeda033f2900d2826"
+    },
+    {
+      "path": "bie/director/pause_timing.py",
+      "bytes": 4905,
+      "sha256": "f39fc3a9ace792898da5fbaa87e0a5978d06e5bf0a8a35ebdbee286553d787c6",
+      "git_blob": "255d396b2b7c4ffc8416c1e1d28ec935d835d232"
+    },
+    {
+      "path": "bie/director/payoff_structure.py",
+      "bytes": 1300,
+      "sha256": "ad1295045402ac4aef0cd7a4dad9b9251d2d30746184becd595c1927b2dfb50c",
+      "git_blob": "8f5092df4994480dfbc576692abfca442d0f871a"
+    },
+    {
+      "path": "bie/director/persona_selection.py",
+      "bytes": 860,
+      "sha256": "f282189bfb588ce218ada78642d57d6208d0477112a80dbbc7ba466a77bd79dd",
+      "git_blob": "d40e56fb19b93ce9c67ce902ebf24693d1c5c6d2"
+    },
+    {
+      "path": "bie/director/production_adoption.py",
+      "bytes": 7344,
+      "sha256": "a19e917acd68e2a6ceab83444d1538bb81b9a806e196c8ae4a96256904ca23f6",
+      "git_blob": "f886644a1e7533137d4c5520f42457a4ce0455f8"
+    },
+    {
+      "path": "bie/director/provider_calibration.py",
+      "bytes": 9942,
+      "sha256": "53adb90db16372ecb3d1ddd8813f52d024203aebcf1eb82f722e4ce4ebaad07f",
+      "git_blob": "165fd6765ecb4bc48faf0f692246a99d701f3835"
+    },
+    {
+      "path": "bie/director/qa_contract.py",
+      "bytes": 10204,
+      "sha256": "115d898dad34decdad7ba6b4b0e7d17f503f9e5ae39d5ffc251aa8fefd6dccee",
+      "git_blob": "6ee0237b12a2c049066c0bca943734fa6b6aa1f5"
+    },
+    {
+      "path": "bie/director/recap_strategy.py",
+      "bytes": 877,
+      "sha256": "eafae6ecd382324b7154cb0ef708fb5edc889fee73f4afc9a773a65364f81493",
+      "git_blob": "f0c63a1e619a8175316ed69355c02bf0438b039c"
+    },
+    {
+      "path": "bie/director/recovery_codec.py",
+      "bytes": 9020,
+      "sha256": "f7dcbdc81134c8c99a0e6939b542ac13c2d19911badb30b6e75f7af508022cd4",
+      "git_blob": "29abf046f1c02f5f0ba8430e8f2a91e3093f01cd"
+    },
+    {
+      "path": "bie/director/repetition_detection.py",
+      "bytes": 7434,
+      "sha256": "8759a7a04d7ab07fbb50d448dc446d3693abffe781a05cebb47d7573c7e8bcff",
+      "git_blob": "8188e417113f7fac041cef04f9ddf45895997214"
+    },
+    {
+      "path": "bie/director/rich_teaching.py",
+      "bytes": 8831,
+      "sha256": "40acf1291d1e28ebc6990dc3ef8cfa8f610759d4383ac2d83cc48bfe5649851e",
+      "git_blob": "1f8090db025d457723a6c738de61e39dba2ea82a"
+    },
+    {
+      "path": "bie/director/scene_correction.py",
+      "bytes": 9909,
+      "sha256": "5b0275b45aee8011942c4282c87fddce810df38901d100d7190c83043abc6587",
+      "git_blob": "53ad2168ae5d4ed2ec353f0aaff04ccab3e55fa4"
+    },
+    {
+      "path": "bie/director/scene_duration_fit.py",
+      "bytes": 6986,
+      "sha256": "4140f532f56dba6ef140941630b88b118b9fade58d452e491057dc4211c09adf",
+      "git_blob": "101ca9f3c2c0c6f741c656e6f70d741da80e64ab"
+    },
+    {
+      "path": "bie/director/scene_purpose_planning.py",
+      "bytes": 1426,
+      "sha256": "47b07edd42091a07aba7ebe7c79efde1087ed77f51e3d28d12ebf719239e139d",
+      "git_blob": "24d3a187b0cecb64f98f8c8b489143941185f930"
+    },
+    {
+      "path": "bie/director/script_coherence_qa.py",
+      "bytes": 9372,
+      "sha256": "757e97db93c4203dcb1bb6328f5cda785968dc51221442e0fcfa3a08cc7e96db",
+      "git_blob": "b1be36870790aea8b4df6c0a1c5bd7259c915426"
+    },
+    {
+      "path": "bie/director/script_plan.py",
+      "bytes": 1813,
+      "sha256": "3e6c1aa63aeb08063012848ec99658e3894fd027a632499f818fa6dd1ad5c3f2",
+      "git_blob": "93d5920d20535ea9a7727add67789e70fc84ba96"
+    },
+    {
+      "path": "bie/director/selective_repair.py",
+      "bytes": 8263,
+      "sha256": "6f00eb5c1357b0ec72c5b1b0fa03b2e43d249d476bb927b18c5a9592cdcef35d",
+      "git_blob": "12da1499f25bba1f84e9b4d28da0134e8e84c9a5"
+    },
+    {
+      "path": "bie/director/semantic_execution.py",
+      "bytes": 14560,
+      "sha256": "367bb3d1e52e2c8feee254c18968a4dbd175b0f923b0a6b0e368df28d78c8fe0",
+      "git_blob": "c26f527dfc52b2be86eb9014bb9cd652ab692d0e"
+    },
+    {
+      "path": "bie/director/simulation_narration_sync.py",
+      "bytes": 11472,
+      "sha256": "8ad37d7166dd3185fae8788c0d7dd36bd7e8d9f1f70613e5f62aa173780178d3",
+      "git_blob": "fcc723bff7eef337e68b5bf47cc6f1e4d7d79fcb"
+    },
+    {
+      "path": "bie/director/socratic_dialogue.py",
+      "bytes": 1065,
+      "sha256": "6e5129b551ab70c1862e3a050b327ebe0b8e5778bfa315ef4518a61153cbf30c",
+      "git_blob": "03b81ee4ed38b20eb2f11036da635ffd0cdc16f9"
+    },
+    {
+      "path": "bie/director/source_grounding_qa.py",
+      "bytes": 5503,
+      "sha256": "2cca9598453ab75cfbc27bd5ed572b14cb131c5065be16397ce629160240752e",
+      "git_blob": "e1dc16746f5e0b92c24aa841f682bef73e105e0d"
+    },
+    {
+      "path": "bie/director/speech_timing.py",
+      "bytes": 9326,
+      "sha256": "f6f42b0446b60039200c1c3aade400ced63e856069b16de257e3db54d5d29066",
+      "git_blob": "cb8f894868bafa41e32a7d7f20bc24b6348f7400"
+    },
+    {
+      "path": "bie/director/sync_contract.py",
+      "bytes": 10823,
+      "sha256": "2432a61fb770a24ae0bc688d3857e267c88d43df7f647b3974eb862bcabdb5f3",
+      "git_blob": "257af5e64ec0e3accb718ae7ba96e28f1285207f"
+    },
+    {
+      "path": "bie/director/teaching_context.py",
+      "bytes": 19818,
+      "sha256": "3957b9da4ddf8ff142d2519ac515832573bf8ad40c0a4a58fe92e797a4e2dff3",
+      "git_blob": "7d4d6ddc0cafbbfdde6f11ac50b2a298cd8b2f8b"
+    },
+    {
+      "path": "bie/director/timing_contract.py",
+      "bytes": 3833,
+      "sha256": "7529ff9b63e9223c7eb4306dc712756e58416cf5b66dc4b5f076750f0f03ae58",
+      "git_blob": "fb2935e52c6939412a38fed5b5e785a885be79f5"
+    },
+    {
+      "path": "bie/director/transition_strategy.py",
+      "bytes": 752,
+      "sha256": "58c28e61170cf8f9af6d16b7b9f19c5d9eb2f7593c7d99fbccfa8605f5047f15",
+      "git_blob": "32775ec8d323cb6097538b484f3fb9383e88fd47"
+    },
+    {
+      "path": "bie/director/voiceover_generation.py",
+      "bytes": 985,
+      "sha256": "f6cc5098c8b896f66af44fdbba54215845bd03db4e55fa748b5cf6519ef1f64e",
+      "git_blob": "de36162cc46a5451f5bac7085daa3fdd9cb1369b"
+    },
+    {
+      "path": "bie/director/windowed_annotation_review.py",
+      "bytes": 14994,
+      "sha256": "cbbea82d650b325dfb3a6e5ae90366e544f43e8657c64801a9b375e65353511e",
+      "git_blob": "73f92cf5335de5990729179a84917ad81c235948"
+    },
+    {
+      "path": "bie/director/windowed_annotations.py",
+      "bytes": 8912,
+      "sha256": "e07bccc30ed78125e36fee059c5cd359982730f1adaa2c9edb7e6c25f3b3806d",
+      "git_blob": "944068c3e93e6aceb693d0e284cda754aab46698"
+    },
+    {
+      "path": "bie/director/windowed_directing.py",
+      "bytes": 12196,
+      "sha256": "3bf7f641db1143b9f6f7d83758c14b132b54aedccccb0774e668a67c71488292",
+      "git_blob": "156871c7ad74c0660f1b77afbeeec5a5c50f33fb"
+    },
+    {
+      "path": "bie/director/wpm_adaptation.py",
+      "bytes": 5553,
+      "sha256": "f4c14b5e5e071fed6cfb2dc48371f43a51622213aebd13a1c8dd36a5b5792b9c",
+      "git_blob": "b82bd6dd5732acee73ed8e9ab5907c51d6726e10"
+    }
+  ],
+  "original_manifest_archives_seals_reviews_unchanged": true,
+  "audit_wiring": {
+    "path": "scripts/verify_ingested_archives.py",
+    "preimage": "docs/productization/director-span-step4-amendment/verify_ingested_archives.py.before",
+    "before": {
+      "bytes": 5698,
+      "sha256": "a879d24103b362c735fb26d8134feee365b5721fde6334e131c481ab6189961b",
+      "git_blob": "f9fb6f87983335c7c02e64e9cc92414578d302c8"
+    },
+    "after": {
+      "bytes": 6259,
+      "sha256": "558f3f291f938a372781609c6d78e37e97ab8f31519cc82abd186950ad96ee58",
+      "git_blob": "9fb7631286e80300915e8374faf98d7bdf63f660"
+    },
+    "reason": "Resolve only seven exact Director members and one six-contributor collision; keep pending review separate from integrity"
+  }
+}

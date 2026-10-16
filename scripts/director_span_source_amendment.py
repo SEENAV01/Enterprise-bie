@@ -18,7 +18,9 @@ MANIFEST = 'director_integration_003.json'
 MANIFEST_SHA = '02733513b9cca98b1255c7e615890ecd7e25726135a0d590a77b40ea5dba0285'
 DIRECTORY = 'docs/productization/director-span-step4-amendment/'
 DOCUMENT = DIRECTORY + 'AMENDMENT.json'
-DOCUMENT_SHA = '422853c8718e2f996497bae5c2060cb2b409a721ddea5187ed581fcadd1ee6cb'
+DOCUMENT_SHA = 'ea220cd84d343887b5b5e77bb69e28136cc2c2aa25df5a6c4a2981a966798377'
+PREVIOUS_DOCUMENT = 'docs/productization/director-span-step5-amendment/STEP4_AMENDMENT.json'
+PREVIOUS_SHA = '422853c8718e2f996497bae5c2060cb2b409a721ddea5187ed581fcadd1ee6cb'
 TARGETS = {'bie/director/qa_contract.py': 1, 'bie/director/narration_annotations.py': 6}
 
 
@@ -33,6 +35,8 @@ def identity(data):
 
 def validate(root):
     root = Path(root).resolve()
+    require(hashlib.sha256(regular(root, PREVIOUS_DOCUMENT, 128 * 1024)).hexdigest() == PREVIOUS_SHA,
+            'PREVIOUS_DRAFT')
     raw = regular(root, 'manifests/' + MANIFEST, 1024 * 1024)
     require(hashlib.sha256(raw).hexdigest() == MANIFEST_SHA, 'ORIGINAL_MANIFEST')
     original = json.loads(raw, object_pairs_hook=unique)

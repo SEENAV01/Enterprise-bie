@@ -19,7 +19,7 @@ class DirectorSpanAmendmentTests(unittest.TestCase):
         root = Path(tmp.name)
         paths = {r['path'] for r in self.document['original_director_inventory']}
         paths |= {r['preimage'] for r in self.document['files']}
-        paths |= {amendment.DOCUMENT, 'manifests/'+amendment.MANIFEST}
+        paths |= {amendment.DOCUMENT, amendment.PREVIOUS_DOCUMENT, 'manifests/'+amendment.MANIFEST}
         paths |= {self.document['audit_wiring']['path'], self.document['audit_wiring']['preimage']}
         for relative in paths:
             target = root/relative
@@ -90,6 +90,9 @@ class DirectorSpanAmendmentTests(unittest.TestCase):
 
     def test_original_manifest_tamper_rejected(self):
         self.reject_edit('manifests/'+amendment.MANIFEST, lambda b:b+b' ')
+
+    def test_previous_step4_draft_is_immutable_and_authenticated(self):
+        self.reject_edit(amendment.PREVIOUS_DOCUMENT, lambda b:b+b' ')
 
     def test_forged_duplicate_extra_or_missing_caller_member_rejected(self):
         for mode in ('duplicate','extra','missing'):

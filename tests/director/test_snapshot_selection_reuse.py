@@ -1,5 +1,7 @@
 """Operation-local reuse only; no cached validation or product-time probes."""
 from dataclasses import replace
+from types import MappingProxyType
+from collections import UserDict
 import unittest
 from unittest.mock import patch
 
@@ -70,7 +72,9 @@ class SnapshotSelectionReuseTests(unittest.TestCase):
         with self.assertRaises(ValueError): selection(self.snapshot, self.raw, index)
 
     def test_missing_or_extra_index_entries_are_rejected(self):
-        for index in ({self.u.utterance_id:self.u},
+        # Authentic scoped indexes are valid; omitting the selected entry is not.
+        other = self.snapshot.utterances[1]
+        for index in ({other.utterance_id:other},
                       dict(qa.validate_snapshot(self.snapshot), foreign=self.u), {}):
             with self.subTest(keys=tuple(index)), self.assertRaises(ValueError):
                 selection(self.snapshot, self.raw, index)
@@ -88,6 +92,33 @@ class SnapshotSelectionReuseTests(unittest.TestCase):
         for index in (True, [], (), 'index', 1):
             with self.subTest(kind=type(index).__name__), self.assertRaises(ValueError):
                 selection(self.snapshot, self.raw, index)
+
+    def test_scoped_index_conserves_span_with_one_fresh_reconstruction(self):
+        expected = selection(self.snapshot, self.raw)
+        with patch.object(qa, 'snapshot_script', wraps=qa.snapshot_script) as rebuild:
+            actual = selection(self.snapshot, self.raw, {self.u.utterance_id:self.u})
+        self.assertEqual(actual, expected)
+        self.assertEqual(rebuild.call_count, 1)
+
+    def test_readonly_and_mapping_scoped_indexes_are_compatible(self):
+        expected = selection(self.snapshot, self.raw)
+        for index in (MappingProxyType({self.u.utterance_id:self.u}), UserDict({self.u.utterance_id:self.u})):
+            self.assertEqual(selection(self.snapshot, self.raw, index), expected)
+
+    def test_scoped_index_does_not_hide_unselected_snapshot_tamper(self):
+        other = replace(self.snapshot.utterances[1], text='Forged speech.')
+        changed = replace(self.snapshot, utterances=(self.u, other))
+        with self.assertRaises(ValueError): selection(changed, self.raw, {self.u.utterance_id:self.u})
+
+    def test_readonly_forged_revision_is_rejected(self):
+        index = MappingProxyType({self.u.utterance_id:replace(self.u, text='Forged speech.')})
+        with self.assertRaises(ValueError): selection(self.snapshot, self.raw, index)
+
+    def test_mapping_equality_cannot_bless_foreign_entry(self):
+        class Equal(UserDict):
+            def __eq__(self, other): return True
+        with self.assertRaises(ValueError):
+            selection(self.snapshot, self.raw, Equal({self.u.utterance_id:self.u, 'foreign':self.u}))
 
     def test_unknown_and_invalid_utterance_ids_rejected(self):
         for uid in ('unknown', None, True, [], {}): self.reject(utterance_id=uid)

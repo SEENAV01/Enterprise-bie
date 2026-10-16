@@ -5,6 +5,7 @@ Host validators materialize original DIR contracts and retain every spoken word.
 """
 from dataclasses import asdict, dataclass, field
 import re
+from collections.abc import Mapping
 from .director_artifacts import array, canonical, fields, fingerprint, parse_json
 from .director_model import DirectingPolicy, DirectingFailure, ResourceLimit, invoke_structured
 from .contract_validation import ids, nonblank, finite
@@ -143,9 +144,10 @@ def selection(snapshot,raw,index=None):
     validated=validate_snapshot(snapshot)
     # A caller index is a consistency assertion, never validation authority.
     # Reject incomplete/foreign entries, including equality-spoofing objects.
-    if index is not None and (type(index) is not dict or
-            any(type(k) is not str or type(v) is not SpeechUtterance for k,v in index.items()) or
-            index!=validated):
+    if index is not None and (not isinstance(index, Mapping) or
+            raw['utterance_id'] not in index or
+            any(type(k) is not str or type(v) is not SpeechUtterance or
+                k not in validated or v!=validated[k] for k,v in index.items())):
         raise ValueError('span index differs from current snapshot')
     if type(raw['start_char']) is not int or type(raw['end_char']) is not int:raise ValueError('integer character boundaries required')
     span=_bind_validated_span(validated,raw['utterance_id'],raw['start_char'],raw['end_char'])
