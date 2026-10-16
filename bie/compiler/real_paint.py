@@ -17,6 +17,153 @@ from .content_fit_qa import DECLARED_SCOPE
 from .paint_quality import inspect_paint_quality
 
 _SEAL=object()
+CAPTURE_DIAGNOSTIC_SCHEMA='bie.capture-controller-failure/1'
+CAPTURE_DIAGNOSTIC_PHASES=frozenset(('REQUEST_READ','MODULE_LOAD','PIN_CHECK','BUNDLE','OPEN_BROWSER',
+    'SELECT_COMPOSITION','COMPOSITION_CHECK','RENDER_STILL','MEASUREMENT_CHECK','FRAME_HASH',
+    'MODE_INVENTORY','RESTORE_INVENTORY','RENDER_MEDIA','MEDIA_HASH','RESULT_WRITE','BROWSER_CLOSE'))
+CAPTURE_DIAGNOSTIC_GUARDS={
+    'CAPTURE_PIN_MISMATCH':'PIN_CHECK','CAPTURE_COMPOSITION_MISMATCH':'COMPOSITION_CHECK',
+    'CAPTURE_DOM_MEASUREMENT_MISSING':'MEASUREMENT_CHECK','CAPTURE_DOM_NONDETERMINISM':'MEASUREMENT_CHECK',
+    'CAPTURE_ASSET_READINESS':'MEASUREMENT_CHECK','CAPTURE_DOM_MODE_DRIFT':'MODE_INVENTORY',
+    'CAPTURE_DOM_RESTORE_DRIFT':'RESTORE_INVENTORY'}
+
+
+def validate_capture_failure_observation(value,manifest):
+    """Closed failure scalars only. This does not admit paint or inspect errors."""
+    keys={'schema','phase','guard_code','frame','shot_kind','target_index','frame_count','manifest_sha256','accepted'}
+    if type(value) is dict and value.get('schema')=='bie.capture-controller-failure/2':keys.add('policy_calls')
+    if type(value) is not dict or set(value)!=keys:raise ValueError('CAPTURE_DIAGNOSTIC_SHAPE')
+    for key in ('schema','phase','guard_code','shot_kind','manifest_sha256'):
+        if type(value[key]) is not str or len(value[key])>64:raise ValueError('CAPTURE_DIAGNOSTIC_TYPE')
+    policy_phases={'MEDIA_POLICY_CREATE','MEDIA_CALLBACK_PRE','MEDIA_CALLBACK_STITCH','MEDIA_CALLBACK_UNKNOWN','MEDIA_POLICY_COMPLETE'}
+    if value['schema']=='bie.capture-controller-failure/2':
+        calls=value['policy_calls']
+        if (type(calls) is not dict or set(calls)!={'create','pre_stitcher','stitcher','unknown_callback','completion'} or
+            any(type(v) is not int or not 0<=v<=2 for v in calls.values()) or calls['create']!=1 or
+            calls['completion']>1 or sum(calls.values())>6):raise ValueError('CAPTURE_DIAGNOSTIC_CALLS')
+        key={'MEDIA_POLICY_CREATE':'create','MEDIA_CALLBACK_PRE':'pre_stitcher','MEDIA_CALLBACK_STITCH':'stitcher',
+             'MEDIA_CALLBACK_UNKNOWN':'unknown_callback','MEDIA_POLICY_COMPLETE':'completion'}.get(value['phase'])
+        if key is None or calls[key]<1:raise ValueError('CAPTURE_DIAGNOSTIC_CALL_PHASE')
+    phases=policy_phases if value['schema']=='bie.capture-controller-failure/2' else CAPTURE_DIAGNOSTIC_PHASES
+    if (value['schema'] not in (CAPTURE_DIAGNOSTIC_SCHEMA,'bie.capture-controller-failure/2') or value['phase'] not in phases or
+        value['accepted'] is not False or type(manifest) is not str or len(manifest)!=64 or
+        any(c not in '0123456789abcdef' for c in manifest) or value['manifest_sha256']!=manifest):
+        raise ValueError('CAPTURE_DIAGNOSTIC_IDENTITY')
+    code=value['guard_code']
+    policy_guards={
+        'MEDIA_POLICY_CREATE':{'POLICY_SHAPE','POLICY_IDENTITY'},
+        'MEDIA_CALLBACK_PRE':{'REQUEST_SHAPE','ARGUMENT_SHAPE','ARGUMENT_THREADS','ARGUMENT_INPUT','ARGUMENT_OUTPUT','ARGUMENT_CODEC','ARGUMENT_PIPE','CALLBACK_DUPLICATE'},
+        'MEDIA_CALLBACK_STITCH':{'REQUEST_SHAPE','ARGUMENT_SHAPE','ARGUMENT_THREADS','ARGUMENT_INPUT','ARGUMENT_OUTPUT','ARGUMENT_CODEC','CALLBACK_DUPLICATE'},
+        'MEDIA_CALLBACK_UNKNOWN':{'REQUEST_SHAPE','CALLBACK_KIND'},
+        'MEDIA_POLICY_COMPLETE':{'COMPLETION_COUNTS'}}
+    if code!='NONE_RECORDED' and (code not in policy_guards.get(value['phase'],set()) if value['schema']=='bie.capture-controller-failure/2'
+            else CAPTURE_DIAGNOSTIC_GUARDS.get(code)!=value['phase']):
+        raise ValueError('CAPTURE_DIAGNOSTIC_GUARD')
+    if (type(value['frame_count']) is not int or not 1<=value['frame_count']<=2400 or
+        type(value['frame']) is not int or not -1<=value['frame']<value['frame_count'] or
+        type(value['target_index']) is not int or not -1<=value['target_index']<12000 or
+        value['shot_kind'] not in ('NONE','FULL','BASELINE','ISOLATED','MUTED','REPEAT')):
+        raise ValueError('CAPTURE_DIAGNOSTIC_BOUNDS')
+    if ((value['shot_kind'] in ('NONE','FULL','REPEAT') and value['target_index']!=-1) or
+        (value['shot_kind'] in ('BASELINE','ISOLATED','MUTED') and value['target_index']<0)):
+        raise ValueError('CAPTURE_DIAGNOSTIC_TARGET')
+    return value
+
+
+def _retain_capture_failure_observation(capture,out,manifest):
+    """Before private temporary cleanup; no stderr, receipts or arbitrary traversal.
+
+    Missing/invalid observations are left absent. Any diagnostic failure is
+    contained; the caller preserves the original process/painter rejection.
+    """
+    import os,stat
+    try:
+        source=Path(capture)/'CAPTURE_PROCESS_DIAGNOSTIC.json'
+        if any(p.is_symlink() for p in (source,*source.parents)):return
+        before=source.stat()
+        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or not 0<before.st_size<=1024:return
+        fd=os.open(source,os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_BINARY',0))
+        def stable(info):
+            return (info.st_dev,info.st_ino,info.st_mode,info.st_nlink,info.st_size,info.st_mtime_ns,info.st_ctime_ns)
+        with os.fdopen(fd,'rb') as stream:
+            handle=os.fstat(stream.fileno())
+            if (handle.st_dev,handle.st_ino,handle.st_size)!=(before.st_dev,before.st_ino,before.st_size):return
+            raw=stream.read(1025)
+            if stable(os.fstat(stream.fileno()))!=stable(handle):return
+        if stable(source.stat())!=stable(before) or len(raw)!=before.st_size:return
+        def pairs(items):
+            result={}
+            for key,item in items:
+                if key in result:raise ValueError('CAPTURE_DIAGNOSTIC_DUPLICATE')
+                result[key]=item
+            return result
+        value=validate_capture_failure_observation(json.loads(raw,object_pairs_hook=pairs),manifest)
+        with (Path(out)/'CAPTURE_PROCESS_DIAGNOSTIC.json').open('xb') as stream:
+            stream.write(canonical_json(value))
+    except BaseException:
+        pass
+
+def validate_media_failure_observation(value,manifest):
+    """Closed anonymous child-event scalars, not a media success witness."""
+    keys={'schema','phase','manifest_sha256','frame_count','state','spawn_events','events','accepted'}
+    signals={'SIGABRT','SIGALRM','SIGBUS','SIGFPE','SIGHUP','SIGILL','SIGINT','SIGKILL','SIGPIPE','SIGQUIT','SIGSEGV','SIGTERM','SIGTRAP','SIGXCPU','SIGXFSZ'}
+    codes={'EAGAIN','ENOMEM','EMFILE','ENFILE','EACCES','ENOENT','EBADF','EPIPE','ETIMEDOUT','ECONNRESET','ECONNREFUSED','UNKNOWN'}
+    if (type(value) is not dict or set(value)!=keys or
+        value['schema']!='bie.capture-media-process-failure/1' or value['phase']!='RENDER_MEDIA' or
+        value['accepted'] is not False or type(manifest) is not str or len(manifest)!=64 or
+        any(c not in '0123456789abcdef' for c in manifest) or value['manifest_sha256']!=manifest or
+        type(value['frame_count']) is not int or not 1<=value['frame_count']<=2400 or
+        type(value['events']) is not list or len(value['events'])>4):
+        raise ValueError('MEDIA_DIAGNOSTIC_IDENTITY')
+    if value['state']=='UNAVAILABLE':
+        if value['spawn_events']!='UNKNOWN' or value['events']!=[]:raise ValueError('MEDIA_DIAGNOSTIC_UNAVAILABLE')
+        return value
+    if value['state']!='VALID' or type(value['spawn_events']) is not int or not 0<=value['spawn_events']<=128:
+        raise ValueError('MEDIA_DIAGNOSTIC_STATE')
+    for row in value['events']:
+        if type(row) is not dict or set(row)!={'event','exit_code','signal','error_code'} or row['event'] not in ('EXIT','ERROR'):
+            raise ValueError('MEDIA_DIAGNOSTIC_EVENT')
+        if not (row['exit_code']=='UNKNOWN' or type(row['exit_code']) is int and -255<=row['exit_code']<=255):
+            raise ValueError('MEDIA_DIAGNOSTIC_EXIT')
+        if row['signal'] not in signals|{'UNKNOWN'} or row['error_code'] not in codes:
+            raise ValueError('MEDIA_DIAGNOSTIC_ENUM')
+        if ((row['event']=='EXIT' and row['error_code']!='UNKNOWN') or
+            (row['event']=='ERROR' and (row['exit_code']!='UNKNOWN' or row['signal']!='UNKNOWN'))):
+            raise ValueError('MEDIA_DIAGNOSTIC_PAIR')
+    return value
+
+
+def _retain_media_failure_observation(capture,out,manifest):
+    """One fixed bounded file before temporary cleanup. Failure cannot mask paint."""
+    import os,stat
+    try:
+        source=Path(capture)/'MEDIA_PROCESS_DIAGNOSTIC.json'
+        if any(p.is_symlink() for p in (source,*source.parents)):return
+        before=source.stat()
+        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or not 0<before.st_size<=1024:return
+        fd=os.open(source,os.O_RDONLY|getattr(os,'O_NOFOLLOW',0)|getattr(os,'O_BINARY',0))
+        def stable(info):
+            return (info.st_dev,info.st_ino,info.st_mode,info.st_nlink,info.st_size,info.st_mtime_ns,info.st_ctime_ns)
+        with os.fdopen(fd,'rb') as stream:
+            handle=os.fstat(stream.fileno())
+            if (handle.st_dev,handle.st_ino,handle.st_size)!=(before.st_dev,before.st_ino,before.st_size):return
+            raw=stream.read(1025)
+            if stable(os.fstat(stream.fileno()))!=stable(handle):return
+        if stable(source.stat())!=stable(before) or len(raw)!=before.st_size:return
+        def pairs(items):
+            result={}
+            for key,item in items:
+                if key in result:raise ValueError('MEDIA_DIAGNOSTIC_DUPLICATE')
+                result[key]=item
+            return result
+        def constant(_):raise ValueError('MEDIA_DIAGNOSTIC_NONFINITE')
+        value=validate_media_failure_observation(json.loads(raw,object_pairs_hook=pairs,parse_constant=constant),manifest)
+        with (Path(out)/'MEDIA_PROCESS_DIAGNOSTIC.json').open('xb') as stream:
+            stream.write(canonical_json(value))
+    except BaseException:
+        pass
+
+
 @dataclass(frozen=True)
 class ActualPaintWitness:
     source_manifest_sha256:str
@@ -93,6 +240,32 @@ def isolated_typecheck(root, *, node, evidence_directory):
     return result
 
 
+def _governed_media_thread_policy(raw,target):
+    """A new explicit media policy, selected only after live M1 admission.
+
+    No opaque metadata, caller safety flag or legacy action selects this path.
+    This changes media thread allocation, not native motion or resource limits.
+    """
+    from .governed_motion import validate_document,PROFILE,METADATA
+    profile=validate_document(raw,target)
+    if profile!=PROFILE:return None
+    if target.remotion_version!='4.0.506':raise CompilerQAError('M1_MEDIA_THREAD_PIN')
+    return {'schema':'bie.comp-m1.media-threads/1','profile':PROFILE,
+            'remotion_version':'4.0.506','admission_id':raw['metadata'][METADATA]['admission_id'],
+            'decoder_threads':1,'encoder_threads':1,'filter_threads':1}
+
+
+def _validate_media_thread_execution(value,policy):
+    """Closed scalar proof of the actual pinned callback path, no coercion."""
+    if (type(value) is not dict or set(value)!=set(policy)|{'pre_stitcher_calls','stitcher_calls'} or
+        any(type(value[k]) is not int or value[k]!=1 for k in
+            ('decoder_threads','encoder_threads','filter_threads','stitcher_calls')) or
+        type(value['pre_stitcher_calls']) is not int or value['pre_stitcher_calls'] not in (0,1) or
+        any(type(value[k]) is not str or value[k]!=v for k,v in policy.items() if type(v) is str)):
+        raise CompilerQAError('M1_MEDIA_THREAD_EXECUTION_IDENTITY')
+    return value
+
+
 def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
     from .hardened_scene_compile import require_h3_workspace,compile_h3_scene
     root=Path(workspace).absolute();out=Path(output).absolute()
@@ -100,6 +273,7 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
     checked=require_h3_workspace(root);envelope=json.loads((root/'CHECKED_SCENE.json').read_text())
     if asdict(target)!=envelope['target']:raise CompilerQAError('ACTUAL_PAINT_TARGET_MISMATCH')
     compiled=compile_h3_scene(envelope['document'],target=target,motion_preference=envelope['motion_preference']);raw=compiled.effective_document
+    media_thread_policy=_governed_media_thread_policy(raw,target)
     n=(raw['duration_ms']*target.fps+999)//1000
     if n>2400 or n*len(raw['elements'])>12000:raise CompilerQAError('ACTUAL_PAINT_WORK_BUDGET_NO_SAMPLED_PASS')
     from .raster_capture import build_raster_targets,capture_budget,inspect_counterfactual_capture,REAL_SCOPE
@@ -112,6 +286,10 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
         if 'node_modules/'+name not in before['installed_packages']:raise CompilerQAError('ACTUAL_PAINT_RENDERER_DEPENDENCY_MISSING:'+name)
     out.mkdir(parents=True)
     nonce=secrets.token_hex(24);support=Path(__file__).parent/'qa_support'
+    media_helper=support/'bounded_media_threads.cjs'
+    media_helper_sha256='2f2788895f598cea5c37449f1b54761c420a9c03e0d4e56cf4bd8fdd84fd0bb9'
+    if media_thread_policy is not None and file_hash(media_helper)[0]!=media_helper_sha256:
+        raise CompilerQAError('M1_MEDIA_THREAD_SOURCE_IDENTITY')
     with tempfile.TemporaryDirectory(prefix='bie-real-paint-') as td:
         stage=Path(td)/'project'
         shutil.copytree(root,stage,symlinks=True,ignore=shutil.ignore_patterns('out','render-evidence','validation-runs'))
@@ -125,6 +303,7 @@ def produce_actual_paint(workspace,output, *, node,browser,target,policy=None):
              'fps':target.fps,'frame_count':n,'nonce':nonce,'rasterTargets':raster_targets,
              'scene_sha256':digest(raw),'manifest_sha256':checked.manifest_sha256,
              'equationFonts':{e['element_id']:e['props'].get('font_size',32) for e in raw['elements'] if e['element_type']=='equation'}}
+        if media_thread_policy is not None:req['media_thread_policy']=media_thread_policy
         # JS measurement lives in checked-in trusted helpers, not the ingested book.
         # Enable checkJs=false only for helper DOM code in a separate module; original strict TS config unchanged.
         helper='export const baseMeasure = '+(support/'layout_measure.js').read_text().strip()+';\nexport const paintMeasure = '+(support/'paint_measure.js').read_text().strip()+';\n'
@@ -152,12 +331,25 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
         # Use inline Wasm bounds checks under the unchanged 8 GiB address ceiling.
         # The option is scoped to this Wasm-using producer, never NODE_OPTIONS.
         command=[str(node),'--disable-wasm-trap-handler','/engine/bie/compiler/qa_support/remotion_raster_capture.cjs','/work/capture-request.json']
-        process,kernel=run_chromium_isolated(command,browser=browser,kind='actual-paint',receipt_path=out/'CHROMIUM_RESOURCE.json',
+        try:
+            process,kernel=run_chromium_isolated(command,browser=browser,kind='actual-paint',receipt_path=out/'CHROMIUM_RESOURCE.json',
                                    workspace=stage,engine=Path(__file__).resolve().parents[2],writable=['capture-output'],
                                    policy=policy or WorkerPolicy(),timeout_s=max(120,min(3600,n*4)),max_output_bytes=8*1024**2)
+        except BaseException:
+            _retain_capture_failure_observation(capture,out,checked.manifest_sha256)
+            _retain_media_failure_observation(capture,out,checked.manifest_sha256)
+            raise
+        if not process.process.passed:
+            _retain_capture_failure_observation(capture,out,checked.manifest_sha256)
+            _retain_media_failure_observation(capture,out,checked.manifest_sha256)
         (out/'PROCESS.json').write_bytes(canonical_json({'command':command,'process':asdict(process),'kernel_policy':kernel}))
         if not process.process.passed:raise CompilerQAError('ACTUAL_PAINT_EXECUTION_BLOCKED:'+process.outcome+':'+process.process.stderr[:500])
         data=json.loads((capture/'RESULT.json').read_text())
+        if media_thread_policy is not None:
+            expected_media=_validate_media_thread_execution(data.get('media_thread_execution'),media_thread_policy)
+            if file_hash(media_helper)[0]!=media_helper_sha256:
+                raise CompilerQAError('M1_MEDIA_THREAD_EXECUTION_IDENTITY')
+        elif 'media_thread_execution' in data:raise CompilerQAError('M1_MEDIA_THREAD_LEGACY_DRIFT')
         if data.get('scope')!='REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE' or data.get('nonce')!=nonce or data.get('real_remotion') is not True or data.get('browser_errors')!=[]:
             raise CompilerQAError('ACTUAL_PAINT_PRODUCER_MISMATCH')
         frames=data['frames']
@@ -184,5 +376,8 @@ const rasterModeImpl: (options:unknown) => unknown = rawRasterMode;
                   'helper_sha256':file_hash(stage/'qa-paint-helper.js')[0],'producer_sha256':file_hash(support/'remotion_raster_capture.cjs')[0],
                   'frame_count':n,'fit':fit,'paint':quality,'raster':raster,'font_coverage':font_evidence,'kernel_policy':kernel,'real_remotion':True,
                   'scope':'PROCESS_OWNED_INSTRUMENTED_ORIGINAL_SCENE','learning_quality':'NOT_EVALUATED','accepted':False}
+        if media_thread_policy is not None:
+            evidence['media_thread_execution']=expected_media
+            evidence['media_thread_helper_sha256']=media_helper_sha256
         (out/'EVIDENCE.json').write_bytes(canonical_json(evidence))
         return ActualPaintWitness(checked.manifest_sha256,digest(evidence),before['identity_sha256'],n,fit['passed'] and quality['passed'] and raster['passed'],evidence,_SEAL)

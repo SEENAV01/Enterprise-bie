@@ -65,11 +65,17 @@ def _is_sha(value: object, length: int = 64) -> bool:
 
 
 def approved_profiles() -> dict:
-    """Bind the observed version map to unchanged canonical setup inputs."""
+    """Return historical profile authority, authenticating exact amendments.
+
+    This map is not a claim that amended workflow bytes equal historical bytes.
+    Actual amended-root AFTER receipts carry the separately validated v2 witness.
+    """
+    amendment = current_profile_amendment()
     for relative, expected in PROFILE_BLOBS.items():
         data = (ROOT / relative).read_bytes().replace(b"\r\n", b"\n")
         if sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest() != expected:
-            raise ValueError("APPROVED_PROFILE_IDENTITY_MISMATCH")
+            if relative != ".github/workflows/post-dir-canonical-catchup.yml" or amendment is None:
+                raise ValueError("APPROVED_PROFILE_IDENTITY_MISMATCH")
     left = (ROOT / "requirements-comp-h3.txt").read_bytes()
     right = (ROOT / ".integration/tools/requirements-validation.txt").read_bytes()
     if left != right:
@@ -93,6 +99,40 @@ def approved_profiles() -> dict:
     if observed != {distribution.lower(): version for distribution, version in APPROVED_PACKAGES.values()}:
         raise ValueError("APPROVED_PROFILE_VERSION_MISMATCH")
     return dict(PROFILE_BLOBS)
+
+
+def _profile_module():
+    path = ROOT / "tests/productization/scene_ir/canonical_history_profile.py"
+    if path.is_symlink() or not path.is_file() or path.resolve().parent != (ROOT / "tests/productization/scene_ir").resolve():
+        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE")
+    before = path.stat()
+    if not 0 < before.st_size <= 65536:
+        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_BOUND")
+    with path.open("rb") as source:
+        data = source.read(65537).replace(b"\r\n", b"\n")
+    after = path.stat()
+    if (before.st_size, before.st_mtime_ns, before.st_ino) != (after.st_size, after.st_mtime_ns, after.st_ino):
+        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_CHANGED")
+    if sha256(data).hexdigest() != "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e":
+        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_IDENTITY")
+    spec = importlib.util.spec_from_file_location("task036_exact_history_profile", path)
+    module = importlib.util.module_from_spec(spec)
+    # Execute precisely the checked bytes, not a second loader filesystem read.
+    exec(compile(data, str(path), "exec"), module.__dict__)
+    return module
+
+
+def current_profile_amendment():
+    """Old roots remain unchanged; new roots require an exact sealed witness."""
+    path = ROOT / "docs/productization/task036-ci-history-amendment/AMENDMENT.json"
+    data = (ROOT / ".github/workflows/post-dir-canonical-catchup.yml").read_bytes().replace(b"\r\n", b"\n")
+    identity = sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
+    if identity == PROFILE_BLOBS[".github/workflows/post-dir-canonical-catchup.yml"] and not path.exists():
+        guard = Path(__file__).read_bytes().replace(b"\r\n", b"\n")
+        if (len(guard) == 20244 and sha256(guard).hexdigest() == "488673c818ee3eb4d869391e95708ea50ddeaaaad20a5aa543d5cda61e6a5b97"):
+            return None
+        raise ValueError("APPROVED_PROFILE_PARTIAL_ROLLBACK")
+    return _profile_module().authenticate(ROOT)
 
 
 def runtime_preflight() -> dict:
@@ -272,15 +312,30 @@ def validate_comparison(value: object, expected_head: str) -> bool:
 
 def validate_after_receipt(value: object, expected_head: str) -> bool:
     try:
-        return (isinstance(value, dict) and set(value) == {"schema", "scope", "phase", "base", "candidate", "runtime",
-                    "comparison", "after_gate_passed", "mandatory_regression_substituted", "product_accepted"}
-                and value["schema"] == SCHEMA and value["scope"] == SCOPE and value["phase"] == PHASE
+        keys = {"schema", "scope", "phase", "base", "candidate", "runtime",
+                "comparison", "after_gate_passed", "mandatory_regression_substituted", "product_accepted"}
+        if not isinstance(value, dict):
+            return False
+        if value.get("schema") == "bie.task035.post-dir-after/2":
+            if set(value) != keys | {"profile_amendment"}:
+                return False
+            module = _profile_module()
+            if not module.validate_witness(value["profile_amendment"]) or value["profile_amendment"] != module.authenticate(ROOT):
+                return False
+        elif value.get("schema") != SCHEMA or set(value) != keys:
+            return False
+        valid = (value["scope"] == SCOPE and value["phase"] == PHASE
                 and value["base"] == diagnostics.BASE and value["candidate"] == expected_head
                 and value["after_gate_passed"] is True and value["mandatory_regression_substituted"] is False
                 and value["product_accepted"] is False and validate_runtime(value["runtime"])
                 and validate_comparison(value["comparison"], expected_head)
                 and value["runtime"]["python"]["executable_sha256"] == value["comparison"]["environment"]["python_executable_sha256"])
-    except (KeyError, TypeError, ValueError):
+        if valid and value["schema"] == SCHEMA and expected_head == diagnostics.git_text("rev-parse", "HEAD"):
+            # Pure historical v1 validation remains compatible, but the actual
+            # amended-root candidate cannot use it as current-source evidence.
+            return current_profile_amendment() is None
+        return valid
+    except (KeyError, TypeError, ValueError, OSError, ImportError):
         return False
 
 
@@ -297,6 +352,9 @@ def collect_after() -> dict:
     receipt = {"schema": SCHEMA, "scope": SCOPE, "phase": PHASE, "base": diagnostics.BASE,
                "candidate": head, "runtime": runtime, "comparison": comparison,
                "after_gate_passed": True, "mandatory_regression_substituted": False, "product_accepted": False}
+    amendment = current_profile_amendment()
+    if amendment is not None:
+        receipt.update(schema="bie.task035.post-dir-after/2", profile_amendment=amendment)
     receipt["after_gate_passed"] = validate_after_receipt(receipt, head)
     return receipt
 

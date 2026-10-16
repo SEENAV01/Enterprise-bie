@@ -8,9 +8,11 @@ import zipfile
 try:
     from compiler_cache_source_amendment import resolve as resolve_cache_fix
     from compiler_caller_source_amendment import resolve as resolve_caller_fix
+    from compiler_motion_source_amendment import resolve as resolve_motion_fix
 except ImportError:
     from scripts.compiler_cache_source_amendment import resolve as resolve_cache_fix
     from scripts.compiler_caller_source_amendment import resolve as resolve_caller_fix
+    from scripts.compiler_motion_source_amendment import resolve as resolve_motion_fix
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -40,6 +42,8 @@ def audit(root=ROOT):
             m, amended = resolve_cache_fix(root, manifest_path, m)
             reviewed_amendments += amended
             m, amended = resolve_caller_fix(root, manifest_path, m)
+            reviewed_amendments += amended
+            m, amended = resolve_motion_fix(root, manifest_path, m)
             reviewed_amendments += amended
             if 'archives' not in m or 'members' not in m:
                 raise ValueError('integration manifest lacks archives/members')

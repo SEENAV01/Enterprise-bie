@@ -1,0 +1,59 @@
+name: BIE Task036 Proc Lifecycle Reproduction
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [product/scene-ir-producer-001]
+    paths:
+      - 'tests/compiler/run_m1_proc_lifecycle.py'
+      - 'tests/compiler/test_m1_proc_lifecycle.py'
+      - 'tests/compiler/run_m1_monitor_snapshot_kernel.py'
+      - 'tests/compiler/test_m1_monitor_snapshot.py'
+      - 'bie/compiler/chromium_resource_worker.py'
+      - 'scripts/compiler_monitor_snapshot_amendment.py'
+      - '.github/workflows/task036-proc-lifecycle.yml'
+
+permissions:
+  contents: read
+concurrency:
+  group: bie-task036-proc-lifecycle-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  kernel-lifecycle:
+    runs-on: ubuntu-24.04
+    # Same existing native test job ceiling, not an expanded render budget.
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Existing approved canonical runtime and namespace policy
+        run: |
+          cmp requirements-comp-h3.txt .integration/tools/requirements-validation.txt
+          bash .integration/tools/setup_ci_environment.sh
+          python -m pip check
+      - name: Actual baseline lifecycle plus owned-leaf monitor quiescence and restoration
+        # No browser launch/render, privilege bypass, monitor skip or grants.
+        # Only the declared trusted test supervisor creates/cleans its own group.
+        run: |
+          sudo -n env "PATH=$PATH" "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-}" PYTHONDONTWRITEBYTECODE=1 PYTHONUTF8=1 \
+            "$(command -v python)" -I -B tests/compiler/run_m1_monitor_snapshot_kernel.py \
+            --output "$RUNNER_TEMP/proc-lifecycle-evidence/kernel.json"
+      - name: Preserve bounded synthetic kernel facts only
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: bie-task036-proc-lifecycle-evidence
+          path: ${{ runner.temp }}/proc-lifecycle-evidence/kernel.json
+          if-no-files-found: error
+          retention-days: 14

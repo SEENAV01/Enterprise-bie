@@ -5,14 +5,20 @@ import argparse, ast, io, json, stat, zipfile
 try:
     from compiler_cache_source_amendment import resolve_source_members as resolve_native_members
     from compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
+    from compiler_motion_source_amendment import resolve_source_members as resolve_motion_members
+    from compiler_monitor_snapshot_amendment import validate as validate_monitor_snapshot
 except ImportError:
     from scripts.compiler_cache_source_amendment import resolve_source_members as resolve_native_members
     from scripts.compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
+    from scripts.compiler_motion_source_amendment import resolve_source_members as resolve_motion_members
+    from scripts.compiler_monitor_snapshot_amendment import validate as validate_monitor_snapshot
 ROOT = Path(__file__).resolve().parents[1]
 
 def resolve_source_members(root,manifest_path,manifest):
+    validate_monitor_snapshot(root)
     rows=resolve_native_members(root,manifest_path,manifest)
-    return resolve_caller_members(root,manifest_path,manifest,rows)
+    rows=resolve_caller_members(root,manifest_path,manifest,rows)
+    return resolve_motion_members(root,manifest_path,manifest,rows)
 
 def digest(data): return sha256(data).hexdigest()
 

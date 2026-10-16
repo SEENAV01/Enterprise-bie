@@ -289,6 +289,167 @@ def approved_command(command, root, browser, kind):
         command.append('--chrome-mode=chrome-for-testing')
     return command
 
+@contextlib.contextmanager
+def frozen_monitor_members(group):
+    """Quiesce only the freshly owned leaf, including its workload reapers.
+
+    Entry admission and _grant retain their existing separate freeze scope.
+    Never catch a proc permission rejection or infer its cause from later exit.
+    Restoration is attempted even after a partially failed freeze. If both body
+    and restoration fail, the original rejection remains; no success escapes.
+    """
+    require(type(group) is OwnedMemoryGroup and group.path.parent==CGROOT and
+        not group.path.is_symlink() and group.path.stat().st_ino==group.inode and
+        os.getpid() not in group.members(),'MONITOR_GROUP_IDENTITY')
+    require(counters(group.path/'cgroup.events').get('frozen')==0,'MONITOR_ALREADY_FROZEN')
+    failure=None
+    try:
+        group.freeze(True)
+        members=group.members()
+        require(len(members)<=128 and all(type(pid) is int and 0<pid<2**31 for pid in members),
+            'PROCESS_BOUND')
+        yield tuple(sorted(members))
+    except BaseException as error:
+        failure=error
+        raise
+    finally:
+        try:group.freeze(False)
+        except BaseException:
+            if failure is None:raise
+
+def _monitor_read(directory,name,maximum):
+    """Fixed owned proc files; anchored reads never rebind a recycled PID."""
+    require(type(directory) is int and 0<=directory<2**31 and type(name) is str and
+        name in ('stat','cgroup','maps') and type(maximum) is int and maximum in (4096,2*1024**2),'MONITOR_FIELD')
+    fd=os.open(name,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC,dir_fd=directory)
+    stream=None;failure=None
+    try:
+        stream=os.fdopen(fd,'rb')
+        # Buffered bounded read, like the original bounded_read: one raw proc
+        # read can be short without EOF and must not truncate maps/cgroup.
+        raw=stream.read(maximum+1)
+        require(type(raw) is bytes and len(raw)<=maximum,'CONTROL_SIZE')
+        return raw
+    except BaseException as error:
+        failure=error
+        raise
+    finally:
+        try:
+            if stream is None:os.close(fd)
+            else:stream.close()
+        except BaseException:
+            if failure is None:raise
+
+def _monitor_identity(directory,pid):
+    raw=_monitor_read(directory,'stat',4096)
+    prefix,separator,rest=raw.partition(b' (');end=rest.rfind(b') ')
+    require(separator==b' (' and prefix.isdigit() and int(prefix)==pid and end>=0,'MONITOR_IDENTITY')
+    fields=rest[end+2:].split()
+    require(len(fields)>=20 and fields[0] in (b'R',b'S',b'D',b'Z',b'T',b't',b'X',b'x',b'I') and
+        fields[19].isdigit() and int(fields[19])>0,'MONITOR_IDENTITY')
+    return pid,int(fields[19])
+
+def capture_frozen_member(group,pid,browser,grants):
+    """Read-only, identity-bound observation; no grant or terminal omission.
+
+    Caller holds canonical whole-leaf freeze. A vanished proc retains the legacy
+    caller's ENOENT/ESRCH behavior. PermissionError always propagates, including
+    a denial followed by exit. Leader state alone never authorizes omission.
+    """
+    import resource,stat
+    directory=pidfd=None;failure=None
+    try:
+        require(type(pid) is int and 0<pid<2**31 and type(group) is OwnedMemoryGroup and
+            counters(group.path/'cgroup.events').get('frozen')==1,
+            'MONITOR_NOT_FROZEN')
+        directory=os.open('/proc/'+str(pid),os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)
+        require(type(directory) is int and directory>=0 and
+            stat.S_ISDIR(os.fstat(directory).st_mode) and not os.get_inheritable(directory),
+            'MONITOR_ANCHOR')
+        before=_monitor_identity(directory,pid)
+        pidfd=os.pidfd_open(pid,0)
+        require(type(pidfd) is int and pidfd>=0 and not os.get_inheritable(pidfd) and
+            _monitor_identity(directory,pid)==before,'MONITOR_PIDFD_IDENTITY')
+        owned=('0::/'+group.path.name+'\n').encode()
+        require(_monitor_read(directory,'cgroup',4096)==owned and pid in group.members(),
+            'FOREIGN_PROCESS')
+        granted=admitted_browser_grant(os.readlink('exe',dir_fd=directory),
+            os.readlink('root',dir_fd=directory),browser,grants)
+        mappings=None
+        if granted:
+            require(resource.prlimit(pid,resource.RLIMIT_AS)==(CHROME_AS,CHROME_AS),'CHROME_LIMIT')
+            mappings=_monitor_read(directory,'maps',2*1024**2)
+        require(_monitor_identity(directory,pid)==before and
+            _monitor_read(directory,'cgroup',4096)==owned and pid in group.members(),
+            'MONITOR_IDENTITY')
+        return (pid,before[1],mappings) if mappings is not None else None
+    except BaseException as error:
+        failure=error
+        raise
+    finally:
+        first=None
+        for fd in (pidfd,directory):
+            if fd is not None:
+                try:os.close(fd)
+                except BaseException as error:
+                    if first is None:first=error
+        # An FD cleanup error cannot permit a successful observation. A body
+        # rejection must retain its original identity instead of being masked.
+        if first is not None and failure is None:raise first
+
+def parse_captured_member(captured):
+    """Pure processing of an earlier coherent private snapshot, NOT live authority.
+
+    No kernel reads, grants or resource mutation. Caller must complete capture,
+    close every descriptor and successfully thaw before using this result.
+    Preserve strict UTF-8/range rejection and the original >=1GiB span policy.
+    """
+    if captured is None:return None
+    require(type(captured) is tuple and len(captured)==3 and
+        type(captured[0]) is int and 0<captured[0]<2**31 and
+        type(captured[1]) is int and captured[1]>0 and
+        type(captured[2]) is bytes and len(captured[2])<=2*1024**2,'MONITOR_CAPTURE')
+    spans=[]
+    for row in captured[2].decode().splitlines():
+        first,last=(int(x,16) for x in row.split()[0].split('-'))
+        require(0<=first<last<2**64,'MONITOR_MAPPING')
+        if last-first>=1024**3:spans.append(dict(bytes=last-first,permissions=row.split()[1]))
+    return spans
+
+def observe_frozen_member(group,pid,browser,grants):
+    """Compatibility helper: unchanged list/None result and fail-closed checks.
+
+    Canonical execution separates these phases; direct legacy consumers retain
+    the complete native observation contract without a fabricated receipt.
+    """
+    return parse_captured_member(capture_frozen_member(group,pid,browser,grants))
+
+def capture_monitor_cycle(group,browser,grants):
+    """One complete owned cohort, bounded by existing member/read ceilings.
+
+    Private pending data is bounded to 128*2MiB, one generation only; decoded
+    strings/spans are never batched while frozen. No member sampling/truncation.
+    Failure discards all pending captures. Publication cannot precede thaw.
+    """
+    captured=[];total=0
+    try:
+        with frozen_monitor_members(group) as monitored:
+            for pid in monitored:
+                try:
+                    row=capture_frozen_member(group,pid,browser,grants)
+                    if row is not None:
+                        require(type(row) is tuple and len(row)==3 and row[0]==pid and
+                            type(row[0]) is int and type(row[1]) is int and row[1]>0 and
+                            type(row[2]) is bytes and len(row[2])<=2*1024**2,'MONITOR_CAPTURE')
+                        total+=len(row[2])
+                        require(len(captured)<128 and total<=128*2*1024**2,'MONITOR_PENDING_BOUND')
+                        captured.append(row)
+                except (FileNotFoundError,ProcessLookupError):pass
+        return captured
+    except BaseException:
+        captured.clear()
+        raise
+
 def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),policy=None,timeout_s=120,
                           cancel_event=None,max_output_bytes=2*1024**2,secrets=(),receipt_path=None):
     import resource,signal
@@ -353,20 +514,17 @@ def run_chromium_isolated(command,*,workspace,engine,browser,kind,writable=(),po
                         granted=_grant(group,pid,expected,entry_hash,node_hash,source_policy_hash,private_temporary)
                         granted['browser_argv']=[x.decode() for x in argv[3:]]
                         grants.append(granted)
-                    try:
-                        # The 1TiB V8 reservation belongs to a renderer child,
-                        # not necessarily the admitted main Chrome PID. These
-                        # PIDs are already from this private bounded cgroup.
-                        granted=admitted_browser_grant(os.readlink(proc/'exe'),os.readlink(proc/'root'),browser,grants)
-                        if granted:
-                            require(resource.prlimit(pid,resource.RLIMIT_AS)==(CHROME_AS,CHROME_AS),'CHROME_LIMIT')
-                            maps=bounded_read(proc/'maps',2*1024**2).decode();spans=[]
-                            for row in maps.splitlines():
-                                first,last=(int(x,16) for x in row.split()[0].split('-'))
-                                if last-first>=1024**3:spans.append(dict(bytes=last-first,permissions=row.split()[1]))
-                            old=observed.get(pid,[])
-                            if sum(r['bytes'] for r in spans)>sum(r['bytes'] for r in old):observed[pid]=spans
-                    except (FileNotFoundError,ProcessLookupError):pass
+                # Keep _grant outside this scope: its independent finally must
+                # not thaw a supposedly frozen observation. Snapshot membership
+                # AFTER freeze, not the earlier mutable admission enumeration.
+                captured=capture_monitor_cycle(group,browser,grants)
+                try:
+                    for row in captured:
+                        pid=row[0];spans=parse_captured_member(row)
+                        old=observed.get(pid,[])
+                        if sum(r['bytes'] for r in spans)>sum(r['bytes'] for r in old):observed[pid]=spans
+                finally:
+                    captured.clear();row=None
                 time.sleep(.01)
             if failure is None:
                 _,stderr=outer.communicate(timeout=2)

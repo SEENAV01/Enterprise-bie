@@ -3,25 +3,137 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {createRequire}=require('node:module');
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+// Failure-only scalar observations. No exception, log, source or path is copied.
+// These never grant a paint witness and never change rendering or its limits.
+let diagnosticOutput=null,failedObservation=null;
+let mediaFailure=null;
+async function observeMedia(call){
+ let proto,original,prior,nativeError,signals,codes,record;
+ try{
+  proto=require('node:child_process').ChildProcess.prototype;
+  original=proto.emit;
+  prior=Object.getOwnPropertyDescriptor(proto,'emit');
+  nativeError=require('node:util').types.isNativeError;
+  signals=new Set(['SIGABRT','SIGALRM','SIGBUS','SIGFPE','SIGHUP','SIGILL','SIGINT','SIGKILL','SIGPIPE','SIGQUIT','SIGSEGV','SIGTERM','SIGTRAP','SIGXCPU','SIGXFSZ']);
+  codes=new Set(['EAGAIN','ENOMEM','EMFILE','ENFILE','EACCES','ENOENT','EBADF','EPIPE','ETIMEDOUT','ECONNRESET','ECONNREFUSED']);
+  record={schema:'bie.capture-media-process-failure/1',phase:'RENDER_MEDIA',
+   manifest_sha256:observation.manifest_sha256,frame_count:observation.frame_count,
+   state:'VALID',spawn_events:0,events:[],accepted:false};
+ }catch(_){return call();}
+ function observed(...args){
+  try{
+   if(record.state==='VALID'){
+    if(args[0]==='spawn'){
+     if(record.spawn_events>=128)throw new Error();
+     record.spawn_events++;
+    }else if(args[0]==='exit'||args[0]==='error'){
+     if(record.events.length>=4)throw new Error();
+     const row={event:args[0]==='exit'?'EXIT':'ERROR',exit_code:'UNKNOWN',signal:'UNKNOWN',error_code:'UNKNOWN'};
+     if(args[0]==='exit'){
+      if(Number.isInteger(args[1])&&args[1]>=-255&&args[1]<=255)row.exit_code=args[1];
+      if(typeof args[2]==='string'&&args[2].length<=16&&signals.has(args[2]))row.signal=args[2];
+     }else if(nativeError(args[1])){
+      const descriptor=Object.getOwnPropertyDescriptor(args[1],'code');
+      if(descriptor&&Object.hasOwn(descriptor,'value')&&typeof descriptor.value==='string'&&descriptor.value.length<=16&&codes.has(descriptor.value))row.error_code=descriptor.value;
+     }
+     record.events.push(row);
+    }
+   }
+  }catch(_){record.state='UNAVAILABLE';record.spawn_events='UNKNOWN';record.events=[];}
+  return Reflect.apply(original,this,args);
+ }
+ if(typeof original!=='function')return call();
+ try{Object.defineProperty(proto,'emit',{value:observed,writable:true,configurable:true,enumerable:prior?prior.enumerable:false});}catch(_){return call();}
+ try{return await call();}
+ catch(error){try{mediaFailure=record;}catch(_){}throw error;}
+ finally{try{if(prior)Object.defineProperty(proto,'emit',prior);else delete proto.emit;}catch(_){/* Never mask the original call. */}}
+}
+const observation={schema:'bie.capture-controller-failure/1',phase:'REQUEST_READ',
+ guard_code:'NONE_RECORDED',frame:-1,shot_kind:'NONE',target_index:-1,
+ frame_count:0,manifest_sha256:'UNKNOWN',accepted:false};
+const policyCalls={create:0,pre_stitcher:0,stitcher:0,unknown_callback:0,completion:0};
+function mark(phase){observation.schema='bie.capture-controller-failure/1';observation.phase=phase;observation.guard_code='NONE_RECORDED';}
+function mediaPolicyPhase(phase,call){
+ // Exactly one delegate call; returned object and original exception unchanged.
+ // A data descriptor only: no private message, argument or getter is inspected.
+ try{
+  mark(phase);observation.schema='bie.capture-controller-failure/2';
+  const key={MEDIA_POLICY_CREATE:'create',MEDIA_CALLBACK_PRE:'pre_stitcher',MEDIA_CALLBACK_STITCH:'stitcher',
+   MEDIA_CALLBACK_UNKNOWN:'unknown_callback',MEDIA_POLICY_COMPLETE:'completion'}[phase];
+  policyCalls[key]++;
+ }catch(_){/* Failure-only observation; delegate still executes exactly once. */}
+ try{
+  const result=call();
+  try{observation.schema='bie.capture-controller-failure/1';mark('RENDER_MEDIA');}
+  catch(_){/* A post-call diagnostic fault cannot replace the returned object. */}
+  return result;
+ }catch(error){
+  try{
+   const descriptor=require('node:util').types.isNativeError(error)?Object.getOwnPropertyDescriptor(error,'m1_media_guard'):null;
+   const allowed=new Set(['POLICY_SHAPE','POLICY_IDENTITY','REQUEST_SHAPE','CALLBACK_KIND',
+    'ARGUMENT_SHAPE','ARGUMENT_THREADS','ARGUMENT_INPUT','ARGUMENT_OUTPUT','ARGUMENT_CODEC',
+    'ARGUMENT_PIPE','CALLBACK_DUPLICATE','COMPLETION_COUNTS']);
+   if(descriptor&&Object.hasOwn(descriptor,'value')&&typeof descriptor.value==='string'&&allowed.has(descriptor.value))
+    observation.guard_code=descriptor.value;
+  }catch(_){/* Observation failure never masks the delegate exception. */}
+  throw error;
+ }
+}
+function reject(code,message){observation.guard_code=code;throw new Error(message);}
+function snapshotFailure(){
+ try{failedObservation={schema:observation.schema,phase:observation.phase,
+  guard_code:observation.guard_code,frame:observation.frame,shot_kind:observation.shot_kind,
+  target_index:observation.target_index,frame_count:observation.frame_count,
+  manifest_sha256:observation.manifest_sha256,accepted:false};}catch(_){/* diagnostic only */}
+ try{if(failedObservation&&failedObservation.schema==='bie.capture-controller-failure/2')failedObservation.policy_calls={
+  create:policyCalls.create,pre_stitcher:policyCalls.pre_stitcher,stitcher:policyCalls.stitcher,
+  unknown_callback:policyCalls.unknown_callback,completion:policyCalls.completion};}catch(_){/* diagnostic only */}
+}
+function retainFailure(){
+ try{
+  if(!diagnosticOutput)return;
+  if(!failedObservation)snapshotFailure();
+  fs.writeFileSync(path.join(diagnosticOutput,'CAPTURE_PROCESS_DIAGNOSTIC.json'),
+   JSON.stringify(failedObservation),{flag:'wx',mode:0o600});
+ }catch(_){/* Must not mask rejection, change exit status or interfere with cleanup. */}
+ try{
+  if(diagnosticOutput&&mediaFailure){
+   const bytes=JSON.stringify(mediaFailure);
+   if(Buffer.byteLength(bytes,'utf8')<=1024)fs.writeFileSync(path.join(diagnosticOutput,'MEDIA_PROCESS_DIAGNOSTIC.json'),
+    bytes,{flag:'wx',mode:0o600});
+  }
+ }catch(_){/* Separate bounded observation; original rejection remains intact. */}
+}
 async function main(){
  const req=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
+ if(Number.isInteger(req.frame_count)&&req.frame_count>0&&req.frame_count<=2400)observation.frame_count=req.frame_count;
+ if(typeof req.manifest_sha256==='string'&&/^[a-f0-9]{64}$/.test(req.manifest_sha256))observation.manifest_sha256=req.manifest_sha256;
+ mark('MODULE_LOAD');
  const fromProject=createRequire(path.join(req.workspace,'package.json'));
  const {bundle}=fromProject('@remotion/bundler');
  const {selectComposition,renderStill,renderMedia,openBrowser}=fromProject('@remotion/renderer');
+ mark('PIN_CHECK');
  for(const name of ['remotion','@remotion/renderer','@remotion/bundler']){
-  if(fromProject(name+'/package.json').version!==req.remotion_version)throw new Error('CAPTURE_PIN_MISMATCH:'+name);
+  if(fromProject(name+'/package.json').version!==req.remotion_version)reject('CAPTURE_PIN_MISMATCH','CAPTURE_PIN_MISMATCH:'+name);
  }
  const out=req.output;fs.mkdirSync(out,{recursive:true});
+ diagnosticOutput=out;
  // Dependencies are immutable in the guarded workload; never cache in node_modules.
+ mark('BUNDLE');
  const serveUrl=await bundle({entryPoint:path.join(req.workspace,'qa-capture-entry.tsx'),outDir:path.join(out,'bundle'),publicDir:path.join(req.workspace,'public'),enableCaching:false});
  // The pinned executable is full Chrome, not the separate legacy headless shell.
+ mark('OPEN_BROWSER');
  const browser=await openBrowser('chrome',{browserExecutable:req.browser,chromeMode:'chrome-for-testing',chromiumOptions:{enableMultiProcessOnLinux:true}});
  const frames=[],rasterFrames=[],errors=[];
  try{
+  mark('SELECT_COMPOSITION');
   const composition=await selectComposition({serveUrl,id:req.composition_id,puppeteerInstance:browser});
-  if(composition.width!==req.width||composition.height!==req.height||composition.fps!==req.fps||composition.durationInFrames!==req.frame_count)throw new Error('CAPTURE_COMPOSITION_MISMATCH');
+  mark('COMPOSITION_CHECK');
+  if(composition.width!==req.width||composition.height!==req.height||composition.fps!==req.fps||composition.durationInFrames!==req.frame_count)reject('CAPTURE_COMPOSITION_MISMATCH','CAPTURE_COMPOSITION_MISMATCH');
   for(let frame=0;frame<req.frame_count;frame++){
+   observation.frame=frame;
    async function shot(kind,index){
+    observation.shot_kind=kind.toUpperCase();observation.target_index=Number.isInteger(index)?index:-1;
     const mode=(kind==='full'||kind==='repeat')?{kind:'full'}:{kind,target_id:req.rasterTargets[index].target_id};
     const measurements=[];
     const onBrowserLog=log=>{
@@ -32,13 +144,16 @@ async function main(){
     };
     const name=`frame-${String(frame).padStart(6,'0')}`+((kind==='full'||kind==='repeat')?`-${kind}`:`-target-${String(index).padStart(3,'0')}-${kind}`)+'.png';
     const output=path.join(out,name);
+    mark('RENDER_STILL');
     await renderStill({composition,serveUrl,frame,output,imageFormat:'png',puppeteerInstance:browser,onBrowserLog,
       inputProps:{__bieRasterMode:mode},timeoutInMilliseconds:30000});
-    if(!measurements.length)throw new Error('CAPTURE_DOM_MEASUREMENT_MISSING:'+frame+':'+kind);
+    mark('MEASUREMENT_CHECK');
+    if(!measurements.length)reject('CAPTURE_DOM_MEASUREMENT_MISSING','CAPTURE_DOM_MEASUREMENT_MISSING:'+frame+':'+kind);
     const unique=[...new Set(measurements.map(m=>JSON.stringify(m)))];
-    if(unique.length!==1)throw new Error('CAPTURE_DOM_NONDETERMINISM:'+frame+':'+kind);
+    if(unique.length!==1)reject('CAPTURE_DOM_NONDETERMINISM','CAPTURE_DOM_NONDETERMINISM:'+frame+':'+kind);
     const m=measurements[0];
-    if(m.raster.fonts_ready!==true||m.raster.image_errors.length)throw new Error('CAPTURE_ASSET_READINESS');
+    if(m.raster.fonts_ready!==true||m.raster.image_errors.length)reject('CAPTURE_ASSET_READINESS','CAPTURE_ASSET_READINESS');
+    mark('FRAME_HASH');
     return {file:{file:name,sha256:hash(output)},measurement:m};
    }
    const full=await shot('full');const targets=[];
@@ -46,25 +161,58 @@ async function main(){
     const row={target_id:req.rasterTargets[i].target_id};
     for(const kind of ['baseline','isolated','muted']){
      const value=await shot(kind,i);
-     if(JSON.stringify(value.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))throw new Error('CAPTURE_DOM_MODE_DRIFT');
+     mark('MODE_INVENTORY');
+     if(JSON.stringify(value.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory)){
+      observation.guard_code='CAPTURE_DOM_MODE_DRIFT';throw new Error('CAPTURE_DOM_MODE_DRIFT');
+     }
      row[kind]=value.file;
     }
     targets.push(row);
    }
    const repeat=await shot('repeat');
-   if(JSON.stringify(repeat.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory))throw new Error('CAPTURE_DOM_RESTORE_DRIFT');
+   mark('RESTORE_INVENTORY');
+   if(JSON.stringify(repeat.measurement.raster.inventory)!==JSON.stringify(full.measurement.raster.inventory)){
+    observation.guard_code='CAPTURE_DOM_RESTORE_DRIFT';throw new Error('CAPTURE_DOM_RESTORE_DRIFT');
+   }
    frames.push({frame,image:full.file.file,image_sha256:full.file.sha256,measurement:full.measurement});
    rasterFrames.push({frame,full:full.file,repeat:repeat.file,inventory:full.measurement.raster.inventory,targets});
   }
   const outputLocation=path.join(out,'captured.mp4');
-  await renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
-    inputProps:{__bieRasterMode:{kind:'full'}}});
+  mark('RENDER_MEDIA');observation.shot_kind='NONE';observation.target_index=-1;
+  let mediaThreadExecution;
+  if(Object.hasOwn(req,'media_thread_policy')){
+   const bound=mediaPolicyPhase('MEDIA_POLICY_CREATE',()=>require('./bounded_media_threads.cjs').createOverride(req.media_thread_policy));
+   const override=request=>{
+    let phase='MEDIA_CALLBACK_UNKNOWN';
+    try{
+     const kind=Object.getOwnPropertyDescriptor(request,'type');
+     if(kind&&Object.hasOwn(kind,'value')){
+      if(kind.value==='pre-stitcher')phase='MEDIA_CALLBACK_PRE';
+      else if(kind.value==='stitcher')phase='MEDIA_CALLBACK_STITCH';
+     }
+    }catch(_){/* No request traversal or diagnostic-only throw. */}
+    return mediaPolicyPhase(phase,()=>bound.override(request));
+   };
+   await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
+     inputProps:{__bieRasterMode:{kind:'full'}},ffmpegOverride:override}));
+   mediaThreadExecution=mediaPolicyPhase('MEDIA_POLICY_COMPLETE',()=>bound.completed());
+  }else{
+   await observeMedia(()=>renderMedia({composition,serveUrl,outputLocation,codec:'h264',pixelFormat:'yuv420p',concurrency:1,puppeteerInstance:browser,
+    inputProps:{__bieRasterMode:{kind:'full'}}}));
+  }
   const counterfactual={schema_version:'bie.counterfactual-capture.v1',scope:'REAL_REMOTION_COUNTERFACTUAL_PIXELS',
     scene_sha256:req.scene_sha256,manifest_sha256:req.manifest_sha256,width:req.width,height:req.height,fps:req.fps,
     frame_count:req.frame_count,targets:req.rasterTargets,frames:rasterFrames,browser_errors:errors};
+  mark('MEDIA_HASH');
   const result={schema_version:'bie.actual-remotion-paint.v1',nonce:req.nonce,frames,browser_errors:errors,counterfactual,
     scope:'REAL_REMOTION_INSTRUMENTED_UNCHANGED_SCENE',real_react:true,real_remotion:true,media_sha256:hash(outputLocation),accepted:false};
+  if(mediaThreadExecution)result.media_thread_execution=mediaThreadExecution;
+  mark('RESULT_WRITE');
   fs.writeFileSync(path.join(out,'RESULT.json'),JSON.stringify(result,null,2));
- }finally{await browser.close({silent:true});}
+ }catch(error){snapshotFailure();throw error;}
+ finally{
+  mark('BROWSER_CLOSE');
+  try{await browser.close({silent:true});}catch(error){snapshotFailure();throw error;}
+ }
 }
-main().catch(e=>{console.error(e.stack||String(e));process.exitCode=2;});
+main().catch(e=>{retainFailure();console.error(e.stack||String(e));process.exitCode=2;});

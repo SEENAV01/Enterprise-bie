@@ -1,0 +1,42 @@
+{
+  "schema": "bie.task036.media-observation-source-amendment/1",
+  "authority": "OWNER_CONTINUING_TASK036_PHASE3_MINIMUM_SAFE_BOUNDARY_INSTRUMENTATION",
+  "scope": "FAILURE_ONLY_ANONYMOUS_CHILD_EVENT_SCALARS_AND_STRICT_RETENTION; NOT_A_RENDERER_REPAIR",
+  "parent_commit": "ea46f209babedfb6684114a79b4d39bda2e73913",
+  "parent_tree": "ade20bd6dbfa01e2c59dc323339ac85fafe259c8",
+  "original_m1_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "previous_amendment_sha256": "1526b7588616a16d468e98e8047823a19619fd9bbe555005856f3757b76e1024",
+  "original_manifest_sha256": "33c579d83186d0a11319984e6d047cb41bfea804a6477e5902b77f0432d71c7f",
+  "replacements": [
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "preimage": "docs/productization/task036-media-observation-amendment/remotion_raster_capture.cjs.before",
+      "original_bytes": 7458,
+      "original_sha256": "5c1a1a4a8fd30d2c9b64af2f05f308e5901c33765b3f3a362a590e99b339bf26",
+      "original_git_blob": "833a40952f07a3df26849edd4845192bae06a820",
+      "active_bytes": 10179,
+      "active_sha256": "16ef54154246460bd82cbc99c61a4356323a473764a54be60ac5e07432dc0790"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "preimage": "docs/productization/task036-media-observation-amendment/real_paint.py.before",
+      "original_bytes": 18698,
+      "original_sha256": "198c98b11d98199daf75a9900a13bae592dc6f29b5fef9bdcaf12eb37a61232f",
+      "original_git_blob": "afa874a6bdd0315b7a0bb11801e5e757272eb1ee",
+      "active_bytes": 22704,
+      "active_sha256": "3c00fb7b83213bb511ee0e76a4380947510620b920bf10a01fa53fa30acf4b72"
+    },
+    {
+      "path": "scripts/compiler_capture_observation_amendment.py",
+      "preimage": "docs/productization/task036-media-observation-amendment/compiler_capture_observation_amendment.py.before",
+      "original_bytes": 4536,
+      "original_sha256": "9e163acc78c0a58856a69cfe8f565073c7cd0ec706b07796bf05c015a5be7c95",
+      "original_git_blob": "2708915bc7644ef3097ca27a6f34c9b7992ab797",
+      "active_bytes": 5075,
+      "active_sha256": "6681cdcb6c8965316b786032cd771531402d2028f701a02d9ed8a21c9ce057b4"
+    }
+  ],
+  "native_calls_and_limits_unchanged": true,
+  "product_accepted": false,
+  "independent_review_status": "PENDING_SEPARATE_REVIEW"
+}
