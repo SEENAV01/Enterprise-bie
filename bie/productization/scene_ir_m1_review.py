@@ -22,6 +22,146 @@ DECISION = "APPROVED_FOR_BOUNDED_M1_TASK036_PREREQUISITE"
 PREFIXES = ("bie/compiler/", "scripts/compiler_", "docs/productization/task036-")
 DOCUMENT_BYTES = {HISTORICAL: 149689, FINAL: 22161, ADDENDUM: 63445, CHAIN: 90540}
 
+# D6 extends, never overwrites, the immutable historical authority above.
+# Commit A intentionally has no approval records. These reviewed-source
+# bootstrap constants can be installed only from actual independent review B.
+DEADLINE_DIRECTORY = "docs/productization/task036-ci-history-amendment-v2/"
+DEADLINE_REPLACEMENTS_SHA = "aa1d5cac3d35c9fb4059b2765d6d1836da3a20adcb1a9cfe8f5c7bc76f67b649"
+DEADLINE_REVIEW_SHA = "PENDING"
+DEADLINE_BINDINGS_SHA = "PENDING"
+DEADLINE_REVIEW_BYTES = 0
+DEADLINE_BINDINGS_BYTES = 0
+DEADLINE_CANDIDATE = "PENDING"
+DEADLINE_TREE = "PENDING"
+DEADLINE_REVIEWER = "PENDING"
+DEADLINE_DECISION = "APPROVED_FOR_TASK036_CANONICAL_DEADLINE_AMENDMENT_V2"
+DEADLINE_BASE = "4d5a284c9a51f4e3536852453d6e7543447d2e68"
+DEADLINE_BASE_TREE = "ab2b9a733f5dc7ec4d0f269db517d44eca58f271"
+DEADLINE_PREIMAGES = {
+    ".github/workflows/post-dir-canonical-catchup.yml": "post-dir-canonical-catchup.yml.before",
+    ".github/workflows/section18-implementation.yml": "section18-implementation.yml.before",
+    "tests/productization/animation/verify_post_dir_provisioning.py": "verify_post_dir_provisioning.py.before",
+    "tests/productization/scene_ir/canonical_history_profile.py": "canonical_history_profile.py.before",
+    "bie/productization/scene_ir_m1_review.py": "scene_ir_m1_review.py.before",
+}
+DEADLINE_ACTIVE_PATHS = set(DEADLINE_PREIMAGES) - {"bie/productization/scene_ir_m1_review.py"}
+DEADLINE_RECORD_PATHS = {DEADLINE_DIRECTORY + p for p in
+    (".gitattributes", "AMENDMENT.json", "OWNER_DECISION.md", *DEADLINE_PREIMAGES.values())}
+DEADLINE_REVIEW_FIELDS = {"schema", "role", "owner_decision", "reviewer", "candidate", "tree",
+    "base", "base_tree", "decision", "blocking_findings_remaining", "timestamp_utc",
+    "amendment_sha256", "replacements_sha256", "approved_binding_rows", "findings",
+    "checks_performed", "checks_not_performed", "residual_risks", "product_accepted"}
+
+
+def deadline_source_bindings(root):
+    """Fixed integrity, NOT approval; no expected hash derived from current files.
+
+    The reviewed-source bootstrap is deliberately outside its own attestation
+    to avoid a hash cycle. Review A binds that file through its commit/tree;
+    B installs only the actual review constants and records, separately checked.
+    Existing engine identity hashes this admission module, including B's pins.
+    """
+    raw = read_regular(root, DEADLINE_DIRECTORY + "REPLACEMENTS.json", 16384)
+    require(sha(raw) == DEADLINE_REPLACEMENTS_SHA, "scene_ir_m1_deadline_source_identity")
+    value = strict_json(raw)
+    require(set(value) == {"schema", "role", "base", "files", "product_accepted"} and
+        value["schema"] == "bie.task036.canonical-history-source-attestation/2" and
+        value["role"] == "FIXED_SOURCE_GATE_ATTESTATION_NOT_ADMISSION_AUTHORITY" and
+        value["base"] == DEADLINE_BASE and value["product_accepted"] is False,
+        "scene_ir_m1_deadline_source_identity")
+    rows = keyed(value["files"], 12)
+    require(set(rows) == DEADLINE_ACTIVE_PATHS | DEADLINE_RECORD_PATHS,
+        "scene_ir_m1_deadline_source_identity")
+    allowed = DEADLINE_RECORD_PATHS | {DEADLINE_DIRECTORY + n for n in ("REPLACEMENTS.json", "REVIEW.json", "BINDINGS.json")}
+    for path in (Path(root) / DEADLINE_DIRECTORY).rglob("*"):
+        require(not path.is_symlink() and path.is_file() and path.relative_to(root).as_posix() in allowed,
+            "scene_ir_m1_deadline_source_identity")
+    for path, row in rows.items():
+        require(set(row) == {"path", "mode", "bytes", "sha256", "git_blob"} and
+            type(row["bytes"]) is int and 0 < row["bytes"] <= 65536 and
+            row["mode"] == ("RAW_IMMUTABLE" if path in DEADLINE_RECORD_PATHS else "CRLF_TO_LF_ONLY"),
+            "scene_ir_m1_deadline_source_identity")
+        raw = read_regular(root, path, 65536)
+        data = raw if row["mode"] == "RAW_IMMUTABLE" else lf_source(raw)
+        require(len(data) == row["bytes"] and sha(data) == row["sha256"] and
+            sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest() == row["git_blob"],
+            "scene_ir_m1_deadline_source_identity")
+    return [rows[p] for p in sorted(rows)]
+
+
+def deadline_review_documents(review, bindings, rows):
+    """Closed versioned schemas; fixed byte authentication is required by caller."""
+    code = "scene_ir_m1_deadline_review_required"
+    require(type(review) is dict and set(review) == DEADLINE_REVIEW_FIELDS, code)
+    require(review["schema"] == "bie.task036.canonical-deadline-independent-review/1" and
+        review["role"] == "INDEPENDENT_TECHNICAL_REVIEW_NOT_PRODUCT_ACCEPTANCE" and
+        review["owner_decision"] == "D6" and review["decision"] == DEADLINE_DECISION and
+        type(review["blocking_findings_remaining"]) is int and review["blocking_findings_remaining"] == 0 and
+        review["product_accepted"] is False, code)
+    require(review["candidate"] == DEADLINE_CANDIDATE and review["tree"] == DEADLINE_TREE and
+        review["base"] == DEADLINE_BASE and review["base_tree"] == DEADLINE_BASE_TREE, code)
+    reviewer = review["reviewer"]
+    require(type(reviewer) is dict and set(reviewer) == {"execution_identity", "implementation_execution",
+        "type", "provenance", "human_signature", "codeowner_approval"} and
+        reviewer["execution_identity"] == DEADLINE_REVIEWER and
+        reviewer["implementation_execution"] == "/root" and DEADLINE_REVIEWER != "/root" and
+        reviewer["type"] == "GENUINELY_SEPARATE_AI_ASSISTED_EXECUTION" and
+        reviewer["human_signature"] is False and reviewer["codeowner_approval"] is False, code)
+    from datetime import datetime
+    try:
+        stamp = review["timestamp_utc"]
+        require(type(stamp) is str and len(stamp) == 20 and stamp.endswith("Z"), code)
+        datetime.strptime(stamp, "%Y-%m-%dT%H:%M:%SZ")
+    except (ValueError, TypeError):
+        require(False, code)
+    def text(value):
+        return type(value) is str and 0 < len(value) <= 4096
+    require(text(reviewer["provenance"]), code)
+    for field in ("checks_performed", "checks_not_performed", "residual_risks"):
+        require(type(review[field]) is list and len(review[field]) <= 64 and all(text(v) for v in review[field]), code)
+    require(bool(review["checks_performed"]), code)
+    findings = review["findings"]
+    require(type(findings) is list and len(findings) <= 64, code)
+    for finding in findings:
+        require(type(finding) is dict and set(finding) == {"id", "severity", "blocking", "disposition",
+            "location", "requirement_or_risk", "correction_or_reason", "verification"}, code)
+        require(finding["severity"] in ("LOW", "MEDIUM", "HIGH", "CRITICAL") and
+            type(finding["blocking"]) is bool and finding["disposition"] in ("RESOLVED", "NON_BLOCKING") and
+            (not finding["blocking"] or finding["disposition"] == "RESOLVED") and
+            all(text(finding[k]) for k in ("id", "location", "requirement_or_risk", "correction_or_reason", "verification")), code)
+    require(len({f["id"] for f in findings}) == len(findings), code)
+    # Exact sorted rows authenticate the entire approved set, not a subset loop.
+    require(review["approved_binding_rows"] == rows and
+        review["amendment_sha256"] == next(r["sha256"] for r in rows if r["path"] == DEADLINE_DIRECTORY + "AMENDMENT.json") and
+        review["replacements_sha256"] == DEADLINE_REPLACEMENTS_SHA, code)
+    require(type(bindings) is dict and set(bindings) == {"schema", "role", "candidate", "tree",
+        "review_sha256", "amendment_sha256", "replacements_sha256", "approved_binding_rows", "product_accepted"} and
+        bindings["schema"] == "bie.task036.canonical-deadline-reviewed-bindings/1" and
+        bindings["role"] == "EXACT_REVIEWED_BINDINGS_NOT_AN_APPROVAL" and
+        bindings["candidate"] == DEADLINE_CANDIDATE and bindings["tree"] == DEADLINE_TREE and
+        bindings["review_sha256"] == DEADLINE_REVIEW_SHA and
+        bindings["amendment_sha256"] == review["amendment_sha256"] and
+        bindings["replacements_sha256"] == DEADLINE_REPLACEMENTS_SHA and
+        bindings["approved_binding_rows"] == rows and bindings["product_accepted"] is False, code)
+
+
+def verified_deadline_review(root, rows):
+    """No missing-review fallback, even if every historical review still passes."""
+    import re
+    configured = (DEADLINE_REVIEW_SHA, DEADLINE_BINDINGS_SHA, DEADLINE_CANDIDATE, DEADLINE_TREE)
+    require(all(type(v) is str and re.fullmatch(r"[0-9a-f]{%d}" % n, v)
+        for v, n in zip(configured, (64, 64, 40, 40))) and DEADLINE_REVIEWER != "PENDING" and
+        all(type(n) is int and 0 < n <= 262144 for n in (DEADLINE_REVIEW_BYTES, DEADLINE_BINDINGS_BYTES)),
+        "scene_ir_m1_deadline_approval_missing")
+    records = []
+    for name, size, digest in (("REVIEW.json", DEADLINE_REVIEW_BYTES, DEADLINE_REVIEW_SHA),
+                              ("BINDINGS.json", DEADLINE_BINDINGS_BYTES, DEADLINE_BINDINGS_SHA)):
+        require((Path(root) / (DEADLINE_DIRECTORY + name)).is_file(), "scene_ir_m1_deadline_approval_missing")
+        raw = read_regular(root, DEADLINE_DIRECTORY + name, size)
+        require(len(raw) == size and sha(raw) == digest, "scene_ir_m1_deadline_review_identity")
+        records.append(strict_json(raw))
+    deadline_review_documents(*records, rows)
+
 
 def lf_source(data):
     """Same CRLF-only normalization without the slow replacement on LF files.
@@ -195,8 +335,16 @@ def verified_m1_review(root):
     auxiliary = keyed(newer["auxiliary_reviewed_authority_bindings"], 3)
     require(not (set(current) & set(followon) or set(current) & set(auxiliary) or
                  set(followon) & set(auxiliary)), "scene_ir_m1_source_identity")
+    deadline_rows = deadline_source_bindings(root)
+    require(set(auxiliary) == set(DEADLINE_PREIMAGES) - {
+        ".github/workflows/section18-implementation.yml", "bie/productization/scene_ir_m1_review.py"},
+        "scene_ir_m1_deadline_source_identity")
     for row in (*current.values(), *followon.values(), *auxiliary.values()):
-        raw = read_regular(root, row["path"])
+        # Old reviewed rows authenticate their exact preserved predecessor.
+        # The complete fixed v2 replacements were checked above; no substitution
+        # of arbitrary current bytes, and approval remains mandatory below.
+        path = DEADLINE_DIRECTORY + DEADLINE_PREIMAGES[row["path"]] if row["path"] in auxiliary else row["path"]
+        raw = read_regular(root, path)
         data = lf_source(raw)
         require(type(row["bytes"]) is int and len(data) == row["bytes"] and
                 sha(data) == row["sha256"], "scene_ir_m1_source_identity")
@@ -224,5 +372,6 @@ def verified_m1_review(root):
     # single-link/containment requirements and strengthens changing-read checks.
     # Full canonical native audit execution remains an independent CI gate.
     chain_identity = verified_source_chain(root)
+    verified_deadline_review(root, deadline_rows)
     return dict(m1_review=HISTORICAL_SHA, m1_current_review=FINAL_SHA,
                 m1_current_source_bindings=ADDENDUM_SHA, m1_source_chain=chain_identity)

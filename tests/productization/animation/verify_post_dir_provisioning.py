@@ -29,6 +29,8 @@ _spec.loader.exec_module(diagnostics)
 PHASE = "approved_after"
 SCHEMA = "bie.task035.post-dir-after/1"
 SCOPE = "SYNTHETIC_TEST_PROVISIONING_GATE_ONLY"
+V1_PROFILE_MODULE_SHA = "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e"
+V2_PROFILE_MODULE_SHA = "cf19d091014125750bd1b70d63444f0d7e86444fc5da59e06e9e6c92f372c9e4"
 PROFILE_BLOBS = {
     "requirements-comp-h3.txt": "c0b36a1f5f9d3bc898a0a1954bf23bcd0ba55397",
     ".integration/tools/requirements-validation.txt": "c0b36a1f5f9d3bc898a0a1954bf23bcd0ba55397",
@@ -113,7 +115,7 @@ def _profile_module():
     after = path.stat()
     if (before.st_size, before.st_mtime_ns, before.st_ino) != (after.st_size, after.st_mtime_ns, after.st_ino):
         raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_CHANGED")
-    if sha256(data).hexdigest() != "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e":
+    if sha256(data).hexdigest() != V2_PROFILE_MODULE_SHA:
         raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_IDENTITY")
     spec = importlib.util.spec_from_file_location("task036_exact_history_profile", path)
     module = importlib.util.module_from_spec(spec)

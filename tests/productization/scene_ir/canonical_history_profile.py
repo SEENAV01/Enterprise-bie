@@ -1,8 +1,8 @@
 """Exact test-profile compatibility; not a dependency or native-source waiver.
 
-Fixed reviewed replacements are authenticated, never blessed from current bytes.
-Only the canonical checkout-history option differs from the original workflow.
-The historical map remains authority; a v2 AFTER witness states actual identity.
+Fixed replacements are authenticated, never blessed from current bytes.
+The sealed v1 checkout-history rule remains intact. Owner D6 adds only two
+job deadlines through an exact v2 chain, not independent review or acceptance.
 """
 from hashlib import sha1, sha256
 import json
@@ -28,6 +28,54 @@ EXPECTED = {
     "change": "CANONICAL_CHECKOUT_FETCH_DEPTH_ZERO_ONLY",
     "historical_profile_pins_changed": False, "requirements_installers_changed": False,
     "native_source_changed": False, "mandatory_gates_replaced": False, "product_accepted": False,
+}
+
+# Historical EXPECTED remains byte-for-byte unchanged. These fixed Git
+# preimages are the immediate predecessor, not newly computed expectations.
+V2_DIRECTORY = "docs/productization/task036-ci-history-amendment-v2/"
+SECTION18 = ".github/workflows/section18-implementation.yml"
+HELPER = "tests/productization/scene_ir/canonical_history_profile.py"
+REVIEW_HELPER = "bie/productization/scene_ir_m1_review.py"
+V2_PREIMAGES = {
+    WORKFLOW: ("post-dir-canonical-catchup.yml.before", 9443,
+        "c35d09469afedc7393ed217bbb87c3fd7fa000a27094d1c21e130cf45b3e4847",
+        "26577340fc2935c169202bf48c622fe0c30c4b99"),
+    SECTION18: ("section18-implementation.yml.before", 21397,
+        "02152f8a36317a752248ad1bce8b3766c1e457fffbc1da959e71f991a47a1d5d",
+        "5b4559d6e4f89656eaa2c602635ca5a4192e6f8c"),
+    GUARD: ("verify_post_dir_provisioning.py.before", 23564,
+        "2bbd0c6c7df6e5f5d2b98235cb1bceab1c5fcb1024a4d40e6ce870cbecdac517",
+        "415e3d057654ba0f381b8a4b6ed392c7c6e815f8"),
+    HELPER: ("canonical_history_profile.py.before", 5828,
+        "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e",
+        "3bb4dd683307ec3f3cad91f0c710b72da8348b19"),
+    REVIEW_HELPER: ("scene_ir_m1_review.py.before", 13004,
+        "388639b22850280455efc2b523c0108cf8f8e257a3f4a2d406ef63542d4bd5d2",
+        "e78a8ddd2f00be143991b92cea06a860aeeeca4d"),
+}
+V2_WORKFLOWS = {
+    WORKFLOW: {"bytes": 9443, "sha256": "5ea0ddd06147fb7fcd82a77c30ad5601d7a95b74e12d059a19fca6f0d7b302bd",
+        "git_blob": "6dd94b3f99e7e34d55875a3a206bb75864320538", "old_minutes": 45, "new_minutes": 75},
+    SECTION18: {"bytes": 21398, "sha256": "804d89297a8e7b3ba0bba784f38635bfc237babaff01313441f48d068bf44ef4",
+        "git_blob": "d93a3a8b68aa8013b66bd6f07bb1e056998ddc70", "old_minutes": 90, "new_minutes": 120},
+}
+EXPECTED_V2 = {
+    "schema": "bie.task036.canonical-history-profile-amendment/2",
+    "status": "DRAFT_PENDING_REVIEW_NOT_APPROVAL",
+    "scope": "EXACT_TWO_CANONICAL_JOB_DEADLINES_ONLY",
+    "owner_decision": "D6",
+    "base": "4d5a284c9a51f4e3536852453d6e7543447d2e68",
+    "base_tree": "ab2b9a733f5dc7ec4d0f269db517d44eca58f271",
+    "previous_amendment_sha256": "639e87119a2cf8f6cf35e8062dbd66df4b021f05b689a5602674e9eb4992df00",
+    "previous_replacements_sha256": "67afd0ce2f0540922eca99110c6d2935c4a72ffe3ca8a40a75ef232ab126b927",
+    "original_m1_amendment_sha256": EXPECTED["original_m1_amendment_sha256"],
+    "preimages": {p: {"path": V2_DIRECTORY + r[0], "bytes": r[1], "sha256": r[2], "git_blob": r[3]}
+                  for p, r in V2_PREIMAGES.items()},
+    "workflows": V2_WORKFLOWS,
+    "capacity_decision_not_performance_fix": True,
+    "historical_profile_pins_changed": False, "requirements_installers_changed": False,
+    "native_source_changed": False, "mandatory_gates_replaced": False,
+    "child_limits_changed": False, "product_accepted": False,
 }
 
 
@@ -72,15 +120,20 @@ def blob(data):
 
 def witness():
     document = json.dumps(EXPECTED, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    return {"schema": "bie.task036.canonical-history-profile-witness/1",
+    return {"schema": "bie.task036.canonical-history-profile-witness/2",
         "amendment_content_sha256": sha256(document).hexdigest(),
         "historical_workflow_blob": EXPECTED["workflow"]["original_blob"],
-        "actual_workflow_blob": EXPECTED["workflow"]["active_blob"],
-        "actual_workflow_sha256": EXPECTED["workflow"]["active_sha256"],
-        "guard_trust_role": "REVIEWED_GIT_BOOTSTRAP_WITH_SEPARATE_FIXED_SOURCE_ATTESTATION",
+        "v1_workflow_blob": EXPECTED["workflow"]["active_blob"],
+        "actual_workflow_blob": V2_WORKFLOWS[WORKFLOW]["git_blob"],
+        "actual_workflow_sha256": V2_WORKFLOWS[WORKFLOW]["sha256"],
+        "actual_section18_blob": V2_WORKFLOWS[SECTION18]["git_blob"],
+        "actual_section18_sha256": V2_WORKFLOWS[SECTION18]["sha256"],
+        "v2_amendment_content_sha256": sha256(json.dumps(EXPECTED_V2, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
+        "approval_role": "INTEGRITY_ONLY_INDEPENDENT_PRODUCT_ADMISSION_REQUIRED",
+        "guard_trust_role": "FIXED_SOURCE_INTEGRITY_NOT_INDEPENDENT_APPROVAL",
         "historical_guard_sha256": EXPECTED["guard"]["original_sha256"],
         "profile_map_role": "HISTORICAL_AUTHORITY_NOT_CURRENT_WORKFLOW_BYTES",
-        "change": EXPECTED["change"], "requirements_installers_changed": False,
+        "change": "V1_FETCH_DEPTH_THEN_D6_TWO_DEADLINES_ONLY", "requirements_installers_changed": False,
         "native_source_changed": False, "mandatory_gates_replaced": False,
         "product_accepted": False}
 
@@ -94,6 +147,11 @@ def validate_witness(value):
 def authenticate(root):
     raw = read_regular(root, DIRECTORY + "AMENDMENT.json", 16384)
     document = json.loads(raw, object_pairs_hook=unique, parse_constant=reject_constant)
+    if sha256(raw).hexdigest() != EXPECTED_V2["previous_amendment_sha256"]:
+        raise ValueError("TASK036_PROFILE_AMENDMENT_IDENTITY")
+    previous = read_regular(root, DIRECTORY + "REPLACEMENTS.json", 16384)
+    if sha256(previous).hexdigest() != EXPECTED_V2["previous_replacements_sha256"]:
+        raise ValueError("TASK036_PROFILE_PREVIOUS_ATTESTATION")
     # Exact canonical representation rejects coercions, extra/duplicate entries,
     # unknown paths and bool/int equivalence, without recomputing expected source.
     if json.dumps(document, sort_keys=True, separators=(",", ":")) != json.dumps(EXPECTED, sort_keys=True, separators=(",", ":")):
@@ -105,10 +163,28 @@ def authenticate(root):
                 or blob(before) != row["original_blob"]):
             raise ValueError("TASK036_PROFILE_PREIMAGE_IDENTITY")
         if name == "workflow":
-            active = read_regular(root, row["path"], 65536).replace(b"\r\n", b"\n")
+            active = read_regular(root, V2_DIRECTORY + V2_PREIMAGES[WORKFLOW][0], 65536)
             if len(active) != row["active_bytes"] or sha256(active).hexdigest() != row["active_sha256"]:
                 raise ValueError("TASK036_PROFILE_REPLACEMENT_IDENTITY")
             line = b"          fetch-depth: 0\n"
             if blob(active) != row["active_blob"] or active.count(line) != 1 or active.replace(line, b"", 1) != before:
                 raise ValueError("TASK036_PROFILE_WORKFLOW_SEMANTICS")
+    raw = read_regular(root, V2_DIRECTORY + "AMENDMENT.json", 16384)
+    document = json.loads(raw, object_pairs_hook=unique, parse_constant=reject_constant)
+    if json.dumps(document, sort_keys=True, separators=(",", ":")) != json.dumps(EXPECTED_V2, sort_keys=True, separators=(",", ":")):
+        raise ValueError("TASK036_PROFILE_V2_AMENDMENT_IDENTITY")
+    for path, row in EXPECTED_V2["preimages"].items():
+        before = read_regular(root, row["path"], 65536)
+        if (len(before), sha256(before).hexdigest(), blob(before)) != (row["bytes"], row["sha256"], row["git_blob"]):
+            raise ValueError("TASK036_PROFILE_V2_PREIMAGE_IDENTITY")
+        if path not in V2_WORKFLOWS:
+            continue
+        target = V2_WORKFLOWS[path]
+        active = read_regular(root, path, 65536).replace(b"\r\n", b"\n")
+        old = ("    timeout-minutes: %d\n" % target["old_minutes"]).encode()
+        new = ("    timeout-minutes: %d\n" % target["new_minutes"]).encode()
+        if before.count(old) != 1 or active != before.replace(old, new, 1):
+            raise ValueError("TASK036_PROFILE_V2_WORKFLOW_SEMANTICS")
+        if (len(active), sha256(active).hexdigest(), blob(active)) != (target["bytes"], target["sha256"], target["git_blob"]):
+            raise ValueError("TASK036_PROFILE_V2_REPLACEMENT_IDENTITY")
     return witness()

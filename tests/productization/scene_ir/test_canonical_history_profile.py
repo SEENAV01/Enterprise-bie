@@ -35,9 +35,14 @@ def validate_replacements(root):
         if json.dumps(value, sort_keys=True) != json.dumps(REPLACEMENTS, sort_keys=True):
             return False
         for relative, row in REPLACEMENTS["files"].items():
-            data = profile.read_regular(root, relative, 65536).replace(b"\r\n", b"\n")
+            # Preserve the original fixed attestation against its exact v2
+            # preimages, then authenticate the separately pinned replacements.
+            source = profile.V2_DIRECTORY + profile.V2_PREIMAGES[relative][0] if relative in profile.V2_PREIMAGES else relative
+            data = profile.read_regular(root, source, 65536).replace(b"\r\n", b"\n")
             if len(data) != row["bytes"] or sha256(data).hexdigest() != row["sha256"]:
                 return False
+        from bie.productization.scene_ir_m1_review import deadline_source_bindings
+        deadline_source_bindings(root)
         return True
     except (ValueError, OSError):
         return False
@@ -50,6 +55,10 @@ class CanonicalHistoryProfileControls(unittest.TestCase):
         self.root = Path(self.workspace.name)
         self.paths = [DOCUMENT, profile.DIRECTORY + "REPLACEMENTS.json",
             "tests/productization/scene_ir/canonical_history_profile.py"]
+        self.paths.extend([profile.SECTION18, profile.V2_DIRECTORY + "AMENDMENT.json",
+            profile.V2_DIRECTORY + "REPLACEMENTS.json", profile.V2_DIRECTORY + "OWNER_DECISION.md",
+            profile.V2_DIRECTORY + ".gitattributes"])
+        self.paths.extend(profile.V2_DIRECTORY + row[0] for row in profile.V2_PREIMAGES.values())
         for row in (profile.EXPECTED["workflow"], profile.EXPECTED["guard"]):
             self.paths.extend((row["path"], row["preimage"]))
         for relative in self.paths:
@@ -269,6 +278,75 @@ class CanonicalHistoryProfileControls(unittest.TestCase):
         self.assertEqual(NEW.count(path), 1)
         self.assertNotIn(path, set(M1) | set(SAFETY) | set(lanes["native-extra"]) | inherited)
         self.assertEqual(len(lanes["native-extra"]), 214)
+
+    def test_v2_requires_all_five_exact_immediate_parent_preimages(self):
+        self.assertEqual(len(profile.V2_PREIMAGES), 5)
+        for row in profile.V2_PREIMAGES.values():
+            path = self.root / (profile.V2_DIRECTORY + row[0])
+            original = path.read_bytes()
+            path.write_bytes(original + b"\n")
+            self.rejected()
+            path.write_bytes(original)
+
+    def test_v2_manifest_repin_extra_path_bool_and_duplicate_keys_reject(self):
+        path = self.root / (profile.V2_DIRECTORY + "AMENDMENT.json")
+        for mutate in (lambda v: v.update(product_accepted=0),
+                       lambda v: v["workflows"].update({"bie/compiler/real_paint.py": {}}),
+                       lambda v: v["workflows"][profile.WORKFLOW].update(new_minutes=76),
+                       lambda v: v.update(previous_amendment_sha256="0" * 64)):
+            value = deepcopy(profile.EXPECTED_V2)
+            mutate(value)
+            path.write_text(json.dumps(value), encoding="utf-8")
+            self.rejected()
+        for raw in ('{"schema":"x","schema":"x"}', '{"number":NaN}'):
+            path.write_text(raw, encoding="utf-8")
+            self.rejected()
+
+    def test_v1_intermediate_is_not_an_active_v2_fallback(self):
+        for relative in (profile.WORKFLOW, profile.SECTION18):
+            path = self.root / relative
+            original = path.read_bytes()
+            path.write_bytes((self.root / (profile.V2_DIRECTORY + profile.V2_PREIMAGES[relative][0])).read_bytes())
+            self.rejected()
+            path.write_bytes(original)
+
+    def test_missing_v2_cannot_downgrade_to_intact_v1(self):
+        (self.root / (profile.V2_DIRECTORY + "AMENDMENT.json")).unlink()
+        self.rejected()
+
+    def test_only_two_deadline_lines_change_and_no_other_job_budget(self):
+        for path, row in profile.V2_WORKFLOWS.items():
+            before = (self.root / (profile.V2_DIRECTORY + profile.V2_PREIMAGES[path][0])).read_bytes()
+            active = (self.root / path).read_bytes()
+            old = ("    timeout-minutes: %d\n" % row["old_minutes"]).encode()
+            new = ("    timeout-minutes: %d\n" % row["new_minutes"]).encode()
+            self.assertEqual(before.count(old), 1)
+            self.assertEqual(active, before.replace(old, new, 1))
+            (self.root / path).write_bytes(active.replace(b"persist-credentials: false", b"persist-credentials: true"))
+            self.rejected()
+            (self.root / path).write_bytes(active)
+
+    def test_other_section18_job_change_is_rejected(self):
+        path = self.root / profile.SECTION18
+        path.write_bytes(path.read_bytes().replace(b"    timeout-minutes: 20\n", b"    timeout-minutes: 21\n"))
+        self.rejected()
+
+    def test_old_witness_does_not_describe_current_v2_workflow(self):
+        namespace = {}
+        exec((ROOT / (profile.V2_DIRECTORY + profile.V2_PREIMAGES[profile.HELPER][0])).read_bytes(), namespace)
+        self.assertFalse(profile.validate_witness(namespace["witness"]()))
+
+    def test_replacements_v2_cannot_bless_changed_guard_or_self_repin(self):
+        path = self.root / (profile.V2_DIRECTORY + "REPLACEMENTS.json")
+        value = json.loads(path.read_bytes())
+        value["files"][0]["sha256"] = "0" * 64
+        path.write_text(json.dumps(value), encoding="utf-8")
+        self.assertFalse(validate_replacements(self.root))
+
+    def test_v2_integrity_witness_does_not_assert_review_or_acceptance(self):
+        value = profile.authenticate(ROOT)
+        self.assertEqual(value["approval_role"], "INTEGRITY_ONLY_INDEPENDENT_PRODUCT_ADMISSION_REQUIRED")
+        self.assertFalse(value["product_accepted"])
 
 
 if __name__ == "__main__":
