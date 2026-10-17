@@ -1,0 +1,199 @@
+{
+  "schema": "bie.task036.canonical-deadline-independent-review/1",
+  "role": "INDEPENDENT_TECHNICAL_REVIEW_NOT_PRODUCT_ACCEPTANCE",
+  "owner_decision": "D6",
+  "reviewer": {
+    "execution_identity": "Claude Code cloud session session_01BmcJYB4XWdZ5HecZZkKGFS on claude.ai (configured model claude-opus-5-5), Linux container, 2026-10-17 from 02:06Z",
+    "implementation_execution": "/root",
+    "type": "GENUINELY_SEPARATE_AI_ASSISTED_EXECUTION",
+    "provenance": "Separate AI-assisted execution appointed by the repository owner (Navin, GitHub SEENAV01) in a claude.ai conversation on 2026-10-17 (07:36 IST / 02:06Z), which supplied TASK036_PHASE10B_REVIEW_9f3d07e1ac4a.zip (sha256 bb1d3da680708642b0f7ac9d697353e5e543cd54204c7f69b9f2fa2ed8f15b52) and explicitly appointed this session as independent technical reviewer. The requesting account's email equals the author email of public base commit 4d5a284c. Session: https://claude.ai/code/session_01BmcJYB4XWdZ5HecZZkKGFS, running in an isolated Anthropic cloud Linux container with no access to the implementation execution (/root, Windows D: worktree), its context or its machine; every check was re-executed from the packet bytes and public GitHub objects. No human signature, no CODEOWNER approval and no organizational certification is claimed or implied. Result delivered to the owner as exact bytes outside Git with SHA256 and byte length, for separate Commit B installation by an authorized step.",
+    "human_signature": false,
+    "codeowner_approval": false
+  },
+  "candidate": "9f3d07e1ac4a1fd796619c0eedd878d6f31578b5",
+  "tree": "3ab24e40843f0441c9ad3ebc42591be86c0b99b3",
+  "base": "4d5a284c9a51f4e3536852453d6e7543447d2e68",
+  "base_tree": "ab2b9a733f5dc7ec4d0f269db517d44eca58f271",
+  "decision": "APPROVED_FOR_TASK036_CANONICAL_DEADLINE_AMENDMENT_V2",
+  "blocking_findings_remaining": 0,
+  "timestamp_utc": "2026-10-17T02:30:40Z",
+  "amendment_sha256": "2d4bcfc42bb917826dd422d14e83bb1e5af1c1afe822a9b222a3492cc339693c",
+  "replacements_sha256": "aa1d5cac3d35c9fb4059b2765d6d1836da3a20adcb1a9cfe8f5c7bc76f67b649",
+  "approved_binding_rows": [
+    {
+      "bytes": 9443,
+      "git_blob": "6dd94b3f99e7e34d55875a3a206bb75864320538",
+      "mode": "CRLF_TO_LF_ONLY",
+      "path": ".github/workflows/post-dir-canonical-catchup.yml",
+      "sha256": "5ea0ddd06147fb7fcd82a77c30ad5601d7a95b74e12d059a19fca6f0d7b302bd"
+    },
+    {
+      "bytes": 21398,
+      "git_blob": "d93a3a8b68aa8013b66bd6f07bb1e056998ddc70",
+      "mode": "CRLF_TO_LF_ONLY",
+      "path": ".github/workflows/section18-implementation.yml",
+      "sha256": "804d89297a8e7b3ba0bba784f38635bfc237babaff01313441f48d068bf44ef4"
+    },
+    {
+      "bytes": 428,
+      "git_blob": "162dd93832f5607dd71fb69e7da228c184839bac",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/.gitattributes",
+      "sha256": "e4c9e15f7d8f4c8c9b4190ae2cccf1be0d6b0b9e981c5483b01cefc7d8eb0e5f"
+    },
+    {
+      "bytes": 3181,
+      "git_blob": "f1dde50ba89b08b42cd1d1b4ea00b1f52c5e84cf",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/AMENDMENT.json",
+      "sha256": "2d4bcfc42bb917826dd422d14e83bb1e5af1c1afe822a9b222a3492cc339693c"
+    },
+    {
+      "bytes": 1827,
+      "git_blob": "12d8ce556561462b3b6fbe8056e7c3c1b8ee319f",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/OWNER_DECISION.md",
+      "sha256": "29d288a356486371ca584b28f75eaa232d48409f9ea99c6e58005c9214993d47"
+    },
+    {
+      "bytes": 5828,
+      "git_blob": "3bb4dd683307ec3f3cad91f0c710b72da8348b19",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/canonical_history_profile.py.before",
+      "sha256": "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e"
+    },
+    {
+      "bytes": 9443,
+      "git_blob": "26577340fc2935c169202bf48c622fe0c30c4b99",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/post-dir-canonical-catchup.yml.before",
+      "sha256": "c35d09469afedc7393ed217bbb87c3fd7fa000a27094d1c21e130cf45b3e4847"
+    },
+    {
+      "bytes": 13004,
+      "git_blob": "e78a8ddd2f00be143991b92cea06a860aeeeca4d",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/scene_ir_m1_review.py.before",
+      "sha256": "388639b22850280455efc2b523c0108cf8f8e257a3f4a2d406ef63542d4bd5d2"
+    },
+    {
+      "bytes": 21397,
+      "git_blob": "5b4559d6e4f89656eaa2c602635ca5a4192e6f8c",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/section18-implementation.yml.before",
+      "sha256": "02152f8a36317a752248ad1bce8b3766c1e457fffbc1da959e71f991a47a1d5d"
+    },
+    {
+      "bytes": 23564,
+      "git_blob": "415e3d057654ba0f381b8a4b6ed392c7c6e815f8",
+      "mode": "RAW_IMMUTABLE",
+      "path": "docs/productization/task036-ci-history-amendment-v2/verify_post_dir_provisioning.py.before",
+      "sha256": "2bbd0c6c7df6e5f5d2b98235cb1bceab1c5fcb1024a4d40e6ce870cbecdac517"
+    },
+    {
+      "bytes": 23701,
+      "git_blob": "9df921e60bc3242a319825d404fdbb483bcf371f",
+      "mode": "CRLF_TO_LF_ONLY",
+      "path": "tests/productization/animation/verify_post_dir_provisioning.py",
+      "sha256": "9676e20adb10f79d0ae143adef1859582bd0e5f9f97c1189e9ffb2d51c5bee91"
+    },
+    {
+      "bytes": 10819,
+      "git_blob": "16e9d20f68dd4881569f33cafed9600dd1fd62ab",
+      "mode": "CRLF_TO_LF_ONLY",
+      "path": "tests/productization/scene_ir/canonical_history_profile.py",
+      "sha256": "cf19d091014125750bd1b70d63444f0d7e86444fc5da59e06e9e6c92f372c9e4"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1-report-overstates-test-immutability",
+      "severity": "LOW",
+      "blocking": false,
+      "disposition": "NON_BLOCKING",
+      "location": "REPORT.md 'only the two workflow budget expectations changed'; tests/productization/scene_ir/test_canonical_history_profile.py validate_replacements() and CanonicalHistoryProfileControls.setUp",
+      "requirement_or_risk": "Disclosure accuracy: besides the WORKFLOWS budget constant, the shared helper validate_replacements now authenticates the v1 REPLACEMENTS rows for the guard and profile helper against the v2 preimages instead of the current files and additionally calls deadline_source_bindings(root); setUp copies the v2 members into the fixture workspace.",
+      "correction_or_reason": "Non-blocking: the redirect is chain-equivalent (v1 rows == v2 preimages == base blobs; current files pinned by fixed v2 REPLACEMENTS), and it does not weaken any retained assertion. No code change required; future reports should list helper/setUp changes explicitly.",
+      "verification": "AST diff base vs A: no retained test function body changed in any of the three test modules; only validate_replacements/setUp helpers changed. All 28 original profile tests pass on A; test_guard_source_tamper_rejected_by_fixed_source_attestation still returns False (now via ProducerError, a ValueError subclass, from deadline_source_bindings). Reviewer scenario 16 (guard tamper) is rejected by verified_m1_review."
+    },
+    {
+      "id": "F2-historical-doc-names-witness-v1",
+      "severity": "LOW",
+      "blocking": false,
+      "disposition": "NON_BLOCKING",
+      "location": "docs/productization/TASK036_CANONICAL_PROFILE_COMPATIBILITY.md line 48 (unchanged in A)",
+      "requirement_or_risk": "Documentation drift: the unchanged v1 compatibility document says amended roots emit a bie.task036.canonical-history-profile-witness/1 object; Commit A's helper now emits witness/2 and rejects the old witness.",
+      "correction_or_reason": "Non-blocking: the document is a historical record of the v1 amendment; v2 behaviour is documented in task036-ci-history-amendment-v2/OWNER_DECISION.md and code. Do not edit it in Commit B (constants-only); a later governed doc note may cross-reference v2.",
+      "verification": "git grep on tree 3ab24e40 for canonical-history-profile-witness; tests test_old_witness_does_not_describe_current_v2_workflow and test_actual_guard_accepts_exact_compatibility_without_repinning_authority pass."
+    },
+    {
+      "id": "F3-profile-v2-amendment-canonical-not-raw",
+      "severity": "LOW",
+      "blocking": false,
+      "disposition": "NON_BLOCKING",
+      "location": "tests/productization/scene_ir/canonical_history_profile.py authenticate(), v2 AMENDMENT.json comparison",
+      "requirement_or_risk": "Asymmetric strictness: authenticate() now raw-SHA-pins v1 AMENDMENT.json and v1 REPLACEMENTS.json but compares v2 AMENDMENT.json only by canonical JSON equality, so a whitespace-only change to v2 AMENDMENT.json passes this provisioning-integrity function.",
+      "correction_or_reason": "Non-blocking: no semantic change is possible through canonical-equal JSON, and the raw bytes are enforced by product admission (deadline_source_bindings RAW_IMMUTABLE row) and by the test helper validate_replacements. Optional hardening in a future reviewed amendment.",
+      "verification": "Reviewer scenario 08 (trailing newline appended to v2 AMENDMENT.json): profile.authenticate ACCEPT, deadline_source_bindings and verified_m1_review reject with scene_ir_m1_deadline_source_identity."
+    },
+    {
+      "id": "F4-approved-rows-equality-not-type-strict",
+      "severity": "LOW",
+      "blocking": false,
+      "disposition": "NON_BLOCKING",
+      "location": "bie/productization/scene_ir_m1_review.py deadline_review_documents(): review['approved_binding_rows'] == rows and bindings['approved_binding_rows'] == rows",
+      "requirement_or_risk": "Schema strictness: Python equality treats 9443.0 == 9443, so a review or bindings container carrying float byte counts would compare equal although the schema requires integers.",
+      "correction_or_reason": "Non-blocking: REVIEW.json and BINDINGS.json are admitted only through exact SHA256 and byte-length constants installed from the genuine reviewer bytes, so no third party can substitute such a document; this review uses JSON integers. Optional type check in a future reviewed amendment; must not be added in constants-only Commit B.",
+      "verification": "Code read in full; this REVIEW.json's rows were generated by json.loads of PROPOSED_BINDING_ROWS.json and re-serialized with integer bytes; simulated-B admission of this review succeeded."
+    },
+    {
+      "id": "F5-unused-v1-profile-constant",
+      "severity": "LOW",
+      "blocking": false,
+      "disposition": "NON_BLOCKING",
+      "location": "tests/productization/animation/verify_post_dir_provisioning.py V1_PROFILE_MODULE_SHA",
+      "requirement_or_risk": "Hygiene: V1_PROFILE_MODULE_SHA is defined but never referenced; only V2_PROFILE_MODULE_SHA is enforced by _profile_module().",
+      "correction_or_reason": "Non-blocking: documentary constant equal to the v1 helper preimage hash 2ee292eb...; it grants nothing. Leave as is in Commit B.",
+      "verification": "grep across candidate-source shows a single definition and no use; _profile_module compares against V2_PROFILE_MODULE_SHA (cf19d091..., equal to the reviewed helper row)."
+    }
+  ],
+  "checks_performed": [
+    "Outer ZIP SHA256 recomputed: bb1d3da680708642b0f7ac9d697353e5e543cd54204c7f69b9f2fa2ed8f15b52 (matches). All 49 MANIFEST.json entries matched on sha256 and byte length; no unlisted or missing members.",
+    "Fetched public base 4d5a284c9a51f4e3536852453d6e7543447d2e68 from github.com/SEENAV01/Enterprise-bie; its tree is ab2b9a733f5dc7ec4d0f269db517d44eca58f271. At review time public refs/heads/main still equals this base.",
+    "Applied BASE_TO_A.patch with git apply --cached onto the base index: git write-tree = 3ab24e40843f0441c9ad3ebc42591be86c0b99b3, exactly the claimed Commit A tree. 17 paths change (8 modified, 9 added) matching NAME_STATUS.txt and DIFF_STAT.txt; git diff --check is clean.",
+    "Workflow diff base->A is exactly one line per file: post-dir-canonical-catchup.yml line 20 (job canonical-regression) timeout-minutes 45 -> 75 and section18-implementation.yml line 20 (job canonical-regression) 90 -> 120. All other bytes identical, including Section18 native-render 20 and section16-regression 60, steps, commands, action pins, env, triggers, permissions and concurrency. Neither canonical job has a step-level timeout or inner global budget that would cap it below the new deadline.",
+    "Five preimages: the A blobs of the five .before files equal the base blobs of their source paths (26577340, 5b4559d6, 415e3d05, 3bb4dd68, e78a8ddd), and the three auxiliary ones equal the auxiliary_reviewed_authority_bindings rows of the unchanged BINDINGS_A24EF1CD.json.",
+    "Historical authority: the 9 historical-authority files in the packet are byte-identical to the base and A blobs; no path under docs/productization/m1-review/, task036-ci-history-amendment/ or task036-motion-amendment/ changes base->A.",
+    "Historical constants by AST comparison base vs A: all 15 named constants of scene_ir_m1_review.py; PROFILE_BLOBS, APPROVED_PACKAGES, PHASE, SCHEMA, SCOPE of verify_post_dir_provisioning.py; DIRECTORY, WORKFLOW, GUARD, EXPECTED of canonical_history_profile.py; DOCUMENT and REPLACEMENTS of test_canonical_history_profile.py are unchanged.",
+    "v1 -> v2 chain: v2 AMENDMENT previous_amendment_sha256 = sha256(v1 AMENDMENT.json) 639e8711..., previous_replacements_sha256 = sha256(v1 REPLACEMENTS.json) 67afd0ce..., original_m1_amendment_sha256 = sha256(task036-motion-amendment/AMENDMENT.json) b4546599...; its preimages and workflows entries agree with the REPLACEMENTS rows.",
+    "Binding rows: recomputed all 12 rows (path, mode, bytes, sha256, git_blob) independently from candidate-source/ and from the reconstructed tree blobs; all 12 match. PROPOSED_BINDING_ROWS.json equals REPLACEMENTS.json files sorted by path. v2 AMENDMENT.json = 3181 bytes sha256 2d4bcfc4..., REPLACEMENTS.json = 3833 bytes sha256 aa1d5cac... = DEADLINE_REPLACEMENTS_SHA = IDENTITY.json. Every candidate-source file is LF-only and byte-equal to its tree blob.",
+    "Read in full the A admission module and the profile/guard/test diffs. deadline_source_bindings: fixed REPLACEMENTS SHA, closed schema, exact 12-path set, directory allowlist (no symlink, subdirectory or extra member), RAW_IMMUTABLE vs CRLF_TO_LF_ONLY modes, git blob check. Old auxiliary rows are retargeted only to the fixed preimages and only for the exact 3-path auxiliary set. verified_deadline_review fails closed while constants are PENDING/0, with no missing-review fallback; v2 integrity never implies approval.",
+    "Ran the 6 focused modules on reconstructed A under Linux (CPython 3.13.16, plain unittest, reviewer-written runner): 152 tests, 147 pass, 0 failures, 5 errors, 0 skips. Each error is ProducerError('scene_ir_m1_deadline_approval_missing') in CurrentM1ReviewControls: test_actual_current_source_and_review_chain_authenticate, test_configuration_binds_helper_and_both_review_identities, test_documents_use_exact_reviewed_lengths_inside_original_reader_bound, test_each_current_admission_authenticates_ledger_once_no_cross_call_cache, test_portable_source_crlf_only_conversion_is_not_a_raw_seal.",
+    "Ran the same 6 modules on base: 127/127 pass. All 127 base test identities exist in A; the only retained identities not passing on A are the 5 above; all 25 new tests pass.",
+    "AST comparison of every retained test function: no body changed in test_current_m1_review.py or test_canonical_history_workflows.py (only its WORKFLOWS constant 45->75 and 90->120; qa-section16-combined stays 90); in test_canonical_history_profile.py only helper validate_replacements and setUp changed (finding F1). No test removed or weakened.",
+    "24 reviewer-authored adversarial scenarios on reconstructed A, each probing deadline_source_bindings, verified_m1_review and profile.authenticate in a fresh interpreter: rollback of both/either workflow, 76-minute value, other Section18 job budget, one-byte REPLACEMENTS tamper, AMENDMENT trailing byte, CRLF-normalized raw preimage, extra member, subdirectory, deleted v2 directory, deleted OWNER_DECISION.md, v1 AMENDMENT and v1 REPLACEMENTS tamper (mixed authority), guard and helper tamper, symlinked member, hard-linked workflow, unapproved REVIEW/BINDINGS present, admission-module rollback with new workflows, helper/guard rollback, full code rollback. verified_m1_review rejected all of them; unmodified A and the CRLF-only workflow conversion reach only scene_ir_m1_deadline_approval_missing.",
+    "Repository scripts on reconstructed A (Linux): verify_section17_adoption.py, verify_ingested_archives.py, verify_post_dir.py and audit_canonical.py all report passed=true, errors=[]; audit_canonical output equals packet local-evidence/canonical.json.",
+    "Simulated Commit B in a scratch reconstruction only (never the owner's repository): installed a draft of this REVIEW.json (identical schema and rows), a BINDINGS.json built to the instruction schema and the seven bootstrap constants; all 152 focused tests passed including the 5 positive-admission controls. With decision CHANGES_REQUESTED or schema .../2 under correctly re-pinned constants, admission rejected with scene_ir_m1_deadline_review_required. Scratch state then restored to tree 3ab24e40.",
+    "Authority: the owner appointment is stated in the request from the owner's own account, whose email equals the base commit author email; no CODEOWNERS file exists in the base or A tree."
+  ],
+  "checks_not_performed": [
+    "Commit object 9f3d07e1ac4a1fd796619c0eedd878d6f31578b5 itself (author, message, parent) could not be verified: it is local-only and the packet has no commit object. Only its tree 3ab24e40 was reconstructed and verified. The Git bundle in BACKUP_IDENTITY.json was not supplied and not verified.",
+    "No hosted GitHub Actions execution of the new workflow bytes; Linux strict AFTER, full native/compiler/render, Scene smokes and exact-main closure were not run by this reviewer.",
+    "Full scripts/integrated_check.py canonical regression and the Section18 lanes were not run (they need hosted provisioning and long runtimes).",
+    "Hosted run evidence cited in OWNER_DECISION.md (Post-DIR run 38927953175, Section18 run 38927953187) was not independently retrieved: the GitHub API was not reachable from this session. D6 itself is the owner's capacity decision and was not re-litigated.",
+    "Branch protection, rulesets and required reviewers on main could not be read from this session; only the absence of a CODEOWNERS file was checked.",
+    "Windows-specific behaviour (CRLF checkout, D: worktree, Python 3.13.5) was not reproduced; verification ran on Linux with CPython 3.13.16.",
+    "The verify_post_dir_provisioning.py CLI that emits the post-DIR AFTER receipt was not executed (it needs the hosted provisioning profile); its profile path is covered by the passing unit tests.",
+    "The packet's own run_focused.py and verify_bytes.py harnesses were not executed; an independent runner and tree-level byte comparison were used instead.",
+    "Commit B was not installed in the owner's repository; nothing was pushed, no PR was opened and nothing was merged."
+  ],
+  "residual_risks": [
+    "Capacity, not optimization: longer deadlines do not reduce runtime. Further growth of the canonical regression will reach the new limits again, and the shared concurrency group canonical-regression-${{ github.ref }} with cancel-in-progress false holds the queue longer.",
+    "The Commit B installer must confirm that 9f3d07e1^{tree} == 3ab24e40 and that its parent is 4d5a284. It must also confirm that the A->B diff changes only the seven bootstrap constants and adds only REVIEW.json (byte-exact) and BINDINGS.json. Any other change voids this review.",
+    "By design, the bootstrap admission module bie/productization/scene_ir_m1_review.py is outside the 12-row binding table. Its integrity rests on this tree-level review and on the engine identity hash, so any later edit needs reassessment.",
+    "This is an AI-assisted technical review, not a human or CODEOWNER sign-off. Repository branch rules, if any, may impose further requirements at PR or merge time.",
+    "Product admission stays closed until Commit B. Product acceptance stays false. Audio stays OPEN with AUDIO_REPLAN_REQUIRED fail-closed. VIDEO_CODE and later stay NOT_RUN. Task036 canonical closure stays pending.",
+    "The packet's local evidence was produced on Windows. This reviewer reproduced the focused suite and the preservation audits on Linux, but neither run is hosted CI proof."
+  ],
+  "product_accepted": false
+}
