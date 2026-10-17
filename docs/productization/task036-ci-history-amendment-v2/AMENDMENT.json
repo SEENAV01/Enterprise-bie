@@ -1,0 +1,66 @@
+{
+  "base": "4d5a284c9a51f4e3536852453d6e7543447d2e68",
+  "base_tree": "ab2b9a733f5dc7ec4d0f269db517d44eca58f271",
+  "capacity_decision_not_performance_fix": true,
+  "child_limits_changed": false,
+  "historical_profile_pins_changed": false,
+  "mandatory_gates_replaced": false,
+  "native_source_changed": false,
+  "original_m1_amendment_sha256": "b454659994bdbfb2e931ebac6d6b9915c88c8b7a78f02c5a5363106fa5b39a1c",
+  "owner_decision": "D6",
+  "preimages": {
+    ".github/workflows/post-dir-canonical-catchup.yml": {
+      "bytes": 9443,
+      "git_blob": "26577340fc2935c169202bf48c622fe0c30c4b99",
+      "path": "docs/productization/task036-ci-history-amendment-v2/post-dir-canonical-catchup.yml.before",
+      "sha256": "c35d09469afedc7393ed217bbb87c3fd7fa000a27094d1c21e130cf45b3e4847"
+    },
+    ".github/workflows/section18-implementation.yml": {
+      "bytes": 21397,
+      "git_blob": "5b4559d6e4f89656eaa2c602635ca5a4192e6f8c",
+      "path": "docs/productization/task036-ci-history-amendment-v2/section18-implementation.yml.before",
+      "sha256": "02152f8a36317a752248ad1bce8b3766c1e457fffbc1da959e71f991a47a1d5d"
+    },
+    "bie/productization/scene_ir_m1_review.py": {
+      "bytes": 13004,
+      "git_blob": "e78a8ddd2f00be143991b92cea06a860aeeeca4d",
+      "path": "docs/productization/task036-ci-history-amendment-v2/scene_ir_m1_review.py.before",
+      "sha256": "388639b22850280455efc2b523c0108cf8f8e257a3f4a2d406ef63542d4bd5d2"
+    },
+    "tests/productization/animation/verify_post_dir_provisioning.py": {
+      "bytes": 23564,
+      "git_blob": "415e3d057654ba0f381b8a4b6ed392c7c6e815f8",
+      "path": "docs/productization/task036-ci-history-amendment-v2/verify_post_dir_provisioning.py.before",
+      "sha256": "2bbd0c6c7df6e5f5d2b98235cb1bceab1c5fcb1024a4d40e6ce870cbecdac517"
+    },
+    "tests/productization/scene_ir/canonical_history_profile.py": {
+      "bytes": 5828,
+      "git_blob": "3bb4dd683307ec3f3cad91f0c710b72da8348b19",
+      "path": "docs/productization/task036-ci-history-amendment-v2/canonical_history_profile.py.before",
+      "sha256": "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e"
+    }
+  },
+  "previous_amendment_sha256": "639e87119a2cf8f6cf35e8062dbd66df4b021f05b689a5602674e9eb4992df00",
+  "previous_replacements_sha256": "67afd0ce2f0540922eca99110c6d2935c4a72ffe3ca8a40a75ef232ab126b927",
+  "product_accepted": false,
+  "requirements_installers_changed": false,
+  "schema": "bie.task036.canonical-history-profile-amendment/2",
+  "scope": "EXACT_TWO_CANONICAL_JOB_DEADLINES_ONLY",
+  "status": "DRAFT_PENDING_REVIEW_NOT_APPROVAL",
+  "workflows": {
+    ".github/workflows/post-dir-canonical-catchup.yml": {
+      "bytes": 9443,
+      "git_blob": "6dd94b3f99e7e34d55875a3a206bb75864320538",
+      "new_minutes": 75,
+      "old_minutes": 45,
+      "sha256": "5ea0ddd06147fb7fcd82a77c30ad5601d7a95b74e12d059a19fca6f0d7b302bd"
+    },
+    ".github/workflows/section18-implementation.yml": {
+      "bytes": 21398,
+      "git_blob": "d93a3a8b68aa8013b66bd6f07bb1e056998ddc70",
+      "new_minutes": 120,
+      "old_minutes": 90,
+      "sha256": "804d89297a8e7b3ba0bba784f38635bfc237babaff01313441f48d068bf44ef4"
+    }
+  }
+}
