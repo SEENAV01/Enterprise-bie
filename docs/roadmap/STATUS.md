@@ -7,11 +7,11 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 0 · Foundation |
-| Current task | 037B · Fast lane and CI debts |
-| Branch | `task037b-fast-lane` (stacked on `task037a-repository-memory`, PR #31) |
-| State | In review: PR open, waiting for CI |
-| Next task | 037C · Let working source evolve (needs Navin's approval), then 038 · Live AI and the blind test |
-| Canonical main | `b3ce527ff102bc3b91942b3d6553e851c61bb6f9` (Task 036 closed) |
+| Current task | 037C · Let working source evolve (proposed; waiting for Navin's approval) |
+| Branch | — |
+| State | Proposed |
+| Next task | 038 · Live AI and the blind test |
+| Canonical main | `d464d7f79bb80c6ffe36c9feb335ea3e29c9a346` (Task 037A and 037B merged) |
 
 ## Done
 
@@ -19,7 +19,8 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 | --- | --- | --- |
 | 2026-10-19 | 036 · Scene IR producer | Canonical-complete within its bounded scope; PR #29 and #30 merged; exact-main CI green |
 | 2026-10-19 | Local work rescue | Director Step 4 and Step 5 pushed as `wip/task036-director-step4` and `wip/task036-director-step5` (not merged) |
-| 2026-10-19 | 037A · Repository memory | `CLAUDE.md`, Vision Spec, roadmap and this file; PR #31 (merges together with 037B) |
+| 2026-10-19 | 037A · Repository memory | `CLAUDE.md`, Vision Spec, roadmap and this file; PR #31, merged through PR #32 |
+| 2026-10-19 | 037B · Fast lane and CI debts | PR #32 merged at `d464d7f7` after all 12 checks passed on its final head `ad1436e5`. F-08 instrumented, not closed |
 
 ## Task 037B · what changed
 
@@ -35,6 +36,7 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 - [x] Who presses merge — Claude, once CI is green (19 October 2026).
 - [x] Remove the Task 036 review lock — yes, 19 October 2026.
 - [ ] Approve 037C (let working source evolve; evidence stays frozen).
+- [ ] The repository is public: anyone can read the code, the Vision Spec and this roadmap, and CI minutes are free. Keep it public, or make it private (heavy CI then uses paid minutes)?
 - [ ] Providers for the blind test (Claude, OpenAI, Gemini) and the monthly budget.
 - [ ] First book, chapter and class level (ideally a subject Navin teaches).
 - [ ] First language: Hindi, English or Hinglish.
@@ -48,7 +50,7 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 
 - F-08: Section 18 browser gate flake (`CDP_TIMEOUT:Page.navigate`); instrumented in 037B, cause not yet proven. FR-1 allows one recorded rerun per job only for that exact failure (or `CDP_SOCKET_CLOSED:Page.navigate`).
 - npm drift (found and fixed in 037B): from 17 October the Section 18 `native-render` job failed on every PR, docs-only #31 included, with `TOOLCHAIN_REMOTION_PAIR: mixed versions`. Cause, shown by the drift canary: the generated Remotion project has no lockfile, a newer webpack now gets hoisted, and npm nests Remotion's exact `webpack@5.105.0` under `node_modules/@remotion/bundler/`; the pairing check counts every entry under that prefix, including this non-Remotion package. 037B resolves those installs, and the M1 render runner's, as of 17 Oct 2026 12:00 UTC (`tools/npm_before.txt`); native-render is green again and the canary keeps reporting today's unpinned tree. Follow-up: commit a real lockfile and narrow the check to Remotion packages (needs 037C because the check is source-pinned).
-- F-09 (new, seen once): Section 18 atomic `CancelRecovery.test_actual_two_process_cancel_returns_same_completed_state` failed in PR #32 run 39292713985 (both child processes exited 1). It passed on PR #31's run and 90 of 90 times locally (30 of them under full CPU load). Suspected: SQLite's 1 s busy timeout while two processes prepare the same cancel on a slow runner, so one child gets "database is locked" and the other times out at the test's 8 s barrier. Not proven; failure annotations now include the children's stderr.
+- F-09 (seen once, passed on the next full run): Section 18 atomic `CancelRecovery.test_actual_two_process_cancel_returns_same_completed_state` failed in PR #32 run 39292713985 (both child processes exited 1). It passed on PR #31's run and 90 of 90 times locally (30 of them under full CPU load). Suspected: SQLite's 1 s busy timeout while two processes prepare the same cancel on a slow runner, so one child gets "database is locked" and the other times out at the test's 8 s barrier. Not proven; failure annotations now include the children's stderr.
 - Source pins: `scripts/audit_canonical.py` and `scripts/verify_post_dir.py` byte-pin migrated working source (Task 037C).
 - N-02: Section 18 source-ledger step slowed from 21 s to 612 s.
 - Audio reconciliation open (`AUDIO_REPLAN_REQUIRED`); global VIDEO_CODE and later stages not run.
