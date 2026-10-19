@@ -15,17 +15,18 @@ on:
       - 'docs/productization/TASK036*'
       - 'docs/productization/task036-motion-amendment/**'
       - '.github/workflows/task036-motion-capability.yml'
+      - 'tools/npm_before.txt'
 
 permissions:
   contents: read
 concurrency:
   group: bie-task036-motion-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
@@ -80,6 +81,10 @@ jobs:
           python -B scripts/audit_canonical.py --output "$RUNNER_TEMP/m1-evidence/source-preservation.json"
           python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/m1-evidence/post-dir-source.json"
           python -B scripts/verify_ingested_archives.py --output "$RUNNER_TEMP/m1-evidence/ingested-source.json"
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "M1 verify" "$RUNNER_TEMP/m1-evidence"
       - name: Preserve only allowlisted safe receipts
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -162,6 +167,10 @@ jobs:
           require(seen == set(expected_files) and executed == 4972, 'AFFECTED_INCOMPLETE_EXECUTION')
           print('TASK035_AFFECTED_RECEIPT_PASS files=501 tests=4972 failures=0 errors=0 skips=0')
           PY
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "M1 task035-affected" "$RUNNER_TEMP/m1-evidence"
       - name: Safe unique Task035 affected receipt
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -198,6 +207,10 @@ jobs:
           python -m pip check
       - name: Additional native compiler and Scene IR tests excluding Task035 and new duplicates
         run: python -B tests/compiler/run_m1_tests.py --lane native-extra --output "$RUNNER_TEMP/m1-evidence/native-extra.json"
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "M1 native-extra" "$RUNNER_TEMP/m1-evidence"
       - name: Safe unique native test receipt
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -253,6 +266,10 @@ jobs:
             "$(command -v python)" -I -B tests/compiler/run_m1_owned_render.py \
             --family '${{ matrix.family }}' --preference '${{ matrix.preference }}' \
             --output "$RUNNER_TEMP/m1-evidence/render-${{ matrix.family }}-${{ matrix.preference }}.json"
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "M1 render ${{ matrix.family }} ${{ matrix.preference }}" "$RUNNER_TEMP/m1-evidence"
       - name: Safe native render receipt only no media private payload or generated code
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a

@@ -267,7 +267,10 @@ def run(args):
                         project = root / ("project-" + preference)
                         phase["phase"] = "H3_TEST_PUBLICATION"
                         receipt = publish_h3_scene(raw,project,target=target,motion_preference=preference)
-                        process = run_bounded_process(("npm","install","--ignore-scripts","--no-audit","--no-fund","--fetch-retries=0","--fetch-timeout=15000"),
+                        # Task 037B: the generated project has no lockfile; resolve its
+                        # transitive packages as of the governed date, not "latest".
+                        before = (ROOT / "tools/npm_before.txt").read_text(encoding="utf-8").strip()
+                        process = run_bounded_process(("npm","install","--ignore-scripts","--no-audit","--no-fund","--fetch-retries=0","--fetch-timeout=15000","--before="+before),
                             cwd=project,timeout_s=180,max_output_bytes=4*1024**2)
                         require(process.process.passed,"NPM_SETUP")
                         output = root / ("paint-" + preference)

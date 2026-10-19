@@ -14,8 +14,6 @@ from tests.productization.scene_ir.recovery_observations import capture_observat
 
 NEW = (
     "tests/productization/scene_ir/test_incomplete_status_composition.py",
-    "tests/productization/scene_ir/test_monitor_binding_amendment.py",
-    "tests/productization/scene_ir/test_current_m1_review.py",
     "tests/productization/scene_ir/test_scene_ir_admission.py",
     "tests/productization/scene_ir/test_scene_ir_contract.py",
     "tests/productization/scene_ir/test_scene_ir_producer.py",
@@ -25,7 +23,6 @@ NEW = (
     "tests/productization/scene_ir/test_recovery_observations.py",
     "tests/productization/scene_ir/test_status_composition.py",
     "tests/productization/scene_ir/test_canonical_history_workflows.py",
-    "tests/productization/scene_ir/test_canonical_history_profile.py",
     "tests/productization/scene_ir/test_animation_input_composition.py",
     "tests/productization/scene_ir/test_positive_process_observations.py",
     "tests/productization/scene_ir/test_motion_input_composition.py",

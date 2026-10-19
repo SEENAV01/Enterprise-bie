@@ -3,8 +3,18 @@ name: BIE Section 16 Combined Candidate
 on:
   push:
     branches: [codex/section16-hard039-recovery, integration/section17-eval-r1-20260930]
+    paths-ignore:
+      - 'CLAUDE.md'
+      - 'docs/roadmap/**'
+      - 'docs/vision/**'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - 'CLAUDE.md'
+      - 'docs/roadmap/**'
+      - 'docs/vision/**'
+  schedule:
+    - cron: '30 22 * * *'
   workflow_dispatch:
 
 permissions:
@@ -12,7 +22,7 @@ permissions:
 
 concurrency:
   group: qa-section16-combined-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   canonical-regression:
@@ -194,6 +204,10 @@ jobs:
           (temp/'canonical-evidence/COMBINED_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
           print(json.dumps(result,indent=2))
           PY
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "Section 16 combined canonical-regression" "$RUNNER_TEMP/canonical-evidence" "$RUNNER_TEMP/section16-evidence" "$RUNNER_TEMP/bie-ci-setup"
       - name: Preserve actual results, including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

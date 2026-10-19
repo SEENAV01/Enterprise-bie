@@ -69,6 +69,8 @@ def main():
     elif a.lane=='browser':
         suite=unittest.TestSuite()
         if a.batch in ('001','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_ui.py')))
+        # Task 037B: F-08 harness diagnostics (scripted DevTools endpoint, no browser).
+        if a.batch in ('001','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_browser_journey_cdp.py')))
         if a.batch in ('002','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch002.py')))
         if a.batch in ('003','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch003.py')))
         if a.batch in ('003b','all'):suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(load('tests/section18/test_native_batch003b.py')))
