@@ -20,6 +20,11 @@ on:
 permissions:
   contents: read
 
+env:
+  # Task 037B: npm resolves Remotion project dependencies as of this instant (last green
+  # native render). Move it forward deliberately, in a reviewed PR, never implicitly.
+  BIE_NPM_BEFORE: '2026-10-17T12:00:00Z'
+
 concurrency:
   group: section18-implementation-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -111,7 +116,15 @@ jobs:
           project="$RUNNER_TEMP/section18-native-render"
           python -B tools/prepare_section18_native_render.py --destination "$project"
           cd "$project"
-          npm install --ignore-scripts --no-audit --no-fund
+          # Task 037B: the project pins remotion/react/typescript exactly but has no lock, so
+          # transitive packages floated. Resolve as of the last green native render (17 Oct
+          # 2026) and report what an unpinned resolution would do today (drift canary).
+          canary="$RUNNER_TEMP/remotion-drift-canary-canonical-regression"
+          mkdir -p "$canary" && cp package.json "$canary/"
+          (cd "$canary" && npm install --package-lock-only --ignore-scripts --no-audit --no-fund >/dev/null 2>&1) || true
+          python3 -B "$GITHUB_WORKSPACE/tools/remotion_tree_report.py" "canonical-regression canary (unpinned today)" "$canary/package-lock.json"
+          npm install --ignore-scripts --no-audit --no-fund --before="$BIE_NPM_BEFORE"
+          python3 -B "$GITHUB_WORKSPACE/tools/remotion_tree_report.py" "canonical-regression installed" package-lock.json
           printf 'BIE_SECTION18_RENDER_PROJECT=%s\n' "$project" >> "$GITHUB_ENV"
       - name: Section 18 explicit local and native gates
         id: components
@@ -325,7 +338,15 @@ jobs:
           project="$RUNNER_TEMP/section18-production-boundary-project"
           python -B tools/prepare_section18_native_render.py --destination "$project"
           cd "$project"
-          npm install --ignore-scripts --no-audit --no-fund
+          # Task 037B: the project pins remotion/react/typescript exactly but has no lock, so
+          # transitive packages floated. Resolve as of the last green native render (17 Oct
+          # 2026) and report what an unpinned resolution would do today (drift canary).
+          canary="$RUNNER_TEMP/remotion-drift-canary-native-render"
+          mkdir -p "$canary" && cp package.json "$canary/"
+          (cd "$canary" && npm install --package-lock-only --ignore-scripts --no-audit --no-fund >/dev/null 2>&1) || true
+          python3 -B "$GITHUB_WORKSPACE/tools/remotion_tree_report.py" "native-render canary (unpinned today)" "$canary/package-lock.json"
+          npm install --ignore-scripts --no-audit --no-fund --before="$BIE_NPM_BEFORE"
+          python3 -B "$GITHUB_WORKSPACE/tools/remotion_tree_report.py" "native-render installed" package-lock.json
       - name: Required genuine resource Wasm bundle and actual-paint render gates
         run: |
           set -euo pipefail

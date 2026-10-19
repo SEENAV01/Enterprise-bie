@@ -47,7 +47,7 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 ## Known technical debts
 
 - F-08: Section 18 browser gate flake (`CDP_TIMEOUT:Page.navigate`); instrumented in 037B, cause not yet proven. FR-1 allows one recorded rerun per job only for that exact failure (or `CDP_SOCKET_CLOSED:Page.navigate`).
-- PR #31 run 39284274647: the Section 18 `native-render` job failed after 32 s in "Required genuine resource Wasm bundle and actual-paint render gates" (normally about 3 minutes) on a docs-only change, during the GitHub Actions incident of 19 October. Cause unknown because the log cannot be read from here; the new failure annotations will show it if it repeats.
+- npm drift (found in 037B): since 17 October the Section 18 `native-render` job fails on every PR, docs-only #31 included, with `TOOLCHAIN_REMOTION_PAIR: mixed versions` (shown by the new failure annotations). The generated Remotion project pins `remotion`, `react` and `typescript` exactly but has no lockfile, so transitive packages float. 037B resolves those installs as of 17 Oct 2026 12:00 UTC (`BIE_NPM_BEFORE`, the last green native render) and adds a drift canary annotation showing what an unpinned resolution would do today. Follow-up: commit a real lockfile, and narrow the pairing check, which also counts non-Remotion packages nested under `node_modules/@remotion/` (needs 037C because the check is source-pinned).
 - Source pins: `scripts/audit_canonical.py` and `scripts/verify_post_dir.py` byte-pin migrated working source (Task 037C).
 - N-02: Section 18 source-ledger step slowed from 21 s to 612 s.
 - Audio reconciliation open (`AUDIO_REPLAN_REQUIRED`); global VIDEO_CODE and later stages not run.

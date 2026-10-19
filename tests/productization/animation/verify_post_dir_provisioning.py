@@ -273,15 +273,9 @@ def validate_after_receipt(value: object, expected_head: str) -> bool:
     try:
         keys = {"schema", "scope", "phase", "base", "candidate", "runtime",
                 "comparison", "after_gate_passed", "mandatory_regression_substituted", "product_accepted"}
-        if not isinstance(value, dict):
-            return False
-        if value.get("schema") == "bie.task035.post-dir-after/2":
-            if set(value) != keys | {"profile_amendment"}:
-                return False
-            module = _profile_module()
-            if not module.validate_witness(value["profile_amendment"]) or value["profile_amendment"] != module.authenticate(ROOT):
-                return False
-        elif value.get("schema") != SCHEMA or set(value) != keys:
+        # Task 037B: the workflow-byte profile amendment (schema /2) was removed
+        # with the Task 036 lock; only the original receipt schema is current.
+        if not isinstance(value, dict) or value.get("schema") != SCHEMA or set(value) != keys:
             return False
         valid = (value["scope"] == SCOPE and value["phase"] == PHASE
                 and value["base"] == diagnostics.BASE and value["candidate"] == expected_head
@@ -289,10 +283,6 @@ def validate_after_receipt(value: object, expected_head: str) -> bool:
                 and value["product_accepted"] is False and validate_runtime(value["runtime"])
                 and validate_comparison(value["comparison"], expected_head)
                 and value["runtime"]["python"]["executable_sha256"] == value["comparison"]["environment"]["python_executable_sha256"])
-        if valid and value["schema"] == SCHEMA and expected_head == diagnostics.git_text("rev-parse", "HEAD"):
-            # Pure historical v1 validation remains compatible, but the actual
-            # amended-root candidate cannot use it as current-source evidence.
-            return current_profile_amendment() is None
         return valid
     except (KeyError, TypeError, ValueError, OSError, ImportError):
         return False
@@ -311,9 +301,6 @@ def collect_after() -> dict:
     receipt = {"schema": SCHEMA, "scope": SCOPE, "phase": PHASE, "base": diagnostics.BASE,
                "candidate": head, "runtime": runtime, "comparison": comparison,
                "after_gate_passed": True, "mandatory_regression_substituted": False, "product_accepted": False}
-    amendment = current_profile_amendment()
-    if amendment is not None:
-        receipt.update(schema="bie.task035.post-dir-after/2", profile_amendment=amendment)
     receipt["after_gate_passed"] = validate_after_receipt(receipt, head)
     return receipt
 
