@@ -34,6 +34,7 @@ Book → LLM → Remotion shortcut.
 ## How work is done
 
 - One task at a time, as listed in `docs/roadmap/ROADMAP.md`. Branch `task0NN-<slug>` from current `main`; open a PR; never commit directly to `main`.
+- Claude merges a PR itself once all its CI checks are green (Navin approved this on 19 Oct 2026). A red check is diagnosed, never merged around.
 - Never force-push, rewrite published history or delete branches you did not create.
 - Update `docs/roadmap/STATUS.md` in the same PR when a task changes state.
 - Before pushing from a shallow clone: `git fetch origin main` and rebase if needed.
@@ -47,13 +48,15 @@ Book → LLM → Remotion shortcut.
 - **Working source** is `bie/`; applications are in `apps/` (`api`, `android`, `operator`, `web`); `app/bie` is compatibility code only.
 - **Secrets** come only from environment variables or GitHub Actions secrets. Never write keys into the repo, logs, evidence files or chat.
 - **Fail closed, but stay light.** Keep checks that protect correctness; do not add new sealed-review or binding-record ceremonies for ordinary tasks.
+- **Source pins.** Task 037B removed the Task 036 runtime review lock. Older ledgers still byte-pin migrated working source: `scripts/audit_canonical.py` checks every path in `manifests/lossless_migration.csv` (including `bie/model_gateway/`, `bie/knowledge_intelligence/`, `bie/prerequisite_intelligence/`, `bie/reasoning/`, `bie/document_intelligence/`), and `scripts/verify_post_dir.py` checks the adopted VISUAL/ANIMATION/DSL/COMPILER files. Editing a pinned file fails the canonical gate until Task 037C gives working source a sanctioned way to evolve. New files are not pinned.
 
 ## Tests and CI
 
 - Python ≥ 3.11 (CI uses 3.13.5). Tests are mostly `unittest`; run focused suites for what you change, for example `python -B tools/run_task036_tests.py` for the Scene IR producer.
 - The full canonical gate is `python scripts/integrated_check.py` (Linux, about 40 minutes); prefer letting CI run it.
-- Every PR to `main` currently triggers three all-path heavy workflows (`post-dir-canonical-catchup.yml`, `qa-section16-combined.yml`, `section18-implementation.yml`) plus path-matched producer workflows. Task 037B proposes a fast lane for this.
-- Rule FR-1 until F-08 is fixed: one rerun per job is allowed only for the Section 18 independent browser gate failing with `CDP_TIMEOUT:Page.navigate` before the first product assertion; record every use. Any other failure: stop and diagnose.
+- Fast lane (Task 037B): a PR that changes only `CLAUDE.md`, `docs/roadmap/**` or `docs/vision/**` skips the three heavy gates (`post-dir-canonical-catchup.yml`, `qa-section16-combined.yml`, `section18-implementation.yml`). Any other change runs all three, plus the path-matched producer workflows. The heavy gates also run on every push to `main` and nightly. A newer push to the same PR cancels its older PR run.
+- Rule FR-1 until F-08 is closed: one rerun per job is allowed only for the Section 18 independent browser gate failing with `CDP_TIMEOUT:Page.navigate` or `CDP_SOCKET_CLOSED:Page.navigate` before the first product assertion. Record every use with the run's "Section 18 browser failure" annotation in `docs/roadmap/STATUS.md`. Any other failure: stop and diagnose.
+- GitHub job logs and artifacts cannot be downloaded from the cloud workspace; read run, job, step and annotation data through `gh api` (REST).
 
 ## Historical files
 

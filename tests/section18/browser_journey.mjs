@@ -13,18 +13,28 @@ if(process.platform==='win32'){
  if(!gate || !['GO\n','GO\r\n'].includes(gate.toString()))throw new Error('WINDOWS_BROWSER_OWNERSHIP_NOT_ESTABLISHED');
  process.stdin.pause();
 }
-const child=spawn(browser,['--headless=new','--no-first-run','--no-default-browser-check',
+// Task 037B (F-08): the standard automation switches that Playwright passes to
+// this same Chromium build, so no background service, field trial or keychain
+// work in a fresh profile competes with the first navigation. Web-platform
+// behaviour under test (CSP, sandboxing, storage, layout) is not changed.
+const AUTOMATION=['--disable-field-trial-config','--disable-background-networking','--disable-component-update',
+  '--disable-default-apps','--disable-extensions','--disable-sync','--metrics-recording-only',
+  '--no-service-autorun','--password-store=basic','--use-mock-keychain'];
+const child=spawn(browser,['--headless=new','--no-first-run','--no-default-browser-check',...AUTOMATION,
   '--remote-debugging-address=127.0.0.1','--remote-debugging-port='+debugPort,
   '--user-data-dir='+profile,'about:blank'],{stdio:'ignore',windowsHide:true});
-let socket;const contexts=new Map(),sessions=new Map(),diagnostics=[];
-let rootResponse=null,domReady=false,loadSeen=false;
+let socket,pageId=null;const contexts=new Map(),sessions=new Map(),diagnostics=[];
+let rootResponse=null,domReady=false,loadSeen=false,requestSent=false,frameLoading=false,socketClose=null;
 const pending=new Map();let seq=0;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function call(method,params={},sessionId=null){
  // Never include params/expression: they can contain the operator credential.
  // Keep the original deadline; capture which real protocol call timed out.
- const id=++seq;return await new Promise((resolve,reject)=>{const timer=setTimeout(()=>{pending.delete(id);reject(new Error('CDP_TIMEOUT:'+method+':'+id));},10000);
- pending.set(id,{resolve,reject,timer});socket.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));});
+ const id=++seq;return await new Promise((resolve,reject)=>{
+ // A closed DevTools socket is reported at once, never as a 10 s timeout.
+ if(socket.readyState!==1){reject(new Error('CDP_SOCKET_CLOSED:'+method+':'+id));return;}
+ const timer=setTimeout(()=>{pending.delete(id);reject(new Error('CDP_TIMEOUT:'+method+':'+id));},10000);
+ pending.set(id,{resolve,reject,timer,method});socket.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));});
 }
 async function evaluate(expression){
  const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});
@@ -36,9 +46,14 @@ try{
  progress('BROWSER_START');
  let tabs;for(let n=0;n<300;n++){try{tabs=await (await fetch('http://127.0.0.1:'+debugPort+'/json/list')).json();break;}catch{}await sleep(100);}
  assert(tabs?.length,'BROWSER_START_FAILED');
- socket=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
+ const page=tabs.find(t=>t.type==='page');pageId=page.id;socket=new WebSocket(page.webSocketDebuggerUrl);
  await new Promise((r,j)=>{socket.onopen=r;socket.onerror=j;});
+ socket.onclose=event=>{socketClose=event.code;
+  for(const [id,p] of pending){clearTimeout(p.timer);pending.delete(id);p.reject(new Error('CDP_SOCKET_CLOSED:'+p.method+':'+id));}};
  socket.onmessage=event=>{const row=JSON.parse(event.data),p=pending.get(row.id);if(p){clearTimeout(p.timer);pending.delete(row.id);row.error?p.reject(new Error('CDP_CALL_FAILED')):p.resolve(row.result);}
+  // F-08 evidence: did the browser start the navigation and send the request?
+  if(!row.sessionId&&row.method==='Page.frameStartedLoading')frameLoading=true;
+  if(!row.sessionId&&row.method==='Network.requestWillBeSent'&&row.params.request.url===base)requestSent=true;
   if(row.method==='Page.domContentEventFired')domReady=true;
   if(row.method==='Page.loadEventFired')loadSeen=true;
   if(row.method==='Network.responseReceived'&&row.params.response.url===base)rootResponse=row.params.response.status;
@@ -289,12 +304,16 @@ try{
     horizontal_overflow:false,synthetic_fixture:true,real_book_executed:false,product_accepted:false,
     cleanup_owner:process.platform==='win32'?'PRIVATE_WINDOWS_JOB':'CHILD_PROCESS_HANDLE'}));
 }catch(e){
- if(e.message.startsWith('CDP_TIMEOUT:')){
-  let healthStatus=null;
+ if(e.message.startsWith('CDP_TIMEOUT:')||e.message.startsWith('CDP_SOCKET_CLOSED:')){
+  let healthStatus=null,targetListed=null;
   try{const response=await fetch(base+'healthz',{signal:AbortSignal.timeout(1000)});healthStatus=response.status;}catch{}
-  // Never log expressions, requests, tokens, source data or URLs.
+  try{const list=await (await fetch('http://127.0.0.1:'+debugPort+'/json/list',{signal:AbortSignal.timeout(1000)})).json();
+   targetListed=Array.isArray(list)&&list.some(t=>t.id===pageId);}catch{}
+  // Never log expressions, requests, tokens, source data or URLs. Booleans,
+  // integers and null only.
   console.error('NATIVE_CDP_DIAGNOSTIC:'+JSON.stringify({rootResponse,domReady,loadSeen,healthStatus,
-    childExited:child.exitCode!==null||child.signalCode!==null,contexts:contexts.size,sessions:sessions.size}));
+    childExited:child.exitCode!==null||child.signalCode!==null,contexts:contexts.size,sessions:sessions.size,
+    requestSent,frameLoading,socketState:socket?.readyState??null,socketClose,targetListed}));
  }
  console.error('NATIVE_UI_FAILED:'+e.message);process.exitCode=1;
 }

@@ -8,8 +8,6 @@ import uuid
 
 from .contracts import require, canonical, strict_json, digest, sha, identifier
 from .animation_contract import profile_config as animation_profile, code_identity_scope as animation_scope
-from .scene_ir_m1_review import verified_m1_review
-from .scene_ir_monitor_review import identities as monitor_review_identities
 from bie.scene_ir.unified_scene_ir_codec import ROOT_FIELDS, ELEMENT_FIELDS, TRACK_FIELDS, decode_scene_ir
 
 PROFILE = "source_grounded_di_knowledge_pr_math_reasoning_pedagogy_director_visual_animation_scene_ir_v1"
@@ -17,7 +15,6 @@ SCHEMA = "1.0.0"
 POLICY = "current-complete-single-scene-native-ir/1"
 MAPPING_POLICY = "source-grammar-native-elements/1"
 INPUT_COMPOSITION_POLICY = "fresh-m1-entry-catalog-and-fresh-exit/1"
-REVIEW_SHA256 = "33458799eaf58951aa474a08d412b6b56361ec2f08aebdc23f150976a92410a5"
 _CODE_SCOPE = ContextVar("task036_scene_ir_code_identity", default=None)
 
 
@@ -36,16 +33,14 @@ def engine_identity():
     if cached is not None and "identity" in cached:
         return dict(cached["identity"])
     root = Path(__file__).resolve().parents[2]
-    review_identity = verified_m1_review(root)
-    names = ["bie.productization.scene_ir_" + n for n in ("contract", "catalog", "plan", "slice", "m1_review", "monitor_review")]
+    # Provenance, not a freeze: record the hashes of the code that actually runs.
+    # Task 037B removed the runtime requirement that reviewed Task 036 bytes stay
+    # unchanged; the sealed review records remain under docs/productization/.
+    names = ["bie.productization.scene_ir_" + n for n in ("contract", "catalog", "plan", "slice")]
     names += ["bie.productization.durable_slice", "apps.operator.scene_ir_producer", "apps.operator.scene_ir_worker_child"]
     result = {n: sha(Path(import_module(n).__file__).read_bytes().replace(b"\r\n", b"\n")) for n in names}
     for p in sorted((root / "bie/scene_ir").glob("*.py")):
         result["bie.scene_ir." + p.stem] = sha(p.read_bytes().replace(b"\r\n", b"\n"))
-    result.update(review_identity)
-    # Fixed identities are usable only after verified_m1_review authenticated
-    # both actual review generations and the complete current source chain.
-    result.update(monitor_review_identities())
     if cached is not None:
         cached["identity"] = result
     return dict(result)

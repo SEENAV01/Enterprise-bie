@@ -13,7 +13,7 @@ gate.
 2. **Navin says "haan"** (or asks for a change).
 3. **Build** — branch `task0NN-<slug>` from current `main`; code and tests run on Linux in the cloud workspace.
 4. **Show the output** — the real thing (a script, a video, a game, a report), not only test counts.
-5. **PR → CI → merge** — Navin merges (or Claude, once Navin allows merging on green CI).
+5. **PR → CI → merge** — Claude merges once every check is green (Navin approved this on 19 October 2026).
 6. **Update `docs/roadmap/STATUS.md`** and show the next task card.
 
 ## Phase 0 · Foundation (about 2–3 days)
@@ -21,12 +21,17 @@ gate.
 **037A · Repository memory** — `CLAUDE.md`, Vision Spec, this roadmap and the status file in the repo.
 Docs only; no code changes. Done when merged.
 
-**037B · Fast lane and CI debts** — needs Navin's approval first.
-- Today every PR to `main` runs three all-path heavy workflows (Post-DIR canonical about 45 min, Section 16 QA combined, Section 18 about 42 min) plus the matching producer workflows, even for a documentation change.
-- Proposal: documentation-only changes skip the heavy gates; each PR runs the gates relevant to the paths it touches; the full canonical gates run on merge to `main`, nightly and before a release. No gate is weakened, deleted or made non-blocking for code it covers.
-- Fix F-08 (Section 18 browser `CDP_TIMEOUT:Page.navigate` before the first product assertion) with a found cause and a regression test, not repeated green runs.
-- M1 `verify` takes 35m35s of its 45 min limit; split it or justify a new limit with timing evidence.
-- Done when: docs-only PRs finish in minutes, code PRs keep full coverage, F-08 has a cause and a test.
+**037B · Fast lane and CI debts** — approved by Navin on 19 October 2026.
+- Before: every PR to `main` ran three all-path heavy workflows (Post-DIR canonical about 45 min, Section 16 QA combined, Section 18 about 42 min) plus the matching producer workflows, even for a documentation change.
+- Fast lane: changes only to `CLAUDE.md`, `docs/roadmap/**` and `docs/vision/**` skip the three heavy gates; every other change still runs all of them; they also run on every push to `main` and nightly. No gate is weakened, deleted or made non-blocking for code it covers.
+- Remove the Task 036 runtime review lock (approved by Navin): Scene IR records hashes of the code that actually runs instead of refusing to run when reviewed bytes change.
+- F-08 (Section 18 browser `CDP_TIMEOUT:Page.navigate` before the first product assertion): find the cause, add a regression test and remove the rerun rule FR-1 once it is closed.
+- M1 `verify` took 35m35s of its 45 min limit; raise the limit to 60 min on that timing evidence.
+
+**037C · Let working source evolve** — needs Navin's approval first.
+- `scripts/audit_canonical.py` byte-pins every migrated source file listed in `manifests/lossless_migration.csv`, including `bie/model_gateway/`, `bie/knowledge_intelligence/`, `bie/prerequisite_intelligence/` and `bie/reasoning/`; `scripts/verify_post_dir.py` does the same for adopted VISUAL/ANIMATION/DSL/COMPILER files. Tasks 038–041 must edit these files.
+- Proposal: keep the original bytes checked inside the archived ZIPs (provenance stays provable) and keep `batches/`, `historical/`, `backups/` and `docs/evidence/` byte-frozen, but let working source under `bie/`, `apps/` and `tests/` change through normal reviewed PRs, with one evolution register instead of a new amendment module per change.
+- Done when: a deliberate edit to a pinned `bie/model_gateway/` file passes the canonical gate, and an edit to frozen evidence still fails it.
 
 **038 · Live AI and the blind test**
 - Real provider adapters (Claude, OpenAI, Gemini) behind the existing `bie/model_gateway/` interface; keys only from environment or GitHub Actions secrets, never in the repo or chat.

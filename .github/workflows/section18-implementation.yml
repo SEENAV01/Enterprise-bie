@@ -3,8 +3,18 @@ name: BIE Section 18 Implementation
 on:
   push:
     branches: [main, codex/section18-chromium-resource-probe-20261003]
+    paths-ignore:
+      - 'CLAUDE.md'
+      - 'docs/roadmap/**'
+      - 'docs/vision/**'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - 'CLAUDE.md'
+      - 'docs/roadmap/**'
+      - 'docs/vision/**'
+  schedule:
+    - cron: '30 21 * * *'
   workflow_dispatch:
 
 permissions:
@@ -12,7 +22,7 @@ permissions:
 
 concurrency:
   group: section18-implementation-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   canonical-regression:
@@ -259,6 +269,10 @@ jobs:
               raise SystemExit('PRESERVATION_FAILED: '+str(p))
           print(json.dumps({'regression':s,'audio':counts,'preservation':p,'product_accepted':False},indent=2))
           PY
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "Section 18 canonical-regression" "$RUNNER_TEMP/section18-evidence" "$RUNNER_TEMP/canonical-evidence" "$RUNNER_TEMP/bie-ci-setup"
       - name: Preserve actual results, including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -318,6 +332,10 @@ jobs:
           sudo -n /opt/pyvenv/bin/python -B tools/validate_section18_chromium_production.py \
             --project "$RUNNER_TEMP/section18-production-boundary-project" \
             --output "$RUNNER_TEMP/section18-native-evidence"
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "Section 18 native-render" "$RUNNER_TEMP/section18-native-evidence" "$RUNNER_TEMP/bie-ci-setup"
       - name: Preserve exact native success or failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -380,6 +398,10 @@ jobs:
               'original_release_overlap':10,'section16_signed_off':False,
               'section18_signoff':False,'product_accepted':False,'task028':'PAUSED'}))
           PY
+      - name: Surface failure summary as annotations
+        # Task 037B: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "Section 18 section16-regression" "$RUNNER_TEMP/section16-evidence" "$RUNNER_TEMP/bie-ci-setup"
       - name: Preserve actual Section16 results including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

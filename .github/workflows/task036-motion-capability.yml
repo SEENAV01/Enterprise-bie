@@ -20,12 +20,12 @@ permissions:
   contents: read
 concurrency:
   group: bie-task036-motion-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'

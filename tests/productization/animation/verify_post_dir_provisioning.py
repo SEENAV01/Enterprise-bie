@@ -29,16 +29,13 @@ _spec.loader.exec_module(diagnostics)
 PHASE = "approved_after"
 SCHEMA = "bie.task035.post-dir-after/1"
 SCOPE = "SYNTHETIC_TEST_PROVISIONING_GATE_ONLY"
-V1_PROFILE_MODULE_SHA = "2ee292eba7bfcb47e39f25a14aa5e8a85af1a316ecb664d4760222fe5e95a92e"
-V2_PROFILE_MODULE_SHA = "cf19d091014125750bd1b70d63444f0d7e86444fc5da59e06e9e6c92f372c9e4"
+# Task 037B: only the dependency requirement files stay byte-pinned here. Code,
+# setup scripts and workflow files may evolve through normal reviewed PRs; the
+# approved dependency versions below are still enforced against real imports.
 PROFILE_BLOBS = {
     "requirements-comp-h3.txt": "c0b36a1f5f9d3bc898a0a1954bf23bcd0ba55397",
     ".integration/tools/requirements-validation.txt": "c0b36a1f5f9d3bc898a0a1954bf23bcd0ba55397",
     "requirements-qa-section16-validation.txt": "253a91bfb7b4793fd4cb88705288f4f677158c8f",
-    "pyproject.toml": "491ba3d5e007e3510da820e3bb3ae21008fe85a6",
-    "bie/compiler/render_process.py": "b140256eb6eb62cfc4d18dc7142911a5d356020d",
-    ".integration/tools/setup_ci_environment.sh": "99f1fbe9312c0dc8ad0fc5e7a1c358c713354b94",
-    ".github/workflows/post-dir-canonical-catchup.yml": "3f95bbff25fa7e9cd18d054eb5bee04d76933655",
 }
 APPROVED_PACKAGES = {
     "matplotlib": ("matplotlib", "3.10.8"), "numpy": ("numpy", "2.3.5"),
@@ -67,17 +64,11 @@ def _is_sha(value: object, length: int = 64) -> bool:
 
 
 def approved_profiles() -> dict:
-    """Return historical profile authority, authenticating exact amendments.
-
-    This map is not a claim that amended workflow bytes equal historical bytes.
-    Actual amended-root AFTER receipts carry the separately validated v2 witness.
-    """
-    amendment = current_profile_amendment()
+    """Return the approved dependency requirement files after checking their exact bytes."""
     for relative, expected in PROFILE_BLOBS.items():
         data = (ROOT / relative).read_bytes().replace(b"\r\n", b"\n")
         if sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest() != expected:
-            if relative != ".github/workflows/post-dir-canonical-catchup.yml" or amendment is None:
-                raise ValueError("APPROVED_PROFILE_IDENTITY_MISMATCH")
+            raise ValueError("APPROVED_PROFILE_IDENTITY_MISMATCH")
     left = (ROOT / "requirements-comp-h3.txt").read_bytes()
     right = (ROOT / ".integration/tools/requirements-validation.txt").read_bytes()
     if left != right:
@@ -101,40 +92,6 @@ def approved_profiles() -> dict:
     if observed != {distribution.lower(): version for distribution, version in APPROVED_PACKAGES.values()}:
         raise ValueError("APPROVED_PROFILE_VERSION_MISMATCH")
     return dict(PROFILE_BLOBS)
-
-
-def _profile_module():
-    path = ROOT / "tests/productization/scene_ir/canonical_history_profile.py"
-    if path.is_symlink() or not path.is_file() or path.resolve().parent != (ROOT / "tests/productization/scene_ir").resolve():
-        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE")
-    before = path.stat()
-    if not 0 < before.st_size <= 65536:
-        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_BOUND")
-    with path.open("rb") as source:
-        data = source.read(65537).replace(b"\r\n", b"\n")
-    after = path.stat()
-    if (before.st_size, before.st_mtime_ns, before.st_ino) != (after.st_size, after.st_mtime_ns, after.st_ino):
-        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_CHANGED")
-    if sha256(data).hexdigest() != V2_PROFILE_MODULE_SHA:
-        raise ValueError("APPROVED_PROFILE_AMENDMENT_MODULE_IDENTITY")
-    spec = importlib.util.spec_from_file_location("task036_exact_history_profile", path)
-    module = importlib.util.module_from_spec(spec)
-    # Execute precisely the checked bytes, not a second loader filesystem read.
-    exec(compile(data, str(path), "exec"), module.__dict__)
-    return module
-
-
-def current_profile_amendment():
-    """Old roots remain unchanged; new roots require an exact sealed witness."""
-    path = ROOT / "docs/productization/task036-ci-history-amendment/AMENDMENT.json"
-    data = (ROOT / ".github/workflows/post-dir-canonical-catchup.yml").read_bytes().replace(b"\r\n", b"\n")
-    identity = sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
-    if identity == PROFILE_BLOBS[".github/workflows/post-dir-canonical-catchup.yml"] and not path.exists():
-        guard = Path(__file__).read_bytes().replace(b"\r\n", b"\n")
-        if (len(guard) == 20244 and sha256(guard).hexdigest() == "488673c818ee3eb4d869391e95708ea50ddeaaaad20a5aa543d5cda61e6a5b97"):
-            return None
-        raise ValueError("APPROVED_PROFILE_PARTIAL_ROLLBACK")
-    return _profile_module().authenticate(ROOT)
 
 
 def runtime_preflight() -> dict:

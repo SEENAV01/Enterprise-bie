@@ -6,6 +6,8 @@ ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT));sys.path.i
 from apps.operator.service import Service
 from apps.operator.contracts import Credentials,Principal,PERMISSIONS
 from structural_pdf_fixtures import hierarchy_pdf_with_outline
+sys.path.insert(0,str(Path(__file__).parent))
+from browser_diagnostics import failure_annotation
 
 def port():
     with socket.socket() as s:s.bind(('127.0.0.1',0));return s.getsockname()[1]
@@ -131,6 +133,8 @@ class NativeUi(unittest.TestCase):
                     self.assertTrue(job_reaped,'PRIVATE_WINDOWS_JOB_NOT_REAPED')
                 else:
                     result=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True,timeout=90)
+                if result.returncode!=0 and os.environ.get('GITHUB_ACTIONS')=='true':
+                    print(failure_annotation(command[-1],mode,result.stderr),flush=True)
                 self.assertEqual(result.returncode,0,result.stderr)
                 receipt=json.loads(result.stdout);self.assertTrue(receipt['passed']);self.assertTrue(receipt['ax_tree'])
                 if os.name=='nt':self.assertEqual(receipt['cleanup_owner'],'PRIVATE_WINDOWS_JOB')

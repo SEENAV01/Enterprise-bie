@@ -70,7 +70,8 @@ class MotionEvidenceControls(unittest.TestCase):
         self.assertIn("bash .integration/tools/setup_ci_environment.sh",scripts)
         self.assertIn("bash .integration/tools/setup_game_ci.sh",scripts)
         self.assertIn("timeout-minutes: 20",scripts.split("  render:",1)[1])
-        self.assertIn("timeout-minutes: 45",scripts.split("  verify:",1)[1].split("  native-extra:",1)[0])
+        # Task 037B: verify used 35m35s of 45 min on exact main b3ce527f; limit raised to 60.
+        self.assertIn("timeout-minutes: 60",scripts.split("  verify:",1)[1].split("  task035-affected:",1)[0])
         self.assertNotIn("continue-on-error",scripts)
 
 
