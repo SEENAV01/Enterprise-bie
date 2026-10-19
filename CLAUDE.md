@@ -56,7 +56,8 @@ Book → LLM → Remotion shortcut.
 - The full canonical gate is `python scripts/integrated_check.py` (Linux, about 40 minutes); prefer letting CI run it.
 - Fast lane (Task 037B): a PR that changes only `CLAUDE.md`, `docs/roadmap/**` or `docs/vision/**` skips the three heavy gates (`post-dir-canonical-catchup.yml`, `qa-section16-combined.yml`, `section18-implementation.yml`). Any other change runs all three, plus the path-matched producer workflows. The heavy gates also run on every push to `main` and nightly. A newer push to the same PR cancels its older PR run.
 - Rule FR-1 until F-08 is closed: one rerun per job is allowed only for the Section 18 independent browser gate failing with `CDP_TIMEOUT:Page.navigate` or `CDP_SOCKET_CLOSED:Page.navigate` before the first product assertion. Record every use with the run's "Section 18 browser failure" annotation in `docs/roadmap/STATUS.md`. Any other failure: stop and diagnose.
-- GitHub job logs and artifacts cannot be downloaded from the cloud workspace; read run, job, step and annotation data through `gh api` (REST).
+- GitHub job logs and artifacts cannot be downloaded from the cloud workspace; read run, job, step and annotation data through `gh api` (REST). Each heavy job prints a failure summary as annotations (`tools/ci_failure_annotation.py`).
+- Generated Remotion projects have no lockfile; CI and the M1 render runner resolve their npm installs as of the date in `tools/npm_before.txt`. Move that date only in a reviewed PR, after checking the "Remotion tree … canary" annotation.
 
 ## Historical files
 

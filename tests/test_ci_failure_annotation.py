@@ -15,7 +15,8 @@ FAIL: test_bad (m.C.test_bad)
 Traceback (most recent call last):
   File "m.py", line 3, in test_bad
     self.assertEqual(1, 2)
-AssertionError: 1 != 2
+AssertionError: 1 != 2 : child stderr follows
+RuntimeError: test barrier timeout
 
 ======================================================================
 ERROR: test_boom (m.C.test_boom)
@@ -59,8 +60,22 @@ class CiFailureAnnotation(unittest.TestCase):
         self.assertIn('Section 18%3A native%2C render (native/VALIDATION.json)::', lines[0])
         self.assertIn('resource-controls=FAIL(exit 1, 4.2s)', lines[0])
         self.assertIn('100%25 done%0Aboom: last', lines[0])
-        self.assertIn('FAIL: test_bad (m.C.test_bad) :: AssertionError: 1 != 2', lines[1])
+        self.assertIn('FAIL: test_bad (m.C.test_bad) :: AssertionError: 1 != 2 : child stderr follows%0ARuntimeError: test barrier timeout', lines[1])
+        self.assertNotIn('Ran 3 tests', lines[1])
         self.assertIn('ERROR: test_boom (m.C.test_boom) :: RuntimeError: x', lines[1])
+
+    def test_generic_failed_receipt_reports_failure_and_last_phase(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'render-cellular-standard.json').write_text(json.dumps({'passed': False,
+                'failure': {'code': 'CHILD_GATE'}, 'proof': {'passed': False, 'failure': {'code': 'NPM_SETUP'},
+                'cases': [{'preferences': [{'phase': 'H3_SOURCE'}, {'phase': 'H3_TEST_PUBLICATION'}]}]}}))
+            (root / 'other.json').write_text(json.dumps({'passed': True}))
+            _, lines = run('M1 render', tmp)
+        self.assertEqual(len(lines), 1)
+        self.assertIn('M1 render (render-cellular-standard.json)', lines[0].replace('%3A', ':'))
+        self.assertIn('"proof_failure": {"code": "NPM_SETUP"}', lines[0])
+        self.assertIn('"last_phase": "H3_TEST_PUBLICATION"', lines[0])
 
     def test_no_failing_receipt_still_leaves_a_pointer(self):
         with tempfile.TemporaryDirectory() as tmp:

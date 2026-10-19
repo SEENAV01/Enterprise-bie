@@ -23,18 +23,21 @@ def escape_property(text):
     return escape(text).replace(':', '%3A').replace(',', '%2C')
 
 
-def failing_tests(transcript, limit=8):
-    """FAIL/ERROR blocks of a unittest transcript: identity and last exception line."""
+def failing_tests(transcript, limit=8, detail=700):
+    """FAIL/ERROR blocks of a unittest transcript: identity, then the last exception line
+    and the message lines after it (an assertion message often carries child stderr)."""
     rows = []
     for block in re.split(r'(?m)^(?=(?:FAIL|ERROR): test)', transcript)[1:]:
         lines = block.splitlines()
-        cause = ''
+        body = []
         for line in lines[1:]:
-            if line.startswith('=' * 10):
+            if line.startswith('=' * 10) or line.startswith('-' * 70) and body:
                 break
-            if EXCEPTION.match(line):
-                cause = line
-        rows.append(f'{lines[0].strip()} :: {cause[:400]}')
+            body.append(line)
+        frame = max((i for i, line in enumerate(body) if line.startswith('  File ')), default=-1)
+        start = next((i for i, line in enumerate(body) if i > frame and EXCEPTION.match(line)), None)
+        cause = '\n'.join(body[start:]).strip() if start is not None else ''
+        rows.append(f'{lines[0].strip()} :: {cause[:detail]}')
     return rows[:limit], len(rows)
 
 
@@ -90,6 +93,22 @@ def summaries(root):
                            sort_keys=True)]
         text += [f"{r.get('path')} (failures {r.get('failures')}, errors {r.get('errors')})" for r in failed[:10]]
         messages.append((path.relative_to(root).as_posix(), '\n'.join(text)))
+    known = {'VALIDATION.json', 'TEST_RESULT.json', 'integrated_tests.json'}
+    for path in sorted(root.rglob('*.json')):
+        if path.name in known or len(messages) >= 20:
+            continue
+        data = read_json(path)
+        if not data or data.get('passed') is not False:
+            continue
+        text = {k: data[k] for k in ('failure', 'status', 'exception', 'phase') if k in data}
+        proof = data.get('proof') if isinstance(data.get('proof'), dict) else {}
+        if 'failure' in proof:
+            text['proof_failure'] = proof['failure']
+        phases = [phase.get('phase') for case in proof.get('cases', []) if isinstance(case, dict)
+                  for phase in case.get('preferences', []) if isinstance(phase, dict)]
+        if phases:
+            text['last_phase'] = phases[-1]
+        messages.append((path.relative_to(root).as_posix(), json.dumps(text, sort_keys=True, default=str)))
     return messages
 
 
