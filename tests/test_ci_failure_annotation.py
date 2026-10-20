@@ -77,6 +77,17 @@ class CiFailureAnnotation(unittest.TestCase):
         self.assertIn('"proof_failure": {"code": "NPM_SETUP"}', lines[0])
         self.assertIn('"last_phase": "H3_TEST_PUBLICATION"', lines[0])
 
+    def test_producer_lane_receipt_lists_files_and_methods(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / 'task035-affected.json').write_text(json.dumps({
+                'summary': {'passed': False, 'tests': 106, 'failures': 2, 'errors': 0},
+                'results': [{'file': 'tests/a.py', 'failed_methods': [], 'failures': 0, 'errors': 0},
+                            {'file': 'tests/b.py', 'failed_methods': ['test_x', 'test_y'], 'failures': 2, 'errors': 0}]}))
+            _, lines = run('M1 task035-affected', tmp)
+        self.assertEqual(len(lines), 1)
+        self.assertIn('tests/b.py: test_x, test_y', lines[0])
+        self.assertNotIn('tests/a.py', lines[0])
+
     def test_no_failing_receipt_still_leaves_a_pointer(self):
         with tempfile.TemporaryDirectory() as tmp:
             code, lines = run('Gate', tmp)

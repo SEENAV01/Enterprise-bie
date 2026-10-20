@@ -7,10 +7,16 @@ import json
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
-try:
-    from source_evolution import is_working_source, report as evolution_report
-except ImportError:
-    from scripts.source_evolution import is_working_source, report as evolution_report
+def _load_evolution_policy():
+    """Task 037C policy, loaded beside this script so it also works when loaded by path."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('bie_source_evolution_policy',
+                                                  Path(__file__).resolve().with_name('source_evolution.py'))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+_EVOLUTION = _load_evolution_policy()
+is_working_source, evolution_report = _EVOLUTION.is_working_source, _EVOLUTION.report
 EVIDENCE = ROOT / 'docs/section17/integration-r1'
 ROLES = {
     'SECTION17_SOURCE_COMPARE_AND_ADOPT',

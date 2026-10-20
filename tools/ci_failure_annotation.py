@@ -98,6 +98,14 @@ def summaries(root):
         if path.name in known or len(messages) >= 20:
             continue
         data = read_json(path)
+        summary = data.get('summary') if isinstance(data, dict) else None
+        if isinstance(summary, dict) and summary.get('passed') is False and isinstance(data.get('results'), list):
+            # Producer lane receipts (tools/run_task0NN_tests.py): files and failing methods.
+            rows = [r for r in data['results'] if isinstance(r, dict) and (r.get('failed_methods') or r.get('failures') or r.get('errors'))]
+            text = [json.dumps({k: summary.get(k) for k in ('tests', 'failures', 'errors', 'skips') if k in summary}, sort_keys=True)]
+            text += [f"{r.get('file')}: {', '.join(map(str, (r.get('failed_methods') or [])[:6]))}" for r in rows[:10]]
+            messages.append((path.relative_to(root).as_posix(), '\n'.join(text)))
+            continue
         if not data or data.get('passed') is not False:
             continue
         text = {k: data[k] for k in ('failure', 'status', 'exception', 'phase') if k in data}

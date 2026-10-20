@@ -47,6 +47,10 @@ jobs:
         run: python -B scripts/smoke_bie_di_knowledge.py --output "$RUNNER_TEMP/task030-evidence/task029-process.json"
       - name: Actual five stage process restart and Math required BLOCKED control
         run: python -B scripts/smoke_bie_pr_reasoning.py --output "$RUNNER_TEMP/task030-evidence/process.json"
+      - name: Surface failure summary as annotations
+        # Task 037B/037C: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "prerequisite-reasoning-producer" "$RUNNER_TEMP/task030-evidence"
       - name: Preserve safe receipts only including failures
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a

@@ -20,10 +20,15 @@ import time
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-try:
-    from source_evolution import is_working_source
-except ImportError:
-    from scripts.source_evolution import is_working_source
+def _load_evolution_policy():
+    """Task 037C policy, loaded beside this script so it also works when loaded by path."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('bie_source_evolution_policy',
+                                                  Path(__file__).resolve().with_name('source_evolution.py'))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+is_working_source = _load_evolution_policy().is_working_source
 
 
 def drifted(name, payload, size, digest):
