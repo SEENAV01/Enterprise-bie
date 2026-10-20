@@ -43,7 +43,7 @@ export const GrowthCompare: React.FC = () => {
             <text x={1400} y={1050} textAnchor="middle" fill={C.leaf} fontSize={30} fontWeight={800} opacity={Math.min(1, tree * 3) * (1 - Math.min(1, engine))}>Ped: poori zindagi badhta rehta hai</text>
           </g>
           {engine > 0 && (
-            <g transform={`translate(1400,${955})`} opacity={Math.min(1, engine)}>
+            <g transform={`translate(760,${1005})`} opacity={Math.min(1, engine)}>
               <rect x={-330} y={-50} width={660} height={84} rx={42} fill={C.amber} opacity={0.18} stroke={C.amber} strokeWidth={3} />
               <text x={0} y={6} textAnchor="middle" fill={C.amber} fontSize={38} fontWeight={900}>Meristematic tissue = growth engine</text>
             </g>

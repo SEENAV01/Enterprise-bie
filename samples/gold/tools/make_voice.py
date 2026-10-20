@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import os
 import sys
@@ -77,6 +78,31 @@ def words(wav: bytes, prompt: str, key: str):
                                   for w in data.get("words", [])]
 
 
+def fix_wav(data: bytes) -> bytes:
+    """OpenAI streams WAV with unknown (0xFFFFFFFF) sizes; rewrite the header with the real sizes."""
+    if data[:4] != b"RIFF" or data[8:12] != b"WAVE":
+        raise CallError("speech response is not WAV", False)
+    pos, fmt = 12, None
+    while pos + 8 <= len(data):
+        cid, size = data[pos:pos + 4], int.from_bytes(data[pos + 4:pos + 8], "little")
+        if cid == b"fmt ":
+            fmt = data[pos + 8:pos + 8 + size]
+        if cid == b"data":
+            pcm = data[pos + 8:] if size in (0, 0xFFFFFFFF) or pos + 8 + size > len(data) else data[pos + 8:pos + 8 + size]
+            channels, rate = int.from_bytes(fmt[2:4], "little"), int.from_bytes(fmt[4:8], "little")
+            width = int.from_bytes(fmt[14:16], "little") // 8
+            pcm = pcm[: len(pcm) - len(pcm) % (channels * width)]
+            buf = io.BytesIO()
+            with wave.open(buf, "wb") as handle:
+                handle.setnchannels(channels)
+                handle.setsampwidth(width)
+                handle.setframerate(rate)
+                handle.writeframes(pcm)
+            return buf.getvalue()
+        pos += 8 + size + (size % 2)
+    raise CallError("speech WAV has no data chunk", False)
+
+
 def duration(path: Path) -> float:
     with wave.open(str(path), "rb") as handle:
         return handle.getnframes() / float(handle.getframerate())
@@ -102,8 +128,10 @@ def main():
         for beat in scene["beats"]:
             digest = hashlib.sha256(json.dumps([beat["say"], voice], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
             old = previous.get(beat["id"])
-            if old and old.get("hash") == digest and (out / "audio" / f"{beat['id']}.wav").is_file():
-                beats[beat["id"]] = old
+            wav_path = out / "audio" / f"{beat['id']}.wav"
+            if old and old.get("hash") == digest and wav_path.is_file():
+                wav_path.write_bytes(fix_wav(wav_path.read_bytes()))
+                beats[beat["id"]] = dict(old, duration=round(duration(wav_path), 3))
                 reused += 1
             else:
                 todo.append((beat, digest))
@@ -112,7 +140,7 @@ def main():
         beat, digest = item
         t0 = time.monotonic()
         wav_path = out / "audio" / f"{beat['id']}.wav"
-        wav_path.write_bytes(speech(beat["say"], voice, key))
+        wav_path.write_bytes(fix_wav(speech(beat["say"], voice, key)))
         t1 = time.monotonic()
         text, timed = words(wav_path.read_bytes(), beat["say"], key)
         info = {"hash": digest, "duration": round(duration(wav_path), 3), "transcript": text, "words": timed,
