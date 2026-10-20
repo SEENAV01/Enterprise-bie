@@ -42,14 +42,12 @@ on:
       providers:
         required: false
         default: 'anthropic,openai,google'
-      anthropic_model:
-        description: 'optional model override'
+      models:
+        description: 'optional model overrides, for example anthropic=anthropic/claude-sonnet-5.5,google=google/gemini-3.1-pro-preview'
         required: false
         default: ''
-      openai_model:
-        required: false
-        default: ''
-      gemini_model:
+      routes:
+        description: 'optional routes, for example anthropic=aicredits,google=aicredits (default: direct key if set, else AICredits)'
         required: false
         default: ''
 
@@ -126,9 +124,8 @@ jobs:
       LANGUAGE: ${{ inputs.language }}
       SUBJECT: ${{ inputs.subject }}
       PROVIDERS: ${{ inputs.providers }}
-      BIE_ANTHROPIC_MODEL: ${{ inputs.anthropic_model }}
-      BIE_OPENAI_MODEL: ${{ inputs.openai_model }}
-      BIE_GEMINI_MODEL: ${{ inputs.gemini_model }}
+      MODELS: ${{ inputs.models }}
+      ROUTES: ${{ inputs.routes }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -145,9 +142,10 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AICREDITS_API_KEY: ${{ secrets.AICREDITS_API_KEY }}
         run: |
           set -euo pipefail
-          args=(--mode "$MODE" --providers "$PROVIDERS" --out "$RUNNER_TEMP/live")
+          args=(--mode "$MODE" --providers "$PROVIDERS" --models "$MODELS" --routes "$ROUTES" --out "$RUNNER_TEMP/live")
           if [ "$MODE" = "blind-test" ]; then
             args+=(--source "$SOURCE" --class-level "$CLASS_LEVEL" --language "$LANGUAGE" --subject "$SUBJECT")
             if [ -n "$PAGES" ]; then args+=(--pages "$PAGES"); fi

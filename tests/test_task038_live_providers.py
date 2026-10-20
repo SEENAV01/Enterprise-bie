@@ -16,11 +16,13 @@ from bie.model_gateway.claude_adapter import ClaudeAdapter
 from bie.model_gateway.gemini_adapter import GeminiAdapter
 from bie.model_gateway.gpt_adapter import GPTAdapter
 from bie.model_gateway.live.anthropic_client import API_VERSION, AnthropicClient
-from bie.model_gateway.live.config import DEFAULT_MODELS, build_routes, key_for, model_for
+from bie.model_gateway.live.compat_client import OpenAICompatChatClient
+from bie.model_gateway.live.config import DEFAULT_MODELS, DEFAULT_MODELS_VIA, all_keys, build_routes, key_for, model_for, route_for
 from bie.model_gateway.live.errors import ProviderError, kind_for_status, redact
 from bie.model_gateway.live.gemini_client import GeminiClient
 from bie.model_gateway.live.messages import provider_schema, split_messages
 from bie.model_gateway.live.openai_client import OpenAIClient
+from bie.model_gateway.live.pricing import estimate_cost, normalize
 from bie.model_gateway.live.transport import HttpTransport
 from bie.model_gateway.model_interface import ModelRequest
 from bie.model_gateway.schema_validation import SchemaValidationError, validate
@@ -226,6 +228,96 @@ class ProviderClients(unittest.TestCase):
             split_messages(({"role": "assistant", "content": "x"},), provider="p")
         with self.assertRaises(ProviderError):
             split_messages(({"role": "user", "content": "x"}, {"role": "system", "content": "late"}), provider="p")
+
+
+class SequenceRecorder(Recorder):
+    """Replays one outcome per request."""
+
+    def __call__(self, request, timeout):
+        outcome, rest = self.outcome[0], self.outcome[1:]
+        self.outcome = rest or [outcome]
+        holder = Recorder(outcome)
+        holder.requests = self.requests
+        return holder(request, timeout)
+
+
+CHAT_OK = {"model": "anthropic/claude-opus-5.5", "choices": [{"index": 0, "finish_reason": "stop", "message": {
+    "role": "assistant", "content": '{"items": [1, 2, 3], "name": "w"}'}}],
+    "usage": {"prompt_tokens": 70, "completion_tokens": 30, "completion_tokens_details": {"reasoning_tokens": 5}}}
+
+
+class AICreditsRoute(unittest.TestCase):
+    def test_chat_request_carries_schema_no_cache_and_bearer_key(self):
+        rec = SequenceRecorder([CHAT_OK])
+        client = OpenAICompatChatClient(KEY, transport=HttpTransport(timeout=30, opener=rec))
+        out = ClaudeAdapter(client, "anthropic/claude-opus-5.5").invoke(ModelRequest("r", MESSAGES, response_schema=SCHEMA))
+        sent = rec.requests[0]
+        self.assertEqual(sent["url"], "https://api.aicredits.in/v1/chat/completions")
+        self.assertEqual(sent["headers"]["authorization"], "Bearer " + KEY)
+        body = sent["body"]
+        self.assertTrue(body["no_cache"])  # the gateway's semantic cache must never answer for the model
+        self.assertEqual(body["model"], "anthropic/claude-opus-5.5")
+        self.assertEqual(body["messages"][0]["role"], "system")
+        self.assertIn("Be exact.", body["messages"][0]["content"])
+        self.assertIn('"minItems": 3', body["messages"][0]["content"])  # schema also in the prompt
+        self.assertEqual(body["response_format"]["type"], "json_schema")
+        self.assertEqual(out["content"], '{"items": [1, 2, 3], "name": "w"}')
+        self.assertEqual((out["usage"]["input_tokens"], out["usage"]["output_tokens"]), (70, 30))
+        self.assertEqual((client.via, client.last_model), ("aicredits", "anthropic/claude-opus-5.5"))
+
+    def test_json_schema_rejection_falls_back_to_json_object_once_and_for_good(self):
+        rec = SequenceRecorder([http_error(400, {"error": {"message": "response_format json_schema not supported"}}), CHAT_OK])
+        client = OpenAICompatChatClient(KEY, transport=HttpTransport(timeout=30, opener=rec))
+        client.generate(model="google/gemini-3.1-pro-preview", messages=MESSAGES, schema=SCHEMA)
+        client.generate(model="google/gemini-3.1-pro-preview", messages=MESSAGES, schema=SCHEMA)
+        formats = [r["body"]["response_format"]["type"] for r in rec.requests]
+        self.assertEqual(formats, ["json_schema", "json_object", "json_object"])
+        rec = SequenceRecorder([http_error(400, {"error": {"message": "bad model"}})])
+        with self.assertRaises(ProviderError):
+            OpenAICompatChatClient(KEY, transport=HttpTransport(timeout=30, opener=rec)).chat(model="m", messages=MESSAGES)
+        self.assertEqual(len(rec.requests), 1)  # no schema: nothing to fall back from
+
+    def test_finish_reasons_and_errors(self):
+        cases = (({"choices": [{"finish_reason": "length", "message": {"content": "{"}}]}, "truncated"),
+                 ({"choices": [{"finish_reason": "content_filter", "message": {"content": None}}]}, "refusal"),
+                 ({"choices": []}, "malformed"),
+                 ({"error": {"message": "upstream"}}, "server_error"))
+        for body, kind in cases:
+            client = OpenAICompatChatClient(KEY, transport=HttpTransport(timeout=30, opener=Recorder(body)))
+            with self.assertRaises(ProviderError) as caught:
+                client.chat(model="m", messages=MESSAGES)
+            self.assertEqual(caught.exception.kind, kind)
+
+    def test_public_model_list(self):
+        rec = Recorder({"object": "list", "data": [{"id": "anthropic/claude-opus-5.5"}, {"id": "google/gemini-3.1-pro-preview"}]})
+        models = OpenAICompatChatClient(KEY, transport=HttpTransport(timeout=30, opener=rec)).list_models()
+        self.assertEqual(models, ["anthropic/claude-opus-5.5", "google/gemini-3.1-pro-preview"])
+        self.assertEqual(rec.requests[0]["url"], "https://api.aicredits.in/api/models")
+        self.assertNotIn("authorization", rec.requests[0]["headers"])
+
+    def test_route_rule_direct_wins_then_aicredits_then_forced(self):
+        env = {"OPENAI_API_KEY": "sk-openai-direct-key", "AICREDITS_API_KEY": "sk-aicredits-key-123"}
+        self.assertEqual(route_for("openai", env), ("direct", "sk-openai-direct-key"))
+        self.assertEqual(route_for("anthropic", env), ("aicredits", "sk-aicredits-key-123"))
+        self.assertEqual(route_for("google", env), ("aicredits", "sk-aicredits-key-123"))
+        self.assertEqual(route_for("openai", {**env, "BIE_OPENAI_VIA": "aicredits"}), ("aicredits", "sk-aicredits-key-123"))
+        self.assertEqual(route_for("anthropic", {**env, "BIE_ANTHROPIC_VIA": "direct"}), ("", ""))
+        with self.assertRaises(ValueError):
+            route_for("google", {"BIE_GEMINI_VIA": "openrouter"})
+        routes, missing = build_routes(env=env)
+        self.assertEqual(missing, [])
+        self.assertIsInstance(routes["openai"].client, OpenAIClient)
+        self.assertIsInstance(routes["anthropic"].client, OpenAICompatChatClient)
+        self.assertEqual(routes["anthropic"].model, DEFAULT_MODELS_VIA["aicredits"]["anthropic"])
+        self.assertEqual(routes["google"].model, "google/gemini-3.1-pro-preview")
+        self.assertEqual(sorted(all_keys(env)), sorted(env.values()))
+
+    def test_reseller_ids_are_priced_with_the_reseller_markup(self):
+        self.assertEqual(normalize("anthropic/claude-opus-5.5"), "claude-opus-5-5")
+        self.assertEqual(normalize("google/gemini-3.1-pro-preview"), "gemini-3.1-pro-preview")
+        usage = {"input_tokens": 1_000_000, "output_tokens": 0}
+        self.assertEqual(estimate_cost("anthropic/claude-opus-5.5", usage), 4.0)
+        self.assertEqual(estimate_cost("anthropic/claude-opus-5.5", usage, via="aicredits"), 4.4)
 
 
 class SchemaKeywords(unittest.TestCase):

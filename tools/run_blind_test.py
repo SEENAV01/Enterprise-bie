@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import urllib.request
 from pathlib import Path
@@ -21,7 +22,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from bie.model_gateway.live import blind_test  # noqa: E402
-from bie.model_gateway.live.config import PROVIDERS, build_routes, key_for, make_client, model_for  # noqa: E402
+from bie.model_gateway.live.config import (MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes, make_client,  # noqa: E402
+                                           model_for, route_for)
 from bie.model_gateway.live.disk_cache import DiskCache  # noqa: E402
 from bie.model_gateway.live.errors import ProviderError, redact  # noqa: E402
 from bie.model_gateway.live.fake_client import FakeProviderClient  # noqa: E402
@@ -34,6 +36,16 @@ SMOKE_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["s
                 "properties": {"status": {"type": "string", "enum": ["ready"]}, "language": {"type": "string"}}}
 
 
+def apply_overrides(spec: str, names: dict, label: str):
+    """``anthropic=x,google=y`` → the matching environment variables for this process."""
+    for item in filter(None, (part.strip() for part in (spec or "").split(","))):
+        provider, sep, value = item.partition("=")
+        provider, value = provider.strip(), value.strip()
+        if not sep or provider not in names or not value:
+            raise SystemExit(f"BAD_{label}_OVERRIDE:{item}")
+        os.environ[names[provider]] = value
+
+
 def notice(title, message, level="notice"):
     clean = str(message).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
     title = str(title).replace("%", "%25").replace(":", "%3A").replace(",", "%2C")
@@ -41,7 +53,7 @@ def notice(title, message, level="notice"):
 
 
 def secrets_in_env():
-    return [key_for(p) for p in PROVIDERS if key_for(p)]
+    return all_keys()
 
 
 def read_source(source: str) -> bytes:
@@ -64,21 +76,21 @@ def read_source(source: str) -> bytes:
 def probe(providers, fake):
     out = {}
     for provider in providers:
-        key = key_for(provider)
+        via, key = ("direct", "") if fake else route_for(provider)
         if fake:
             client = FakeProviderClient(provider)
         elif not key:
             out[provider] = {"status": "not_configured"}
             continue
         else:
-            client = make_client(provider, key, timeout=60)
+            client = make_client(provider, key, via=via, timeout=60)
         try:
             models = client.list_models()
         except ProviderError as exc:
-            out[provider] = {"status": "failed", "error_kind": exc.kind, "error": str(exc)[:300]}
+            out[provider] = {"status": "failed", "via": via, "error_kind": exc.kind, "error": str(exc)[:300]}
             continue
-        wanted = model_for(provider)
-        out[provider] = {"status": "ok", "configured_model": wanted, "configured_model_available": wanted in models,
+        wanted = model_for(provider, via=via)
+        out[provider] = {"status": "ok", "via": via, "configured_model": wanted, "configured_model_available": wanted in models,
                          "model_count": len(models), "models": models}
     return out
 
@@ -99,8 +111,12 @@ def main(argv=None):
     parser.add_argument("--language", default="English")
     parser.add_argument("--subject", default="")
     parser.add_argument("--cache-dir", help="optional response cache directory")
+    parser.add_argument("--models", default="", help="model overrides: anthropic=...,openai=...,google=...")
+    parser.add_argument("--routes", default="", help="route overrides: anthropic=aicredits,google=direct")
     parser.add_argument("--seed", type=int, help="fixed letter order (tests only)")
     args = parser.parse_args(argv)
+    apply_overrides(args.models, MODEL_ENV, "MODEL")
+    apply_overrides(args.routes, VIA_ENV, "ROUTE")
 
     providers = [p.strip() for p in args.providers.split(",") if p.strip()]
     unknown = sorted(set(providers) - set(PROVIDERS))
@@ -118,8 +134,10 @@ def main(argv=None):
             write_json(out / "PROBE.json", result)
             for provider, item in result.items():
                 if item["status"] == "ok":
-                    names = [m for m in item["models"] if any(t in m for t in ("claude", "gpt", "o3", "o4", "gemini", "fake"))]
-                    notice(f"probe {provider}", f"configured {item['configured_model']} available={item['configured_model_available']}; "
+                    family = {"anthropic": ("claude",), "openai": ("gpt", "o3", "o4"), "google": ("gemini",)}[provider] + ("fake",)
+                    names = [m for m in item["models"] if any(t in m for t in family)]
+                    notice(f"probe {provider}", f"via {item['via']}: configured {item['configured_model']} "
+                                                 f"available={item['configured_model_available']}; "
                                                  f"{item['model_count']} models: " + ", ".join(names[:120]))
                 else:
                     notice(f"probe {provider}", json.dumps(item), "warning")
@@ -181,7 +199,7 @@ def main(argv=None):
         summary["providers_failed"] = {p: r["error_kind"] for p, r in results.items() if r["status"] != "ok"}
         summary["usage"] = ledger.summary()
         for provider, item in results.items():
-            info = {"status": item["status"], "model": item["model"], "usage": summary["usage"].get(provider)}
+            info = {"status": item["status"], "model": item["model"], "via": item.get("via"), "usage": summary["usage"].get(provider)}
             if item["status"] != "ok":
                 info["error"] = item["error"]
             notice(f"blind-test {provider}", json.dumps(info), "notice" if item["status"] == "ok" else "error")

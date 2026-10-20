@@ -57,7 +57,8 @@ class LiveGateway:
         identity = {"provider": provider, "model": model, "messages": list(request.messages), "schema": schema,
                     "temperature": request.temperature, "prompt_version": prompt_version}
         key = cache_key(**identity)
-        base = {"request_id": request.request_id, "provider": provider, "model": model, "prompt_version": prompt_version}
+        via = getattr(getattr(adapter, "client", None), "via", "direct")
+        base = {"request_id": request.request_id, "provider": provider, "via": via, "model": model, "prompt_version": prompt_version}
 
         if self.cache is not None:
             hit = self.cache.get(key)
@@ -67,7 +68,7 @@ class LiveGateway:
                 self.ledger.record(**base, returned_model=hit.get("returned_model"), attempt=0, outcome="ok", cache_hit=True,
                                    input_tokens=0, output_tokens=0, reasoning_tokens=0, cost_usd=0.0, latency_ms=0)
                 return self._response(provider, model, hit["content"], hit["usage"], hit["finish_reason"], identity,
-                                      prompt_version, started, cache_hit=True, attempts=0, returned_model=hit.get("returned_model"))
+                                      prompt_version, started, cache_hit=True, attempts=0, returned_model=hit.get("returned_model"), via=via)
 
         messages = list(request.messages)
         transient, repairs, attempt = 0, 0, 0
@@ -90,9 +91,9 @@ class LiveGateway:
             usage = {k: int((raw.get("usage") or {}).get(k) or 0) for k in total}
             for k in total:
                 total[k] += usage[k]
-            cost = estimate_cost(returned_model, usage, self._env)
+            cost = estimate_cost(returned_model, usage, self._env, via)
             if cost is None:
-                cost = estimate_cost(model, usage, self._env)
+                cost = estimate_cost(model, usage, self._env, via)
             text = raw.get("content")
             try:
                 value = parse_json(text) if isinstance(text, dict) else repair_json(text)
@@ -113,7 +114,7 @@ class LiveGateway:
                 if self.cache is not None:
                     self.cache.put(key, {"content": value, "usage": total, "finish_reason": finish, "returned_model": returned_model})
                 return self._response(provider, model, value, total, finish, identity, prompt_version, started,
-                                      cache_hit=False, attempts=attempt, returned_model=returned_model)
+                                      cache_hit=False, attempts=attempt, returned_model=returned_model, via=via)
             self.ledger.record(**row, outcome="schema_invalid", error_kind="schema_invalid")
             if repairs >= self.max_repairs:
                 raise ProviderError("schema_invalid", problem[:300], provider=provider)
@@ -123,10 +124,10 @@ class LiveGateway:
                          {"role": "user", "content": REPAIR_INSTRUCTION.format(problem=problem[:300])}]
 
     def _response(self, provider, model, content, usage, finish, identity, prompt_version, started, *, cache_hit,
-                  attempts, returned_model):
+                  attempts, returned_model, via="direct"):
         provenance = ModelProvenance(provider=provider, model=model, request_hash=request_hash(identity),
                                      prompt_version=prompt_version, started_at=started, finished_at=max(started, self._wall()))
         validate_provenance(provenance)
-        record = dict(vars(provenance), cache_hit=cache_hit, attempts=attempts, returned_model=returned_model)
+        record = dict(vars(provenance), cache_hit=cache_hit, attempts=attempts, returned_model=returned_model, via=via)
         return ModelResponse(provider=provider, model=model, content=content, usage=dict(usage), finish_reason=finish,
                              provenance=record)

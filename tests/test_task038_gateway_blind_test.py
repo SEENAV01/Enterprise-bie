@@ -276,6 +276,34 @@ class Runner(unittest.TestCase):
             self.assertNotIn(key, written)
             self.assertNotIn("SECRETSECRET", written)
 
+    def test_probe_through_aicredits_with_route_and_model_overrides(self):
+        class Listing:
+            def read(self, limit=-1):
+                return json.dumps({"object": "list", "data": [{"id": "anthropic/claude-opus-5.5"},
+                                                              {"id": "anthropic/claude-sonnet-5.5"},
+                                                              {"id": "google/gemini-3.1-pro-preview"}]}).encode()
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        with tempfile.TemporaryDirectory() as tmp, mock.patch("urllib.request.urlopen", return_value=Listing()):
+            code, printed = self.run_cli("--mode", "probe", "--providers", "anthropic,google", "--out", tmp,
+                                         "--models", "anthropic=anthropic/claude-sonnet-5.5", "--routes", "google=aicredits",
+                                         env={"AICREDITS_API_KEY": "sk-aicredits-secret-value-1"})
+            probe = json.loads((Path(tmp) / "PROBE.json").read_text())
+        self.assertEqual(code, 0, printed)
+        self.assertEqual(probe["anthropic"]["via"], "aicredits")
+        self.assertEqual(probe["anthropic"]["configured_model"], "anthropic/claude-sonnet-5.5")
+        self.assertTrue(probe["google"]["configured_model_available"])
+        self.assertIn("via aicredits", printed)
+        self.assertNotIn("sk-aicredits-secret-value-1", printed)
+        with tempfile.TemporaryDirectory() as tmp, self.assertRaises(SystemExit) as caught:
+            self.run_cli("--mode", "probe", "--out", tmp, "--routes", "google")
+        self.assertEqual(str(caught.exception), "BAD_ROUTE_OVERRIDE:google")
+
     def test_source_must_be_a_pdf_over_https_or_a_file(self):
         with tempfile.TemporaryDirectory() as tmp:
             text = Path(tmp) / "notes.txt"

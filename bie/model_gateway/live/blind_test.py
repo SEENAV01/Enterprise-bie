@@ -169,13 +169,14 @@ def run(gateway, chapter: Chapter, *, class_level: str, language: str, subject: 
     for route in routes or list(gateway.routes):
         request = build_request(chapter, class_level=class_level, language=language, subject=subject,
                                 request_id=f"blind-{route}-{chapter.source_sha256[:12]}")
+        via = getattr(getattr(gateway.routes[route], "client", None), "via", "direct")
         try:
             response = gateway.complete(route, request, prompt_version=PROMPT_VERSION, check=check_lesson)
         except ProviderError as exc:
-            results[route] = {"status": "failed", "model": gateway.model_of(route), "error_kind": exc.kind,
+            results[route] = {"status": "failed", "model": gateway.model_of(route), "via": via, "error_kind": exc.kind,
                               "error": str(exc)[:400]}
             continue
-        results[route] = {"status": "ok", "model": response.model, "lesson": response.content,
+        results[route] = {"status": "ok", "model": response.model, "via": via, "lesson": response.content,
                           "usage": response.usage, "provenance": response.provenance}
     return results
 
@@ -198,7 +199,8 @@ def cost_summary(key: dict, ledger_summary: dict) -> dict:
     out = {}
     for letter, item in key.items():
         entry = ledger_summary.get(item["provider"], {})
-        out[letter] = {"provider": item["provider"], "model": item.get("model"), "status": item["status"],
+        out[letter] = {"provider": item["provider"], "model": item.get("model"), "via": item.get("via", "direct"),
+                       "returned_model": (item.get("provenance") or {}).get("returned_model"), "status": item["status"],
                        "input_tokens": entry.get("input_tokens", 0), "output_tokens": entry.get("output_tokens", 0),
                        "calls": entry.get("calls", 0), "cost_usd_estimate": entry.get("cost_usd") if entry.get("cost_complete", True) else None}
     return out
