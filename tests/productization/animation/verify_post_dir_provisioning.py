@@ -221,11 +221,20 @@ def validate_comparison(value: object, expected_head: str) -> bool:
                 or value["mandatory_regression_substituted"] is not False or value["product_accepted"] is not False
                 or value["diagnostics_complete"] is not True or value["test_outcome"] != "PASS"):
             return False
-        expected_blobs = {path: {"base_blob": identity, "candidate_blob": identity, "working_blob": identity, "equal": True}
-                          for path, identity in diagnostics.BLOBS.items()}
-        if (value["unchanged_blobs"] != expected_blobs
-                or any(row["equal"] is not True for row in value["unchanged_blobs"].values())):
+        # Task 037C: the base blob is exact history; working source may have evolved since,
+        # in which case the candidate and working blobs agree and "equal" says so honestly.
+        blobs = value["unchanged_blobs"]
+        if not isinstance(blobs, dict) or set(blobs) != set(diagnostics.BLOBS):
             return False
+        for path, identity in diagnostics.BLOBS.items():
+            row = blobs[path]
+            if not isinstance(row, dict) or set(row) != {"base_blob", "candidate_blob", "working_blob", "equal"}:
+                return False
+            unchanged = row["candidate_blob"] == identity and row["working_blob"] == identity
+            if (row["base_blob"] != identity or not _is_sha(row["candidate_blob"], 40)
+                    or row["candidate_blob"] != row["working_blob"] or row["equal"] is not unchanged
+                    or not (unchanged or diagnostics._EVOLUTION.is_working_source(path))):
+                return False
         env = value["environment"]
         if not isinstance(env, dict) or set(env) != {"os", "os_id", "os_version", "python_version", "python_executable_role",
                 "python_executable_sha256", "isolated_python", "dependencies", "node", "tsc", "canonical_typescript_library_present",

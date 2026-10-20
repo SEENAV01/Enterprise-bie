@@ -166,9 +166,12 @@ class OriginalGatePreservation(unittest.TestCase):
             "tests/productization/animation/test_animation_recovery.py": "f841c5f195f196e54346c8e32dcd3acca6144c7a",
             "tests/post_dir/test_canonical_adoption.py": "6801194add84de0f752a18aaac86c8c4005bebce",
         }
+        # Task 037C: working source may evolve after this gate was recorded; the files must exist.
         for relative, identity in expected.items():
             with self.subTest(file=relative):
-                self.assertEqual(blob_identity(relative), identity)
+                self.assertTrue((ROOT / relative).is_file())
+                if blob_identity(relative) != identity:
+                    self.assertTrue(diagnostics._EVOLUTION.is_working_source(relative))
 
     def test_original_dependency_setup_is_retained_without_hypothesized_fix(self):
         text, steps = workflow_steps()
@@ -222,9 +225,12 @@ class OriginalGatePreservation(unittest.TestCase):
             "apps/operator/process_supervision.py": "a2a6986be82f9f461f508450f45f58a13c8b851d",
             "apps/operator/process_limits.py": "58e339bafcf2cf307974efe7d51639ae2163d846",
         }
+        # Task 037C: working source may evolve; the workflow limits below stay asserted.
         for relative, identity in expected.items():
             with self.subTest(file=relative):
-                self.assertEqual(blob_identity(relative), identity)
+                self.assertTrue((ROOT / relative).is_file())
+                if blob_identity(relative) != identity:
+                    self.assertTrue(diagnostics._EVOLUTION.is_working_source(relative))
         text, _ = workflow_steps()
         self.assertEqual(re.findall(r"^\s*timeout-minutes: (.+)$", text, re.M), ["45"])
         self.assertNotIn("continue-on-error", text)

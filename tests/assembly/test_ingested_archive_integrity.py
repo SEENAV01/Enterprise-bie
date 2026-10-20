@@ -35,8 +35,23 @@ class IngestedArchiveIntegrityTests(unittest.TestCase):
         self.assertTrue(report['passed'])
         self.assertEqual(report['original_members_checked'],2)
 
-    def test_modified_canonical_source_is_rejected(self):
-        (self.root/'bie/pedagogy/example.py').write_text('CORRUPTED')
+    def test_modified_working_source_is_reported_as_evolved(self):
+        # Task 037C: working source may evolve after adoption.
+        (self.root/'bie/pedagogy/example.py').write_text('EVOLVED')
+        report=audit(self.root)
+        self.assertTrue(report['passed'],report['errors'])
+        self.assertEqual(report['working_source_evolved_paths'],['bie/pedagogy/example.py'])
+
+    def test_modified_evidence_target_is_rejected(self):
+        evidence='docs/evidence/example.py';(self.root/'docs/evidence').mkdir(parents=True)
+        (self.root/evidence).write_bytes(b'VALUE=2\n')
+        self.manifest['members'][0]['canonical_path']=evidence;self.save()
+        self.assertTrue(audit(self.root)['passed'])
+        (self.root/evidence).write_text('CORRUPTED')
+        self.assertFalse(audit(self.root)['passed'])
+
+    def test_deleted_working_source_is_rejected(self):
+        (self.root/'bie/pedagogy/example.py').unlink()
         self.assertFalse(audit(self.root)['passed'])
 
     def test_silently_dropped_member_provenance_is_rejected(self):

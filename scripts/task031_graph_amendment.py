@@ -1,6 +1,10 @@
 """Single exact preservation row, not a waiver or sealed-ledger edit."""
 import hashlib
 import json
+try:
+    from source_evolution import accepts as evolution_accepts
+except ImportError:
+    from scripts.source_evolution import accepts as evolution_accepts
 from pathlib import Path
 
 LEDGER="manifests/lossless_migration.csv"
@@ -42,9 +46,10 @@ def resolve(root,rows):
     if (row["canonical_path"],row["canonical_sha256"],row["sha256"],row["bytes"],row["archive"],row["disposition"]) != (
         ACTIVE,OLD_SHA,OLD_SHA,"7618","BIE_INFRA_INTEGRATION_001.zip","MIGRATED"):
         raise ValueError("MATH_GRAPH_AMENDMENT_ORIGINAL_IDENTITY")
-    if hashlib.sha256(regular(root,OLD)).hexdigest()!=OLD_SHA:raise ValueError("MATH_GRAPH_AMENDMENT_BEFORE_BYTES")
+    # Task 037C: both paths are working source under bie/ and may evolve after adoption.
+    if not evolution_accepts(OLD,OLD_SHA,hashlib.sha256(regular(root,OLD)).hexdigest()):raise ValueError("MATH_GRAPH_AMENDMENT_BEFORE_BYTES")
     # Git LF code identity; unlike ledger predecessor, new code has no old raw-byte obligation.
-    if hashlib.sha256(regular(root,ACTIVE).replace(b"\r\n",b"\n")).hexdigest()!=NEW_SHA:
+    if not evolution_accepts(ACTIVE,NEW_SHA,hashlib.sha256(regular(root,ACTIVE).replace(b"\r\n",b"\n")).hexdigest()):
         raise ValueError("MATH_GRAPH_AMENDMENT_ACTIVE_BYTES")
     return [dict(r,canonical_path=OLD,reason="Task031 graph migration preserves exact v1 source/profile contract",
                  transform="governed Math graph v2; legacy source retained byte-exact") if r["file_id"]==FILE_ID else r for r in rows]

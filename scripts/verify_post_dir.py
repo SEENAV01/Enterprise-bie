@@ -7,11 +7,13 @@ try:
     from compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
     from compiler_motion_source_amendment import resolve_source_members as resolve_motion_members
     from compiler_monitor_snapshot_amendment import validate as validate_monitor_snapshot
+    from source_evolution import accepts as evolution_accepts, report as evolution_report, verify_baseline
 except ImportError:
     from scripts.compiler_cache_source_amendment import resolve_source_members as resolve_native_members
     from scripts.compiler_caller_source_amendment import resolve_source_members as resolve_caller_members
     from scripts.compiler_motion_source_amendment import resolve_source_members as resolve_motion_members
     from scripts.compiler_monitor_snapshot_amendment import validate as validate_monitor_snapshot
+    from scripts.source_evolution import accepts as evolution_accepts, report as evolution_report, verify_baseline
 ROOT = Path(__file__).resolve().parents[1]
 
 def resolve_source_members(root,manifest_path,manifest):
@@ -36,15 +38,18 @@ def safe_file(root, name):
 def verify(root=ROOT, *, recursive=True):
     source = json.loads((root / 'manifests/post_dir_integration_004.json').read_text())
     supplied = json.loads((root / 'manifests/post_dir_supplied_inputs.json').read_text())
-    errors = []; checked = {}; archives = {}; nested = []
-    def check_file(path, expected, expected_size=None):
+    errors = []; checked = {}; archives = {}; nested = []; evolved = []
+    def check_file(path, expected, expected_size=None, *, may_evolve=False):
         try:
             p = safe_file(root, path)
             if path not in checked:
                 data = p.read_bytes(); checked[path] = (digest(data), len(data))
             actual, size = checked[path]
             if actual != expected or expected_size is not None and size != expected_size:
-                raise ValueError('HASH_OR_SIZE_MISMATCH:' + path)
+                # Task 037C: adopted working source may evolve; supplied inputs never do.
+                if not (may_evolve and evolution_accepts(path, expected, actual)):
+                    raise ValueError('HASH_OR_SIZE_MISMATCH:' + path)
+                evolved.append(path)
         except (OSError, ValueError) as exc: errors.append(str(exc))
     def visit(data, depth=0):
         if depth > 30: raise ValueError('ARCHIVE_DEPTH')
@@ -72,8 +77,9 @@ def verify(root=ROOT, *, recursive=True):
             except (OSError, ValueError, zipfile.BadZipFile) as exc: errors.append(str(exc))
     # Validate both exact active producer replacements and original preimages;
     # keep the supplied sealed manifest and every unrelated member unchanged.
+    errors.extend(verify_baseline(root))
     for item in resolve_source_members(root, root / 'manifests/post_dir_integration_004.json', source):
-        check_file(item['canonical_path'], item['canonical_sha256'])
+        check_file(item['canonical_path'], item['canonical_sha256'], may_evolve=True)
     if recursive:
         declared=json.loads((root/'manifests/post_dir_nested_members.json').read_text())['records']
         if sorted(nested) != sorted(declared): errors.append('NESTED_MEMBER_LEDGER_MISMATCH')
@@ -90,6 +96,7 @@ def verify(root=ROOT, *, recursive=True):
             except (SyntaxError, UnicodeDecodeError) as exc: errors.append(str(exc))
     return {'passed':not errors, 'errors':sorted(set(errors)), 'supplied_files_verified':len(supplied['files']),
             'source_member_mappings_verified':len(source['source_members']), 'unique_paths_hashed':len(checked),
+            **evolution_report(evolved),
             'unique_zip_archives_verified':len(archives), 'nested_member_occurrences_verified':len(nested),
             'unavailable_previously_declared_archives':supplied['unavailable_declared_archives'],
             'scope':'All supplied bytes and canonical adoption; no whole-product or real-render acceptance.',

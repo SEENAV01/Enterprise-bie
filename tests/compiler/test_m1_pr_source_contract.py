@@ -10,6 +10,7 @@ import unittest
 
 from scripts import compiler_pr_source_contract_amendment as audit
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 
 class PRSourceContract(unittest.TestCase):
     @classmethod
@@ -20,6 +21,7 @@ class PRSourceContract(unittest.TestCase):
             shutil.copytree(ROOT/folder,cls.root/folder,ignore=shutil.ignore_patterns('__pycache__','*.zip'))
         (cls.root/'manifests').mkdir()
         shutil.copyfile(ROOT/'manifests/post_dir_integration_004.json',cls.root/'manifests/post_dir_integration_004.json')
+        overlay_baseline(ROOT,cls.root)  # Task 037C: authenticated baseline bytes
 
     def alter(self,path,body):
         file=self.root/path;before=file.read_bytes();self.addCleanup(file.write_bytes,before);file.write_bytes(body)

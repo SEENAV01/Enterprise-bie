@@ -12,6 +12,7 @@ import unittest
 from tests.compiler.test_m1_media_threads import run_node, STITCH
 from scripts import compiler_stitch_input_amendment as audit
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 
 PAIR = ['-i', 'synthetic-video.mp4', '-i', 'synthetic-normalized-audio.aac',
         '-c:a', 'copy', '-c:v', 'copy', '-map_metadata', '-1',
@@ -136,6 +137,7 @@ class StitchInputAudit(unittest.TestCase):
         for relative in selected:
             target=cls.root/relative;target.parent.mkdir(parents=True,exist_ok=True)
             shutil.copyfile(ROOT/relative,target)
+        overlay_baseline(ROOT,cls.root)  # Task 037C: authenticated baseline bytes
         path=cls.root/'manifests'/cache.MANIFEST
         document=json.loads(path.read_text())
         # Prove real canonical entrypoints pass with the complete intact fixture,

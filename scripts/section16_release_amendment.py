@@ -7,6 +7,10 @@ It does not authorize release, section sign-off, or product acceptance.
 from __future__ import annotations
 
 import hashlib
+try:
+    from source_evolution import accepts as evolution_accepts
+except ImportError:
+    from scripts.source_evolution import accepts as evolution_accepts
 import json
 from pathlib import Path
 
@@ -91,7 +95,8 @@ def resolve(root: Path, rows: list[dict]) -> list[dict]:
             raise ValueError('QA_RELEASE_AMENDMENT_ORIGINAL_IDENTITY')
         for path, digest in ((entry['active_path'], entry['active_sha256']),
                              (entry['before_image'], entry['before_sha256'])):
-            if hashlib.sha256(_regular_bytes(root, path)).hexdigest() != digest:
+            # Task 037C: the active working file may evolve; the before-image may not.
+            if not evolution_accepts(path, digest, hashlib.sha256(_regular_bytes(root, path)).hexdigest()):
                 raise ValueError('QA_RELEASE_AMENDMENT_BYTES:' + path)
         replacement[entry['file_id']] = {
             **row,

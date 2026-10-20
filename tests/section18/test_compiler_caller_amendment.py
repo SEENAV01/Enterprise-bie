@@ -4,6 +4,7 @@ import ast,json,os,shutil,tempfile,unittest
 from scripts.compiler_caller_source_amendment import ROWS,DOCUMENT,EXPECTED,resolve,resolve_source_members,validate
 from scripts.compiler_cache_source_amendment import MANIFEST
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 class CallerMaintenanceControls(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory(prefix='bie-caller-amendment-');self.addCleanup(self.tmp.cleanup)
@@ -13,6 +14,7 @@ class CallerMaintenanceControls(unittest.TestCase):
   self.manifest=json.loads(out.read_bytes());self.path=out
   for name in [DOCUMENT,*[r['path'] for r in ROWS],*[r['preimage'] for r in ROWS]]:
    out=self.root/name;out.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,out)
+  overlay_baseline(ROOT,self.root)  # Task 037C: authenticated baseline bytes
  def test_exact_originals_active_callers_and_all_other_rows_preserved(self):
   before=self.path.read_bytes();result,count=resolve(self.root,self.path,self.manifest)
   self.assertEqual(count,2);self.assertEqual(self.path.read_bytes(),before)

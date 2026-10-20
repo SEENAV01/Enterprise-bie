@@ -66,6 +66,10 @@ jobs:
           python -B scripts/audit_canonical.py --output "$RUNNER_TEMP/task036-evidence/source-preservation.json"
           python -B scripts/verify_post_dir.py --output "$RUNNER_TEMP/task036-evidence/post-dir-source.json"
           python -B scripts/verify_ingested_archives.py --output "$RUNNER_TEMP/task036-evidence/ingested-source.json"
+      - name: Surface failure summary as annotations
+        # Task 037B/037C: logs/artifacts are not readable from the cloud workspace; annotations are.
+        if: failure()
+        run: python3 -B tools/ci_failure_annotation.py "scene-ir-producer" "$RUNNER_TEMP/task036-evidence"
       - name: Safe bounded technical receipts only
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a

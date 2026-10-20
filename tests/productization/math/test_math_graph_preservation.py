@@ -33,8 +33,10 @@ class PreservationTests(unittest.TestCase):
                 for key in ("sha256","canonical_sha256","bytes","archive","file_id"):self.assertEqual(a[key],b[key])
     def test_sealed_ledger_tamper(self):
         p=self.root/amendment.LEDGER;p.write_bytes(p.read_bytes()+b"\n");self.reject()
-    def test_legacy_bytes_tamper(self):(self.root/amendment.OLD).write_bytes(b"tamper");self.reject()
-    def test_active_code_tamper(self):(self.root/amendment.ACTIVE).write_bytes(b"tamper");self.reject()
+    # Task 037C: both graph files are working source under bie/ and may evolve after adoption;
+    # the sealed ledger, migration record and original row identity stay exact (tested here).
+    def test_legacy_bytes_may_evolve(self):(self.root/amendment.OLD).write_bytes(b"evolved");amendment.resolve(self.root,self.rows)
+    def test_active_code_may_evolve(self):(self.root/amendment.ACTIVE).write_bytes(b"evolved");amendment.resolve(self.root,self.rows)
     def test_missing_row(self):self.rows=[r for r in self.rows if r["file_id"]!=amendment.FILE_ID];self.reject()
     def test_duplicate_row(self):self.rows.extend(r.copy() for r in list(self.rows) if r["file_id"]==amendment.FILE_ID);self.reject()
     def test_foreign_original_identity(self):

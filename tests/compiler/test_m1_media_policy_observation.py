@@ -14,6 +14,7 @@ from tests.compiler import test_m1_media_threads as threads
 from tests.compiler import m1_safe_paint_diagnostics as safe
 
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 CONTROLLER=ROOT/'bie/compiler/qa_support/remotion_raster_capture.cjs'
 PHASES={
  'MEDIA_POLICY_CREATE':('POLICY_SHAPE','POLICY_IDENTITY'),
@@ -191,6 +192,7 @@ class PolicyObservationAmendment(unittest.TestCase):
         shutil.copyfile(ROOT/'manifests/post_dir_integration_004.json',cls.root/'manifests/post_dir_integration_004.json')
         for path in ('bie/compiler/real_paint.py','bie/compiler/qa_support/remotion_raster_capture.cjs','bie/compiler/qa_support/bounded_media_threads.cjs'):
             target=cls.root/path;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/path,target)
+        overlay_baseline(ROOT,cls.root)  # Task 037C: authenticated baseline bytes
 
     def test_exact_git_preimages_and_chain(self):
         from scripts import compiler_media_thread_amendment as prior

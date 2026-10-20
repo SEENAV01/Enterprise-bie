@@ -7,6 +7,16 @@ import json
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
+def _load_evolution_policy():
+    """Task 037C policy, loaded beside this script so it also works when loaded by path."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('bie_source_evolution_policy',
+                                                  Path(__file__).resolve().with_name('source_evolution.py'))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+_EVOLUTION = _load_evolution_policy()
+is_working_source, evolution_report = _EVOLUTION.is_working_source, _EVOLUTION.report
 EVIDENCE = ROOT / 'docs/section17/integration-r1'
 ROLES = {
     'SECTION17_SOURCE_COMPARE_AND_ADOPT',
@@ -130,6 +140,7 @@ def verify() -> dict:
     adopted = 0
     caches = 0
     errors = []
+    evolved = []
     for row in mapping['files']:
         relative = row['path']
         if relative in seen:
@@ -152,19 +163,27 @@ def verify() -> dict:
             if amendment or row['sha256'] != CAMPAIGN_ORIGINAL:
                 errors.append('MAINTENANCE_ORIGINAL_BINDING:' + relative)
             expected = maintenance[relative]
-        if not path.is_file() or not matches(path, expected):
+        if not path.is_file():
             errors.append('ADOPTED_HASH_MISMATCH:' + relative)
+        elif not matches(path, expected):
+            # Task 037C: adopted working source may evolve after adoption.
+            if is_working_source(relative):
+                evolved.append(relative)
+            else:
+                errors.append('ADOPTED_HASH_MISMATCH:' + relative)
     if (adopted, caches) != (780, 15):
         errors.append('ADOPTION_CENSUS_MISMATCH')
-    if not matches(checked_path(CLI), CLI_SHA):
+    if not checked_path(CLI).is_file():
         errors.append('QA_CLI_PATCH_MISMATCH')
+    elif not matches(checked_path(CLI), CLI_SHA):
+        evolved.append(CLI)
     delta = json.loads((ROOT / 'metadata/section17/H1_WORKSPACE_DELTA.json').read_text(encoding='utf-8'))
     recovery = json.loads((EVIDENCE / 'H1_PREIMAGE_RECOVERY.json').read_text(encoding='utf-8'))
     errors.extend(verify_h1_preimages(delta, recovery))
     return {'schema_version': 'bie.section17.adoption/1', 'adopted_files': adopted,
             'generated_caches_excluded': caches, 'reviewed_amendments': len(changes),
             'reviewed_section18_maintenance_amendments': len(maintenance),
-            'recovered_h1_preimages': len(recovery['files']),
+            'recovered_h1_preimages': len(recovery['files']), **evolution_report(evolved),
             'errors': errors, 'passed': not errors, 'section_complete': False,
             'product_accepted': False}
 

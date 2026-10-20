@@ -6,6 +6,7 @@ from scripts.compiler_cache_source_amendment import PAINT_TARGET,PAINT_DOCUMENT,
 from scripts.compiler_cache_source_amendment import resolve_source_members
 from scripts.compiler_cache_source_amendment import NATIVE_DOCUMENT,NATIVE_EXPECTED,RENDER_TARGET,RENDER_BEFORE
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 class CompilerSourceAmendment(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(prefix='bie-s18-compiler-ledger-');self.addCleanup(self.tmp.cleanup)
@@ -37,6 +38,8 @@ class CompilerSourceAmendment(unittest.TestCase):
                      'compiler_media_source_pin_amendment.py','compiler_stitch_input_amendment.py',
                      'compiler_pr_source_contract_amendment.py'):
             shutil.copyfile(ROOT/'scripts'/name,self.root/'scripts'/name)
+        # Task 037C: start from the bytes the chain authenticates (baseline copies).
+        overlay_baseline(ROOT,self.root)
     def run_gate(self):return resolve(self.root,self.manifest_path,self.manifest)
     def test_original_ledger_unchanged_and_both_producer_versions_hash_bound(self):
         before=self.manifest_path.read_bytes();result,count=self.run_gate()

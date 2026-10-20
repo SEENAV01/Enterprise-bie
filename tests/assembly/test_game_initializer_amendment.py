@@ -18,9 +18,12 @@ class InitializerPreservation(unittest.TestCase):
         self.assertEqual(changed[0][1]['canonical_path'],BEFORE)
         self.assertEqual(changed[0][0]['file_id'],FILE_ID)
 
-    def test_changed_active_exports_rejected(self):
-        (self.root/TARGET).write_text('unexpected exports')
-        with self.assertRaisesRegex(ValueError,'AMENDMENT_BYTES'):resolve(self.root,self.rows)
+    def test_changed_active_exports_may_evolve(self):
+        # Task 037C: the active working file may evolve; the before-image may not.
+        (self.root/TARGET).write_text('evolved exports')
+        result=resolve(self.root,self.rows)
+        changed=[(a,b) for a,b in zip(self.rows,result) if a!=b]
+        self.assertEqual([b['canonical_path'] for a,b in changed],[BEFORE])
 
     def test_overwritten_original_rejected(self):
         (self.root/BEFORE).write_text('changed original')

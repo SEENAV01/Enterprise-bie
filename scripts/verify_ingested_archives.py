@@ -9,10 +9,12 @@ try:
     from compiler_cache_source_amendment import resolve as resolve_cache_fix
     from compiler_caller_source_amendment import resolve as resolve_caller_fix
     from compiler_motion_source_amendment import resolve as resolve_motion_fix
+    from source_evolution import accepts as evolution_accepts, report as evolution_report, verify_baseline
 except ImportError:
     from scripts.compiler_cache_source_amendment import resolve as resolve_cache_fix
     from scripts.compiler_caller_source_amendment import resolve as resolve_caller_fix
     from scripts.compiler_motion_source_amendment import resolve as resolve_motion_fix
+    from scripts.source_evolution import accepts as evolution_accepts, report as evolution_report, verify_baseline
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,6 +24,7 @@ def audit(root=ROOT):
     errors = []
     archives_checked = members_checked = targets_checked = 0
     reviewed_amendments = 0
+    evolved = []
     sha = lambda data: hashlib.sha256(data).hexdigest()
 
     def path(value):
@@ -33,6 +36,7 @@ def audit(root=ROOT):
             raise ValueError('manifest target outside repository')
         return target
 
+    errors.extend(verify_baseline(root))
     manifests = sorted((root / 'manifests').glob('*_integration_*.json'))
     if not manifests:
         errors.append('No supplemental integration manifests found')
@@ -71,8 +75,12 @@ def audit(root=ROOT):
                             if row['state'] not in {'MIGRATED','ARCHIVED_EVIDENCE','DUPLICATE_WITH_PROVENANCE','EXCLUDED_WITH_REASON'}:
                                 raise ValueError('undocumented disposition')
                             if row['canonical_path']:
-                                if sha(path(row['canonical_path']).read_bytes()) != row['canonical_sha256']:
-                                    raise ValueError('canonical target hash mismatch: '+row['canonical_path'])
+                                actual = sha(path(row['canonical_path']).read_bytes())
+                                if actual != row['canonical_sha256']:
+                                    # Task 037C: working source may evolve after adoption.
+                                    if not evolution_accepts(row['canonical_path'], row['canonical_sha256'], actual):
+                                        raise ValueError('canonical target hash mismatch: '+row['canonical_path'])
+                                    evolved.append(row['canonical_path'])
                                 targets_checked += 1
                             elif row['state'] not in {'ARCHIVED_EVIDENCE','EXCLUDED_WITH_REASON'} or not row.get('transformation'):
                                 raise ValueError('missing canonical target without documented archive disposition')
@@ -84,7 +92,7 @@ def audit(root=ROOT):
             errors.append(manifest_path.name+': '+str(exc))
     return dict(passed=not errors, errors=errors, manifests=len(manifests), archives_checked=archives_checked,
                 original_members_checked=members_checked, canonical_targets_checked=targets_checked,
-                reviewed_compiler_cache_amendments=reviewed_amendments,
+                reviewed_compiler_cache_amendments=reviewed_amendments, **evolution_report(evolved),
                 acceptance='NOT_ACCEPTED', scope='Original ZIP/member preservation and declared canonical hashes')
 
 

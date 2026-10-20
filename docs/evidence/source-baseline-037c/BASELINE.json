@@ -1,0 +1,134 @@
+{
+  "schema": "bie.source-baseline/1",
+  "task": "037C",
+  "source_commit": "6fd0bdd46e827406d45b69eeb5b4dc3a778936f2",
+  "purpose": "Exact bytes, at the 037C baseline commit, of the working-source files that the sealed compiler amendment chain authenticates. The chain verifies these copies; the live files may evolve through reviewed PRs.",
+  "files": [
+    {
+      "path": "bie/compiler/animation_behavior.py",
+      "bytes": 8384,
+      "sha256": "67d269c3a5a3ee8ad73b861f8c60dd96cacc2f3310e0841f97ef5dc49e616c1e"
+    },
+    {
+      "path": "bie/compiler/animation_track_compiler.py",
+      "bytes": 4192,
+      "sha256": "b2a20cae1ffaefd1cf4076382b87d2c232c53b01fd2d33602ccda534467635fb"
+    },
+    {
+      "path": "bie/compiler/chromium_resource_worker.py",
+      "bytes": 35814,
+      "sha256": "be4ac9863c6b5153568dec53d052e3d95973b4562e04d1efa2a0d8d5180e0aea"
+    },
+    {
+      "path": "bie/compiler/governed_motion.py",
+      "bytes": 14054,
+      "sha256": "fabab343d1b176c27940bb2a010fc59c144241dcef341b7f6656d27d6d764e86"
+    },
+    {
+      "path": "bie/compiler/governed_motion_emitter.py",
+      "bytes": 3786,
+      "sha256": "92364adcd2e146fffc7ad5a5c2f202db22557038fbbd4114f0d7f8bf68898324"
+    },
+    {
+      "path": "bie/compiler/producer_motion_admission.py",
+      "bytes": 9917,
+      "sha256": "24a29bf80d810abb3d8a02d52ae85af2a710b94b4b3972d46a97b05512a6f85c"
+    },
+    {
+      "path": "bie/compiler/qa_scene_compile.py",
+      "bytes": 21500,
+      "sha256": "6a146f39527fecc2fc7619f21daa09d0e4438eb8269b5fda1aafa97d4c310b58"
+    },
+    {
+      "path": "bie/compiler/qa_support/bounded_media_threads.cjs",
+      "bytes": 4440,
+      "sha256": "2f2788895f598cea5c37449f1b54761c420a9c03e0d4e56cf4bd8fdd84fd0bb9"
+    },
+    {
+      "path": "bie/compiler/qa_support/remotion_raster_capture.cjs",
+      "bytes": 13288,
+      "sha256": "87925d247dc0ffc0444feb9456c48d1d610bee051ef0fd96a0db0ec7b12670d5"
+    },
+    {
+      "path": "bie/compiler/real_paint.py",
+      "bytes": 26969,
+      "sha256": "a7ede9b87fcc7edf1c4385c8bb640fac65656bf8901089ed89c66c7725f67d43"
+    },
+    {
+      "path": "bie/compiler/reduced_motion.py",
+      "bytes": 6519,
+      "sha256": "addff85cc90b4b71aa5eae2a422879a8f94ba35d62c62e64d9a5f95f58743fd3"
+    },
+    {
+      "path": "bie/compiler/render_runtime.py",
+      "bytes": 22653,
+      "sha256": "d014b020bf54f5c3c13a1831ff3b5345c94903d915e230030f1b771175598e26"
+    },
+    {
+      "path": "scripts/compiler_cache_source_amendment.py",
+      "bytes": 12883,
+      "sha256": "9c040865300c73ac0322f70e6eb017e0dbd591798fe3175a9d73acd9ac3a84ba"
+    },
+    {
+      "path": "scripts/compiler_capture_observation_amendment.py",
+      "bytes": 5075,
+      "sha256": "6681cdcb6c8965316b786032cd771531402d2028f701a02d9ed8a21c9ce057b4"
+    },
+    {
+      "path": "scripts/compiler_media_observation_amendment.py",
+      "bytes": 5221,
+      "sha256": "ac0fc8c084ff5ed7aa75670e1ec42f35444b4c608d65fe28553f4bb6bd778796"
+    },
+    {
+      "path": "scripts/compiler_media_policy_observation_amendment.py",
+      "bytes": 6322,
+      "sha256": "1719358fa2f11a1c5cf55ea61bcf2170192597d535f6e6fcee29baf089a64f04"
+    },
+    {
+      "path": "scripts/compiler_media_source_pin_amendment.py",
+      "bytes": 6105,
+      "sha256": "392f0c5e234eb83387cdb89b3534884cf62c77d30aa821817d4f36e990fd9519"
+    },
+    {
+      "path": "scripts/compiler_media_thread_amendment.py",
+      "bytes": 7339,
+      "sha256": "061ab40c34516c8b635ea41b2bc43f0f656f6baa3a64411ce7ad0ebc4ccb50f0"
+    },
+    {
+      "path": "scripts/compiler_monitor_parse_source_amendment.py",
+      "bytes": 5246,
+      "sha256": "972ea3e88d489c12ea5896a635fe75a9f1d1c29e0d06eee4f49da77c06a80455"
+    },
+    {
+      "path": "scripts/compiler_monitor_snapshot_amendment.py",
+      "bytes": 5284,
+      "sha256": "227cfada9176f1c8f742cb05afaa909e70135ddf9cac251a795f393ad1f2ec6d"
+    },
+    {
+      "path": "scripts/compiler_motion_source_amendment.py",
+      "bytes": 4912,
+      "sha256": "f322435ccab90ef652dadaf45b4baf380e7a2666728d6b3c5c3125965ef7f16e"
+    },
+    {
+      "path": "scripts/compiler_stitch_input_amendment.py",
+      "bytes": 6405,
+      "sha256": "e99b840d43b0112ffe640e6ee9dc319dcd43516368b012709938557d084d97a3"
+    },
+    {
+      "path": "scripts/verify_post_dir.py",
+      "bytes": 6360,
+      "sha256": "9a445227e09fd487139b2dbd7be67d83af4b412b5a5f2c7be5a0f2a0120d15c8"
+    },
+    {
+      "path": "tests/compiler/test_comp_h7_007.py",
+      "bytes": 5447,
+      "sha256": "18f74637da5e6b3f20d40e020731850911333cc7dd172100712874ec50a8f9a1"
+    },
+    {
+      "path": "tests/compiler/test_comp_h8_005.py",
+      "bytes": 5977,
+      "sha256": "1054b0a2f91aa4604e74a5774ef96a61f097a761887315c5b2eb48e241bb9cdc"
+    }
+  ],
+  "product_accepted": false
+}

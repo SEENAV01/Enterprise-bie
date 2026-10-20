@@ -42,8 +42,11 @@ class PreservedInputs(unittest.TestCase):
         from scripts.verify_post_dir import resolve_source_members
         rows=resolve_source_members(ROOT,ROOT/'manifests/post_dir_integration_004.json',self.adoption)
         self.assertEqual(len(rows),len(self.adoption['source_members']))
+        # Task 037C: working source may evolve after adoption; evidence rows stay exact.
+        from scripts.source_evolution import accepts
         for item in rows:
-            self.assertEqual(sha256((ROOT/item['canonical_path']).read_bytes()).hexdigest(),item['canonical_sha256'],item['canonical_path'])
+            actual=sha256((ROOT/item['canonical_path']).read_bytes()).hexdigest()
+            self.assertTrue(accepts(item['canonical_path'],item['canonical_sha256'],actual),item['canonical_path'])
     def test_rebuild_and_history_not_conflated(self):
         self.assertTrue((ROOT/'bie/visual_intelligence/rep_original_codec.py').is_file());self.assertFalse(self.inputs['product_accepted'])
     def test_missing_historical_bytes_not_fabricated(self):

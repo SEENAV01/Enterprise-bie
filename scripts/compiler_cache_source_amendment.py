@@ -68,7 +68,22 @@ NATIVE_EXPECTED=dict(schema='bie.section18.compiler-native-source-amendment/1',
     original_ledgers_and_archives_unchanged=True,pinned_toolchain_unchanged=True,
     inherited_security_controls_preserved=True,product_accepted=False)
 
+BASELINE_DIR='docs/evidence/source-baseline-037c/'
+def baseline_path(root,relative):
+    """Task 037C: the sealed chain authenticates the 037C baseline copy of a working file.
+
+    Working source (bie/, apps/, tests/, tools/, scripts/) may evolve through reviewed PRs.
+    The amendment chain keeps proving its exact history against the immutable baseline
+    copy taken from main when 037C landed. Paths without a baseline copy, and every
+    evidence path, are read exactly as before.
+    """
+    try:from source_evolution import is_working_source
+    except ImportError:from scripts.source_evolution import is_working_source
+    if is_working_source(relative) and (Path(root)/(BASELINE_DIR+relative)).is_file():
+        return BASELINE_DIR+relative
+    return relative
 def regular(root,relative,max_bytes):
+    relative=baseline_path(root,relative)
     p=root/relative
     if not p.resolve().is_relative_to(root.resolve()):raise ValueError('COMP_CACHE_AMENDMENT_PATH')
     for item in (p,*p.parents):

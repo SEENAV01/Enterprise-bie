@@ -12,12 +12,17 @@ import sys
 import zipfile
 
 from assembly_lib import TERMINAL_STATES, digest
+try:
+    from source_evolution import accepts as evolution_accepts, report as evolution_report
+except ImportError:
+    from scripts.source_evolution import accepts as evolution_accepts, report as evolution_report
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def audit(root=ROOT):
     errors = []
+    evolved = []
     rows = list(csv.DictReader((root / "manifests/lossless_migration.csv").open()))
     from game_initializer_amendment import resolve
     try: rows = resolve(root, rows)
@@ -86,7 +91,12 @@ def audit(root=ROOT):
             if path not in verified_paths:
                 verified_paths[path] = digest(p.read_bytes()) if p.is_file() else None
             if verified_paths[path] != row["canonical_sha256"]:
-                errors.append("Canonical content mismatch: " + path)
+                # Task 037C: working source may evolve after adoption; evidence may not,
+                # and a missing working-source file is still an error.
+                if verified_paths[path] is not None and evolution_accepts(path, row["canonical_sha256"], verified_paths[path]):
+                    evolved.append(path)
+                else:
+                    errors.append("Canonical content mismatch: " + path)
         elif row["disposition"] in {"MIGRATED", "DUPLICATE_WITH_PROVENANCE"}:
             errors.append("Migration lacks canonical destination: " + row["file_id"])
         if row["disposition"] == "DUPLICATE_WITH_PROVENANCE":
@@ -116,7 +126,7 @@ def audit(root=ROOT):
                     errors.append("Legacy production import: " + p.relative_to(root).as_posix())
         except SyntaxError as exc:
             errors.append(f"Syntax error in {p}: {exc}")
-    return {"passed": not errors, "errors": sorted(set(errors)), "archive_count": len(original) + len(supplemental), "original_member_files_checked": original_checked, "ledger_rows": len(rows), "assembly_001_files_checked": len(initial), "dispositions": dict(Counter(x["disposition"] for x in rows)), "canonical_destinations_checked": len(verified_paths), "working_python_files_parsed": len(working), "acceptance": "NOT_ACCEPTED", "scope": "Source preservation, canonical layout, import syntax and manifest integrity; not real-book E2E"}
+    return {"passed": not errors, "errors": sorted(set(errors)), "archive_count": len(original) + len(supplemental), "original_member_files_checked": original_checked, "ledger_rows": len(rows), "assembly_001_files_checked": len(initial), "dispositions": dict(Counter(x["disposition"] for x in rows)), "canonical_destinations_checked": len(verified_paths), **evolution_report(evolved), "working_python_files_parsed": len(working), "acceptance": "NOT_ACCEPTED", "scope": "Source preservation, canonical layout, import syntax and manifest integrity; not real-book E2E"}
 
 
 def main():

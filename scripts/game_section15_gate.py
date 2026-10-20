@@ -4,6 +4,7 @@ import hashlib,io,json,os,subprocess,sys,time,unittest
 ROOT=Path(__file__).resolve().parents[1]
 MANIFEST=ROOT/'manifests/game_section15_adoption.json'
 sys.path.insert(0,str(ROOT))
+from scripts.source_evolution import accepts as evolution_accepts
 
 def identity():
     data=json.loads(MANIFEST.read_text())
@@ -16,11 +17,12 @@ def identity():
     for row in records:
         p=ROOT/row['canonical_path']
         digest=hashlib.sha256(p.read_bytes()).hexdigest()
-        if digest!=row['sha256']:raise ValueError('GAME_ADOPTION_HASH:'+row['canonical_path'])
+        # Task 037C: adopted working source may evolve; results stay bound to the exact current bytes.
+        if not evolution_accepts(row['canonical_path'],row['sha256'],digest):raise ValueError('GAME_ADOPTION_HASH:'+row['canonical_path'])
         inventory[row['canonical_path']]=digest
     for amendment in data.get('canonical_amendments', []):
         rel=amendment['path'];digest=hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()
-        if digest!=amendment['sha256']:raise ValueError('GAME_CANONICAL_AMENDMENT_HASH:'+rel)
+        if not evolution_accepts(rel,amendment['sha256'],digest):raise ValueError('GAME_CANONICAL_AMENDMENT_HASH:'+rel)
         inventory[rel]=digest
     commit=subprocess.check_output(['git','-c','safe.directory='+ROOT.as_posix(),'-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
     return data,{'tested_commit':commit,'manifest_sha256':hashlib.sha256(MANIFEST.read_bytes()).hexdigest(),'source_inventory_sha256':hashlib.sha256(json.dumps(inventory,sort_keys=True).encode()).hexdigest()}
