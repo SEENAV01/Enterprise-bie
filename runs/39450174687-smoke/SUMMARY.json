@@ -1,0 +1,71 @@
+{
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "smoke",
+  "not_configured": [],
+  "passed": true,
+  "product_accepted": false,
+  "providers": [
+    "anthropic",
+    "openai",
+    "google"
+  ],
+  "smoke": {
+    "anthropic": {
+      "content": {
+        "language": "English",
+        "status": "ready"
+      },
+      "model": "anthropic/claude-opus-5.5",
+      "returned_model": "claude-opus-5-5",
+      "status": "ok"
+    },
+    "google": {
+      "content": {
+        "language": "English",
+        "status": "ready"
+      },
+      "model": "google/gemini-4-argon",
+      "returned_model": "google/gemini-4-argon",
+      "status": "ok"
+    },
+    "openai": {
+      "content": {
+        "language": "English",
+        "status": "ready"
+      },
+      "model": "gpt-6.1-sol",
+      "returned_model": "gpt-6.1-sol",
+      "status": "ok"
+    }
+  },
+  "usage": {
+    "anthropic": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.001404,
+      "failed_calls": 0,
+      "input_tokens": 239,
+      "output_tokens": 16
+    },
+    "google": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.001034,
+      "failed_calls": 0,
+      "input_tokens": 330,
+      "output_tokens": 28
+    },
+    "openai": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.00045,
+      "failed_calls": 0,
+      "input_tokens": 70,
+      "output_tokens": 31
+    }
+  }
+}
