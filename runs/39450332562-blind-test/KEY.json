@@ -1,0 +1,111 @@
+{
+  "costs": {
+    "A": {
+      "calls": 1,
+      "cost_usd_estimate": 0.07528,
+      "input_tokens": 3570,
+      "model": "gpt-6.1-sol",
+      "output_tokens": 6814,
+      "provider": "openai",
+      "returned_model": "gpt-6.1-sol",
+      "status": "ok",
+      "via": "direct"
+    },
+    "B": {
+      "calls": 1,
+      "cost_usd_estimate": 0.073176,
+      "input_tokens": 5457,
+      "model": "google/gemini-4-argon",
+      "output_tokens": 5561,
+      "provider": "google",
+      "returned_model": "google/gemini-4-argon",
+      "status": "ok",
+      "via": "aicredits"
+    },
+    "C": {
+      "calls": 1,
+      "cost_usd_estimate": 0.211904,
+      "input_tokens": 7170,
+      "model": "anthropic/claude-opus-5.5",
+      "output_tokens": 8198,
+      "provider": "anthropic",
+      "returned_model": "claude-opus-5-5",
+      "status": "ok",
+      "via": "aicredits"
+    }
+  },
+  "letters": {
+    "A": {
+      "model": "gpt-6.1-sol",
+      "provenance": {
+        "attempts": 1,
+        "cache_hit": false,
+        "finished_at": 1792510985.7444575,
+        "model": "gpt-6.1-sol",
+        "prompt_version": "bie-blind-test-lesson/1",
+        "provider": "openai",
+        "request_hash": "9082448a16d781d99b9bee4797e798e9b359006c9d2ba485c86632fcd22d9eff",
+        "returned_model": "gpt-6.1-sol",
+        "started_at": 1792510849.9859428,
+        "via": "direct"
+      },
+      "provider": "openai",
+      "status": "ok",
+      "usage": {
+        "cached_input_tokens": 0,
+        "input_tokens": 3570,
+        "output_tokens": 6814,
+        "reasoning_tokens": 183
+      },
+      "via": "direct"
+    },
+    "B": {
+      "model": "google/gemini-4-argon",
+      "provenance": {
+        "attempts": 1,
+        "cache_hit": false,
+        "finished_at": 1792511064.1679785,
+        "model": "google/gemini-4-argon",
+        "prompt_version": "bie-blind-test-lesson/1",
+        "provider": "google",
+        "request_hash": "f987f0455b56c9e112c7652dc4626cf01b525564d2e5d2eea293435e5e17f699",
+        "returned_model": "google/gemini-4-argon",
+        "started_at": 1792510985.7445009,
+        "via": "aicredits"
+      },
+      "provider": "google",
+      "status": "ok",
+      "usage": {
+        "cached_input_tokens": 0,
+        "input_tokens": 5457,
+        "output_tokens": 5561,
+        "reasoning_tokens": 0
+      },
+      "via": "aicredits"
+    },
+    "C": {
+      "model": "anthropic/claude-opus-5.5",
+      "provenance": {
+        "attempts": 1,
+        "cache_hit": false,
+        "finished_at": 1792510849.9858973,
+        "model": "anthropic/claude-opus-5.5",
+        "prompt_version": "bie-blind-test-lesson/1",
+        "provider": "anthropic",
+        "request_hash": "ac1dc95f79e179e0ae1452ca60e40497b04e9b84da31a8d17b22c8d0b32a79e3",
+        "returned_model": "claude-opus-5-5",
+        "started_at": 1792510761.6497502,
+        "via": "aicredits"
+      },
+      "provider": "anthropic",
+      "status": "ok",
+      "usage": {
+        "cached_input_tokens": 0,
+        "input_tokens": 7170,
+        "output_tokens": 8198,
+        "reasoning_tokens": 0
+      },
+      "via": "aicredits"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "chapter": {
+    "chars": 11233,
+    "page_count": 14,
+    "pages_used": [
+      1,
+      14
+    ],
+    "source_sha256": "05616c29dd08d715424c0ae242097ddc82c3fefc48d9e009db09ce371ae7db7d",
+    "text_sample": "[Page 1]\nScience and Technology\n10. Tissues and Its Types\nTISSUE: Cells combine to perform same function.\n• When plant cells combine, they form plant tissues.\n• When animal cells combine, they form animal tissues.\n• Causes division of labou"
+  },
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "blind-test",
+  "not_configured": [],
+  "passed": true,
+  "product_accepted": false,
+  "providers": [
+    "anthropic",
+    "openai",
+    "google"
+  ],
+  "providers_failed": {},
+  "providers_ok": [
+    "anthropic",
+    "google",
+    "openai"
+  ],
+  "usage": {
+    "anthropic": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.211904,
+      "failed_calls": 0,
+      "input_tokens": 7170,
+      "output_tokens": 8198
+    },
+    "google": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.073176,
+      "failed_calls": 0,
+      "input_tokens": 5457,
+      "output_tokens": 5561
+    },
+    "openai": {
+      "cache_hits": 0,
+      "calls": 1,
+      "cost_complete": true,
+      "cost_usd": 0.07528,
+      "failed_calls": 0,
+      "input_tokens": 3570,
+      "output_tokens": 6814
+    }
+  }
+}
