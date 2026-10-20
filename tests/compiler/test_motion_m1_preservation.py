@@ -12,6 +12,7 @@ import tempfile
 import unittest
 
 from scripts import compiler_motion_source_amendment as audit
+from tests.source_baseline_fixture import overlay_baseline
 from bie.compiler.animation_behavior import motion_contract,motion_state
 from bie.compiler.animation_track_compiler import compile_animation_track
 from bie.compiler.reduced_motion import resolve_reduced_motion
@@ -90,6 +91,7 @@ class ExactMotionAmendment(unittest.TestCase):
                      'compiler_media_observation_amendment.py','compiler_motion_source_amendment.py',
                      'compiler_media_thread_amendment.py','compiler_media_policy_observation_amendment.py','compiler_media_source_pin_amendment.py','compiler_stitch_input_amendment.py','compiler_pr_source_contract_amendment.py'):
             shutil.copyfile(ROOT/'scripts'/name,self.root/'scripts'/name)
+        overlay_baseline(ROOT,self.root)  # Task 037C: authenticated baseline bytes
 
     def tearDown(self):self.tmp.cleanup()
 

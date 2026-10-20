@@ -7,6 +7,10 @@ or Section 16 sign-off is implied.
 from __future__ import annotations
 
 import hashlib
+try:
+    from source_evolution import accepts as evolution_accepts
+except ImportError:
+    from scripts.source_evolution import accepts as evolution_accepts
 import json
 from pathlib import Path
 
@@ -79,7 +83,8 @@ def resolve(root: Path, rows: list[dict]) -> list[dict]:
         raise ValueError('QA_NATIVE_MATH_AMENDMENT_ORIGINAL_IDENTITY')
     for path, digest in ((ENTRY['active_path'], ENTRY['active_sha256']),
                          (ENTRY['before_image'], ENTRY['before_sha256'])):
-        if hashlib.sha256(_regular_bytes(root, path)).hexdigest() != digest:
+        # Task 037C: the active working file may evolve; the before-image may not.
+        if not evolution_accepts(path, digest, hashlib.sha256(_regular_bytes(root, path)).hexdigest()):
             raise ValueError('QA_NATIVE_MATH_AMENDMENT_BYTES:' + path)
     replacement = {
         **row,

@@ -51,7 +51,8 @@ class Section16GateTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'SECTION17_CLI_BINDING'):
                 gate.verify_adoption(ROOT)
 
-    def test_section17_cli_bytes_tamper_rejected(self):
+    def test_section17_cli_bytes_may_evolve(self):
+        # Task 037C: adopted working source may evolve; the gate binds to current bytes.
         original = gate.safe_path
         with tempfile.TemporaryDirectory() as tmp:
             altered = Path(tmp) / '__main__.py'
@@ -59,8 +60,7 @@ class Section16GateTests(unittest.TestCase):
             def path(root, name):
                 return altered if name == gate.SECTION17_CLI_PATH else original(root, name)
             with patch.object(gate, 'safe_path', side_effect=path):
-                with self.assertRaisesRegex(ValueError, 'SECTION17_CLI_BYTES'):
-                    gate.verify_adoption(ROOT)
+                self.assertTrue(gate.verify_adoption(ROOT)['passed'])
 
     def test_section17_cli_base_row_tamper_rejected(self):
         self.changed_manifest(
@@ -86,7 +86,8 @@ class Section16GateTests(unittest.TestCase):
     def test_pdf_math_bridge_cannot_add_unreviewed_field(self):
         self.changed_native_pdf_math_bridge(lambda d: d.update(other_path='bie/qa/other.py'))
 
-    def test_pdf_math_bridge_bytes_tamper_rejected(self):
+    def test_pdf_math_bridge_bytes_may_evolve(self):
+        # Task 037C: adopted working source may evolve; the gate binds to current bytes.
         original = gate.safe_path
         with tempfile.TemporaryDirectory() as tmp:
             altered = Path(tmp) / 'native_pdf_bridge.py'
@@ -94,8 +95,7 @@ class Section16GateTests(unittest.TestCase):
             def path(root, name):
                 return altered if name == gate.NATIVE_PDF_MATH_BRIDGE_PATH else original(root, name)
             with patch.object(gate, 'safe_path', side_effect=path):
-                with self.assertRaisesRegex(ValueError, 'NATIVE_PDF_MATH_BRIDGE_BYTES'):
-                    gate.verify_adoption(ROOT)
+                self.assertTrue(gate.verify_adoption(ROOT)['passed'])
 
     def changed_native_math_repair(self, mutate, code='NATIVE_MATH_REPAIR_SCOPE'):
         original = gate.read_json
@@ -116,7 +116,8 @@ class Section16GateTests(unittest.TestCase):
     def test_native_math_repair_cannot_change_baseline(self):
         self.changed_native_math_repair(lambda d: d['paths'][0].update(before_sha256='0'*64), 'NATIVE_MATH_REPAIR_BYTES')
 
-    def test_native_math_owner_bytes_tamper_rejected(self):
+    def test_native_math_owner_bytes_may_evolve(self):
+        # Task 037C: adopted working source may evolve; the gate binds to current bytes.
         original = gate.safe_path
         with tempfile.TemporaryDirectory() as tmp:
             altered = Path(tmp) / 'expression_ast.py'
@@ -124,8 +125,7 @@ class Section16GateTests(unittest.TestCase):
             def path(root, name):
                 return altered if name == gate.NATIVE_MATH_PATH else original(root, name)
             with patch.object(gate, 'safe_path', side_effect=path):
-                with self.assertRaisesRegex(ValueError, 'NATIVE_MATH_REPAIR_BYTES'):
-                    gate.verify_adoption(ROOT)
+                self.assertTrue(gate.verify_adoption(ROOT)['passed'])
 
     def changed_manifest(self, mutate, code):
         original = gate.read_json
@@ -165,8 +165,15 @@ class Section16GateTests(unittest.TestCase):
     def test_duplicate_row_rejected(self):
         self.changed_manifest(lambda d: d['paths'].__setitem__(1, d['paths'][0]), 'DUPLICATE_PATH')
 
-    def test_changed_bytes_rejected(self):
-        self.changed_manifest(lambda d: d['paths'][0].update(sha256='0'*64), 'ADOPTION_BYTES')
+    def test_changed_working_source_bytes_may_evolve(self):
+        # Task 037C: a working-source row whose live bytes differ from its record passes.
+        original = gate.read_json
+        data = copy.deepcopy(original(ROOT / gate.MANIFEST))
+        data['paths'][0].update(sha256='0'*64)
+        def read(path):
+            return data if Path(path) == ROOT / gate.MANIFEST else original(path)
+        with patch.object(gate, 'read_json', side_effect=read):
+            self.assertTrue(gate.verify_adoption(ROOT)['passed'])
 
     def test_boolean_size_rejected(self):
         self.changed_manifest(lambda d: d['paths'][0].update(size=True), 'ADOPTION_BYTES')

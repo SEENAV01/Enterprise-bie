@@ -1,5 +1,9 @@
 """One explicit GAME export amendment; the original lossless ledger stays sealed."""
 import hashlib,json
+try:
+    from source_evolution import accepts as evolution_accepts
+except ImportError:
+    from scripts.source_evolution import accepts as evolution_accepts
 
 FILE_ID='ce534f7ee4b598b47b52090af6b3bd506f2359c0514fd538f9551979f4c83d1e'
 EMPTY='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
@@ -16,7 +20,8 @@ def resolve(root,rows):
     if any(amendment.get(k)!=v for k,v in expected.items()):raise ValueError('GAME_INITIALIZER_AMENDMENT_IDENTITY')
     if amendment.get('product_accepted') is not False or not amendment.get('reason'):raise ValueError('GAME_INITIALIZER_AMENDMENT_SCOPE')
     for rel,digest in (('manifests/lossless_migration.csv',LEDGER),(BEFORE,EMPTY),(TARGET,ACTIVE)):
-        if hashlib.sha256((root/rel).read_bytes()).hexdigest()!=digest:raise ValueError('GAME_INITIALIZER_AMENDMENT_BYTES:'+rel)
+        # Task 037C: the active working file may evolve; ledger and before-image may not.
+        if not evolution_accepts(rel,digest,hashlib.sha256((root/rel).read_bytes()).hexdigest()):raise ValueError('GAME_INITIALIZER_AMENDMENT_BYTES:'+rel)
     selected=[r for r in rows if r['file_id']==FILE_ID]
     if len(selected)!=1:raise ValueError('GAME_INITIALIZER_ORIGINAL_COVERAGE')
     row=selected[0]

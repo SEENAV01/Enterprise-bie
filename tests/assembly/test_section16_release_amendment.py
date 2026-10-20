@@ -90,15 +90,12 @@ class ReleaseAmendmentTests(unittest.TestCase):
         path.write_bytes(path.read_bytes() + b'# tamper\n')
         self.rejected('BYTES')
 
-    def test_changed_active_source_is_rejected(self):
-        path = self.root / amendment.ENTRIES[0]['active_path']
-        path.write_bytes(path.read_bytes() + b'# tamper\n')
-        self.rejected('BYTES')
-
-    def test_changed_migrated_assertion_is_rejected(self):
-        path = self.root / amendment.ENTRIES[1]['active_path']
-        path.write_bytes(path.read_bytes().replace(b'CONTRACT_ONLY', b'SUCCESS'))
-        self.rejected('BYTES')
+    def test_active_source_and_migrated_assertion_may_evolve(self):
+        # Task 037C: active working files may evolve; before-images may not (tested above).
+        for entry in amendment.ENTRIES:
+            path = self.root / entry['active_path']
+            path.write_bytes(path.read_bytes() + b'# evolved\n')
+        amendment.resolve(self.root, self.rows)
 
     def test_missing_original_row_is_rejected(self):
         self.rows = [row for row in self.rows if row['file_id'] != amendment.ENTRIES[0]['file_id']]

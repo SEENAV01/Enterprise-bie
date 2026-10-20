@@ -14,6 +14,7 @@ from tests.compiler import m1_media_diagnostics as media
 from tests.compiler.test_m1_capture_diagnostics import pure_native_reader
 
 ROOT = Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 MANIFEST = "a" * 64
 CONTROLLER = ROOT / "bie/compiler/qa_support/remotion_raster_capture.cjs"
 
@@ -378,6 +379,7 @@ class MediaAmendmentChain(unittest.TestCase):
         for name in paths:
             target = cls.root / name; target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / name).read_bytes())
+        overlay_baseline(ROOT, cls.root)  # Task 037C: authenticated baseline bytes
 
     def test_fixed_complete_chain_and_exact_parent_blobs(self):
         import hashlib

@@ -15,6 +15,7 @@ from tests.compiler.m1_support import prepared, admitted, TARGET
 from tests.compiler import test_m1_capture_diagnostics as capture_controls
 
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 HELPER=ROOT/'bie/compiler/qa_support/bounded_media_threads.cjs'
 POLICY={'schema':'bie.comp-m1.media-threads/1','profile':'producer-motion-v1',
     'remotion_version':'4.0.506','admission_id':'a'*64,'decoder_threads':1,
@@ -294,6 +295,7 @@ class MediaThreadAmendment(unittest.TestCase):
         paths.update(r['preimage'] for r in current_doc['replacements'])
         for name in paths:
             p=cls.root/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,p)
+        overlay_baseline(ROOT,cls.root)  # Task 037C: authenticated baseline bytes
 
     def test_complete_exact_chain_and_git_preimages(self):
         self.assertEqual(self.amendment.validate(self.root),self.document)

@@ -11,6 +11,7 @@ import unittest
 from bie.compiler.qa_common import CompilerQAError
 from scripts import compiler_media_source_pin_amendment as audit
 ROOT=Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 PAINTER=ROOT/'bie/compiler/real_paint.py'
 OLD=ROOT/'docs/productization/task036-media-source-pin-amendment/real_paint.py.before'
 # Original source-pin assertions remain bound to its immutable 17da preimages;
@@ -85,6 +86,7 @@ class MediaSourcePinAudit(unittest.TestCase):
         shutil.copyfile(ROOT/'manifests/post_dir_integration_004.json',cls.root/'manifests/post_dir_integration_004.json')
         for p in ('bie/compiler/real_paint.py','bie/compiler/qa_support/remotion_raster_capture.cjs',audit.HELPER):
             target=cls.root/p;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/p,target)
+        overlay_baseline(ROOT,cls.root)  # Task 037C: authenticated baseline bytes
 
     def test_exact_git_preimages_and_complete_previous_chain(self):
         from scripts import compiler_media_policy_observation_amendment as previous

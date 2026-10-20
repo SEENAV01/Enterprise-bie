@@ -20,6 +20,16 @@ import time
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+try:
+    from source_evolution import is_working_source
+except ImportError:
+    from scripts.source_evolution import is_working_source
+
+
+def drifted(name, payload, size, digest):
+    """Task 037C: True when bytes differ from the adoption record and the path may not evolve."""
+    exact = type(size) is int and len(payload) == size and hashlib.sha256(payload).hexdigest() == digest
+    return not exact and not is_working_source(name)
 MANIFEST = 'manifests/qa_section16_adoption.json'
 AMENDMENTS = 'manifests/qa_section16_amendments.json'
 NATIVE_MATH_REPAIR = 'manifests/qa_section16_native_math_parser_001.json'
@@ -136,8 +146,7 @@ def verify_adoption(root):
     if (native.get('role') != 'NATIVE_OWNER_REPAIR'
             or native.get('before_sha256') != NATIVE_MATH_BEFORE_SHA256
             or native.get('before_size') != 605
-            or len(native_payload) != native.get('after_size')
-            or sha(native_payload) != native.get('after_sha256')):
+            or drifted(NATIVE_MATH_PATH, native_payload, native.get('after_size'), native.get('after_sha256'))):
         raise ValueError('NATIVE_MATH_REPAIR_BYTES')
     pdf_math = read_json(root / NATIVE_PDF_MATH_BRIDGE)
     if (sha((root / NATIVE_PDF_MATH_BRIDGE).read_bytes()) != NATIVE_PDF_MATH_BRIDGE_SHA256
@@ -157,7 +166,7 @@ def verify_adoption(root):
             }):
         raise ValueError('NATIVE_PDF_MATH_BRIDGE_SCOPE')
     bridge_payload = safe_path(root, NATIVE_PDF_MATH_BRIDGE_PATH).read_bytes()
-    if len(bridge_payload) != pdf_math['size'] or sha(bridge_payload) != pdf_math['sha256']:
+    if drifted(NATIVE_PDF_MATH_BRIDGE_PATH, bridge_payload, pdf_math['size'], pdf_math['sha256']):
         raise ValueError('NATIVE_PDF_MATH_BRIDGE_BYTES')
     # Section 17 extends exactly one Section 16-owned CLI. Preserve the
     # original adoption row, and accept only the independently reviewed
@@ -190,24 +199,22 @@ def verify_adoption(root):
             if (patch.get('before_sha256') != row['sha256']
                     or patch.get('before_size') != row['size']
                     or type(patch.get('after_size')) is not int
-                    or len(payload) != patch['after_size']
-                    or sha(payload) != patch.get('after_sha256')):
+                    or drifted(name, payload, patch['after_size'], patch.get('after_sha256'))):
                 raise ValueError('AMENDMENT_BYTES:' + name)
         elif name in NATIVE_MATH_EXPECTATION_PATHS:
             migrated = repair_by_path[name]
             if (migrated.get('role') != 'INHERITED_QA_EXPECTATION_MIGRATION'
                     or migrated.get('before_sha256') != row['sha256']
                     or migrated.get('before_size') != row['size']
-                    or len(payload) != migrated.get('after_size')
-                    or sha(payload) != migrated.get('after_sha256')):
+                    or drifted(name, payload, migrated.get('after_size'), migrated.get('after_sha256'))):
                 raise ValueError('NATIVE_MATH_EXPECTATION_BYTES:' + name)
         elif name == SECTION17_CLI_PATH:
             if (type(row['size']) is not int or row['size'] != 1659
                     or row['sha256'] != SECTION17_CLI_BASE_SHA256):
                 raise ValueError('SECTION17_CLI_BASELINE')
-            if len(payload) != 2010 or sha(payload) != SECTION17_CLI_SHA256:
+            if drifted(name, payload, 2010, SECTION17_CLI_SHA256):
                 raise ValueError('SECTION17_CLI_BYTES')
-        elif type(row['size']) is not int or len(payload) != row['size'] or sha(payload) != row['sha256']:
+        elif type(row['size']) is not int or drifted(name, payload, row['size'], row['sha256']):
             raise ValueError('ADOPTION_BYTES:' + name)
         roles[row['role']] += 1
     if roles != Counter(QA_PRODUCTION_ADDITION=278, QA_TEST=180, QA_SCHEMA=50,

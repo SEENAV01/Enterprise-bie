@@ -1,17 +1,17 @@
 # BIE Status
 
-Updated: 19 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 20 October 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 0 · Foundation |
-| Current task | 037C · Let working source evolve (proposed; waiting for Navin's approval) |
-| Branch | — |
-| State | Proposed |
+| Current task | 037C · Let working source evolve |
+| Branch | `task037c-source-evolution` |
+| State | In review: PR open, waiting for CI |
 | Next task | 038 · Live AI and the blind test |
-| Canonical main | `d464d7f79bb80c6ffe36c9feb335ea3e29c9a346` (Task 037A and 037B merged) |
+| Canonical main | `6fd0bdd46e827406d45b69eeb5b4dc3a778936f2` (Task 037A and 037B merged) |
 
 ## Done
 
@@ -30,13 +30,21 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 - **CI failures are now readable from here.** Each heavy job prints a bounded failure summary (failing lanes, test identities, last exception line) as run annotations, which `gh api` can read even though logs and artifacts cannot be downloaded.
 - **F-08 — instrumented, not yet closed.** At least six recorded failures in at least four runs (Task 033 post-merge, D5, D7 and one more two-failure run) all show the same picture: `Page.navigate` (CDP call 7) never answered within 10 s, the operator server answered `/healthz` with 200, the browser was alive, no response for `/` arrived. Phone, tablet and desktop modes all failed, so it is not one layout. Finding: the old harness reported a closed DevTools socket with exactly the same code, so the evidence could not tell the two apart. Changes: a closed socket is now reported at once as `CDP_SOCKET_CLOSED`; the diagnostic now records whether the request was sent, whether the frame started loading, the socket state and close code, and whether the page target was still listed; the browser starts with the standard automation switches Playwright uses for this same Chromium build; the failure is published as a "Section 18 browser failure" annotation. Regression tests: `tests/section18/test_browser_journey_cdp.py` (scripted DevTools endpoint; they fail on the old harness). Local repeat run: 0 stalls in 300 fresh-profile navigations on Chromium 141 (slowest 138 ms), so the stall did not reproduce here; the new switches made no measurable difference locally (median 18 ms either way). FR-1 stays until the new evidence names the cause or the nightly runs stay clean.
 
+## Task 037C · what changed
+
+- **One rule** (`scripts/source_evolution.py`): working source (`bie/`, `apps/`, `tests/`, `tools/`, `scripts/`) may change through reviewed PRs; evidence (`batches/`, `historical/`, `backups/`, `docs/`, `manifests/`, `metadata/`) may not. Original archive members and recorded before-images are still checked byte for byte. A working file that differs from its adoption record is reported as evolved, not failed; a deleted working file still fails.
+- **Applied to every gate-level ledger check:** `audit_canonical.py` (and its four amendment resolvers), `verify_ingested_archives.py`, `verify_post_dir.py`, `verify_section17_adoption.py`, `section16_gate.py`, the GAME adoption identity in `game_section15_gate.py`, the Task 035 provisioning guard and its CI-R1 file pins, and the post-DIR adoption test.
+- **Compiler amendment chain:** its 13 sealed amendments keep proving their exact history, now against baseline copies of the 25 working files they authenticate (`docs/evidence/source-baseline-037c/`, taken from main `6fd0bdd4`, protected from line-ending conversion). Tests that build temporary roots start from those bytes (`tests/source_baseline_fixture.py`).
+- **Proof:** in a copy where all 3,812 code files were changed at once, all five ledger verifiers passed (820 + 1,210 + 777 + 298 files reported as evolved), while a changed evidence file, before-image or baseline copy still fails. `tests/test_source_evolution.py` repeats this on every canonical run without writing any file.
+- **Still pinned, on purpose or for later:** vendored third-party files keep their integrity checks (for example the React vendor bundle). Section 15 GAME runtime seals (`bie/game_engine/operations_engine/canonical_bindings.py` pins `bie/bie_core/artifact_contracts.py`, `bie/infrastructure/artifact_store.py` and `bie/infrastructure/idempotency_store.py`; the legacy contract seal; `scripts/verify_dsl_traceability.py`) move with Task 044. AUDIO source-identity tests (`tests/audio/test_audio_batch001_integration.py`, `tests/audio/test_audio_h1_005.py`, `bie/audio/compiler_handoff.py`) move with Task 042. Section 17 EVAL keeps one contract-blob check (`bie/evaluation/benchmarks/av/native.py`, `tests/section17/test_h2_009.py`). A few compiler M1 tests pin `bie/compiler/chromium_resource_worker.py` and its observers, and inventory checks forbid new files in `bie/qa/` and `tests/qa_*`; they are converted when a task first edits those files.
+
 ## Open decisions for Navin
 
 - [x] Approve the fast lane (037B) — yes, 19 October 2026.
 - [x] Who presses merge — Claude, once CI is green (19 October 2026).
 - [x] Remove the Task 036 review lock — yes, 19 October 2026.
-- [ ] Approve 037C (let working source evolve; evidence stays frozen).
-- [ ] The repository is public: anyone can read the code, the Vision Spec and this roadmap, and CI minutes are free. Keep it public, or make it private (heavy CI then uses paid minutes)?
+- [x] Approve 037C (let working source evolve; evidence stays frozen) — yes, 20 October 2026.
+- [x] Repository visibility — stays public (20 October 2026); CI minutes stay free.
 - [ ] Providers for the blind test (Claude, OpenAI, Gemini) and the monthly budget.
 - [ ] First book, chapter and class level (ideally a subject Navin teaches).
 - [ ] First language: Hindi, English or Hinglish.
@@ -49,9 +57,8 @@ Updated: 19 October 2026 · Read this first in every new session, then show Navi
 ## Known technical debts
 
 - F-08: Section 18 browser gate flake (`CDP_TIMEOUT:Page.navigate`); instrumented in 037B, cause not yet proven. FR-1 allows one recorded rerun per job only for that exact failure (or `CDP_SOCKET_CLOSED:Page.navigate`).
-- npm drift (found and fixed in 037B): from 17 October the Section 18 `native-render` job failed on every PR, docs-only #31 included, with `TOOLCHAIN_REMOTION_PAIR: mixed versions`. Cause, shown by the drift canary: the generated Remotion project has no lockfile, a newer webpack now gets hoisted, and npm nests Remotion's exact `webpack@5.105.0` under `node_modules/@remotion/bundler/`; the pairing check counts every entry under that prefix, including this non-Remotion package. 037B resolves those installs, and the M1 render runner's, as of 17 Oct 2026 12:00 UTC (`tools/npm_before.txt`); native-render is green again and the canary keeps reporting today's unpinned tree. Follow-up: commit a real lockfile and narrow the check to Remotion packages (needs 037C because the check is source-pinned).
+- npm drift (found and fixed in 037B): from 17 October the Section 18 `native-render` job failed on every PR, docs-only #31 included, with `TOOLCHAIN_REMOTION_PAIR: mixed versions`. Cause, shown by the drift canary: the generated Remotion project has no lockfile, a newer webpack now gets hoisted, and npm nests Remotion's exact `webpack@5.105.0` under `node_modules/@remotion/bundler/`; the pairing check counts every entry under that prefix, including this non-Remotion package. 037B resolves those installs, and the M1 render runner's, as of 17 Oct 2026 12:00 UTC (`tools/npm_before.txt`); native-render is green again and the canary keeps reporting today's unpinned tree. Follow-up: commit a real lockfile and narrow the check to Remotion packages (possible now that 037C allows the edit).
 - F-09 (seen once, passed on the next full run): Section 18 atomic `CancelRecovery.test_actual_two_process_cancel_returns_same_completed_state` failed in PR #32 run 39292713985 (both child processes exited 1). It passed on PR #31's run and 90 of 90 times locally (30 of them under full CPU load). Suspected: SQLite's 1 s busy timeout while two processes prepare the same cancel on a slow runner, so one child gets "database is locked" and the other times out at the test's 8 s barrier. Not proven; failure annotations now include the children's stderr.
-- Source pins: `scripts/audit_canonical.py` and `scripts/verify_post_dir.py` byte-pin migrated working source (Task 037C).
 - N-02: Section 18 source-ledger step slowed from 21 s to 612 s.
 - Audio reconciliation open (`AUDIO_REPLAN_REQUIRED`); global VIDEO_CODE and later stages not run.
 - PR29 follow-ups F-01..F-07 and PR30 follow-ups F1..F5 (low, non-blocking).

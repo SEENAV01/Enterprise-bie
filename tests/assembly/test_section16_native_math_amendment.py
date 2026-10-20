@@ -87,10 +87,11 @@ class NativeMathAmendmentTests(unittest.TestCase):
         path.write_bytes(path.read_bytes() + b'# tamper\n')
         self.rejected('BYTES')
 
-    def test_active_owner_mutation_is_rejected(self):
+    def test_active_owner_may_evolve(self):
+        # Task 037C: the active working file may evolve; the before-image may not.
         path = self.root / amendment.ENTRY['active_path']
-        path.write_bytes(path.read_bytes() + b'# tamper\n')
-        self.rejected('BYTES')
+        path.write_bytes(path.read_bytes() + b'# evolved\n')
+        amendment.resolve(self.root, self.rows)
 
     def test_missing_row_is_rejected(self):
         self.rows = [r for r in self.rows if r['file_id'] != amendment.ENTRY['file_id']]

@@ -28,6 +28,9 @@ import unittest
 
 BASE = "46977a2fb1d43fb655fb4be01d93a34f6151af09"
 ROOT = Path(__file__).resolve().parents[3]
+_EVOLUTION_SPEC = importlib.util.spec_from_file_location("bie_source_evolution_policy", ROOT / "scripts/source_evolution.py")
+_EVOLUTION = importlib.util.module_from_spec(_EVOLUTION_SPEC)
+_EVOLUTION_SPEC.loader.exec_module(_EVOLUTION)
 TEST_FILE = "tests/post_dir/test_canonical_adoption.py"
 METHODS = (
     "test_actual_cross_section_source_publication",
@@ -187,7 +190,8 @@ def child_test(root: Path, selection: str) -> dict:
         normalized = raw.replace(b"\r\n", b"\n")
         identities = {sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
                       for data in (raw, normalized)}
-        if expected not in identities:
+        # Task 037C: working source may evolve; the base export still carries the exact blob.
+        if expected not in identities and not _EVOLUTION.is_working_source(path):
             raise ValueError("UNCHANGED_SOURCE_BYTES_REQUIRED")
     if canonical_origins(root)["foreign_locations"]:
         raise ValueError("FOREIGN_CANONICAL_IMPORT")
@@ -383,9 +387,11 @@ def collect(provisioning_phase: str = "original") -> dict:
         base = git_text("rev-parse", BASE + ":" + path)
         candidate = git_text("rev-parse", "HEAD:" + path)
         working = git_text("hash-object", path)
-        if base != expected or candidate != expected or working != expected:
+        # Task 037C: the historical base blob stays exact; working source may have evolved since.
+        unchanged = candidate == expected and working == expected
+        if base != expected or not (unchanged or _EVOLUTION.is_working_source(path)):
             raise ValueError("UNCHANGED_BLOB_IDENTITY_REQUIRED")
-        identities[path] = {"base_blob": base, "candidate_blob": candidate, "working_blob": working, "equal": True}
+        identities[path] = {"base_blob": base, "candidate_blob": candidate, "working_blob": working, "equal": unchanged}
     head = git_text("rev-parse", "HEAD")
     if not re.fullmatch(r"[a-f0-9]{40}", head):
         raise ValueError("INVALID_HEAD_IDENTITY")

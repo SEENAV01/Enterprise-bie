@@ -19,6 +19,7 @@ from bie.compiler.artifact_hashing import canonical_json
 from tests.compiler import m1_safe_paint_diagnostics as safe
 
 ROOT = Path(__file__).resolve().parents[2]
+from tests.source_baseline_fixture import overlay_baseline
 CONTROLLER = ROOT / "bie/compiler/qa_support/remotion_raster_capture.cjs"
 BEFORE = ROOT / "docs/productization/task036-capture-observation-amendment/remotion_raster_capture.cjs.before"
 MANIFEST = "a" * 64
@@ -313,6 +314,7 @@ class CaptureSourceAmendment(unittest.TestCase):
             target = cls.fixture / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / relative, target)
+        overlay_baseline(ROOT, cls.fixture)  # Task 037C: authenticated baseline bytes
 
     def alter(self, relative, change):
         """Restore the exact test fixture only; never changes repository source."""
