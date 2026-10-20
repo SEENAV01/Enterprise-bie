@@ -84,4 +84,10 @@ browser game playable on a phone, built from the same lesson.
 
 - Publish to the learner app; family subscription with per-profile access and device-based pricing.
 - Security, tenancy, secrets, deployment and final acceptance.
+- **Security hardening before launch** (Navin's decision, 20 October 2026: development speed and quality first, full security once the product is ready):
+  - Review repository visibility (public now for free CI); move to private if the code or plans need protecting.
+  - GitHub branch protection with required checks, so nothing reaches `main` without green CI.
+  - Signed release manifests: every shipped file fingerprinted, and the deployed build verified against it (the right kind of anti-tamper seal).
+  - Classify the remaining Section 15 GAME, AUDIO and EVAL runtime seals: keep real protections (sandbox, vendored-library integrity), turn freeze-only checks into recorded provenance.
+  - Keep the BIE engine server-side; protect learner-facing content with account-based access and licence terms; secrets audit.
 - Then the public self-serve tool.
