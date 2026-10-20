@@ -1,0 +1,1089 @@
+{
+ "lesson_id": "tissues-v1",
+ "kind": "GOLD_REFERENCE_SAMPLE",
+ "status_note": "Directed by Claude in session; quality bar for the pipeline; not pipeline output; not accepted.",
+ "source": {
+  "title": "Science and Technology - 10. Tissues and Its Types",
+  "pdf_sha256": "05616c29dd08d715424c0ae242097ddc82c3fefc48d9e009db09ce371ae7db7d",
+  "branch": "blindtest-inputs",
+  "path": "chapters/tissues-and-its-types.pdf"
+ },
+ "audience": "UPSC / State PCS aspirants",
+ "language": "Hinglish",
+ "video": {
+  "number": 1,
+  "title": "Tissues · Part 1: Cells ki team aur plant ka growth engine",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080
+ },
+ "voice": {
+  "model": "gpt-4o-mini-tts",
+  "voice": "ash",
+  "instructions": "You are a warm, confident Indian science teacher recording a video lesson for UPSC aspirants. Speak natural Hinglish: Hindi sentences, with English science terms pronounced in clear Indian English. Moderate pace, slightly slower and stressed on key terms, short natural pauses at dashes and commas. Sound curious and engaging, like explaining to one student in front of you; never robotic or rushed."
+ },
+ "chapter_plan": [
+  {
+   "video": 1,
+   "title": "Cells ki team aur plant ka growth engine",
+   "covers": "Prerequisite: cell, mitosis vs meiosis, mitosis in plants vs animals; tissue; organisation levels; plant tissue map; meristematic tissue (apical, lateral, intercalary)",
+   "pages": [
+    87,
+    95
+   ],
+   "minutes": 7
+  },
+  {
+   "video": 2,
+   "title": "Permanent tissue I: parenchyma, collenchyma, sclerenchyma",
+   "covers": "Differentiation; parenchyma, chlorenchyma, aerenchyma; collenchyma; sclerenchyma fibres and sclereids (coconut husk, seed coats)",
+   "pages": [
+    95,
+    97
+   ],
+   "minutes": 7
+  },
+  {
+   "video": 3,
+   "title": "Permanent tissue II: xylem aur phloem, plant ki plumbing",
+   "covers": "Complex tissue; tracheids, vessels, xylem parenchyma, xylem fibres; sieve cells and tubes, companion cells, phloem fibres and parenchyma; living vs dead",
+   "pages": [
+    97,
+    98
+   ],
+   "minutes": 6
+  },
+  {
+   "video": 4,
+   "title": "Animal tissue I: epithelial tissue, body ki lining",
+   "covers": "Four animal tissue groups; epithelium features; simple squamous, cuboidal, columnar; stratified types; keratinised; transitional (urothelium); glandular",
+   "pages": [
+    88,
+    90
+   ],
+   "minutes": 8
+  },
+  {
+   "video": 5,
+   "title": "Animal tissue II: connective tissue",
+   "covers": "Matrix and fibres (collagen, elastic, reticulate); loose, dense, elastic connective tissue; cartilage, bone, blood, adipose with locations and functions",
+   "pages": [
+    90,
+    94
+   ],
+   "minutes": 8
+  },
+  {
+   "video": 6,
+   "title": "Animal tissue III: muscle aur nerve",
+   "covers": "Skeletal, cardiac, visceral muscle (location, function incl. heat, blood pressure, pupil size, hair erection; appearance; control); neuron and impulse across synapse",
+   "pages": [
+    92,
+    93
+   ],
+   "minutes": 7
+  },
+  {
+   "video": 7,
+   "title": "Revision aur UPSC practice",
+   "covers": "Whole-chapter concept map, statement questions from the chapter's practice set, traps",
+   "pages": [
+    98,
+    100
+   ],
+   "minutes": 6
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "component": "Hook",
+   "pages": [],
+   "beats": [
+    {
+     "id": "hook-1",
+     "say": "ज़रा सोचिए। Lawn की घास को ऊपर से काट दो — कुछ ही दिनों में वो फिर से लंबी हो जाती है।",
+     "cues": [
+      {
+       "mark": "mow",
+       "word": "काट",
+       "fallback": 0.45
+      },
+      {
+       "mark": "regrow",
+       "word": "फिर",
+       "fallback": 0.75
+      }
+     ]
+    },
+    {
+     "id": "hook-2",
+     "say": "और एक पेड़ का तना… हर साल थोड़ा और मोटा होता जाता है। ये बढ़त आती कहाँ से है?",
+     "cues": [
+      {
+       "mark": "trunk",
+       "word": "मोटा",
+       "fallback": 0.45
+      },
+      {
+       "mark": "question",
+       "word": "कहाँ",
+       "fallback": 0.8
+      }
+     ]
+    },
+    {
+     "id": "hook-3",
+     "say": "इस video के अंत तक आप इसका जवाब एक line में दे पाओगे — और UPSC के एक favourite trap से भी बच जाओगे।",
+     "cues": [
+      {
+       "mark": "promise",
+       "word": "UPSC",
+       "fallback": 0.6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "title",
+   "component": "Title",
+   "pages": [
+    87
+   ],
+   "beats": [
+    {
+     "id": "title-1",
+     "say": "Tissues — Part one. Cells की team, और plant का growth engine।",
+     "cues": [
+      {
+       "mark": "subtitle",
+       "word": "Cells",
+       "fallback": 0.4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prereq-cell",
+   "component": "CellBuild",
+   "pages": [
+    87
+   ],
+   "beats": [
+    {
+     "id": "cell-1",
+     "say": "शुरू करने से पहले, एक मिनट का ज़रूरी revision — क्योंकि आज का पूरा topic cell पर खड़ा है।",
+     "cues": [
+      {
+       "mark": "badge",
+       "word": "revision",
+       "fallback": 0.4
+      }
+     ]
+    },
+    {
+     "id": "cell-2",
+     "say": "हर cell के बाहर एक cell membrane होती है, अंदर cytoplasm, और बीच में control centre — nucleus।",
+     "cues": [
+      {
+       "mark": "membrane",
+       "word": "membrane",
+       "fallback": 0.25
+      },
+      {
+       "mark": "cytoplasm",
+       "word": "cytoplasm",
+       "fallback": 0.5
+      },
+      {
+       "mark": "nucleus",
+       "word": "nucleus",
+       "fallback": 0.9
+      }
+     ]
+    },
+    {
+     "id": "cell-3",
+     "say": "Plant cell में दो चीज़ें extra दिखती हैं: बाहर एक मज़बूत cell wall, और अंदर एक बड़ा vacuole।",
+     "cues": [
+      {
+       "mark": "plant",
+       "word": "Plant",
+       "fallback": 0.05
+      },
+      {
+       "mark": "wall",
+       "word": "wall",
+       "fallback": 0.55
+      },
+      {
+       "mark": "vacuole",
+       "word": "vacuole",
+       "fallback": 0.92
+      }
+     ]
+    },
+    {
+     "id": "cell-4",
+     "say": "ये बड़ा vacuole याद रखना — आज ही हम ऐसी cells देखेंगे जिनमें ये होता ही नहीं।",
+     "cues": [
+      {
+       "mark": "remember",
+       "word": "vacuole",
+       "fallback": 0.2
+      },
+      {
+       "mark": "tease",
+       "word": "नहीं",
+       "fallback": 0.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prereq-division",
+   "component": "Division",
+   "pages": [
+    87
+   ],
+   "beats": [
+    {
+     "id": "div-1",
+     "say": "Cell बढ़ती कैसे है? Divide होकर। Cell division के दो तरीके हैं — mitosis और meiosis।",
+     "cues": [
+      {
+       "mark": "split",
+       "word": "Divide",
+       "fallback": 0.25
+      },
+      {
+       "mark": "mitosis",
+       "word": "mitosis",
+       "fallback": 0.8
+      },
+      {
+       "mark": "meiosis",
+       "word": "meiosis",
+       "fallback": 0.95
+      }
+     ]
+    },
+    {
+     "id": "div-2",
+     "say": "Mitosis body की आम cells में होता है — यानी somatic cells में। Nucleus एक बार divide होता है, दो daughter cells बनती हैं, और chromosome number वही रहता है।",
+     "cues": [
+      {
+       "mark": "m-somatic",
+       "word": "somatic",
+       "fallback": 0.3
+      },
+      {
+       "mark": "m-once",
+       "word": "एक",
+       "fallback": 0.5
+      },
+      {
+       "mark": "m-two",
+       "word": "दो",
+       "fallback": 0.68
+      },
+      {
+       "mark": "m-chromo",
+       "word": "chromosome",
+       "fallback": 0.85
+      }
+     ]
+    },
+    {
+     "id": "div-3",
+     "say": "Meiosis germ cells में होता है। Nucleus दो बार divide होता है, चार daughter cells बनती हैं, और chromosome number आधा हो जाता है — इन्हीं से gametes बनते हैं।",
+     "cues": [
+      {
+       "mark": "x-germ",
+       "word": "germ",
+       "fallback": 0.12
+      },
+      {
+       "mark": "x-twice",
+       "word": "दो",
+       "fallback": 0.35
+      },
+      {
+       "mark": "x-four",
+       "word": "चार",
+       "fallback": 0.5
+      },
+      {
+       "mark": "x-half",
+       "word": "आधा",
+       "fallback": 0.72
+      },
+      {
+       "mark": "x-gametes",
+       "word": "gametes",
+       "fallback": 0.92
+      }
+     ]
+    },
+    {
+     "id": "div-4",
+     "say": "इसीलिए mitosis को equational division और meiosis को reduction division कहते हैं।",
+     "cues": [
+      {
+       "mark": "equational",
+       "word": "equational",
+       "fallback": 0.35
+      },
+      {
+       "mark": "reduction",
+       "word": "reduction",
+       "fallback": 0.75
+      }
+     ]
+    },
+    {
+     "id": "div-5",
+     "say": "अब plant और animal का फ़र्क़। Plant cells में centrioles नहीं होते, और division के अंत में बीच में एक cell plate बनती है। Animal cell बीच से दबकर — furrowing से — दो हिस्सों में बँटती है।",
+     "cues": [
+      {
+       "mark": "pa",
+       "word": "फ़र्क़",
+       "fallback": 0.1
+      },
+      {
+       "mark": "centrioles",
+       "word": "centrioles",
+       "fallback": 0.3
+      },
+      {
+       "mark": "plate",
+       "word": "plate",
+       "fallback": 0.55
+      },
+      {
+       "mark": "furrow",
+       "word": "furrowing",
+       "fallback": 0.85
+      }
+     ]
+    },
+    {
+     "id": "div-6",
+     "say": "और सबसे ज़रूरी बात: animals में mitosis पूरे शरीर के tissues में होता है, लेकिन plants में ये mainly कुछ ख़ास जगहों पर होता है — meristem में। ये शब्द पकड़ के रखिए।",
+     "cues": [
+      {
+       "mark": "body",
+       "word": "शरीर",
+       "fallback": 0.3
+      },
+      {
+       "mark": "meristem",
+       "word": "meristem",
+       "fallback": 0.8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tissue",
+   "component": "TissueTeam",
+   "pages": [
+    87
+   ],
+   "beats": [
+    {
+     "id": "tis-1",
+     "say": "अब असली सवाल — tissue क्या है? जब एक जैसा काम करने वाली cells एक साथ जुड़ जाती हैं, तो उस group को tissue कहते हैं।",
+     "cues": [
+      {
+       "mark": "gather",
+       "word": "जुड़",
+       "fallback": 0.6
+      },
+      {
+       "mark": "lock",
+       "word": "group",
+       "fallback": 0.85
+      }
+     ]
+    },
+    {
+     "id": "tis-2",
+     "say": "Plant cells मिलकर plant tissues बनाती हैं, और animal cells मिलकर animal tissues।",
+     "cues": [
+      {
+       "mark": "plantT",
+       "word": "Plant",
+       "fallback": 0.1
+      },
+      {
+       "mark": "animalT",
+       "word": "animal",
+       "fallback": 0.65
+      }
+     ]
+    },
+    {
+     "id": "tis-3",
+     "say": "फ़ायदा? Division of labour. सोचिए एक अकेली cell को खाना बनाना, store करना, transport करना — सब ख़ुद करना पड़े। Overload!",
+     "cues": [
+      {
+       "mark": "labour",
+       "word": "labour",
+       "fallback": 0.15
+      },
+      {
+       "mark": "j1",
+       "word": "खाना",
+       "fallback": 0.45
+      },
+      {
+       "mark": "j2",
+       "word": "store",
+       "fallback": 0.55
+      },
+      {
+       "mark": "j3",
+       "word": "transport",
+       "fallback": 0.65
+      },
+      {
+       "mark": "overload",
+       "word": "Overload",
+       "fallback": 0.95
+      }
+     ]
+    },
+    {
+     "id": "tis-4",
+     "say": "Tissue बनते ही हर group एक काम संभाल लेता है। हर cell का workload कम होता है — और शरीर में organisation आ जाता है।",
+     "cues": [
+      {
+       "mark": "share",
+       "word": "group",
+       "fallback": 0.3
+      },
+      {
+       "mark": "workload",
+       "word": "workload",
+       "fallback": 0.6
+      },
+      {
+       "mark": "organisation",
+       "word": "organisation",
+       "fallback": 0.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ladder",
+   "component": "Ladder",
+   "pages": [
+    87
+   ],
+   "beats": [
+    {
+     "id": "lad-1",
+     "say": "यही organisation आगे बढ़ती है: cells से tissue, tissues से organ, organs से organ system, और सब मिलकर पूरा organism।",
+     "cues": [
+      {
+       "mark": "l-cell",
+       "word": "cells",
+       "fallback": 0.22
+      },
+      {
+       "mark": "l-tissue",
+       "word": "tissue",
+       "fallback": 0.35
+      },
+      {
+       "mark": "l-organ",
+       "word": "organ",
+       "fallback": 0.5
+      },
+      {
+       "mark": "l-system",
+       "word": "system",
+       "fallback": 0.7
+      },
+      {
+       "mark": "l-organism",
+       "word": "organism",
+       "fallback": 0.95
+      }
+     ]
+    },
+    {
+     "id": "lad-2",
+     "say": "Exam में ये order उलट-पुलट करके पूछा जाता है। बस याद रखो: Cell, Tissue, Organ, Organ system, Organism — छोटे से बड़े की तरफ़।",
+     "cues": [
+      {
+       "mark": "trap",
+       "word": "उलट",
+       "fallback": 0.2
+      },
+      {
+       "mark": "recite",
+       "word": "Cell",
+       "fallback": 0.45
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "growth",
+   "component": "GrowthCompare",
+   "pages": [
+    87,
+    94,
+    95
+   ],
+   "beats": [
+    {
+     "id": "gro-1",
+     "say": "अब एक दिलचस्प फ़र्क़। हम इंसान एक उम्र के बाद लंबाई में बढ़ना बंद कर देते हैं। लेकिन पेड़? सौ साल का पेड़ भी नई शाखाएँ और नई जड़ें बनाता रहता है।",
+     "cues": [
+      {
+       "mark": "human",
+       "word": "इंसान",
+       "fallback": 0.25
+      },
+      {
+       "mark": "stop",
+       "word": "बंद",
+       "fallback": 0.45
+      },
+      {
+       "mark": "tree",
+       "word": "पेड़",
+       "fallback": 0.6
+      },
+      {
+       "mark": "grow",
+       "word": "शाखाएँ",
+       "fallback": 0.85
+      }
+     ]
+    },
+    {
+     "id": "gro-2",
+     "say": "ऐसा इसलिए, क्योंकि plant में कुछ जगहों पर ऐसी cells हमेशा रहती हैं जो लगातार divide होती रहती हैं। इन्हीं से बनता है meristematic tissue — plant का growth engine।",
+     "cues": [
+      {
+       "mark": "tips",
+       "word": "जगहों",
+       "fallback": 0.25
+      },
+      {
+       "mark": "divide",
+       "word": "divide",
+       "fallback": 0.5
+      },
+      {
+       "mark": "engine",
+       "word": "engine",
+       "fallback": 0.92
+      }
+     ]
+    },
+    {
+     "id": "gro-3",
+     "say": "Plant tissues के दो बड़े groups हैं: meristematic, जो divide होते रहते हैं, और permanent, जो divide होना छोड़कर एक पक्का काम चुन लेते हैं। आज हम meristematic को गहराई से देखेंगे।",
+     "cues": [
+      {
+       "mark": "map",
+       "word": "groups",
+       "fallback": 0.15
+      },
+      {
+       "mark": "map-mer",
+       "word": "meristematic",
+       "fallback": 0.25
+      },
+      {
+       "mark": "map-perm",
+       "word": "permanent",
+       "fallback": 0.55
+      },
+      {
+       "mark": "focus",
+       "word": "आज",
+       "fallback": 0.85
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "meristem-cells",
+   "component": "MeristemZoom",
+   "pages": [
+    95
+   ],
+   "beats": [
+    {
+     "id": "mz-1",
+     "say": "Root की tip पर zoom करते हैं। यहाँ की cells छोटी हैं — गोल, oval या rectangular — और एक-दूसरे से बिल्कुल सटी हुई।",
+     "cues": [
+      {
+       "mark": "zoom",
+       "word": "zoom",
+       "fallback": 0.2
+      },
+      {
+       "mark": "shapes",
+       "word": "oval",
+       "fallback": 0.55
+      },
+      {
+       "mark": "packed",
+       "word": "सटी",
+       "fallback": 0.9
+      }
+     ]
+    },
+    {
+     "id": "mz-2",
+     "say": "इनके बीच intercellular spaces नहीं होते — इसलिए इन्हें compactly packed कहते हैं।",
+     "cues": [
+      {
+       "mark": "spaces",
+       "word": "spaces",
+       "fallback": 0.3
+      },
+      {
+       "mark": "compact",
+       "word": "compactly",
+       "fallback": 0.75
+      }
+     ]
+    },
+    {
+     "id": "mz-3",
+     "say": "और याद है वो बड़ा vacuole? Meristematic cells में vacuole होता ही नहीं। Nucleus बड़ा, और cytoplasm घना।",
+     "cues": [
+      {
+       "mark": "vac",
+       "word": "vacuole",
+       "fallback": 0.25
+      },
+      {
+       "mark": "novac",
+       "word": "नहीं",
+       "fallback": 0.6
+      },
+      {
+       "mark": "bignuc",
+       "word": "Nucleus",
+       "fallback": 0.8
+      }
+     ]
+    },
+    {
+     "id": "mz-4",
+     "say": "क्योंकि इनका एक ही काम है — divide होना, बार-बार। ये plant की सबसे active cells हैं।",
+     "cues": [
+      {
+       "mark": "dividing",
+       "word": "divide",
+       "fallback": 0.35
+      },
+      {
+       "mark": "active",
+       "word": "active",
+       "fallback": 0.85
+      }
+     ]
+    },
+    {
+     "id": "mz-5",
+     "say": "Checklist बना लो: जगह — growing regions। Intercellular spaces — absent। Vacuole — absent। काम — सिर्फ़ cell division।",
+     "cues": [
+      {
+       "mark": "c1",
+       "word": "growing",
+       "fallback": 0.2
+      },
+      {
+       "mark": "c2",
+       "word": "spaces",
+       "fallback": 0.45
+      },
+      {
+       "mark": "c3",
+       "word": "Vacuole",
+       "fallback": 0.68
+      },
+      {
+       "mark": "c4",
+       "word": "division",
+       "fallback": 0.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "apical",
+   "component": "PlantZones",
+   "zone": "apical",
+   "pages": [
+    95
+   ],
+   "beats": [
+    {
+     "id": "ap-1",
+     "say": "Meristem तीन जगह मिलता है। पहला — apical meristem। Apex यानी tip। ये root की tip और shoot की tip पर होता है।",
+     "cues": [
+      {
+       "mark": "three",
+       "word": "तीन",
+       "fallback": 0.1
+      },
+      {
+       "mark": "label",
+       "word": "apical",
+       "fallback": 0.3
+      },
+      {
+       "mark": "shootTip",
+       "word": "shoot",
+       "fallback": 0.85
+      },
+      {
+       "mark": "rootTip",
+       "word": "root",
+       "fallback": 0.7
+      }
+     ]
+    },
+    {
+     "id": "ap-2",
+     "say": "इसका काम: root और shoot की लंबाई बढ़ाना। Shoot ऊपर, root नीचे — दोनों tips से plant लंबा होता है।",
+     "cues": [
+      {
+       "mark": "grow",
+       "word": "लंबाई",
+       "fallback": 0.3
+      },
+      {
+       "mark": "up",
+       "word": "ऊपर",
+       "fallback": 0.55
+      },
+      {
+       "mark": "down",
+       "word": "नीचे",
+       "fallback": 0.7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lateral",
+   "component": "PlantZones",
+   "zone": "lateral",
+   "pages": [
+    95
+   ],
+   "beats": [
+    {
+     "id": "lat-1",
+     "say": "दूसरा — lateral meristem। Lateral यानी side। ये bark के ठीक नीचे होता है — तने के चारों ओर एक घेरे की तरह।",
+     "cues": [
+      {
+       "mark": "label",
+       "word": "lateral",
+       "fallback": 0.15
+      },
+      {
+       "mark": "bark",
+       "word": "bark",
+       "fallback": 0.55
+      },
+      {
+       "mark": "ring",
+       "word": "घेरे",
+       "fallback": 0.9
+      }
+     ]
+    },
+    {
+     "id": "lat-2",
+     "say": "ये लंबाई नहीं, मोटाई बढ़ाता है — root या stem की girth। इसीलिए पेड़ का तना हर साल और मोटा होता जाता है।",
+     "cues": [
+      {
+       "mark": "thick",
+       "word": "मोटाई",
+       "fallback": 0.25
+      },
+      {
+       "mark": "girth",
+       "word": "girth",
+       "fallback": 0.5
+      },
+      {
+       "mark": "answer",
+       "word": "इसीलिए",
+       "fallback": 0.7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "intercalary",
+   "component": "PlantZones",
+   "zone": "intercalary",
+   "pages": [
+    95
+   ],
+   "beats": [
+    {
+     "id": "int-1",
+     "say": "तीसरा — intercalary meristem। ये leaves के base पर या internodes पर होता है — यानी दो nodes के बीच वाले हिस्से में।",
+     "cues": [
+      {
+       "mark": "label",
+       "word": "intercalary",
+       "fallback": 0.15
+      },
+      {
+       "mark": "base",
+       "word": "base",
+       "fallback": 0.45
+      },
+      {
+       "mark": "internode",
+       "word": "internodes",
+       "fallback": 0.65
+      },
+      {
+       "mark": "nodes",
+       "word": "nodes",
+       "fallback": 0.9
+      }
+     ]
+    },
+    {
+     "id": "int-2",
+     "say": "ये leaves और internodes जैसे हिस्सों की लंबाई बढ़ाता है।",
+     "cues": [
+      {
+       "mark": "stretch",
+       "word": "लंबाई",
+       "fallback": 0.7
+      }
+     ]
+    },
+    {
+     "id": "int-3",
+     "say": "अब हमारी घास वाली पहेली! घास का growth zone ऊपर tip पर नहीं, नीचे leaf के base पर होता है। ऊपर से काटो, तो engine बचा रहता है — और घास फिर उग आती है।",
+     "cues": [
+      {
+       "mark": "grass",
+       "word": "घास",
+       "fallback": 0.15
+      },
+      {
+       "mark": "zone",
+       "word": "base",
+       "fallback": 0.45
+      },
+      {
+       "mark": "cut",
+       "word": "काटो",
+       "fallback": 0.65
+      },
+      {
+       "mark": "regrow",
+       "word": "उग",
+       "fallback": 0.92
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "summary",
+   "component": "SummaryTable",
+   "pages": [
+    95
+   ],
+   "beats": [
+    {
+     "id": "sum-1",
+     "say": "एक table में समेट लेते हैं।",
+     "cues": [
+      {
+       "mark": "table",
+       "word": "table",
+       "fallback": 0.4
+      }
+     ]
+    },
+    {
+     "id": "sum-2",
+     "say": "Apical — root और shoot की tip पर — लंबाई।",
+     "cues": [
+      {
+       "mark": "row",
+       "word": "Apical",
+       "fallback": 0.05
+      }
+     ]
+    },
+    {
+     "id": "sum-3",
+     "say": "Lateral — bark के नीचे — girth, यानी मोटाई।",
+     "cues": [
+      {
+       "mark": "row",
+       "word": "Lateral",
+       "fallback": 0.05
+      }
+     ]
+    },
+    {
+     "id": "sum-4",
+     "say": "Intercalary — leaves के base या internodes पर — उनकी लंबाई।",
+     "cues": [
+      {
+       "mark": "row",
+       "word": "Intercalary",
+       "fallback": 0.05
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "traps",
+   "component": "ExamTraps",
+   "pages": [
+    87,
+    95
+   ],
+   "beats": [
+    {
+     "id": "trap-1",
+     "say": "अब UPSC वाले traps।",
+     "cues": [
+      {
+       "mark": "intro",
+       "word": "traps",
+       "fallback": 0.5
+      }
+     ]
+    },
+    {
+     "id": "trap-2",
+     "say": "Trap एक: Lateral meristem plant की लंबाई बढ़ाता है — ग़लत! Lateral मोटाई बढ़ाता है। लंबाई बढ़ाते हैं apical और intercalary।",
+     "cues": [
+      {
+       "mark": "wrong",
+       "word": "ग़लत",
+       "fallback": 0.45
+      },
+      {
+       "mark": "fix",
+       "word": "मोटाई",
+       "fallback": 0.65
+      }
+     ]
+    },
+    {
+     "id": "trap-3",
+     "say": "Trap दो: Meristematic cells में बड़ा central vacuole होता है — ग़लत! बड़ा central vacuole permanent tissue की पहचान है; meristem में vacuole absent है।",
+     "cues": [
+      {
+       "mark": "wrong",
+       "word": "ग़लत",
+       "fallback": 0.4
+      },
+      {
+       "mark": "fix",
+       "word": "permanent",
+       "fallback": 0.65
+      }
+     ]
+    },
+    {
+     "id": "trap-4",
+     "say": "Trap तीन: Plants में mitosis पूरे शरीर में बराबर होता है — ग़लत! Plants में mitosis mainly meristem में होता है।",
+     "cues": [
+      {
+       "mark": "wrong",
+       "word": "ग़लत",
+       "fallback": 0.5
+      },
+      {
+       "mark": "fix",
+       "word": "meristem",
+       "fallback": 0.85
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "next",
+   "component": "Bridge",
+   "pages": [
+    95
+   ],
+   "beats": [
+    {
+     "id": "next-1",
+     "say": "तो meristem की cells divide होती रहती हैं। लेकिन जब कोई cell divide होना छोड़कर एक पक्की shape, size और काम चुन लेती है — उस process को differentiation कहते हैं, और यहीं से बनते हैं permanent tissues।",
+     "cues": [
+      {
+       "mark": "stop",
+       "word": "छोड़कर",
+       "fallback": 0.3
+      },
+      {
+       "mark": "differentiate",
+       "word": "differentiation",
+       "fallback": 0.7
+      },
+      {
+       "mark": "permanent",
+       "word": "permanent",
+       "fallback": 0.95
+      }
+     ]
+    },
+    {
+     "id": "next-2",
+     "say": "अगली video में: parenchyma, collenchyma और sclerenchyma — और ये भी कि नारियल का छिलका इतना सख़्त क्यों होता है। तब तक game खेलकर आज का revision कर लो!",
+     "cues": [
+      {
+       "mark": "next",
+       "word": "parenchyma",
+       "fallback": 0.15
+      },
+      {
+       "mark": "coconut",
+       "word": "नारियल",
+       "fallback": 0.6
+      },
+      {
+       "mark": "game",
+       "word": "game",
+       "fallback": 0.85
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
