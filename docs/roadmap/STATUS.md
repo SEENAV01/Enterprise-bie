@@ -46,6 +46,7 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 - [x] Remove the Task 036 review lock — yes, 19 October 2026.
 - [x] Approve 037C (let working source evolve; evidence stays frozen) — yes, 20 October 2026.
 - [x] Repository visibility — stays public (20 October 2026); CI minutes stay free.
+- [x] Security timing — development speed and quality first; full security hardening before launch (planned in ROADMAP Phase 4), 20 October 2026.
 - [ ] Providers for the blind test (Claude, OpenAI, Gemini) and the monthly budget.
 - [ ] First book, chapter and class level (ideally a subject Navin teaches).
 - [ ] First language: Hindi, English or Hinglish.
