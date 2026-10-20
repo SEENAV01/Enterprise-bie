@@ -1,17 +1,17 @@
 # BIE Status
 
-Updated: 20 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 21 October 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
 | Phase | 0 · Foundation |
-| Current task | 038 · Live AI and the blind test |
-| Branch | `task038-blind-test-run` (report fix and status); part 1 merged as PR #37 |
-| State | Live connections INTEGRATED and run on a real chapter; blind-test report waiting for Navin's verdict |
+| Current task | 038 · Live AI and the blind test, followed by the gold reference lesson (Navin's direction, 21 Oct) |
+| Branch | `gold-sample-tissues` (PR #39, draft) |
+| State | Blind-test verdict: Navin rejected all three outputs as summaries far below the vision; gold reference lesson (video + game) built for his judgement |
 | Next task | 039 · Understanding the book with AI |
-| Canonical main | `398b1acee655d23523999a577c7d772032b764a9` (Task 038 part 1 merged) |
+| Canonical main | `7be7ba8a5fe6d556d07cf7472a4f03d99c3fc087` (PR #38 merged) |
 
 ## Done
 
@@ -38,6 +38,36 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 - **Compiler amendment chain:** its 13 sealed amendments keep proving their exact history, now against baseline copies of the 25 working files they authenticate (`docs/evidence/source-baseline-037c/`, taken from main `6fd0bdd4`, protected from line-ending conversion). Tests that build temporary roots start from those bytes (`tests/source_baseline_fixture.py`).
 - **Proof:** in a copy where all 3,812 code files were changed at once, all five ledger verifiers passed (820 + 1,210 + 777 + 298 files reported as evolved), while a changed evidence file, before-image or baseline copy still fails. `tests/test_source_evolution.py` repeats this on every canonical run without writing any file.
 - **Still pinned, on purpose or for later:** vendored third-party files keep their integrity checks (for example the React vendor bundle). Section 15 GAME runtime seals (`bie/game_engine/operations_engine/canonical_bindings.py` pins `bie/bie_core/artifact_contracts.py`, `bie/infrastructure/artifact_store.py` and `bie/infrastructure/idempotency_store.py`; the legacy contract seal; `scripts/verify_dsl_traceability.py`) move with Task 044. AUDIO source-identity tests (`tests/audio/test_audio_batch001_integration.py`, `tests/audio/test_audio_h1_005.py`, `bie/audio/compiler_handoff.py`) move with Task 042. Section 17 EVAL keeps one contract-blob check (`bie/evaluation/benchmarks/av/native.py`, `tests/section17/test_h2_009.py`). A few compiler M1 tests pin `bie/compiler/chromium_resource_worker.py` and its observers, and inventory checks forbid new files in `bie/qa/` and `tests/qa_*`; they are converted when a task first edits those files.
+
+## Navin's verdict and the gold reference lesson (21 October 2026)
+
+- **Verdict on the blind test:** all three answers felt like a general summary any student could get by pasting the PDF into a chatbot. The problems he named:
+  - no teacher feel
+  - prerequisites listed instead of taught
+  - images, tables and diagrams ignored (pages 2, 7 and 8 never reached the models), so concepts were skipped
+  - unnatural structure, with vision words used as filler
+  - 5–10 minutes for content a teacher needs about 30 minutes for
+  - no scenes to judge, and no game
+- **Cause, owned:** the blind test sent one text-only, single-call prompt with hard limits: 3–8 sections, 5–20 scenes, 5 questions. That is the raw Book → LLM shortcut the vision rejects. The model ranking from that test is not used.
+- **Navin's direction:** work towards the end product and show final output (video, game, what is on screen and at what level), because he cannot judge intermediate text.
+- **Gold reference lesson** (`samples/gold/`, PR #39). This is a quality bar directed by Claude; it is not pipeline output.
+  - 7-video plan for the whole chapter.
+  - Video 1 (about 8.4 min, Hinglish narration, UPSC level) covers:
+    - prerequisites: cell, and mitosis vs meiosis with plant/animal differences
+    - tissue and division of labour
+    - organisation levels
+    - the plant tissue map
+    - meristematic tissue: features, then apical, lateral and intercalary
+    - a summary, UPSC traps, and a bridge to permanent tissue
+  - Narration comes from OpenAI TTS. Every visual cue is bound to its spoken word (whisper word timings, with an audio-activity fallback when a transcript is partial). The video is rendered frame by frame in Chromium with the first building blocks.
+  - The game is "Meristem Mission": phone-first, 6 rounds, built from the same lesson.
+- **Next:** Navin judges the video and game against his vision. His notes become the rubric. Then Phase 1 builds the pipeline that produces this level automatically:
+  - page images go to the model
+  - a coverage map of every point and diagram
+  - a teacher-brain script with an independent reviewer
+  - the building-block library
+  - an audio stage
+  - real renders and a game through Section 15
 
 ## Task 038 · live runs (20 October 2026)
 
