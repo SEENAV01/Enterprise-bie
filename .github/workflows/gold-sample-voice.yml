@@ -1,0 +1,75 @@
+name: BIE Gold Sample Voice
+
+# Narration audio and word timings for gold reference lessons under samples/gold/.
+# Runs on pull requests from this repository (secrets are not given to forks) and by manual
+# dispatch. The OpenAI key is passed only to the generation step. Outputs (audio, timings; no keys)
+# are pushed to the gold-samples branch, because artifacts cannot be read from the cloud workspace.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'samples/gold/**/lesson.json'
+      - 'samples/gold/tools/make_voice.py'
+      - '.github/workflows/gold-sample-voice.yml'
+  workflow_dispatch:
+    inputs:
+      lesson:
+        description: 'lesson folder under samples/gold'
+        required: false
+        default: 'tissues-v1'
+
+permissions:
+  contents: read
+concurrency:
+  group: bie-gold-voice-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  voice:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write  # only to push generated audio to the gold-samples branch
+    env:
+      LESSON: ${{ inputs.lesson || 'tissues-v1' }}
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Previous audio from the gold-samples branch (reused when unchanged)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git init -q "$RUNNER_TEMP/gold" && cd "$RUNNER_TEMP/gold"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          if git -c http.extraheader="$auth" fetch -q --depth=1 origin gold-samples; then
+            git checkout -q -b gold-samples FETCH_HEAD
+          else
+            git checkout -q --orphan gold-samples
+          fi
+          mkdir -p "$LESSON"
+      - name: Generate narration and word timings (key only in this step)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python -B samples/gold/tools/make_voice.py --lesson "samples/gold/$LESSON/lesson.json" --out "$RUNNER_TEMP/gold/$LESSON"
+      - name: Publish to the gold-samples branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/gold"
+          cp "$GITHUB_WORKSPACE/samples/gold/$LESSON/lesson.json" "$LESSON/lesson.json"
+          git add -A "$LESSON"
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -q -m "gold voice ${LESSON} from ${GITHUB_SHA} (run ${GITHUB_RUN_ID})"
+          auth="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git -c http.extraheader="$auth" push -q origin HEAD:gold-samples
+          echo "::notice title=gold outputs::branch gold-samples, folder ${LESSON}"
