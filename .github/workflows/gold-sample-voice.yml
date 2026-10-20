@@ -28,7 +28,7 @@ jobs:
   voice:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 60
     permissions:
       contents: write  # only to push generated audio to the gold-samples branch
     env:
@@ -59,12 +59,13 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python -B samples/gold/tools/make_voice.py --lesson "samples/gold/$LESSON/lesson.json" --out "$RUNNER_TEMP/gold/$LESSON"
-      - name: Publish to the gold-samples branch
+      - name: Publish to the gold-samples branch (also partial results, so a rerun reuses them)
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          cd "$RUNNER_TEMP/gold"
+          cd "$RUNNER_TEMP/gold" || exit 0
           cp "$GITHUB_WORKSPACE/samples/gold/$LESSON/lesson.json" "$LESSON/lesson.json"
           git add -A "$LESSON"
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
