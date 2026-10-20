@@ -7,11 +7,11 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 0 · Foundation |
-| Current task | 037C · Let working source evolve |
-| Branch | `task037c-source-evolution` |
-| State | In review: PR open, waiting for CI |
-| Next task | 038 · Live AI and the blind test |
-| Canonical main | `6fd0bdd46e827406d45b69eeb5b4dc3a778936f2` (Task 037A and 037B merged) |
+| Current task | 038 · Live AI and the blind test (task card shown; waiting for Navin's inputs) |
+| Branch | — |
+| State | Proposed |
+| Next task | 039 · Understanding the book with AI |
+| Canonical main | `dce749ed9c740fc267525f4ad7b74f421a517007` (Task 037C merged) |
 
 ## Done
 
@@ -21,6 +21,7 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 | 2026-10-19 | Local work rescue | Director Step 4 and Step 5 pushed as `wip/task036-director-step4` and `wip/task036-director-step5` (not merged) |
 | 2026-10-19 | 037A · Repository memory | `CLAUDE.md`, Vision Spec, roadmap and this file; PR #31, merged through PR #32 |
 | 2026-10-19 | 037B · Fast lane and CI debts | PR #32 merged at `d464d7f7` after all 12 checks passed on its final head `ad1436e5`. F-08 instrumented, not closed |
+| 2026-10-20 | 037C · Let working source evolve | PR #34 merged at `dce749ed` after all 12 checks passed on its final head `377e313c` |
 
 ## Task 037B · what changed
 
@@ -59,7 +60,7 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 - F-08: Section 18 browser gate flake (`CDP_TIMEOUT:Page.navigate`); instrumented in 037B, cause not yet proven. FR-1 allows one recorded rerun per job only for that exact failure (or `CDP_SOCKET_CLOSED:Page.navigate`).
 - npm drift (found and fixed in 037B): from 17 October the Section 18 `native-render` job failed on every PR, docs-only #31 included, with `TOOLCHAIN_REMOTION_PAIR: mixed versions`. Cause, shown by the drift canary: the generated Remotion project has no lockfile, a newer webpack now gets hoisted, and npm nests Remotion's exact `webpack@5.105.0` under `node_modules/@remotion/bundler/`; the pairing check counts every entry under that prefix, including this non-Remotion package. 037B resolves those installs, and the M1 render runner's, as of 17 Oct 2026 12:00 UTC (`tools/npm_before.txt`); native-render is green again and the canary keeps reporting today's unpinned tree. Follow-up: commit a real lockfile and narrow the check to Remotion packages (possible now that 037C allows the edit).
 - F-09 (seen once, passed on the next full run): Section 18 atomic `CancelRecovery.test_actual_two_process_cancel_returns_same_completed_state` failed in PR #32 run 39292713985 (both child processes exited 1). It passed on PR #31's run and 90 of 90 times locally (30 of them under full CPU load). Suspected: SQLite's 1 s busy timeout while two processes prepare the same cancel on a slow runner, so one child gets "database is locked" and the other times out at the test's 8 s barrier. Not proven; failure annotations now include the children's stderr.
-- F-10 (seen once): `tests/compiler/test_comp_render_integration.py` errored once in the canonical gate of PR #34 run 39362113041. Nothing under `bie/compiler/` or `tests/compiler/` changed between that run and the previous green run of the same PR. The file contains a 0.8-second process-start timeout (`test_process_group_timeout_stops_descendant`), the likely cause on a busy runner. Not proven; canonical-gate annotations now include each failing test's exception line.
+- F-10 (seen once, passed on the next full run): `tests/compiler/test_comp_render_integration.py` errored once in the canonical gate of PR #34 run 39362113041. Nothing under `bie/compiler/` or `tests/compiler/` changed between that run and the previous green run of the same PR. The file contains a 0.8-second process-start timeout (`test_process_group_timeout_stops_descendant`), the likely cause on a busy runner. Not proven; canonical-gate annotations now include each failing test's exception line.
 - N-02: Section 18 source-ledger step slowed from 21 s to 612 s.
 - Audio reconciliation open (`AUDIO_REPLAN_REQUIRED`); global VIDEO_CODE and later stages not run.
 - PR29 follow-ups F-01..F-07 and PR30 follow-ups F1..F5 (low, non-blocking).
