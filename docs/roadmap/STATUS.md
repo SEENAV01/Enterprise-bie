@@ -8,10 +8,10 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 | --- | --- |
 | Phase | 0 · Foundation |
 | Current task | 038 · Live AI and the blind test |
-| Branch | `task038-live-ai` (part 1: connections, gateway, harness) |
-| State | In progress · code IMPLEMENTED offline; not yet run against a live provider (waiting for the keys and the chapter) |
+| Branch | `task038-blind-test-run` (report fix and status); part 1 merged as PR #37 |
+| State | Live connections INTEGRATED and run on a real chapter; blind-test report waiting for Navin's verdict |
 | Next task | 039 · Understanding the book with AI |
-| Canonical main | `dce749ed9c740fc267525f4ad7b74f421a517007` (Task 037C merged) |
+| Canonical main | `398b1acee655d23523999a577c7d772032b764a9` (Task 038 part 1 merged) |
 
 ## Done
 
@@ -39,7 +39,17 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 - **Proof:** in a copy where all 3,812 code files were changed at once, all five ledger verifiers passed (820 + 1,210 + 777 + 298 files reported as evolved), while a changed evidence file, before-image or baseline copy still fails. `tests/test_source_evolution.py` repeats this on every canonical run without writing any file.
 - **Still pinned, on purpose or for later:** vendored third-party files keep their integrity checks (for example the React vendor bundle). Section 15 GAME runtime seals (`bie/game_engine/operations_engine/canonical_bindings.py` pins `bie/bie_core/artifact_contracts.py`, `bie/infrastructure/artifact_store.py` and `bie/infrastructure/idempotency_store.py`; the legacy contract seal; `scripts/verify_dsl_traceability.py`) move with Task 044. AUDIO source-identity tests (`tests/audio/test_audio_batch001_integration.py`, `tests/audio/test_audio_h1_005.py`, `bie/audio/compiler_handoff.py`) move with Task 042. Section 17 EVAL keeps one contract-blob check (`bie/evaluation/benchmarks/av/native.py`, `tests/section17/test_h2_009.py`). A few compiler M1 tests pin `bie/compiler/chromium_resource_worker.py` and its observers, and inventory checks forbid new files in `bie/qa/` and `tests/qa_*`; they are converted when a task first edits those files.
 
-## Task 038 · part 1 (in progress)
+## Task 038 · live runs (20 October 2026)
+
+- **PR #37 merged** at `398b1ace` after all checks on its final head `cc28c52c` passed. Its first CI run failed in all three canonical gates on `tests/test_source_evolution.py`: the 037C test assumed the live tree had zero evolved files, which became false the moment Task 038 evolved `schema_validation.py`. The test now compares against the tree's own evolved set.
+- **Secrets set by Navin:** `OPENAI_API_KEY` (direct), `AICREDITS_ANTHROPIC_API_KEY`, `AICREDITS_GEMINI_API_KEY`.
+- **Probe** (run 39450001813, free): all three configured models available: `anthropic/claude-opus-5.5` and `google/gemini-4-argon` via AICredits, `gpt-6.1-sol` direct (the key also lists `gpt-6-astra`, `gpt-6-sol`, `gpt-5.6-*`).
+- **Smoke** (run 39450174687): one structured call each, all valid JSON at the first attempt.
+- **Blind test** (run 39450332562) on Navin's chapter "10. Tissues and Its Types" (Science and Technology, 14 pages, 11,233 characters of native text; pages 2, 7 and 8 are diagrams only and contribute no text), for UPSC / State PCS aspirants, in Hinglish. All three providers answered at the first attempt with no retries or repairs; total estimated cost about $0.36 including the AICredits markup. Outputs: `blindtest-results` branch, `runs/39450332562-blind-test/` (`REPORT.md` with letters A/B/C; `KEY.json` stays unread until Navin has chosen). The chapter PDF is on the `blindtest-inputs` branch; Navin confirmed he has permission to use it.
+- Rendering fix: models that number their own section titles no longer show "1. 1." in the report.
+- **Gate:** Navin scores A/B/C and picks the main model. Status words: the live connections are INTEGRATED (real upstream chapter text, real providers); nothing here is ACCEPTED.
+
+## Task 038 · part 1
 
 - **Live connections** behind the existing thin adapters (`ClaudeAdapter`, `GPTAdapter`, `GeminiAdapter` take a client): `bie/model_gateway/live/` adds real Anthropic (Messages API, `output_config.format` JSON schema), OpenAI (Responses API, strict JSON schema) and Gemini (`generateContent`, `responseJsonSchema`) clients on the standard library only, no vendor SDK. Keys come only from `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY` (GitHub Actions secrets); a provider without a key is reported as not configured, never faked. Provider error text is redacted (exact key, masked `sk-ab****xyz9` forms, key-shaped tokens).
 - **`LiveGateway`:** bounded retries for timeouts, rate limits and outages (existing `retry_policy`), a content-addressed disk cache keyed by provider, model, messages, schema and prompt version, strict schema validation (new opt-in `strict=True` in `schema_validation.py`; existing callers unchanged) plus a content check, one repair turn that shows the model its error, provenance per answer, and a JSONL ledger with tokens and estimated cost for every call. Prices are estimates from public secondary sources (`pricing.py`, dated), not verified; token counts are exact.

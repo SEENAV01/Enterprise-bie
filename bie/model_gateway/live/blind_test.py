@@ -13,6 +13,7 @@ from __future__ import annotations
 import hashlib
 import json
 import random
+import re
 import secrets
 from dataclasses import dataclass
 
@@ -218,7 +219,8 @@ def render_lesson(lesson: dict) -> list:
     out += [f"- ❌ {m['misconception']} → ✅ {m['correction']}" for m in plan["common_misconceptions"]] or ["- —"]
     for n, section in enumerate(plan["sections"], 1):
         pages = ", ".join(map(str, section["source_pages"])) or "—"
-        out += ["", f"**{n}. {section['title']}** ({section['minutes']} min · pages {pages})", "",
+        title = re.sub(r"^\s*\d+[.)]\s*", "", section["title"])  # the template numbers sections; a model may too
+        out += ["", f"**{n}. {title}** ({section['minutes']} min · pages {pages})", "",
                 f"*How to teach:* {section['teaching_approach']}", "", *_lines(section["key_points"]), "",
                 f"*Example:* {section['example']}", "", f"*Quick check:* {section['check_question']}"]
     out += ["", f"**Summary:** {plan['summary']}", "", "#### Narration script", "", f"**Hook:** {script['hook']}", ""]

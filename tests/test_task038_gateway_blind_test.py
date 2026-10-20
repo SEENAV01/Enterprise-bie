@@ -197,6 +197,16 @@ class BlindTest(unittest.TestCase):
         for expected in ("correct_option_index", "options must be different", "scene_number", "duration_seconds", "minutes"):
             self.assertIn(expected, problems)
 
+    def test_section_numbers_written_by_a_model_are_not_doubled(self):
+        routes, _ = build_routes(fake=True)
+        chapter = blind_test.chapter_from_pdf(chapter_pdf())
+        lesson = blind_test.run(LiveGateway(routes), chapter, class_level="x", language="y")["anthropic"]["lesson"]
+        lesson["lesson_plan"]["sections"][0]["title"] = "1. Tissue kya hai"
+        lesson["lesson_plan"]["sections"][1]["title"] = "2) Epithelium"
+        text = "\n".join(blind_test.render_lesson(lesson))
+        self.assertIn("**1. Tissue kya hai**", text)
+        self.assertIn("**2. Epithelium**", text)
+
     def test_report_hides_providers_and_key_maps_back(self):
         routes, _ = build_routes(fake=True, fake_scripts={"openai": ["auth"]})
         gw = LiveGateway(routes)
