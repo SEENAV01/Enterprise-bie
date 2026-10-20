@@ -300,6 +300,10 @@ class AICreditsRoute(unittest.TestCase):
         self.assertEqual(route_for("openai", env), ("direct", "sk-openai-direct-key"))
         self.assertEqual(route_for("anthropic", env), ("aicredits", "sk-aicredits-key-123"))
         self.assertEqual(route_for("google", env), ("aicredits", "sk-aicredits-key-123"))
+        split = {**env, "AICREDITS_ANTHROPIC_API_KEY": "sk-ac-claude-key", "AICREDITS_GEMINI_API_KEY": "sk-ac-gemini-key"}
+        self.assertEqual(route_for("anthropic", split), ("aicredits", "sk-ac-claude-key"))
+        self.assertEqual(route_for("google", split), ("aicredits", "sk-ac-gemini-key"))
+        self.assertIn("sk-ac-gemini-key", all_keys(split))
         self.assertEqual(route_for("openai", {**env, "BIE_OPENAI_VIA": "aicredits"}), ("aicredits", "sk-aicredits-key-123"))
         self.assertEqual(route_for("anthropic", {**env, "BIE_ANTHROPIC_VIA": "direct"}), ("", ""))
         with self.assertRaises(ValueError):
@@ -309,7 +313,7 @@ class AICreditsRoute(unittest.TestCase):
         self.assertIsInstance(routes["openai"].client, OpenAIClient)
         self.assertIsInstance(routes["anthropic"].client, OpenAICompatChatClient)
         self.assertEqual(routes["anthropic"].model, DEFAULT_MODELS_VIA["aicredits"]["anthropic"])
-        self.assertEqual(routes["google"].model, "google/gemini-3.1-pro-preview")
+        self.assertEqual(routes["google"].model, "google/gemini-4-argon")
         self.assertEqual(sorted(all_keys(env)), sorted(env.values()))
 
     def test_reseller_ids_are_priced_with_the_reseller_markup(self):

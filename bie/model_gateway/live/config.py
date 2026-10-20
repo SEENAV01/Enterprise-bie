@@ -33,10 +33,13 @@ ADAPTERS = {"anthropic": ClaudeAdapter, "openai": GPTAdapter, "google": GeminiAd
 VIAS = ("direct", "aicredits")
 VIA_ENV = {"anthropic": "BIE_ANTHROPIC_VIA", "openai": "BIE_OPENAI_VIA", "google": "BIE_GEMINI_VIA"}
 RESELLER_KEY_ENV = {"aicredits": "AICREDITS_API_KEY"}
+# Navin keeps one AICredits key per model family; the shared key is the fallback.
+RESELLER_PROVIDER_KEY_ENV = {"aicredits": {"anthropic": "AICREDITS_ANTHROPIC_API_KEY", "openai": "AICREDITS_OPENAI_API_KEY",
+                                           "google": "AICREDITS_GEMINI_API_KEY"}}
 # AICredits model ids from aicredits.in/models (read 2026-10-20); the probe run confirms them.
 DEFAULT_MODELS_VIA = {"direct": DEFAULT_MODELS,
                       "aicredits": {"anthropic": "anthropic/claude-opus-5.5", "openai": "openai/gpt-5",
-                                    "google": "google/gemini-3.1-pro-preview"}}
+                                    "google": "google/gemini-4-argon"}}
 
 
 def key_for(provider: str, env=None) -> str:
@@ -56,7 +59,8 @@ def route_for(provider: str, env=None):
     if forced and forced not in VIAS:
         raise ValueError(f"{VIA_ENV[provider]} must be one of {', '.join(VIAS)}")
     direct = key_for(provider, env)
-    reseller = (env.get(RESELLER_KEY_ENV["aicredits"]) or "").strip()
+    reseller = ((env.get(RESELLER_PROVIDER_KEY_ENV["aicredits"][provider]) or "").strip()
+                or (env.get(RESELLER_KEY_ENV["aicredits"]) or "").strip())
     if forced == "direct" or (not forced and direct):
         return ("direct", direct) if direct else ("", "")
     if forced == "aicredits" or reseller:
@@ -66,7 +70,8 @@ def route_for(provider: str, env=None):
 
 def all_keys(env=None):
     env = os.environ if env is None else env
-    keys = [key_for(p, env) for p in PROVIDERS] + [(env.get(n) or "").strip() for n in RESELLER_KEY_ENV.values()]
+    names = list(RESELLER_KEY_ENV.values()) + [n for per in RESELLER_PROVIDER_KEY_ENV.values() for n in per.values()]
+    keys = [key_for(p, env) for p in PROVIDERS] + [(env.get(n) or "").strip() for n in names]
     return [k for k in keys if k]
 
 

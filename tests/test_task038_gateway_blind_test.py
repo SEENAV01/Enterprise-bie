@@ -281,7 +281,7 @@ class Runner(unittest.TestCase):
             def read(self, limit=-1):
                 return json.dumps({"object": "list", "data": [{"id": "anthropic/claude-opus-5.5"},
                                                               {"id": "anthropic/claude-sonnet-5.5"},
-                                                              {"id": "google/gemini-3.1-pro-preview"}]}).encode()
+                                                              {"id": "google/gemini-4-argon"}]}).encode()
 
             def __enter__(self):
                 return self

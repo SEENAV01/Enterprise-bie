@@ -143,6 +143,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AICREDITS_API_KEY: ${{ secrets.AICREDITS_API_KEY }}
+          AICREDITS_ANTHROPIC_API_KEY: ${{ secrets.AICREDITS_ANTHROPIC_API_KEY }}
+          AICREDITS_GEMINI_API_KEY: ${{ secrets.AICREDITS_GEMINI_API_KEY }}
         run: |
           set -euo pipefail
           args=(--mode "$MODE" --providers "$PROVIDERS" --models "$MODELS" --routes "$ROUTES" --out "$RUNNER_TEMP/live")

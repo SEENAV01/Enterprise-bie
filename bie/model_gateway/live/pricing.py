@@ -18,6 +18,7 @@ PRICES = {
     "gpt-6-astra": (10.00, 50.00, "magora-systems.com, checked 2026-10-13"),
     "gpt-6.1-sol": (2.00, 10.00, "magora-systems.com, checked 2026-10-13"),
     "gpt-6-luna": (0.10, 0.50, "magora-systems.com, checked 2026-10-13"),
+    "gemini-4-argon": (2.00, 10.00, "aicredits.in/models USD list price, 2026-10-20"),
     "gemini-3.1-pro": (2.00, 12.00, "morphllm.com 2026-08-21; aicredits.in/models 2026-10-20 (<=200k context)"),
     "gemini-3.5-flash": (1.50, 9.00, "morphllm.com, checked 2026-08-21"),
     "gemini-2.5-pro": (1.25, 10.00, "morphllm.com, checked 2026-08-21 (<=200k context)"),
