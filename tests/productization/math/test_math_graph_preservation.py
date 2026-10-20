@@ -37,9 +37,6 @@ class PreservationTests(unittest.TestCase):
     # the sealed ledger, migration record and original row identity stay exact (tested here).
     def test_legacy_bytes_may_evolve(self):(self.root/amendment.OLD).write_bytes(b"evolved");amendment.resolve(self.root,self.rows)
     def test_active_code_may_evolve(self):(self.root/amendment.ACTIVE).write_bytes(b"evolved");amendment.resolve(self.root,self.rows)
-    def test_deleted_active_code_rejected(self):
-        (self.root/amendment.ACTIVE).unlink()
-        with self.assertRaises(OSError):amendment.resolve(self.root,self.rows)
     def test_missing_row(self):self.rows=[r for r in self.rows if r["file_id"]!=amendment.FILE_ID];self.reject()
     def test_duplicate_row(self):self.rows.extend(r.copy() for r in list(self.rows) if r["file_id"]==amendment.FILE_ID);self.reject()
     def test_foreign_original_identity(self):

@@ -91,7 +91,10 @@ def summaries(root):
         failed = [r for r in data.get('results', []) if not r.get('passed')]
         text = [json.dumps({k: summary.get(k) for k in ('tests_run', 'failures', 'errors', 'skipped', 'failed_files')},
                            sort_keys=True)]
-        text += [f"{r.get('path')} (failures {r.get('failures')}, errors {r.get('errors')})" for r in failed[:10]]
+        for r in failed[:10]:
+            rows, _ = failing_tests(r.get('log') or '', limit=2, detail=300)
+            text.append(f"{r.get('path')} (failures {r.get('failures')}, errors {r.get('errors')})"
+                        + ''.join('\n  ' + row for row in rows))
         messages.append((path.relative_to(root).as_posix(), '\n'.join(text)))
     known = {'VALIDATION.json', 'TEST_RESULT.json', 'integrated_tests.json'}
     for path in sorted(root.rglob('*.json')):
