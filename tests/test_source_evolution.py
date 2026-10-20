@@ -63,11 +63,14 @@ class LedgerVerifiers(unittest.TestCase):
     def test_lossless_ledger_accepts_evolved_code(self):
         clean = self.audit()
         self.assertTrue(clean['passed'], clean['errors'][:5])
-        self.assertEqual(clean['working_source_evolved_since_adoption'], 0)
+        # Working source evolves through reviewed PRs, so the live tree may already report evolved files.
+        before = set(clean['working_source_evolved_paths'])
+        self.assertNotIn(PINNED_CODE, before)
         with changed(PINNED_CODE):
             result = self.audit()
         self.assertTrue(result['passed'], result['errors'][:5])
-        self.assertEqual(result['working_source_evolved_paths'], [PINNED_CODE])
+        self.assertEqual(set(result['working_source_evolved_paths']), before | {PINNED_CODE})
+        self.assertEqual(result['working_source_evolved_since_adoption'], len(before) + 1)
 
     def test_lossless_ledger_still_rejects_changed_evidence(self):
         with changed(PINNED_EVIDENCE):
