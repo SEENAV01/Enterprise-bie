@@ -93,6 +93,23 @@ def char_fraction(say, word, after_fraction):
     return None if i < 0 else i / max(1, len(text))
 
 
+def closest_word(words, cue, after, expected, tolerance):
+    """The spoken occurrence of ``cue`` nearest to where the script says it is, if close enough."""
+    target = norm(cue)
+    if not target:
+        return None
+    probe = target[: max(3, min(len(target), 5))]
+    best = None
+    for item in words:
+        if item["start"] + 1e-6 < after:
+            continue
+        got = norm(item["w"])
+        if got and (got == target or got.startswith(probe) or target.startswith(got) and len(got) >= 3):
+            if best is None or abs(item["start"] - expected) < abs(best - expected):
+                best = item["start"]
+    return best if best is not None and abs(best - expected) <= tolerance else None
+
+
 def build(lesson, timings, fps=FPS, audio_dir=None):
     scenes, cursor = [], 0.0
     for scene in lesson["scenes"]:
@@ -113,8 +130,16 @@ def build(lesson, timings, fps=FPS, audio_dir=None):
             reliable = bool(words) and coverage(beat["say"], (info or {}).get("transcript", "")) >= 0.8
             amap = activity_map(audio_dir / f"{beat['id']}.wav") if (info and not reliable and audio_dir) else None
             after_frac = 0.0
+            span = max(0.1, speech1 - speech0)
             for cue in beat["cues"]:
-                at = find_word(words, cue["word"], after) if reliable else None
+                at = None
+                if reliable:
+                    frac = char_fraction(beat["say"], cue["word"], after_frac)
+                    expected = speech0 + (cue["fallback"] if frac is None else frac) * span
+                    at = closest_word(words, cue["word"], after, expected, tolerance=0.25 * span)
+                    if at is None:
+                        at = max(after, expected)
+                    after_frac = frac if frac is not None else after_frac
                 if at is None and amap is not None:
                     frac = char_fraction(beat["say"], cue["word"], after_frac)
                     frac = cue["fallback"] if frac is None else frac

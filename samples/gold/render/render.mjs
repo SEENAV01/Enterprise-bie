@@ -67,7 +67,7 @@ async function video(browser) {
   writeFileSync(join(tmp, "list.txt"), parts.map((p) => `file '${p.file}'`).join("\n"));
   const audio = args.audio ? ["-ss", String(from / timeline.fps), "-t", String((to - from) / timeline.fps), "-i", resolve(args.audio)] : [];
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", join(tmp, "list.txt"), ...audio,
-    "-c:v", "copy", ...(args.audio ? ["-c:a", "aac", "-b:a", "160k", "-shortest"] : []), "-movflags", "+faststart", out], { stdio: "inherit" });
+    "-c:v", "copy", ...(args.audio ? ["-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "160k", "-shortest"] : []), "-movflags", "+faststart", out], { stdio: "inherit" });
   rmSync(tmp, { recursive: true, force: true });
   console.log(`video written to ${out}`);
 }
