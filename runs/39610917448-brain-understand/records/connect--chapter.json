@@ -1,0 +1,2999 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "connect",
+ "unit": "chapter",
+ "status": "failed",
+ "instructions_version": "understand-connect/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.2",
+ "rulebook_digest": "f97eb21bab87f4f22455c6a7708e02d1251c8a6d6dd5bd785e392b8947a593b1",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-07",
+  "S1-09",
+  "S1-10",
+  "S1-12"
+ ],
+ "maker_route": "anthropic",
+ "reviewer_route": "openai",
+ "inputs_digest": "94598cbe9a6a4693558b3e4f3aaa4178af5b42ac4b9f0af9c1c49494468fa7a7",
+ "inputs": {
+  "system": "You are BIE's book-understanding section, connecting a whole chapter. You are an expert teacher of Science and Technology for UPSC / State PCS aspirants\npreparing for UPSC / State PCS. The pages have already been read into items (given below with ids); now build the chapter map that the lesson,\ndirector, game and notes sections will use.\n\nCourse: \"10. Tissues and Its Types\" · learner language: Hinglish. Write the map in clear English with the book's terms.\n\nNavin's rules for this step (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-07] Mark every answer's basis: 'book' when the book states it, 'outside' when it comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-12] Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list the prerequisites to teach before the chapter with why each is needed; propose a teaching order that starts from what the student already knows.\n\nHow to fill the JSON:\n- concepts: group the items into the chapter's concepts; every teachable item belongs to at least one concept (use the item ids exactly\n  as given); core_explanation says the concept's heart in two or three sentences a teacher would say.\n- relations: how concepts relate, using concept ids.\n- prerequisites_to_teach: what the student must understand before this chapter (or before a concept), why, and for which concept ids.\n- cross_references: every reference such as \"Fig. 6.10\" or \"see table\" resolved to the item it means.\n- question_links: every question item linked to the concepts it tests.\n- teaching_order: every concept id exactly once, in the order a teacher should teach them, starting from what the student knows.\n- exam_focus: the concepts most important for this exam and why.\nReply with the JSON object only.",
+  "user": "Chapter: 10. Tissues and Its Types.\nItems of the chapter (JSON list):\n[{\"id\": \"p003-i1\", \"page\": 3, \"kind\": \"paragraph\", \"type\": \"classification\", \"teachable\": true, \"content\": \"There are mainly four different types of tissues present in our body.\", \"prerequisites\": [\"cell as the basic unit of life\", \"idea of cell differentiation in multicellular organisms\"], \"exam\": \"high\"}, {\"id\": \"p003-i2\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"1. Epithelial- provides covering or lining\", \"prerequisites\": [\"meaning of tissue\", \"organ and body cavity\"], \"exam\": \"high\"}, {\"id\": \"p003-i3\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"2. Muscular- helps in movement\", \"prerequisites\": [\"meaning of tissue\", \"contraction of cells\"], \"exam\": \"high\"}, {\"id\": \"p003-i4\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"3. Neural- responds to stimuli\", \"prerequisites\": [\"what a stimulus is\", \"what a nerve impulse is\"], \"exam\": \"high\"}, {\"id\": \"p003-i5\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"4. Connective- supports, links and cushions\", \"prerequisites\": [\"meaning of tissue\"], \"exam\": \"high\"}, {\"id\": \"p003-i6\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"Epithelium covers most organs and cavities within the body.\", \"prerequisites\": [\"organ and body cavity\"], \"exam\": \"medium\"}, {\"id\": \"p003-i7\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"It also forms a barrier to keep different body systems separate.\", \"prerequisites\": [\"body systems such as digestive and circulatory\"], \"exam\": \"medium\"}, {\"id\": \"p003-i8\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Epithelial tissue cells are tightly packed and form a continuous sheet.\", \"prerequisites\": [\"cell membrane\", \"intercellular space\"], \"exam\": \"high\"}, {\"id\": \"p003-i9\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"structure\", \"teachable\": true, \"content\": \"They have only a small amount of cementing material between them and almost no intercellular spaces.\", \"prerequisites\": [\"intercellular space\", \"cell junctions\", \"diffusion across membranes\"], \"exam\": \"high\"}, {\"id\": \"p003-i10\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"structure\", \"teachable\": true, \"content\": \"All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.\", \"prerequisites\": [\"extracellular material\", \"protein fibres such as collagen\"], \"exam\": \"medium\"}, {\"id\": \"p003-i11\", \"page\": 3, \"kind\": \"definition\", \"type\": \"definition\", \"teachable\": true, \"content\": \"Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.\", \"prerequisites\": [\"secretion\", \"epithelial sheet\"], \"exam\": \"medium\"}, {\"id\": \"p003-i12\", \"page\": 3, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Fig. 6.9 is a vertical series of four 3-D block drawings of epithelial tissues. (a) Squamous: a single thin layer of flat cells with irregular boundaries. (b) Stratified squamous: a thick block of many layers, with flatter cells at the top. (c) Cuboidal: a single layer of cube-like cells with round nuclei. (d) Columnar (Ciliated): a single layer of tall cells with cilia on the top surface. Each sheet rests on an unlabelled blue base layer, which likely represents the basement membrane or underlying tissue.\", \"prerequisites\": [\"cell shapes\", \"layers of cells\"], \"exam\": \"medium\"}, {\"id\": \"p003-i13\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(a) Squamous: label under the thin, flat, single-layer sheet.\", \"prerequisites\": [\"cell shapes\", \"diffusion\"], \"exam\": \"low\"}, {\"id\": \"p003-i14\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(b) Stratified squamous: label under the thick multilayered block.\", \"prerequisites\": [\"cell layers\"], \"exam\": \"low\"}, {\"id\": \"p003-i15\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(c) Cuboidal: label under the single layer of cube-shaped cells.\", \"prerequisites\": [\"cell shapes\", \"organelles\"], \"exam\": \"low\"}, {\"id\": \"p003-i16\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(d) Columnar (Ciliated): label under the tall cells bearing hair-like cilia on the free surface.\", \"prerequisites\": [\"cilia\"], \"exam\": \"medium\"}, {\"id\": \"p003-i17\", \"page\": 3, \"kind\": \"caption\", \"type\": \"other\", \"teachable\": false, \"content\": \"Fig. 6.9: Different types of epithelial tissues\", \"prerequisites\": [], \"exam\": \"low\"}, {\"id\": \"p003-i18\", \"page\": 3, \"kind\": \"table\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Table with columns: Types of Epithelial Tissue | Location | Structure | Function. Its six rows cover simple squamous, simple cuboidal, simple columnar, stratified squamous, stratified cuboidal and stratified columnar.\", \"prerequisites\": [\"cell shapes\", \"simple vs stratified layering\"], \"exam\": \"high\"}, {\"id\": \"p003-i19\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman's capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required\", \"prerequisites\": [\"diffusion\", \"alveoli\", \"Bowman's capsule of nephron\"], \"exam\": \"high\"}, {\"id\": \"p003-i20\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion\", \"prerequisites\": [\"nephron and PCT\", \"microvilli and surface area\", \"cilia\"], \"exam\": \"high\"}, {\"id\": \"p003-i21\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction\", \"prerequisites\": [\"cilia\", \"mucus\", \"absorption in intestine\", \"pseudostratified epithelium\"], \"exam\": \"high\"}, {\"id\": \"p003-i22\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection\", \"prerequisites\": [\"cell division (mitosis)\", \"friction and abrasion\", \"keratin\"], \"exam\": \"high\"}, {\"id\": \"p003-i23\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands\", \"prerequisites\": [\"exocrine gland ducts\"], \"exam\": \"medium\"}, {\"id\": \"p003-i24\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion\", \"prerequisites\": [\"urethra\", \"gland ducts\"], \"exam\": \"medium\"}, {\"id\": \"p007-i1\", \"page\": 7, \"kind\": \"heading\", \"type\": \"classification\", \"teachable\": false, \"content\": \"Three Types of Muscular Tissue\", \"prerequisites\": [\"what a tissue is\"], \"exam\": \"medium\"}, {\"id\": \"p007-i2\", \"page\": 7, \"kind\": \"table\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Table comparing three types of muscular tissue. Columns: (type, with a small drawing of the cell) | Location | Function | Appearance | Control. Rows: Skeletal, Cardiac, Visceral (smooth muscle). The drawings show: a cylindrical striped fibre with several nuclei at the edge (skeletal); branched, striped, interlinked cells (cardiac); a spindle-shaped cell with one central nucleus (smooth).\", \"prerequisites\": [\"cell and its nucleus\", \"what a tissue is\", \"voluntary vs involuntary actions\"], \"exam\": \"high\"}, {\"id\": \"p007-i3\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary\", \"prerequisites\": [\"skeleton and bones\", \"nucleus\", \"what striations are\"], \"exam\": \"high\"}, {\"id\": \"p007-i4\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary\", \"prerequisites\": [\"heart and circulation\", \"striations\", \"involuntary control\"], \"exam\": \"high\"}, {\"id\": \"p007-i5\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary\", \"prerequisites\": [\"peristalsis\", \"iris and pupil\", \"blood vessels and blood pressure\"], \"exam\": \"high\"}, {\"id\": \"p007-i6\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"classification\", \"teachable\": true, \"content\": \"Fig. 6.10: Types of connective tissues. (a) types of blood cells: different white blood corpuscles (neutrophil, eosinophil, basophil, lymphocyte, monocyte), platelets and a red blood corpuscle. (b) compact bone: concentric rings around Haversian canals, with canaliculi. (c) hyaline cartilage: chondrocytes in a hyaline matrix. (d) areolar tissue: fibroblast, reticular and collagen fibres, macrophage, mast cell, plasma cell. (e) adipose tissue: adipocytes with fat droplets and nuclei.\", \"prerequisites\": [\"matrix vs cells\", \"blood components\"], \"exam\": \"high\"}, {\"id\": \"p007-i7\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Bracket label 'Different white blood corpuscles' on the left, grouping the WBCs. Top row of three cells labelled below as Neutrophil (polymorphonuclear leucocyte), Eosinophil and Basophil. Labels 'Cytoplasm' and 'Nucleus' above and to the right of the top row; their leader lines point to the cytoplasm (granular outer part) and the dark-stained nucleus of a top-row granulocyte.\", \"prerequisites\": [\"WBCs and immunity\", \"cell nucleus and cytoplasm\"], \"exam\": \"medium\"}, {\"id\": \"p007-i8\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Lymphocyte, Monocyte, Platelets (second row of panel a: two large WBCs followed by a cluster of small fragments labelled Platelets)\", \"prerequisites\": [\"blood clotting\", \"immunity (antibodies, cell-mediated)\"], \"exam\": \"medium\"}, {\"id\": \"p007-i9\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Red blood corpuscle – label points to a pale round disc-shaped cell at the bottom of the left part of the figure\", \"prerequisites\": [\"haemoglobin\"], \"exam\": \"medium\"}, {\"id\": \"p007-i10\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Haversian canal (contains blood vessels and nerve fibres) – points to the central canal of a set of concentric rings\", \"prerequisites\": [\"bone matrix\", \"blood vessels\", \"diffusion\"], \"exam\": \"high\"}, {\"id\": \"p007-i11\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Canaliculus (contains slender process of bone cell or osteocyte) – points to the fine lines radiating from the dark bone cells in the rings\", \"prerequisites\": [\"osteocyte = bone cell\", \"diffusion\"], \"exam\": \"medium\"}, {\"id\": \"p007-i12\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Chondrocyte; Hyaline matrix – 'Chondrocyte' points to small cells (often in pairs) lying in the matrix, 'Hyaline matrix' points to the clear surrounding ground substance\", \"prerequisites\": [\"matrix\", \"collagen and elastic fibres\"], \"exam\": \"medium\"}, {\"id\": \"p007-i13\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Six labels with leader lines: Reticular fibre (top left) points to thin branching fibres; Fibroblast (top right) points to the large branched/star-shaped cell in the centre (coloured green); Macrophage (left) points to an irregular cell with projections (orange); Collagen fibre (lower left) points to the thick wavy bands (blue); Mast cell (bottom centre) points to a rounded cell (blue); Plasma cell (right) points to a rounded cell on the right (orange-brown).\", \"prerequisites\": [\"fibres in matrix\", \"immunity cells\", \"B lymphocytes and antibodies\"], \"exam\": \"medium\"}, {\"id\": \"p007-i14\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Fat droplet; Nucleus; Adipocyte – 'Fat droplet' points to the large clear interior of a cell, 'Nucleus' to the small dark body pressed at the cell edge, 'Adipocyte' to a whole fat cell\", \"prerequisites\": [\"fats as stored energy\"], \"exam\": \"medium\"}, {\"id\": \"p007-i15\", \"page\": 7, \"kind\": \"caption\", \"type\": \"classification\", \"teachable\": true, \"content\": \"Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue\", \"prerequisites\": [\"connective tissue\"], \"exam\": \"medium\"}, {\"id\": \"p007-i16\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"process\", \"teachable\": true, \"content\": \"Title: 'How do neurons transmit impulses (send message to other cells)?' Two neurons in sequence. At far left, the axon of a previous neuron meets the dendrites of the first neuron at a synapse (red circle). The signal passes into the neuron cell body (with nucleus), then along the axon as an electrical signal (blue arrow) to the axon tips. The axon tips meet the dendrites of the next neuron at another synapse (red circle at top).\", \"prerequisites\": [\"nerve impulse as an electrical signal\", \"cell body and nucleus\"], \"exam\": \"high\"}, {\"id\": \"p007-i17\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"axon of previous neuron – points to the incoming axon ending at the left neuron's dendrites\", \"prerequisites\": [\"axon\"], \"exam\": \"low\"}, {\"id\": \"p007-i18\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"definition\", \"teachable\": true, \"content\": \"synapse – red circles marking the junction between the axon (tips) of one neuron and the dendrites of the next\", \"prerequisites\": [\"neuron\", \"neurotransmitter as chemical messenger\"], \"exam\": \"high\"}, {\"id\": \"p007-i19\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"neuron cell body; nucleus – the central star-shaped body of each neuron with its dark nucleus\", \"prerequisites\": [\"nucleus\"], \"exam\": \"medium\"}, {\"id\": \"p007-i20\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"dendrites (bottom of first neuron); dendrites of next neuron (right) – short branched extensions of the cell body\", \"prerequisites\": [\"neuron\"], \"exam\": \"high\"}, {\"id\": \"p007-i21\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"process\", \"teachable\": true, \"content\": \"axon – the long fibre from the first neuron's cell body toward the next neuron; electrical signal – blue arrow along the axon showing the direction of the impulse\", \"prerequisites\": [\"ions and cell membranes\"], \"exam\": \"high\"}, {\"id\": \"p007-i22\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"axon tips – branched endings of the axon meeting the next neuron's dendrites at the synapse\", \"prerequisites\": [\"synapse\", \"neurotransmitter\"], \"exam\": \"medium\"}]\n\nReply with the chapter map JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792590979.6084104,
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "861bb667d4450883a36bbb44c66c03c19db087f4710856cb4d45774d60d64471",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10896,
+    "output_tokens": 11041,
+    "cost_usd": 0.290844
+   },
+   "notes": {
+    "about": "This unit maps the chapter on animal tissues. It covers the four basic tissue types, a detailed treatment of epithelial tissue with its general features, Fig. 6.9 and a six-row table, a three-way muscle comparison table, the Fig. 6.10 panels of connective tissues, and a neuron diagram showing impulse transmission across synapses.",
+    "key_questions": [
+     "What are the four basic animal tissues, and what is the one-line function of each?",
+     "Why are epithelial cells tightly packed with almost no intercellular space, and what does the basement membrane do?",
+     "How do simple and stratified epithelia differ, and where is each sub-type located?",
+     "Why does simple squamous epithelium line alveoli, capillaries and Bowman's capsule, while stratified squamous lines the mouth and vagina?",
+     "How do skeletal, cardiac and smooth muscle differ in location, function, striations, nuclei and control?",
+     "Which connective tissues appear in Fig. 6.10, and what are the identifying cells and structures of each (Haversian canal, canaliculi, chondrocyte, fibroblast, mast cell, adipocyte)?",
+     "How does an impulse travel from dendrite to cell body to axon to axon tips, and on to the next neuron across a synapse?"
+    ],
+    "decisions": [
+     {
+      "decision": "Split epithelium into general features, glandular epithelium, Fig. 6.9 shapes, simple epithelia and stratified epithelia.",
+      "reason": "UPSC questions test location and function pairs and simple versus stratified contrasts, so each group needs its own concept."
+     },
+     {
+      "decision": "Gave the muscle comparison table one concept, plus one concept for each of the three muscle types.",
+      "reason": "This allows row-by-row teaching and later comparison, which suits odd-one-out style questions."
+     },
+     {
+      "decision": "Gave each Fig. 6.10 panel (blood, bone, cartilage, areolar, adipose) its own concept under a connective tissue overview.",
+      "reason": "The panels have distinct labels that are exam-relevant, and the pages give no separate prose on connective tissue."
+     },
+     {
+      "decision": "Kept non-teachable items (heading p007-i1, caption p003-i17) out of the concepts but used them in cross-references.",
+      "reason": "They carry no content of their own, only the figure titles."
+     },
+     {
+      "decision": "Gave neural tissue two concepts: neuron structure and impulse transmission/synapse.",
+      "reason": "The diagram teaches both the parts of a neuron and the direction of signal flow."
+     }
+    ],
+    "uncertain": [
+     "The figure numbers (6.9, 6.10) do not match chapter number 10. They are probably carried over from a source book.",
+     "Only pages 3 and 7 were provided. Prose on connective and neural tissue (pages 4–6) may be missing, so those concepts rest on diagram labels only.",
+     "Fig. 6.9 calls cuboidal cells 'cube-like', while the table says 'short cylindrical cells'. Both are kept as the book states them.",
+     "The blue base layer in Fig. 6.9 is unlabelled. Reading it as the basement membrane is an interpretation.",
+     "Skeletal muscle 'Function: heat' and smooth muscle 'erects hairs' are as stated in the book. The explanations use outside knowledge (shivering heat, arrector pili) to explain them."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This unit maps the chapter on animal tissues. It covers the four basic tissue types, a detailed treatment of epithelial tissue with its general features, Fig. 6.9 and a six-row table, a three-way muscle comparison table, the Fig. 6.10 panels of connective tissues, and a neuron diagram showing impulse transmission across synapses.",
+     "key_questions": [
+      "What are the four basic animal tissues, and what is the one-line function of each?",
+      "Why are epithelial cells tightly packed with almost no intercellular space, and what does the basement membrane do?",
+      "How do simple and stratified epithelia differ, and where is each sub-type located?",
+      "Why does simple squamous epithelium line alveoli, capillaries and Bowman's capsule, while stratified squamous lines the mouth and vagina?",
+      "How do skeletal, cardiac and smooth muscle differ in location, function, striations, nuclei and control?",
+      "Which connective tissues appear in Fig. 6.10, and what are the identifying cells and structures of each (Haversian canal, canaliculi, chondrocyte, fibroblast, mast cell, adipocyte)?",
+      "How does an impulse travel from dendrite to cell body to axon to axon tips, and on to the next neuron across a synapse?"
+     ],
+     "decisions": [
+      {
+       "decision": "Split epithelium into general features, glandular epithelium, Fig. 6.9 shapes, simple epithelia and stratified epithelia.",
+       "reason": "UPSC questions test location and function pairs and simple versus stratified contrasts, so each group needs its own concept."
+      },
+      {
+       "decision": "Gave the muscle comparison table one concept, plus one concept for each of the three muscle types.",
+       "reason": "This allows row-by-row teaching and later comparison, which suits odd-one-out style questions."
+      },
+      {
+       "decision": "Gave each Fig. 6.10 panel (blood, bone, cartilage, areolar, adipose) its own concept under a connective tissue overview.",
+       "reason": "The panels have distinct labels that are exam-relevant, and the pages give no separate prose on connective tissue."
+      },
+      {
+       "decision": "Kept non-teachable items (heading p007-i1, caption p003-i17) out of the concepts but used them in cross-references.",
+       "reason": "They carry no content of their own, only the figure titles."
+      },
+      {
+       "decision": "Gave neural tissue two concepts: neuron structure and impulse transmission/synapse.",
+       "reason": "The diagram teaches both the parts of a neuron and the direction of signal flow."
+      }
+     ],
+     "uncertain": [
+      "The figure numbers (6.9, 6.10) do not match chapter number 10. They are probably carried over from a source book.",
+      "Only pages 3 and 7 were provided. Prose on connective and neural tissue (pages 4–6) may be missing, so those concepts rest on diagram labels only.",
+      "Fig. 6.9 calls cuboidal cells 'cube-like', while the table says 'short cylindrical cells'. Both are kept as the book states them.",
+      "The blue base layer in Fig. 6.9 is unlabelled. Reading it as the basement membrane is an interpretation.",
+      "Skeletal muscle 'Function: heat' and smooth muscle 'erects hairs' are as stated in the book. The explanations use outside knowledge (shivering heat, arrector pili) to explain them."
+     ]
+    },
+    "chapter_title": "10. Tissues and Its Types",
+    "chapter_summary": "A tissue is a group of similar cells doing a common function. The body has four main tissue types. Epithelial tissue covers and lines organs and cavities. Muscular tissue brings about movement. Neural tissue responds to stimuli. Connective tissue supports, links and cushions. Epithelial cells are tightly packed in a continuous sheet, with little cementing material and almost no intercellular space, and rest on a fibrous basement membrane. Some epithelial cells become gland cells, and inward folds form multicellular glands (glandular epithelium). By cell shape and number of layers, epithelia are simple (squamous, cuboidal, columnar) or stratified (squamous, cuboidal, columnar), each with a characteristic location, structure and function. Muscle is of three types. Skeletal muscle is striated, multinucleate and voluntary. Cardiac muscle is striated, has one central nucleus and is involuntary. Visceral (smooth) muscle is unstriated, has one central nucleus and is involuntary. Fig. 6.10 shows the connective tissues: blood cells (five WBC types, platelets, RBC), compact bone (Haversian canal, canaliculi), hyaline cartilage (chondrocytes in a hyaline matrix), areolar tissue (fibroblast, collagen and reticular fibres, macrophage, mast cell, plasma cell) and adipose tissue (adipocytes with fat droplets). Neurons carry impulses from dendrites to the cell body, then along the axon as an electrical signal to the axon tips, which meet the next neuron's dendrites at a synapse.",
+    "concepts": [
+     {
+      "concept_id": "C01",
+      "name": "Four basic types of animal tissue",
+      "item_ids": [
+       "p003-i1",
+       "p003-i2",
+       "p003-i3",
+       "p003-i4",
+       "p003-i5"
+      ],
+      "content_type": "classification",
+      "core_explanation": "The book says our body has mainly four tissue types, each defined by one job. Epithelial tissue provides covering or lining. Muscular tissue helps in movement. Neural tissue responds to stimuli. Connective tissue supports, links and cushions. Learn 'cover, move, respond, support' as the anchor: every later detail in the chapter is a sub-type of one of these four."
+     },
+     {
+      "concept_id": "C02",
+      "name": "General features of epithelial tissue",
+      "item_ids": [
+       "p003-i6",
+       "p003-i7",
+       "p003-i8",
+       "p003-i9",
+       "p003-i10"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Epithelium covers most organs and cavities and forms a barrier that keeps different body systems separate. To act as a barrier, its cells are tightly packed into a continuous sheet, with only a small amount of cementing material and almost no intercellular spaces, so substances cannot leak between cells. The whole sheet sits on an extracellular fibrous basement membrane, which separates it from the underlying tissue. Outside knowledge: epithelium has no blood vessels of its own and is nourished by diffusion from the tissue below."
+     },
+     {
+      "concept_id": "C03",
+      "name": "Glandular epithelium",
+      "item_ids": [
+       "p003-i11"
+      ],
+      "content_type": "definition",
+      "core_explanation": "Some epithelial cells become further specialised as gland cells that secrete substances at the epithelial surface. When a portion of the epithelial sheet folds inward, a multicellular gland is formed. This secretory epithelium is called glandular epithelium. Outside knowledge: a mucus-secreting goblet cell is a unicellular gland, while sweat and salivary glands are multicellular glands formed by such infolding."
+     },
+     {
+      "concept_id": "C04",
+      "name": "Shapes of epithelial cells (Fig. 6.9)",
+      "item_ids": [
+       "p003-i12",
+       "p003-i13",
+       "p003-i14",
+       "p003-i15",
+       "p003-i16"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Fig. 6.9 shows four epithelia. (a) Squamous is a single thin layer of flat cells with irregular boundaries. (b) Stratified squamous is many layers, with the flattest cells on top. (c) Cuboidal is a single layer of cube-like cells with round nuclei. (d) Columnar (ciliated) is a single layer of tall cells bearing hair-like cilia on the free surface. Naming rule: cell shape (squamous = flat, cuboidal = cube, columnar = tall) plus number of layers (simple = one, stratified = many)."
+     },
+     {
+      "concept_id": "C05",
+      "name": "Simple epithelia: squamous, cuboidal, columnar",
+      "item_ids": [
+       "p003-i18",
+       "p003-i19",
+       "p003-i20",
+       "p003-i21"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Simple squamous is one layer of flat, irregular cells lining blood vessels, capillaries, lung air sacs and Bowman's capsule. It allows transport by diffusion where minimal protection is needed, because a thin layer means a short diffusion path. Simple cuboidal is one layer of short cylindrical cells lining kidney tubules and glandular ducts, and may carry microvilli as in the proximal convoluted tubule. It does absorption and secretion; microvilli increase surface area (outside). Simple columnar is one layer of tall, slender, often ciliated cells lining the digestive tract and upper respiratory tract. It does protection, absorption, mucus secretion and movement in a specific direction, since cilia beat to push mucus one way."
+     },
+     {
+      "concept_id": "C06",
+      "name": "Stratified epithelia: squamous, cuboidal, columnar",
+      "item_ids": [
+       "p003-i18",
+       "p003-i22",
+       "p003-i23",
+       "p003-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Stratified epithelia have several layers and are mainly protective. Stratified squamous lines the mouth and vagina. Its lower layer is columnar and metabolically active, dividing to produce new cells that are pushed upward, become flat and are sloughed off. This continuous renewal protects against abrasion. Stratified cuboidal has a cuboidal upper layer and lines the ducts of mammary, sweat and salivary glands, protecting them. Stratified columnar has a top layer of columnar cells over squamous, cuboidal or columnar cells, is found in the male urethra and lobar ducts of salivary glands, and does protection and secretion. Remember: a stratified epithelium is named after the shape of its top layer."
+     },
+     {
+      "concept_id": "C07",
+      "name": "Three types of muscular tissue – comparison table",
+      "item_ids": [
+       "p007-i2"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "The book compares skeletal, cardiac and visceral (smooth) muscle on five parameters: location, function, appearance, control and cell drawing. Skeletal fibres are cylindrical, striped and have many edge nuclei. Cardiac cells are branched, striped and interlinked. Smooth muscle cells are spindle-shaped with one central nucleus. Striations mark skeletal and cardiac muscle; voluntary control marks only skeletal muscle."
+     },
+     {
+      "concept_id": "C08",
+      "name": "Skeletal muscle",
+      "item_ids": [
+       "p007-i3"
+      ],
+      "content_type": "fact",
+      "core_explanation": "Skeletal muscle is attached to the skeleton and is responsible for movement, heat production and posture. It is striated, multinucleated with eccentric (edge) nuclei, and its fibres run parallel. It is the only voluntary muscle. Outside knowledge: shivering is skeletal muscle contraction producing heat, and the many nuclei arise because each fibre forms by fusion of many cells."
+     },
+     {
+      "concept_id": "C09",
+      "name": "Cardiac muscle",
+      "item_ids": [
+       "p007-i4"
+      ],
+      "content_type": "fact",
+      "core_explanation": "Cardiac muscle is found only in the heart and pumps blood continuously throughout life. It is striated like skeletal muscle but has one central nucleus, and it is involuntary. Its cells are branched and interlinked (Fig. in p007-i2), so the heart contracts as a unit. It is the classic odd-one-out: striated but involuntary."
+     },
+     {
+      "concept_id": "C10",
+      "name": "Visceral (smooth) muscle",
+      "item_ids": [
+       "p007-i5"
+      ],
+      "content_type": "fact",
+      "core_explanation": "Smooth muscle lies in the walls of the G.I. tract, uterus, eye and blood vessels. It controls peristalsis, blood pressure (by narrowing or widening vessels), pupil size and the erection of hairs. It has no striations, one central nucleus and spindle-shaped cells, and is involuntary. Outside knowledge: hair erection ('goosebumps') is done by tiny arrector pili smooth muscles, and uterine smooth muscle contracts during childbirth."
+     },
+     {
+      "concept_id": "C11",
+      "name": "Connective tissues – overview of Fig. 6.10",
+      "item_ids": [
+       "p007-i6",
+       "p007-i15"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Connective tissue supports, links and cushions. Fig. 6.10 shows five examples: (a) blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue and (e) adipose tissue. Unlike epithelium, connective tissue cells are scattered in an extracellular matrix of ground substance and fibres (outside, standard). This matrix may be fluid (plasma in blood), rigid (bone), firm-flexible (cartilage) or loose (areolar)."
+     },
+     {
+      "concept_id": "C12",
+      "name": "Blood cells (Fig. 6.10a)",
+      "item_ids": [
+       "p007-i7",
+       "p007-i8",
+       "p007-i9"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Panel (a) shows the different white blood corpuscles. Neutrophil (polymorphonuclear leucocyte), eosinophil and basophil are granulocytes with granular cytoplasm and a dark-stained nucleus. Lymphocyte and monocyte are the other two WBCs. Platelets are small fragments, and the red blood corpuscle is a pale round disc. Outside knowledge: WBCs fight infection, platelets help clotting, and RBCs carry oxygen by haemoglobin. Mammalian RBCs lack a nucleus, which gives them a biconcave disc shape."
+     },
+     {
+      "concept_id": "C13",
+      "name": "Compact bone (Fig. 6.10b)",
+      "item_ids": [
+       "p007-i10",
+       "p007-i11"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Compact bone has concentric rings of hard matrix around a central Haversian canal, which contains blood vessels and nerve fibres. Fine canaliculi radiate from the bone cells (osteocytes) and hold their slender processes. Outside knowledge: because the matrix is hard and calcified, nutrients reach osteocytes through the Haversian canal and canaliculi, and each ring system is called a Haversian system (osteon)."
+     },
+     {
+      "concept_id": "C14",
+      "name": "Hyaline cartilage (Fig. 6.10c)",
+      "item_ids": [
+       "p007-i12"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Hyaline cartilage consists of cartilage cells called chondrocytes, often in pairs, lying in a clear, glassy hyaline matrix. Outside knowledge: the matrix is firm yet flexible, and hyaline cartilage is found at the ends of long bones, the nose tip, the trachea rings and the larynx. It has no blood vessels, so it heals slowly."
+     },
+     {
+      "concept_id": "C15",
+      "name": "Areolar tissue (Fig. 6.10d)",
+      "item_ids": [
+       "p007-i13"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Areolar tissue is a loose connective tissue with thin branching reticular fibres and thick wavy collagen fibres. Its cells are the star-shaped fibroblast, the irregular macrophage, the rounded mast cell and the plasma cell. Outside knowledge: fibroblasts make the fibres, macrophages engulf microbes, mast cells release histamine, and plasma cells (from B lymphocytes) make antibodies. It lies under the skin and around organs, acting as packing and defence tissue."
+     },
+     {
+      "concept_id": "C16",
+      "name": "Adipose tissue (Fig. 6.10e)",
+      "item_ids": [
+       "p007-i14"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Adipose tissue is made of adipocytes (fat cells). Each is filled by a large fat droplet that pushes the small nucleus to the edge of the cell. Outside knowledge: it stores energy as fat, insulates the body under the skin and cushions organs such as the kidneys."
+     },
+     {
+      "concept_id": "C17",
+      "name": "Structure of a neuron",
+      "item_ids": [
+       "p007-i17",
+       "p007-i19",
+       "p007-i20",
+       "p007-i21",
+       "p007-i22"
+      ],
+      "content_type": "structure",
+      "core_explanation": "A neuron has a central star-shaped cell body with a nucleus. Short branched dendrites receive signals, and one long axon carries the signal away from the cell body, ending in branched axon tips. The dendrites of one neuron receive input from the axon of the previous neuron. The neuron is the structural and functional unit of neural tissue, which responds to stimuli."
+     },
+     {
+      "concept_id": "C18",
+      "name": "Impulse transmission and the synapse",
+      "item_ids": [
+       "p007-i16",
+       "p007-i18",
+       "p007-i21"
+      ],
+      "content_type": "process",
+      "core_explanation": "A message moves in one direction: dendrites, then cell body, then axon (as an electrical signal), then axon tips, then a synapse, then the dendrites of the next neuron. The synapse is the junction between the axon tips of one neuron and the dendrites of the next. Outside knowledge: at the synapse the electrical signal is converted into a chemical signal (neurotransmitter), which is why impulses travel only one way."
+     }
+    ],
+    "relations": [
+     {
+      "from_concept": "C02",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "Epithelial tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C07",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "Muscular tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C11",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "Connective tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C17",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "Neurons make up neural tissue, one of the four basic tissues."
+     },
+     {
+      "from_concept": "C03",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "Glandular epithelium is epithelium specialised for secretion."
+     },
+     {
+      "from_concept": "C04",
+      "relation": "part_of",
+      "to_concept": "C02",
+      "note": "Cell shapes are the basis for naming epithelial types."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "Simple (one-layer) epithelia."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "Stratified (multi-layer) epithelia."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "contrasts_with",
+      "to_concept": "C06",
+      "note": "Single layer for diffusion/absorption versus many layers for protection."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "depends_on",
+      "to_concept": "C04",
+      "note": "The table names follow the shapes shown in Fig. 6.9."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "depends_on",
+      "to_concept": "C04",
+      "note": "A stratified epithelium is named by the shape of its top layer."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "located_in",
+      "to_concept": "C03",
+      "note": "Stratified cuboidal and columnar line the ducts of glands (sweat, salivary, mammary)."
+     },
+     {
+      "from_concept": "C08",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "Skeletal muscle is the voluntary, striated type."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "Cardiac muscle is the involuntary, striated type."
+     },
+     {
+      "from_concept": "C10",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "Smooth muscle is the involuntary, unstriated type."
+     },
+     {
+      "from_concept": "C08",
+      "relation": "contrasts_with",
+      "to_concept": "C10",
+      "note": "Striated, multinucleate and voluntary versus unstriated, uninucleate and involuntary."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "compares_with",
+      "to_concept": "C08",
+      "note": "Both are striated, but cardiac is involuntary with one central nucleus."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "compares_with",
+      "to_concept": "C10",
+      "note": "Both are involuntary with one central nucleus, but cardiac is striated."
+     },
+     {
+      "from_concept": "C12",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "Blood is a fluid connective tissue."
+     },
+     {
+      "from_concept": "C13",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "Bone is a rigid (skeletal) connective tissue."
+     },
+     {
+      "from_concept": "C14",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "Cartilage is a flexible skeletal connective tissue."
+     },
+     {
+      "from_concept": "C15",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "Areolar is a loose connective tissue."
+     },
+     {
+      "from_concept": "C16",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "Adipose is a loose connective tissue that stores fat."
+     },
+     {
+      "from_concept": "C13",
+      "relation": "contrasts_with",
+      "to_concept": "C14",
+      "note": "Hard matrix with Haversian canals versus flexible hyaline matrix with chondrocytes."
+     },
+     {
+      "from_concept": "C15",
+      "relation": "compares_with",
+      "to_concept": "C12",
+      "note": "Plasma cells and macrophages in areolar tissue are linked to WBCs (lymphocytes, monocytes)."
+     },
+     {
+      "from_concept": "C18",
+      "relation": "depends_on",
+      "to_concept": "C17",
+      "note": "Knowing the parts of a neuron is needed to trace the impulse path."
+     },
+     {
+      "from_concept": "C18",
+      "relation": "function_of",
+      "to_concept": "C17",
+      "note": "Transmitting impulses is the function of the neuron."
+     },
+     {
+      "from_concept": "C02",
+      "relation": "contrasts_with",
+      "to_concept": "C11",
+      "note": "Tightly packed cells with almost no intercellular space versus cells scattered in abundant matrix."
+     },
+     {
+      "from_concept": "C10",
+      "relation": "located_in",
+      "to_concept": "C05",
+      "note": "The digestive tract has a simple columnar lining and smooth muscle in its wall (peristalsis)."
+     }
+    ],
+    "prerequisites_to_teach": [
+     {
+      "name": "Cell as the basic unit of life and meaning of 'tissue' (group of similar cells with a common function)",
+      "why_needed": "The whole chapter classifies groups of cells, so the tissue idea must come first.",
+      "needed_for": [
+       "C01"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell differentiation in multicellular organisms",
+      "why_needed": "It explains why cells become different shapes (flat, tall, branched) for different jobs.",
+      "needed_for": [
+       "C01",
+       "C04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell membrane, nucleus and cytoplasm",
+      "why_needed": "Many identifying features are about nuclei (eccentric, central, multinucleate) and cytoplasm (granular WBCs).",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10",
+       "C12",
+       "C16",
+       "C17"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Intercellular space and cell junctions/cementing material",
+      "why_needed": "Needed to understand why epithelium is a tight barrier.",
+      "needed_for": [
+       "C02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Diffusion across thin membranes",
+      "why_needed": "It explains why simple squamous epithelium is found in capillaries and alveoli, and how nutrients reach osteocytes.",
+      "needed_for": [
+       "C05",
+       "C13"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Extracellular matrix and protein fibres (collagen, elastic, reticular)",
+      "why_needed": "The basement membrane and all connective tissues are described by their matrix and fibres.",
+      "needed_for": [
+       "C02",
+       "C11",
+       "C14",
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Secretion and exocrine glands with ducts",
+      "why_needed": "Needed for glandular epithelium and for the ducts lined by stratified epithelia.",
+      "needed_for": [
+       "C03",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cilia and microvilli",
+      "why_needed": "They explain directional movement in columnar epithelium and increased absorption area in PCT cuboidal cells.",
+      "needed_for": [
+       "C04",
+       "C05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Basic organ locations: alveoli of lungs, nephron (Bowman's capsule, PCT), digestive tract, urethra",
+      "why_needed": "The epithelium table is a location–function table, so the organs must be recognisable.",
+      "needed_for": [
+       "C05",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Mitosis and cell renewal",
+      "why_needed": "It explains the active lower layer and sloughing of stratified squamous epithelium.",
+      "needed_for": [
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Voluntary versus involuntary actions",
+      "why_needed": "Control is a key column of the muscle table.",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "What striations are (light–dark bands of contractile proteins)",
+      "why_needed": "Appearance is a key column of the muscle table.",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Peristalsis, pupil and iris, blood pressure",
+      "why_needed": "These are the functions of smooth muscle listed in the book.",
+      "needed_for": [
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood components and their roles (RBC–haemoglobin, WBC–immunity, platelets–clotting)",
+      "why_needed": "Panel (a) of Fig. 6.10 only names the cells, so their roles must be explained.",
+      "needed_for": [
+       "C12",
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Antibodies and B lymphocytes; histamine",
+      "why_needed": "Needed to explain the plasma cell and mast cell in areolar tissue.",
+      "needed_for": [
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Fat as stored energy",
+      "why_needed": "Needed to explain adipocytes.",
+      "needed_for": [
+       "C16"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "What a stimulus is and what a nerve impulse is (electrical signal via ions)",
+      "why_needed": "Needed to understand 'neural tissue responds to stimuli' and the electrical signal along the axon.",
+      "needed_for": [
+       "C01",
+       "C17",
+       "C18"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Neurotransmitter as chemical messenger",
+      "why_needed": "It explains what happens at the synapse and why transmission is one-way.",
+      "needed_for": [
+       "C18"
+      ],
+      "basis": "outside"
+     }
+    ],
+    "cross_references": [
+     {
+      "from_item_id": "p003-i17",
+      "reference_text": "Fig. 6.9: Different types of epithelial tissues",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i12",
+      "reference_text": "Fig. 6.9",
+      "resolved_item_id": "p003-i17"
+     },
+     {
+      "from_item_id": "p007-i6",
+      "reference_text": "Fig. 6.10: Types of connective tissues",
+      "resolved_item_id": "p007-i15"
+     },
+     {
+      "from_item_id": "p007-i15",
+      "reference_text": "Fig. 6.10 (a)–(e)",
+      "resolved_item_id": "p007-i6"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "six rows of the epithelial table",
+      "resolved_item_id": "p003-i19"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "Rows: Skeletal, Cardiac, Visceral",
+      "resolved_item_id": "p007-i3"
+     },
+     {
+      "from_item_id": "p007-i1",
+      "reference_text": "Three Types of Muscular Tissue (heading of table)",
+      "resolved_item_id": "p007-i2"
+     },
+     {
+      "from_item_id": "p003-i3",
+      "reference_text": "Muscular – helps in movement (detailed in muscle table)",
+      "resolved_item_id": "p007-i2"
+     },
+     {
+      "from_item_id": "p003-i5",
+      "reference_text": "Connective – supports, links and cushions (shown in Fig. 6.10)",
+      "resolved_item_id": "p007-i6"
+     },
+     {
+      "from_item_id": "p003-i4",
+      "reference_text": "Neural – responds to stimuli (shown in neuron diagram)",
+      "resolved_item_id": "p007-i16"
+     }
+    ],
+    "question_links": [],
+    "teaching_order": [
+     "C01",
+     "C02",
+     "C03",
+     "C04",
+     "C05",
+     "C06",
+     "C07",
+     "C08",
+     "C09",
+     "C10",
+     "C11",
+     "C12",
+     "C13",
+     "C14",
+     "C15",
+     "C16",
+     "C17",
+     "C18"
+    ],
+    "exam_focus": [
+     {
+      "concept_id": "C01",
+      "why": "The four tissue types and their one-line functions are standard classification and matching questions."
+     },
+     {
+      "concept_id": "C05",
+      "why": "Location–function pairs (alveoli, capillaries, Bowman's capsule, PCT microvilli, ciliated respiratory lining) are frequent match-the-following questions."
+     },
+     {
+      "concept_id": "C06",
+      "why": "Stratified squamous in the mouth and vagina, and stratified columnar in the male urethra, are classic 'where found' facts with odd-one-out potential."
+     },
+     {
+      "concept_id": "C07",
+      "why": "The three-way muscle comparison (striations, nuclei, control) is a high-yield statement-based question."
+     },
+     {
+      "concept_id": "C09",
+      "why": "Cardiac muscle is the odd one out: striated yet involuntary, with one central nucleus."
+     },
+     {
+      "concept_id": "C10",
+      "why": "Smooth muscle locations and functions (peristalsis, pupil, blood pressure, hair erection) appear in statement questions."
+     },
+     {
+      "concept_id": "C12",
+      "why": "Naming WBC types and identifying granulocytes, platelets and RBC are common in GS science."
+     },
+     {
+      "concept_id": "C13",
+      "why": "Haversian canal contents (blood vessels and nerves) and canaliculi with osteocytes are frequently tested structure facts."
+     },
+     {
+      "concept_id": "C15",
+      "why": "The cells of areolar tissue (fibroblast, macrophage, mast cell, plasma cell) and their roles are often tested."
+     },
+     {
+      "concept_id": "C18",
+      "why": "Synapse definition and the direction of impulse (dendrite → cell body → axon → axon tips) are standard questions."
+     },
+     {
+      "concept_id": "C02",
+      "why": "Features such as tight packing, almost no intercellular space and basement membrane appear in 'which statement is correct' questions."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "77a5f96a06996a0e2c15be9f50b398c9228f93ec4cb1808407cee36984b5c133",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11510,
+    "output_tokens": 3744,
+    "cost_usd": 0.06046,
+    "value": {
+     "notes": {
+      "about": "This unit introduces four animal tissue classes and develops epithelial structure and classification, muscle comparisons, connective-tissue diagrams, and neuronal signalling. The map covers every teachable item, but several explanations, relations, and source distinctions need correction before it is reliable for teaching.",
+      "key_questions": [
+       "How do epithelial cell shape, layering, and surface specialisations relate to function?",
+       "How can learners distinguish skeletal, cardiac, and smooth muscle using the complete comparison table?",
+       "What structures and labels must learners recognise in each connective-tissue panel?",
+       "How does the illustrated impulse travel through successive neurons, and which additional explanations come from outside the page?",
+       "Where does the source use simplified or ambiguous terminology that needs an explicitly labelled clarification?"
+      ],
+      "decisions": [
+       {
+        "decision": "Fail despite complete teachable-item assignment.",
+        "reason": "Coverage is broad, but incorrect causal explanations and misleading graph relations would teach misconceptions."
+       },
+       {
+        "decision": "Accept the overall teaching sequence and the empty question-links array.",
+        "reason": "The sequence moves sensibly from classification to structures and functions, and no question items were supplied."
+       },
+       {
+        "decision": "Require source-preserving corrections rather than silently replacing questionable table wording.",
+        "reason": "Learners should be able to distinguish the book's wording from standard biological clarification."
+       }
+      ],
+      "uncertain": [
+       "The unlabelled blue base in Fig. 6.9 cannot be identified confidently from the supplied description.",
+       "The source's descriptions of cuboidal cells as short cylindrical cells and of upper-respiratory lining as simple columnar require qualification.",
+       "Only the supplied items, not additional chapter pages or exam-frequency evidence, are available for review."
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "Map-level documentation",
+       "problem": "The map supplies a chapter summary but no reviewable notes explaining its scope decisions, reasons for outside additions, or uncertainties. In particular, the ambiguous diagram base and questionable epithelial-table wording are not acknowledged.",
+       "fix": "Add brief notes covering the unit's scope, key teaching questions, inclusion and sequencing decisions with reasons, and unresolved source ambiguities."
+      },
+      {
+       "where": "chapter_summary; C04–C06, C09–C12, C17; relations",
+       "problem": "Outside knowledge is not consistently marked. Examples include the tissue definition in the summary, epithelial naming rules, the short-diffusion-path explanation, directional mucus transport, abrasion as the reason for renewal, cardiac coordination, granulocyte classification, and the neuron as the structural and functional unit of neural tissue. Relations also introduce outside classifications and biological connections without identifying their basis.",
+       "fix": "Separate page-supported statements from outside explanations consistently throughout the map, including relation notes and the summary where applicable. Retain correct additions, but label their basis explicitly."
+      },
+      {
+       "where": "C02, explanation of p003-i8–p003-i9",
+       "problem": "The claim that tightly packed cells mean substances 'cannot leak between cells' is an incorrect absolute. Epithelial paracellular permeability varies; almost no visible intercellular space does not itself establish an impermeable seal.",
+       "fix": "Say that close packing and cell junctions create a selective barrier and restrict uncontrolled passage. Mark the junction/permeability explanation as outside knowledge and avoid claiming complete impermeability."
+      },
+      {
+       "where": "C04 and C05; p003-i15 and p003-i20",
+       "problem": "The map presents cuboidal cells as cube-like in C04 but repeats 'short cylindrical cells' in C05 without resolving the conflict. This leaves the central shape-based classification internally inconsistent.",
+       "fix": "Preserve the table wording as a source statement, then explicitly clarify using standard outside knowledge that cuboidal cells are approximately as tall as they are wide; distinguish them from tall columnar cells."
+      },
+      {
+       "where": "C05; p003-i21; exam_focus for C05",
+       "problem": "The source's broad description of simple columnar epithelium as lining the digestive tract and upper respiratory tract, and being 'often ciliated', is repeated as an unqualified biological rule. Much of the conducting respiratory lining is pseudostratified ciliated columnar, while typical intestinal absorptive columnar cells bear microvilli rather than motile cilia.",
+       "fix": "Identify the source statement explicitly and add a labelled standard clarification distinguishing non-ciliated absorptive columnar, ciliated columnar, and pseudostratified ciliated respiratory epithelium. Explain that microvilli increase surface area whereas motile cilia move material; ensure the exam-focus wording does not reinforce the conflation."
+      },
+      {
+       "where": "C12, final sentence",
+       "problem": "The statement that mammalian RBCs lack a nucleus, 'which gives them a biconcave disc shape', supplies an incorrect causal explanation. Enucleation alone does not determine biconcavity.",
+       "fix": "State separately that mature mammalian RBCs lack nuclei and are typically biconcave. If explaining shape, attribute its maintenance to membrane–cytoskeletal organisation, clearly marked as outside knowledge."
+      },
+      {
+       "where": "C18; prerequisite 'Neurotransmitter as chemical messenger'",
+       "problem": "The map presents all synaptic transmission as electrical-to-chemical conversion and says this conversion is why impulses travel only one way. Chemical conversion alone does not explain directionality, and electrical synapses also exist.",
+       "fix": "Describe the usual chemical synapse as an explicitly labelled outside explanation: presynaptic terminals release neurotransmitter, which acts on postsynaptic receptors and can initiate a new electrical response. Attribute typical one-way transmission to this functional asymmetry, and avoid making the description universal to all synapses or neural signalling."
+      },
+      {
+       "where": "C09, explanation of cardiac branching and interlinking",
+       "problem": "The statement that cells are branched and interlinked 'so the heart contracts as a unit' makes anatomical branching alone the explanation for coordination and can suggest that the whole heart contracts simultaneously.",
+       "fix": "Keep the diagram-supported branching description. If adding mechanism, label as outside knowledge that electrical coupling through gap junctions helps coordinate cardiac cells, with atrial and ventricular activity occurring in an organised sequence."
+      },
+      {
+       "where": "C06; p003-i23",
+       "problem": "The stratified cuboidal explanation retains the cuboidal upper layer but omits the row's qualification that other layers may be cuboidal or other cell types. That qualification is teachable and directly supports the top-layer naming rule.",
+       "fix": "Restore the statement about possible underlying cell shapes and connect it explicitly to classification by the superficial layer."
+      },
+      {
+       "where": "C04; p003-i12",
+       "problem": "The figure's unlabelled blue base is omitted entirely, including the supplied uncertainty about whether it represents basement membrane or underlying tissue. This leaves a visible diagram feature unexplained.",
+       "fix": "Acknowledge the base in the diagram explanation and retain its uncertain identification. Connect it cautiously to C02 without claiming that the figure labels it as basement membrane."
+      },
+      {
+       "where": "C17, opening sentence",
+       "problem": "The map generalises the illustrated star-shaped cell body into a universal neuron description: 'A neuron has a central star-shaped cell body'. Neuronal cell-body shapes vary.",
+       "fix": "Say that the depicted neurons have star-shaped cell bodies. State the general structural description in terms of soma, dendrites, and axon without requiring a universal soma shape."
+      },
+      {
+       "where": "relations: C06 located_in C03",
+       "problem": "This edge places the whole stratified-epithelium concept inside glandular epithelium. Only selected stratified epithelia line particular gland ducts, and duct lining is not equivalent to secretory glandular epithelium.",
+       "fix": "Replace the edge with a narrowly scoped association explaining that stratified cuboidal and some stratified columnar epithelia line certain exocrine ducts. Distinguish duct lining from the secretory glandular epithelium described in C03."
+      },
+      {
+       "where": "relations: C10 located_in C05",
+       "problem": "The edge says smooth muscle is located in simple epithelium. The note actually describes two different tissues occupying different parts of the digestive-tract wall.",
+       "fix": "Replace located_in with a co-occurrence or functional-association relation: simple columnar epithelium lines much of the digestive tract, while smooth muscle in its wall produces movement."
+      },
+      {
+       "where": "relations: C12 type_of C11",
+       "problem": "C12 is a concept about blood cells, but the relation treats those cells as a type of connective tissue. Blood is the tissue; RBCs, WBCs, and platelets are its formed elements.",
+       "fix": "Either rename and expand C12 as blood tissue with its cellular components, or use a component relation and explicitly distinguish blood from its cells and cell fragments."
+      },
+      {
+       "where": "cross_references: entries from p003-i18 and p007-i2",
+       "problem": "The reference described as resolving all six epithelial-table rows points only to p003-i19. Likewise, the reference naming skeletal, cardiac, and visceral rows points only to p007-i3. The remaining rows are covered in concepts but not resolved by these reference records.",
+       "fix": "Create separate reference entries for p003-i19 through p003-i24 and for p007-i3 through p007-i5, or use a supported multi-target representation."
+      },
+      {
+       "where": "prerequisites_to_teach: C01–C02 and C07–C10",
+       "problem": "Several concrete source prerequisites are absent from the teaching plan: organs and body cavities/body systems for epithelial covering and separation; contraction for muscular movement; skeleton and bones for skeletal muscle; and the heart's pumping role in circulation for cardiac muscle. The existing organ-location prerequisite only serves C05–C06 and does not cover these needs.",
+       "fix": "Add these specific concepts or explicitly link them to appropriate existing prerequisite entries, with needed_for links to the relevant tissue concepts. Teach them before the corresponding explanations rather than assuming them."
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": false,
+       "note": "Several outside statements are unmarked, and the epithelial permeability, RBC-shape causality, and synaptic-direction explanations need correction."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Every teachable item is assigned, but biological misconceptions, unresolved epithelial terminology, and a missing table qualification prevent teacher-ready completeness and depth."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "The submitted map has no explicit notes recording decisions with reasons and uncertainties; the chapter summary does not perform that function."
+      },
+      {
+       "rule_id": "G-05",
+       "met": false,
+       "note": "There is no obvious textual truncation or 'etc.', but the stratified-cuboidal lower-layer qualification and the figure-base uncertainty have been merged away."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": false,
+       "note": "No question answers were supplied, so answer-key checking is inapplicable. However, explanatory answers do not consistently identify outside material, and some outside explanations are incorrect."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": false,
+       "note": "Most prerequisites are concrete and useful, but basic anatomy and muscle-contraction prerequisites required by the supplied items are missing or not linked to the concepts that need them."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "The selected exam themes are sensible for foundational UPSC/State PCS science. No question items were supplied, so empty question_links is appropriate; frequency claims should be read as editorial judgments rather than demonstrated statistics."
+      },
+      {
+       "rule_id": "S1-12",
+       "met": false,
+       "note": "The teaching order is sensible and teachable-item coverage is complete, but two location relations are misleading, blood cells are treated as a tissue subtype, and table-row cross-references resolve only their first rows."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] Map-level documentation: The map supplies a chapter summary but no reviewable notes explaining its scope decisions, reasons for outside additions, or uncertainties. In particular, the ambiguous diagram base and questionable epithelial-table wording are not acknowledged. -> fix: Add brief notes covering the unit's scope, key teaching questions, inclusion and sequencing decisions with reasons, and unresolved source ambiguities.",
+    "[reviewer] chapter_summary; C04–C06, C09–C12, C17; relations: Outside knowledge is not consistently marked. Examples include the tissue definition in the summary, epithelial naming rules, the short-diffusion-path explanation, directional mucus transport, abrasion as the reason for renewal, cardiac coordination, granulocyte classification, and the neuron as the structural and functional unit of neural tissue. Relations also introduce outside classifications and biological connections without identifying their basis. -> fix: Separate page-supported statements from outside explanations consistently throughout the map, including relation notes and the summary where applicable. Retain correct additions, but label their basis explicitly.",
+    "[reviewer] C02, explanation of p003-i8–p003-i9: The claim that tightly packed cells mean substances 'cannot leak between cells' is an incorrect absolute. Epithelial paracellular permeability varies; almost no visible intercellular space does not itself establish an impermeable seal. -> fix: Say that close packing and cell junctions create a selective barrier and restrict uncontrolled passage. Mark the junction/permeability explanation as outside knowledge and avoid claiming complete impermeability.",
+    "[reviewer] C04 and C05; p003-i15 and p003-i20: The map presents cuboidal cells as cube-like in C04 but repeats 'short cylindrical cells' in C05 without resolving the conflict. This leaves the central shape-based classification internally inconsistent. -> fix: Preserve the table wording as a source statement, then explicitly clarify using standard outside knowledge that cuboidal cells are approximately as tall as they are wide; distinguish them from tall columnar cells.",
+    "[reviewer] C05; p003-i21; exam_focus for C05: The source's broad description of simple columnar epithelium as lining the digestive tract and upper respiratory tract, and being 'often ciliated', is repeated as an unqualified biological rule. Much of the conducting respiratory lining is pseudostratified ciliated columnar, while typical intestinal absorptive columnar cells bear microvilli rather than motile cilia. -> fix: Identify the source statement explicitly and add a labelled standard clarification distinguishing non-ciliated absorptive columnar, ciliated columnar, and pseudostratified ciliated respiratory epithelium. Explain that microvilli increase surface area whereas motile cilia move material; ensure the exam-focus wording does not reinforce the conflation.",
+    "[reviewer] C12, final sentence: The statement that mammalian RBCs lack a nucleus, 'which gives them a biconcave disc shape', supplies an incorrect causal explanation. Enucleation alone does not determine biconcavity. -> fix: State separately that mature mammalian RBCs lack nuclei and are typically biconcave. If explaining shape, attribute its maintenance to membrane–cytoskeletal organisation, clearly marked as outside knowledge.",
+    "[reviewer] C18; prerequisite 'Neurotransmitter as chemical messenger': The map presents all synaptic transmission as electrical-to-chemical conversion and says this conversion is why impulses travel only one way. Chemical conversion alone does not explain directionality, and electrical synapses also exist. -> fix: Describe the usual chemical synapse as an explicitly labelled outside explanation: presynaptic terminals release neurotransmitter, which acts on postsynaptic receptors and can initiate a new electrical response. Attribute typical one-way transmission to this functional asymmetry, and avoid making the description universal to all synapses or neural signalling.",
+    "[reviewer] C09, explanation of cardiac branching and interlinking: The statement that cells are branched and interlinked 'so the heart contracts as a unit' makes anatomical branching alone the explanation for coordination and can suggest that the whole heart contracts simultaneously. -> fix: Keep the diagram-supported branching description. If adding mechanism, label as outside knowledge that electrical coupling through gap junctions helps coordinate cardiac cells, with atrial and ventricular activity occurring in an organised sequence.",
+    "[reviewer] C06; p003-i23: The stratified cuboidal explanation retains the cuboidal upper layer but omits the row's qualification that other layers may be cuboidal or other cell types. That qualification is teachable and directly supports the top-layer naming rule. -> fix: Restore the statement about possible underlying cell shapes and connect it explicitly to classification by the superficial layer.",
+    "[reviewer] C04; p003-i12: The figure's unlabelled blue base is omitted entirely, including the supplied uncertainty about whether it represents basement membrane or underlying tissue. This leaves a visible diagram feature unexplained. -> fix: Acknowledge the base in the diagram explanation and retain its uncertain identification. Connect it cautiously to C02 without claiming that the figure labels it as basement membrane.",
+    "[reviewer] C17, opening sentence: The map generalises the illustrated star-shaped cell body into a universal neuron description: 'A neuron has a central star-shaped cell body'. Neuronal cell-body shapes vary. -> fix: Say that the depicted neurons have star-shaped cell bodies. State the general structural description in terms of soma, dendrites, and axon without requiring a universal soma shape.",
+    "[reviewer] relations: C06 located_in C03: This edge places the whole stratified-epithelium concept inside glandular epithelium. Only selected stratified epithelia line particular gland ducts, and duct lining is not equivalent to secretory glandular epithelium. -> fix: Replace the edge with a narrowly scoped association explaining that stratified cuboidal and some stratified columnar epithelia line certain exocrine ducts. Distinguish duct lining from the secretory glandular epithelium described in C03.",
+    "[reviewer] relations: C10 located_in C05: The edge says smooth muscle is located in simple epithelium. The note actually describes two different tissues occupying different parts of the digestive-tract wall. -> fix: Replace located_in with a co-occurrence or functional-association relation: simple columnar epithelium lines much of the digestive tract, while smooth muscle in its wall produces movement.",
+    "[reviewer] relations: C12 type_of C11: C12 is a concept about blood cells, but the relation treats those cells as a type of connective tissue. Blood is the tissue; RBCs, WBCs, and platelets are its formed elements. -> fix: Either rename and expand C12 as blood tissue with its cellular components, or use a component relation and explicitly distinguish blood from its cells and cell fragments.",
+    "[reviewer] cross_references: entries from p003-i18 and p007-i2: The reference described as resolving all six epithelial-table rows points only to p003-i19. Likewise, the reference naming skeletal, cardiac, and visceral rows points only to p007-i3. The remaining rows are covered in concepts but not resolved by these reference records. -> fix: Create separate reference entries for p003-i19 through p003-i24 and for p007-i3 through p007-i5, or use a supported multi-target representation.",
+    "[reviewer] prerequisites_to_teach: C01–C02 and C07–C10: Several concrete source prerequisites are absent from the teaching plan: organs and body cavities/body systems for epithelial covering and separation; contraction for muscular movement; skeleton and bones for skeletal muscle; and the heart's pumping role in circulation for cardiac muscle. The existing organ-location prerequisite only serves C05–C06 and does not cover these needs. -> fix: Add these specific concepts or explicitly link them to appropriate existing prerequisite entries, with needed_for links to the relevant tissue concepts. Teach them before the corresponding explanations rather than assuming them.",
+    "[reviewer] rule G-01 not met: Several outside statements are unmarked, and the epithelial permeability, RBC-shape causality, and synaptic-direction explanations need correction.",
+    "[reviewer] rule G-02 not met: Every teachable item is assigned, but biological misconceptions, unresolved epithelial terminology, and a missing table qualification prevent teacher-ready completeness and depth.",
+    "[reviewer] rule G-03 not met: The submitted map has no explicit notes recording decisions with reasons and uncertainties; the chapter summary does not perform that function.",
+    "[reviewer] rule G-05 not met: There is no obvious textual truncation or 'etc.', but the stratified-cuboidal lower-layer qualification and the figure-base uncertainty have been merged away.",
+    "[reviewer] rule S1-07 not met: No question answers were supplied, so answer-key checking is inapplicable. However, explanatory answers do not consistently identify outside material, and some outside explanations are incorrect.",
+    "[reviewer] rule S1-09 not met: Most prerequisites are concrete and useful, but basic anatomy and muscle-contraction prerequisites required by the supplied items are missing or not linked to the concepts that need them.",
+    "[reviewer] rule S1-12 not met: The teaching order is sensible and teachable-item coverage is complete, but two location relations are misleading, blood cells are treated as a tissue subtype, and table-row cross-references resolve only their first rows."
+   ],
+   "passed": false,
+   "finished_at": 1792591212.9382734
+  },
+  {
+   "round": 2,
+   "started_at": 1792591212.9384842,
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "26240c67739732e637f9b7f37661927518612fd64ebd37b34784f94197e01bad",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 24701,
+    "output_tokens": 14294,
+    "cost_usd": 0.423152
+   },
+   "notes": {
+    "about": "This unit maps the chapter on animal tissues from pages 3 and 7. It covers the four basic tissue types, epithelial tissue (general features, glandular epithelium, Fig. 6.9 and a six-row location–structure–function table), a three-way muscle comparison table, the five panels of Fig. 6.10 on connective tissues, and a neuron diagram showing how an impulse passes across synapses.",
+    "key_questions": [
+     "What are the four basic animal tissues, and what is the one-line function of each (book)?",
+     "Why are epithelial cells tightly packed with almost no intercellular space, and what does the basement membrane do?",
+     "How do simple and stratified epithelia differ, and where is each of the six sub-types located (book table)?",
+     "Why is simple squamous epithelium found in alveoli, capillaries and Bowman's capsule, while stratified squamous lines the mouth and vagina?",
+     "How should the book's broad 'often ciliated' columnar statement be clarified (ciliated vs microvilli-bearing vs pseudostratified)?",
+     "How do skeletal, cardiac and smooth muscle differ in location, function, striations, nuclei and control?",
+     "What does each Fig. 6.10 panel show: blood and its formed elements, compact bone, hyaline cartilage, areolar tissue, adipose tissue?",
+     "In what direction does a signal travel through a neuron and across a synapse to the next neuron?"
+    ],
+    "decisions": [
+     {
+      "decision": "Every explanation, relation note and the summary now tag statements as (Book) or (Outside).",
+      "reason": "The reviewer found unmarked outside knowledge; rules G-01 and S1-07 require the basis to be visible."
+     },
+     {
+      "decision": "C02 now calls epithelium a selective barrier, not an impermeable one.",
+      "reason": "The earlier phrase 'cannot leak' was an incorrect absolute; paracellular permeability varies between epithelia."
+     },
+     {
+      "decision": "C04/C05 keep the table's 'short cylindrical cells' wording and add an outside clarification that cuboidal cells are roughly as tall as they are wide.",
+      "reason": "This resolves the clash between the figure ('cube-like') and the table without changing the book."
+     },
+     {
+      "decision": "C05 keeps the book's broad columnar row and adds a labelled clarification on three forms: non-ciliated absorptive columnar with microvilli (intestine), ciliated columnar, and pseudostratified ciliated columnar (much of the conducting airway).",
+      "reason": "This avoids teaching a misconception that UPSC options can exploit."
+     },
+     {
+      "decision": "C06 restores the stratified cuboidal qualification that the lower layers may be cuboidal or other types, and links it to the top-layer naming rule.",
+      "reason": "A teachable table qualification had been merged away."
+     },
+     {
+      "decision": "C04 now mentions the unlabelled blue base in Fig. 6.9 and treats its identity as uncertain.",
+      "reason": "A visible diagram feature had been left unexplained."
+     },
+     {
+      "decision": "C12 is renamed 'Blood tissue and its formed elements'; the RBC-shape causal claim is removed.",
+      "reason": "Blood is the tissue and its cells are components. Enucleation does not by itself cause the biconcave shape."
+     },
+     {
+      "decision": "C18 describes the usual chemical synapse as outside knowledge and attributes one-way transmission to the asymmetry between presynaptic release and postsynaptic receptors. It notes that electrical synapses exist.",
+      "reason": "The earlier explanation was over-general and gave the wrong cause of directionality."
+     },
+     {
+      "decision": "C09's coordination statement is now labelled outside (gap junctions, ordered atrial-then-ventricular sequence); C17 says only that the depicted cell bodies are star-shaped.",
+      "reason": "This avoids over-claiming from anatomy or from the drawing."
+     },
+     {
+      "decision": "The relations C06 located_in C03 and C10 located_in C05 are replaced by compares_with with narrowly scoped notes; C12 type_of C11 is kept, with a note distinguishing the tissue from its cells.",
+      "reason": "The old edges were misleading."
+     },
+     {
+      "decision": "The table cross-references now resolve to every row separately (p003-i19 to i24; p007-i3 to i5).",
+      "reason": "The earlier entries resolved only the first row of each table."
+     },
+     {
+      "decision": "New prerequisites added: organs, body cavities and body systems; muscle cell contraction; skeleton and bones; heart and circulation. Each is linked to the concepts that need it.",
+      "reason": "These source prerequisites were missing from the plan."
+     },
+     {
+      "decision": "Non-teachable items p007-i1 (heading) and p003-i17 (caption) are kept out of concepts but used in cross-references. No question items exist on these pages, so question_links is empty.",
+      "reason": "They carry no content of their own, and no questions were supplied."
+     }
+    ],
+    "uncertain": [
+     "The figure numbers (6.9, 6.10) do not match chapter number 10. They probably come from a source book.",
+     "Only pages 3 and 7 were supplied. Prose on connective and neural tissue may exist on the missing pages 4–6, so C11–C18 rest mainly on diagram labels.",
+     "The unlabelled blue base layer in Fig. 6.9 may be the basement membrane or the underlying tissue; the figure does not say.",
+     "The epithelial table wording is loose in places: cuboidal is called 'short cylindrical', and simple columnar is said to line the upper respiratory tract and be 'often ciliated'. It is kept verbatim and clarified as outside knowledge.",
+     "Skeletal muscle 'Function: heat' and smooth muscle 'erects hairs' are as stated in the book. The explanations use outside knowledge (shivering, arrector pili) to explain them."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This unit maps the chapter on animal tissues from pages 3 and 7. It covers the four basic tissue types, epithelial tissue (general features, glandular epithelium, Fig. 6.9 and a six-row location–structure–function table), a three-way muscle comparison table, the five panels of Fig. 6.10 on connective tissues, and a neuron diagram showing how an impulse passes across synapses.",
+     "key_questions": [
+      "What are the four basic animal tissues, and what is the one-line function of each (book)?",
+      "Why are epithelial cells tightly packed with almost no intercellular space, and what does the basement membrane do?",
+      "How do simple and stratified epithelia differ, and where is each of the six sub-types located (book table)?",
+      "Why is simple squamous epithelium found in alveoli, capillaries and Bowman's capsule, while stratified squamous lines the mouth and vagina?",
+      "How should the book's broad 'often ciliated' columnar statement be clarified (ciliated vs microvilli-bearing vs pseudostratified)?",
+      "How do skeletal, cardiac and smooth muscle differ in location, function, striations, nuclei and control?",
+      "What does each Fig. 6.10 panel show: blood and its formed elements, compact bone, hyaline cartilage, areolar tissue, adipose tissue?",
+      "In what direction does a signal travel through a neuron and across a synapse to the next neuron?"
+     ],
+     "decisions": [
+      {
+       "decision": "Every explanation, relation note and the summary now tag statements as (Book) or (Outside).",
+       "reason": "The reviewer found unmarked outside knowledge; rules G-01 and S1-07 require the basis to be visible."
+      },
+      {
+       "decision": "C02 now calls epithelium a selective barrier, not an impermeable one.",
+       "reason": "The earlier phrase 'cannot leak' was an incorrect absolute; paracellular permeability varies between epithelia."
+      },
+      {
+       "decision": "C04/C05 keep the table's 'short cylindrical cells' wording and add an outside clarification that cuboidal cells are roughly as tall as they are wide.",
+       "reason": "This resolves the clash between the figure ('cube-like') and the table without changing the book."
+      },
+      {
+       "decision": "C05 keeps the book's broad columnar row and adds a labelled clarification on three forms: non-ciliated absorptive columnar with microvilli (intestine), ciliated columnar, and pseudostratified ciliated columnar (much of the conducting airway).",
+       "reason": "This avoids teaching a misconception that UPSC options can exploit."
+      },
+      {
+       "decision": "C06 restores the stratified cuboidal qualification that the lower layers may be cuboidal or other types, and links it to the top-layer naming rule.",
+       "reason": "A teachable table qualification had been merged away."
+      },
+      {
+       "decision": "C04 now mentions the unlabelled blue base in Fig. 6.9 and treats its identity as uncertain.",
+       "reason": "A visible diagram feature had been left unexplained."
+      },
+      {
+       "decision": "C12 is renamed 'Blood tissue and its formed elements'; the RBC-shape causal claim is removed.",
+       "reason": "Blood is the tissue and its cells are components. Enucleation does not by itself cause the biconcave shape."
+      },
+      {
+       "decision": "C18 describes the usual chemical synapse as outside knowledge and attributes one-way transmission to the asymmetry between presynaptic release and postsynaptic receptors. It notes that electrical synapses exist.",
+       "reason": "The earlier explanation was over-general and gave the wrong cause of directionality."
+      },
+      {
+       "decision": "C09's coordination statement is now labelled outside (gap junctions, ordered atrial-then-ventricular sequence); C17 says only that the depicted cell bodies are star-shaped.",
+       "reason": "This avoids over-claiming from anatomy or from the drawing."
+      },
+      {
+       "decision": "The relations C06 located_in C03 and C10 located_in C05 are replaced by compares_with with narrowly scoped notes; C12 type_of C11 is kept, with a note distinguishing the tissue from its cells.",
+       "reason": "The old edges were misleading."
+      },
+      {
+       "decision": "The table cross-references now resolve to every row separately (p003-i19 to i24; p007-i3 to i5).",
+       "reason": "The earlier entries resolved only the first row of each table."
+      },
+      {
+       "decision": "New prerequisites added: organs, body cavities and body systems; muscle cell contraction; skeleton and bones; heart and circulation. Each is linked to the concepts that need it.",
+       "reason": "These source prerequisites were missing from the plan."
+      },
+      {
+       "decision": "Non-teachable items p007-i1 (heading) and p003-i17 (caption) are kept out of concepts but used in cross-references. No question items exist on these pages, so question_links is empty.",
+       "reason": "They carry no content of their own, and no questions were supplied."
+      }
+     ],
+     "uncertain": [
+      "The figure numbers (6.9, 6.10) do not match chapter number 10. They probably come from a source book.",
+      "Only pages 3 and 7 were supplied. Prose on connective and neural tissue may exist on the missing pages 4–6, so C11–C18 rest mainly on diagram labels.",
+      "The unlabelled blue base layer in Fig. 6.9 may be the basement membrane or the underlying tissue; the figure does not say.",
+      "The epithelial table wording is loose in places: cuboidal is called 'short cylindrical', and simple columnar is said to line the upper respiratory tract and be 'often ciliated'. It is kept verbatim and clarified as outside knowledge.",
+      "Skeletal muscle 'Function: heat' and smooth muscle 'erects hairs' are as stated in the book. The explanations use outside knowledge (shivering, arrector pili) to explain them."
+     ]
+    },
+    "chapter_title": "10. Tissues and Its Types",
+    "chapter_summary": "(Outside) A tissue is a group of similar cells performing a common function. (Book) Our body has mainly four tissue types: epithelial (covering or lining), muscular (movement), neural (responds to stimuli) and connective (supports, links and cushions). Epithelium covers most organs and cavities and forms a barrier that keeps body systems separate. Its cells are tightly packed in a continuous sheet with little cementing material and almost no intercellular space, and rest on an extracellular fibrous basement membrane. Some epithelial cells become gland cells, and inward folding forms multicellular glands (glandular epithelium). The book's table lists six epithelia, each with a location, structure and function: simple squamous, simple cuboidal and simple columnar, and stratified squamous, stratified cuboidal and stratified columnar. Muscle is of three types. Skeletal muscle is striated, multinucleate (eccentric nuclei) and voluntary. Cardiac muscle is striated, has one central nucleus and is involuntary. Visceral (smooth) muscle is unstriated, has one central nucleus and is involuntary. Fig. 6.10 shows connective tissues: blood cells (five WBC types, platelets, RBC), compact bone (Haversian canal with blood vessels and nerve fibres; canaliculi with osteocyte processes), hyaline cartilage (chondrocytes in a hyaline matrix), areolar tissue (fibroblast, collagen and reticular fibres, macrophage, mast cell, plasma cell) and adipose tissue (adipocytes with fat droplets). A neuron diagram shows a signal passing from dendrites to the cell body, along the axon as an electrical signal to the axon tips, and across a synapse to the dendrites of the next neuron.",
+    "concepts": [
+     {
+      "concept_id": "C01",
+      "name": "Four basic types of animal tissue",
+      "item_ids": [
+       "p003-i1",
+       "p003-i2",
+       "p003-i3",
+       "p003-i4",
+       "p003-i5"
+      ],
+      "content_type": "classification",
+      "core_explanation": "(Book) Our body has mainly four tissue types, each defined by one job. Epithelial tissue provides covering or lining. Muscular tissue helps in movement. Neural tissue responds to stimuli. Connective tissue supports, links and cushions. (Teaching tip) Use 'cover, move, respond, support' as the anchor; every later detail in the chapter is a sub-type or feature of one of these four."
+     },
+     {
+      "concept_id": "C02",
+      "name": "General features of epithelial tissue",
+      "item_ids": [
+       "p003-i6",
+       "p003-i7",
+       "p003-i8",
+       "p003-i9",
+       "p003-i10"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Epithelium covers most organs and cavities within the body and forms a barrier that keeps different body systems separate. Its cells are tightly packed into a continuous sheet, with only a small amount of cementing material and almost no intercellular spaces. All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane. (Outside) Close packing and cell junctions make epithelium a selective barrier that restricts uncontrolled passage between cells. How much passes between cells varies from one epithelium to another, so it is not a complete seal. Epithelium usually has no blood vessels of its own and receives nutrients by diffusion from the tissue beneath the basement membrane."
+     },
+     {
+      "concept_id": "C03",
+      "name": "Glandular epithelium",
+      "item_ids": [
+       "p003-i11"
+      ],
+      "content_type": "definition",
+      "core_explanation": "(Book) Epithelial cells often acquire additional specialisation as gland cells, which secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium. (Outside) A mucus-secreting goblet cell is a single-cell (unicellular) gland. Sweat and salivary glands are multicellular glands formed by such infolding. Their secretory cells are glandular epithelium, while their ducts are lined by other epithelia (see C06)."
+     },
+     {
+      "concept_id": "C04",
+      "name": "Shapes of epithelial cells (Fig. 6.9)",
+      "item_ids": [
+       "p003-i12",
+       "p003-i13",
+       "p003-i14",
+       "p003-i15",
+       "p003-i16"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book, Fig. 6.9) (a) Squamous is a single thin layer of flat cells with irregular boundaries. (b) Stratified squamous is a thick block of many layers with flatter cells at the top. (c) Cuboidal is a single layer of cube-like cells with round nuclei. (d) Columnar (ciliated) is a single layer of tall cells with hair-like cilia on the free surface. Each sheet rests on an unlabelled blue base. The figure does not name it; it may represent the basement membrane described in C02 or the underlying tissue. (Outside) Naming rule: shape (squamous = flat; cuboidal = roughly as tall as wide; columnar = clearly taller than wide) plus layers (simple = one layer; stratified = many layers)."
+     },
+     {
+      "concept_id": "C05",
+      "name": "Simple epithelia: squamous, cuboidal, columnar",
+      "item_ids": [
+       "p003-i18",
+       "p003-i19",
+       "p003-i20",
+       "p003-i21"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "(Book) Simple squamous is a single layer of flat cells with irregular boundaries. It lines blood vessels, capillaries, the air sacs of the lungs and Bowman's capsule of the kidney, and serves transport by diffusion where minimal protection is required. Simple cuboidal is described in the table as a single layer of 'short cylindrical cells'. It lines kidney tubules and glandular ducts, may have microvilli as in the proximal convoluted tubule, and does absorption and secretion. Simple columnar is a single layer of tall, slender cells, 'often ciliated'. It lines the digestive tract and upper respiratory tract, and does protection, absorption, mucus secretion and movement in a specific direction. (Outside) A thin single layer gives a short diffusion distance, which suits gas exchange and filtration. Cuboidal cells are roughly as tall as they are wide, shorter than columnar cells. Microvilli are non-motile folds that increase surface area for absorption, while motile cilia beat to move material such as mucus in one direction. Absorptive columnar cells of the intestine bear microvilli, not cilia. Ciliated columnar cells occur in places such as the uterine tube. Much of the conducting respiratory lining (trachea, bronchi) is pseudostratified ciliated columnar epithelium."
+     },
+     {
+      "concept_id": "C06",
+      "name": "Stratified epithelia: squamous, cuboidal, columnar",
+      "item_ids": [
+       "p003-i18",
+       "p003-i22",
+       "p003-i23",
+       "p003-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "(Book) Stratified squamous lines the mouth and vagina and is made of several layers that are continuously sloughed off and regenerated. The lower layer is columnar and metabolically active, and older cells are pushed upward and become flat. Its function is protection. Stratified cuboidal is found in mammary, sweat and salivary glands. Its upper layer is cuboid, while the other layers may be cuboidal or other types, and it protects the ducts of various glands. Stratified columnar is found in the male urethra and the lobar ducts of salivary glands. It has a layer of columnar cells lying on squamous, columnar or cuboidal cells, and does protection and secretion. (Outside) A stratified epithelium is named by the shape of its top (superficial) layer, which is why the deeper cells may differ, as the book notes. Many layers and constant renewal let it withstand wear such as friction from food in the mouth."
+     },
+     {
+      "concept_id": "C07",
+      "name": "Three types of muscular tissue – comparison table",
+      "item_ids": [
+       "p007-i2"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "(Book) The table compares skeletal, cardiac and visceral (smooth) muscle by location, function, appearance and control, with a cell drawing for each. Skeletal is a cylindrical striped fibre with several nuclei at the edge. Cardiac cells are branched, striped and interlinked. Smooth muscle is a spindle-shaped cell with one central nucleus. (Teaching tip) Striations occur in skeletal and cardiac muscle; voluntary control occurs only in skeletal muscle."
+     },
+     {
+      "concept_id": "C08",
+      "name": "Skeletal muscle",
+      "item_ids": [
+       "p007-i3"
+      ],
+      "content_type": "fact",
+      "core_explanation": "(Book) Location: skeleton. Function: movement, heat and posture. Appearance: striated, multinucleated with eccentric nuclei, fibres parallel. Control: voluntary. (Outside) Skeletal muscles are attached to bones and move them at joints. Shivering is rapid skeletal muscle contraction that produces heat. Each fibre forms by the fusion of many cells, which is why it has many nuclei."
+     },
+     {
+      "concept_id": "C09",
+      "name": "Cardiac muscle",
+      "item_ids": [
+       "p007-i4"
+      ],
+      "content_type": "fact",
+      "core_explanation": "(Book) Location: heart. Function: pump blood continuously. Appearance: striated, one central nucleus. Control: involuntary. The table drawing (p007-i2) shows branched, interlinked cells. (Outside) Electrical coupling through gap junctions at the junctions between cells (intercalated discs) helps coordinate contraction. The atria and ventricles contract in an organised sequence, not all at once. (Exam tip) Cardiac muscle is the classic odd one out: striated yet involuntary."
+     },
+     {
+      "concept_id": "C10",
+      "name": "Visceral (smooth) muscle",
+      "item_ids": [
+       "p007-i5"
+      ],
+      "content_type": "fact",
+      "core_explanation": "(Book) Location: G.I. tract, uterus, eye and blood vessels. Function: peristalsis, blood pressure, pupil size and erection of hairs. Appearance: no striations, one central nucleus (spindle-shaped cell in the drawing). Control: involuntary. (Outside) Smooth muscle in vessel walls narrows or widens vessels and so changes blood pressure. Iris muscles change pupil size. Tiny arrector pili muscles raise hairs ('goosebumps'). Uterine smooth muscle contracts during childbirth."
+     },
+     {
+      "concept_id": "C11",
+      "name": "Connective tissues – overview of Fig. 6.10",
+      "item_ids": [
+       "p007-i6",
+       "p007-i15"
+      ],
+      "content_type": "classification",
+      "core_explanation": "(Book) Connective tissue supports, links and cushions. Fig. 6.10 shows (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue and (e) adipose tissue. (Outside) Unlike epithelium, connective tissue cells are usually scattered in an extracellular matrix of ground substance and fibres. The matrix may be fluid (plasma in blood), hard (bone), firm but flexible (cartilage) or loose (areolar)."
+     },
+     {
+      "concept_id": "C12",
+      "name": "Blood tissue and its formed elements (Fig. 6.10a)",
+      "item_ids": [
+       "p007-i7",
+       "p007-i8",
+       "p007-i9"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Panel (a) shows the cells of blood. Neutrophil (polymorphonuclear leucocyte), eosinophil and basophil are drawn with a granular cytoplasm and a dark-stained nucleus. Lymphocyte and monocyte are the other white blood corpuscles. Platelets are small fragments, and the red blood corpuscle is a pale round disc. (Outside) Blood is the tissue: a fluid connective tissue in which RBCs, WBCs and platelets (the formed elements) are suspended in plasma. Neutrophils, eosinophils and basophils are called granulocytes; lymphocytes and monocytes are agranulocytes. WBCs defend against infection, platelets (cell fragments) help clotting, and RBCs carry oxygen using haemoglobin. Mature mammalian RBCs lack a nucleus and are typically biconcave discs; their shape is maintained by the organisation of the membrane and its underlying cytoskeleton."
+     },
+     {
+      "concept_id": "C13",
+      "name": "Compact bone (Fig. 6.10b)",
+      "item_ids": [
+       "p007-i10",
+       "p007-i11"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Compact bone shows concentric rings around a Haversian canal, which contains blood vessels and nerve fibres. Canaliculi radiate from the bone cells and contain the slender processes of the osteocytes. (Outside) The matrix is hard and calcified, so nutrients and wastes travel through the Haversian canal and the network of canaliculi. Each ring system is called a Haversian system (osteon)."
+     },
+     {
+      "concept_id": "C14",
+      "name": "Hyaline cartilage (Fig. 6.10c)",
+      "item_ids": [
+       "p007-i12"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Hyaline cartilage shows chondrocytes, often in pairs, lying in a clear hyaline matrix. (Outside) The matrix is firm yet flexible. Hyaline cartilage occurs at the ends of long bones, the nose, the tracheal rings and the larynx. It has no blood vessels, so it heals slowly."
+     },
+     {
+      "concept_id": "C15",
+      "name": "Areolar tissue (Fig. 6.10d)",
+      "item_ids": [
+       "p007-i13"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Areolar tissue shows thin branching reticular fibres and thick wavy collagen fibres. Its cells are a large star-shaped fibroblast, an irregular macrophage, a rounded mast cell and a plasma cell. (Outside) Fibroblasts make the fibres, macrophages engulf microbes and debris, mast cells release histamine, and plasma cells (derived from B lymphocytes) make antibodies. Areolar tissue is a loose connective tissue found beneath the skin and around organs, where it packs and defends."
+     },
+     {
+      "concept_id": "C16",
+      "name": "Adipose tissue (Fig. 6.10e)",
+      "item_ids": [
+       "p007-i14"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Adipose tissue is made of adipocytes. A large fat droplet fills each cell, and the small nucleus lies pressed at the cell edge. (Outside) It stores energy as fat, insulates the body under the skin and cushions organs such as the kidneys."
+     },
+     {
+      "concept_id": "C17",
+      "name": "Structure of a neuron",
+      "item_ids": [
+       "p007-i17",
+       "p007-i19",
+       "p007-i20",
+       "p007-i21",
+       "p007-i22"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book, diagram) Each depicted neuron has a star-shaped cell body with a dark nucleus, short branched dendrites, one long axon and branched axon tips. The dendrites of the first neuron receive the axon of the previous neuron. (Outside) In general, a neuron has a cell body (soma) containing the nucleus, dendrites that usually receive signals, and an axon that carries signals away to its terminals. The shape of the cell body varies between neurons. Neurons are the signalling cells of neural tissue (which the book says responds to stimuli)."
+     },
+     {
+      "concept_id": "C18",
+      "name": "Impulse transmission and the synapse",
+      "item_ids": [
+       "p007-i16",
+       "p007-i18",
+       "p007-i21"
+      ],
+      "content_type": "process",
+      "core_explanation": "(Book, diagram) The signal passes from the axon of a previous neuron to the dendrites at a synapse. It then moves to the cell body, travels along the axon as an electrical signal to the axon tips, and crosses another synapse to the dendrites of the next neuron. A synapse is the junction between the axon tips of one neuron and the dendrites of the next. (Outside) At the usual chemical synapse, the presynaptic axon terminal releases a neurotransmitter. The neurotransmitter acts on receptors of the postsynaptic cell and can start a new electrical response there. Transmission is typically one-way because release occurs on the presynaptic side and the receptors sit on the postsynaptic side. Electrical synapses also exist, but the diagram does not cover them."
+     }
+    ],
+    "relations": [
+     {
+      "from_concept": "C02",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Epithelial tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C07",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Muscular tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C11",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Connective tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C17",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Neural tissue is one of the four basic tissues. (Outside) Neurons are its signalling cells."
+     },
+     {
+      "from_concept": "C03",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "(Book) Glandular epithelium is epithelium specialised for secretion."
+     },
+     {
+      "from_concept": "C04",
+      "relation": "part_of",
+      "to_concept": "C02",
+      "note": "(Book) Fig. 6.9 shows the epithelial cell shapes. (Outside) These shapes are the basis for naming epithelia."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "(Book) The simple epithelia are rows of the epithelial table; (Outside) 'simple' means a single layer."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "(Book) The stratified epithelia have several layers."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "contrasts_with",
+      "to_concept": "C06",
+      "note": "(Book) Simple epithelia serve diffusion, absorption and secretion; stratified epithelia are mainly protective. (Outside) One layer versus many layers explains the difference."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "depends_on",
+      "to_concept": "C04",
+      "note": "(Book) The table names (squamous, cuboidal, columnar) match the shapes in Fig. 6.9."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "depends_on",
+      "to_concept": "C04",
+      "note": "(Outside) A stratified epithelium is named by the shape of its top layer; (Book) the deeper layers may differ, as in stratified cuboidal."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "compares_with",
+      "to_concept": "C03",
+      "note": "(Book) Stratified cuboidal lines and protects the ducts of mammary, sweat and salivary glands; stratified columnar occurs in the lobar ducts of salivary glands. (Outside) Duct lining is different from the secretory glandular epithelium of C03."
+     },
+     {
+      "from_concept": "C08",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "(Book) Skeletal muscle is striated and voluntary."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "(Book) Cardiac muscle is striated and involuntary."
+     },
+     {
+      "from_concept": "C10",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "(Book) Smooth muscle is unstriated and involuntary."
+     },
+     {
+      "from_concept": "C08",
+      "relation": "contrasts_with",
+      "to_concept": "C10",
+      "note": "(Book) Striated, multinucleate (eccentric) and voluntary versus unstriated, one central nucleus and involuntary."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "compares_with",
+      "to_concept": "C08",
+      "note": "(Book) Both are striated, but cardiac muscle is involuntary and has one central nucleus."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "compares_with",
+      "to_concept": "C10",
+      "note": "(Book) Both are involuntary with one central nucleus, but cardiac muscle is striated."
+     },
+     {
+      "from_concept": "C12",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Fig. 6.10a shows blood cells among the connective tissues. (Outside) Blood is a fluid connective tissue; the RBCs, WBCs and platelets are its formed elements, not tissues themselves."
+     },
+     {
+      "from_concept": "C13",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Compact bone is shown as a connective tissue. (Outside) It is a hard supportive (skeletal) connective tissue."
+     },
+     {
+      "from_concept": "C14",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Hyaline cartilage is shown as a connective tissue. (Outside) It is a flexible supportive connective tissue."
+     },
+     {
+      "from_concept": "C15",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Areolar tissue is shown as a connective tissue. (Outside) It is a loose connective tissue."
+     },
+     {
+      "from_concept": "C16",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Adipose tissue is shown as a connective tissue. (Outside) It is a loose connective tissue that stores fat."
+     },
+     {
+      "from_concept": "C13",
+      "relation": "contrasts_with",
+      "to_concept": "C14",
+      "note": "(Book) Concentric rings, Haversian canal and canaliculi versus chondrocytes in a clear hyaline matrix. (Outside) Bone matrix is hard and has blood vessels; cartilage is flexible and has none."
+     },
+     {
+      "from_concept": "C15",
+      "relation": "compares_with",
+      "to_concept": "C12",
+      "note": "(Outside) Plasma cells come from B lymphocytes, and tissue macrophages come from monocytes, which links areolar cells to the WBCs of panel (a)."
+     },
+     {
+      "from_concept": "C18",
+      "relation": "depends_on",
+      "to_concept": "C17",
+      "note": "(Book) Tracing the signal path needs the neuron's parts: dendrites, cell body, axon and axon tips."
+     },
+     {
+      "from_concept": "C18",
+      "relation": "function_of",
+      "to_concept": "C17",
+      "note": "(Book) The diagram is titled 'How do neurons transmit impulses'."
+     },
+     {
+      "from_concept": "C02",
+      "relation": "contrasts_with",
+      "to_concept": "C11",
+      "note": "(Book) Epithelial cells are tightly packed with almost no intercellular space. (Outside) Connective tissue cells are usually scattered in abundant matrix."
+     },
+     {
+      "from_concept": "C10",
+      "relation": "compares_with",
+      "to_concept": "C05",
+      "note": "(Book) Simple columnar epithelium lines the digestive tract, and smooth muscle of the G.I. tract performs peristalsis. (Outside) They are different tissues in different layers of the same gut wall, working together."
+     }
+    ],
+    "prerequisites_to_teach": [
+     {
+      "name": "Cell as the basic unit of life and meaning of 'tissue' (a group of similar cells with a common function)",
+      "why_needed": "The whole chapter classifies groups of cells, so the idea of a tissue must come first.",
+      "needed_for": [
+       "C01"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell differentiation in multicellular organisms",
+      "why_needed": "It explains why cells take different shapes (flat, tall, branched) for different jobs.",
+      "needed_for": [
+       "C01",
+       "C04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Organs, body cavities and body systems (e.g. digestive, respiratory, circulatory)",
+      "why_needed": "Epithelium 'covers most organs and cavities' and 'keeps different body systems separate'.",
+      "needed_for": [
+       "C01",
+       "C02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell membrane, nucleus and cytoplasm",
+      "why_needed": "Many identifying features concern nuclei (eccentric, central, multinucleate) and cytoplasm (granular WBCs).",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10",
+       "C12",
+       "C16",
+       "C17"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Intercellular space and cell junctions/cementing material",
+      "why_needed": "Needed to understand why epithelium forms a close-packed, selective barrier.",
+      "needed_for": [
+       "C02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Diffusion across thin layers",
+      "why_needed": "It explains why simple squamous epithelium lines capillaries and alveoli, how avascular epithelium is nourished, and how osteocytes are supplied.",
+      "needed_for": [
+       "C02",
+       "C05",
+       "C13"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Extracellular matrix and protein fibres (collagen, elastic, reticular)",
+      "why_needed": "The basement membrane and all connective tissues are described by their matrix and fibres.",
+      "needed_for": [
+       "C02",
+       "C11",
+       "C14",
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Secretion and exocrine glands with ducts",
+      "why_needed": "Needed for glandular epithelium and for the gland ducts lined by stratified epithelia.",
+      "needed_for": [
+       "C03",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cilia versus microvilli (motile hairs that move material versus non-motile folds that increase surface area)",
+      "why_needed": "Needed for ciliated columnar epithelium, the PCT microvilli and the columnar clarification.",
+      "needed_for": [
+       "C04",
+       "C05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Basic organ locations: alveoli of lungs, nephron (Bowman's capsule, PCT), digestive tract, trachea, urethra",
+      "why_needed": "The epithelium table is organised by location and function, so these organs must be recognisable.",
+      "needed_for": [
+       "C05",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Mitosis and cell renewal",
+      "why_needed": "It explains the metabolically active lower layer and the sloughing of stratified squamous epithelium.",
+      "needed_for": [
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Muscle cell contraction (cells shortening to produce force)",
+      "why_needed": "Muscular tissue 'helps in movement' only because its cells contract.",
+      "needed_for": [
+       "C01",
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Skeleton and bones (muscles attached to bones move them at joints)",
+      "why_needed": "Skeletal muscle is located on the skeleton and produces movement and posture.",
+      "needed_for": [
+       "C08",
+       "C13"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Heart as the pump of the circulatory system",
+      "why_needed": "Cardiac muscle's function is to 'pump blood continuously'.",
+      "needed_for": [
+       "C09"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Voluntary versus involuntary actions",
+      "why_needed": "Control is a key column of the muscle table.",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "What striations are (light and dark bands of contractile proteins)",
+      "why_needed": "Appearance is a key column of the muscle table.",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Peristalsis, pupil and iris, blood pressure",
+      "why_needed": "These are the smooth muscle functions listed in the book.",
+      "needed_for": [
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood components and their roles (RBC and haemoglobin, WBC and immunity, platelets and clotting)",
+      "why_needed": "Fig. 6.10a only names the cells, so their roles must be explained.",
+      "needed_for": [
+       "C12",
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Antibodies and B lymphocytes; histamine",
+      "why_needed": "Needed to explain the plasma cell and mast cell of areolar tissue.",
+      "needed_for": [
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Fat as stored energy",
+      "why_needed": "Needed to explain adipocytes.",
+      "needed_for": [
+       "C16"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "What a stimulus is and what a nerve impulse is (an electrical signal produced by ion movement across the membrane)",
+      "why_needed": "Needed to understand 'neural tissue responds to stimuli' and the electrical signal along the axon.",
+      "needed_for": [
+       "C01",
+       "C17",
+       "C18"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Neurotransmitter as a chemical messenger acting on receptors",
+      "why_needed": "It explains what usually happens at a chemical synapse and why transmission there is typically one-way.",
+      "needed_for": [
+       "C18"
+      ],
+      "basis": "outside"
+     }
+    ],
+    "cross_references": [
+     {
+      "from_item_id": "p003-i17",
+      "reference_text": "Fig. 6.9: Different types of epithelial tissues",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i12",
+      "reference_text": "Fig. 6.9",
+      "resolved_item_id": "p003-i17"
+     },
+     {
+      "from_item_id": "p007-i6",
+      "reference_text": "Fig. 6.10: Types of connective tissues",
+      "resolved_item_id": "p007-i15"
+     },
+     {
+      "from_item_id": "p007-i15",
+      "reference_text": "Fig. 6.10 (a)–(e)",
+      "resolved_item_id": "p007-i6"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: simple squamous",
+      "resolved_item_id": "p003-i19"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: simple cuboidal",
+      "resolved_item_id": "p003-i20"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: simple columnar",
+      "resolved_item_id": "p003-i21"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: stratified squamous",
+      "resolved_item_id": "p003-i22"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: stratified cuboidal",
+      "resolved_item_id": "p003-i23"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: stratified columnar",
+      "resolved_item_id": "p003-i24"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "table row: Skeletal",
+      "resolved_item_id": "p007-i3"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "table row: Cardiac",
+      "resolved_item_id": "p007-i4"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "table row: Visceral (smooth muscle)",
+      "resolved_item_id": "p007-i5"
+     },
+     {
+      "from_item_id": "p007-i1",
+      "reference_text": "Three Types of Muscular Tissue (heading of table)",
+      "resolved_item_id": "p007-i2"
+     },
+     {
+      "from_item_id": "p003-i3",
+      "reference_text": "Muscular – helps in movement (detailed in muscle table)",
+      "resolved_item_id": "p007-i2"
+     },
+     {
+      "from_item_id": "p003-i5",
+      "reference_text": "Connective – supports, links and cushions (shown in Fig. 6.10)",
+      "resolved_item_id": "p007-i6"
+     },
+     {
+      "from_item_id": "p003-i4",
+      "reference_text": "Neural – responds to stimuli (shown in neuron diagram)",
+      "resolved_item_id": "p007-i16"
+     },
+     {
+      "from_item_id": "p003-i10",
+      "reference_text": "basement membrane (possibly the unlabelled blue base in Fig. 6.9)",
+      "resolved_item_id": "p003-i12"
+     }
+    ],
+    "question_links": [],
+    "teaching_order": [
+     "C01",
+     "C02",
+     "C03",
+     "C04",
+     "C05",
+     "C06",
+     "C07",
+     "C08",
+     "C09",
+     "C10",
+     "C11",
+     "C12",
+     "C13",
+     "C14",
+     "C15",
+     "C16",
+     "C17",
+     "C18"
+    ],
+    "exam_focus": [
+     {
+      "concept_id": "C01",
+      "why": "The four tissue types and their one-line functions are standard classification and matching questions."
+     },
+     {
+      "concept_id": "C05",
+      "why": "Location–function pairs (alveoli, capillaries and Bowman's capsule for simple squamous; PCT microvilli for cuboidal; columnar linings) are frequent match-the-following questions. Learn the book's rows, and know that intestinal absorptive cells bear microvilli while much of the airway lining is pseudostratified ciliated columnar (outside)."
+     },
+     {
+      "concept_id": "C06",
+      "why": "Stratified squamous in the mouth and vagina, stratified cuboidal in gland ducts, and stratified columnar in the male urethra are classic 'where found' facts with odd-one-out potential."
+     },
+     {
+      "concept_id": "C07",
+      "why": "The three-way muscle comparison (striations, nuclei, control) is a high-yield source of statement-based questions."
+     },
+     {
+      "concept_id": "C09",
+      "why": "Cardiac muscle is the odd one out: striated yet involuntary, with one central nucleus."
+     },
+     {
+      "concept_id": "C10",
+      "why": "Smooth muscle locations and functions (peristalsis, pupil size, blood pressure, hair erection) appear in statement questions."
+     },
+     {
+      "concept_id": "C12",
+      "why": "Naming the WBC types and identifying granulocytes, platelets and RBCs is common in GS science, as is 'blood is a connective tissue'."
+     },
+     {
+      "concept_id": "C13",
+      "why": "Haversian canal contents (blood vessels and nerve fibres) and canaliculi with osteocyte processes are frequently tested structural facts."
+     },
+     {
+      "concept_id": "C15",
+      "why": "The cells of areolar tissue (fibroblast, macrophage, mast cell, plasma cell) and their roles are often tested."
+     },
+     {
+      "concept_id": "C18",
+      "why": "The definition of a synapse and the direction of an impulse (dendrite → cell body → axon → axon tips → next neuron) are standard questions."
+     },
+     {
+      "concept_id": "C02",
+      "why": "Features such as tight packing, almost no intercellular space and the basement membrane appear in 'which statement is correct' questions."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "46abf251f18f1ce4908b523c263895c92e13204d9fdc947de2ce6e3fab5ed2af",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13059,
+    "output_tokens": 1753,
+    "cost_usd": 0.043648,
+    "value": {
+     "notes": {
+      "about": "This unit classifies the four human tissue types and develops epithelial, muscular, connective and neural tissues through tables and diagrams. The review checks the supplied page items, their conceptual coverage and the correctness of added teaching material.",
+      "key_questions": [
+       "Does every teachable table entry and diagram label have a conceptual home?",
+       "Are the book's simplified epithelial descriptions distinguished clearly from standard histology?",
+       "Are the added explanations correct and their prerequisites taught before use?",
+       "Does the map document its main teaching decisions and remaining uncertainties?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the coverage of the supplied teachable items and the overall teaching sequence.",
+        "reason": "All teachable items are assigned to concepts, and the order progresses sensibly from classification to structures, comparisons and processes."
+       },
+       {
+        "decision": "Accept the empty question_links list.",
+        "reason": "No question items were supplied, so no question-to-item links are missing."
+       },
+       {
+        "decision": "Require correction of one outside claim and fuller treatment of the respiratory-epithelium clarification.",
+        "reason": "The macrophage-origin statement is overgeneralised, while pseudostratified epithelium is used to correct the book without explaining the concept."
+       }
+      ],
+      "uncertain": [
+       "The identity of the unlabelled blue base in Fig. 6.9 cannot be established from the supplied description; the map appropriately preserves that uncertainty.",
+       "Only the supplied items from pages 3 and 7 can be assessed; no omissions from unseen pages are inferred."
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "relations: C15 compares_with C12",
+       "problem": "The outside statement that tissue macrophages come from monocytes is presented as a general rule. Many tissue-resident macrophage populations originate during embryonic development and can maintain themselves by local proliferation.",
+       "fix": "Qualify the link: circulating monocytes can enter tissues and differentiate into macrophages, particularly during inflammation; not all tissue-resident macrophages originate from circulating monocytes."
+      },
+      {
+       "where": "C05 core_explanation; prerequisites_to_teach; exam_focus for C05; source item p003-i21, page 3",
+       "problem": "Pseudostratified ciliated columnar epithelium is introduced as an important correction to the respiratory-location row, but 'pseudostratified' is never explained. The instruction to 'learn the book's rows' also leaves learners without a clear rule for handling the book's broad grouping of digestive and respiratory linings or its phrase 'often ciliated'.",
+       "fix": "Add a concrete explanation before this comparison: pseudostratified epithelium appears multilayered because nuclei lie at different heights, but all cells contact the basement membrane and not all reach the free surface. Explicitly distinguish intestinal simple columnar absorptive cells with microvilli from the pseudostratified ciliated lining of much of the conducting respiratory tract. State that the book's row is simplified and should not be read as saying intestinal absorptive epithelium is generally ciliated. Align the exam guidance with these distinctions rather than advising unqualified memorisation of the row."
+      },
+      {
+       "where": "Chapter-map unit-level notes",
+       "problem": "The map has a chapter summary and scattered explanatory notes, but no unit-level account of its main teaching decisions with reasons and remaining uncertainties. In particular, its handling of simplified book descriptions versus outside corrections is not documented as a teaching decision.",
+       "fix": "Add brief unit-level notes stating the unit's scope, the reasons for its teaching sequence and grouping decisions, how book wording and standard-histology corrections should be used, and the uncertainty about the unlabelled base in Fig. 6.9."
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": false,
+       "note": "Book and outside material are generally labelled clearly, but the outside macrophage-origin claim is overgeneralised."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Coverage is substantial and all teachable items are represented, but the respiratory-epithelium correction needs an explanation of pseudostratification and explicit reconciliation with the table."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "The summary establishes scope, but unit-level decisions with reasons and an explicit uncertainty record are missing."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No visible truncation, placeholder 'etc.', or loss of teachable table rows or diagram labels was found."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": false,
+       "note": "Explanatory bases are generally marked correctly, but the outside statement about tissue macrophage origins requires qualification."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": false,
+       "note": "Most prerequisites are concrete and well linked. Pseudostratified epithelium, explicitly relevant to p003-i21 and used in C05, is neither explained nor included as a prerequisite to teach."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": false,
+       "note": "The exam priorities are broadly sensible and no supplied questions need linking. However, C05's instruction to learn the book's rows needs qualification so learners do not reproduce the respiratory and ciliation simplifications as standard facts."
+      },
+      {
+       "rule_id": "S1-12",
+       "met": true,
+       "note": "Every teachable item has a conceptual home, all concepts are connected, supplied figure and table references are resolved, and the overall teaching order is sensible."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] relations: C15 compares_with C12: The outside statement that tissue macrophages come from monocytes is presented as a general rule. Many tissue-resident macrophage populations originate during embryonic development and can maintain themselves by local proliferation. -> fix: Qualify the link: circulating monocytes can enter tissues and differentiate into macrophages, particularly during inflammation; not all tissue-resident macrophages originate from circulating monocytes.",
+    "[reviewer] C05 core_explanation; prerequisites_to_teach; exam_focus for C05; source item p003-i21, page 3: Pseudostratified ciliated columnar epithelium is introduced as an important correction to the respiratory-location row, but 'pseudostratified' is never explained. The instruction to 'learn the book's rows' also leaves learners without a clear rule for handling the book's broad grouping of digestive and respiratory linings or its phrase 'often ciliated'. -> fix: Add a concrete explanation before this comparison: pseudostratified epithelium appears multilayered because nuclei lie at different heights, but all cells contact the basement membrane and not all reach the free surface. Explicitly distinguish intestinal simple columnar absorptive cells with microvilli from the pseudostratified ciliated lining of much of the conducting respiratory tract. State that the book's row is simplified and should not be read as saying intestinal absorptive epithelium is generally ciliated. Align the exam guidance with these distinctions rather than advising unqualified memorisation of the row.",
+    "[reviewer] Chapter-map unit-level notes: The map has a chapter summary and scattered explanatory notes, but no unit-level account of its main teaching decisions with reasons and remaining uncertainties. In particular, its handling of simplified book descriptions versus outside corrections is not documented as a teaching decision. -> fix: Add brief unit-level notes stating the unit's scope, the reasons for its teaching sequence and grouping decisions, how book wording and standard-histology corrections should be used, and the uncertainty about the unlabelled base in Fig. 6.9.",
+    "[reviewer] rule G-01 not met: Book and outside material are generally labelled clearly, but the outside macrophage-origin claim is overgeneralised.",
+    "[reviewer] rule G-02 not met: Coverage is substantial and all teachable items are represented, but the respiratory-epithelium correction needs an explanation of pseudostratification and explicit reconciliation with the table.",
+    "[reviewer] rule G-03 not met: The summary establishes scope, but unit-level decisions with reasons and an explicit uncertainty record are missing.",
+    "[reviewer] rule S1-07 not met: Explanatory bases are generally marked correctly, but the outside statement about tissue macrophage origins requires qualification.",
+    "[reviewer] rule S1-09 not met: Most prerequisites are concrete and well linked. Pseudostratified epithelium, explicitly relevant to p003-i21 and used in C05, is neither explained nor included as a prerequisite to teach.",
+    "[reviewer] rule S1-10 not met: The exam priorities are broadly sensible and no supplied questions need linking. However, C05's instruction to learn the book's rows needs qualification so learners do not reproduce the respiratory and ciliation simplifications as standard facts."
+   ],
+   "passed": false,
+   "finished_at": 1792591414.490265
+  },
+  {
+   "round": 3,
+   "started_at": 1792591414.4905224,
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "5327782bdcb967578075bcfdb31b444d63c5108869f94cf14380acb5ccef6550",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 25778,
+    "output_tokens": 14070,
+    "cost_usd": 0.422963
+   },
+   "notes": {
+    "about": "This unit maps the chapter on animal tissues from pages 3 and 7: the four basic tissues, epithelial tissue (Fig. 6.9 and a six-row location–structure–function table), a three-way muscle table, Fig. 6.10 on connective tissues, and a neuron and synapse diagram. It moves from the four-tissue overview through each tissue family in the order the book presents them.",
+    "key_questions": [
+     "What are the four basic animal tissues and the one-line function of each (book)?",
+     "Why are epithelial cells tightly packed with almost no intercellular space, and what does the basement membrane do?",
+     "How do simple and stratified epithelia differ, and where is each of the six sub-types found (book table)?",
+     "Why does simple squamous line alveoli, capillaries and Bowman's capsule, while stratified squamous lines the mouth and vagina?",
+     "How do we read the book's simplified simple-columnar row ('digestive and upper respiratory tract', 'often ciliated') against standard histology (microvilli in the intestine, pseudostratified ciliated columnar in the airway)?",
+     "How do skeletal, cardiac and smooth muscle differ in location, function, striations, nuclei and control?",
+     "What does each panel of Fig. 6.10 show: blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue?",
+     "In which direction does a signal travel through a neuron and across a synapse?"
+    ],
+    "decisions": [
+     {
+      "decision": "Scope and grouping: the 18 concepts follow the book's four tissue families, with an overview concept (C01, C07, C11, C17) before each family's sub-types.",
+      "reason": "Students first recall the four-tissue frame and then fill in the details; this mirrors the book's page order."
+     },
+     {
+      "decision": "Teaching order runs C01 → epithelium (C02–C06) → muscle (C07–C10) → connective (C11–C16) → neural (C17–C18).",
+      "reason": "It starts from the familiar idea of cells and tissues and follows the book's sequence. General features come before sub-types, and neuron structure comes before transmission."
+     },
+     {
+      "decision": "Book versus outside policy: the book's wording is always taught first, verbatim and tagged (Book). Standard histology is added as a tagged (Outside) clarification, never as a replacement. Where the book simplifies, the learner is told what the simplification is and how to answer exam options.",
+      "reason": "Rules G-01 and S1-07 require this, and the reviewer asked for the policy to be stated explicitly."
+     },
+     {
+      "decision": "New in this revision: C05 now explains pseudostratified epithelium (nuclei at different heights, all cells on the basement membrane, not all reaching the free surface). It states that the book's columnar row is simplified and must not be read as 'intestinal absorptive epithelium is ciliated'.",
+      "reason": "The reviewer found that 'pseudostratified' was used without being explained and that the row could be misread."
+     },
+     {
+      "decision": "New in this revision: 'Pseudostratified epithelium' and 'simple vs stratified layering' are added as prerequisites for C04 and C05.",
+      "reason": "S1-09 requires every term used in teaching to be taught concretely."
+     },
+     {
+      "decision": "New in this revision: the C05 exam focus now says to learn the book's rows together with the standard distinctions, not to memorise the rows unqualified.",
+      "reason": "This stops learners from reproducing the book's simplification as a standard fact (S1-10)."
+     },
+     {
+      "decision": "New in this revision: the C15–C12 relation and the C15 explanation now say that circulating monocytes can enter tissues and become macrophages, especially during inflammation. Many tissue-resident macrophages instead come from embryonic precursors and maintain themselves by local proliferation.",
+      "reason": "The earlier claim was overgeneralised (G-01, S1-07)."
+     },
+     {
+      "decision": "Kept from earlier: (Book)/(Outside) tags appear throughout; epithelium is described as a selective (not absolute) barrier; cuboidal keeps the table's 'short cylindrical' wording with an outside clarification; the stratified cuboidal qualification is kept; blood is treated as the tissue and its cells as formed elements; the synapse is explained as a chemical synapse with direction set by presynaptic release and postsynaptic receptors.",
+      "reason": "These were already correct and are preserved."
+     },
+     {
+      "decision": "Table cross-references resolve to each row separately. The non-teachable heading p007-i1 and caption p003-i17 are used only in cross-references. question_links is empty.",
+      "reason": "No question items appear on the supplied pages."
+     }
+    ],
+    "uncertain": [
+     "The unlabelled blue base layer in Fig. 6.9 may be the basement membrane described in p003-i10 or the underlying tissue; the figure does not say. Teach it as 'probably the basement membrane/underlying tissue', not as a fact.",
+     "The figure numbers (6.9, 6.10) do not match chapter 10; they are likely carried over from a source book.",
+     "Only pages 3 and 7 were supplied. Prose on connective and neural tissue may exist on pages 4–6, so C11–C18 rest mainly on diagram labels.",
+     "Several book phrases are loose: cuboidal is called 'short cylindrical'; simple columnar is said to line the 'upper respiratory tract' and to be 'often ciliated'; skeletal muscle gives 'heat' and smooth muscle 'erects hairs'. All are kept verbatim and clarified as outside knowledge."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This unit maps the chapter on animal tissues from pages 3 and 7: the four basic tissues, epithelial tissue (Fig. 6.9 and a six-row location–structure–function table), a three-way muscle table, Fig. 6.10 on connective tissues, and a neuron and synapse diagram. It moves from the four-tissue overview through each tissue family in the order the book presents them.",
+     "key_questions": [
+      "What are the four basic animal tissues and the one-line function of each (book)?",
+      "Why are epithelial cells tightly packed with almost no intercellular space, and what does the basement membrane do?",
+      "How do simple and stratified epithelia differ, and where is each of the six sub-types found (book table)?",
+      "Why does simple squamous line alveoli, capillaries and Bowman's capsule, while stratified squamous lines the mouth and vagina?",
+      "How do we read the book's simplified simple-columnar row ('digestive and upper respiratory tract', 'often ciliated') against standard histology (microvilli in the intestine, pseudostratified ciliated columnar in the airway)?",
+      "How do skeletal, cardiac and smooth muscle differ in location, function, striations, nuclei and control?",
+      "What does each panel of Fig. 6.10 show: blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue?",
+      "In which direction does a signal travel through a neuron and across a synapse?"
+     ],
+     "decisions": [
+      {
+       "decision": "Scope and grouping: the 18 concepts follow the book's four tissue families, with an overview concept (C01, C07, C11, C17) before each family's sub-types.",
+       "reason": "Students first recall the four-tissue frame and then fill in the details; this mirrors the book's page order."
+      },
+      {
+       "decision": "Teaching order runs C01 → epithelium (C02–C06) → muscle (C07–C10) → connective (C11–C16) → neural (C17–C18).",
+       "reason": "It starts from the familiar idea of cells and tissues and follows the book's sequence. General features come before sub-types, and neuron structure comes before transmission."
+      },
+      {
+       "decision": "Book versus outside policy: the book's wording is always taught first, verbatim and tagged (Book). Standard histology is added as a tagged (Outside) clarification, never as a replacement. Where the book simplifies, the learner is told what the simplification is and how to answer exam options.",
+       "reason": "Rules G-01 and S1-07 require this, and the reviewer asked for the policy to be stated explicitly."
+      },
+      {
+       "decision": "New in this revision: C05 now explains pseudostratified epithelium (nuclei at different heights, all cells on the basement membrane, not all reaching the free surface). It states that the book's columnar row is simplified and must not be read as 'intestinal absorptive epithelium is ciliated'.",
+       "reason": "The reviewer found that 'pseudostratified' was used without being explained and that the row could be misread."
+      },
+      {
+       "decision": "New in this revision: 'Pseudostratified epithelium' and 'simple vs stratified layering' are added as prerequisites for C04 and C05.",
+       "reason": "S1-09 requires every term used in teaching to be taught concretely."
+      },
+      {
+       "decision": "New in this revision: the C05 exam focus now says to learn the book's rows together with the standard distinctions, not to memorise the rows unqualified.",
+       "reason": "This stops learners from reproducing the book's simplification as a standard fact (S1-10)."
+      },
+      {
+       "decision": "New in this revision: the C15–C12 relation and the C15 explanation now say that circulating monocytes can enter tissues and become macrophages, especially during inflammation. Many tissue-resident macrophages instead come from embryonic precursors and maintain themselves by local proliferation.",
+       "reason": "The earlier claim was overgeneralised (G-01, S1-07)."
+      },
+      {
+       "decision": "Kept from earlier: (Book)/(Outside) tags appear throughout; epithelium is described as a selective (not absolute) barrier; cuboidal keeps the table's 'short cylindrical' wording with an outside clarification; the stratified cuboidal qualification is kept; blood is treated as the tissue and its cells as formed elements; the synapse is explained as a chemical synapse with direction set by presynaptic release and postsynaptic receptors.",
+       "reason": "These were already correct and are preserved."
+      },
+      {
+       "decision": "Table cross-references resolve to each row separately. The non-teachable heading p007-i1 and caption p003-i17 are used only in cross-references. question_links is empty.",
+       "reason": "No question items appear on the supplied pages."
+      }
+     ],
+     "uncertain": [
+      "The unlabelled blue base layer in Fig. 6.9 may be the basement membrane described in p003-i10 or the underlying tissue; the figure does not say. Teach it as 'probably the basement membrane/underlying tissue', not as a fact.",
+      "The figure numbers (6.9, 6.10) do not match chapter 10; they are likely carried over from a source book.",
+      "Only pages 3 and 7 were supplied. Prose on connective and neural tissue may exist on pages 4–6, so C11–C18 rest mainly on diagram labels.",
+      "Several book phrases are loose: cuboidal is called 'short cylindrical'; simple columnar is said to line the 'upper respiratory tract' and to be 'often ciliated'; skeletal muscle gives 'heat' and smooth muscle 'erects hairs'. All are kept verbatim and clarified as outside knowledge."
+     ]
+    },
+    "chapter_title": "10. Tissues and Its Types",
+    "chapter_summary": "(Outside) A tissue is a group of similar cells performing a common function. (Book) Our body has mainly four tissue types: epithelial (covering or lining), muscular (movement), neural (responds to stimuli) and connective (supports, links and cushions). Epithelium covers most organs and cavities and forms a barrier that keeps body systems separate. Its cells are tightly packed in a continuous sheet with little cementing material and almost no intercellular space, and rest on an extracellular fibrous basement membrane. Some epithelial cells become gland cells, and inward folding forms multicellular glands (glandular epithelium). A table gives the location, structure and function of six epithelia: simple squamous, cuboidal and columnar, and stratified squamous, cuboidal and columnar. Muscle is of three types. Skeletal muscle is striated, multinucleate (eccentric nuclei) and voluntary. Cardiac muscle is striated with one central nucleus and involuntary. Visceral (smooth) muscle is unstriated with one central nucleus and involuntary. Fig. 6.10 shows connective tissues: blood cells (five WBC types, platelets, RBC); compact bone (Haversian canal with blood vessels and nerve fibres, and canaliculi with osteocyte processes); hyaline cartilage (chondrocytes in a hyaline matrix); areolar tissue (fibroblast, collagen and reticular fibres, macrophage, mast cell, plasma cell); and adipose tissue (adipocytes with fat droplets). A neuron diagram shows a signal passing from the dendrites to the cell body, along the axon as an electrical signal to the axon tips, and across a synapse to the next neuron's dendrites.",
+    "concepts": [
+     {
+      "concept_id": "C01",
+      "name": "Four basic types of animal tissue",
+      "item_ids": [
+       "p003-i1",
+       "p003-i2",
+       "p003-i3",
+       "p003-i4",
+       "p003-i5"
+      ],
+      "content_type": "classification",
+      "core_explanation": "(Book) Our body has mainly four tissue types, each defined by one job: epithelial tissue provides covering or lining; muscular tissue helps in movement; neural tissue responds to stimuli; connective tissue supports, links and cushions. (Teaching tip) Anchor the chapter as 'cover, move, respond, support'. Every later detail is a sub-type or feature of one of these four."
+     },
+     {
+      "concept_id": "C02",
+      "name": "General features of epithelial tissue",
+      "item_ids": [
+       "p003-i6",
+       "p003-i7",
+       "p003-i8",
+       "p003-i9",
+       "p003-i10"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Epithelium covers most organs and cavities within the body and forms a barrier that keeps different body systems separate. Its cells are tightly packed into a continuous sheet, with only a small amount of cementing material and almost no intercellular spaces. All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane. (Outside) Close packing and cell junctions make epithelium a selective barrier that restricts uncontrolled passage between cells. How leaky it is varies between epithelia, so it is not a complete seal. Epithelium usually has no blood vessels of its own and is nourished by diffusion from the tissue beneath the basement membrane."
+     },
+     {
+      "concept_id": "C03",
+      "name": "Glandular epithelium",
+      "item_ids": [
+       "p003-i11"
+      ],
+      "content_type": "definition",
+      "core_explanation": "(Book) Epithelial cells often acquire additional specialisation as gland cells, which secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward and a multicellular gland is formed; this is glandular epithelium. (Outside) A mucus-secreting goblet cell is a unicellular gland. Sweat and salivary glands are multicellular glands formed by infolding: their secretory cells are glandular epithelium, while their ducts are lined by other epithelia (see C06)."
+     },
+     {
+      "concept_id": "C04",
+      "name": "Shapes of epithelial cells (Fig. 6.9)",
+      "item_ids": [
+       "p003-i12",
+       "p003-i13",
+       "p003-i14",
+       "p003-i15",
+       "p003-i16"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book, Fig. 6.9) The figure shows four epithelia: (a) squamous, a single thin layer of flat cells with irregular boundaries; (b) stratified squamous, a thick block of many layers with flatter cells at the top; (c) cuboidal, a single layer of cube-like cells with round nuclei; (d) columnar (ciliated), a single layer of tall cells with hair-like cilia on the free surface. Each sheet rests on an unlabelled blue base. The figure does not name it; it probably represents the basement membrane of C02 or the underlying tissue. (Outside) Naming rule: combine shape (squamous = flat; cuboidal = roughly as tall as wide; columnar = clearly taller than wide) with layering (simple = one layer; stratified = many layers; pseudostratified = a single layer that only looks layered, see C05)."
+     },
+     {
+      "concept_id": "C05",
+      "name": "Simple epithelia: squamous, cuboidal, columnar",
+      "item_ids": [
+       "p003-i18",
+       "p003-i19",
+       "p003-i20",
+       "p003-i21"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "(Book) Simple squamous is a single layer of flat cells with irregular boundaries. It lines blood vessels, capillaries, the air sacs of the lungs and Bowman's capsule of the kidney, and serves transport by diffusion where minimal protection is required. Simple cuboidal is a single layer of 'short cylindrical cells' lining kidney tubules and glandular ducts; it may have microvilli, as in the proximal convoluted tubule, and does absorption and secretion. Simple columnar is a single layer of tall, slender cells, 'often ciliated', lining the digestive tract and upper respiratory tract; its functions are protection, absorption, mucus secretion and movement in a specific direction. (Outside, why) A thin single layer gives a short diffusion distance for gas exchange and filtration. Cuboidal cells are roughly as tall as wide, shorter than columnar cells. Microvilli are non-motile finger-like folds that increase surface area for absorption; motile cilia beat to move mucus or other material in one direction. (Outside, reading the columnar row correctly) The book groups digestive and respiratory linings in one simplified row, so do not read it as saying intestinal absorptive epithelium is ciliated. The lining of the stomach and intestine is simple columnar: intestinal absorptive cells bear microvilli (brush border), not cilia, and goblet cells among them secrete mucus. Ciliated simple columnar occurs in places such as the uterine (fallopian) tube. Much of the conducting respiratory tract (nasal cavity, trachea, bronchi) is lined by pseudostratified ciliated columnar epithelium. Pseudostratified means it looks multilayered because the nuclei lie at different heights, but it is really one layer: every cell touches the basement membrane, while not every cell reaches the free surface. Its cilia and goblet-cell mucus trap dust and sweep it upward, which is the 'movement in a specific direction' the book mentions."
+     },
+     {
+      "concept_id": "C06",
+      "name": "Stratified epithelia: squamous, cuboidal, columnar",
+      "item_ids": [
+       "p003-i18",
+       "p003-i22",
+       "p003-i23",
+       "p003-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "(Book) Stratified squamous lines the mouth and vagina. It has several layers that are continuously sloughed off and regenerated: the lower layer is columnar and metabolically active, and older cells are pushed upward and become flat. Its function is protection. Stratified cuboidal is found in mammary, sweat and salivary glands. Its upper layer is cuboid and the other layers may be cuboidal or other types; it protects the ducts of various glands. Stratified columnar is found in the male urethra and the lobar ducts of salivary glands. It has a layer of columnar cells on squamous, columnar or cuboidal cells, and does protection and secretion. (Outside) A stratified epithelium is named by the shape of its top (superficial) layer, which is why its deeper cells may differ. Many layers plus constant renewal let it withstand wear, such as friction from food in the mouth. Unlike pseudostratified epithelium, its upper cells do not touch the basement membrane."
+     },
+     {
+      "concept_id": "C07",
+      "name": "Three types of muscular tissue – comparison table",
+      "item_ids": [
+       "p007-i2"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "(Book) The table compares skeletal, cardiac and visceral (smooth) muscle by location, function, appearance and control, with a drawing of each. Skeletal muscle is a cylindrical striped fibre with several nuclei at the edge. Cardiac muscle has branched, striped, interlinked cells. Smooth muscle is a spindle-shaped cell with one central nucleus. (Teaching tip) Striations occur in skeletal and cardiac muscle; voluntary control occurs only in skeletal muscle."
+     },
+     {
+      "concept_id": "C08",
+      "name": "Skeletal muscle",
+      "item_ids": [
+       "p007-i3"
+      ],
+      "content_type": "fact",
+      "core_explanation": "(Book) Location: skeleton. Function: movement, heat, posture. Appearance: striated, multinucleated with eccentric nuclei, fibres parallel. Control: voluntary. (Outside) Skeletal muscles attach to bones and move them at joints. Shivering is rapid skeletal muscle contraction that produces heat. Each fibre forms by the fusion of many cells, hence its many nuclei."
+     },
+     {
+      "concept_id": "C09",
+      "name": "Cardiac muscle",
+      "item_ids": [
+       "p007-i4"
+      ],
+      "content_type": "fact",
+      "core_explanation": "(Book) Location: heart. Function: pump blood continuously. Appearance: striated, one central nucleus. Control: involuntary. The table drawing (p007-i2) shows branched, interlinked cells. (Outside) Gap junctions at the intercalated discs couple the cells electrically and help coordinate contraction; the atria and ventricles contract in an organised sequence. (Exam tip) Cardiac muscle is the classic odd one out: striated yet involuntary."
+     },
+     {
+      "concept_id": "C10",
+      "name": "Visceral (smooth) muscle",
+      "item_ids": [
+       "p007-i5"
+      ],
+      "content_type": "fact",
+      "core_explanation": "(Book) Location: G.I. tract, uterus, eye, blood vessels. Function: peristalsis, blood pressure, pupil size, erection of hairs. Appearance: no striations, one central nucleus (a spindle-shaped cell in the drawing). Control: involuntary. (Outside) Smooth muscle in vessel walls narrows or widens the vessels and so changes blood pressure. Iris muscles change pupil size. The arrector pili muscles raise hairs, causing goosebumps. Uterine smooth muscle contracts during childbirth."
+     },
+     {
+      "concept_id": "C11",
+      "name": "Connective tissues – overview of Fig. 6.10",
+      "item_ids": [
+       "p007-i6",
+       "p007-i15"
+      ],
+      "content_type": "classification",
+      "core_explanation": "(Book) Connective tissue supports, links and cushions. Fig. 6.10 shows (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue and (e) adipose tissue. (Outside) Unlike epithelium, connective tissue cells usually lie scattered in an extracellular matrix of ground substance and fibres. The matrix may be fluid (plasma in blood), hard (bone), firm but flexible (cartilage) or loose (areolar)."
+     },
+     {
+      "concept_id": "C12",
+      "name": "Blood tissue and its formed elements (Fig. 6.10a)",
+      "item_ids": [
+       "p007-i7",
+       "p007-i8",
+       "p007-i9"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Panel (a) shows several blood cells. Neutrophil (polymorphonuclear leucocyte), eosinophil and basophil are drawn with granular cytoplasm and a dark-stained nucleus. Lymphocyte and monocyte are the other white blood corpuscles. Platelets appear as small fragments, and the red blood corpuscle as a pale round disc. (Outside) Blood is the tissue itself: a fluid connective tissue in which RBCs, WBCs and platelets (the formed elements) float in plasma. Neutrophils, eosinophils and basophils are granulocytes; lymphocytes and monocytes are agranulocytes. WBCs defend against infection, platelets (cell fragments) help clotting, and RBCs carry oxygen using haemoglobin. Mature mammalian RBCs lack a nucleus and are typically biconcave discs. The shape is maintained by the membrane and its underlying cytoskeleton."
+     },
+     {
+      "concept_id": "C13",
+      "name": "Compact bone (Fig. 6.10b)",
+      "item_ids": [
+       "p007-i10",
+       "p007-i11"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Compact bone shows concentric rings around a Haversian canal, which contains blood vessels and nerve fibres. Canaliculi radiate from the bone cells and contain the slender processes of osteocytes. (Outside) Because the matrix is hard and calcified, nutrients and wastes move through the Haversian canal and the canalicular network. Each ring system is a Haversian system (osteon)."
+     },
+     {
+      "concept_id": "C14",
+      "name": "Hyaline cartilage (Fig. 6.10c)",
+      "item_ids": [
+       "p007-i12"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Chondrocytes, often in pairs, lie in a clear hyaline matrix. (Outside) The matrix is firm yet flexible. Hyaline cartilage occurs at the ends of long bones and in the nose, the tracheal rings and the larynx. It has no blood vessels, so it heals slowly."
+     },
+     {
+      "concept_id": "C15",
+      "name": "Areolar tissue (Fig. 6.10d)",
+      "item_ids": [
+       "p007-i13"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Areolar tissue shows thin branching reticular fibres and thick wavy collagen fibres. Its cells are a large star-shaped fibroblast, an irregular macrophage, a rounded mast cell and a plasma cell. (Outside) Fibroblasts make the fibres. Macrophages engulf microbes and debris; circulating monocytes can enter tissues and become macrophages, especially during inflammation, but many tissue-resident macrophages arise from embryonic precursors and maintain themselves locally. Mast cells release histamine. Plasma cells, derived from B lymphocytes, make antibodies. Areolar tissue is a loose connective tissue beneath the skin and around organs, where it packs and defends."
+     },
+     {
+      "concept_id": "C16",
+      "name": "Adipose tissue (Fig. 6.10e)",
+      "item_ids": [
+       "p007-i14"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book) Adipose tissue consists of adipocytes. Each cell is filled by a large fat droplet, with a small nucleus pressed to the cell edge. (Outside) It stores energy as fat, insulates the body under the skin and cushions organs such as the kidneys."
+     },
+     {
+      "concept_id": "C17",
+      "name": "Structure of a neuron",
+      "item_ids": [
+       "p007-i17",
+       "p007-i19",
+       "p007-i20",
+       "p007-i21",
+       "p007-i22"
+      ],
+      "content_type": "structure",
+      "core_explanation": "(Book, diagram) Each depicted neuron has a star-shaped cell body with a dark nucleus, short branched dendrites, one long axon and branched axon tips. The first neuron's dendrites receive the axon of the previous neuron. (Outside) In general, a neuron has a cell body (soma) containing the nucleus, dendrites that usually receive signals, and an axon that carries signals away to its terminals. The shape of the cell body varies between neurons. Neurons are the signalling cells of neural tissue, which the book says responds to stimuli."
+     },
+     {
+      "concept_id": "C18",
+      "name": "Impulse transmission and the synapse",
+      "item_ids": [
+       "p007-i16",
+       "p007-i18",
+       "p007-i21"
+      ],
+      "content_type": "process",
+      "core_explanation": "(Book, diagram) The signal path is: axon of the previous neuron → synapse → dendrites → cell body → along the axon as an electrical signal → axon tips → synapse → dendrites of the next neuron. A synapse is the junction between the axon tips of one neuron and the dendrites of the next. (Outside) At the usual chemical synapse, the presynaptic terminal releases a neurotransmitter, which acts on receptors of the postsynaptic cell and can trigger a new electrical response. Transmission is typically one-way because release happens on the presynaptic side and the receptors sit on the postsynaptic side. Electrical synapses also exist but are not shown here."
+     }
+    ],
+    "relations": [
+     {
+      "from_concept": "C02",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Epithelial tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C07",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Muscular tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C11",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Connective tissue is one of the four basic tissues."
+     },
+     {
+      "from_concept": "C17",
+      "relation": "part_of",
+      "to_concept": "C01",
+      "note": "(Book) Neural tissue is one of the four basic tissues. (Outside) Neurons are its signalling cells."
+     },
+     {
+      "from_concept": "C03",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "(Book) Glandular epithelium is epithelium specialised for secretion."
+     },
+     {
+      "from_concept": "C04",
+      "relation": "part_of",
+      "to_concept": "C02",
+      "note": "(Book) Fig. 6.9 shows the epithelial cell shapes. (Outside) These shapes are the basis for naming epithelia."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "(Book) The simple epithelia are rows of the epithelial table. (Outside) 'Simple' means a single layer."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "type_of",
+      "to_concept": "C02",
+      "note": "(Book) The stratified epithelia have several layers."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "contrasts_with",
+      "to_concept": "C06",
+      "note": "(Book) Simple epithelia serve diffusion, absorption and secretion; stratified epithelia are mainly protective. (Outside) One layer versus many layers explains this. Pseudostratified epithelium only looks layered: all its cells rest on the basement membrane."
+     },
+     {
+      "from_concept": "C05",
+      "relation": "depends_on",
+      "to_concept": "C04",
+      "note": "(Book) The table's names (squamous, cuboidal, columnar) match the shapes in Fig. 6.9."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "depends_on",
+      "to_concept": "C04",
+      "note": "(Outside) A stratified epithelium is named by the shape of its top layer. (Book) Its deeper layers may differ, as in stratified cuboidal."
+     },
+     {
+      "from_concept": "C06",
+      "relation": "compares_with",
+      "to_concept": "C03",
+      "note": "(Book) Stratified cuboidal protects the ducts of mammary, sweat and salivary glands, and stratified columnar lines the lobar ducts of salivary glands. (Outside) Duct lining is different from the secretory glandular epithelium."
+     },
+     {
+      "from_concept": "C08",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "(Book) Skeletal muscle: striated, voluntary."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "(Book) Cardiac muscle: striated, involuntary."
+     },
+     {
+      "from_concept": "C10",
+      "relation": "type_of",
+      "to_concept": "C07",
+      "note": "(Book) Smooth muscle: unstriated, involuntary."
+     },
+     {
+      "from_concept": "C08",
+      "relation": "contrasts_with",
+      "to_concept": "C10",
+      "note": "(Book) Skeletal muscle is striated, multinucleate (eccentric nuclei) and voluntary; smooth muscle is unstriated, has one central nucleus and is involuntary."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "compares_with",
+      "to_concept": "C08",
+      "note": "(Book) Both are striated, but cardiac muscle is involuntary with one central nucleus."
+     },
+     {
+      "from_concept": "C09",
+      "relation": "compares_with",
+      "to_concept": "C10",
+      "note": "(Book) Both are involuntary with one central nucleus, but cardiac muscle is striated."
+     },
+     {
+      "from_concept": "C12",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Fig. 6.10a shows blood cells among the connective tissues. (Outside) Blood is a fluid connective tissue; RBCs, WBCs and platelets are its formed elements, not tissues."
+     },
+     {
+      "from_concept": "C13",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Compact bone is shown as a connective tissue. (Outside) It is a hard supportive connective tissue."
+     },
+     {
+      "from_concept": "C14",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Hyaline cartilage is shown as a connective tissue. (Outside) It is a flexible supportive connective tissue."
+     },
+     {
+      "from_concept": "C15",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Areolar tissue is shown as a connective tissue. (Outside) It is a loose connective tissue."
+     },
+     {
+      "from_concept": "C16",
+      "relation": "type_of",
+      "to_concept": "C11",
+      "note": "(Book) Adipose tissue is shown as a connective tissue. (Outside) It is a loose connective tissue that stores fat."
+     },
+     {
+      "from_concept": "C13",
+      "relation": "contrasts_with",
+      "to_concept": "C14",
+      "note": "(Book) Bone has concentric rings, a Haversian canal and canaliculi; cartilage has chondrocytes in a clear hyaline matrix. (Outside) Bone matrix is hard and vascular; cartilage is flexible and avascular."
+     },
+     {
+      "from_concept": "C15",
+      "relation": "compares_with",
+      "to_concept": "C12",
+      "note": "(Outside) Plasma cells derive from B lymphocytes. Circulating monocytes can enter tissues and differentiate into macrophages, particularly during inflammation. Not all tissue-resident macrophages come from circulating monocytes: many arise during embryonic development and maintain themselves by local proliferation. This links some areolar cells to the WBCs of panel (a)."
+     },
+     {
+      "from_concept": "C18",
+      "relation": "depends_on",
+      "to_concept": "C17",
+      "note": "(Book) Tracing the signal path needs the neuron's parts: dendrites, cell body, axon and axon tips."
+     },
+     {
+      "from_concept": "C18",
+      "relation": "function_of",
+      "to_concept": "C17",
+      "note": "(Book) The diagram is titled 'How do neurons transmit impulses'."
+     },
+     {
+      "from_concept": "C02",
+      "relation": "contrasts_with",
+      "to_concept": "C11",
+      "note": "(Book) Epithelial cells are tightly packed with almost no intercellular space. (Outside) Connective tissue cells are usually scattered in abundant matrix."
+     },
+     {
+      "from_concept": "C10",
+      "relation": "compares_with",
+      "to_concept": "C05",
+      "note": "(Book) Simple columnar epithelium lines the digestive tract, and G.I.-tract smooth muscle performs peristalsis. (Outside) They are different tissues in different layers of the same gut wall, working together."
+     }
+    ],
+    "prerequisites_to_teach": [
+     {
+      "name": "Cell as the basic unit of life and meaning of 'tissue' (a group of similar cells with a common function)",
+      "why_needed": "The whole chapter classifies groups of cells.",
+      "needed_for": [
+       "C01"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell differentiation in multicellular organisms",
+      "why_needed": "It explains why cells take different shapes (flat, tall, branched) for different jobs.",
+      "needed_for": [
+       "C01",
+       "C04"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Organs, body cavities and body systems (e.g. digestive, respiratory, circulatory)",
+      "why_needed": "Epithelium 'covers most organs and cavities' and 'keeps different body systems separate'.",
+      "needed_for": [
+       "C01",
+       "C02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell membrane, nucleus and cytoplasm",
+      "why_needed": "Many identifying features concern nuclei (eccentric, central, multinucleate) and cytoplasm (granular WBCs).",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10",
+       "C12",
+       "C16",
+       "C17"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Intercellular space and cell junctions/cementing material",
+      "why_needed": "Needed to see why epithelium forms a close-packed, selective barrier.",
+      "needed_for": [
+       "C02"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Diffusion across thin layers",
+      "why_needed": "It explains simple squamous epithelium in capillaries and alveoli, how avascular epithelium is nourished, and how osteocytes are supplied.",
+      "needed_for": [
+       "C02",
+       "C05",
+       "C13"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Extracellular matrix and protein fibres (collagen, elastic, reticular)",
+      "why_needed": "The basement membrane and all connective tissues are described by their matrix and fibres.",
+      "needed_for": [
+       "C02",
+       "C11",
+       "C14",
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Secretion and exocrine glands with ducts",
+      "why_needed": "Needed for glandular epithelium and for the gland ducts lined by stratified epithelia.",
+      "needed_for": [
+       "C03",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Simple versus stratified layering (one cell layer versus several stacked layers; in stratified epithelium only the bottom layer touches the basement membrane)",
+      "why_needed": "The epithelium table is divided by layering, and naming depends on it.",
+      "needed_for": [
+       "C04",
+       "C05",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Pseudostratified epithelium (a single layer that looks multilayered because nuclei sit at different heights; every cell touches the basement membrane, but not every cell reaches the free surface)",
+      "why_needed": "Much of the conducting respiratory tract is pseudostratified ciliated columnar. Students need this to read the book's 'upper respiratory tract … often ciliated' row correctly and to tell it apart from true stratified epithelium.",
+      "needed_for": [
+       "C04",
+       "C05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cilia versus microvilli (motile hairs that move material versus non-motile folds that increase surface area)",
+      "why_needed": "Needed for ciliated columnar epithelium, the PCT microvilli and the intestinal-versus-airway distinction.",
+      "needed_for": [
+       "C04",
+       "C05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Basic organ locations: alveoli, nephron (Bowman's capsule, PCT), digestive tract, trachea and bronchi, urethra",
+      "why_needed": "The epithelium table is organised by location.",
+      "needed_for": [
+       "C05",
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Mitosis and cell renewal",
+      "why_needed": "It explains the metabolically active lower layer and the sloughing of stratified squamous epithelium.",
+      "needed_for": [
+       "C06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Muscle cell contraction (cells shortening to produce force)",
+      "why_needed": "Muscular tissue 'helps in movement' because its cells contract.",
+      "needed_for": [
+       "C01",
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Skeleton and bones (muscles attached to bones move them at joints)",
+      "why_needed": "Skeletal muscle is located on the skeleton and produces movement and posture.",
+      "needed_for": [
+       "C08",
+       "C13"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Heart as the pump of the circulatory system",
+      "why_needed": "Cardiac muscle's function is to 'pump blood continuously'.",
+      "needed_for": [
+       "C09"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Voluntary versus involuntary actions",
+      "why_needed": "Control is a key column of the muscle table.",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "What striations are (light and dark bands of contractile proteins)",
+      "why_needed": "Appearance is a key column of the muscle table.",
+      "needed_for": [
+       "C07",
+       "C08",
+       "C09",
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Peristalsis, pupil and iris, blood pressure",
+      "why_needed": "These are the smooth muscle functions the book lists.",
+      "needed_for": [
+       "C10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood components and their roles (RBC and haemoglobin, WBC and immunity, platelets and clotting)",
+      "why_needed": "Fig. 6.10a only names the cells; their roles must be explained.",
+      "needed_for": [
+       "C12",
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Antibodies and B lymphocytes; histamine; phagocytosis",
+      "why_needed": "Needed to explain the plasma cell, mast cell and macrophage of areolar tissue.",
+      "needed_for": [
+       "C15"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Fat as stored energy",
+      "why_needed": "Needed to explain adipocytes.",
+      "needed_for": [
+       "C16"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "What a stimulus is and what a nerve impulse is (an electrical signal produced by ion movement across the membrane)",
+      "why_needed": "Needed for 'neural tissue responds to stimuli' and for the electrical signal along the axon.",
+      "needed_for": [
+       "C01",
+       "C17",
+       "C18"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Neurotransmitter as a chemical messenger acting on receptors",
+      "why_needed": "It explains what happens at a chemical synapse and why transmission is typically one-way.",
+      "needed_for": [
+       "C18"
+      ],
+      "basis": "outside"
+     }
+    ],
+    "cross_references": [
+     {
+      "from_item_id": "p003-i17",
+      "reference_text": "Fig. 6.9: Different types of epithelial tissues",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i12",
+      "reference_text": "Fig. 6.9",
+      "resolved_item_id": "p003-i17"
+     },
+     {
+      "from_item_id": "p007-i6",
+      "reference_text": "Fig. 6.10: Types of connective tissues",
+      "resolved_item_id": "p007-i15"
+     },
+     {
+      "from_item_id": "p007-i15",
+      "reference_text": "Fig. 6.10 (a)–(e)",
+      "resolved_item_id": "p007-i6"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: simple squamous",
+      "resolved_item_id": "p003-i19"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: simple cuboidal",
+      "resolved_item_id": "p003-i20"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: simple columnar",
+      "resolved_item_id": "p003-i21"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: stratified squamous",
+      "resolved_item_id": "p003-i22"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: stratified cuboidal",
+      "resolved_item_id": "p003-i23"
+     },
+     {
+      "from_item_id": "p003-i18",
+      "reference_text": "table row: stratified columnar",
+      "resolved_item_id": "p003-i24"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "table row: Skeletal",
+      "resolved_item_id": "p007-i3"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "table row: Cardiac",
+      "resolved_item_id": "p007-i4"
+     },
+     {
+      "from_item_id": "p007-i2",
+      "reference_text": "table row: Visceral (smooth muscle)",
+      "resolved_item_id": "p007-i5"
+     },
+     {
+      "from_item_id": "p007-i1",
+      "reference_text": "Three Types of Muscular Tissue (heading of table)",
+      "resolved_item_id": "p007-i2"
+     },
+     {
+      "from_item_id": "p003-i3",
+      "reference_text": "Muscular – helps in movement (detailed in muscle table)",
+      "resolved_item_id": "p007-i2"
+     },
+     {
+      "from_item_id": "p003-i5",
+      "reference_text": "Connective – supports, links and cushions (shown in Fig. 6.10)",
+      "resolved_item_id": "p007-i6"
+     },
+     {
+      "from_item_id": "p003-i4",
+      "reference_text": "Neural – responds to stimuli (shown in neuron diagram)",
+      "resolved_item_id": "p007-i16"
+     },
+     {
+      "from_item_id": "p003-i10",
+      "reference_text": "basement membrane (possibly the unlabelled blue base in Fig. 6.9)",
+      "resolved_item_id": "p003-i12"
+     }
+    ],
+    "question_links": [],
+    "teaching_order": [
+     "C01",
+     "C02",
+     "C03",
+     "C04",
+     "C05",
+     "C06",
+     "C07",
+     "C08",
+     "C09",
+     "C10",
+     "C11",
+     "C12",
+     "C13",
+     "C14",
+     "C15",
+     "C16",
+     "C17",
+     "C18"
+    ],
+    "exam_focus": [
+     {
+      "concept_id": "C01",
+      "why": "The four tissue types and their one-line functions are standard classification and matching questions."
+     },
+     {
+      "concept_id": "C05",
+      "why": "Location–function pairs are frequent match-the-following questions: alveoli, capillaries and Bowman's capsule for simple squamous; PCT with microvilli for cuboidal; gut lining for columnar. Learn the book's rows together with the standard distinctions (outside). Intestinal absorptive cells are simple columnar with microvilli, not cilia. Much of the conducting airway is pseudostratified ciliated columnar, a single layer that only looks layered. Ciliated simple columnar occurs in the uterine tube. In an exam, choose the option consistent with these distinctions rather than reading the book's row as 'the intestine is ciliated'."
+     },
+     {
+      "concept_id": "C06",
+      "why": "Classic 'where found' and odd-one-out facts: stratified squamous in the mouth and vagina, stratified cuboidal in gland ducts, and stratified columnar in the male urethra."
+     },
+     {
+      "concept_id": "C07",
+      "why": "The three-way muscle comparison (striations, nuclei, control) is a high-yield source of statement-based questions."
+     },
+     {
+      "concept_id": "C09",
+      "why": "Cardiac muscle is the odd one out: striated yet involuntary, with one central nucleus."
+     },
+     {
+      "concept_id": "C10",
+      "why": "Smooth muscle locations and functions (peristalsis, pupil size, blood pressure, hair erection) appear in statement questions."
+     },
+     {
+      "concept_id": "C12",
+      "why": "GS science commonly asks you to name the WBC types, separate granulocytes from agranulocytes, identify platelets and RBCs, and recognise blood as a connective tissue."
+     },
+     {
+      "concept_id": "C13",
+      "why": "Haversian canal contents (blood vessels, nerve fibres) and canaliculi with osteocyte processes are frequently tested."
+     },
+     {
+      "concept_id": "C15",
+      "why": "The cells of areolar tissue (fibroblast, macrophage, mast cell, plasma cell) and their roles are often tested."
+     },
+     {
+      "concept_id": "C18",
+      "why": "The definition of a synapse and the impulse direction (dendrite → cell body → axon → axon tips → next neuron) are standard questions."
+     },
+     {
+      "concept_id": "C02",
+      "why": "Tight packing, almost no intercellular space and the basement membrane appear in 'which statement is correct' questions."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "1729df085cdaf1e3fc5e35e7dadef45206459e8eaa4ea021e8c6174c12e39943",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13483,
+    "output_tokens": 1450,
+    "cost_usd": 0.041466,
+    "value": {
+     "notes": {
+      "about": "This unit introduces the four animal tissue types and develops epithelial classification, muscle comparisons, connective-tissue identification and neuronal signalling. The map covers every supplied teachable item and generally connects structure, location and function well.",
+      "key_questions": [
+       "Can learners distinguish epithelial types by layering, surface-cell shape, location and function?",
+       "Can learners compare the three muscle types without confusing striation with voluntary control?",
+       "Can learners identify the connective-tissue structures and trace the depicted neuronal signal pathway?",
+       "Are textbook simplifications distinguished from standard biological qualifications?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the coverage, concept grouping and teaching order.",
+        "reason": "Every teachable item belongs to at least one concept, the four tissue branches are connected, and neuronal structure precedes impulse transmission."
+       },
+       {
+        "decision": "Accept the explicitly marked outside explanations.",
+        "reason": "They provide useful standard qualifications, particularly for respiratory epithelium, microvilli versus cilia, blood as a tissue and chemical synaptic transmission."
+       },
+       {
+        "decision": "Require an explicit chapter-level planning-notes section.",
+        "reason": "The map has a summary and scattered qualifications, but does not explicitly record its main mapping decisions with reasons and its remaining uncertainties."
+       }
+      ],
+      "uncertain": [
+       "The identity of the unlabelled blue base in Fig. 6.9 cannot be settled from the supplied description; the map appropriately retains this uncertainty.",
+       "Only the supplied item descriptions, rather than the original page images, are available for checking visual details."
+      ]
+     },
+     "verdict": "fail",
+     "problems": [
+      {
+       "where": "Chapter-map root: missing planning notes",
+       "problem": "There is no explicit notes section stating the unit's scope, the principal mapping decisions with reasons, and remaining uncertainties. The chapter summary explains content, but does not fulfil the decision-record requirement; relevant qualifications are scattered across concepts.",
+       "fix": "Add brief chapter-level notes explaining the scope of the supplied material, why the epithelial figure and table are taught together, why standard corrections accompany the simplified columnar row, and why neuron structure precedes transmission. Record the unresolved identity of Fig. 6.9's blue base without assigning it a definite label."
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Book-derived explanations are identified, and substantive biological additions are marked as outside knowledge. The additions are standard and appropriately qualified."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The concepts preserve the supplied locations, structures, functions and diagram labels, with useful structure–function reasoning rather than merely summarising the chapter."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "The scope is evident from the summary, but explicit planning notes recording decisions, reasons and uncertainties are missing."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No teachable item is visibly truncated or merged away. Grouped concepts retain the distinctions between individual table rows and diagram components."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "No supplied question answers require auditing. The explanatory material distinguishes book statements from outside explanations, including corrections to simplified textbook descriptions."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete biological concepts and are linked to the concepts requiring them."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "The selected exam priorities are sensible for foundational UPSC/State PCS biology. No questions were supplied, so the empty question_links array leaves no supplied question unlinked."
+      },
+      {
+       "rule_id": "S1-12",
+       "met": true,
+       "note": "All teachable items are mapped, all concepts are connected, figure and table references are resolved, and the teaching order is coherent. Non-teachable headings and captions are also accounted for through cross-references."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] Chapter-map root: missing planning notes: There is no explicit notes section stating the unit's scope, the principal mapping decisions with reasons, and remaining uncertainties. The chapter summary explains content, but does not fulfil the decision-record requirement; relevant qualifications are scattered across concepts. -> fix: Add brief chapter-level notes explaining the scope of the supplied material, why the epithelial figure and table are taught together, why standard corrections accompany the simplified columnar row, and why neuron structure precedes transmission. Record the unresolved identity of Fig. 6.9's blue base without assigning it a definite label.",
+    "[reviewer] rule G-03 not met: The scope is evident from the summary, but explicit planning notes recording decisions, reasons and uncertainties are missing."
+   ],
+   "passed": false,
+   "finished_at": 1792591607.8487327
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 1.282533,
+ "navin_verdict": null
+}

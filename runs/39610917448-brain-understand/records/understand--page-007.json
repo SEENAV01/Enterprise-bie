@@ -1,0 +1,3481 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-007",
+ "status": "failed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.2",
+ "rulebook_digest": "f97eb21bab87f4f22455c6a7708e02d1251c8a6d6dd5bd785e392b8947a593b1",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "anthropic",
+ "reviewer_route": "openai",
+ "inputs_digest": "2e46a6080746a62e0ffa0d9567e69fe6675ba6c1db6b1b27852dcdbcbb912798",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' when the book states it, 'outside' when it comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" or \"outside\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 7 of 14.\n\nLast lines of the previous page (context only):\nStratified Cuboidal Mammary glands, sweat The upper layer is cuboid and Protection of ducts of various\ngland and salivary glands other layers may be cuboidal glands\nor other types\nStratified Columnar Male urethra and lobar ducts There is a layer of columnar Protection and secretion\nof salivary glands cells present on squamous,\ncolumnar or cuboidal\nepithelial cells\n89\n\nFirst lines of the next page (context only):\n(none)\n\nNative text blocks of this page (id | text):\np0007-b0001 | Science and Technology\np0007-b0002 | 93"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "8ce0bf26eadd9c88faabe517c19219630b56e46ac1198e0c327aee1d7d26f518",
+    "base64_chars": 882908
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792590418.2885919,
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "8579f22c7096ed4a308c70c0149bd603007ef5d5589f98472aea48ce432c2255",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8320,
+    "output_tokens": 10871,
+    "cost_usd": 0.27577
+   },
+   "notes": {
+    "about": "Page 7 of the Tissues chapter. It is read almost entirely from the image. It has a comparison table of the three types of muscular tissue (skeletal, cardiac, visceral/smooth), an NCERT figure (Fig. 6.10) showing the types of connective tissue, and a diagram of how neurons pass an impulse across a synapse. It extends the epithelial-tissue table from the previous page into the muscular, connective and nervous tissue types.",
+    "key_questions": [
+     "How do skeletal, cardiac and smooth muscle differ in location, function, appearance (striations, nuclei) and control?",
+     "Why is cardiac muscle striated yet involuntary?",
+     "Which muscle type controls pupil size, blood pressure, peristalsis and erection of hairs?",
+     "What are the components of blood, bone, cartilage, areolar and adipose tissue as shown in Fig. 6.10?",
+     "What are the Haversian canal, canaliculus, chondrocyte, fibroblast, mast cell, plasma cell and adipocyte?",
+     "How does an electrical signal travel from dendrites through the cell body and axon to the axon tips, and across a synapse to the next neuron?"
+    ],
+    "decisions": [
+     {
+      "decision": "Treated the muscle table as one table item plus three table_row items, each row giving every cell with its column header.",
+      "reason": "Rule S1-03, and comparison tables are high-yield for UPSC."
+     },
+     {
+      "decision": "Treated Fig. 6.10 as one diagram with sub-panels (a)-(e), with each label as a diagram_label naming its panel.",
+      "reason": "Rule S1-04; it keeps every image-only label as a gameable fact."
+     },
+     {
+      "decision": "Treated the neuron impulse figure as a separate diagram, with labels for both the previous and the next neuron.",
+      "reason": "It is a distinct flow (sequence) diagram."
+     },
+     {
+      "decision": "Marked the two native blocks (header and page number 93) as boilerplate.",
+      "reason": "The text layer contains nothing teachable; all content is in the image."
+     }
+    ],
+    "uncertain": [
+     "The small labels in Fig. 6.10 are tiny. They were read as Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil, Lymphocyte, Monocyte, Platelets, Cytoplasm and Nucleus, which matches the standard NCERT Fig. 6.10.",
+     "The faint watermark text over the figures was ignored."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Page 7 of the Tissues chapter. It is read almost entirely from the image. It has a comparison table of the three types of muscular tissue (skeletal, cardiac, visceral/smooth), an NCERT figure (Fig. 6.10) showing the types of connective tissue, and a diagram of how neurons pass an impulse across a synapse. It extends the epithelial-tissue table from the previous page into the muscular, connective and nervous tissue types.",
+     "key_questions": [
+      "How do skeletal, cardiac and smooth muscle differ in location, function, appearance (striations, nuclei) and control?",
+      "Why is cardiac muscle striated yet involuntary?",
+      "Which muscle type controls pupil size, blood pressure, peristalsis and erection of hairs?",
+      "What are the components of blood, bone, cartilage, areolar and adipose tissue as shown in Fig. 6.10?",
+      "What are the Haversian canal, canaliculus, chondrocyte, fibroblast, mast cell, plasma cell and adipocyte?",
+      "How does an electrical signal travel from dendrites through the cell body and axon to the axon tips, and across a synapse to the next neuron?"
+     ],
+     "decisions": [
+      {
+       "decision": "Treated the muscle table as one table item plus three table_row items, each row giving every cell with its column header.",
+       "reason": "Rule S1-03, and comparison tables are high-yield for UPSC."
+      },
+      {
+       "decision": "Treated Fig. 6.10 as one diagram with sub-panels (a)-(e), with each label as a diagram_label naming its panel.",
+       "reason": "Rule S1-04; it keeps every image-only label as a gameable fact."
+      },
+      {
+       "decision": "Treated the neuron impulse figure as a separate diagram, with labels for both the previous and the next neuron.",
+       "reason": "It is a distinct flow (sequence) diagram."
+      },
+      {
+       "decision": "Marked the two native blocks (header and page number 93) as boilerplate.",
+       "reason": "The text layer contains nothing teachable; all content is in the image."
+      }
+     ],
+     "uncertain": [
+      "The small labels in Fig. 6.10 are tiny. They were read as Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil, Lymphocyte, Monocyte, Platelets, Cytoplasm and Nucleus, which matches the standard NCERT Fig. 6.10.",
+      "The faint watermark text over the figures was ignored."
+     ]
+    },
+    "page_summary": "Image-based page. It has (1) a table 'Three Types of Muscular Tissue' comparing Skeletal (skeleton; movement, heat, posture; striated, multinucleated with eccentric nuclei, parallel fibres; voluntary), Cardiac (heart; pumps blood continuously; striated, one central nucleus; involuntary) and Visceral/smooth muscle (G.I. tract, uterus, eye, blood vessels; peristalsis, blood pressure, pupil size, erects hairs; no striations, one central nucleus; involuntary). (2) NCERT Fig. 6.10, the types of connective tissue: (a) blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue. (3) A diagram 'How do neurons transmit impulses (send message to other cells)?' showing dendrites, cell body, nucleus, axon, the electrical signal, axon tips, the synapse, and the dendrites of the next neuron.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top, below running header",
+      "content": "Three Types of Muscular Tissue",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "what a tissue is"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Title of the muscle-type comparison table.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top half, green-bordered table",
+      "content": "Table comparing three types of muscular tissue. Columns: (type with small drawing of the cell) | Location | Function | Appearance | Control. Rows: Skeletal, Cardiac, Visceral (smooth muscle). The drawings show: a cylindrical, striped fibre with several nuclei at the edge (skeletal); branched, striped, interlinked cells (cardiac); a spindle-shaped cell with one central nucleus (smooth).",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is muscular tissue?",
+        "answer": "Muscular tissue is made of elongated cells called muscle fibres. They contain contractile proteins that contract and relax to cause movement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "On which features does the table compare the three muscle types?",
+        "answer": "On location in the body, function, appearance under the microscope (striations and nuclei) and whether control is voluntary or involuntary.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What are striations?",
+        "answer": "Striations are alternate light and dark bands. They come from the regular, ordered arrangement of actin and myosin filaments. Skeletal and cardiac muscle show them; smooth muscle has the filaments arranged irregularly, so it shows none.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are some muscles voluntary and others involuntary?",
+        "answer": "Voluntary (skeletal) muscle is controlled by the somatic nervous system under our will. Involuntary muscles (cardiac and smooth) are controlled by the autonomic nervous system and hormones, so they keep vital functions running without conscious thought.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell and its nucleus",
+       "what a tissue is",
+       "voluntary vs involuntary actions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A classic UPSC/PCS comparison. Odd-one-out questions are common: cardiac muscle is striated but involuntary.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 1",
+      "content": "Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is skeletal muscle found?",
+        "answer": "It is attached to the skeleton (bones), usually by tendons, e.g. the biceps and triceps.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are its functions?",
+        "answer": "It moves body parts and maintains posture. It also produces heat: its contractions, including shivering, generate body heat.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does muscle activity produce heat?",
+        "answer": "Breaking down ATP during contraction is not 100% efficient. Much of the energy is released as heat, which helps keep body temperature steady.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do 'multi-nucleated (eccentric)' and 'fibers parallel' mean?",
+        "answer": "Each skeletal fibre is a long cylinder with many nuclei. The nuclei sit at the edge (periphery) of the fibre, not the centre. The fibres lie parallel to each other, unbranched.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does one skeletal fibre have many nuclei?",
+        "answer": "During development, many precursor cells (myoblasts) fuse into one long fibre, so each fibre keeps several nuclei. This is a syncytium.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How is it controlled?",
+        "answer": "Voluntarily: we can move it at will through the somatic nerves. It is also called striated or striped muscle. It tires quickly.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "skeleton and bones",
+       "nucleus",
+       "what striations are"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Skeletal = striated + voluntary + multinucleate with peripheral nuclei.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 2",
+      "content": "Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cardiac muscle found?",
+        "answer": "Only in the wall of the heart.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is its function?",
+        "answer": "It contracts and relaxes rhythmically to pump blood continuously throughout life.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it work without tiring?",
+        "answer": "Cardiac cells are rich in mitochondria and blood supply. They are branched and joined by intercalated discs, so a signal spreads quickly and the heart contracts as a unit. The beat starts in its own pacemaker (SA node).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does it differ from skeletal muscle in appearance?",
+        "answer": "Both are striated. Cardiac cells are branched and have one central nucleus, whereas skeletal fibres are unbranched with many peripheral nuclei.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "exception",
+        "question": "Why is cardiac muscle the odd one out?",
+        "answer": "It is striated like skeletal muscle but involuntary like smooth muscle. We cannot stop our heartbeat at will.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "heart and circulation",
+       "striations",
+       "involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Striated yet involuntary; central nucleus; branched cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 3",
+      "content": "Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is smooth muscle found?",
+        "answer": "In the walls of internal (visceral) organs: the gastrointestinal tract, the uterus, the eye (iris) and blood vessels.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does it do?",
+        "answer": "It causes peristalsis, which pushes food through the gut. It regulates blood pressure by narrowing or widening vessels. It changes pupil size in the iris. It erects hairs ('goose bumps').",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it erect hairs and change pupil size?",
+        "answer": "Tiny arrector pili smooth muscles pull hairs upright. Iris smooth muscles (sphincter and dilator) contract to make the pupil smaller or larger depending on the light.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does a smooth muscle cell look like?",
+        "answer": "It is spindle-shaped (tapering at both ends), unstriated, with one central nucleus. It is also called unstriated or involuntary muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is it involuntary?",
+        "answer": "These organ functions must run automatically. They are controlled by the autonomic nervous system and hormones, and contraction is slow and sustained.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "peristalsis",
+       "iris and pupil",
+       "blood vessels and blood pressure"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Functions such as pupil size and hair erection are tested as 'which muscle' questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-left boxed figure",
+      "content": "Fig. 6.10: Types of connective tissues. (a) types of blood cells: different white blood corpuscles (neutrophil, eosinophil, basophil, lymphocyte, monocyte), platelets and a red blood corpuscle. (b) compact bone: concentric rings around a Haversian canal, with canaliculi. (c) hyaline cartilage: chondrocytes in a hyaline matrix. (d) areolar tissue: fibroblast, reticular and collagen fibres, macrophage, mast cell, plasma cell. (e) adipose tissue: adipocytes with fat droplets and nuclei.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is connective tissue?",
+        "answer": "Connective tissue connects, supports and binds other tissues. Its cells lie loosely in an intercellular matrix, which may be fluid (blood), jelly-like (areolar), firm (cartilage) or hard (bone).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which connective tissues does the figure show?",
+        "answer": "Blood (a), compact bone (b), hyaline cartilage (c), areolar tissue (d) and adipose tissue (e).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is blood called a connective tissue?",
+        "answer": "It has cells (RBC, WBC, platelets) suspended in a fluid matrix, plasma. It connects body parts by transporting gases, nutrients, hormones and wastes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix vs cells",
+       "blood components"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Matching tissue to component (e.g. Haversian canal–bone, chondrocyte–cartilage) is a common question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a), top left",
+      "content": "Different white blood corpuscles: Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil; labels Cytoplasm and Nucleus point to parts of a WBC",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are neutrophils, eosinophils and basophils?",
+        "answer": "They are granulocyte WBCs. Neutrophils (multi-lobed nucleus, hence 'polymorphonuclear') engulf bacteria. Eosinophils act in allergy and against parasites. Basophils release histamine.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the neutrophil called polymorphonuclear?",
+        "answer": "Its nucleus has several lobes of varied shape, so it looks as if it has many nuclei.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "WBCs and immunity"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Types of WBC are a frequent factual question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a), middle left",
+      "content": "Lymphocyte, Monocyte, Platelets",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are lymphocytes, monocytes and platelets?",
+        "answer": "Lymphocytes (large round nucleus) make antibodies and give specific immunity. Monocytes (kidney-shaped nucleus) become macrophages that engulf microbes. Platelets are cell fragments that help blood clot.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood clotting",
+       "immunity"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Platelets = clotting; lymphocytes = antibodies.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a/b), bottom left",
+      "content": "Red blood corpuscle",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an RBC?",
+        "answer": "A biconcave disc-shaped cell containing haemoglobin, which carries oxygen. Mature human RBCs lack a nucleus.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "haemoglobin"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Human RBCs lack a nucleus: an odd-one-out fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(b), compact bone",
+      "content": "Haversian canal (contains blood vessels and nerve fibres)",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the Haversian canal?",
+        "answer": "It is the central canal of each bone unit (osteon). According to the label, it contains blood vessels and nerve fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does bone need such a canal?",
+        "answer": "Bone matrix is hard (calcium phosphate), so nutrients cannot diffuse through it. The canal brings blood supply to the living bone cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bone matrix",
+       "blood vessels"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Haversian canal is unique to (mammalian compact) bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(b), compact bone",
+      "content": "Canaliculus (contains slender process of bone cell or osteocyte)",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a canaliculus?",
+        "answer": "A tiny channel in the bone matrix. According to the label, it holds the slender processes of bone cells (osteocytes).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it help osteocytes?",
+        "answer": "It links neighbouring osteocytes to each other and to the Haversian canal. Nutrients and wastes pass through it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "osteocyte = bone cell"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Osteocyte = bone cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(c), hyaline cartilage",
+      "content": "Chondrocyte; Hyaline matrix",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are a chondrocyte and the hyaline matrix?",
+        "answer": "A chondrocyte is a cartilage cell. The hyaline matrix is the clear, glassy, firm but flexible matrix of proteins and sugars in which the chondrocytes lie.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cartilage found?",
+        "answer": "In the nose, ear, trachea, larynx and at the ends of bones (smoothing joints).",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Cartilage is flexible; bone is hard.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(d), areolar tissue, top",
+      "content": "Reticular fibre; Fibroblast; Macrophage; Collagen fibre; Mast cell; Plasma cell",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does each component of areolar tissue do?",
+        "answer": "Fibroblasts make the fibres. Collagen fibres give strength. Reticular fibres form a supporting mesh. Macrophages engulf microbes and debris. Mast cells release histamine and heparin. Plasma cells produce antibodies.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is areolar tissue found?",
+        "answer": "Between the skin and muscles, around blood vessels and nerves, and in bone marrow. It fills spaces inside organs and helps in repair.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fibres in matrix",
+       "immunity cells"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Areolar tissue is the 'packing tissue'.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(e), adipose tissue",
+      "content": "Fat droplet; Nucleus; Adipocyte",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an adipocyte?",
+        "answer": "A fat cell. A large fat droplet fills most of the cell and pushes the nucleus to the edge.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does adipose tissue do?",
+        "answer": "It stores fat and also acts as an insulator. It is found below the skin and between internal organs.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fats as stored energy"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Adipose = fat storage + insulation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "caption",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below Fig 6.10",
+      "content": "Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which five connective tissues are named?",
+        "answer": "Blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "connective tissue"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "A list for classification questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-right boxed figure",
+      "content": "Title: 'How do neurons transmit impulses (send message to other cells)?' Shows two neurons in sequence. The axon of a previous neuron meets the dendrites of the first neuron at a synapse. The signal enters through the dendrites, passes to the neuron cell body (which has a nucleus), then travels along the axon as an electrical signal (blue arrow). It reaches the axon tips, which meet the dendrites of the next neuron at another synapse.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a neuron?",
+        "answer": "A neuron is a nerve cell, the unit of nervous tissue. It is specialised to receive, conduct and transmit impulses.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does a message travel through a neuron?",
+        "answer": "Dendrites receive the message. It passes to the cell body, then the axon carries it as an electrical signal to the axon tips. There it is passed across the synapse to the dendrites of the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the signal cross the synapse?",
+        "answer": "The synapse is a tiny gap. At the axon tips, the electrical signal triggers the release of chemicals (neurotransmitters). These diffuse across the gap and start a new electrical signal in the next neuron's dendrites.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the impulse move in one direction only?",
+        "answer": "Neurotransmitters are released only from the axon end and received only at the dendrites of the next cell. So the flow is always dendrite → cell body → axon → synapse.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nerve impulse as electrical signal",
+       "cell body and nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The direction of the impulse and the meaning of 'synapse' are frequently asked.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, far left",
+      "content": "axon of previous neuron – points to the incoming axon ending at the left neuron's dendrites",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does it show?",
+        "answer": "That neurons form chains: one neuron's axon delivers the message to the next neuron's dendrites.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "axon"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Context label.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, red circles at left and top",
+      "content": "synapse – red circles marking the junction between the axon tips of one neuron and the dendrites of the next",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a synapse?",
+        "answer": "The junction (gap) between two neurons, where the impulse is passed from one neuron to the next.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "neuron"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Definition of synapse.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, both neurons",
+      "content": "neuron cell body; nucleus – the central star-shaped body of each neuron with its dark nucleus",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the cell body do?",
+        "answer": "The cell body (cyton) contains the nucleus and most of the cytoplasm. It keeps the neuron alive and integrates the signals received from the dendrites.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Parts of a neuron.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, bottom left and right",
+      "content": "dendrites (bottom of first neuron); dendrites of next neuron (right) – short branched extensions of the cell body",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are dendrites?",
+        "answer": "Short, branched extensions of the cell body that receive messages from other neurons.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Dendrites receive; axon sends.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, middle",
+      "content": "axon – the long fibre from the first neuron's cell body toward the next neuron; electrical signal – blue arrow along the axon showing the direction of the impulse",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an axon?",
+        "answer": "A single long fibre of the neuron that carries the impulse away from the cell body as an electrical signal.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the electrical signal produced?",
+        "answer": "Ions (Na+, K+) move across the axon membrane, creating a wave of voltage change (action potential) that travels along the axon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "ions and membranes"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The axon carries the impulse away from the cell body.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, right",
+      "content": "axon tips – branched endings of the axon meeting the next neuron's dendrites at the synapse",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What happens at the axon tips?",
+        "answer": "The electrical signal reaches the axon tips and is handed across the synapse to the next neuron.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "synapse"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Axon terminals.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0007-b0001",
+     "p0007-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [
+    "[code] item i2: a comparison needs a 'compare' or 'difference' question (S1-06)",
+    "[code] item i3: a comparison needs a 'compare' or 'difference' question (S1-06)",
+    "[code] item i5: a comparison needs a 'compare' or 'difference' question (S1-06)",
+    "[code] item i6: a classification needs a 'compare' or 'difference' question (S1-06)",
+    "[code] item i8: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i8: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i9: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i9: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i12: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i13: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i14: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i15: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i15: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i15: a classification needs a 'compare' or 'difference' question (S1-06)",
+    "[code] item i17: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i17: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i18: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i18: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i19: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i19: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i20: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i20: ask at least one 'why' or 'how' (S1-06)",
+    "[code] item i22: a teachable item needs at least two teacher questions and answers (S1-06)",
+    "[code] item i22: ask at least one 'why' or 'how' (S1-06)"
+   ],
+   "passed": false,
+   "finished_at": 1792590549.0164626
+  },
+  {
+   "round": 2,
+   "started_at": 1792590549.0166557,
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "f59b4ab019537d47eb0ac72e5f84c2fb56cfb576f42ba9c01b3c9e82c34177f3",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 19911,
+    "output_tokens": 12973,
+    "cost_usd": 0.373014
+   },
+   "notes": {
+    "about": "Page 7 of the Tissues chapter. It is read almost entirely from the image. It has a comparison table of the three types of muscular tissue (skeletal, cardiac, visceral/smooth), an NCERT figure (Fig. 6.10) showing the types of connective tissue, and a diagram of how neurons pass an impulse across a synapse. It extends the epithelial-tissue table from the previous page into the muscular, connective and nervous tissue types.",
+    "key_questions": [
+     "How do skeletal, cardiac and smooth muscle differ in location, function, appearance (striations, nuclei) and control?",
+     "Why is cardiac muscle striated yet involuntary?",
+     "Which muscle type controls pupil size, blood pressure, peristalsis and erection of hairs?",
+     "What are the components of blood, bone, cartilage, areolar and adipose tissue as shown in Fig. 6.10?",
+     "What are the Haversian canal, canaliculus, chondrocyte, fibroblast, mast cell, plasma cell and adipocyte?",
+     "How does an electrical signal travel from dendrites through the cell body and axon to the axon tips, and across a synapse to the next neuron?"
+    ],
+    "decisions": [
+     {
+      "decision": "Treated the muscle table as one table item plus three table_row items, each row giving every cell with its column header.",
+      "reason": "Rule S1-03, and comparison tables are high-yield for UPSC."
+     },
+     {
+      "decision": "Treated Fig. 6.10 as one diagram with sub-panels (a)-(e), with each label as a diagram_label naming its panel.",
+      "reason": "Rule S1-04; it keeps every image-only label as a gameable fact."
+     },
+     {
+      "decision": "Treated the neuron impulse figure as a separate diagram, with labels for both the previous and the next neuron.",
+      "reason": "It is a distinct flow (sequence) diagram."
+     },
+     {
+      "decision": "Marked the two native blocks (header and page number 93) as boilerplate.",
+      "reason": "The text layer contains nothing teachable; all content is in the image."
+     },
+     {
+      "decision": "Revision after BIE checks: added compare/difference questions to i2, i3, i5, i6 and i15. Added why/how questions to i8, i9, i12, i13, i14, i15, i17, i18, i19, i20 and i22. Every teachable item now has at least two questions and answers. No earlier content was removed.",
+      "reason": "To meet the S1-06 questioning depth requirements."
+     }
+    ],
+    "uncertain": [
+     "The small labels in Fig. 6.10 are tiny. They were read as Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil, Lymphocyte, Monocyte, Platelets, Cytoplasm and Nucleus, which matches the standard NCERT Fig. 6.10.",
+     "The faint watermark text over the figures was ignored."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Page 7 of the Tissues chapter. It is read almost entirely from the image. It has a comparison table of the three types of muscular tissue (skeletal, cardiac, visceral/smooth), an NCERT figure (Fig. 6.10) showing the types of connective tissue, and a diagram of how neurons pass an impulse across a synapse. It extends the epithelial-tissue table from the previous page into the muscular, connective and nervous tissue types.",
+     "key_questions": [
+      "How do skeletal, cardiac and smooth muscle differ in location, function, appearance (striations, nuclei) and control?",
+      "Why is cardiac muscle striated yet involuntary?",
+      "Which muscle type controls pupil size, blood pressure, peristalsis and erection of hairs?",
+      "What are the components of blood, bone, cartilage, areolar and adipose tissue as shown in Fig. 6.10?",
+      "What are the Haversian canal, canaliculus, chondrocyte, fibroblast, mast cell, plasma cell and adipocyte?",
+      "How does an electrical signal travel from dendrites through the cell body and axon to the axon tips, and across a synapse to the next neuron?"
+     ],
+     "decisions": [
+      {
+       "decision": "Treated the muscle table as one table item plus three table_row items, each row giving every cell with its column header.",
+       "reason": "Rule S1-03, and comparison tables are high-yield for UPSC."
+      },
+      {
+       "decision": "Treated Fig. 6.10 as one diagram with sub-panels (a)-(e), with each label as a diagram_label naming its panel.",
+       "reason": "Rule S1-04; it keeps every image-only label as a gameable fact."
+      },
+      {
+       "decision": "Treated the neuron impulse figure as a separate diagram, with labels for both the previous and the next neuron.",
+       "reason": "It is a distinct flow (sequence) diagram."
+      },
+      {
+       "decision": "Marked the two native blocks (header and page number 93) as boilerplate.",
+       "reason": "The text layer contains nothing teachable; all content is in the image."
+      },
+      {
+       "decision": "Revision after BIE checks: added compare/difference questions to i2, i3, i5, i6 and i15. Added why/how questions to i8, i9, i12, i13, i14, i15, i17, i18, i19, i20 and i22. Every teachable item now has at least two questions and answers. No earlier content was removed.",
+       "reason": "To meet the S1-06 questioning depth requirements."
+      }
+     ],
+     "uncertain": [
+      "The small labels in Fig. 6.10 are tiny. They were read as Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil, Lymphocyte, Monocyte, Platelets, Cytoplasm and Nucleus, which matches the standard NCERT Fig. 6.10.",
+      "The faint watermark text over the figures was ignored."
+     ]
+    },
+    "page_summary": "Image-based page. It has (1) a table 'Three Types of Muscular Tissue' comparing Skeletal (skeleton; movement, heat, posture; striated, multinucleated with eccentric nuclei, parallel fibres; voluntary), Cardiac (heart; pumps blood continuously; striated, one central nucleus; involuntary) and Visceral/smooth muscle (G.I. tract, uterus, eye, blood vessels; peristalsis, blood pressure, pupil size, erects hairs; no striations, one central nucleus; involuntary). (2) NCERT Fig. 6.10, the types of connective tissue: (a) blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue. (3) A diagram 'How do neurons transmit impulses (send message to other cells)?' showing dendrites, cell body, nucleus, axon, the electrical signal, axon tips, the synapse, and the dendrites of the next neuron.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top, below running header",
+      "content": "Three Types of Muscular Tissue",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "what a tissue is"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Title of the muscle-type comparison table.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top half, green-bordered table",
+      "content": "Table comparing three types of muscular tissue. Columns: (type with small drawing of the cell) | Location | Function | Appearance | Control. Rows: Skeletal, Cardiac, Visceral (smooth muscle). The drawings show: a cylindrical, striped fibre with several nuclei at the edge (skeletal); branched, striped, interlinked cells (cardiac); a spindle-shaped cell with one central nucleus (smooth).",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is muscular tissue?",
+        "answer": "Muscular tissue is made of elongated cells called muscle fibres. They contain contractile proteins that contract and relax to cause movement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "On which features does the table compare the three muscle types?",
+        "answer": "On location in the body, function, appearance under the microscope (striations and nuclei) and whether control is voluntary or involuntary.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the three types compare on striations and control?",
+        "answer": "Skeletal is striated and voluntary. Cardiac is striated but involuntary. Smooth has no striations and is involuntary. So striations are shared by skeletal and cardiac, and involuntary control is shared by cardiac and smooth.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do they differ in nuclei?",
+        "answer": "Skeletal fibres are multinucleated with eccentric (peripheral) nuclei. Cardiac and smooth muscle cells each have one central nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What are striations?",
+        "answer": "Striations are alternate light and dark bands. They come from the regular, ordered arrangement of actin and myosin filaments. Skeletal and cardiac muscle show them; smooth muscle has the filaments arranged irregularly, so it shows none.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are some muscles voluntary and others involuntary?",
+        "answer": "Voluntary (skeletal) muscle is controlled by the somatic nervous system under our will. Involuntary muscles (cardiac and smooth) are controlled by the autonomic nervous system and hormones, so they keep vital functions running without conscious thought.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell and its nucleus",
+       "what a tissue is",
+       "voluntary vs involuntary actions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A classic UPSC/PCS comparison. Odd-one-out questions are common: cardiac muscle is striated but involuntary.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 1",
+      "content": "Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is skeletal muscle found?",
+        "answer": "It is attached to the skeleton (bones), usually by tendons, e.g. the biceps and triceps.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are its functions?",
+        "answer": "It moves body parts and maintains posture. It also produces heat: its contractions, including shivering, generate body heat.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does muscle activity produce heat?",
+        "answer": "Breaking down ATP during contraction is not 100% efficient. Much of the energy is released as heat, which helps keep body temperature steady.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do 'multi-nucleated (eccentric)' and 'fibers parallel' mean?",
+        "answer": "Each skeletal fibre is a long cylinder with many nuclei. The nuclei sit at the edge (periphery) of the fibre, not the centre. The fibres lie parallel to each other, unbranched.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does one skeletal fibre have many nuclei?",
+        "answer": "During development, many precursor cells (myoblasts) fuse into one long fibre, so each fibre keeps several nuclei. This is a syncytium.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How is it controlled?",
+        "answer": "Voluntarily: we can move it at will through the somatic nerves. It is also called striated or striped muscle. It tires quickly.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does skeletal muscle differ from smooth muscle?",
+        "answer": "Skeletal muscle is striated, multinucleate with eccentric nuclei, made of parallel unbranched fibres, and voluntary. Smooth muscle has no striations, one central nucleus in a spindle-shaped cell, and is involuntary.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "skeleton and bones",
+       "nucleus",
+       "what striations are"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Skeletal = striated + voluntary + multinucleate with peripheral nuclei.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 2",
+      "content": "Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cardiac muscle found?",
+        "answer": "Only in the wall of the heart.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is its function?",
+        "answer": "It contracts and relaxes rhythmically to pump blood continuously throughout life.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it work without tiring?",
+        "answer": "Cardiac cells are rich in mitochondria and blood supply. They are branched and joined by intercalated discs, so a signal spreads quickly and the heart contracts as a unit. The beat starts in its own pacemaker (SA node).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does it differ from skeletal muscle in appearance?",
+        "answer": "Both are striated. Cardiac cells are branched and have one central nucleus, whereas skeletal fibres are unbranched with many peripheral nuclei.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "exception",
+        "question": "Why is cardiac muscle the odd one out?",
+        "answer": "It is striated like skeletal muscle but involuntary like smooth muscle. We cannot stop our heartbeat at will.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "heart and circulation",
+       "striations",
+       "involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Striated yet involuntary; central nucleus; branched cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 3",
+      "content": "Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is smooth muscle found?",
+        "answer": "In the walls of internal (visceral) organs: the gastrointestinal tract, the uterus, the eye (iris) and blood vessels.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does it do?",
+        "answer": "It causes peristalsis, which pushes food through the gut. It regulates blood pressure by narrowing or widening vessels. It changes pupil size in the iris. It erects hairs ('goose bumps').",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it erect hairs and change pupil size?",
+        "answer": "Tiny arrector pili smooth muscles pull hairs upright. Iris smooth muscles (sphincter and dilator) contract to make the pupil smaller or larger depending on the light.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does a smooth muscle cell look like?",
+        "answer": "It is spindle-shaped (tapering at both ends), unstriated, with one central nucleus. It is also called unstriated or involuntary muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is it involuntary?",
+        "answer": "These organ functions must run automatically. They are controlled by the autonomic nervous system and hormones, and contraction is slow and sustained.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does smooth muscle compare with cardiac muscle?",
+        "answer": "Both are involuntary and have one central nucleus. Cardiac muscle is striated and found only in the heart. Smooth muscle is unstriated and found in the gut, uterus, eye and blood vessels.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "peristalsis",
+       "iris and pupil",
+       "blood vessels and blood pressure"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Functions such as pupil size and hair erection are tested as 'which muscle' questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-left boxed figure",
+      "content": "Fig. 6.10: Types of connective tissues. (a) types of blood cells: different white blood corpuscles (neutrophil, eosinophil, basophil, lymphocyte, monocyte), platelets and a red blood corpuscle. (b) compact bone: concentric rings around a Haversian canal, with canaliculi. (c) hyaline cartilage: chondrocytes in a hyaline matrix. (d) areolar tissue: fibroblast, reticular and collagen fibres, macrophage, mast cell, plasma cell. (e) adipose tissue: adipocytes with fat droplets and nuclei.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is connective tissue?",
+        "answer": "Connective tissue connects, supports and binds other tissues. Its cells lie loosely in an intercellular matrix, which may be fluid (blood), jelly-like (areolar), firm (cartilage) or hard (bone).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which connective tissues does the figure show?",
+        "answer": "Blood (a), compact bone (b), hyaline cartilage (c), areolar tissue (d) and adipose tissue (e).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is blood called a connective tissue?",
+        "answer": "It has cells (RBC, WBC, platelets) suspended in a fluid matrix, plasma. It connects body parts by transporting gases, nutrients, hormones and wastes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does bone differ from cartilage?",
+        "answer": "Bone has a hard matrix of calcium and phosphorus compounds, with osteocytes in it and Haversian canals carrying blood vessels. Cartilage (chondrocytes in a hyaline matrix) is firm but flexible and has no blood vessels in its matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix vs cells",
+       "blood components"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Matching tissue to component (e.g. Haversian canal–bone, chondrocyte–cartilage) is a common question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a), top left",
+      "content": "Different white blood corpuscles: Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil; labels Cytoplasm and Nucleus point to parts of a WBC",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are neutrophils, eosinophils and basophils?",
+        "answer": "They are granulocyte WBCs. Neutrophils (multi-lobed nucleus, hence 'polymorphonuclear') engulf bacteria. Eosinophils act in allergy and against parasites. Basophils release histamine.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the neutrophil called polymorphonuclear?",
+        "answer": "Its nucleus has several lobes of varied shape, so it looks as if it has many nuclei.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "WBCs and immunity"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Types of WBC are a frequent factual question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a), middle left",
+      "content": "Lymphocyte, Monocyte, Platelets",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are lymphocytes, monocytes and platelets?",
+        "answer": "Lymphocytes (large round nucleus) make antibodies and give specific immunity. Monocytes (kidney-shaped nucleus) become macrophages that engulf microbes. Platelets are cell fragments that help blood clot.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do platelets stop bleeding?",
+        "answer": "At a wound they stick together to form a plug. They also release clotting factors that lead to a fibrin mesh, which traps blood cells into a clot.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do platelets differ from lymphocytes and monocytes?",
+        "answer": "Lymphocytes and monocytes are complete WBCs with a nucleus. Platelets are small fragments of cells without a nucleus.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood clotting",
+       "immunity"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Platelets = clotting; lymphocytes = antibodies.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a/b), bottom left",
+      "content": "Red blood corpuscle",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an RBC?",
+        "answer": "A biconcave disc-shaped cell containing haemoglobin, which carries oxygen. Mature human RBCs lack a nucleus.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do mature human RBCs lack a nucleus and have a biconcave shape?",
+        "answer": "Losing the nucleus leaves more room for haemoglobin, so each cell carries more oxygen. The biconcave shape increases surface area for gas exchange and lets the cell bend through narrow capillaries.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "haemoglobin"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Human RBCs lack a nucleus: an odd-one-out fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(b), compact bone",
+      "content": "Haversian canal (contains blood vessels and nerve fibres)",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the Haversian canal?",
+        "answer": "It is the central canal of each bone unit (osteon). According to the label, it contains blood vessels and nerve fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does bone need such a canal?",
+        "answer": "Bone matrix is hard (calcium phosphate), so nutrients cannot diffuse through it. The canal brings blood supply to the living bone cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bone matrix",
+       "blood vessels"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Haversian canal is unique to (mammalian compact) bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(b), compact bone",
+      "content": "Canaliculus (contains slender process of bone cell or osteocyte)",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a canaliculus?",
+        "answer": "A tiny channel in the bone matrix. According to the label, it holds the slender processes of bone cells (osteocytes).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it help osteocytes?",
+        "answer": "It links neighbouring osteocytes to each other and to the Haversian canal. Nutrients and wastes pass through it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "osteocyte = bone cell"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Osteocyte = bone cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(c), hyaline cartilage",
+      "content": "Chondrocyte; Hyaline matrix",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are a chondrocyte and the hyaline matrix?",
+        "answer": "A chondrocyte is a cartilage cell. The hyaline matrix is the clear, glassy, firm but flexible matrix of proteins and sugars in which the chondrocytes lie.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cartilage found?",
+        "answer": "In the nose, ear, trachea, larynx and at the ends of bones (smoothing joints).",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cartilage suited to the nose, ear and joint surfaces?",
+        "answer": "Its matrix is firm enough to hold shape yet flexible. It gives support with some bending and smooths friction at joints.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Cartilage is flexible; bone is hard.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(d), areolar tissue, top",
+      "content": "Reticular fibre; Fibroblast; Macrophage; Collagen fibre; Mast cell; Plasma cell",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does each component of areolar tissue do?",
+        "answer": "Fibroblasts make the fibres. Collagen fibres give strength. Reticular fibres form a supporting mesh. Macrophages engulf microbes and debris. Mast cells release histamine and heparin. Plasma cells produce antibodies.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is areolar tissue found?",
+        "answer": "Between the skin and muscles, around blood vessels and nerves, and in bone marrow. It fills spaces inside organs and helps in repair.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does areolar tissue help in repair and defence?",
+        "answer": "Fibroblasts lay down new fibres to mend tissue. Macrophages, mast cells and plasma cells in the same tissue fight infection at the site.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fibres in matrix",
+       "immunity cells"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Areolar tissue is the 'packing tissue'.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(e), adipose tissue",
+      "content": "Fat droplet; Nucleus; Adipocyte",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an adipocyte?",
+        "answer": "A fat cell. A large fat droplet fills most of the cell and pushes the nucleus to the edge.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does adipose tissue do?",
+        "answer": "It stores fat and also acts as an insulator. It is found below the skin and between internal organs.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does fat act as an insulator?",
+        "answer": "Fat conducts heat poorly. A layer below the skin slows heat loss from the body, as in the blubber of whales.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fats as stored energy"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Adipose = fat storage + insulation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "caption",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below Fig 6.10",
+      "content": "Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which five connective tissues are named?",
+        "answer": "Blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are these five grouped by their matrix?",
+        "answer": "Blood has a fluid matrix (fluid connective tissue). Bone and cartilage have hard or firm matrices (skeletal or supportive tissue). Areolar and adipose tissue have soft matrices (loose connective tissue).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does areolar tissue compare with adipose tissue?",
+        "answer": "Both are loose connective tissues. Areolar tissue has many cell types and fibres and fills and repairs spaces. Adipose tissue is mostly fat-filled adipocytes, which store fat and insulate.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective tissue"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "A list for classification questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-right boxed figure",
+      "content": "Title: 'How do neurons transmit impulses (send message to other cells)?' Shows two neurons in sequence. The axon of a previous neuron meets the dendrites of the first neuron at a synapse. The signal enters through the dendrites, passes to the neuron cell body (which has a nucleus), then travels along the axon as an electrical signal (blue arrow). It reaches the axon tips, which meet the dendrites of the next neuron at another synapse.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a neuron?",
+        "answer": "A neuron is a nerve cell, the unit of nervous tissue. It is specialised to receive, conduct and transmit impulses.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does a message travel through a neuron?",
+        "answer": "Dendrites receive the message. It passes to the cell body, then the axon carries it as an electrical signal to the axon tips. There it is passed across the synapse to the dendrites of the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the signal cross the synapse?",
+        "answer": "The synapse is a tiny gap. At the axon tips, the electrical signal triggers the release of chemicals (neurotransmitters). These diffuse across the gap and start a new electrical signal in the next neuron's dendrites.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the impulse move in one direction only?",
+        "answer": "Neurotransmitters are released only from the axon end and received only at the dendrites of the next cell. So the flow is always dendrite → cell body → axon → synapse.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nerve impulse as electrical signal",
+       "cell body and nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The direction of the impulse and the meaning of 'synapse' are frequently asked.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, far left",
+      "content": "axon of previous neuron – points to the incoming axon ending at the left neuron's dendrites",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does it show?",
+        "answer": "That neurons form chains: one neuron's axon delivers the message to the next neuron's dendrites.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do neurons need to form chains?",
+        "answer": "A message often has to travel long distances, e.g. from skin to brain and back to muscle, and be processed on the way. Chains of neurons linked by synapses pass it along and allow integration.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "axon"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Context label.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, red circles at left and top",
+      "content": "synapse – red circles marking the junction between the axon tips of one neuron and the dendrites of the next",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a synapse?",
+        "answer": "The junction (gap) between two neurons, where the impulse is passed from one neuron to the next.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the message carried across the synapse if the neurons do not touch?",
+        "answer": "The axon tip releases chemical messengers (neurotransmitters). They cross the gap and trigger a new electrical signal in the next neuron.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Definition of synapse.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, both neurons",
+      "content": "neuron cell body; nucleus – the central star-shaped body of each neuron with its dark nucleus",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the cell body do?",
+        "answer": "The cell body (cyton) contains the nucleus and most of the cytoplasm. It keeps the neuron alive and integrates the signals received from the dendrites.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the nucleus in the cell body important?",
+        "answer": "The nucleus controls protein production and the cell's activities. Without the cell body, the axon and dendrites cannot be maintained.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Parts of a neuron.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, bottom left and right",
+      "content": "dendrites (bottom of first neuron); dendrites of next neuron (right) – short branched extensions of the cell body",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are dendrites?",
+        "answer": "Short, branched extensions of the cell body that receive messages from other neurons.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are dendrites highly branched?",
+        "answer": "Branching gives a large receiving surface, so one neuron can collect signals from many other neurons.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do dendrites differ from the axon?",
+        "answer": "Dendrites are short, many and branched, and bring signals to the cell body. The axon is single and long, and carries signals away from the cell body.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Dendrites receive; axon sends.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, middle",
+      "content": "axon – the long fibre from the first neuron's cell body toward the next neuron; electrical signal – blue arrow along the axon showing the direction of the impulse",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an axon?",
+        "answer": "A single long fibre of the neuron that carries the impulse away from the cell body as an electrical signal.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the electrical signal produced?",
+        "answer": "Ions (Na+, K+) move across the axon membrane, creating a wave of voltage change (action potential) that travels along the axon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "ions and membranes"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The axon carries the impulse away from the cell body.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, right",
+      "content": "axon tips – branched endings of the axon meeting the next neuron's dendrites at the synapse",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What happens at the axon tips?",
+        "answer": "The electrical signal reaches the axon tips and is handed across the synapse to the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do axon tips convert the signal?",
+        "answer": "When the electrical signal arrives, the tips release chemical neurotransmitters. These carry the message across the synapse, where it becomes electrical again in the next neuron.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "synapse"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Axon terminals.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0007-b0001",
+     "p0007-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "f14acfc73e1170af8cd5c9d997672a3a44122d2887af2e863d77cc81443a48fc",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11245,
+    "output_tokens": 2449,
+    "cost_usd": 0.04698,
+    "value": {
+     "notes": {
+      "about": "This page compares the three muscle types and uses labelled illustrations to introduce connective tissues and neuron-to-neuron signalling. The review checks both visual coverage and the accuracy and provenance of the teaching explanations.",
+      "key_questions": [
+       "Are all muscle-table cells and illustrated structures captured?",
+       "Can learners connect each diagram label to the structure indicated by its pointer?",
+       "Do the explanations distinguish the page's simplified descriptions from additional biological knowledge?"
+      ],
+      "decisions": [
+       {
+        "decision": "Fail despite substantially complete textual coverage.",
+        "reason": "All table rows and named diagram labels are represented, but several added explanations are inaccurate or overgeneralised, and some outside knowledge is attributed to the book."
+       },
+       {
+        "decision": "Treat incomplete diagram interpretation as shallow coverage rather than missing labels.",
+        "reason": "The connective-tissue labels are transcribed, but some pointer targets and visual identification features are not explained."
+       }
+      ],
+      "uncertain": [
+       "The connective-tissue illustration has very small print; the native text supplies only the running header and page number, so its labels must be checked visually."
+      ]
+     },
+     "verdict": "fail",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i3",
+       "problem": "The control answer adds 'It tires quickly' as a universal property of skeletal muscle. Fatigue resistance varies substantially among skeletal muscle fibre types. This addition is also incorrectly marked as book-based.",
+       "fix": "Remove the blanket statement, or explain as outside knowledge that slow oxidative fibres resist fatigue whereas fast glycolytic fibres fatigue more readily."
+      },
+      {
+       "item_id": "i10",
+       "problem": "The explanation says nutrients cannot diffuse through bone because its matrix is hard. This obscures the essential diffusion pathway that sustains osteocytes.",
+       "fix": "Explain that mineralised bone requires vascular canals, with nutrients diffusing from canal blood vessels through the lacunar–canalicular system to osteocytes. Do not state that diffusion is impossible."
+      },
+      {
+       "item_id": "i16",
+       "problem": "The answer says neurotransmitters are received 'only at the dendrites' and that flow is 'always' dendrite → cell body → axon → synapse. This turns the illustrated arrangement into an incorrect universal rule. Synapses can also target cell bodies and axons, and not all synapses are chemical.",
+       "fix": "Restrict the explanation to the chemical axodendritic synapses illustrated. Explain their usual direction through presynaptic transmitter release and postsynaptic receptors, without claiming that every neuron or synapse follows this arrangement."
+      },
+      {
+       "item_id": "i18",
+       "problem": "The answer equates a synapse with its gap. A synapse is the junction, whereas the gap at a chemical synapse is the synaptic cleft.",
+       "fix": "Define the synapse as the communication junction and distinguish its presynaptic terminal, synaptic cleft and postsynaptic membrane. Mark this additional anatomical explanation as outside knowledge."
+      },
+      {
+       "item_id": "i2",
+       "problem": "The explanation of involuntary control implies that autonomic nerves and hormones generate cardiac activity. The heart's intrinsic pacemaker is essential to explaining how its activity continues without conscious control.",
+       "fix": "State that cardiac rhythm normally originates in pacemaker cells and is modulated by autonomic nerves and hormones. Smooth muscle can also respond to local factors and stretch."
+      },
+      {
+       "item_id": "i3",
+       "problem": "Several answers marked 'book' contain material absent from the page: tendons and named muscle examples, shivering, and somatic nerve control.",
+       "fix": "Separate the table-supported facts from these additions and mark the additions as outside knowledge, or mark the expanded answers as outside."
+      },
+      {
+       "item_id": "i5",
+       "problem": "The book-based function answer includes mechanisms not supplied by the table, including vessel narrowing/widening and the iris mechanism. The location answer also adds the iris specification.",
+       "fix": "Keep the listed locations and functions book-based, but mark the anatomical and physiological elaborations as outside knowledge."
+      },
+      {
+       "item_id": "i8",
+       "problem": "The answer and exam note associate lymphocytes generally with antibody production without distinguishing their major types. T lymphocytes do not produce antibodies.",
+       "fix": "Explain that B lymphocytes can differentiate into antibody-secreting plasma cells, whereas T lymphocytes perform cell-mediated functions. Revise the exam note accordingly."
+      }
+     ],
+     "shallow": [
+      {
+       "item_id": "i7",
+       "what_is_missing": "The cytoplasm and nucleus labels are mentioned only as pointing to parts of a WBC. Identify their pointer targets and explain how nuclear shape and cytoplasmic granules help distinguish the illustrated granulocytes."
+      },
+      {
+       "item_id": "i13",
+       "what_is_missing": "The six areolar-tissue labels are listed and their functions explained, but their leader-line targets are not described. Connect fibroblast, macrophage, mast cell, plasma cell, reticular fibre and collagen fibre to the actual illustrated cells or fibres so learners can identify them visually."
+      },
+      {
+       "item_id": "i12",
+       "what_is_missing": "The item moves from the specifically labelled hyaline cartilage to cartilage generally without explaining the distinction. Clarify that the external ear chiefly contains elastic cartilage, whereas hyaline cartilage occurs at sites such as articular surfaces and tracheal rings."
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": false,
+       "note": "Some outside explanations are inaccurate or overgeneralised, notably skeletal fatigue, bone nutrition and universal claims about neuronal signalling."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Coverage is extensive, but the identified scientific errors and incomplete visual identification prevent teacher-level acceptance."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "The supplied page summary explains the subject matter, but there are no explicit reviewable notes recording the extraction decisions, reasons or uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No visible truncation or unexplained 'etc.'; the grouped labels remain explicitly enumerated."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "The table, three row drawings, connective-tissue caption and named labels, and neuron labels and signal arrow are represented."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header and page number are designated as native-text boilerplate; no substantive teaching content is discarded."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Each muscle row has its own item, with location, function, appearance and control explicitly retained."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": false,
+       "note": "Neuron relationships and the signal direction are captured, but several connective-tissue pointers are reduced to label lists without identification of their visual targets."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "There are no page equations requiring transcription or symbol definitions."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": false,
+       "note": "Most items include useful why/how explanations, but some visual-identification teaching is absent and several mechanisms need correction."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": false,
+       "note": "Outside additions are sometimes marked book-based, particularly in i3 and i5; some outside answers also require scientific correction."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "The classification, comparison, structure and process assignments are appropriate to the represented content."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites name concrete concepts such as nuclei, matrix, blood vessels, membranes and ions."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "The emphasis on muscle comparisons, connective-tissue identification and impulse direction is sensible for UPSC/State PCS. Questions are attached to relevant items; no separate test links are supplied."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "The native text contains no substantive competing transcription. Using the image for the teaching content does not conceal a text–image disagreement."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] wrong in i3: The control answer adds 'It tires quickly' as a universal property of skeletal muscle. Fatigue resistance varies substantially among skeletal muscle fibre types. This addition is also incorrectly marked as book-based. -> fix: Remove the blanket statement, or explain as outside knowledge that slow oxidative fibres resist fatigue whereas fast glycolytic fibres fatigue more readily.",
+    "[reviewer] wrong in i10: The explanation says nutrients cannot diffuse through bone because its matrix is hard. This obscures the essential diffusion pathway that sustains osteocytes. -> fix: Explain that mineralised bone requires vascular canals, with nutrients diffusing from canal blood vessels through the lacunar–canalicular system to osteocytes. Do not state that diffusion is impossible.",
+    "[reviewer] wrong in i16: The answer says neurotransmitters are received 'only at the dendrites' and that flow is 'always' dendrite → cell body → axon → synapse. This turns the illustrated arrangement into an incorrect universal rule. Synapses can also target cell bodies and axons, and not all synapses are chemical. -> fix: Restrict the explanation to the chemical axodendritic synapses illustrated. Explain their usual direction through presynaptic transmitter release and postsynaptic receptors, without claiming that every neuron or synapse follows this arrangement.",
+    "[reviewer] wrong in i18: The answer equates a synapse with its gap. A synapse is the junction, whereas the gap at a chemical synapse is the synaptic cleft. -> fix: Define the synapse as the communication junction and distinguish its presynaptic terminal, synaptic cleft and postsynaptic membrane. Mark this additional anatomical explanation as outside knowledge.",
+    "[reviewer] wrong in i2: The explanation of involuntary control implies that autonomic nerves and hormones generate cardiac activity. The heart's intrinsic pacemaker is essential to explaining how its activity continues without conscious control. -> fix: State that cardiac rhythm normally originates in pacemaker cells and is modulated by autonomic nerves and hormones. Smooth muscle can also respond to local factors and stretch.",
+    "[reviewer] wrong in i3: Several answers marked 'book' contain material absent from the page: tendons and named muscle examples, shivering, and somatic nerve control. -> fix: Separate the table-supported facts from these additions and mark the additions as outside knowledge, or mark the expanded answers as outside.",
+    "[reviewer] wrong in i5: The book-based function answer includes mechanisms not supplied by the table, including vessel narrowing/widening and the iris mechanism. The location answer also adds the iris specification. -> fix: Keep the listed locations and functions book-based, but mark the anatomical and physiological elaborations as outside knowledge.",
+    "[reviewer] wrong in i8: The answer and exam note associate lymphocytes generally with antibody production without distinguishing their major types. T lymphocytes do not produce antibodies. -> fix: Explain that B lymphocytes can differentiate into antibody-secreting plasma cells, whereas T lymphocytes perform cell-mediated functions. Revise the exam note accordingly.",
+    "[reviewer] shallow i7: The cytoplasm and nucleus labels are mentioned only as pointing to parts of a WBC. Identify their pointer targets and explain how nuclear shape and cytoplasmic granules help distinguish the illustrated granulocytes.",
+    "[reviewer] shallow i13: The six areolar-tissue labels are listed and their functions explained, but their leader-line targets are not described. Connect fibroblast, macrophage, mast cell, plasma cell, reticular fibre and collagen fibre to the actual illustrated cells or fibres so learners can identify them visually.",
+    "[reviewer] shallow i12: The item moves from the specifically labelled hyaline cartilage to cartilage generally without explaining the distinction. Clarify that the external ear chiefly contains elastic cartilage, whereas hyaline cartilage occurs at sites such as articular surfaces and tracheal rings.",
+    "[reviewer] rule G-01 not met: Some outside explanations are inaccurate or overgeneralised, notably skeletal fatigue, bone nutrition and universal claims about neuronal signalling.",
+    "[reviewer] rule G-02 not met: Coverage is extensive, but the identified scientific errors and incomplete visual identification prevent teacher-level acceptance.",
+    "[reviewer] rule G-03 not met: The supplied page summary explains the subject matter, but there are no explicit reviewable notes recording the extraction decisions, reasons or uncertainties.",
+    "[reviewer] rule S1-04 not met: Neuron relationships and the signal direction are captured, but several connective-tissue pointers are reduced to label lists without identification of their visual targets.",
+    "[reviewer] rule S1-06 not met: Most items include useful why/how explanations, but some visual-identification teaching is absent and several mechanisms need correction.",
+    "[reviewer] rule S1-07 not met: Outside additions are sometimes marked book-based, particularly in i3 and i5; some outside answers also require scientific correction."
+   ],
+   "passed": false,
+   "finished_at": 1792590736.1056807
+  },
+  {
+   "round": 3,
+   "started_at": 1792590736.1059217,
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "b05282b878c5da8b84f1bee5a35a52bb93b3d3eae86af272030aaf344fa8b69b",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 23152,
+    "output_tokens": 18067,
+    "cost_usd": 0.499343
+   },
+   "notes": {
+    "about": "Page 7 of the Tissues chapter, read almost entirely from the image. It has a comparison table of the three types of muscular tissue (skeletal, cardiac, visceral/smooth), the NCERT figure Fig. 6.10 showing the types of connective tissue, and a diagram of how neurons pass an impulse across a synapse. It extends the epithelial-tissue table from the previous page into the muscular, connective and nervous tissue types.",
+    "key_questions": [
+     "How do skeletal, cardiac and smooth muscle differ in location, function, appearance (striations, nuclei) and control?",
+     "Why is cardiac muscle striated yet involuntary, and where does its rhythm come from?",
+     "Which muscle type controls pupil size, blood pressure, peristalsis and erection of hairs?",
+     "How can each blood cell in Fig. 6.10(a) be told apart by its nuclear shape and cytoplasmic granules?",
+     "What are the Haversian canal and canaliculus, and how do osteocytes in hard bone get nutrients?",
+     "How does hyaline cartilage differ from other cartilage, and where is it found?",
+     "How can each areolar-tissue cell or fibre be identified in the drawing, and what does it do?",
+     "How does an electrical signal travel from dendrites through the cell body and axon to the axon tips, and how is it passed across a chemical synapse to the next neuron?"
+    ],
+    "decisions": [
+     {
+      "decision": "The muscle table is one table item (i2) plus three table_row items (i3–i5), each row giving every cell with its column header.",
+      "reason": "Rule S1-03; comparison tables are high-yield for UPSC."
+     },
+     {
+      "decision": "Fig. 6.10 is one diagram item (i6) with sub-panels (a)–(e). Each label is a diagram_label naming its panel and its pointer target, and the caption is item i15.",
+      "reason": "Rule S1-04; every image-only label becomes a visually identifiable, gameable fact."
+     },
+     {
+      "decision": "The neuron impulse figure is a separate process diagram (i16), with labels for both the previous and the next neuron.",
+      "reason": "It is a distinct flow (sequence) diagram."
+     },
+     {
+      "decision": "The two native blocks (running header and page number 93) are boilerplate.",
+      "reason": "The text layer contains nothing teachable; all content is in the image."
+     },
+     {
+      "decision": "Basis rule: an answer is 'book' only when it restates what the table, figure labels or caption show. Mechanisms, examples and anatomy not on the page are put in separate 'outside' answers.",
+      "reason": "Reviewer found book/outside mixing in i3 and i5 (rule S1-07)."
+     },
+     {
+      "decision": "Revision 2, i3: removed the blanket claim 'It tires quickly'. Replaced it with an outside answer that fatigue depends on fibre type (slow oxidative fibres resist fatigue; fast glycolytic fibres fatigue readily). Tendons, named muscles, shivering and somatic nerve control moved into answers marked outside.",
+      "reason": "The claim was overgeneralised and mislabelled as book."
+     },
+     {
+      "decision": "Revision 2, i2/i4/i5: control is now explained correctly. Cardiac rhythm starts in intrinsic pacemaker cells and is only modulated by autonomic nerves and hormones. Smooth muscle responds to autonomic nerves, hormones, local chemical factors and stretch.",
+      "reason": "The earlier wording implied that nerves and hormones generate the heartbeat."
+     },
+     {
+      "decision": "Revision 2, i10/i11: bone nutrition rewritten. Mineralised matrix needs vascular canals, and nutrients diffuse from canal blood vessels through the lacunar–canalicular system to osteocytes.",
+      "reason": "The earlier text wrongly said diffusion is impossible."
+     },
+     {
+      "decision": "Revision 2, i16/i18/i22: neuron signalling restricted to the chemical axodendritic synapses drawn. Synapse defined as a junction with presynaptic terminal, synaptic cleft and postsynaptic membrane. Added that synapses can also be on cell bodies or axons, and that electrical synapses exist.",
+      "reason": "To remove universal claims and the synapse=gap error."
+     },
+     {
+      "decision": "Revision 2, i8: lymphocytes split into B cells (become antibody-secreting plasma cells) and T cells (cell-mediated immunity); exam note revised.",
+      "reason": "T lymphocytes do not make antibodies."
+     },
+     {
+      "decision": "Revision 2, i7/i13: leader-line targets now described, with visual identification cues (nuclear lobes, granules, cell shape, fibre thickness).",
+      "reason": "Reviewer found visual identification shallow (rule S1-04)."
+     },
+     {
+      "decision": "Revision 2, i12: hyaline cartilage distinguished from elastic cartilage. The external ear is elastic cartilage; hyaline cartilage is at joint surfaces, tracheal rings, nose, larynx and rib ends.",
+      "reason": "The earlier answer conflated cartilage types."
+     },
+     {
+      "decision": "Kept all earlier correct content, compare/difference questions and why/how depth answers. No items were removed.",
+      "reason": "Instruction to keep everything already right."
+     }
+    ],
+    "uncertain": [
+     "The Fig. 6.10 labels are tiny. They were read as Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil, Lymphocyte, Monocyte, Platelets, Cytoplasm and Nucleus, which matches the standard NCERT Fig. 6.10.",
+     "In panel (a), the 'Cytoplasm' and 'Nucleus' leader lines appear to point to the cytoplasm and nucleus of the top-right granulocyte (basophil side); the exact target cell is hard to confirm at this resolution.",
+     "Colour-based identification of the areolar-tissue cells (green fibroblast, orange macrophage, blue mast cell, orange plasma cell, blue collagen bands) follows the printed NCERT colouring as seen in the image; leader lines are faint.",
+     "The faint watermark text over the figures was ignored."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Page 7 of the Tissues chapter, read almost entirely from the image. It has a comparison table of the three types of muscular tissue (skeletal, cardiac, visceral/smooth), the NCERT figure Fig. 6.10 showing the types of connective tissue, and a diagram of how neurons pass an impulse across a synapse. It extends the epithelial-tissue table from the previous page into the muscular, connective and nervous tissue types.",
+     "key_questions": [
+      "How do skeletal, cardiac and smooth muscle differ in location, function, appearance (striations, nuclei) and control?",
+      "Why is cardiac muscle striated yet involuntary, and where does its rhythm come from?",
+      "Which muscle type controls pupil size, blood pressure, peristalsis and erection of hairs?",
+      "How can each blood cell in Fig. 6.10(a) be told apart by its nuclear shape and cytoplasmic granules?",
+      "What are the Haversian canal and canaliculus, and how do osteocytes in hard bone get nutrients?",
+      "How does hyaline cartilage differ from other cartilage, and where is it found?",
+      "How can each areolar-tissue cell or fibre be identified in the drawing, and what does it do?",
+      "How does an electrical signal travel from dendrites through the cell body and axon to the axon tips, and how is it passed across a chemical synapse to the next neuron?"
+     ],
+     "decisions": [
+      {
+       "decision": "The muscle table is one table item (i2) plus three table_row items (i3–i5), each row giving every cell with its column header.",
+       "reason": "Rule S1-03; comparison tables are high-yield for UPSC."
+      },
+      {
+       "decision": "Fig. 6.10 is one diagram item (i6) with sub-panels (a)–(e). Each label is a diagram_label naming its panel and its pointer target, and the caption is item i15.",
+       "reason": "Rule S1-04; every image-only label becomes a visually identifiable, gameable fact."
+      },
+      {
+       "decision": "The neuron impulse figure is a separate process diagram (i16), with labels for both the previous and the next neuron.",
+       "reason": "It is a distinct flow (sequence) diagram."
+      },
+      {
+       "decision": "The two native blocks (running header and page number 93) are boilerplate.",
+       "reason": "The text layer contains nothing teachable; all content is in the image."
+      },
+      {
+       "decision": "Basis rule: an answer is 'book' only when it restates what the table, figure labels or caption show. Mechanisms, examples and anatomy not on the page are put in separate 'outside' answers.",
+       "reason": "Reviewer found book/outside mixing in i3 and i5 (rule S1-07)."
+      },
+      {
+       "decision": "Revision 2, i3: removed the blanket claim 'It tires quickly'. Replaced it with an outside answer that fatigue depends on fibre type (slow oxidative fibres resist fatigue; fast glycolytic fibres fatigue readily). Tendons, named muscles, shivering and somatic nerve control moved into answers marked outside.",
+       "reason": "The claim was overgeneralised and mislabelled as book."
+      },
+      {
+       "decision": "Revision 2, i2/i4/i5: control is now explained correctly. Cardiac rhythm starts in intrinsic pacemaker cells and is only modulated by autonomic nerves and hormones. Smooth muscle responds to autonomic nerves, hormones, local chemical factors and stretch.",
+       "reason": "The earlier wording implied that nerves and hormones generate the heartbeat."
+      },
+      {
+       "decision": "Revision 2, i10/i11: bone nutrition rewritten. Mineralised matrix needs vascular canals, and nutrients diffuse from canal blood vessels through the lacunar–canalicular system to osteocytes.",
+       "reason": "The earlier text wrongly said diffusion is impossible."
+      },
+      {
+       "decision": "Revision 2, i16/i18/i22: neuron signalling restricted to the chemical axodendritic synapses drawn. Synapse defined as a junction with presynaptic terminal, synaptic cleft and postsynaptic membrane. Added that synapses can also be on cell bodies or axons, and that electrical synapses exist.",
+       "reason": "To remove universal claims and the synapse=gap error."
+      },
+      {
+       "decision": "Revision 2, i8: lymphocytes split into B cells (become antibody-secreting plasma cells) and T cells (cell-mediated immunity); exam note revised.",
+       "reason": "T lymphocytes do not make antibodies."
+      },
+      {
+       "decision": "Revision 2, i7/i13: leader-line targets now described, with visual identification cues (nuclear lobes, granules, cell shape, fibre thickness).",
+       "reason": "Reviewer found visual identification shallow (rule S1-04)."
+      },
+      {
+       "decision": "Revision 2, i12: hyaline cartilage distinguished from elastic cartilage. The external ear is elastic cartilage; hyaline cartilage is at joint surfaces, tracheal rings, nose, larynx and rib ends.",
+       "reason": "The earlier answer conflated cartilage types."
+      },
+      {
+       "decision": "Kept all earlier correct content, compare/difference questions and why/how depth answers. No items were removed.",
+       "reason": "Instruction to keep everything already right."
+      }
+     ],
+     "uncertain": [
+      "The Fig. 6.10 labels are tiny. They were read as Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil, Lymphocyte, Monocyte, Platelets, Cytoplasm and Nucleus, which matches the standard NCERT Fig. 6.10.",
+      "In panel (a), the 'Cytoplasm' and 'Nucleus' leader lines appear to point to the cytoplasm and nucleus of the top-right granulocyte (basophil side); the exact target cell is hard to confirm at this resolution.",
+      "Colour-based identification of the areolar-tissue cells (green fibroblast, orange macrophage, blue mast cell, orange plasma cell, blue collagen bands) follows the printed NCERT colouring as seen in the image; leader lines are faint.",
+      "The faint watermark text over the figures was ignored."
+     ]
+    },
+    "page_summary": "Image-based page. (1) Table 'Three Types of Muscular Tissue': Skeletal (skeleton; movement, heat, posture; striated, multinucleated with eccentric nuclei, parallel fibres; voluntary), Cardiac (heart; pumps blood continuously; striated, one central nucleus; involuntary) and Visceral/smooth muscle (G.I. tract, uterus, eye, blood vessels; peristalsis, blood pressure, pupil size, erects hairs; no striations, one central nucleus; involuntary). (2) NCERT Fig. 6.10, types of connective tissue: (a) blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue. (3) Diagram 'How do neurons transmit impulses (send message to other cells)?' showing dendrites, neuron cell body, nucleus, axon, electrical signal, axon tips, synapse and dendrites of the next neuron.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top, below running header",
+      "content": "Three Types of Muscular Tissue",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "what a tissue is"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Title of the muscle-type comparison table.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top half, green-bordered table",
+      "content": "Table comparing three types of muscular tissue. Columns: (type, with a small drawing of the cell) | Location | Function | Appearance | Control. Rows: Skeletal, Cardiac, Visceral (smooth muscle). The drawings show: a cylindrical striped fibre with several nuclei at the edge (skeletal); branched, striped, interlinked cells (cardiac); a spindle-shaped cell with one central nucleus (smooth).",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is muscular tissue?",
+        "answer": "Muscular tissue is made of elongated cells called muscle fibres. They contain contractile proteins (actin and myosin) that contract and relax to produce movement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "On which features does the table compare the three muscle types?",
+        "answer": "Location in the body, function, appearance under the microscope (striations and nuclei), and whether control is voluntary or involuntary.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the three types compare on striations and control?",
+        "answer": "Skeletal is striated and voluntary. Cardiac is striated but involuntary. Smooth has no striations and is involuntary. So skeletal and cardiac share striations, and cardiac and smooth share involuntary control.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do they differ in nuclei?",
+        "answer": "Skeletal fibres are multinucleated, with eccentric (peripheral) nuclei. Cardiac and smooth muscle cells each have one central nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What are striations?",
+        "answer": "Striations are alternating light and dark bands, produced by the regular, ordered arrangement of actin and myosin filaments. Skeletal and cardiac muscle show them. In smooth muscle the filaments are not arranged in repeating bands, so no striations are seen.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are some muscles voluntary and others involuntary?",
+        "answer": "Skeletal muscle contracts only when motor nerves of the somatic nervous system stimulate it, and those nerves can be consciously controlled. Cardiac rhythm normally starts in the heart's own pacemaker cells (SA node); autonomic nerves and hormones only speed it up or slow it down. Smooth muscle is regulated by autonomic nerves, hormones, local chemical factors and stretch. None of these is under conscious will, so vital functions continue automatically.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell and its nucleus",
+       "what a tissue is",
+       "voluntary vs involuntary actions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A classic UPSC/PCS comparison. Common odd-one-out: cardiac muscle is striated but involuntary.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 1",
+      "content": "Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is skeletal muscle found?",
+        "answer": "The table says: on the skeleton.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is it attached to the skeleton, and what are examples?",
+        "answer": "It is usually attached to bones by tendons. Examples are the biceps and triceps of the upper arm, and the leg muscles.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are its functions?",
+        "answer": "The table lists movement, heat and posture.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does muscle activity produce heat?",
+        "answer": "Using ATP for contraction is not fully efficient, so much of the energy is released as heat. Shivering is rapid involuntary contraction of skeletal muscle that generates extra heat in the cold. This is why skeletal muscle helps maintain body temperature.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do 'multi-nucleated (eccentric)' and 'fibers parallel' mean?",
+        "answer": "Each skeletal fibre has many nuclei, placed eccentrically (at the edge, not the centre), and the fibres run parallel to each other. The table drawing shows a striped cylindrical fibre with several nuclei near its surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does one skeletal fibre have many nuclei?",
+        "answer": "During development many precursor cells (myoblasts) fuse to form one long fibre, which keeps all their nuclei. Such a fibre is a syncytium.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How is it controlled?",
+        "answer": "The table says: voluntary – we can move it at will.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is voluntary control carried out, and does skeletal muscle tire?",
+        "answer": "Somatic motor nerves from the brain and spinal cord stimulate the fibres. Fatigue depends on fibre type, not on skeletal muscle as a whole. Slow oxidative (red) fibres have many mitochondria and myoglobin and resist fatigue, as in postural muscles. Fast glycolytic (white) fibres contract quickly and powerfully but fatigue readily.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does skeletal muscle differ from smooth muscle?",
+        "answer": "Skeletal muscle is striated, multinucleate with eccentric nuclei, made of parallel fibres, and voluntary. Smooth muscle has no striations and one central nucleus, and is involuntary.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "skeleton and bones",
+       "nucleus",
+       "what striations are"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Skeletal = striated + voluntary + multinucleate with peripheral (eccentric) nuclei.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 2",
+      "content": "Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cardiac muscle found?",
+        "answer": "In the heart.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is its function?",
+        "answer": "To pump blood continuously.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it keep working without tiring or conscious control?",
+        "answer": "Cardiac cells are rich in mitochondria and blood supply, so they work aerobically without tiring. They are branched and joined by intercalated discs, so a signal spreads quickly and the heart contracts as a unit. The beat starts in its own pacemaker cells (SA node); autonomic nerves and hormones only adjust the rate.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does it differ from skeletal muscle in appearance?",
+        "answer": "Both are striated, but a cardiac cell has one central nucleus, whereas a skeletal fibre has many eccentric nuclei. The table drawing shows cardiac cells branched and interlinked.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "exception",
+        "question": "Why is cardiac muscle the odd one out?",
+        "answer": "It is striated like skeletal muscle but involuntary like smooth muscle.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "heart and circulation",
+       "striations",
+       "involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Striated yet involuntary; one central nucleus; branched cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table row 3",
+      "content": "Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is smooth muscle found?",
+        "answer": "The table lists the G.I. tract, uterus, eye and blood vessels.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "where",
+        "question": "Where exactly in these organs?",
+        "answer": "It forms layers in the walls of these hollow internal (visceral) organs, which is why it is called visceral muscle. In the eye it is in the iris and ciliary body.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does it do?",
+        "answer": "The table lists peristalsis, blood pressure, pupil size and erecting hairs.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it perform these functions?",
+        "answer": "Peristalsis is a wave of contraction in the gut wall that pushes food along. Smooth muscle in blood-vessel walls narrows the vessel (vasoconstriction, raising pressure) or relaxes to widen it (vasodilation). Iris sphincter and dilator muscles make the pupil smaller or larger with light. Arrector pili muscles pull hairs upright, giving goose bumps.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does a smooth muscle cell look like?",
+        "answer": "It has no striations and one central nucleus. The table drawing shows a spindle-shaped cell tapering at both ends.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "why",
+        "question": "Why is it involuntary?",
+        "answer": "These organ functions must run automatically. Smooth muscle is regulated by autonomic nerves, hormones, local chemical factors (e.g. CO2, O2 levels) and stretch, e.g. a filled gut or bladder wall. Its contraction is slow and sustained.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does smooth muscle compare with cardiac muscle?",
+        "answer": "Both are involuntary and have one central nucleus. Cardiac muscle is striated and located in the heart. Smooth muscle has no striations and is located in the G.I. tract, uterus, eye and blood vessels.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "peristalsis",
+       "iris and pupil",
+       "blood vessels and blood pressure"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Functions such as pupil size and hair erection are tested as 'which muscle' questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-left boxed figure",
+      "content": "Fig. 6.10: Types of connective tissues. (a) types of blood cells: different white blood corpuscles (neutrophil, eosinophil, basophil, lymphocyte, monocyte), platelets and a red blood corpuscle. (b) compact bone: concentric rings around Haversian canals, with canaliculi. (c) hyaline cartilage: chondrocytes in a hyaline matrix. (d) areolar tissue: fibroblast, reticular and collagen fibres, macrophage, mast cell, plasma cell. (e) adipose tissue: adipocytes with fat droplets and nuclei.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is connective tissue?",
+        "answer": "Tissue that connects, supports and binds other tissues. Its cells lie loosely in an intercellular matrix, which may be fluid (blood), jelly-like (areolar), firm (cartilage) or hard (bone).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which connective tissues does the figure show?",
+        "answer": "Blood cells (a), compact bone (b), hyaline cartilage (c), areolar tissue (d) and adipose tissue (e).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is blood called a connective tissue?",
+        "answer": "Its cells (RBC, WBC, platelets) are suspended in a fluid matrix, plasma. It connects body parts by transporting gases, nutrients, hormones and wastes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does bone differ from cartilage?",
+        "answer": "Bone has a hard, mineralised matrix of calcium and phosphorus compounds, with osteocytes in it and Haversian canals carrying blood vessels. Cartilage (chondrocytes in a matrix such as hyaline matrix) is firm but flexible, and its matrix has no blood vessels; nutrients diffuse in from surrounding tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix vs cells",
+       "blood components"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Matching tissue to component (Haversian canal–bone, chondrocyte–cartilage, adipocyte–adipose) is common.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a), top left",
+      "content": "Bracket label 'Different white blood corpuscles' on the left, grouping the WBCs. Top row of three cells labelled below as Neutrophil (polymorphonuclear leucocyte), Eosinophil and Basophil. Labels 'Cytoplasm' and 'Nucleus' above and to the right of the top row; their leader lines point to the cytoplasm (granular outer part) and the dark-stained nucleus of a top-row granulocyte.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do the 'Cytoplasm' and 'Nucleus' labels point to?",
+        "answer": "'Nucleus' points to the dark-stained central or lobed body inside a top-row WBC. 'Cytoplasm' points to the lighter, granule-dotted region around it, inside the cell membrane.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are neutrophils, eosinophils and basophils?",
+        "answer": "They are granulocyte WBCs, so called because of visible granules in their cytoplasm. Neutrophils engulf bacteria (phagocytosis). Eosinophils act in allergic reactions and against parasites. Basophils release histamine and heparin.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the three granulocytes be told apart in a drawing or smear?",
+        "answer": "Neutrophil: nucleus with 3–5 lobes joined by thin strands, and fine, faintly stained granules. Eosinophil: usually two-lobed nucleus, and coarse granules that stain red or orange with the acidic dye eosin. Basophil: lobed or S-shaped nucleus often hidden by large, dark blue-purple granules. In the figure, the left cell has a multi-lobed nucleus, the middle cell a lobed nucleus with granules, and the right cell is densely dotted.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the neutrophil called polymorphonuclear?",
+        "answer": "Its nucleus has several lobes of varied shape, so it looks as if it has many nuclei ('poly' = many, 'morph' = form).",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "WBCs and immunity",
+       "cell nucleus and cytoplasm"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Types of WBC and their identifying features are frequent factual questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a), middle left",
+      "content": "Lymphocyte, Monocyte, Platelets (second row of panel a: two large WBCs followed by a cluster of small fragments labelled Platelets)",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are lymphocytes, monocytes and platelets?",
+        "answer": "Lymphocytes have a large round nucleus filling most of the cell and give specific (adaptive) immunity. Monocytes have a kidney- or bean-shaped nucleus and become macrophages in tissues that engulf microbes. Platelets are small cell fragments that help blood clot.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "which",
+        "question": "Which lymphocytes make antibodies?",
+        "answer": "B lymphocytes, when activated, differentiate into plasma cells that secrete antibodies (humoral immunity). T lymphocytes do not make antibodies; they carry out cell-mediated immunity, e.g. killing infected cells and helping other immune cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do platelets stop bleeding?",
+        "answer": "At a wound they stick together to form a plug. They also release factors that lead to a fibrin mesh, which traps blood cells into a clot.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do platelets differ from lymphocytes and monocytes?",
+        "answer": "Lymphocytes and monocytes are complete WBCs with a nucleus. Platelets are small fragments of cells without a nucleus; the figure draws them much smaller.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood clotting",
+       "immunity (antibodies, cell-mediated)"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Platelets = clotting. B lymphocytes → plasma cells → antibodies; T lymphocytes = cell-mediated immunity.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(a/b), bottom left",
+      "content": "Red blood corpuscle – label points to a pale round disc-shaped cell at the bottom of the left part of the figure",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an RBC?",
+        "answer": "A biconcave disc-shaped cell containing haemoglobin, which carries oxygen. Mature human RBCs lack a nucleus.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do mature human RBCs lack a nucleus and have a biconcave shape?",
+        "answer": "Without a nucleus there is more room for haemoglobin, so each cell carries more oxygen. The biconcave shape increases surface area for gas exchange and lets the cell bend through narrow capillaries.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "haemoglobin"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Mature human RBCs lack a nucleus: an odd-one-out fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(b), compact bone, left",
+      "content": "Haversian canal (contains blood vessels and nerve fibres) – points to the central canal of a set of concentric rings",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the Haversian canal?",
+        "answer": "The central canal around which bone layers are arranged in concentric rings. The label says it contains blood vessels and nerve fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does bone need such canals?",
+        "answer": "Bone matrix is mineralised (calcium phosphate), so no blood vessels run through the solid matrix itself and nutrients cannot reach deep cells quickly. Vascular canals bring blood vessels close to every part of the bone.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How do nutrients get from the canal to the osteocytes?",
+        "answer": "Nutrients and oxygen leave the blood vessels in the Haversian canal. They diffuse through the fluid in the lacunar–canalicular system: the spaces (lacunae) holding osteocytes and the fine canaliculi joining them. Wastes move back the same way. Diffusion still happens, but through these fluid-filled channels, not through the solid mineral.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bone matrix",
+       "blood vessels",
+       "diffusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The Haversian canal is a feature of compact bone (mammalian).",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(b), compact bone, centre",
+      "content": "Canaliculus (contains slender process of bone cell or osteocyte) – points to the fine lines radiating from the dark bone cells in the rings",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a canaliculus?",
+        "answer": "A tiny channel in the bone matrix. The label says it contains the slender processes of bone cells (osteocytes).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it help osteocytes?",
+        "answer": "Canaliculi link neighbouring lacunae (osteocyte spaces) to each other and to the Haversian canal. Nutrients, oxygen and wastes diffuse through the fluid in them, and osteocyte processes touch one another through them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "osteocyte = bone cell",
+       "diffusion"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Osteocyte = bone cell; canaliculi = the lifeline channels.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(c), hyaline cartilage, upper centre",
+      "content": "Chondrocyte; Hyaline matrix – 'Chondrocyte' points to small cells (often in pairs) lying in the matrix, 'Hyaline matrix' points to the clear surrounding ground substance",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are a chondrocyte and the hyaline matrix?",
+        "answer": "A chondrocyte is a cartilage cell, lying in a small space in the matrix. The hyaline matrix is the clear, glassy, firm but flexible matrix of protein fibres (mainly collagen) and sugars around it.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is hyaline cartilage found?",
+        "answer": "On the articular surfaces at the ends of bones in joints, in the C-shaped rings of the trachea, in the nose, the larynx, and the costal cartilages joining ribs to the sternum.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does hyaline cartilage differ from the cartilage of the external ear?",
+        "answer": "The external ear (pinna) and the epiglottis are chiefly elastic cartilage, whose matrix has many elastic fibres and so springs back after bending. Hyaline cartilage has fine collagen fibres and a glassy look, giving firm, smooth support. A third type, fibrocartilage (e.g. intervertebral discs), has dense collagen bundles.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is hyaline cartilage suited to joint surfaces and tracheal rings?",
+        "answer": "Its smooth, firm-but-flexible matrix reduces friction between bones and absorbs shock at joints. In the trachea it keeps the airway open while allowing some bending.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "matrix",
+       "collagen and elastic fibres"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Cartilage is flexible; bone is hard. Ear pinna = elastic cartilage, not hyaline.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(d), areolar tissue, top right of left box",
+      "content": "Six labels with leader lines: Reticular fibre (top left) points to thin branching fibres; Fibroblast (top right) points to the large branched/star-shaped cell in the centre (coloured green); Macrophage (left) points to an irregular cell with projections (orange); Collagen fibre (lower left) points to the thick wavy bands (blue); Mast cell (bottom centre) points to a rounded cell (blue); Plasma cell (right) points to a rounded cell on the right (orange-brown).",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which part of the drawing is each labelled component?",
+        "answer": "Fibroblast: the central branched (star or spindle) cell with long extensions. Collagen fibres: the thick, unbranched, wavy bands crossing the field. Reticular fibres: the finer, thin branching threads forming a network. Macrophage: an irregular cell with projections at the left. Mast cell: a rounded cell packed with granules near the bottom. Plasma cell: a rounded cell with a nucleus at the right.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can these be identified in a real slide?",
+        "answer": "Fibroblasts are flat, branched cells with an oval nucleus lying among fibres. Collagen fibres are thick, wavy, pink bundles. Reticular and elastic fibres are thin and branching. Macrophages are irregular, often with ingested particles. Mast cells are oval and full of dark granules. Plasma cells are oval with an eccentric nucleus whose chromatin forms a 'cart-wheel' pattern.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does each component of areolar tissue do?",
+        "answer": "Fibroblasts make the fibres and matrix. Collagen fibres give tensile strength. Reticular fibres form a supporting mesh. Macrophages engulf microbes and debris. Mast cells release histamine (inflammation) and heparin (anticoagulant). Plasma cells, derived from B lymphocytes, secrete antibodies.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is areolar tissue found?",
+        "answer": "Between skin and muscles, around blood vessels and nerves, and in bone marrow. It fills spaces inside organs, supports internal organs and helps in tissue repair.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does areolar tissue help in repair and defence?",
+        "answer": "Fibroblasts lay down new collagen to mend damaged tissue. Macrophages, mast cells and plasma cells present in the same tissue fight infection at the site.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fibres in matrix",
+       "immunity cells",
+       "B lymphocytes and antibodies"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Areolar tissue is the 'packing tissue'; mast cell = histamine/heparin; plasma cell = antibodies.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Fig 6.10(e), adipose tissue, lower right",
+      "content": "Fat droplet; Nucleus; Adipocyte – 'Fat droplet' points to the large clear interior of a cell, 'Nucleus' to the small dark body pressed at the cell edge, 'Adipocyte' to a whole fat cell",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an adipocyte?",
+        "answer": "A fat cell. A large fat droplet fills most of the cell and pushes the nucleus and cytoplasm to the edge, which is why the drawing shows big clear rounded cells with a nucleus at the rim.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does adipose tissue do?",
+        "answer": "It stores fat as an energy reserve and acts as an insulator and cushion. It is found below the skin and between internal organs.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does fat act as an insulator?",
+        "answer": "Fat conducts heat poorly, so a layer below the skin slows heat loss from the body, as in the blubber of whales and seals.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fats as stored energy"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Adipose = fat storage + insulation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "caption",
+      "parent_item_id": "i6",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below Fig 6.10",
+      "content": "Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which five connective tissues are named?",
+        "answer": "Blood (types of blood cells), compact bone, hyaline cartilage, areolar tissue and adipose tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can these five be grouped by their matrix?",
+        "answer": "Blood has a fluid matrix (fluid connective tissue). Bone and cartilage have hard or firm matrices (supportive/skeletal connective tissue). Areolar and adipose tissue have soft matrices (loose connective tissue).",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does areolar tissue compare with adipose tissue?",
+        "answer": "Both are loose connective tissues. Areolar tissue has many cell types and fibres and fills and repairs spaces. Adipose tissue is mostly fat-filled adipocytes that store fat and insulate.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective tissue"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "A list for classification questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-right boxed figure",
+      "content": "Title: 'How do neurons transmit impulses (send message to other cells)?' Two neurons in sequence. At far left, the axon of a previous neuron meets the dendrites of the first neuron at a synapse (red circle). The signal passes into the neuron cell body (with nucleus), then along the axon as an electrical signal (blue arrow) to the axon tips. The axon tips meet the dendrites of the next neuron at another synapse (red circle at top).",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a neuron?",
+        "answer": "A nerve cell, the structural and functional unit of nervous tissue. It is specialised to receive, conduct and transmit impulses.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How does a message travel in the diagram?",
+        "answer": "In the arrangement shown, the message arrives at the dendrites from the previous neuron's axon across a synapse. It passes into the cell body, travels along the axon as an electrical signal to the axon tips, and is passed across a synapse to the dendrites of the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the signal passed across the synapses drawn here?",
+        "answer": "The figure shows chemical synapses between axon tips and dendrites (axodendritic). When the electrical signal reaches the presynaptic axon terminal, it releases chemical neurotransmitters into the synaptic cleft. These bind receptors on the postsynaptic membrane of the next neuron's dendrite and start a new electrical change there.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the impulse usually travel one way at such a chemical synapse?",
+        "answer": "At a chemical synapse, transmitter-releasing vesicles are in the presynaptic terminal and the matching receptors are on the postsynaptic membrane, so the message normally passes from presynaptic to postsynaptic cell. This explains the direction drawn: axon of one neuron → dendrite of the next.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "exception",
+        "question": "Do all synapses look like the ones drawn?",
+        "answer": "No. Synapses can also be made onto the cell body (axosomatic) or onto another axon (axoaxonic). Some synapses are electrical, where cells are directly connected by gap junctions and current can pass quickly, sometimes in both directions. The diagram shows only the common axodendritic chemical case.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nerve impulse as an electrical signal",
+       "cell body and nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Direction of impulse in a typical chemical synapse (axon → dendrite of next neuron) and the meaning of 'synapse' are frequently asked.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, far left",
+      "content": "axon of previous neuron – points to the incoming axon ending at the left neuron's dendrites",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this label show?",
+        "answer": "That neurons form chains: one neuron's axon delivers the message to the next neuron's dendrites.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do neurons form chains?",
+        "answer": "Messages often travel long distances, e.g. skin → spinal cord/brain → muscle, and need processing on the way. Chains of neurons linked by synapses relay and integrate the message.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "axon"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Context label.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, red circles at left and top",
+      "content": "synapse – red circles marking the junction between the axon (tips) of one neuron and the dendrites of the next",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a synapse?",
+        "answer": "The junction where one neuron passes its message to the next neuron, as marked by the red circles.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What are the parts of a chemical synapse?",
+        "answer": "(1) The presynaptic terminal: the axon tip of the sending neuron, containing vesicles of neurotransmitter. (2) The synaptic cleft: the very narrow gap between the two cells. (3) The postsynaptic membrane: the receiving neuron's membrane, e.g. on a dendrite, carrying receptors. The synapse is the whole junction; the cleft is only the gap within it.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the message carried across if the cells do not touch?",
+        "answer": "At a chemical synapse, the presynaptic terminal releases neurotransmitters into the cleft. They diffuse across and bind receptors on the postsynaptic membrane, triggering an electrical change in the next neuron. At the less common electrical synapses, gap junctions connect the cells directly.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron",
+       "neurotransmitter as chemical messenger"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Definition of synapse vs synaptic cleft.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, both neurons",
+      "content": "neuron cell body; nucleus – the central star-shaped body of each neuron with its dark nucleus",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the cell body do?",
+        "answer": "The cell body (cyton) contains the nucleus and most of the cytoplasm. It keeps the neuron alive and integrates signals received from the dendrites.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the nucleus in the cell body important?",
+        "answer": "The nucleus controls protein production and cell activities. Without the cell body, the axon and dendrites cannot be maintained.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Parts of a neuron.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, bottom left and right",
+      "content": "dendrites (bottom of first neuron); dendrites of next neuron (right) – short branched extensions of the cell body",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are dendrites?",
+        "answer": "Short, branched extensions of the cell body that receive messages from other neurons.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are dendrites highly branched?",
+        "answer": "Branching gives a large receiving surface, so one neuron can collect signals from many other neurons.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do dendrites differ from the axon?",
+        "answer": "Dendrites are short, many and branched, and typically bring signals toward the cell body. The axon is usually single and long, and carries signals away from the cell body.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Dendrites receive; axon sends.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, middle",
+      "content": "axon – the long fibre from the first neuron's cell body toward the next neuron; electrical signal – blue arrow along the axon showing the direction of the impulse",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an axon?",
+        "answer": "The long fibre of the neuron along which the electrical signal travels away from the cell body toward the axon tips, as the blue arrow shows.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the electrical signal produced?",
+        "answer": "Ions (Na+ and K+) move across the axon membrane through channels. This creates a travelling wave of voltage change (action potential) that moves along the axon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "ions and cell membranes"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The axon carries the impulse away from the cell body.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i16",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "neuron diagram, right",
+      "content": "axon tips – branched endings of the axon meeting the next neuron's dendrites at the synapse",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What happens at the axon tips?",
+        "answer": "The electrical signal reaches the axon tips and is passed across the synapse to the next neuron's dendrites.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do axon tips pass the signal on at a chemical synapse like the one drawn?",
+        "answer": "The arriving electrical signal causes the presynaptic terminals to release neurotransmitter into the synaptic cleft. The transmitter binds receptors on the postsynaptic membrane of the next neuron, which produces a new electrical change there.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "synapse",
+       "neurotransmitter"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Axon terminals = presynaptic endings.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0007-b0001",
+     "p0007-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "e6077b703d4fee29f545cd8edbfd6b6a8d17115111bb28fa0b323b49daf39a67",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13285,
+    "output_tokens": 1877,
+    "cost_usd": 0.04534,
+    "value": {
+     "notes": {
+      "about": "This page compares skeletal, cardiac and smooth muscle, illustrates five connective tissues, and traces communication between neurons. The review checks both the image-derived coverage and the accuracy of the added biological explanations.",
+      "key_questions": [
+       "How do muscle structure, location and control explain their different functions?",
+       "Can students identify each connective-tissue component and explain its role?",
+       "How does a signal travel within a neuron and between neurons?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the visual coverage as complete.",
+        "reason": "The items capture all three table rows, their column headings, the tissue illustrations and labels, and the neuron labels, synapses and directional arrow."
+       },
+       {
+        "decision": "Require corrections to some outside explanations.",
+        "reason": "Cardiac regulation and coordination are described too absolutely, and lymphocytes are incorrectly restricted to adaptive immunity."
+       },
+       {
+        "decision": "Require a fuller explanation of skeletal movement and posture.",
+        "reason": "These are explicit table functions, but their mechanisms are mostly restated rather than explained."
+       }
+      ],
+      "uncertain": [
+       "The smallest connective-tissue labels have limited resolution, but no definite omitted or conflicting label is evident."
+      ]
+     },
+     "verdict": "fail",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i2",
+       "problem": "The outside answer on voluntary versus involuntary control says autonomic nerves and hormones 'only speed it up or slow it down'. Cardiac regulation is not limited to heart rate.",
+       "fix": "Explain that the SA node normally initiates the rhythm, while autonomic nerves and hormones modify heart rate, conduction and contractile force."
+      },
+      {
+       "item_id": "i4",
+       "problem": "The explanation says intercalated discs make 'the heart contract as a unit', which obscures the coordinated sequence of atrial and ventricular contraction. It also repeats that autonomic nerves and hormones 'only adjust the rate'.",
+       "fix": "Explain that electrical coupling helps coordinate contraction within cardiac muscle, while the conduction system coordinates atrial contraction followed by ventricular contraction. State that autonomic and hormonal inputs also affect conduction and contractile force."
+      },
+      {
+       "item_id": "i8",
+       "problem": "The answer categorically says lymphocytes 'give specific (adaptive) immunity'. This overlooks natural killer cells, which are lymphocytes involved in innate immunity.",
+       "fix": "Specify that B and T lymphocytes mediate adaptive immunity; NK lymphocytes participate in innate immunity."
+      }
+     ],
+     "shallow": [
+      {
+       "item_id": "i3",
+       "what_is_missing": "Heat production is explained, but the other two listed functions—movement and posture—are merely named. Explain how muscle contraction pulls through tendons to move bones at joints, and how sustained low-level activity in postural muscles stabilises joints and holds the body against gravity."
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": false,
+       "note": "Outside knowledge is explicitly marked, but the cardiac-regulation and lymphocyte explanations need the corrections listed above."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Coverage is extensive, but factual corrections and explanation of skeletal movement and posture are needed for teacher-level completeness."
+      },
+      {
+       "rule_id": "G-03",
+       "met": false,
+       "note": "The submission has a page summary, but no explicit reviewable notes stating its main decisions with reasons and uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No visibly truncated answer or content left unresolved as 'etc.'; grouped labels remain individually described."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All visible educational table and diagram content is represented."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header and page number are marked as boilerplate. The table heading is retained with its teaching content developed in the following items."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Each muscle row has its own item, with location, function, appearance and control identified."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "The connective-tissue labels and their targets, muscle illustrations, neuron branches, synaptic junctions and electrical-signal direction are captured."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "There are no page equations or mathematical symbols requiring transcription."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": false,
+       "note": "Most items include useful why/how explanations, but i3 does not explain how skeletal muscle produces movement and maintains posture."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": false,
+       "note": "Book versus outside bases are generally appropriate, but some outside answers are inaccurate or overgeneralised, as detailed under wrong."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "The heading, comparison table, rows, caption, diagram and label classifications are appropriate."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites generally identify concrete concepts such as nuclei, matrix, diffusion, circulation and cell membranes."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam priorities are sensible for UPSC/State PCS. Questions are attached to the relevant items; no conflicting cross-item links are supplied."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "The native text contains only the running header and page number. Educational content is correctly sourced from the image; no actual text-image disagreement is evident."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] wrong in i2: The outside answer on voluntary versus involuntary control says autonomic nerves and hormones 'only speed it up or slow it down'. Cardiac regulation is not limited to heart rate. -> fix: Explain that the SA node normally initiates the rhythm, while autonomic nerves and hormones modify heart rate, conduction and contractile force.",
+    "[reviewer] wrong in i4: The explanation says intercalated discs make 'the heart contract as a unit', which obscures the coordinated sequence of atrial and ventricular contraction. It also repeats that autonomic nerves and hormones 'only adjust the rate'. -> fix: Explain that electrical coupling helps coordinate contraction within cardiac muscle, while the conduction system coordinates atrial contraction followed by ventricular contraction. State that autonomic and hormonal inputs also affect conduction and contractile force.",
+    "[reviewer] wrong in i8: The answer categorically says lymphocytes 'give specific (adaptive) immunity'. This overlooks natural killer cells, which are lymphocytes involved in innate immunity. -> fix: Specify that B and T lymphocytes mediate adaptive immunity; NK lymphocytes participate in innate immunity.",
+    "[reviewer] shallow i3: Heat production is explained, but the other two listed functions—movement and posture—are merely named. Explain how muscle contraction pulls through tendons to move bones at joints, and how sustained low-level activity in postural muscles stabilises joints and holds the body against gravity.",
+    "[reviewer] rule G-01 not met: Outside knowledge is explicitly marked, but the cardiac-regulation and lymphocyte explanations need the corrections listed above.",
+    "[reviewer] rule G-02 not met: Coverage is extensive, but factual corrections and explanation of skeletal movement and posture are needed for teacher-level completeness.",
+    "[reviewer] rule G-03 not met: The submission has a page summary, but no explicit reviewable notes stating its main decisions with reasons and uncertainties.",
+    "[reviewer] rule S1-06 not met: Most items include useful why/how explanations, but i3 does not explain how skeletal muscle produces movement and maintains posture.",
+    "[reviewer] rule S1-07 not met: Book versus outside bases are generally appropriate, but some outside answers are inaccurate or overgeneralised, as detailed under wrong."
+   ],
+   "passed": false,
+   "finished_at": 1792590979.6051495
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 1.240447,
+ "navin_verdict": null
+}
