@@ -1,0 +1,1415 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-008",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "ae222a9d9894360959ae54a46a9f266bea5ea759c09473d53b52df653dce2289",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 8 of 14.\n\nLast lines of the previous page (context only):\nScience and Technology\n93\n\nFirst lines of the next page (context only):\nScience and Technology\nPLANT TISSUE\n1. MERISTEMATIC TISSUE:\n• OCCURRENCE: Growing region of plant like root, shoot etc.\n• Shape: Spherical, oval/rectangular.\n• Intercellular spaces: Absent, hence compactly packed.\n• Vacuoles absent in it.\n• Focus only on cell division.\n\nNative text blocks of this page (id | text):\np0008-b0001 | Science and Technology\np0008-b0002 | 94"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "d08bb7d89dcd373b52f6c3cdaaaa2de2cbc786b7e95a357ceaaa22ab76749cad",
+    "base64_chars": 732096
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594241.3213954,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "abfb570c2a3f892e018c4c83bb90f77b3e8bfd5f19040d10e0d4f0db66bde4de",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4717,
+    "output_tokens": 11916,
+    "cost_usd": 0.128594
+   },
+   "notes": {
+    "about": "This page completes a location–function comparison of connective tissues and introduces plant-tissue classification. A small plant-axis drawing also shows the positions of the three types of meristem.",
+    "key_questions": [
+     "Where is each connective tissue found, and how does its function fit its location?",
+     "Which tissues are grouped as specialised connective tissue?",
+     "How do the branches of the plant-tissue classification connect?",
+     "Where are apical, intercalary and lateral meristems located?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read the instructional content entirely from the image.",
+      "reason": "The native text contains only the running header and page number."
+     },
+     {
+      "decision": "Represent the connective-tissue table with a header row and seven tissue rows.",
+      "reason": "Cartilage, bone and vascular connective tissue have separate location–function entries within the specialised connective tissue group."
+     },
+     {
+      "decision": "Separate the classification tree from the small meristem-location drawing and capture every label.",
+      "reason": "The tree teaches relationships, whereas the plant-axis drawing teaches anatomical positions."
+     },
+     {
+      "decision": "Mark explanatory mechanisms and functions not stated in the figure as outside knowledge.",
+      "reason": "The plant figures mostly supply names and relationships, not definitions or mechanisms."
+     }
+    ],
+    "uncertain": [
+     "The elastic connective tissue row includes trachea, while the cartilage row also includes parts of the trachea. The page does not distinguish the particular tissue components intended; both entries are retained."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page completes a location–function comparison of connective tissues and introduces plant-tissue classification. A small plant-axis drawing also shows the positions of the three types of meristem.",
+     "key_questions": [
+      "Where is each connective tissue found, and how does its function fit its location?",
+      "Which tissues are grouped as specialised connective tissue?",
+      "How do the branches of the plant-tissue classification connect?",
+      "Where are apical, intercalary and lateral meristems located?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read the instructional content entirely from the image.",
+       "reason": "The native text contains only the running header and page number."
+      },
+      {
+       "decision": "Represent the connective-tissue table with a header row and seven tissue rows.",
+       "reason": "Cartilage, bone and vascular connective tissue have separate location–function entries within the specialised connective tissue group."
+      },
+      {
+       "decision": "Separate the classification tree from the small meristem-location drawing and capture every label.",
+       "reason": "The tree teaches relationships, whereas the plant-axis drawing teaches anatomical positions."
+      },
+      {
+       "decision": "Mark explanatory mechanisms and functions not stated in the figure as outside knowledge.",
+       "reason": "The plant figures mostly supply names and relationships, not definitions or mechanisms."
+      }
+     ],
+     "uncertain": [
+      "The elastic connective tissue row includes trachea, while the cartilage row also includes parts of the trachea. The page does not distinguish the particular tissue components intended; both entries are retained."
+     ]
+    },
+    "page_summary": "An image-based table compares loose, dense, elastic, specialised and adipose connective tissues by location and function. A plant-tissue tree divides tissues into meristematic and permanent tissues, then shows their subdivisions, while an accompanying plant-axis drawing locates apical, intercalary and lateral meristems.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above the upper-left table",
+      "content": "Types of Connective Tissues",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces a high-value tissue–location–function comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper-left and middle-left of page",
+      "content": "Types of Connective Tissues. Columns: Type of Tissue | Location | Function. Rows cover loose connective tissue, dense connective tissue, elastic connective tissue, specialised connective tissue—(i) Cartilage, (ii) Bone, (iii) Vascular connective tissue (blood)—and adipose tissue.",
+      "content_type": "comparison",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "meaning of a tissue",
+       "connective tissue as an animal-tissue category"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the three-way matching of tissue, location and function, rather than isolated tissue names.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table header row",
+      "content": "Type of Tissue | Location | Function",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Column headings organize the comparisons below.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, first data row",
+      "content": "Type of Tissue: Loose connective tissue | Location: Deep layers of skin, blood vessels, nerves and body organs. | Function: Support and elasticity",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which locations and functions does the table associate with loose connective tissue?",
+        "answer": "It lists deep layers of skin, blood vessels, nerves and body organs, and assigns the functions of support and elasticity.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does loose connective tissue compare with dense connective tissue in this table?",
+        "answer": "Loose connective tissue is associated with skin and structures such as vessels, nerves and organs, with support and elasticity as its functions. Dense connective tissue is associated with tendons and ligaments and with strong, compact connections.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a loose arrangement provide support without forming a rigid framework?",
+        "answer": "Fibres and ground substance bind and support neighbouring structures while allowing some movement. A relatively loose arrangement can accommodate vessels and nerves rather than forming a tightly packed, rigid mass.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cells and extracellular matrix",
+       "skin, blood vessels and nerves",
+       "meaning of elasticity"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match loose connective tissue with support and elasticity and the listed locations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, second data row",
+      "content": "Type of Tissue: Dense connective tissue | Location: Tendons and ligaments | Function: Compactly pack structures to one another and provides great strength.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is dense connective tissue found, and what does it do?",
+        "answer": "The table places it in tendons and ligaments and describes its role as compactly joining structures and providing great strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the emphasis of the dense connective tissue row differ from the elastic connective tissue row?",
+        "answer": "The dense row emphasizes compact connection and great strength in tendons and ligaments; the elastic row emphasizes elasticity in lungs, arteries, trachea and vocal cords.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is strength important in tendons and ligaments?",
+        "answer": "Tendons transmit muscular pull to bones, while ligaments connect bones at joints. Closely arranged collagen fibres help these structures resist the tensile forces produced during movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "collagen fibres in extracellular matrix",
+       "muscles, bones and joints",
+       "difference between tendons and ligaments"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Tendons and ligaments are key examples of dense connective tissue; retain the strength–connection association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, third data row",
+      "content": "Type of Tissue: Elastic connective tissue | Location: Lungs, arteries, trachea and vocal cords. | Function: Provides elasticity",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which locations are given for elastic connective tissue?",
+        "answer": "The listed locations are lungs, arteries, trachea and vocal cords, with elasticity as the stated function.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is the location list for elastic connective tissue different from that for dense connective tissue?",
+        "answer": "Elastic connective tissue is listed in lungs, arteries, trachea and vocal cords, whereas dense connective tissue is listed in tendons and ligaments.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does elasticity help structures such as lungs and arteries?",
+        "answer": "Elastic fibres permit stretching followed by recoil. This helps lungs return toward their resting size after expansion and helps arterial walls accommodate pressure changes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "elasticity as stretching followed by recoil",
+       "lungs and breathing",
+       "arteries as blood vessels"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the full location list, including trachea and vocal cords, as printed.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, specialised connective tissue group, first entry",
+      "content": "Type of Tissue: Specialised connective tissue (i) Cartilage | Location: Ends of long bones tip of nose, parts of larynx and trachea. | Function: Provides flexibility and support.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissues are included under the specialised connective tissue group?",
+        "answer": "The group contains cartilage, bone and vascular connective tissue (blood). Cartilage is the first entry.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cartilage located according to the table?",
+        "answer": "It is listed at the ends of long bones, the tip of the nose, and parts of the larynx and trachea. Its stated functions are flexibility and support.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the stated functions of cartilage differ from those of bone?",
+        "answer": "Cartilage is associated with flexibility and support, whereas bone is associated with protection, support and muscle attachment.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cartilage suitable where support must be combined with flexibility?",
+        "answer": "Its firm but relatively pliable matrix maintains shape without the rigidity of mineralised bone. At the ends of many bones, articular cartilage also provides a smooth surface for movement.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "long bones and joints",
+       "larynx and trachea",
+       "extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value specialised-tissue example; distinguish flexible support by cartilage from the support and muscle attachment provided by bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, specialised connective tissue group, second entry",
+      "content": "Type of Tissue: (ii) Bone [under Specialised connective tissue] | Location: Bones | Function: Protection and support muscle attachment.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What classification and functions are assigned to bone?",
+        "answer": "Bone is an entry under specialised connective tissue. The function cell lists protection, support and muscle attachment.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does bone differ in function from blood, although both are specialised connective tissues?",
+        "answer": "Bone provides protection, support and muscle attachment; blood transports oxygen and carbon dioxide and participates in immune response and clotting.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does bone support the body and enable muscle action?",
+        "answer": "A mineralised matrix gives bone rigidity. Muscles attached to bones, commonly through tendons, exert forces that move bones at joints.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeleton",
+       "muscle contraction",
+       "tendons and joints",
+       "mineralised extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember bone as specialised connective tissue, not merely as an organ of the skeleton.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, specialised connective tissue group, third entry",
+      "content": "Type of Tissue: (iii) Vascular connective tissue (blood) [under Specialised connective tissue] | Location: Within blood vessels | Function: Transport of oxygen and carbon dioxide and immune response blood clotting.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does vascular connective tissue refer to in this table?",
+        "answer": "It refers to blood, listed within blood vessels under specialised connective tissue. Its functions include transport of oxygen and carbon dioxide, immune response and blood clotting.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does blood differ from cartilage and bone in the functions emphasized here?",
+        "answer": "Blood is associated with transport and defence-related functions, while cartilage and bone are associated primarily with support and other mechanical roles.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can a fluid such as blood be classified as connective tissue?",
+        "answer": "Connective tissue need not be solid. Blood has cells and cell fragments suspended in an extracellular fluid matrix called plasma, and it connects body regions functionally by transporting materials.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are the listed functions distributed among blood components?",
+        "answer": "Haemoglobin in red blood cells carries most oxygen; carbon dioxide is transported in several forms, much of it as bicarbonate. White blood cells contribute to immune defence, while platelets and plasma clotting factors help form clots.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood vessels",
+       "red blood cells, white blood cells, platelets and plasma",
+       "oxygen and carbon dioxide in respiration",
+       "meaning of immune defence"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Blood is the fluid specialised connective tissue in this comparison; remember transport, immunity and clotting.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "table, final data row",
+      "content": "Type of Tissue: Adipose tissue | Location: Deep layers of skin, surrounding heart and kidneys and padding around joints. | Function: Support, protection, heat conservation and energy source.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is adipose tissue found, and what functions does the table list?",
+        "answer": "It is found in deep layers of skin, surrounding the heart and kidneys, and as padding around joints. It provides support, protection, heat conservation and an energy source.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the adipose row differ from the loose connective tissue row?",
+        "answer": "Both mention deep layers of skin and support. The loose connective tissue row emphasizes elasticity, while the adipose row additionally emphasizes protection, heat conservation and energy.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can adipose tissue provide both energy storage and protection?",
+        "answer": "Its cells store fat that can be mobilised as an energy reserve. Deposits of this tissue cushion structures, while fat beneath the skin reduces heat loss.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fat as an energy store",
+       "skin and internal organs",
+       "heat loss and insulation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link adipose tissue to cushioning, insulation and energy storage, with the full set of locations shown.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower half, branching classification chart",
+      "content": "Plant Tissues classification tree, with downward branching arrows: Plant Tissues → Meristematic tissue and Permanent tissue. Meristematic tissue → Apical meristem, Intercalary meristem and Lateral meristem. Permanent tissue → Simple permanent tissue and Complex permanent tissue. Simple permanent tissue → Parenchyma, Collenchyma and Sclerenchyma. Parenchyma → Aerenchyma and Chlorenchyma. Sclerenchyma → Sclerenchyma fibers and Sclereids. Complex permanent tissue → Xylem and Phloem. The branches show classification, not a chronological sequence.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What are the two main branches of plant tissues, and how does each branch subdivide?",
+        "answer": "Plant tissues divide into meristematic and permanent tissues. Meristematic tissue divides into apical, intercalary and lateral meristems. Permanent tissue divides into simple and complex permanent tissue; simple includes parenchyma, collenchyma and sclerenchyma, while complex includes xylem and phloem. Parenchyma further branches into aerenchyma and chlorenchyma, and sclerenchyma into sclerenchyma fibers and sclereids.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner use the arrows when identifying the category of a named tissue?",
+        "answer": "Follow the connecting branches upward to its parent and then to broader categories. For example, chlorenchyma belongs under parenchyma, then simple permanent tissue, then permanent tissue, and finally plant tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the chart not be read as a sequence in which one tissue turns into the next?",
+        "answer": "It is a hierarchy of categories. Sibling branches name different types within a parent category; they do not indicate that, for example, parenchyma changes into collenchyma and then sclerenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissue as a group of cells",
+       "reading parent and child branches in a classification tree"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The complete hierarchy supports classification, matching and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, top root label",
+      "content": "Plant Tissues: root category branching to Meristematic tissue and Permanent tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two categories are directly below Plant Tissues?",
+        "answer": "Meristematic tissue and permanent tissue are the two immediate branches.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these categories differ in their broad biological role?",
+        "answer": "Meristematic tissues contain actively dividing cells involved in growth. Permanent tissues contain differentiated cells with specialised roles and generally reduced or absent division.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "cell differentiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Start the classification with meristematic versus permanent tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, upper-left branch",
+      "content": "Meristematic tissue: child of Plant Tissues; parent of Apical meristem, Intercalary meristem and Lateral meristem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which three branches belong to meristematic tissue rather than permanent tissue?",
+        "answer": "Apical meristem, intercalary meristem and lateral meristem belong to meristematic tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can meristems be distinguished by their positions?",
+        "answer": "Their positions correspond to different growth regions: tips, regions between mature tissues, and lateral regions. This makes location a useful basis for distinguishing meristems.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "root and shoot growth",
+       "plant-axis positions"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not mix these three meristems with permanent-tissue types.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, upper-right branch",
+      "content": "Permanent tissue: child of Plant Tissues; parent of Simple permanent tissue and Complex permanent tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What two categories are immediately below permanent tissue?",
+        "answer": "Simple permanent tissue and complex permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the simple–complex distinction help explain permanent tissues?",
+        "answer": "Simple permanent tissue is composed mainly of one cell type, whereas complex permanent tissue contains different cell types working together for a common function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell differentiation",
+       "cell type versus tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Permanent tissue has two immediate branches; xylem is not a simple permanent tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, leftmost meristem leaf",
+      "content": "Apical meristem: child of Meristematic tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which category contains apical meristem, and which labels are its siblings?",
+        "answer": "Apical meristem belongs to meristematic tissue, alongside intercalary and lateral meristems.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does apical meristem contribute to growth?",
+        "answer": "Cell division at root and shoot tips supplies new cells for primary growth, helping extend the plant axis in length.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "root and shoot tips",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate apical meristem with growing tips and distinguish it from lateral meristem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, middle meristem leaf",
+      "content": "Intercalary meristem: child of Meristematic tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does intercalary meristem fit relative to apical and lateral meristems?",
+        "answer": "The three are parallel branches under meristematic tissue; intercalary meristem is not a subtype of either of the other two.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can intercalary meristem support growth away from a shoot tip?",
+        "answer": "It is situated between more mature tissues, commonly near the bases of leaves or internodes in grasses, where its cell division contributes to elongation and regrowth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nodes and internodes",
+       "cell division",
+       "leaf base"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember the position between mature regions, rather than confusing it with the terminal apex.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, rightmost meristem leaf",
+      "content": "Lateral meristem: child of Meristematic tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Is lateral meristem a permanent tissue or a meristematic tissue in the chart?",
+        "answer": "It is one of the three meristematic-tissue branches, alongside apical and intercalary meristems.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does lateral-meristem activity differ from growth at a tip?",
+        "answer": "Lateral meristems, such as vascular cambium and cork cambium, add tissues that increase girth in plants with secondary growth, rather than chiefly extending the tip.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "length versus girth",
+       "cell division",
+       "stem and root"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish increase in girth from extension in length.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, left branch below Permanent tissue",
+      "content": "Simple permanent tissue: child of Permanent tissue; parent of Parenchyma, Collenchyma and Sclerenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which tissues belong to the simple permanent branch rather than the complex permanent branch?",
+        "answer": "Parenchyma, collenchyma and sclerenchyma belong to simple permanent tissue. Xylem and phloem belong to complex permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does simple not mean that these tissues have no specialised functions?",
+        "answer": "Simple describes their composition mainly from one cell type, not the absence of specialisation. Such tissues can perform storage, photosynthesis or support functions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell type",
+       "differentiation",
+       "permanent tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Memorise the three simple permanent tissue names as a set.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, right branch below Permanent tissue",
+      "content": "Complex permanent tissue: child of Permanent tissue; parent of Xylem and Phloem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two tissues form the complex permanent branch?",
+        "answer": "Xylem and phloem, in contrast to the parenchyma, collenchyma and sclerenchyma of the simple branch.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are xylem and phloem called complex tissues?",
+        "answer": "Each contains several cell types cooperating in transport and associated support or storage roles. Complex refers to this coordinated multicellular composition.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "different plant cell types",
+       "transport within plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Xylem and phloem are complex permanent tissues, not simple tissues or meristems.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, left simple-tissue branch",
+      "content": "Parenchyma: child of Simple permanent tissue; parent of Aerenchyma and Chlorenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are parenchyma, aerenchyma and chlorenchyma related?",
+        "answer": "Parenchyma is a simple permanent tissue; aerenchyma and chlorenchyma are shown as its two subdivisions.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can parenchyma serve as a basis for these specialised forms?",
+        "answer": "Living parenchyma cells can be adapted for different roles. Extensive air spaces produce aerenchyma, while abundant chloroplasts characterise chlorenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "living plant cells",
+       "intercellular spaces",
+       "chloroplasts"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Place aerenchyma and chlorenchyma under parenchyma, not alongside the three main simple tissues.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, middle simple-tissue branch",
+      "content": "Collenchyma: child of Simple permanent tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which tissues share the same immediate parent as collenchyma?",
+        "answer": "Parenchyma and sclerenchyma share its parent, simple permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does collenchyma support growing plant parts without making them excessively rigid?",
+        "answer": "Its living cells have unevenly thickened primary walls that provide support while allowing flexibility in young stems and leaf stalks.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "living cells",
+       "young stem and leaf stalk"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Collenchyma is a simple permanent tissue associated with flexible support.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, right simple-tissue branch",
+      "content": "Sclerenchyma: child of Simple permanent tissue; parent of Sclerenchyma fibers and Sclereids.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two branches are shown below sclerenchyma?",
+        "answer": "Sclerenchyma fibers and sclereids. Both lie within the simple permanent tissue branch through sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is sclerenchyma associated with mechanical strength?",
+        "answer": "Its cells typically develop thick, lignified secondary walls and are generally dead at maturity. The resistant walls provide strong structural support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "secondary wall thickening",
+       "lignin"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain both subdivisions: fibers and sclereids.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, left leaf below Complex permanent tissue",
+      "content": "Xylem: child of Complex permanent tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does xylem fit in the chart relative to phloem and parenchyma?",
+        "answer": "Xylem and phloem are parallel branches of complex permanent tissue. Parenchyma is instead shown under simple permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does xylem contribute to transport in a plant?",
+        "answer": "Its conducting elements provide pathways for water and dissolved minerals, principally from roots toward aerial parts. Other xylem cell types contribute support and storage.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "water and mineral uptake by roots",
+       "transport pathways",
+       "complex tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify xylem as complex permanent tissue and distinguish its transport role from phloem.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, right leaf below Complex permanent tissue",
+      "content": "Phloem: child of Complex permanent tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is phloem classified relative to xylem?",
+        "answer": "Both are complex permanent tissues and occupy sibling branches in the chart.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does phloem's transport role differ from that of xylem?",
+        "answer": "Phloem transports organic food materials, especially sugars, from sources such as mature leaves to regions that use or store them. Xylem mainly conducts water and dissolved minerals.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "photosynthesis and sugars",
+       "food storage and growth regions",
+       "complex tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Phloem is the other complex permanent tissue; do not confuse food transport with water transport.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, left leaf below Parenchyma",
+      "content": "Aerenchyma: child of Parenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is aerenchyma related to chlorenchyma in the diagram?",
+        "answer": "They are sibling subdivisions of parenchyma, which belongs to simple permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the air spaces of aerenchyma help plants?",
+        "answer": "Large interconnected air spaces facilitate internal gas movement and can aid buoyancy in aquatic plants. The spaces distinguish this specialised form of parenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "intercellular air spaces",
+       "gas exchange and buoyancy"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate aerenchyma with parenchyma and air spaces.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, right leaf below Parenchyma",
+      "content": "Chlorenchyma: child of Parenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Is chlorenchyma a separate main branch of simple permanent tissue in this diagram?",
+        "answer": "No. It is shown under parenchyma, alongside aerenchyma, rather than as a fourth main branch beside parenchyma, collenchyma and sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is chlorenchyma adapted for its function?",
+        "answer": "Its parenchyma cells contain chloroplasts, enabling photosynthesis in green plant parts.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "chloroplasts",
+       "photosynthesis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate chlorenchyma with chloroplast-containing parenchyma and photosynthesis.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, left leaf below Sclerenchyma",
+      "content": "Sclerenchyma fibers: child of Sclerenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which other label shares the immediate parent of sclerenchyma fibers?",
+        "answer": "Sclereids; both are shown below sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the shape of sclerenchyma fibers suit a supporting role?",
+        "answer": "Fibers are typically elongated cells with thick lignified walls. Their length and arrangement, often in bundles, help reinforce plant structures.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "lignified cell walls",
+       "elongated cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the figure's spelling 'fibers' and its placement under sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, right leaf below Sclerenchyma",
+      "content": "Sclereids: child of Sclerenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are sclereids classified relative to sclerenchyma fibers?",
+        "answer": "Both are subdivisions of sclerenchyma, and therefore belong within simple permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do sclereids differ in form from typical sclerenchyma fibers?",
+        "answer": "Sclereids are commonly shorter or more irregular in shape than elongated fibers. Their thick lignified walls contribute hardness, as in many seed coats and the gritty tissue of pear fruit.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "cell shape",
+       "lignified cell walls"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not place sclereids under parenchyma; they are a sclerenchyma subdivision.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom-left, beside and below the classification tree",
+      "content": "A small upright plant-axis drawing shows green-highlighted meristematic regions. Apical meristem is indicated at the terminal shoot tip. Intercalary meristem is indicated at a transverse region near the base of a leaf/internodal region, below the tip. Lateral meristem is indicated by a longitudinal green strip along the side of the lower stem. Leader lines connect the three labels to their respective regions; the drawing shows positions, not a flow.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What positional contrast does the plant-axis drawing show?",
+        "answer": "The apical meristem is at the shoot tip, the intercalary meristem is in a transverse region below the tip, and the lateral meristem runs along the side of the stem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can this drawing help a learner distinguish the three meristems?",
+        "answer": "Use the geometry of the highlighted positions: terminal tip for apical, an inserted band between more mature regions for intercalary, and a longitudinal side region for lateral.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is position useful for understanding the growth produced by meristems?",
+        "answer": "New cells are added where a meristem is active. Tip and intercalary activity contribute to extension, while lateral-meristem activity can add tissues that increase thickness.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "shoot tip",
+       "nodes and internodes",
+       "length versus girth",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for image-based identification of meristem locations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "diagram_label",
+      "parent_item_id": "i29",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small plant drawing, label beside the upper tip",
+      "content": "Apical meristem: leader line points to the green terminal region at the shoot apex.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does the apical meristem label point in the drawing?",
+        "answer": "It points to the uppermost growing tip of the shoot, not to a band farther down the stem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does activity at this tip produce growth in length?",
+        "answer": "Dividing cells supply new cells near the apex; their subsequent growth and differentiation extend the shoot.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "shoot apex",
+       "cell division and elongation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise the terminal position in an unlabelled meristem diagram.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram_label",
+      "parent_item_id": "i29",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small plant drawing, label to the left of the upper transverse band",
+      "content": "Intercalary meristem: leader line points to a green transverse band below the apex, near the base of a lateral leaf.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the intercalary meristem shown relative to the apical meristem?",
+        "answer": "It is shown lower down the plant axis as a transverse band, rather than at the terminal tip.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this called an intercalary position?",
+        "answer": "Intercalary refers to a meristem interposed between more mature tissues, commonly at leaf or internode bases. It can support growth even when it is not at the apex.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "leaf base",
+       "internode",
+       "mature tissue versus dividing tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise an inserted transverse growth region rather than the tip or the longitudinal side strip.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i29",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "small plant drawing, label below the stem",
+      "content": "Lateral meristem: the lower label identifies the longitudinal green region along the side of the lower stem.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What feature identifies the lateral meristem in the drawing?",
+        "answer": "It is represented as a lengthwise region along the side of the stem, unlike the tip region or transverse intercalary band.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a meristem running along a stem increase its girth?",
+        "answer": "Lateral meristems produce cells toward the inside or outside of a cylindrical axis. The addition of these tissues increases its thickness in plants undergoing secondary growth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem axis and radial thickness",
+       "cell division",
+       "secondary growth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate the side region with increase in girth, not with the terminal shoot tip.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0008-b0001",
+     "p0008-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "7642c9ba3c303c792a5563773460a61a75a81653d1779e6ebd82975024809d4f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 13643,
+    "output_tokens": 1070,
+    "cost_usd": 0.041785,
+    "value": {
+     "notes": {
+      "about": "This page presents a comparison table of animal connective tissues (locations and functions) and introduces plant tissues through a classification flowchart and a meristem-location diagram.",
+      "key_questions": [
+       "What are the locations and functions of loose, dense, elastic, specialised (cartilage, bone, blood), and adipose connective tissues?",
+       "How are plant tissues classified into meristematic and permanent tissues and their respective subtypes?",
+       "Where are apical, intercalary, and lateral meristems located on a plant shoot axis?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the review with only a minor transcription note on 'Sclerides' vs 'Sclereids'.",
+        "reason": "All table rows, cells, diagram nodes, branches, and anatomical labels are thoroughly and accurately captured with appropriate book/outside basis markings and teacher-level depth for UPSC/State PCS."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i28",
+       "problem": "The image spells the label below Sclerenchyma as 'Sclerides', whereas the item content and related items (i11, i22, i27, i28) transcribe it as the standard spelling 'Sclereids' without noting the image spelling.",
+       "fix": "Record the exact visible spelling 'Sclerides' (or note that 'Sclerides' in the figure refers to standard 'sclereids').",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is accurately sourced from the page image or properly marked as standard outside biological knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The questions and answers provide complete and deep explanations suitable for a top UPSC/State PCS teacher."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state what the unit is about, the main structural decisions with reasons, and the trachea overlap uncertainty."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "The heading, table, all table rows, the classification tree, and the meristem diagram are all captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header, footer/watermark, and page number are treated as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Every table row (including the three sub-entries under specialised connective tissue) appears as its own item with every cell and column header."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Both diagrams have all labels, branches, arrows, and leader lines captured with what each points to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "There are no mathematical equations or special symbols on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Each teachable item includes both book-based comparison/identification questions and deeper 'how'/'why' questions explaining biological mechanisms."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis labels ('book' vs 'outside') are accurate throughout, and outside explanations are scientifically sound."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types ('comparison', 'classification', 'structure', 'other') accurately reflect each item."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites list concrete foundational concepts required to understand each item."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance ratings and notes are well-tailored to UPSC/State PCS general science questions."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "Native text contains only header and page number; no unaddressed disagreements between native text and image."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "item_id": "i28",
+     "problem": "The image spells the label below Sclerenchyma as 'Sclerides', whereas the item content and related items (i11, i22, i27, i28) transcribe it as the standard spelling 'Sclereids' without noting the image spelling.",
+     "fix": "Record the exact visible spelling 'Sclerides' (or note that 'Sclerides' in the figure refers to standard 'sclereids').",
+     "kind": "wrong"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792594469.4483275
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.170379,
+ "navin_verdict": null
+}

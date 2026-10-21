@@ -1,0 +1,2015 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-001",
+ "status": "failed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "bc06ae5de1425ae57309807d6c4667422b53cecffd7809f09d59d241afb92465",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 1 of 14.\n\nLast lines of the previous page (context only):\n(none)\n\nFirst lines of the next page (context only):\nScience and Technology\n88\n\nNative text blocks of this page (id | text):\np0001-b0001 | Science and Technology\np0001-b0002 | 10. Tissues and Its Types\np0001-b0003 | TISSUE: Cells combine to perform same function.\np0001-b0004 | • When plant cells combine, they form plant tissues.\np0001-b0005 | • When animal cells combine, they form animal tissues.\np0001-b0006 | • Causes division of labour.\np0001-b0007 | • Decreases workload on individual cells, hence leads to organisation.\np0001-b0008 | Cell Tissues Organ Organ system Organisms\np0001-b0009 | 87"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/jpeg",
+    "sha256": "d7c56e37b134948d98b2b2cffe092128a48d2040fc0ec5fb70f2cd275e21472b",
+    "base64_chars": 450464
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594241.2657325,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b933a3cec2262b610719b6f999566bd78b9482138105df9cf35c6d2de3830962",
+    "cache_hit": false,
+    "attempts": 2,
+    "input_tokens": 4771,
+    "output_tokens": 16242,
+    "cost_usd": 0.171962
+   },
+   "notes": {
+    "about": "This opening page introduces tissues and levels of biological organisation, then uses image-only tables to compare cell divisions and a classification tree to introduce plant tissues.",
+    "key_questions": [
+     "What is a tissue, and how does tissue formation produce division of labour?",
+     "How are cells, tissues, organs, organ systems and organisms related?",
+     "How do mitosis and meiosis differ, and which statements in the printed comparison need scientific qualification?",
+     "How does mitosis differ in plants and animals?",
+     "What is the complete visible classification of plant tissues?"
+    ],
+    "decisions": [
+     {
+      "decision": "Transcribed both image-only tables and every visible branch and label of the plant-tissue tree.",
+      "reason": "These substantial teaching elements are absent from the native text layer."
+     },
+     {
+      "decision": "Preserved questionable table wording but explained scientific corrections separately with an outside basis.",
+      "reason": "Faithful transcription must not turn printed inaccuracies into endorsed biology."
+     },
+     {
+      "decision": "Treated the organisation sequence as a flow diagram with individual labels.",
+      "reason": "Its arrows express increasing levels of biological organisation."
+     },
+     {
+      "decision": "Recorded only the visible components of xylem and phloem.",
+      "reason": "The classification image ends at its lower edge and must not be silently completed from outside knowledge."
+     }
+    ],
+    "uncertain": [
+     "The mitosis–meiosis table's row 9 is scientifically inaccurate: chromosome number is confused with DNA replication, and replication between meiotic divisions is incorrectly implied.",
+     "The printed label appears as 'Paranchyma'; it is retained, with the standard spelling explained separately.",
+     "The classification image is cut off below 'Xylem parenchyma' and 'Phloem parenchyma'; further components are not visible.",
+     "Several table statements are simplified generalisations, especially germ-cell occurrence, division frequency, centrioles and chromosome-number change."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This opening page introduces tissues and levels of biological organisation, then uses image-only tables to compare cell divisions and a classification tree to introduce plant tissues.",
+     "key_questions": [
+      "What is a tissue, and how does tissue formation produce division of labour?",
+      "How are cells, tissues, organs, organ systems and organisms related?",
+      "How do mitosis and meiosis differ, and which statements in the printed comparison need scientific qualification?",
+      "How does mitosis differ in plants and animals?",
+      "What is the complete visible classification of plant tissues?"
+     ],
+     "decisions": [
+      {
+       "decision": "Transcribed both image-only tables and every visible branch and label of the plant-tissue tree.",
+       "reason": "These substantial teaching elements are absent from the native text layer."
+      },
+      {
+       "decision": "Preserved questionable table wording but explained scientific corrections separately with an outside basis.",
+       "reason": "Faithful transcription must not turn printed inaccuracies into endorsed biology."
+      },
+      {
+       "decision": "Treated the organisation sequence as a flow diagram with individual labels.",
+       "reason": "Its arrows express increasing levels of biological organisation."
+      },
+      {
+       "decision": "Recorded only the visible components of xylem and phloem.",
+       "reason": "The classification image ends at its lower edge and must not be silently completed from outside knowledge."
+      }
+     ],
+     "uncertain": [
+      "The mitosis–meiosis table's row 9 is scientifically inaccurate: chromosome number is confused with DNA replication, and replication between meiotic divisions is incorrectly implied.",
+      "The printed label appears as 'Paranchyma'; it is retained, with the standard spelling explained separately.",
+      "The classification image is cut off below 'Xylem parenchyma' and 'Phloem parenchyma'; further components are not visible.",
+      "Several table statements are simplified generalisations, especially germ-cell occurrence, division frequency, centrioles and chromosome-number change."
+     ]
+    },
+    "page_summary": "Tissues are introduced as cells combining to perform the same function, enabling division of labour and organisation from cell to organism. Two image-only tables compare mitosis with meiosis and plant with animal mitosis. A plant-tissue tree divides tissues into meristematic and permanent categories and shows their visible subtypes and components. Printed inaccuracies concerning chromosome replication are explicitly qualified.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0002"
+      ],
+      "where_on_page": "top, chapter title",
+      "content": "10. Tissues and Its Types",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Chapter title.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0003"
+      ],
+      "where_on_page": "upper text, opening line",
+      "content": "TISSUE: Cells combine to perform same function.",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What defines a tissue in this introduction?",
+        "answer": "A tissue is formed when cells combine to carry out the same function; the emphasis is on coordinated functioning by a group of cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should 'combine' be understood?",
+        "answer": "It means cells are organised into a functional group, not that their contents necessarily fuse into a single cell. A tissue may also include material between its cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell as the structural and functional unit of life"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Foundational definition for questions on biological organisation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0004"
+      ],
+      "where_on_page": "upper text, first bullet",
+      "content": "When plant cells combine, they form plant tissues.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are plant tissues distinguished from animal tissues here?",
+        "answer": "Plant tissues are formed from plant cells, whereas animal tissues are formed from animal cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a group of plant cells become a functional tissue?",
+        "answer": "The cells are organised so their activities contribute to a shared function, such as growth, protection or transport.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Introduces the plant-tissue classification developed below.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0005"
+      ],
+      "where_on_page": "upper text, second bullet",
+      "content": "When animal cells combine, they form animal tissues.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What distinguishes animal tissues from plant tissues in this statement?",
+        "answer": "Their constituent cells are animal cells rather than plant cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does coordinated cell activity help an animal tissue function?",
+        "answer": "Cells working together can perform a larger task, such as contraction in muscle tissue, more effectively than isolated cells acting independently.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "animal cell",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Basic distinction between plant and animal tissues.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0006"
+      ],
+      "where_on_page": "upper text, third bullet",
+      "content": "Causes division of labour.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What consequence of tissue formation is stated?",
+        "answer": "Tissue formation produces division of labour.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does division of labour operate in a multicellular organism?",
+        "answer": "Different specialised groups of cells undertake different tasks. For example, conducting tissue transports substances while protective tissue covers surfaces.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is specialisation useful?",
+        "answer": "Cells can develop structures suited to a particular task instead of each cell having to perform the full range of organism-level functions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "multicellular organism",
+       "cell specialisation",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Conceptual basis of tissue-level organisation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0007"
+      ],
+      "where_on_page": "upper text, fourth bullet",
+      "content": "Decreases workload on individual cells, hence leads to organisation.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What relationship does the page draw between workload and organisation?",
+        "answer": "It states that tissue formation decreases the workload on individual cells and thereby leads to organisation.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should reduced workload be interpreted?",
+        "answer": "It means responsibility for different functions is distributed among specialised cells and tissues. It does not mean a specialised cell is inactive or has no metabolic demands.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "division of labour",
+       "cell specialisation"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Explains the advantage of multicellular organisation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "below introductory bullets",
+      "content": "Cell → Tissues → Organ → Organ system → Organisms. Each rightward arrow leads to the next, more inclusive level of biological organisation.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the order of organisation shown?",
+        "answer": "Cell, tissues, organ, organ system and organisms, in that order.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should these arrows be read?",
+        "answer": "Cells are organised into tissues, tissues contribute to organs, and organs work together in organ systems within an organism. The arrows show organisational relationships, not a sequence in which one cell turns directly into an organism.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue",
+       "part–whole relationship"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important ordering and matching sequence.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "organisation flow, first label",
+      "content": "Cell: first level; arrow leads to Tissues.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What begins the sequence?",
+        "answer": "The cell is the first level shown.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a cell relate to a tissue?",
+        "answer": "A cell is an individual living unit; a tissue consists of cells organised for a shared function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Smallest level in the displayed sequence.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "organisation flow, second label",
+      "content": "Tissues: between Cell and Organ.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where do tissues occur in the sequence?",
+        "answer": "Between cells and organs.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can tissues contribute to an organ?",
+        "answer": "Different tissues carry out complementary tasks within an organ; for example, a leaf includes protective and conducting tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish tissue from organ.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "organisation flow, third label",
+      "content": "Organ: between Tissues and Organ system.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What levels surround Organ?",
+        "answer": "Tissues precede it and Organ system follows it.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is an organ more inclusive than a tissue?",
+        "answer": "An organ contains different tissues coordinated to perform particular functions, such as the heart pumping blood.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissue",
+       "organ"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Common level-of-organisation distinction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "organisation flow, fourth label",
+      "content": "Organ system: between Organ and Organisms.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which level follows an organ?",
+        "answer": "An organ system.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do organs form a functional system?",
+        "answer": "Several organs cooperate in a broad function; for example, digestive organs cooperate in processing food and absorbing nutrients.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ",
+       "coordinated function"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish a single organ from an organ system.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "both",
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "where_on_page": "organisation flow, final label",
+      "content": "Organisms: final level, following Organ system.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the final level shown?",
+        "answer": "Organisms.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do organ systems relate to an organism?",
+        "answer": "In organisms with this level of organisation, organ systems function together as an integrated living individual.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ system",
+       "living individual"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Most inclusive level in this particular diagram, not in every biological hierarchy.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle left",
+      "content": "Two-column comparison headed Mitosis and Meiosis, with 11 numbered comparison rows.",
+      "content_type": "comparison",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "cell division",
+       "nucleus",
+       "chromosomes"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Rows contain important distinctions but also printed inaccuracies requiring qualification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, header row",
+      "content": "Column 1: Mitosis | Column 2: Meiosis",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two processes does the table compare?",
+        "answer": "Mitosis and meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do their broad biological roles differ?",
+        "answer": "Mitosis commonly supports growth and repair while maintaining chromosome complement; meiosis reduces chromosome complement in sexual life cycles.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "chromosome complement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Framework for the detailed comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 1",
+      "content": "Mitosis: 1) It occurs in somatic cells. | Meiosis: 1) It occurs in germ cells.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does the table place mitosis and meiosis?",
+        "answer": "It places mitosis in somatic cells and meiosis in germ cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does this distinction need careful wording?",
+        "answer": "Somatic cells are body cells, while the germ line contributes to reproduction. Germ-line cells can also undergo mitosis; meiosis occurs in particular reproductive precursor cells. Thus the row is not an exclusive rule for all cells or life cycles.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "somatic cell",
+       "germ line",
+       "sexual reproduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the standard association without assuming germ-line cells cannot divide mitotically.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 2",
+      "content": "Mitosis: 2) Nucleus divides only once. | Meiosis: 2) Nucleus divides twice.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How many nuclear divisions are compared?",
+        "answer": "Mitosis has one nuclear division; meiosis has two.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the two meiotic divisions differ?",
+        "answer": "Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids. DNA replication precedes meiosis I, not meiosis II.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nucleus",
+       "homologous chromosomes",
+       "sister chromatids"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core distinction: one division versus two.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 3",
+      "content": "Mitosis: 3) Two daughter cells are formed. | Meiosis: 3) Four daughter cells are formed.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What daughter-cell numbers are given?",
+        "answer": "Two for mitosis and four for meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does division number explain this difference?",
+        "answer": "With completed cytokinesis, one division produces two cells; two successive divisions can produce four. In oogenesis the meiotic products are unequal, and four equivalent functional gametes are not produced.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "daughter cell",
+       "cytokinesis",
+       "successive division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish four meiotic products from four functional eggs.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 4",
+      "content": "Mitosis: 4) Daughter cells are diploid. | Meiosis: 4) Daughter cells are haploid.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What ploidy contrast does the table state?",
+        "answer": "It describes mitotic daughters as diploid and meiotic daughters as haploid.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the mitosis statement conditional?",
+        "answer": "Mitosis generally preserves the parent's chromosome-set number, so diploid parents give diploid daughters, but haploid cells can also undergo mitosis. Meiosis normally reduces a diploid complement to haploid.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "haploid",
+       "diploid",
+       "chromosome set"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not infer that mitosis inherently produces diploid cells from any parent.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 5",
+      "content": "Mitosis: 5) It occurs more frequently. | Meiosis: 5) It occurs less frequently.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which process is described as more frequent?",
+        "answer": "The table calls mitosis more frequent and meiosis less frequent.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this a broad generalisation rather than a universal numerical rule?",
+        "answer": "Mitosis is associated with growth and cell replacement in many tissues, whereas meiosis is restricted to particular reproductive stages and cells. Actual rates depend on organism, tissue and life stage.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "growth",
+       "cell replacement",
+       "reproductive cells"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Qualitative generalisation; no numerical frequency is supplied.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 6",
+      "content": "Mitosis: 6) Daughter cells form somatic organs. | Meiosis: 6) Daughter cells form gametes.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What outcomes does the table associate with the daughter cells?",
+        "answer": "Mitotic daughters contribute to somatic organs; meiotic daughters form gametes.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should this comparison be applied across animals and plants?",
+        "answer": "In animals meiosis is part of gamete formation. In land plants meiosis produces spores, and gametes subsequently arise in the haploid generation by mitosis. The printed wording should not be applied unchanged to every life cycle.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "somatic organ",
+       "gamete",
+       "spore",
+       "plant life cycle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important gamete-versus-spore qualification for plant questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 7",
+      "content": "Mitosis: 7) There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: 7) There are two of each phase and five sub-phases in prophase - 1.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do phase counts differ?",
+        "answer": "Mitosis has one sequence of prophase, metaphase, anaphase and telophase. Meiosis has two such division sequences, with five sub-phases in prophase I.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is prophase I more elaborate?",
+        "answer": "Homologous chromosomes pair and recombine during prophase I. Its standard sub-phases are leptotene, zygotene, pachytene, diplotene and diakinesis.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nuclear division",
+       "homologous chromosome pairing",
+       "cell-division phases"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The five sub-phases belong to prophase I, not prophase II.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 8",
+      "content": "Mitosis: 8) Number of chromosomes are not changed in the daughter cells. | Meiosis: 8) Number of chromosomes are reduced to half.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does chromosome number change in the two processes?",
+        "answer": "The table states that mitosis preserves chromosome number while meiosis reduces it to half.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the reduction achieved?",
+        "answer": "Homologous chromosomes separate in meiosis I, leaving one chromosome from each homologous pair in each daughter nucleus. Meiosis II separates sister chromatids without a second reduction in chromosome-set number.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "chromosome number",
+       "homologous pair",
+       "sister chromatids"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fundamental equational-versus-reductional distinction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 9",
+      "content": "Mitosis: 9) Chromosome number doubles at the beginning of each cell division. | Meiosis: 9) Chromosome number is not doubled. It doubles after the end of first meiotic division.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What does the printed row claim?",
+        "answer": "It claims chromosome number doubles at the beginning of each mitotic division and, for meiosis, that doubling occurs after the first meiotic division. These are the printed claims, not a reliable account of replication.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the replication sequence actually be understood?",
+        "answer": "DNA replicates in S phase before mitosis and before meiosis I. Each chromosome then has two sister chromatids, but its centromere-based chromosome count has not doubled. There is no intervening S phase between meiosis I and meiosis II.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is the printed wording misleading?",
+        "answer": "It confuses DNA amount with chromosome number and places replication between the meiotic divisions, where it does not normally occur. Sister-chromatid separation can change chromosome counts within a dividing cell, but that is not DNA replication.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "S phase",
+       "DNA replication",
+       "centromere",
+       "chromosome versus chromatid",
+       "meiosis I and II"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Printed scientific error: do not memorise this row as correct.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 10",
+      "content": "Mitosis: 10) No crossing over in chromosomes. | Meiosis: 10) Crossing over occurs chromosomes.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What crossing-over contrast is intended?",
+        "answer": "The table associates absence of crossing over with mitosis and occurrence of crossing over with meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does meiotic crossing over produce variation?",
+        "answer": "During prophase I, non-sister chromatids of homologous chromosomes exchange corresponding DNA segments, generating new combinations of alleles. This programmed event is characteristic of meiosis; rare mitotic recombination is not the standard comparison intended here.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "homologous chromosomes",
+       "non-sister chromatids",
+       "alleles"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate crossing over with prophase I and genetic recombination.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "table_row",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle-left table, numbered row 11",
+      "content": "Mitosis: 11) Equation division. | Meiosis: 11) Reduction division.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What division labels are printed?",
+        "answer": "The table prints 'Equation division' for mitosis and 'Reduction division' for meiosis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are the standard terms equational and reductional used?",
+        "answer": "Mitosis is called equational because chromosome-set number is preserved. Meiosis is reductional overall because meiosis I halves it; meiosis II is equational. 'Equation division' is the printed wording for the standard term 'equational division'.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "chromosome-set number",
+       "meiosis I",
+       "meiosis II"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Meiosis I is reductional; meiosis II is equational.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle right, green table",
+      "content": "Table 7.3: Difference between mitosis in Plants and Animals. Columns: Plants; Animals. Four comparison rows follow the column headers.",
+      "content_type": "comparison",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "mitosis",
+       "plant cell",
+       "animal cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Plant–animal mitosis comparison; retain the printed table number.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "green table, column-header row",
+      "content": "Column 1: Plants | Column 2: Animals",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What is being compared in these columns?",
+        "answer": "Mitosis in plants and mitosis in animals.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the same type of division differ between plants and animals?",
+        "answer": "The broad chromosome-separation process is shared, but spindle organisation and cytoplasmic division differ with cell structure.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mitosis",
+       "plant and animal cell structure"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not confuse this table with mitosis versus meiosis.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "green table, first comparison row",
+      "content": "Plants: Centrioles are absent | Animals: Centrioles are present",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What centriole difference does the table give?",
+        "answer": "Centrioles are described as absent in plants and present in animals.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can plant cells organise a spindle without centrioles?",
+        "answer": "Microtubules can be organised through other microtubule-organising sites. The printed distinction is the usual higher-plant versus typical animal-cell comparison, not a rule covering every plant lineage and animal cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "centriole",
+       "microtubule",
+       "mitotic spindle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Standard comparison needs higher-plant/typical-animal context.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "green table, second comparison row",
+      "content": "Plants: Asters are not formed | Animals: Asters are formed",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What aster difference is shown?",
+        "answer": "The plant column says asters are not formed; the animal column says they are formed.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is an aster related to spindle organisation?",
+        "answer": "An aster is a star-like array of microtubules radiating around a centrosomal region in typical animal mitosis. Typical higher-plant spindles lack these conspicuous astral arrays.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "microtubules",
+       "centrosome",
+       "mitotic spindle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Aster is a cellular microtubule arrangement, not a chromosome phase.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "green table, third comparison row",
+      "content": "Plants: Cell division involves formation of a cell plate | Animals: Cell division involves furrowing and cleavage of cytoplasm",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cytoplasmic division differ?",
+        "answer": "Plants form a cell plate, whereas animals divide through furrowing and cleavage of the cytoplasm.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are these two mechanisms carried out?",
+        "answer": "In plant cytokinesis, vesicles contribute to a cell plate that grows outward and develops into the partition between daughter cells. In animal cytokinesis, a contractile ring constricts the membrane inward to create a cleavage furrow.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is cell-plate formation suited to plant cells?",
+        "answer": "A rigid cell wall limits pinching of the cell surface, so a new partition is constructed inside the dividing cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cytokinesis",
+       "cell wall",
+       "cell membrane",
+       "vesicle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield contrast: outward cell-plate construction versus inward cleavage furrow.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "table_row",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "green table, fourth comparison row",
+      "content": "Plants: Occurs mainly at meristem | Animals: Occurs in tissues throughout the body",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the table contrast sites of mitosis?",
+        "answer": "It says plant mitosis occurs mainly at meristem, while animal mitosis occurs in tissues throughout the body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does 'throughout the body' not mean every animal cell divides?",
+        "answer": "Many animal tissues contain dividing cells for growth or replacement, but mature cells such as many neurons have little or no usual mitotic activity. Plant growth is concentrated in meristematic regions, though some other plant cells can regain division capacity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "meristem",
+       "cell differentiation",
+       "tissue renewal"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connects mitosis with the meristematic-tissue branch below.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower half, blue classification tree",
+      "content": "Classification of Plant Tissue branches into Meristematic Tissue and Permanent Tissue. Meristematic Tissue branches into Apical Meristem, Lateral Meristem and Intercalary Meristem. Permanent Tissue branches into Simple and Complex. Simple branches into Paranchyma, Collenchyma and Sclerenchyma. Sclerenchyma branches into Fibres and Sclereids. Complex branches into Xylem and Phloem. The visible Xylem components are Tracheids, Vessels (Tracheae) and Xylem parenchyma. The visible Phloem components are Sieve tubes, Companion cells and Phloem parenchyma. Connecting lines show parent–subtype relationships, not material flow. The image ends below the last visible component names.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What are the two major branches and their immediate subdivisions?",
+        "answer": "Plant tissue divides into meristematic tissue, with apical, lateral and intercalary meristems, and permanent tissue, which divides into simple and complex tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the lower branches be followed?",
+        "answer": "Follow Simple to Paranchyma, Collenchyma and Sclerenchyma, then Sclerenchyma to Fibres and Sclereids. Follow Complex to Xylem and Phloem, each with its separately listed visible components.",
+        "basis": "book"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why are these connections not arrows of transport or development?",
+        "answer": "The figure classifies categories and their members. For example, a line from permanent tissue to complex tissue means complex tissue is a category of permanent tissue, not that material flows between them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant tissue",
+       "classification tree",
+       "cell differentiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value classification, matching and odd-one-out material. Do not assume the cropped component lists are exhaustive.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, top box",
+      "content": "Classification of Plant Tissue: root box connected to Meristematic Tissue and Permanent Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two categories sit directly below the root?",
+        "answer": "Meristematic Tissue and Permanent Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is this first division understood biologically?",
+        "answer": "Meristematic tissues contain cells capable of active division; permanent tissues consist of differentiated cells that generally no longer divide under ordinary conditions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "cell differentiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "First split in the plant-tissue classification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, upper left blue box",
+      "content": "Meristematic Tissue: child of Classification of Plant Tissue; parent of Apical Meristem, Lateral Meristem and Intercalary Meristem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which three meristem categories are grouped together?",
+        "answer": "Apical, lateral and intercalary meristems.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does meristematic tissue contribute to plant growth?",
+        "answer": "Its cells divide to supply new cells, some of which subsequently enlarge and differentiate into specialised tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mitosis",
+       "plant growth",
+       "differentiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Meristem classification is a common matching topic.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, far-left yellow box",
+      "content": "Apical Meristem: child of Meristematic Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which category contains Apical Meristem and what are its sibling categories?",
+        "answer": "It belongs to Meristematic Tissue alongside Lateral Meristem and Intercalary Meristem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does apical meristem differ in location and growth role from lateral meristem?",
+        "answer": "Apical meristems occur at root and shoot tips and contribute to increase in length; lateral meristems lie along the sides of organs and contribute to increase in girth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "root and shoot",
+       "length versus girth",
+       "meristematic tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Location–growth matching: tips and primary elongation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, middle yellow meristem box",
+      "content": "Lateral Meristem: child of Meristematic Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does Lateral Meristem belong relative to Apical and Intercalary Meristem?",
+        "answer": "All three are sibling branches under Meristematic Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does lateral meristem increase plant thickness?",
+        "answer": "Lateral meristems such as vascular cambium and cork cambium add cells through divisions along the sides of stems and roots, contributing to secondary growth in plants that possess them.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem and root",
+       "girth",
+       "meristematic tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate lateral meristem with girth, not tip elongation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, rightmost yellow meristem box",
+      "content": "Intercalary Meristem: child of Meristematic Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Is Intercalary Meristem grouped with permanent tissues or meristems?",
+        "answer": "It is grouped with Apical and Lateral Meristem under Meristematic Tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does its position explain its growth role?",
+        "answer": "Intercalary meristems occur between more mature tissues, commonly at bases of leaves or internodes in grasses, allowing elongation and regrowth from those regions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "internode",
+       "leaf base",
+       "meristematic tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful location and grass-regrowth association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, upper right blue box",
+      "content": "Permanent Tissue: child of Classification of Plant Tissue; parent of Simple and Complex.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What two categories lie under Permanent Tissue?",
+        "answer": "Simple and Complex.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does permanent tissue arise from meristematic tissue?",
+        "answer": "New cells produced by meristems enlarge and differentiate, acquiring structures and functions suited to particular roles; they generally cease active division in their mature state.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "meristematic tissue",
+       "differentiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Permanent does not mean dead: several permanent tissues contain living cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i39",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, yellow Simple box",
+      "content": "Simple: child of Permanent Tissue; parent of Paranchyma, Collenchyma and Sclerenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which tissues are placed under Simple rather than Complex?",
+        "answer": "Paranchyma, Collenchyma and Sclerenchyma; Xylem and Phloem are placed under Complex.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is simple permanent tissue distinguished from complex permanent tissue?",
+        "answer": "A simple tissue consists mainly of one kind of cell, whereas a complex tissue contains different cell types cooperating in a shared function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "permanent tissue",
+       "cell type"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield simple-versus-complex distinction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i40",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, yellow Complex box",
+      "content": "Complex: child of Permanent Tissue; parent of Xylem and Phloem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which branches identify complex rather than simple tissue?",
+        "answer": "Xylem and Phloem are complex; Paranchyma, Collenchyma and Sclerenchyma are simple.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are xylem and phloem called complex tissues?",
+        "answer": "Each includes several cell types that cooperate in transport and associated support or storage functions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "permanent tissue",
+       "cell type",
+       "transport in plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Xylem and phloem are tissues, not individual cell types.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, first white simple-tissue box",
+      "content": "Paranchyma: child of Simple, under Permanent Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which category contains the printed 'Paranchyma' label?",
+        "answer": "Simple permanent tissue, alongside Collenchyma and Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should this label be understood?",
+        "answer": "The standard spelling is parenchyma. Its cells are generally living and thin-walled, allowing roles such as storage and, when chloroplasts are present, photosynthesis.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "living plant cell",
+       "cell wall",
+       "simple permanent tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the printed spelling in transcription; standard biological term is parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, middle white simple-tissue box",
+      "content": "Collenchyma: child of Simple, under Permanent Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Is Collenchyma simple or complex tissue?",
+        "answer": "It is simple permanent tissue, grouped with Paranchyma and Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does collenchyma support growing parts?",
+        "answer": "Its living cells have unevenly thickened primary walls that provide support while permitting flexibility and continued growth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "primary cell wall",
+       "simple permanent tissue",
+       "plant support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful comparison with thin-walled parenchyma and rigid sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i43",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, right white simple-tissue box",
+      "content": "Sclerenchyma: child of Simple; parent of Fibres and Sclereids.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two forms of sclerenchyma does the diagram distinguish?",
+        "answer": "Fibres and Sclereids.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does sclerenchyma provide mechanical strength?",
+        "answer": "Its cells typically develop thick, lignified secondary walls and are dead at maturity; these walls resist deformation and strengthen plant parts.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "secondary cell wall",
+       "lignin",
+       "simple permanent tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Both fibres and sclereids belong to sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i44",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, yellow box below-left of Sclerenchyma",
+      "content": "Fibres: child of Sclerenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What is the parent category of Fibres and its sibling in this tree?",
+        "answer": "The parent is Sclerenchyma and the sibling is Sclereids.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do fibres differ in form from typical sclereids?",
+        "answer": "Fibres are usually long, narrow cells with thick walls, suited to tensile support; sclereids are commonly shorter and more varied in shape.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "cell shape",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fibres are a cell form within sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i45",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, yellow box below-right of Sclerenchyma",
+      "content": "Sclereids: child of Sclerenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are Sclereids positioned relative to Fibres?",
+        "answer": "They are sibling branches under Sclerenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do sclereid walls affect plant texture?",
+        "answer": "Their thick, lignified walls create hardness; the gritty texture of pear pulp is a standard example of sclereids embedded among softer cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "lignified wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Classification and standard structure–texture association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i46",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, lower-left component panel header",
+      "content": "Xylem: child of Complex; visible components listed beneath it are Tracheids, Vessels (Tracheae) and Xylem parenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which visible components belong to Xylem rather than Phloem?",
+        "answer": "Tracheids, Vessels (Tracheae) and Xylem parenchyma are listed under Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do different xylem components contribute to its function?",
+        "answer": "Tracheids and vessels conduct water and dissolved minerals and contribute support; xylem parenchyma contributes living storage and lateral transport. The visible list is cropped and should not be treated as exhaustive.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "complex tissue",
+       "water and mineral transport",
+       "parenchyma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match components correctly; not every xylem cell is dead.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i47",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, Xylem panel, first component",
+      "content": "Tracheids: listed component of Xylem, under Complex Permanent Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Do tracheids belong to xylem or phloem in the tree?",
+        "answer": "They belong to Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do tracheids conduct water?",
+        "answer": "They are elongated cells with lignified walls, dead at functional maturity; water passes between adjoining cells through pits in their walls.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "lignified wall",
+       "cell-wall pits"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Tracheids are xylem conducting elements.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i48",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, Xylem panel, second component",
+      "content": "Vessels (Tracheae): listed component of Xylem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which tissue contains Vessels (Tracheae), and what neighbouring conducting element is listed?",
+        "answer": "Xylem contains Vessels (Tracheae), and Tracheids are also listed under Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are vessels structurally different from tracheids?",
+        "answer": "Vessel elements join end to end through perforated end walls, producing conducting tubes. Tracheids remain individual elongated cells through whose wall pits water moves.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "tracheid",
+       "cell end wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Here Tracheae means plant vessels, not the animal respiratory structure.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i49",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, Xylem panel, last visible component",
+      "content": "Xylem parenchyma: listed component of Xylem; lower edge of the image follows this visible line.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is this parenchyma label distinguished from Phloem parenchyma?",
+        "answer": "Xylem parenchyma is listed under Xylem; Phloem parenchyma is listed under Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is xylem parenchyma important when describing xylem as dead tissue?",
+        "answer": "Xylem parenchyma cells are living and participate in storage and lateral transport. Therefore calling the entire complex tissue dead is an overgeneralisation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "xylem",
+       "parenchyma",
+       "living versus dead mature cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important exception to the shorthand that xylem is dead.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i50",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, lower-right component panel header",
+      "content": "Phloem: child of Complex; visible components listed beneath it are Sieve tubes, Companion cells and Phloem parenchyma.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which visible components belong to Phloem rather than Xylem?",
+        "answer": "Sieve tubes, Companion cells and Phloem parenchyma are listed under Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these components cooperate in transport?",
+        "answer": "Sieve-tube elements conduct organic solutes, companion cells support their functioning and participate in loading or unloading, and phloem parenchyma contributes storage and local transfer. The visible panel is not evidence of an exhaustive component list.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "complex tissue",
+       "transport of sugars",
+       "living plant cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match phloem components and distinguish transport of organic solutes from xylem's main conducting role.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i51",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, Phloem panel, first component",
+      "content": "Sieve tubes: listed component of Phloem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Are sieve tubes classified with phloem or xylem?",
+        "answer": "They are listed with Phloem, not Xylem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does sieve-tube structure support transport?",
+        "answer": "Living sieve-tube elements connect end to end through sieve plates, permitting movement of phloem sap. Mature elements lack a nucleus and depend on associated companion cells for important metabolic support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "sieve plate",
+       "cell nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Sieve-tube elements are living despite lacking a nucleus at maturity.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i52",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, Phloem panel, second component",
+      "content": "Companion cells: listed component of Phloem.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which complex tissue contains companion cells in this diagram?",
+        "answer": "Phloem, where they are listed alongside Sieve tubes and Phloem parenchyma.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do companion cells assist sieve-tube elements?",
+        "answer": "Companion cells retain nuclei and are closely connected to sieve-tube elements, providing metabolic support and participating in sugar loading and unloading.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "sieve-tube element",
+       "nucleus",
+       "sugar transport"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate companion cells with sieve tubes, not xylem vessels.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i53",
+      "kind": "diagram_label",
+      "parent_item_id": "i32",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "classification tree, Phloem panel, last visible component",
+      "content": "Phloem parenchyma: listed component of Phloem; lower edge of the image follows this visible line.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the diagram distinguish the two parenchyma components in its lower panels?",
+        "answer": "Xylem parenchyma belongs to Xylem, while Phloem parenchyma belongs to Phloem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does phloem parenchyma contribute to tissue function?",
+        "answer": "Its living cells store substances and participate in local transfer of materials; they are supporting components rather than the main long-distance sieve-tube pathway.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "phloem",
+       "parenchyma",
+       "storage versus conduction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish a parenchyma cell type within a complex tissue from the complex tissue as a whole.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0001-b0001",
+     "p0001-b0009"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0001-b0008"
+      ],
+      "text_says": "Cell Tissues Organ Organ system Organisms",
+      "image_shows": "Cell → Tissues → Organ → Organ system → Organisms, with clear rightward arrows; the native text uses an incorrectly encoded arrow glyph."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review_error": {
+    "kind": "provider_unavailable",
+    "message": "aicredits:provider_unavailable: [Errno 104] Connection reset by peer"
+   },
+   "passed": false
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.171962,
+ "navin_verdict": null
+}

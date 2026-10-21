@@ -1,0 +1,292 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "plan",
+ "status": "failed",
+ "instructions_version": "lesson-plan/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "764c44017ebe9afce6e77968b2d275a76d974bbba3494fc043bf711cfea406c2",
+ "inputs": {
+  "system": "You are BIE's lesson section: the best teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS, planning the video\nlessons of one chapter from BIE's chapter map. Students learn only from these videos, so the plan must make the whole chapter\nunderstandable, starting from what they already know.\n\nCourse: \"10. Tissues and Its Types\" · learner language: Hinglish.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S2-01] Plan the chapter's videos from the chapter map: how many, in what order, prerequisites taught first. Video length follows the content, never a fixed length.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.\n[S2-03] Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.\n[S2-04] Spoken Hinglish the way Navin teaches (he approved this style on 21 October 2026): Hindi sentence flow written in Devanagari, English technical terms in Latin script exactly as the book spells them, numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the chapter is about, the key questions the plan must serve, your main decisions with a\n  reason each, what is uncertain.\n- videos: in teaching order. video_id \"v1\", \"v2\" ...; title in Hinglish; goal = what the student will understand after it;\n  concept_ids = the chapter-map concept ids taught in it, in order (every concept in some video); prerequisites_taught = names from\n  \"prerequisites to teach\" that this video teaches first; opening_hook = a real-life question, puzzle or surprise that opens it;\n  story_or_analogy = the story or analogy that genuinely helps, or \"\" if none fits; estimated_minutes from the content (a teacher\n  explaining every item and question at a natural pace), never a fixed length; why_this_unit = why these concepts belong together.\n- chapter_flow: how the videos build on each other.\nReply with the JSON object only.",
+  "user": "Chapter: 10. Tissues and Its Types.\nBIE's chapter map (JSON):\n{\"chapter_summary\": \"\", \"concepts\": [], \"relations\": [], \"prerequisites_to_teach\": [], \"teaching_order\": [], \"exam_focus\": []}\n\nReply with the lesson plan JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792596911.5286586,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "659c05b58185642da9cd94d58a75b1042c91b2bef0beacf61035749994fcf07a",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 1104,
+    "output_tokens": 502,
+    "cost_usd": 0.007228
+   },
+   "notes": {
+    "about": "यह unit “10. Tissues and Its Types” के video lessons की planning के लिए है। लेकिन दिया गया chapter map खाली है, इसलिए book के आधार पर teaching scope और lesson sequence अभी तय नहीं किए जा सकते।",
+    "key_questions": [
+     "Book में कौन-से concepts, examples, diagrams और activities पढ़ाने हैं?",
+     "इन concepts से पहले कौन-से prerequisites समझाने हैं?",
+     "हर concept के लिए teacher को किन understanding questions का जवाब देना है?",
+     "Book और chapter map के अनुसार UPSC / State PCS के लिए किस बात पर विशेष ध्यान देना है?"
+    ],
+    "decisions": [
+     {
+      "decision": "अभी कोई video या spoken script नहीं बनाया गया है।",
+      "reason": "सिर्फ chapter title से content चुनना book में मौजूद या अनुपस्थित विषयों के बारे में अनुमान लगाना होगा।"
+     },
+     {
+      "decision": "Video count, teaching order और duration तय करना रोका गया है।",
+      "reason": "ये फैसले वास्तविक concepts, उनकी dependencies और समझाने की गहराई से निकलने चाहिए।"
+     }
+    ],
+    "uncertain": [
+     "chapter_summary खाली है; concepts, relations, prerequisites_to_teach, teaching_order और exam_focus में कोई entry नहीं है।",
+     "Teacher understanding questions और book के संबंधित pages उपलब्ध नहीं हैं। भरा हुआ chapter map और संबंधित book content मिलने पर complete, source-grounded plan बनाया जा सकता है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "यह unit “10. Tissues and Its Types” के video lessons की planning के लिए है। लेकिन दिया गया chapter map खाली है, इसलिए book के आधार पर teaching scope और lesson sequence अभी तय नहीं किए जा सकते।",
+     "key_questions": [
+      "Book में कौन-से concepts, examples, diagrams और activities पढ़ाने हैं?",
+      "इन concepts से पहले कौन-से prerequisites समझाने हैं?",
+      "हर concept के लिए teacher को किन understanding questions का जवाब देना है?",
+      "Book और chapter map के अनुसार UPSC / State PCS के लिए किस बात पर विशेष ध्यान देना है?"
+     ],
+     "decisions": [
+      {
+       "decision": "अभी कोई video या spoken script नहीं बनाया गया है।",
+       "reason": "सिर्फ chapter title से content चुनना book में मौजूद या अनुपस्थित विषयों के बारे में अनुमान लगाना होगा।"
+      },
+      {
+       "decision": "Video count, teaching order और duration तय करना रोका गया है।",
+       "reason": "ये फैसले वास्तविक concepts, उनकी dependencies और समझाने की गहराई से निकलने चाहिए।"
+      }
+     ],
+     "uncertain": [
+      "chapter_summary खाली है; concepts, relations, prerequisites_to_teach, teaching_order और exam_focus में कोई entry नहीं है।",
+      "Teacher understanding questions और book के संबंधित pages उपलब्ध नहीं हैं। भरा हुआ chapter map और संबंधित book content मिलने पर complete, source-grounded plan बनाया जा सकता है।"
+     ]
+    },
+    "videos": [],
+    "chapter_flow": "अभी chapter flow तय नहीं किया गया है। पहले book से chapter map पूरा करना होगा; फिर prerequisites को examples के साथ समझाते हुए concepts का क्रम, video boundaries और हर beat की concept तथा teacher-question mapping तय की जाएगी।"
+   },
+   "code_problems": [
+    "[code] the plan has no videos"
+   ],
+   "passed": false,
+   "finished_at": 1792596927.6984248
+  },
+  {
+   "round": 2,
+   "started_at": 1792596927.6984603,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "7ab03a163430a5d6b4f7625d221c057b3459f30f8c87995b3e3f4762dc79e5f3",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 1519,
+    "output_tokens": 1560,
+    "cost_usd": 0.018638
+   },
+   "notes": {
+    "about": "“10. Tissues and Its Types” का दिया गया chapter map खाली है और book content उपलब्ध नहीं है। इसलिए नीचे 1 provisional introductory video दिया गया है; इसे पूरे chapter का verified lesson plan नहीं माना गया है।",
+    "key_questions": [
+     "Cell और tissue के बीच क्या संबंध है?",
+     "Tissue को समझने में मिलकर काम करने वाली cells का विचार कैसे मदद करता है?",
+     "Book में कौन-से tissue types, examples, diagrams और teacher understanding questions शामिल हैं?"
+    ],
+    "decisions": [
+     {
+      "decision": "पहले के खाली videos array की जगह 1 introductory video जोड़ा गया है।",
+      "reason": "इससे plan में एक उपयोगी शुरुआती lesson मिलता है, बिना अनदेखे chapter की पूरी विषय-सूची गढ़े।"
+     },
+     {
+      "decision": "Introductory explanation को स्पष्ट रूप से outside-book, standard textbook-level background चिह्नित किया गया है।",
+      "reason": "Book उपलब्ध न होने पर इस explanation को book से लिया हुआ बताना सही नहीं होगा।"
+     },
+     {
+      "decision": "concept_ids और prerequisites_taught खाली रखे गए हैं तथा spoken beats why_this_unit में दिए गए हैं।",
+      "reason": "Map में कोई concept ID या prerequisite name नहीं है; नकली mappings बनाए बिना introductory teaching स्पष्ट की गई है।"
+     },
+     {
+      "decision": "बाकी videos का count, sequence और duration अभी तय नहीं किया गया है।",
+      "reason": "पूरा source-grounded plan वास्तविक chapter content और teacher understanding questions मिलने पर ही बन सकता है।"
+     }
+    ],
+    "uncertain": [
+     "chapter_summary खाली है और concepts, relations, prerequisites_to_teach, teaching_order तथा exam_focus में कोई entry नहीं है।",
+     "Book की exact terminology, tissue classification, examples, diagrams और chapter की अपेक्षित depth उपलब्ध नहीं हैं।",
+     "नीचे का video केवल provisional foundation है; इससे chapter coverage complete होने का दावा नहीं किया जा सकता।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "“10. Tissues and Its Types” का दिया गया chapter map खाली है और book content उपलब्ध नहीं है। इसलिए नीचे 1 provisional introductory video दिया गया है; इसे पूरे chapter का verified lesson plan नहीं माना गया है।",
+     "key_questions": [
+      "Cell और tissue के बीच क्या संबंध है?",
+      "Tissue को समझने में मिलकर काम करने वाली cells का विचार कैसे मदद करता है?",
+      "Book में कौन-से tissue types, examples, diagrams और teacher understanding questions शामिल हैं?"
+     ],
+     "decisions": [
+      {
+       "decision": "पहले के खाली videos array की जगह 1 introductory video जोड़ा गया है।",
+       "reason": "इससे plan में एक उपयोगी शुरुआती lesson मिलता है, बिना अनदेखे chapter की पूरी विषय-सूची गढ़े।"
+      },
+      {
+       "decision": "Introductory explanation को स्पष्ट रूप से outside-book, standard textbook-level background चिह्नित किया गया है।",
+       "reason": "Book उपलब्ध न होने पर इस explanation को book से लिया हुआ बताना सही नहीं होगा।"
+      },
+      {
+       "decision": "concept_ids और prerequisites_taught खाली रखे गए हैं तथा spoken beats why_this_unit में दिए गए हैं।",
+       "reason": "Map में कोई concept ID या prerequisite name नहीं है; नकली mappings बनाए बिना introductory teaching स्पष्ट की गई है।"
+      },
+      {
+       "decision": "बाकी videos का count, sequence और duration अभी तय नहीं किया गया है।",
+       "reason": "पूरा source-grounded plan वास्तविक chapter content और teacher understanding questions मिलने पर ही बन सकता है।"
+      }
+     ],
+     "uncertain": [
+      "chapter_summary खाली है और concepts, relations, prerequisites_to_teach, teaching_order तथा exam_focus में कोई entry नहीं है।",
+      "Book की exact terminology, tissue classification, examples, diagrams और chapter की अपेक्षित depth उपलब्ध नहीं हैं।",
+      "नीचे का video केवल provisional foundation है; इससे chapter coverage complete होने का दावा नहीं किया जा सकता।"
+     ]
+    },
+    "videos": [
+     {
+      "video_id": "v1",
+      "title": "Tissue समझने की शुरुआत: Cell से मिलकर काम करने तक",
+      "goal": "तुम Cell और tissue का शुरुआती संबंध समझोगे और यह पहचानोगे कि tissue समझने में cells की बनावट के साथ उनका साझा काम भी क्यों देखना है। यह outside-book, standard textbook-level introductory explanation है।",
+      "concept_ids": [],
+      "prerequisites_taught": [],
+      "opening_hook": "तुम्हारा शरीर cells से बना है। फिर शरीर को समझने के लिए सिर्फ Cell पढ़ लेना काफी क्यों नहीं है? Tissue नाम की एक और पहचान की ज़रूरत क्यों पड़ती है?",
+      "story_or_analogy": "एक team में लोग मिलकर साझा काम करते हैं। यह तुलना केवल coordinated work समझाने के लिए है; tissue की biological definition का विकल्प नहीं है।",
+      "estimated_minutes": 4,
+      "why_this_unit": "यह provisional video chapter के title को समझने की शुरुआती foundation देता है। नीचे की पूरी biological explanation outside-book, standard textbook-level background है; इसे supplied book से सत्यापित content नहीं माना गया है।\n\nBeat 1 — Cell से शुरुआत। Chapter-map coverage: कोई item उपलब्ध नहीं। Teacher understanding question mapping: map में questions उपलब्ध नहीं। इस beat का सवाल: Cell क्या है?\nSpoken script: “पहले Cell समझ लेते हैं। Cell जीव की बनावट और काम की मूल इकाई है। तुम्हारा शरीर बहुत-सी cells से मिलकर बना है। लेकिन हर Cell अकेले पूरा शरीर नहीं चलाती। शरीर में अलग-अलग काम होते हैं, और उन्हें करने में cells मिलकर योगदान देती हैं। अब सवाल है—इन cells को हम समझने के लिए कैसे group करें?”\n\nBeat 2 — Tissue का शुरुआती अर्थ। Chapter-map coverage: कोई item उपलब्ध नहीं। Teacher understanding question mapping: map में questions उपलब्ध नहीं। इस beat का सवाल: Cell और tissue में क्या संबंध है?\nSpoken script: “एक शुरुआती समझ बनाओ। मिलती-जुलती बनावट वाली cells जब किसी खास काम को मिलकर करती हैं, तो ऐसे व्यवस्थित समूह को tissue कहते हैं। यहाँ सिर्फ cells की गिनती नहीं बढ़ी। उनका एक साझा काम भी है। इसलिए tissue पढ़ते समय तुम 2 बातें साथ पूछोगे—इसमें cells कैसी हैं, और ये मिलकर क्या काम करती हैं? आगे book में जहाँ ज़रूरी होगा, इस शुरुआती समझ को और सटीक बनाएँगे।”\n\nBeat 3 — तुलना और समझ की जाँच। Chapter-map coverage: कोई item उपलब्ध नहीं। Teacher understanding question mapping: map में questions उपलब्ध नहीं। इस beat का सवाल: क्या कोई भी इकट्ठी cells अपने-आप एक tissue कहलाएँगी?\nSpoken script: “एक team सोचो। सिर्फ कुछ लोगों का एक जगह खड़ा होना और उनका मिलकर एक काम करना अलग बातें हैं। Tissue समझने में यह तुलना मदद करती है। लेकिन ध्यान रखना—cells इंसानों की तरह फैसला लेकर team नहीं बनातीं। यह तुलना सिर्फ साझा काम समझाने के लिए है। अब तुम बताओ—क्या किसी भी तरह की cells को बस साथ रख देने से tissue समझ में आ जाएगा? नहीं। हमें उनकी बनावट, व्यवस्था और काम का संबंध देखना होगा। इसी नज़र से आगे tissue के types समझने हैं। कौन-कौन से types इस chapter में हैं, यह हम book के आधार पर ही तय करेंगे।”"
+     }
+    ],
+    "chapter_flow": "अभी v1 केवल Cell से tissue तक की provisional foundation देता है। इसके बाद का वास्तविक chapter flow निर्धारित करने के लिए भरा हुआ chapter map और संबंधित book content चाहिए। उनके मिलने पर हर concept, prerequisite, diagram, example और teacher understanding question को spoken beats में शामिल करके आगे के videos बनाए जाएँगे; अभी किसी tissue classification या पूरे chapter की coverage का अनुमान नहीं लगाया गया है।"
+   },
+   "code_problems": [
+    "[code] video v1: teaches no concept"
+   ],
+   "passed": false,
+   "finished_at": 1792596973.4894304
+  },
+  {
+   "round": 3,
+   "started_at": 1792596973.489487,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b3777b4e3a87bab68d8e87c56a7beb952561224dfccfbdfbbe3b2d499ff1fddd",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 2378,
+    "output_tokens": 491,
+    "cost_usd": 0.009666
+   },
+   "notes": {
+    "about": "“10. Tissues and Its Types” का supplied chapter map खाली है और book content उपलब्ध नहीं है। इसलिए source-grounded chapter lesson plan बनाना अभी संभव नहीं है।",
+    "key_questions": [
+     "Book में कौन-से concepts, tissue types, examples और diagrams पढ़ाने हैं?",
+     "इन concepts से पहले कौन-से prerequisites समझाने हैं?",
+     "हर concept के लिए कौन-से teacher understanding questions का उत्तर देना है?"
+    ],
+    "decisions": [
+     {
+      "decision": "पहले दिया गया provisional v1 हटा दिया गया है।",
+      "reason": "वह किसी supplied chapter-map concept को नहीं पढ़ाता था; उसे बनाए रखने के लिए concept या concept ID गढ़ना गलत होगा।"
+     },
+     {
+      "decision": "खाली map और अनुपलब्ध book content की सीमाएँ स्पष्ट रखी गई हैं।",
+      "reason": "Introductory background को verified chapter coverage बताना सही नहीं होगा।"
+     },
+     {
+      "decision": "Videos की संख्या, sequence, duration और spoken beats अभी निर्धारित नहीं किए गए हैं।",
+      "reason": "इनका सही निर्धारण वास्तविक concepts, prerequisites और teacher understanding questions के आधार पर होना चाहिए।"
+     }
+    ],
+    "uncertain": [
+     "chapter_summary खाली है; concepts, relations, prerequisites_to_teach, teaching_order और exam_focus में कोई entry नहीं है।",
+     "Book की exact terminology, classification, examples, diagrams और अपेक्षित depth उपलब्ध नहीं हैं।",
+     "आगे बढ़ने के लिए भरा हुआ chapter map तथा संबंधित book content चाहिए; यह output completed lesson plan नहीं है।"
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "“10. Tissues and Its Types” का supplied chapter map खाली है और book content उपलब्ध नहीं है। इसलिए source-grounded chapter lesson plan बनाना अभी संभव नहीं है।",
+     "key_questions": [
+      "Book में कौन-से concepts, tissue types, examples और diagrams पढ़ाने हैं?",
+      "इन concepts से पहले कौन-से prerequisites समझाने हैं?",
+      "हर concept के लिए कौन-से teacher understanding questions का उत्तर देना है?"
+     ],
+     "decisions": [
+      {
+       "decision": "पहले दिया गया provisional v1 हटा दिया गया है।",
+       "reason": "वह किसी supplied chapter-map concept को नहीं पढ़ाता था; उसे बनाए रखने के लिए concept या concept ID गढ़ना गलत होगा।"
+      },
+      {
+       "decision": "खाली map और अनुपलब्ध book content की सीमाएँ स्पष्ट रखी गई हैं।",
+       "reason": "Introductory background को verified chapter coverage बताना सही नहीं होगा।"
+      },
+      {
+       "decision": "Videos की संख्या, sequence, duration और spoken beats अभी निर्धारित नहीं किए गए हैं।",
+       "reason": "इनका सही निर्धारण वास्तविक concepts, prerequisites और teacher understanding questions के आधार पर होना चाहिए।"
+      }
+     ],
+     "uncertain": [
+      "chapter_summary खाली है; concepts, relations, prerequisites_to_teach, teaching_order और exam_focus में कोई entry नहीं है।",
+      "Book की exact terminology, classification, examples, diagrams और अपेक्षित depth उपलब्ध नहीं हैं।",
+      "आगे बढ़ने के लिए भरा हुआ chapter map तथा संबंधित book content चाहिए; यह output completed lesson plan नहीं है।"
+     ]
+    },
+    "videos": [],
+    "chapter_flow": "Chapter flow अभी निर्धारित नहीं किया गया है। भरा हुआ chapter map और संबंधित book content मिलने पर prerequisites को पहले सिखाते हुए प्रत्येक supplied concept को video और spoken beats से जोड़ा जाएगा। हर beat में वास्तविक chapter-map coverage और संबंधित teacher understanding questions स्पष्ट किए जाएँगे।"
+   },
+   "code_problems": [
+    "[code] the plan has no videos"
+   ],
+   "passed": false,
+   "finished_at": 1792596993.2988718
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2,
+  3
+ ],
+ "cost_usd": 0.035532,
+ "navin_verdict": null
+}

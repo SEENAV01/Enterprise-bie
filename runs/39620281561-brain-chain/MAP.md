@@ -1,0 +1,2745 @@
+# Chapter map · 10. Tissues and Its Types
+
+Science and Technology · UPSC / State PCS aspirants · UPSC / State PCS · learner language Hinglish
+
+Maker `openai`, reviewer `google`, rulebook `vision-2026-10-21@2026-10-21.4`.
+
+- Pages passed: 10 of 14; chapter map: failed
+- Items: 525 (467 teachable, 525 read from the image)
+- Teacher questions: 1091 (544 deeper why/how, 583 from outside the book)
+- Estimated cost: $2.5286 ($0.1806 per page)
+
+## Pages
+
+### Page 1 · failed after 1 round(s)
+
+Tissues are introduced as cells combining to perform the same function, enabling division of labour and organisation from cell to organism. Two image-only tables compare mitosis with meiosis and plant with animal mitosis. A plant-tissue tree divides tissues into meristematic and permanent categories and shows their visible subtypes and components. Printed inaccuracies concerning chromosome replication are explicitly qualified.
+
+- **p001-i1** · heading · other · both
+  - 10. Tissues and Its Types
+- **p001-i2** · definition · definition · both · exam high
+  - TISSUE: Cells combine to perform same function.
+    - what: What defines a tissue in this introduction? → A tissue is formed when cells combine to carry out the same function; the emphasis is on coordinated functioning by a group of cells.
+      - how: How should 'combine' be understood? → It means cells are organised into a functional group, not that their contents necessarily fuse into a single cell. A tissue may also include material between its cells. _(outside the book)_
+  - prerequisites: cell as the structural and functional unit of life
+- **p001-i3** · list_point · classification · both · exam high
+  - When plant cells combine, they form plant tissues.
+    - compare: How are plant tissues distinguished from animal tissues here? → Plant tissues are formed from plant cells, whereas animal tissues are formed from animal cells.
+      - how: How does a group of plant cells become a functional tissue? → The cells are organised so their activities contribute to a shared function, such as growth, protection or transport. _(outside the book)_
+  - prerequisites: plant cell; tissue
+- **p001-i4** · list_point · classification · both · exam high
+  - When animal cells combine, they form animal tissues.
+    - compare: What distinguishes animal tissues from plant tissues in this statement? → Their constituent cells are animal cells rather than plant cells.
+      - how: How does coordinated cell activity help an animal tissue function? → Cells working together can perform a larger task, such as contraction in muscle tissue, more effectively than isolated cells acting independently. _(outside the book)_
+  - prerequisites: animal cell; tissue
+- **p001-i5** · list_point · cause_effect · both · exam high
+  - Causes division of labour.
+    - what: What consequence of tissue formation is stated? → Tissue formation produces division of labour.
+      - how: How does division of labour operate in a multicellular organism? → Different specialised groups of cells undertake different tasks. For example, conducting tissue transports substances while protective tissue covers surfaces. _(outside the book)_
+        - why: Why is specialisation useful? → Cells can develop structures suited to a particular task instead of each cell having to perform the full range of organism-level functions. _(outside the book)_
+  - prerequisites: multicellular organism; cell specialisation; tissue
+- **p001-i6** · list_point · cause_effect · both · exam medium
+  - Decreases workload on individual cells, hence leads to organisation.
+    - what: What relationship does the page draw between workload and organisation? → It states that tissue formation decreases the workload on individual cells and thereby leads to organisation.
+      - how: How should reduced workload be interpreted? → It means responsibility for different functions is distributed among specialised cells and tissues. It does not mean a specialised cell is inactive or has no metabolic demands. _(outside the book)_
+  - prerequisites: division of labour; cell specialisation
+- **p001-i7** · diagram · structure · both · exam high
+  - Cell → Tissues → Organ → Organ system → Organisms. Each rightward arrow leads to the next, more inclusive level of biological organisation.
+    - what: What is the order of organisation shown? → Cell, tissues, organ, organ system and organisms, in that order.
+      - how: How should these arrows be read? → Cells are organised into tissues, tissues contribute to organs, and organs work together in organ systems within an organism. The arrows show organisational relationships, not a sequence in which one cell turns directly into an organism. _(outside the book)_
+  - prerequisites: cell; tissue; part–whole relationship
+- **p001-i8** · diagram_label · structure · both · exam high
+  - Cell: first level; arrow leads to Tissues.
+    - what: What begins the sequence? → The cell is the first level shown.
+      - how: How does a cell relate to a tissue? → A cell is an individual living unit; a tissue consists of cells organised for a shared function. _(outside the book)_
+  - prerequisites: cell
+- **p001-i9** · diagram_label · structure · both · exam high
+  - Tissues: between Cell and Organ.
+    - where: Where do tissues occur in the sequence? → Between cells and organs.
+      - how: How can tissues contribute to an organ? → Different tissues carry out complementary tasks within an organ; for example, a leaf includes protective and conducting tissues. _(outside the book)_
+  - prerequisites: cell; tissue
+- **p001-i10** · diagram_label · structure · both · exam high
+  - Organ: between Tissues and Organ system.
+    - where: What levels surround Organ? → Tissues precede it and Organ system follows it.
+      - how: How is an organ more inclusive than a tissue? → An organ contains different tissues coordinated to perform particular functions, such as the heart pumping blood. _(outside the book)_
+  - prerequisites: tissue; organ
+- **p001-i11** · diagram_label · structure · both · exam high
+  - Organ system: between Organ and Organisms.
+    - what: Which level follows an organ? → An organ system.
+      - how: How do organs form a functional system? → Several organs cooperate in a broad function; for example, digestive organs cooperate in processing food and absorbing nutrients. _(outside the book)_
+  - prerequisites: organ; coordinated function
+- **p001-i12** · diagram_label · structure · both · exam high
+  - Organisms: final level, following Organ system.
+    - what: What is the final level shown? → Organisms.
+      - how: How do organ systems relate to an organism? → In organisms with this level of organisation, organ systems function together as an integrated living individual. _(outside the book)_
+  - prerequisites: organ system; living individual
+- **p001-i13** · table · comparison · image
+  - Two-column comparison headed Mitosis and Meiosis, with 11 numbered comparison rows.
+  - prerequisites: cell division; nucleus; chromosomes
+- **p001-i14** · table_row · comparison · image · exam high
+  - Column 1: Mitosis | Column 2: Meiosis
+    - compare: Which two processes does the table compare? → Mitosis and meiosis.
+      - how: How do their broad biological roles differ? → Mitosis commonly supports growth and repair while maintaining chromosome complement; meiosis reduces chromosome complement in sexual life cycles. _(outside the book)_
+  - prerequisites: cell division; chromosome complement
+- **p001-i15** · table_row · comparison · image · exam high
+  - Mitosis: 1) It occurs in somatic cells. | Meiosis: 1) It occurs in germ cells.
+    - compare: Where does the table place mitosis and meiosis? → It places mitosis in somatic cells and meiosis in germ cells.
+      - why: Why does this distinction need careful wording? → Somatic cells are body cells, while the germ line contributes to reproduction. Germ-line cells can also undergo mitosis; meiosis occurs in particular reproductive precursor cells. Thus the row is not an exclusive rule for all cells or life cycles. _(outside the book)_
+  - prerequisites: somatic cell; germ line; sexual reproduction
+- **p001-i16** · table_row · comparison · image · exam high
+  - Mitosis: 2) Nucleus divides only once. | Meiosis: 2) Nucleus divides twice.
+    - compare: How many nuclear divisions are compared? → Mitosis has one nuclear division; meiosis has two.
+      - how: How do the two meiotic divisions differ? → Meiosis I separates homologous chromosomes; meiosis II separates sister chromatids. DNA replication precedes meiosis I, not meiosis II. _(outside the book)_
+  - prerequisites: nucleus; homologous chromosomes; sister chromatids
+- **p001-i17** · table_row · comparison · image · exam high
+  - Mitosis: 3) Two daughter cells are formed. | Meiosis: 3) Four daughter cells are formed.
+    - compare: What daughter-cell numbers are given? → Two for mitosis and four for meiosis.
+      - how: How does division number explain this difference? → With completed cytokinesis, one division produces two cells; two successive divisions can produce four. In oogenesis the meiotic products are unequal, and four equivalent functional gametes are not produced. _(outside the book)_
+  - prerequisites: daughter cell; cytokinesis; successive division
+- **p001-i18** · table_row · comparison · image · exam high
+  - Mitosis: 4) Daughter cells are diploid. | Meiosis: 4) Daughter cells are haploid.
+    - compare: What ploidy contrast does the table state? → It describes mitotic daughters as diploid and meiotic daughters as haploid.
+      - why: Why is the mitosis statement conditional? → Mitosis generally preserves the parent's chromosome-set number, so diploid parents give diploid daughters, but haploid cells can also undergo mitosis. Meiosis normally reduces a diploid complement to haploid. _(outside the book)_
+  - prerequisites: haploid; diploid; chromosome set
+- **p001-i19** · table_row · comparison · image · exam medium
+  - Mitosis: 5) It occurs more frequently. | Meiosis: 5) It occurs less frequently.
+    - compare: Which process is described as more frequent? → The table calls mitosis more frequent and meiosis less frequent.
+      - why: Why is this a broad generalisation rather than a universal numerical rule? → Mitosis is associated with growth and cell replacement in many tissues, whereas meiosis is restricted to particular reproductive stages and cells. Actual rates depend on organism, tissue and life stage. _(outside the book)_
+  - prerequisites: growth; cell replacement; reproductive cells
+- **p001-i20** · table_row · comparison · image · exam high
+  - Mitosis: 6) Daughter cells form somatic organs. | Meiosis: 6) Daughter cells form gametes.
+    - compare: What outcomes does the table associate with the daughter cells? → Mitotic daughters contribute to somatic organs; meiotic daughters form gametes.
+      - how: How should this comparison be applied across animals and plants? → In animals meiosis is part of gamete formation. In land plants meiosis produces spores, and gametes subsequently arise in the haploid generation by mitosis. The printed wording should not be applied unchanged to every life cycle. _(outside the book)_
+  - prerequisites: somatic organ; gamete; spore; plant life cycle
+- **p001-i21** · table_row · comparison · image · exam high
+  - Mitosis: 7) There is only one prophase, one metaphase one anaphase and one telophase. | Meiosis: 7) There are two of each phase and five sub-phases in prophase - 1.
+    - compare: How do phase counts differ? → Mitosis has one sequence of prophase, metaphase, anaphase and telophase. Meiosis has two such division sequences, with five sub-phases in prophase I.
+      - why: Why is prophase I more elaborate? → Homologous chromosomes pair and recombine during prophase I. Its standard sub-phases are leptotene, zygotene, pachytene, diplotene and diakinesis. _(outside the book)_
+  - prerequisites: nuclear division; homologous chromosome pairing; cell-division phases
+- **p001-i22** · table_row · comparison · image · exam high
+  - Mitosis: 8) Number of chromosomes are not changed in the daughter cells. | Meiosis: 8) Number of chromosomes are reduced to half.
+    - compare: How does chromosome number change in the two processes? → The table states that mitosis preserves chromosome number while meiosis reduces it to half.
+      - how: How is the reduction achieved? → Homologous chromosomes separate in meiosis I, leaving one chromosome from each homologous pair in each daughter nucleus. Meiosis II separates sister chromatids without a second reduction in chromosome-set number. _(outside the book)_
+  - prerequisites: chromosome number; homologous pair; sister chromatids
+- **p001-i23** · table_row · comparison · image · exam high
+  - Mitosis: 9) Chromosome number doubles at the beginning of each cell division. | Meiosis: 9) Chromosome number is not doubled. It doubles after the end of first meiotic division.
+    - compare: What does the printed row claim? → It claims chromosome number doubles at the beginning of each mitotic division and, for meiosis, that doubling occurs after the first meiotic division. These are the printed claims, not a reliable account of replication.
+      - how: How should the replication sequence actually be understood? → DNA replicates in S phase before mitosis and before meiosis I. Each chromosome then has two sister chromatids, but its centromere-based chromosome count has not doubled. There is no intervening S phase between meiosis I and meiosis II. _(outside the book)_
+        - why: Why is the printed wording misleading? → It confuses DNA amount with chromosome number and places replication between the meiotic divisions, where it does not normally occur. Sister-chromatid separation can change chromosome counts within a dividing cell, but that is not DNA replication. _(outside the book)_
+  - prerequisites: S phase; DNA replication; centromere; chromosome versus chromatid; meiosis I and II
+- **p001-i24** · table_row · comparison · image · exam high
+  - Mitosis: 10) No crossing over in chromosomes. | Meiosis: 10) Crossing over occurs chromosomes.
+    - compare: What crossing-over contrast is intended? → The table associates absence of crossing over with mitosis and occurrence of crossing over with meiosis.
+      - how: How does meiotic crossing over produce variation? → During prophase I, non-sister chromatids of homologous chromosomes exchange corresponding DNA segments, generating new combinations of alleles. This programmed event is characteristic of meiosis; rare mitotic recombination is not the standard comparison intended here. _(outside the book)_
+  - prerequisites: homologous chromosomes; non-sister chromatids; alleles
+- **p001-i25** · table_row · comparison · image · exam high
+  - Mitosis: 11) Equation division. | Meiosis: 11) Reduction division.
+    - compare: What division labels are printed? → The table prints 'Equation division' for mitosis and 'Reduction division' for meiosis.
+      - why: Why are the standard terms equational and reductional used? → Mitosis is called equational because chromosome-set number is preserved. Meiosis is reductional overall because meiosis I halves it; meiosis II is equational. 'Equation division' is the printed wording for the standard term 'equational division'. _(outside the book)_
+  - prerequisites: chromosome-set number; meiosis I; meiosis II
+- **p001-i26** · table · comparison · image
+  - Table 7.3: Difference between mitosis in Plants and Animals. Columns: Plants; Animals. Four comparison rows follow the column headers.
+  - prerequisites: mitosis; plant cell; animal cell
+- **p001-i27** · table_row · comparison · image · exam high
+  - Column 1: Plants | Column 2: Animals
+    - compare: What is being compared in these columns? → Mitosis in plants and mitosis in animals.
+      - how: How can the same type of division differ between plants and animals? → The broad chromosome-separation process is shared, but spindle organisation and cytoplasmic division differ with cell structure. _(outside the book)_
+  - prerequisites: mitosis; plant and animal cell structure
+- **p001-i28** · table_row · comparison · image · exam high
+  - Plants: Centrioles are absent | Animals: Centrioles are present
+    - compare: What centriole difference does the table give? → Centrioles are described as absent in plants and present in animals.
+      - how: How can plant cells organise a spindle without centrioles? → Microtubules can be organised through other microtubule-organising sites. The printed distinction is the usual higher-plant versus typical animal-cell comparison, not a rule covering every plant lineage and animal cell. _(outside the book)_
+  - prerequisites: centriole; microtubule; mitotic spindle
+- **p001-i29** · table_row · comparison · image · exam high
+  - Plants: Asters are not formed | Animals: Asters are formed
+    - compare: What aster difference is shown? → The plant column says asters are not formed; the animal column says they are formed.
+      - how: How is an aster related to spindle organisation? → An aster is a star-like array of microtubules radiating around a centrosomal region in typical animal mitosis. Typical higher-plant spindles lack these conspicuous astral arrays. _(outside the book)_
+  - prerequisites: microtubules; centrosome; mitotic spindle
+- **p001-i30** · table_row · comparison · image · exam high
+  - Plants: Cell division involves formation of a cell plate | Animals: Cell division involves furrowing and cleavage of cytoplasm
+    - compare: How does cytoplasmic division differ? → Plants form a cell plate, whereas animals divide through furrowing and cleavage of the cytoplasm.
+      - how: How are these two mechanisms carried out? → In plant cytokinesis, vesicles contribute to a cell plate that grows outward and develops into the partition between daughter cells. In animal cytokinesis, a contractile ring constricts the membrane inward to create a cleavage furrow. _(outside the book)_
+        - why: Why is cell-plate formation suited to plant cells? → A rigid cell wall limits pinching of the cell surface, so a new partition is constructed inside the dividing cell. _(outside the book)_
+  - prerequisites: cytokinesis; cell wall; cell membrane; vesicle
+- **p001-i31** · table_row · comparison · image · exam high
+  - Plants: Occurs mainly at meristem | Animals: Occurs in tissues throughout the body
+    - compare: How does the table contrast sites of mitosis? → It says plant mitosis occurs mainly at meristem, while animal mitosis occurs in tissues throughout the body.
+      - why: Why does 'throughout the body' not mean every animal cell divides? → Many animal tissues contain dividing cells for growth or replacement, but mature cells such as many neurons have little or no usual mitotic activity. Plant growth is concentrated in meristematic regions, though some other plant cells can regain division capacity. _(outside the book)_
+  - prerequisites: meristem; cell differentiation; tissue renewal
+- **p001-i32** · diagram · classification · image · exam high
+  - Classification of Plant Tissue branches into Meristematic Tissue and Permanent Tissue. Meristematic Tissue branches into Apical Meristem, Lateral Meristem and Intercalary Meristem. Permanent Tissue branches into Simple and Complex. Simple branches into Paranchyma, Collenchyma and Sclerenchyma. Sclerenchyma branches into Fibres and Sclereids. Complex branches into Xylem and Phloem. The visible Xylem components are Tracheids, Vessels (Tracheae) and Xylem parenchyma. The visible Phloem components are Sieve tubes, Companion cells and Phloem parenchyma. Connecting lines show parent–subtype relationships, not material flow. The image ends below the last visible component names.
+    - compare: What are the two major branches and their immediate subdivisions? → Plant tissue divides into meristematic tissue, with apical, lateral and intercalary meristems, and permanent tissue, which divides into simple and complex tissue.
+      - how: How should the lower branches be followed? → Follow Simple to Paranchyma, Collenchyma and Sclerenchyma, then Sclerenchyma to Fibres and Sclereids. Follow Complex to Xylem and Phloem, each with its separately listed visible components.
+        - why: Why are these connections not arrows of transport or development? → The figure classifies categories and their members. For example, a line from permanent tissue to complex tissue means complex tissue is a category of permanent tissue, not that material flows between them. _(outside the book)_
+  - prerequisites: plant tissue; classification tree; cell differentiation
+- **p001-i33** · diagram_label · classification · image · exam high
+  - Classification of Plant Tissue: root box connected to Meristematic Tissue and Permanent Tissue.
+    - compare: Which two categories sit directly below the root? → Meristematic Tissue and Permanent Tissue.
+      - how: How is this first division understood biologically? → Meristematic tissues contain cells capable of active division; permanent tissues consist of differentiated cells that generally no longer divide under ordinary conditions. _(outside the book)_
+  - prerequisites: cell division; cell differentiation
+- **p001-i34** · diagram_label · classification · image · exam high
+  - Meristematic Tissue: child of Classification of Plant Tissue; parent of Apical Meristem, Lateral Meristem and Intercalary Meristem.
+    - compare: Which three meristem categories are grouped together? → Apical, lateral and intercalary meristems.
+      - how: How does meristematic tissue contribute to plant growth? → Its cells divide to supply new cells, some of which subsequently enlarge and differentiate into specialised tissues. _(outside the book)_
+  - prerequisites: mitosis; plant growth; differentiation
+- **p001-i35** · diagram_label · classification · image · exam high
+  - Apical Meristem: child of Meristematic Tissue.
+    - compare: Which category contains Apical Meristem and what are its sibling categories? → It belongs to Meristematic Tissue alongside Lateral Meristem and Intercalary Meristem.
+      - how: How does apical meristem differ in location and growth role from lateral meristem? → Apical meristems occur at root and shoot tips and contribute to increase in length; lateral meristems lie along the sides of organs and contribute to increase in girth. _(outside the book)_
+  - prerequisites: root and shoot; length versus girth; meristematic tissue
+- **p001-i36** · diagram_label · classification · image · exam high
+  - Lateral Meristem: child of Meristematic Tissue.
+    - compare: Where does Lateral Meristem belong relative to Apical and Intercalary Meristem? → All three are sibling branches under Meristematic Tissue.
+      - how: How does lateral meristem increase plant thickness? → Lateral meristems such as vascular cambium and cork cambium add cells through divisions along the sides of stems and roots, contributing to secondary growth in plants that possess them. _(outside the book)_
+  - prerequisites: stem and root; girth; meristematic tissue
+- **p001-i37** · diagram_label · classification · image · exam high
+  - Intercalary Meristem: child of Meristematic Tissue.
+    - compare: Is Intercalary Meristem grouped with permanent tissues or meristems? → It is grouped with Apical and Lateral Meristem under Meristematic Tissue.
+      - how: How does its position explain its growth role? → Intercalary meristems occur between more mature tissues, commonly at bases of leaves or internodes in grasses, allowing elongation and regrowth from those regions. _(outside the book)_
+  - prerequisites: internode; leaf base; meristematic tissue
+- **p001-i38** · diagram_label · classification · image · exam high
+  - Permanent Tissue: child of Classification of Plant Tissue; parent of Simple and Complex.
+    - compare: What two categories lie under Permanent Tissue? → Simple and Complex.
+      - how: How does permanent tissue arise from meristematic tissue? → New cells produced by meristems enlarge and differentiate, acquiring structures and functions suited to particular roles; they generally cease active division in their mature state. _(outside the book)_
+  - prerequisites: meristematic tissue; differentiation
+- **p001-i39** · diagram_label · classification · image · exam high
+  - Simple: child of Permanent Tissue; parent of Paranchyma, Collenchyma and Sclerenchyma.
+    - compare: Which tissues are placed under Simple rather than Complex? → Paranchyma, Collenchyma and Sclerenchyma; Xylem and Phloem are placed under Complex.
+      - how: How is simple permanent tissue distinguished from complex permanent tissue? → A simple tissue consists mainly of one kind of cell, whereas a complex tissue contains different cell types cooperating in a shared function. _(outside the book)_
+  - prerequisites: permanent tissue; cell type
+- **p001-i40** · diagram_label · classification · image · exam high
+  - Complex: child of Permanent Tissue; parent of Xylem and Phloem.
+    - compare: Which branches identify complex rather than simple tissue? → Xylem and Phloem are complex; Paranchyma, Collenchyma and Sclerenchyma are simple.
+      - why: Why are xylem and phloem called complex tissues? → Each includes several cell types that cooperate in transport and associated support or storage functions. _(outside the book)_
+  - prerequisites: permanent tissue; cell type; transport in plants
+- **p001-i41** · diagram_label · classification · image · exam high
+  - Paranchyma: child of Simple, under Permanent Tissue.
+    - compare: Which category contains the printed 'Paranchyma' label? → Simple permanent tissue, alongside Collenchyma and Sclerenchyma.
+      - how: How should this label be understood? → The standard spelling is parenchyma. Its cells are generally living and thin-walled, allowing roles such as storage and, when chloroplasts are present, photosynthesis. _(outside the book)_
+  - prerequisites: living plant cell; cell wall; simple permanent tissue
+- **p001-i42** · diagram_label · classification · image · exam high
+  - Collenchyma: child of Simple, under Permanent Tissue.
+    - compare: Is Collenchyma simple or complex tissue? → It is simple permanent tissue, grouped with Paranchyma and Sclerenchyma.
+      - how: How does collenchyma support growing parts? → Its living cells have unevenly thickened primary walls that provide support while permitting flexibility and continued growth. _(outside the book)_
+  - prerequisites: primary cell wall; simple permanent tissue; plant support
+- **p001-i43** · diagram_label · classification · image · exam high
+  - Sclerenchyma: child of Simple; parent of Fibres and Sclereids.
+    - compare: Which two forms of sclerenchyma does the diagram distinguish? → Fibres and Sclereids.
+      - how: How does sclerenchyma provide mechanical strength? → Its cells typically develop thick, lignified secondary walls and are dead at maturity; these walls resist deformation and strengthen plant parts. _(outside the book)_
+  - prerequisites: secondary cell wall; lignin; simple permanent tissue
+- **p001-i44** · diagram_label · classification · image · exam high
+  - Fibres: child of Sclerenchyma.
+    - compare: What is the parent category of Fibres and its sibling in this tree? → The parent is Sclerenchyma and the sibling is Sclereids.
+      - how: How do fibres differ in form from typical sclereids? → Fibres are usually long, narrow cells with thick walls, suited to tensile support; sclereids are commonly shorter and more varied in shape. _(outside the book)_
+  - prerequisites: sclerenchyma; cell shape; mechanical support
+- **p001-i45** · diagram_label · classification · image · exam high
+  - Sclereids: child of Sclerenchyma.
+    - compare: How are Sclereids positioned relative to Fibres? → They are sibling branches under Sclerenchyma.
+      - how: How do sclereid walls affect plant texture? → Their thick, lignified walls create hardness; the gritty texture of pear pulp is a standard example of sclereids embedded among softer cells. _(outside the book)_
+  - prerequisites: sclerenchyma; lignified wall
+- **p001-i46** · diagram_label · classification · image · exam high
+  - Xylem: child of Complex; visible components listed beneath it are Tracheids, Vessels (Tracheae) and Xylem parenchyma.
+    - compare: Which visible components belong to Xylem rather than Phloem? → Tracheids, Vessels (Tracheae) and Xylem parenchyma are listed under Xylem.
+      - how: How do different xylem components contribute to its function? → Tracheids and vessels conduct water and dissolved minerals and contribute support; xylem parenchyma contributes living storage and lateral transport. The visible list is cropped and should not be treated as exhaustive. _(outside the book)_
+  - prerequisites: complex tissue; water and mineral transport; parenchyma
+- **p001-i47** · diagram_label · classification · image · exam high
+  - Tracheids: listed component of Xylem, under Complex Permanent Tissue.
+    - compare: Do tracheids belong to xylem or phloem in the tree? → They belong to Xylem.
+      - how: How do tracheids conduct water? → They are elongated cells with lignified walls, dead at functional maturity; water passes between adjoining cells through pits in their walls. _(outside the book)_
+  - prerequisites: xylem; lignified wall; cell-wall pits
+- **p001-i48** · diagram_label · classification · image · exam high
+  - Vessels (Tracheae): listed component of Xylem.
+    - compare: Which tissue contains Vessels (Tracheae), and what neighbouring conducting element is listed? → Xylem contains Vessels (Tracheae), and Tracheids are also listed under Xylem.
+      - how: How are vessels structurally different from tracheids? → Vessel elements join end to end through perforated end walls, producing conducting tubes. Tracheids remain individual elongated cells through whose wall pits water moves. _(outside the book)_
+  - prerequisites: xylem; tracheid; cell end wall
+- **p001-i49** · diagram_label · classification · image · exam high
+  - Xylem parenchyma: listed component of Xylem; lower edge of the image follows this visible line.
+    - compare: How is this parenchyma label distinguished from Phloem parenchyma? → Xylem parenchyma is listed under Xylem; Phloem parenchyma is listed under Phloem.
+      - why: Why is xylem parenchyma important when describing xylem as dead tissue? → Xylem parenchyma cells are living and participate in storage and lateral transport. Therefore calling the entire complex tissue dead is an overgeneralisation. _(outside the book)_
+  - prerequisites: xylem; parenchyma; living versus dead mature cells
+- **p001-i50** · diagram_label · classification · image · exam high
+  - Phloem: child of Complex; visible components listed beneath it are Sieve tubes, Companion cells and Phloem parenchyma.
+    - compare: Which visible components belong to Phloem rather than Xylem? → Sieve tubes, Companion cells and Phloem parenchyma are listed under Phloem.
+      - how: How do these components cooperate in transport? → Sieve-tube elements conduct organic solutes, companion cells support their functioning and participate in loading or unloading, and phloem parenchyma contributes storage and local transfer. The visible panel is not evidence of an exhaustive component list. _(outside the book)_
+  - prerequisites: complex tissue; transport of sugars; living plant cells
+- **p001-i51** · diagram_label · classification · image · exam high
+  - Sieve tubes: listed component of Phloem.
+    - compare: Are sieve tubes classified with phloem or xylem? → They are listed with Phloem, not Xylem.
+      - how: How does sieve-tube structure support transport? → Living sieve-tube elements connect end to end through sieve plates, permitting movement of phloem sap. Mature elements lack a nucleus and depend on associated companion cells for important metabolic support. _(outside the book)_
+  - prerequisites: phloem; sieve plate; cell nucleus
+- **p001-i52** · diagram_label · classification · image · exam high
+  - Companion cells: listed component of Phloem.
+    - compare: Which complex tissue contains companion cells in this diagram? → Phloem, where they are listed alongside Sieve tubes and Phloem parenchyma.
+      - how: How do companion cells assist sieve-tube elements? → Companion cells retain nuclei and are closely connected to sieve-tube elements, providing metabolic support and participating in sugar loading and unloading. _(outside the book)_
+  - prerequisites: phloem; sieve-tube element; nucleus; sugar transport
+- **p001-i53** · diagram_label · classification · image · exam high
+  - Phloem parenchyma: listed component of Phloem; lower edge of the image follows this visible line.
+    - compare: How does the diagram distinguish the two parenchyma components in its lower panels? → Xylem parenchyma belongs to Xylem, while Phloem parenchyma belongs to Phloem.
+      - how: How does phloem parenchyma contribute to tissue function? → Its living cells store substances and participate in local transfer of materials; they are supporting components rather than the main long-distance sieve-tube pathway. _(outside the book)_
+  - prerequisites: phloem; parenchyma; storage versus conduction
+
+### Page 2 · passed after 1 round(s)
+
+Animal tissues are classified into epithelial, muscular, connective and nervous/neural tissues. The tree lists six epithelial forms, three muscle types and three connective-tissue subdivisions with their examples. A second illustration shows muscle cells, epithelial arrangements, nervous structures and connective-tissue examples alongside the human body.
+
+- **p002-i1** · diagram · classification · image
+  - Animal Tissues branches into Epithelial Tissue, Muscular Tissue, Connective Tissue, and Nervous / Neural Tissue. Epithelial Tissue branches into Simple squamous epithelium, Stratified squamous epithelium, Columnar epithelium, Ciliated columnar epithelium, Cuboidal epithelium, and Glandular epithelium. Muscular Tissue branches into Striated muscle, Non-straited muscle, and Cardiac muscle. Connective Tissue branches into Connective tissue proper, Supportive connective tissue, and Fluid connective tissue. Connective tissue proper branches into Areolar tissue, Adipose tissue, and Fibrous tissue. Supportive connective tissue branches into Cartilage and Bone. Fluid connective tissue branches into Blood and Lymph. Nervous / Neural Tissue has no further branch shown. Arrows lead from each parent to its subtypes.
+  - prerequisites: cells forming tissues; parent categories and subcategories in a classification tree
+- **p002-i2** · diagram_label · classification · image · exam high
+  - Animal Tissues — root of the tree, branching into Epithelial Tissue, Muscular Tissue, Connective Tissue, and Nervous / Neural Tissue.
+    - compare: Which categories occupy the same first level under Animal Tissues? → Epithelial, muscular, connective, and nervous/neural tissues are the four parallel main categories shown.
+      - how: How should a learner read the levels of this tree? → Read from the general parent to increasingly specific subgroups. For example, blood belongs under fluid connective tissue, which belongs under connective tissue; blood is not a fifth main animal-tissue group.
+  - prerequisites: meaning of a tissue; hierarchical classification
+- **p002-i3** · diagram_label · classification · image · exam high
+  - Epithelial Tissue — main branch of Animal Tissues; connects downward to Simple squamous epithelium, Stratified squamous epithelium, Columnar epithelium, Ciliated columnar epithelium, Cuboidal epithelium, and Glandular epithelium.
+    - compare: Which forms are grouped under Epithelial Tissue? → The six displayed forms are simple squamous, stratified squamous, columnar, ciliated columnar, cuboidal, and glandular epithelium.
+      - why: Why do these epithelial names refer to different kinds of features? → Epithelia can be described by cell shape, number of layers, surface specialisations or secretory function. Thus squamous and cuboidal refer to shape, stratified to layers, ciliated to a surface feature, and glandular to secretion. The figure is a teaching list rather than a set of mutually exclusive criteria. _(outside the book)_
+  - prerequisites: cell shape; cell layers; tissues
+- **p002-i4** · diagram_label · classification · image · exam high
+  - Muscular Tissue — main branch of Animal Tissues; branches into Striated muscle, Non-straited muscle, and Cardiac muscle.
+    - compare: What three muscle categories does the tree distinguish? → It distinguishes Striated muscle, the printed Non-straited muscle category, and Cardiac muscle.
+      - how: How should the separate cardiac branch be understood when cardiac muscle also has striations? → This common three-part school classification uses striated muscle for skeletal muscle, non-striated for smooth muscle, and a separate cardiac category for heart muscle. Cardiac muscle itself is striated but differs from skeletal muscle in structure and control. _(outside the book)_
+  - prerequisites: muscle contraction; meaning of a subtype
+- **p002-i5** · diagram_label · classification · image · exam high
+  - Connective Tissue — main branch of Animal Tissues; branches into Connective tissue proper, Supportive connective tissue, and Fluid connective tissue.
+    - compare: How is connective tissue subdivided in this tree? → It is divided into connective tissue proper, supportive connective tissue and fluid connective tissue.
+      - why: Why can both bone and blood belong to connective tissue despite looking very different? → Connective tissues have cells associated with an extracellular matrix. The matrix can be rigid in bone or fluid in blood, allowing different connective tissues to support, bind or transport. _(outside the book)_
+  - prerequisites: cells; extracellular matrix
+- **p002-i6** · diagram_label · classification · image · exam high
+  - Nervous / Neural Tissue — fourth main branch of Animal Tissues; no sub-branches are shown.
+    - compare: Are nervous tissue and neural tissue separate main categories here? → No. The slash presents Nervous and Neural as alternative names for the same main tissue category.
+      - how: How does nervous tissue contribute to coordination? → Neurons receive and transmit signals, allowing information about conditions or stimuli to reach other cells and helping coordinate responses. _(outside the book)_
+  - prerequisites: cells; signals between cells
+- **p002-i7** · diagram_label · classification · image · exam high
+  - Striated muscle — a branch of Muscular Tissue.
+    - compare: What is the structural distinction between striated and non-striated muscle? → Striated muscle has visible transverse light and dark bands; non-striated muscle lacks this banded appearance. _(outside the book)_
+      - why: Why do striations appear? → Contractile filaments are arranged in repeating units called sarcomeres, producing a regular banding pattern. _(outside the book)_
+  - prerequisites: muscle cells; contractile filaments
+- **p002-i8** · diagram_label · classification · image · exam high
+  - Non-straited muscle — printed label for the middle branch of Muscular Tissue.
+    - compare: Which standard muscle category does the printed 'Non-straited muscle' label represent? → It represents non-striated, or smooth, muscle, contrasting with the striated branch. _(outside the book)_
+      - why: Why is smooth muscle called non-striated? → Its contractile filaments are not arranged into the repeating sarcomeres that produce visible transverse bands in skeletal and cardiac muscle. _(outside the book)_
+  - prerequisites: muscle cells; striations
+- **p002-i9** · diagram_label · classification · image · exam high
+  - Cardiac muscle — a branch of Muscular Tissue.
+    - compare: How does cardiac muscle compare with skeletal muscle? → Both are striated, but cardiac muscle forms the contractile tissue of the heart and acts involuntarily; skeletal muscle generally produces voluntary body movements. _(outside the book)_
+      - how: How is cardiac muscle suited to pumping? → Its interconnected muscle cells contract in a coordinated way, generating the force needed to move blood through the circulation. _(outside the book)_
+  - prerequisites: heart pumping blood; muscle contraction
+- **p002-i10** · diagram_label · classification · image · exam high
+  - Connective tissue proper — child of Connective Tissue; parent of Areolar tissue, Adipose tissue, and Fibrous tissue.
+    - compare: Which examples belong to connective tissue proper rather than the supportive or fluid subdivisions in this chart? → Areolar, adipose and fibrous tissues belong to connective tissue proper.
+      - how: How can these tissues have different functions within the same broad subdivision? → Their proportions of cells, fibres and ground substance differ. Loose packing, fat storage and strong fibrous binding are therefore possible within this connective-tissue grouping. _(outside the book)_
+  - prerequisites: extracellular matrix; connective tissue
+- **p002-i11** · diagram_label · classification · image · exam high
+  - Supportive connective tissue — child of Connective Tissue; branches into Cartilage and Bone.
+    - compare: Which two tissues are paired under supportive connective tissue? → Cartilage and bone are the two displayed examples.
+      - why: Why are they classed as supportive? → Their substantial extracellular matrices provide structural support. Cartilage offers relatively flexible support, whereas mineralised bone provides greater rigidity. _(outside the book)_
+  - prerequisites: extracellular matrix; structural support
+- **p002-i12** · diagram_label · classification · image · exam high
+  - Fluid connective tissue — child of Connective Tissue; branches into Blood and Lymph.
+    - compare: Which examples are placed under fluid rather than supportive connective tissue? → Blood and lymph are fluid connective tissues; cartilage and bone are in the supportive subdivision.
+      - why: Why does a fluid medium suit these tissues? → A fluid medium permits movement of dissolved substances and suspended cells, supporting transport and exchange rather than rigid support. _(outside the book)_
+  - prerequisites: fluid; extracellular matrix; transport in the body
+- **p002-i13** · diagram_label · classification · image · exam high
+  - Areolar tissue — a subtype of Connective tissue proper.
+    - compare: Where does areolar tissue belong relative to cartilage? → Areolar tissue belongs to connective tissue proper, while cartilage belongs to supportive connective tissue.
+      - how: How does areolar tissue serve as packing tissue? → Its loosely arranged fibres and cells in a soft ground substance allow it to occupy spaces, support small vessels and help bind adjacent tissues. _(outside the book)_
+  - prerequisites: connective-tissue matrix; fibres
+- **p002-i14** · diagram_label · classification · image · exam high
+  - Adipose tissue — a subtype of Connective tissue proper.
+    - compare: Is adipose tissue placed with connective tissue proper or fluid connective tissue? → It is placed with connective tissue proper, alongside areolar and fibrous tissues.
+      - how: How do fat-storing cells make adipose tissue useful? → Stored lipid provides an energy reserve, while deposits of these cells can provide cushioning and reduce heat loss. _(outside the book)_
+  - prerequisites: fat as an energy store; cells forming tissues
+- **p002-i15** · diagram_label · classification · image · exam high
+  - Fibrous tissue — a subtype of Connective tissue proper.
+    - compare: Which subdivision contains fibrous tissue rather than bone? → Fibrous tissue is under connective tissue proper; bone is under supportive connective tissue.
+      - why: Why are fibres important for strong connections? → Abundant collagen fibres resist pulling forces, helping fibrous connective tissues bind structures and transmit tension. _(outside the book)_
+  - prerequisites: connective-tissue fibres; pulling force
+- **p002-i16** · diagram_label · classification · image · exam high
+  - Cartilage — a subtype of Supportive connective tissue.
+    - compare: How does cartilage compare with bone as a supporting tissue? → Both provide support, but cartilage has a relatively flexible matrix, whereas bone has a harder mineralised matrix. _(outside the book)_
+      - how: How can flexible support be useful? → A resilient matrix can maintain shape while allowing deformation and can cushion forces at suitable locations, such as joint surfaces. _(outside the book)_
+  - prerequisites: extracellular matrix; flexibility and rigidity
+- **p002-i17** · diagram_label · classification · image · exam high
+  - Bone — a subtype of Supportive connective tissue.
+    - compare: Where does bone belong relative to blood in this classification? → Both are connective tissues, but bone is supportive and blood is fluid connective tissue.
+      - why: Why is bone suited to rigid support? → Mineral salts deposited in its collagen-containing matrix give it hardness and resistance to compression. _(outside the book)_
+  - prerequisites: extracellular matrix; mineralisation
+- **p002-i18** · diagram_label · classification · image · exam high
+  - Blood — a subtype of Fluid connective tissue.
+    - compare: Which tissue shares blood's immediate parent in the tree? → Lymph shares the parent Fluid connective tissue with blood.
+      - why: Why is blood considered a tissue although it flows? → Its cells and cell fragments function together in a fluid extracellular matrix, plasma. A tissue need not form a solid sheet. _(outside the book)_
+  - prerequisites: cells forming tissues; plasma; extracellular matrix
+- **p002-i19** · diagram_label · classification · image · exam high
+  - Lymph — a subtype of Fluid connective tissue.
+    - compare: How is lymph classified in relation to blood? → Lymph and blood are both placed under Fluid connective tissue.
+      - how: How does lymph help link body tissues with circulation? → Fluid entering lymphatic vessels from tissue spaces is carried as lymph and eventually returned to the bloodstream. Lymph also carries immune cells. _(outside the book)_
+  - prerequisites: tissue fluid; blood circulation; lymphatic vessels
+- **p002-i20** · diagram_label · classification · image · exam high
+  - Simple squamous epithelium — a subtype of Epithelial Tissue.
+    - compare: How does simple squamous differ from stratified squamous epithelium? → Simple squamous epithelium has one layer of flattened cells; stratified squamous epithelium has several layers, with flattened cells at the exposed surface. _(outside the book)_
+      - why: Why can a single thin layer favour exchange? → A thin barrier shortens the distance through which substances must diffuse. _(outside the book)_
+  - prerequisites: cell layers; flattened cells; diffusion
+- **p002-i21** · diagram_label · classification · image · exam high
+  - Stratified squamous epithelium — a subtype of Epithelial Tissue.
+    - compare: What distinguishes stratified squamous from simple squamous epithelium? → Stratified squamous epithelium has multiple cell layers rather than one; the surface cells are flattened. _(outside the book)_
+      - why: Why are multiple layers useful at surfaces exposed to wear? → Superficial cells can be lost through abrasion while deeper layers continue to maintain a protective barrier. _(outside the book)_
+  - prerequisites: cell layers; abrasion; epithelial barrier
+- **p002-i22** · diagram_label · classification · image · exam high
+  - Columnar epithelium — a subtype of Epithelial Tissue.
+    - compare: How do columnar cells differ in shape from squamous cells? → Columnar cells are relatively tall and column-like, whereas squamous cells are flattened. _(outside the book)_
+      - how: How can columnar cells contribute to lining functions? → Their cellular machinery and specialised surfaces can support absorption or secretion, depending on the organ. _(outside the book)_
+  - prerequisites: cell shape; absorption; secretion
+- **p002-i23** · diagram_label · classification · image · exam high
+  - Ciliated columnar epithelium — a subtype of Epithelial Tissue.
+    - compare: What additional feature distinguishes ciliated columnar epithelium from non-ciliated columnar epithelium? → Ciliated columnar cells bear motile hair-like cilia on their exposed surface. _(outside the book)_
+      - how: How do cilia help a lining perform its function? → Their coordinated beating moves material along the epithelial surface, such as mucus in parts of the respiratory tract. _(outside the book)_
+  - prerequisites: columnar cell shape; cilia; epithelial surface
+- **p002-i24** · diagram_label · classification · image · exam high
+  - Cuboidal epithelium — a subtype of Epithelial Tissue.
+    - compare: How does cuboidal cell shape differ from columnar and squamous shapes? → Cuboidal cells have roughly similar height and width; columnar cells are taller, while squamous cells are thin and flattened. _(outside the book)_
+      - how: How can cuboidal epithelium contribute to a tubule or duct? → It forms a lining whose cells can carry out absorption or secretion, as in kidney tubules and many small gland ducts. _(outside the book)_
+  - prerequisites: cell shape; tubules and ducts; absorption and secretion
+- **p002-i25** · diagram_label · classification · image · exam high
+  - Glandular epithelium — a subtype of Epithelial Tissue.
+    - compare: How does the name glandular differ from names such as cuboidal or squamous? → Glandular emphasises secretory specialisation, whereas cuboidal and squamous describe cell shape. _(outside the book)_
+      - how: How does glandular epithelium perform secretion? → Its cells synthesise and release products, such as mucus or enzymes, either as individual secretory cells or as organised glands. _(outside the book)_
+  - prerequisites: secretion; glands; epithelial cells
+- **p002-i26** · diagram · structure · image
+  - A central human body is surrounded by four boxed tissue illustrations. Upper left, Muscular tissue shows Cardiac muscle as branching fibres, Skeletal muscle as a bundle of elongated fibres, and Smooth muscle as spindle-shaped cells; Muscle cells labels the illustrated cellular forms. Upper right, Nerve tissue contains branched Nerve cell drawings; Brain, Spinal cord and Nerve label structures on the body. Lower left, Epithelial tissue shows Ciliated columnar, Simple columnar, Simple cuboidal, and Simple squamous arrangements, with the text Lining of gastrointestinal tract and other hollow organs. A separate multilayered epithelial block is labelled Skin surface and Basement membrane. Lower right, Connective tissue shows Tendon, Bone and Fat cells, with the text Fat and other Soft padding tissue. Leader lines associate the tissue examples with locations or structures on the body; they are not a sequential process.
+  - prerequisites: four main animal tissue groups; organs contain tissues
+- **p002-i27** · diagram_label · classification · image · exam high
+  - Muscular tissue — names the box containing cardiac, skeletal and smooth muscle illustrations.
+    - compare: Which muscle names appear in the lower illustration? → Cardiac muscle, skeletal muscle and smooth muscle are shown within the muscular tissue box.
+      - how: How does this terminology connect with the upper tree? → Skeletal muscle corresponds to the tree's striated branch, smooth muscle to its non-striated branch, and cardiac muscle retains the same name. _(outside the book)_
+  - prerequisites: upper muscle classification; muscle cells
+- **p002-i28** · diagram_label · structure · image · exam high
+  - Cardiac muscle — labels red branching muscle fibres; a leader line associates this example with the heart region of the body.
+    - what: What visual feature and body association identify the cardiac example? → It is drawn as branching fibres and associated with the heart region.
+      - how: How does the branching arrangement help heart muscle work as a coordinated tissue? → Branching cells connect with neighbouring cells, allowing excitation and force to spread through the muscle network. _(outside the book)_
+  - prerequisites: heart; muscle contraction; cell-to-cell connections
+- **p002-i29** · diagram_label · structure · image · exam medium
+  - Muscle cells — label connected by leader lines to the illustrated muscle-cell forms.
+    - what: What does the shared label Muscle cells emphasise? → The different muscle drawings represent cellular forms belonging to muscular tissue, rather than three whole organs.
+      - how: How can muscle cells generate movement? → Interactions between contractile proteins generate tension and shortening, which can move body parts or change the shape of an organ. _(outside the book)_
+  - prerequisites: cells and tissues; contraction
+- **p002-i30** · diagram_label · structure · image · exam high
+  - Skeletal muscle — labels a red bundle of long cylindrical muscle fibres.
+    - compare: How does the skeletal muscle drawing differ from the smooth muscle drawing? → Skeletal muscle is represented as a bundle of long cylindrical fibres, while smooth muscle is represented by tapered spindle-shaped cells.
+      - how: How does skeletal muscle usually move a body part? → Its contraction generates a pull transmitted through tendons to bones, producing movement at joints. _(outside the book)_
+  - prerequisites: bones; joints; tendons; muscle contraction
+- **p002-i31** · diagram_label · structure · image · exam high
+  - Smooth muscle — labels elongated spindle-shaped red cells with tapered ends.
+    - what: What shape identifies the smooth muscle cells in the illustration? → They are spindle-shaped: wider near the centre and tapered towards their ends.
+      - how: How can smooth muscle act in a hollow organ? → Contraction in the organ wall can narrow its cavity or propel its contents, as occurs during movement of material along the digestive tract. _(outside the book)_
+  - prerequisites: muscle contraction; hollow organs
+- **p002-i32** · diagram_label · structure · image · exam high
+  - Brain — leader line points to the brain within the head of the central body.
+    - where: Where is the brain identified in the illustration? → It is shown inside the head, above the spinal cord.
+      - how: How is the brain related to nervous tissue? → The brain is an organ containing nervous tissue, whose neurons and supporting cells enable information processing and coordination. _(outside the book)_
+  - prerequisites: organ versus tissue; neurons
+- **p002-i33** · diagram_label · structure · image · exam high
+  - Spinal cord — leader line points to the elongated nervous structure descending from the brain through the neck and trunk.
+    - where: How is the spinal cord positioned relative to the brain in the figure? → It extends downward from the brain into the body.
+      - how: How does the spinal cord contribute to nervous coordination? → It carries signals between the brain and much of the body and contains circuits involved in spinal reflexes. _(outside the book)_
+  - prerequisites: brain; nerve signals; reflex
+- **p002-i34** · diagram_label · structure · image · exam high
+  - Nerve — leader line points to a branching yellow nerve in the shoulder/upper-arm region.
+    - what: What does the Nerve label identify in the body drawing? → It identifies a peripheral branching nervous structure extending towards the upper limb.
+      - how: How does a nerve differ from a single nerve cell? → A peripheral nerve contains bundles of nerve fibres, chiefly axons, with supporting tissues. A nerve cell is an individual neuron with its cell body and processes. _(outside the book)_
+  - prerequisites: neuron; axon; bundles of fibres
+- **p002-i35** · diagram_label · classification · image · exam high
+  - Nerve tissue — names the box containing several branched nerve-cell drawings.
+    - compare: How does the label Nerve tissue relate to the upper tree's Nervous / Neural Tissue? → It illustrates the same broad tissue category using nerve-cell drawings.
+      - why: Why should this box not be taken to mean that nervous tissue consists only of neurons? → The drawing highlights neurons, but nervous tissue also contains supporting glial cells, which help maintain the environment and functioning of neurons. _(outside the book)_
+  - prerequisites: nervous tissue; neurons; supporting cells
+- **p002-i36** · diagram_label · structure · image · exam high
+  - Nerve cell — leader line points to a branched purple cell among the nerve-cell drawings.
+    - what: What visible feature characterises the nerve cells drawn here? → They have a central cell body with several projecting, branched processes.
+      - how: How do neuronal processes help communication? → Dendrites commonly receive input and an axon conducts signals towards other cells, enabling communication beyond the immediate cell body. _(outside the book)_
+  - prerequisites: cell body; dendrites; axon; nerve signals
+- **p002-i37** · diagram_label · classification · image · exam high
+  - Epithelial tissue — names the box showing epithelial cell arrangements, hollow-organ lining, skin surface and basement membrane.
+    - compare: What two broad settings for epithelium are represented in this box? → The box represents linings of the gastrointestinal tract and other hollow organs, and the skin surface.
+      - how: How can epithelial tissue serve both internal and external surfaces? → Closely arranged cells form continuous sheets, making them suitable for covering exposed surfaces and lining internal spaces. _(outside the book)_
+  - prerequisites: cell sheets; body surfaces; hollow organs
+- **p002-i38** · diagram_label · fact · image · exam high
+  - Lining of gastrointestinal tract and other hollow organs — identifies an epithelial location; a leader line connects the text with the abdominal organ region.
+    - where: Which internal location for epithelial tissue is explicitly named? → The lining of the gastrointestinal tract and other hollow organs.
+      - why: Why is a specialised lining needed in a hollow organ? → A lining separates the organ wall from its contents and can be adapted for protection, secretion or absorption. Different regions need different epithelial forms; the label does not assign every pictured form to every hollow organ. _(outside the book)_
+  - prerequisites: gastrointestinal tract; organ lumen; epithelial barrier
+- **p002-i39** · diagram_label · structure · image · exam high
+  - Ciliated columnar — labels tall epithelial cells with hair-like projections at their upper surface.
+    - compare: How can this model be distinguished from the adjacent simple columnar model? → It shows tall cells with conspicuous hair-like projections on their exposed surface.
+      - how: How do those projections contribute to function? → Motile cilia beat in a coordinated manner to move material along the surface. _(outside the book)_
+  - prerequisites: columnar cells; cilia
+- **p002-i40** · diagram_label · structure · image · exam high
+  - Simple columnar — labels a single layer of tall column-like epithelial cells.
+    - compare: What does simple columnar combine in one name? → Simple indicates one layer, while columnar indicates tall cells. _(outside the book)_
+      - how: How can a single layer of columnar cells support absorption? → Substances can pass through a single cellular layer, and the cells can have specialised transport mechanisms and surface adaptations. _(outside the book)_
+  - prerequisites: cell layers; columnar shape; absorption
+- **p002-i41** · diagram_label · structure · image · exam high
+  - Simple cuboidal — labels a single sheet of roughly cube-shaped epithelial cells.
+    - compare: How does simple cuboidal differ from simple columnar epithelium? → Both have one cell layer, but cuboidal cells are roughly as tall as they are wide, whereas columnar cells are taller. _(outside the book)_
+      - how: How does this cell arrangement suit a lining role? → A continuous layer surrounds a surface or lumen while its cells can carry out transport, absorption or secretion appropriate to the organ. _(outside the book)_
+  - prerequisites: cell layers; cuboidal shape; lumen
+- **p002-i42** · diagram_label · structure · image · exam high
+  - Simple squamous — labels a thin sheet of flattened epithelial cells.
+    - compare: How does the simple squamous model differ from the cuboidal model? → The simple squamous model is much thinner and flatter; the cuboidal model has cells with greater height.
+      - why: Why does the thinness of this epithelium matter? → It reduces the barrier thickness for exchange, making it suitable at sites where rapid diffusion or filtration is needed. _(outside the book)_
+  - prerequisites: flattened cells; diffusion; filtration
+- **p002-i43** · diagram_label · structure · image · exam high
+  - Skin surface — labels the separate thick, multilayered epithelial block, associated by a leader line with the body's outer surface.
+    - what: What distinguishes the skin-surface model from the simple epithelial models? → It is drawn as a thicker block with many cell layers rather than a single thin layer.
+      - why: Why does the skin surface benefit from stratified epithelium? → Multiple layers resist mechanical wear. The epidermis is keratinised stratified squamous epithelium, providing a protective surface and helping limit water loss. _(outside the book)_
+  - prerequisites: cell layers; epidermis; protective barrier
+- **p002-i44** · diagram_label · structure · image · exam high
+  - Basement membrane — leader line points to the thin supporting boundary at the base of the multilayered epithelial block.
+    - where: Where is the basement membrane shown relative to the epithelial cells? → It lies beneath the epithelial block, at its basal boundary.
+      - how: How does the basement membrane support epithelium? → It is a specialised extracellular layer that helps anchor epithelial cells and separates them from underlying connective tissue. _(outside the book)_
+  - prerequisites: basal and exposed cell surfaces; extracellular material; connective tissue
+- **p002-i45** · diagram_label · classification · image · exam high
+  - Connective tissue — names the box containing tendon, bone, and fat-cell/soft-padding examples.
+    - compare: Which contrasting examples are grouped as connective tissue in this illustration? → Tendon, bone and fat cells associated with soft padding are shown together.
+      - why: Why is this selection useful for understanding connective tissue? → It shows that connective tissue is not defined by one texture: fibrous tissue can transmit pulling force, bone can provide rigid support, and adipose tissue can provide soft cushioning. _(outside the book)_
+  - prerequisites: connective-tissue matrix; support; fat storage
+- **p002-i46** · diagram_label · example · image · exam high
+  - Tendon — labels a yellow bundle of parallel fibres.
+    - what: What connective-tissue example is represented as parallel fibres? → The illustration labels the fibrous bundle Tendon.
+      - how: How does a tendon's structure suit its function? → Closely packed, largely parallel collagen fibres resist tension and transmit the pull of muscle to bone. _(outside the book)_
+  - prerequisites: collagen fibres; muscles; bones; tension
+- **p002-i47** · diagram_label · example · image · exam high
+  - Bone — labels a pale long-bone-shaped illustration.
+    - what: What does the bone drawing illustrate in this box? → It provides a visible example of bone within the connective-tissue group.
+      - why: Why should the bone shape not be mistaken for the microscopic appearance of bone tissue? → The picture uses a whole-bone outline as a familiar example. Bone tissue itself consists of living cells in a mineralised extracellular matrix. _(outside the book)_
+  - prerequisites: organ versus tissue; bone matrix; cells
+- **p002-i48** · diagram_label · fact · image · exam high
+  - Fat and other Soft padding tissue — text accompanying the fat-cell illustration and its association with a yellow fat deposit on the body.
+    - what: What functional description accompanies fat in the illustration? → Fat is associated with soft padding tissue.
+      - how: How can adipose tissue provide padding? → Deposits of fat-containing cells form compressible cushions that help distribute mechanical forces around body structures. _(outside the book)_
+  - prerequisites: adipose tissue; mechanical cushioning
+- **p002-i49** · diagram_label · structure · image · exam high
+  - Fat cells — leader line points to a cluster of rounded yellow-orange cells.
+    - what: Which cells are illustrated as rounded yellow-orange units? → They are labelled Fat cells.
+      - how: How are fat cells related to the adipose tissue branch in the classification tree? → Fat cells, or adipocytes, are the characteristic lipid-storing cells of adipose tissue. A cluster of such cells contributes to the tissue; a single cell is not itself the whole tissue. _(outside the book)_
+  - prerequisites: cell versus tissue; lipid storage; adipose tissue
+
+### Page 3 · passed after 1 round(s)
+
+The body has four main tissue types: epithelial, muscular, neural and connective. Epithelium covers and lines organs and cavities, forms barriers, consists of closely packed cells with little intercellular material, and is usually separated from underlying tissue by a basement membrane. Secretory specialisation and inward folding can form glandular epithelium. An illustration compares squamous, stratified squamous, cuboidal and ciliated columnar forms. A continuing table describes six epithelial types through their locations, structures and functions.
+
+- **p003-i1** · paragraph · classification · both · exam high
+  - There are mainly four different types of tissues present in our body.
+    - which: Which four main tissue types are introduced here? → Epithelial, muscular, neural and connective tissues.
+    - compare: How do their broad functions differ? → Epithelial tissue provides covering or lining; muscular tissue helps movement; neural tissue responds to stimuli; connective tissue supports, links and cushions.
+      - why: Why is grouping body tissues by function useful? → A tissue is an organised group of cells working together. Grouping tissues by their characteristic functions helps connect cellular organisation with the different jobs performed by organs. _(outside the book)_
+  - prerequisites: cells; tissues as organised groups of cells; organs
+- **p003-i2** · list_point · fact · both · exam high
+  - 1. Epithelial- provides covering or lining
+    - what: What is the broad function of epithelial tissue? → It provides covering or lining. The page also states that epithelium covers most organs and cavities within the body.
+      - how: How can a tissue act as a covering or lining? → Closely arranged cells form a sheet over a surface or along the inside of a cavity or passage. This places the tissue at an interface between different spaces or materials. _(outside the book)_
+  - prerequisites: cell; body surface; body cavity
+- **p003-i3** · list_point · fact · both · exam high
+  - 2. Muscular- helps in movement
+    - what: What function is assigned to muscular tissue? → Muscular tissue helps in movement.
+      - how: How does muscular tissue help produce movement? → Muscle cells can contract and develop force. This force can move body parts or move material through an organ. _(outside the book)_
+  - prerequisites: cells; contraction; movement of body parts
+- **p003-i4** · list_point · fact · both · exam high
+  - 3. Neural- responds to stimuli
+    - what: What function is assigned to neural tissue? → Neural tissue responds to stimuli.
+      - how: How does neural tissue contribute to a response to a stimulus? → A stimulus is a detectable change. Neural cells can receive and transmit signals, helping coordinate a response by muscles, glands or other cells. _(outside the book)_
+  - prerequisites: cell; stimulus as a detectable change; signals between cells
+- **p003-i5** · list_point · fact · both · exam high
+  - 4. Connective- supports, links and cushions
+    - what: Which three broad roles are assigned to connective tissue? → It supports, links and cushions.
+      - how: How can connective tissue perform support and cushioning roles? → Connective tissues contain cells within an extracellular matrix. Differences in the matrix and its fibres allow different connective tissues to provide strength, binding or cushioning. _(outside the book)_
+  - prerequisites: cells; extracellular matrix; mechanical support
+- **p003-i6** · list_point · fact · both · exam high
+  - Epithelium covers most organs and cavities within the body.
+    - where: Where does the page place epithelium? → It covers most organs and cavities within the body.
+      - how: How should a student understand a tissue lining a cavity? → The tissue forms the cellular surface facing the cavity or lumen rather than filling the cavity. This surface can protect underlying tissue or regulate exchange with the cavity contents. _(outside the book)_
+  - prerequisites: organ; body cavity; lumen
+- **p003-i7** · list_point · fact · both · exam high
+  - It also forms a barrier to keep different body systems separate.
+    - what: What barrier role does epithelium perform? → It helps keep different body systems separate.
+      - how: How can an epithelial barrier separate compartments without preventing useful exchange? → Closely associated cells and their junctions restrict uncontrolled passage. Depending on the epithelial type, substances can still cross through regulated transport or diffusion pathways. _(outside the book)_
+  - prerequisites: body compartments; cell membrane; movement of substances across cells
+- **p003-i8** · list_point · structure · both · exam high
+  - Epithelial tissue cells are tightly packed and form a continuous sheet.
+    - what: What is the characteristic arrangement of epithelial cells? → They are tightly packed and form a continuous sheet.
+      - why: Why is a continuous sheet useful for covering and lining? → A closely joined sheet provides a coherent surface rather than isolated patches of cells, helping protect underlying tissues and control passage across the surface. _(outside the book)_
+  - prerequisites: cells; tissue; barrier
+- **p003-i9** · list_point · structure · both · exam high
+  - They have only a small amount of cementing material between them and almost no intercellular spaces.
+    - what: How much material and space occur between epithelial cells? → The page describes a small amount of cementing material and almost no intercellular spaces.
+      - how: How does this organisation support the epithelial sheet? → Very little intervening space keeps neighbouring cells close together. Cell junctions help maintain their association and can restrict movement between them. _(outside the book)_
+    - compare: How does this differ from the usual organisation of connective tissue? → Epithelia are predominantly closely packed cells, whereas connective tissues generally have more extracellular matrix separating their cells. _(outside the book)_
+  - prerequisites: intercellular space; extracellular material; cell junctions
+- **p003-i10** · list_point · structure · both · exam high
+  - All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.
+    - where: Where is the basement membrane located? → The page places the extracellular fibrous basement membrane between the epithelium and its underlying tissue.
+    - what: What does 'extracellular' mean in this description? → It means outside the cells. The basement membrane is not the plasma membrane enclosing an individual epithelial cell. _(outside the book)_
+      - how: How does the basement membrane help organise an epithelium? → It provides an extracellular supporting and anchoring interface beneath the epithelial cells and separates the epithelial layer from the underlying tissue. _(outside the book)_
+  - prerequisites: cell membrane; extracellular material; underlying tissue
+- **p003-i11** · list_point · process · both · exam high
+  - Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.
+    - what: What additional specialisation can epithelial cells acquire? → They can become gland cells that secrete substances at the epithelial surface.
+    - how: How does the page describe the formation of a multicellular gland? → A portion of epithelial tissue sometimes folds inward, forming a multicellular gland. The resulting specialised tissue is called glandular epithelium.
+      - why: Why is glandular epithelium still classified as epithelium? → It is an epithelial specialisation: cells derived from the epithelial sheet become adapted for secretion rather than serving mainly as a passive covering. _(outside the book)_
+      - how: How does secretion differ from absorption? → Secretion involves releasing substances from cells; absorption involves taking substances in across a surface. The table lists both functions for some epithelial types. _(outside the book)_
+  - prerequisites: epithelial sheet; cell specialisation; secretion; multicellular structure
+- **p003-i12** · diagram · comparison · image · exam high
+  - Four separate block-view drawings are arranged vertically: (a) Squamous, a thin sheet of flattened polygonal cells; (b) Stratified squamous, a thick multilayered epithelium with flattened surface cells; (c) Cuboidal, a single layer of roughly cube-shaped cells; and (d) Columnar (Ciliated), a layer of tall cells with a hair-like ciliated upper surface. The drawings show epithelial cells above a coloured supporting base. There are no connecting arrows or sequence of transformation.
+    - compare: Which visible features distinguish the four illustrated tissues? → Squamous is thin and flat; stratified squamous has many layers; cuboidal has roughly cube-shaped cells; columnar (ciliated) has tall cells with a ciliated free surface.
+      - how: How should a student read these block-view drawings? → The top surface shows the exposed epithelial surface, while the cut sides reveal cell height and the number of layers. These are separate tissue examples, not successive developmental stages. _(outside the book)_
+      - why: Why are cell shape and layer number both needed for identification? → Cell shape distinguishes squamous, cuboidal and columnar forms, while layer number distinguishes simple from stratified arrangements. A shape term alone does not specify the number of layers. _(outside the book)_
+  - prerequisites: cell shape; epithelial layers; free surface of a lining
+- **p003-i13** · diagram_label · structure · image · exam high
+  - (a) Squamous — names the uppermost drawing showing a thin sheet of flattened cells.
+    - what: What does the label 'Squamous' identify? → It identifies the top drawing of a thin epithelial sheet with flattened cells.
+      - how: How does the drawing convey that these cells are flat? → The side view is very shallow compared with the cells' width across the upper surface.
+  - prerequisites: cell shape; top and side views
+- **p003-i14** · diagram_label · structure · image · exam high
+  - (b) Stratified squamous — names the thick, multilayered drawing with flattened cells at the surface.
+    - what: What does the label 'Stratified squamous' identify? → It identifies the drawing with numerous cell layers and flattened surface cells.
+      - why: Why can this tissue be called squamous even though its deeper cells are not all flat? → Stratified epithelia are named by the shape of their surface cells. The page's table describes the lower layer here as columnar and the older upper cells as flattened. _(outside the book)_
+  - prerequisites: cell layers; surface cells; flattened cell shape
+- **p003-i15** · diagram_label · structure · image · exam high
+  - (c) Cuboidal — names the drawing of a single layer of roughly cube-shaped cells.
+    - what: What does the cuboidal panel show? → It shows a layer of cells with approximately similar height and width.
+      - how: How can cuboidal cells be distinguished from squamous and columnar cells? → Cuboidal cells are approximately as tall as they are wide; squamous cells are flattened, while columnar cells are taller than they are wide. _(outside the book)_
+  - prerequisites: cell height and width; cell layers
+- **p003-i16** · diagram_label · structure · image · exam high
+  - (d) Columnar (Ciliated) — names the drawing of tall epithelial cells with cilia along their upper free surface.
+    - what: Which two features identify the lowest illustrated tissue? → Its cells are tall and columnar, and the exposed surface bears cilia.
+      - how: How do cilia contribute to epithelial function? → Coordinated ciliary beating can move material along the epithelial surface, such as mucus in a passage. _(outside the book)_
+      - difference: How do cilia differ from the microvilli mentioned in the table? → Cilia are projections that can beat to move material along a surface. Microvilli are shorter surface projections that mainly increase area for absorption. _(outside the book)_
+  - prerequisites: columnar cell shape; free surface; cilia; microvilli
+- **p003-i17** · caption · classification · image · exam medium
+  - Fig. 6.9: Different types of epithelial tissues
+    - compare: Which epithelial forms does this figure bring together for comparison? → Squamous, stratified squamous, cuboidal and columnar (ciliated) tissues.
+      - how: How should this figure be related to the larger table below it? → Use the figure to visualise selected shapes and arrangements, and the table to associate epithelial types with locations and functions. The four illustrated panels do not exhaust the types listed in the table.
+  - prerequisites: epithelium; cell shapes; cell layers
+- **p003-i18** · table · comparison · both
+  - Epithelial tissue comparison table. Columns: Types of Epithelial Tissue | Location | Structure | Function. This page contains six data rows: Simple squamous; Simple Cuboidal Epithelium; Simple Columnar Epithelium; Stratified Squamous Epithelium; Stratified Cuboidal; Stratified Columnar. The table continues on the next page.
+  - prerequisites: epithelial cell shapes; simple and stratified arrangements; absorption; secretion; diffusion
+- **p003-i19** · table_row · other · both
+  - Types of Epithelial Tissue | Location | Structure | Function
+- **p003-i20** · table_row · comparison · both · exam high
+  - Types of Epithelial Tissue: Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman’s capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required
+    - where: Where does the book locate simple squamous epithelium? → In blood vessel lining, capillaries, the air sac lining of lungs and Bowman’s capsule of the kidney.
+    - what: What structure and function does the row associate with simple squamous epithelium? → It is a single layer of flat cells with irregular boundaries, associated with transport by diffusion and sites requiring minimal protection.
+      - why: Why is a single thin layer suitable for diffusion? → Diffusing substances have a short distance to travel across a thin epithelial layer. This helps exchange at surfaces such as lung air sacs and capillaries. _(outside the book)_
+    - compare: How does simple squamous epithelium differ from stratified squamous epithelium? → Simple squamous has one flat-cell layer and is associated here with diffusion and minimal protection. Stratified squamous has several layers and is listed for protection.
+      - how: How should the Bowman’s capsule example be understood? → Bowman’s capsule has a simple squamous parietal lining; its visceral layer contains specialised epithelial cells called podocytes. The row is a general location association, not a detailed account of both layers. _(outside the book)_
+  - prerequisites: diffusion; capillary; lung air sac; Bowman’s capsule; single cell layer
+- **p003-i21** · table_row · comparison · both · exam high
+  - Types of Epithelial Tissue: Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion
+    - where: Where does the book place simple cuboidal epithelium? → In the tubular lining of kidneys and glandular ducts.
+    - what: What structure and functions are listed? → The book describes a single layer of short cylindrical cells, sometimes with microvilli, as in proximal convoluted tubules. Its functions are absorption and secretion.
+      - how: How should 'cuboidal' be understood alongside the book's phrase 'short cylindrical cells'? → Cuboidal cells are conventionally described as roughly cube-shaped, with height and width of similar order. The page's cuboidal illustration shows this general form; the table's exact wording should still be retained. _(outside the book)_
+      - why: Why are microvilli useful in proximal convoluted tubules? → Microvilli increase the exposed cell surface area, supporting reabsorption of useful substances from the tubular fluid. _(outside the book)_
+    - compare: How does this row compare with simple squamous epithelium? → Both are single-layered. The squamous row emphasises flat cells and diffusion, whereas the cuboidal row emphasises absorption and secretion and mentions microvilli.
+  - prerequisites: kidney tubules; glandular duct; absorption; secretion; microvilli; surface area
+- **p003-i22** · table_row · comparison · both · exam high
+  - Types of Epithelial Tissue: Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction
+    - where: Which locations does this row associate with simple columnar epithelium? → The digestive tract and upper respiratory tract lining.
+    - what: What structure and functions are listed for simple columnar epithelium? → It has a single layer of tall, slender columnar cells and is described as often ciliated. Functions listed are protection, absorption, mucus secretion and movement in a specific direction.
+      - how: How do mucus secretion and ciliary movement work together? → Secretory cells release mucus onto the surface, and coordinated ciliary beating can move that mucus and trapped material along the lining. _(outside the book)_
+    - compare: How does simple columnar differ structurally from simple cuboidal epithelium? → Both are single-layered, but columnar cells are tall and slender, while cuboidal cells have more nearly similar height and width. _(outside the book)_
+      - exception: Should the location and ciliation statements be treated as universal descriptions of the digestive and upper respiratory tracts? → No. Epithelial type varies by region. Much of the conducting respiratory lining is pseudostratified ciliated columnar, and digestive columnar epithelium is commonly non-ciliated. The row is a broad summary rather than a region-by-region description. _(outside the book)_
+  - prerequisites: digestive tract; respiratory tract; columnar cell shape; cilia; mucus; absorption
+- **p003-i23** · table_row · comparison · both · exam high
+  - Types of Epithelial Tissue: Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection
+    - where: Which locations are listed for stratified squamous epithelium? → The lining of the mouth and vagina.
+    - how: How does the page describe renewal in this multilayered epithelium? → Cells are continuously sloughed off and regenerated. Older cells are pushed upwards and become flat; the lower layer is columnar and metabolically active.
+      - why: Why are multiple layers and continual replacement useful for protection? → Surface cells can be lost through friction while deeper cells preserve the covering. Cell division in the deeper region supplies replacements for cells shed from the surface. _(outside the book)_
+    - compare: How does this differ from simple squamous epithelium? → Stratified squamous has several layers and protects, whereas simple squamous has one layer of flat cells and is associated with diffusion and minimal protection.
+      - why: Why does 'squamous' not imply that the lower layer must be flat? → The shape-name of a stratified epithelium refers to its superficial cells. Deeper layers may have different shapes. _(outside the book)_
+  - prerequisites: cell layers; cell division; surface cell shedding; metabolic activity; friction
+- **p003-i24** · table_row · comparison · both · exam high
+  - Types of Epithelial Tissue: Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands
+    - where: Which gland associations are listed for stratified cuboidal epithelium? → Mammary glands, sweat gland and salivary glands. The function column specifically identifies protection of gland ducts.
+    - what: What cell arrangement does the row describe? → The upper layer is cuboid; other layers may be cuboidal or of other types.
+      - why: Why is the upper layer important for naming this stratified epithelium? → Stratified epithelia are named according to their superficial cell shape. A cuboidal surface therefore gives the cuboidal name even if deeper cells differ. _(outside the book)_
+    - compare: How does stratified cuboidal compare with simple cuboidal epithelium? → Simple cuboidal consists of one layer and is listed for absorption and secretion. Stratified cuboidal has multiple layers with a cuboid upper layer and is listed for protection of gland ducts.
+  - prerequisites: gland; duct; cuboidal cell shape; simple and stratified arrangements
+- **p003-i25** · table_row · comparison · both · exam high
+  - Types of Epithelial Tissue: Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion
+    - where: Which locations are listed for stratified columnar epithelium? → The male urethra and lobar ducts of salivary glands.
+    - what: What structure and functions does the book give? → A layer of columnar cells lies on squamous, columnar or cuboidal epithelial cells. Its listed functions are protection and secretion.
+      - how: How does this structure explain the term 'stratified columnar'? → There is more than one cell layer, making it stratified, while the superficial cells are columnar. The deeper cell shapes need not match the surface cells. _(outside the book)_
+    - compare: How does stratified columnar differ from stratified cuboidal in this table? → The superficial layer is columnar in stratified columnar and cuboid in stratified cuboidal. The former is listed for protection and secretion in the male urethra and lobar salivary ducts; the latter is associated with protection of ducts in mammary, sweat and salivary glands.
+      - exception: Does the male urethra location imply that its entire length has stratified columnar epithelium? → No. The epithelial lining varies along the urethra; the location entry identifies an association rather than a uniform lining throughout its length. _(outside the book)_
+  - prerequisites: urethra; salivary gland duct; columnar cell shape; stratification; secretion
+
+### Page 4 · passed after 1 round(s)
+
+The continued epithelial table describes pseudo-stratified columnar epithelium, keratinised epithelium and transitional epithelia or urothelium, linking their locations and structures to protection, secretion, mucous movement, resistance to abrasion, stretching and barrier function. An image compares seven epithelial arrangements. The page then introduces connective tissues as loosely spaced cells embedded in a variable intercellular matrix that binds, supports and packs body structures and limits displacement during movement.
+
+- **p004-i1** · table · comparison · both
+  - Continuation of the epithelial-tissue comparison table. Descriptive columns: Type | Location | Structure | Function. Rows on this page: Pseudo-stratified Columnar; Keratinised; Transitional epithelia or urothelium.
+  - prerequisites: epithelial tissue; cell shape and number of cell layers
+- **p004-i2** · table_row · comparison · both · exam high
+  - Type: Pseudo-stratified Columnar | Location: Respiratory passage and ducts of many glands | Structure: Similar to columnar epithelium but all the cells are not of similar height | Function: Protection, secretion and movement of mucous
+    - where: Where does the book locate pseudo-stratified columnar epithelium, and what functions does it assign? → It occurs in the respiratory passage and ducts of many glands. The listed functions are protection, secretion and movement of mucous.
+    - compare: How does the row distinguish pseudo-stratified columnar epithelium from columnar epithelium? → It resembles columnar epithelium, but its cells are not of similar height.
+      - why: Why can unequal cell heights produce a falsely stratified appearance? → Nuclei lie at different levels, making the tissue look multilayered. In pseudostratified epithelium the cells contact the basement membrane, although some do not reach the free surface, so the apparent layers are not true separate cell layers. _(outside the book)_
+      - how: How does the respiratory form help protect the passage through secretion and mucous movement? → In the ciliated respiratory form, mucus traps particles and cilia move the mucus along the surface for removal. This explains the functional combination in the table without implying that every gland duct has the same ciliated arrangement. _(outside the book)_
+  - prerequisites: columnar cell shape; epithelial free surface and basement membrane; cell nucleus; mucus and cilia
+- **p004-i3** · table_row · comparison · both · exam high
+  - Type: Keratinised | Location: The outer or apical layer of the cell | Structure: Mostly dead and devoid of nucleus and cytoplasm. The cytoplasm gets replaced by keratin, which makes the layer waterproof | Function: Protection against abrasion
+    - what: What structural features does the book give for the keratinised layer? → It describes the layer as mostly dead and devoid of nucleus and cytoplasm, with cytoplasm replaced by keratin. It associates this change with waterproofing.
+    - compare: How is the keratinised row's protective role different from that of the transitional row? → The keratinised row stresses protection against abrasion and waterproofing. The transitional row stresses stretching to accommodate liquid volumes and forming a barrier against reabsorption of toxic substances.
+      - how: How does keratinisation help a surface withstand abrasion? → Keratin is a tough structural protein. Accumulation of keratin in superficial cells produces a durable protective surface that tolerates friction; superficial cells can be shed while deeper cells replace them. _(outside the book)_
+      - how: How should the row's phrase 'outer or apical layer of the cell' be understood without treating it as a precise site? → Apical means facing the free surface. In this context the biological idea is a superficial keratinised epithelial layer, not a separate tissue layer inside an individual cell. The epidermis of skin is a standard example; its barrier properties involve keratinised cells and associated lipids. _(outside the book)_
+  - prerequisites: epithelial free or apical surface; cell nucleus and cytoplasm; protein; abrasion as surface wear
+- **p004-i4** · table_row · comparison · both · exam high
+  - Type: Transitional epithelia or urothelium | Location: Urinary bladder, urethra, ureter | Structure: Stratified epithelium, which can contract or expand as per the requirement. Cells are cuboidal when not stretched, but when the organ stretches, then tissue gets compressed and cells appear irregular and squamous-shaped | Function: Stretch readily to accommodate the different volume of liquids. Act as a barrier and have tight junctions to prevent reabsorption of toxic substances
+    - where: What alternative name and locations does the table give for transitional epithelia? → The alternative name is urothelium. The listed locations are urinary bladder, urethra and ureter.
+    - compare: How does the table compare unstretched and stretched transitional epithelium? → When unstretched, its cells are described as cuboidal. When the organ stretches, the tissue becomes compressed and cells appear irregular and squamous-shaped. The tissue is stratified in both descriptions.
+      - how: How does a change in cell shape help an organ accommodate more liquid? → As an organ such as the bladder fills, its lining spreads over a larger surface. Cells becoming flatter and the lining becoming thinner allow expansion without requiring the lining to tear. _(outside the book)_
+    - what: What two functional requirements does this epithelium meet? → It stretches readily to accommodate different volumes of liquid, and it acts as a barrier with tight junctions to prevent reabsorption of toxic substances.
+      - how: How do tight junctions support its barrier role? → Tight junctions seal the spaces between neighbouring surface cells and restrict movement between them. In the urinary lining this helps keep urine and its potentially harmful dissolved substances separate from underlying tissues. _(outside the book)_
+      - difference: How is the ability to stretch different from saying that urothelium actively contracts like muscle? → The epithelial lining changes its arrangement and shape as the organ expands or empties. Muscle in the organ wall produces active contraction; the epithelium is the adaptable lining, not the principal contractile tissue. _(outside the book)_
+  - prerequisites: stratified epithelium; cuboidal and squamous cell shapes; urinary bladder and ureter; junctions between neighbouring cells
+- **p004-i5** · diagram · comparison · image
+  - Seven separate three-dimensional epithelial-tissue sketches compare cell shape and layering. Across the upper part are Simple squamous, Simple cuboidal and Simple columnar. Across the lower part are Stratified squamous, Stratified cuboidal and Pseudostratified columnar. Transitional is at the right. Dark marks show nuclei. The simple examples have one cell layer; stratified examples show multiple layers; the pseudostratified example has nuclei at varying levels; the transitional example has several layers with rounded superficial cells. There are no arrows or process sequence.
+  - prerequisites: cell nucleus; cell shape; one cell layer versus multiple cell layers
+- **p004-i6** · diagram_label · classification · image · exam high
+  - Simple squamous — label beneath a single thin sheet of flattened, tile-like cells.
+    - compare: How does the illustrated simple squamous tissue differ from simple cuboidal tissue? → Both are drawn as a single layer, but the squamous cells are flattened and thin while the cuboidal cells are box-like.
+      - why: Why do the words 'simple' and 'squamous' provide separate identification clues? → 'Simple' describes a single cell layer; 'squamous' describes flattened cell shape. Layer number and cell shape are separate features used together to name the tissue. _(outside the book)_
+  - prerequisites: cell layer; flattened versus cubical cell shape
+- **p004-i7** · diagram_label · classification · image · exam high
+  - Simple cuboidal — label beneath one layer of cube-like cells with dark nuclei.
+    - compare: What distinguishes the simple cuboidal sketch from the stratified cuboidal sketch? → The simple cuboidal sketch has one layer of cube-like cells, whereas the stratified cuboidal sketch has stacked layers.
+      - how: How should a learner recognise a cuboidal cell in a schematic tissue section? → Its height and width are approximately similar, unlike a flattened squamous cell or a much taller columnar cell. 'Cuboidal' is an approximate shape description, not a requirement for a perfect geometric cube. _(outside the book)_
+  - prerequisites: cell layer; cell height and width; cell nucleus
+- **p004-i8** · diagram_label · classification · image · exam high
+  - Simple columnar — label beneath a single layer of tall, column-like cells with dark nuclei.
+    - compare: How does the illustrated simple columnar epithelium differ from simple cuboidal epithelium? → Both have one cell layer, but the columnar cells are visibly taller relative to their width than the cuboidal cells.
+      - how: How does the name allow a student to reconstruct the basic arrangement? → 'Simple' indicates one layer, and 'columnar' indicates tall cells resembling columns. Combining these two clues gives one layer of tall cells. _(outside the book)_
+  - prerequisites: single cell layer; cuboidal and columnar cell shapes
+- **p004-i9** · diagram_label · classification · image · exam high
+  - Stratified squamous — label beneath a thick, multilayered tissue block with flatter cells towards the exposed surface and more rounded or cuboidal cells deeper down.
+    - compare: How does stratified squamous differ visually from simple squamous in this figure? → Simple squamous is a single thin sheet. Stratified squamous contains many stacked layers, with flattened cells towards the surface.
+      - why: Why is this called squamous even though its deeper cells are not equally flat? → Stratified epithelia are named by the shape of their superficial cells. Deeper cell shapes can differ without changing that name. _(outside the book)_
+      - how: How can multiple layers improve protection against surface wear? → Superficial cells can be lost through abrasion while deeper layers continue to cover the underlying tissue. This provides a protective reserve compared with a very thin single layer. _(outside the book)_
+  - prerequisites: superficial versus deep cells; single versus multiple cell layers; squamous cell shape
+- **p004-i10** · diagram_label · classification · image · exam high
+  - Stratified cuboidal — label beneath stacked layers of cube-like cells.
+    - compare: What visible combination separates stratified cuboidal from the neighbouring epithelial sketches? → It combines stacked cell layers with cube-like superficial cells. Simple cuboidal has one layer, and stratified squamous has flattened superficial cells.
+      - how: How should the two parts of 'stratified cuboidal' be used during identification? → First establish that more than one cell layer is present. Then examine the cells facing the free surface: a cuboidal shape determines the second part of the name. _(outside the book)_
+  - prerequisites: multiple cell layers; superficial cell shape; cuboidal cell shape
+- **p004-i11** · diagram_label · classification · image · exam high
+  - Pseudostratified columnar — label beneath tall epithelial cells with dark nuclei at different heights, producing an apparently layered arrangement.
+    - compare: What visual feature distinguishes the pseudostratified columnar sketch from the simple columnar sketch? → The pseudostratified sketch has a more irregular arrangement with nuclei at different heights; the simple columnar sketch shows a more uniform row of tall cells.
+      - why: Why should several nuclear levels not automatically be counted as several true layers? → In pseudostratified epithelium, cells of different heights still contact the basement membrane. Several levels of nuclei can therefore occur in one epithelial layer. _(outside the book)_
+  - prerequisites: cell nucleus; basement membrane; true stratification; columnar cell shape
+- **p004-i12** · diagram_label · classification · image · exam high
+  - Transitional — label above a multilayered epithelial block with conspicuously large, rounded superficial cells and smaller cells below.
+    - compare: How does the transitional sketch differ from the stratified squamous sketch? → Both show multiple layers, but the transitional sketch has large rounded surface cells, whereas the stratified squamous sketch has flatter cells at its surface.
+      - how: How should the rounded surface in this sketch be reconciled with the table's description of squamous-shaped stretched cells? → The sketch is consistent with a relaxed transitional lining. When the organ stretches, superficial cells become flatter, so one static sketch does not represent the tissue's full range of shapes. _(outside the book)_
+  - prerequisites: stratified epithelium; rounded versus flattened cell shape; stretching of a hollow organ
+- **p004-i13** · heading · other · both
+  - Connective Tissues
+- **p004-i14** · list_point · fact · both · exam high
+  - Connects body parts
+    - what: What basic role gives connective tissue its name? → It connects body parts, linking body structures rather than simply forming a surface covering. _(outside the book)_
+      - how: How can connective tissue physically connect different body parts? → Its extracellular material can form strong links between structures. For example, tendons connect muscles to bones and ligaments connect bones to other bones. _(outside the book)_
+  - prerequisites: tissue as a group of cells and associated material; body organs and body parts
+- **p004-i15** · list_point · cause_effect · both · exam high
+  - Prevents organs from getting displaced by body movement.
+    - what: What problem associated with body movement does connective tissue help prevent? → It prevents organs from getting displaced by body movement, helping maintain their position.
+      - how: How can connective tissue stabilise organs while the body moves? → Connective-tissue attachments and supporting material around organs help anchor them relative to surrounding structures and distribute mechanical forces. Stabilisation does not mean that an organ cannot undergo its normal movements. _(outside the book)_
+  - prerequisites: organ; body movement; mechanical attachment
+- **p004-i16** · list_point · fact · both · exam high
+  - Acts like binding, supporting and packing material.
+    - what: Which three material-like roles does the book assign to connective tissue? → It acts as binding material, supporting material and packing material.
+      - how: How do binding, supporting and packing differ as functions? → Binding links structures together; supporting helps them retain position or resist loads; packing fills spaces around and between structures. A connective tissue may contribute to more than one of these roles. _(outside the book)_
+        - why: Why is material between cells important for these roles? → An extracellular matrix can occupy space and transmit forces across a tissue. Its composition and organisation help determine whether the tissue is soft and space-filling or firm and load-bearing. _(outside the book)_
+  - prerequisites: spaces between organs and tissues; support against mechanical forces; extracellular material
+- **p004-i17** · list_point · structure · both · exam high
+  - Cells are loosely spaced.
+    - what: What arrangement of connective-tissue cells is stated here? → Their cells are loosely spaced rather than forming a tightly packed continuous cell sheet. _(outside the book)_
+      - why: Why does loose cell spacing not imply that the tissue is simply full of empty gaps? → The spaces between cells contain extracellular matrix. A connective tissue can therefore have separated cells while still containing substantial material that binds, supports or packs structures. _(outside the book)_
+  - prerequisites: individual cells within a tissue; space between cells; extracellular matrix
+- **p004-i18** · list_point · structure · both · exam high
+  - Cells are embedded in an intercellular matrix.
+    - where: Where are connective-tissue cells situated relative to the matrix? → They are embedded in an intercellular matrix.
+      - how: How should a student picture an intercellular matrix? → It is material outside the cells that occupies the spaces between and around them. 'Embedded' means the cells lie within this surrounding material; the matrix is not the cytoplasm inside each cell. _(outside the book)_
+        - why: Why must connective-tissue structure be explained using both cells and matrix? → The cells are living components, while the surrounding matrix contributes much of the tissue's physical character. Considering cells alone would not explain how connective tissues can provide such different kinds of support. _(outside the book)_
+  - prerequisites: cell membrane; cytoplasm; inside versus outside a cell
+- **p004-i19** · list_point · classification · both · exam high
+  - Matrix may be jelly, fluid, dense or rigid.
+    - which: Which possible forms of matrix does the page list? → It may be jelly, fluid, dense or rigid.
+    - compare: How do these matrix descriptions help explain the range of connective-tissue properties? → A fluid matrix can permit cells and dissolved substances to move, while a rigid matrix can provide firm support. Jelly-like and dense matrices have different physical properties suited to other supporting or binding roles. _(outside the book)_
+      - why: Why can tissues with very different consistencies still belong to the connective-tissue group? → The general organisation is cells associated with extracellular matrix, not one fixed matrix consistency. Differences in matrix composition allow different mechanical or transport roles. _(outside the book)_
+      - how: How can familiar examples make 'fluid' and 'rigid' matrix understandable? → Blood has a fluid matrix, plasma, whereas bone has a mineralised rigid matrix. These examples show why connective tissue should not be imagined as invariably a soft solid. _(outside the book)_
+  - prerequisites: intercellular matrix; fluid versus solid material; blood and bone
+- **p004-i20** · list_point · fact · both · exam high
+  - Connective tissues, support and connect different tissues and organs of the body.
+    - what: What overall role does this statement assign to connective tissues? → They support and connect different tissues and organs of the body.
+      - how: How does this statement bring together the earlier bullets? → Connecting body parts and acting as binding material explain connection; preventing displacement and acting as supporting and packing material explain support. The statement unifies these roles at the tissue and organ level.
+        - why: Why is this broader than saying that connective tissue merely fills unused spaces? → Its role includes mechanically linking and supporting functional structures, not just occupying gaps. The nature of the matrix helps determine how effectively it performs those tasks. _(outside the book)_
+  - prerequisites: tissue versus organ; binding, supporting and packing roles; intercellular matrix
+- **p004-i21** · heading · other · both
+  - Connective tissue is made up of :-
+  - prerequisites: connective-tissue cells; intercellular matrix
+
+### Page 5 · passed after 2 round(s)
+
+Connective tissue contains relatively few cells within an intercellular framework. Cells produce a polysaccharide gel and protein fibres; collagen provides tensile strength, elastic fibres permit stretch and recoil, and reticulate fibres form delicate supporting connections. Muscle tissue consists of elongated fibres with contractile proteins and is classified as skeletal, smooth and cardiac. Skeletal muscle is elongated, cylindrical, unbranched, multinucleated, striated and attached to bones; it supports movement and posture and is also called Skeleton, Striated or voluntary muscle.
+
+- **p005-i1** · list_point · structure · both · exam high
+  - Few cells present in the intercellular framework
+    - what: How are cells represented in the connective-tissue framework described here? → Relatively few cells occur within the intercellular framework; the material between cells is a prominent part of this tissue.
+      - how: How can a tissue with relatively few cells provide support? → Its cells produce extracellular material, including fibres and ground substance. This material can bear forces and support the tissue even though it lies outside the cells. _(outside the book)_
+  - prerequisites: cell; extracellular material
+- **p005-i2** · list_point · structure · both · exam high
+  - The cells also secrete a thin gel of polysaccharides, which together with fibres make matrix or ground substance.
+    - what: What do connective-tissue cells secrete, and what does the page say it forms? → They secrete a thin polysaccharide gel. The page describes this gel together with fibres as forming the matrix or ground substance.
+      - how: How should matrix and ground substance be distinguished when explaining this sentence? → In standard terminology, extracellular matrix includes fibres plus ground substance. Ground substance is the non-fibrous material around cells and fibres. The book's sentence uses the terms more loosely; the diagram separately labels collagen and ground substance within extracellular matrix. _(outside the book)_
+        - why: Why is a polysaccharide-rich gel useful between cells? → Such molecules help retain water, creating a hydrated medium that supports cells and permits movement of dissolved substances. _(outside the book)_
+  - prerequisites: cell secretion; polysaccharides; extracellular material
+- **p005-i3** · list_point · cause_effect · both · exam high
+  - Protein fibres secreted by the cells, known as collagen or elastin. The elasticity, flexibility and strength of the connective tissues are due to fibres.
+    - what: Which secreted components give connective tissue its stated mechanical properties? → The page names collagen and elastin protein fibres and attributes connective-tissue elasticity, flexibility and strength to fibres.
+      - how: How can different fibres produce different mechanical properties? → Collagen chiefly resists pulling forces, whereas elastic fibres stretch and recoil. Their arrangement and relative abundance help determine how a connective tissue responds to force. _(outside the book)_
+  - prerequisites: proteins; cell secretion; stretching and pulling forces
+- **p005-i4** · list_point · fact · both · exam high
+  - Collagen fibres are the most widespread and made up of fibrous protein, collagen. Collagen fibres are flexible and have high tensile strength.
+    - what: What are the composition and properties of collagen fibres? → They are the most widespread fibres described here, are made of the fibrous protein collagen, and combine flexibility with high tensile strength.
+      - how: How can a fibre be flexible and still have high tensile strength? → Flexibility is the ability to bend; tensile strength is resistance to breaking when pulled. A collagen fibre can bend without being easily stretched apart, so these properties are compatible. _(outside the book)_
+      - compare: How does collagen's main mechanical role differ from that of elastic fibres? → Collagen is emphasised for flexibility and high tensile strength; elastic fibres are emphasised for stretching and returning to their original shape and size.
+  - prerequisites: fibrous proteins; tension as a pulling force
+- **p005-i5** · list_point · cause_effect · both · exam high
+  - Elastic fibres form a network and can be stretched like a rubber band. They are made up of protein elastin. They retain their original shape and size once the force is removed.
+    - what: What are elastic fibres made of, and what behaviour identifies them? → They contain the protein elastin, form a network, stretch like a rubber band and return to their original shape and size after the stretching force is removed.
+      - how: How does the rubber-band analogy explain elasticity? → Elasticity includes recovery after deformation, not just the ability to become longer. The analogy highlights both stretching under force and recoil after release. _(outside the book)_
+    - compare: How do elastic and collagen fibres differ in the properties stressed on this page? → Elastic fibres are characterised by stretch and recoil; collagen fibres by flexibility and resistance to tensile forces.
+  - prerequisites: proteins; force; stretch and recoil
+- **p005-i6** · list_point · structure · both · exam high
+  - Reticulate fibres consist of collagen and glycoproteins. They are thin and form a delicate network. They join connective tissues to neighbouring tissues.
+    - what: What are the composition, arrangement and stated role of reticulate fibres? → They consist of collagen and glycoproteins, form a thin, delicate network and join connective tissues to neighbouring tissues.
+      - how: How does a delicate network help connect and support tissues? → A branching mesh can provide many small points of support and attachment around cells and adjacent tissue components rather than acting as a single thick rope. _(outside the book)_
+    - compare: How are reticulate fibres distinguished from the other fibres on this page? → The book emphasises their thin network and joining role, compared with collagen fibres' tensile strength and elastic fibres' stretch and recoil.
+  - prerequisites: collagen; glycoproteins; network arrangement
+- **p005-i7** · diagram · structure · image · exam high
+  - Connective-tissue illustration showing scattered mesenchymal cell, macrophage and adipocytes among collagen and elastic fibres, ground substance and a blood vessel. Leader lines identify each component. A bracket groups collagen and ground substance under extracellular matrix; the fibres interweave around the cells rather than forming a directional flow.
+    - what: What overall organisation does the connective-tissue diagram show? → Different cells are scattered within a surrounding extracellular framework containing fibres and ground substance, with a blood vessel also shown.
+      - how: How does the diagram reinforce the statement that connective tissue has an intercellular framework? → The spaces between the labelled cells contain visible fibres and background ground substance. The illustration therefore makes the extracellular component visible rather than portraying a tightly packed sheet of cells.
+  - prerequisites: cell; extracellular matrix; reading diagram leader lines
+- **p005-i8** · diagram_label · structure · image · exam medium
+  - Mesenchymal cell — points to the pale, elongated branching cell near the top-left edge.
+    - which: Which structure is labelled Mesenchymal cell? → The pale, elongated cell at the upper-left part of the illustration.
+      - how: How are mesenchymal cells related to connective-tissue development? → Mesenchymal cells are relatively undifferentiated cells that can give rise to several connective-tissue cell types. _(outside the book)_
+  - prerequisites: cell differentiation
+- **p005-i9** · diagram_label · structure · image · exam high
+  - Collagen fibers — leader lines point to the thicker blue fibre strands crossing the matrix.
+    - which: What do the thicker blue strands represent? → They are labelled Collagen fibers.
+      - how: How do these fibres contribute to the tissue's mechanical role? → The page identifies collagen fibres as flexible structures with high tensile strength, linking them to resistance against pulling.
+  - prerequisites: collagen; tensile strength
+- **p005-i10** · diagram_label · structure · image · exam medium
+  - Blood vessel — points to the reddish tubular structure along the left side of the illustrated tissue.
+    - where: Where is the blood vessel shown? → It is the reddish tube running along the left side of the connective-tissue illustration.
+      - how: How can a blood vessel support cells in surrounding tissue? → Exchange across small vessel walls allows oxygen and nutrients to reach tissue fluid and cells and allows wastes to move toward the blood. _(outside the book)_
+  - prerequisites: blood vessels; diffusion
+- **p005-i11** · diagram_label · structure · image · exam high
+  - Collagen — points to a collagen strand and is grouped with Ground substance under Extracellular matrix.
+    - what: What relationship does this second collagen label highlight? → It identifies collagen as a component grouped within the extracellular matrix.
+      - why: Why is collagen classified as extracellular here despite being produced by cells? → Extracellular describes its final location outside cells. Cells can synthesise and secrete material that becomes part of the surrounding matrix. _(outside the book)_
+  - prerequisites: cell secretion; extracellular location
+- **p005-i12** · diagram_label · structure · image · exam high
+  - Ground substance — points to the background material between the cells and fibres; grouped with Collagen under Extracellular matrix.
+    - where: Where is ground substance represented? → It is the background material surrounding the illustrated cells and fibres.
+      - how: How does ground substance differ from a collagen fibre? → Ground substance is the non-fibrous hydrated material of the matrix, whereas collagen is organised into protein fibres. _(outside the book)_
+  - prerequisites: extracellular matrix; fibres
+- **p005-i13** · diagram_label · structure · image · exam high
+  - Extracellular matrix — bracketed grouping associated with the Collagen and Ground substance labels.
+    - what: Which components are grouped by the extracellular-matrix annotation? → The annotation groups collagen and ground substance as extracellular components.
+      - why: Why should the labelled tissue cells not be included as matrix components? → The matrix is material outside cells. Cells produce and interact with it but are structurally distinct from it. _(outside the book)_
+  - prerequisites: inside versus outside a cell
+- **p005-i14** · diagram_label · structure · image · exam high
+  - Elastic fibers — points to thin branching fibres interwoven among the thicker collagen strands.
+    - which: Which diagram components are labelled Elastic fibers? → The thin branching fibres running through the extracellular framework.
+      - how: How does their network relate to their stated function? → The page describes elastic fibres as a network that stretches and then regains its original shape and size, providing a visual basis for understanding tissue recoil.
+  - prerequisites: elasticity; collagen fibres
+- **p005-i15** · diagram_label · structure · image · exam medium
+  - Macrophage — points to the irregular pink cell with a darker interior near the lower-right centre.
+    - which: Which cell is labelled Macrophage? → The irregular pink cell near the lower-right centre of the illustration.
+      - how: How do macrophages contribute to tissue defence and maintenance? → They engulf microbes, dead cells and debris by phagocytosis, helping defence and removal of unwanted material. _(outside the book)_
+  - prerequisites: cell; phagocytosis
+- **p005-i16** · diagram_label · structure · image · exam high
+  - Adipocyte (fat cell) — points to a rounded yellow fat-containing cell near the lower-right edge.
+    - what: What is an adipocyte called in the diagram? → The diagram explicitly identifies an adipocyte as a fat cell.
+      - how: How do adipocytes contribute to the body? → They store lipid as an energy reserve; adipose tissue also contributes to cushioning and insulation. _(outside the book)_
+  - prerequisites: cell; fat as stored energy
+- **p005-i17** · heading · other · both
+  - MUSCLE TISSUE/MUSCULAR TISSUE
+- **p005-i18** · heading · other · both
+  - Characterstics:
+- **p005-i19** · list_point · structure · both · exam high
+  - Composed of muscle cell/ muscle fibres.
+    - what: What constitutes muscular tissue? → Muscle cells, also referred to here as muscle fibres, constitute muscular tissue.
+      - why: Why must muscle fibre not be confused with a connective-tissue fibre? → A muscle fibre is a cell, whereas collagen and elastic fibres are extracellular protein structures. The same word describes biologically different structures. _(outside the book)_
+  - prerequisites: cell; connective-tissue fibres
+- **p005-i20** · list_point · structure · both · exam medium
+  - Muscle fibres are elongated and large sized.
+    - what: What general shape and size does the book assign to muscle fibres? → It describes them as elongated and large sized.
+      - how: How is an elongated form useful in a contractile cell? → Contractile elements can be arranged along the cell's length so that their action produces shortening and force in a particular direction. _(outside the book)_
+  - prerequisites: cell shape; contraction
+- **p005-i21** · list_point · structure · both · exam high
+  - Contractile proteins are present in fibres.
+    - what: Which special proteins are present in muscle fibres? → The fibres contain contractile proteins.
+      - how: How do contractile proteins generate muscle contraction? → The proteins actin and myosin interact so that their filaments slide relative to one another, using energy from ATP to produce force and shortening. _(outside the book)_
+  - prerequisites: proteins; cellular energy
+- **p005-i22** · list_point · process · both · exam high
+  - Contraction and relaxation.
+    - what: Which two activities characterise muscle tissue here? → The page names contraction and relaxation. Contraction is activation of muscle that generates tension, often accompanied by shortening; relaxation is the reduction of active tension as activation subsides. Together, these activities allow muscles to exert force and then reduce it. _(outside the book)_
+      - how: How should contraction and relaxation be explained to a beginner? → During contraction, interactions between contractile proteins generate muscular tension. During relaxation, this force-generating activity decreases; other forces, such as an opposing muscle or an external load, can then help restore the muscle's length. _(outside the book)_
+        - why: Why should contraction not be defined simply as visible shortening? → A muscle can generate tension while its overall length remains nearly unchanged, as when holding a position. _(outside the book)_
+  - prerequisites: contractile proteins; force and tension
+- **p005-i23** · list_point · classification · both · exam high
+  - Types:
+a. Skeletal
+b. Smooth
+c. Cardiac
+    - which: Which three types of muscle tissue are listed? → Skeletal, Smooth and Cardiac.
+    - compare: How can these three types be broadly distinguished? → Skeletal muscle is associated with the skeleton and voluntary movement; smooth muscle commonly occurs in walls of hollow organs and lacks striations; cardiac muscle forms the heart's muscular wall. _(outside the book)_
+      - why: Why should muscle types be compared using more than one feature? → A single feature may be shared by two types. Comparing location, control, branching, nuclei and striations gives a more reliable identification. _(outside the book)_
+  - prerequisites: muscle tissue; skeleton; heart; hollow organs
+- **p005-i24** · heading · other · both
+  - a. Skeletal Muscle Tissue:
+- **p005-i25** · heading · other · both
+  - Characteristics
+- **p005-i26** · list_point · structure · both · exam high
+  - Muscle fibres are elongated and cylindrical
+    - what: What is the shape of skeletal-muscle fibres? → They are elongated and cylindrical.
+      - how: How should a student visualise a cylindrical muscle fibre? → As a long tube-like cell rather than a flat sheet or a cell pointed at both ends. The adjacent illustration uses long, parallel cylinders to convey this form. _(outside the book)_
+  - prerequisites: cell shape; cylinder
+- **p005-i27** · list_point · structure · both · exam high
+  - Unbranched
+    - what: Are skeletal-muscle fibres branched? → The page describes them as unbranched.
+      - how: How does unbranched shape help distinguish skeletal from cardiac muscle? → Skeletal fibres remain long, separate cylinders, whereas cardiac muscle cells characteristically branch and connect in a network. _(outside the book)_
+  - prerequisites: cell shape; branching
+- **p005-i28** · list_point · structure · both · exam high
+  - Attached to bones
+    - where: To what are skeletal muscles attached in the description? → They are attached to bones.
+      - how: How does attachment enable a muscle to move a bone? → Muscle force is transmitted through attachments, commonly tendons, to bones. Pulling on bones across a joint can change their relative position. _(outside the book)_
+  - prerequisites: bones; joints; muscle contraction
+- **p005-i29** · list_point · structure · both · exam high
+  - Each cell is multi-nucleated → many nuclei.
+    - what: What does multi-nucleated mean in skeletal muscle? → One muscle cell contains many nuclei. It does not mean that each visible nucleus represents a separate fibre.
+      - why: Why does a skeletal-muscle fibre contain many nuclei? → During development, several precursor muscle cells fuse to form a long muscle fibre, retaining multiple nuclei. _(outside the book)_
+  - prerequisites: cell; nucleus; cell fusion
+- **p005-i30** · list_point · structure · both · exam high
+  - Striations are present → alternate dark and light bands.
+    - what: What are striations? → The page defines them as alternating dark and light bands visible in skeletal-muscle fibres.
+      - why: Why does skeletal muscle show alternating bands? → Its contractile filaments are arranged in repeating units. Different regions of these units contain different arrangements of thick and thin filaments, producing the banded appearance. _(outside the book)_
+      - exception: Are striations alone sufficient to identify skeletal muscle? → No. Cardiac muscle is also striated, so branching, nuclei and location should also be considered. _(outside the book)_
+  - prerequisites: contractile proteins; microscopic appearance
+- **p005-i31** · list_point · fact · both · exam high
+  - Easily fatigue
+    - what: What tendency regarding fatigue does the page attribute to skeletal muscle? → It states that skeletal muscle fatigues easily.
+      - how: How should fatigue be explained without turning this short statement into an absolute rule? → Fatigue is a decline in the ability to maintain force during activity. Its development depends on activity intensity, duration, energy supply and muscle-fibre type; skeletal muscles do not all fatigue at the same rate. _(outside the book)_
+  - prerequisites: muscle force; energy use during contraction
+- **p005-i32** · list_point · fact · both · exam high
+  - Helps in body movement.
+    - what: What movement-related function is stated for skeletal muscle? → It helps in body movement.
+      - how: How do skeletal muscles produce movement rather than merely change their own shape? → Their contraction produces tension transmitted to skeletal attachments. Muscles acting around joints can pull bones into new positions, often working in opposing groups. _(outside the book)_
+  - prerequisites: muscle contraction; bone attachments; joints
+- **p005-i33** · list_point · fact · both · exam high
+  - Maintains posture
+    - what: What function does skeletal muscle perform besides body movement? → It maintains posture.
+      - how: How can muscle activity maintain posture without obvious movement? → Sustained, regulated tension counteracts gravity and other forces, stabilising body parts even when their position changes little. _(outside the book)_
+  - prerequisites: gravity; muscle tension; body position
+- **p005-i34** · paragraph · fact · both · exam high
+  - Other names: Skeleton muscle, Striated muscle and voluntary muscle.
+    - which: Which alternative names does the book give for skeletal muscle? → Skeleton muscle, Striated muscle and voluntary muscle.
+      - why: Why do these alternative names emphasise different aspects of the same tissue? → The skeletal name refers to association with the skeleton, striated refers to microscopic banding, and voluntary refers to its usual availability for conscious control. _(outside the book)_
+      - exception: Does the name voluntary mean every skeletal-muscle action requires a conscious decision? → No. Skeletal muscles also participate in reflex and automatic postural activity. Voluntary describes an important mode of control rather than every individual activation. _(outside the book)_
+  - prerequisites: skeleton; striations; conscious control; reflex
+- **p005-i35** · diagram · structure · image · exam high
+  - Skeletal-muscle illustration: on the left, parallel orange-red cylindrical fibres show repeated transverse bands and several blue oval nuclei; on the right, a bent arm shows muscles attached along upper-arm and forearm bones. The two views associate microscopic muscle-fibre structure with skeletal muscle acting on the arm. No directional arrows are shown.
+    - what: Which two scales of organisation are shown in the skeletal-muscle illustration? → The left view shows individual banded fibres with several nuclei; the right view shows muscles associated with the bones of a bent arm.
+      - how: How do the two views connect skeletal-muscle structure and function? → The fibre view depicts the contractile cells, while the arm view places muscle against the skeleton. Together they connect muscle-cell activity with pulling on bones to produce movement. _(outside the book)_
+    - evidence: Which listed skeletal-muscle characteristics are visually reinforced? → Elongated cylindrical, unbranched fibres, multiple nuclei and striations are represented in the fibre view; association with bones is represented in the arm view.
+  - prerequisites: muscle fibre; nucleus; striations; bones and joints
+- **p005-i36** · diagram_label · classification · image · exam high
+  - Skeletal Muscle — names the illustrated group of elongated, striated, multinucleated muscle fibres.
+    - which: Which tissue is named beneath the fibre illustration? → Skeletal Muscle.
+    - compare: Which visible combination distinguishes this depiction from a typical smooth-muscle depiction? → These fibres are cylindrical, banded and shown with multiple nuclei; typical smooth-muscle cells are spindle shaped, lack striations and have a single central nucleus. _(outside the book)_
+      - why: Why use a combination of traits rather than the colour of the drawing to identify the tissue? → Illustration colours are chosen for clarity and are not diagnostic. Shape, banding and nuclear arrangement represent biologically useful identifying features. _(outside the book)_
+  - prerequisites: muscle types; striations; cell nucleus
+
+### Page 6 · passed after 1 round(s)
+
+Smooth or visceral muscle has spindle-shaped, unbranched cells, a single central nucleus and no striations. It is involuntary, supports functions such as peristalsis, and occurs in the stomach, intestine, eye and blood vessels. Cardiac muscle has cylindrical, branched, striated fibres, described here as uninucleate; it acts involuntarily in the heart wall to contract, relax and pump blood. Both are described as not fatiguing. The two illustrations pair each tissue's appearance with a representative organ.
+
+- **p006-i1** · heading · classification · both
+  - b. Visceral Muscle/ Smooth muscle tissue
+  - prerequisites: muscular tissue
+- **p006-i2** · heading · other · both
+  - Characteristics:
+- **p006-i3** · list_point · structure · both · exam high
+  - • Fibres are spindle shaped/fusiform i.e. pointed at ends/tapering ends.
+    - what: What does spindle shaped or fusiform mean for smooth muscle? → The fibre narrows towards its two ends, which are pointed or tapering.
+      - how: How would a student recognise this shape in the figure? → Look for elongated cells that are wider through the middle and become narrower towards both ends, rather than uniform-width cylinders. _(outside the book)_
+    - compare: How does smooth muscle shape compare with cardiac muscle shape on this page? → Smooth muscle is spindle shaped, whereas cardiac muscle fibres are cylindrical.
+  - prerequisites: cell shape; meaning of muscle fibre
+- **p006-i4** · list_point · structure · both · exam high
+  - • Single and centrally located nucleus in each cell.
+    - what: What are the number and position of nuclei in a smooth muscle cell? → Each cell has a single nucleus located centrally.
+      - how: How should the blue structures in the smooth muscle drawing be interpreted? → The blue oval within an individual spindle-shaped cell represents its nucleus. Count nuclei within a cell boundary, not across the whole group of cells. _(outside the book)_
+  - prerequisites: cell and its nucleus; cell boundary
+- **p006-i5** · list_point · structure · both · exam high
+  - • Striations are absent.
+    - what: What does absence of striations mean? → Smooth muscle does not show the regular alternating light and dark bands seen in striated muscle under a microscope. _(outside the book)_
+      - why: Why can smooth muscle contract despite lacking visible striations? → It contains contractile proteins, but they are not arranged in the regular repeating sarcomeres that produce the banded appearance of striated muscle. _(outside the book)_
+    - compare: Which of the two muscles on this page is striated? → Cardiac muscle has striations; smooth muscle does not.
+  - prerequisites: muscle contraction; microscopic light and dark bands
+- **p006-i6** · list_point · structure · both · exam high
+  - • Unbranched
+    - what: What does unbranched describe in smooth muscle? → An individual fibre does not split into branches along its length. _(outside the book)_
+      - how: How is branching different from several cells lying beside one another? → Branching concerns the shape of a fibre itself. Several separate spindle-shaped cells packed together do not make each fibre branched. _(outside the book)_
+    - compare: How does branching distinguish the two tissues on this page? → Smooth muscle is unbranched; cardiac muscle fibres are branched.
+  - prerequisites: individual muscle fibre; cell boundary
+- **p006-i7** · list_point · fact · both · exam high
+  - • Do not fatigue
+    - what: What fatigue characteristic does the book assign to smooth muscle? → It states that smooth muscle does not fatigue.
+      - why: Why is resistance to fatigue useful for smooth muscle? → Smooth muscles in organs and blood vessels often sustain activity for long periods. Their relatively slow, economical contractions support this work without rapid fatigue. _(outside the book)_
+      - exception: Should 'Do not fatigue' be interpreted as unlimited performance under any condition? → No. It is an introductory description of strong fatigue resistance in normal function, not a claim that smooth muscle is unaffected by oxygen shortage or disease. _(outside the book)_
+  - prerequisites: muscle contraction; fatigue as reduced capacity to maintain activity
+- **p006-i8** · list_point · process · both · exam high
+  - • Performs functions like peristalsis.
+    - which: Which muscle function is specifically named here? → Peristalsis is named as a function of smooth muscle.
+      - how: How does peristalsis move material through the digestive tract? → Coordinated waves of contraction and relaxation of smooth muscle in the gut wall propel its contents along the tube. _(outside the book)_
+        - why: Why is this different from food simply falling under gravity? → The muscular wall actively generates the propulsive force, so transport does not depend merely on the tube pointing downwards. _(outside the book)_
+  - prerequisites: digestive tract as a tube; contraction and relaxation
+- **p006-i9** · paragraph · classification · both · exam high
+  - Other names: Unstriated/Involuntary muscles
+    - what: What other names does the book give smooth muscle? → Unstriated muscles and involuntary muscles.
+      - why: Why do these names describe two different properties? → Unstriated describes microscopic appearance; involuntary describes control, meaning that contractions generally occur without conscious command. _(outside the book)_
+    - compare: Does involuntary mean the same thing as unstriated? → No. This page describes smooth muscle as unstriated and involuntary, but cardiac muscle as striated and involuntary. Involuntary therefore does not uniquely identify smooth muscle.
+  - prerequisites: striations; conscious control of movement
+- **p006-i10** · example · example · both · exam high
+  - Example: Stomach, Intestine, eye, blood vessel etc.
+    - where: Which smooth muscle locations are listed? → The stomach, intestine, eye and blood vessel are listed.
+      - how: How do these examples connect to smooth muscle function? → Smooth muscle in the stomach and intestine helps mix and propel contents; in blood vessel walls it changes vessel diameter; in the eye it participates in control of pupil size and lens focusing. _(outside the book)_
+      - exception: Does listing the eye mean that every muscle associated with the eye is smooth muscle? → No. The example refers to smooth muscles within the eye. The muscles that move the eyeball are skeletal muscles. _(outside the book)_
+  - prerequisites: stomach and intestine; blood vessel wall; pupil and lens
+- **p006-i11** · diagram · structure · image · exam high
+  - A boxed illustration pairs a group of orange, elongated spindle-shaped smooth muscle cells on the left with a drawing of the intestine on the right. The cells have tapering ends and blue central nuclei, without visible striations. The printed label 'Smooth Muscle' is below the cells. There are no arrows; side-by-side placement associates the tissue with the intestinal organ.
+    - what: What tissue features and organ association does this figure show? → It shows tapering smooth muscle cells with centrally placed blue nuclei beside an intestinal drawing, linking the tissue to a listed location.
+      - how: How does the figure support identification rather than merely naming the tissue? → The cell outlines provide the fusiform shape, the blue ovals indicate nuclei and the absence of bands contrasts with the cardiac illustration below.
+  - prerequisites: muscle fibre; nucleus; intestine
+- **p006-i12** · diagram_label · classification · image · exam high
+  - Smooth Muscle — label below the spindle-shaped cell group, naming the tissue depicted; no leader line is shown.
+    - what: What does the label 'Smooth Muscle' identify? → It identifies the illustrated group of spindle-shaped muscle cells.
+      - how: How can this labelled group be distinguished from the cardiac muscle group below? → The smooth muscle cells taper at their ends and are unstriated, whereas the cardiac illustration shows a branched, banded arrangement.
+    - compare: Which printed names elsewhere on the page correspond to this label? → Visceral Muscle, Unstriated and Involuntary muscles are the corresponding names supplied in the smooth muscle section.
+  - prerequisites: spindle shape; striations
+- **p006-i13** · heading · classification · both
+  - c. Cardiac muscle tissue
+  - prerequisites: muscular tissue
+- **p006-i14** · heading · other · both
+  - Characters:
+- **p006-i15** · list_point · structure · both · exam high
+  - • Fibres are cylindrical in shape.
+    - what: What shape is assigned to cardiac muscle fibres? → They are cylindrical.
+      - how: How can a cylindrical fibre also be branched? → Cylindrical describes the general shape of a fibre segment, while branched describes the way the fibre extends into arms. The two descriptions concern different features and are compatible. _(outside the book)_
+    - compare: How does this differ from smooth muscle shape? → Smooth muscle fibres are fusiform with tapering ends, whereas cardiac fibres are cylindrical.
+  - prerequisites: cylinder shape; muscle fibre
+- **p006-i16** · list_point · structure · both · exam high
+  - • Each fibre is uninucleate
+    - what: What does uninucleate mean in this statement? → The book describes each cardiac fibre as having one nucleus.
+      - how: How should the several blue nuclei in the cardiac tissue illustration be read? → The drawing represents a group of connected cells, so several nuclei across the group should not be mistaken for many nuclei within one cell. _(outside the book)_
+      - exception: Is the book's uninucleate description an exceptionless rule for cardiac cells? → It is the introductory description. Cardiac muscle cells usually have one central nucleus, but some have two. _(outside the book)_
+  - prerequisites: cell and its nucleus; difference between a cell and a tissue
+- **p006-i17** · list_point · structure · both · exam high
+  - • Fibres are branched
+    - what: What structural feature is meant by branched cardiac fibres? → Cardiac fibres extend into branches rather than remaining simple unbranched fibres. _(outside the book)_
+      - how: How does branching fit the heart's function as a muscular pump? → Branching helps form an interconnected tissue arrangement. Together with specialised cell-to-cell junctions, this supports coordinated activity of cardiac muscle rather than isolated contractions. _(outside the book)_
+    - compare: Which muscle on this page is unbranched and which is branched? → Smooth muscle is unbranched; cardiac muscle is branched.
+  - prerequisites: muscle fibre; heart as a pump; cell-to-cell connections
+- **p006-i18** · list_point · structure · both · exam high
+  - • Striations are present.
+    - what: What visible microscopic feature is present in cardiac muscle? → Striations are present.
+      - why: Why does cardiac muscle have striations? → Its contractile filaments are organised into repeating sarcomeres, creating a regular banded appearance under a microscope. _(outside the book)_
+    - compare: Do striations imply that cardiac muscle is voluntary? → No. The page states that cardiac muscle is both striated and involuntary.
+  - prerequisites: microscopic light and dark bands; muscle contraction
+- **p006-i19** · list_point · fact · both · exam high
+  - • Do not fatigue.
+    - what: What fatigue property is assigned to cardiac muscle? → The book states that cardiac muscle does not fatigue.
+      - why: Why is fatigue resistance important for cardiac muscle? → The heart must repeatedly pump blood to sustain tissue supply. Cardiac cells have abundant mitochondria and a rich blood supply that support sustained aerobic energy production. _(outside the book)_
+        - exception: Does fatigue resistance mean cardiac muscle can work normally without oxygen? → No. Its sustained function depends strongly on oxygen and nutrients. Loss of adequate blood supply can impair or damage cardiac muscle; the book's phrase describes normal fatigue resistance. _(outside the book)_
+    - compare: Does fatigue distinguish smooth muscle from cardiac muscle on this page? → No. Both are described as not fatiguing.
+  - prerequisites: heart pumping; oxygen supply; cellular energy production
+- **p006-i20** · list_point · process · both · exam high
+  - • Performs contraction and relaxation in wall of heart.
+    - where: Where does cardiac muscle perform contraction and relaxation? → In the wall of the heart.
+      - how: How do contraction and relaxation contribute different parts of pumping? → Contraction develops pressure that ejects blood from a chamber; relaxation allows the chamber to fill again for a later contraction. _(outside the book)_
+        - why: Why is relaxation as necessary as contraction? → A chamber needs to refill before it can eject another volume of blood. Sustained contraction without filling would not produce normal repeated pumping. _(outside the book)_
+  - prerequisites: heart chambers; muscle contraction and relaxation; pressure and fluid movement
+- **p006-i21** · list_point · cause_effect · both · exam high
+  - • Helps to pump and distribute blood to body.
+    - what: What is the body-level function attributed to cardiac muscle? → It helps pump and distribute blood to the body.
+      - how: How does muscle activity in the heart distribute blood beyond the heart? → Cardiac contraction creates the pressure that drives blood into vessels. The vascular network carries this blood to different body regions. _(outside the book)_
+        - why: Why is blood distribution essential to body tissues? → Circulating blood delivers oxygen and nutrients and carries away carbon dioxide and other wastes, helping cells maintain their activities. _(outside the book)_
+  - prerequisites: heart and blood vessels; blood circulation; cellular need for oxygen and nutrients
+- **p006-i22** · paragraph · classification · both · exam high
+  - Other names: Striated, Involuntary.
+    - which: Which two descriptors does the book give cardiac muscle? → Striated and Involuntary.
+    - compare: How does this classification compare with that of smooth muscle? → Both are involuntary, but cardiac muscle is striated whereas smooth muscle is unstriated.
+      - why: Why should these descriptors not be treated as unique alternative tissue names? → They describe separate features shared with other tissues: striated refers to banding and involuntary refers to lack of ordinary conscious control. Their combination, together with heart location and branching, identifies cardiac muscle more reliably. _(outside the book)_
+      - how: How can the heart beat without a conscious command for each beat? → Specialised pacemaker cells generate rhythmic electrical activity. Autonomic nerves and hormones can modify the rate and strength without requiring conscious initiation of each beat. _(outside the book)_
+  - prerequisites: striations; conscious control; electrical signals in excitable cells
+- **p006-i23** · diagram · structure · image · exam high
+  - A boxed illustration pairs an orange, branched arrangement of cardiac muscle cells on the left with a heart drawing on the right. The tissue shows repeated pale bands and blue oval nuclei; branches connect into a network-like arrangement with spaces between them. The printed label 'Cardiac Muscle' is below the tissue. The heart is drawn with coloured major vessels. There are no arrows or individually labelled heart parts; side-by-side placement associates cardiac muscle with the heart.
+    - what: What structural features and organ association are visible? → The figure shows branched, banded cardiac muscle with blue nuclei alongside the heart, linking its appearance to its organ location.
+      - how: How does the image distinguish cardiac from smooth muscle? → The cardiac drawing is branched and visibly banded; the upper smooth muscle drawing consists of tapering unstriated cells.
+      - why: Why should the spaces in this schematic not be read as heart chambers? → The left drawing depicts tissue organisation, not the whole heart's internal anatomy. The spaces separate stylised branches and are not labelled chambers. _(outside the book)_
+  - prerequisites: muscle cell and tissue; striations; heart
+- **p006-i24** · diagram_label · classification · image · exam high
+  - Cardiac Muscle — label beneath the branched, striated tissue drawing, identifying the tissue beside the heart; no leader line is shown.
+    - what: What does 'Cardiac Muscle' label in this illustration? → It labels the branched muscle tissue drawing on the left of the heart.
+      - how: How does the nearby heart clarify the label? → It visually connects the named tissue with its location in the heart wall, where the text says contraction and relaxation occur.
+    - compare: How does the classification of this labelled tissue differ from the labelled smooth muscle above? → Cardiac muscle is striated and branched; smooth muscle is unstriated and unbranched. Both are involuntary.
+  - prerequisites: heart wall; branching; striations
+
+### Page 7 · failed after 1 round(s)
+
+An illustrated comparison identifies skeletal muscle as voluntary, striated and multinucleated; cardiac muscle as involuntary, striated and centrally uninucleate; and visceral smooth muscle as involuntary, non-striated and centrally uninucleate. A connective-tissue composite shows blood cells, compact bone, hyaline cartilage, areolar tissue and adipose tissue with their labels. A neuron diagram traces an electrical signal along an axon toward the next neuron and identifies dendrites, cell bodies, nuclei, axon tips and synapses.
+
+- **p007-i1** · heading · classification · image
+  - Three Types of Muscular Tissue
+- **p007-i2** · table · comparison · image
+  - Comparison of Skeletal, Cardiac and Visceral (smooth muscle), with columns for Location, Function, Appearance and Control. The first, unheaded column names and illustrates each muscle type.
+  - prerequisites: Muscle tissue; Cell and nucleus
+- **p007-i3** · table_row · other · image
+  - Muscle type: unheaded first column | Location | Function | Appearance | Control
+- **p007-i4** · table_row · comparison · image · exam high
+  - Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary
+    - what: What combination of features identifies skeletal muscle in this table? → It is associated with the skeleton, produces movement and heat, maintains posture, has parallel striated fibers with multiple eccentric nuclei, and is under voluntary control.
+    - compare: How does skeletal muscle differ from cardiac and visceral muscle in control and nuclei? → Skeletal muscle is voluntary and multinucleated with eccentric nuclei. Cardiac and visceral muscle are involuntary and each is shown with one central nucleus.
+      - how: How can skeletal-muscle contraction contribute to movement, posture and heat? → Contraction develops tension that can pull on the skeleton. Sustained or repeated activity helps maintain body position, and some energy used during contraction is released as heat. _(outside the book)_
+      - what: What do 'striated' and 'eccentric' mean here? → Striated means showing alternating transverse bands. Eccentric nuclei lie away from the centre, near the fibre's periphery. _(outside the book)_
+  - prerequisites: Muscle contraction; Skeleton; Cell nucleus; Voluntary control
+- **p007-i5** · table_row · comparison · image · exam high
+  - Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary
+    - what: Where is cardiac muscle found and what does it do? → It is found in the heart and pumps blood continuously.
+    - compare: Which features does cardiac muscle share with the other two muscle types? → It shares striations with skeletal muscle, but shares involuntary control and one central nucleus with visceral smooth muscle.
+      - why: Why is striation alone insufficient to identify voluntary muscle? → Both skeletal and cardiac muscle are striated in this table, yet skeletal muscle is voluntary and cardiac muscle is involuntary.
+      - how: How does cardiac muscle pump blood continuously without a continuously contracted heart? → Repeated, coordinated cycles of contraction and relaxation allow the heart to eject blood and then refill. 'Continuously' describes ongoing pumping activity, not an unbroken contraction. _(outside the book)_
+  - prerequisites: Heart as a blood pump; Muscle contraction and relaxation; Striations; Cell nucleus
+- **p007-i6** · table_row · comparison · image · exam high
+  - Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary
+    - where: Which locations and functions are listed for visceral smooth muscle? → The listed locations are the G.I. tract, uterus, eye and blood vessels. Its listed functions are peristalsis, blood-pressure regulation, pupil-size adjustment and erection of hairs.
+    - compare: How does smooth muscle differ from the two striated muscle types? → Smooth muscle has no striations. It has one central nucleus and involuntary control, whereas skeletal muscle is striated, multinucleated and voluntary; cardiac muscle is striated but also centrally uninucleate and involuntary.
+      - how: How does smooth muscle produce peristalsis? → Coordinated waves of contraction and relaxation in the gastrointestinal tract help propel its contents along. _(outside the book)_
+      - how: How can smooth-muscle contraction affect blood pressure, pupil size and hairs? → Contraction in vessel walls changes vessel diameter and resistance to flow. Smooth muscles in the iris change pupil diameter, while small muscles attached to hair follicles raise hairs. _(outside the book)_
+      - what: What does G.I. tract mean? → G.I. tract means gastrointestinal tract, the digestive passage through which food and its residues move. _(outside the book)_
+  - prerequisites: Muscle contraction; Digestive tract; Blood vessels; Pupil; Involuntary control
+- **p007-i7** · diagram · structure · image · exam high
+  - A long cylindrical, unbranched skeletal-muscle fibre with repeated transverse striations and several oval nuclei situated toward the periphery.
+    - what: Which visible features identify this skeletal-muscle drawing? → The drawing shows an elongated cylindrical fibre, transverse bands and several peripheral nuclei.
+      - how: How do the visible bands arise? → The regular arrangement of contractile proteins into repeating sarcomeres produces the alternating light and dark appearance. _(outside the book)_
+  - prerequisites: Muscle fibre; Cell nucleus; Striations
+- **p007-i8** · diagram · structure · image · exam high
+  - A group of branched, striated cardiac-muscle fibres with centrally placed oval nuclei; adjoining fibres form a connected arrangement.
+    - what: What cardiac-muscle features are visible in the illustration? → The fibres are branched and striated, and nuclei appear centrally placed.
+      - how: How does the connected arrangement help explain coordinated heart contraction? → Cardiac cells are joined at specialised junctions that mechanically connect cells and allow excitation to spread, helping neighbouring regions contract in coordination. _(outside the book)_
+  - prerequisites: Muscle fibre; Cell nucleus; Heart contraction
+- **p007-i9** · diagram · structure · image · exam high
+  - A single spindle-shaped smooth-muscle cell, tapering at both ends, with one central oval nucleus and no transverse striations.
+    - what: What shape and nuclear arrangement are shown for smooth muscle? → The cell is spindle-shaped with tapering ends and a single central nucleus.
+      - why: Why is smooth muscle not visibly striated even though it can contract? → It contains contractile proteins, but they are not arranged in the regular sarcomere pattern that produces visible striations. _(outside the book)_
+  - prerequisites: Cell shape; Cell nucleus; Muscle contraction
+- **p007-i10** · diagram · classification · image
+  - Five connective-tissue panels: (a) types of blood cells at upper left, (b) compact bone at lower left, (c) hyaline cartilage near the lower centre, (d) areolar tissue at upper right and (e) adipose tissue at lower right. Each panel has leader lines connecting names to cells, fibres or matrix features; there is no process-flow arrow between the panels.
+  - prerequisites: Cells; Extracellular matrix; Connective tissue
+- **p007-i11** · diagram · classification · image · exam high
+  - (a) Types of blood cells. A bracket groups different white blood corpuscles: Neutrophil, Eosinophil, Basophil, Lymphocyte and Monocyte. Cytoplasm and Nucleus are labelled in the upper cell drawings; Platelets are shown as a small cluster of fragments.
+    - which: Which white blood corpuscles are named in panel (a)? → Neutrophil, Eosinophil, Basophil, Lymphocyte and Monocyte.
+    - compare: How do the pictured white cells differ in appearance? → Their drawings differ in nuclear shape and the appearance of the surrounding cytoplasm; the platelets are drawn as much smaller fragments.
+      - why: Why is blood included among connective tissues? → Its cells and cell fragments are suspended in an extracellular fluid matrix, plasma, which transports substances between body regions. _(outside the book)_
+  - prerequisites: Blood; Cell nucleus; Cytoplasm; Extracellular matrix
+- **p007-i12** · diagram_label · classification · image · exam high
+  - Different white blood corpuscles — bracket grouping the five named white-cell drawings.
+    - compare: Which named cells does this bracket distinguish from the other blood elements? → It groups Neutrophil, Eosinophil, Basophil, Lymphocyte and Monocyte as different white blood corpuscles.
+      - how: How do white blood corpuscles contribute to body defence? → Different types participate in processes such as engulfing microbes, producing immune responses and mediating inflammation. _(outside the book)_
+  - prerequisites: Blood cells; Body defence
+- **p007-i13** · diagram_label · structure · image · exam medium
+  - Cytoplasm — leader line points to the cell material surrounding the nucleus in a white blood corpuscle.
+    - where: Where is the labelled cytoplasm? → It is the region of the cell around the nucleus.
+      - how: How does cytoplasm support cellular activity? → It contains cellular components and provides the medium for many metabolic reactions. _(outside the book)_
+  - prerequisites: Cell membrane; Cell nucleus
+- **p007-i14** · diagram_label · structure · image · exam medium
+  - Nucleus — leader line identifies the darker nuclear region of a white blood corpuscle.
+    - what: What does the nucleus label identify in this blood-cell drawing? → It identifies the darker internal nuclear region.
+      - why: Why is nuclear appearance useful when identifying white cells? → Different white-cell types have characteristic nuclear shapes, such as lobed, rounded or kidney-shaped nuclei, which help distinguish them. _(outside the book)_
+  - prerequisites: Cell nucleus; White blood cells
+- **p007-i15** · diagram_label · classification · image · exam high
+  - Neutrophil — identifies the upper-left white blood corpuscle with a lobed nucleus.
+    - compare: How is the neutrophil distinguished visually from the pictured lymphocyte? → The neutrophil is drawn with a lobed nucleus, whereas the lymphocyte has a large, more rounded nuclear region.
+      - how: How do neutrophils help defend the body? → They can move to sites of infection and engulf microbes and cellular debris by phagocytosis. _(outside the book)_
+  - prerequisites: White blood cells; Cell nucleus; Phagocytosis
+- **p007-i16** · diagram_label · classification · image · exam high
+  - Eosinophil — identifies the middle white blood corpuscle in the upper row.
+    - compare: How is an eosinophil classified relative to a red blood corpuscle? → The eosinophil is a white blood corpuscle, not a red blood corpuscle.
+      - how: How do eosinophils contribute to defence? → Their granule contents help in responses to certain parasites, and they also participate in allergic inflammation. _(outside the book)_
+  - prerequisites: White blood cells; Immune response
+- **p007-i17** · diagram_label · classification · image · exam high
+  - Basophil — identifies the rightmost white blood corpuscle in the upper row.
+    - compare: Which blood-cell group contains the basophil? → It belongs to the group labelled different white blood corpuscles, alongside neutrophils, eosinophils, lymphocytes and monocytes.
+      - how: How can basophils participate in inflammation? → They release mediators, including histamine, that influence inflammatory and allergic responses. _(outside the book)_
+  - prerequisites: White blood cells; Inflammation
+- **p007-i18** · diagram_label · classification · image · exam high
+  - Lymphocyte — identifies the lower-left white blood corpuscle with a large dark nucleus.
+    - compare: What visible feature contrasts the lymphocyte with the neutrophil? → The lymphocyte has a large, more rounded nuclear region, rather than the neutrophil's lobed nuclear appearance.
+      - how: How do lymphocytes contribute to immunity? → Different lymphocyte types support antibody-mediated responses, cell-mediated responses and other immune defences. _(outside the book)_
+  - prerequisites: White blood cells; Cell nucleus; Immunity
+- **p007-i19** · diagram_label · classification · image · exam high
+  - Monocyte — identifies the elongated lower-row white blood corpuscle with an indented nucleus.
+    - compare: How does the illustrated monocyte differ from the illustrated lymphocyte? → The monocyte is drawn with a more indented nuclear outline, whereas the lymphocyte has a more rounded nuclear region.
+      - how: How are monocytes related to tissue macrophages? → Monocytes can leave the circulation and differentiate into macrophages in tissues, where they participate in phagocytosis and immune responses. _(outside the book)_
+  - prerequisites: White blood cells; Cell nucleus; Phagocytosis
+- **p007-i20** · diagram_label · structure · image · exam high
+  - Platelets — identifies the small cluster of fragments beside the lower white-cell drawings.
+    - what: How are platelets represented in the blood panel? → They appear as a group of small fragments beside the larger white blood corpuscles.
+      - how: How do platelets help limit blood loss? → They adhere and aggregate at damaged blood vessels and support the reactions that form a stabilising blood clot. _(outside the book)_
+  - prerequisites: Blood; Blood-vessel injury; Clotting
+- **p007-i21** · diagram_label · structure · image · exam high
+  - Red blood corpuscle — leader line identifies the isolated round blood-cell drawing near the lower-left edge of the composite.
+    - what: Which blood element is named by this lower-left label? → It is named Red blood corpuscle.
+      - how: How do red blood corpuscles perform their principal transport function? → They contain haemoglobin, which binds oxygen for transport. Mature human red blood corpuscles lack a nucleus and have a biconcave form suited to gas exchange. _(outside the book)_
+  - prerequisites: Blood; Oxygen transport; Cell nucleus
+- **p007-i22** · diagram · structure · image · exam high
+  - (b) Compact bone. Circular units show concentric rings around central canals. A projecting cylindrical unit and a magnified side detail accompany labels for the Haversian canal and canaliculus.
+    - what: What structural arrangement does the compact-bone panel show? → It shows ring-like layers surrounding central canals, with details identifying a Haversian canal and a canaliculus.
+      - how: How does this arrangement support living cells in hard bone? → Blood vessels pass through canals, while small channels permit communication and exchange through the dense matrix, helping supply bone cells. _(outside the book)_
+  - prerequisites: Bone as connective tissue; Extracellular matrix; Blood supply
+- **p007-i23** · diagram_label · structure · image · exam high
+  - Haversian canal (contains blood vessels and nerve fibres) — points to the central canal of a concentric bone unit.
+    - what: What does the Haversian canal contain? → The label states that it contains blood vessels and nerve fibres.
+      - why: Why are vascular canals important in compact bone? → The hard matrix limits direct diffusion over long distances, so canals provide routes for vessels that bring nutrients and oxygen to the living tissue. _(outside the book)_
+  - prerequisites: Blood vessels; Nerve fibres; Bone matrix
+- **p007-i24** · diagram_label · structure · image · exam high
+  - Canaliculus (contains slender process of bone cell or osteocyte) — points to a fine channel in the bone detail.
+    - what: What does a canaliculus contain according to the label? → It contains a slender process of a bone cell, also called an osteocyte.
+      - how: How is a canaliculus different from a Haversian canal? → The Haversian canal carries blood vessels and nerve fibres; a canaliculus is a fine channel containing a slender osteocyte process.
+      - why: Why are osteocyte processes useful in a rigid matrix? → Processes through canaliculi help neighbouring bone cells communicate and exchange materials despite being embedded in the matrix. _(outside the book)_
+  - prerequisites: Bone cell; Cell process; Bone matrix
+- **p007-i25** · diagram · structure · image · exam high
+  - (c) Hyaline cartilage. Small rounded cartilage cells occur singly and in groups within a pale matrix. Leader lines identify Chondrocyte and Hyaline matrix.
+    - what: Which two components are labelled in the hyaline-cartilage drawing? → Chondrocyte and Hyaline matrix.
+      - how: How does cartilage provide support while remaining more flexible than bone? → Its hydrated extracellular matrix and fibres resist deformation while allowing some flexibility; it is not mineralised in the same way as normal bone matrix. _(outside the book)_
+  - prerequisites: Connective-tissue cell; Extracellular matrix; Bone
+- **p007-i26** · diagram_label · structure · image · exam high
+  - Chondrocyte — points to a cartilage cell within the hyaline matrix.
+    - what: What cell is named in the cartilage panel? → The cartilage cell is labelled Chondrocyte.
+      - how: How do chondrocytes contribute to cartilage? → They produce and maintain components of the cartilage extracellular matrix. _(outside the book)_
+  - prerequisites: Cell; Cartilage; Extracellular matrix
+- **p007-i27** · diagram_label · structure · image · exam medium
+  - Hyaline matrix — points to the material surrounding the chondrocytes.
+    - where: Where is the hyaline matrix relative to the chondrocytes? → It is the surrounding extracellular material in which the cartilage cells are embedded.
+      - how: How does the matrix contribute to cartilage function? → Its hydrated ground substance and collagen fibres provide support and resistance to compression while permitting some flexibility. _(outside the book)_
+  - prerequisites: Extracellular matrix; Chondrocyte
+- **p007-i28** · diagram · structure · image · exam high
+  - (d) Areolar tissue. A loose network of fibres surrounds several cell types. Labels identify Reticular fibre, Fibroblast, Macrophage, Collagen fibre, Mast cell and Plasma cell.
+    - what: Which labelled components make up this areolar-tissue illustration? → It contains reticular and collagen fibres and the labelled cells fibroblast, macrophage, mast cell and plasma cell.
+      - how: How does this mixture of fibres and cells suit areolar tissue? → The fibre network provides flexible support and packing, while its varied cells maintain the matrix and contribute to defence and repair. _(outside the book)_
+  - prerequisites: Connective tissue; Extracellular fibres; Cells
+- **p007-i29** · diagram_label · structure · image · exam medium
+  - Reticular fibre — leader line identifies a fine branching fibre network.
+    - what: What does this label identify in the areolar panel? → It identifies reticular fibre within the connective-tissue network.
+      - how: How do reticular fibres support tissue? → Their fine branching arrangement forms a supporting meshwork around cells and small tissue structures. _(outside the book)_
+  - prerequisites: Extracellular fibres; Connective tissue
+- **p007-i30** · diagram_label · structure · image · exam high
+  - Fibroblast — points to an elongated cell among the fibres.
+    - where: In which connective-tissue panel is a fibroblast labelled? → It is labelled in the areolar-tissue panel.
+      - how: How does a fibroblast contribute to the surrounding tissue? → It synthesises extracellular-matrix components, including fibres and ground substance, and participates in tissue repair. _(outside the book)_
+  - prerequisites: Connective tissue; Extracellular matrix
+- **p007-i31** · diagram_label · structure · image · exam high
+  - Macrophage — points to an irregularly shaped cell on the left side of the areolar-tissue drawing.
+    - where: Where is the macrophage shown? → It is one of the labelled cells in areolar tissue.
+      - how: How do macrophages help protect and maintain tissue? → They engulf microbes and cellular debris and also help coordinate immune responses. _(outside the book)_
+  - prerequisites: White blood cells; Phagocytosis; Connective tissue
+- **p007-i32** · diagram_label · structure · image · exam high
+  - Collagen fibre — points to a thick fibre in the areolar-tissue network.
+    - what: Which structural component does the collagen-fibre label identify? → It identifies a fibre in the extracellular network, not a cell.
+      - how: How do collagen fibres strengthen connective tissue? → Their protein bundles resist pulling forces and provide tensile strength. _(outside the book)_
+  - prerequisites: Protein; Extracellular fibres; Pulling force
+- **p007-i33** · diagram_label · structure · image · exam high
+  - Mast cell — points to a rounded granular cell in the areolar-tissue drawing.
+    - where: In which tissue is the mast cell labelled? → It is labelled in areolar tissue.
+      - how: How can mast cells influence local inflammation? → They release substances such as histamine that affect local vessels and help mediate inflammatory and allergic responses. _(outside the book)_
+  - prerequisites: Connective tissue; Inflammation; Blood vessels
+- **p007-i34** · diagram_label · structure · image · exam high
+  - Plasma cell — points to the rounded cell at the lower right of the areolar-tissue drawing.
+    - what: What does 'Plasma cell' name in this panel? → It names a cell within the areolar-tissue illustration.
+      - how: How is a plasma cell different from blood plasma? → A plasma cell is an antibody-secreting cell derived from a B lymphocyte. Blood plasma is the liquid extracellular component of blood, not a cell. _(outside the book)_
+  - prerequisites: Cell; Blood plasma; Antibody; Lymphocyte
+- **p007-i35** · diagram · structure · image · exam high
+  - (e) Adipose tissue. Several closely packed large cells contain prominent pale fat droplets, with nuclei near their edges. Labels identify Fat droplet, Nucleus and Adipocyte.
+    - what: Which visible features identify this as adipose tissue? → Large fat droplets occupy much of the cells, and the nuclei are shown near the cell edges.
+      - how: How does this cellular structure suit fat storage? → A large intracellular lipid droplet allows an adipocyte to store substantial energy reserves; expansion of the droplet displaces the nucleus and cytoplasm toward the edge. _(outside the book)_
+  - prerequisites: Cell; Nucleus; Fat as stored energy
+- **p007-i36** · diagram_label · structure · image · exam high
+  - Fat droplet — leader line points into a large pale region occupying most of an adipocyte.
+    - where: Where is the labelled fat droplet? → It occupies a large region inside an adipocyte.
+      - how: How can the contents of the droplet be used by the body? → Stored lipids can be broken down and their components released or metabolised when energy is required. _(outside the book)_
+  - prerequisites: Adipocyte; Fat; Energy storage
+- **p007-i37** · diagram_label · structure · image · exam high
+  - Nucleus — leader lines identify small dark nuclei toward the edges of adipocytes.
+    - where: Where are the nuclei shown in the adipose-tissue panel? → They lie near the edges of the large fat-containing cells.
+      - why: Why is the nucleus pushed toward the edge? → The enlarging fat droplet occupies most of the cell interior and displaces the remaining cytoplasm and nucleus. _(outside the book)_
+  - prerequisites: Cell nucleus; Fat droplet
+- **p007-i38** · diagram_label · structure · image · exam high
+  - Adipocyte — points to a complete fat-storing cell.
+    - what: What is an adipocyte in the diagram? → It is a cell of the illustrated adipose tissue containing a large fat droplet.
+      - how: How does adipose tissue serve functions beyond energy storage? → Collections of adipocytes can provide thermal insulation and cushioning around body structures. _(outside the book)_
+  - prerequisites: Cell; Adipose tissue; Fat storage
+- **p007-i39** · caption · classification · image · exam high
+  - Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue.
+    - compare: Which five examples does the caption group as connective tissues? → Blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.
+      - how: How can such different-looking tissues belong to one tissue category? → They share an organisation involving cells and extracellular matrix, but the composition and physical properties of the matrix differ to suit transport, support, binding or storage. _(outside the book)_
+  - prerequisites: Connective tissue; Extracellular matrix
+- **p007-i40** · question · question · image · exam high
+  - How do neurons transmit impulses (send message to other cells)?
+    - how: How does the diagram represent message transmission between neurons? → An electrical signal is shown travelling along the axon from one neuron's cell body toward its axon tips, which approach the dendrites of the next neuron at a synapse.
+      - how: How is a message transferred across a typical chemical synapse? → An arriving electrical impulse triggers release of neurotransmitter from the axon terminal. It crosses the synaptic gap and binds to receptors on the receiving cell, changing its electrical activity. _(outside the book)_
+  - prerequisites: Neuron; Nerve impulse; Cell membrane; Cell-to-cell communication
+- **p007-i41** · diagram · process · image · exam high
+  - Two successive neurons run diagonally from lower left to upper right. The lower-left neuron receives an incoming axon from a previous neuron at a labelled synapse. Its dendrites surround a nucleated cell body; a long axon curves toward the upper-right neuron. Blue arrows labelled electrical signal run along this axon toward its axon tips. These tips approach dendrites of the next neuron at a second labelled synapse. The upper-right neuron also has a labelled cell body and nucleus.
+    - how: What sequence of connected parts should a learner trace? → Trace the axon of the previous neuron to the first synapse, then the receiving neuron's dendritic region and cell body, along its axon in the direction of the electrical-signal arrows, to the axon tips and the next neuron's dendrites.
+      - why: Why should the arrows not be interpreted as a substance flowing through a hollow nerve tube? → A nerve impulse is a propagating change in membrane electrical state. Chemical messengers may transfer the message across a synapse, but the axon is not a pipe carrying a continuous stream of message fluid. _(outside the book)_
+      - how: How does the nucleus relate to the illustrated signal route? → The nucleus supports cell regulation and maintenance; the rapid electrical signal is generated and propagated through changes in the cell membrane, not by passing through the nucleus. _(outside the book)_
+  - prerequisites: Cell membrane; Neuron; Electrical impulse; Synapse
+- **p007-i42** · diagram_label · structure · image · exam high
+  - axon of previous neuron — arrow points to the incoming red-ended process approaching the lower-left neuron's dendritic region.
+    - what: Whose axon is the incoming process at the far left? → It belongs to a previous neuron, not to the lower-left neuron's cell body.
+      - how: How does this label establish the continuity of a neural pathway? → It shows that the neuron receives input from an earlier neuron and can then pass information onward to another neuron.
+  - prerequisites: Axon; Neuron-to-neuron communication
+- **p007-i43** · diagram_label · structure · image · exam high
+  - synapse — lower label points to the circled junction between the previous neuron's axon terminal and the receiving neuron's dendritic region.
+    - where: Where is the first labelled synapse? → It is at the contact region between the incoming axon of the previous neuron and the lower-left neuron's receiving region.
+      - how: How does a chemical synapse transmit information without cytoplasmic continuity? → The presynaptic terminal releases neurotransmitter into a narrow gap; the transmitter acts on receptors of the postsynaptic membrane. _(outside the book)_
+  - prerequisites: Axon terminal; Dendrite; Cell membrane
+- **p007-i44** · diagram_label · structure · image · exam high
+  - neuron cell body — arrow points to the central orange region of the lower-left neuron surrounding its nucleus.
+    - where: What region is identified as the lower-left neuron cell body? → The central region containing the nucleus, from which the branching processes and axon extend.
+      - how: How does the cell body support neuronal function? → It contains the nucleus and much of the cell's protein-synthesising and metabolic machinery and helps integrate incoming signals. _(outside the book)_
+  - prerequisites: Cell nucleus; Cytoplasm; Neuron
+- **p007-i45** · diagram_label · structure · image · exam medium
+  - nucleus — arrow points to the dark oval inside the lower-left neuron's cell body.
+    - where: Where is the nucleus of the lower-left neuron? → Inside its cell body, shown as a dark oval.
+      - how: How does the nucleus support this specialised cell? → It contains genetic information and regulates gene expression needed for the neuron's maintenance and protein production. _(outside the book)_
+  - prerequisites: Cell nucleus; Neuron cell body
+- **p007-i46** · diagram_label · structure · image · exam high
+  - dendrites — arrow points to the short branched projections around the lower-left cell body.
+    - what: Which projections are labelled dendrites? → The short branching projections around the lower-left neuron's cell body.
+      - how: How does dendritic branching support reception of information? → Branching provides a larger receiving surface for contacts from other cells and allows many inputs to influence the neuron. _(outside the book)_
+  - prerequisites: Neuron; Cell process; Synapse
+- **p007-i47** · diagram_label · structure · image · exam high
+  - axon — arrow points to the long curved process extending from the lower-left neuron toward the next neuron.
+    - where: Which part of the drawing is the axon? → The long process connecting the lower-left neuron's cell body to its terminal branches near the upper-right neuron.
+      - how: How does an axon convey a signal over a distance? → Changes in membrane voltage activate neighbouring membrane regions, allowing an action potential to propagate along the axon toward its terminals. _(outside the book)_
+  - prerequisites: Cell membrane; Neuron cell body; Electrical impulse
+- **p007-i48** · diagram_label · process · image · exam high
+  - electrical signal — blue arrows indicate travel along the axon from the lower-left neuron's cell body toward its terminals near the next neuron.
+    - how: In which direction do the electrical-signal arrows run? → They run along the axon away from the lower-left cell body and toward the next neuron.
+      - how: What makes the nerve impulse electrical? → Movement of ions through membrane channels changes the voltage across the neuronal membrane, and this change propagates along the axon. _(outside the book)_
+  - prerequisites: Ions; Cell membrane; Electrical potential; Axon
+- **p007-i49** · diagram_label · structure · image · exam high
+  - axon tips — arrow points to the terminal branches of the lower-left neuron's axon near the upper-right neuron.
+    - what: What are the labelled axon tips? → They are the terminal ends of the axon that approaches the next neuron.
+      - how: How do axon tips pass a message at a chemical synapse? → When an impulse arrives, calcium entry triggers vesicles to release neurotransmitter, which acts on the next cell. _(outside the book)_
+  - prerequisites: Axon; Synapse; Neurotransmitter
+- **p007-i50** · diagram_label · structure · image · exam high
+  - dendrites of next neuron — arrows point to branching receiving processes of the upper-right neuron.
+    - which: Which neuron owns the dendrites identified by this label? → They belong to the next, upper-right neuron, not to the neuron whose axon carries the blue-arrow signal.
+      - how: How can an incoming synaptic message affect the next neuron? → Receptor activation changes the receiving membrane's electrical state. Combined inputs may make the neuron more or less likely to generate an action potential. _(outside the book)_
+  - prerequisites: Dendrite; Axon terminal; Synapse; Receptor
+- **p007-i51** · diagram_label · structure · image · exam high
+  - synapse — upper label points to the circled junction between an axon tip and a dendritic process of the upper-right neuron.
+    - where: Where is the second labelled synapse? → At the junction between the illustrated axon's terminal and the next neuron's dendritic region.
+      - how: How does this second synapse extend the pathway shown at the first? → The lower-left neuron receives a message at the earlier junction and its axon then carries a signal toward another junction with the next neuron.
+  - prerequisites: Synapse; Axon terminal; Dendrite
+- **p007-i52** · diagram_label · structure · image · exam high
+  - neuron cell body — arrow points to the orange central region of the upper-right neuron.
+    - where: Where is the next neuron's cell body? → It is the upper-right orange region containing a nucleus and surrounded by branching processes.
+      - how: How does recognising this second cell body help interpret the picture? → It establishes that the long curved axon approaches a separate neuron rather than looping back into its own cell body.
+  - prerequisites: Neuron cell body; Axon; Dendrite
+- **p007-i53** · diagram_label · structure · image · exam medium
+  - nucleus — arrow points to the dark oval within the upper-right neuron's cell body.
+    - where: Where is the next neuron's nucleus shown? → Inside the upper-right neuron's cell body.
+      - why: Why should this nucleus not be confused with the synapse? → The nucleus is an intracellular organelle in the cell body; the synapse is a junction where one cell communicates with another. _(outside the book)_
+  - prerequisites: Cell nucleus; Neuron cell body; Synapse
+
+### Page 8 · passed after 1 round(s)
+
+An image-based table compares loose, dense, elastic, specialised and adipose connective tissues by location and function. A plant-tissue tree divides tissues into meristematic and permanent tissues, then shows their subdivisions, while an accompanying plant-axis drawing locates apical, intercalary and lateral meristems.
+
+- **p008-i1** · heading · other · image
+  - Types of Connective Tissues
+- **p008-i2** · table · comparison · image
+  - Types of Connective Tissues. Columns: Type of Tissue | Location | Function. Rows cover loose connective tissue, dense connective tissue, elastic connective tissue, specialised connective tissue—(i) Cartilage, (ii) Bone, (iii) Vascular connective tissue (blood)—and adipose tissue.
+  - prerequisites: meaning of a tissue; connective tissue as an animal-tissue category
+- **p008-i3** · table_row · other · image
+  - Type of Tissue | Location | Function
+- **p008-i4** · table_row · comparison · image · exam high
+  - Type of Tissue: Loose connective tissue | Location: Deep layers of skin, blood vessels, nerves and body organs. | Function: Support and elasticity
+    - where: Which locations and functions does the table associate with loose connective tissue? → It lists deep layers of skin, blood vessels, nerves and body organs, and assigns the functions of support and elasticity.
+    - compare: How does loose connective tissue compare with dense connective tissue in this table? → Loose connective tissue is associated with skin and structures such as vessels, nerves and organs, with support and elasticity as its functions. Dense connective tissue is associated with tendons and ligaments and with strong, compact connections.
+      - how: How can a loose arrangement provide support without forming a rigid framework? → Fibres and ground substance bind and support neighbouring structures while allowing some movement. A relatively loose arrangement can accommodate vessels and nerves rather than forming a tightly packed, rigid mass. _(outside the book)_
+  - prerequisites: cells and extracellular matrix; skin, blood vessels and nerves; meaning of elasticity
+- **p008-i5** · table_row · comparison · image · exam high
+  - Type of Tissue: Dense connective tissue | Location: Tendons and ligaments | Function: Compactly pack structures to one another and provides great strength.
+    - where: Where is dense connective tissue found, and what does it do? → The table places it in tendons and ligaments and describes its role as compactly joining structures and providing great strength.
+    - compare: How does the emphasis of the dense connective tissue row differ from the elastic connective tissue row? → The dense row emphasizes compact connection and great strength in tendons and ligaments; the elastic row emphasizes elasticity in lungs, arteries, trachea and vocal cords.
+      - why: Why is strength important in tendons and ligaments? → Tendons transmit muscular pull to bones, while ligaments connect bones at joints. Closely arranged collagen fibres help these structures resist the tensile forces produced during movement. _(outside the book)_
+  - prerequisites: collagen fibres in extracellular matrix; muscles, bones and joints; difference between tendons and ligaments
+- **p008-i6** · table_row · comparison · image · exam high
+  - Type of Tissue: Elastic connective tissue | Location: Lungs, arteries, trachea and vocal cords. | Function: Provides elasticity
+    - where: Which locations are given for elastic connective tissue? → The listed locations are lungs, arteries, trachea and vocal cords, with elasticity as the stated function.
+    - compare: How is the location list for elastic connective tissue different from that for dense connective tissue? → Elastic connective tissue is listed in lungs, arteries, trachea and vocal cords, whereas dense connective tissue is listed in tendons and ligaments.
+      - how: How does elasticity help structures such as lungs and arteries? → Elastic fibres permit stretching followed by recoil. This helps lungs return toward their resting size after expansion and helps arterial walls accommodate pressure changes. _(outside the book)_
+  - prerequisites: elasticity as stretching followed by recoil; lungs and breathing; arteries as blood vessels
+- **p008-i7** · table_row · comparison · image · exam high
+  - Type of Tissue: Specialised connective tissue (i) Cartilage | Location: Ends of long bones tip of nose, parts of larynx and trachea. | Function: Provides flexibility and support.
+    - which: Which tissues are included under the specialised connective tissue group? → The group contains cartilage, bone and vascular connective tissue (blood). Cartilage is the first entry.
+    - where: Where is cartilage located according to the table? → It is listed at the ends of long bones, the tip of the nose, and parts of the larynx and trachea. Its stated functions are flexibility and support.
+    - compare: How do the stated functions of cartilage differ from those of bone? → Cartilage is associated with flexibility and support, whereas bone is associated with protection, support and muscle attachment.
+      - why: Why is cartilage suitable where support must be combined with flexibility? → Its firm but relatively pliable matrix maintains shape without the rigidity of mineralised bone. At the ends of many bones, articular cartilage also provides a smooth surface for movement. _(outside the book)_
+  - prerequisites: long bones and joints; larynx and trachea; extracellular matrix
+- **p008-i8** · table_row · comparison · image · exam high
+  - Type of Tissue: (ii) Bone [under Specialised connective tissue] | Location: Bones | Function: Protection and support muscle attachment.
+    - what: What classification and functions are assigned to bone? → Bone is an entry under specialised connective tissue. The function cell lists protection, support and muscle attachment.
+    - compare: How does bone differ in function from blood, although both are specialised connective tissues? → Bone provides protection, support and muscle attachment; blood transports oxygen and carbon dioxide and participates in immune response and clotting.
+      - how: How does bone support the body and enable muscle action? → A mineralised matrix gives bone rigidity. Muscles attached to bones, commonly through tendons, exert forces that move bones at joints. _(outside the book)_
+  - prerequisites: skeleton; muscle contraction; tendons and joints; mineralised extracellular matrix
+- **p008-i9** · table_row · comparison · image · exam high
+  - Type of Tissue: (iii) Vascular connective tissue (blood) [under Specialised connective tissue] | Location: Within blood vessels | Function: Transport of oxygen and carbon dioxide and immune response blood clotting.
+    - what: What does vascular connective tissue refer to in this table? → It refers to blood, listed within blood vessels under specialised connective tissue. Its functions include transport of oxygen and carbon dioxide, immune response and blood clotting.
+    - compare: How does blood differ from cartilage and bone in the functions emphasized here? → Blood is associated with transport and defence-related functions, while cartilage and bone are associated primarily with support and other mechanical roles.
+      - why: Why can a fluid such as blood be classified as connective tissue? → Connective tissue need not be solid. Blood has cells and cell fragments suspended in an extracellular fluid matrix called plasma, and it connects body regions functionally by transporting materials. _(outside the book)_
+      - how: How are the listed functions distributed among blood components? → Haemoglobin in red blood cells carries most oxygen; carbon dioxide is transported in several forms, much of it as bicarbonate. White blood cells contribute to immune defence, while platelets and plasma clotting factors help form clots. _(outside the book)_
+  - prerequisites: blood vessels; red blood cells, white blood cells, platelets and plasma; oxygen and carbon dioxide in respiration; meaning of immune defence
+- **p008-i10** · table_row · comparison · image · exam high
+  - Type of Tissue: Adipose tissue | Location: Deep layers of skin, surrounding heart and kidneys and padding around joints. | Function: Support, protection, heat conservation and energy source.
+    - where: Where is adipose tissue found, and what functions does the table list? → It is found in deep layers of skin, surrounding the heart and kidneys, and as padding around joints. It provides support, protection, heat conservation and an energy source.
+    - compare: How does the adipose row differ from the loose connective tissue row? → Both mention deep layers of skin and support. The loose connective tissue row emphasizes elasticity, while the adipose row additionally emphasizes protection, heat conservation and energy.
+      - how: How can adipose tissue provide both energy storage and protection? → Its cells store fat that can be mobilised as an energy reserve. Deposits of this tissue cushion structures, while fat beneath the skin reduces heat loss. _(outside the book)_
+  - prerequisites: fat as an energy store; skin and internal organs; heat loss and insulation
+- **p008-i11** · diagram · classification · image · exam high
+  - Plant Tissues classification tree, with downward branching arrows: Plant Tissues → Meristematic tissue and Permanent tissue. Meristematic tissue → Apical meristem, Intercalary meristem and Lateral meristem. Permanent tissue → Simple permanent tissue and Complex permanent tissue. Simple permanent tissue → Parenchyma, Collenchyma and Sclerenchyma. Parenchyma → Aerenchyma and Chlorenchyma. Sclerenchyma → Sclerenchyma fibers and Sclereids. Complex permanent tissue → Xylem and Phloem. The branches show classification, not a chronological sequence.
+    - compare: What are the two main branches of plant tissues, and how does each branch subdivide? → Plant tissues divide into meristematic and permanent tissues. Meristematic tissue divides into apical, intercalary and lateral meristems. Permanent tissue divides into simple and complex permanent tissue; simple includes parenchyma, collenchyma and sclerenchyma, while complex includes xylem and phloem. Parenchyma further branches into aerenchyma and chlorenchyma, and sclerenchyma into sclerenchyma fibers and sclereids.
+      - how: How should a learner use the arrows when identifying the category of a named tissue? → Follow the connecting branches upward to its parent and then to broader categories. For example, chlorenchyma belongs under parenchyma, then simple permanent tissue, then permanent tissue, and finally plant tissues.
+      - why: Why should the chart not be read as a sequence in which one tissue turns into the next? → It is a hierarchy of categories. Sibling branches name different types within a parent category; they do not indicate that, for example, parenchyma changes into collenchyma and then sclerenchyma. _(outside the book)_
+  - prerequisites: tissue as a group of cells; reading parent and child branches in a classification tree
+- **p008-i12** · diagram_label · classification · image · exam high
+  - Plant Tissues: root category branching to Meristematic tissue and Permanent tissue.
+    - compare: Which two categories are directly below Plant Tissues? → Meristematic tissue and permanent tissue are the two immediate branches.
+      - how: How do these categories differ in their broad biological role? → Meristematic tissues contain actively dividing cells involved in growth. Permanent tissues contain differentiated cells with specialised roles and generally reduced or absent division. _(outside the book)_
+  - prerequisites: cell division; cell differentiation
+- **p008-i13** · diagram_label · classification · image · exam high
+  - Meristematic tissue: child of Plant Tissues; parent of Apical meristem, Intercalary meristem and Lateral meristem.
+    - compare: Which three branches belong to meristematic tissue rather than permanent tissue? → Apical meristem, intercalary meristem and lateral meristem belong to meristematic tissue.
+      - why: Why can meristems be distinguished by their positions? → Their positions correspond to different growth regions: tips, regions between mature tissues, and lateral regions. This makes location a useful basis for distinguishing meristems. _(outside the book)_
+  - prerequisites: cell division; root and shoot growth; plant-axis positions
+- **p008-i14** · diagram_label · classification · image · exam high
+  - Permanent tissue: child of Plant Tissues; parent of Simple permanent tissue and Complex permanent tissue.
+    - compare: What two categories are immediately below permanent tissue? → Simple permanent tissue and complex permanent tissue.
+      - how: How does the simple–complex distinction help explain permanent tissues? → Simple permanent tissue is composed mainly of one cell type, whereas complex permanent tissue contains different cell types working together for a common function. _(outside the book)_
+  - prerequisites: cell differentiation; cell type versus tissue
+- **p008-i15** · diagram_label · classification · image · exam high
+  - Apical meristem: child of Meristematic tissue.
+    - compare: Which category contains apical meristem, and which labels are its siblings? → Apical meristem belongs to meristematic tissue, alongside intercalary and lateral meristems.
+      - how: How does apical meristem contribute to growth? → Cell division at root and shoot tips supplies new cells for primary growth, helping extend the plant axis in length. _(outside the book)_
+  - prerequisites: root and shoot tips; cell division
+- **p008-i16** · diagram_label · classification · image · exam high
+  - Intercalary meristem: child of Meristematic tissue.
+    - compare: Where does intercalary meristem fit relative to apical and lateral meristems? → The three are parallel branches under meristematic tissue; intercalary meristem is not a subtype of either of the other two.
+      - how: How can intercalary meristem support growth away from a shoot tip? → It is situated between more mature tissues, commonly near the bases of leaves or internodes in grasses, where its cell division contributes to elongation and regrowth. _(outside the book)_
+  - prerequisites: nodes and internodes; cell division; leaf base
+- **p008-i17** · diagram_label · classification · image · exam high
+  - Lateral meristem: child of Meristematic tissue.
+    - compare: Is lateral meristem a permanent tissue or a meristematic tissue in the chart? → It is one of the three meristematic-tissue branches, alongside apical and intercalary meristems.
+      - how: How does lateral-meristem activity differ from growth at a tip? → Lateral meristems, such as vascular cambium and cork cambium, add tissues that increase girth in plants with secondary growth, rather than chiefly extending the tip. _(outside the book)_
+  - prerequisites: length versus girth; cell division; stem and root
+- **p008-i18** · diagram_label · classification · image · exam high
+  - Simple permanent tissue: child of Permanent tissue; parent of Parenchyma, Collenchyma and Sclerenchyma.
+    - compare: Which tissues belong to the simple permanent branch rather than the complex permanent branch? → Parenchyma, collenchyma and sclerenchyma belong to simple permanent tissue. Xylem and phloem belong to complex permanent tissue.
+      - why: Why does simple not mean that these tissues have no specialised functions? → Simple describes their composition mainly from one cell type, not the absence of specialisation. Such tissues can perform storage, photosynthesis or support functions. _(outside the book)_
+  - prerequisites: cell type; differentiation; permanent tissue
+- **p008-i19** · diagram_label · classification · image · exam high
+  - Complex permanent tissue: child of Permanent tissue; parent of Xylem and Phloem.
+    - compare: Which two tissues form the complex permanent branch? → Xylem and phloem, in contrast to the parenchyma, collenchyma and sclerenchyma of the simple branch.
+      - why: Why are xylem and phloem called complex tissues? → Each contains several cell types cooperating in transport and associated support or storage roles. Complex refers to this coordinated multicellular composition. _(outside the book)_
+  - prerequisites: different plant cell types; transport within plants
+- **p008-i20** · diagram_label · classification · image · exam high
+  - Parenchyma: child of Simple permanent tissue; parent of Aerenchyma and Chlorenchyma.
+    - compare: How are parenchyma, aerenchyma and chlorenchyma related? → Parenchyma is a simple permanent tissue; aerenchyma and chlorenchyma are shown as its two subdivisions.
+      - how: How can parenchyma serve as a basis for these specialised forms? → Living parenchyma cells can be adapted for different roles. Extensive air spaces produce aerenchyma, while abundant chloroplasts characterise chlorenchyma. _(outside the book)_
+  - prerequisites: living plant cells; intercellular spaces; chloroplasts
+- **p008-i21** · diagram_label · classification · image · exam high
+  - Collenchyma: child of Simple permanent tissue.
+    - compare: Which tissues share the same immediate parent as collenchyma? → Parenchyma and sclerenchyma share its parent, simple permanent tissue.
+      - how: How does collenchyma support growing plant parts without making them excessively rigid? → Its living cells have unevenly thickened primary walls that provide support while allowing flexibility in young stems and leaf stalks. _(outside the book)_
+  - prerequisites: plant cell wall; living cells; young stem and leaf stalk
+- **p008-i22** · diagram_label · classification · image · exam high
+  - Sclerenchyma: child of Simple permanent tissue; parent of Sclerenchyma fibers and Sclereids.
+    - compare: Which two branches are shown below sclerenchyma? → Sclerenchyma fibers and sclereids. Both lie within the simple permanent tissue branch through sclerenchyma.
+      - why: Why is sclerenchyma associated with mechanical strength? → Its cells typically develop thick, lignified secondary walls and are generally dead at maturity. The resistant walls provide strong structural support. _(outside the book)_
+  - prerequisites: plant cell wall; secondary wall thickening; lignin
+- **p008-i23** · diagram_label · classification · image · exam high
+  - Xylem: child of Complex permanent tissue.
+    - compare: Where does xylem fit in the chart relative to phloem and parenchyma? → Xylem and phloem are parallel branches of complex permanent tissue. Parenchyma is instead shown under simple permanent tissue.
+      - how: How does xylem contribute to transport in a plant? → Its conducting elements provide pathways for water and dissolved minerals, principally from roots toward aerial parts. Other xylem cell types contribute support and storage. _(outside the book)_
+  - prerequisites: water and mineral uptake by roots; transport pathways; complex tissue
+- **p008-i24** · diagram_label · classification · image · exam high
+  - Phloem: child of Complex permanent tissue.
+    - compare: How is phloem classified relative to xylem? → Both are complex permanent tissues and occupy sibling branches in the chart.
+      - how: How does phloem's transport role differ from that of xylem? → Phloem transports organic food materials, especially sugars, from sources such as mature leaves to regions that use or store them. Xylem mainly conducts water and dissolved minerals. _(outside the book)_
+  - prerequisites: photosynthesis and sugars; food storage and growth regions; complex tissue
+- **p008-i25** · diagram_label · classification · image · exam high
+  - Aerenchyma: child of Parenchyma.
+    - compare: How is aerenchyma related to chlorenchyma in the diagram? → They are sibling subdivisions of parenchyma, which belongs to simple permanent tissue.
+      - how: How do the air spaces of aerenchyma help plants? → Large interconnected air spaces facilitate internal gas movement and can aid buoyancy in aquatic plants. The spaces distinguish this specialised form of parenchyma. _(outside the book)_
+  - prerequisites: parenchyma; intercellular air spaces; gas exchange and buoyancy
+- **p008-i26** · diagram_label · classification · image · exam high
+  - Chlorenchyma: child of Parenchyma.
+    - compare: Is chlorenchyma a separate main branch of simple permanent tissue in this diagram? → No. It is shown under parenchyma, alongside aerenchyma, rather than as a fourth main branch beside parenchyma, collenchyma and sclerenchyma.
+      - how: How is chlorenchyma adapted for its function? → Its parenchyma cells contain chloroplasts, enabling photosynthesis in green plant parts. _(outside the book)_
+  - prerequisites: parenchyma; chloroplasts; photosynthesis
+- **p008-i27** · diagram_label · classification · image · exam high
+  - Sclerenchyma fibers: child of Sclerenchyma.
+    - compare: Which other label shares the immediate parent of sclerenchyma fibers? → Sclereids; both are shown below sclerenchyma.
+      - how: How does the shape of sclerenchyma fibers suit a supporting role? → Fibers are typically elongated cells with thick lignified walls. Their length and arrangement, often in bundles, help reinforce plant structures. _(outside the book)_
+  - prerequisites: sclerenchyma; lignified cell walls; elongated cells
+- **p008-i28** · diagram_label · classification · image · exam high
+  - Sclereids: child of Sclerenchyma.
+    - compare: How are sclereids classified relative to sclerenchyma fibers? → Both are subdivisions of sclerenchyma, and therefore belong within simple permanent tissue.
+      - how: How do sclereids differ in form from typical sclerenchyma fibers? → Sclereids are commonly shorter or more irregular in shape than elongated fibers. Their thick lignified walls contribute hardness, as in many seed coats and the gritty tissue of pear fruit. _(outside the book)_
+  - prerequisites: sclerenchyma; cell shape; lignified cell walls
+- **p008-i29** · diagram · structure · image · exam high
+  - A small upright plant-axis drawing shows green-highlighted meristematic regions. Apical meristem is indicated at the terminal shoot tip. Intercalary meristem is indicated at a transverse region near the base of a leaf/internodal region, below the tip. Lateral meristem is indicated by a longitudinal green strip along the side of the lower stem. Leader lines connect the three labels to their respective regions; the drawing shows positions, not a flow.
+    - where: What positional contrast does the plant-axis drawing show? → The apical meristem is at the shoot tip, the intercalary meristem is in a transverse region below the tip, and the lateral meristem runs along the side of the stem.
+      - how: How can this drawing help a learner distinguish the three meristems? → Use the geometry of the highlighted positions: terminal tip for apical, an inserted band between more mature regions for intercalary, and a longitudinal side region for lateral.
+      - why: Why is position useful for understanding the growth produced by meristems? → New cells are added where a meristem is active. Tip and intercalary activity contribute to extension, while lateral-meristem activity can add tissues that increase thickness. _(outside the book)_
+  - prerequisites: shoot tip; nodes and internodes; length versus girth; cell division
+- **p008-i30** · diagram_label · structure · image · exam high
+  - Apical meristem: leader line points to the green terminal region at the shoot apex.
+    - where: Where does the apical meristem label point in the drawing? → It points to the uppermost growing tip of the shoot, not to a band farther down the stem.
+      - how: How does activity at this tip produce growth in length? → Dividing cells supply new cells near the apex; their subsequent growth and differentiation extend the shoot. _(outside the book)_
+  - prerequisites: shoot apex; cell division and elongation
+- **p008-i31** · diagram_label · structure · image · exam high
+  - Intercalary meristem: leader line points to a green transverse band below the apex, near the base of a lateral leaf.
+    - where: Where is the intercalary meristem shown relative to the apical meristem? → It is shown lower down the plant axis as a transverse band, rather than at the terminal tip.
+      - why: Why is this called an intercalary position? → Intercalary refers to a meristem interposed between more mature tissues, commonly at leaf or internode bases. It can support growth even when it is not at the apex. _(outside the book)_
+  - prerequisites: leaf base; internode; mature tissue versus dividing tissue
+- **p008-i32** · diagram_label · structure · image · exam high
+  - Lateral meristem: the lower label identifies the longitudinal green region along the side of the lower stem.
+    - where: What feature identifies the lateral meristem in the drawing? → It is represented as a lengthwise region along the side of the stem, unlike the tip region or transverse intercalary band.
+      - how: How can a meristem running along a stem increase its girth? → Lateral meristems produce cells toward the inside or outside of a cylindrical axis. The addition of these tissues increases its thickness in plants undergoing secondary growth. _(outside the book)_
+  - prerequisites: stem axis and radial thickness; cell division; secondary growth
+
+### Page 9 · passed after 1 round(s)
+
+Meristematic tissues occur in growing plant regions and consist of actively dividing, closely packed cells. Apical meristems increase root and shoot length, lateral meristems increase girth, and intercalary meristems occur at leaf bases or internodes and contribute to elongation. Permanent tissues arise through differentiation, acquire specific roles, and perform protection, support, storage and photosynthesis. The page illustrates meristem positions and contrasts the general cellular features of meristematic and permanent tissues.
+
+- **p009-i1** · heading · other · both
+  - PLANT TISSUE
+- **p009-i2** · heading · other · both
+  - 1. MERISTEMATIC TISSUE:
+- **p009-i3** · list_point · fact · both · exam high
+  - • OCCURRENCE: Growing region of plant like root, shoot etc.
+    - where: Where does meristematic tissue occur? → It occurs in growing regions of the plant, including regions of roots and shoots. The later descriptions specify tips, positions beneath bark, and leaf bases or internodes.
+      - why: Why is meristematic tissue associated with growing regions? → Cell division supplies new cells. Those cells can enlarge and differentiate, so regions containing dividing cells provide the cellular material for plant growth. _(outside the book)_
+  - prerequisites: plant root and shoot; cell division produces new cells
+- **p009-i4** · list_point · fact · both · exam medium
+  - • Shape: Spherical, oval/rectangular.
+    - what: Which cell shapes are listed for meristematic tissue? → The page lists spherical, oval and rectangular shapes.
+      - how: How should cell shape be used when identifying a meristematic tissue? → Shape is one descriptive feature, not a sufficient identification by itself. It should be considered together with close packing, active division and occurrence in growing regions. _(outside the book)_
+  - prerequisites: cell; spherical, oval and rectangular shapes
+- **p009-i5** · list_point · cause_effect · both · exam high
+  - • Intercellular spaces: Absent, hence compactly packed.
+    - what: What is the arrangement of cells in meristematic tissue? → The cells are compactly packed, with intercellular spaces described as absent.
+      - why: Why does the absence of intercellular spaces mean compact packing? → Intercellular spaces are gaps between neighbouring cells. If these gaps are absent, neighbouring cells lie closely against one another rather than being separated by open spaces. _(outside the book)_
+  - prerequisites: neighbouring cells in a tissue; space between cells versus space within cells
+- **p009-i6** · list_point · fact · both · exam high
+  - • Vacuoles absent in it.
+    - what: What does the page state about vacuoles in meristematic tissue? → It describes vacuoles as absent, in contrast with the large central vacuole listed for permanent tissue.
+      - why: Why is the absence of a large vacuole associated with meristematic cells? → Young, actively dividing cells have dense cytoplasm and generally lack the large central vacuole characteristic of many mature plant cells. Small vacuoles may occur; the page's statement is a simplified contrast, not a universal claim that no vacuolar structures can exist. _(outside the book)_
+  - prerequisites: vacuole; cytoplasm; young and mature plant cells
+- **p009-i7** · list_point · fact · both · exam high
+  - • Focus only on cell division.
+• Highly active cells.
+    - what: What activity characterises meristematic cells? → The page describes them as highly active cells focused on cell division.
+      - how: How does active cell division contribute to growth? → Division increases the number of cells available to the plant. Subsequent enlargement and differentiation of the new cells contribute to growth and the formation of specialised tissues. _(outside the book)_
+      - why: Why should 'focus only on cell division' not be read as meaning the cells carry out no other processes? → Dividing cells still require respiration, synthesis of cellular materials and other maintenance processes. The phrase identifies their principal developmental role rather than excluding the processes needed to sustain division. _(outside the book)_
+  - prerequisites: cell division; cell number and cell size; cell respiration
+- **p009-i8** · diagram · comparison · image · exam high
+  - Illustration titled 'MERISTEMATIC TISSUE'. A leafy plant with roots shows apical meristems at the shoot and root tips, intercalary meristem near a leaf/node region, and lateral meristem along the stem. Blue arrows point upward above the shoot and downward below the root, indicating lengthwise growth. Two orange arrows point outward from the stem, indicating increase in girth. Small insets depict a shoot tip, root tip, a leaf base labelled 'Node', and a cylindrical stem.
+    - compare: How does the diagram distinguish the growth associated with apical and lateral meristems? → The apical regions are associated with arrows along the plant's length, whereas the lateral region is associated with outward arrows across the stem. This visually contrasts elongation with an increase in girth.
+      - how: How should the coloured arrows be interpreted? → They show directions of growth, not the movement of cells through the plant: the root and shoot extend lengthwise, while the stem thickens sideways. _(outside the book)_
+    - where: Which positions identify the three meristem types in this figure? → Apical meristems are at the shoot and root tips, intercalary meristem is indicated around a leaf/node region, and lateral meristem is indicated along the stem.
+  - prerequisites: root and shoot; length versus girth; leaf attachment to a stem
+- **p009-i9** · diagram_label · other · image
+  - MERISTEMATIC TISSUE — title identifying the tissue illustrated by the plant and its insets.
+- **p009-i10** · diagram_label · structure · image · exam medium
+  - Shoot — identifies the small shoot-tip inset above the upper 'Apical Meristem' label.
+    - what: What does the 'Shoot' inset identify? → It identifies the shoot-tip example associated with the upper apical-meristem label.
+      - how: How does this inset help explain shoot growth? → It directs attention to the growing tip rather than a mature leaf or an older stem region. Division at the shoot apex supplies cells that contribute to lengthwise shoot growth. _(outside the book)_
+  - prerequisites: plant shoot; shoot tip
+- **p009-i11** · diagram_label · fact · image · exam high
+  - Apical Meristem — upper label points to the shoot-tip region of the central plant.
+    - where: Where is the upper apical meristem shown? → At the shoot tip, beside the upward growth arrow.
+      - how: How is this location related to the growth shown? → Cells produced by the shoot apical meristem subsequently enlarge and differentiate, contributing to extension of the shoot. _(outside the book)_
+  - prerequisites: shoot tip; cell division
+- **p009-i12** · diagram_label · structure · image · exam high
+  - Node — identifies the attachment/base region beside the leaf inset.
+    - what: Which part does the inset label 'Node' identify? → It identifies the leaf attachment region illustrated beside the intercalary-meristem label.
+      - how: How is a node distinguished from an internode? → A node is a region of the stem where a leaf is attached; an internode is the segment between successive nodes. This distinction helps interpret the page's reference to intercalary meristems at leaf bases or internodes. _(outside the book)_
+  - prerequisites: stem; leaf attachment
+- **p009-i13** · diagram_label · fact · image · exam high
+  - Intercalary Meristem — identifies a meristematic region near the leaf base/node region of the central plant; a leaf-base inset accompanies the label.
+    - where: What position is indicated by the intercalary-meristem label? → The label identifies a region near a leaf base or node, away from the terminal shoot and root tips.
+      - how: How is this position different from an apical position? → An apical meristem is at an organ's growing tip, whereas an intercalary meristem is situated between more mature regions, such as at a leaf base or the base of an internode. _(outside the book)_
+  - prerequisites: leaf base; node and internode; apical position
+- **p009-i14** · diagram_label · fact · image · exam high
+  - Lateral Meristem — leader points to the side of the stem, near the outward orange growth arrows.
+    - where: Where is lateral meristem indicated in this figure? → Along the side of the stem, beside the arrows showing outward growth.
+      - how: How does its side position relate to increasing girth? → Production of additional tissues in lateral regions adds thickness across the stem rather than extending it at a terminal tip. _(outside the book)_
+  - prerequisites: stem; girth versus length
+- **p009-i15** · diagram_label · structure · image · exam medium
+  - Stem — identifies the cylindrical stem inset beneath the 'Lateral Meristem' label; the inset shows highlighted longitudinal regions near its outer part.
+    - what: What does the cylindrical inset represent? → It represents a stem and is placed with the lateral-meristem illustration.
+      - how: How does this inset complement the whole-plant drawing? → It emphasises a region extending along the stem's sides, helping distinguish lateral growth tissue from a small region confined to the shoot tip. _(outside the book)_
+  - prerequisites: stem as a three-dimensional organ; lateral position
+- **p009-i16** · diagram_label · structure · image · exam medium
+  - Root — identifies the small root-tip inset above the lower 'Apical Meristem' label.
+    - what: What organ is represented by the lower-left inset? → It is a root-tip example associated with the lower apical-meristem label.
+      - how: How should 'at the root tip' be understood anatomically? → The root apical meristem lies close to the tip and is protected by a root cap. The general tip label should not be taken to mean that the protective cap itself is the apical meristem. _(outside the book)_
+  - prerequisites: plant root; root tip
+- **p009-i17** · diagram_label · fact · image · exam high
+  - Apical Meristem — lower label points to the root-tip region of the central plant, near the downward blue arrow.
+    - where: Why is 'Apical Meristem' labelled a second time on the plant? → The diagram identifies an apical meristem at the root tip as well as at the shoot tip.
+      - how: How does the root apical meristem contribute to root extension? → It produces new cells; subsequent enlargement of cells behind the tip contributes to an increase in root length. _(outside the book)_
+  - prerequisites: root tip; cell division and enlargement
+- **p009-i18** · diagram · comparison · image · exam high
+  - Enlarged schematic of a leafy shoot with a terminal growing tip, horizontal bands along the stem, and longitudinal strips inside the lower stem. Purple leader lines connect 'Apical Meristem' to the terminal tip, the visibly misspelt and clipped intercalary label to a horizontal band at a leaf-attachment region, and 'Lateral Meristem' to a longitudinal strip along the stem. The lines are label pointers, not flow arrows.
+    - compare: How are the three meristem positions contrasted in the enlarged shoot diagram? → Apical meristem is at the terminal tip, intercalary meristem is represented by a band within the shoot near a leaf attachment, and lateral meristem is represented along the side of the stem.
+      - how: How should the bands, strips and leader lines be read? → The bands and strips distinguish positions of meristematic regions. The purple lines connect names to those regions; they do not show conversion of one meristem type into another or movement through the stem. _(outside the book)_
+  - prerequisites: shoot tip; leaf attachment; longitudinal versus transverse orientation
+- **p009-i19** · diagram_label · fact · image · exam high
+  - Apical Meristem — purple leader points to the terminal growing tip of the shoot.
+    - where: Which region does the top leader identify? → It identifies the apical meristem at the terminal shoot tip.
+      - how: How can it be distinguished from the intercalary region in the same figure? → The apical region occupies the terminal end, while the intercalary region is shown farther down the shoot as an intervening band.
+  - prerequisites: terminal tip; meristem location
+- **p009-i20** · diagram_label · fact · image · exam high
+  - Visible label approximately 'Intercalay Merister…' — intended Intercalary Meristem; purple leader points to a horizontal stem band near a leaf-attachment region.
+    - what: Which meristem does the clipped middle label identify? → Its position and the accompanying written list identify it as intercalary meristem, despite the misspelt and clipped image label.
+      - how: How does the leader's destination establish that it is not the apical or lateral meristem? → It ends at an intermediate horizontal band rather than the terminal tip or a longitudinal side region. Those three positions correspond to the three meristem types shown.
+  - prerequisites: apical, intercalary and lateral positions; leaf attachment
+- **p009-i21** · diagram_label · fact · image · exam high
+  - Lateral Meristem — purple leader points to a longitudinal strip along the lower stem.
+    - where: What does the lower leader identify? → It identifies lateral meristem extending along the side of the stem.
+      - how: How is the orientation of the strip related to lateral growth? → The strip represents meristem positioned along the stem's side. Activity in such lateral tissues adds thickness, unlike a terminal meristem whose products contribute to extension. _(outside the book)_
+  - prerequisites: stem sides; girth versus length
+- **p009-i22** · heading · other · both
+  - 1. APICAL MERISTEM
+- **p009-i23** · list_point · cause_effect · both · exam high
+  - • Present at root and shoot tip.
+• Length of root and shoot increases.
+    - where: Where is apical meristem present, and what growth is associated with it? → It is present at root and shoot tips and is associated with an increase in root and shoot length.
+      - how: How does a dividing region at the tip produce an increase in organ length? → The meristem produces new cells. Cells derived from it subsequently enlarge and differentiate, contributing to lengthwise growth of the root or shoot. _(outside the book)_
+    - compare: How does the growth effect of apical meristem compare with lateral meristem? → Apical meristem is associated with increasing length, while lateral meristem is associated with increasing girth of roots or stems.
+  - prerequisites: root and shoot tips; cell division; cell enlargement; length versus girth
+- **p009-i24** · heading · other · both
+  - 2. LATERAL MERISTEM
+- **p009-i25** · list_point · cause_effect · both · exam high
+  - • Present beneath bark.
+• Girth of root or stem increases.
+    - where: What location and growth effect does the page give for lateral meristem? → It describes lateral meristem as present beneath bark and associates it with increasing the girth of a root or stem.
+      - how: How does lateral-meristem activity increase girth rather than simply length? → Dividing tissue along the sides produces additional tissue layers that increase the organ's thickness. Girth refers to the distance around the organ and increases as the organ becomes thicker. _(outside the book)_
+    - compare: How can lateral meristem be distinguished from apical meristem in a matching question? → Match lateral meristem with beneath bark and increase in girth; match apical meristem with root and shoot tips and increase in length.
+  - prerequisites: bark; root and stem; girth; cell division
+- **p009-i26** · heading · other · both
+  - 3. INTERCALARY MERISTEM
+- **p009-i27** · list_point · cause_effect · both · exam high
+  - • Present at base of leaves or internodes.
+• Length of organs like leaves and nodes increases.
+    - where: Where does the page locate intercalary meristem, and what effect does it state? → It locates intercalary meristem at the base of leaves or internodes and states that the length of organs like leaves and 'nodes' increases.
+      - how: How does intercalary meristem contribute to elongation? → Its divisions supply new cells at a leaf base or an internodal region; enlargement of the resulting cells contributes to elongation even though the meristem is not at the terminal shoot tip. _(outside the book)_
+      - difference: Why must 'nodes' in the growth statement be distinguished from 'internodes'? → Nodes are leaf-attachment regions; internodes are the stem segments between nodes. The conventional description of intercalary growth concerns leaf and internode elongation, so the book's word 'nodes' should not erase this distinction. _(outside the book)_
+    - compare: How do apical and intercalary meristems differ despite both contributing to length? → The page places apical meristem at root and shoot tips, but intercalary meristem at leaf bases or internodes. Thus, a shared effect on length does not mean the locations are the same.
+  - prerequisites: leaf base; node versus internode; cell division and enlargement; terminal shoot tip
+- **p009-i28** · heading · other · both
+  - 2. PERMANENT TISSUES
+- **p009-i29** · list_point · comparison · both · exam high
+  - • Cell looses ability to divide.
+• Take up specific role.
+• Thus are permanent.
+    - what: What makes these tissues 'permanent' in the page's description? → Their cells lose the ability to divide and take up specific roles, rather than remaining focused on cell division.
+    - compare: How do permanent tissues differ from meristematic tissue? → Meristematic cells are described as highly active and focused on division; permanent cells are described as losing divisional ability and taking up particular roles.
+      - why: Why is adopting a specific role associated with becoming a permanent tissue? → As cells mature, their structures become suited to functions such as protection or storage rather than remaining in an actively proliferating state. 'Permanent' describes their differentiated condition, not a claim that the cells are indestructible or necessarily dead. _(outside the book)_
+      - exception: Is loss of division in permanent tissue an irreversible rule for every living cell? → Some living differentiated plant cells can regain the capacity to divide under suitable conditions. This is an explanatory qualification to the page's general contrast, not a replacement for that contrast. _(outside the book)_
+  - prerequisites: cell division; meristematic tissue; specialised cell function
+- **p009-i30** · definition · process · both · exam high
+  - • Differentiation: Process of taking up permanent shape, size, and function.
+    - what: What is differentiation according to this page? → It is the process through which a cell takes up a permanent shape, size and function.
+      - how: How does differentiation connect meristematic cells with permanent tissue? → Cells produced by meristems can mature and acquire structural features suited to particular roles. This transition from a dividing cell to a specialised cell helps form permanent tissue. _(outside the book)_
+      - why: Why does the definition include shape and size as well as function? → Specialisation concerns both what a cell does and the structure that enables it to do that work. Changes in cell dimensions, walls or internal organisation can make a cell better suited to its particular role. _(outside the book)_
+    - difference: How is differentiation different from cell division? → Cell division produces additional cells; differentiation is the acquisition of specialised structural and functional characteristics. An increase in cell number alone is not the same as specialisation. _(outside the book)_
+  - prerequisites: cell shape and size; cell function; meristematic cells; cell division
+- **p009-i31** · list_point · structure · both · exam high
+  - • Large central vacuole.
+    - what: What vacuole feature is listed for permanent tissue? → The page lists a large central vacuole, contrasting with its description of absent vacuoles in meristematic tissue.
+      - how: How can a large central vacuole help a mature plant cell? → A vacuole can store cell sap and dissolved substances. Water entering it contributes to turgor pressure against the cell wall, helping a living plant cell remain firm. _(outside the book)_
+      - exception: Should a large central vacuole be expected in every permanent-tissue cell? → No. It is a common feature of mature living plant cells, but some permanent-tissue cells are dead at maturity and lack living cell contents. The bullet is a generalisation. _(outside the book)_
+  - prerequisites: vacuole; cell sap; cell wall; living versus dead mature cells
+- **p009-i32** · list_point · structure · both · exam high
+  - • Cell wall is thick.
+    - what: What does the page state about the cell wall in permanent tissues? → It states that the cell wall is thick.
+      - how: How can wall thickening help a specialised plant cell? → A thicker or reinforced wall can increase resistance to deformation, contributing to support or protection, depending on the tissue. _(outside the book)_
+      - exception: Is a thick cell wall a universal feature of permanent tissues? → No. Permanent tissues include thin-walled cells, such as parenchyma cells, as well as cells with thicker walls. Wall thickness depends on the tissue's specialisation, so this bullet should not be used as an absolute identification rule. _(outside the book)_
+  - prerequisites: plant cell wall; mechanical support; specialised tissues
+- **p009-i33** · list_point · fact · both · exam high
+  - • Helps in protection, support, storage and Photosynthesis.
+    - which: Which functions of permanent tissues are listed? → The page lists protection, support, storage and photosynthesis.
+      - how: How do these functions illustrate the value of differentiation? → Different cells become suited to different jobs: surface tissues can protect, mechanically strengthened tissues can support, cells with suitable storage capacity can store materials, and cells containing chloroplasts can photosynthesise. _(outside the book)_
+      - why: Why should the four functions not be assigned to every permanent-tissue cell? → They describe the range of roles across permanent tissues. Differentiation produces a division of labour, so a cell's structures determine which roles it performs rather than requiring each cell to perform the whole list. _(outside the book)_
+  - prerequisites: protection and support in plants; storage of materials; photosynthesis; chloroplasts; cell specialisation
+
+### Page 10 · passed after 1 round(s)
+
+Simple permanent tissue consists of structurally and functionally similar cells of one type. Parenchyma occurs widely in plant organs, has thin-walled cells with intercellular spaces, stores food, and includes chlorophyll-containing chlorenchyma and buoyancy-associated aerenchyma. Collenchyma occurs in leaf stalks and stems of dicots; its living, elongated cells have irregular corner thickening and very little intercellular space, supporting strength and flexibility. An image-only figure compares parenchyma, collenchyma and sclerenchyma, including lignified walls, fibres, stone cells and lumens.
+
+- **p010-i1** · heading · other · both
+  - SIMPLE PERMANENT TISSUE
+- **p010-i2** · list_point · definition · both · exam high
+  - • Cells are structurally and functionally similar
+• One type of cells.
+    - what: What defines simple permanent tissue on this page? → It contains one type of cells whose structure and function are similar.
+      - why: Why is 'simple' used for this tissue? → It refers to cellular composition: the tissue is made of one broadly similar cell type, rather than several different cell types working together. _(outside the book)_
+    - compare: How does simple permanent tissue differ from complex permanent tissue? → Simple permanent tissue is composed of one cell type; complex permanent tissue, such as xylem or phloem, contains different cell types cooperating in a common function. _(outside the book)_
+  - prerequisites: cell; tissue; permanent tissue and differentiation
+- **p010-i3** · list_point · fact · both · exam high
+  - • Main function is to store food and perform photosynthesis.
+    - what: Which main functions does this introduction associate with simple permanent tissue? → Food storage and photosynthesis.
+      - how: How should this introductory statement be read alongside the rest of the page? → It is a broad introduction, not a claim that each simple permanent tissue performs both functions. The page specifically associates parenchyma with food storage and chlorophyll-containing parenchyma with photosynthesis, while collenchyma also provides mechanical strength and flexibility.
+      - how: How are food production and food storage different? → Photosynthesis produces organic food using light energy, whereas storage retains food for later use. A tissue can specialise in one of these roles without performing the other to the same extent. _(outside the book)_
+  - prerequisites: photosynthesis; food storage in plants
+- **p010-i4** · heading · other · both
+  - Types of Simple Permanent Tissues
+- **p010-i5** · heading · other · both
+  - 1. Parenchyma tissue:
+- **p010-i6** · list_point · fact · both · exam high
+  - • Occurrence: Stem, roots, leaves, flowers and fruits.
+    - where: Where does parenchyma occur according to the page? → In stems, roots, leaves, flowers and fruits.
+      - why: Why can parenchyma occur in so many plant organs? → It is a relatively unspecialised living tissue that can serve several roles, including storage and, where chloroplasts are present, photosynthesis. These requirements occur in different plant organs. _(outside the book)_
+  - prerequisites: stem; root; leaf; flower; fruit; plant organ versus tissue
+- **p010-i7** · list_point · structure · both · exam high
+  - • Cell structure: Thin cell wall, round polygonal or elongated in shape.
+    - what: What cell-wall and shape features identify parenchyma here? → Its cells have thin walls and may be round, polygonal or elongated.
+      - how: How does the range of shapes affect identification? → A round shape alone is not a sufficient identifying rule. Parenchyma should be recognised using a combination of features, especially its relatively thin walls and characteristic packing, rather than assuming one fixed shape. _(outside the book)_
+  - prerequisites: plant cell wall; cell shape
+- **p010-i8** · list_point · structure · both · exam high
+  - • Intercellular spaces are present.
+    - what: What are intercellular spaces? → They are gaps between neighbouring cells, rather than spaces inside an individual cell. _(outside the book)_
+      - how: How can these spaces help parenchyma function? → They provide pathways for gaseous movement through the tissue. When especially large and air-filled, as in aerenchyma, such spaces also contribute to buoyancy. _(outside the book)_
+    - compare: How does parenchyma compare with collenchyma in intercellular spacing on this page? → Parenchyma has intercellular spaces, whereas collenchyma has very little intercellular space.
+  - prerequisites: neighbouring plant cells; cell wall; gas exchange
+- **p010-i9** · heading · other · both
+  - Functions:
+- **p010-i10** · list_point · fact · both · exam high
+  - • Food storage tissue
+    - what: What storage role is assigned to parenchyma? → Parenchyma serves as a food storage tissue.
+      - how: How does storage support the plant? → Stored reserves can be mobilised when growing or respiring parts require food, including when immediate photosynthesis is insufficient. _(outside the book)_
+  - prerequisites: food reserves; plant growth; respiration
+- **p010-i11** · list_point · classification · both · exam high
+  - • In some cases→ it contains chlorophyll, thus called CHLORENCHYMA.
+    - what: What is chlorenchyma? → It is parenchyma that contains chlorophyll.
+    - compare: How does chlorenchyma differ from parenchyma described generally? → Chlorenchyma specifically has chlorophyll; the phrase 'in some cases' means chlorophyll is not being attributed to every parenchyma cell.
+      - how: How does chlorophyll enable this tissue's specialised role? → Chlorophyll in chloroplasts absorbs light energy used in photosynthesis, allowing this parenchyma to make food. _(outside the book)_
+  - prerequisites: parenchyma; chlorophyll; chloroplast; photosynthesis
+- **p010-i12** · list_point · cause_effect · both · exam high
+  - • When loosely packed→ Intercellular spaces are present, called AERENCHYMA: provides buoyancy to parts and helps them to flow.
+    - what: What structure and function does the page associate with aerenchyma? → It associates aerenchyma with loosely packed cells, intercellular spaces and buoyancy of plant parts.
+      - how: How do the spaces produce buoyancy? → Large air-filled spaces reduce the average density of the plant part and help it float in water. Aerenchyma is particularly associated with aquatic plants. _(outside the book)_
+    - compare: How should aerenchyma be distinguished from ordinary parenchyma and chlorenchyma? → Ordinary parenchyma may have intercellular spaces; aerenchyma has conspicuous air spaces associated with aeration and buoyancy. Chlorenchyma is distinguished instead by chlorophyll and photosynthesis. _(outside the book)_
+      - why: Why should the printed word 'flow' be explained cautiously? → Buoyancy concerns floating or being supported in a fluid, not the plant part itself flowing. The printed wording is retained, but the standard biological explanation is that aerenchyma helps plant parts float. _(outside the book)_
+  - prerequisites: parenchyma; intercellular spaces; air; density; buoyancy
+- **p010-i13** · diagram · structure · image · exam high
+  - Parenchyma Tissue: panel a shows a lengthwise view of loosely arranged, thin-walled cells, with gaps between cells; panel b shows a cross section with polygonal/rounded cell profiles. The label 'intracellular spaces' has leader lines directed to gaps between neighbouring cells. The legend below reads 'a lengthwise' and 'b cross section'. These are structural views, not stages in a process.
+    - what: What does the parenchyma illustration show? → It shows lengthwise and cross-sectional views of parenchyma, including thin cell outlines and spaces between adjacent cells.
+      - how: How should a learner interpret the spaces despite the printed label? → Follow the leader lines: they point between cells. Those spaces are intercellular; 'intracellular' would mean inside a cell and is not the correct term for the indicated feature. _(outside the book)_
+  - prerequisites: plant cell wall; intercellular space; lengthwise and cross-sectional views
+- **p010-i14** · diagram_label · structure · image · exam high
+  - intracellular spaces — printed label whose leader lines point to gaps between adjacent parenchyma cells.
+    - where: Where do the label's lines point? → They point to spaces between neighbouring cells in the parenchyma drawings.
+      - why: Why is the printed term misleading? → 'Intra-' means within, whereas 'inter-' means between. The indicated gaps are intercellular spaces, consistent with the main text, not intracellular spaces. _(outside the book)_
+  - prerequisites: cell boundary; inside versus between cells
+- **p010-i15** · diagram_label · structure · image · exam medium
+  - a; a lengthwise — identifies the lengthwise view of Parenchyma Tissue.
+    - which: Which parenchyma view does a identify? → The lengthwise view, as stated in the figure legend.
+      - how: How is a lengthwise view obtained? → It is a view along the length of the tissue or organ, rather than a cut across its length. _(outside the book)_
+  - prerequisites: orientation of a section
+- **p010-i16** · diagram_label · structure · image · exam medium
+  - b; b cross section — identifies the cross-sectional view of Parenchyma Tissue.
+    - which: Which parenchyma view does b identify? → The cross section.
+      - how: How does a cross section help explain the drawing? → A cut across the tissue exposes cell profiles and their packing, making the spaces between adjacent cells easier to recognise. _(outside the book)_
+  - prerequisites: orientation of a section; cell packing
+- **p010-i17** · diagram · structure · image · exam high
+  - Collenchyma Tissue: drawing a shows elongated, closely arranged cells in a lengthwise view; drawing b shows a cross-sectional cluster of cells with conspicuous wall thickening, especially at cell corners. A 'cell walls' label points to the walls in b. The drawings are complementary structural views, not a sequence.
+    - what: What structural features does the collenchyma figure emphasise? → Elongated cells, close packing and thickened cell-wall regions visible in cross section.
+      - how: How do the two views complement each other? → The lengthwise view reveals elongation, while the cross-sectional view makes wall thickening and close packing easier to see. _(outside the book)_
+    - compare: How does this drawing differ from the neighbouring parenchyma drawing? → Collenchyma shows stronger wall thickening and more closely packed cells; parenchyma shows thinner walls and more evident spaces.
+  - prerequisites: cell wall; cell packing; lengthwise and cross-sectional views
+- **p010-i18** · diagram_label · structure · image · exam high
+  - cell walls — points to the wall regions of cells in collenchyma drawing b.
+    - what: What structure is labelled in the collenchyma cross section? → The cell walls surrounding the cell interiors.
+      - how: How do collenchyma walls differ from uniformly thin walls? → They show uneven thickening, especially at the corners where neighbouring cells meet, providing reinforcement without making the tissue as rigid as heavily lignified support tissue. _(outside the book)_
+  - prerequisites: plant cell wall; cell corners
+- **p010-i19** · diagram_label · structure · image · exam medium
+  - a — identifies the elongated, lengthwise depiction of Collenchyma Tissue.
+    - which: Which collenchyma drawing is marked a? → The drawing of elongated cells viewed along their length.
+      - how: How does this view aid identification? → It makes the long cell shape apparent; this feature is less obvious when cells are cut across. _(outside the book)_
+  - prerequisites: elongated cell; section orientation
+- **p010-i20** · diagram_label · structure · image · exam medium
+  - b — identifies the cross-sectional depiction of Collenchyma Tissue.
+    - which: Which collenchyma drawing is marked b? → The compact cluster of cell profiles in cross section.
+      - how: How does this view help reveal corner thickening? → Cutting across the cells exposes the wall outlines and the junctions between cells, where uneven thickening is easiest to compare. _(outside the book)_
+  - prerequisites: cross section; cell-wall thickening
+- **p010-i21** · diagram · classification · image · exam high
+  - Sclerenchyma Tissue: a is a long, narrow, tapering fibre; b is a compact, irregular stone cell with a thick patterned wall. 'cell walls with lignin' branches to wall regions of both forms. 'lumen' has leader lines to internal cavities of the fibre and stone cell. The two drawings represent different sclerenchyma cell forms, not a sequence.
+    - which: Which two sclerenchyma forms are illustrated? → A fibre and a stone cell.
+    - compare: How do their illustrated shapes differ? → The fibre is long, narrow and tapering, whereas the stone cell is compact and irregular in outline.
+      - how: How does the shared wall label explain their supporting nature? → Lignin reinforces cell walls, making them hard and resistant to deformation. Both forms therefore provide strong structural reinforcement despite their different shapes. _(outside the book)_
+  - prerequisites: cell wall; cell cavity; lignin; support tissue
+- **p010-i22** · diagram_label · structure · image · exam high
+  - cell walls with lignin — branched leader lines point to wall regions of the fibre and stone cell.
+    - what: What wall material is explicitly labelled in sclerenchyma? → Lignin in the cell walls.
+      - how: How does lignin affect the wall? → Lignin strengthens and stiffens the wall, helping it resist compression and provide mechanical support. _(outside the book)_
+  - prerequisites: plant cell wall; wall reinforcement
+- **p010-i23** · diagram_label · classification · image · exam high
+  - stone cell — identifies the compact, irregular sclerenchyma cell shown as b.
+    - what: What does 'stone cell' name in this figure? → The compact, irregular sclerenchyma cell on the right.
+    - compare: How does it differ in shape from the fibre? → The stone cell is relatively compact, while the fibre is long and slender.
+      - why: Why is the name 'stone cell' appropriate? → Stone cells, or sclereids, possess very thick, lignified walls that make them hard. Their name describes this hardness rather than implying that they are mineral stones. _(outside the book)_
+  - prerequisites: sclerenchyma; lignified cell wall
+- **p010-i24** · diagram_label · classification · image · exam high
+  - fiber — identifies the long, narrow, tapering sclerenchyma cell shown as a.
+    - which: Which structure does the printed label 'fiber' identify? → The long, slender sclerenchyma cell.
+    - compare: How is the fibre visually distinguished from the stone cell? → It has a much more elongated, tapering form, unlike the compact stone cell.
+      - how: How can elongated fibres contribute to support? → Their long, reinforced walls help bear pulling forces, especially when fibres occur together in supporting strands or bundles. _(outside the book)_
+  - prerequisites: sclerenchyma; elongated cell; mechanical support
+- **p010-i25** · diagram_label · definition · image · exam high
+  - lumen — leader lines indicate internal cavities bounded by the thick walls of the fibre and stone cell.
+    - what: What is a lumen in this cell diagram? → The internal cavity enclosed by the cell wall. _(outside the book)_
+      - how: How does wall thickening affect the lumen? → As wall material accumulates inward, the cavity may become narrow relative to the overall cell size. The thick wall and the lumen are distinct parts of the cell profile. _(outside the book)_
+    - difference: How is a lumen different from an intercellular space? → A lumen is inside a cell's wall boundary; an intercellular space lies between neighbouring cells. _(outside the book)_
+  - prerequisites: cell wall; inside versus between cells
+- **p010-i26** · diagram_label · structure · image · exam medium
+  - a — identifies the sclerenchyma fibre.
+    - which: What does a identify in the sclerenchyma panel? → The fibre.
+      - how: How should a be interpreted without misusing the nearby legend? → Use the local shape and the 'fiber' label: a identifies a fibre here. It should not be treated as proof that b is a cross section of that same fibre. _(outside the book)_
+  - prerequisites: local diagram labels; sclerenchyma fibre
+- **p010-i27** · diagram_label · structure · image · exam medium
+  - b — identifies the stone cell.
+    - which: What does b identify in the sclerenchyma panel? → The stone cell.
+      - why: Why should b not be described simply as a fibre cross section? → The local label explicitly calls it a stone cell. Fibres and stone cells are different sclerenchyma forms, so the local identification takes precedence over any assumed extension of the section legend. _(outside the book)_
+  - prerequisites: stone cell; fibre; diagram legends
+- **p010-i28** · heading · other · both
+  - 2. Collenchyma Tissue:
+- **p010-i29** · paragraph · fact · both · exam high
+  - Occurrence: In leaf stalks and stems of dicots.
+    - where: Where does collenchyma occur according to the page? → In leaf stalks and stems of dicots.
+      - why: Why is flexible support useful at these locations? → Leaf stalks and young stems must support plant parts while tolerating movement and continued growth. Collenchyma provides reinforcement without the rigidity of heavily lignified tissue. _(outside the book)_
+  - prerequisites: leaf stalk or petiole; stem; dicotyledonous plant; mechanical support
+- **p010-i30** · heading · other · both
+  - Structure of cells:
+- **p010-i31** · list_point · structure · both · exam high
+  - • Living
+• Elongated
+• Irregularly thickened at corners.
+• Very little intercellular space.
+    - what: What four cellular features describe collenchyma? → Its cells are living and elongated, have irregular thickening at their corners, and have very little intercellular space.
+      - how: How does corner thickening differ from uniformly thick walls? → The wall is reinforced unevenly, with more material at cell corners rather than the same thickness around the whole cell. _(outside the book)_
+      - why: Why can these cells provide support and still permit flexibility? → Their thickened primary walls, rich in cellulose and pectic substances, reinforce the tissue while remaining extensible. Living cells can maintain and modify these walls as the supported part grows. _(outside the book)_
+    - compare: How does this structural description distinguish collenchyma from parenchyma? → The page describes parenchyma as thin-walled with intercellular spaces, whereas collenchyma is corner-thickened with very little intercellular space. Both descriptions permit elongated cells, so elongation alone does not distinguish them.
+  - prerequisites: living plant cell; plant cell wall; cell corners; intercellular space; cellulose
+- **p010-i32** · heading · other · both
+  - Functions:
+- **p010-i33** · list_point · fact · both · exam high
+  -  Provides mechanical strength
+    - what: What supporting function does collenchyma perform? → It provides mechanical strength.
+      - how: How is this mechanical strength related to its cell structure? → The reinforced walls of closely packed, elongated cells help bear forces acting on the organ, reducing the likelihood of damage or collapse. _(outside the book)_
+  - prerequisites: cell-wall thickening; forces on plant organs; collenchyma structure
+- **p010-i34** · list_point · fact · both · exam high
+  -  Provides flexibility and photosynthesis
+    - what: Which two additional functions are listed for collenchyma? → Flexibility and photosynthesis.
+      - how: How can a supporting tissue remain flexible? → Support need not mean complete rigidity. Collenchyma's extensible, unevenly thickened primary walls allow a supported part to bend while resisting damage. _(outside the book)_
+      - how: Under what condition can collenchyma carry out photosynthesis? → Its living cells can photosynthesise when they contain chloroplasts with chlorophyll. The listed function should not be read as evidence that each collenchyma cell necessarily photosynthesises. _(outside the book)_
+  - prerequisites: flexibility versus rigidity; chloroplast; chlorophyll; photosynthesis
+- **p010-i35** · list_point · cause_effect · both · exam high
+  -  Allowed bending of parts.
+    - what: What does collenchyma allow plant parts to do? → It allows them to bend.
+      - how: How is bending compatible with mechanical strength? → A tissue may deform under a force without breaking. Collenchyma's flexible reinforcement allows movement while helping maintain the integrity of the plant part. _(outside the book)_
+      - difference: Is allowing bending the same as actively causing a plant part to bend? → No. This statement describes a mechanical property that permits bending; it does not identify collenchyma as the active cause of growth movements or coiling. _(outside the book)_
+  - prerequisites: mechanical strength; flexibility; deformation versus breakage
+- **p010-i36** · example · example · both · exam high
+  - E.g. Tendrils and stems of climbers
+    - which: Which examples illustrate bending and flexibility in this section? → Tendrils and stems of climbers.
+      - why: Why are these useful examples of flexible support? → Climbing parts need to bend around or adjust to supports while maintaining structural integrity. Collenchyma's combination of support and flexibility helps explain this mechanical requirement. _(outside the book)_
+      - how: How should this example be kept distinct from the mechanism of tendril coiling? → The example illustrates a tissue property. Directional coiling involves growth responses, so the presence of flexible supporting tissue should not be mistaken for a complete explanation of the coiling response. _(outside the book)_
+  - prerequisites: tendril; climbing plant; flexible support
+
+### Page 11 · failed after 1 round(s)
+
+Sclerenchyma occurs around vascular bundles, in leaf veins and in hard seed and nut coverings; its elongated, dead, closely packed cells have heavily lignified walls and provide protection and mechanical strength. Complex permanent tissues contain different cooperating cell types and transport water, minerals and food. Their two types are xylem and phloem. Xylem contains tracheids, vessels, xylem parenchyma and xylem fibres, with roles in vertical conduction, food storage, sideways conduction and support. Two figures show these components and additional phloem structures, including sieve tubes, companion cells, sieve plates and plasmodesmata.
+
+- **p011-i1** · heading · other · both
+  - 3. Sclerenchyma Tissue
+- **p011-i2** · heading · other · both
+  - Occurrence:
+- **p011-i3** · list_point · fact · both · exam high
+  - • In stems around vascular bundles.
+    - where: Where is sclerenchyma located in stems? → It occurs around vascular bundles, placing the strengthening tissue near the stem's conducting tissues.
+      - why: Why is a strengthening tissue useful around vascular bundles? → Rigid tissue around a conducting bundle helps reinforce the stem and protects the conducting region against mechanical deformation. _(outside the book)_
+  - prerequisites: stem; vascular bundle as a group of conducting tissues
+- **p011-i4** · list_point · fact · both · exam high
+  - • In veins of leaves.
+    - where: Which part of a leaf contains sclerenchyma? → The page identifies the veins of leaves as a site of sclerenchyma.
+      - how: How does sclerenchyma in a leaf vein help the leaf? → Its thick, rigid walls help reinforce the vein and support the leaf blade around its conducting network. _(outside the book)_
+  - prerequisites: leaf blade; leaf veins
+- **p011-i5** · list_point · fact · both · exam high
+  - • Hard covering of seeds and nuts.
+    - where: What hard plant coverings contain sclerenchyma? → The hard coverings of seeds and nuts contain sclerenchyma.
+      - why: Why is sclerenchyma suitable for a protective covering? → Its heavily thickened walls resist mechanical damage and make a covering hard and protective. _(outside the book)_
+  - prerequisites: seed; protective covering; cell wall
+- **p011-i6** · example · example · both · exam high
+  - Eg. Husk of coconut.
+    - which: Which familiar example of sclerenchyma is supplied? → The husk of coconut is the example.
+      - how: How does coconut husk illustrate sclerenchyma's properties? → Its tough fibres illustrate how thick-walled sclerenchyma can provide mechanical strength and protection. _(outside the book)_
+  - prerequisites: coconut husk; mechanical strength
+- **p011-i7** · heading · other · both
+  - Structure:
+- **p011-i8** · list_point · structure · both · exam high
+  -  Long and narrow
+    - what: What cell shape does the page associate with sclerenchyma? → It describes the cells as long and narrow.
+      - how: How does an elongated shape assist support? → Elongated supporting cells can run along a plant part and reinforce it over a length. This description is particularly characteristic of sclerenchyma fibres. _(outside the book)_
+    - exception: Does this shape describe every form of sclerenchyma? → No. Standard classification also includes sclereids, which can be short or irregularly shaped; the page gives the elongated description without discussing those forms. _(outside the book)_
+  - prerequisites: cell shape; plant support
+- **p011-i9** · list_point · structure · both · exam high
+  -  Walls are thickened by LIGNINS
+    - what: What substance thickens sclerenchyma walls? → The page names LIGNINS as the wall-thickening material.
+      - how: How does lignification contribute to mechanical strength? → Lignin is deposited in the cell wall, making it more rigid and resistant to deformation. A thick lignified wall can provide support even after the living cell contents are lost. _(outside the book)_
+  - prerequisites: plant cell wall; wall deposition
+- **p011-i10** · list_point · cause_effect · both · exam high
+  -  Cell cavity is absent due to excessive thickness.
+    - what: What relationship does the book state between wall thickness and the cell cavity? → It states that excessive wall thickness makes the cell cavity absent.
+      - how: How should a teacher explain wall thickening and the cavity accurately? → The cavity inside a cell is its lumen. As wall material is deposited inward, the lumen becomes smaller. Sclerenchyma commonly retains a very narrow lumen, so the page's word 'absent' should not be presented as a universal anatomical rule. _(outside the book)_
+  - prerequisites: cell wall; cell lumen; wall thickness
+- **p011-i11** · list_point · structure · both · exam high
+  -  Intercellular spaces absent.
+    - what: What does the page say about spaces between sclerenchyma cells? → It states that intercellular spaces are absent.
+      - how: How is an intercellular space different from a cell cavity? → An intercellular space lies between neighbouring cells; the cell cavity or lumen lies inside a cell wall. Close packing concerns spaces between cells, whereas wall thickening reduces the internal lumen. _(outside the book)_
+  - prerequisites: neighbouring cells; cell wall; cell lumen
+- **p011-i12** · list_point · fact · both · exam high
+  -  Cells are dead.
+    - what: What is the living status of sclerenchyma cells as described here? → The page describes sclerenchyma cells as dead.
+      - how: How can a dead cell still contribute to a plant? → At maturity, the living contents can be lost while the thick lignified wall remains. Mechanical support depends on that wall, not on continued metabolic activity inside the cell. _(outside the book)_
+  - prerequisites: living cell contents; cell wall; cell maturity
+- **p011-i13** · heading · other · both
+  - Function:
+- **p011-i14** · list_point · fact · both · exam high
+  - • Provide strength to plant cell.
+    - what: What strengthening role is stated for sclerenchyma? → The page says it provides strength to the plant cell.
+      - how: How does sclerenchyma provide this strength? → Its thick lignified walls resist bending and deformation, helping reinforce the plant part in which the cells occur. _(outside the book)_
+  - prerequisites: lignified cell wall; mechanical support
+- **p011-i15** · list_point · fact · both · exam high
+  - • Provides protection and mechanical strength
+    - what: Which two functions are paired here? → Protection and mechanical strength are paired as functions of sclerenchyma.
+      - how: How do the listed locations illustrate both functions? → In stems and leaf veins, rigid walls reinforce the plant part. In seed and nut coverings, similar wall rigidity also creates a protective barrier against physical damage. _(outside the book)_
+  - prerequisites: sclerenchyma locations; lignified walls
+- **p011-i16** · heading · other · both
+  - COMPLEX PERMANENT TISSUE
+- **p011-i17** · definition · definition · both · exam high
+  - • Made up of more than one type of cells.
+    - what: What makes a permanent tissue complex? → It is made up of more than one type of cell.
+    - difference: How does complex tissue differ from simple permanent tissue? → Complex permanent tissue contains different cell types, whereas simple permanent tissue is made of one principal kind of cell. _(outside the book)_
+      - why: Why can different cell types still count as one tissue? → Their identity as a tissue comes from coordinated performance of a common function, not from requiring identical cells.
+  - prerequisites: cell type; tissue; permanent tissue
+- **p011-i18** · list_point · fact · both · exam high
+  - • Cells co-ordinate to perform common function.
+    - what: What unites the different cells of complex permanent tissue? → They coordinate to perform a common function.
+      - how: How does xylem illustrate coordinated work by unlike cells? → Tracheids and vessels conduct water and minerals vertically, parenchyma stores food and helps sideways water conduction, and fibres provide support. These are complementary contributions within xylem.
+  - prerequisites: different cell types; division of labour within a tissue
+- **p011-i19** · heading · other · both
+  - Functions:
+- **p011-i20** · list_point · process · both · exam high
+  - • Transport water, minerals and food materials.
+    - what: What materials do complex permanent tissues transport? → They transport water, minerals and food materials.
+      - how: How are these transport roles divided between the two complex tissues? → Xylem mainly transports water and dissolved minerals, while phloem transports organic food materials. The statement describes the combined transport roles of the two tissues, not an identical role for each. _(outside the book)_
+  - prerequisites: water and dissolved minerals; food made by plants; transport within a plant
+- **p011-i21** · list_point · classification · both · exam high
+  - Two types:
+1. Xylem
+2. Phloem
+    - which: What are the two types of complex permanent tissue? → Xylem and phloem are the two types.
+    - compare: What classification do xylem and phloem share? → Both belong to complex permanent tissue, whose different cell types coordinate to carry out common functions.
+      - why: Why is it useful to separate them as two tissues? → They have different cellular arrangements and major transported materials: xylem is associated with water and mineral conduction, and phloem with food transport. _(outside the book)_
+  - prerequisites: complex permanent tissue; classification
+- **p011-i22** · diagram · structure · image · exam high
+  - Figure headed 'Complex Permanent Tissue' places Xylem on the left and Phloem on the right. The green xylem drawing groups elongated conducting and supporting cells, with leader arrows to Xylem Parenchyma, Vessels, Tracheids and Xylem Fibres. The phloem drawing places broad, end-to-end sieve-tube cells beside narrower cells, with leader arrows to Phloem Parenchyma, Companion cell, Phloem fibres and Sieve tube. 'Xylem' and 'Phloem' appear beneath the respective drawings. The arrows identify parts; they do not indicate transport direction.
+    - what: What does this figure show about complex permanent tissues? → Each tissue is drawn as a group of visibly different cell components: four labelled components in the xylem drawing and four in the phloem drawing.
+      - how: How should a student read the arrows? → Follow each leader from the cell or structure to its printed name. These are identification arrows, not a flow diagram showing movement of water or food.
+    - compare: What structural contrast can be recognised between the drawings? → The xylem drawing labels vessels and tracheids, whereas the phloem drawing labels a sieve tube and companion cell. Both also label parenchyma and fibres.
+  - prerequisites: xylem; phloem; cell type; diagram leader arrow
+- **p011-i23** · caption · other · image
+  - Complex Permanent Tissue
+- **p011-i24** · diagram_label · structure · image · exam high
+  - Xylem Parenchyma — leader points to the narrow cellular region at the upper right of the xylem drawing.
+    - what: Which xylem component does this label identify? → It identifies xylem parenchyma, a component that stores food and helps sideways conduction of water.
+      - how: How does this component extend xylem's role beyond vertical transport? → It contributes storage and lateral movement, rather than serving mainly as the long vertical conducting tubes.
+  - prerequisites: parenchyma; xylem; lateral versus vertical direction
+- **p011-i25** · diagram_label · structure · image · exam high
+  - Vessels — leader points to the broad tubular component in the xylem drawing.
+    - what: What conducting component is labelled Vessels? → The label identifies one of the tubular, thick-walled xylem components involved in vertical water and mineral transport.
+      - how: How is a vessel suited to longitudinal conduction? → Vessel elements join end to end, with perforations in their end walls providing a route for water through the vessel. _(outside the book)_
+  - prerequisites: xylem; tube; water conduction
+- **p011-i26** · diagram_label · structure · image · exam high
+  - Tracheids — leader points to the elongated, tapering component toward the left of the xylem drawing.
+    - what: Which component is identified by Tracheids? → Tracheids are one of the xylem components named here and are associated with vertical transport of water and minerals.
+      - how: How does water move from one tracheid to another? → It passes through pits in the walls between adjacent tracheids. Tracheids do not form the same perforated end-to-end vessel arrangement as vessel elements. _(outside the book)_
+  - prerequisites: xylem; cell wall; water conduction
+- **p011-i27** · diagram_label · structure · image · exam high
+  - Xylem Fibres — leader points to the narrow elongated supporting component in the xylem drawing.
+    - what: What is the main role of the labelled xylem fibres? → Their main function is support.
+      - how: How do fibres support the conducting tissue? → Their elongated form and thick lignified walls reinforce the tissue mechanically. _(outside the book)_
+  - prerequisites: fibre; lignified wall; mechanical support
+- **p011-i28** · diagram_label · classification · image · exam high
+  - Xylem — names the left-hand group of tracheids, vessels, xylem parenchyma and xylem fibres.
+    - which: Which of the paired drawings is xylem? → The left drawing, containing the four labelled xylem components, is xylem.
+    - compare: How can its labels distinguish it from phloem? → Vessels and tracheids identify the xylem side; the other drawing instead labels a sieve tube and companion cell.
+      - why: Why is this group called a complex tissue? → It combines several cell types rather than a single type.
+  - prerequisites: complex tissue; xylem components
+- **p011-i29** · diagram_label · structure · image · exam high
+  - Phloem Parenchyma — leader points to the small green cells along the outer right side of the phloem drawing.
+    - what: What component of phloem is identified here? → The label identifies phloem parenchyma.
+      - how: How does phloem parenchyma contribute to the tissue? → These living parenchyma cells participate in storage and lateral movement of organic materials within the phloem region. _(outside the book)_
+  - prerequisites: phloem; parenchyma; organic food materials
+- **p011-i30** · diagram_label · structure · image · exam high
+  - Companion cell — leader points to the narrow green cell beside the broad sieve tube.
+    - where: Where is the companion cell shown? → It is shown closely alongside a sieve tube in the phloem drawing.
+      - why: Why is this close association important? → A mature sieve-tube element lacks a nucleus and depends on associated companion cells for metabolic support and assistance with sugar transport. _(outside the book)_
+  - prerequisites: phloem; sieve-tube element; nucleus
+- **p011-i31** · diagram_label · structure · image · exam high
+  - Phloem fibres — leader points to the slender elongated supporting component beside the sieve tube.
+    - what: Which phloem component is labelled as fibres? → The figure labels phloem fibres as a component of phloem.
+      - how: How do phloem fibres contribute differently from sieve tubes? → Phloem fibres are thick-walled supporting cells, whereas sieve tubes are the main food-conducting structures. _(outside the book)_
+  - prerequisites: phloem; fibre; support versus conduction
+- **p011-i32** · diagram_label · structure · image · exam high
+  - Sieve tube — leader points to the broad central tubular structure with perforated transverse end walls.
+    - what: What does the Sieve tube label identify? → It identifies the broad tube-like structure in the phloem drawing, with porous partitions between its successive sections.
+      - how: How do those sections form a conducting pathway? → Sieve-tube elements align end to end, and sieve-plate pores allow phloem sap to pass from one element to the next. _(outside the book)_
+  - prerequisites: phloem; cell end wall; pore
+- **p011-i33** · diagram_label · classification · image · exam high
+  - Phloem — names the right-hand drawing containing phloem parenchyma, companion cell, phloem fibres and sieve tube.
+    - which: Which group in this figure is phloem? → The right-hand group with the sieve tube and companion cell is phloem.
+    - compare: What named components distinguish it from the xylem drawing? → Sieve tube and companion cell occur as labels on the phloem side, while vessels and tracheids label the xylem side.
+      - why: Why does this drawing illustrate complex permanent tissue? → Several unlike cell components are grouped together as one tissue.
+  - prerequisites: complex tissue; phloem components
+- **p011-i34** · diagram · comparison · image · exam high
+  - Boxed figure compares 'Xylem structure' on the left with 'Phloem structure' on the right. Pink xylem views show an isolated vessel element with pitted walls, a group of elongated tracheids with pitted walls, and a composite arrangement labelled xylem parenchyma cell, vessel element and tracheid. Blue phloem views show sieve-tube elements with sieve plates and associated companion and phloem parenchyma cells; a nucleus is marked in the narrow associated cell. The right-hand phloem view additionally labels plasmodesmata. Leader lines identify structures, not flow directions. Small a./b. marks identify subfigures.
+    - compare: What is being compared in this boxed figure? → The structural components of xylem and phloem are placed side by side, with separate and grouped views of their cells.
+      - how: How can the structures be distinguished visually? → The xylem side labels pitted walls, vessels and tracheids. The phloem side labels sieve plates, sieve-tube elements, companion cells and plasmodesmata.
+      - why: Why should pitted walls and sieve plates not be treated as the same feature? → Xylem pits are regions where the secondary wall is absent, permitting movement across the remaining wall. Sieve plates are porous end-wall regions connecting successive living sieve-tube elements. _(outside the book)_
+  - prerequisites: xylem; phloem; cell wall; leader line
+- **p011-i35** · diagram_label · other · image
+  - Xylem structure — names the pink left-hand set of cell drawings.
+- **p011-i36** · diagram_label · structure · image · exam high
+  - vessel elements — leader points to the isolated elongated pink conducting cell.
+    - what: What is identified in the far-left xylem view? → The drawing is labelled vessel elements.
+      - how: How is a vessel element related to a vessel? → A vessel element is an individual cell; successive elements join end to end to form a vessel. _(outside the book)_
+  - prerequisites: cell; xylem vessel
+- **p011-i37** · diagram_label · structure · image · exam high
+  - pitted walls — leader points to the marked wall regions of the isolated vessel element.
+    - where: Where are pitted walls labelled in this view? → They are labelled on the wall of the isolated vessel element.
+      - how: How do pits assist movement of water? → Pits lack the thick secondary wall deposition found around them, allowing water to move across pit membranes between adjacent cells. _(outside the book)_
+  - prerequisites: cell wall; secondary wall; adjacent cells
+- **p011-i38** · diagram_label · structure · image · exam high
+  - tracheids — leader points to the grouped elongated narrow xylem cells.
+    - what: Which cells are named in the narrow grouped xylem view? → They are labelled tracheids.
+      - how: How do tracheids combine conduction with reinforcement? → Their hollow interior and wall pits permit water movement, while their lignified walls also strengthen the tissue. _(outside the book)_
+  - prerequisites: xylem; lignified wall; pit
+- **p011-i39** · diagram_label · structure · image · exam high
+  - pitted walls — leader points to wall markings on the grouped tracheids.
+    - which: Which second xylem component is shown with pitted walls? → Tracheids, as well as the vessel element, are shown with pitted walls.
+      - why: Why are pits important where neighbouring tracheids overlap? → They provide lower-resistance routes across adjacent walls so water can pass from one tracheid to another. _(outside the book)_
+  - prerequisites: tracheid; wall pit; water movement between cells
+- **p011-i40** · diagram_label · structure · image · exam high
+  - xylem parenchyma cell — leader points to the narrow column of cells alongside the larger conducting elements.
+    - what: What is the labelled cellular column beside the conducting elements? → It is labelled xylem parenchyma cell.
+      - how: How does its role differ from that of a vessel element? → The page assigns storage and sideways water conduction to parenchyma, while vessels participate in vertical water and mineral conduction.
+  - prerequisites: xylem parenchyma; vessel; lateral and vertical conduction
+- **p011-i41** · diagram_label · structure · image · exam high
+  - vessel element — leader points to the broad pink tubular cell in the composite xylem view.
+    - where: Where is the vessel element shown in the composite view? → It is shown among the other xylem cells as the broader tubular component.
+      - how: How does seeing it beside other cells clarify xylem organisation? → It shows that the conducting vessel component is part of a tissue containing different cell types, not the whole of xylem by itself.
+  - prerequisites: vessel element; complex tissue
+- **p011-i42** · diagram_label · structure · image · exam high
+  - tracheid — leader points to a narrow elongated cell alongside the vessel element.
+    - what: Which conducting cell is labelled beside the vessel element? → A tracheid is labelled beside it.
+      - how: How does a tracheid differ structurally from a vessel element? → A tracheid is generally elongated with tapering ends and conducts between cells through pits; vessel elements join through perforated end walls into vessels. _(outside the book)_
+  - prerequisites: tracheid; vessel element; pit; end wall
+- **p011-i43** · diagram_label · other · image
+  - Phloem structure — names the blue right-hand set of cell drawings.
+- **p011-i44** · diagram_label · structure · image · exam high
+  - sieve plate — leader points to the end-wall region at the upper end of the blue sieve-tube element.
+    - where: Where is the sieve plate located in this view? → It is labelled at the end of the sieve-tube element.
+      - how: How does a sieve plate enable transport? → Its pores permit phloem sap to pass between successive sieve-tube elements while an end-wall structure remains. _(outside the book)_
+  - prerequisites: sieve-tube element; end wall; pore
+- **p011-i45** · diagram_label · structure · image · exam high
+  - sieve-tube element — leader points to the elongated blue conducting cell.
+    - what: What is the blue conducting cell labelled here? → It is a sieve-tube element.
+      - how: How is a sieve-tube element related to a sieve tube? → It is one cell in a longitudinal series; the connected series forms the sieve tube. _(outside the book)_
+  - prerequisites: cell; sieve tube; longitudinal series
+- **p011-i46** · diagram_label · structure · image · exam high
+  - companion cell — leader points to the narrow cell closely associated with the sieve-tube element.
+    - where: What is the companion cell's position relative to the sieve-tube element? → It lies alongside the sieve-tube element.
+      - how: How does a companion cell assist a sieve-tube element? → It provides metabolic support and helps regulate the loading or unloading of sugars associated with phloem transport. _(outside the book)_
+  - prerequisites: sieve-tube element; cell metabolism; sugar transport
+- **p011-i47** · diagram_label · structure · image · exam high
+  - nucleus — leader points to the dark oval in the narrow cell associated with the sieve-tube element.
+    - what: What organelle is marked by the nucleus label? → The dark oval in the narrow associated cell is identified as the nucleus.
+      - why: Why is the nucleus important when discussing companion cells and sieve-tube elements? → Companion cells retain a nucleus, whereas mature sieve-tube elements lack one. The nucleated companion cell helps maintain the functioning of its associated sieve-tube element. _(outside the book)_
+  - prerequisites: nucleus; companion cell; mature sieve-tube element
+- **p011-i48** · diagram_label · structure · image · exam high
+  - phloem parenchyma cells — label identifies the parenchyma component associated with the left phloem view.
+    - which: Which additional cell type is labelled in this phloem view? → Phloem parenchyma cells are named in addition to the sieve-tube element and companion cell.
+      - how: How do these cells contribute to phloem? → They provide storage and participate in movement of organic materials across the tissue. _(outside the book)_
+  - prerequisites: parenchyma; phloem; storage
+- **p011-i49** · diagram_label · structure · image · exam high
+  - companion cell — leader points to the narrow cell alongside the sieve-tube element in the right phloem view.
+    - what: Which associated cell is labelled again in the right-hand phloem view? → The companion cell is labelled again beside the sieve-tube element.
+      - why: Why should it not be mistaken for another sieve-tube element? → It is a distinct, narrower cell type with a retained nucleus and a metabolic-support role, rather than a segment of the main sieve tube. _(outside the book)_
+  - prerequisites: companion cell; sieve-tube element; nucleus
+- **p011-i50** · diagram_label · structure · image · exam high
+  - sieve-tube element — leader points to a broad blue longitudinal conducting cell.
+    - what: Which broad cell is labelled in the composite phloem view? → It is labelled sieve-tube element.
+      - how: How does its position in the series support food transport? → Its end-to-end connection with other elements creates a continuous route for phloem sap through sieve-plate pores. _(outside the book)_
+  - prerequisites: sieve-tube element; sieve plate; phloem sap
+- **p011-i51** · diagram_label · structure · image · exam high
+  - sieve plate — leader points to a transverse junction between successive sieve-tube elements.
+    - where: What junction is identified as a sieve plate? → The transverse junction between successive sieve-tube elements is labelled sieve plate.
+      - how: How does this label explain the tube's continuity? → The sieve plate contains pores through which sap can pass across the boundary between neighbouring elements. _(outside the book)_
+  - prerequisites: cell end wall; sieve-tube element; pore
+- **p011-i52** · diagram_label · structure · image · exam high
+  - phloem parenchyma cells — leader points to the associated cellular column at the side of the composite phloem view.
+    - what: What is the side column identified by this label? → It is identified as phloem parenchyma cells.
+      - how: How does this label reinforce the meaning of complex tissue? → It adds another distinct cell type to the sieve-tube and companion-cell components shown together in the tissue.
+  - prerequisites: phloem parenchyma; complex permanent tissue
+- **p011-i53** · diagram_label · structure · image · exam medium
+  - plasmodesmata — printed across two lines as 'plasmo-' and 'desmata'; leader points to connections across the walls between adjacent phloem cells.
+    - what: What intercellular connections are labelled in the right phloem view? → They are labelled plasmodesmata.
+      - how: How do plasmodesmata help adjacent living cells cooperate? → They are cytoplasmic channels crossing cell walls, allowing communication and movement of substances between neighbouring living cells, including associated phloem cells. _(outside the book)_
+      - difference: How are plasmodesmata different from intercellular spaces? → Plasmodesmata connect cell cytoplasm through walls; intercellular spaces are gaps between cells. They are not interchangeable terms. _(outside the book)_
+  - prerequisites: cytoplasm; cell wall; adjacent living cells; intercellular space
+- **p011-i54** · list_point · classification · both · exam high
+  -  Xylem consists of tracheids, vessels, xylem parenchyma and xylem fibres.
+    - which: What are the four components of xylem listed on this page? → They are tracheids, vessels, xylem parenchyma and xylem fibres.
+    - compare: How do their principal roles compare? → Tracheids and vessels conduct water and minerals vertically; xylem parenchyma stores food and helps sideways conduction of water; xylem fibres mainly support the tissue.
+      - why: Why does this list demonstrate that xylem is complex? → It contains several distinct cell types carrying out complementary tasks within one tissue.
+  - prerequisites: complex permanent tissue; conduction; storage; support
+- **p011-i55** · list_point · structure · both · exam high
+  -  Tracheids and vessels have thick walls, and many are dead cells when mature.
+    - what: Which structural and maturity features are stated for tracheids and vessels? → They have thick walls, and the page says many are dead when mature.
+      - how: How can dead conducting elements carry water? → Loss of living contents leaves a hollow lumen through which water can move. The thick lignified walls help resist collapse under the tension associated with water transport. _(outside the book)_
+    - exception: Does the presence of dead conducting elements mean the whole xylem is dead? → No. Xylem is a mixed tissue; its parenchyma cells are generally living, even though mature tracheids and vessel elements are normally dead. _(outside the book)_
+  - prerequisites: cell maturity; cell lumen; lignified wall; xylem components
+- **p011-i56** · list_point · cause_effect · both · exam high
+  -  Tracheids and vessels are tubular structures. This allows them to transport water and minerals vertically.
+    - what: What structure–function link does the page make for tracheids and vessels? → Their tubular form enables vertical transport of water and minerals.
+      - how: How does tubular organisation make long-distance transport possible? → Elongated lumens provide longitudinal pathways. Vessel elements connect through perforated end walls, while tracheids transfer water between adjoining cells through pits. _(outside the book)_
+        - why: Why is tube shape alone not a complete explanation of upward water movement? → Tube shape supplies a pathway but does not itself supply the driving force. Transpiration from leaves helps generate tension that pulls water through xylem; cohesion helps maintain the water column. _(outside the book)_
+  - prerequisites: tube and lumen; dissolved minerals; vertical direction; connected conducting cells
+- **p011-i57** · list_point · fact · both · exam high
+  -  The parenchyma stores food and help in sideways conduction of water.
+    - what: What two functions are assigned to xylem parenchyma? → It stores food and helps in sideways conduction of water.
+      - how: How does sideways conduction differ from the conduction described for tracheids and vessels? → Sideways conduction moves water laterally across tissue, whereas the page associates tracheids and vessels with vertical movement along the plant.
+      - why: Why does food storage in xylem not mean xylem is the main food-transport tissue? → Storage is retaining material within cells; transport is moving it between regions. Xylem parenchyma can store food while phloem remains the principal tissue for transporting organic food materials. _(outside the book)_
+  - prerequisites: xylem parenchyma; food storage; lateral versus vertical movement
+- **p011-i58** · list_point · fact · both · exam high
+  -  Xylem fibres are mainly supportive in function.
+    - what: What is the main function of xylem fibres? → Their main function is support.
+      - how: How do xylem fibres provide support? → They are elongated, thick-walled sclerenchymatous cells whose lignified walls mechanically reinforce xylem and the surrounding plant part. _(outside the book)_
+    - compare: How does this role compare with those of other xylem components? → Fibres mainly support; tracheids and vessels conduct vertically; parenchyma stores food and helps lateral water conduction.
+  - prerequisites: xylem components; sclerenchyma; lignified wall
+
+### Page 12 · passed after 1 round(s)
+
+Phloem comprises sieve cells, sieve tubes, companion cells, phloem fibres and phloem parenchyma; it transports food from leaves, and phloem fibres are the stated exception to its living cells. An image-only six-row table contrasts xylem and phloem, alongside a labelled stem and vascular-tissue diagram. An HPAS 2020 question tests the insulating role of fat below the skin, followed by a practice question on apical, lateral and intercalary meristem locations.
+
+- **p012-i1** · list_point · classification · both · exam high
+  - Phloem is made up of five types of cells: sieve cells, sieve tubes, companion cells, phloem fibres and the phloem parenchyma.
+    - what: Which five cell types does the page include in phloem? → It lists sieve cells, sieve tubes, companion cells, phloem fibres and phloem parenchyma as the constituents of phloem.
+    - compare: How do the functions of these constituents differ? → Sieve cells and sieve-tube elements conduct food; companion cells support sieve-tube functioning; phloem parenchyma contributes storage and lateral transport; phloem fibres provide mechanical support. This is a general list of phloem constituents, not a claim that each plant has all five in the same form. _(outside the book)_
+      - why: Why is phloem described as a complex tissue rather than a single cell type? → Different kinds of cells cooperate in transport, metabolic support, storage and reinforcement. Their association forms a tissue with a shared transport role. _(outside the book)_
+  - prerequisites: plant cell; tissue as a group of cells; simple and complex permanent tissues
+- **p012-i2** · list_point · structure · both · exam high
+  - Sieve tubes are tubular cells with perforated walls.
+    - what: What structural features of sieve tubes are stated here? → The cells are tubular and their walls are perforated.
+      - how: How do tubular form and perforations help conduction? → Sieve-tube elements join end to end. Pores in their end walls, called sieve plates, allow sugar-containing sap to move between successive elements, creating a conducting pathway. _(outside the book)_
+  - prerequisites: plant cell wall; movement of dissolved substances; phloem
+- **p012-i3** · list_point · process · both · exam high
+  - Phloem transports food from leaves to other parts of the plant.
+    - what: What does phloem transport, and from where? → It transports food from leaves to other parts of the plant.
+      - how: How does this supply parts that do not make sufficient food themselves? → Leaves produce sugars by photosynthesis. Phloem distributes dissolved sugars to consuming or storing regions such as roots, growing shoots, fruits and seeds. This movement is called translocation. _(outside the book)_
+      - why: Why should 'from leaves' not be memorised as a rule that phloem transport is downward only? → Transport is from a source supplying sugars to a sink using or storing them. Sinks may lie above or below a leaf, and stored food can also become a source. Therefore the direction is not restricted to downward movement. _(outside the book)_
+  - prerequisites: photosynthesis produces sugars; plant roots and shoots; dissolved food
+- **p012-i4** · table · comparison · image
+  - Comparison table with columns S.No., Xylem and Phloem. Six numbered rows compare transport, living/dead condition, cell-wall thickness, permeability, wall material and mechanical strength.
+- **p012-i5** · table_row · other · image
+  - S.No. | Xylem | Phloem
+- **p012-i6** · table_row · comparison · image · exam high
+  - S.No.: 1. | Xylem: It carries water and minerals from roots to leaves. | Phloem: It carries food materials from the leaves to the growing parts of the plant.
+    - compare: How do the transported materials and stated routes differ? → The table assigns water and mineral transport from roots to leaves to xylem, and food transport from leaves to growing parts to phloem.
+      - why: Why do plants require both transport systems? → Roots take up water and dissolved minerals, while green leaves manufacture sugars. These resources originate in different places and must be distributed to organs that need them. Xylem and phloem provide distinct conducting pathways. _(outside the book)_
+  - prerequisites: root absorption; photosynthesis; plant organs
+- **p012-i7** · table_row · comparison · image · exam high
+  - S.No.: 2. | Xylem: It is composed of dead cells. | Phloem: It is composed of living cells.
+    - compare: What contrast does the table make about the cells? → It presents xylem as composed of dead cells and phloem as composed of living cells. The later bullet on this page explicitly excepts phloem fibres from the living-cell statement.
+      - how: How should a teacher qualify this contrast? → Mature xylem conducting elements, tracheids and vessel elements, are dead, but xylem parenchyma is living. Most phloem constituents are living, whereas mature phloem fibres are generally dead. The table describes a broad contrast, not the condition of each constituent. _(outside the book)_
+        - why: Why can dead xylem conducting elements still conduct water? → Their reinforced walls remain after the living contents disappear, leaving passages through which water moves. Transport through such a passage does not require the conducting element itself to remain alive. _(outside the book)_
+  - prerequisites: living cell contents; cell wall; xylem and phloem constituents
+- **p012-i8** · table_row · comparison · image · exam high
+  - S.No.: 3. | Xylem: It has a thick cell wall. | Phloem: It has a thin cell wall.
+    - compare: What wall-thickness contrast is printed? → Xylem is described as thick-walled and phloem as thin-walled.
+      - why: Why are the walls of xylem conducting elements reinforced? → Lignified secondary walls help conducting elements resist collapse during water transport and provide support. The table's phloem statement needs qualification because phloem fibres have thick walls. _(outside the book)_
+  - prerequisites: plant cell wall; xylem conducting elements; phloem fibres
+- **p012-i9** · table_row · comparison · image · exam high
+  - S.No.: 4. | Xylem: Its cells are impermeable to the water. | Phloem: Its cells are permeable to food components.
+    - compare: What permeability contrast does the printed table claim? → It calls xylem cells impermeable to water and phloem cells permeable to food components.
+      - why: Why is the xylem statement unsafe as a general claim? → Xylem is a water-conducting tissue. Although lignification reduces permeability through reinforced wall regions, water moves along conduits and between them through pits and other conducting connections. It is misleading to describe the cells without qualification as impermeable to water. _(outside the book)_
+      - how: How should the phloem wording be understood? → Food-containing sap moves through sieve elements and sieve-plate pores. Loading and unloading involve selective membrane transport; the printed wording should not be read as unrestricted passage of food through every phloem cell wall or membrane. _(outside the book)_
+  - prerequisites: permeability; cell wall and cell membrane; xylem pits; sieve plates
+- **p012-i10** · table_row · comparison · image · exam high
+  - S.No.: 5. | Xylem: Its cells are made up of lignin. | Phloem: Its cells are made up of cellulose.
+    - compare: Which materials does the table associate with the two tissues? → It associates xylem with lignin and phloem with cellulose.
+      - how: How should this wording be qualified scientifically? → These are wall materials, not the complete composition of the cells. Xylem conducting elements have cellulose-containing walls reinforced with lignin. Many phloem cells have non-lignified cellulose-containing walls, while phloem fibres can be lignified. _(outside the book)_
+        - why: Why is lignin significant for the xylem wall? → Lignin adds rigidity and reinforcement, helping the wall maintain an open conducting passage and contribute to plant support. _(outside the book)_
+  - prerequisites: cell wall; cellulose; lignin; xylem conducting elements
+- **p012-i11** · table_row · comparison · image · exam high
+  - S.No.: 6. | Xylem: It gives mechanical strength to the plants. | Phloem: Phloem does not give mechanical strength
+    - compare: What support-related contrast is made? → The table credits xylem with providing mechanical strength and states that phloem does not give mechanical strength.
+      - why: Why does xylem contribute strength, and why must the phloem statement be qualified? → Thick lignified walls of xylem elements and fibres reinforce plant organs. However, phloem fibres also provide mechanical support, so denying any supporting role to phloem is too broad. _(outside the book)_
+  - prerequisites: mechanical support in plants; lignified walls; plant fibres
+- **p012-i12** · diagram · structure · image · exam high
+  - A stem cutaway at left labels epidermis, cortex, pith, cambium, xylem and phloem. A curved red arrow links a highlighted vascular region of the stem to an enlarged view at right. The enlarged view places xylem on the left, cambium between the tissues and phloem on the right. It shows elongated conducting cells, perforated transverse partitions and black arrows indicating movement within the conducting pathways, including upward arrows in xylem and downward arrows in a phloem pathway.
+    - what: What relationship connects the small stem drawing and the larger tissue drawing? → The red arrow identifies the right-hand drawing as an enlarged view of a vascular region in the stem. Xylem and phloem are separated by a narrow cambium region.
+      - how: How does the enlarged drawing help explain transport? → It makes the elongated conducting pathways and arrows visible. These relate xylem to water movement and phloem to food movement. The downward phloem arrows illustrate a route and should not be treated as proof that phloem transport is exclusively downward. _(outside the book)_
+    - where: Where is cambium relative to the two conducting tissues in this figure? → Cambium lies between the xylem and phloem.
+  - prerequisites: stem cross-section; xylem; phloem; meaning of an enlarged view
+- **p012-i13** · diagram_label · structure · image · exam high
+  - epidermis — points to the outermost covering of the illustrated stem.
+    - where: What does the epidermis label identify? → It identifies the outermost covering of the stem drawing.
+      - how: How does an epidermis help a young stem? → It forms a protective surface; its cuticle can reduce water loss and the surface helps protect underlying tissues. _(outside the book)_
+  - prerequisites: plant organ surface; protective tissue
+- **p012-i14** · diagram_label · structure · image · exam medium
+  - cortex — points to the tissue region beneath the epidermis and outside the vascular region.
+    - where: Where is the labelled cortex? → It lies inside the epidermis and outside the vascular region in the stem illustration.
+      - how: How can cortex contribute to the functioning of a stem? → Cortical tissues can store substances and provide support; the exact contributions depend on their cell types and the plant organ. _(outside the book)_
+  - prerequisites: epidermis; vascular tissue; stem cross-section
+- **p012-i15** · diagram_label · structure · image · exam medium
+  - pith — points to the central region of the illustrated stem.
+    - where: Which region is labelled pith? → The central region of the stem is labelled pith.
+      - how: How is pith commonly related to storage? → Pith commonly contains parenchyma cells that can store water and food substances. Its size and persistence vary among stems. _(outside the book)_
+  - prerequisites: centre of a stem cross-section; parenchyma
+- **p012-i16** · diagram_label · structure · image · exam high
+  - cambium — points to the narrow tissue region between xylem and phloem in the vascular region.
+    - where: Where is cambium marked in the small drawing? → It is marked between the xylem and phloem.
+      - how: How does vascular cambium increase stem thickness? → Its dividing cells produce secondary xylem toward the inside and secondary phloem toward the outside, contributing to growth in girth. _(outside the book)_
+  - prerequisites: cell division; meristem; xylem and phloem
+- **p012-i17** · diagram_label · structure · image · exam high
+  - xylem — points to the inner conducting tissue of the illustrated vascular region.
+    - where: Which side of the vascular region is labelled xylem? → The inner side, toward the pith, is labelled xylem.
+      - how: How can position and function be combined to identify it? → In this illustrated arrangement, the inward vascular tissue is xylem, the pathway that conducts water and minerals. Position helps distinguish it from the outward phloem.
+  - prerequisites: pith; water and mineral conduction; vascular tissue
+- **p012-i18** · diagram_label · structure · image · exam high
+  - phloem — points to the outer conducting tissue of the illustrated vascular region.
+    - where: Where is phloem marked relative to xylem? → It is marked toward the outside of the vascular region, outside the xylem and cambium.
+      - how: How does identifying this tissue connect structure with function? → The labelled outer conducting tissue is the food-transport pathway. Its position distinguishes it from the water- and mineral-conducting xylem in this drawing.
+  - prerequisites: vascular tissue; food transport; inside and outside in a stem section
+- **p012-i19** · diagram_label · structure · image · exam high
+  - xylem — bracket identifies the left-hand group of enlarged conducting elements, with upward arrows drawn inside.
+    - what: What does the enlarged xylem label identify? → It identifies the left-hand conducting elements, in which upward arrows are drawn.
+      - how: How is upward water movement maintained in a transpiring plant? → Evaporation from leaves creates tension that pulls a connected water column through xylem; cohesion between water molecules helps maintain that column. _(outside the book)_
+  - prerequisites: xylem conduits; transpiration; water cohesion
+- **p012-i20** · diagram_label · structure · image · exam high
+  - cambium — identifies the narrow central layer between the enlarged xylem and phloem.
+    - where: Which region is labelled cambium in the enlargement? → The narrow layer separating xylem on the left from phloem on the right.
+      - why: Why is cambium considered meristematic rather than simply conducting tissue? → Its defining role is division to produce new cells, including secondary conducting tissues, rather than long-distance conduction by the cambial cells themselves. _(outside the book)_
+  - prerequisites: meristematic cells; cell division; vascular tissues
+- **p012-i21** · diagram_label · structure · image · exam high
+  - phloem — bracket identifies the right-hand group of enlarged cells, including a pathway with downward arrows and perforated transverse partitions.
+    - what: What does the phloem bracket identify? → It identifies the right-hand group of cells, where the diagram includes perforated transverse partitions and downward transport arrows.
+      - how: How should the downward arrows be interpreted? → They illustrate food transport along a shown phloem pathway, such as toward a lower sink. Phloem can also carry sugars toward sinks above the source, so these arrows do not establish an exclusively downward direction. _(outside the book)_
+  - prerequisites: sieve tubes; source and sink; food translocation
+- **p012-i22** · list_point · classification · both · exam high
+  - Except phloem fibres, other phloem cells are living cells.
+    - which: Which phloem constituent is the stated exception to living phloem cells? → Phloem fibres are the exception; the other phloem cell types are described as living.
+    - compare: How do mature phloem fibres differ from the living phloem constituents? → Mature phloem fibres are generally dead, thick-walled supporting cells. Living sieve elements, companion cells and parenchyma participate in conduction, metabolic support or storage. _(outside the book)_
+      - why: Why can a dead phloem fibre still perform a useful function? → Mechanical support depends largely on the strength of its retained wall, so that role can continue after its living contents are lost. _(outside the book)_
+  - prerequisites: phloem constituents; living and dead mature plant cells; supporting fibres
+- **p012-i23** · question · question · both · exam high
+  - Q. Fat present below the skin surface in our body, acts as a barrier against: (HPAS 2020)
+    - which: Which option answers the HPAS 2020 question? → Option a, 'Loss of heat from our body', is correct. The question tests insulation by subcutaneous adipose tissue. _(outside the book)_
+      - how: How does fat below the skin act as a heat barrier? → Fat is a relatively poor conductor of heat. A subcutaneous fat layer adds thermal resistance between warmer internal tissues and the environment, reducing heat transfer and helping conserve body heat. _(outside the book)_
+      - why: Why is 'barrier' not the same as completely preventing heat loss? → Insulation slows heat transfer; it does not stop it. Heat can still leave through the skin and through other routes, including evaporation. _(outside the book)_
+  - prerequisites: adipose tissue; subcutaneous location; heat conduction; body temperature regulation
+- **p012-i24** · answer_option · question · both · exam high
+  - a. Loss of heat from our body
+    - which: Is option a correct? → Yes. Reduced heat loss is the insulating effect of fat below the skin. _(outside the book)_
+      - why: Why does a layer of fat reduce outward heat transfer? → Its relatively low thermal conductivity slows the transfer of heat from the body interior toward the skin and environment. _(outside the book)_
+  - prerequisites: thermal insulation; subcutaneous fat
+- **p012-i25** · answer_option · question · both · exam medium
+  - b. Loss of essential body nutrients
+    - which: Is nutrient-loss prevention the intended barrier function? → No. Option b is not the correct answer. _(outside the book)_
+      - why: Why should energy storage in fat not be confused with preventing nutrient loss? → Adipose tissue stores energy as fat. Storage is different from forming a general barrier that prevents nutrients from leaving the body; the barrier role tested here is thermal insulation. _(outside the book)_
+  - prerequisites: energy storage; adipose tissue; difference between storage and insulation
+- **p012-i26** · answer_option · question · both · exam medium
+  - c. Loss of salts from the body
+    - which: Is prevention of salt loss the answer? → No. Subcutaneous fat is not the barrier against salt loss referred to in this question. _(outside the book)_
+      - why: Why is salt regulation distinct from fat insulation? → Salt balance is controlled chiefly through processes such as kidney regulation, while salts can also leave in sweat. Fat's low thermal conductivity explains insulation, not control of these salt movements. _(outside the book)_
+  - prerequisites: body salts; sweat; kidney regulation; thermal insulation
+- **p012-i27** · answer_option · question · both · exam medium
+  - d. Entry of harmful micro-organisms from the environments
+    - which: Is blocking entry of micro-organisms the intended function of subcutaneous fat? → No. Option d does not explain the insulating role asked about. _(outside the book)_
+      - why: Why is this more closely associated with the skin surface than with the underlying fat? → The intact epidermis provides the main physical barrier at the body surface against entry of pathogens. The fat underneath has important storage, cushioning and insulating roles, but is not that primary surface barrier. _(outside the book)_
+  - prerequisites: epidermis; pathogens; subcutaneous tissue
+- **p012-i28** · heading · other · both
+  - PRACTICE QUESTIONS
+- **p012-i29** · question · question · both · exam high
+  - Q. Consider the following statements:
+    - which: Which of the three meristem-location statements are correct? → Statements 2 and 3 are correct. Statement 1 is incorrect because apical meristems occur at shoot tips as well as root tips. The options are not printed on this page. _(outside the book)_
+      - how: How should a learner evaluate this statement-based question? → Match each meristem with its location, then check limiting words. 'Root tips only' wrongly excludes shoot tips. The lateral and intercalary locations given are standard school-level matches. _(outside the book)_
+      - why: Why does location provide a useful way to classify meristems? → The position of dividing cells relates to the growth they produce: apical meristems contribute to length at tips, lateral meristems to girth, and intercalary meristems to elongation from regions between mature tissues. _(outside the book)_
+  - prerequisites: meristematic tissue; root and shoot tips; bark; leaf base; node and internode
+- **p012-i30** · table · question · both
+  - Practice-question statement table with columns Tissue and Location, containing three numbered rows: Apical, Lateral and Intercalary. These are claims for evaluation, not an answer key.
+- **p012-i31** · table_row · other · both
+  - Tissue | Location
+- **p012-i32** · table_row · question · both · exam high
+  - 1. Tissue: Apical | Location: Present at root tips only
+    - what: Is the first statement correct? → No. Apical meristems occur at root tips and shoot tips, so 'only' makes the statement incorrect. _(outside the book)_
+      - how: How do apical meristems contribute to growth? → Their cells divide near growing tips. The new cells subsequently enlarge and differentiate, contributing to primary growth in the length of roots and shoots. _(outside the book)_
+  - prerequisites: apex as a tip; root and shoot; cell division; primary growth
+- **p012-i33** · table_row · question · both · exam high
+  - 2. Tissue: Lateral | Location: Present beneath bark
+    - what: Is the second statement accepted as correct? → Yes. 'Present beneath bark' is the intended school-level location match for lateral meristem. _(outside the book)_
+      - how: How do lateral meristems differ in growth effect from apical meristems? → Lateral meristems, including vascular cambium and cork cambium, produce tissues contributing to increased girth. Apical meristems chiefly contribute to primary growth in length. _(outside the book)_
+      - why: Why should 'beneath bark' be treated as a broad location cue rather than a complete anatomical description? → Different lateral meristems occupy different positions, and bark itself is a collective term for tissues outside the vascular cambium in woody organs. The statement is a simplified match rather than a full account of each cambium's location. _(outside the book)_
+  - prerequisites: bark; cambium; growth in girth; apical meristem
+- **p012-i34** · table_row · question · both · exam high
+  - 3. Tissue: Intercalary | Location: Present at base of leaves or internodes
+    - what: Is the third statement correct? → Yes. Intercalary meristems occur at leaf bases or in basal regions of internodes in plants such as grasses. _(outside the book)_
+      - how: How does this location permit continued elongation or regrowth? → Dividing tissue near the base can continue producing cells even when more distal portions are mature or have been removed. This contributes to elongation and helps explain regrowth after cutting in grasses. _(outside the book)_
+  - prerequisites: leaf base; node and internode; meristematic cell division
+- **p012-i35** · question · question · both · exam high
+  - Choose the correct statement(s):
+    - which: What combination should be selected when the options appear? → Select the combination containing statements 2 and 3, without statement 1. _(outside the book)_
+      - why: Why is a choice including all three statements incorrect? → It would accept the false restriction of apical meristems to root tips. Their presence at shoot tips invalidates statement 1 even though the other two matches are correct. _(outside the book)_
+  - prerequisites: evaluation of the three meristem-location statements
+
+### Page 13 · failed after 3 round(s)
+
+Practice questions on meristem locations, permanent plant tissues, xylem, lignin, aerenchyma and cardiac muscle are accompanied by an image-only comparison of parenchyma, collenchyma and sclerenchyma across cell shape, wall, cytoplasm, nucleus, vacuoles, intercellular spaces, occurrence and functions. The opening options continue a previous-page question, and the cardiac question continues onto the next page.
+
+- **p013-i1** · answer_option · other · both · exam high
+  - a. 1 only
+    - what: What does this option select in the continued meristem-location question? → It selects only statement 1, which says that apical tissue is present at root tips only. The stem is on the previous page. _(outside the book)_
+      - why: Why is 'root tips only' not a correct description of apical meristem? → Apical meristems occur at growing root tips and shoot tips. The word 'only' wrongly excludes shoot tips. _(outside the book)_
+  - prerequisites: meristematic tissue; root tip and shoot tip
+- **p013-i2** · answer_option · other · both · exam high
+  - b. 1 and 2.
+    - what: Which statements does this option select? → It selects the previous-page claims that apical meristem is present at root tips only and lateral meristem is present beneath bark. _(outside the book)_
+      - why: Why is this combination rejected even though the lateral-meristem pairing is acceptable? → A combination is incorrect if it includes an incorrect statement. Statement 1 excludes shoot apices, whereas the beneath-bark location is associated with lateral meristematic activity such as cork cambium. _(outside the book)_
+  - prerequisites: apical meristem; lateral meristem; bark
+- **p013-i3** · answer_option · other · both · exam high
+  - c. 2 and 3.
+    - which: Which option answers the previous-page meristem-location question? → Option c is the intended answer: lateral meristem beneath bark and intercalary meristem at the base of leaves or internodes. _(outside the book)_
+      - how: How do these two locations relate to growth? → Lateral meristems contribute to growth in thickness. Intercalary meristems enable elongation from regions between more mature tissues, as at leaf bases and internodes in grasses. _(outside the book)_
+  - prerequisites: lateral meristem; intercalary meristem; internode
+- **p013-i4** · answer_option · other · both · exam high
+  - d. All are correct
+    - what: What must be true for this option to be selected? → All three meristem-location statements from the previous page would have to be correct. _(outside the book)_
+      - why: Why is 'All are correct' unsuitable here? → The apical-meristem statement incorrectly restricts its occurrence to root tips. One false statement is enough to rule out this option. _(outside the book)_
+  - prerequisites: apical meristem; statement-combination questions
+- **p013-i5** · table · comparison · image
+  - Comparison table with columns Features, Parenchyma, Collenchyma and Sclerenchyma. Rows: 1. Cell shape; 2. Cell wall; 3. Cytoplasm; 4. Nucleus; 5. Vacuoles; 6. Intercellular spaces; 7. Occurrence; 8. Functions. Cell illustrations occupy the tops of the three tissue columns.
+  - prerequisites: plant cell structure; simple permanent tissues
+- **p013-i6** · table_row · other · image
+  - Features | Parenchyma | Collenchyma | Sclerenchyma
+- **p013-i7** · table_row · comparison · image · exam high
+  - Features: 1. Cell shape | Parenchyma: Isodiametric cells which are oval, spherical or polygonal in shape | Collenchyma: Circular, oval or polyhedral | Sclerenchyma: Variable in shape. Fibres and sclereids
+    - compare: How does the table compare cell shapes in the three tissues? → Parenchyma is described as isodiametric, with oval, spherical or polygonal cells. Collenchyma is circular, oval or polyhedral. Sclerenchyma varies in shape and includes fibres and sclereids.
+      - how: How should a learner interpret isodiametric cells and the two sclerenchyma forms? → Isodiametric means that the cell dimensions are approximately similar in different directions. Sclerenchyma fibres are generally long and narrow, whereas sclereids are shorter and can have varied shapes; the tissue name does not imply one uniform cell outline. _(outside the book)_
+  - prerequisites: cell shape; plant cell wall
+- **p013-i8** · table_row · comparison · image · exam high
+  - Features: 2. Cell wall | Parenchyma: Thin cellulosic cell wall | Collenchyma: Uneven thickening on their cell wall. | Sclerenchyma: Lignified secondary cell wall present
+    - compare: What wall feature distinguishes each tissue? → Parenchyma has a thin cellulosic wall, collenchyma has uneven wall thickening, and sclerenchyma has a lignified secondary wall.
+      - why: Why do these wall differences matter mechanically? → Thin walls suit living packing and metabolic cells. Unevenly thickened, generally non-lignified walls give collenchyma support with flexibility. Lignified secondary walls make sclerenchyma more rigid and resistant to deformation. _(outside the book)_
+        - how: How is a secondary wall different from a primary wall? → A primary wall forms while a cell is growing. A secondary wall is deposited on its inner side after much of the cell's expansion has occurred; in sclerenchyma it becomes strongly thickened and lignified. _(outside the book)_
+  - prerequisites: cellulose; primary cell wall; lignin
+- **p013-i9** · table_row · comparison · image · exam high
+  - Features: 3. Cytoplasm | Parenchyma: Abundant | Collenchyma: Present | Sclerenchyma: Absent
+    - compare: What cytoplasmic differences are listed? → The table describes cytoplasm as abundant in parenchyma, present in collenchyma and absent in sclerenchyma.
+      - why: Why can sclerenchyma support a plant without cytoplasm? → Typical mature sclerenchyma cells lose their living contents, but their thick lignified walls remain. Those walls provide structural support without requiring an active cytoplasm. _(outside the book)_
+  - prerequisites: cytoplasm; living cell contents; cell wall
+- **p013-i10** · table_row · comparison · image · exam high
+  - Features: 4. Nucleus | Parenchyma: Present, (Living tissue) | Collenchyma: Present, (Living tissue) | Sclerenchyma: Absent (Dead tissue)
+    - compare: Which tissues are living and which are described as dead? → Parenchyma and collenchyma have nuclei and are identified as living tissues. Sclerenchyma lacks a nucleus and is identified as dead tissue.
+      - how: How should 'dead tissue' be understood here? → It refers to the usual mature sclerenchyma condition. The cells develop from living precursors, deposit strong walls and commonly lose their protoplasts as they mature; the retained walls continue to function mechanically. _(outside the book)_
+  - prerequisites: nucleus; cell maturation; protoplast
+- **p013-i11** · table_row · comparison · image · exam high
+  - Features: 5. Vacuoles | Parenchyma: Large vacuole | Collenchyma: Vacuolated | Sclerenchyma: Absent
+    - compare: How are vacuoles compared in the table? → Parenchyma has a large vacuole, collenchyma is vacuolated, and sclerenchyma is shown without vacuoles.
+      - how: How does a large vacuole help a living plant cell? → A vacuole contains cell sap and can store water and dissolved substances. Water entry helps produce turgor pressure against the wall, contributing to firmness in living tissues. Food reserves may also be stored elsewhere in the cell, so a large vacuole does not mean every food reserve is inside it. _(outside the book)_
+  - prerequisites: vacuole; cell sap; osmosis
+- **p013-i12** · table_row · comparison · image · exam high
+  - Features: 6. Intercellular spaces | Parenchyma: Present | Collenchyma: Absent | Sclerenchyma: Absent
+    - compare: Which tissue has intercellular spaces in this comparison? → Parenchyma is shown with intercellular spaces, while collenchyma and sclerenchyma are shown without them.
+      - how: How are intercellular spaces different from vacuoles, and why can they be useful? → Intercellular spaces lie between adjacent cells; a vacuole is inside a living cell. Spaces permit gas movement through a tissue. Enlarged air spaces in aerenchyma also help aquatic plants remain buoyant. _(outside the book)_
+  - prerequisites: adjacent cells; vacuole; gas exchange
+- **p013-i13** · table_row · comparison · image · exam high
+  - Features: 7. Occurrence | Parenchyma: Basically packing tissue, All soft part of plant, Pith, cortex, medullary rays | Collenchyma: Dicot stems, petiole and beneath the epidermis. Absent in monocot and roots | Sclerenchyma: Dicot hypodermis, bundle sheath, pericycle, Seed, pulp of fruits.
+    - compare: What locations does the table associate with each tissue? → Parenchyma is the packing tissue of soft plant parts, including pith, cortex and medullary rays. Collenchyma is listed in dicot stems and petioles, beneath the epidermis, with absence stated for monocots and roots. Sclerenchyma is listed in dicot hypodermis, bundle sheath, pericycle, seed and fruit pulp.
+      - why: Why is collenchyma useful beneath the epidermis of growing stems and petioles? → These organs need support while bending and growing. Peripheral strands of living, unevenly thickened cells provide flexible support rather than the rigidity associated with strongly lignified tissue. _(outside the book)_
+      - how: How should the broad location statements be used without overgeneralising? → Treat them as the book's school-level location guide. Tissue distribution varies among plants. The sclerenchyma entry for fruit pulp refers to sclereids that can occur within pulp, rather than implying that the whole soft pulp is sclerenchyma. _(outside the book)_
+  - prerequisites: dicot and monocot; epidermis; petiole; cortex and pith; vascular bundle
+- **p013-i14** · table_row · comparison · image · exam high
+  - Features: 8. Functions | Parenchyma: Food storage, Photosynthesis | Collenchyma: Provide tensile strength, Mechanical support, Photosynthesis | Sclerenchyma: Protection from stress and strain, Mechanical strength
+    - compare: How do the functions of these tissues differ? → Parenchyma is linked with food storage and photosynthesis. Collenchyma supplies tensile strength and mechanical support and is also listed for photosynthesis. Sclerenchyma provides mechanical strength and protection from stress and strain.
+      - how: How can both parenchyma and collenchyma be associated with photosynthesis? → Living cells of these tissues can photosynthesise when they contain chloroplasts and receive suitable light. Their tissue names do not mean that each cell necessarily has chloroplasts. _(outside the book)_
+      - why: Why is mechanical support not enough by itself to identify collenchyma or sclerenchyma? → Both can provide support. Identification also requires features such as uneven primary-wall thickening and living contents in collenchyma, or lignified secondary walls and the usual dead mature condition in sclerenchyma. _(outside the book)_
+  - prerequisites: photosynthesis; chloroplast; mechanical support; lignification
+- **p013-i15** · diagram · comparison · image · exam high
+  - Three side-by-side cell-group illustrations aligned with the Parenchyma, Collenchyma and Sclerenchyma columns. Parenchyma shows relatively thin walls and spaces between cells. Collenchyma shows closely packed cells with uneven primary-wall thickening. Sclerenchyma shows thick walls around smaller cell cavities, with primary and thick secondary walls labelled. There are no arrows connecting the three tissues; the arrangement is comparative, not a developmental sequence.
+    - compare: What visual differences should a learner use to identify the three illustrations? → Look for thin walls and visible spaces in parenchyma, unevenly thickened walls in collenchyma, and prominently thick secondary walls surrounding smaller cavities in sclerenchyma.
+      - how: How does the illustration connect wall thickness with the apparent internal space? → Secondary wall deposition adds material inside the original wall boundary, reducing the lumen. A smaller visible cavity in thick-walled sclerenchyma should not be mistaken for a small living vacuole. _(outside the book)_
+  - prerequisites: cell wall; cell lumen; intercellular spaces
+- **p013-i16** · diagram_label · structure · image · exam high
+  - Parenchyma — names the left-hand group of thin-walled cells.
+    - what: Which group is labelled Parenchyma? → The left-hand cell group beneath the Parenchyma column heading.
+      - how: How can this group be recognised without its heading? → Its relatively thin walls and spaces between neighbouring cells match the parenchyma features in the table.
+  - prerequisites: cell wall; intercellular space
+- **p013-i17** · diagram_label · structure · image · exam high
+  - Collenchyma — names the middle group of closely packed cells.
+    - what: Which illustration represents collenchyma? → The middle group, labelled Collenchyma, between parenchyma and sclerenchyma.
+      - how: How does its wall pattern help identify it? → The wall thickening is uneven rather than uniformly thin, matching the table's diagnostic collenchyma feature.
+  - prerequisites: plant cell wall; wall thickening
+- **p013-i18** · diagram_label · structure · image · exam high
+  - Sclerenchyma — names the right-hand group of thick-walled cells.
+    - what: Which illustration represents sclerenchyma? → The right-hand group under the Sclerenchyma heading, with conspicuously thick walls.
+      - why: Why are thick walls a useful clue here? → The table identifies sclerenchyma by lignified secondary walls. Such walls account for its strength and the small remaining cell lumen. _(outside the book)_
+  - prerequisites: secondary cell wall; lignin; cell lumen
+- **p013-i19** · diagram_label · structure · image · exam high
+  - thin primary cell wall — identifies the thin wall of the parenchyma cells.
+    - what: What structure does this label identify? → The thin primary cell wall in the parenchyma illustration.
+      - why: Why is 'thin-walled' not the same as 'without a wall'? → Parenchyma retains a cellulosic primary wall. Thin describes its limited thickness, not its absence; the wall still helps maintain cell shape and resist turgor pressure. _(outside the book)_
+  - prerequisites: primary cell wall; cellulose; turgor
+- **p013-i20** · diagram_label · structure · image · exam high
+  - Irregularly Thickened Primary Cell Wall — identifies the unevenly thickened wall of the collenchyma cells.
+    - what: What wall feature is labelled in collenchyma? → An irregularly thickened primary cell wall.
+      - how: How is this different from the sclerenchyma wall? → Collenchyma support comes from uneven primary-wall thickening, commonly prominent at cell corners. Sclerenchyma instead has strongly thickened, lignified secondary walls. _(outside the book)_
+  - prerequisites: primary and secondary cell walls; lignification
+- **p013-i21** · diagram_label · structure · image · exam low
+  - Collenchyma — small repeated name beneath the middle illustration.
+    - what: What does this small label name? → It repeats the name Collenchyma for the middle illustration.
+      - how: How should this repeated name be connected to the wall label above it? → The irregularly thickened primary wall belongs to the illustrated collenchyma cells; the small name is not a fourth tissue or an additional cell structure.
+  - prerequisites: collenchyma; diagram labels
+- **p013-i22** · diagram_label · structure · image · exam high
+  - thick secondary cell wall — identifies the thick inner wall layer of the sclerenchyma cells.
+    - what: What sclerenchyma structure is identified by this label? → The thick secondary cell wall.
+      - how: How does this wall contribute to the tissue's function? → Its thickness and lignification make the cell wall rigid and mechanically strong. Support remains possible even after the mature cell loses its living contents. _(outside the book)_
+  - prerequisites: secondary cell wall; lignin; cell maturation
+- **p013-i23** · diagram_label · structure · image · exam medium
+  - primary cell wall — identifies the primary wall outside the thick secondary wall in the sclerenchyma illustration.
+    - what: Does the sclerenchyma drawing label a primary wall as well as a secondary wall? → Yes. Both primary cell wall and thick secondary cell wall are labelled.
+      - how: How are these two layers related? → The secondary wall is deposited to the inside of the existing primary wall. Having a secondary wall does not mean that the original primary wall was never formed. _(outside the book)_
+  - prerequisites: primary cell wall; secondary cell wall
+- **p013-i24** · question · question · both · exam high
+  - Q. Consider the following statement(s):
+Choose the correct option:
+    - which: What is the likely intended answer to the tissue-function question? → The likely intended answer is a. 1 only. The comparison table supports large vacuoles and food storage in parenchyma and assigns lignified walls to sclerenchyma, not collenchyma. _(outside the book)_
+      - why: Why does statement 2 require care rather than a blanket rejection of sclerenchyma support? → The likely intended association is collenchyma with flexible support in growing stems and climbers. However, sclerenchyma also provides mechanical strength and may occur in climbing plants. The phrase 'In climber plants and provide mechanical strength' is not precise enough to make sclerenchyma impossible. _(outside the book)_
+  - prerequisites: parenchyma; collenchyma; sclerenchyma; lignin
+- **p013-i25** · table · question · both
+  - Question table with columns Tissue and Function and constituents; three numbered pairings: Parenchyma, Sclerenchyma and Collenchyma.
+  - prerequisites: simple permanent tissues
+- **p013-i26** · table_row · other · both
+  - Tissue | Function and constituents
+- **p013-i27** · table_row · question · both · exam high
+  - Tissue: 1. Parenchyma | Function and constituents: Large vacuole and store food
+    - which: Is the parenchyma pairing supported by the page? → Yes. The comparison table lists a large vacuole for parenchyma and food storage among its functions.
+      - how: How should the two parts of this pairing be understood? → A large vacuole is a structural feature, whereas storage is a function of the tissue. Stored reserves can occur in different cell compartments; for example, starch can accumulate in plastids, so the wording need not mean that every food reserve is inside the vacuole. _(outside the book)_
+  - prerequisites: vacuole; plant food reserves; parenchyma
+- **p013-i28** · table_row · question · both · exam high
+  - Tissue: 2. Sclerenchyma | Function and constituents: In climber plants and provide mechanical strength
+    - what: What is the issue with this statement? → It appears intended as a distractor for the familiar association of collenchyma with flexible support in growing or climbing stems. Yet the page's own comparison table also assigns mechanical strength to sclerenchyma. _(outside the book)_
+      - why: Why should a teacher avoid saying that sclerenchyma cannot occur in climbers? → A climbing habit does not exclude sclerenchyma. Different tissues can support different regions and developmental stages of the same plant. The wall type and living condition are more reliable distinctions than the word 'climber' alone. _(outside the book)_
+  - prerequisites: mechanical support; collenchyma; sclerenchyma; climbing plant
+- **p013-i29** · table_row · question · both · exam high
+  - Tissue: 3. Collenchyma | Function and constituents: contain lignin
+    - which: Which tissue does the comparison table identify by a lignified wall? → Sclerenchyma. Collenchyma is identified by uneven wall thickening, not a lignified secondary wall.
+      - why: Why is lignin the wrong characteristic for ordinary collenchyma? → Collenchyma typically has unevenly thickened primary walls rich in cellulose and pectic substances. Its generally non-lignified condition helps it support growing organs while retaining flexibility. _(outside the book)_
+  - prerequisites: lignin; primary cell wall; collenchyma
+- **p013-i30** · answer_option · other · both · exam high
+  - a. 1 only.
+    - what: What does this option accept? → It accepts only the parenchyma pairing with a large vacuole and food storage.
+      - why: Why is this the likely intended answer? → Statement 1 is supported, statement 3 wrongly assigns lignin to collenchyma, and statement 2 appears intended to substitute sclerenchyma for collenchyma in the flexible-support association. Statement 2 remains imprecisely worded. _(outside the book)_
+  - prerequisites: parenchyma features; collenchyma and sclerenchyma distinction
+- **p013-i31** · answer_option · other · both · exam high
+  - b. 2 only.
+    - what: What does option b select? → Only the statement linking sclerenchyma with climber plants and mechanical strength.
+      - why: Why can option b be rejected even without resolving statement 2? → It excludes statement 1, although the comparison table explicitly supports both the large vacuole and food-storage features of parenchyma.
+  - prerequisites: parenchyma vacuole; food storage
+- **p013-i32** · answer_option · other · both · exam high
+  - c. 1 and 3 only.
+    - what: Which statements are included in option c? → The parenchyma storage-and-vacuole statement and the claim that collenchyma contains lignin.
+      - why: Why does including statement 3 make this option incorrect? → The standard distinction is that collenchyma has unevenly thickened, generally non-lignified primary walls, whereas sclerenchyma has lignified secondary walls. _(outside the book)_
+  - prerequisites: lignin; collenchyma wall; sclerenchyma wall
+- **p013-i33** · answer_option · other · both · exam high
+  - d. All are incorrect.
+    - what: What does this option claim? → It claims that none of the three tissue pairings is correct.
+      - why: Why is that claim contradicted by this page? → The comparison table directly supports the large vacuole and food-storage pairing for parenchyma, so at least statement 1 is correct.
+  - prerequisites: parenchyma structure and function
+- **p013-i34** · question · question · both · exam high
+  - Q. All are parts of xylem except:
+    - which: Which listed cell is not a component of xylem? → A. Companion cells. Companion cells belong to phloem, whereas tracheids, xylem parenchyma and xylem vessels are xylem components. _(outside the book)_
+      - how: How can the xylem component list be organised for reliable recall? → Xylem is a complex tissue containing tracheids, vessels, xylem fibres and xylem parenchyma. The conducting elements are principally tracheids and vessels; fibres add support, and living parenchyma contributes storage and lateral transport. _(outside the book)_
+  - prerequisites: complex permanent tissue; xylem; phloem
+- **p013-i35** · answer_option · other · both · exam high
+  - A. Companion cells
+    - where: Where do companion cells belong? → They are associated with sieve-tube elements in angiosperm phloem, not xylem. _(outside the book)_
+      - how: How do companion cells help sieve-tube elements? → They provide metabolic support and participate in loading and unloading sugars. Mature sieve-tube elements lack a nucleus and depend on close functional connections with companion cells. _(outside the book)_
+  - prerequisites: phloem; sieve-tube element; nucleus
+- **p013-i36** · answer_option · other · both · exam high
+  - B. Tracheid
+    - what: What is a tracheid? → A tracheid is an elongated, lignified water-conducting cell of xylem, usually dead at functional maturity. _(outside the book)_
+      - how: How does water move between tracheids? → Water passes through pits in their walls into neighbouring cells. Their lignified walls also resist collapse and add support. _(outside the book)_
+  - prerequisites: xylem; lignified wall; pits
+- **p013-i37** · answer_option · other · both · exam high
+  - C. Parenchyma
+    - what: What does 'Parenchyma' mean in this xylem question? → It refers to xylem parenchyma, the living parenchymatous component of the complex xylem tissue. _(outside the book)_
+      - why: Why does the presence of parenchyma not make xylem a simple tissue? → A complex tissue contains several cell types working together. Xylem includes parenchyma alongside conducting elements and fibres; the whole tissue is not made of one cell type. _(outside the book)_
+  - prerequisites: simple and complex tissues; parenchyma; xylem
+- **p013-i38** · answer_option · other · both · exam high
+  - D. Xylem vessel
+    - what: What is a xylem vessel? → A vessel is a water-conducting tube formed by vessel elements joined end to end. _(outside the book)_
+      - how: How does its structure facilitate water transport? → Perforations in the end walls connect successive vessel elements, while the hollow, lignified cells provide a relatively low-resistance pathway and resist collapse. _(outside the book)_
+  - prerequisites: xylem; vessel element; lignification
+- **p013-i39** · question · question · both · exam high
+  - Q. Lignin is present in cell wall of which tissue:
+    - which: Which listed tissue is identified by lignified walls? → b. Sclerenchyma. The comparison table explicitly lists a lignified secondary cell wall for it.
+      - why: Why is lignification associated with mechanical strength? → Lignin is deposited within the wall framework and increases its rigidity and resistance to compression. This suits sclerenchyma's supporting and protective roles. _(outside the book)_
+  - prerequisites: lignin; secondary cell wall; sclerenchyma
+- **p013-i40** · answer_option · other · both · exam high
+  - a. Parenchyma
+    - what: What wall type does this page assign to parenchyma? → A thin cellulosic cell wall.
+      - why: Why is it not the intended lignin answer? → In the standard comparison used here, ordinary parenchyma is thin-walled, while the diagnostic lignified secondary wall belongs to sclerenchyma. _(outside the book)_
+  - prerequisites: parenchyma; cellulose; lignin
+- **p013-i41** · answer_option · other · both · exam high
+  - b. Sclerenchyma
+    - which: What evidence on this page supports this option? → The cell-wall row explicitly states that sclerenchyma has a lignified secondary cell wall.
+      - how: How does this connect to sclerenchyma remaining useful after cell death? → The strengthening material is part of the wall, not dependent on the continued presence of living cytoplasm. The persistent wall can continue to support and protect. _(outside the book)_
+  - prerequisites: lignified wall; mature sclerenchyma
+- **p013-i42** · answer_option · other · both · exam high
+  - c. Collenchyma
+    - what: Which wall characteristic identifies collenchyma on this page? → Uneven thickening of its primary cell wall.
+      - why: Why should wall thickening not automatically be equated with lignification? → Walls can thicken through deposition of cellulose and other wall substances without becoming lignified. Collenchyma illustrates flexible, generally non-lignified thickening rather than sclerenchyma's rigid lignified secondary wall. _(outside the book)_
+  - prerequisites: cell wall deposition; cellulose; lignin
+- **p013-i43** · answer_option · other · both · exam medium
+  - d. None
+    - what: What would choosing 'None' imply? → It would imply that none of the three named tissues is the correct lignified-wall example.
+      - why: Why is 'None' ruled out? → Sclerenchyma is explicitly described in the table as having a lignified secondary cell wall.
+  - prerequisites: sclerenchyma wall
+- **p013-i44** · question · question · both · exam high
+  - Q. Specialised cell of parenchyma present in aquatic plants to provide them buoyancy
+    - which: Which option names the buoyancy-associated form of parenchyma? → c. Aerenchyma. More precisely, aerenchyma is a tissue with large intercellular air spaces, rather than merely the name of a single specialised cell. _(outside the book)_
+      - how: How do these air spaces help aquatic plants? → Air-filled spaces reduce the average density of the organ and help it remain buoyant. They also provide internal pathways for gas movement to tissues that may be surrounded by water. _(outside the book)_
+  - prerequisites: parenchyma; intercellular spaces; density and buoyancy
+- **p013-i45** · answer_option · other · both · exam high
+  - a. Chlorenchyma
+    - what: What is chlorenchyma? → Chlorenchyma is parenchyma containing chloroplasts and specialised for photosynthesis. _(outside the book)_
+      - why: Why is it not the intended buoyancy answer? → Its identifying feature is chloroplast-containing photosynthetic cells. The question specifically points to the large air spaces characteristic of aerenchyma. _(outside the book)_
+  - prerequisites: parenchyma; chloroplast; photosynthesis
+- **p013-i46** · answer_option · other · both · exam high
+  - b. Sieve tube
+    - what: What is a sieve tube associated with? → A sieve tube is a conducting structure of phloem involved in translocation of sugars and other organic solutes. _(outside the book)_
+      - why: Why does it not answer this question? → The question asks for air-space-rich parenchyma helping buoyancy, not a food-conducting phloem structure. _(outside the book)_
+  - prerequisites: phloem; translocation; parenchyma
+- **p013-i47** · answer_option · other · both · exam high
+  - c. Aerenchyma
+    - what: What feature identifies aerenchyma? → Large intercellular air spaces within parenchymatous tissue, commonly developed in aquatic and waterlogged conditions. _(outside the book)_
+      - how: How is this connected to ordinary parenchyma in the comparison table? → The table already associates parenchyma with intercellular spaces. Aerenchyma represents a specialised arrangement with much more conspicuous air spaces that aid internal aeration and buoyancy. _(outside the book)_
+  - prerequisites: parenchyma; intercellular space; buoyancy
+- **p013-i48** · answer_option · other · both · exam high
+  - d. Companion cells
+    - where: Where are companion cells functionally associated? → With sieve-tube elements in angiosperm phloem. _(outside the book)_
+      - why: Why are they not the specialised buoyancy tissue? → Their role is metabolic support and assistance in phloem transport, not the formation of the extensive intercellular air spaces that define aerenchyma. _(outside the book)_
+  - prerequisites: phloem; sieve-tube element; aerenchyma
+- **p013-i49** · question · question · both · exam high
+  - Q. Which statement is incorrect with reference to cardiac tissue:
+1. They are striated
+2. They are voluntary in nature
+3. They have features of both skeletal and visceral tissue.
+Option:
+    - which: Which statement about cardiac tissue is incorrect? → Statement 2 is incorrect: cardiac muscle is involuntary, not voluntary. Statement 1 is correct, and statement 3 refers to its combination of skeletal-like striation and visceral-like involuntary control. The answer options are continued on the next page. _(outside the book)_
+      - why: Why is cardiac muscle striated? → Its actin and myosin filaments are organised into repeating sarcomeres, creating the banded appearance also found in skeletal muscle. _(outside the book)_
+      - how: How can a striated muscle be involuntary? → Striation describes microscopic arrangement, whereas voluntary control describes regulation of contraction. The heartbeat is initiated by specialised pacemaker cells and modulated by autonomic nerves and hormones rather than normally being started by conscious choice. _(outside the book)_
+      - compare: What does 'features of both skeletal and visceral tissue' mean here? → It means cardiac muscle resembles skeletal muscle in being striated and resembles visceral smooth muscle in being involuntary. It does not mean that cardiac tissue is a mixture of skeletal and smooth muscle cells. _(outside the book)_
+  - prerequisites: muscle tissue; skeletal muscle; visceral smooth muscle; voluntary and involuntary control; actin and myosin
+- **p013-i50** · question · question · both · exam high
+  - Previous-page stem (context only):
+Q. Consider the following statements:
+Tissue Location
+1. Apical Present at root tips only
+2. Lateral Present beneath bark
+3. Intercalary Present at base of leaves or internodes
+Choose the correct statement(s):
+
+Continuation printed on this page:
+a. 1 only
+b. 1 and 2.
+c. 2 and 3.
+d. All are correct
+    - which: Which statements in the continued meristem-location question are correct? → Statements 2 and 3 are the intended correct statements, giving option c. Lateral meristem occurs beneath bark, and intercalary meristem occurs at the base of leaves or internodes. _(outside the book)_
+      - why: Why is statement 1 incorrect? → Apical meristems occur at growing root tips and shoot tips. The word 'only' incorrectly restricts them to root tips. _(outside the book)_
+      - compare: How do the growth roles of these meristems differ? → Apical meristems contribute to elongation at root and shoot apices. Lateral meristems contribute to growth in thickness. Intercalary meristems permit elongation from regions between more mature tissues, including leaf bases and internodes in grasses. _(outside the book)_
+  - prerequisites: meristematic tissue; root tip and shoot tip; bark; leaf base and internode
+
+### Page 14 · passed after 2 round(s)
+
+Four practice MCQs, including one continued from the previous page, revise cardiac muscle, epidermal protection, stomatal gas exchange and tendons. Standard textbook answers are c. 2 only for the cardiac question, b. Epidermis for the protective-layer question, b. Stomata for leaf gaseous exchange, and b. Tendon for muscle–bone attachment. The protective-layer question's claim that the epidermis is 'thickest' needs qualification.
+
+- **p014-i1** · question · question · both · exam high
+  - Q. Which statement is incorrect with reference to cardiac tissue:
+1. They are striated
+2. They are voluntary in nature
+3. They have features of both skeletal and visceral tissue.
+Option:
+a. 1 only
+b. 1 and 3.
+c. 2 only.
+d. All are correct
+    - which: Which statement is incorrect, and which option should be selected? → Statement 2 is incorrect: cardiac muscle is involuntary, not voluntary. The intended answer is c. 2 only. _(outside the book)_
+    - compare: In what sense does cardiac tissue share features with skeletal and visceral muscle? → Cardiac muscle is striated like skeletal muscle, but its contraction is involuntary like visceral smooth muscle. This limited comparison explains statement 3; it does not mean these tissues have identical structures. _(outside the book)_
+      - why: Why do striations not imply voluntary control? → Striations reflect the regular arrangement of contractile proteins, whereas voluntary control concerns how contraction is initiated and regulated. Cardiac muscle has organised contractile units but does not require a conscious command for each heartbeat. _(outside the book)_
+        - how: How can the heart contract without a conscious command? → Specialised cardiac pacemaker cells generate rhythmic electrical activity that spreads through the heart. Autonomic nerves modify this activity rather than requiring a voluntary command for each contraction. _(outside the book)_
+  - prerequisites: Muscle contraction; Striated and unstriated muscle; Voluntary and involuntary control
+- **p014-i2** · answer_option · fact · both · exam high
+  - a. 1 only
+    - what: What would choosing this option claim? → It would identify statement 1, that cardiac tissue is striated, as the sole incorrect statement.
+      - why: Why should this option be rejected? → Cardiac muscle does have striations. Calling it involuntary does not remove its striated appearance. _(outside the book)_
+  - prerequisites: Meaning of striations; Incorrect-statement MCQ format
+- **p014-i3** · answer_option · fact · both · exam high
+  - b. 1 and 3.
+    - what: Which statements does this option identify as incorrect? → It identifies statements 1 and 3: striations and the sharing of features with skeletal and visceral tissue.
+      - why: Why is this not the intended answer? → Cardiac muscle is striated, and the comparison in statement 3 is valid when it refers to skeletal-like striations and visceral-like involuntary control. _(outside the book)_
+  - prerequisites: Cardiac, skeletal and smooth muscle; Voluntary and involuntary control
+- **p014-i4** · answer_option · fact · both · exam high
+  - c. 2 only.
+    - which: Is this the intended correct option? → Yes. Statement 2 alone is incorrect because cardiac tissue is involuntary. _(outside the book)_
+      - why: Why is cardiac muscle classified as involuntary? → Its rhythmic contractions occur without conscious direction, although their rate and force can be modified by autonomic and hormonal influences. _(outside the book)_
+  - prerequisites: Meaning of involuntary contraction
+- **p014-i5** · answer_option · fact · both · exam medium
+  - d. All are correct
+    - what: What does this option assert? → It asserts that all three statements about cardiac tissue are correct.
+      - why: Why must it be rejected? → The statement describing cardiac tissue as voluntary is false, so the three statements cannot all be correct. _(outside the book)_
+  - prerequisites: Voluntary and involuntary muscle
+- **p014-i6** · question · question · both · exam high
+  - Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy substance on outer surface:
+    - which: Which option best matches the protective-layer and waxy-secretion clues? → The intended answer is b. Epidermis. Epidermal cells of exposed aerial plant parts commonly produce a waxy cuticle that helps reduce water loss. _(outside the book)_
+      - how: How does a waxy outer covering reduce water loss? → The cuticle provides a water-resistant barrier over the epidermis, reducing evaporation through the exposed surface. _(outside the book)_
+    - exception: Is epidermis universally the thickest plant layer? → No. Epidermis is commonly a single cell layer. Some plants in dry habitats have a thicker epidermis or a thick cuticle, but the question gives no condition that makes 'thickest' a general rule. _(outside the book)_
+      - difference: How should epidermis, cuticle and suberin be distinguished? → Epidermis is a cellular covering tissue; the cuticle is a waxy, cutin-containing covering deposited on its outer surface; suberin is a water-resistant wall material associated especially with cork cells. They are not interchangeable names. _(outside the book)_
+  - prerequisites: Plant organs and their outer surfaces; Evaporation and water loss; Difference between a tissue and a deposited substance
+- **p014-i7** · answer_option · fact · both · exam high
+  - a. Sclerenchyma
+    - what: What is sclerenchyma? → It is a supporting plant tissue whose cells generally have thick, lignified walls and are dead at maturity. _(outside the book)_
+      - why: Why does its thick wall not make it the answer? → The question's decisive clue is an outer protective layer producing a waxy covering. Sclerenchyma primarily provides mechanical strength; thick cell walls are not the same as an epidermal covering. _(outside the book)_
+  - prerequisites: Plant cell wall; Mechanical support in plants
+- **p014-i8** · answer_option · fact · both · exam high
+  - b. Epidermis
+    - what: What is the epidermis in a plant? → It is the outer covering tissue of young plant organs, separating underlying tissues from the surroundings. _(outside the book)_
+      - how: How does it fit the waxy-substance clue? → In exposed aerial parts, epidermal cells commonly deposit a waxy cuticle on their outer surface, helping limit water loss. _(outside the book)_
+  - prerequisites: Plant tissue; Cuticle
+- **p014-i9** · answer_option · fact · both · exam high
+  - c. Parenchyma
+    - what: What is parenchyma? → Parenchyma is a simple permanent plant tissue composed of living cells, commonly with relatively thin walls, performing functions such as storage and, in specialised forms, photosynthesis. _(outside the book)_
+      - why: Why is it not the intended protective-layer answer? → The question identifies a surface covering that produces a waxy barrier. That role points to epidermis, rather than general storage or ground-tissue parenchyma. _(outside the book)_
+  - prerequisites: Living plant cells; Simple permanent tissues
+- **p014-i10** · answer_option · fact · both · exam high
+  - d. Suberin
+    - what: What is suberin? → Suberin is a water-resistant substance deposited in certain plant cell walls, notably those of cork cells. _(outside the book)_
+      - why: Why is suberin a plausible distractor but not the intended answer? → It is associated with restricting water movement, but it is a wall substance rather than the epidermal tissue layer that produces an outer cuticle. _(outside the book)_
+  - prerequisites: Cork cells; Difference between tissue and cell-wall material
+- **p014-i11** · question · question · both · exam high
+  - Q. Site of gaseous exchange on leaf is:
+    - which: Which option identifies the usual site of gaseous exchange on a leaf? → b. Stomata. These pores connect the leaf's internal air spaces with the surrounding atmosphere. _(outside the book)_
+      - how: How do gases pass through stomata? → Gases diffuse through open stomatal pores along concentration gradients. Carbon dioxide can enter for photosynthesis, while oxygen and water vapour can move out under the relevant gradients. _(outside the book)_
+      - difference: How does the exchange site differ from its regulating cells? → The stomatal pore is the passage for gas movement; guard cells bordering it regulate the size of that passage. _(outside the book)_
+  - prerequisites: Diffusion; Leaf epidermis; Photosynthesis and respiration
+- **p014-i12** · answer_option · fact · both · exam high
+  - a. Guard cells
+    - what: What are guard cells? → They are specialised epidermal cells bordering a stomatal pore and regulating its opening. _(outside the book)_
+      - how: How do guard cells regulate gaseous exchange? → Changes in their water content and turgor change their shape and the pore opening. They regulate the route of exchange rather than being the pore itself. _(outside the book)_
+  - prerequisites: Cell turgor; Stomatal pore
+- **p014-i13** · answer_option · fact · both · exam high
+  - b. Stomata
+    - what: What are stomata? → Stomata are pores in the epidermis of leaves and some other aerial plant parts, associated with guard cells. _(outside the book)_
+      - why: Why are they suited to gaseous exchange? → An open pore provides a diffusion pathway between the external air and internal leaf air spaces, while guard cells allow its opening to be regulated. _(outside the book)_
+  - prerequisites: Epidermis; Diffusion
+- **p014-i14** · answer_option · fact · both · exam high
+  - c. Aerenchyma
+    - what: What is aerenchyma? → It is parenchymatous tissue with large air spaces, common in aquatic plants, that helps internal gas movement and can contribute to buoyancy. _(outside the book)_
+      - why: Why does the presence of air spaces not make it the answer here? → Aerenchyma is an internal tissue adaptation. The question asks for the leaf's gas-exchange site with the atmosphere, for which stomata are the intended answer. _(outside the book)_
+  - prerequisites: Parenchyma; Intercellular air spaces
+- **p014-i15** · answer_option · fact · both · exam high
+  - d. Chlorenchyma
+    - what: What is chlorenchyma? → It is parenchyma containing chloroplasts and specialised for photosynthesis. _(outside the book)_
+      - why: Why is a photosynthetic tissue not the answer to this question? → Photosynthetic cells use carbon dioxide and produce oxygen, but the question asks for the surface route through which gases enter and leave the leaf, not the tissue carrying out photosynthesis. _(outside the book)_
+  - prerequisites: Parenchyma; Chloroplasts; Photosynthesis
+- **p014-i16** · question · question · both · exam high
+  - Q. Muscle is connected to bone via:
+    - which: Which structure connects muscle to bone? → b. Tendon is the standard answer for the attachment of skeletal muscle to bone. _(outside the book)_
+      - how: How does this connection help produce movement? → When skeletal muscle contracts, it develops tension that the tendon transmits to the attached bone. This pull can move the bone at a joint. _(outside the book)_
+    - compare: How do tendon, ligament and cartilage differ in this context? → A tendon connects muscle to bone and transmits pulling force; a ligament typically connects bone to bone and stabilises a joint; cartilage provides support and, at many joint surfaces, a smooth covering rather than the muscle–bone attachment. _(outside the book)_
+  - prerequisites: Skeletal muscle contraction; Bones and joints; Connective tissue
+- **p014-i17** · answer_option · fact · both · exam high
+  - a. Ligament
+    - what: What does a ligament typically connect? → A ligament typically connects one bone to another at a joint. _(outside the book)_
+      - why: Why is ligament incorrect for muscle–bone attachment? → Its usual role is joint stabilisation between bones, whereas a tendon provides the muscle's attachment and transmits its pull to bone. _(outside the book)_
+  - prerequisites: Joint; Bone-to-bone connection
+- **p014-i18** · answer_option · fact · both · exam high
+  - b. Tendon
+    - what: What is a tendon? → A tendon is a strong fibrous connective-tissue structure that commonly attaches skeletal muscle to bone. _(outside the book)_
+      - how: How is its structure suited to transmitting muscle force? → Its bundles of collagen fibres provide high tensile strength, allowing it to withstand and transmit the pulling force generated by muscle contraction. _(outside the book)_
+  - prerequisites: Connective tissue; Collagen fibres; Pulling force
+- **p014-i19** · answer_option · fact · both · exam high
+  - c. Cartilage
+    - what: What role can cartilage perform at a joint? → Articular cartilage covers the ends of bones at many joints, providing a smooth surface and helping distribute loads. _(outside the book)_
+      - why: Why is cartilage not the correct attachment structure? → Joint-surface support and reduction of friction differ from connecting a muscle to a bone and transmitting the muscle's pull. The latter is the role of a tendon. _(outside the book)_
+  - prerequisites: Connective tissue; Joint surfaces
+- **p014-i20** · answer_option · fact · both · exam low
+  - d. None
+    - what: What would choosing 'None' imply? → It would mean that none of ligament, tendon or cartilage answers the muscle–bone attachment question.
+      - why: Why should this option be rejected? → Tendon is already listed and is the standard structure connecting skeletal muscle to bone. _(outside the book)_
+  - prerequisites: Tendon as muscle–bone attachment

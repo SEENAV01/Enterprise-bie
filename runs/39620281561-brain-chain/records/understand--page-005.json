@@ -1,0 +1,3066 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-005",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "3d2db485833fbee0f09e57437c9db0da7644f762776c0a873cfa0cb4a072e187",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 5 of 14.\n\nLast lines of the previous page (context only):\n• Prevents organs from getting displaced by body movement.\n• Acts like binding, supporting and packing material.\n• Cells are loosely spaced.\n• Cells are embedded in an intercellular matrix.\n• Matrix may be jelly, fluid, dense or rigid.\n Connective tissues, support and connect different tissues and organs of the body.\n Connective tissue is made up of :-\n90\n\nFirst lines of the next page (context only):\nScience and Technology\nb. Visceral Muscle/ Smooth muscle tissue\nCharacteristics:\n• Fibres are spindle shaped/fusiform i.e. pointed at\nends/tapering ends.\n• Single and centrally located nucleus in each cell.\n• Striations are absent.\n• Unbranched\n\nNative text blocks of this page (id | text):\np0005-b0001 | Science and Technology\np0005-b0002 |  Few cells present in the intercellular framework\np0005-b0003 |  The cells also secrete a thin gel of polysaccharides, which\np0005-b0004 | together with fibres make matrix or ground substance.\np0005-b0005 |  Protein fibres secreted by the cells, known as collagen or\np0005-b0006 | elastin. The elasticity, flexibility and strength of the\np0005-b0007 | connective tissues are due to fibres.\np0005-b0008 |  Collagen fibres are the most widespread and made up of\np0005-b0009 | fibrous protein, collagen. Collagen fibres are flexible and have high tensile strength.\np0005-b0010 |  Elastic fibres form a network and can be stretched like a rubber band. They are made up of\np0005-b0011 | protein elastin. They retain their original shape and size once the force is removed.\np0005-b0012 |  Reticulate fibres consist of collagen and glycoproteins. They are thin and form a delicate\np0005-b0013 | network. They join connective tissues to neighbouring tissues.\np0005-b0014 | MUSCLE TISSUE/MUSCULAR TISSUE\np0005-b0015 | Characterstics:\np0005-b0016 | • Composed of muscle cell/ muscle fibres.\np0005-b0017 | • Muscle fibres are elongated and large sized.\np0005-b0018 | • Contractile proteins are present in fibres.\np0005-b0019 | • Contraction and relaxation.\np0005-b0020 | Types:\np0005-b0021 | a. Skeletal\np0005-b0022 | b. Smooth\np0005-b0023 | c. Cardiac\np0005-b0024 | a. Skeletal Muscle Tissue:\np0005-b0025 | Characteristics\np0005-b0026 | • Muscle fibres are elongated and cylindrical\np0005-b0027 | • Unbranched\np0005-b0028 | • Attached to bones\np0005-b0029 | • Each cell is multi-nucleated many nuclei.\np0005-b0030 | • Striations are present  alternate dark and light bands.\np0005-b0031 | • Easily fatigue\np0005-b0032 | • Helps in body movement.\np0005-b0033 | • Maintains posture\np0005-b0034 | Other names: Skeleton muscle, Striated muscle and voluntary muscle.\np0005-b0035 | 91"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "74edc7ae9f23459eb97c66266397b658739bb6a408dc72adea8933b743b6c193",
+    "base64_chars": 770412
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594241.2954113,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "3d5c85c303541994dbf715f1aa5e539071b3fe9563d651a9e6aec6bee05924bc",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5321,
+    "output_tokens": 11719,
+    "cost_usd": 0.127832
+   },
+   "notes": {
+    "about": "This page completes the account of connective-tissue matrix and fibres, then introduces muscular tissue and describes skeletal muscle. Two illustrations connect tissue structure with cells, extracellular components and body movement.",
+    "key_questions": [
+     "How do cells, ground substance and fibres contribute to connective-tissue structure?",
+     "How do collagen, elastic and reticulate fibres differ?",
+     "What are the general properties and three types of muscle tissue?",
+     "How do skeletal-muscle structure, attachment and control relate to movement and posture?",
+     "What do the two illustrations show beyond the native text?"
+    ],
+    "decisions": [
+     {
+      "decision": "Joined text blocks that are continuations of the same bullet, while retaining separate skeletal-muscle characteristics.",
+      "reason": "This preserves complete statements without losing independently testable facts."
+     },
+     {
+      "decision": "Captured the connective-tissue illustration and each visible label separately.",
+      "reason": "The image contains several cells and extracellular components absent from the native text."
+     },
+     {
+      "decision": "Marked explanations of contraction, fibre mechanics and labelled cell functions as outside knowledge.",
+      "reason": "These explain the page but are not explicitly stated by its text or illustration."
+     },
+     {
+      "decision": "Retained the book's terms 'Reticulate fibres' and 'Skeleton muscle'.",
+      "reason": "The source's terminology should remain distinguishable from explanatory terminology."
+     },
+     {
+      "decision": "Qualified the explanation of 'Easily fatigue' without changing the source statement.",
+      "reason": "Skeletal-muscle fatigue depends on activity and fibre type; the book's short comparison should not become an absolute claim."
+     }
+    ],
+    "uncertain": [
+     "The connective-tissue diagram has small labels; 'Extracellular matrix' appears to group the collagen and ground-substance components.",
+     "The skeletal-muscle illustration contains faint watermark text that is not an anatomical label."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page completes the account of connective-tissue matrix and fibres, then introduces muscular tissue and describes skeletal muscle. Two illustrations connect tissue structure with cells, extracellular components and body movement.",
+     "key_questions": [
+      "How do cells, ground substance and fibres contribute to connective-tissue structure?",
+      "How do collagen, elastic and reticulate fibres differ?",
+      "What are the general properties and three types of muscle tissue?",
+      "How do skeletal-muscle structure, attachment and control relate to movement and posture?",
+      "What do the two illustrations show beyond the native text?"
+     ],
+     "decisions": [
+      {
+       "decision": "Joined text blocks that are continuations of the same bullet, while retaining separate skeletal-muscle characteristics.",
+       "reason": "This preserves complete statements without losing independently testable facts."
+      },
+      {
+       "decision": "Captured the connective-tissue illustration and each visible label separately.",
+       "reason": "The image contains several cells and extracellular components absent from the native text."
+      },
+      {
+       "decision": "Marked explanations of contraction, fibre mechanics and labelled cell functions as outside knowledge.",
+       "reason": "These explain the page but are not explicitly stated by its text or illustration."
+      },
+      {
+       "decision": "Retained the book's terms 'Reticulate fibres' and 'Skeleton muscle'.",
+       "reason": "The source's terminology should remain distinguishable from explanatory terminology."
+      },
+      {
+       "decision": "Qualified the explanation of 'Easily fatigue' without changing the source statement.",
+       "reason": "Skeletal-muscle fatigue depends on activity and fibre type; the book's short comparison should not become an absolute claim."
+      }
+     ],
+     "uncertain": [
+      "The connective-tissue diagram has small labels; 'Extracellular matrix' appears to group the collagen and ground-substance components.",
+      "The skeletal-muscle illustration contains faint watermark text that is not an anatomical label."
+     ]
+    },
+    "page_summary": "Connective tissue contains relatively few cells within an intercellular framework. Cells produce a polysaccharide gel and protein fibres; collagen provides tensile strength, elastic fibres permit stretch and recoil, and reticulate fibres form delicate supporting connections. Muscle tissue consists of elongated fibres with contractile proteins and is classified as skeletal, smooth and cardiac. Skeletal muscle is elongated, cylindrical, unbranched, multinucleated, striated and attached to bones; it supports movement and posture and is also called Skeleton, Striated or voluntary muscle.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0002"
+      ],
+      "where_on_page": "top, first bullet",
+      "content": "Few cells present in the intercellular framework",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How are cells represented in the connective-tissue framework described here?",
+        "answer": "Relatively few cells occur within the intercellular framework; the material between cells is a prominent part of this tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a tissue with relatively few cells provide support?",
+        "answer": "Its cells produce extracellular material, including fibres and ground substance. This material can bear forces and support the tissue even though it lies outside the cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "extracellular material"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise abundant intercellular material as a key connective-tissue feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0003",
+       "p0005-b0004"
+      ],
+      "where_on_page": "top, second bullet",
+      "content": "The cells also secrete a thin gel of polysaccharides, which together with fibres make matrix or ground substance.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do connective-tissue cells secrete, and what does the page say it forms?",
+        "answer": "They secrete a thin polysaccharide gel. The page describes this gel together with fibres as forming the matrix or ground substance.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should matrix and ground substance be distinguished when explaining this sentence?",
+        "answer": "In standard terminology, extracellular matrix includes fibres plus ground substance. Ground substance is the non-fibrous material around cells and fibres. The book's sentence uses the terms more loosely; the diagram separately labels collagen and ground substance within extracellular matrix.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is a polysaccharide-rich gel useful between cells?",
+        "answer": "Such molecules help retain water, creating a hydrated medium that supports cells and permits movement of dissolved substances.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell secretion",
+       "polysaccharides",
+       "extracellular material"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the components of connective-tissue matrix; distinguish fibres from non-fibrous ground substance.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0005",
+       "p0005-b0006",
+       "p0005-b0007"
+      ],
+      "where_on_page": "upper left, third bullet",
+      "content": "Protein fibres secreted by the cells, known as collagen or elastin. The elasticity, flexibility and strength of the connective tissues are due to fibres.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which secreted components give connective tissue its stated mechanical properties?",
+        "answer": "The page names collagen and elastin protein fibres and attributes connective-tissue elasticity, flexibility and strength to fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can different fibres produce different mechanical properties?",
+        "answer": "Collagen chiefly resists pulling forces, whereas elastic fibres stretch and recoil. Their arrangement and relative abundance help determine how a connective tissue responds to force.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "proteins",
+       "cell secretion",
+       "stretching and pulling forces"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect fibre composition with connective-tissue properties.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0008",
+       "p0005-b0009"
+      ],
+      "where_on_page": "upper third, fourth bullet",
+      "content": "Collagen fibres are the most widespread and made up of fibrous protein, collagen. Collagen fibres are flexible and have high tensile strength.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the composition and properties of collagen fibres?",
+        "answer": "They are the most widespread fibres described here, are made of the fibrous protein collagen, and combine flexibility with high tensile strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a fibre be flexible and still have high tensile strength?",
+        "answer": "Flexibility is the ability to bend; tensile strength is resistance to breaking when pulled. A collagen fibre can bend without being easily stretched apart, so these properties are compatible.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "compare",
+        "question": "How does collagen's main mechanical role differ from that of elastic fibres?",
+        "answer": "Collagen is emphasised for flexibility and high tensile strength; elastic fibres are emphasised for stretching and returning to their original shape and size.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "fibrous proteins",
+       "tension as a pulling force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield association: collagen—high tensile strength and widespread occurrence.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0010",
+       "p0005-b0011"
+      ],
+      "where_on_page": "upper third, fifth bullet",
+      "content": "Elastic fibres form a network and can be stretched like a rubber band. They are made up of protein elastin. They retain their original shape and size once the force is removed.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are elastic fibres made of, and what behaviour identifies them?",
+        "answer": "They contain the protein elastin, form a network, stretch like a rubber band and return to their original shape and size after the stretching force is removed.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the rubber-band analogy explain elasticity?",
+        "answer": "Elasticity includes recovery after deformation, not just the ability to become longer. The analogy highlights both stretching under force and recoil after release.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do elastic and collagen fibres differ in the properties stressed on this page?",
+        "answer": "Elastic fibres are characterised by stretch and recoil; collagen fibres by flexibility and resistance to tensile forces.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "proteins",
+       "force",
+       "stretch and recoil"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish elastin-mediated elasticity from collagen-mediated tensile strength.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0012",
+       "p0005-b0013"
+      ],
+      "where_on_page": "above muscular-tissue heading, sixth bullet",
+      "content": "Reticulate fibres consist of collagen and glycoproteins. They are thin and form a delicate network. They join connective tissues to neighbouring tissues.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the composition, arrangement and stated role of reticulate fibres?",
+        "answer": "They consist of collagen and glycoproteins, form a thin, delicate network and join connective tissues to neighbouring tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a delicate network help connect and support tissues?",
+        "answer": "A branching mesh can provide many small points of support and attachment around cells and adjacent tissue components rather than acting as a single thick rope.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are reticulate fibres distinguished from the other fibres on this page?",
+        "answer": "The book emphasises their thin network and joining role, compared with collagen fibres' tensile strength and elastic fibres' stretch and recoil.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "collagen",
+       "glycoproteins",
+       "network arrangement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the book's term 'Reticulate fibres'; test composition and delicate network formation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper right",
+      "content": "Connective-tissue illustration showing scattered mesenchymal cell, macrophage and adipocytes among collagen and elastic fibres, ground substance and a blood vessel. Leader lines identify each component. A bracket groups collagen and ground substance under extracellular matrix; the fibres interweave around the cells rather than forming a directional flow.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What overall organisation does the connective-tissue diagram show?",
+        "answer": "Different cells are scattered within a surrounding extracellular framework containing fibres and ground substance, with a blood vessel also shown.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the diagram reinforce the statement that connective tissue has an intercellular framework?",
+        "answer": "The spaces between the labelled cells contain visible fibres and background ground substance. The illustration therefore makes the extracellular component visible rather than portraying a tightly packed sheet of cells.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "extracellular matrix",
+       "reading diagram leader lines"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use for identification of cells versus extracellular connective-tissue components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, upper left",
+      "content": "Mesenchymal cell — points to the pale, elongated branching cell near the top-left edge.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which structure is labelled Mesenchymal cell?",
+        "answer": "The pale, elongated cell at the upper-left part of the illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are mesenchymal cells related to connective-tissue development?",
+        "answer": "Mesenchymal cells are relatively undifferentiated cells that can give rise to several connective-tissue cell types.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell differentiation"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise this as a cell, not a matrix fibre.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left upper label",
+      "content": "Collagen fibers — leader lines point to the thicker blue fibre strands crossing the matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "What do the thicker blue strands represent?",
+        "answer": "They are labelled Collagen fibers.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these fibres contribute to the tissue's mechanical role?",
+        "answer": "The page identifies collagen fibres as flexible structures with high tensile strength, linking them to resistance against pulling.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "collagen",
+       "tensile strength"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify collagen fibres and associate them with tensile strength.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left middle",
+      "content": "Blood vessel — points to the reddish tubular structure along the left side of the illustrated tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the blood vessel shown?",
+        "answer": "It is the reddish tube running along the left side of the connective-tissue illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a blood vessel support cells in surrounding tissue?",
+        "answer": "Exchange across small vessel walls allows oxygen and nutrients to reach tissue fluid and cells and allows wastes to move toward the blood.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood vessels",
+       "diffusion"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "The vessel shown should not be used to infer that every connective tissue is vascular.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left lower boxed labels",
+      "content": "Collagen — points to a collagen strand and is grouped with Ground substance under Extracellular matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What relationship does this second collagen label highlight?",
+        "answer": "It identifies collagen as a component grouped within the extracellular matrix.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is collagen classified as extracellular here despite being produced by cells?",
+        "answer": "Extracellular describes its final location outside cells. Cells can synthesise and secrete material that becomes part of the surrounding matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell secretion",
+       "extracellular location"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish a secreted matrix protein from a cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left lower boxed labels",
+      "content": "Ground substance — points to the background material between the cells and fibres; grouped with Collagen under Extracellular matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is ground substance represented?",
+        "answer": "It is the background material surrounding the illustrated cells and fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does ground substance differ from a collagen fibre?",
+        "answer": "Ground substance is the non-fibrous hydrated material of the matrix, whereas collagen is organised into protein fibres.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "extracellular matrix",
+       "fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise ground substance as non-cellular and distinct from fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, lower left",
+      "content": "Extracellular matrix — bracketed grouping associated with the Collagen and Ground substance labels.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which components are grouped by the extracellular-matrix annotation?",
+        "answer": "The annotation groups collagen and ground substance as extracellular components.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the labelled tissue cells not be included as matrix components?",
+        "answer": "The matrix is material outside cells. Cells produce and interact with it but are structurally distinct from it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "inside versus outside a cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A key cell-versus-matrix distinction for statement-based questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, upper right",
+      "content": "Elastic fibers — points to thin branching fibres interwoven among the thicker collagen strands.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which diagram components are labelled Elastic fibers?",
+        "answer": "The thin branching fibres running through the extracellular framework.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does their network relate to their stated function?",
+        "answer": "The page describes elastic fibres as a network that stretches and then regains its original shape and size, providing a visual basis for understanding tissue recoil.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "elasticity",
+       "collagen fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link elastic fibres with elastin and recoil.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, right middle",
+      "content": "Macrophage — points to the irregular pink cell with a darker interior near the lower-right centre.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cell is labelled Macrophage?",
+        "answer": "The irregular pink cell near the lower-right centre of the illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do macrophages contribute to tissue defence and maintenance?",
+        "answer": "They engulf microbes, dead cells and debris by phagocytosis, helping defence and removal of unwanted material.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "phagocytosis"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise macrophage as a connective-tissue cell with a defensive role.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, lower right",
+      "content": "Adipocyte (fat cell) — points to a rounded yellow fat-containing cell near the lower-right edge.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an adipocyte called in the diagram?",
+        "answer": "The diagram explicitly identifies an adipocyte as a fat cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do adipocytes contribute to the body?",
+        "answer": "They store lipid as an energy reserve; adipose tissue also contributes to cushioning and insulation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "fat as stored energy"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield cell-name association: adipocyte—fat cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0014"
+      ],
+      "where_on_page": "middle, centred",
+      "content": "MUSCLE TISSUE/MUSCULAR TISSUE",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Begins muscular-tissue properties and classification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0015"
+      ],
+      "where_on_page": "below muscular-tissue heading, left",
+      "content": "Characterstics:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces general muscle characteristics.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0016"
+      ],
+      "where_on_page": "middle, first muscle-characteristic bullet",
+      "content": "Composed of muscle cell/ muscle fibres.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What constitutes muscular tissue?",
+        "answer": "Muscle cells, also referred to here as muscle fibres, constitute muscular tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must muscle fibre not be confused with a connective-tissue fibre?",
+        "answer": "A muscle fibre is a cell, whereas collagen and elastic fibres are extracellular protein structures. The same word describes biologically different structures.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "connective-tissue fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid confusing cellular muscle fibres with extracellular connective-tissue fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0017"
+      ],
+      "where_on_page": "middle, second muscle-characteristic bullet",
+      "content": "Muscle fibres are elongated and large sized.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What general shape and size does the book assign to muscle fibres?",
+        "answer": "It describes them as elongated and large sized.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is an elongated form useful in a contractile cell?",
+        "answer": "Contractile elements can be arranged along the cell's length so that their action produces shortening and force in a particular direction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "contraction"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "General feature; use more specific shape descriptors to distinguish muscle types.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0018"
+      ],
+      "where_on_page": "middle, third muscle-characteristic bullet",
+      "content": "Contractile proteins are present in fibres.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which special proteins are present in muscle fibres?",
+        "answer": "The fibres contain contractile proteins.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do contractile proteins generate muscle contraction?",
+        "answer": "The proteins actin and myosin interact so that their filaments slide relative to one another, using energy from ATP to produce force and shortening.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "proteins",
+       "cellular energy"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Understand the protein basis of muscle contraction; actin and myosin are explanatory additions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0019"
+      ],
+      "where_on_page": "middle, fourth muscle-characteristic bullet",
+      "content": "Contraction and relaxation.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which two activities characterise muscle tissue here?",
+        "answer": "Contraction and relaxation.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should contraction and relaxation be explained to a beginner?",
+        "answer": "Contraction means activation that produces muscular tension, often with shortening. Relaxation is the reduction of this active tension as activation subsides; other forces can then help restore length.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why should contraction not be defined simply as visible shortening?",
+        "answer": "A muscle can generate tension while its overall length remains nearly unchanged, as when holding a position.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "contractile proteins",
+       "force and tension"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core functional property underlying movement and posture.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0020",
+       "p0005-b0021",
+       "p0005-b0022",
+       "p0005-b0023"
+      ],
+      "where_on_page": "middle left, Types list",
+      "content": "Types:\na. Skeletal\nb. Smooth\nc. Cardiac",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which three types of muscle tissue are listed?",
+        "answer": "Skeletal, Smooth and Cardiac.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How can these three types be broadly distinguished?",
+        "answer": "Skeletal muscle is associated with the skeleton and voluntary movement; smooth muscle commonly occurs in walls of hollow organs and lacks striations; cardiac muscle forms the heart's muscular wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should muscle types be compared using more than one feature?",
+        "answer": "A single feature may be shared by two types. Comparing location, control, branching, nuclei and striations gives a more reliable identification.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle tissue",
+       "skeleton",
+       "heart",
+       "hollow organs"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core threefold classification for matching and statement-based questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0024"
+      ],
+      "where_on_page": "lower half, left, red heading",
+      "content": "a. Skeletal Muscle Tissue:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Begins detailed skeletal-muscle identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0025"
+      ],
+      "where_on_page": "below skeletal-muscle heading",
+      "content": "Characteristics",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces skeletal-muscle characteristic bullets.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0026"
+      ],
+      "where_on_page": "lower half, skeletal-muscle first bullet",
+      "content": "Muscle fibres are elongated and cylindrical",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the shape of skeletal-muscle fibres?",
+        "answer": "They are elongated and cylindrical.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a student visualise a cylindrical muscle fibre?",
+        "answer": "As a long tube-like cell rather than a flat sheet or a cell pointed at both ends. The adjacent illustration uses long, parallel cylinders to convey this form.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "cylinder"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Key shape feature for identifying skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0027"
+      ],
+      "where_on_page": "lower half, skeletal-muscle second bullet",
+      "content": "Unbranched",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Are skeletal-muscle fibres branched?",
+        "answer": "The page describes them as unbranched.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does unbranched shape help distinguish skeletal from cardiac muscle?",
+        "answer": "Skeletal fibres remain long, separate cylinders, whereas cardiac muscle cells characteristically branch and connect in a network.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "branching"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important skeletal-versus-cardiac comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0028"
+      ],
+      "where_on_page": "lower half, skeletal-muscle third bullet",
+      "content": "Attached to bones",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "To what are skeletal muscles attached in the description?",
+        "answer": "They are attached to bones.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does attachment enable a muscle to move a bone?",
+        "answer": "Muscle force is transmitted through attachments, commonly tendons, to bones. Pulling on bones across a joint can change their relative position.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bones",
+       "joints",
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect skeletal attachment with the locomotor function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0029"
+      ],
+      "where_on_page": "lower half, skeletal-muscle fourth bullet",
+      "content": "Each cell is multi-nucleated → many nuclei.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does multi-nucleated mean in skeletal muscle?",
+        "answer": "One muscle cell contains many nuclei. It does not mean that each visible nucleus represents a separate fibre.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does a skeletal-muscle fibre contain many nuclei?",
+        "answer": "During development, several precursor muscle cells fuse to form a long muscle fibre, retaining multiple nuclei.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "nucleus",
+       "cell fusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield identification feature: many nuclei within a single skeletal-muscle fibre.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0030"
+      ],
+      "where_on_page": "lower half, skeletal-muscle fifth bullet",
+      "content": "Striations are present → alternate dark and light bands.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are striations?",
+        "answer": "The page defines them as alternating dark and light bands visible in skeletal-muscle fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does skeletal muscle show alternating bands?",
+        "answer": "Its contractile filaments are arranged in repeating units. Different regions of these units contain different arrangements of thick and thin filaments, producing the banded appearance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Are striations alone sufficient to identify skeletal muscle?",
+        "answer": "No. Cardiac muscle is also striated, so branching, nuclei and location should also be considered.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "contractile proteins",
+       "microscopic appearance"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know what striations mean; do not equate every striated muscle with skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0031"
+      ],
+      "where_on_page": "lower half, skeletal-muscle sixth bullet",
+      "content": "Easily fatigue",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tendency regarding fatigue does the page attribute to skeletal muscle?",
+        "answer": "It states that skeletal muscle fatigues easily.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should fatigue be explained without turning this short statement into an absolute rule?",
+        "answer": "Fatigue is a decline in the ability to maintain force during activity. Its development depends on activity intensity, duration, energy supply and muscle-fibre type; skeletal muscles do not all fatigue at the same rate.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle force",
+       "energy use during contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the book's comparative feature while avoiding the claim that every skeletal muscle fatigues rapidly under every condition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0032"
+      ],
+      "where_on_page": "lower half, skeletal-muscle seventh bullet",
+      "content": "Helps in body movement.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What movement-related function is stated for skeletal muscle?",
+        "answer": "It helps in body movement.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do skeletal muscles produce movement rather than merely change their own shape?",
+        "answer": "Their contraction produces tension transmitted to skeletal attachments. Muscles acting around joints can pull bones into new positions, often working in opposing groups.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "bone attachments",
+       "joints"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Relate skeletal-muscle contraction to locomotion and joint movement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0033"
+      ],
+      "where_on_page": "lower half, skeletal-muscle eighth bullet",
+      "content": "Maintains posture",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What function does skeletal muscle perform besides body movement?",
+        "answer": "It maintains posture.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can muscle activity maintain posture without obvious movement?",
+        "answer": "Sustained, regulated tension counteracts gravity and other forces, stabilising body parts even when their position changes little.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "gravity",
+       "muscle tension",
+       "body position"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember posture as well as movement among skeletal-muscle functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0034"
+      ],
+      "where_on_page": "below skeletal-muscle characteristic list",
+      "content": "Other names: Skeleton muscle, Striated muscle and voluntary muscle.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which alternative names does the book give for skeletal muscle?",
+        "answer": "Skeleton muscle, Striated muscle and voluntary muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these alternative names emphasise different aspects of the same tissue?",
+        "answer": "The skeletal name refers to association with the skeleton, striated refers to microscopic banding, and voluntary refers to its usual availability for conscious control.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does the name voluntary mean every skeletal-muscle action requires a conscious decision?",
+        "answer": "No. Skeletal muscles also participate in reflex and automatic postural activity. Voluntary describes an important mode of control rather than every individual activation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeleton",
+       "striations",
+       "conscious control",
+       "reflex"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Synonym matching is important; retain the printed term 'Skeleton muscle' and avoid treating 'striated' as unique to skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower right, bordered skeletal-muscle illustration",
+      "content": "Skeletal-muscle illustration: on the left, parallel orange-red cylindrical fibres show repeated transverse bands and several blue oval nuclei; on the right, a bent arm shows muscles attached along upper-arm and forearm bones. The two views associate microscopic muscle-fibre structure with skeletal muscle acting on the arm. No directional arrows are shown.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which two scales of organisation are shown in the skeletal-muscle illustration?",
+        "answer": "The left view shows individual banded fibres with several nuclei; the right view shows muscles associated with the bones of a bent arm.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the two views connect skeletal-muscle structure and function?",
+        "answer": "The fibre view depicts the contractile cells, while the arm view places muscle against the skeleton. Together they connect muscle-cell activity with pulling on bones to produce movement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which listed skeletal-muscle characteristics are visually reinforced?",
+        "answer": "Elongated cylindrical, unbranched fibres, multiple nuclei and striations are represented in the fibre view; association with bones is represented in the arm view.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre",
+       "nucleus",
+       "striations",
+       "bones and joints"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the combined fibre and arm views for structure–function identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i35",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "skeletal-muscle illustration, beneath the fibre bundle",
+      "content": "Skeletal Muscle — names the illustrated group of elongated, striated, multinucleated muscle fibres.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue is named beneath the fibre illustration?",
+        "answer": "Skeletal Muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which visible combination distinguishes this depiction from a typical smooth-muscle depiction?",
+        "answer": "These fibres are cylindrical, banded and shown with multiple nuclei; typical smooth-muscle cells are spindle shaped, lack striations and have a single central nucleus.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why use a combination of traits rather than the colour of the drawing to identify the tissue?",
+        "answer": "Illustration colours are chosen for clarity and are not diagnostic. Shape, banding and nuclear arrangement represent biologically useful identifying features.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle types",
+       "striations",
+       "cell nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify skeletal muscle from structural features rather than artistic colour.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0005-b0001",
+     "p0005-b0035"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0005-b0029"
+      ],
+      "text_says": "Each cell is multi-nucleated many nuclei.",
+      "image_shows": "Each cell is multi-nucleated → many nuclei. The native text has a malformed arrow glyph."
+     },
+     {
+      "block_ids": [
+       "p0005-b0030"
+      ],
+      "text_says": "Striations are present  alternate dark and light bands.",
+      "image_shows": "Striations are present → alternate dark and light bands. The native text has a malformed arrow glyph."
+     },
+     {
+      "block_ids": [
+       "p0005-b0015"
+      ],
+      "text_says": "Characterstics:",
+      "image_shows": "Characteristics:"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] item i22: the answer to 'Which two activities characterise muscle tissue here?' only repeats the question or the item"
+   ],
+   "passed": false,
+   "finished_at": 1792594445.4634697
+  },
+  {
+   "round": 2,
+   "started_at": 1792594445.4637895,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch improves the explanation of contraction and relaxation in item i22; all other page items remain unchanged.",
+     "key_questions": [
+      "What do contraction and relaxation mean, and how do they differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replaced the repetitive first answer with an explanation of the two activities and marked it as outside knowledge.",
+       "reason": "The page names the activities but does not explain them; the revised answer adds standard textbook understanding."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_items": [
+     {
+      "item_id": "i22",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0019"
+      ],
+      "where_on_page": "middle, fourth muscle-characteristic bullet",
+      "content": "Contraction and relaxation.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which two activities characterise muscle tissue here?",
+        "answer": "The page names contraction and relaxation. Contraction is activation of muscle that generates tension, often accompanied by shortening; relaxation is the reduction of active tension as activation subsides. Together, these activities allow muscles to exert force and then reduce it.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should contraction and relaxation be explained to a beginner?",
+        "answer": "During contraction, interactions between contractile proteins generate muscular tension. During relaxation, this force-generating activity decreases; other forces, such as an opposing muscle or an external load, can then help restore the muscle's length.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why should contraction not be defined simply as visible shortening?",
+        "answer": "A muscle can generate tension while its overall length remains nearly unchanged, as when holding a position.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "contractile proteins",
+       "force and tension"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core functional property underlying movement and posture.",
+      "tests_item_ids": []
+     }
+    ],
+    "remove_item_ids": [],
+    "boilerplate_block_ids": [
+     "p0005-b0001",
+     "p0005-b0035"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0005-b0029"
+      ],
+      "text_says": "Each cell is multi-nucleated many nuclei.",
+      "image_shows": "Each cell is multi-nucleated → many nuclei. The native text has a malformed arrow glyph."
+     },
+     {
+      "block_ids": [
+       "p0005-b0030"
+      ],
+      "text_says": "Striations are present  alternate dark and light bands.",
+      "image_shows": "Striations are present → alternate dark and light bands. The native text has a malformed arrow glyph."
+     },
+     {
+      "block_ids": [
+       "p0005-b0015"
+      ],
+      "text_says": "Characterstics:",
+      "image_shows": "Characteristics:"
+     }
+    ]
+   },
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "fa66f689e0323e6623c9b96129f0c6e5a8a50bca833b6b6d6eae3b04a9084816",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 15584,
+    "output_tokens": 764,
+    "cost_usd": 0.038808
+   },
+   "notes": {
+    "about": "This patch improves the explanation of contraction and relaxation in item i22; all other page items remain unchanged.",
+    "key_questions": [
+     "What do contraction and relaxation mean, and how do they differ?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replaced the repetitive first answer with an explanation of the two activities and marked it as outside knowledge.",
+      "reason": "The page names the activities but does not explain them; the revised answer adds standard textbook understanding."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This patch improves the explanation of contraction and relaxation in item i22; all other page items remain unchanged.",
+     "key_questions": [
+      "What do contraction and relaxation mean, and how do they differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replaced the repetitive first answer with an explanation of the two activities and marked it as outside knowledge.",
+       "reason": "The page names the activities but does not explain them; the revised answer adds standard textbook understanding."
+      }
+     ],
+     "uncertain": []
+    },
+    "page_summary": "Connective tissue contains relatively few cells within an intercellular framework. Cells produce a polysaccharide gel and protein fibres; collagen provides tensile strength, elastic fibres permit stretch and recoil, and reticulate fibres form delicate supporting connections. Muscle tissue consists of elongated fibres with contractile proteins and is classified as skeletal, smooth and cardiac. Skeletal muscle is elongated, cylindrical, unbranched, multinucleated, striated and attached to bones; it supports movement and posture and is also called Skeleton, Striated or voluntary muscle.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0002"
+      ],
+      "where_on_page": "top, first bullet",
+      "content": "Few cells present in the intercellular framework",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How are cells represented in the connective-tissue framework described here?",
+        "answer": "Relatively few cells occur within the intercellular framework; the material between cells is a prominent part of this tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a tissue with relatively few cells provide support?",
+        "answer": "Its cells produce extracellular material, including fibres and ground substance. This material can bear forces and support the tissue even though it lies outside the cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "extracellular material"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise abundant intercellular material as a key connective-tissue feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0003",
+       "p0005-b0004"
+      ],
+      "where_on_page": "top, second bullet",
+      "content": "The cells also secrete a thin gel of polysaccharides, which together with fibres make matrix or ground substance.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What do connective-tissue cells secrete, and what does the page say it forms?",
+        "answer": "They secrete a thin polysaccharide gel. The page describes this gel together with fibres as forming the matrix or ground substance.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should matrix and ground substance be distinguished when explaining this sentence?",
+        "answer": "In standard terminology, extracellular matrix includes fibres plus ground substance. Ground substance is the non-fibrous material around cells and fibres. The book's sentence uses the terms more loosely; the diagram separately labels collagen and ground substance within extracellular matrix.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is a polysaccharide-rich gel useful between cells?",
+        "answer": "Such molecules help retain water, creating a hydrated medium that supports cells and permits movement of dissolved substances.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell secretion",
+       "polysaccharides",
+       "extracellular material"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the components of connective-tissue matrix; distinguish fibres from non-fibrous ground substance.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0005",
+       "p0005-b0006",
+       "p0005-b0007"
+      ],
+      "where_on_page": "upper left, third bullet",
+      "content": "Protein fibres secreted by the cells, known as collagen or elastin. The elasticity, flexibility and strength of the connective tissues are due to fibres.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which secreted components give connective tissue its stated mechanical properties?",
+        "answer": "The page names collagen and elastin protein fibres and attributes connective-tissue elasticity, flexibility and strength to fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can different fibres produce different mechanical properties?",
+        "answer": "Collagen chiefly resists pulling forces, whereas elastic fibres stretch and recoil. Their arrangement and relative abundance help determine how a connective tissue responds to force.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "proteins",
+       "cell secretion",
+       "stretching and pulling forces"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect fibre composition with connective-tissue properties.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0008",
+       "p0005-b0009"
+      ],
+      "where_on_page": "upper third, fourth bullet",
+      "content": "Collagen fibres are the most widespread and made up of fibrous protein, collagen. Collagen fibres are flexible and have high tensile strength.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the composition and properties of collagen fibres?",
+        "answer": "They are the most widespread fibres described here, are made of the fibrous protein collagen, and combine flexibility with high tensile strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a fibre be flexible and still have high tensile strength?",
+        "answer": "Flexibility is the ability to bend; tensile strength is resistance to breaking when pulled. A collagen fibre can bend without being easily stretched apart, so these properties are compatible.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "compare",
+        "question": "How does collagen's main mechanical role differ from that of elastic fibres?",
+        "answer": "Collagen is emphasised for flexibility and high tensile strength; elastic fibres are emphasised for stretching and returning to their original shape and size.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "fibrous proteins",
+       "tension as a pulling force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield association: collagen—high tensile strength and widespread occurrence.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0010",
+       "p0005-b0011"
+      ],
+      "where_on_page": "upper third, fifth bullet",
+      "content": "Elastic fibres form a network and can be stretched like a rubber band. They are made up of protein elastin. They retain their original shape and size once the force is removed.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are elastic fibres made of, and what behaviour identifies them?",
+        "answer": "They contain the protein elastin, form a network, stretch like a rubber band and return to their original shape and size after the stretching force is removed.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the rubber-band analogy explain elasticity?",
+        "answer": "Elasticity includes recovery after deformation, not just the ability to become longer. The analogy highlights both stretching under force and recoil after release.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do elastic and collagen fibres differ in the properties stressed on this page?",
+        "answer": "Elastic fibres are characterised by stretch and recoil; collagen fibres by flexibility and resistance to tensile forces.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "proteins",
+       "force",
+       "stretch and recoil"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish elastin-mediated elasticity from collagen-mediated tensile strength.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0012",
+       "p0005-b0013"
+      ],
+      "where_on_page": "above muscular-tissue heading, sixth bullet",
+      "content": "Reticulate fibres consist of collagen and glycoproteins. They are thin and form a delicate network. They join connective tissues to neighbouring tissues.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the composition, arrangement and stated role of reticulate fibres?",
+        "answer": "They consist of collagen and glycoproteins, form a thin, delicate network and join connective tissues to neighbouring tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a delicate network help connect and support tissues?",
+        "answer": "A branching mesh can provide many small points of support and attachment around cells and adjacent tissue components rather than acting as a single thick rope.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are reticulate fibres distinguished from the other fibres on this page?",
+        "answer": "The book emphasises their thin network and joining role, compared with collagen fibres' tensile strength and elastic fibres' stretch and recoil.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "collagen",
+       "glycoproteins",
+       "network arrangement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the book's term 'Reticulate fibres'; test composition and delicate network formation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper right",
+      "content": "Connective-tissue illustration showing scattered mesenchymal cell, macrophage and adipocytes among collagen and elastic fibres, ground substance and a blood vessel. Leader lines identify each component. A bracket groups collagen and ground substance under extracellular matrix; the fibres interweave around the cells rather than forming a directional flow.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What overall organisation does the connective-tissue diagram show?",
+        "answer": "Different cells are scattered within a surrounding extracellular framework containing fibres and ground substance, with a blood vessel also shown.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the diagram reinforce the statement that connective tissue has an intercellular framework?",
+        "answer": "The spaces between the labelled cells contain visible fibres and background ground substance. The illustration therefore makes the extracellular component visible rather than portraying a tightly packed sheet of cells.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "extracellular matrix",
+       "reading diagram leader lines"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use for identification of cells versus extracellular connective-tissue components.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, upper left",
+      "content": "Mesenchymal cell — points to the pale, elongated branching cell near the top-left edge.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which structure is labelled Mesenchymal cell?",
+        "answer": "The pale, elongated cell at the upper-left part of the illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are mesenchymal cells related to connective-tissue development?",
+        "answer": "Mesenchymal cells are relatively undifferentiated cells that can give rise to several connective-tissue cell types.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell differentiation"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise this as a cell, not a matrix fibre.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left upper label",
+      "content": "Collagen fibers — leader lines point to the thicker blue fibre strands crossing the matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "What do the thicker blue strands represent?",
+        "answer": "They are labelled Collagen fibers.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these fibres contribute to the tissue's mechanical role?",
+        "answer": "The page identifies collagen fibres as flexible structures with high tensile strength, linking them to resistance against pulling.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "collagen",
+       "tensile strength"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify collagen fibres and associate them with tensile strength.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left middle",
+      "content": "Blood vessel — points to the reddish tubular structure along the left side of the illustrated tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the blood vessel shown?",
+        "answer": "It is the reddish tube running along the left side of the connective-tissue illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a blood vessel support cells in surrounding tissue?",
+        "answer": "Exchange across small vessel walls allows oxygen and nutrients to reach tissue fluid and cells and allows wastes to move toward the blood.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "blood vessels",
+       "diffusion"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "The vessel shown should not be used to infer that every connective tissue is vascular.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left lower boxed labels",
+      "content": "Collagen — points to a collagen strand and is grouped with Ground substance under Extracellular matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What relationship does this second collagen label highlight?",
+        "answer": "It identifies collagen as a component grouped within the extracellular matrix.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is collagen classified as extracellular here despite being produced by cells?",
+        "answer": "Extracellular describes its final location outside cells. Cells can synthesise and secrete material that becomes part of the surrounding matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell secretion",
+       "extracellular location"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish a secreted matrix protein from a cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, left lower boxed labels",
+      "content": "Ground substance — points to the background material between the cells and fibres; grouped with Collagen under Extracellular matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is ground substance represented?",
+        "answer": "It is the background material surrounding the illustrated cells and fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does ground substance differ from a collagen fibre?",
+        "answer": "Ground substance is the non-fibrous hydrated material of the matrix, whereas collagen is organised into protein fibres.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "extracellular matrix",
+       "fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise ground substance as non-cellular and distinct from fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, lower left",
+      "content": "Extracellular matrix — bracketed grouping associated with the Collagen and Ground substance labels.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which components are grouped by the extracellular-matrix annotation?",
+        "answer": "The annotation groups collagen and ground substance as extracellular components.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the labelled tissue cells not be included as matrix components?",
+        "answer": "The matrix is material outside cells. Cells produce and interact with it but are structurally distinct from it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "inside versus outside a cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A key cell-versus-matrix distinction for statement-based questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, upper right",
+      "content": "Elastic fibers — points to thin branching fibres interwoven among the thicker collagen strands.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which diagram components are labelled Elastic fibers?",
+        "answer": "The thin branching fibres running through the extracellular framework.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does their network relate to their stated function?",
+        "answer": "The page describes elastic fibres as a network that stretches and then regains its original shape and size, providing a visual basis for understanding tissue recoil.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "elasticity",
+       "collagen fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link elastic fibres with elastin and recoil.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, right middle",
+      "content": "Macrophage — points to the irregular pink cell with a darker interior near the lower-right centre.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which cell is labelled Macrophage?",
+        "answer": "The irregular pink cell near the lower-right centre of the illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do macrophages contribute to tissue defence and maintenance?",
+        "answer": "They engulf microbes, dead cells and debris by phagocytosis, helping defence and removal of unwanted material.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "phagocytosis"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise macrophage as a connective-tissue cell with a defensive role.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i7",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective-tissue diagram, lower right",
+      "content": "Adipocyte (fat cell) — points to a rounded yellow fat-containing cell near the lower-right edge.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an adipocyte called in the diagram?",
+        "answer": "The diagram explicitly identifies an adipocyte as a fat cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do adipocytes contribute to the body?",
+        "answer": "They store lipid as an energy reserve; adipose tissue also contributes to cushioning and insulation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "fat as stored energy"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield cell-name association: adipocyte—fat cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0014"
+      ],
+      "where_on_page": "middle, centred",
+      "content": "MUSCLE TISSUE/MUSCULAR TISSUE",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Begins muscular-tissue properties and classification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0015"
+      ],
+      "where_on_page": "below muscular-tissue heading, left",
+      "content": "Characterstics:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces general muscle characteristics.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0016"
+      ],
+      "where_on_page": "middle, first muscle-characteristic bullet",
+      "content": "Composed of muscle cell/ muscle fibres.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What constitutes muscular tissue?",
+        "answer": "Muscle cells, also referred to here as muscle fibres, constitute muscular tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must muscle fibre not be confused with a connective-tissue fibre?",
+        "answer": "A muscle fibre is a cell, whereas collagen and elastic fibres are extracellular protein structures. The same word describes biologically different structures.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "connective-tissue fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid confusing cellular muscle fibres with extracellular connective-tissue fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0017"
+      ],
+      "where_on_page": "middle, second muscle-characteristic bullet",
+      "content": "Muscle fibres are elongated and large sized.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What general shape and size does the book assign to muscle fibres?",
+        "answer": "It describes them as elongated and large sized.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is an elongated form useful in a contractile cell?",
+        "answer": "Contractile elements can be arranged along the cell's length so that their action produces shortening and force in a particular direction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "contraction"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "General feature; use more specific shape descriptors to distinguish muscle types.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0018"
+      ],
+      "where_on_page": "middle, third muscle-characteristic bullet",
+      "content": "Contractile proteins are present in fibres.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which special proteins are present in muscle fibres?",
+        "answer": "The fibres contain contractile proteins.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do contractile proteins generate muscle contraction?",
+        "answer": "The proteins actin and myosin interact so that their filaments slide relative to one another, using energy from ATP to produce force and shortening.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "proteins",
+       "cellular energy"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Understand the protein basis of muscle contraction; actin and myosin are explanatory additions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0019"
+      ],
+      "where_on_page": "middle, fourth muscle-characteristic bullet",
+      "content": "Contraction and relaxation.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which two activities characterise muscle tissue here?",
+        "answer": "The page names contraction and relaxation. Contraction is activation of muscle that generates tension, often accompanied by shortening; relaxation is the reduction of active tension as activation subsides. Together, these activities allow muscles to exert force and then reduce it.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should contraction and relaxation be explained to a beginner?",
+        "answer": "During contraction, interactions between contractile proteins generate muscular tension. During relaxation, this force-generating activity decreases; other forces, such as an opposing muscle or an external load, can then help restore the muscle's length.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why should contraction not be defined simply as visible shortening?",
+        "answer": "A muscle can generate tension while its overall length remains nearly unchanged, as when holding a position.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "contractile proteins",
+       "force and tension"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core functional property underlying movement and posture.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0020",
+       "p0005-b0021",
+       "p0005-b0022",
+       "p0005-b0023"
+      ],
+      "where_on_page": "middle left, Types list",
+      "content": "Types:\na. Skeletal\nb. Smooth\nc. Cardiac",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which three types of muscle tissue are listed?",
+        "answer": "Skeletal, Smooth and Cardiac.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How can these three types be broadly distinguished?",
+        "answer": "Skeletal muscle is associated with the skeleton and voluntary movement; smooth muscle commonly occurs in walls of hollow organs and lacks striations; cardiac muscle forms the heart's muscular wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should muscle types be compared using more than one feature?",
+        "answer": "A single feature may be shared by two types. Comparing location, control, branching, nuclei and striations gives a more reliable identification.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle tissue",
+       "skeleton",
+       "heart",
+       "hollow organs"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core threefold classification for matching and statement-based questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0024"
+      ],
+      "where_on_page": "lower half, left, red heading",
+      "content": "a. Skeletal Muscle Tissue:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Begins detailed skeletal-muscle identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0025"
+      ],
+      "where_on_page": "below skeletal-muscle heading",
+      "content": "Characteristics",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces skeletal-muscle characteristic bullets.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0026"
+      ],
+      "where_on_page": "lower half, skeletal-muscle first bullet",
+      "content": "Muscle fibres are elongated and cylindrical",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the shape of skeletal-muscle fibres?",
+        "answer": "They are elongated and cylindrical.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a student visualise a cylindrical muscle fibre?",
+        "answer": "As a long tube-like cell rather than a flat sheet or a cell pointed at both ends. The adjacent illustration uses long, parallel cylinders to convey this form.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "cylinder"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Key shape feature for identifying skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0027"
+      ],
+      "where_on_page": "lower half, skeletal-muscle second bullet",
+      "content": "Unbranched",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Are skeletal-muscle fibres branched?",
+        "answer": "The page describes them as unbranched.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does unbranched shape help distinguish skeletal from cardiac muscle?",
+        "answer": "Skeletal fibres remain long, separate cylinders, whereas cardiac muscle cells characteristically branch and connect in a network.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "branching"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important skeletal-versus-cardiac comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0028"
+      ],
+      "where_on_page": "lower half, skeletal-muscle third bullet",
+      "content": "Attached to bones",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "To what are skeletal muscles attached in the description?",
+        "answer": "They are attached to bones.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does attachment enable a muscle to move a bone?",
+        "answer": "Muscle force is transmitted through attachments, commonly tendons, to bones. Pulling on bones across a joint can change their relative position.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bones",
+       "joints",
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect skeletal attachment with the locomotor function.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0029"
+      ],
+      "where_on_page": "lower half, skeletal-muscle fourth bullet",
+      "content": "Each cell is multi-nucleated → many nuclei.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does multi-nucleated mean in skeletal muscle?",
+        "answer": "One muscle cell contains many nuclei. It does not mean that each visible nucleus represents a separate fibre.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does a skeletal-muscle fibre contain many nuclei?",
+        "answer": "During development, several precursor muscle cells fuse to form a long muscle fibre, retaining multiple nuclei.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "nucleus",
+       "cell fusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield identification feature: many nuclei within a single skeletal-muscle fibre.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0030"
+      ],
+      "where_on_page": "lower half, skeletal-muscle fifth bullet",
+      "content": "Striations are present → alternate dark and light bands.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are striations?",
+        "answer": "The page defines them as alternating dark and light bands visible in skeletal-muscle fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does skeletal muscle show alternating bands?",
+        "answer": "Its contractile filaments are arranged in repeating units. Different regions of these units contain different arrangements of thick and thin filaments, producing the banded appearance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Are striations alone sufficient to identify skeletal muscle?",
+        "answer": "No. Cardiac muscle is also striated, so branching, nuclei and location should also be considered.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "contractile proteins",
+       "microscopic appearance"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know what striations mean; do not equate every striated muscle with skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0031"
+      ],
+      "where_on_page": "lower half, skeletal-muscle sixth bullet",
+      "content": "Easily fatigue",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tendency regarding fatigue does the page attribute to skeletal muscle?",
+        "answer": "It states that skeletal muscle fatigues easily.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should fatigue be explained without turning this short statement into an absolute rule?",
+        "answer": "Fatigue is a decline in the ability to maintain force during activity. Its development depends on activity intensity, duration, energy supply and muscle-fibre type; skeletal muscles do not all fatigue at the same rate.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle force",
+       "energy use during contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the book's comparative feature while avoiding the claim that every skeletal muscle fatigues rapidly under every condition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0032"
+      ],
+      "where_on_page": "lower half, skeletal-muscle seventh bullet",
+      "content": "Helps in body movement.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What movement-related function is stated for skeletal muscle?",
+        "answer": "It helps in body movement.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do skeletal muscles produce movement rather than merely change their own shape?",
+        "answer": "Their contraction produces tension transmitted to skeletal attachments. Muscles acting around joints can pull bones into new positions, often working in opposing groups.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "bone attachments",
+       "joints"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Relate skeletal-muscle contraction to locomotion and joint movement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0033"
+      ],
+      "where_on_page": "lower half, skeletal-muscle eighth bullet",
+      "content": "Maintains posture",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What function does skeletal muscle perform besides body movement?",
+        "answer": "It maintains posture.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can muscle activity maintain posture without obvious movement?",
+        "answer": "Sustained, regulated tension counteracts gravity and other forces, stabilising body parts even when their position changes little.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "gravity",
+       "muscle tension",
+       "body position"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember posture as well as movement among skeletal-muscle functions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0005-b0034"
+      ],
+      "where_on_page": "below skeletal-muscle characteristic list",
+      "content": "Other names: Skeleton muscle, Striated muscle and voluntary muscle.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which alternative names does the book give for skeletal muscle?",
+        "answer": "Skeleton muscle, Striated muscle and voluntary muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these alternative names emphasise different aspects of the same tissue?",
+        "answer": "The skeletal name refers to association with the skeleton, striated refers to microscopic banding, and voluntary refers to its usual availability for conscious control.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does the name voluntary mean every skeletal-muscle action requires a conscious decision?",
+        "answer": "No. Skeletal muscles also participate in reflex and automatic postural activity. Voluntary describes an important mode of control rather than every individual activation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "skeleton",
+       "striations",
+       "conscious control",
+       "reflex"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Synonym matching is important; retain the printed term 'Skeleton muscle' and avoid treating 'striated' as unique to skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower right, bordered skeletal-muscle illustration",
+      "content": "Skeletal-muscle illustration: on the left, parallel orange-red cylindrical fibres show repeated transverse bands and several blue oval nuclei; on the right, a bent arm shows muscles attached along upper-arm and forearm bones. The two views associate microscopic muscle-fibre structure with skeletal muscle acting on the arm. No directional arrows are shown.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which two scales of organisation are shown in the skeletal-muscle illustration?",
+        "answer": "The left view shows individual banded fibres with several nuclei; the right view shows muscles associated with the bones of a bent arm.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the two views connect skeletal-muscle structure and function?",
+        "answer": "The fibre view depicts the contractile cells, while the arm view places muscle against the skeleton. Together they connect muscle-cell activity with pulling on bones to produce movement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "evidence",
+        "question": "Which listed skeletal-muscle characteristics are visually reinforced?",
+        "answer": "Elongated cylindrical, unbranched fibres, multiple nuclei and striations are represented in the fibre view; association with bones is represented in the arm view.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre",
+       "nucleus",
+       "striations",
+       "bones and joints"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the combined fibre and arm views for structure–function identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i35",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "skeletal-muscle illustration, beneath the fibre bundle",
+      "content": "Skeletal Muscle — names the illustrated group of elongated, striated, multinucleated muscle fibres.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissue is named beneath the fibre illustration?",
+        "answer": "Skeletal Muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which visible combination distinguishes this depiction from a typical smooth-muscle depiction?",
+        "answer": "These fibres are cylindrical, banded and shown with multiple nuclei; typical smooth-muscle cells are spindle shaped, lack striations and have a single central nucleus.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why use a combination of traits rather than the colour of the drawing to identify the tissue?",
+        "answer": "Illustration colours are chosen for clarity and are not diagnostic. Shape, banding and nuclear arrangement represent biologically useful identifying features.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle types",
+       "striations",
+       "cell nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify skeletal muscle from structural features rather than artistic colour.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0005-b0001",
+     "p0005-b0035"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0005-b0029"
+      ],
+      "text_says": "Each cell is multi-nucleated many nuclei.",
+      "image_shows": "Each cell is multi-nucleated → many nuclei. The native text has a malformed arrow glyph."
+     },
+     {
+      "block_ids": [
+       "p0005-b0030"
+      ],
+      "text_says": "Striations are present  alternate dark and light bands.",
+      "image_shows": "Striations are present → alternate dark and light bands. The native text has a malformed arrow glyph."
+     },
+     {
+      "block_ids": [
+       "p0005-b0015"
+      ],
+      "text_says": "Characterstics:",
+      "image_shows": "Characteristics:"
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "6d44fc40a91c28dcea8d41c05866251408b608d9dcba19da0b34d65b773998e8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14485,
+    "output_tokens": 813,
+    "cost_usd": 0.04081,
+    "value": {
+     "notes": {
+      "about": "This page covers the extracellular matrix and fibre types of connective tissue (collagen, elastic, reticulate) alongside a labelled connective-tissue diagram, then introduces muscular tissue, its three types, and the detailed characteristics and diagram of skeletal muscle tissue.",
+      "key_questions": [
+       "What are the components and functions of connective tissue matrix and its three fibre types?",
+       "What are the general characteristics and types of muscular tissue?",
+       "What structural and functional features define skeletal muscle tissue?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the submission with one minor note on text_image_disagreements.",
+        "reason": "All text blocks, diagrams, and diagram labels are thoroughly captured and explained at an appropriate UPSC/State PCS level, and item i22 is well explained."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i18",
+       "problem": "The third entry in text_image_disagreements claims the image shows 'Characteristics:' for block p0005-b0015, whereas the page image actually prints the same typo 'Characterstics:' as the native text.",
+       "fix": "Remove block p0005-b0015 from text_image_disagreements since text and image agree on the spelling 'Characterstics:'.",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "All statements are properly grounded in the book or marked as outside knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are complete, accurate, and at a strong teacher level for UPSC/PCS learners."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Notes explain the patch scope and decision clearly."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short or merged away."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All bullet points, headings, diagrams, and diagram labels are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header, footer, and page number are treated as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Both diagrams and all their labels and brackets are captured with clear descriptions of what they point to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "Arrow symbols in bullet points are properly read and explained."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Why and how questions are answered with solid biological reasoning."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Book vs outside basis labels are accurate and outside knowledge is standard."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types match the items."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes are appropriate for UPSC/State PCS."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "Malformed arrow glyphs in native text are reported; one minor over-report on 'Characterstics:' noted."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "item_id": "i18",
+     "problem": "The third entry in text_image_disagreements claims the image shows 'Characteristics:' for block p0005-b0015, whereas the page image actually prints the same typo 'Characterstics:' as the native text.",
+     "fix": "Remove block p0005-b0015 from text_image_disagreements since text and image agree on the spelling 'Characterstics:'.",
+     "kind": "wrong"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792594477.821573
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.20745,
+ "navin_verdict": null
+}

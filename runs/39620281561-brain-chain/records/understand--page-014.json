@@ -1,0 +1,1941 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-014",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "6eee38188770c53779c4000dcfc5371ba239e3e686a17ea085a9c1fe56216fc9",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 14 of 14.\n\nLast lines of the previous page (context only):\nc. Aerenchyma\nd. Companion cells\nQ. Which statement is incorrect with reference to cardiac tissue:\n1. They are striated\n2. They are voluntary in nature\n3. They have features of both skeletal and visceral tissue.\nOption:\n99\n\nFirst lines of the next page (context only):\n(none)\n\nNative text blocks of this page (id | text):\np0014-b0001 | Science and Technology\np0014-b0002 | a. 1 only\np0014-b0003 | b. 1 and 3.\np0014-b0004 | c. 2 only.\np0014-b0005 | d. All are correct\np0014-b0006 | Q. …………… layer is thickest and helps in protection against water loss and further secrete a\np0014-b0007 | waxy substance on outer surface:\np0014-b0008 | a. Sclerenchyma\np0014-b0009 | b. Epidermis\np0014-b0010 | c. Parenchyma\np0014-b0011 | d. Suberin\np0014-b0012 | Q. Site of gaseous exchange on leaf is:\np0014-b0013 | a. Guard cells\np0014-b0014 | b. Stomata\np0014-b0015 | c. Aerenchyma\np0014-b0016 | d. Chlorenchyma\np0014-b0017 | Q. Muscle is connected to bone via:\np0014-b0018 | a. Ligament\np0014-b0019 | b. Tendon\np0014-b0020 | c. Cartilage\np0014-b0021 | d. None\np0014-b0022 | 100"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "b18f849b975bdb62c9abcd41da25c4ba584656e0e9e6b845df97ff421ca7a64d",
+    "base64_chars": 381540
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594531.5356271,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "f835086fa700cfdce27d28a24a6271204a0f866378b7900b8884d1b0d5d066ec",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4978,
+    "output_tokens": 7203,
+    "cost_usd": 0.081986
+   },
+   "notes": {
+    "about": "This final page completes a cardiac-tissue MCQ from the preceding page and presents three further practice questions on plant protection, leaf gas exchange and muscle–bone attachment.",
+    "key_questions": [
+     "Why is the statement that cardiac tissue is voluntary incorrect?",
+     "Which protective plant layer secretes a waxy covering, and what is misleading about calling it the thickest layer?",
+     "How do stomata differ from guard cells, aerenchyma and chlorenchyma?",
+     "How do tendons differ from ligaments and cartilage?"
+    ],
+    "decisions": [
+     {
+      "decision": "Include the continued cardiac question using the supplied previous-page context, followed by its four options visible on this page.",
+      "reason": "The options cannot be understood or assessed correctly without their question stem."
+     },
+     {
+      "decision": "Preserve every option as a separate teachable item and explain its selection or rejection.",
+      "reason": "The distractors test important tissue classifications and distinctions."
+     },
+     {
+      "decision": "Mark answer selection and biological explanations as outside knowledge.",
+      "reason": "This page supplies questions and options but no answer key or explanatory statements."
+     },
+     {
+      "decision": "Retain the epidermis question's wording but explicitly qualify the word 'thickest'.",
+      "reason": "Epidermis is the intended answer from the waxy-covering clue, but it is not universally the thickest plant layer."
+     }
+    ],
+    "uncertain": [
+     "No printed answer key is present; proposed answers are standard textbook interpretations.",
+     "The epidermis question does not specify the organ, plant or environmental condition needed to justify 'thickest'.",
+     "The preceding page's description of cardiac tissue as sharing features of skeletal and visceral tissue is interpreted as striated like skeletal muscle and involuntary like visceral smooth muscle."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This final page completes a cardiac-tissue MCQ from the preceding page and presents three further practice questions on plant protection, leaf gas exchange and muscle–bone attachment.",
+     "key_questions": [
+      "Why is the statement that cardiac tissue is voluntary incorrect?",
+      "Which protective plant layer secretes a waxy covering, and what is misleading about calling it the thickest layer?",
+      "How do stomata differ from guard cells, aerenchyma and chlorenchyma?",
+      "How do tendons differ from ligaments and cartilage?"
+     ],
+     "decisions": [
+      {
+       "decision": "Include the continued cardiac question using the supplied previous-page context, followed by its four options visible on this page.",
+       "reason": "The options cannot be understood or assessed correctly without their question stem."
+      },
+      {
+       "decision": "Preserve every option as a separate teachable item and explain its selection or rejection.",
+       "reason": "The distractors test important tissue classifications and distinctions."
+      },
+      {
+       "decision": "Mark answer selection and biological explanations as outside knowledge.",
+       "reason": "This page supplies questions and options but no answer key or explanatory statements."
+      },
+      {
+       "decision": "Retain the epidermis question's wording but explicitly qualify the word 'thickest'.",
+       "reason": "Epidermis is the intended answer from the waxy-covering clue, but it is not universally the thickest plant layer."
+      }
+     ],
+     "uncertain": [
+      "No printed answer key is present; proposed answers are standard textbook interpretations.",
+      "The epidermis question does not specify the organ, plant or environmental condition needed to justify 'thickest'.",
+      "The preceding page's description of cardiac tissue as sharing features of skeletal and visceral tissue is interpreted as striated like skeletal muscle and involuntary like visceral smooth muscle."
+     ]
+    },
+    "page_summary": "Four practice MCQs, including one continued from the previous page, revise cardiac muscle, epidermal protection, stomatal gas exchange and tendons. Standard textbook answers are c. 2 only for the cardiac question, b. Epidermis for the protective-layer question, b. Stomata for leaf gaseous exchange, and b. Tendon for muscle–bone attachment. The protective-layer question's claim that the epidermis is 'thickest' needs qualification.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "text",
+      "block_ids": [],
+      "where_on_page": "Question stem on previous page, supplied as context; its options continue at the top of this page",
+      "content": "Q. Which statement is incorrect with reference to cardiac tissue:\n1. They are striated\n2. They are voluntary in nature\n3. They have features of both skeletal and visceral tissue.\nOption:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which statement is incorrect, and which option should be selected?",
+        "answer": "Statement 2 is incorrect: cardiac muscle is involuntary, not voluntary. The intended answer is c. 2 only.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "In what sense does cardiac tissue share features with skeletal and visceral muscle?",
+        "answer": "Cardiac muscle is striated like skeletal muscle, but its contraction is involuntary like visceral smooth muscle. This limited comparison explains statement 3; it does not mean these tissues have identical structures.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do striations not imply voluntary control?",
+        "answer": "Striations reflect the regular arrangement of contractile proteins, whereas voluntary control concerns how contraction is initiated and regulated. Cardiac muscle has organised contractile units but does not require a conscious command for each heartbeat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How can the heart contract without a conscious command?",
+        "answer": "Specialised cardiac pacemaker cells generate rhythmic electrical activity that spreads through the heart. Autonomic nerves modify this activity rather than requiring a voluntary command for each contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Muscle contraction",
+       "Striated and unstriated muscle",
+       "Voluntary and involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "An incorrect-statement question testing the important combination: cardiac muscle is striated and involuntary.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0002"
+      ],
+      "where_on_page": "Top, continued cardiac question, option a",
+      "content": "a. 1 only",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What would choosing this option claim?",
+        "answer": "It would identify statement 1, that cardiac tissue is striated, as the sole incorrect statement.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this option be rejected?",
+        "answer": "Cardiac muscle does have striations. Calling it involuntary does not remove its striated appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Meaning of striations",
+       "Incorrect-statement MCQ format"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reject the misconception that involuntary muscle must be unstriated.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0003"
+      ],
+      "where_on_page": "Top, continued cardiac question, option b",
+      "content": "b. 1 and 3.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which statements does this option identify as incorrect?",
+        "answer": "It identifies statements 1 and 3: striations and the sharing of features with skeletal and visceral tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this not the intended answer?",
+        "answer": "Cardiac muscle is striated, and the comparison in statement 3 is valid when it refers to skeletal-like striations and visceral-like involuntary control.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cardiac, skeletal and smooth muscle",
+       "Voluntary and involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Interpret shared features precisely rather than treating the muscle types as identical.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0004"
+      ],
+      "where_on_page": "Top, continued cardiac question, option c",
+      "content": "c. 2 only.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Is this the intended correct option?",
+        "answer": "Yes. Statement 2 alone is incorrect because cardiac tissue is involuntary.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cardiac muscle classified as involuntary?",
+        "answer": "Its rhythmic contractions occur without conscious direction, although their rate and force can be modified by autonomic and hormonal influences.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Meaning of involuntary contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended answer: c. 2 only; the page itself does not mark an answer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0005"
+      ],
+      "where_on_page": "Top, continued cardiac question, option d",
+      "content": "d. All are correct",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this option assert?",
+        "answer": "It asserts that all three statements about cardiac tissue are correct.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must it be rejected?",
+        "answer": "The statement describing cardiac tissue as voluntary is false, so the three statements cannot all be correct.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Voluntary and involuntary muscle"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Check every statement before choosing an 'all' option.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0006",
+       "p0014-b0007"
+      ],
+      "where_on_page": "Upper section, first complete question on this page",
+      "content": "Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy substance on outer surface:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option best matches the protective-layer and waxy-secretion clues?",
+        "answer": "The intended answer is b. Epidermis. Epidermal cells of exposed aerial plant parts commonly produce a waxy cuticle that helps reduce water loss.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a waxy outer covering reduce water loss?",
+        "answer": "The cuticle provides a water-resistant barrier over the epidermis, reducing evaporation through the exposed surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "exception",
+        "question": "Is epidermis universally the thickest plant layer?",
+        "answer": "No. Epidermis is commonly a single cell layer. Some plants in dry habitats have a thicker epidermis or a thick cuticle, but the question gives no condition that makes 'thickest' a general rule.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How should epidermis, cuticle and suberin be distinguished?",
+        "answer": "Epidermis is a cellular covering tissue; the cuticle is a waxy, cutin-containing covering deposited on its outer surface; suberin is a water-resistant wall material associated especially with cork cells. They are not interchangeable names.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Plant organs and their outer surfaces",
+       "Evaporation and water loss",
+       "Difference between a tissue and a deposited substance"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended answer: epidermis. Learn the protective function, but do not memorise 'epidermis is the thickest layer' as a universal fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0008"
+      ],
+      "where_on_page": "Upper question, option a",
+      "content": "a. Sclerenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is sclerenchyma?",
+        "answer": "It is a supporting plant tissue whose cells generally have thick, lignified walls and are dead at maturity.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does its thick wall not make it the answer?",
+        "answer": "The question's decisive clue is an outer protective layer producing a waxy covering. Sclerenchyma primarily provides mechanical strength; thick cell walls are not the same as an epidermal covering.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Plant cell wall",
+       "Mechanical support in plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish thick-walled supporting tissue from water-loss protection by epidermis.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0009"
+      ],
+      "where_on_page": "Upper question, option b",
+      "content": "b. Epidermis",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the epidermis in a plant?",
+        "answer": "It is the outer covering tissue of young plant organs, separating underlying tissues from the surroundings.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it fit the waxy-substance clue?",
+        "answer": "In exposed aerial parts, epidermal cells commonly deposit a waxy cuticle on their outer surface, helping limit water loss.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Plant tissue",
+       "Cuticle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended correct option; the question's unqualified thickness claim remains problematic.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0010"
+      ],
+      "where_on_page": "Upper question, option c",
+      "content": "c. Parenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is parenchyma?",
+        "answer": "Parenchyma is a simple permanent plant tissue composed of living cells, commonly with relatively thin walls, performing functions such as storage and, in specialised forms, photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is it not the intended protective-layer answer?",
+        "answer": "The question identifies a surface covering that produces a waxy barrier. That role points to epidermis, rather than general storage or ground-tissue parenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Living plant cells",
+       "Simple permanent tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish parenchyma's common functions from epidermal protection.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0011"
+      ],
+      "where_on_page": "Upper question, option d",
+      "content": "d. Suberin",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is suberin?",
+        "answer": "Suberin is a water-resistant substance deposited in certain plant cell walls, notably those of cork cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is suberin a plausible distractor but not the intended answer?",
+        "answer": "It is associated with restricting water movement, but it is a wall substance rather than the epidermal tissue layer that produces an outer cuticle.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cork cells",
+       "Difference between tissue and cell-wall material"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not confuse suberin in cork walls with the epidermis or its cuticle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0012"
+      ],
+      "where_on_page": "Middle section, leaf gas-exchange question",
+      "content": "Q. Site of gaseous exchange on leaf is:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option identifies the usual site of gaseous exchange on a leaf?",
+        "answer": "b. Stomata. These pores connect the leaf's internal air spaces with the surrounding atmosphere.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do gases pass through stomata?",
+        "answer": "Gases diffuse through open stomatal pores along concentration gradients. Carbon dioxide can enter for photosynthesis, while oxygen and water vapour can move out under the relevant gradients.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does the exchange site differ from its regulating cells?",
+        "answer": "The stomatal pore is the passage for gas movement; guard cells bordering it regulate the size of that passage.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Diffusion",
+       "Leaf epidermis",
+       "Photosynthesis and respiration"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended answer: stomata. A common trap substitutes the regulating guard cells for the gas-exchange pore.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0013"
+      ],
+      "where_on_page": "Middle question, option a",
+      "content": "a. Guard cells",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are guard cells?",
+        "answer": "They are specialised epidermal cells bordering a stomatal pore and regulating its opening.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do guard cells regulate gaseous exchange?",
+        "answer": "Changes in their water content and turgor change their shape and the pore opening. They regulate the route of exchange rather than being the pore itself.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell turgor",
+       "Stomatal pore"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Guard cells regulate stomata; they are not the intended answer for the exchange opening.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0014"
+      ],
+      "where_on_page": "Middle question, option b",
+      "content": "b. Stomata",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are stomata?",
+        "answer": "Stomata are pores in the epidermis of leaves and some other aerial plant parts, associated with guard cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are they suited to gaseous exchange?",
+        "answer": "An open pore provides a diffusion pathway between the external air and internal leaf air spaces, while guard cells allow its opening to be regulated.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Epidermis",
+       "Diffusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended correct option for the site of gaseous exchange on a leaf.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0015"
+      ],
+      "where_on_page": "Middle question, option c",
+      "content": "c. Aerenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is aerenchyma?",
+        "answer": "It is parenchymatous tissue with large air spaces, common in aquatic plants, that helps internal gas movement and can contribute to buoyancy.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the presence of air spaces not make it the answer here?",
+        "answer": "Aerenchyma is an internal tissue adaptation. The question asks for the leaf's gas-exchange site with the atmosphere, for which stomata are the intended answer.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Parenchyma",
+       "Intercellular air spaces"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish internal air-space tissue from a surface exchange pore.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0016"
+      ],
+      "where_on_page": "Middle question, option d",
+      "content": "d. Chlorenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is chlorenchyma?",
+        "answer": "It is parenchyma containing chloroplasts and specialised for photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a photosynthetic tissue not the answer to this question?",
+        "answer": "Photosynthetic cells use carbon dioxide and produce oxygen, but the question asks for the surface route through which gases enter and leave the leaf, not the tissue carrying out photosynthesis.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Parenchyma",
+       "Chloroplasts",
+       "Photosynthesis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Separate the site of photosynthesis from the route of gaseous exchange.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0017"
+      ],
+      "where_on_page": "Lower question group",
+      "content": "Q. Muscle is connected to bone via:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which structure connects muscle to bone?",
+        "answer": "b. Tendon is the standard answer for the attachment of skeletal muscle to bone.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this connection help produce movement?",
+        "answer": "When skeletal muscle contracts, it develops tension that the tendon transmits to the attached bone. This pull can move the bone at a joint.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do tendon, ligament and cartilage differ in this context?",
+        "answer": "A tendon connects muscle to bone and transmits pulling force; a ligament typically connects bone to bone and stabilises a joint; cartilage provides support and, at many joint surfaces, a smooth covering rather than the muscle–bone attachment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Skeletal muscle contraction",
+       "Bones and joints",
+       "Connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield distinction: tendon—muscle to bone; ligament—bone to bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0018"
+      ],
+      "where_on_page": "Lower question, option a",
+      "content": "a. Ligament",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does a ligament typically connect?",
+        "answer": "A ligament typically connects one bone to another at a joint.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is ligament incorrect for muscle–bone attachment?",
+        "answer": "Its usual role is joint stabilisation between bones, whereas a tendon provides the muscle's attachment and transmits its pull to bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Joint",
+       "Bone-to-bone connection"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The principal distractor: do not reverse ligament and tendon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0019"
+      ],
+      "where_on_page": "Lower question, option b",
+      "content": "b. Tendon",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a tendon?",
+        "answer": "A tendon is a strong fibrous connective-tissue structure that commonly attaches skeletal muscle to bone.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is its structure suited to transmitting muscle force?",
+        "answer": "Its bundles of collagen fibres provide high tensile strength, allowing it to withstand and transmit the pulling force generated by muscle contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective tissue",
+       "Collagen fibres",
+       "Pulling force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended correct option: tendon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0020"
+      ],
+      "where_on_page": "Lower question, option c",
+      "content": "c. Cartilage",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What role can cartilage perform at a joint?",
+        "answer": "Articular cartilage covers the ends of bones at many joints, providing a smooth surface and helping distribute loads.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cartilage not the correct attachment structure?",
+        "answer": "Joint-surface support and reduction of friction differ from connecting a muscle to a bone and transmitting the muscle's pull. The latter is the role of a tendon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective tissue",
+       "Joint surfaces"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish supportive cartilage from force-transmitting tendon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0021"
+      ],
+      "where_on_page": "Lower question, option d",
+      "content": "d. None",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What would choosing 'None' imply?",
+        "answer": "It would mean that none of ligament, tendon or cartilage answers the muscle–bone attachment question.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this option be rejected?",
+        "answer": "Tendon is already listed and is the standard structure connecting skeletal muscle to bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Tendon as muscle–bone attachment"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Reject because option b provides the required connection.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0014-b0001",
+     "p0014-b0022"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [
+    "[code] item i1: source is 'text' but it has no block_ids"
+   ],
+   "passed": false,
+   "finished_at": 1792594652.5519614
+  },
+  {
+   "round": 2,
+   "started_at": 1792594652.5521643,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch corrects the source anchoring of the cardiac-tissue question continued from the previous page. All other items remain unchanged.",
+     "key_questions": [
+      "How can the continued cardiac-tissue question be anchored to this page without treating its previous-page stem as native text on this page?"
+     ],
+     "decisions": [
+      {
+       "decision": "Anchor i1 to the four native option blocks and mark its source as both; include those options in the complete question content.",
+       "reason": "The options occur in both this page's text and image, while the stem is supplied explicitly as previous-page context."
+      }
+     ],
+     "uncertain": [
+      "The page supplies no answer key; the cardiac question's proposed answer remains a standard textbook interpretation."
+     ]
+    },
+    "replace_items": [
+     {
+      "item_id": "i1",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0002",
+       "p0014-b0003",
+       "p0014-b0004",
+       "p0014-b0005"
+      ],
+      "where_on_page": "Question stem on previous page, supplied as context; four options at the top of this page",
+      "content": "Q. Which statement is incorrect with reference to cardiac tissue:\n1. They are striated\n2. They are voluntary in nature\n3. They have features of both skeletal and visceral tissue.\nOption:\na. 1 only\nb. 1 and 3.\nc. 2 only.\nd. All are correct",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which statement is incorrect, and which option should be selected?",
+        "answer": "Statement 2 is incorrect: cardiac muscle is involuntary, not voluntary. The intended answer is c. 2 only.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "In what sense does cardiac tissue share features with skeletal and visceral muscle?",
+        "answer": "Cardiac muscle is striated like skeletal muscle, but its contraction is involuntary like visceral smooth muscle. This limited comparison explains statement 3; it does not mean these tissues have identical structures.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do striations not imply voluntary control?",
+        "answer": "Striations reflect the regular arrangement of contractile proteins, whereas voluntary control concerns how contraction is initiated and regulated. Cardiac muscle has organised contractile units but does not require a conscious command for each heartbeat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How can the heart contract without a conscious command?",
+        "answer": "Specialised cardiac pacemaker cells generate rhythmic electrical activity that spreads through the heart. Autonomic nerves modify this activity rather than requiring a voluntary command for each contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Muscle contraction",
+       "Striated and unstriated muscle",
+       "Voluntary and involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "An incorrect-statement question testing the important combination: cardiac muscle is striated and involuntary.",
+      "tests_item_ids": []
+     }
+    ],
+    "remove_item_ids": [],
+    "boilerplate_block_ids": [
+     "p0014-b0001",
+     "p0014-b0022"
+    ],
+    "text_image_disagreements": []
+   },
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "44f0ea9ee6bedf387be96ddc512f1dfc1ad97546e8ba91f940eab73b86cdd933",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11260,
+    "output_tokens": 950,
+    "cost_usd": 0.03202
+   },
+   "notes": {
+    "about": "This patch corrects the source anchoring of the cardiac-tissue question continued from the previous page. All other items remain unchanged.",
+    "key_questions": [
+     "How can the continued cardiac-tissue question be anchored to this page without treating its previous-page stem as native text on this page?"
+    ],
+    "decisions": [
+     {
+      "decision": "Anchor i1 to the four native option blocks and mark its source as both; include those options in the complete question content.",
+      "reason": "The options occur in both this page's text and image, while the stem is supplied explicitly as previous-page context."
+     }
+    ],
+    "uncertain": [
+     "The page supplies no answer key; the cardiac question's proposed answer remains a standard textbook interpretation."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This patch corrects the source anchoring of the cardiac-tissue question continued from the previous page. All other items remain unchanged.",
+     "key_questions": [
+      "How can the continued cardiac-tissue question be anchored to this page without treating its previous-page stem as native text on this page?"
+     ],
+     "decisions": [
+      {
+       "decision": "Anchor i1 to the four native option blocks and mark its source as both; include those options in the complete question content.",
+       "reason": "The options occur in both this page's text and image, while the stem is supplied explicitly as previous-page context."
+      }
+     ],
+     "uncertain": [
+      "The page supplies no answer key; the cardiac question's proposed answer remains a standard textbook interpretation."
+     ]
+    },
+    "page_summary": "Four practice MCQs, including one continued from the previous page, revise cardiac muscle, epidermal protection, stomatal gas exchange and tendons. Standard textbook answers are c. 2 only for the cardiac question, b. Epidermis for the protective-layer question, b. Stomata for leaf gaseous exchange, and b. Tendon for muscle–bone attachment. The protective-layer question's claim that the epidermis is 'thickest' needs qualification.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0002",
+       "p0014-b0003",
+       "p0014-b0004",
+       "p0014-b0005"
+      ],
+      "where_on_page": "Question stem on previous page, supplied as context; four options at the top of this page",
+      "content": "Q. Which statement is incorrect with reference to cardiac tissue:\n1. They are striated\n2. They are voluntary in nature\n3. They have features of both skeletal and visceral tissue.\nOption:\na. 1 only\nb. 1 and 3.\nc. 2 only.\nd. All are correct",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which statement is incorrect, and which option should be selected?",
+        "answer": "Statement 2 is incorrect: cardiac muscle is involuntary, not voluntary. The intended answer is c. 2 only.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "In what sense does cardiac tissue share features with skeletal and visceral muscle?",
+        "answer": "Cardiac muscle is striated like skeletal muscle, but its contraction is involuntary like visceral smooth muscle. This limited comparison explains statement 3; it does not mean these tissues have identical structures.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do striations not imply voluntary control?",
+        "answer": "Striations reflect the regular arrangement of contractile proteins, whereas voluntary control concerns how contraction is initiated and regulated. Cardiac muscle has organised contractile units but does not require a conscious command for each heartbeat.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "how",
+        "question": "How can the heart contract without a conscious command?",
+        "answer": "Specialised cardiac pacemaker cells generate rhythmic electrical activity that spreads through the heart. Autonomic nerves modify this activity rather than requiring a voluntary command for each contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Muscle contraction",
+       "Striated and unstriated muscle",
+       "Voluntary and involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "An incorrect-statement question testing the important combination: cardiac muscle is striated and involuntary.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0002"
+      ],
+      "where_on_page": "Top, continued cardiac question, option a",
+      "content": "a. 1 only",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What would choosing this option claim?",
+        "answer": "It would identify statement 1, that cardiac tissue is striated, as the sole incorrect statement.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this option be rejected?",
+        "answer": "Cardiac muscle does have striations. Calling it involuntary does not remove its striated appearance.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Meaning of striations",
+       "Incorrect-statement MCQ format"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Reject the misconception that involuntary muscle must be unstriated.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0003"
+      ],
+      "where_on_page": "Top, continued cardiac question, option b",
+      "content": "b. 1 and 3.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which statements does this option identify as incorrect?",
+        "answer": "It identifies statements 1 and 3: striations and the sharing of features with skeletal and visceral tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this not the intended answer?",
+        "answer": "Cardiac muscle is striated, and the comparison in statement 3 is valid when it refers to skeletal-like striations and visceral-like involuntary control.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cardiac, skeletal and smooth muscle",
+       "Voluntary and involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Interpret shared features precisely rather than treating the muscle types as identical.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0004"
+      ],
+      "where_on_page": "Top, continued cardiac question, option c",
+      "content": "c. 2 only.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Is this the intended correct option?",
+        "answer": "Yes. Statement 2 alone is incorrect because cardiac tissue is involuntary.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cardiac muscle classified as involuntary?",
+        "answer": "Its rhythmic contractions occur without conscious direction, although their rate and force can be modified by autonomic and hormonal influences.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Meaning of involuntary contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended answer: c. 2 only; the page itself does not mark an answer.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "answer_option",
+      "parent_item_id": "i1",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0005"
+      ],
+      "where_on_page": "Top, continued cardiac question, option d",
+      "content": "d. All are correct",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does this option assert?",
+        "answer": "It asserts that all three statements about cardiac tissue are correct.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must it be rejected?",
+        "answer": "The statement describing cardiac tissue as voluntary is false, so the three statements cannot all be correct.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Voluntary and involuntary muscle"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Check every statement before choosing an 'all' option.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0006",
+       "p0014-b0007"
+      ],
+      "where_on_page": "Upper section, first complete question on this page",
+      "content": "Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy substance on outer surface:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option best matches the protective-layer and waxy-secretion clues?",
+        "answer": "The intended answer is b. Epidermis. Epidermal cells of exposed aerial plant parts commonly produce a waxy cuticle that helps reduce water loss.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a waxy outer covering reduce water loss?",
+        "answer": "The cuticle provides a water-resistant barrier over the epidermis, reducing evaporation through the exposed surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "exception",
+        "question": "Is epidermis universally the thickest plant layer?",
+        "answer": "No. Epidermis is commonly a single cell layer. Some plants in dry habitats have a thicker epidermis or a thick cuticle, but the question gives no condition that makes 'thickest' a general rule.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How should epidermis, cuticle and suberin be distinguished?",
+        "answer": "Epidermis is a cellular covering tissue; the cuticle is a waxy, cutin-containing covering deposited on its outer surface; suberin is a water-resistant wall material associated especially with cork cells. They are not interchangeable names.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Plant organs and their outer surfaces",
+       "Evaporation and water loss",
+       "Difference between a tissue and a deposited substance"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended answer: epidermis. Learn the protective function, but do not memorise 'epidermis is the thickest layer' as a universal fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0008"
+      ],
+      "where_on_page": "Upper question, option a",
+      "content": "a. Sclerenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is sclerenchyma?",
+        "answer": "It is a supporting plant tissue whose cells generally have thick, lignified walls and are dead at maturity.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does its thick wall not make it the answer?",
+        "answer": "The question's decisive clue is an outer protective layer producing a waxy covering. Sclerenchyma primarily provides mechanical strength; thick cell walls are not the same as an epidermal covering.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Plant cell wall",
+       "Mechanical support in plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish thick-walled supporting tissue from water-loss protection by epidermis.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0009"
+      ],
+      "where_on_page": "Upper question, option b",
+      "content": "b. Epidermis",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the epidermis in a plant?",
+        "answer": "It is the outer covering tissue of young plant organs, separating underlying tissues from the surroundings.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it fit the waxy-substance clue?",
+        "answer": "In exposed aerial parts, epidermal cells commonly deposit a waxy cuticle on their outer surface, helping limit water loss.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Plant tissue",
+       "Cuticle"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended correct option; the question's unqualified thickness claim remains problematic.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0010"
+      ],
+      "where_on_page": "Upper question, option c",
+      "content": "c. Parenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is parenchyma?",
+        "answer": "Parenchyma is a simple permanent plant tissue composed of living cells, commonly with relatively thin walls, performing functions such as storage and, in specialised forms, photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is it not the intended protective-layer answer?",
+        "answer": "The question identifies a surface covering that produces a waxy barrier. That role points to epidermis, rather than general storage or ground-tissue parenchyma.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Living plant cells",
+       "Simple permanent tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish parenchyma's common functions from epidermal protection.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "answer_option",
+      "parent_item_id": "i6",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0011"
+      ],
+      "where_on_page": "Upper question, option d",
+      "content": "d. Suberin",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is suberin?",
+        "answer": "Suberin is a water-resistant substance deposited in certain plant cell walls, notably those of cork cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is suberin a plausible distractor but not the intended answer?",
+        "answer": "It is associated with restricting water movement, but it is a wall substance rather than the epidermal tissue layer that produces an outer cuticle.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cork cells",
+       "Difference between tissue and cell-wall material"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not confuse suberin in cork walls with the epidermis or its cuticle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0012"
+      ],
+      "where_on_page": "Middle section, leaf gas-exchange question",
+      "content": "Q. Site of gaseous exchange on leaf is:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which option identifies the usual site of gaseous exchange on a leaf?",
+        "answer": "b. Stomata. These pores connect the leaf's internal air spaces with the surrounding atmosphere.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do gases pass through stomata?",
+        "answer": "Gases diffuse through open stomatal pores along concentration gradients. Carbon dioxide can enter for photosynthesis, while oxygen and water vapour can move out under the relevant gradients.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "How does the exchange site differ from its regulating cells?",
+        "answer": "The stomatal pore is the passage for gas movement; guard cells bordering it regulate the size of that passage.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Diffusion",
+       "Leaf epidermis",
+       "Photosynthesis and respiration"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended answer: stomata. A common trap substitutes the regulating guard cells for the gas-exchange pore.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0013"
+      ],
+      "where_on_page": "Middle question, option a",
+      "content": "a. Guard cells",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are guard cells?",
+        "answer": "They are specialised epidermal cells bordering a stomatal pore and regulating its opening.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do guard cells regulate gaseous exchange?",
+        "answer": "Changes in their water content and turgor change their shape and the pore opening. They regulate the route of exchange rather than being the pore itself.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell turgor",
+       "Stomatal pore"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Guard cells regulate stomata; they are not the intended answer for the exchange opening.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0014"
+      ],
+      "where_on_page": "Middle question, option b",
+      "content": "b. Stomata",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are stomata?",
+        "answer": "Stomata are pores in the epidermis of leaves and some other aerial plant parts, associated with guard cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are they suited to gaseous exchange?",
+        "answer": "An open pore provides a diffusion pathway between the external air and internal leaf air spaces, while guard cells allow its opening to be regulated.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Epidermis",
+       "Diffusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended correct option for the site of gaseous exchange on a leaf.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0015"
+      ],
+      "where_on_page": "Middle question, option c",
+      "content": "c. Aerenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is aerenchyma?",
+        "answer": "It is parenchymatous tissue with large air spaces, common in aquatic plants, that helps internal gas movement and can contribute to buoyancy.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the presence of air spaces not make it the answer here?",
+        "answer": "Aerenchyma is an internal tissue adaptation. The question asks for the leaf's gas-exchange site with the atmosphere, for which stomata are the intended answer.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Parenchyma",
+       "Intercellular air spaces"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish internal air-space tissue from a surface exchange pore.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "answer_option",
+      "parent_item_id": "i11",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0016"
+      ],
+      "where_on_page": "Middle question, option d",
+      "content": "d. Chlorenchyma",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is chlorenchyma?",
+        "answer": "It is parenchyma containing chloroplasts and specialised for photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a photosynthetic tissue not the answer to this question?",
+        "answer": "Photosynthetic cells use carbon dioxide and produce oxygen, but the question asks for the surface route through which gases enter and leave the leaf, not the tissue carrying out photosynthesis.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Parenchyma",
+       "Chloroplasts",
+       "Photosynthesis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Separate the site of photosynthesis from the route of gaseous exchange.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0017"
+      ],
+      "where_on_page": "Lower question group",
+      "content": "Q. Muscle is connected to bone via:",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which structure connects muscle to bone?",
+        "answer": "b. Tendon is the standard answer for the attachment of skeletal muscle to bone.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this connection help produce movement?",
+        "answer": "When skeletal muscle contracts, it develops tension that the tendon transmits to the attached bone. This pull can move the bone at a joint.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do tendon, ligament and cartilage differ in this context?",
+        "answer": "A tendon connects muscle to bone and transmits pulling force; a ligament typically connects bone to bone and stabilises a joint; cartilage provides support and, at many joint surfaces, a smooth covering rather than the muscle–bone attachment.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Skeletal muscle contraction",
+       "Bones and joints",
+       "Connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield distinction: tendon—muscle to bone; ligament—bone to bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0018"
+      ],
+      "where_on_page": "Lower question, option a",
+      "content": "a. Ligament",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does a ligament typically connect?",
+        "answer": "A ligament typically connects one bone to another at a joint.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is ligament incorrect for muscle–bone attachment?",
+        "answer": "Its usual role is joint stabilisation between bones, whereas a tendon provides the muscle's attachment and transmits its pull to bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Joint",
+       "Bone-to-bone connection"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The principal distractor: do not reverse ligament and tendon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0019"
+      ],
+      "where_on_page": "Lower question, option b",
+      "content": "b. Tendon",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a tendon?",
+        "answer": "A tendon is a strong fibrous connective-tissue structure that commonly attaches skeletal muscle to bone.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is its structure suited to transmitting muscle force?",
+        "answer": "Its bundles of collagen fibres provide high tensile strength, allowing it to withstand and transmit the pulling force generated by muscle contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective tissue",
+       "Collagen fibres",
+       "Pulling force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Intended correct option: tendon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0020"
+      ],
+      "where_on_page": "Lower question, option c",
+      "content": "c. Cartilage",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What role can cartilage perform at a joint?",
+        "answer": "Articular cartilage covers the ends of bones at many joints, providing a smooth surface and helping distribute loads.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is cartilage not the correct attachment structure?",
+        "answer": "Joint-surface support and reduction of friction differ from connecting a muscle to a bone and transmitting the muscle's pull. The latter is the role of a tendon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective tissue",
+       "Joint surfaces"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish supportive cartilage from force-transmitting tendon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "answer_option",
+      "parent_item_id": "i16",
+      "source": "both",
+      "block_ids": [
+       "p0014-b0021"
+      ],
+      "where_on_page": "Lower question, option d",
+      "content": "d. None",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What would choosing 'None' imply?",
+        "answer": "It would mean that none of ligament, tendon or cartilage answers the muscle–bone attachment question.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this option be rejected?",
+        "answer": "Tendon is already listed and is the standard structure connecting skeletal muscle to bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Tendon as muscle–bone attachment"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Reject because option b provides the required connection.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0014-b0001",
+     "p0014-b0022"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "cbd03efc5dd5d955a90a916cd3ed6d45050e45b4672c9630ce7aadacfddb57a1",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 10094,
+    "output_tokens": 785,
+    "cost_usd": 0.030842,
+    "value": {
+     "notes": {
+      "about": "This page is the final practice MCQ page (page 14 of 14) of Chapter 10 on Tissues, containing the options for a continued question on cardiac muscle and three complete MCQs on plant epidermis, stomata, and tendons.",
+      "key_questions": [
+       "Are all four practice questions and their answer options accurately captured, anchored, and explained at a teacher level for UPSC/State PCS?",
+       "Is the flawed wording in the epidermis question ('thickest') properly addressed without confusing learners?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the anchoring of i1 to the four option blocks on this page while including the previous page's stem in content.",
+        "reason": "The stem is on page 13 and the options are on page 14; this cleanly preserves the full teachable question while accurately citing this page's native blocks."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is properly marked as book or outside knowledge, and all outside biological explanations are accurate and standard."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Each question and option has thorough teacher-level Q&A covering why options are right or wrong, underlying mechanisms, and caveats."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Notes clearly state the focus, key questions, decisions with reasons, and uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is truncated, merged away, or left as 'etc.'"
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All visible text blocks (questions and options) are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header ('Science and Technology') and page number ('100') are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "No diagrams on this page."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Teacher understandings explain the 'why' and 'how' (e.g., pacemaker cells, turgor pressure in guard cells, tensile strength of collagen in tendons) and point out the poorly phrased 'thickest' claim in the epidermis question."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis labels ('book' vs 'outside') are accurately assigned."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types and item kinds ('question' and 'answer_option') are appropriate."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete, relevant biological concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes are well-tailored for UPSC/State PCS science preparation."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No disagreements between native text and image exist on this page."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792594688.1290684
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.144848,
+ "navin_verdict": null
+}

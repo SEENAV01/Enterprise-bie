@@ -1,0 +1,1197 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-006",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "b598c49bbabc75a6c5f50bbd8b538cf16a36db962fe48b3b1786ab8b47cd39fe",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 6 of 14.\n\nLast lines of the previous page (context only):\n• Attached to bones\n• Each cell is multi-nucleated many nuclei.\n• Striations are present  alternate dark and light bands.\n• Easily fatigue\n• Helps in body movement.\n• Maintains posture\nOther names: Skeleton muscle, Striated muscle and voluntary muscle.\n91\n\nFirst lines of the next page (context only):\nScience and Technology\n93\n\nNative text blocks of this page (id | text):\np0006-b0001 | Science and Technology\np0006-b0002 | b. Visceral Muscle/ Smooth muscle tissue\np0006-b0003 | Characteristics:\np0006-b0004 | • Fibres are spindle shaped/fusiform i.e. pointed at\np0006-b0005 | ends/tapering ends.\np0006-b0006 | • Single and centrally located nucleus in each cell.\np0006-b0007 | • Striations are absent.\np0006-b0008 | • Unbranched\np0006-b0009 | • Do not fatigue\np0006-b0010 | • Performs functions like peristalsis.\np0006-b0011 | Other names: Unstriated/Involuntary muscles\np0006-b0012 | Example: Stomach, Intestine, eye, blood vessel etc.\np0006-b0013 | c. Cardiac muscle tissue\np0006-b0014 | Characters:\np0006-b0015 | • Fibres are cylindrical in shape.\np0006-b0016 | • Each fibre is uninucleate\np0006-b0017 | • Fibres are branched\np0006-b0018 | • Striations are present.\np0006-b0019 | • Do not fatigue.\np0006-b0020 | • Performs contraction and relaxation in wall of heart.\np0006-b0021 | • Helps to pump and distribute blood to body.\np0006-b0022 | Other names: Striated, Involuntary.\np0006-b0023 | 92"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "0326e9be77a025a62b543316a1e46a006f1b50575955d80c4a60bdfbd870ab49",
+    "base64_chars": 545044
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594241.304763,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "33489808bace7afb12e2f757cf3fef2d5ee2f1375f7d113f6ae217443c11a9d9",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5021,
+    "output_tokens": 8433,
+    "cost_usd": 0.094372
+   },
+   "notes": {
+    "about": "This page continues the classification of muscular tissue with smooth and cardiac muscles. It links their microscopic structure, control, locations and functions, providing important contrasts with skeletal muscle from the preceding page.",
+    "key_questions": [
+     "How can smooth and cardiac muscle be distinguished by shape, nuclei, branching and striations?",
+     "What do unstriated and involuntary mean, and why is cardiac muscle an important exception to equating striations with voluntary control?",
+     "Where does smooth muscle occur, and how does it produce peristalsis?",
+     "How does cardiac contraction and relaxation support blood circulation?",
+     "How should the book's statements about fatigue and cardiac nuclei be understood without making misleading biological absolutes?"
+    ],
+    "decisions": [
+     {
+      "decision": "Retain each characteristic as a separate teachable item and capture both image-only illustrations and their labels.",
+      "reason": "Each characteristic is independently testable, and the illustrations reinforce tissue identification and location."
+     },
+     {
+      "decision": "Preserve 'Do not fatigue' and 'Each fibre is uninucleate' exactly, while qualifying them in explicitly outside explanations.",
+      "reason": "These are standard introductory simplifications rather than universal physiological statements."
+     },
+     {
+      "decision": "Treat striations and voluntary control as separate classification criteria.",
+      "reason": "The page explicitly identifies cardiac muscle as both striated and involuntary."
+     }
+    ],
+    "uncertain": [
+     "The figures are schematic and do not label their organ drawings or microscopic components individually; these are described visually without inventing printed labels."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page continues the classification of muscular tissue with smooth and cardiac muscles. It links their microscopic structure, control, locations and functions, providing important contrasts with skeletal muscle from the preceding page.",
+     "key_questions": [
+      "How can smooth and cardiac muscle be distinguished by shape, nuclei, branching and striations?",
+      "What do unstriated and involuntary mean, and why is cardiac muscle an important exception to equating striations with voluntary control?",
+      "Where does smooth muscle occur, and how does it produce peristalsis?",
+      "How does cardiac contraction and relaxation support blood circulation?",
+      "How should the book's statements about fatigue and cardiac nuclei be understood without making misleading biological absolutes?"
+     ],
+     "decisions": [
+      {
+       "decision": "Retain each characteristic as a separate teachable item and capture both image-only illustrations and their labels.",
+       "reason": "Each characteristic is independently testable, and the illustrations reinforce tissue identification and location."
+      },
+      {
+       "decision": "Preserve 'Do not fatigue' and 'Each fibre is uninucleate' exactly, while qualifying them in explicitly outside explanations.",
+       "reason": "These are standard introductory simplifications rather than universal physiological statements."
+      },
+      {
+       "decision": "Treat striations and voluntary control as separate classification criteria.",
+       "reason": "The page explicitly identifies cardiac muscle as both striated and involuntary."
+      }
+     ],
+     "uncertain": [
+      "The figures are schematic and do not label their organ drawings or microscopic components individually; these are described visually without inventing printed labels."
+     ]
+    },
+    "page_summary": "Smooth or visceral muscle has spindle-shaped, unbranched cells, a single central nucleus and no striations. It is involuntary, supports functions such as peristalsis, and occurs in the stomach, intestine, eye and blood vessels. Cardiac muscle has cylindrical, branched, striated fibres, described here as uninucleate; it acts involuntarily in the heart wall to contract, relax and pump blood. Both are described as not fatiguing. The two illustrations pair each tissue's appearance with a representative organ.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0002"
+      ],
+      "where_on_page": "upper left, first section heading",
+      "content": "b. Visceral Muscle/ Smooth muscle tissue",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "muscular tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Names a major muscular tissue type.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0003"
+      ],
+      "where_on_page": "upper left, below smooth muscle heading",
+      "content": "Characteristics:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces the following characteristics.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0004",
+       "p0006-b0005"
+      ],
+      "where_on_page": "upper left, first smooth muscle bullet",
+      "content": "• Fibres are spindle shaped/fusiform i.e. pointed at ends/tapering ends.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does spindle shaped or fusiform mean for smooth muscle?",
+        "answer": "The fibre narrows towards its two ends, which are pointed or tapering.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How would a student recognise this shape in the figure?",
+        "answer": "Look for elongated cells that are wider through the middle and become narrower towards both ends, rather than uniform-width cylinders.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does smooth muscle shape compare with cardiac muscle shape on this page?",
+        "answer": "Smooth muscle is spindle shaped, whereas cardiac muscle fibres are cylindrical.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "meaning of muscle fibre"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Fusiform fibres are a key identifying feature of smooth muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0006"
+      ],
+      "where_on_page": "upper left, second smooth muscle bullet",
+      "content": "• Single and centrally located nucleus in each cell.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the number and position of nuclei in a smooth muscle cell?",
+        "answer": "Each cell has a single nucleus located centrally.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the blue structures in the smooth muscle drawing be interpreted?",
+        "answer": "The blue oval within an individual spindle-shaped cell represents its nucleus. Count nuclei within a cell boundary, not across the whole group of cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell and its nucleus",
+       "cell boundary"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember both single nucleus and central position.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0007"
+      ],
+      "where_on_page": "upper left, third smooth muscle bullet",
+      "content": "• Striations are absent.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does absence of striations mean?",
+        "answer": "Smooth muscle does not show the regular alternating light and dark bands seen in striated muscle under a microscope.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can smooth muscle contract despite lacking visible striations?",
+        "answer": "It contains contractile proteins, but they are not arranged in the regular repeating sarcomeres that produce the banded appearance of striated muscle.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which of the two muscles on this page is striated?",
+        "answer": "Cardiac muscle has striations; smooth muscle does not.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "microscopic light and dark bands"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Absence of striations distinguishes smooth from cardiac and skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0008"
+      ],
+      "where_on_page": "upper left, fourth smooth muscle bullet",
+      "content": "• Unbranched",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does unbranched describe in smooth muscle?",
+        "answer": "An individual fibre does not split into branches along its length.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is branching different from several cells lying beside one another?",
+        "answer": "Branching concerns the shape of a fibre itself. Several separate spindle-shaped cells packed together do not make each fibre branched.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does branching distinguish the two tissues on this page?",
+        "answer": "Smooth muscle is unbranched; cardiac muscle fibres are branched.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "individual muscle fibre",
+       "cell boundary"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use branching with shape and striations for identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0009"
+      ],
+      "where_on_page": "upper left, fifth smooth muscle bullet",
+      "content": "• Do not fatigue",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What fatigue characteristic does the book assign to smooth muscle?",
+        "answer": "It states that smooth muscle does not fatigue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is resistance to fatigue useful for smooth muscle?",
+        "answer": "Smooth muscles in organs and blood vessels often sustain activity for long periods. Their relatively slow, economical contractions support this work without rapid fatigue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Should 'Do not fatigue' be interpreted as unlimited performance under any condition?",
+        "answer": "No. It is an introductory description of strong fatigue resistance in normal function, not a claim that smooth muscle is unaffected by oxygen shortage or disease.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "fatigue as reduced capacity to maintain activity"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the book's comparison point while understanding its physiological limits.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0010"
+      ],
+      "where_on_page": "upper left, sixth smooth muscle bullet",
+      "content": "• Performs functions like peristalsis.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which muscle function is specifically named here?",
+        "answer": "Peristalsis is named as a function of smooth muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does peristalsis move material through the digestive tract?",
+        "answer": "Coordinated waves of contraction and relaxation of smooth muscle in the gut wall propel its contents along the tube.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is this different from food simply falling under gravity?",
+        "answer": "The muscular wall actively generates the propulsive force, so transport does not depend merely on the tube pointing downwards.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "digestive tract as a tube",
+       "contraction and relaxation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match peristalsis to smooth, involuntary muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0011"
+      ],
+      "where_on_page": "upper left, below smooth muscle characteristics",
+      "content": "Other names: Unstriated/Involuntary muscles",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What other names does the book give smooth muscle?",
+        "answer": "Unstriated muscles and involuntary muscles.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these names describe two different properties?",
+        "answer": "Unstriated describes microscopic appearance; involuntary describes control, meaning that contractions generally occur without conscious command.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Does involuntary mean the same thing as unstriated?",
+        "answer": "No. This page describes smooth muscle as unstriated and involuntary, but cardiac muscle as striated and involuntary. Involuntary therefore does not uniquely identify smooth muscle.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "striations",
+       "conscious control of movement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not confuse appearance-based and control-based classifications.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "example",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0012"
+      ],
+      "where_on_page": "upper left, final line of smooth muscle section",
+      "content": "Example: Stomach, Intestine, eye, blood vessel etc.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which smooth muscle locations are listed?",
+        "answer": "The stomach, intestine, eye and blood vessel are listed.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these examples connect to smooth muscle function?",
+        "answer": "Smooth muscle in the stomach and intestine helps mix and propel contents; in blood vessel walls it changes vessel diameter; in the eye it participates in control of pupil size and lens focusing.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Does listing the eye mean that every muscle associated with the eye is smooth muscle?",
+        "answer": "No. The example refers to smooth muscles within the eye. The muscles that move the eyeball are skeletal muscles.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stomach and intestine",
+       "blood vessel wall",
+       "pupil and lens"
+      ],
+      "exam_importance": "high",
+      "exam_note": "All four examples are important for location matching and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper right, boxed illustration",
+      "content": "A boxed illustration pairs a group of orange, elongated spindle-shaped smooth muscle cells on the left with a drawing of the intestine on the right. The cells have tapering ends and blue central nuclei, without visible striations. The printed label 'Smooth Muscle' is below the cells. There are no arrows; side-by-side placement associates the tissue with the intestinal organ.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What tissue features and organ association does this figure show?",
+        "answer": "It shows tapering smooth muscle cells with centrally placed blue nuclei beside an intestinal drawing, linking the tissue to a listed location.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the figure support identification rather than merely naming the tissue?",
+        "answer": "The cell outlines provide the fusiform shape, the blue ovals indicate nuclei and the absence of bands contrasts with the cardiac illustration below.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre",
+       "nucleus",
+       "intestine"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Practise recognising smooth muscle from cell morphology and organ association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i11",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper right illustration, below the cell group",
+      "content": "Smooth Muscle — label below the spindle-shaped cell group, naming the tissue depicted; no leader line is shown.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the label 'Smooth Muscle' identify?",
+        "answer": "It identifies the illustrated group of spindle-shaped muscle cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can this labelled group be distinguished from the cardiac muscle group below?",
+        "answer": "The smooth muscle cells taper at their ends and are unstriated, whereas the cardiac illustration shows a branched, banded arrangement.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which printed names elsewhere on the page correspond to this label?",
+        "answer": "Visceral Muscle, Unstriated and Involuntary muscles are the corresponding names supplied in the smooth muscle section.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "spindle shape",
+       "striations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the diagram label to the alternative names.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0013"
+      ],
+      "where_on_page": "middle left, second section heading",
+      "content": "c. Cardiac muscle tissue",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "muscular tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Names the muscle tissue associated with the heart.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0014"
+      ],
+      "where_on_page": "middle left, below cardiac heading",
+      "content": "Characters:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Introduces the cardiac muscle characteristics.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0015"
+      ],
+      "where_on_page": "middle left, first cardiac muscle bullet",
+      "content": "• Fibres are cylindrical in shape.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What shape is assigned to cardiac muscle fibres?",
+        "answer": "They are cylindrical.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a cylindrical fibre also be branched?",
+        "answer": "Cylindrical describes the general shape of a fibre segment, while branched describes the way the fibre extends into arms. The two descriptions concern different features and are compatible.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this differ from smooth muscle shape?",
+        "answer": "Smooth muscle fibres are fusiform with tapering ends, whereas cardiac fibres are cylindrical.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cylinder shape",
+       "muscle fibre"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify cardiac muscle using cylindrical shape together with branching and striations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0016"
+      ],
+      "where_on_page": "middle left, second cardiac muscle bullet",
+      "content": "• Each fibre is uninucleate",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does uninucleate mean in this statement?",
+        "answer": "The book describes each cardiac fibre as having one nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the several blue nuclei in the cardiac tissue illustration be read?",
+        "answer": "The drawing represents a group of connected cells, so several nuclei across the group should not be mistaken for many nuclei within one cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Is the book's uninucleate description an exceptionless rule for cardiac cells?",
+        "answer": "It is the introductory description. Cardiac muscle cells usually have one central nucleus, but some have two.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell and its nucleus",
+       "difference between a cell and a tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain uninucleate as the book's identifying description; distinguish it from multinucleated skeletal fibres.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0017"
+      ],
+      "where_on_page": "middle left, third cardiac muscle bullet",
+      "content": "• Fibres are branched",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structural feature is meant by branched cardiac fibres?",
+        "answer": "Cardiac fibres extend into branches rather than remaining simple unbranched fibres.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does branching fit the heart's function as a muscular pump?",
+        "answer": "Branching helps form an interconnected tissue arrangement. Together with specialised cell-to-cell junctions, this supports coordinated activity of cardiac muscle rather than isolated contractions.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which muscle on this page is unbranched and which is branched?",
+        "answer": "Smooth muscle is unbranched; cardiac muscle is branched.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "muscle fibre",
+       "heart as a pump",
+       "cell-to-cell connections"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Branching is a strong discriminator for cardiac muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0018"
+      ],
+      "where_on_page": "middle left, fourth cardiac muscle bullet",
+      "content": "• Striations are present.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visible microscopic feature is present in cardiac muscle?",
+        "answer": "Striations are present.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does cardiac muscle have striations?",
+        "answer": "Its contractile filaments are organised into repeating sarcomeres, creating a regular banded appearance under a microscope.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Do striations imply that cardiac muscle is voluntary?",
+        "answer": "No. The page states that cardiac muscle is both striated and involuntary.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "microscopic light and dark bands",
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Cardiac muscle is the important striated-but-involuntary combination.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0019"
+      ],
+      "where_on_page": "middle left, fifth cardiac muscle bullet",
+      "content": "• Do not fatigue.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What fatigue property is assigned to cardiac muscle?",
+        "answer": "The book states that cardiac muscle does not fatigue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is fatigue resistance important for cardiac muscle?",
+        "answer": "The heart must repeatedly pump blood to sustain tissue supply. Cardiac cells have abundant mitochondria and a rich blood supply that support sustained aerobic energy production.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "exception",
+        "question": "Does fatigue resistance mean cardiac muscle can work normally without oxygen?",
+        "answer": "No. Its sustained function depends strongly on oxygen and nutrients. Loss of adequate blood supply can impair or damage cardiac muscle; the book's phrase describes normal fatigue resistance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Does fatigue distinguish smooth muscle from cardiac muscle on this page?",
+        "answer": "No. Both are described as not fatiguing.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "heart pumping",
+       "oxygen supply",
+       "cellular energy production"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A shared property of smooth and cardiac muscle, not a distinguishing feature between them.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0020"
+      ],
+      "where_on_page": "middle left, sixth cardiac muscle bullet",
+      "content": "• Performs contraction and relaxation in wall of heart.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does cardiac muscle perform contraction and relaxation?",
+        "answer": "In the wall of the heart.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do contraction and relaxation contribute different parts of pumping?",
+        "answer": "Contraction develops pressure that ejects blood from a chamber; relaxation allows the chamber to fill again for a later contraction.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is relaxation as necessary as contraction?",
+        "answer": "A chamber needs to refill before it can eject another volume of blood. Sustained contraction without filling would not produce normal repeated pumping.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "heart chambers",
+       "muscle contraction and relaxation",
+       "pressure and fluid movement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Links cardiac muscle location to the heart's pumping cycle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0021"
+      ],
+      "where_on_page": "middle left, seventh cardiac muscle bullet",
+      "content": "• Helps to pump and distribute blood to body.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the body-level function attributed to cardiac muscle?",
+        "answer": "It helps pump and distribute blood to the body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does muscle activity in the heart distribute blood beyond the heart?",
+        "answer": "Cardiac contraction creates the pressure that drives blood into vessels. The vascular network carries this blood to different body regions.",
+        "basis": "outside"
+       },
+       {
+        "depth": 3,
+        "ask": "why",
+        "question": "Why is blood distribution essential to body tissues?",
+        "answer": "Circulating blood delivers oxygen and nutrients and carries away carbon dioxide and other wastes, helping cells maintain their activities.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "heart and blood vessels",
+       "blood circulation",
+       "cellular need for oxygen and nutrients"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Function matching: cardiac muscle drives heart pumping and circulation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0006-b0022"
+      ],
+      "where_on_page": "middle left, final line of cardiac section",
+      "content": "Other names: Striated, Involuntary.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two descriptors does the book give cardiac muscle?",
+        "answer": "Striated and Involuntary.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this classification compare with that of smooth muscle?",
+        "answer": "Both are involuntary, but cardiac muscle is striated whereas smooth muscle is unstriated.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should these descriptors not be treated as unique alternative tissue names?",
+        "answer": "They describe separate features shared with other tissues: striated refers to banding and involuntary refers to lack of ordinary conscious control. Their combination, together with heart location and branching, identifies cardiac muscle more reliably.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can the heart beat without a conscious command for each beat?",
+        "answer": "Specialised pacemaker cells generate rhythmic electrical activity. Autonomic nerves and hormones can modify the rate and strength without requiring conscious initiation of each beat.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "striations",
+       "conscious control",
+       "electrical signals in excitable cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-yield combination: cardiac muscle is striated yet involuntary.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle right, lower boxed illustration",
+      "content": "A boxed illustration pairs an orange, branched arrangement of cardiac muscle cells on the left with a heart drawing on the right. The tissue shows repeated pale bands and blue oval nuclei; branches connect into a network-like arrangement with spaces between them. The printed label 'Cardiac Muscle' is below the tissue. The heart is drawn with coloured major vessels. There are no arrows or individually labelled heart parts; side-by-side placement associates cardiac muscle with the heart.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structural features and organ association are visible?",
+        "answer": "The figure shows branched, banded cardiac muscle with blue nuclei alongside the heart, linking its appearance to its organ location.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the image distinguish cardiac from smooth muscle?",
+        "answer": "The cardiac drawing is branched and visibly banded; the upper smooth muscle drawing consists of tapering unstriated cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the spaces in this schematic not be read as heart chambers?",
+        "answer": "The left drawing depicts tissue organisation, not the whole heart's internal anatomy. The spaces separate stylised branches and are not labelled chambers.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle cell and tissue",
+       "striations",
+       "heart"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise cardiac muscle by the combination of branching, striations and heart association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i23",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower boxed illustration, beneath the tissue drawing",
+      "content": "Cardiac Muscle — label beneath the branched, striated tissue drawing, identifying the tissue beside the heart; no leader line is shown.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does 'Cardiac Muscle' label in this illustration?",
+        "answer": "It labels the branched muscle tissue drawing on the left of the heart.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the nearby heart clarify the label?",
+        "answer": "It visually connects the named tissue with its location in the heart wall, where the text says contraction and relaxation occur.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the classification of this labelled tissue differ from the labelled smooth muscle above?",
+        "answer": "Cardiac muscle is striated and branched; smooth muscle is unstriated and unbranched. Both are involuntary.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "heart wall",
+       "branching",
+       "striations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the diagram name with both structural and control classifications.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0006-b0001",
+     "p0006-b0023"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "b577ea5394b52100d0c5a1f69d77b634081a10c6c3ddaa00f159f0f6903088fe",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11441,
+    "output_tokens": 916,
+    "cost_usd": 0.035246,
+    "value": {
+     "notes": {
+      "about": "This page covers the characteristics, other names, examples, and illustrations of visceral/smooth muscle tissue and cardiac muscle tissue for UPSC/State PCS General Science.",
+      "key_questions": [
+       "How do smooth and cardiac muscle tissues differ in cell shape, nuclei, striations, and branching?",
+       "Why is cardiac muscle classified as both striated and involuntary, and how does this contrast with smooth muscle?",
+       "What are the key physiological functions and organ locations of smooth and cardiac muscles?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accept the maker's granular breakdown of each bullet point and diagram into separate items.",
+        "reason": "Every morphological and functional feature of muscle types is directly tested in UPSC/State PCS prelims matching and statement-based questions."
+       },
+       {
+        "decision": "Accept the maker's handling of 'Visceral Muscle/ Smooth muscle tissue' heading as non-teachable classification while capturing its alternative naming nuances in i9 and i12.",
+        "reason": "The relationship between the names is thoroughly explained in the items covering 'Other names' and the diagram labels."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is accurately grounded in the book or clearly marked as standard outside biological knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are complete and reach strong teacher-level depth suitable for UPSC/State PCS aspirants."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes clearly state the scope, key pedagogical decisions with reasons, and image uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is truncated or merged away; all list items, examples, and diagram elements are preserved."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All text blocks and both boxed illustrations with their printed labels are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header ('Science and Technology') and page number ('92') are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables are present on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Both diagrams and their respective labels ('Smooth Muscle' and 'Cardiac Muscle') are captured with clear descriptions of visual features and associations."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations or mathematical symbols appear on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Teacher questions and answers explain the underlying 'how' and 'why' (e.g., sarcomere arrangement, peristalsis mechanism, pacemaker autonomy, physiological nuances of fatigue and uninucleate fibres)."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Book vs. outside bases are accurately labelled, and all outside physiological explanations are scientifically sound."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types (structure, process, classification, example, fact, cause_effect) accurately reflect each item."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete, foundational biological concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance ratings and notes are well-tailored to UPSC/State PCS science questions."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No disagreements exist between native text blocks and the page image."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792594410.123329
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.129618,
+ "navin_verdict": null
+}

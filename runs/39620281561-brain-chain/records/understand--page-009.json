@@ -1,0 +1,1412 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-009",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "3dcd3cfbb74fe77e50e1d75ec8787b8969258c04ed179c2481beea2f5e1fa5cb",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 9 of 14.\n\nLast lines of the previous page (context only):\nScience and Technology\n94\n\nFirst lines of the next page (context only):\nScience and Technology\nSIMPLE PERMANENT TISSUE\n• Cells are structurally and functionally similar\n• One type of cells.\n• Main function is to store food and perform photosynthesis.\nTypes of Simple Permanent Tissues\n1. Parenchyma tissue:\n• Occurrence: Stem, roots, leaves, flowers and fruits.\n\nNative text blocks of this page (id | text):\np0009-b0001 | Science and Technology\np0009-b0002 | PLANT TISSUE\np0009-b0003 | 1. MERISTEMATIC TISSUE:\np0009-b0004 | • OCCURRENCE: Growing region of plant like root, shoot etc.\np0009-b0005 | • Shape: Spherical, oval/rectangular.\np0009-b0006 | • Intercellular spaces: Absent, hence compactly packed.\np0009-b0007 | • Vacuoles absent in it.\np0009-b0008 | • Focus only on cell division.\np0009-b0009 | • Highly active cells.\np0009-b0010 | 1. APICAL MERISTEM\np0009-b0011 | • Present at root and shoot tip.\np0009-b0012 | • Length of root and shoot increases.\np0009-b0013 | 2. LATERAL MERISTEM\np0009-b0014 | • Present beneath bark.\np0009-b0015 | • Girth of root or stem increases.\np0009-b0016 | 3. INTERCALARY MERISTEM\np0009-b0017 | • Present at base of leaves or internodes.\np0009-b0018 | • Length of organs like leaves and nodes increases.\np0009-b0019 | 2. PERMANENT TISSUES\np0009-b0020 | • Cell looses ability to divide.\np0009-b0021 | • Take up specific role.\np0009-b0022 | • Thus are permanent.\np0009-b0023 | • Differentiation: Process of taking up permanent shape, size, and function.\np0009-b0024 | • Large central vacuole.\np0009-b0025 | • Cell wall is thick.\np0009-b0026 | • Helps in protection, support, storage and Photosynthesis.\np0009-b0027 | 95"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "1f9b098f50166972df52621aeed5c53c47281108ec1e23ff7081a0e81a65bd74",
+    "base64_chars": 638920
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594410.12491,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "71ce9b5952fcde5460794a7b9babae0aeca2ed88f42278c34db35db95ce93793",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5114,
+    "output_tokens": 11110,
+    "cost_usd": 0.121328
+   },
+   "notes": {
+    "about": "This page introduces meristematic and permanent plant tissues, relates the three meristem types to their positions and growth effects, and introduces differentiation. Two diagrams reinforce the location of meristems.",
+    "key_questions": [
+     "Which cellular features distinguish meristematic tissue from permanent tissue?",
+     "Where are apical, lateral and intercalary meristems located, and which dimension of growth does each produce?",
+     "How do the diagram labels and growth arrows correspond to the written descriptions?",
+     "What is differentiation, and how does it relate to the functions of permanent tissues?"
+    ],
+    "decisions": [
+     {
+      "decision": "Captured the two meristem illustrations separately, including repeated labels and the small shoot, root, node and stem insets.",
+      "reason": "The image contains location and growth information absent from the native text."
+     },
+     {
+      "decision": "Grouped closely connected bullets on location and growth, and on the transition to permanent tissue, while retaining their exact wording.",
+      "reason": "These statements form coherent teaching units without losing any text."
+     },
+     {
+      "decision": "Preserved the page's statements about absent vacuoles, thick cell walls and elongation of nodes, but qualified their interpretation in outside explanations.",
+      "reason": "These are textbook simplifications or imprecise wording and should not become misleading universal rules."
+     }
+    ],
+    "uncertain": [
+     "The right diagram's intercalary label is visibly misspelt and clipped: it reads approximately 'Intercalay Merister…'; its position clearly identifies intercalary meristem.",
+     "The statement that permanent tissues have thick cell walls is not universal; permanent tissues differ in wall thickness.",
+     "The reference to increasing the length of 'nodes' is imprecise; the conventional growth description concerns internodes."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page introduces meristematic and permanent plant tissues, relates the three meristem types to their positions and growth effects, and introduces differentiation. Two diagrams reinforce the location of meristems.",
+     "key_questions": [
+      "Which cellular features distinguish meristematic tissue from permanent tissue?",
+      "Where are apical, lateral and intercalary meristems located, and which dimension of growth does each produce?",
+      "How do the diagram labels and growth arrows correspond to the written descriptions?",
+      "What is differentiation, and how does it relate to the functions of permanent tissues?"
+     ],
+     "decisions": [
+      {
+       "decision": "Captured the two meristem illustrations separately, including repeated labels and the small shoot, root, node and stem insets.",
+       "reason": "The image contains location and growth information absent from the native text."
+      },
+      {
+       "decision": "Grouped closely connected bullets on location and growth, and on the transition to permanent tissue, while retaining their exact wording.",
+       "reason": "These statements form coherent teaching units without losing any text."
+      },
+      {
+       "decision": "Preserved the page's statements about absent vacuoles, thick cell walls and elongation of nodes, but qualified their interpretation in outside explanations.",
+       "reason": "These are textbook simplifications or imprecise wording and should not become misleading universal rules."
+      }
+     ],
+     "uncertain": [
+      "The right diagram's intercalary label is visibly misspelt and clipped: it reads approximately 'Intercalay Merister…'; its position clearly identifies intercalary meristem.",
+      "The statement that permanent tissues have thick cell walls is not universal; permanent tissues differ in wall thickness.",
+      "The reference to increasing the length of 'nodes' is imprecise; the conventional growth description concerns internodes."
+     ]
+    },
+    "page_summary": "Meristematic tissues occur in growing plant regions and consist of actively dividing, closely packed cells. Apical meristems increase root and shoot length, lateral meristems increase girth, and intercalary meristems occur at leaf bases or internodes and contribute to elongation. Permanent tissues arise through differentiation, acquire specific roles, and perform protection, support, storage and photosynthesis. The page illustrates meristem positions and contrasts the general cellular features of meristematic and permanent tissues.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0002"
+      ],
+      "where_on_page": "top, below running header",
+      "content": "PLANT TISSUE",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Section heading introducing plant tissues.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0003"
+      ],
+      "where_on_page": "upper section",
+      "content": "1. MERISTEMATIC TISSUE:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "The following features and types are important for plant-tissue classification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0004"
+      ],
+      "where_on_page": "upper section, first bullet",
+      "content": "• OCCURRENCE: Growing region of plant like root, shoot etc.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does meristematic tissue occur?",
+        "answer": "It occurs in growing regions of the plant, including regions of roots and shoots. The later descriptions specify tips, positions beneath bark, and leaf bases or internodes.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is meristematic tissue associated with growing regions?",
+        "answer": "Cell division supplies new cells. Those cells can enlarge and differentiate, so regions containing dividing cells provide the cellular material for plant growth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant root and shoot",
+       "cell division produces new cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Locate meristematic tissue in growing regions rather than treating an entire root or shoot as meristematic.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0005"
+      ],
+      "where_on_page": "upper section, second bullet",
+      "content": "• Shape: Spherical, oval/rectangular.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which cell shapes are listed for meristematic tissue?",
+        "answer": "The page lists spherical, oval and rectangular shapes.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should cell shape be used when identifying a meristematic tissue?",
+        "answer": "Shape is one descriptive feature, not a sufficient identification by itself. It should be considered together with close packing, active division and occurrence in growing regions.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "spherical, oval and rectangular shapes"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Useful as part of a combination of meristematic-cell characteristics.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0006"
+      ],
+      "where_on_page": "upper section, third bullet",
+      "content": "• Intercellular spaces: Absent, hence compactly packed.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the arrangement of cells in meristematic tissue?",
+        "answer": "The cells are compactly packed, with intercellular spaces described as absent.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the absence of intercellular spaces mean compact packing?",
+        "answer": "Intercellular spaces are gaps between neighbouring cells. If these gaps are absent, neighbouring cells lie closely against one another rather than being separated by open spaces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neighbouring cells in a tissue",
+       "space between cells versus space within cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A key identification feature; distinguish intercellular spaces from intracellular vacuoles.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0007"
+      ],
+      "where_on_page": "upper section, fourth bullet",
+      "content": "• Vacuoles absent in it.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the page state about vacuoles in meristematic tissue?",
+        "answer": "It describes vacuoles as absent, in contrast with the large central vacuole listed for permanent tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the absence of a large vacuole associated with meristematic cells?",
+        "answer": "Young, actively dividing cells have dense cytoplasm and generally lack the large central vacuole characteristic of many mature plant cells. Small vacuoles may occur; the page's statement is a simplified contrast, not a universal claim that no vacuolar structures can exist.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "vacuole",
+       "cytoplasm",
+       "young and mature plant cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the page's meristematic-versus-permanent vacuole contrast without overextending the simplified wording.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0008",
+       "p0009-b0009"
+      ],
+      "where_on_page": "upper section, final two bullets",
+      "content": "• Focus only on cell division.\n• Highly active cells.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What activity characterises meristematic cells?",
+        "answer": "The page describes them as highly active cells focused on cell division.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does active cell division contribute to growth?",
+        "answer": "Division increases the number of cells available to the plant. Subsequent enlargement and differentiation of the new cells contribute to growth and the formation of specialised tissues.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should 'focus only on cell division' not be read as meaning the cells carry out no other processes?",
+        "answer": "Dividing cells still require respiration, synthesis of cellular materials and other maintenance processes. The phrase identifies their principal developmental role rather than excluding the processes needed to sustain division.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "cell number and cell size",
+       "cell respiration"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Active division is the central distinction from the permanent cells described below.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle left, below horizontal rule",
+      "content": "Illustration titled 'MERISTEMATIC TISSUE'. A leafy plant with roots shows apical meristems at the shoot and root tips, intercalary meristem near a leaf/node region, and lateral meristem along the stem. Blue arrows point upward above the shoot and downward below the root, indicating lengthwise growth. Two orange arrows point outward from the stem, indicating increase in girth. Small insets depict a shoot tip, root tip, a leaf base labelled 'Node', and a cylindrical stem.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the diagram distinguish the growth associated with apical and lateral meristems?",
+        "answer": "The apical regions are associated with arrows along the plant's length, whereas the lateral region is associated with outward arrows across the stem. This visually contrasts elongation with an increase in girth.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the coloured arrows be interpreted?",
+        "answer": "They show directions of growth, not the movement of cells through the plant: the root and shoot extend lengthwise, while the stem thickens sideways.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which positions identify the three meristem types in this figure?",
+        "answer": "Apical meristems are at the shoot and root tips, intercalary meristem is indicated around a leaf/node region, and lateral meristem is indicated along the stem.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "root and shoot",
+       "length versus girth",
+       "leaf attachment to a stem"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Practise recognising meristem positions on an unlabelled plant and interpreting growth arrows.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, title above plant",
+      "content": "MERISTEMATIC TISSUE — title identifying the tissue illustrated by the plant and its insets.",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Diagram title; the locations and growth effects carry the examinable content.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, upper-left inset",
+      "content": "Shoot — identifies the small shoot-tip inset above the upper 'Apical Meristem' label.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the 'Shoot' inset identify?",
+        "answer": "It identifies the shoot-tip example associated with the upper apical-meristem label.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this inset help explain shoot growth?",
+        "answer": "It directs attention to the growing tip rather than a mature leaf or an older stem region. Division at the shoot apex supplies cells that contribute to lengthwise shoot growth.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant shoot",
+       "shoot tip"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Identify the shoot apex in a plant diagram.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, upper-left leader to plant tip",
+      "content": "Apical Meristem — upper label points to the shoot-tip region of the central plant.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the upper apical meristem shown?",
+        "answer": "At the shoot tip, beside the upward growth arrow.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is this location related to the growth shown?",
+        "answer": "Cells produced by the shoot apical meristem subsequently enlarge and differentiate, contributing to extension of the shoot.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "shoot tip",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Shoot tip–apical meristem–increase in length is a key association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, upper-right leaf-base inset",
+      "content": "Node — identifies the attachment/base region beside the leaf inset.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which part does the inset label 'Node' identify?",
+        "answer": "It identifies the leaf attachment region illustrated beside the intercalary-meristem label.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is a node distinguished from an internode?",
+        "answer": "A node is a region of the stem where a leaf is attached; an internode is the segment between successive nodes. This distinction helps interpret the page's reference to intercalary meristems at leaf bases or internodes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem",
+       "leaf attachment"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not confuse a node with the internode between two nodes.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, upper-right leader to leaf/node region",
+      "content": "Intercalary Meristem — identifies a meristematic region near the leaf base/node region of the central plant; a leaf-base inset accompanies the label.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What position is indicated by the intercalary-meristem label?",
+        "answer": "The label identifies a region near a leaf base or node, away from the terminal shoot and root tips.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is this position different from an apical position?",
+        "answer": "An apical meristem is at an organ's growing tip, whereas an intercalary meristem is situated between more mature regions, such as at a leaf base or the base of an internode.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "leaf base",
+       "node and internode",
+       "apical position"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise an intercalary position rather than identifying every growing region as apical.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, right of central stem",
+      "content": "Lateral Meristem — leader points to the side of the stem, near the outward orange growth arrows.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is lateral meristem indicated in this figure?",
+        "answer": "Along the side of the stem, beside the arrows showing outward growth.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does its side position relate to increasing girth?",
+        "answer": "Production of additional tissues in lateral regions adds thickness across the stem rather than extending it at a terminal tip.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem",
+       "girth versus length"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate lateral meristem with thickening, not primarily elongation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, cylindrical inset at lower right",
+      "content": "Stem — identifies the cylindrical stem inset beneath the 'Lateral Meristem' label; the inset shows highlighted longitudinal regions near its outer part.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the cylindrical inset represent?",
+        "answer": "It represents a stem and is placed with the lateral-meristem illustration.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this inset complement the whole-plant drawing?",
+        "answer": "It emphasises a region extending along the stem's sides, helping distinguish lateral growth tissue from a small region confined to the shoot tip.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem as a three-dimensional organ",
+       "lateral position"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Use the inset to understand the lateral position; do not infer unlabelled tissue identities.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, lower-left root-tip inset",
+      "content": "Root — identifies the small root-tip inset above the lower 'Apical Meristem' label.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What organ is represented by the lower-left inset?",
+        "answer": "It is a root-tip example associated with the lower apical-meristem label.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should 'at the root tip' be understood anatomically?",
+        "answer": "The root apical meristem lies close to the tip and is protected by a root cap. The general tip label should not be taken to mean that the protective cap itself is the apical meristem.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant root",
+       "root tip"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise the root apex; the root-cap distinction is explanatory context.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i8",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left diagram, lower-left leader to root tip",
+      "content": "Apical Meristem — lower label points to the root-tip region of the central plant, near the downward blue arrow.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Why is 'Apical Meristem' labelled a second time on the plant?",
+        "answer": "The diagram identifies an apical meristem at the root tip as well as at the shoot tip.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the root apical meristem contribute to root extension?",
+        "answer": "It produces new cells; subsequent enlargement of cells behind the tip contributes to an increase in root length.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "root tip",
+       "cell division and enlargement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Apical meristems occur at both root and shoot tips.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle right, beside whole-plant illustration",
+      "content": "Enlarged schematic of a leafy shoot with a terminal growing tip, horizontal bands along the stem, and longitudinal strips inside the lower stem. Purple leader lines connect 'Apical Meristem' to the terminal tip, the visibly misspelt and clipped intercalary label to a horizontal band at a leaf-attachment region, and 'Lateral Meristem' to a longitudinal strip along the stem. The lines are label pointers, not flow arrows.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are the three meristem positions contrasted in the enlarged shoot diagram?",
+        "answer": "Apical meristem is at the terminal tip, intercalary meristem is represented by a band within the shoot near a leaf attachment, and lateral meristem is represented along the side of the stem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the bands, strips and leader lines be read?",
+        "answer": "The bands and strips distinguish positions of meristematic regions. The purple lines connect names to those regions; they do not show conversion of one meristem type into another or movement through the stem.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "shoot tip",
+       "leaf attachment",
+       "longitudinal versus transverse orientation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for diagram-based identification of apical, intercalary and lateral meristems.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i18",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right diagram, top label",
+      "content": "Apical Meristem — purple leader points to the terminal growing tip of the shoot.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which region does the top leader identify?",
+        "answer": "It identifies the apical meristem at the terminal shoot tip.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can it be distinguished from the intercalary region in the same figure?",
+        "answer": "The apical region occupies the terminal end, while the intercalary region is shown farther down the shoot as an intervening band.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "terminal tip",
+       "meristem location"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify the terminal meristem even when the figure differs from a whole-plant diagram.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i18",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right diagram, middle label clipped at right edge",
+      "content": "Visible label approximately 'Intercalay Merister…' — intended Intercalary Meristem; purple leader points to a horizontal stem band near a leaf-attachment region.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which meristem does the clipped middle label identify?",
+        "answer": "Its position and the accompanying written list identify it as intercalary meristem, despite the misspelt and clipped image label.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the leader's destination establish that it is not the apical or lateral meristem?",
+        "answer": "It ends at an intermediate horizontal band rather than the terminal tip or a longitudinal side region. Those three positions correspond to the three meristem types shown.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "apical, intercalary and lateral positions",
+       "leaf attachment"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the correct term 'Intercalary Meristem', not the image's misspelling.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i18",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right diagram, lower-right label",
+      "content": "Lateral Meristem — purple leader points to a longitudinal strip along the lower stem.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What does the lower leader identify?",
+        "answer": "It identifies lateral meristem extending along the side of the stem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the orientation of the strip related to lateral growth?",
+        "answer": "The strip represents meristem positioned along the stem's side. Activity in such lateral tissues adds thickness, unlike a terminal meristem whose products contribute to extension.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem sides",
+       "girth versus length"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Relate the longitudinal position of lateral meristem to growth in girth.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0010"
+      ],
+      "where_on_page": "below illustrations, first subsection",
+      "content": "1. APICAL MERISTEM",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "First of the three meristem types listed.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0011",
+       "p0009-b0012"
+      ],
+      "where_on_page": "below illustrations, apical-meristem bullets",
+      "content": "• Present at root and shoot tip.\n• Length of root and shoot increases.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is apical meristem present, and what growth is associated with it?",
+        "answer": "It is present at root and shoot tips and is associated with an increase in root and shoot length.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a dividing region at the tip produce an increase in organ length?",
+        "answer": "The meristem produces new cells. Cells derived from it subsequently enlarge and differentiate, contributing to lengthwise growth of the root or shoot.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the growth effect of apical meristem compare with lateral meristem?",
+        "answer": "Apical meristem is associated with increasing length, while lateral meristem is associated with increasing girth of roots or stems.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "root and shoot tips",
+       "cell division",
+       "cell enlargement",
+       "length versus girth"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value location–function pairing: tips and increase in length.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0013"
+      ],
+      "where_on_page": "below apical subsection",
+      "content": "2. LATERAL MERISTEM",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Second meristem type listed.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0014",
+       "p0009-b0015"
+      ],
+      "where_on_page": "lateral-meristem bullets",
+      "content": "• Present beneath bark.\n• Girth of root or stem increases.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What location and growth effect does the page give for lateral meristem?",
+        "answer": "It describes lateral meristem as present beneath bark and associates it with increasing the girth of a root or stem.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does lateral-meristem activity increase girth rather than simply length?",
+        "answer": "Dividing tissue along the sides produces additional tissue layers that increase the organ's thickness. Girth refers to the distance around the organ and increases as the organ becomes thicker.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How can lateral meristem be distinguished from apical meristem in a matching question?",
+        "answer": "Match lateral meristem with beneath bark and increase in girth; match apical meristem with root and shoot tips and increase in length.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "bark",
+       "root and stem",
+       "girth",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value pairing: beneath bark and thickening of roots or stems.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0016"
+      ],
+      "where_on_page": "below lateral subsection",
+      "content": "3. INTERCALARY MERISTEM",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Third meristem type listed.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0017",
+       "p0009-b0018"
+      ],
+      "where_on_page": "intercalary-meristem bullets",
+      "content": "• Present at base of leaves or internodes.\n• Length of organs like leaves and nodes increases.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does the page locate intercalary meristem, and what effect does it state?",
+        "answer": "It locates intercalary meristem at the base of leaves or internodes and states that the length of organs like leaves and 'nodes' increases.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does intercalary meristem contribute to elongation?",
+        "answer": "Its divisions supply new cells at a leaf base or an internodal region; enlargement of the resulting cells contributes to elongation even though the meristem is not at the terminal shoot tip.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "Why must 'nodes' in the growth statement be distinguished from 'internodes'?",
+        "answer": "Nodes are leaf-attachment regions; internodes are the stem segments between nodes. The conventional description of intercalary growth concerns leaf and internode elongation, so the book's word 'nodes' should not erase this distinction.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do apical and intercalary meristems differ despite both contributing to length?",
+        "answer": "The page places apical meristem at root and shoot tips, but intercalary meristem at leaf bases or internodes. Thus, a shared effect on length does not mean the locations are the same.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "leaf base",
+       "node versus internode",
+       "cell division and enlargement",
+       "terminal shoot tip"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important location–function association. Interpret the page's 'nodes' cautiously; the standard elongating stem segment is the internode.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0019"
+      ],
+      "where_on_page": "lower section",
+      "content": "2. PERMANENT TISSUES",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Returns to the second major plant-tissue category, rather than continuing the meristem subtype numbering.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0020",
+       "p0009-b0021",
+       "p0009-b0022"
+      ],
+      "where_on_page": "permanent-tissue section, first three bullets",
+      "content": "• Cell looses ability to divide.\n• Take up specific role.\n• Thus are permanent.",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What makes these tissues 'permanent' in the page's description?",
+        "answer": "Their cells lose the ability to divide and take up specific roles, rather than remaining focused on cell division.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do permanent tissues differ from meristematic tissue?",
+        "answer": "Meristematic cells are described as highly active and focused on division; permanent cells are described as losing divisional ability and taking up particular roles.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is adopting a specific role associated with becoming a permanent tissue?",
+        "answer": "As cells mature, their structures become suited to functions such as protection or storage rather than remaining in an actively proliferating state. 'Permanent' describes their differentiated condition, not a claim that the cells are indestructible or necessarily dead.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Is loss of division in permanent tissue an irreversible rule for every living cell?",
+        "answer": "Some living differentiated plant cells can regain the capacity to divide under suitable conditions. This is an explanatory qualification to the page's general contrast, not a replacement for that contrast.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "meristematic tissue",
+       "specialised cell function"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core meristematic–permanent comparison; 'permanent' does not mean 'dead'.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "definition",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0023"
+      ],
+      "where_on_page": "permanent-tissue section, differentiation bullet",
+      "content": "• Differentiation: Process of taking up permanent shape, size, and function.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is differentiation according to this page?",
+        "answer": "It is the process through which a cell takes up a permanent shape, size and function.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does differentiation connect meristematic cells with permanent tissue?",
+        "answer": "Cells produced by meristems can mature and acquire structural features suited to particular roles. This transition from a dividing cell to a specialised cell helps form permanent tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the definition include shape and size as well as function?",
+        "answer": "Specialisation concerns both what a cell does and the structure that enables it to do that work. Changes in cell dimensions, walls or internal organisation can make a cell better suited to its particular role.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is differentiation different from cell division?",
+        "answer": "Cell division produces additional cells; differentiation is the acquisition of specialised structural and functional characteristics. An increase in cell number alone is not the same as specialisation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape and size",
+       "cell function",
+       "meristematic cells",
+       "cell division"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the definition and distinguish differentiation from division and simple enlargement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0024"
+      ],
+      "where_on_page": "permanent-tissue section, below differentiation",
+      "content": "• Large central vacuole.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What vacuole feature is listed for permanent tissue?",
+        "answer": "The page lists a large central vacuole, contrasting with its description of absent vacuoles in meristematic tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a large central vacuole help a mature plant cell?",
+        "answer": "A vacuole can store cell sap and dissolved substances. Water entering it contributes to turgor pressure against the cell wall, helping a living plant cell remain firm.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Should a large central vacuole be expected in every permanent-tissue cell?",
+        "answer": "No. It is a common feature of mature living plant cells, but some permanent-tissue cells are dead at maturity and lack living cell contents. The bullet is a generalisation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "vacuole",
+       "cell sap",
+       "cell wall",
+       "living versus dead mature cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A useful general contrast with meristematic cells, not a universal rule for every permanent cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0025"
+      ],
+      "where_on_page": "permanent-tissue section, penultimate structural bullet",
+      "content": "• Cell wall is thick.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the page state about the cell wall in permanent tissues?",
+        "answer": "It states that the cell wall is thick.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can wall thickening help a specialised plant cell?",
+        "answer": "A thicker or reinforced wall can increase resistance to deformation, contributing to support or protection, depending on the tissue.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "exception",
+        "question": "Is a thick cell wall a universal feature of permanent tissues?",
+        "answer": "No. Permanent tissues include thin-walled cells, such as parenchyma cells, as well as cells with thicker walls. Wall thickness depends on the tissue's specialisation, so this bullet should not be used as an absolute identification rule.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "mechanical support",
+       "specialised tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important caution for statement-based questions: permanent tissue is not synonymous with thick-walled tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0009-b0026"
+      ],
+      "where_on_page": "bottom of teaching text, final bullet",
+      "content": "• Helps in protection, support, storage and Photosynthesis.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which functions of permanent tissues are listed?",
+        "answer": "The page lists protection, support, storage and photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do these functions illustrate the value of differentiation?",
+        "answer": "Different cells become suited to different jobs: surface tissues can protect, mechanically strengthened tissues can support, cells with suitable storage capacity can store materials, and cells containing chloroplasts can photosynthesise.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the four functions not be assigned to every permanent-tissue cell?",
+        "answer": "They describe the range of roles across permanent tissues. Differentiation produces a division of labour, so a cell's structures determine which roles it performs rather than requiring each cell to perform the whole list.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "protection and support in plants",
+       "storage of materials",
+       "photosynthesis",
+       "chloroplasts",
+       "cell specialisation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the functions as a collective range of permanent-tissue roles; avoid assuming every tissue performs photosynthesis.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0009-b0001",
+     "p0009-b0027"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "25367b33ca4efabbc0efc413a9fb040d2d30a5e32a8fbef94643a162112bb33f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14061,
+    "output_tokens": 857,
+    "cost_usd": 0.040361,
+    "value": {
+     "notes": {
+      "about": "This page introduces plant tissues, covering meristematic tissue characteristics, the three types of meristems (apical, lateral, intercalary) with two supporting diagrams, and the transition via differentiation to permanent tissues.",
+      "key_questions": [
+       "What are the structural and functional characteristics of meristematic tissues?",
+       "How do apical, lateral, and intercalary meristems differ in location and growth function?",
+       "What is differentiation and what are the general characteristics and functions of permanent tissues?"
+      ],
+      "decisions": [
+       {
+        "decision": "Approved the grouping of closely related bullet points (e.g., location and growth effect of each meristem type) into single teachable items.",
+        "reason": "All native text is preserved verbatim and grouping location with effect enables better cause-and-effect teaching."
+       },
+       {
+        "decision": "Accepted the handling of textbook simplifications and typos (e.g., 'nodes' elongation, 'thick' cell wall in permanent tissues, clipped diagram label) via outside knowledge and notes.",
+        "reason": "The maker accurately captured the book text while providing critical scientific qualifications necessary for UPSC/PCS aspirants."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is properly attributed to either the book or accurate, standard outside knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "Explanations are thorough, addressing both the book's points and necessary scientific nuances (like dedifferentiation, parenchyma thin walls, and node vs. internode)."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker's notes clearly state what the page is about, key decisions with reasons, and uncertainties/typos in the source."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short or omitted; all text and visual elements are fully represented."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All text blocks and both diagrams with all their labels, insets, and growth arrows are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header and page number/footer are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Every diagram label, inset, leader line, and directional growth arrow is thoroughly captured and linked."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No equations on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Questions and answers explain the 'why' and 'how' at an appropriate teacher level for UPSC/State PCS."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Basis labels ('book' vs 'outside') are strictly accurate and outside knowledge is biologically sound."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types accurately reflect the nature of each item."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete, sensible foundational concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes are well-tailored to competitive exam pitfalls (e.g., statement-based traps)."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "No disagreements between native text blocks and their appearance in the image; the clipped image-only diagram label is properly noted in the item and notes."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792594614.4840896
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.161689,
+ "navin_verdict": null
+}

@@ -1,0 +1,1941 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-002",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "13314335c13c659dffa5642d52276186fa2da9cb1805c8753d69bb07b473962c",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 2 of 14.\n\nLast lines of the previous page (context only):\n10. Tissues and Its Types\nTISSUE: Cells combine to perform same function.\n• When plant cells combine, they form plant tissues.\n• When animal cells combine, they form animal tissues.\n• Causes division of labour.\n• Decreases workload on individual cells, hence leads to organisation.\nCell Tissues Organ Organ system Organisms\n87\n\nFirst lines of the next page (context only):\nScience and Technology\nThere are mainly four different types of tissues present in our body.\n1. Epithelial- provides covering or lining\n2. Muscular- helps in movement\n3. Neural- responds to stimuli\n4. Connective- supports, links and cushions\n Epithelium covers most organs and cavities within the body.\n It also forms a barrier to keep different body systems separate.\n\nNative text blocks of this page (id | text):\np0002-b0001 | Science and Technology\np0002-b0002 | 88"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "328277ba7913c39ae58131d8eb162563b3319ed382f8ed35027f0903c50f399e",
+    "base64_chars": 802088
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594241.2688806,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "4bb6dae760e8e4baf4f6a595be0492c385e8f1e653d5ce338c59f78d59f7f4c7",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4797,
+    "output_tokens": 15558,
+    "cost_usd": 0.165174
+   },
+   "notes": {
+    "about": "This image-led page gives the classification of animal tissues and a second illustration connecting tissue examples with the human body. It provides the chapter's organising framework before the detailed treatment of individual tissues.",
+    "key_questions": [
+     "What are the four main animal tissue groups, and which subtypes belong to each?",
+     "How do the classification tree and the human-body illustration correspond?",
+     "How can epithelial, muscular, nervous and connective tissues be distinguished by structure, location and function?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read both illustrations entirely from the image and capture each visible label separately.",
+      "reason": "The native text contains only the running header and page number."
+     },
+     {
+      "decision": "Treat the upper figure as a classification tree and the lower figure as a set of tissue examples linked to a human body.",
+      "reason": "Their connecting lines express different relationships: classification above and illustrative associations below."
+     },
+     {
+      "decision": "Retain the upper figure's printed 'Non-straited muscle' and explain the standard term in an outside-basis answer.",
+      "reason": "The printed spelling should remain traceable without teaching it as the standard spelling."
+     },
+     {
+      "decision": "Mark explanatory mechanisms, detailed functions and equivalences between alternative muscle names as outside knowledge.",
+      "reason": "The page primarily supplies labels and visual relationships rather than explanatory prose."
+     }
+    ],
+    "uncertain": [
+     "The upper muscle label appears to read 'Non-straited muscle', a typographical error for non-striated muscle.",
+     "Some fine leader lines in the lower illustration overlap the body and watermark; they establish illustrative associations rather than precise anatomical boundaries."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This image-led page gives the classification of animal tissues and a second illustration connecting tissue examples with the human body. It provides the chapter's organising framework before the detailed treatment of individual tissues.",
+     "key_questions": [
+      "What are the four main animal tissue groups, and which subtypes belong to each?",
+      "How do the classification tree and the human-body illustration correspond?",
+      "How can epithelial, muscular, nervous and connective tissues be distinguished by structure, location and function?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read both illustrations entirely from the image and capture each visible label separately.",
+       "reason": "The native text contains only the running header and page number."
+      },
+      {
+       "decision": "Treat the upper figure as a classification tree and the lower figure as a set of tissue examples linked to a human body.",
+       "reason": "Their connecting lines express different relationships: classification above and illustrative associations below."
+      },
+      {
+       "decision": "Retain the upper figure's printed 'Non-straited muscle' and explain the standard term in an outside-basis answer.",
+       "reason": "The printed spelling should remain traceable without teaching it as the standard spelling."
+      },
+      {
+       "decision": "Mark explanatory mechanisms, detailed functions and equivalences between alternative muscle names as outside knowledge.",
+       "reason": "The page primarily supplies labels and visual relationships rather than explanatory prose."
+      }
+     ],
+     "uncertain": [
+      "The upper muscle label appears to read 'Non-straited muscle', a typographical error for non-striated muscle.",
+      "Some fine leader lines in the lower illustration overlap the body and watermark; they establish illustrative associations rather than precise anatomical boundaries."
+     ]
+    },
+    "page_summary": "Animal tissues are classified into epithelial, muscular, connective and nervous/neural tissues. The tree lists six epithelial forms, three muscle types and three connective-tissue subdivisions with their examples. A second illustration shows muscle cells, epithelial arrangements, nervous structures and connective-tissue examples alongside the human body.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper half, classification tree",
+      "content": "Animal Tissues branches into Epithelial Tissue, Muscular Tissue, Connective Tissue, and Nervous / Neural Tissue. Epithelial Tissue branches into Simple squamous epithelium, Stratified squamous epithelium, Columnar epithelium, Ciliated columnar epithelium, Cuboidal epithelium, and Glandular epithelium. Muscular Tissue branches into Striated muscle, Non-straited muscle, and Cardiac muscle. Connective Tissue branches into Connective tissue proper, Supportive connective tissue, and Fluid connective tissue. Connective tissue proper branches into Areolar tissue, Adipose tissue, and Fibrous tissue. Supportive connective tissue branches into Cartilage and Bone. Fluid connective tissue branches into Blood and Lymph. Nervous / Neural Tissue has no further branch shown. Arrows lead from each parent to its subtypes.",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "cells forming tissues",
+       "parent categories and subcategories in a classification tree"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core classification framework; use the complete parent–child relationships for matching and odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "top centre of classification tree",
+      "content": "Animal Tissues — root of the tree, branching into Epithelial Tissue, Muscular Tissue, Connective Tissue, and Nervous / Neural Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which categories occupy the same first level under Animal Tissues?",
+        "answer": "Epithelial, muscular, connective, and nervous/neural tissues are the four parallel main categories shown.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner read the levels of this tree?",
+        "answer": "Read from the general parent to increasingly specific subgroups. For example, blood belongs under fluid connective tissue, which belongs under connective tissue; blood is not a fifth main animal-tissue group.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "meaning of a tissue",
+       "hierarchical classification"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the four principal animal tissue categories and avoid confusing subtypes with main groups.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, left main branch",
+      "content": "Epithelial Tissue — main branch of Animal Tissues; connects downward to Simple squamous epithelium, Stratified squamous epithelium, Columnar epithelium, Ciliated columnar epithelium, Cuboidal epithelium, and Glandular epithelium.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which forms are grouped under Epithelial Tissue?",
+        "answer": "The six displayed forms are simple squamous, stratified squamous, columnar, ciliated columnar, cuboidal, and glandular epithelium.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these epithelial names refer to different kinds of features?",
+        "answer": "Epithelia can be described by cell shape, number of layers, surface specialisations or secretory function. Thus squamous and cuboidal refer to shape, stratified to layers, ciliated to a surface feature, and glandular to secretion. The figure is a teaching list rather than a set of mutually exclusive criteria.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "cell layers",
+       "tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise all six names as epithelial forms.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, second main branch",
+      "content": "Muscular Tissue — main branch of Animal Tissues; branches into Striated muscle, Non-straited muscle, and Cardiac muscle.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What three muscle categories does the tree distinguish?",
+        "answer": "It distinguishes Striated muscle, the printed Non-straited muscle category, and Cardiac muscle.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should the separate cardiac branch be understood when cardiac muscle also has striations?",
+        "answer": "This common three-part school classification uses striated muscle for skeletal muscle, non-striated for smooth muscle, and a separate cardiac category for heart muscle. Cardiac muscle itself is striated but differs from skeletal muscle in structure and control.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "meaning of a subtype"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value three-way classification; cardiac muscle is not non-striated.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, third main branch",
+      "content": "Connective Tissue — main branch of Animal Tissues; branches into Connective tissue proper, Supportive connective tissue, and Fluid connective tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is connective tissue subdivided in this tree?",
+        "answer": "It is divided into connective tissue proper, supportive connective tissue and fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can both bone and blood belong to connective tissue despite looking very different?",
+        "answer": "Connective tissues have cells associated with an extracellular matrix. The matrix can be rigid in bone or fluid in blood, allowing different connective tissues to support, bind or transport.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cells",
+       "extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the three subdivisions and their examples.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, rightmost main branch",
+      "content": "Nervous / Neural Tissue — fourth main branch of Animal Tissues; no sub-branches are shown.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Are nervous tissue and neural tissue separate main categories here?",
+        "answer": "No. The slash presents Nervous and Neural as alternative names for the same main tissue category.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does nervous tissue contribute to coordination?",
+        "answer": "Neurons receive and transmit signals, allowing information about conditions or stimuli to reach other cells and helping coordinate responses.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cells",
+       "signals between cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise nervous and neural as equivalent terms in this chart.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, left child of Muscular Tissue",
+      "content": "Striated muscle — a branch of Muscular Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What is the structural distinction between striated and non-striated muscle?",
+        "answer": "Striated muscle has visible transverse light and dark bands; non-striated muscle lacks this banded appearance.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do striations appear?",
+        "answer": "Contractile filaments are arranged in repeating units called sarcomeres, producing a regular banding pattern.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle cells",
+       "contractile filaments"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the striated branch with skeletal muscle while remembering that cardiac muscle also has striations.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, middle child of Muscular Tissue",
+      "content": "Non-straited muscle — printed label for the middle branch of Muscular Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which standard muscle category does the printed 'Non-straited muscle' label represent?",
+        "answer": "It represents non-striated, or smooth, muscle, contrasting with the striated branch.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is smooth muscle called non-striated?",
+        "answer": "Its contractile filaments are not arranged into the repeating sarcomeres that produce visible transverse bands in skeletal and cardiac muscle.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle cells",
+       "striations"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Learn the standard spelling non-striated and its equivalence with smooth muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, right child of Muscular Tissue",
+      "content": "Cardiac muscle — a branch of Muscular Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cardiac muscle compare with skeletal muscle?",
+        "answer": "Both are striated, but cardiac muscle forms the contractile tissue of the heart and acts involuntarily; skeletal muscle generally produces voluntary body movements.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is cardiac muscle suited to pumping?",
+        "answer": "Its interconnected muscle cells contract in a coordinated way, generating the force needed to move blood through the circulation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "heart pumping blood",
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important exception to the mistaken association of all striated muscle with voluntary control.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, left subdivision of Connective Tissue",
+      "content": "Connective tissue proper — child of Connective Tissue; parent of Areolar tissue, Adipose tissue, and Fibrous tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which examples belong to connective tissue proper rather than the supportive or fluid subdivisions in this chart?",
+        "answer": "Areolar, adipose and fibrous tissues belong to connective tissue proper.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can these tissues have different functions within the same broad subdivision?",
+        "answer": "Their proportions of cells, fibres and ground substance differ. Loose packing, fat storage and strong fibrous binding are therefore possible within this connective-tissue grouping.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "extracellular matrix",
+       "connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Memorise this chart's three examples of connective tissue proper.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, middle subdivision of Connective Tissue",
+      "content": "Supportive connective tissue — child of Connective Tissue; branches into Cartilage and Bone.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which two tissues are paired under supportive connective tissue?",
+        "answer": "Cartilage and bone are the two displayed examples.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are they classed as supportive?",
+        "answer": "Their substantial extracellular matrices provide structural support. Cartilage offers relatively flexible support, whereas mineralised bone provides greater rigidity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "extracellular matrix",
+       "structural support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value cartilage–bone grouping and comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, right subdivision of Connective Tissue",
+      "content": "Fluid connective tissue — child of Connective Tissue; branches into Blood and Lymph.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which examples are placed under fluid rather than supportive connective tissue?",
+        "answer": "Blood and lymph are fluid connective tissues; cartilage and bone are in the supportive subdivision.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does a fluid medium suit these tissues?",
+        "answer": "A fluid medium permits movement of dissolved substances and suspended cells, supporting transport and exchange rather than rigid support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fluid",
+       "extracellular matrix",
+       "transport in the body"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Blood and lymph are connective tissues, not separate main tissue groups.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, left leaf under Connective tissue proper",
+      "content": "Areolar tissue — a subtype of Connective tissue proper.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does areolar tissue belong relative to cartilage?",
+        "answer": "Areolar tissue belongs to connective tissue proper, while cartilage belongs to supportive connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does areolar tissue serve as packing tissue?",
+        "answer": "Its loosely arranged fibres and cells in a soft ground substance allow it to occupy spaces, support small vessels and help bind adjacent tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective-tissue matrix",
+       "fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise areolar tissue as connective tissue proper.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, middle leaf under Connective tissue proper",
+      "content": "Adipose tissue — a subtype of Connective tissue proper.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Is adipose tissue placed with connective tissue proper or fluid connective tissue?",
+        "answer": "It is placed with connective tissue proper, alongside areolar and fibrous tissues.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do fat-storing cells make adipose tissue useful?",
+        "answer": "Stored lipid provides an energy reserve, while deposits of these cells can provide cushioning and reduce heat loss.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "fat as an energy store",
+       "cells forming tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link adipose tissue with the lower figure's fat cells and soft padding.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, right leaf under Connective tissue proper",
+      "content": "Fibrous tissue — a subtype of Connective tissue proper.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which subdivision contains fibrous tissue rather than bone?",
+        "answer": "Fibrous tissue is under connective tissue proper; bone is under supportive connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are fibres important for strong connections?",
+        "answer": "Abundant collagen fibres resist pulling forces, helping fibrous connective tissues bind structures and transmit tension.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective-tissue fibres",
+       "pulling force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate fibrous connective tissue with strong binding and the tendon example below.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, left leaf under Supportive connective tissue",
+      "content": "Cartilage — a subtype of Supportive connective tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cartilage compare with bone as a supporting tissue?",
+        "answer": "Both provide support, but cartilage has a relatively flexible matrix, whereas bone has a harder mineralised matrix.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can flexible support be useful?",
+        "answer": "A resilient matrix can maintain shape while allowing deformation and can cushion forces at suitable locations, such as joint surfaces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "extracellular matrix",
+       "flexibility and rigidity"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know its supportive connective-tissue classification and contrast with bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, right leaf under Supportive connective tissue",
+      "content": "Bone — a subtype of Supportive connective tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Where does bone belong relative to blood in this classification?",
+        "answer": "Both are connective tissues, but bone is supportive and blood is fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is bone suited to rigid support?",
+        "answer": "Mineral salts deposited in its collagen-containing matrix give it hardness and resistance to compression.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "extracellular matrix",
+       "mineralisation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Bone is living connective tissue, not merely an inert supporting material.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, left leaf under Fluid connective tissue",
+      "content": "Blood — a subtype of Fluid connective tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which tissue shares blood's immediate parent in the tree?",
+        "answer": "Lymph shares the parent Fluid connective tissue with blood.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is blood considered a tissue although it flows?",
+        "answer": "Its cells and cell fragments function together in a fluid extracellular matrix, plasma. A tissue need not form a solid sheet.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cells forming tissues",
+       "plasma",
+       "extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Frequently tested classification: blood is a fluid connective tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "upper tree, right leaf under Fluid connective tissue",
+      "content": "Lymph — a subtype of Fluid connective tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is lymph classified in relation to blood?",
+        "answer": "Lymph and blood are both placed under Fluid connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does lymph help link body tissues with circulation?",
+        "answer": "Fluid entering lymphatic vessels from tissue spaces is carried as lymph and eventually returned to the bloodstream. Lymph also carries immune cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tissue fluid",
+       "blood circulation",
+       "lymphatic vessels"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Pair lymph with blood under fluid connective tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom of upper tree, first epithelial leaf from left",
+      "content": "Simple squamous epithelium — a subtype of Epithelial Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does simple squamous differ from stratified squamous epithelium?",
+        "answer": "Simple squamous epithelium has one layer of flattened cells; stratified squamous epithelium has several layers, with flattened cells at the exposed surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can a single thin layer favour exchange?",
+        "answer": "A thin barrier shortens the distance through which substances must diffuse.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layers",
+       "flattened cells",
+       "diffusion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the layer term simple from the shape term squamous.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom of upper tree, second epithelial leaf",
+      "content": "Stratified squamous epithelium — a subtype of Epithelial Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What distinguishes stratified squamous from simple squamous epithelium?",
+        "answer": "Stratified squamous epithelium has multiple cell layers rather than one; the surface cells are flattened.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are multiple layers useful at surfaces exposed to wear?",
+        "answer": "Superficial cells can be lost through abrasion while deeper layers continue to maintain a protective barrier.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layers",
+       "abrasion",
+       "epithelial barrier"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link stratification with protection and the skin-surface illustration below.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom of upper tree, third epithelial leaf",
+      "content": "Columnar epithelium — a subtype of Epithelial Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do columnar cells differ in shape from squamous cells?",
+        "answer": "Columnar cells are relatively tall and column-like, whereas squamous cells are flattened.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can columnar cells contribute to lining functions?",
+        "answer": "Their cellular machinery and specialised surfaces can support absorption or secretion, depending on the organ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "absorption",
+       "secretion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Compare epithelial cell shapes and distinguish columnar from ciliated columnar.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom of upper tree, fourth epithelial leaf",
+      "content": "Ciliated columnar epithelium — a subtype of Epithelial Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What additional feature distinguishes ciliated columnar epithelium from non-ciliated columnar epithelium?",
+        "answer": "Ciliated columnar cells bear motile hair-like cilia on their exposed surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do cilia help a lining perform its function?",
+        "answer": "Their coordinated beating moves material along the epithelial surface, such as mucus in parts of the respiratory tract.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "columnar cell shape",
+       "cilia",
+       "epithelial surface"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate cilia with movement of material over a lining.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom of upper tree, fifth epithelial leaf",
+      "content": "Cuboidal epithelium — a subtype of Epithelial Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does cuboidal cell shape differ from columnar and squamous shapes?",
+        "answer": "Cuboidal cells have roughly similar height and width; columnar cells are taller, while squamous cells are thin and flattened.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can cuboidal epithelium contribute to a tubule or duct?",
+        "answer": "It forms a lining whose cells can carry out absorption or secretion, as in kidney tubules and many small gland ducts.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shape",
+       "tubules and ducts",
+       "absorption and secretion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise cube-like cells and the simple cuboidal example in the lower figure.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i1",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "bottom of upper tree, rightmost epithelial leaf",
+      "content": "Glandular epithelium — a subtype of Epithelial Tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the name glandular differ from names such as cuboidal or squamous?",
+        "answer": "Glandular emphasises secretory specialisation, whereas cuboidal and squamous describe cell shape.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does glandular epithelium perform secretion?",
+        "answer": "Its cells synthesise and release products, such as mucus or enzymes, either as individual secretory cells or as organised glands.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "secretion",
+       "glands",
+       "epithelial cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify glandular epithelium by secretory function rather than a single cell shape.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower half, human-body and tissue illustration",
+      "content": "A central human body is surrounded by four boxed tissue illustrations. Upper left, Muscular tissue shows Cardiac muscle as branching fibres, Skeletal muscle as a bundle of elongated fibres, and Smooth muscle as spindle-shaped cells; Muscle cells labels the illustrated cellular forms. Upper right, Nerve tissue contains branched Nerve cell drawings; Brain, Spinal cord and Nerve label structures on the body. Lower left, Epithelial tissue shows Ciliated columnar, Simple columnar, Simple cuboidal, and Simple squamous arrangements, with the text Lining of gastrointestinal tract and other hollow organs. A separate multilayered epithelial block is labelled Skin surface and Basement membrane. Lower right, Connective tissue shows Tendon, Bone and Fat cells, with the text Fat and other Soft padding tissue. Leader lines associate the tissue examples with locations or structures on the body; they are not a sequential process.",
+      "content_type": "structure",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "four main animal tissue groups",
+       "organs contain tissues"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the illustration for tissue identification, representative locations and structure–function links.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, title of upper-left box",
+      "content": "Muscular tissue — names the box containing cardiac, skeletal and smooth muscle illustrations.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which muscle names appear in the lower illustration?",
+        "answer": "Cardiac muscle, skeletal muscle and smooth muscle are shown within the muscular tissue box.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this terminology connect with the upper tree?",
+        "answer": "Skeletal muscle corresponds to the tree's striated branch, smooth muscle to its non-striated branch, and cardiac muscle retains the same name.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "upper muscle classification",
+       "muscle cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Cross-link the two sets of muscle terminology.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular tissue box, top muscle drawing",
+      "content": "Cardiac muscle — labels red branching muscle fibres; a leader line associates this example with the heart region of the body.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visual feature and body association identify the cardiac example?",
+        "answer": "It is drawn as branching fibres and associated with the heart region.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the branching arrangement help heart muscle work as a coordinated tissue?",
+        "answer": "Branching cells connect with neighbouring cells, allowing excitation and force to spread through the muscle network.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "heart",
+       "muscle contraction",
+       "cell-to-cell connections"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise branching cardiac fibres and their heart association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular tissue box, left of the three muscle examples",
+      "content": "Muscle cells — label connected by leader lines to the illustrated muscle-cell forms.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the shared label Muscle cells emphasise?",
+        "answer": "The different muscle drawings represent cellular forms belonging to muscular tissue, rather than three whole organs.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can muscle cells generate movement?",
+        "answer": "Interactions between contractile proteins generate tension and shortening, which can move body parts or change the shape of an organ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cells and tissues",
+       "contraction"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Useful for understanding the cellular basis of muscle action.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular tissue box, middle muscle drawing",
+      "content": "Skeletal muscle — labels a red bundle of long cylindrical muscle fibres.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the skeletal muscle drawing differ from the smooth muscle drawing?",
+        "answer": "Skeletal muscle is represented as a bundle of long cylindrical fibres, while smooth muscle is represented by tapered spindle-shaped cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does skeletal muscle usually move a body part?",
+        "answer": "Its contraction generates a pull transmitted through tendons to bones, producing movement at joints.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "bones",
+       "joints",
+       "tendons",
+       "muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify skeletal muscle by fibre form and link it with striated muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "muscular tissue box, bottom muscle drawing",
+      "content": "Smooth muscle — labels elongated spindle-shaped red cells with tapered ends.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What shape identifies the smooth muscle cells in the illustration?",
+        "answer": "They are spindle-shaped: wider near the centre and tapered towards their ends.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can smooth muscle act in a hollow organ?",
+        "answer": "Contraction in the organ wall can narrow its cavity or propel its contents, as occurs during movement of material along the digestive tract.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "muscle contraction",
+       "hollow organs"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link spindle shape, non-striated muscle and involuntary visceral movement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, right of the head",
+      "content": "Brain — leader line points to the brain within the head of the central body.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the brain identified in the illustration?",
+        "answer": "It is shown inside the head, above the spinal cord.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the brain related to nervous tissue?",
+        "answer": "The brain is an organ containing nervous tissue, whose neurons and supporting cells enable information processing and coordination.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ versus tissue",
+       "neurons"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish a nervous-system organ from the tissue composing it.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, below Brain label",
+      "content": "Spinal cord — leader line points to the elongated nervous structure descending from the brain through the neck and trunk.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "How is the spinal cord positioned relative to the brain in the figure?",
+        "answer": "It extends downward from the brain into the body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the spinal cord contribute to nervous coordination?",
+        "answer": "It carries signals between the brain and much of the body and contains circuits involved in spinal reflexes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "brain",
+       "nerve signals",
+       "reflex"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise the brain–spinal cord relationship and nervous-tissue association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, near right shoulder of body",
+      "content": "Nerve — leader line points to a branching yellow nerve in the shoulder/upper-arm region.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Nerve label identify in the body drawing?",
+        "answer": "It identifies a peripheral branching nervous structure extending towards the upper limb.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a nerve differ from a single nerve cell?",
+        "answer": "A peripheral nerve contains bundles of nerve fibres, chiefly axons, with supporting tissues. A nerve cell is an individual neuron with its cell body and processes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "neuron",
+       "axon",
+       "bundles of fibres"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not equate one nerve with one neuron.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, title of upper-right box",
+      "content": "Nerve tissue — names the box containing several branched nerve-cell drawings.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the label Nerve tissue relate to the upper tree's Nervous / Neural Tissue?",
+        "answer": "It illustrates the same broad tissue category using nerve-cell drawings.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should this box not be taken to mean that nervous tissue consists only of neurons?",
+        "answer": "The drawing highlights neurons, but nervous tissue also contains supporting glial cells, which help maintain the environment and functioning of neurons.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nervous tissue",
+       "neurons",
+       "supporting cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect nerve, nervous and neural tissue terminology without reducing the tissue to one cell type.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "nerve tissue box, lower right",
+      "content": "Nerve cell — leader line points to a branched purple cell among the nerve-cell drawings.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visible feature characterises the nerve cells drawn here?",
+        "answer": "They have a central cell body with several projecting, branched processes.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do neuronal processes help communication?",
+        "answer": "Dendrites commonly receive input and an axon conducts signals towards other cells, enabling communication beyond the immediate cell body.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell body",
+       "dendrites",
+       "axon",
+       "nerve signals"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise a neuron and relate its processes to communication.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, title of lower-left box",
+      "content": "Epithelial tissue — names the box showing epithelial cell arrangements, hollow-organ lining, skin surface and basement membrane.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What two broad settings for epithelium are represented in this box?",
+        "answer": "The box represents linings of the gastrointestinal tract and other hollow organs, and the skin surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can epithelial tissue serve both internal and external surfaces?",
+        "answer": "Closely arranged cells form continuous sheets, making them suitable for covering exposed surfaces and lining internal spaces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell sheets",
+       "body surfaces",
+       "hollow organs"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate epithelium with both external covering and internal lining.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, below title",
+      "content": "Lining of gastrointestinal tract and other hollow organs — identifies an epithelial location; a leader line connects the text with the abdominal organ region.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which internal location for epithelial tissue is explicitly named?",
+        "answer": "The lining of the gastrointestinal tract and other hollow organs.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a specialised lining needed in a hollow organ?",
+        "answer": "A lining separates the organ wall from its contents and can be adapted for protection, secretion or absorption. Different regions need different epithelial forms; the label does not assign every pictured form to every hollow organ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "gastrointestinal tract",
+       "organ lumen",
+       "epithelial barrier"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Capture the stated location without assuming identical epithelium throughout the gastrointestinal tract.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i39",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, leftmost small tissue model",
+      "content": "Ciliated columnar — labels tall epithelial cells with hair-like projections at their upper surface.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How can this model be distinguished from the adjacent simple columnar model?",
+        "answer": "It shows tall cells with conspicuous hair-like projections on their exposed surface.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do those projections contribute to function?",
+        "answer": "Motile cilia beat in a coordinated manner to move material along the surface.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "columnar cells",
+       "cilia"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Visual identification of ciliated columnar epithelium.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i40",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, second small tissue model",
+      "content": "Simple columnar — labels a single layer of tall column-like epithelial cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "What does simple columnar combine in one name?",
+        "answer": "Simple indicates one layer, while columnar indicates tall cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a single layer of columnar cells support absorption?",
+        "answer": "Substances can pass through a single cellular layer, and the cells can have specialised transport mechanisms and surface adaptations.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layers",
+       "columnar shape",
+       "absorption"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Read epithelial names as a combination of layering and shape.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, third small tissue model",
+      "content": "Simple cuboidal — labels a single sheet of roughly cube-shaped epithelial cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does simple cuboidal differ from simple columnar epithelium?",
+        "answer": "Both have one cell layer, but cuboidal cells are roughly as tall as they are wide, whereas columnar cells are taller.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this cell arrangement suit a lining role?",
+        "answer": "A continuous layer surrounds a surface or lumen while its cells can carry out transport, absorption or secretion appropriate to the organ.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layers",
+       "cuboidal shape",
+       "lumen"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify simple cuboidal epithelium and contrast it with simple columnar.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, rightmost small tissue model",
+      "content": "Simple squamous — labels a thin sheet of flattened epithelial cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does the simple squamous model differ from the cuboidal model?",
+        "answer": "The simple squamous model is much thinner and flatter; the cuboidal model has cells with greater height.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the thinness of this epithelium matter?",
+        "answer": "It reduces the barrier thickness for exchange, making it suitable at sites where rapid diffusion or filtration is needed.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "flattened cells",
+       "diffusion",
+       "filtration"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise the thin single-layer appearance.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i43",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, bottom model",
+      "content": "Skin surface — labels the separate thick, multilayered epithelial block, associated by a leader line with the body's outer surface.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What distinguishes the skin-surface model from the simple epithelial models?",
+        "answer": "It is drawn as a thicker block with many cell layers rather than a single thin layer.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the skin surface benefit from stratified epithelium?",
+        "answer": "Multiple layers resist mechanical wear. The epidermis is keratinised stratified squamous epithelium, providing a protective surface and helping limit water loss.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell layers",
+       "epidermis",
+       "protective barrier"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link the multilayered skin model with stratified squamous epithelium.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i44",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "epithelial tissue box, beneath skin-surface model",
+      "content": "Basement membrane — leader line points to the thin supporting boundary at the base of the multilayered epithelial block.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the basement membrane shown relative to the epithelial cells?",
+        "answer": "It lies beneath the epithelial block, at its basal boundary.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the basement membrane support epithelium?",
+        "answer": "It is a specialised extracellular layer that helps anchor epithelial cells and separates them from underlying connective tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "basal and exposed cell surfaces",
+       "extracellular material",
+       "connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify its basal location; it is not the exposed upper surface.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i45",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "lower illustration, title of lower-right box",
+      "content": "Connective tissue — names the box containing tendon, bone, and fat-cell/soft-padding examples.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which contrasting examples are grouped as connective tissue in this illustration?",
+        "answer": "Tendon, bone and fat cells associated with soft padding are shown together.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is this selection useful for understanding connective tissue?",
+        "answer": "It shows that connective tissue is not defined by one texture: fibrous tissue can transmit pulling force, bone can provide rigid support, and adipose tissue can provide soft cushioning.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "connective-tissue matrix",
+       "support",
+       "fat storage"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Use the examples to challenge the idea that connective tissue is uniformly hard or fibrous.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i46",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective tissue box, top example",
+      "content": "Tendon — labels a yellow bundle of parallel fibres.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What connective-tissue example is represented as parallel fibres?",
+        "answer": "The illustration labels the fibrous bundle Tendon.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a tendon's structure suit its function?",
+        "answer": "Closely packed, largely parallel collagen fibres resist tension and transmit the pull of muscle to bone.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "collagen fibres",
+       "muscles",
+       "bones",
+       "tension"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know tendon as fibrous connective tissue joining muscle to bone; distinguish it from a ligament.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i47",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective tissue box, middle example",
+      "content": "Bone — labels a pale long-bone-shaped illustration.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the bone drawing illustrate in this box?",
+        "answer": "It provides a visible example of bone within the connective-tissue group.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the bone shape not be mistaken for the microscopic appearance of bone tissue?",
+        "answer": "The picture uses a whole-bone outline as a familiar example. Bone tissue itself consists of living cells in a mineralised extracellular matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ versus tissue",
+       "bone matrix",
+       "cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Cross-link this example with supportive connective tissue in the upper tree.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i48",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective tissue box, lower left",
+      "content": "Fat and other Soft padding tissue — text accompanying the fat-cell illustration and its association with a yellow fat deposit on the body.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What functional description accompanies fat in the illustration?",
+        "answer": "Fat is associated with soft padding tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can adipose tissue provide padding?",
+        "answer": "Deposits of fat-containing cells form compressible cushions that help distribute mechanical forces around body structures.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "adipose tissue",
+       "mechanical cushioning"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate adipose tissue with soft padding, not only energy storage.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i49",
+      "kind": "diagram_label",
+      "parent_item_id": "i26",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "connective tissue box, bottom right",
+      "content": "Fat cells — leader line points to a cluster of rounded yellow-orange cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which cells are illustrated as rounded yellow-orange units?",
+        "answer": "They are labelled Fat cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are fat cells related to the adipose tissue branch in the classification tree?",
+        "answer": "Fat cells, or adipocytes, are the characteristic lipid-storing cells of adipose tissue. A cluster of such cells contributes to the tissue; a single cell is not itself the whole tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell versus tissue",
+       "lipid storage",
+       "adipose tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link fat cells with adipose tissue under connective tissue proper.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0002-b0001",
+     "p0002-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "bcd686b956d1019ff30e4ad10c44f0793cd8afa7766c66b1296dde63ac7b2a0d",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16877,
+    "output_tokens": 1262,
+    "cost_usd": 0.051011,
+    "value": {
+     "notes": {
+      "about": "This page presents two visual diagrams: a hierarchical classification tree of animal tissues in the upper half and an anatomical overview of four major tissue types (muscular, nervous, epithelial, connective) linked to human body regions in the lower half.",
+      "key_questions": [
+       "What are the four main categories of animal tissues and their respective subtypes in the classification tree?",
+       "How do the illustrated examples of muscular, epithelial, nervous, and connective tissues correspond to the classification tree and anatomical locations?",
+       "What structural features explain the functions of each tissue subtype for UPSC/State PCS general science?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the work with one minor observation regarding a source spelling typo ('Cartiage').",
+        "reason": "All 49 items thoroughly capture every node, branch, label, and pointer in both diagrams, and all questions and answers provide accurate, teacher-grade conceptual depth with proper basis tags."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i16",
+       "problem": "The printed label in the upper classification tree is spelled 'Cartiage' (missing the 'l'), whereas the item content records 'Cartilage' without noting the printed typo (unlike i8, which explicitly noted 'Non-straited muscle').",
+       "fix": "Note the printed spelling 'Cartiage' in the item or uncertain notes while teaching the standard spelling 'Cartilage'.",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is accurately sourced from the image or properly marked as outside knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The decomposition of both diagrams into 49 items with multi-depth questions and answers is complete and rigorous."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly explain the scope, decisions, reasons, and uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is truncated, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "Both diagrams and all their nodes, branches, labels, and leader lines are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header and page number blocks are marked as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "No tables are present on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Every diagram label, tree branch, and anatomical pointer is captured with its exact target."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "No mathematical or chemical equations are present on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Each teachable item includes why/how questions and answers that build conceptual understanding of tissue structure and function."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Book vs. outside basis labels are accurate, and all outside biological explanations are standard and correct."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types (classification, structure, fact, example) accurately reflect each item."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites are concrete foundational concepts."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance and notes are well-tailored to UPSC/State PCS general science questions."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "Native text had only header and page number; the image typo 'Non-straited' was explicitly reported."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "item_id": "i16",
+     "problem": "The printed label in the upper classification tree is spelled 'Cartiage' (missing the 'l'), whereas the item content records 'Cartilage' without noting the printed typo (unlike i8, which explicitly noted 'Non-straited muscle').",
+     "fix": "Note the printed spelling 'Cartiage' in the item or uncertain notes while teaching the standard spelling 'Cartilage'.",
+     "kind": "wrong"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792594531.533554
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.216185,
+ "navin_verdict": null
+}

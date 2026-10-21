@@ -1,0 +1,1569 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-010",
+ "status": "passed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "9c768c1bcb1b94171d427c3bd6723d2d9f932c74ed01e0d39094b99165d22151",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 10 of 14.\n\nLast lines of the previous page (context only):\n• Cell looses ability to divide.\n• Take up specific role.\n• Thus are permanent.\n• Differentiation: Process of taking up permanent shape, size, and function.\n• Large central vacuole.\n• Cell wall is thick.\n• Helps in protection, support, storage and Photosynthesis.\n95\n\nFirst lines of the next page (context only):\nScience and Technology\n3. Sclerenchyma Tissue\nOccurrence:\n• In stems around vascular bundles.\n• In veins of leaves.\n• Hard covering of seeds and nuts.\nEg. Husk of coconut.\nStructure:\n\nNative text blocks of this page (id | text):\np0010-b0001 | Science and Technology\np0010-b0002 | SIMPLE PERMANENT TISSUE\np0010-b0003 | • Cells are structurally and functionally similar\np0010-b0004 | • One type of cells.\np0010-b0005 | • Main function is to store food and perform photosynthesis.\np0010-b0006 | Types of Simple Permanent Tissues\np0010-b0007 | 1. Parenchyma tissue:\np0010-b0008 | • Occurrence: Stem, roots, leaves, flowers and fruits.\np0010-b0009 | • Cell structure: Thin cell wall, round polygonal or elongated in shape.\np0010-b0010 | • Intercellular spaces are present.\np0010-b0011 | Functions:\np0010-b0012 | • Food storage tissue\np0010-b0013 | • In some cases it contains chlorophyll, thus called CHLORENCHYMA.\np0010-b0014 | • When loosely packed Intercellular spaces are present, called AERENCHYMA: provides\np0010-b0015 | buoyancy to parts and helps them to flow.\np0010-b0016 | 2. Collenchyma Tissue:\np0010-b0017 | Occurrence: In leaf stalks and stems of dicots.\np0010-b0018 | Structure of cells:\np0010-b0019 | • Living\np0010-b0020 | • Elongated\np0010-b0021 | • Irregularly thickened at corners.\np0010-b0022 | • Very little intercellular space.\np0010-b0023 | Functions:\np0010-b0024 |  Provides mechanical strength\np0010-b0025 |  Provides flexibility and photosynthesis\np0010-b0026 |  Allowed bending of parts.\np0010-b0027 | E.g. Tendrils and stems of climbers\np0010-b0028 | 96"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "5776cb660e96a79cdbea285a2d98607c30d193c5f131400645974f723261072b",
+    "base64_chars": 739912
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792594420.945703,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "6913397bc3c812784f94af3a886d7a24dece1a1749dca003e5f843d7341d1712",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 5160,
+    "output_tokens": 11942,
+    "cost_usd": 0.12974
+   },
+   "notes": {
+    "about": "This page introduces simple permanent tissue, describes parenchyma and collenchyma, and visually compares these with sclerenchyma. It connects tissue structure with storage, photosynthesis, buoyancy and mechanical support.",
+    "key_questions": [
+     "What makes a permanent tissue simple?",
+     "How do parenchyma, chlorenchyma and aerenchyma differ?",
+     "How do the structure and location of collenchyma explain its supporting and flexible nature?",
+     "What do the three tissue illustrations and their labels show?"
+    ],
+    "decisions": [
+     {
+      "decision": "Captured all three image-only tissue illustrations, including sclerenchyma and every instructional label.",
+      "reason": "The figure teaches additional structural information not represented in the native text."
+     },
+     {
+      "decision": "Preserved the printed words 'intracellular spaces' and 'flow', while explicitly distinguishing them from standard biological terminology in explanations.",
+      "reason": "The source wording must remain visible without teaching an apparent error as correct."
+     },
+     {
+      "decision": "Grouped closely related collenchyma structural bullets into one item while preserving each bullet verbatim.",
+      "reason": "These features form one structural description and can be explained together without loss."
+     },
+     {
+      "decision": "Treated the a/b legend cautiously for sclerenchyma.",
+      "reason": "The sclerenchyma panels visibly show a fibre and a stone cell, rather than two sections of one cell type."
+     }
+    ],
+    "uncertain": [
+     "The parenchyma figure prints 'intracellular spaces', although the arrows indicate spaces between cells and the text states 'Intercellular spaces'.",
+     "The aerenchyma statement prints 'helps them to flow'; buoyancy normally helps plant parts float.",
+     "The a/b lengthwise/cross-section legend appears beneath the parenchyma panel; its applicability to the collenchyma drawings is visually plausible, but it should not override the fibre/stone-cell identification in the sclerenchyma panel."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This page introduces simple permanent tissue, describes parenchyma and collenchyma, and visually compares these with sclerenchyma. It connects tissue structure with storage, photosynthesis, buoyancy and mechanical support.",
+     "key_questions": [
+      "What makes a permanent tissue simple?",
+      "How do parenchyma, chlorenchyma and aerenchyma differ?",
+      "How do the structure and location of collenchyma explain its supporting and flexible nature?",
+      "What do the three tissue illustrations and their labels show?"
+     ],
+     "decisions": [
+      {
+       "decision": "Captured all three image-only tissue illustrations, including sclerenchyma and every instructional label.",
+       "reason": "The figure teaches additional structural information not represented in the native text."
+      },
+      {
+       "decision": "Preserved the printed words 'intracellular spaces' and 'flow', while explicitly distinguishing them from standard biological terminology in explanations.",
+       "reason": "The source wording must remain visible without teaching an apparent error as correct."
+      },
+      {
+       "decision": "Grouped closely related collenchyma structural bullets into one item while preserving each bullet verbatim.",
+       "reason": "These features form one structural description and can be explained together without loss."
+      },
+      {
+       "decision": "Treated the a/b legend cautiously for sclerenchyma.",
+       "reason": "The sclerenchyma panels visibly show a fibre and a stone cell, rather than two sections of one cell type."
+      }
+     ],
+     "uncertain": [
+      "The parenchyma figure prints 'intracellular spaces', although the arrows indicate spaces between cells and the text states 'Intercellular spaces'.",
+      "The aerenchyma statement prints 'helps them to flow'; buoyancy normally helps plant parts float.",
+      "The a/b lengthwise/cross-section legend appears beneath the parenchyma panel; its applicability to the collenchyma drawings is visually plausible, but it should not override the fibre/stone-cell identification in the sclerenchyma panel."
+     ]
+    },
+    "page_summary": "Simple permanent tissue consists of structurally and functionally similar cells of one type. Parenchyma occurs widely in plant organs, has thin-walled cells with intercellular spaces, stores food, and includes chlorophyll-containing chlorenchyma and buoyancy-associated aerenchyma. Collenchyma occurs in leaf stalks and stems of dicots; its living, elongated cells have irregular corner thickening and very little intercellular space, supporting strength and flexibility. An image-only figure compares parenchyma, collenchyma and sclerenchyma, including lignified walls, fibres, stone cells and lumens.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0002"
+      ],
+      "where_on_page": "top, below running header",
+      "content": "SIMPLE PERMANENT TISSUE",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Organising heading for a major plant-tissue category.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0003",
+       "p0010-b0004"
+      ],
+      "where_on_page": "top, first two bullets",
+      "content": "• Cells are structurally and functionally similar\n• One type of cells.",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What defines simple permanent tissue on this page?",
+        "answer": "It contains one type of cells whose structure and function are similar.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is 'simple' used for this tissue?",
+        "answer": "It refers to cellular composition: the tissue is made of one broadly similar cell type, rather than several different cell types working together.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does simple permanent tissue differ from complex permanent tissue?",
+        "answer": "Simple permanent tissue is composed of one cell type; complex permanent tissue, such as xylem or phloem, contains different cell types cooperating in a common function.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell",
+       "tissue",
+       "permanent tissue and differentiation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The defining one-cell-type feature is important for classification and comparison.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0005"
+      ],
+      "where_on_page": "top, third bullet",
+      "content": "• Main function is to store food and perform photosynthesis.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which main functions does this introduction associate with simple permanent tissue?",
+        "answer": "Food storage and photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should this introductory statement be read alongside the rest of the page?",
+        "answer": "It is a broad introduction, not a claim that each simple permanent tissue performs both functions. The page specifically associates parenchyma with food storage and chlorophyll-containing parenchyma with photosynthesis, while collenchyma also provides mechanical strength and flexibility.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are food production and food storage different?",
+        "answer": "Photosynthesis produces organic food using light energy, whereas storage retains food for later use. A tissue can specialise in one of these roles without performing the other to the same extent.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "photosynthesis",
+       "food storage in plants"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Avoid interpreting this broad statement as a universal function of each simple tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0006"
+      ],
+      "where_on_page": "upper section",
+      "content": "Types of Simple Permanent Tissues",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces the tissue types described and illustrated.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0007"
+      ],
+      "where_on_page": "upper section, red numbered heading",
+      "content": "1. Parenchyma tissue:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "First simple permanent tissue discussed.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0008"
+      ],
+      "where_on_page": "parenchyma, first bullet",
+      "content": "• Occurrence: Stem, roots, leaves, flowers and fruits.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does parenchyma occur according to the page?",
+        "answer": "In stems, roots, leaves, flowers and fruits.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can parenchyma occur in so many plant organs?",
+        "answer": "It is a relatively unspecialised living tissue that can serve several roles, including storage and, where chloroplasts are present, photosynthesis. These requirements occur in different plant organs.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stem",
+       "root",
+       "leaf",
+       "flower",
+       "fruit",
+       "plant organ versus tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Location-based identification and matching.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0009"
+      ],
+      "where_on_page": "parenchyma, second bullet",
+      "content": "• Cell structure: Thin cell wall, round polygonal or elongated in shape.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What cell-wall and shape features identify parenchyma here?",
+        "answer": "Its cells have thin walls and may be round, polygonal or elongated.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the range of shapes affect identification?",
+        "answer": "A round shape alone is not a sufficient identifying rule. Parenchyma should be recognised using a combination of features, especially its relatively thin walls and characteristic packing, rather than assuming one fixed shape.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "cell shape"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Thin walls distinguish it from corner-thickened collenchyma and lignified sclerenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0010"
+      ],
+      "where_on_page": "parenchyma, third bullet",
+      "content": "• Intercellular spaces are present.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are intercellular spaces?",
+        "answer": "They are gaps between neighbouring cells, rather than spaces inside an individual cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can these spaces help parenchyma function?",
+        "answer": "They provide pathways for gaseous movement through the tissue. When especially large and air-filled, as in aerenchyma, such spaces also contribute to buoyancy.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does parenchyma compare with collenchyma in intercellular spacing on this page?",
+        "answer": "Parenchyma has intercellular spaces, whereas collenchyma has very little intercellular space.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "neighbouring plant cells",
+       "cell wall",
+       "gas exchange"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important structural distinction; do not confuse intercellular with intracellular.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0011"
+      ],
+      "where_on_page": "above parenchyma function bullets",
+      "content": "Functions:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "medium",
+      "exam_note": "Function subheading for parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0012"
+      ],
+      "where_on_page": "parenchyma functions, first bullet",
+      "content": "• Food storage tissue",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What storage role is assigned to parenchyma?",
+        "answer": "Parenchyma serves as a food storage tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does storage support the plant?",
+        "answer": "Stored reserves can be mobilised when growing or respiring parts require food, including when immediate photosynthesis is insufficient.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "food reserves",
+       "plant growth",
+       "respiration"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core tissue–function association.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0013"
+      ],
+      "where_on_page": "parenchyma functions, second bullet",
+      "content": "• In some cases→ it contains chlorophyll, thus called CHLORENCHYMA.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is chlorenchyma?",
+        "answer": "It is parenchyma that contains chlorophyll.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does chlorenchyma differ from parenchyma described generally?",
+        "answer": "Chlorenchyma specifically has chlorophyll; the phrase 'in some cases' means chlorophyll is not being attributed to every parenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does chlorophyll enable this tissue's specialised role?",
+        "answer": "Chlorophyll in chloroplasts absorbs light energy used in photosynthesis, allowing this parenchyma to make food.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "chlorophyll",
+       "chloroplast",
+       "photosynthesis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Frequently useful distinction: chlorenchyma is chlorophyll-containing parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0014",
+       "p0010-b0015"
+      ],
+      "where_on_page": "parenchyma functions, final two-line bullet",
+      "content": "• When loosely packed→ Intercellular spaces are present, called AERENCHYMA: provides buoyancy to parts and helps them to flow.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure and function does the page associate with aerenchyma?",
+        "answer": "It associates aerenchyma with loosely packed cells, intercellular spaces and buoyancy of plant parts.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the spaces produce buoyancy?",
+        "answer": "Large air-filled spaces reduce the average density of the plant part and help it float in water. Aerenchyma is particularly associated with aquatic plants.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How should aerenchyma be distinguished from ordinary parenchyma and chlorenchyma?",
+        "answer": "Ordinary parenchyma may have intercellular spaces; aerenchyma has conspicuous air spaces associated with aeration and buoyancy. Chlorenchyma is distinguished instead by chlorophyll and photosynthesis.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the printed word 'flow' be explained cautiously?",
+        "answer": "Buoyancy concerns floating or being supported in a fluid, not the plant part itself flowing. The printed wording is retained, but the standard biological explanation is that aerenchyma helps plant parts float.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "parenchyma",
+       "intercellular spaces",
+       "air",
+       "density",
+       "buoyancy"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value structure–function link; distinguish aerenchyma from chlorenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle figure, left panel",
+      "content": "Parenchyma Tissue: panel a shows a lengthwise view of loosely arranged, thin-walled cells, with gaps between cells; panel b shows a cross section with polygonal/rounded cell profiles. The label 'intracellular spaces' has leader lines directed to gaps between neighbouring cells. The legend below reads 'a lengthwise' and 'b cross section'. These are structural views, not stages in a process.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the parenchyma illustration show?",
+        "answer": "It shows lengthwise and cross-sectional views of parenchyma, including thin cell outlines and spaces between adjacent cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner interpret the spaces despite the printed label?",
+        "answer": "Follow the leader lines: they point between cells. Those spaces are intercellular; 'intracellular' would mean inside a cell and is not the correct term for the indicated feature.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "intercellular space",
+       "lengthwise and cross-sectional views"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Supports tissue identification from diagrams; the space label needs correction in explanation.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above the parenchyma drawings",
+      "content": "intracellular spaces — printed label whose leader lines point to gaps between adjacent parenchyma cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where do the label's lines point?",
+        "answer": "They point to spaces between neighbouring cells in the parenchyma drawings.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the printed term misleading?",
+        "answer": "'Intra-' means within, whereas 'inter-' means between. The indicated gaps are intercellular spaces, consistent with the main text, not intracellular spaces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell boundary",
+       "inside versus between cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not reproduce the image's apparent terminology error as a biological fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "under left parenchyma drawing and in legend below",
+      "content": "a; a lengthwise — identifies the lengthwise view of Parenchyma Tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which parenchyma view does a identify?",
+        "answer": "The lengthwise view, as stated in the figure legend.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is a lengthwise view obtained?",
+        "answer": "It is a view along the length of the tissue or organ, rather than a cut across its length.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "orientation of a section"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Useful for interpreting cell shape in different views.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i13",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "under right parenchyma drawing and in legend below",
+      "content": "b; b cross section — identifies the cross-sectional view of Parenchyma Tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which parenchyma view does b identify?",
+        "answer": "The cross section.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a cross section help explain the drawing?",
+        "answer": "A cut across the tissue exposes cell profiles and their packing, making the spaces between adjacent cells easier to recognise.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "orientation of a section",
+       "cell packing"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Links section orientation with visible tissue features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle figure, central panel",
+      "content": "Collenchyma Tissue: drawing a shows elongated, closely arranged cells in a lengthwise view; drawing b shows a cross-sectional cluster of cells with conspicuous wall thickening, especially at cell corners. A 'cell walls' label points to the walls in b. The drawings are complementary structural views, not a sequence.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structural features does the collenchyma figure emphasise?",
+        "answer": "Elongated cells, close packing and thickened cell-wall regions visible in cross section.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do the two views complement each other?",
+        "answer": "The lengthwise view reveals elongation, while the cross-sectional view makes wall thickening and close packing easier to see.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this drawing differ from the neighbouring parenchyma drawing?",
+        "answer": "Collenchyma shows stronger wall thickening and more closely packed cells; parenchyma shows thinner walls and more evident spaces.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cell packing",
+       "lengthwise and cross-sectional views"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Diagram-based distinction from parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above collenchyma cross section",
+      "content": "cell walls — points to the wall regions of cells in collenchyma drawing b.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What structure is labelled in the collenchyma cross section?",
+        "answer": "The cell walls surrounding the cell interiors.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do collenchyma walls differ from uniformly thin walls?",
+        "answer": "They show uneven thickening, especially at the corners where neighbouring cells meet, providing reinforcement without making the tissue as rigid as heavily lignified support tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "cell corners"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the label with irregular corner thickening.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below elongated collenchyma drawing",
+      "content": "a — identifies the elongated, lengthwise depiction of Collenchyma Tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which collenchyma drawing is marked a?",
+        "answer": "The drawing of elongated cells viewed along their length.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this view aid identification?",
+        "answer": "It makes the long cell shape apparent; this feature is less obvious when cells are cut across.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "elongated cell",
+       "section orientation"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise elongation in a longitudinal depiction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i17",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below collenchyma cross-sectional drawing",
+      "content": "b — identifies the cross-sectional depiction of Collenchyma Tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which collenchyma drawing is marked b?",
+        "answer": "The compact cluster of cell profiles in cross section.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this view help reveal corner thickening?",
+        "answer": "Cutting across the cells exposes the wall outlines and the junctions between cells, where uneven thickening is easiest to compare.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cross section",
+       "cell-wall thickening"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Useful orientation for recognising collenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "middle figure, right panel",
+      "content": "Sclerenchyma Tissue: a is a long, narrow, tapering fibre; b is a compact, irregular stone cell with a thick patterned wall. 'cell walls with lignin' branches to wall regions of both forms. 'lumen' has leader lines to internal cavities of the fibre and stone cell. The two drawings represent different sclerenchyma cell forms, not a sequence.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which two sclerenchyma forms are illustrated?",
+        "answer": "A fibre and a stone cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do their illustrated shapes differ?",
+        "answer": "The fibre is long, narrow and tapering, whereas the stone cell is compact and irregular in outline.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the shared wall label explain their supporting nature?",
+        "answer": "Lignin reinforces cell walls, making them hard and resistant to deformation. Both forms therefore provide strong structural reinforcement despite their different shapes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "cell cavity",
+       "lignin",
+       "support tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Image-only content: fibre versus stone cell, lignified wall and lumen.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i21",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above sclerenchyma drawings",
+      "content": "cell walls with lignin — branched leader lines point to wall regions of the fibre and stone cell.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What wall material is explicitly labelled in sclerenchyma?",
+        "answer": "Lignin in the cell walls.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does lignin affect the wall?",
+        "answer": "Lignin strengthens and stiffens the wall, helping it resist compression and provide mechanical support.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "plant cell wall",
+       "wall reinforcement"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Lignification is a key sclerenchyma identification feature.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i21",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "above the compact right sclerenchyma drawing",
+      "content": "stone cell — identifies the compact, irregular sclerenchyma cell shown as b.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does 'stone cell' name in this figure?",
+        "answer": "The compact, irregular sclerenchyma cell on the right.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does it differ in shape from the fibre?",
+        "answer": "The stone cell is relatively compact, while the fibre is long and slender.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the name 'stone cell' appropriate?",
+        "answer": "Stone cells, or sclereids, possess very thick, lignified walls that make them hard. Their name describes this hardness rather than implying that they are mineral stones.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "lignified cell wall"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise stone cells as a sclerenchyma form.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i21",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "left of the long sclerenchyma cell",
+      "content": "fiber — identifies the long, narrow, tapering sclerenchyma cell shown as a.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which structure does the printed label 'fiber' identify?",
+        "answer": "The long, slender sclerenchyma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How is the fibre visually distinguished from the stone cell?",
+        "answer": "It has a much more elongated, tapering form, unlike the compact stone cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can elongated fibres contribute to support?",
+        "answer": "Their long, reinforced walls help bear pulling forces, especially when fibres occur together in supporting strands or bundles.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "sclerenchyma",
+       "elongated cell",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Preserves the figure's spelling 'fiber'; distinguish this plant cell from other uses of fibre.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i21",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "between lower parts of the sclerenchyma drawings",
+      "content": "lumen — leader lines indicate internal cavities bounded by the thick walls of the fibre and stone cell.",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a lumen in this cell diagram?",
+        "answer": "The internal cavity enclosed by the cell wall.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does wall thickening affect the lumen?",
+        "answer": "As wall material accumulates inward, the cavity may become narrow relative to the overall cell size. The thick wall and the lumen are distinct parts of the cell profile.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is a lumen different from an intercellular space?",
+        "answer": "A lumen is inside a cell's wall boundary; an intercellular space lies between neighbouring cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell wall",
+       "inside versus between cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Important distinction from the spaces labelled in parenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i21",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below sclerenchyma fibre",
+      "content": "a — identifies the sclerenchyma fibre.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "What does a identify in the sclerenchyma panel?",
+        "answer": "The fibre.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a be interpreted without misusing the nearby legend?",
+        "answer": "Use the local shape and the 'fiber' label: a identifies a fibre here. It should not be treated as proof that b is a cross section of that same fibre.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "local diagram labels",
+       "sclerenchyma fibre"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Prevents confusing two cell forms with two views of one cell.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i21",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below sclerenchyma stone cell",
+      "content": "b — identifies the stone cell.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "What does b identify in the sclerenchyma panel?",
+        "answer": "The stone cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should b not be described simply as a fibre cross section?",
+        "answer": "The local label explicitly calls it a stone cell. Fibres and stone cells are different sclerenchyma forms, so the local identification takes precedence over any assumed extension of the section legend.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "stone cell",
+       "fibre",
+       "diagram legends"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Retain the stone-cell identity of the right-hand drawing.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0016"
+      ],
+      "where_on_page": "lower section, red heading",
+      "content": "2. Collenchyma Tissue:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Second simple permanent tissue discussed.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0017"
+      ],
+      "where_on_page": "below collenchyma heading",
+      "content": "Occurrence: In leaf stalks and stems of dicots.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where does collenchyma occur according to the page?",
+        "answer": "In leaf stalks and stems of dicots.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is flexible support useful at these locations?",
+        "answer": "Leaf stalks and young stems must support plant parts while tolerating movement and continued growth. Collenchyma provides reinforcement without the rigidity of heavily lignified tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "leaf stalk or petiole",
+       "stem",
+       "dicotyledonous plant",
+       "mechanical support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "High-value tissue–location match; retain the dicot qualification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0018"
+      ],
+      "where_on_page": "collenchyma, above structural bullets",
+      "content": "Structure of cells:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "medium",
+      "exam_note": "Introduces collenchyma structural features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0019",
+       "p0010-b0020",
+       "p0010-b0021",
+       "p0010-b0022"
+      ],
+      "where_on_page": "collenchyma structural bullets",
+      "content": "• Living\n• Elongated\n• Irregularly thickened at corners.\n• Very little intercellular space.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What four cellular features describe collenchyma?",
+        "answer": "Its cells are living and elongated, have irregular thickening at their corners, and have very little intercellular space.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does corner thickening differ from uniformly thick walls?",
+        "answer": "The wall is reinforced unevenly, with more material at cell corners rather than the same thickness around the whole cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can these cells provide support and still permit flexibility?",
+        "answer": "Their thickened primary walls, rich in cellulose and pectic substances, reinforce the tissue while remaining extensible. Living cells can maintain and modify these walls as the supported part grows.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this structural description distinguish collenchyma from parenchyma?",
+        "answer": "The page describes parenchyma as thin-walled with intercellular spaces, whereas collenchyma is corner-thickened with very little intercellular space. Both descriptions permit elongated cells, so elongation alone does not distinguish them.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "living plant cell",
+       "plant cell wall",
+       "cell corners",
+       "intercellular space",
+       "cellulose"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Core identification cluster: living, elongated, uneven corner thickening and little intercellular space.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0023"
+      ],
+      "where_on_page": "collenchyma, above function bullets",
+      "content": "Functions:",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "medium",
+      "exam_note": "Function subheading for collenchyma.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0024"
+      ],
+      "where_on_page": "collenchyma functions, first bullet",
+      "content": " Provides mechanical strength",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What supporting function does collenchyma perform?",
+        "answer": "It provides mechanical strength.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is this mechanical strength related to its cell structure?",
+        "answer": "The reinforced walls of closely packed, elongated cells help bear forces acting on the organ, reducing the likelihood of damage or collapse.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell-wall thickening",
+       "forces on plant organs",
+       "collenchyma structure"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect mechanical strength with unevenly thickened walls.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0025"
+      ],
+      "where_on_page": "collenchyma functions, second bullet",
+      "content": " Provides flexibility and photosynthesis",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which two additional functions are listed for collenchyma?",
+        "answer": "Flexibility and photosynthesis.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a supporting tissue remain flexible?",
+        "answer": "Support need not mean complete rigidity. Collenchyma's extensible, unevenly thickened primary walls allow a supported part to bend while resisting damage.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "Under what condition can collenchyma carry out photosynthesis?",
+        "answer": "Its living cells can photosynthesise when they contain chloroplasts with chlorophyll. The listed function should not be read as evidence that each collenchyma cell necessarily photosynthesises.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "flexibility versus rigidity",
+       "chloroplast",
+       "chlorophyll",
+       "photosynthesis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the book's photosynthesis statement, but explain its dependence on chloroplasts.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0026"
+      ],
+      "where_on_page": "collenchyma functions, third bullet",
+      "content": " Allowed bending of parts.",
+      "content_type": "cause_effect",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does collenchyma allow plant parts to do?",
+        "answer": "It allows them to bend.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is bending compatible with mechanical strength?",
+        "answer": "A tissue may deform under a force without breaking. Collenchyma's flexible reinforcement allows movement while helping maintain the integrity of the plant part.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "difference",
+        "question": "Is allowing bending the same as actively causing a plant part to bend?",
+        "answer": "No. This statement describes a mechanical property that permits bending; it does not identify collenchyma as the active cause of growth movements or coiling.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "mechanical strength",
+       "flexibility",
+       "deformation versus breakage"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish permitting bending from actively generating movement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "example",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0010-b0027"
+      ],
+      "where_on_page": "bottom of collenchyma section",
+      "content": "E.g. Tendrils and stems of climbers",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which examples illustrate bending and flexibility in this section?",
+        "answer": "Tendrils and stems of climbers.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are these useful examples of flexible support?",
+        "answer": "Climbing parts need to bend around or adjust to supports while maintaining structural integrity. Collenchyma's combination of support and flexibility helps explain this mechanical requirement.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should this example be kept distinct from the mechanism of tendril coiling?",
+        "answer": "The example illustrates a tissue property. Directional coiling involves growth responses, so the presence of flexible supporting tissue should not be mistaken for a complete explanation of the coiling response.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "tendril",
+       "climbing plant",
+       "flexible support"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Book example for collenchyma-associated flexibility and bending.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0010-b0001",
+     "p0010-b0028"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0010-b0010"
+      ],
+      "text_says": "The main text states 'Intercellular spaces are present.'",
+      "image_shows": "The image-only parenchyma diagram prints 'intracellular spaces', but its leader lines indicate gaps between adjacent cells. The main text is also printed as 'Intercellular spaces' on the image."
+     },
+     {
+      "block_ids": [
+       "p0010-b0013",
+       "p0010-b0014"
+      ],
+      "text_says": "The native text renders the arrows as the garbled glyph ''.",
+      "image_shows": "Both statements contain a clear right-pointing arrow, →."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "c53965027cfd0c906803e07906f568d60b5933d62cedb2b17a5faa0e802b6e44",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14385,
+    "output_tokens": 1298,
+    "cost_usd": 0.045925,
+    "value": {
+     "notes": {
+      "about": "This page introduces simple permanent plant tissues, detailing the occurrence, cell structure, and functions of parenchyma (including chlorenchyma and aerenchyma) and collenchyma, alongside a comparative diagram of parenchyma, collenchyma, and sclerenchyma.",
+      "key_questions": [
+       "What defines simple permanent tissue and how does it differ from complex permanent tissue?",
+       "How do the structural features of parenchyma (and its modifications chlorenchyma and aerenchyma) and collenchyma relate to their physiological and mechanical roles?",
+       "What structural distinctions among parenchyma, collenchyma, and sclerenchyma (fibres and stone cells) are shown in the comparative diagram?"
+      ],
+      "decisions": [
+       {
+        "decision": "Accepted the maker's handling of the diagram's 'intracellular spaces' label and the text's 'flow' wording.",
+        "reason": "The maker preserved the exact source text while explicitly clarifying the standard biological terms ('intercellular spaces' and 'float') in the teacher understanding."
+       },
+       {
+        "decision": "Accepted the grouping of the four structural bullets of collenchyma into a single item (i31).",
+        "reason": "All four bullets are preserved verbatim and explained together cohesively without any loss of detail."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "missing": [],
+     "wrong": [],
+     "shallow": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is accurately grounded in the book or clearly marked as standard outside knowledge."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The questions and answers provide thorough, textbook-level conceptual depth suitable for UPSC/State PCS learners."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state what the page is about, key pedagogical questions, main decisions with reasons, and source uncertainties."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No content is truncated, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All text blocks and all three panels of the comparative tissue diagram (including every label and leader line) are captured."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "Only the running header ('Science and Technology'), page number ('96'), and footer banner are treated as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "There are no tables on this page."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "Every diagram panel (parenchyma, collenchyma, sclerenchyma) and every label ('intracellular spaces', 'a lengthwise', 'b cross section', 'cell walls', 'cell walls with lignin', 'stone cell', 'fiber', 'lumen', 'a', 'b') is captured with what its leader lines point to."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "Arrows in the text bullets are properly restored and explained; there are no mathematical or chemical equations on the page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": true,
+       "note": "Teachable items include both 'what/where' questions and deeper 'why/how/compare' questions that explain structure-function relationships."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "Book vs. outside bases are accurately marked, and outside biological explanations are standard and correct."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "Content types (definition, fact, structure, classification, cause_effect, example, other) accurately reflect each item."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites list concrete foundational concepts required to understand each item."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam importance ratings and notes are well-tailored to UPSC/State PCS general science questions."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "Disagreements between the native text (garbled arrow glyphs, 'Intercellular spaces') and the image ('→', 'intracellular spaces' in diagram) are properly reported."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792594666.928399
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.175665,
+ "navin_verdict": null
+}
