@@ -9,7 +9,7 @@ from __future__ import annotations
 import urllib.parse
 
 from .errors import ProviderError
-from .messages import provider_schema, split_messages
+from .messages import gemini_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
@@ -35,7 +35,7 @@ class GeminiClient:
 
     def generate(self, *, model, messages, schema=None):
         system, conversation = split_messages(messages, provider=self.provider)
-        contents = [{"role": "model" if m["role"] == "assistant" else "user", "parts": [{"text": m["content"]}]}
+        contents = [{"role": "model" if m["role"] == "assistant" else "user", "parts": gemini_parts(m["content"])}
                     for m in conversation]
         config = {"maxOutputTokens": self.max_output_tokens}
         if self.temperature is not None:

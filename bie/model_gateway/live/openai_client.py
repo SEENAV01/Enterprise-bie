@@ -7,7 +7,7 @@ mode needs every object to list all its properties as required and set
 from __future__ import annotations
 
 from .errors import ProviderError
-from .messages import provider_schema, split_messages
+from .messages import openai_responses_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
 BASE_URL = "https://api.openai.com/v1"
@@ -32,7 +32,8 @@ class OpenAIClient:
 
     def responses_create(self, *, model, messages, response_schema=None):
         system, conversation = split_messages(messages, provider=self.provider)
-        body = {"model": model, "input": conversation, "max_output_tokens": self.max_output_tokens, "store": False}
+        turns = [{"role": m["role"], "content": openai_responses_parts(m["content"], m["role"])} for m in conversation]
+        body = {"model": model, "input": turns, "max_output_tokens": self.max_output_tokens, "store": False}
         if system:
             body["instructions"] = system
         if self.reasoning_effort:

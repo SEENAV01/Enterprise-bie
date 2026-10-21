@@ -18,7 +18,7 @@ import json
 import urllib.parse
 
 from .errors import ProviderError
-from .messages import split_messages
+from .messages import chat_parts, split_messages
 from .transport import HttpTransport
 
 AICREDITS_BASE_URL = "https://api.aicredits.in/v1"
@@ -49,7 +49,8 @@ class OpenAICompatChatClient:
         system, conversation = split_messages(messages, provider=self.via)
         if schema is not None:
             system = (system + "\n\n" if system else "") + SCHEMA_INSTRUCTION.format(schema=json.dumps(schema, ensure_ascii=False))
-        chat = ([{"role": "system", "content": system}] if system else []) + conversation
+        chat = ([{"role": "system", "content": system}] if system else []) + [
+            {"role": m["role"], "content": chat_parts(m["content"], m["role"])} for m in conversation]
         body = {"model": model, "messages": chat, "max_tokens": self.max_tokens, "no_cache": True}
         if schema is not None:
             body["response_format"] = ({"type": "json_schema", "json_schema": {"name": "bie_output", "schema": schema}}

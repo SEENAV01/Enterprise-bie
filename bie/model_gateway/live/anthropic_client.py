@@ -6,7 +6,7 @@ header). Source: platform.claude.com/docs/en/build-with-claude/structured-output
 from __future__ import annotations
 
 from .errors import ProviderError
-from .messages import provider_schema, split_messages
+from .messages import anthropic_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
 API_VERSION = "2023-06-01"
@@ -32,7 +32,8 @@ class AnthropicClient:
 
     def messages_create(self, *, model, messages, schema=None):
         system, conversation = split_messages(messages, provider=self.provider)
-        body = {"model": model, "max_tokens": self.max_tokens, "messages": conversation}
+        body = {"model": model, "max_tokens": self.max_tokens,
+                "messages": [{"role": m["role"], "content": anthropic_parts(m["content"])} for m in conversation]}
         if system:
             body["system"] = system
         if self.temperature is not None:

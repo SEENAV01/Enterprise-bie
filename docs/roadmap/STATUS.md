@@ -13,6 +13,15 @@ Updated: 21 October 2026 · Read this first in every new session, then show Navi
 | Next task | 040 · Lesson plan and teacher script |
 | Canonical main | `7be7ba8a` (PR #38 merged) |
 
+## Task 039 · the brain frame and understanding the book (in progress)
+
+- **Vision rulebook** (`bie/brain/rulebook/vision-2026-10-21.json`, loaded by `bie/brain/rulebook.py`): Navin's agreed vision as 28 locked rules, each an instruction for the section that makes the work and a yes/no check for the reviewer; general rules plus Section 1, lesson, director, visual, voice, game, notes and review rules. The rulebook version and a hash of its bytes go into every process record, so a changed rule never passes as the old one.
+- **Section runner** (`bie/brain/runner.py`): maker AI (instructions, rules, source text and page images) writes its thinking and output → BIE code checks → independent reviewer AI on another provider with the rulebook checklist → remake with the findings, at most 3 rounds → one process record per step (every round's thinking, output, problems, reviewer findings, models, tokens and cost; failed rounds marked "avoid"; images by hash only; `navin_verdict` left for Navin).
+- **Gateway:** messages can now carry page images (Anthropic, OpenAI Responses, Gemini and the AICredits chat format); an output cap option for long answers.
+- **Section 1** (`bie/brain/understanding.py`, `bie/brain/pages.py`): each page is read from the canonical DI native text blocks plus a rendered page image; items with page locations (every table row, diagram label, equation, question), question-based teacher understanding with depth and book/outside basis, content type, prerequisites and exam importance; code checks (every text block covered or boilerplate, tables have rows, labels have diagrams, teachable items have why/how questions, image-only pages read from the image); then a chapter step builds concepts, relations, prerequisites to teach, resolved cross-references, question links and a teaching order. Outputs `chapter_map.json`, `MAP.md`, `records/`, `LEDGER.jsonl`.
+- **Runs:** `tools/run_brain.py` (offline with `--fake`); live through `.github/workflows/task038-live-ai.yml` mode `brain-understand` (providers = maker,reviewer; course fields in `subject`), outputs on the `blindtest-results` branch.
+- **Tests:** `tools/run_task039_tests.py` (28 new tests plus the 189 Task 038 gateway tests). Status words: IMPLEMENTED and run offline; the live run on the tissue chapter is next.
+
 ## 21 October 2026 · what was agreed
 
 - The whole agreement is in the Vision Spec, section "Agreed on 21 October 2026"; the build order is ROADMAP Phase 1 (Tasks 039–047).

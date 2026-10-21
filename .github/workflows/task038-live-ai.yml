@@ -12,13 +12,17 @@ on:
       - 'tests/imported/BIE_MODEL_GW_*/**'
       - 'tools/run_task038_tests.py'
       - 'tools/run_blind_test.py'
+      - 'bie/brain/**'
+      - 'tests/test_task039_*'
+      - 'tools/run_brain.py'
+      - 'tools/run_task039_tests.py'
       - '.github/workflows/task038-live-ai.yml'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test'
+        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test, brain-understand = Task 039 Section 1 on a chapter'
         type: choice
-        options: [probe, smoke, blind-test]
+        options: [probe, smoke, blind-test, brain-understand]
         default: probe
       source:
         description: 'blind-test: chapter PDF as an https URL or a repository path'
@@ -37,9 +41,11 @@ on:
         required: false
         default: 'English'
       subject:
+        description: 'blind-test: subject; brain-understand: course fields, for example title=10. Tissues and Its Types;subject=Science and Technology;learners=UPSC / State PCS aspirants;exam=UPSC / State PCS;language=Hinglish'
         required: false
         default: ''
       providers:
+        description: 'blind-test and probe: providers; brain-understand: maker,reviewer (two different providers), for example anthropic,openai'
         required: false
         default: 'anthropic,openai,google'
       models:
@@ -78,6 +84,23 @@ jobs:
           python -m pip check
       - name: Task038 offline tests (clients, gateway, blind test) and unchanged gateway contracts
         run: python -B tools/run_task038_tests.py --output "$RUNNER_TEMP/task038-evidence/task038-tests.json"
+      - name: Task039 offline tests (image parts, rulebook, section runner, Section 1)
+        run: python -B tools/run_task039_tests.py --output "$RUNNER_TEMP/task038-evidence/task039-tests.json"
+      - name: Fake Section 1 run on a real PDF through the DI text runtime and page images
+        run: |
+          set -euo pipefail
+          python -B - <<'PY'
+          import os, sys
+          sys.path.insert(0, 'tests/productization/document_intelligence')
+          from structural_pdf_fixtures import positioned_text_pdf
+          lines = ('Tissue is a group of similar cells doing one job.', 'Muscle tissue helps in movement.')
+          pdf = positioned_text_pdf([[(72, 720 - i * 20, lines[i % 2]) for i in range(12)], []])
+          open(os.path.join(os.environ['RUNNER_TEMP'], 'brain.pdf'), 'wb').write(pdf)
+          PY
+          python -B tools/run_brain.py --fake --source "$RUNNER_TEMP/brain.pdf" --out "$RUNNER_TEMP/task038-evidence/fake-brain" \
+            --course 'title=Offline chapter;subject=Biology;learners=UPSC aspirants;exam=UPSC'
+          test -s "$RUNNER_TEMP/task038-evidence/fake-brain/chapter_map.json"
+          test -s "$RUNNER_TEMP/task038-evidence/fake-brain/MAP.md"
       - name: Fake end-to-end blind test through the real DI text runtime
         run: |
           set -euo pipefail
@@ -111,7 +134,7 @@ jobs:
   live:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 120
     permissions:
       contents: write  # only to push the run's outputs to the blindtest-results branch
     env:
@@ -147,6 +170,15 @@ jobs:
           AICREDITS_GEMINI_API_KEY: ${{ secrets.AICREDITS_GEMINI_API_KEY }}
         run: |
           set -euo pipefail
+          if [ "$MODE" = "brain-understand" ]; then
+            maker="${PROVIDERS%%,*}"; reviewer="${PROVIDERS#*,}"; reviewer="${reviewer%%,*}"
+            args=(--section understand --source "$SOURCE" --maker "$maker" --reviewer "$reviewer" --models "$MODELS" --routes "$ROUTES"
+                  --course "$SUBJECT" --out "$RUNNER_TEMP/live")
+            if [ -n "$PAGES" ]; then args+=(--pages "$PAGES"); fi
+            if [ -n "$LANGUAGE" ]; then args+=(--language "$LANGUAGE"); fi
+            python -B tools/run_brain.py "${args[@]}"
+            exit 0
+          fi
           args=(--mode "$MODE" --providers "$PROVIDERS" --models "$MODELS" --routes "$ROUTES" --out "$RUNNER_TEMP/live")
           if [ "$MODE" = "blind-test" ]; then
             args+=(--source "$SOURCE" --class-level "$CLASS_LEVEL" --language "$LANGUAGE" --subject "$SUBJECT")
@@ -170,8 +202,8 @@ jobs:
           else
             git checkout -q --orphan blindtest-results
           fi
-          mkdir -p "$dest" && cp "$RUNNER_TEMP/live/"* "$dest/"
-          printf '# Task038 live AI runs\n\nOne folder per manual run: SUMMARY.json, LEDGER.jsonl and, for blind tests, REPORT.md, RESULTS.json and KEY.json.\n' > README.md
+          mkdir -p "$dest" && cp -R "$RUNNER_TEMP/live/." "$dest/"
+          printf '# Task038 live AI runs\n\nOne folder per manual run: SUMMARY.json, LEDGER.jsonl and, for blind tests, REPORT.md, RESULTS.json and KEY.json; for brain runs, chapter_map.json, MAP.md and records/.\n' > README.md
           git add README.md "$dest"
           git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
             commit -q -m "Task038 ${MODE} run ${GITHUB_RUN_ID} from ${GITHUB_SHA}"
