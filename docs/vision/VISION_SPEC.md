@@ -1,6 +1,9 @@
 # BIE Vision Spec
 
-As of 19 October 2026 · Owner: Navin (GitHub `SEENAV01`)
+As of 19 October 2026, with the decisions of 21 October 2026 · Owner: Navin (GitHub `SEENAV01`)
+
+The section "Agreed on 21 October 2026" below was settled point by point with Navin and wins wherever older
+text in this file differs from it.
 
 This is the product vision recovered from two months of ChatGPT and Codex history, the repository and
 Navin's own words. It sits on top of the authoritative engineering constitution in
@@ -26,6 +29,124 @@ the full learning package without the user writing prompts, scene plans or lesso
 BIE is not a PDF-to-video converter and not a prompt wrapper. It is an orchestration system — a "teaching
 operating system" — that holds the method of great teaching and great visual explanation, and uses AI models
 as replaceable engines inside that method. (No raw Book → LLM → Remotion shortcut.)
+
+## Agreed on 21 October 2026: BIE as an AI tailored to Navin's vision
+
+Settled with Navin one point at a time after he rejected the blind-test lessons ("summary overview lagi") and
+the hand-directed gold sample ("bie ne to yeh bhi nahi banaya"). Navin owns what the output must be; Claude
+owns how BIE achieves it technically.
+
+**What BIE is**
+
+- BIE becomes an expert AI for this one job, tailored to Navin's vision and output: "is kaam mein maharat
+  wala khud ek AI". From outside it is one AI: give it a book and it decides what to make and how.
+- Its brain has two parts. The thinking power comes from top AI models (Claude, GPT, Gemini), rented and
+  replaceable. The expertise is BIE's own: the vision rulebook, each subject's way of teaching and showing,
+  the asset, animation, game and infographic libraries, passed examples and full process records.
+- No new model is trained from zero. Later, a model trained on BIE's own passed process records may take
+  over a section, but only if it matches the top models on the test chapters.
+- **Content is made only by BIE.** Claude builds BIE and never makes lesson content by hand. The tissue
+  gold sample (draft PR #39) was directed by Claude, not by BIE, and is not BIE output.
+- **BIE is judged as a whole.** One run turns a chapter into all outputs, and Navin judges that whole
+  package. Every section is built to do its full job from the start; no placeholder sections.
+
+**The outputs of every chapter**
+
+1. **Video:** cinematic, animated, detailed motion graphics. The video is code (Remotion) that is rendered;
+   the same code also runs in the learner's browser as an interactive player (pause for a question, tap to
+   look inside). No AI video-generation models: they are costly and imprecise for science.
+2. **Game:** a playable revision game for each chapter where the learning itself is the game. Chapter games
+   join as levels of one book world.
+3. **Notes:** question-based summary notes as interactive infographic slides, plus a PDF, following the
+   design Navin worked out for his AI summariser app (below).
+4. Assessment stays as already planned (MCQ and subjective questions with grounded feedback).
+
+**Section 1 · Understanding the book**
+
+- Two eyes: the PDF's native text (exact words and numbers) and a photo of every page read by a vision
+  model (diagrams, tables, equations, labels, arrows, scanned or Hindi pages). Disagreements are flagged.
+  On the tissue chapter, pages 2, 7 and 8 are images only and are invisible to today's text reader.
+- Every item gets an ID and its page location: paragraph, definition, example, every table row, every
+  diagram label, every equation symbol, every PYQ.
+- Question-based teacher understanding: for each item the AI keeps asking what it is, what it is about,
+  where it applies, how it works, when, who and whom, which, why, how it compares and differs, and keeps
+  asking "why" and "how" until it understands like a teacher. It also records the content type (process,
+  structure, comparison, classification, timeline, formula and so on), prerequisites and exam importance.
+- Facts from outside the book are marked as such and checked separately.
+- Coverage means every teachable thing on the page is covered and explained well; the questions above are
+  the checklist. A word-level check stays only as an internal reading check.
+
+**Director · one brain for every subject**
+
+- For every topic the director asks: what is the process, how does it work, what happened, how and when,
+  what were the conditions and the atmosphere, who changed what. Then the subject's own style is applied:
+  biology zooms inside structures and shows processes running; history uses maps, timelines and characters;
+  mathematics shows what each step means.
+- Mathematics is a visual language for every subject: wherever there are numbers, comparisons or change,
+  they are shown (for example 3,000 against 50,000 soldiers at Plassey, to scale).
+
+**Visuals, voice and render**
+
+- Detail comes from assets, not from simple code shapes: 3D models the camera can enter, detailed SVG and
+  science illustrations with licences, and AI images only for what the library lacks (labels always added
+  by code). Libraries grow with every subject; online asset libraries are reached through a fast fetch
+  process.
+- The AI writes scene descriptions and new animation blocks; BIE's compiler turns them into code. Blocks
+  that pass review are locked into the library.
+- The voice must sound natural; a cloned voice is preferred. Navin chooses by ear among tested options.
+  Animation is bound to the spoken words.
+
+**Game**
+
+- Never a hidden quiz: a mission that can be won by picking one of four options fails BIE's check.
+- The mission is designed from the content type: run a process (and watch it break on a wrong step), make
+  choices as a character in history (the timeline breaks on a wrong choice), build a structure that only
+  works when every part is right, move sliders and predict, move plates or rivers on a map, act as a judge.
+- No drift and nothing missed: the game designer sees only that chapter's map, every key item is mapped to
+  a mission, and the reviewer checks every mission against the chapter map.
+
+**Notes (Navin's summariser design)**
+
+- Questions chosen by the nature of the content: what, why, how, who/whom, when/where, evidence (facts,
+  numbers, examples), reasoning, insights, differences, limitations and exceptions, conclusion.
+- Three depths: quick essence; understand (questions, answers, visuals); deep dive (evidence, exceptions,
+  the original passage).
+- Nothing is invented: "the book does not say" is shown where the source is silent; the book's statements
+  and AI interpretation are labelled.
+- Every statement links to its source page. "What the book says" and "what is new now" are separate; an
+  update carries its source link and the date it was checked, plus links for deeper reading.
+- Visuals are drawn by code from the content type (process → flow, dates → timeline, comparison →
+  difference table, numbers → chart, cause and effect → relationship diagram, main idea → concept map);
+  no generated slide images.
+- A coverage record per chapter. The same engine can power the separate summariser app Navin plans to
+  earn from while BIE matures.
+
+**Review and lock**
+
+- Three layers: code checks every time; a reviewer AI from a different provider than the maker, against a
+  vision checklist; Navin's final verdict (everything at first, samples later).
+- A failed verdict with Navin's words becomes a plain rule that Navin approves; it enters the section's
+  instructions and the reviewer's checklist, so the mistake does not repeat. Rules are versioned and never
+  change silently.
+- A pass locks the output as an example together with its full process record: for every section the
+  AI's written thinking (what it understood, questions asked, options considered, the choice and why,
+  doubts), its output, the instruction version, model, blocks and assets used, every fix round and the
+  verdict. Failed paths are kept as "avoid". Each section writes its thinking explicitly because providers'
+  hidden reasoning is not fully available.
+- With enough records, a recurring path becomes the standard workflow for that subject and content type;
+  this is how BIE becomes a precise workflow AI.
+- A test set of locked chapters (starting with the tissue chapter) is rebuilt whenever code, a rule or a
+  model changes; a quality drop rejects the change. Navin's review moves to samples once the reviewer AI
+  agrees with him consistently.
+
+**Models and cost**
+
+- No quality compromise and no cheap models for quality work. Each section uses the model that gives the
+  best result on the test chapters; between equal results, the cheaper one. New models replace old ones
+  only after passing the same test.
+- Savings that do not change the model or its answers are used: batch processing, caching, locked blocks.
+- Cost is measured from the ledger on real runs and shown per page; Navin doubted the estimates of
+  21 October, so no estimate is treated as fact.
 
 ## Who it serves
 

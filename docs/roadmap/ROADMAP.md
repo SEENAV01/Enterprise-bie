@@ -38,35 +38,61 @@ Docs only; no code changes. Done when merged.
 - Structured output with schema validation, bounded retries, response caching, and token and cost logging per call.
 - A deterministic fake provider keeps every existing test offline and repeatable.
 - Blind-test harness: one real chapter → lesson plan, narration script and 5 questions per provider → anonymised A/B/C report for Navin.
-- Gate: Navin picks the main model (and optionally a cheaper checker model).
+- Result (21 October 2026): the connections work, but Navin rejected the blind-test lessons as summaries
+  ("ek summary overview lagi bas"), so its ranking is not used. Models are chosen per section by test
+  instead (see the Vision Spec, "Agreed on 21 October 2026").
 
-## Phase 1 · First real chapter (about 2 weeks)
+## Phase 1 · BIE as one whole system on the tissue chapter
 
-**039 · Understanding the book with AI** — KNOWLEDGE, PREREQUISITE and REASONING stages call the model:
-concepts, definitions, relationships, prerequisites and misconceptions, each anchored to source text and
-checked by a second pass. Replaces the regex candidate scan and template logic.
+Agreed with Navin on 21 October 2026 (Vision Spec, "Agreed on 21 October 2026"). BIE is built section by
+section in the order a chapter flows through it. Every section does its full job from the start; Claude tests
+each one internally, and Navin judges only the whole package that one run produces. Test chapter: "10. Tissues
+and Its Types" (Science and Technology, UPSC / State PCS, Hinglish).
 
-**040 · The teaching brain** — PEDAGOGY and DIRECTOR produce a real lesson plan and narration script with the
-teaching recipe, level adaptation and story mode (wire `narrative_arc`, `hook_strategy`, teaching-mode
-selection). Rubric checker plus Navin's review of the output.
+**039 · The brain frame and understanding the book**
+- Vision rulebook inside BIE: Navin's vision as versioned rules and checklists that every section and the
+  reviewer load.
+- One section runner: instructions and source (text and page images) → the AI writes its thinking and its
+  output → code checks → reviewer AI from another provider → bounded remake → full process record and ledger.
+- Section 1: two-eye reading, item inventory with locations, question-based understanding, content types,
+  prerequisites, PYQ links, chapter map and coverage. Replaces the regex knowledge scan.
 
-**041 · Visuals from building blocks** — the first ~10 animated building blocks (Remotion components, one
-house style); VISUAL and ANIMATION choose and fill blocks; multi-scene Scene IR.
+**040 · Lesson plan and teacher script** — videos per chapter, order, prerequisites taught first, Hinglish
+spoken script in beats, stories and analogies only where they fit, length from content.
 
-**042 · Audio** — narration voice (ElevenLabs is already in `bie/audio/`; voice choice is Navin's), timing
-taken from the real audio, sync of every reveal to the spoken words; resolve the open AUDIO reconciliation.
+**041 · Director** — the universal question frame, visual mathematics and subject styles; scene descriptions
+for every beat.
 
-**043 · Real video** — wire VIDEO_CODE → VIDEO_COMPILE → VIDEO_RENDER → VIDEO_QA after Scene IR; render in the
-cloud (GitHub Actions); frame checks; an MP4 Navin can watch.
+**042 · Visual library and animation blocks** — biology first: 3D models, detailed SVG and illustrations with
+licences, a fast online asset fetch, AI images only for gaps; blocks written by AI, compiled to Remotion code,
+locked after review.
 
-**044 · Revision game** — GAME_DIRECTOR → GAME_IR → build → runtime → QA through the Section 15 engine; a
-browser game playable on a phone, built from the same lesson.
+**043 · Voice** — tested voice options including a cloned voice (Navin chooses by ear); word timings drive the
+animation; resolve the open AUDIO reconciliation.
 
-**Gate 1:** Navin approves one chapter's video and game; his students give feedback.
+**044 · Render and interactive player** — VIDEO_CODE → compile → render in the cloud → frame checks by a
+reviewer AI; the same code as an interactive player with questions and tap-to-explore.
 
-## Phase 2 · World-class in one subject (about 1–2 months)
+**045 · Chapter game** — game designer AI on the Section 15 engine; missions from content types; item →
+mission coverage; bot playtest on a phone screen.
 
-- Teaching recipe library and Navin's "gold lessons" as the quality bar; story mode for suitable topics.
+**046 · Notes** — Navin's summariser design: question-based infographic slides with three depths, source
+links, "book says" and "new now", and a PDF; built as an engine the summariser app can reuse.
+
+**047 · Review page, rulebook and test set** — Navin's review page (watch, play, read, pass or fail with his
+words); fail comments become rules he approves; passes lock examples and process records; the test set reruns
+on every change of code, rule or model.
+
+**Gate 1:** one BIE run turns the tissue chapter into video, game and notes; Navin judges the whole package;
+the real cost per page is read from the ledger.
+
+## Phase 2 · Every kind of subject
+
+- Chapters from other subject families (history, mathematics, geography, law and more), then full UGC NET
+  books: Navin and the reviewer AI review, rules lock, libraries grow per subject; real cost and time per page
+  measured from the ledger.
+- Model choice per section by test on the locked chapters.
+- Navin's "gold lessons" are BIE outputs he passed; story mode for suitable topics.
 - Bigger building-block library; the asset intelligence layer (Wikimedia Commons and other open sources, licence tracking, SVG part tagging, restyling, cache).
 - Auto-repair of failed renders and QA; quality benchmark.
 - One full ~300-page book end to end.
