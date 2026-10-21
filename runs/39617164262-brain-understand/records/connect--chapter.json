@@ -1,0 +1,1170 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "connect",
+ "unit": "chapter",
+ "status": "passed",
+ "instructions_version": "understand-connect/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-07",
+  "S1-09",
+  "S1-10",
+  "S1-12"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "59c31f1600dfe8a31c1601d274527193261f90a994324c91b8cc1b581088561a",
+ "inputs": {
+  "system": "You are BIE's book-understanding section, connecting a whole chapter. You are an expert teacher of Science and Technology for UPSC / State PCS aspirants\npreparing for UPSC / State PCS. The pages have already been read into items (given below with ids); now build the chapter map that the lesson,\ndirector, game and notes sections will use.\n\nCourse: \"10. Tissues and Its Types\" · learner language: Hinglish. Write the map in clear English with the book's terms.\n\nNavin's rules for this step (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-12] Connect the whole chapter: group items into concepts; record how concepts relate (part of, type of, depends on, causes, contrasts with, example of, sequence); resolve every cross-reference such as 'Fig. 6.10' to its item; list the prerequisites to teach before the chapter with why each is needed; propose a teaching order that starts from what the student already knows.\n\nHow to fill the JSON:\n- concepts: group the items into the chapter's concepts; every teachable item belongs to at least one concept (use the item ids exactly\n  as given); core_explanation says the concept's heart in two or three sentences a teacher would say.\n- relations: how concepts relate, using concept ids.\n- prerequisites_to_teach: what the student must understand before this chapter (or before a concept), why, and for which concept ids.\n- cross_references: every reference such as \"Fig. 6.10\" or \"see table\" resolved to the item it means.\n- question_links: every question item linked to the concepts it tests.\n- teaching_order: every concept id exactly once, in the order a teacher should teach them, starting from what the student knows.\n- exam_focus: the concepts most important for this exam and why.\nReply with the JSON object only.",
+  "user": "Chapter: 10. Tissues and Its Types.\nItems of the chapter (JSON list):\n[{\"id\": \"p003-i1\", \"page\": 3, \"kind\": \"paragraph\", \"type\": \"classification\", \"teachable\": true, \"content\": \"There are mainly four different types of tissues present in our body.\", \"prerequisites\": [\"cells as structural units of the body\", \"tissue as an organised group of cells\"], \"exam\": \"high\"}, {\"id\": \"p003-i2\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"1. Epithelial- provides covering or lining\", \"prerequisites\": [\"body surface\", \"internal cavity\", \"tissue\"], \"exam\": \"high\"}, {\"id\": \"p003-i3\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"2. Muscular- helps in movement\", \"prerequisites\": [\"cell\", \"contraction as force-producing shortening or tension\"], \"exam\": \"high\"}, {\"id\": \"p003-i4\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"3. Neural- responds to stimuli\", \"prerequisites\": [\"cell\", \"stimulus as a detectable change\", \"nerve signal\"], \"exam\": \"high\"}, {\"id\": \"p003-i5\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"4. Connective- supports, links and cushions\", \"prerequisites\": [\"tissue\", \"extracellular material\"], \"exam\": \"high\"}, {\"id\": \"p003-i6\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"Epithelium covers most organs and cavities within the body.\", \"prerequisites\": [\"organ\", \"body cavity\", \"covering versus lining\"], \"exam\": \"high\"}, {\"id\": \"p003-i7\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"fact\", \"teachable\": true, \"content\": \"It also forms a barrier to keep different body systems separate.\", \"prerequisites\": [\"body compartment\", \"cell membrane\", \"movement of substances across a boundary\"], \"exam\": \"high\"}, {\"id\": \"p003-i8\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Epithelial tissue cells are tightly packed and form a continuous sheet.\", \"prerequisites\": [\"cell\", \"tissue sheet\", \"barrier function\"], \"exam\": \"high\"}, {\"id\": \"p003-i9\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"structure\", \"teachable\": true, \"content\": \"They have only a small amount of cementing material between them and almost no intercellular spaces.\", \"prerequisites\": [\"cell boundary\", \"intercellular space\", \"extracellular material\"], \"exam\": \"high\"}, {\"id\": \"p003-i10\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"structure\", \"teachable\": true, \"content\": \"All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.\", \"prerequisites\": [\"cell membrane\", \"extracellular means outside cells\", \"underlying tissue\"], \"exam\": \"high\"}, {\"id\": \"p003-i11\", \"page\": 3, \"kind\": \"list_point\", \"type\": \"process\", \"teachable\": true, \"content\": \"Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.\", \"prerequisites\": [\"epithelial sheet\", \"cell specialisation\", \"secretion\", \"multicellular means made of multiple cells\"], \"exam\": \"high\"}, {\"id\": \"p003-i12\", \"page\": 3, \"kind\": \"diagram\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Fig. 6.9: Different types of epithelial tissues. Four separate three-dimensional tissue blocks are stacked vertically, not connected by arrows: (a) Squamous, a thin sheet of flattened cells; (b) Stratified squamous, many cell layers with flattened surface cells; (c) Cuboidal, a single layer of approximately cube-shaped cells; (d) Columnar (Ciliated), tall cells bearing a fringe of cilia at the free surface. Each block shows the epithelial cells over a contrasting blue-green supporting base. The arrangement compares tissue forms; it is not a developmental sequence.\", \"prerequisites\": [\"cell layer\", \"free surface of an epithelium\", \"cell shape\"], \"exam\": \"high\"}, {\"id\": \"p003-i13\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(a) Squamous — identifies the uppermost block showing a single thin sheet of flattened, tile-like cells.\", \"prerequisites\": [\"flattened cell shape\", \"diffusion\"], \"exam\": \"high\"}, {\"id\": \"p003-i14\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(b) Stratified squamous — identifies the thick multilayered block with flattened cells at its upper surface.\", \"prerequisites\": [\"cell layer\", \"surface versus basal cells\"], \"exam\": \"high\"}, {\"id\": \"p003-i15\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(c) Cuboidal — identifies the third block, showing one layer of short, approximately cube-shaped epithelial cells.\", \"prerequisites\": [\"cell height and width\", \"single cell layer\"], \"exam\": \"high\"}, {\"id\": \"p003-i16\", \"page\": 3, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(d) Columnar (Ciliated) — identifies the lowest block, showing tall epithelial cells with a fringe of cilia on the free upper surface.\", \"prerequisites\": [\"free epithelial surface\", \"cilia\", \"columnar cell shape\"], \"exam\": \"high\"}, {\"id\": \"p003-i17\", \"page\": 3, \"kind\": \"table\", \"type\": \"comparison\", \"teachable\": false, \"content\": \"Types of Epithelial Tissue | Location | Structure | Function. Six rows compare Simple squamous, Simple Cuboidal Epithelium, Simple Columnar Epithelium, Stratified Squamous Epithelium, Stratified Cuboidal and Stratified Columnar.\", \"prerequisites\": [\"epithelium\", \"cell shape\", \"cell layer\"], \"exam\": \"high\"}, {\"id\": \"p003-i18\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"other\", \"teachable\": false, \"content\": \"Types of Epithelial Tissue | Location | Structure | Function\", \"prerequisites\": [], \"exam\": \"low\"}, {\"id\": \"p003-i19\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Types of Epithelial Tissue: Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman’s capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required\", \"prerequisites\": [\"diffusion\", \"capillary\", \"lung air sac\", \"Bowman’s capsule\", \"single versus multiple cell layers\"], \"exam\": \"high\"}, {\"id\": \"p003-i20\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Types of Epithelial Tissue: Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion\", \"prerequisites\": [\"kidney tubule\", \"glandular duct\", \"absorption\", \"secretion\", \"cell surface area\", \"microvillus\"], \"exam\": \"high\"}, {\"id\": \"p003-i21\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Types of Epithelial Tissue: Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction\", \"prerequisites\": [\"columnar cell shape\", \"digestive tract\", \"respiratory tract\", \"mucus\", \"cilia\", \"absorption and secretion\"], \"exam\": \"high\"}, {\"id\": \"p003-i22\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Types of Epithelial Tissue: Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection\", \"prerequisites\": [\"cell division\", \"basal and surface layers\", \"metabolism\", \"cell shedding\", \"abrasion\"], \"exam\": \"high\"}, {\"id\": \"p003-i23\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Types of Epithelial Tissue: Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands\", \"prerequisites\": [\"gland\", \"duct\", \"single versus multiple cell layers\", \"cuboidal cell shape\"], \"exam\": \"high\"}, {\"id\": \"p003-i24\", \"page\": 3, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Types of Epithelial Tissue: Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion\", \"prerequisites\": [\"urethra\", \"salivary gland duct\", \"surface cell shape\", \"stratification\", \"secretion\"], \"exam\": \"high\"}, {\"id\": \"p007-i1\", \"page\": 7, \"kind\": \"heading\", \"type\": \"classification\", \"teachable\": false, \"content\": \"Three Types of Muscular Tissue\", \"prerequisites\": [], \"exam\": \"high\"}, {\"id\": \"p007-i2\", \"page\": 7, \"kind\": \"table\", \"type\": \"comparison\", \"teachable\": false, \"content\": \"Comparison of Skeletal, Cardiac and Visceral (smooth muscle). Columns: muscle type (unheaded first column), Location, Function, Appearance, Control.\", \"prerequisites\": [\"muscle tissue\", \"cell and nucleus\"], \"exam\": \"high\"}, {\"id\": \"p007-i3\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": false, \"content\": \"Muscle type: unheaded | Location | Function | Appearance | Control\", \"prerequisites\": [], \"exam\": \"low\"}, {\"id\": \"p007-i4\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary\", \"prerequisites\": [\"cell and nucleus\", \"muscle contraction\", \"skeleton\", \"voluntary control\"], \"exam\": \"high\"}, {\"id\": \"p007-i5\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"A long cylindrical pink skeletal muscle fiber is shown with repeated transverse bands and several purple nuclei. It is unbranched in this drawing.\", \"prerequisites\": [\"muscle fiber\", \"cell nucleus\"], \"exam\": \"high\"}, {\"id\": \"p007-i6\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary\", \"prerequisites\": [\"heart and blood circulation\", \"muscle contraction\", \"striations\", \"involuntary control\"], \"exam\": \"high\"}, {\"id\": \"p007-i7\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Pink striated cardiac fibers form branching, connected profiles; purple nuclei are visible within the fibers.\", \"prerequisites\": [\"muscle fiber\", \"coordinated heart contraction\"], \"exam\": \"high\"}, {\"id\": \"p007-i8\", \"page\": 7, \"kind\": \"table_row\", \"type\": \"comparison\", \"teachable\": true, \"content\": \"Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary\", \"prerequisites\": [\"muscle contraction\", \"digestive tract\", \"blood vessels\", \"pupil\", \"involuntary control\"], \"exam\": \"high\"}, {\"id\": \"p007-i9\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"A single spindle-shaped smooth muscle cell has tapering ends, an expanded middle and one central purple nucleus; no transverse striations are shown.\", \"prerequisites\": [\"cell shape\", \"cell nucleus\", \"muscle contraction\"], \"exam\": \"high\"}, {\"id\": \"p007-i10\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"classification\", \"teachable\": true, \"content\": \"Composite illustration of connective tissues: (a) types of blood cells at upper left; (b) compact bone at lower left; (c) hyaline cartilage beside the bone; (d) areolar tissue at upper right; (e) adipose tissue at lower right. These are separate examples, not stages connected by arrows.\", \"prerequisites\": [\"tissue\", \"cell\", \"extracellular matrix\"], \"exam\": \"high\"}, {\"id\": \"p007-i11\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"classification\", \"teachable\": true, \"content\": \"(a) Types of blood cells: drawings show Neutrophil, Eosinophil, Basophil, Lymphocyte, Monocyte and Platelets. The white cells have differently shaped nuclei and cytoplasm; a side label groups the different white blood corpuscles. Cytoplasm and Nucleus are labelled on the cells.\", \"prerequisites\": [\"blood\", \"cell nucleus\", \"cytoplasm\"], \"exam\": \"high\"}, {\"id\": \"p007-i12\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Cytoplasm — pointer to the material surrounding the nucleus within a white blood cell.\", \"prerequisites\": [\"cell membrane\", \"cell nucleus\"], \"exam\": \"medium\"}, {\"id\": \"p007-i13\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Nucleus — pointer to the dark-stained nuclear region of a white blood cell.\", \"prerequisites\": [\"cell and nucleus\"], \"exam\": \"medium\"}, {\"id\": \"p007-i14\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"classification\", \"teachable\": true, \"content\": \"Different white blood corpuscles — identifies the group of illustrated white blood cells.\", \"prerequisites\": [\"blood cells\", \"immune defence\"], \"exam\": \"high\"}, {\"id\": \"p007-i15\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"example\", \"teachable\": true, \"content\": \"Neutrophil — identifies the white blood cell with a lobed nucleus. Small parenthetical text beneath the name is not fully legible and appears to read 'polymorphonuclear leucocyte'.\", \"prerequisites\": [\"white blood cell\", \"cell nucleus\", \"phagocytosis\"], \"exam\": \"high\"}, {\"id\": \"p007-i16\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"example\", \"teachable\": true, \"content\": \"Eosinophil — identifies the upper middle white blood cell.\", \"prerequisites\": [\"white blood cell\", \"immune defence\"], \"exam\": \"high\"}, {\"id\": \"p007-i17\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"example\", \"teachable\": true, \"content\": \"Basophil — identifies the upper right white blood cell with a granular appearance.\", \"prerequisites\": [\"white blood cell\", \"inflammation\"], \"exam\": \"high\"}, {\"id\": \"p007-i18\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"example\", \"teachable\": true, \"content\": \"Lymphocyte — identifies the lower left white blood cell with a large dark nucleus.\", \"prerequisites\": [\"white blood cell\", \"cell nucleus\", \"immunity\"], \"exam\": \"high\"}, {\"id\": \"p007-i19\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"example\", \"teachable\": true, \"content\": \"Monocyte — identifies the large lower middle white blood cell with an indented nucleus.\", \"prerequisites\": [\"white blood cell\", \"blood and tissues\", \"phagocytosis\"], \"exam\": \"high\"}, {\"id\": \"p007-i20\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Platelets — identifies the small clustered fragments to the right of the lower white blood cells.\", \"prerequisites\": [\"blood\", \"blood-vessel injury\", \"clotting\"], \"exam\": \"high\"}, {\"id\": \"p007-i21\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(b) Compact bone: circular units have concentric rings around central Haversian canals. Fine channels extend through the surrounding bone. Labels identify a Haversian canal, a Canaliculus and a Red blood corpuscle.\", \"prerequisites\": [\"connective tissue matrix\", \"blood vessels\", \"cell nutrition\"], \"exam\": \"high\"}, {\"id\": \"p007-i22\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Haversian canal (contains blood vessels and nerve fibres) — pointer to the central canal of a compact-bone unit.\", \"prerequisites\": [\"blood vessels\", \"nerve fibres\", \"living bone cells\"], \"exam\": \"high\"}, {\"id\": \"p007-i23\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Canaliculus (contains slender process of bone cell or osteocyte) — pointer to a fine channel in the bone matrix.\", \"prerequisites\": [\"bone matrix\", \"cell process\", \"osteocyte\"], \"exam\": \"high\"}, {\"id\": \"p007-i24\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"example\", \"teachable\": true, \"content\": \"Red blood corpuscle — pointer to a separately drawn rounded blood cell below the bone units.\", \"prerequisites\": [\"blood\", \"oxygen transport\"], \"exam\": \"high\"}, {\"id\": \"p007-i25\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(c) Hyaline cartilage: rounded cells, some grouped together, lie within a pale surrounding matrix. Labels identify Chondrocyte and Hyaline matrix.\", \"prerequisites\": [\"cell\", \"extracellular matrix\", \"connective tissue\"], \"exam\": \"high\"}, {\"id\": \"p007-i26\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Chondrocyte — pointer to a cartilage cell embedded within the matrix.\", \"prerequisites\": [\"cartilage\", \"cell\", \"extracellular matrix\"], \"exam\": \"high\"}, {\"id\": \"p007-i27\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Hyaline matrix — pointer to the pale material surrounding the cartilage cells.\", \"prerequisites\": [\"cell boundary\", \"extracellular matrix\"], \"exam\": \"high\"}, {\"id\": \"p007-i28\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(d) Areolar tissue: a loose network of fibers surrounds several cell types. Labels identify Reticular fibre, Fibroblast, Macrophage, Collagen fibre, Mast cell and Plasma cell.\", \"prerequisites\": [\"connective tissue\", \"extracellular fibers\", \"immune cells\"], \"exam\": \"high\"}, {\"id\": \"p007-i29\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Reticular fibre — pointer to a fine branching fiber in the areolar network.\", \"prerequisites\": [\"extracellular fibers\", \"connective tissue\"], \"exam\": \"medium\"}, {\"id\": \"p007-i30\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Fibroblast — pointer to an elongated cell in the fiber network.\", \"prerequisites\": [\"cell\", \"extracellular matrix\"], \"exam\": \"high\"}, {\"id\": \"p007-i31\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Macrophage — pointer to an irregular cell among the areolar fibers.\", \"prerequisites\": [\"immune defence\", \"phagocytosis\"], \"exam\": \"high\"}, {\"id\": \"p007-i32\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Collagen fibre — pointer to a thick fiber in the areolar network.\", \"prerequisites\": [\"extracellular fibers\", \"tensile strength\"], \"exam\": \"high\"}, {\"id\": \"p007-i33\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Mast cell — pointer to a rounded granular cell in areolar tissue.\", \"prerequisites\": [\"inflammation\", \"blood vessels\", \"cell granules\"], \"exam\": \"high\"}, {\"id\": \"p007-i34\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Plasma cell — pointer to a rounded cell near the right edge of the areolar illustration.\", \"prerequisites\": [\"B lymphocyte\", \"antibody\", \"immunity\"], \"exam\": \"high\"}, {\"id\": \"p007-i35\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"structure\", \"teachable\": true, \"content\": \"(e) Adipose tissue: large pale fat-containing cells form a group; dark nuclei lie near cell margins. Labels identify Fat droplet, Nucleus and Adipocyte.\", \"prerequisites\": [\"fat storage\", \"cell nucleus\", \"connective tissue\"], \"exam\": \"high\"}, {\"id\": \"p007-i36\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Fat droplet — pointer to the large pale interior of an adipocyte.\", \"prerequisites\": [\"lipid\", \"cell\", \"energy storage\"], \"exam\": \"high\"}, {\"id\": \"p007-i37\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Nucleus — pointers to dark nuclei near the margins of adipocytes.\", \"prerequisites\": [\"cell nucleus\", \"fat droplet\"], \"exam\": \"high\"}, {\"id\": \"p007-i38\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"Adipocyte — pointer to a complete fat-storage cell.\", \"prerequisites\": [\"cell\", \"fat storage\", \"tissue\"], \"exam\": \"high\"}, {\"id\": \"p007-i39\", \"page\": 7, \"kind\": \"caption\", \"type\": \"classification\", \"teachable\": true, \"content\": \"Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue.\", \"prerequisites\": [\"connective-tissue types\"], \"exam\": \"high\"}, {\"id\": \"p007-i40\", \"page\": 7, \"kind\": \"question\", \"type\": \"question\", \"teachable\": true, \"content\": \"How do neurons transmit impulses (send message to other cells)?\", \"prerequisites\": [\"neuron\", \"nerve impulse\", \"cell-to-cell signalling\"], \"exam\": \"high\"}, {\"id\": \"p007-i41\", \"page\": 7, \"kind\": \"diagram\", \"type\": \"process\", \"teachable\": true, \"content\": \"Successive neurons transmit messages. At lower left, the axon of a previous neuron reaches a synapse on the receiving neuron's dendritic region. That neuron has dendrites, a neuron cell body and a nucleus; its axon runs rightwards and then upwards. Blue arrows labelled electrical signal indicate travel along the axon towards branching axon tips. These contact the dendrites of the next neuron at an upper synapse. The next neuron's cell body and nucleus are also labelled. Black pointer lines identify parts; blue arrows indicate signal direction.\", \"prerequisites\": [\"cell membrane\", \"neuron\", \"electrical nerve impulse\", \"synapse\"], \"exam\": \"high\"}, {\"id\": \"p007-i42\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"axon of previous neuron — pointer to the incoming axon approaching the lower-left neuron.\", \"prerequisites\": [\"axon\", \"synaptic contact\"], \"exam\": \"high\"}, {\"id\": \"p007-i43\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"synapse — pointer to the circled contact between the previous neuron's axon and the lower-left neuron.\", \"prerequisites\": [\"separate cell membranes\", \"axon terminal\", \"neurotransmitter\"], \"exam\": \"high\"}, {\"id\": \"p007-i44\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"neuron cell body — pointer to the orange central region of the lower-left neuron.\", \"prerequisites\": [\"cell nucleus\", \"cell metabolism\", \"neuron processes\"], \"exam\": \"high\"}, {\"id\": \"p007-i45\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"nucleus — pointer to the dark oval within the lower-left neuron cell body.\", \"prerequisites\": [\"cell nucleus\", \"cell membrane\", \"nerve impulse\"], \"exam\": \"medium\"}, {\"id\": \"p007-i46\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"dendrites — pointer to short branching processes of the lower-left neuron.\", \"prerequisites\": [\"neuron cell body\", \"cell-to-cell signalling\"], \"exam\": \"high\"}, {\"id\": \"p007-i47\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"axon — pointer to the long curved process extending from the lower-left neuron towards the upper-right neuron.\", \"prerequisites\": [\"neuron cell body\", \"cell membrane\", \"electrical potential\"], \"exam\": \"high\"}, {\"id\": \"p007-i48\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"process\", \"teachable\": true, \"content\": \"electrical signal — blue arrows beside the axon indicate travel from the lower-left neuron towards the axon tips near the upper-right neuron.\", \"prerequisites\": [\"ions\", \"cell membrane\", \"axon\"], \"exam\": \"high\"}, {\"id\": \"p007-i49\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"axon tips — pointer to terminal branches of the lower-left neuron's axon near the upper-right neuron.\", \"prerequisites\": [\"axon\", \"synapse\", \"neurotransmitter\"], \"exam\": \"high\"}, {\"id\": \"p007-i50\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"synapse — pointer to the circled contact near the upper-right neuron, where an axon ending meets the next neuron's dendritic region.\", \"prerequisites\": [\"axon terminal\", \"dendrite\", \"separate neurons\"], \"exam\": \"high\"}, {\"id\": \"p007-i51\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"neuron cell body — pointer to the orange central region of the upper-right neuron.\", \"prerequisites\": [\"neuron cell body\", \"receiving input\", \"nerve impulse\"], \"exam\": \"high\"}, {\"id\": \"p007-i52\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"nucleus — pointer to the dark oval within the upper-right neuron cell body.\", \"prerequisites\": [\"cell nucleus\", \"genes\", \"protein synthesis\"], \"exam\": \"medium\"}, {\"id\": \"p007-i53\", \"page\": 7, \"kind\": \"diagram_label\", \"type\": \"structure\", \"teachable\": true, \"content\": \"dendrites of next neuron — pointer to branching receiving processes of the upper-right neuron.\", \"prerequisites\": [\"dendrite\", \"neurotransmitter\", \"membrane receptor\"], \"exam\": \"high\"}]\n\nReply with the chapter map JSON."
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792593877.021571,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b929c25a7efba38412e3203e2e4ccdf4648d96dbb61c195e935d1c35b7c7253c",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 8311,
+    "output_tokens": 11137,
+    "cost_usd": 0.127992
+   },
+   "notes": {
+    "about": "This unit maps the four major body tissues through epithelial and muscular comparisons, connective-tissue diagrams, and neuronal signalling. It prepares learners to connect classification, microscopic appearance, location and function rather than memorise isolated names.",
+    "key_questions": [
+     "How does each major tissue's structure support its stated function?",
+     "How can epithelial tissues be distinguished by cell shape, number of layers, location and function?",
+     "Which combinations of striation, nuclei, control and location distinguish the three muscle types?",
+     "Which cells, fibres and matrix features identify the connective tissues shown?",
+     "What parts of a neuron receive and transmit a message, and what happens between successive neurons?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use explicit 'Book basis' and 'Outside explanation' labels within explanations; prerequisite entries carry their own basis.",
+      "reason": "The output schema has no separate basis field for concepts, so embedded labels distinguish source content from explanatory additions."
+     },
+     {
+      "decision": "Preserve every teachable item, including individual diagram labels, within a concept.",
+      "reason": "Diagram identification and apparently minor distinctions are useful for matching and statement-based examination questions."
+     },
+     {
+      "decision": "Treat epithelial and connective-tissue illustrations as comparisons, not developmental sequences.",
+      "reason": "The supplied descriptions explicitly distinguish separate tissue examples from arrow-linked processes."
+     },
+     {
+      "decision": "Preserve the book's epithelial locations and its description of simple cuboidal cells as 'short cylindrical', while recording the diagram's cube-shaped appearance.",
+      "reason": "Differences within the supplied source should be visible rather than silently corrected."
+     },
+     {
+      "decision": "Add a short, explicitly outside explanation of chemical synaptic transmission.",
+      "reason": "The book's question asks how messages reach other cells, while the supplied diagram mainly establishes parts, contacts and signal direction."
+     },
+     {
+      "decision": "Capture the single open-ended question without adding options or claiming previous-year provenance.",
+      "reason": "No options, answer key or previous-year identification are supplied."
+     }
+    ],
+    "uncertain": [
+     "The parenthetical text beneath Neutrophil is not fully legible; 'polymorphonuclear leucocyte' should not be treated as a verified transcription.",
+     "The source describes simple cuboidal cells as short cylindrical in the table but approximately cube-shaped in the diagram.",
+     "The simple columnar row gives broad digestive-tract and upper-respiratory-tract locations; teach these as the supplied table's wording, not as a complete anatomical distribution.",
+     "Only pages 3 and 7 are supplied; no missing-page content or additional figure number is inferred."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This unit maps the four major body tissues through epithelial and muscular comparisons, connective-tissue diagrams, and neuronal signalling. It prepares learners to connect classification, microscopic appearance, location and function rather than memorise isolated names.",
+     "key_questions": [
+      "How does each major tissue's structure support its stated function?",
+      "How can epithelial tissues be distinguished by cell shape, number of layers, location and function?",
+      "Which combinations of striation, nuclei, control and location distinguish the three muscle types?",
+      "Which cells, fibres and matrix features identify the connective tissues shown?",
+      "What parts of a neuron receive and transmit a message, and what happens between successive neurons?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use explicit 'Book basis' and 'Outside explanation' labels within explanations; prerequisite entries carry their own basis.",
+       "reason": "The output schema has no separate basis field for concepts, so embedded labels distinguish source content from explanatory additions."
+      },
+      {
+       "decision": "Preserve every teachable item, including individual diagram labels, within a concept.",
+       "reason": "Diagram identification and apparently minor distinctions are useful for matching and statement-based examination questions."
+      },
+      {
+       "decision": "Treat epithelial and connective-tissue illustrations as comparisons, not developmental sequences.",
+       "reason": "The supplied descriptions explicitly distinguish separate tissue examples from arrow-linked processes."
+      },
+      {
+       "decision": "Preserve the book's epithelial locations and its description of simple cuboidal cells as 'short cylindrical', while recording the diagram's cube-shaped appearance.",
+       "reason": "Differences within the supplied source should be visible rather than silently corrected."
+      },
+      {
+       "decision": "Add a short, explicitly outside explanation of chemical synaptic transmission.",
+       "reason": "The book's question asks how messages reach other cells, while the supplied diagram mainly establishes parts, contacts and signal direction."
+      },
+      {
+       "decision": "Capture the single open-ended question without adding options or claiming previous-year provenance.",
+       "reason": "No options, answer key or previous-year identification are supplied."
+      }
+     ],
+     "uncertain": [
+      "The parenthetical text beneath Neutrophil is not fully legible; 'polymorphonuclear leucocyte' should not be treated as a verified transcription.",
+      "The source describes simple cuboidal cells as short cylindrical in the table but approximately cube-shaped in the diagram.",
+      "The simple columnar row gives broad digestive-tract and upper-respiratory-tract locations; teach these as the supplied table's wording, not as a complete anatomical distribution.",
+      "Only pages 3 and 7 are supplied; no missing-page content or additional figure number is inferred."
+     ]
+    },
+    "chapter_title": "10. Tissues and Its Types",
+    "chapter_summary": "Book basis: The body has four main tissue types: epithelial tissue provides covering or lining, muscular tissue helps movement, neural tissue responds to stimuli, and connective tissue supports, links and cushions. The supplied material compares epithelial types by location, structure and function; distinguishes skeletal, cardiac and visceral muscle; identifies blood cells, compact bone, hyaline cartilage, areolar tissue and adipose tissue; and follows messages through successive neurons. Outside explanations are separately labelled and limited to foundations and mechanisms needed to understand these book examples.",
+    "concepts": [
+     {
+      "concept_id": "c01",
+      "name": "Four major body tissues and their functional identities",
+      "item_ids": [
+       "p003-i1",
+       "p003-i2",
+       "p003-i3",
+       "p003-i4",
+       "p003-i5"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The body has mainly four types of tissue: epithelial, muscular, neural and connective. Their identifying functions are, respectively, covering or lining; helping movement; responding to stimuli; and supporting, linking and cushioning. Use these functions as the first classification step before examining the cells and arrangements within each group."
+     },
+     {
+      "concept_id": "c02",
+      "name": "Epithelial sheets, barriers and the basement membrane",
+      "item_ids": [
+       "p003-i2",
+       "p003-i6",
+       "p003-i7",
+       "p003-i8",
+       "p003-i9",
+       "p003-i10"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Epithelium covers most organs and cavities and forms a barrier that keeps different body systems separate. Its tightly packed cells form a continuous sheet, with little cementing material and almost no intercellular spaces; it is usually separated from underlying tissue by an extracellular fibrous basement membrane. Outside explanation: The close packing helps explain the barrier function, and the basement membrane beneath the sheet is distinct from the cell membrane surrounding an individual cell."
+     },
+     {
+      "concept_id": "c03",
+      "name": "Glandular epithelium and inward folding",
+      "item_ids": [
+       "p003-i11"
+      ],
+      "content_type": "process",
+      "core_explanation": "Book basis: Epithelial cells can acquire additional specialisation as gland cells that secrete substances at the epithelial surface. Sometimes a portion of the epithelial sheet folds inward and forms a multicellular gland; this is glandular epithelium. Outside explanation: Secretion means releasing a substance produced by a cell, while multicellular describes a structure made of multiple cells."
+     },
+     {
+      "concept_id": "c04",
+      "name": "Reading epithelial forms: shape, layers and cilia",
+      "item_ids": [
+       "p003-i12",
+       "p003-i13",
+       "p003-i14",
+       "p003-i15",
+       "p003-i16",
+       "p003-i17",
+       "p003-i18"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Figure 6.9 compares four separate blocks: a thin squamous sheet of flattened tile-like cells, multilayered stratified squamous tissue with flattened surface cells, a single cuboidal layer of approximately cube-shaped cells, and tall columnar cells bearing cilia on their free surface. Each block lies above a contrasting supporting base, and their vertical arrangement is not a developmental sequence; the accompanying table compares six epithelial types under location, structure and function. Outside explanation: Read 'simple' as one layer and 'stratified' as multiple layers, then examine the exposed surface cells to interpret the shape term."
+     },
+     {
+      "concept_id": "c05",
+      "name": "Simple squamous epithelium",
+      "item_ids": [
+       "p003-i13",
+       "p003-i19"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Simple squamous epithelium is a single layer of flat cells with irregular boundaries, appearing in the diagram as a thin, tile-like sheet. The table locates it in blood-vessel lining, capillaries, lung air-sac lining and Bowman's capsule of the kidney, and gives transport by diffusion and situations requiring minimal protection as its functional associations. Outside explanation: A thin cellular barrier offers a short distance for diffusion, linking this structure to exchange rather than substantial protection against abrasion."
+     },
+     {
+      "concept_id": "c06",
+      "name": "Simple cuboidal epithelium",
+      "item_ids": [
+       "p003-i15",
+       "p003-i20"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Simple cuboidal epithelium occurs in the tubular lining of kidneys and glandular ducts and performs absorption and secretion. The table describes a single layer of short cylindrical cells, sometimes with microvilli as in proximal convoluted tubules, whereas the diagram shows approximately cube-shaped cells. Outside explanation: Microvilli increase the cell's exposed surface area and are different from the cilia illustrated on columnar cells."
+     },
+     {
+      "concept_id": "c07",
+      "name": "Simple columnar and ciliated columnar epithelium",
+      "item_ids": [
+       "p003-i16",
+       "p003-i21"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: The table describes simple columnar epithelium as a single layer of tall, slender cells, often ciliated, and places it in digestive-tract and upper-respiratory-tract linings. Its listed functions are protection, absorption, mucus secretion and movement in a specific direction; the diagram shows cilia as a fringe on the free upper surface. Outside explanation: Coordinated ciliary beating can move material along a surface, whereas microvilli chiefly provide additional surface area."
+     },
+     {
+      "concept_id": "c08",
+      "name": "Stratified squamous epithelium and renewal",
+      "item_ids": [
+       "p003-i14",
+       "p003-i22"
+      ],
+      "content_type": "process",
+      "core_explanation": "Book basis: Stratified squamous epithelium lines the mouth and vagina and provides protection through several layers of cells. Cells are continuously sloughed off and regenerated: older cells are pushed upwards and become flat, while the lower layer is columnar and metabolically active. The diagram therefore identifies this tissue by flattened surface cells above multiple layers, not by assuming that the lower cells are also flat."
+     },
+     {
+      "concept_id": "c09",
+      "name": "Stratified cuboidal epithelium",
+      "item_ids": [
+       "p003-i23"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Stratified cuboidal epithelium is listed in mammary glands, sweat gland and salivary glands, with protection of ducts of various glands as its function. Its upper layer is cuboid, while other layers may be cuboidal or of other types. Identify the layered arrangement and upper-cell shape together rather than assuming that each layer has the same shape."
+     },
+     {
+      "concept_id": "c10",
+      "name": "Stratified columnar epithelium",
+      "item_ids": [
+       "p003-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Stratified columnar epithelium is listed in the male urethra and lobar ducts of salivary glands, and its functions are protection and secretion. A layer of columnar cells lies upon squamous, columnar or cuboidal epithelial cells. Compare it with stratified cuboidal epithelium by the exposed layer's shape and by the precise locations in the table."
+     },
+     {
+      "concept_id": "c11",
+      "name": "Three muscle types and the comparison framework",
+      "item_ids": [
+       "p003-i3",
+       "p007-i1",
+       "p007-i2",
+       "p007-i3"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: Muscular tissue helps movement, and the supplied table distinguishes skeletal, cardiac and visceral, or smooth, muscle. It compares their location, function, appearance and control, so identification requires a combination of features rather than a single visual clue. Outside explanation: Voluntary control concerns movement under conscious control, whereas involuntary activity does not ordinarily require a conscious command."
+     },
+     {
+      "concept_id": "c12",
+      "name": "Skeletal muscle",
+      "item_ids": [
+       "p007-i4",
+       "p007-i5"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Skeletal muscle is located at the skeleton and serves movement, heat and posture under voluntary control. Its parallel fibres are striated and multinucleated with eccentric nuclei; the drawing shows a long cylindrical, unbranched fibre with repeated transverse bands and several nuclei. Outside explanation: 'Eccentric' here means away from the centre, so nucleus position is an additional identifying feature."
+     },
+     {
+      "concept_id": "c13",
+      "name": "Cardiac muscle",
+      "item_ids": [
+       "p007-i6",
+       "p007-i7"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Cardiac muscle is located in the heart, pumps blood continuously and is involuntary. The table describes striations and one central nucleus, while the illustration shows branching, connected striated fibres with nuclei inside them. Its combination of striations with involuntary control distinguishes it from both skeletal and smooth muscle."
+     },
+     {
+      "concept_id": "c14",
+      "name": "Visceral or smooth muscle",
+      "item_ids": [
+       "p007-i8",
+       "p007-i9"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Visceral, or smooth, muscle is listed in the G.I. tract, uterus, eye and blood vessels, with functions including peristalsis, blood-pressure regulation, pupil-size control and erection of hairs. It is involuntary, lacks striations and has one central nucleus; the drawing shows a spindle-shaped cell with tapering ends and an expanded middle. Outside explanation: Peristalsis is a coordinated wave of muscular contraction that moves contents along a passage such as the digestive tract."
+     },
+     {
+      "concept_id": "c15",
+      "name": "Connective-tissue examples and diagram organisation",
+      "item_ids": [
+       "p003-i5",
+       "p007-i10",
+       "p007-i39"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: Connective tissue supports, links and cushions, and Figure 6.10 presents five separate examples: blood cells at the upper left, compact bone at the lower left, hyaline cartilage beside bone, areolar tissue at the upper right and adipose tissue at the lower right. These panels are examples within a tissue category, not stages in a sequence. Outside explanation: Extracellular matrix means material outside cells and provides a useful framework for comparing the very different appearances of connective tissues."
+     },
+     {
+      "concept_id": "c16",
+      "name": "White blood corpuscles and their visual identification",
+      "item_ids": [
+       "p007-i11",
+       "p007-i12",
+       "p007-i13",
+       "p007-i14",
+       "p007-i15",
+       "p007-i16",
+       "p007-i17",
+       "p007-i18",
+       "p007-i19"
+      ],
+      "content_type": "classification",
+      "core_explanation": "Book basis: The blood-cell panel groups neutrophil, eosinophil, basophil, lymphocyte and monocyte as different white blood corpuscles, showing variations in nuclei and cytoplasm; cytoplasm is labelled around the nucleus, and the nucleus is the dark-stained region. Neutrophil has a lobed nucleus, eosinophil is the upper-middle cell, basophil is the granular upper-right cell, lymphocyte has a large dark nucleus at the lower left, and monocyte is the large lower-middle cell with an indented nucleus. The partly legible parenthetical text under Neutrophil is uncertain and should not be required as a verified label."
+     },
+     {
+      "concept_id": "c17",
+      "name": "Platelets and the red blood corpuscle label",
+      "item_ids": [
+       "p007-i20",
+       "p007-i24"
+      ],
+      "content_type": "comparison",
+      "core_explanation": "Book basis: Platelets are shown as small clustered fragments to the right of the lower white blood cells, whereas a red blood corpuscle is drawn separately below the compact-bone units. Keep their identities distinct from the named white blood corpuscles and from the bone structures near the red-cell label. Outside explanation: Platelets participate in blood clotting, and red blood cells carry oxygen; these functions clarify the labels but are not stated in these supplied diagram items."
+     },
+     {
+      "concept_id": "c18",
+      "name": "Compact bone: Haversian canals and canaliculi",
+      "item_ids": [
+       "p007-i21",
+       "p007-i22",
+       "p007-i23"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Compact bone is drawn as circular units with concentric rings around central Haversian canals and fine channels extending through the surrounding bone. A Haversian canal contains blood vessels and nerve fibres, whereas a canaliculus contains a slender process of a bone cell, or osteocyte. Distinguish the central canal from the fine channel by both position and contents; the nearby red blood corpuscle is a separately identified blood cell."
+     },
+     {
+      "concept_id": "c19",
+      "name": "Hyaline cartilage: chondrocytes and matrix",
+      "item_ids": [
+       "p007-i25",
+       "p007-i26",
+       "p007-i27"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: The hyaline-cartilage panel shows rounded cells, some grouped together, within a pale surrounding matrix. A chondrocyte is the cartilage cell embedded in that matrix, while the label 'Hyaline matrix' identifies the surrounding material rather than the cell. Compare these rounded embedded cells with the concentric organisation of the compact-bone panel."
+     },
+     {
+      "concept_id": "c20",
+      "name": "Areolar tissue: fibres and associated cells",
+      "item_ids": [
+       "p007-i28",
+       "p007-i29",
+       "p007-i30",
+       "p007-i31",
+       "p007-i32",
+       "p007-i33",
+       "p007-i34"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Areolar tissue is illustrated as a loose fibre network containing several cell types, with fine branching reticular fibres and thicker collagen fibres. The labelled cells are an elongated fibroblast, an irregular macrophage among the fibres, a rounded granular mast cell, and a rounded plasma cell near the right edge. Separate fibre labels from cell labels during identification: the network and its resident cells are different structural components."
+     },
+     {
+      "concept_id": "c21",
+      "name": "Adipose tissue and adipocyte organisation",
+      "item_ids": [
+       "p007-i35",
+       "p007-i36",
+       "p007-i37",
+       "p007-i38"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Adipose tissue is shown as a group of large pale, fat-containing cells with dark nuclei near their margins. The fat-droplet label identifies the large pale interior, the nucleus labels point to the dark peripheral structures, and 'Adipocyte' identifies a complete fat-storage cell. Outside explanation: A large stored fat droplet occupies much of the cell's interior, helping explain the nucleus's peripheral position."
+     },
+     {
+      "concept_id": "c22",
+      "name": "Neural tissue and the parts of successive neurons",
+      "item_ids": [
+       "p003-i4",
+       "p007-i41",
+       "p007-i42",
+       "p007-i44",
+       "p007-i45",
+       "p007-i46",
+       "p007-i47",
+       "p007-i49",
+       "p007-i51",
+       "p007-i52",
+       "p007-i53"
+      ],
+      "content_type": "structure",
+      "core_explanation": "Book basis: Neural tissue responds to stimuli, and the signalling diagram identifies each neuron's cell body, a nucleus within it, branching dendrites, a long axon and terminal axon tips. An incoming axon belongs to a previous neuron, while the lower-left neuron's axon extends rightwards and upwards towards the dendrites of the next neuron, whose cell body and nucleus are also labelled. Outside explanation: In this pathway, dendrites receive incoming information, the cell body contains the nucleus, and the axon carries the impulse towards its terminal branches; the nucleus is not a step in the impulse's route."
+     },
+     {
+      "concept_id": "c23",
+      "name": "Impulse direction and communication across synapses",
+      "item_ids": [
+       "p007-i40",
+       "p007-i41",
+       "p007-i43",
+       "p007-i48",
+       "p007-i50"
+      ],
+      "content_type": "process",
+      "core_explanation": "Book basis: The open-ended question asks, 'How do neurons transmit impulses (send message to other cells)?', and the diagram answers the visible route through successive neurons: an incoming axon contacts a receiving dendritic region at the lower-left synapse, and blue electrical-signal arrows run along that neuron's axon towards axon tips contacting the next neuron's dendrites at the upper synapse. Outside explanation: In a typical chemical synapse, arrival of an electrical impulse at an axon terminal leads to neurotransmitter release across a small gap; the transmitter acts on the receiving cell's membrane and can initiate a new electrical signal. Book basis: Blue arrows show signal direction, whereas black pointer lines identify parts; the supplied question has no options or printed answer."
+     }
+    ],
+    "relations": [
+     {
+      "from_concept": "c02",
+      "relation": "type_of",
+      "to_concept": "c01",
+      "note": "Book basis: Epithelial tissue is one of the four major tissue types."
+     },
+     {
+      "from_concept": "c11",
+      "relation": "type_of",
+      "to_concept": "c01",
+      "note": "Book basis: Muscular tissue is one of the four major tissue types."
+     },
+     {
+      "from_concept": "c15",
+      "relation": "type_of",
+      "to_concept": "c01",
+      "note": "Book basis: Connective tissue is one of the four major tissue types."
+     },
+     {
+      "from_concept": "c22",
+      "relation": "type_of",
+      "to_concept": "c01",
+      "note": "Book basis: Neural tissue is one of the four major tissue types."
+     },
+     {
+      "from_concept": "c03",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Glandular epithelium is a secretory specialisation of epithelial tissue."
+     },
+     {
+      "from_concept": "c04",
+      "relation": "depends_on",
+      "to_concept": "c02",
+      "note": "Book basis: The forms compared are arrangements of epithelial sheets."
+     },
+     {
+      "from_concept": "c05",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Simple squamous is an epithelial type."
+     },
+     {
+      "from_concept": "c06",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Simple cuboidal is an epithelial type."
+     },
+     {
+      "from_concept": "c07",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Simple columnar is an epithelial type."
+     },
+     {
+      "from_concept": "c08",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Stratified squamous is an epithelial type."
+     },
+     {
+      "from_concept": "c09",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Stratified cuboidal is an epithelial type."
+     },
+     {
+      "from_concept": "c10",
+      "relation": "type_of",
+      "to_concept": "c02",
+      "note": "Book basis: Stratified columnar is an epithelial type."
+     },
+     {
+      "from_concept": "c05",
+      "relation": "contrasts_with",
+      "to_concept": "c08",
+      "note": "Book basis: Compare a thin single layer associated with diffusion with protective, renewing multiple layers."
+     },
+     {
+      "from_concept": "c06",
+      "relation": "contrasts_with",
+      "to_concept": "c09",
+      "note": "Book basis: Compare single-layer cuboidal absorption/secretion with stratified cuboidal duct protection."
+     },
+     {
+      "from_concept": "c07",
+      "relation": "contrasts_with",
+      "to_concept": "c10",
+      "note": "Book basis: Compare a single columnar layer with columnar surface cells above other cell layers."
+     },
+     {
+      "from_concept": "c06",
+      "relation": "compares_with",
+      "to_concept": "c07",
+      "note": "Book basis: Both include absorption and secretion, but the source associates microvilli with the cuboidal kidney-tubule example and cilia with the columnar example."
+     },
+     {
+      "from_concept": "c12",
+      "relation": "type_of",
+      "to_concept": "c11",
+      "note": "Book basis: Skeletal is one of the three muscle types."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "type_of",
+      "to_concept": "c11",
+      "note": "Book basis: Cardiac is one of the three muscle types."
+     },
+     {
+      "from_concept": "c14",
+      "relation": "type_of",
+      "to_concept": "c11",
+      "note": "Book basis: Visceral or smooth is one of the three muscle types."
+     },
+     {
+      "from_concept": "c12",
+      "relation": "compares_with",
+      "to_concept": "c13",
+      "note": "Book basis: Both are striated, but control, nucleus number and position, branching and location distinguish them."
+     },
+     {
+      "from_concept": "c13",
+      "relation": "compares_with",
+      "to_concept": "c14",
+      "note": "Book basis: Both are involuntary and described with one central nucleus, but only cardiac muscle is striated in this comparison."
+     },
+     {
+      "from_concept": "c16",
+      "relation": "part_of",
+      "to_concept": "c15",
+      "note": "Book basis: White blood corpuscles occur in the blood-cell example of connective tissues."
+     },
+     {
+      "from_concept": "c17",
+      "relation": "compares_with",
+      "to_concept": "c16",
+      "note": "Book basis: Platelets and the separately labelled red blood corpuscle should not be confused with the named white blood corpuscles."
+     },
+     {
+      "from_concept": "c18",
+      "relation": "example_of",
+      "to_concept": "c15",
+      "note": "Book basis: Compact bone is a connective-tissue example."
+     },
+     {
+      "from_concept": "c19",
+      "relation": "example_of",
+      "to_concept": "c15",
+      "note": "Book basis: Hyaline cartilage is a connective-tissue example."
+     },
+     {
+      "from_concept": "c20",
+      "relation": "example_of",
+      "to_concept": "c15",
+      "note": "Book basis: Areolar tissue is a connective-tissue example."
+     },
+     {
+      "from_concept": "c21",
+      "relation": "example_of",
+      "to_concept": "c15",
+      "note": "Book basis: Adipose tissue is a connective-tissue example."
+     },
+     {
+      "from_concept": "c18",
+      "relation": "compares_with",
+      "to_concept": "c19",
+      "note": "Book basis: Compare concentric bone units and canals with rounded cartilage cells in a pale matrix."
+     },
+     {
+      "from_concept": "c20",
+      "relation": "compares_with",
+      "to_concept": "c21",
+      "note": "Book basis: Compare a loose fibre network containing varied cells with grouped large fat-containing cells."
+     },
+     {
+      "from_concept": "c02",
+      "relation": "compares_with",
+      "to_concept": "c20",
+      "note": "Book basis: Epithelial cells form a tightly packed sheet, whereas the areolar illustration shows cells distributed within a loose fibre network."
+     },
+     {
+      "from_concept": "c23",
+      "relation": "depends_on",
+      "to_concept": "c22",
+      "note": "Book basis: Following the illustrated message route requires recognising dendrites, cell body, axon and axon tips."
+     },
+     {
+      "from_concept": "c22",
+      "relation": "tested_by",
+      "to_concept": "c23",
+      "note": "Book basis: The question about transmission requires applying the labelled neuronal structures."
+     }
+    ],
+    "prerequisites_to_teach": [
+     {
+      "name": "Cells, tissues, organs and body systems",
+      "why_needed": "Teach a cell as a structural unit, a tissue as an organised group of cells, an organ as a structure containing tissues, and a body system as cooperating organs. This supplies the organisational scale needed for the four tissue categories and their locations.",
+      "needed_for": [
+       "c01",
+       "c02",
+       "c03",
+       "c11",
+       "c15",
+       "c22"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell membrane, cytoplasm and nucleus",
+      "why_needed": "Teach the cell membrane as the cell boundary, cytoplasm as the material within it outside the nucleus, and the nucleus as the genetic-control compartment. Learners must distinguish whole cells, internal parts, multiple nuclei and the neuron's signalling route.",
+      "needed_for": [
+       "c02",
+       "c12",
+       "c13",
+       "c14",
+       "c16",
+       "c17",
+       "c18",
+       "c19",
+       "c20",
+       "c21",
+       "c22",
+       "c23"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Covering, lining, cavities and compartments",
+      "why_needed": "Teach covering as lying over a surface, lining as covering an internal surface, and a cavity as an internal space. Explain a compartment as a separated body region so that epithelial barrier functions have a concrete meaning.",
+      "needed_for": [
+       "c02",
+       "c05",
+       "c06",
+       "c07",
+       "c08",
+       "c09",
+       "c10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell shapes, layers and tissue surfaces",
+      "why_needed": "Teach flattened, cube-like, tall slender, cylindrical and spindle-shaped forms, and contrast one cell layer with several layers. Identify the free surface, the lower or basal region, and central versus peripheral positions before interpreting diagrams.",
+      "needed_for": [
+       "c04",
+       "c05",
+       "c06",
+       "c07",
+       "c08",
+       "c09",
+       "c10",
+       "c12",
+       "c13",
+       "c14",
+       "c21"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Extracellular material, intercellular space and fibres",
+      "why_needed": "Teach extracellular as outside cells, intercellular as between cells, matrix as surrounding extracellular material, and fibres as thread-like extracellular components. Explain a cell process as an extension of a cell; this distinguishes epithelial cementing material, basement membrane, connective matrix and bone-cell processes.",
+      "needed_for": [
+       "c02",
+       "c15",
+       "c18",
+       "c19",
+       "c20"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Diffusion across a thin barrier",
+      "why_needed": "Teach diffusion as net movement down a concentration gradient and explain that a shorter path can facilitate exchange. This makes the single thin squamous layer's association with diffusion understandable.",
+      "needed_for": [
+       "c05"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Absorption, secretion, glands and ducts",
+      "why_needed": "Teach absorption as taking substances across a surface, secretion as release of a substance from a cell, a gland as a secretory structure, and a duct as a passage carrying glandular output. Explain multicellular as composed of multiple cells.",
+      "needed_for": [
+       "c03",
+       "c06",
+       "c07",
+       "c09",
+       "c10"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cilia, microvilli and mucus",
+      "why_needed": "Teach cilia as hair-like surface projections whose coordinated beating can move material, microvilli as small projections increasing surface area, and mucus as a slippery secretion. These definitions prevent confusion between surface-area enhancement and directed surface transport.",
+      "needed_for": [
+       "c04",
+       "c06",
+       "c07"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood vessels, capillaries and lung air sacs",
+      "why_needed": "Teach blood vessels as blood-carrying passages, capillaries as small exchange vessels, and lung air sacs as gas-exchange spaces. These are the concrete sites needed to learn the simple squamous row.",
+      "needed_for": [
+       "c05",
+       "c14",
+       "c18"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Kidney tubules, proximal convoluted tubules and Bowman's capsule",
+      "why_needed": "Teach Bowman's capsule as the cup-like beginning of a kidney filtration unit and kidney tubules as passages involved in processing the filtrate, with the proximal convoluted tubule as an early coiled segment. Keep capsule lining and tubular lining distinct when learning the epithelial examples.",
+      "needed_for": [
+       "c05",
+       "c06"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Digestive and respiratory passages, urethra and named glands",
+      "why_needed": "Locate the digestive passage, upper respiratory passage, male urethra, mammary glands, sweat glands and salivary glands at a simple anatomical level. Explain that lobar ducts are ducts associated with gland lobes, so the table's location labels can be understood rather than memorised as unfamiliar words.",
+      "needed_for": [
+       "c06",
+       "c07",
+       "c09",
+       "c10",
+       "c14"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Cell division, metabolism, shedding and abrasion",
+      "why_needed": "Teach cell division as production of new cells, metabolism as cellular chemical activity, shedding as loss of surface cells, and abrasion as surface wear. These ideas explain renewal of the protective stratified squamous lining.",
+      "needed_for": [
+       "c08"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Muscle contraction, muscle fibres and striations",
+      "why_needed": "Teach contraction as force generation that can produce shortening or tension, muscle fibre as the elongated muscle-cell unit in this context, and striations as visible transverse bands. This supplies the vocabulary for appearance and movement without requiring molecular contraction mechanisms.",
+      "needed_for": [
+       "c11",
+       "c12",
+       "c13",
+       "c14"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Voluntary and involuntary control",
+      "why_needed": "Teach voluntary control as conscious control of an action and involuntary activity as activity that does not ordinarily require a conscious command. Use these meanings before comparing the muscle rows.",
+      "needed_for": [
+       "c11",
+       "c12",
+       "c13",
+       "c14"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Skeleton, heart circulation and smooth-muscle target structures",
+      "why_needed": "Locate the skeleton and heart, explain that the heart pumps blood, identify the uterus and the pupil as the eye's opening, and define blood pressure as pressure exerted by blood within vessels. Define peristalsis as a coordinated travelling contraction so the muscle functions can be interpreted.",
+      "needed_for": [
+       "c12",
+       "c13",
+       "c14"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Blood components and their broad roles",
+      "why_needed": "Distinguish white blood cells associated with defence, red blood cells associated with oxygen transport, and platelets associated with clotting at damaged vessels. Treat these as explanatory foundations, not as functions printed beside the supplied blood-cell labels.",
+      "needed_for": [
+       "c16",
+       "c17",
+       "c18"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Connective-tissue cell names and matrix vocabulary",
+      "why_needed": "Teach osteocyte as a bone cell, chondrocyte as a cartilage cell, and adipocyte as a fat-storage cell. Introduce collagen and reticular fibres as extracellular network components and fibroblast, macrophage, mast cell and plasma cell as distinct cell names, avoiding the assumption that fibre labels name cells.",
+      "needed_for": [
+       "c18",
+       "c19",
+       "c20",
+       "c21"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Phagocytosis, inflammation and antibodies as optional vocabulary support",
+      "why_needed": "If immune terms are used to explain the labelled cells, first teach phagocytosis as engulfment of material, inflammation as a response to injury or infection, and antibodies as proteins involved in specific defence; plasma cells are antibody-secreting cells derived from B lymphocytes. These are outside clarifications, not additional functions asserted by the supplied areolar or blood-cell diagrams.",
+      "needed_for": [
+       "c16",
+       "c20"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Lipids, fat storage and nuclear position",
+      "why_needed": "Teach fat as a lipid stored within cells and usable as an energy reserve. Explain that a large intracellular droplet can occupy much of the cell interior, preparing learners to interpret the adipocyte's marginal nucleus.",
+      "needed_for": [
+       "c21"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Stimulus and a nerve impulse",
+      "why_needed": "Teach a stimulus as a detectable change and a nerve impulse as an electrical signal travelling along a neuron's membrane. Explain that ions are charged particles whose movement across membranes contributes to electrical signalling; detailed action-potential phases are unnecessary here.",
+      "needed_for": [
+       "c01",
+       "c22",
+       "c23"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Separate neurons, synaptic gaps and neurotransmitter receptors",
+      "why_needed": "Teach that communicating neurons remain separate cells, that a synapse is a specialised communication junction, and that neurotransmitters are chemical messengers acting on receiving-membrane receptors. This makes the transition from an electrical signal along an axon to communication with another cell understandable.",
+      "needed_for": [
+       "c23"
+      ],
+      "basis": "outside"
+     },
+     {
+      "name": "Reading labels, arrows and separate diagram panels",
+      "why_needed": "Teach pointer lines as identifiers and directional arrows as indicators of movement or sequence, while recognising that adjacent panels may simply compare examples. This prevents treating the epithelial blocks or connective-tissue panels as developmental stages.",
+      "needed_for": [
+       "c04",
+       "c15",
+       "c16",
+       "c17",
+       "c18",
+       "c19",
+       "c20",
+       "c21",
+       "c22",
+       "c23"
+      ],
+      "basis": "outside"
+     }
+    ],
+    "cross_references": [
+     {
+      "from_item_id": "p003-i12",
+      "reference_text": "Fig. 6.9: Different types of epithelial tissues",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i13",
+      "reference_text": "(a) Squamous — uppermost block of Fig. 6.9",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i14",
+      "reference_text": "(b) Stratified squamous — multilayered block of Fig. 6.9",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i15",
+      "reference_text": "(c) Cuboidal — third block of Fig. 6.9",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p003-i16",
+      "reference_text": "(d) Columnar (Ciliated) — lowest block of Fig. 6.9",
+      "resolved_item_id": "p003-i12"
+     },
+     {
+      "from_item_id": "p007-i39",
+      "reference_text": "Fig. 6.10: Types of connective tissues",
+      "resolved_item_id": "p007-i10"
+     },
+     {
+      "from_item_id": "p007-i39",
+      "reference_text": "(a) types of blood cells",
+      "resolved_item_id": "p007-i11"
+     },
+     {
+      "from_item_id": "p007-i39",
+      "reference_text": "(b) compact bone",
+      "resolved_item_id": "p007-i21"
+     },
+     {
+      "from_item_id": "p007-i39",
+      "reference_text": "(c) hyaline cartilage",
+      "resolved_item_id": "p007-i25"
+     },
+     {
+      "from_item_id": "p007-i39",
+      "reference_text": "(d) areolar tissue",
+      "resolved_item_id": "p007-i28"
+     },
+     {
+      "from_item_id": "p007-i39",
+      "reference_text": "(e) adipose tissue",
+      "resolved_item_id": "p007-i35"
+     },
+     {
+      "from_item_id": "p007-i10",
+      "reference_text": "(a) types of blood cells at upper left",
+      "resolved_item_id": "p007-i11"
+     },
+     {
+      "from_item_id": "p007-i10",
+      "reference_text": "(b) compact bone at lower left",
+      "resolved_item_id": "p007-i21"
+     },
+     {
+      "from_item_id": "p007-i10",
+      "reference_text": "(c) hyaline cartilage beside the bone",
+      "resolved_item_id": "p007-i25"
+     },
+     {
+      "from_item_id": "p007-i10",
+      "reference_text": "(d) areolar tissue at upper right",
+      "resolved_item_id": "p007-i28"
+     },
+     {
+      "from_item_id": "p007-i10",
+      "reference_text": "(e) adipose tissue at lower right",
+      "resolved_item_id": "p007-i35"
+     }
+    ],
+    "question_links": [
+     {
+      "question_item_id": "p007-i40",
+      "tests_concepts": [
+       "c22",
+       "c23"
+      ]
+     }
+    ],
+    "teaching_order": [
+     "c01",
+     "c02",
+     "c04",
+     "c05",
+     "c06",
+     "c07",
+     "c08",
+     "c09",
+     "c10",
+     "c03",
+     "c11",
+     "c12",
+     "c13",
+     "c14",
+     "c15",
+     "c16",
+     "c17",
+     "c18",
+     "c19",
+     "c20",
+     "c21",
+     "c22",
+     "c23"
+    ],
+    "exam_focus": [
+     {
+      "concept_id": "c01",
+      "why": "Book-based target: Four-way tissue classification and function matching provide the framework for direct questions and odd-one-out items."
+     },
+     {
+      "concept_id": "c02",
+      "why": "Book-based target: Tight packing, minimal intercellular spaces and an extracellular basement membrane are distinctive structural statements; distinguish basement membrane from cell membrane."
+     },
+     {
+      "concept_id": "c03",
+      "why": "Book-based target: Secretory specialisation and inward folding into a multicellular gland connect epithelial structure with gland formation."
+     },
+     {
+      "concept_id": "c04",
+      "why": "Book-based target: Recognising flattened, cuboidal, stratified and ciliated columnar forms supports diagram questions; the blocks are comparisons, not sequential stages."
+     },
+     {
+      "concept_id": "c05",
+      "why": "Book-based target: Match simple squamous structure and diffusion with capillaries, vessel lining, lung air sacs and Bowman's capsule."
+     },
+     {
+      "concept_id": "c06",
+      "why": "Book-based target: Kidney tubules, glandular ducts, absorption, secretion and proximal-convoluted-tubule microvilli form a high-value matching set."
+     },
+     {
+      "concept_id": "c07",
+      "why": "Book-based target: Tall single-layer cells, cilia, mucus secretion and directed movement are useful for structure–function questions; retain the table's stated locations."
+     },
+     {
+      "concept_id": "c08",
+      "why": "Book-based target: Mouth and vagina, protective layers, active lower cells and flattened shedding surface cells support location and statement-combination questions."
+     },
+     {
+      "concept_id": "c09",
+      "why": "Book-based target: Gland-associated locations and protection of ducts distinguish stratified cuboidal from simple cuboidal tissue."
+     },
+     {
+      "concept_id": "c10",
+      "why": "Book-based target: Male urethra and lobar salivary ducts are distinctive locations; columnar surface cells need not imply identical lower layers."
+     },
+     {
+      "concept_id": "c11",
+      "why": "Book-based target: The three muscle types must be compared simultaneously across location, function, appearance and control."
+     },
+     {
+      "concept_id": "c12",
+      "why": "Book-based target: Voluntary, striated, parallel fibres with multiple eccentric nuclei distinguish skeletal muscle; retain heat and posture alongside movement."
+     },
+     {
+      "concept_id": "c13",
+      "why": "Book-based target: Cardiac muscle is the key exception to associating striations with voluntary control; branching and a central nucleus aid identification."
+     },
+     {
+      "concept_id": "c14",
+      "why": "Book-based target: Smooth muscle combines involuntary control, absent striations and spindle-shaped cells; peristalsis, blood pressure, pupil size and hair erection are matching targets."
+     },
+     {
+      "concept_id": "c15",
+      "why": "Book-based target: Blood, bone, cartilage, areolar tissue and adipose tissue belong within the connective-tissue examples despite their different appearances."
+     },
+     {
+      "concept_id": "c16",
+      "why": "Book-based target: Recognise the five named white blood corpuscles and visible nuclear distinctions; do not require the uncertain neutrophil parenthetical text."
+     },
+     {
+      "concept_id": "c17",
+      "why": "Book-based target: Platelet fragments and the separately drawn red blood corpuscle should not be misclassified as one of the named white blood cells."
+     },
+     {
+      "concept_id": "c18",
+      "why": "Book-based target: Haversian canal versus canaliculus is a precise structure–contents distinction: vessels and nerve fibres versus an osteocyte process."
+     },
+     {
+      "concept_id": "c19",
+      "why": "Book-based target: Chondrocyte identifies a cartilage cell, while hyaline matrix identifies its extracellular surroundings."
+     },
+     {
+      "concept_id": "c20",
+      "why": "Book-based target: Distinguish collagen and reticular fibres from fibroblast, macrophage, mast cell and plasma cell; this supports diagram labelling and odd-one-out questions."
+     },
+     {
+      "concept_id": "c21",
+      "why": "Book-based target: Large fat droplets, marginal nuclei and the adipocyte label are the defining features shown for adipose tissue."
+     },
+     {
+      "concept_id": "c22",
+      "why": "Book-based target: Identify dendrites, cell body, nucleus, axon and axon tips across successive neurons, without treating the nucleus as part of the signal route."
+     },
+     {
+      "concept_id": "c23",
+      "why": "Book-based target: This directly answers the supplied question and tests direction along the axon and contacts at synapses; the additional neurotransmitter mechanism must remain labelled as outside explanation."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "e5ef67b76caddc45af7689086e03d6d29286822c84313f9866be08c3adc2e581",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 18756,
+    "output_tokens": 991,
+    "cost_usd": 0.052164,
+    "value": {
+     "notes": {
+      "about": "This review evaluates the chapter map for '10. Tissues and Its Types' against the 66 extracted items from pages 3 and 7 and the BIE rulebook for UPSC / State PCS learners.",
+      "key_questions": [
+       "Are all 66 teachable and structural items accounted for in the concepts?",
+       "Are book facts and outside explanations cleanly separated and accurate at the UPSC/State PCS textbook level?",
+       "Do the relations, prerequisites, cross-references, and teaching order provide a logical, complete pedagogical structure?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the chapter map with no blocking issues.",
+        "reason": "Every single item from p003-i1 to p007-i53 is included in the concepts, book vs. outside basis is rigorously marked, uncertainties in the source (such as the illegible text under Neutrophil and the cuboidal shape wording difference) are transparently handled, and the teaching progression is thorough and logical."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [
+      {
+       "where": "teaching_order",
+       "problem": "Concept c03 (Glandular epithelium and inward folding, from p003-i11) is placed after c10 (at the end of the epithelial section), even though it appears in the text before the epithelial classification diagram and table (c04 to c10) and is mentioned in the cuboidal/columnar rows (glandular ducts, mucus secretion).",
+       "fix": "Consider moving c03 right after c02 (or right after c04) so students understand what a gland and glandular epithelium are before encountering 'glandular ducts', 'sweat gland', 'salivary glands', and 'mucus secretion' in the epithelial comparison table (c06, c07, c09, c10).",
+       "severity": "minor"
+      },
+      {
+       "where": "cross_references",
+       "problem": "The first cross-reference entry has from_item_id 'p003-i12' resolving to 'p003-i12' (a self-reference for Fig. 6.9).",
+       "fix": "Either remove the self-referential entry or link p003-i12 to the corresponding table item p003-i17 where the same epithelial types are compared.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is clearly marked as 'Book basis' or 'Outside explanation', and all outside additions (e.g., chemical synaptic transmission, diffusion distance, microvilli vs. cilia roles) are standard and accurate."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The map is comprehensive, preserving every table detail, diagram feature, and label with appropriate conceptual depth for UPSC / State PCS aspirants."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state the unit's scope, key pedagogical decisions with reasons, and source uncertainties (such as the partially legible text under Neutrophil and the table vs. diagram description of cuboidal cells)."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short, merged away, or left as 'etc.'; all 66 items are explicitly mapped and explained."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": true,
+       "note": "The answer to the open-ended question in p007-i40 (covered in c23) clearly separates the book's visual pathway from the standard outside explanation of neurotransmitter release across a chemical synapse."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "All 22 prerequisite groups are concrete, foundational biological concepts tied to the specific concepts that require them."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam focus notes accurately highlight high-yield UPSC/PCS traps (such as cardiac muscle being striated yet involuntary, Haversian canal vs. canaliculus contents, and basement membrane vs. cell membrane), and p007-i40 is properly linked to c22 and c23."
+      },
+      {
+       "rule_id": "S1-12",
+       "met": true,
+       "note": "All 23 concepts are connected in the relation graph, figure-to-panel cross-references are resolved, and the teaching order is sensible."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "where": "teaching_order",
+     "problem": "Concept c03 (Glandular epithelium and inward folding, from p003-i11) is placed after c10 (at the end of the epithelial section), even though it appears in the text before the epithelial classification diagram and table (c04 to c10) and is mentioned in the cuboidal/columnar rows (glandular ducts, mucus secretion).",
+     "fix": "Consider moving c03 right after c02 (or right after c04) so students understand what a gland and glandular epithelium are before encountering 'glandular ducts', 'sweat gland', 'salivary glands', and 'mucus secretion' in the epithelial comparison table (c06, c07, c09, c10).",
+     "kind": "problems"
+    },
+    {
+     "where": "cross_references",
+     "problem": "The first cross-reference entry has from_item_id 'p003-i12' resolving to 'p003-i12' (a self-reference for Fig. 6.9).",
+     "fix": "Either remove the self-referential entry or link p003-i12 to the corresponding table item p003-i17 where the same epithelial types are compared.",
+     "kind": "problems"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792594122.853525
+  }
+ ],
+ "avoid_rounds": [],
+ "cost_usd": 0.180156,
+ "navin_verdict": null
+}

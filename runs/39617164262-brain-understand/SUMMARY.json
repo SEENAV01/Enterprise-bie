@@ -1,0 +1,42 @@
+{
+  "fake": false,
+  "ledger_calls": 8,
+  "ledger_cost_usd": 0.62355,
+  "maker": "openai",
+  "map_status": "passed",
+  "models": {
+    "google": "google/gemini-4-argon",
+    "openai": "gpt-6.1-sol"
+  },
+  "pages": [
+    {
+      "cost_usd": 0.159278,
+      "page": 3,
+      "rounds": 1,
+      "status": "passed"
+    },
+    {
+      "cost_usd": 0.284116,
+      "page": 7,
+      "rounds": 2,
+      "status": "passed"
+    }
+  ],
+  "quality": {
+    "cost_usd": 0.62355,
+    "cost_usd_per_page": 0.311775,
+    "deeper_questions": 88,
+    "items": 77,
+    "items_from_image": 77,
+    "map_passed": true,
+    "outside_answers": 86,
+    "pages": 2,
+    "pages_passed": 2,
+    "teachable_items": 72,
+    "teacher_questions": 182
+  },
+  "reviewer": "google",
+  "rulebook": "vision-2026-10-21@2026-10-21.4",
+  "section": "understand",
+  "status": "ok"
+}
