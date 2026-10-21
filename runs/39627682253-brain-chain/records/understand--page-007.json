@@ -1,0 +1,2066 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-007",
+ "status": "failed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.5",
+ "rulebook_digest": "ab8a61a72e3a9d01f80f21d9c47319a351de850800f01ade0900ca9f94aa0b2d",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "openai",
+ "reviewer_route": "google",
+ "inputs_digest": "c019cd38b73eecd978b38c0c46eb032f3b48599340ccb0269f707a2320b898c2",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 7 of 14.\n\nLast lines of the previous page (context only):\n• Each fibre is uninucleate\n• Fibres are branched\n• Striations are present.\n• Do not fatigue.\n• Performs contraction and relaxation in wall of heart.\n• Helps to pump and distribute blood to body.\nOther names: Striated, Involuntary.\n92\n\nFirst lines of the next page (context only):\nScience and Technology\n94\n\nNative text blocks of this page (id | text):\np0007-b0001 | Science and Technology\np0007-b0002 | 93"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "8ce0bf26eadd9c88faabe517c19219630b56e46ac1198e0c327aee1d7d26f518",
+    "base64_chars": 882908
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792597224.8877666,
+   "mode": "full",
+   "maker": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "296bb2843e70fcf762b11bb77b32c4586a6f744304f58ee70432a13148bcb903",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 4701,
+    "output_tokens": 18154,
+    "cost_usd": 0.190942
+   },
+   "notes": {
+    "about": "This image-led page consolidates the three types of muscular tissue, illustrates five connective tissues, and introduces the direction of impulse transmission between neurons.",
+    "key_questions": [
+     "How do skeletal, cardiac and visceral muscles differ in location, function, appearance and control?",
+     "Which cells, fibres and structural features identify the five connective tissues shown?",
+     "How are the cell body, dendrites, axon, axon tips and synapse connected in neuron-to-neuron signalling?"
+    ],
+    "decisions": [
+     {
+      "decision": "Read the teaching content from the image and classify the two native text blocks as boilerplate.",
+      "reason": "The native text contains only the running subject header and page number."
+     },
+     {
+      "decision": "Capture the muscle comparison as a table with a header row and three tissue rows, and capture its embedded muscle illustrations separately.",
+      "reason": "The illustrations add shape and branching information not fully stated in the table cells."
+     },
+     {
+      "decision": "Treat the connective-tissue montage as one labelled figure with five identified panels.",
+      "reason": "Its caption explicitly connects the five panels, and every readable anatomical label is retained."
+     },
+     {
+      "decision": "Retain the printed question about neuron transmission and link it to the accompanying diagram.",
+      "reason": "It functions as a teaching question even though it has no answer options."
+     },
+     {
+      "decision": "Mark explanations of mechanisms, terminology and visual identification as outside where the page does not state them.",
+      "reason": "The page primarily supplies comparison cells and diagram labels rather than explanatory prose."
+     }
+    ],
+    "uncertain": [
+     "The connective-tissue figure is small and its caption is soft; the figure number reads Fig. 6.10.",
+     "The label 'Red blood corpuscle' is positioned below the compact-bone panel. It is retained as a blood-cell label, not interpreted as a constituent of bone.",
+     "The muscle table lists erection of hairs as a smooth-muscle function but does not include skin in its location cell."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This image-led page consolidates the three types of muscular tissue, illustrates five connective tissues, and introduces the direction of impulse transmission between neurons.",
+     "key_questions": [
+      "How do skeletal, cardiac and visceral muscles differ in location, function, appearance and control?",
+      "Which cells, fibres and structural features identify the five connective tissues shown?",
+      "How are the cell body, dendrites, axon, axon tips and synapse connected in neuron-to-neuron signalling?"
+     ],
+     "decisions": [
+      {
+       "decision": "Read the teaching content from the image and classify the two native text blocks as boilerplate.",
+       "reason": "The native text contains only the running subject header and page number."
+      },
+      {
+       "decision": "Capture the muscle comparison as a table with a header row and three tissue rows, and capture its embedded muscle illustrations separately.",
+       "reason": "The illustrations add shape and branching information not fully stated in the table cells."
+      },
+      {
+       "decision": "Treat the connective-tissue montage as one labelled figure with five identified panels.",
+       "reason": "Its caption explicitly connects the five panels, and every readable anatomical label is retained."
+      },
+      {
+       "decision": "Retain the printed question about neuron transmission and link it to the accompanying diagram.",
+       "reason": "It functions as a teaching question even though it has no answer options."
+      },
+      {
+       "decision": "Mark explanations of mechanisms, terminology and visual identification as outside where the page does not state them.",
+       "reason": "The page primarily supplies comparison cells and diagram labels rather than explanatory prose."
+      }
+     ],
+     "uncertain": [
+      "The connective-tissue figure is small and its caption is soft; the figure number reads Fig. 6.10.",
+      "The label 'Red blood corpuscle' is positioned below the compact-bone panel. It is retained as a blood-cell label, not interpreted as a constituent of bone.",
+      "The muscle table lists erection of hairs as a smooth-muscle function but does not include skin in its location cell."
+     ]
+    },
+    "page_summary": "A comparison table distinguishes skeletal, cardiac and visceral (smooth) muscles by location, function, appearance and control. Embedded sketches show cylindrical skeletal fibres, branching cardiac fibres and a spindle-shaped smooth-muscle cell. A connective-tissue figure identifies blood cells, compact bone, hyaline cartilage, areolar tissue and adipose tissue with their labels. A neuron diagram shows an electrical signal passing along an axon toward a synapse with the next neuron.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "heading",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Top, above the muscle table",
+      "content": "Three Types of Muscular Tissue",
+      "content_type": "classification",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "high",
+      "exam_note": "Introduces a frequently tested tissue classification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Upper half of page",
+      "content": "Comparison of Skeletal, Cardiac and Visceral (smooth muscle) under Location, Function, Appearance and Control. The first, unheaded column identifies the tissue and includes its illustration.",
+      "content_type": "comparison",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [
+       "Muscular tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Read across rows and compare columns for matching and statement-based questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, header row",
+      "content": "Tissue column: unheaded | Location | Function | Appearance | Control",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "medium",
+      "exam_note": "These are the four comparison dimensions used in the table.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, Skeletal row",
+      "content": "Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What combination of features identifies skeletal muscle in this table?",
+        "answer": "It is associated with the skeleton, produces movement and heat, helps maintain posture, has striated parallel fibres with multiple eccentrically placed nuclei, and is under voluntary control.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does skeletal muscle differ from the other two muscle types?",
+        "answer": "Unlike cardiac and visceral muscle, its control is voluntary. It shares striations with cardiac muscle, but the table gives it multiple eccentric nuclei rather than one central nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can skeletal-muscle contraction support movement, posture and heat production?",
+        "answer": "Contraction develops tension that can pull on bones or hold body parts in position. Muscle metabolism also releases heat, so contraction contributes to warming the body.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What does 'multi-nucleated (eccentric)' mean?",
+        "answer": "A fibre contains several nuclei, positioned toward its periphery rather than centrally. 'Eccentric' here describes position, not a type of muscle contraction.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell nucleus",
+       "Muscle contraction",
+       "Skeleton",
+       "Voluntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Remember voluntary, striated, multinucleated and peripheral nuclei as a linked identification set.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, Skeletal row, first cell",
+      "content": "The skeletal-muscle sketch shows a long cylindrical, unbranched pink fibre with repeated transverse striations and several purple nuclei. Its long axis runs horizontally.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which visual features identify the skeletal-muscle sketch?",
+        "answer": "The illustration shows a cylindrical fibre, transverse bands and multiple nuclei, matching the skeletal row's striated and multi-nucleated appearance.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does skeletal muscle have a banded appearance?",
+        "answer": "Its contractile proteins are arranged in repeating units called sarcomeres. Their orderly arrangement produces alternating light and dark bands.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Muscle fibre",
+       "Cell nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for picture-based identification of skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, Cardiac row",
+      "content": "Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is cardiac muscle located, and what does it do?",
+        "answer": "It is located in the heart and pumps blood continuously.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Why is cardiac muscle an important exception to equating striation with voluntary control?",
+        "answer": "The table describes cardiac muscle as striated but involuntary. Skeletal muscle is also striated, but its control is voluntary.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does cardiac-muscle activity produce pumping?",
+        "answer": "Coordinated contractions develop pressure in the heart chambers and drive blood forward; relaxation permits refilling for the next pumping cycle.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Heart as a blood pump",
+       "Muscle contraction and relaxation",
+       "Cell nucleus",
+       "Involuntary control"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Cardiac muscle is striated and involuntary; do not classify control from striations alone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, Cardiac row, first cell",
+      "content": "The cardiac-muscle sketch shows a network of branching, striated pink fibres with purple central nuclei.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the cardiac-muscle sketch add to the appearance stated in the table?",
+        "answer": "Besides striations and central nuclei, it visibly shows branching fibres rather than a single straight cylindrical fibre.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a connected arrangement help cardiac muscle function?",
+        "answer": "Cardiac cells are linked at specialised junctions, allowing electrical excitation and mechanical force to be coordinated through the tissue.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Muscle fibre",
+       "Cell nucleus",
+       "Coordinated contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Branching striated fibres help distinguish cardiac from skeletal muscle.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "table_row",
+      "parent_item_id": "i2",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, Visceral row",
+      "content": "Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary",
+      "content_type": "comparison",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Which locations and functions are listed for visceral or smooth muscle?",
+        "answer": "The locations are the G.I. tract, uterus, eye and blood vessels. Its listed functions concern peristalsis, blood pressure, pupil size and erection of hairs.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does smooth muscle differ from cardiac muscle despite both being involuntary?",
+        "answer": "Smooth muscle has no striations, while cardiac muscle is striated. Both are described here as having one central nucleus, but their locations and functions differ.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does smooth muscle produce peristalsis and influence blood pressure?",
+        "answer": "Coordinated contractions of the gut wall propel its contents; this is peristalsis. Contraction and relaxation of vascular smooth muscle alter vessel diameter and therefore influence resistance to blood flow and blood pressure.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are the pupil-size and hair-erection functions related to smooth muscle?",
+        "answer": "Smooth muscles in the iris alter the pupil opening. Small smooth muscles attached to hair follicles pull hairs upright when they contract; skin is not listed in this table's location cell.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What does G.I. tract mean?",
+        "answer": "G.I. means gastrointestinal: the digestive tract through which food and its residues pass.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Digestive tract",
+       "Blood vessels and blood pressure",
+       "Pupil",
+       "Involuntary control",
+       "Cell nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match non-striated involuntary muscle to gut, uterus, vessels and iris; know peristalsis.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Muscle table, Visceral row, first cell",
+      "content": "The visceral (smooth muscle) sketch shows a single spindle-shaped pink cell with tapered ends and one centrally placed purple nucleus, without transverse bands.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What visual features identify the smooth-muscle cell?",
+        "answer": "It has a broad middle, tapered ends and a central nucleus, and lacks the transverse striations shown in the other two sketches.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why can smooth muscle contract despite lacking visible striations?",
+        "answer": "It contains contractile proteins, but they are not arranged into the regular sarcomere pattern responsible for striations in skeletal and cardiac muscle.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell shape",
+       "Cell nucleus",
+       "Muscle contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Spindle-shaped, non-striated and centrally uninucleate is the key visual combination.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Lower-left boxed figure",
+      "content": "A five-panel connective-tissue montage: (a) blood cells at upper left, including labelled white-cell types and platelets; (b) compact bone at lower left, with concentric rings around Haversian canals and a canaliculus label; (c) hyaline cartilage at lower middle, with chondrocytes in hyaline matrix; (d) areolar tissue at upper right, with fibres and several cell types; (e) adipose tissue at lower right, with fat droplets, nuclei and adipocytes. These are parallel examples, not stages in a sequence.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which five connective-tissue examples are identified in the montage?",
+        "answer": "The caption identifies blood cells, compact bone, hyaline cartilage, areolar tissue and adipose tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How can such different-looking tissues belong to the connective-tissue group?",
+        "answer": "Connective tissues share cells associated with an extracellular matrix, but the matrix varies greatly: it is fluid in blood, mineralised in bone, supportive in cartilage, and fibrous in areolar tissue. Adipose tissue is specialised for fat storage.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How should a learner identify the panels rather than memorise their positions?",
+        "answer": "Look for diagnostic structures: free blood cells, concentric bone organisation, cartilage cells in matrix, a loose fibre-and-cell network, and large fat-filled adipocytes.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell",
+       "Extracellular matrix",
+       "Connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Useful for connective-tissue classification and diagram identification.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Connective-tissue montage, panel (a)",
+      "content": "(a): types of blood cells; the panel groups the labelled white blood corpuscles and platelets.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does panel (a) represent?",
+        "answer": "The caption identifies it as types of blood cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How do the principal formed components of blood differ?",
+        "answer": "Red blood cells primarily transport respiratory gases, white blood cells participate in defence, and platelets contribute to clotting.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is blood included among connective tissues?",
+        "answer": "Its formed components are suspended in a fluid extracellular matrix, plasma, and it connects body regions through transport.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Blood",
+       "Extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Blood is a connective tissue despite its fluid matrix.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), label left of the white-cell group",
+      "content": "Different white blood corpuscles: bracket identifying the illustrated white blood cell types.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which white blood corpuscles are labelled?",
+        "answer": "Neutrophil, Eosinophil, Basophil, Lymphocyte and Monocyte.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How are these white cells commonly grouped?",
+        "answer": "Neutrophils, eosinophils and basophils are granulocytes; lymphocytes and monocytes are commonly grouped as agranulocytes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why show several kinds of white blood cell?",
+        "answer": "Defence involves different tasks, including engulfing material, mediating inflammation and providing specific immune responses, so white blood cells are not a single uniform cell type.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Blood cells",
+       "Immune defence"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Know the five named white-cell types and distinguish them from platelets and red cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), above the white cells",
+      "content": "Cytoplasm: pointer to the cell material around a white blood cell's nucleus.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What part does the cytoplasm label identify?",
+        "answer": "It identifies the region of a white blood cell surrounding its nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is cytoplasm different from the nucleus?",
+        "answer": "Cytoplasm contains the cell's cytosol and many functional structures outside the nucleus; the nucleus houses most of the cell's genetic material.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell membrane",
+       "Cell nucleus"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Supports recognition of nucleated blood-cell structure.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), above the white cells",
+      "content": "Nucleus: pointer to the darker internal structure in a white blood cell.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the nucleus label point to?",
+        "answer": "It points to the darker internal structure in a white blood cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the nucleus help distinguish white cells from mature human red cells?",
+        "answer": "White blood cells retain nuclei, whereas mature human red blood cells lack them. Nuclear shape also helps identify different white-cell types.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell nucleus",
+       "Red and white blood cells"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Nuclear presence and shape are useful blood-cell identification features.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), upper-left white cell",
+      "content": "Neutrophil (polymorphonuclear leucocyte): label beneath the illustrated white cell with a lobed nucleus.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which alternative description accompanies Neutrophil?",
+        "answer": "The figure gives 'polymorphonuclear leucocyte'.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a neutrophil described as polymorphonuclear?",
+        "answer": "Its nucleus is divided into several connected lobes. This describes one lobulated nucleus, not several separate nuclei.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a major role of neutrophils?",
+        "answer": "They are phagocytic defence cells that engulf microbes and cellular debris, particularly during acute inflammation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "White blood cell",
+       "Cell nucleus",
+       "Phagocytosis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise neutrophils as lobed-nucleus phagocytic white cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), upper-middle white cell",
+      "content": "Eosinophil: label beneath the illustrated granular white blood cell.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the labelled Eosinophil an example of?",
+        "answer": "It is one of the different white blood corpuscles illustrated in the blood-cell panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do eosinophils contribute to defence?",
+        "answer": "Their granules contain substances involved in responses to parasites, and they also participate in allergic inflammation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "White blood cell",
+       "Cell granules",
+       "Immune defence"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate eosinophils with parasites and allergic responses.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), upper-right white cell",
+      "content": "Basophil: label beneath the illustrated granular white blood cell.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Where is Basophil classified in the figure?",
+        "answer": "It is included among the different white blood corpuscles.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do basophils participate in inflammation?",
+        "answer": "They release mediators such as histamine that contribute to inflammatory and allergic responses.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "White blood cell",
+       "Inflammation"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise basophils as granulocytes associated with inflammatory mediators.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), lower-left white cell",
+      "content": "Lymphocyte: label beneath the illustrated white blood cell with a large nucleus.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What blood-cell category includes the labelled Lymphocyte?",
+        "answer": "It is one of the white blood corpuscles shown.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do lymphocytes support specific immune defence?",
+        "answer": "B lymphocytes can give rise to antibody-secreting plasma cells, while T lymphocytes participate in cell-mediated immune responses and immune regulation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "White blood cell",
+       "Antibody",
+       "Immune response"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link lymphocytes with adaptive immunity, while keeping them distinct from plasma cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), lower-middle white cell",
+      "content": "Monocyte: label beneath the large white blood cell with an indented nucleus.",
+      "content_type": "example",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Monocyte label identify?",
+        "answer": "It identifies one of the illustrated white blood corpuscles in panel (a).",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How are monocytes related to tissue macrophages?",
+        "answer": "Monocytes circulate in blood and can enter tissues and differentiate into macrophages, which engulf microbes and debris.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "White blood cell",
+       "Blood and tissue spaces",
+       "Phagocytosis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Connect the blood monocyte with the macrophage labelled in areolar tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (a), lower-right cluster",
+      "content": "Platelets: label beneath a cluster of small blood components beside the white cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Platelets label point to?",
+        "answer": "It points to the small clustered components drawn beside the larger white blood cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do platelets help stop bleeding?",
+        "answer": "They adhere at damaged vessel sites, aggregate into an initial plug and support clot formation. In humans they are cell fragments rather than complete nucleated white cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Blood vessel damage",
+       "Blood clotting",
+       "Cell fragment"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not classify platelets as a white-cell type merely because they appear beside white cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Bottom-left of connective-tissue montage, beneath compact-bone drawing",
+      "content": "Red blood corpuscle: pointer to a separate round, disc-like cell drawn below the compact-bone panel.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Red blood corpuscle label identify?",
+        "answer": "It names the separate disc-like cell near the bottom-left of the montage; the label should not be read as naming a bone cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is a mature human red blood corpuscle adapted to gas transport?",
+        "answer": "It contains haemoglobin, has a biconcave shape that supports exchange and flexibility, and lacks a nucleus, leaving more internal space for haemoglobin.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Blood",
+       "Oxygen transport",
+       "Cell nucleus"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify red blood cells separately from white cells, platelets and bone cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Connective-tissue montage, panel (b), lower left",
+      "content": "(b): compact bone; the drawing shows circular, concentric structural units around central canals.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which tissue is represented by panel (b)?",
+        "answer": "The caption identifies it as compact bone.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the concentric arrangement in compact bone organised?",
+        "answer": "An osteon has concentric layers of mineralised matrix around a central Haversian canal. Bone cells occupy spaces in the matrix and connect through fine canaliculi.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective-tissue matrix",
+       "Mineralised tissue",
+       "Blood vessels"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Concentric organisation and Haversian canals identify compact bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (b), label above compact-bone units",
+      "content": "Haversian canal (contains blood vessels and nerve fibres): pointer to a central canal in the compact-bone drawing.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the page state is inside a Haversian canal?",
+        "answer": "It contains blood vessels and nerve fibres.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does hard bone need canals containing blood vessels?",
+        "answer": "Bone is living tissue. Its cells need nutrients and oxygen and must remove wastes; vascular canals bring the blood supply into the hard matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Blood supply",
+       "Living cells",
+       "Bone matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Haversian canals carry vessels and nerves; do not confuse them with canaliculi.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (b), label below and right of bone units",
+      "content": "Canaliculus (contains slender process of bone cell or osteocyte): pointer to a fine channel in the compact-bone drawing.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is stated to occupy a canaliculus?",
+        "answer": "It contains a slender process of a bone cell, or osteocyte.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do canaliculi help osteocytes embedded in hard matrix?",
+        "answer": "They accommodate cell processes and tissue fluid, enabling communication and exchange between osteocytes and toward the blood supply.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How does the labelled canaliculus differ from a Haversian canal?",
+        "answer": "The canaliculus contains a slender osteocyte process; the Haversian canal contains blood vessels and nerve fibres.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "Cell process",
+       "Bone matrix",
+       "Haversian canal"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the contents of canaliculi from those of Haversian canals.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i25",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Connective-tissue montage, panel (c), lower middle",
+      "content": "(c): hyaline cartilage; the drawing shows chondrocytes dispersed in a pale hyaline matrix.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which tissue is represented by panel (c)?",
+        "answer": "The caption identifies it as hyaline cartilage, and the panel labels its chondrocytes and hyaline matrix.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does cartilage provide support without the hardness of bone?",
+        "answer": "Its firm, hydrated extracellular matrix provides support and resistance to compression but is not mineralised like typical bone matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Extracellular matrix",
+       "Connective tissue",
+       "Bone"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify cartilage by chondrocytes within matrix, not by Haversian systems.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i26",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (c), upper label",
+      "content": "Chondrocyte: pointer to a cartilage cell within the hyaline cartilage drawing.",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is a chondrocyte?",
+        "answer": "It is a cartilage cell, as indicated by the label in the hyaline-cartilage panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is a chondrocyte related to the surrounding cartilage matrix?",
+        "answer": "It occupies a small space called a lacuna and helps maintain the surrounding extracellular matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cartilage",
+       "Cell",
+       "Extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match chondrocyte to cartilage and osteocyte to bone.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i27",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (c), label left of the cartilage matrix",
+      "content": "Hyaline matrix: pointer to the material surrounding the chondrocytes.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the hyaline matrix relative to the chondrocytes?",
+        "answer": "It is the surrounding extracellular material shown between and around the cartilage cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is the matrix important for cartilage function?",
+        "answer": "Its hydrated, fibre-containing material bears mechanical loads and resists compression, giving the tissue much of its supportive character.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Extracellular matrix",
+       "Chondrocyte"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Recognise that connective-tissue properties depend strongly on the matrix.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i28",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Connective-tissue montage, panel (d), upper right",
+      "content": "(d): areolar tissue; a loose network of fibres surrounds several labelled cell types.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which components are labelled in areolar tissue?",
+        "answer": "Reticular fibre, Fibroblast, Macrophage, Collagen fibre, Mast cell and Plasma cell.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does its loose fibre-and-cell arrangement suit areolar tissue?",
+        "answer": "It provides flexible packing and support around structures while permitting fluid exchange and accommodating defence cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective tissue",
+       "Extracellular fibres",
+       "Cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify areolar tissue as a loose connective tissue with fibres and multiple cell types.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i29",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (d), top-left label",
+      "content": "Reticular fibre: pointer to a fine branching fibre in the areolar-tissue network.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Reticular fibre label identify?",
+        "answer": "It identifies a fine fibre component of the illustrated areolar tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do reticular fibres provide support?",
+        "answer": "They form delicate branching networks that support and organise cells within tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Extracellular fibre",
+       "Tissue support"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Reticular fibre is a matrix component, not a cell type.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i30",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (d), top-right label",
+      "content": "Fibroblast: pointer to an elongated cell among the areolar-tissue fibres.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the labelled fibroblast shown?",
+        "answer": "It is shown among the fibres in the areolar-tissue panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do fibroblasts contribute to connective tissue?",
+        "answer": "They synthesise extracellular matrix components, including fibres and ground substance, and participate in tissue repair.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Extracellular matrix",
+       "Protein synthesis"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate fibroblasts with production of connective-tissue fibres and matrix.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i31",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (d), left-side label",
+      "content": "Macrophage: pointer to an irregular cell in areolar tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "In which connective-tissue panel is a macrophage labelled?",
+        "answer": "It is labelled in the areolar-tissue panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a macrophage defend and clean tissues?",
+        "answer": "It engulfs microbes, dead cells and debris by phagocytosis and can help activate other immune responses.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Phagocytosis",
+       "Immune defence",
+       "Connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Macrophage is a phagocytic defence cell, not a matrix-producing fibre.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i32",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (d), lower-left label",
+      "content": "Collagen fibre: pointer to a thick fibre in the areolar-tissue drawing.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the Collagen fibre label name?",
+        "answer": "It names one of the extracellular fibre components shown in areolar tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do collagen fibres strengthen connective tissue?",
+        "answer": "Their protein bundles provide tensile strength, helping tissue resist pulling forces.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Protein",
+       "Extracellular fibre",
+       "Tensile force"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Associate collagen with tensile strength.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i33",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (d), bottom-middle label",
+      "content": "Mast cell: pointer to a granular cell in areolar tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is a mast cell labelled on this page?",
+        "answer": "It is one of the cells labelled in the areolar-tissue panel.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do mast cells participate in tissue responses?",
+        "answer": "They release mediators, including histamine, that influence local blood vessels and contribute to inflammation and allergic responses.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Inflammation",
+       "Cell granules",
+       "Blood vessels"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Link mast cells with histamine and inflammatory or allergic responses.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i34",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (d), bottom-right label",
+      "content": "Plasma cell: pointer to a rounded cell in areolar tissue.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the plasma cell shown?",
+        "answer": "It is labelled among the cells of areolar tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do plasma cells contribute to immunity?",
+        "answer": "They are differentiated B lymphocytes specialised for secreting antibodies.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How is a plasma cell different from blood plasma?",
+        "answer": "A plasma cell is an antibody-producing cell; blood plasma is the fluid extracellular component of blood.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "B lymphocyte",
+       "Antibody",
+       "Blood plasma"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Do not confuse plasma cells with the fluid plasma of blood.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i35",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Connective-tissue montage, panel (e), lower right",
+      "content": "(e): adipose tissue; large cells contain pale fat droplets, with nuclei near their edges.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which features identify the adipose-tissue panel?",
+        "answer": "Its labelled adipocytes contain large fat droplets and nuclei displaced toward the cell edges.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the structure of adipose tissue suit its function?",
+        "answer": "Large intracellular lipid stores provide an energy reserve. Adipose tissue also contributes to cushioning and thermal insulation.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Fat as stored energy",
+       "Cell nucleus",
+       "Connective tissue"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify adipose tissue by fat-filled cells with peripheral nuclei.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i36",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (e), top-left label",
+      "content": "Fat droplet: pointer to the large pale inclusion occupying much of an adipocyte.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What occupies much of the illustrated adipocyte?",
+        "answer": "The large region labelled Fat droplet.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a large fat droplet affect the rest of the cell?",
+        "answer": "It occupies most of the cell volume, leaving a thin peripheral cytoplasmic region and displacing the nucleus toward the edge.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell cytoplasm",
+       "Cell nucleus",
+       "Lipid storage"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The stored fat is intracellular, within adipocytes.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i37",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (e), upper-middle label",
+      "content": "Nucleus: pointers to dark peripheral nuclei in adipose cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where are the labelled adipocyte nuclei drawn?",
+        "answer": "They are near the edges of the large fat-containing cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are these nuclei peripheral?",
+        "answer": "The large lipid droplet takes up most of the cell and displaces the nucleus and much of the cytoplasm to the periphery.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell nucleus",
+       "Fat droplet"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Peripheral nuclei help identify the illustrated adipose cells.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i38",
+      "kind": "diagram_label",
+      "parent_item_id": "i10",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Panel (e), label beneath the cells",
+      "content": "Adipocyte: pointer to a fat-storage cell in adipose tissue.",
+      "content_type": "definition",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is an adipocyte?",
+        "answer": "It is the cell identified in the adipose-tissue panel, containing a labelled fat droplet.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do adipocytes act as an energy reserve?",
+        "answer": "They store energy-rich lipids and can release stored fuel when the body requires it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell",
+       "Lipid",
+       "Energy storage"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Match adipocyte to adipose tissue and fat storage.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i39",
+      "kind": "caption",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Below the connective-tissue montage",
+      "content": "Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "How does the caption map the letters to tissue types?",
+        "answer": "It maps (a) to types of blood cells, (b) to compact bone, (c) to hyaline cartilage, (d) to areolar tissue and (e) to adipose tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "Which panels emphasise specialised cells and which emphasise an organised surrounding matrix?",
+        "answer": "The blood and adipose panels foreground their cellular components; bone and cartilage prominently show cells associated with distinctive matrices; areolar tissue shows both a fibre network and varied cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should these panels be studied together?",
+        "answer": "They demonstrate how changes in cells and extracellular matrix produce different functions within the connective-tissue category.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Connective tissue",
+       "Extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Retain the panel-to-tissue mapping for labelled-figure questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i40",
+      "kind": "question",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Lower-right box, above neuron diagram",
+      "content": "How do neurons transmit impulses (send message to other cells)?",
+      "content_type": "question",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "What route of communication does the accompanying figure illustrate?",
+        "answer": "It shows input from the axon of a previous neuron, a neuron with dendrites and a cell body, an electrical signal travelling along its axon, and axon tips communicating at a synapse with the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is the signal passed from an axon ending to the next neuron at a typical chemical synapse?",
+        "answer": "An arriving electrical impulse triggers neurotransmitter release. The transmitter crosses the synaptic cleft and acts on receptors on the receiving cell, influencing its electrical activity.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Neuron",
+       "Electrical nerve impulse",
+       "Cell-to-cell communication"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A conceptual diagram question, not a multiple-choice question.",
+      "tests_item_ids": [
+       "i41",
+       "i42",
+       "i43",
+       "i45",
+       "i46",
+       "i47",
+       "i48",
+       "i49",
+       "i52",
+       "i53"
+      ]
+     },
+     {
+      "item_id": "i41",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Lower-right boxed figure",
+      "content": "Neuron communication diagram. A red axon of a previous neuron approaches branches of the lower-left neuron at a circled synapse. This neuron's orange cell body contains a nucleus and bears dendrites. Its long axon runs rightward and curves upward, with blue arrows labelled electrical signal pointing toward the upper-right neuron. Terminal branches labelled axon tips approach the dendrites of the next neuron; an upper circled contact is labelled synapse. The receiving neuron also has a labelled cell body and nucleus. Leader arrows identify parts; the blue arrows specifically indicate signal direction.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How is information flow represented?",
+        "answer": "The blue electrical-signal arrows follow the first neuron's axon toward its terminal branches and the next neuron's dendrites. The previous neuron's axon and the two marked synapses place the pictured cells in a communication chain.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why must the arrows identifying structures be distinguished from the signal arrows?",
+        "answer": "A label arrow merely points to a part; it does not necessarily indicate information flow. Here the blue arrows along the axon are the ones explicitly labelled electrical signal.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does a neuron combine receiving and transmitting roles?",
+        "answer": "Inputs received mainly through dendrites and the cell body influence whether an impulse is generated. An impulse then propagates along the axon toward its terminals, where communication with another cell occurs.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell body",
+       "Dendrite",
+       "Axon",
+       "Electrical nerve impulse"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Trace the signal from receiving regions toward axon terminals and the next neuron.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i42",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, far left",
+      "content": "axon of previous neuron: pointer to the incoming red process approaching the lower-left neuron.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Whose axon is shown entering from the left?",
+        "answer": "It is labelled as the axon of the previous neuron, not as a dendrite of the lower-left neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this incoming axon contribute to a neuronal pathway?",
+        "answer": "It carries the previous neuron's output to a synaptic contact with the receiving neuron, linking separate cells into a signalling pathway.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Axon",
+       "Separate neurons",
+       "Synapse"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise that an incoming process can belong to a different neuron.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i43",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, circled contact at lower left",
+      "content": "synapse: pointer to the circled contact region between the previous neuron's axon ending and the lower-left neuron's receiving branches.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the first synapse marked?",
+        "answer": "It is marked where the previous neuron's axon ending approaches a receiving branch of the lower-left neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How is communication across a typical chemical synapse different from conduction along an axon?",
+        "answer": "An axon conducts a propagating electrical membrane signal. At a chemical synapse, neurotransmitter carries the message across a small gap to receptors on another cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Axon ending",
+       "Cell membrane",
+       "Neurotransmitter"
+      ],
+      "exam_importance": "high",
+      "exam_note": "A synapse is an intercellular communication site, not a continuous fusion of two axons.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i44",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, above lower-left neuron",
+      "content": "neuron cell body: pointer to the orange central region of the lower-left neuron.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which part is identified as the lower-left neuron's cell body?",
+        "answer": "The orange central region surrounding its nucleus and giving rise to processes is labelled neuron cell body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the cell body support the neuron's activity?",
+        "answer": "It contains the nucleus and much of the cell's biosynthetic machinery, maintaining the neuron and helping integrate incoming signals.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell nucleus",
+       "Cell metabolism",
+       "Neuron processes"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Identify the cell body separately from dendrites and axon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i45",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, right of lower-left cell body",
+      "content": "nucleus: pointer to the dark oval inside the lower-left neuron's cell body.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the first neuron's nucleus shown?",
+        "answer": "It is inside the neuron cell body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why should the nucleus not be described as the part that carries an impulse down the axon?",
+        "answer": "The nucleus regulates cellular functions through genetic information. Impulse propagation is an electrical process involving the axon membrane, not movement of the nucleus or a message through it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell nucleus",
+       "Cell membrane",
+       "Nerve impulse"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "The nucleus is within the cell body; distinguish cellular control from impulse conduction.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i46",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, beneath lower-left neuron",
+      "content": "dendrites: pointer to the short branched processes extending from the lower-left cell body.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which structures are labelled dendrites?",
+        "answer": "The short branched processes around the lower-left neuron's cell body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does dendritic branching help a neuron receive information?",
+        "answer": "Branching increases the available receiving surface and permits contacts from multiple other cells; incoming signals can then influence activity at the cell body.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell process",
+       "Synaptic input",
+       "Neuron cell body"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Dendrites are generally receiving regions; distinguish them from the long axon.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i47",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, central curved process",
+      "content": "axon: pointer to the long process extending from the lower-left neuron toward the upper-right neuron.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Which process is labelled axon?",
+        "answer": "The long process that extends rightward and curves upward from the lower-left neuron toward the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does the axon transmit information over its length?",
+        "answer": "Local changes in membrane voltage trigger adjacent regions, allowing an action potential to propagate toward the terminals.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell membrane",
+       "Electrical membrane signal",
+       "Neuron cell body"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The axon carries the neuron's output toward its terminal region.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i48",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, blue arrows beneath and alongside axon",
+      "content": "electrical signal: blue arrows following the axon from the lower-left neuron toward its terminal branches near the upper-right neuron.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How do the blue arrows specify the direction of signalling?",
+        "answer": "They progress along the axon away from the lower-left cell body and toward the terminal region beside the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "what",
+        "question": "What is meant by an electrical signal in a neuron?",
+        "answer": "It is a change in voltage across the cell membrane produced by controlled movement of ions, rather than a bulk flow of cell material along the axon.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Axon",
+       "Cell membrane",
+       "Ions",
+       "Electrical potential"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Trace the explicit signal arrows rather than inferring direction from label arrows.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i49",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, upper circled contact",
+      "content": "synapse: pointer to the circled contact between an axon tip of the lower-left neuron and a receiving branch of the upper-right neuron.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "What connection does the upper synapse mark?",
+        "answer": "It marks a contact between the first neuron's terminal region and the next neuron's dendritic region.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are two synapses shown in the same diagram?",
+        "answer": "They illustrate that the lower-left neuron receives input from a previous cell and sends output to a following cell, rather than operating as an isolated unit.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "Synapse",
+       "Axon terminal",
+       "Dendrite"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Recognise repeated neuron-to-neuron junctions in a pathway.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i50",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, above upper-right neuron",
+      "content": "neuron cell body: pointer to the orange central region of the upper-right neuron.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the second neuron cell body label identify?",
+        "answer": "It identifies the central region of the next neuron, surrounding its separately labelled nucleus.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this second cell body help interpret the diagram as communication between cells?",
+        "answer": "It establishes a separate receiving neuron with its own nucleus and branches, rather than depicting the first axon looping back into its own cell body.",
+        "basis": "book"
+       }
+      ],
+      "prerequisites": [
+       "Neuron cell body",
+       "Separate cells"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Keep the transmitting and receiving neurons distinct.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i51",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, right of upper-right cell body",
+      "content": "nucleus: pointer to the dark oval inside the upper-right neuron's cell body.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is the next neuron's nucleus shown?",
+        "answer": "It is inside the upper-right neuron cell body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does having its own nucleus relate to the receiving neuron's identity?",
+        "answer": "The receiving neuron is a separate cell with its own genetic and metabolic organisation; the synapse permits communication without merging the two cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Cell nucleus",
+       "Neuron",
+       "Synapse"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "The next neuron has its own cell body and nucleus.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i52",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, beneath upper-right neuron, left of dendrite label",
+      "content": "axon tips: pointer to the terminal branches of the lower-left neuron's axon beside the next neuron's dendrites.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the labelled axon tips?",
+        "answer": "They are the branched endings of the axon that has carried the signal from the lower-left neuron toward the next neuron.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do axon tips pass the message onward at a chemical synapse?",
+        "answer": "Arrival of an impulse triggers release of neurotransmitter from terminal vesicles; the transmitter then acts on the receiving cell.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Axon",
+       "Synapse",
+       "Neurotransmitter"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguish the sender's axon tips from the receiver's dendrites where the processes meet.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i53",
+      "kind": "diagram_label",
+      "parent_item_id": "i41",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "Neuron diagram, lower-right label",
+      "content": "dendrites of next neuron: pointers to receiving branches extending from the upper-right neuron.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "Whose dendrites are identified by the final label?",
+        "answer": "They belong to the next, upper-right neuron, not to the neuron whose long axon is carrying the illustrated electrical signal.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a message arriving at these dendrites influence the next neuron?",
+        "answer": "Synaptic input changes the receiving membrane's electrical state. The combined inputs can increase or decrease the likelihood that the next neuron generates an impulse.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "Dendrite",
+       "Synaptic input",
+       "Electrical nerve impulse"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Complete the pathway: axon tips of one neuron communicate with receiving regions of another.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0007-b0001",
+     "p0007-b0002"
+    ],
+    "text_image_disagreements": []
+   },
+   "code_problems": [],
+   "review_error": {
+    "kind": "provider_unavailable",
+    "message": "aicredits:provider_unavailable: [Errno 104] Connection reset by peer"
+   },
+   "passed": false
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.190942,
+ "navin_verdict": null
+}
