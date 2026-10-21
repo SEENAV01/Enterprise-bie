@@ -435,3 +435,61 @@ class Lesson(unittest.TestCase):
             self.assertTrue(Path(folder, "SCRIPT.md").exists())
             self.assertTrue(Path(folder, "records", "lesson--plan.json").exists())
             self.assertTrue(Path(folder, "records", "lesson--script-v1.json").exists())
+
+
+class Director(unittest.TestCase):
+    beats = [{"beat_id": "b1", "say": "ज़रा सोचिए, neuron कैसे signal भेजता है?"},
+             {"beat_id": "b2", "say": "Dendrite signal लेता है, axon आगे भेजता है।"}]
+
+    def scene(self, sid, beat_ids, word="neuron", beat="b1", **extra):
+        base = {"scene_id": sid, "beat_ids": beat_ids,
+                "frame": {"process": "", "how_it_works": "", "when_or_sequence": "", "conditions_or_atmosphere": "", "who_or_what_changes": ""},
+                "style": "", "setting": "",
+                "elements": [{"element_id": "e1", "kind": "cell_or_micro", "shows": "A neuron with dendrites and axon.",
+                              "parts_to_label": ["dendrite"], "detail": "anatomy", "source_item_ids": []}],
+                "camera": [], "actions": [{"cue": {"beat_id": beat, "word": word}, "element_id": "e1", "action": "appear", "detail": ""}],
+                "visual_math": [], "interaction": {"type": "none", "question_id": "", "prompt": "", "target_element_id": ""}}
+        base.update(extra)
+        return base
+
+    def test_word_matching(self):
+        from bie.brain.director import word_in
+        self.assertTrue(word_in("Neuron", self.beats[0]["say"]))
+        self.assertTrue(word_in("सोचिए", self.beats[0]["say"]))
+        self.assertFalse(word_in("synapse", self.beats[0]["say"]))
+        self.assertFalse(word_in("neur", self.beats[0]["say"]))
+
+    def test_good_video_passes(self):
+        from bie.brain.director import check_video
+        value = {"scenes": [self.scene("s1", ["b1"]), self.scene("s2", ["b2"], word="axon", beat="b2")]}
+        self.assertEqual(check_video(value, self.beats, set(), set()), [])
+
+    def test_problems_found(self):
+        from bie.brain.director import check_video
+        bad = {"scenes": [self.scene("s1", ["b2"], word="synapse", beat="b2",
+                                     interaction={"type": "pause_question", "question_id": "x#q1", "prompt": "?", "target_element_id": ""},
+                                     camera=[{"cue": {"beat_id": "b1", "word": "neuron"}, "move": "zoom_in", "target_element_id": "e9", "note": ""}])]}
+        problems = check_video(bad, self.beats, set(), set())
+        for fragment in ("cue word 'synapse' is not spoken", "camera cue beat 'b1' is not one of this scene's beats",
+                         "targets unknown element 'e9'", "pause question 'x#q1'", "1 beats are in no scene: b1"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_patch_keeps_beat_order(self):
+        from bie.brain.director import apply_patch
+        previous = {"scenes": [self.scene("s2", ["b2"])]}
+        patched = apply_patch(previous, {"notes": {}, "replace_scenes": [self.scene("s1", ["b1"])], "remove_scene_ids": []}, ["b1", "b2"])
+        self.assertEqual([s["scene_id"] for s in patched["scenes"]], ["s1", "s2"])
+
+    def test_offline_chain_reaches_the_director(self):
+        from structural_pdf_fixtures import positioned_text_pdf
+        from bie.brain.director import run_director
+        from bie.brain.lesson import run_lesson
+        pdf = positioned_text_pdf([[(72, 720, "Neurons carry messages."), (72, 700, "Muscles help in movement.")]])
+        with tempfile.TemporaryDirectory() as folder:
+            runner = SectionRunner(gateway(), maker="anthropic", reviewer="openai", rulebook=rulebook.load(), records_dir=Path(folder, "r"))
+            chapter = run_chapter(pdf, COURSE, runner, folder, workers=1)
+            lesson = run_lesson(chapter, COURSE, runner, folder, workers=1)
+            director = run_director(chapter, lesson, COURSE, runner, folder, workers=1)
+            self.assertEqual(director["quality"]["videos_passed"], director["quality"]["videos"])
+            self.assertGreater(director["quality"]["scenes"], 0)
+            self.assertTrue(Path(folder, "DIRECTOR.md").exists())

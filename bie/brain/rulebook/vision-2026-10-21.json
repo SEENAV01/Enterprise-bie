@@ -1,6 +1,6 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.4",
+  "version": "2026-10-21.5",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "rules": [
@@ -171,6 +171,27 @@
       "status": "locked",
       "rule": "Mathematics is a visual language for every subject: wherever there are numbers, comparisons or change, show them to scale and let the numbers raise the question (for example 3,000 against 50,000 soldiers at Plassey).",
       "check": "Are numbers, comparisons and changes shown visually where they exist?"
+    },
+    {
+      "id": "S3-03",
+      "sections": ["director"],
+      "status": "locked",
+      "rule": "The screen shows what is being said at that moment. Every camera move and every visual action is tied to the exact word in the beat that triggers it, so the animation lands on the spoken word.",
+      "check": "Does every visual action land on the word that is being spoken about it?"
+    },
+    {
+      "id": "S3-04",
+      "sections": ["director"],
+      "status": "locked",
+      "rule": "Describe every visual at the detail Navin asked for: name the structure, the parts that must be visible, their arrangement and the labels, so that an anatomy-level asset can be found or built. Processes are shown happening inside the structure (zoom in, then the steps run), never as a static picture with text.",
+      "check": "Is every visual described precisely enough for an anatomy-level asset, with processes shown happening inside the structure?"
+    },
+    {
+      "id": "S3-05",
+      "sections": ["director"],
+      "status": "locked",
+      "rule": "The video is interactive: mark the moments where the player pauses for a question (taken from the chapter map's teacher questions) or lets the student tap a structure to look inside. Use them where they make the student think, not at every scene.",
+      "check": "Are pause questions and tap-to-explore moments placed where they make the student think?"
     },
     {
       "id": "S4-01",

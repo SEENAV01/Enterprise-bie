@@ -79,6 +79,23 @@ def script_answer(user_text: str):
     return {"notes": NOTES, "title": data["video"]["title"], "beats": beats}
 
 
+def director_answer(user_text: str):
+    data = _payload(user_text)
+    scenes = []
+    for n, beat in enumerate(data.get("beats", []), 1):
+        word = (beat["say"].split() or ["x"])[0]
+        scenes.append({"scene_id": f"s{n}", "beat_ids": [beat["beat_id"]],
+                       "frame": {"process": "", "how_it_works": "", "when_or_sequence": "", "conditions_or_atmosphere": "",
+                                 "who_or_what_changes": ""},
+                       "style": "offline", "setting": "offline",
+                       "elements": [{"element_id": "e1", "kind": "illustration", "shows": "Offline element.", "parts_to_label": [],
+                                     "detail": "schematic", "source_item_ids": beat["covers_item_ids"]}],
+                       "camera": [], "actions": [{"cue": {"beat_id": beat["beat_id"], "word": word}, "element_id": "e1",
+                                                  "action": "appear", "detail": "offline"}],
+                       "visual_math": [], "interaction": {"type": "none", "question_id": "", "prompt": "", "target_element_id": ""}})
+    return {"notes": NOTES, "scenes": scenes}
+
+
 def review_answer(schema):
     value = {"notes": NOTES, "verdict": "pass", "checklist": []}
     for key in schema.get("properties", {}):
@@ -108,6 +125,10 @@ class BrainFakeClient:
                 value[key] = ([{"what": "offline missing row", "where_on_page": "offline", "severity": "blocking"}]
                               if key == "missing" else
                               [{"where": "offline", "problem": "offline problem", "fix": "offline fix", "severity": "blocking"}])
+        elif "replace_scenes" in props:
+            value = {"notes": NOTES, "replace_scenes": [], "remove_scene_ids": []}
+        elif "scenes" in props:
+            value = director_answer(user)
         elif "replace_beats" in props:
             value = {"notes": NOTES, "replace_beats": [], "insert_beats": [], "remove_beat_ids": []}
         elif "replace_items" in props:
