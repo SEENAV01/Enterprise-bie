@@ -20,9 +20,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test; brain-understand = Section 1, brain-lesson = Section 2 from a chapter map (source = its URL), brain-director = Section 3 from an earlier run (source = its folder URL), brain-chain = Sections 1 to 3'
+        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test; brain-understand = Section 1, brain-lesson = Section 2 from a chapter map (source = its URL), brain-director = Section 3 from an earlier run (source = its folder URL), brain-notes = Section 7 from a chapter map (source = its URL), brain-chain = Sections 1, 2, 3 and 7'
         type: choice
-        options: [probe, smoke, blind-test, brain-understand, brain-lesson, brain-director, brain-chain]
+        options: [probe, smoke, blind-test, brain-understand, brain-lesson, brain-director, brain-notes, brain-chain]
         default: probe
       source:
         description: 'blind-test: chapter PDF as an https URL or a repository path'
@@ -176,7 +176,7 @@ jobs:
             args=(--section "$section" --maker "$maker" --reviewer "$reviewer" --models "$MODELS" --routes "$ROUTES"
                   --course "$SUBJECT" --workers 8 --out "$RUNNER_TEMP/live")
             case "$section" in
-              lesson) args+=(--chapter-map "$SOURCE") ;;
+              lesson|notes) args+=(--chapter-map "$SOURCE") ;;
               director) args+=(--from-run "$SOURCE") ;;
               *) args+=(--source "$SOURCE"); if [ -n "$CLASS_LEVEL" ] && [[ "$CLASS_LEVEL" == https://* ]]; then args+=(--resume-from "$CLASS_LEVEL"); fi ;;
             esac

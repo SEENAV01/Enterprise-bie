@@ -96,6 +96,28 @@ def director_answer(user_text: str):
     return {"notes": NOTES, "scenes": scenes}
 
 
+def notes_answer(user_text: str):
+    data = _payload(user_text)
+    slides = []
+    teachable = [i for i in data.get("items", []) if i["teachable"]]
+    for n, item in enumerate(teachable, 1):
+        kind = ["flow", "difference_table", "tree", "labelled_list"][n % 4]
+        visual = {"type": kind, "title": "Offline visual", "steps": [], "events": [], "columns": [], "rows": [], "series": [],
+                  "nodes": [], "edges": []}
+        if kind == "flow":
+            visual["steps"] = [{"label": "Pehla", "detail": "offline"}, {"label": "Doosra", "detail": "offline"}]
+        elif kind == "difference_table":
+            visual["columns"] = ["A", "B"]
+            visual["rows"] = [{"label": "Feature", "cells": ["x", "y"]}]
+        else:
+            visual["nodes"] = [{"id": "r", "label": "Root", "parent_id": "", "detail": ""},
+                               {"id": "c", "label": "Child", "parent_id": "r", "detail": "offline"}]
+        slides.append({"slide_id": f"n{n}", "ask": "what", "question": "ये क्या है? " + item["content"][:40],
+                       "essence": "Offline essence.", "answer": "Offline answer.", "deep_dive": "Offline deep dive.", "visual": visual,
+                       "source_item_ids": [item["item_id"]], "basis": "book", "not_in_book": "", "pyq_item_ids": []})
+    return {"notes": NOTES, "slides": slides}
+
+
 def review_answer(schema):
     value = {"notes": NOTES, "verdict": "pass", "checklist": []}
     for key in schema.get("properties", {}):
@@ -125,6 +147,10 @@ class BrainFakeClient:
                 value[key] = ([{"what": "offline missing row", "where_on_page": "offline", "severity": "blocking"}]
                               if key == "missing" else
                               [{"where": "offline", "problem": "offline problem", "fix": "offline fix", "severity": "blocking"}])
+        elif "replace_slides" in props:
+            value = {"notes": NOTES, "replace_slides": [], "remove_slide_ids": []}
+        elif "slides" in props:
+            value = notes_answer(user)
         elif "replace_scenes" in props:
             value = {"notes": NOTES, "replace_scenes": [], "remove_scene_ids": []}
         elif "scenes" in props:

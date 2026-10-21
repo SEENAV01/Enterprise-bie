@@ -653,3 +653,49 @@ class Resume(unittest.TestCase):
             self.assertEqual(sorted(second["items"]), sorted(first["items"]))
             self.assertEqual(second["items"]["p001-i1"]["content"], "Tissue is a group of cells.")
             self.assertEqual(len(maker.calls) - calls, 2)              # page 2 again plus the chapter map
+
+
+class Notes(unittest.TestCase):
+    chapter = {"items": {"p001-i1": item("p001-i1", page=1), "p001-q": item("p001-q", page=1, kind="question", teachable=False,
+                                                                           teacher_understanding=[])}}
+
+    def slide(self, sid, **extra):
+        base = {"slide_id": sid, "ask": "what", "question": "Tissue क्या है?", "essence": "Cells ka group.", "answer": "a", "deep_dive": "b",
+                "visual": {"type": "difference_table", "title": "", "steps": [], "events": [], "columns": ["A", "B"],
+                           "rows": [{"label": "x", "cells": ["1", "2"]}], "series": [], "nodes": [], "edges": []},
+                "source_item_ids": ["p001-i1"], "basis": "book", "not_in_book": "", "pyq_item_ids": ["p001-q"]}
+        base.update(extra)
+        return base
+
+    def test_checks(self):
+        from bie.brain.notes import check_slides
+        self.assertEqual(check_slides({"slides": [self.slide("n1")]}, self.chapter, {"p001-i1"}), [])
+        bad_visual = dict(self.slide("n1")["visual"], rows=[{"label": "x", "cells": ["1"]}])
+        problems = check_slides({"slides": [self.slide("n1", source_item_ids=[], pyq_item_ids=["p001-i1"], visual=bad_visual),
+                                            self.slide("n1", essence="")]}, self.chapter, {"p001-i1", "p001-i9"})
+        for fragment in ("slide_id 'n1' is used more than once", "needs its source items", "is not a question item",
+                         "has 1 cells for 2 columns", "essence is empty", "1 teachable items are the source of no slide"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_html_is_self_contained_and_safe(self):
+        from bie.brain.notes_render import render_notes_html
+        notes = {"course": {"title": "T <b>", "subject": "Bio", "learners": "UPSC", "language": "Hinglish"}, "rulebook_version": "r",
+                 "concepts": [{"name": "Tissue", "slides": [self.slide("n1", answer="</script><script>alert(1)</script>")]}],
+                 "items": {"p001-i1": {"page": 1}}}
+        page = render_notes_html(notes)
+        self.assertNotIn("</script><script>alert(1)", page)
+        self.assertIn("T &lt;b&gt;", page)
+        self.assertNotIn("http://", page.replace("http://www.w3.org", ""))
+        self.assertNotIn("<link", page)
+
+    def test_offline_notes(self):
+        from structural_pdf_fixtures import positioned_text_pdf
+        from bie.brain.notes import run_notes
+        pdf = positioned_text_pdf([[(72, 720, "Tissue is a group of cells."), (72, 700, "Muscles move bones.")]])
+        with tempfile.TemporaryDirectory() as folder:
+            runner = SectionRunner(gateway(), maker="anthropic", reviewer="openai", rulebook=rulebook.load())
+            chapter = run_chapter(pdf, COURSE, runner, folder, workers=1)
+            notes = run_notes(chapter, COURSE, runner, folder, workers=1)
+            self.assertEqual(notes["quality"]["concepts_passed"], notes["quality"]["concepts"])
+            self.assertGreater(notes["quality"]["slides"], 0)
+            self.assertIn("application/json", Path(folder, "NOTES.html").read_text(encoding="utf-8"))

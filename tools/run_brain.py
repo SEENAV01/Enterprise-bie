@@ -3,7 +3,8 @@
   --section understand   Section 1: the chapter PDF → chapter_map.json, MAP.md
   --section lesson       Section 2: a chapter map (--chapter-map, path or https URL) → lesson_plan.json, SCRIPT.md
   --section director     Section 3: --from-run (folder or URL with chapter_map.json and lesson_plan.json) → director.json
-  --section chain        Sections 1, 2 and 3 in one run
+  --section notes        Section 7: --chapter-map → notes.json, NOTES.html (interactive slides; print view = PDF)
+  --section chain        Sections 1, 2, 3 and 7 in one run
 
   python tools/run_brain.py --section understand --source <pdf path or https URL> --out <dir> \
       --title "10. Tissues and Its Types" --subject "Science and Technology" --learners "UPSC / State PCS aspirants" \
@@ -31,6 +32,7 @@ from bie.brain.fake import BrainFakeClient  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
 from bie.brain.director import run_director  # noqa: E402
 from bie.brain.lesson import run_lesson  # noqa: E402
+from bie.brain.notes import run_notes  # noqa: E402
 from bie.brain.understanding import Course, run_chapter  # noqa: E402
 from bie.model_gateway.live.config import ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes  # noqa: E402
 from bie.model_gateway.live.errors import redact  # noqa: E402
@@ -61,7 +63,7 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--section", choices=("understand", "lesson", "director", "chain"), default="understand")
+    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "chain"), default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
@@ -117,7 +119,7 @@ def main(argv=None):
                            pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd")} for p in chapter["pages"]])
             if args.section == "chain" and chapter["map_status"] != "passed":
                 summary.update(status="stopped", error="the chapter map did not pass, so the lesson and director were not run")
-        elif args.section == "lesson":
+        elif args.section in ("lesson", "notes"):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
             chapter = json.loads(read_text(args.chapter_map))
@@ -129,6 +131,9 @@ def main(argv=None):
             chapter = json.loads(read_text(base + "chapter_map.json"))
             lesson = json.loads(read_text(base + "lesson_plan.json"))
             course = Course(**chapter["course"]) if not args.course else course
+        if args.section in ("notes", "chain") and summary["status"] == "ok":
+            notes = run_notes(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
+            summary.update(notes_quality=notes["quality"])
         if args.section in ("lesson", "chain") and summary["status"] == "ok":
             lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(lesson_quality=lesson["quality"],
@@ -147,8 +152,8 @@ def main(argv=None):
     text = json.dumps(summary, indent=2, sort_keys=True, ensure_ascii=False)
     (out / "SUMMARY.json").write_text(text + "\n", encoding="utf-8")
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
-                                                         ("status", "quality", "map_status", "lesson_quality", "director_quality",
-                                                          "ledger_cost_usd", "error")},
+                                                         ("status", "quality", "map_status", "notes_quality", "lesson_quality",
+                                                          "director_quality", "ledger_cost_usd", "error")},
                                                         ensure_ascii=False), secrets),
            "notice" if summary["status"] == "ok" else "warning" if summary["status"] == "stopped" else "error")
     return 0 if summary["status"] in ("ok", "stopped") else 1
