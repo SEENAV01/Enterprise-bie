@@ -28,7 +28,8 @@ SCHEMA_INSTRUCTION = ("Reply with one JSON object only, no prose and no code fen
 
 class OpenAICompatChatClient:
     def __init__(self, api_key: str, *, via: str = "aicredits", base_url: str = AICREDITS_BASE_URL,
-                 transport: HttpTransport | None = None, max_tokens: int = 16000, models_url: str | None = None):
+                 transport: HttpTransport | None = None, max_tokens: int = 16000, models_url: str | None = None,
+                 stream: bool = False):
         if not api_key:
             raise ProviderError("config", f"the {via} API key is not set", provider=via)
         self._key = api_key
@@ -40,6 +41,7 @@ class OpenAICompatChatClient:
         self.transport = transport or HttpTransport()
         self.max_tokens = max_tokens
         self.schema_mode = "json_schema"
+        self.stream = stream
         self.last_model = None
 
     def _headers(self):
@@ -57,16 +59,39 @@ class OpenAICompatChatClient:
                                        if self.schema_mode == "json_schema" else {"type": "json_object"})
         return body
 
+    def _send(self, body):
+        if not self.stream:
+            return self.transport.request_json("POST", self.base_url + "/chat/completions", self._headers(), body,
+                                               provider=self.via, secrets=(self._key,))
+        body = dict(body, stream=True, stream_options={"include_usage": True})
+        texts, refusals, raw = [], [], {"usage": {}}
+        finish = None
+        for event in self.transport.request_events("POST", self.base_url + "/chat/completions", self._headers(), body,
+                                                   provider=self.via, secrets=(self._key,)):
+            if isinstance(event.get("error"), dict):
+                return {"error": event["error"]}
+            raw["model"] = event.get("model") or raw.get("model")
+            if event.get("usage"):
+                raw["usage"] = event["usage"]
+            for choice in event.get("choices") or []:
+                delta = choice.get("delta") or {}
+                if isinstance(delta.get("content"), str):
+                    texts.append(delta["content"])
+                if delta.get("refusal"):
+                    refusals.append(delta["refusal"])
+                finish = choice.get("finish_reason") or finish
+        raw["choices"] = [{"message": {"content": "".join(texts), "refusal": "".join(refusals) or None},
+                           "finish_reason": finish or "stop"}]
+        return raw
+
     def chat(self, *, model, messages, schema=None):
         try:
-            raw = self.transport.request_json("POST", self.base_url + "/chat/completions", self._headers(),
-                                              self._body(model, messages, schema), provider=self.via, secrets=(self._key,))
+            raw = self._send(self._body(model, messages, schema))
         except ProviderError as exc:
             if exc.kind != "bad_request" or schema is None or self.schema_mode != "json_schema":
                 raise
             self.schema_mode = "json_object"  # this gateway does not take json_schema; keep the prompt-level schema
-            raw = self.transport.request_json("POST", self.base_url + "/chat/completions", self._headers(),
-                                              self._body(model, messages, schema), provider=self.via, secrets=(self._key,))
+            raw = self._send(self._body(model, messages, schema))
         return self.parse(raw)
 
     # The adapters' method names.

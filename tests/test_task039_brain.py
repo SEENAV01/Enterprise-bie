@@ -565,3 +565,91 @@ class Assets(unittest.TestCase):
             from dataclasses import replace
             with self.assertRaises(AssetError):
                 library.add_candidate(replace(candidate, licence="CC BY-NC 2.0"), opener=self.opener(routes))
+
+
+class Streaming(unittest.TestCase):
+    def transport(self, events, record):
+        import io
+        from bie.model_gateway.live.transport import HttpTransport
+
+        class Response(io.BytesIO):
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        def open_(request, timeout):
+            record.append({"url": request.full_url, "body": json.loads(request.data), "accept": request.get_header("Accept")})
+            text = "".join(f"data: {e if isinstance(e, str) else json.dumps(e)}\n\n" for e in events)
+            return Response((": keep-alive\n\n" + text).encode())
+        return HttpTransport(opener=open_)
+
+    def test_openai_stream(self):
+        record = []
+        final = {"status": "completed", "model": "gpt-x", "usage": {"input_tokens": 5, "output_tokens": 7},
+                 "output": [{"type": "message", "content": [{"type": "output_text", "text": "{\"a\": 1}"}]}]}
+        client = OpenAIClient("k", transport=self.transport([{"type": "response.created"}, {"type": "response.output_text.delta", "delta": "{"},
+                                                             {"type": "response.completed", "response": final}], record), stream=True)
+        out = client.responses_create(model="m", messages=MESSAGES)
+        self.assertEqual(out["content"], "{\"a\": 1}")
+        self.assertEqual(out["usage"]["output_tokens"], 7)
+        self.assertTrue(record[0]["body"]["stream"])
+        self.assertEqual(record[0]["accept"], "text/event-stream")
+
+    def test_openai_stream_without_completion_is_an_error(self):
+        client = OpenAIClient("k", transport=self.transport([{"type": "response.created"}], []), stream=True)
+        with self.assertRaises(ProviderError):
+            client.responses_create(model="m", messages=MESSAGES)
+
+    def test_anthropic_stream(self):
+        events = [{"type": "message_start", "message": {"model": "claude-x", "usage": {"input_tokens": 9}}},
+                  {"type": "content_block_delta", "delta": {"type": "text_delta", "text": "{\"a\""}},
+                  {"type": "content_block_delta", "delta": {"type": "text_delta", "text": ": 2}"}},
+                  {"type": "message_delta", "delta": {"stop_reason": "end_turn"}, "usage": {"output_tokens": 4}},
+                  {"type": "message_stop"}]
+        out = AnthropicClient("k", transport=self.transport(events, []), stream=True).messages_create(model="m", messages=MESSAGES)
+        self.assertEqual(out["content"], "{\"a\": 2}")
+        self.assertEqual((out["usage"]["input_tokens"], out["usage"]["output_tokens"]), (9, 4))
+
+    def test_gemini_stream(self):
+        record = []
+        events = [{"candidates": [{"content": {"parts": [{"text": "thinking", "thought": True}, {"text": "{\"a\""}]}}]},
+                  {"candidates": [{"content": {"parts": [{"text": ": 3}"}]}, "finishReason": "STOP"}],
+                   "usageMetadata": {"promptTokenCount": 3, "candidatesTokenCount": 2}, "modelVersion": "gemini-x"}]
+        out = GeminiClient("k", transport=self.transport(events, record), stream=True).generate(model="m", messages=MESSAGES)
+        self.assertEqual(out["content"], "{\"a\": 3}")
+        self.assertIn(":streamGenerateContent?alt=sse", record[0]["url"])
+        self.assertEqual(out["usage"]["input_tokens"], 3)
+
+    def test_compat_stream(self):
+        record = []
+        events = [{"model": "m1", "choices": [{"delta": {"content": "{\"a\""}}]},
+                  {"model": "m1", "choices": [{"delta": {"content": ": 4}"}, "finish_reason": "stop"}]},
+                  {"model": "m1", "choices": [], "usage": {"prompt_tokens": 8, "completion_tokens": 3}}, "[DONE]"]
+        out = OpenAICompatChatClient("k", transport=self.transport(events, record), stream=True).chat(model="m", messages=MESSAGES)
+        self.assertEqual(out["content"], "{\"a\": 4}")
+        self.assertEqual(out["usage"]["output_tokens"], 3)
+        self.assertEqual(record[0]["body"]["stream_options"], {"include_usage": True})
+
+    def test_compat_stream_error_event(self):
+        events = [{"error": {"message": "budget exceeded"}}]
+        with self.assertRaises(ProviderError):
+            OpenAICompatChatClient("k", transport=self.transport(events, []), stream=True).chat(model="m", messages=MESSAGES)
+
+
+class Resume(unittest.TestCase):
+    def test_passed_pages_are_reused_not_paid_again(self):
+        from structural_pdf_fixtures import positioned_text_pdf
+        pdf = positioned_text_pdf([[(72, 720, "Tissue is a group of cells.")], [(72, 720, "Muscles move bones.")]])
+        with tempfile.TemporaryDirectory() as folder:
+            maker = BrainFakeClient("anthropic")
+            runner = SectionRunner(gateway(maker), maker="anthropic", reviewer="openai", rulebook=rulebook.load())
+            first = run_chapter(pdf, COURSE, runner, Path(folder, "one"), workers=1)
+            first["pages"][1]["status"] = "failed"           # pretend page 2 failed last time
+            calls = len(maker.calls)
+            second = run_chapter(pdf, COURSE, runner, Path(folder, "two"), workers=1, previous_chapter=first)
+            self.assertEqual([p["reused"] for p in second["pages"]], [True, False])
+            self.assertEqual(sorted(second["items"]), sorted(first["items"]))
+            self.assertEqual(second["items"]["p001-i1"]["content"], "Tissue is a group of cells.")
+            self.assertEqual(len(maker.calls) - calls, 2)              # page 2 again plus the chapter map

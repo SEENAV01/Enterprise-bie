@@ -33,7 +33,7 @@ on:
         required: false
         default: ''
       class_level:
-        description: 'blind-test: learners, for example Class 8'
+        description: 'blind-test: learners, for example Class 8; brain-understand and brain-chain: an https URL of an earlier run folder to reuse its passed pages'
         required: false
         default: 'Class 8'
       language:
@@ -178,7 +178,7 @@ jobs:
             case "$section" in
               lesson) args+=(--chapter-map "$SOURCE") ;;
               director) args+=(--from-run "$SOURCE") ;;
-              *) args+=(--source "$SOURCE") ;;
+              *) args+=(--source "$SOURCE"); if [ -n "$CLASS_LEVEL" ] && [[ "$CLASS_LEVEL" == https://* ]]; then args+=(--resume-from "$CLASS_LEVEL"); fi ;;
             esac
             if [ -n "$PAGES" ]; then args+=(--pages "$PAGES"); fi
             if [ -n "$LANGUAGE" ]; then args+=(--language "$LANGUAGE"); fi

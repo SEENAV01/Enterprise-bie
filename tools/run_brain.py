@@ -53,7 +53,7 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens):
     if fake:
         routes = {p: ADAPTERS[p](BrainFakeClient(p), f"fake-{p}") for p in providers}
         return LiveGateway(routes, ledger=ledger, sleep=lambda s: None)
-    routes, missing = build_routes(providers, max_output_tokens=max_output_tokens)
+    routes, missing = build_routes(providers, max_output_tokens=max_output_tokens, stream=True)
     if missing:
         raise SystemExit("NOT_CONFIGURED:" + ",".join(missing))
     return LiveGateway(routes, ledger=ledger)
@@ -65,6 +65,7 @@ def main(argv=None):
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
+    parser.add_argument("--resume-from", help="folder or https URL of an earlier understand/chain run: its passed pages are reused")
     parser.add_argument("--pages")
     parser.add_argument("--out", required=True)
     parser.add_argument("--title", default="")
@@ -109,10 +110,13 @@ def main(argv=None):
         if args.section in ("understand", "chain"):
             if not args.source:
                 raise SystemExit("SOURCE_REQUIRED")
+            previous = json.loads(read_text(args.resume_from.rstrip("/") + "/chapter_map.json")) if args.resume_from else None
             chapter = run_chapter(read_source(args.source), course, runner, out, pages=args.pages, workers=args.workers,
-                                  max_rounds=args.max_rounds)
+                                  max_rounds=args.max_rounds, previous_chapter=previous)
             summary.update(quality=chapter["quality"], map_status=chapter["map_status"],
-                           pages=[{k: p[k] for k in ("page", "status", "rounds", "cost_usd")} for p in chapter["pages"]])
+                           pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd")} for p in chapter["pages"]])
+            if args.section == "chain" and chapter["map_status"] != "passed":
+                summary.update(status="stopped", error="the chapter map did not pass, so the lesson and director were not run")
         elif args.section == "lesson":
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
@@ -125,11 +129,13 @@ def main(argv=None):
             chapter = json.loads(read_text(base + "chapter_map.json"))
             lesson = json.loads(read_text(base + "lesson_plan.json"))
             course = Course(**chapter["course"]) if not args.course else course
-        if args.section in ("lesson", "chain"):
+        if args.section in ("lesson", "chain") and summary["status"] == "ok":
             lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(lesson_quality=lesson["quality"],
                            videos=[{k: v[k] for k in ("video_id", "status", "rounds", "cost_usd")} for v in lesson["videos"]])
-        if args.section in ("director", "chain"):
+        if args.section == "chain" and summary["status"] == "ok" and not lesson["quality"]["videos_passed"]:
+            summary.update(status="stopped", error="no lesson script passed, so the director was not run")
+        if args.section in ("director", "chain") and summary["status"] == "ok":
             director = run_director(chapter, lesson, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(director_quality=director["quality"])
     except SystemExit:
@@ -144,8 +150,8 @@ def main(argv=None):
                                                          ("status", "quality", "map_status", "lesson_quality", "director_quality",
                                                           "ledger_cost_usd", "error")},
                                                         ensure_ascii=False), secrets),
-           "notice" if summary["status"] == "ok" else "error")
-    return 0 if summary["status"] == "ok" else 1
+           "notice" if summary["status"] == "ok" else "warning" if summary["status"] == "stopped" else "error")
+    return 0 if summary["status"] in ("ok", "stopped") else 1
 
 
 if __name__ == "__main__":

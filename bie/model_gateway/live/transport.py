@@ -61,6 +61,72 @@ class HttpTransport:
         return value
 
 
+    def request_events(self, method: str, url: str, headers: dict, body=None, *, provider: str, secrets=()):
+        """Server-sent events of a streaming request, each ``data:`` payload parsed as JSON (``[DONE]`` ends it).
+
+        Streaming keeps bytes flowing during long generations, so idle network links do not reset the
+        connection the way they do for one silent request that runs for many minutes.
+        """
+        if not url.startswith("https://"):
+            raise ProviderError("config", "only https endpoints are allowed", provider=provider)
+        data = None if body is None else json.dumps(body, ensure_ascii=False).encode("utf-8")
+        request = urllib.request.Request(url, data=data, method=method)
+        request.add_header("content-type", "application/json")
+        request.add_header("accept", "text/event-stream")
+        for name, value in headers.items():
+            request.add_header(name, value)
+        try:
+            response = self._open(request, timeout=self.timeout)
+        except urllib.error.HTTPError as exc:
+            try:
+                detail = exc.read(4000).decode("utf-8", "replace")
+            except Exception:  # pragma: no cover - defensive
+                detail = ""
+            raise ProviderError(kind_for_status(exc.code), redact(_error_text(detail), secrets),
+                                status=exc.code, provider=provider) from None
+        except (socket.timeout, TimeoutError) as exc:
+            raise ProviderError("timeout", redact(exc, secrets), provider=provider) from None
+        except urllib.error.URLError as exc:
+            reason = exc.reason
+            kind = "timeout" if isinstance(reason, (socket.timeout, TimeoutError)) else "provider_unavailable"
+            raise ProviderError(kind, redact(reason, secrets), provider=provider) from None
+        except (ConnectionError, OSError) as exc:
+            raise ProviderError("provider_unavailable", redact(exc, secrets), provider=provider) from None
+        total, lines = 0, []
+        try:
+            with response:
+                while True:
+                    try:
+                        raw = response.readline(MAX_RESPONSE_BYTES)
+                    except (socket.timeout, TimeoutError) as exc:
+                        raise ProviderError("timeout", redact(exc, secrets), provider=provider) from None
+                    except (ConnectionError, OSError) as exc:
+                        raise ProviderError("provider_unavailable", redact(exc, secrets), provider=provider) from None
+                    total += len(raw)
+                    if total > MAX_RESPONSE_BYTES:
+                        raise ProviderError("malformed", "response too large", provider=provider)
+                    line = raw.decode("utf-8", "replace").rstrip("\r\n")
+                    if raw and line:
+                        if line.startswith("data:"):
+                            lines.append(line[5:].lstrip())
+                        continue
+                    if lines:
+                        payload = "\n".join(lines)
+                        lines = []
+                        if payload.strip() == "[DONE]":
+                            return
+                        try:
+                            event = json.loads(payload)
+                        except ValueError:
+                            raise ProviderError("malformed", "stream event is not JSON", provider=provider) from None
+                        if isinstance(event, dict):
+                            yield event
+                    if not raw:
+                        return
+        finally:
+            lines = []
+
+
 def _error_text(detail: str) -> str:
     """The provider's own error message when the body is JSON, else the first characters."""
     try:

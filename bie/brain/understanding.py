@@ -437,21 +437,55 @@ def _chapter_items(results):
     return items
 
 
+def passed_pages(previous_chapter: dict) -> dict:
+    """Page outputs that passed in an earlier run of the same source, to reuse instead of paying for them again."""
+    reused = {}
+    for page in previous_chapter.get("pages") or []:
+        if page.get("status") != "passed":
+            continue
+        prefix = f"p{page['page']:03d}-"
+        items = []
+        for iid in page["item_ids"]:
+            item = dict(previous_chapter["items"][iid])
+            item.pop("page", None)
+            local = lambda value: value[len(prefix):] if isinstance(value, str) and value.startswith(prefix) else value
+            item.update(item_id=local(item["item_id"]), parent_item_id=local(item.get("parent_item_id") or ""),
+                        tests_item_ids=[local(t) for t in item.get("tests_item_ids") or []])
+            items.append(item)
+        reused[page["page"]] = {"notes": None, "page_summary": page.get("summary", ""), "items": items,
+                                "boilerplate_block_ids": page.get("boilerplate_block_ids", []),
+                                "text_image_disagreements": page.get("text_image_disagreements", [])}
+    return reused
+
+
 def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir, *, pages: str | None = None,
-                workers: int = 4, max_rounds: int = 3, with_images: bool = True):
+                workers: int = 4, max_rounds: int = 3, with_images: bool = True, previous_chapter: dict | None = None):
     from .pages import load_pages
+    from .runner import StepResult
 
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     source_sha, page_count, page_list = load_pages(pdf_bytes, pages, with_images=with_images)
+    reuse = {}
+    if previous_chapter and previous_chapter.get("source_sha256") == source_sha:
+        reuse = passed_pages(previous_chapter)
     steps = []
     for index, page in enumerate(page_list):
+        if page.number in reuse:
+            continue
         previous = page_list[index - 1] if index > 0 else None
         following = page_list[index + 1] if index + 1 < len(page_list) else None
         steps.append((page.number, page_step(course, page, page_count=page_count, previous=previous, following=following,
                                              rulebook=runner.rulebook, max_rounds=max_rounds)))
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
-        results = list(zip([n for n, _ in steps], pool.map(lambda pair: runner.run(pair[1]), steps)))
+        fresh = dict(zip([n for n, _ in steps], pool.map(lambda pair: runner.run(pair[1]), steps)))
+    results = []
+    for page in page_list:
+        if page.number in reuse:
+            results.append((page.number, StepResult(SECTION, f"page-{page.number:03d}", "passed", reuse[page.number],
+                                                    record_path=None)))
+        else:
+            results.append((page.number, fresh[page.number]))
     items = _chapter_items(results)
     connect = runner.run(connect_step(course, items, rulebook=runner.rulebook, max_rounds=max_rounds)) if items else None
     chapter = {
@@ -473,6 +507,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
             "last_problems": (result.rounds[-1].get("code_problems") or []) + (result.rounds[-1].get("review_problems") or [])
             if result.rounds and not result.passed else [],
             "record": Path(result.record_path).name if result.record_path else None,
+            "reused": number in reuse,
             "cost_usd": result.cost_usd,
         } for number, result in results],
         "items": items,
