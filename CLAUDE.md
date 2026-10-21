@@ -28,8 +28,10 @@ Book → LLM → Remotion shortcut.
 ## Current reality (October 2026)
 
 - The productized pipeline runs 11 stages end to end: SOURCE → DOCUMENT_INTELLIGENCE → KNOWLEDGE → PREREQUISITE → MATH → REASONING → PEDAGOGY → DIRECTOR → VISUAL → ANIMATION → SCENE_IR.
-- No live AI model is connected; the thinking stages run on regex and fixed templates. Connecting a real model is the first engineering job (Task 038).
+- Live AI connections exist (Task 038: Claude and Gemini through AICredits, OpenAI direct; runs only in GitHub Actions), but the thinking stages still run on regex and fixed templates.
 - There is no AUDIO stage in the pipeline, and VIDEO_CODE → COMPILE → RENDER → QA and the GAME stages are not wired after Scene IR.
+- Phase 1 (from 21 October 2026) builds BIE into an AI tailored to Navin's vision, section by section, judged as one whole system; read the Vision Spec section "Agreed on 21 October 2026" before any BIE work.
+- Claude builds BIE; lesson content (scripts, scenes, videos, games, notes) is made only by BIE, never by hand.
 
 ## How work is done
 

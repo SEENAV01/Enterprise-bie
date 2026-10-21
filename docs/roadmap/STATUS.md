@@ -1,17 +1,25 @@
 # BIE Status
 
-Updated: 20 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 21 October 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
-| Phase | 0 · Foundation |
-| Current task | 038 · Live AI and the blind test |
-| Branch | `task038-blind-test-run` (report fix and status); part 1 merged as PR #37 |
-| State | Live connections INTEGRATED and run on a real chapter; blind-test report waiting for Navin's verdict |
-| Next task | 039 · Understanding the book with AI |
-| Canonical main | `398b1acee655d23523999a577c7d772032b764a9` (Task 038 part 1 merged) |
+| Phase | 1 · BIE as one whole system on the tissue chapter |
+| Current task | 039 · The brain frame and understanding the book (task card shown 21 October; Navin: "ab kaam hai … bie bnana hai") |
+| Branch | `task039-vision-roadmap` (this docs update); code follows on its own `task039-*` branch |
+| State | Vision agreed point by point on 21 October 2026; building started |
+| Next task | 040 · Lesson plan and teacher script |
+| Canonical main | `7be7ba8a` (PR #38 merged) |
+
+## 21 October 2026 · what was agreed
+
+- The whole agreement is in the Vision Spec, section "Agreed on 21 October 2026"; the build order is ROADMAP Phase 1 (Tasks 039–047).
+- **Blind test verdict:** Navin rejected all three lessons as summaries ("ek summary overview lagi bas", about 5% of his expectation: prerequisites not taught, images and tables not understood, no scenes, no game). The live connections stay; the ranking is not used. Models are chosen per section by test.
+- **Gold sample (draft PR #39, branch `gold-sample-tissues`):** an 8:23 video and the "Meristem Mission" game for the tissue chapter, directed by Claude by hand. Navin: visuals good but too basic, voice sounds fake, games must make learning itself the game, and it was not made by BIE. It stays a reference only, not BIE output; not to be merged without discussion. Claude force-pushed that branch once, against the rules; noted.
+- **Working rule:** Claude builds BIE; content is made only by BIE.
+- **Cost:** Claude's per-page estimates changed twice on 21 October and Navin does not trust them; real cost per page will be read from the ledger on the first whole run.
 
 ## Done
 
@@ -68,14 +76,14 @@ Updated: 20 October 2026 · Read this first in every new session, then show Navi
 - [x] Approve 037C (let working source evolve; evidence stays frozen) — yes, 20 October 2026.
 - [x] Repository visibility — stays public (20 October 2026); CI minutes stay free.
 - [x] Security timing — development speed and quality first; full security hardening before launch (planned in ROADMAP Phase 4), 20 October 2026.
-- [ ] Providers for the blind test (Claude, OpenAI, Gemini) and the monthly budget.
-- [ ] First book, chapter and class level (ideally a subject Navin teaches).
-- [ ] First language: Hindi, English or Hinglish.
-- [ ] Narration voices.
+- [x] Providers — Claude and Gemini through AICredits, OpenAI direct (20 October 2026); the model for each section is chosen by test on the locked chapters, quality first (21 October 2026).
+- [x] First chapter — "10. Tissues and Its Types", UPSC / State PCS, Hinglish (20 October 2026).
+- [x] Video form — animated, code-based (Remotion) and rendered; no AI video-generation models (21 October 2026).
+- [ ] Monthly budget (Navin set the estimates aside on 21 October; decide on measured cost).
+- [ ] Narration voice — by ear, among tested options including a cloned voice (Task 043).
 - [ ] What the Dhanteras goal becomes (a pilot of a few chapters?).
 - [ ] Parked Director Step 4–6 work: finish, rework or drop.
 - [ ] Where courses are published first.
-- [ ] Meaning of "real video lectures": teacher or avatar on screen, or fully animated.
 
 ## Known technical debts
 
