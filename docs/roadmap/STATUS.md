@@ -7,20 +7,36 @@ Updated: 21 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system on the tissue chapter |
-| Current task | 039 · The brain frame and understanding the book (task card shown 21 October; Navin: "ab kaam hai … bie bnana hai") |
-| Branch | `task039-vision-roadmap` (this docs update); code follows on its own `task039-*` branch |
-| State | Vision agreed point by point on 21 October 2026; building started |
-| Next task | 040 · Lesson plan and teacher script |
-| Canonical main | `7be7ba8a` (PR #38 merged) |
+| Current task | 039–041 · brain frame, Section 1 (understanding), Section 2 (lesson plan and script), Section 3 (director); Task 042 asset library started |
+| Branch | `task039-brain-understanding` (PR #41; Tasks 039–042 so far, one PR because the sections were built in one go) |
+| State | Section 1 INTEGRATED on the real tissue chapter (live runs); Sections 2 and 3 implemented and run offline; first full-chapter chain rerun in progress |
+| Next task | 042 · Visual library and animation blocks — waiting for Navin's choice of video path (A: old Scene IR compiler, B: new brain video path, recommended) |
+| Canonical main | `d51e3aeb` (PR #40 merged: vision and roadmap) |
 
-## Task 039 · the brain frame and understanding the book (in progress)
+## Tasks 039–042 · the brain (in progress, PR #41)
 
-- **Vision rulebook** (`bie/brain/rulebook/vision-2026-10-21.json`, loaded by `bie/brain/rulebook.py`): Navin's agreed vision as 28 locked rules, each an instruction for the section that makes the work and a yes/no check for the reviewer; general rules plus Section 1, lesson, director, visual, voice, game, notes and review rules. The rulebook version and a hash of its bytes go into every process record, so a changed rule never passes as the old one.
-- **Section runner** (`bie/brain/runner.py`): maker AI (instructions, rules, source text and page images) writes its thinking and output → BIE code checks → independent reviewer AI on another provider with the rulebook checklist → remake with the findings, at most 3 rounds → one process record per step (every round's thinking, output, problems, reviewer findings, models, tokens and cost; failed rounds marked "avoid"; images by hash only; `navin_verdict` left for Navin).
-- **Gateway:** messages can now carry page images (Anthropic, OpenAI Responses, Gemini and the AICredits chat format); an output cap option for long answers.
-- **Section 1** (`bie/brain/understanding.py`, `bie/brain/pages.py`): each page is read from the canonical DI native text blocks plus a rendered page image; items with page locations (every table row, diagram label, equation, question), question-based teacher understanding with depth and book/outside basis, content type, prerequisites and exam importance; code checks (every text block covered or boilerplate, tables have rows, labels have diagrams, teachable items have why/how questions, image-only pages read from the image); then a chapter step builds concepts, relations, prerequisites to teach, resolved cross-references, question links and a teaching order. Outputs `chapter_map.json`, `MAP.md`, `records/`, `LEDGER.jsonl`.
-- **Runs:** `tools/run_brain.py` (offline with `--fake`); live through `.github/workflows/task038-live-ai.yml` mode `brain-understand` (providers = maker,reviewer; course fields in `subject`), outputs on the `blindtest-results` branch.
-- **Tests:** `tools/run_task039_tests.py` (28 new tests plus the 189 Task 038 gateway tests). Status words: IMPLEMENTED and run offline; the live run on the tissue chapter is next.
+- **Vision rulebook** (`bie/brain/rulebook/vision-2026-10-21.json`, `bie/brain/rulebook.py`, version 2026-10-21.5, 34 locked rules): Navin's agreed vision, each rule an instruction for the maker and a yes/no check for the reviewer. Changes since the first version, all forced by live runs or added sections: G-03 now asks for brief decision notes instead of written "thinking" (a provider blocked the first wording, see below); R-01 gives reviewer findings a severity and judges at the learners' level; S1-07 keeps outside explanations at textbook level without absolute words; S2-03–S2-05 (prerequisites taught, Navin's spoken Hinglish, true coverage claims); S3-03–S3-05 (word-timed visuals, anatomy-level descriptions, interactive moments).
+- **Section runner** (`bie/brain/runner.py`): maker AI writes brief notes and its output → BIE code checks → independent reviewer on another provider with the rulebook checklist (blocking or minor findings) → remake as a patch of only the changed parts, at most 3 rounds → one process record per step (each round's notes, output, patch, problems, reviewer findings, models, tokens, cost; failed rounds marked "avoid"; images by hash only; `navin_verdict` left for Navin).
+- **Gateway:** page images in messages for all four clients; output cap; streaming (server-sent events) for all four clients, used by every brain run.
+- **Section 1** (`bie/brain/understanding.py`, `bie/brain/pages.py`): two-eye page reading (DI native text blocks plus a rendered page image), items with locations, question-based teacher understanding with depth and book/outside basis, code checks, chapter map (concepts, relations, prerequisites to teach, cross-references, question links, teaching order); `--resume-from` reuses passed pages of an earlier run.
+- **Section 2** (`bie/brain/lesson.py`): video plan from the chapter map, then one spoken Hinglish teacher script per video in beats; each beat claims the items and teacher questions it answers; code checks full coverage and Devanagari Hinglish.
+- **Section 3** (`bie/brain/director.py`): scenes per video with the universal frame, subject style, anatomy-level element descriptions, camera moves and actions cued to the exact spoken word, visual mathematics, pause questions and tap-to-explore.
+- **Task 042 start** (`bie/brain/assets.py`): Wikimedia Commons search keeping only licences allowed in a paid course (public domain, CC0, CC BY; CC BY-SA only if Navin allows it), content-addressed asset library with source, author, licence and credits.
+- **Runs:** `tools/run_brain.py --section understand | lesson | director | chain` (`--fake` offline); live through `task038-live-ai.yml` modes `brain-understand`, `brain-lesson`, `brain-director`, `brain-chain` (providers = maker,reviewer; course fields in `subject`; `class_level` = earlier run URL to resume). Outputs on the `blindtest-results` branch.
+- **Tests:** `tools/run_task039_tests.py`, 237 tests (48 new plus the 189 Task 038 gateway tests).
+
+**Live runs on "10. Tissues and Its Types" (all estimated costs from the ledger)**
+
+| Run | Maker / reviewer | Pages | Result | Cost |
+| --- | --- | --- | --- | --- |
+| 39610534416 | Claude Opus 5.5 (AICredits) / GPT-6.1 Sol | 3, 7 | Blocked by Anthropic: the prompt asked the model to write out its thinking for keeping and reuse ("terms … duplicating model outputs") | $0 |
+| 39610917448 | Claude / GPT | 3, 7 | Strong understanding (46 items, 35 read from images), but 0 pages passed in 3 rounds: reviewer could not see the notes and failed work for precision beyond the learners' level; every remake rewrote the page | $3.59 |
+| 39615516524 | Claude / GPT | 3, 7 | Patch remakes halved the second round; then AICredits stopped: "API Key Budget Exceeded" on the Claude key | $0.84 |
+| 39617164262 | GPT-6.1 Sol / Gemini 4 Argon (AICredits) | 3, 7 | Both pages and the map passed (page 7, image only: 53 items) | $0.62 |
+| 39620281561 | GPT / Gemini | all 14 + chain | 10 of 14 pages passed; 525 items, 1,091 teacher questions; 4 pages and the map failed only on "connection reset by peer" (fixed by streaming); lesson plan ran on an empty map (now stops instead) | $2.56 |
+
+- **Provider terms (for Navin's later plan of an own trained model):** Anthropic's Commercial Terms forbid using the services "to build a competing product or service, including to train competing AI models", and OpenAI's Business Terms forbid using output "to develop artificial intelligence models … that compete with OpenAI's products and services". Training a BIE model on Claude or GPT outputs needs those terms checked first (or open models whose licences allow it). Process records stay useful for review and as in-context examples.
+- **Open for Navin:** raise the AICredits Claude key budget if Claude should stay in the maker test; choose the video path (A or B); allow CC BY-SA assets or not.
 
 ## 21 October 2026 · what was agreed
 
