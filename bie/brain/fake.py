@@ -118,6 +118,21 @@ def notes_answer(user_text: str):
     return {"notes": NOTES, "slides": slides}
 
 
+def game_answer(user_text: str):
+    data = _payload(user_text)
+    missions = []
+    for n, concept in enumerate(data.get("concepts", []), 1):
+        missions.append({"mission_id": f"m{n}", "title": f"मिशन {n}", "item_ids": concept["item_ids"], "content_type": "process",
+                         "mechanic": "run_process", "player_role": "offline", "goal": "Offline goal.", "scene": "Offline scene.",
+                         "interactions": ["drag"],
+                         "steps": [{"step_id": "s1", "player_does": "Drag the part into place.", "correct_when": "offline",
+                                    "wrong_moves": [{"move": "wrong part", "what_breaks": "the process stops", "why": "offline",
+                                                     "item_ids": concept["item_ids"][:1]}]}],
+                         "win": "offline", "feedback_on_win": "offline", "replay_twist": "offline", "assets_needed": []})
+    return {"notes": NOTES, "game_title": "Offline game", "world": "Offline world.", "missions": missions,
+            "revision_loop": "offline"}
+
+
 def review_answer(schema):
     value = {"notes": NOTES, "verdict": "pass", "checklist": []}
     for key in schema.get("properties", {}):
@@ -147,6 +162,10 @@ class BrainFakeClient:
                 value[key] = ([{"what": "offline missing row", "where_on_page": "offline", "severity": "blocking"}]
                               if key == "missing" else
                               [{"where": "offline", "problem": "offline problem", "fix": "offline fix", "severity": "blocking"}])
+        elif "replace_missions" in props:
+            value = {"notes": NOTES, "replace_missions": [], "remove_mission_ids": []}
+        elif "missions" in props:
+            value = game_answer(user)
         elif "replace_slides" in props:
             value = {"notes": NOTES, "replace_slides": [], "remove_slide_ids": []}
         elif "slides" in props:

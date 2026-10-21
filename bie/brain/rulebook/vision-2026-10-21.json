@@ -1,6 +1,6 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.5",
+  "version": "2026-10-21.6",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "rules": [
@@ -220,6 +220,13 @@
       "status": "locked",
       "rule": "One game per chapter, designed only from that chapter's map; every key item is played in some mission; no story or fact drifts away from the chapter.",
       "check": "Is every key item of the chapter played, with nothing off-chapter?"
+    },
+    {
+      "id": "S6-03",
+      "sections": ["game"],
+      "status": "locked",
+      "rule": "Choose the mission's mechanic from the content type: a process is run step by step and breaks visibly on a wrong step; events become choices as a character of that time, and the timeline breaks on a wrong choice; a structure is built and works only when every part is right; numbers and relations become sliders where the student predicts first and then sees the result; places become a map the student changes; laws and rules become cases the student judges. Every wrong move shows what goes wrong and why, so failing teaches.",
+      "check": "Does each mission's mechanic follow its content type, and does every failure show what went wrong and why?"
     },
     {
       "id": "S7-01",

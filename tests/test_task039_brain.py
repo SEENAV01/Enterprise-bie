@@ -699,3 +699,40 @@ class Notes(unittest.TestCase):
             self.assertEqual(notes["quality"]["concepts_passed"], notes["quality"]["concepts"])
             self.assertGreater(notes["quality"]["slides"], 0)
             self.assertIn("application/json", Path(folder, "NOTES.html").read_text(encoding="utf-8"))
+
+
+class Game(unittest.TestCase):
+    chapter = {"items": {"p001-i1": item("p001-i1", page=1), "p001-i2": item("p001-i2", page=1)}}
+
+    def mission(self, mid, **extra):
+        base = {"mission_id": mid, "title": "Signal Runner", "item_ids": ["p001-i1", "p001-i2"], "content_type": "process",
+                "mechanic": "run_process", "player_role": "an impulse", "goal": "Reach the synapse.", "scene": "A neuron.",
+                "interactions": ["drag"], "steps": [{"step_id": "s1", "player_does": "Release the neurotransmitter at the right time.",
+                                                     "correct_when": "at the axon end", "wrong_moves": [
+                    {"move": "too early", "what_breaks": "the signal fades", "why": "nothing to cross the gap", "item_ids": ["p001-i1"]}]}],
+                "win": "", "feedback_on_win": "", "replay_twist": "", "assets_needed": []}
+        base.update(extra)
+        return base
+
+    def test_checks(self):
+        from bie.brain.game import check_design
+        self.assertEqual(check_design({"missions": [self.mission("m1")]}, self.chapter), [])
+        quiz = self.mission("m1", item_ids=["p001-i1", "p009-x"], goal="Which of the following is a tissue?",
+                            steps=[{"step_id": "s1", "player_does": "tap", "correct_when": "", "wrong_moves": []}])
+        problems = check_design({"missions": [quiz, self.mission("m1", interactions=[])]}, self.chapter)
+        for fragment in ("mission_id 'm1' is used more than once", "unknown item 'p009-x'", "reads like a multiple-choice question",
+                         "no wrong move shows what breaks", "has no interaction"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+        self.assertTrue(any("1 teachable items are played in no mission" in p
+                            for p in check_design({"missions": [self.mission("m1", item_ids=["p001-i1"])]}, self.chapter)))
+
+    def test_offline_game_design(self):
+        from structural_pdf_fixtures import positioned_text_pdf
+        from bie.brain.game import run_game_design
+        pdf = positioned_text_pdf([[(72, 720, "Neurons carry messages."), (72, 700, "Muscles move bones.")]])
+        with tempfile.TemporaryDirectory() as folder:
+            runner = SectionRunner(gateway(), maker="anthropic", reviewer="openai", rulebook=rulebook.load())
+            chapter = run_chapter(pdf, COURSE, runner, folder, workers=1)
+            design = run_game_design(chapter, COURSE, runner, folder)
+            self.assertTrue(design["quality"]["passed"])
+            self.assertTrue(Path(folder, "GAME.md").exists())
