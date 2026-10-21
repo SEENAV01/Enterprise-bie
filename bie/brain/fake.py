@@ -133,6 +133,35 @@ def game_answer(user_text: str):
             "revision_loop": "offline"}
 
 
+def asset_plan_answer(user_text: str):
+    start = user_text.index("[")
+    rows, _ = json.JSONDecoder().raw_decode(user_text[start:])
+    return {"notes": NOTES, "needs": [{"element_key": r["element_key"], "queries": ["offline " + r["kind"]], "must_show": []}
+                                      for r in rows]}
+
+
+def layout_answer(user_text: str):
+    data = _payload(user_text)
+    scene, beats = data["scene"], data["beats"]
+    first = beats[0]
+    word = (first["say"].split() or ["x"])[0]
+    cue = {"beat_id": first["beat_id"], "word": word}
+    empty_box = {"x": 0, "y": 0, "w": 0, "h": 0}
+    blank = {"id": "", "type": "title", "cue": cue, "until": {"beat_id": "", "word": ""}, "box": empty_box, "element_id": "",
+             "text": "", "subtitle": "", "tone": "accent", "anchor": {"layer": "", "x": 0, "y": 0}, "target_layer": "",
+             "region": empty_box, "path": [], "entries": [], "columns": [], "rows": [], "focus": [],
+             "from_ref": {"layer": "", "x": 0, "y": 0}, "to_ref": {"layer": "", "x": 0, "y": 0}}
+    layers = []
+    pictures = list(data.get("pictures", {}))
+    if pictures:
+        layers.append(dict(blank, id="img", type="image", box={"x": 0.05, "y": 0.1, "w": 0.5, "h": 0.75}, element_id=pictures[0]))
+        layers.append(dict(blank, id="lab", type="label", box={"x": 0.62, "y": 0.2, "w": 0.3, "h": 0.1}, text="Offline label",
+                           anchor={"layer": "img", "x": 0.5, "y": 0.5}))
+    else:
+        layers.append(dict(blank, id="t", type="title", box={"x": 0.1, "y": 0.1, "w": 0.8, "h": 0.3}, text="Offline title"))
+    return {"notes": NOTES, "layers": layers, "camera": []}
+
+
 def review_answer(schema):
     value = {"notes": NOTES, "verdict": "pass", "checklist": []}
     for key in schema.get("properties", {}):
@@ -162,6 +191,14 @@ class BrainFakeClient:
                 value[key] = ([{"what": "offline missing row", "where_on_page": "offline", "severity": "blocking"}]
                               if key == "missing" else
                               [{"where": "offline", "problem": "offline problem", "fix": "offline fix", "severity": "blocking"}])
+        elif "needs" in props:
+            value = asset_plan_answer(user)
+        elif "choice" in props:
+            value = {"notes": NOTES, "choice": 0, "reason": "offline", "parts": []}
+        elif "replace_layers" in props:
+            value = {"notes": NOTES, "replace_layers": [], "remove_layer_ids": [], "camera": []}
+        elif "layers" in props:
+            value = layout_answer(user)
         elif "replace_missions" in props:
             value = {"notes": NOTES, "replace_missions": [], "remove_mission_ids": []}
         elif "missions" in props:

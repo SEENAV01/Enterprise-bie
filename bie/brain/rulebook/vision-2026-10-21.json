@@ -1,6 +1,6 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.6",
+  "version": "2026-10-21.7",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "rules": [
@@ -199,6 +199,20 @@
       "status": "locked",
       "rule": "Detail comes from assets, not simple code shapes: 3D models the camera can enter, detailed SVG and science illustrations with recorded licences, and AI images only for what the library lacks. Labels are always added by code. No AI video-generation models.",
       "check": "Is the visual detail at anatomy level from licensed assets, with code labels and no video-generation model?"
+    },
+    {
+      "id": "S4-02",
+      "sections": ["visual"],
+      "status": "locked",
+      "rule": "Choose the asset that shows the described structure most accurately and in the most detail, with an allowed licence; a picture that is only roughly related is not good enough. Every asset is credited on screen.",
+      "check": "Is each chosen asset accurate and detailed enough for what the scene must show, and credited?"
+    },
+    {
+      "id": "S4-03",
+      "sections": ["visual"],
+      "status": "locked",
+      "rule": "Lay out every frame so a student on a phone can read it: one idea at a time, nothing overlapping, labels short and pointing exactly at their part, text large, the camera moving inside the structure for processes. What appears and when follows the spoken words.",
+      "check": "In every frame, is the layout clear on a phone screen, are labels on the right parts, and does the screen show what is being said?"
     },
     {
       "id": "S5-01",

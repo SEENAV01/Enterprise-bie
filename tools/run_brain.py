@@ -5,7 +5,8 @@
   --section director     Section 3: --from-run (folder or URL with chapter_map.json and lesson_plan.json) → director.json
   --section notes        Section 7: --chapter-map → notes.json, NOTES.html (interactive slides; print view = PDF)
   --section game         Section 6 (design): --chapter-map → game_design.json, GAME.md
-  --section chain        Sections 1, 2, 3, 6 (design) and 7 in one run
+  --section visual       Section 4: --from-run (with director.json) → assets/, video_specs/, VISUAL.md, stills/; --render adds MP4 previews
+  --section chain        Sections 1, 2, 3, 6 (design) and 7 in one run; --with-visual adds Section 4
 
   python tools/run_brain.py --section understand --source <pdf path or https URL> --out <dir> \
       --title "10. Tissues and Its Types" --subject "Science and Technology" --learners "UPSC / State PCS aspirants" \
@@ -36,6 +37,7 @@ from bie.brain.game import run_game_design  # noqa: E402
 from bie.brain.lesson import run_lesson  # noqa: E402
 from bie.brain.notes import run_notes  # noqa: E402
 from bie.brain.understanding import Course, run_chapter  # noqa: E402
+from bie.brain.visual import run_visual  # noqa: E402
 from bie.model_gateway.live.config import ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes  # noqa: E402
 from bie.model_gateway.live.errors import redact  # noqa: E402
 from bie.model_gateway.live.gateway import LiveGateway  # noqa: E402
@@ -65,11 +67,14 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "chain"), default="understand")
+    parser.add_argument("--section", choices=("understand", "lesson", "director", "notes", "game", "visual", "chain"), default="understand")
     parser.add_argument("--source", help="chapter PDF (understand, chain)")
     parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
     parser.add_argument("--from-run", help="folder or https URL of an earlier run with chapter_map.json and lesson_plan.json (director)")
     parser.add_argument("--resume-from", help="folder or https URL of an earlier understand/chain run: its passed pages are reused")
+    parser.add_argument("--videos", default="", help="visual: only these video ids, for example v1,v2")
+    parser.add_argument("--render", action="store_true", help="visual: also render a silent MP4 preview of every video")
+    parser.add_argument("--with-visual", action="store_true", help="chain: also run Section 4")
     parser.add_argument("--pages")
     parser.add_argument("--out", required=True)
     parser.add_argument("--title", default="")
@@ -132,6 +137,8 @@ def main(argv=None):
             base = args.from_run.rstrip("/") + "/"
             chapter = json.loads(read_text(base + "chapter_map.json"))
             lesson = json.loads(read_text(base + "lesson_plan.json"))
+            if args.section == "visual":
+                director = json.loads(read_text(base + "director.json"))
             course = Course(**chapter["course"]) if not args.course else course
         if args.section in ("notes", "chain") and summary["status"] == "ok":
             notes = run_notes(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
@@ -148,6 +155,21 @@ def main(argv=None):
         if args.section in ("director", "chain") and summary["status"] == "ok":
             director = run_director(chapter, lesson, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(director_quality=director["quality"])
+        if args.section == "visual" or (args.section == "chain" and args.with_visual and summary["status"] == "ok"):
+            wanted = {v.strip() for v in args.videos.split(",") if v.strip()}
+            if wanted:
+                director = dict(director, videos=[v for v in director["videos"] if v["video_id"] in wanted])
+            visual = run_visual(chapter, lesson, director, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
+            summary.update(visual_quality=visual["quality"])
+            if args.render:
+                from bie.brain.video.render import RenderError, mp4
+                (out / "videos").mkdir(exist_ok=True)
+                for spec_path in sorted((out / "video_specs").glob("*.json")):
+                    try:
+                        mp4(json.loads(spec_path.read_text(encoding="utf-8")), out / "videos" / (spec_path.stem + ".mp4"),
+                            dist=out / "_preview", assets=out / "assets")
+                    except RenderError as exc:
+                        summary.setdefault("render_errors", []).append(f"{spec_path.stem}: {str(exc)[:300]}")
     except SystemExit:
         raise
     except Exception as exc:  # report every failure without leaking a key
@@ -158,7 +180,8 @@ def main(argv=None):
     (out / "SUMMARY.json").write_text(text + "\n", encoding="utf-8")
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
                                                          ("status", "quality", "map_status", "notes_quality", "game_quality",
-                                                          "lesson_quality", "director_quality", "ledger_cost_usd", "error")},
+                                                          "lesson_quality", "director_quality", "visual_quality",
+                                                          "render_errors", "ledger_cost_usd", "error")},
                                                         ensure_ascii=False), secrets),
            "notice" if summary["status"] == "ok" else "warning" if summary["status"] == "stopped" else "error")
     return 0 if summary["status"] in ("ok", "stopped") else 1

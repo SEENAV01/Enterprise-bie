@@ -736,3 +736,116 @@ class Game(unittest.TestCase):
             design = run_game_design(chapter, COURSE, runner, folder)
             self.assertTrue(design["quality"]["passed"])
             self.assertTrue(Path(folder, "GAME.md").exists())
+
+
+def png_bytes(width=64, height=48, color=(200, 120, 90)):
+    import io
+    from PIL import Image
+    buf = io.BytesIO()
+    Image.new("RGB", (width, height), color).save(buf, format="PNG")
+    return buf.getvalue()
+
+
+class Visual(unittest.TestCase):
+    scene = {"scene_id": "s1", "beat_ids": ["b1", "b2"], "elements": [
+        {"element_id": "e1", "kind": "cell_or_micro", "shows": "A neuron", "parts_to_label": ["axon"], "detail": "anatomy",
+         "source_item_ids": []}], "camera": [], "actions": [], "visual_math": [],
+        "interaction": {"type": "none", "question_id": "", "prompt": "", "target_element_id": ""},
+        "frame": {"process": "", "how_it_works": "", "when_or_sequence": "", "conditions_or_atmosphere": "", "who_or_what_changes": ""},
+        "style": "", "setting": ""}
+    says = {"b1": "ज़रा सोचिए, neuron कैसे signal भेजता है?", "b2": "Axon signal आगे भेजता है।"}
+
+    def layer(self, lid, kind, **extra):
+        empty = {"x": 0, "y": 0, "w": 0, "h": 0}
+        base = {"id": lid, "type": kind, "cue": {"beat_id": "b1", "word": "neuron"}, "until": {"beat_id": "", "word": ""},
+                "box": {"x": 0.1, "y": 0.1, "w": 0.4, "h": 0.4}, "element_id": "", "text": "", "subtitle": "", "tone": "accent",
+                "anchor": {"layer": "", "x": 0, "y": 0}, "target_layer": "", "region": empty, "path": [], "entries": [], "columns": [],
+                "rows": [], "focus": [], "from_ref": {"layer": "", "x": 0, "y": 0}, "to_ref": {"layer": "", "x": 0, "y": 0}}
+        base.update(extra)
+        return base
+
+    def test_checks(self):
+        from bie.brain.visual import check_layout
+        assets = {"e1": {"src": "assets/x.png", "credit": "c"}}
+        good = {"layers": [self.layer("img", "image", element_id="e1"),
+                           self.layer("lab", "label", box={"x": 0.6, "y": 0.1, "w": 0.3, "h": 0.1}, text="Axon",
+                                      anchor={"layer": "img", "x": 0.8, "y": 0.5}, cue={"beat_id": "b2", "word": "axon"})],
+                "camera": [{"cue": {"beat_id": "b2", "word": "signal"}, "layer": "img", "region": {"x": 0.5, "y": 0.3, "w": 0.4, "h": 0.4}, "frames": 30}]}
+        self.assertEqual(check_layout(good, self.scene, self.says, assets), [])
+        bad = {"layers": [self.layer("img", "image", element_id="e9", cue={"beat_id": "b1", "word": "synapse"}),
+                          self.layer("t1", "title", text="x", box={"x": 0.2, "y": 0.2, "w": 0.4, "h": 0.4}),
+                          self.layer("lab", "label", text="", anchor={"layer": "zz", "x": 0, "y": 0}, box={"x": 0.9, "y": 0.1, "w": 0.3, "h": 0.1}),
+                          self.layer("f", "flow", target_layer="img", path=[{"x": 0, "y": 0}])],
+               "camera": [{"cue": {"beat_id": "b3", "word": "x"}, "layer": "nope", "region": {"x": 0, "y": 0, "w": 1, "h": 1}, "frames": 30}]}
+        problems = check_layout(bad, self.scene, self.says, assets)
+        for fragment in ("cue word 'synapse' is not spoken", "has no chosen picture", "overlap on screen", "needs short text",
+                         "anchor layer 'zz' does not exist", "box must lie inside the screen", "at least two path points",
+                         "cue beat 'b3' is not a beat", "layer 'nope' does not exist"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_scene_spec_uses_spoken_word_frames(self):
+        from bie.brain.video import timing
+        from bie.brain.visual import key_frames, to_scene_spec
+        beats = [{"beat_id": b, "say": s} for b, s in self.says.items()]
+        timeline = timing.build(beats, [self.scene])
+        layout = {"layers": [self.layer("img", "image", element_id="e1"),
+                             self.layer("lab", "label", text="Axon", cue={"beat_id": "b2", "word": "axon"},
+                                        anchor={"layer": "img", "x": 0.8, "y": 0.5})],
+                  "camera": [{"cue": {"beat_id": "b2", "word": "signal"}, "layer": "img", "region": {"x": 0.5, "y": 0.3, "w": 0.4, "h": 0.4}, "frames": 30}]}
+        spec = to_scene_spec(layout, self.scene, timeline, self.says, {"e1": {"src": "assets/x.png", "credit": "A · CC BY"}}, [])
+        b2_start = timeline["s1"]["beats"]["b2"][0]
+        self.assertEqual(spec["layers"][1]["at"], b2_start)              # "Axon" is the first word of b2
+        self.assertEqual(spec["layers"][1]["anchor"], {"layer": "img", "point": {"x": 0.8, "y": 0.5}})
+        self.assertGreater(spec["camera"][1]["at"], b2_start)
+        self.assertEqual(spec["camera"][1]["layer"], "img")
+        self.assertTrue(all(0 <= f < spec["duration"] for f in key_frames(spec)))
+
+    def test_layout_patch(self):
+        from bie.brain.visual import apply_patch
+        previous = {"layers": [self.layer("a", "title"), self.layer("b", "title")], "camera": [1]}
+        patched = apply_patch(previous, {"notes": {}, "replace_layers": [self.layer("b", "title", text="new")], "remove_layer_ids": ["a"], "camera": []})
+        self.assertEqual([l["id"] for l in patched["layers"]], ["b"])
+        self.assertEqual(patched["camera"], [])
+
+    def test_offline_visuals_from_director(self):
+        from structural_pdf_fixtures import positioned_text_pdf
+        from bie.brain.director import run_director
+        from bie.brain.lesson import run_lesson
+        from bie.brain.visual import run_visual
+        commons = json.dumps({"query": {"pages": {"1": {"index": 1, "title": "File:Neuron.png", "imageinfo": [{
+            "url": "https://upload.wikimedia.org/a/Neuron.png", "thumburl": "https://upload.wikimedia.org/thumb/a/Neuron.png/800px-Neuron.png",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Neuron.png", "width": 800, "height": 600, "mime": "image/png",
+            "extmetadata": {"LicenseShortName": {"value": "CC BY 4.0"}, "Artist": {"value": "Someone"}}}]}}}}).encode()
+        picture = png_bytes()
+
+        class Response:
+            def __init__(self, body):
+                self.body = body
+
+            def read(self, limit=-1):
+                return self.body
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        def opener(request, timeout):
+            return Response(commons if "commons.wikimedia.org/w/api.php" in request.full_url else picture)
+
+        pdf = positioned_text_pdf([[(72, 720, "Neurons carry messages."), (72, 700, "Muscles move bones.")]])
+        with tempfile.TemporaryDirectory() as folder:
+            runner = SectionRunner(gateway(), maker="anthropic", reviewer="openai", rulebook=rulebook.load(), records_dir=Path(folder, "r"))
+            chapter = run_chapter(pdf, COURSE, runner, folder, workers=1)
+            lesson = run_lesson(chapter, COURSE, runner, folder, workers=1)
+            director = run_director(chapter, lesson, COURSE, runner, folder, workers=1)
+            for video in director["videos"]:                       # make the fake director ask for one picture
+                video["scenes"][0]["elements"][0]["kind"] = "cell_or_micro"
+            visual = run_visual(chapter, lesson, director, COURSE, runner, folder, workers=1, opener=opener)
+            self.assertEqual(visual["quality"]["scenes_passed"], visual["quality"]["scenes"])
+            self.assertGreaterEqual(visual["quality"]["pictures_chosen"], 1)
+            spec = json.loads(next(Path(folder, "video_specs").glob("*.json")).read_text(encoding="utf-8"))
+            self.assertTrue(spec["scenes"])
+            self.assertTrue(any(l["type"] == "image" and l["src"].startswith("assets/files/") for s in spec["scenes"] for l in s["layers"]))
+            self.assertIn("CC BY 4.0", "\n".join(visual["credits"]))
