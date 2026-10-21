@@ -30,7 +30,7 @@ from .video.render import RenderError, small_jpeg, stills
 
 SECTION = "visual"
 PLAN_VERSION = "visual-assets/1"
-CHOOSE_VERSION = "visual-choose/1"
+CHOOSE_VERSION = "visual-choose/2"
 LAYOUT_VERSION = "visual-layout/1"
 IMAGE_KINDS = {"structure_3d", "illustration", "diagram", "cell_or_micro", "organ_or_body", "molecule", "map", "character", "icon"}
 LAYER_TYPES = ["image", "title", "label", "highlight", "flow", "steps", "timeline", "scale", "table", "arrow", "question"]
@@ -74,7 +74,8 @@ Navin's rules for this section:
 
 Reply with the JSON object only: notes (brief, for the reviewer), needs = one entry per element_key given, with queries and must_show."""
 
-CHOOSE_ROLE = """You are BIE's visual section choosing the picture for one element of a {subject} video for {learners} ({exam}). You see
+CHOOSE_ROLE = """You are BIE's visual section choosing the picture for one element of a {subject} lesson (a video scene or a game
+board) for {learners} ({exam}). You see
 numbered candidate pictures (all with licences allowed in a paid course). Choose the one that shows the element most accurately and in
 the most detail (choice = its number), or -1 if none is good enough. For the chosen picture, give every part that must be labelled or
 zoomed into: its name, its region (x, y, w, h as fractions of the picture, 0 to 1) and the point a label line should touch (x, y as
@@ -435,6 +436,43 @@ def _fetch_candidates(need: dict, *, opener=None, per_element: int = 6):
     return found[:per_element]
 
 
+def find_picture(course: Course, key: str, element: dict, need: dict, runner, library: AssetLibrary, *, opener=None):
+    """Search open sources for one element, let the vision AI choose and mark the parts, and keep it in the library.
+
+    Returns (info, report_row); info is None when nothing fits. Used by the visual section and the game builder.
+    """
+    candidates = _fetch_candidates(need, opener=opener)
+    thumbs, kept = [], []
+    for cand in candidates:
+        try:
+            thumbs.append(_open(cand.thumb_url, opener=opener, max_bytes=4 * 1024 * 1024))
+            kept.append(cand)
+        except Exception:
+            continue
+    if not kept:
+        return None, {"element": key, "status": "no_candidates", "queries": need.get("queries", [])}
+    result = runner.run(choose_step(course, key, element, need, kept, thumbs, rulebook=runner.rulebook))
+    value = result.output or {}
+    index = value.get("choice", -1)
+    if not result.passed or index < 0:
+        return None, {"element": key, "status": "none_fits", "reason": value.get("reason", "")}
+    cand = kept[index]
+    try:
+        big = _open(bigger_thumb(cand.thumb_url), opener=opener, max_bytes=12 * 1024 * 1024)
+    except Exception:
+        big = thumbs[index]
+    asset = library.add_bytes(big, mime=_media(big), source=cand.source, title=cand.title, page_url=cand.page_url,
+                              licence=cand.licence, licence_url=cand.licence_url, author=cand.author, credit=cand.credit,
+                              tags=[element["kind"]] + element["parts_to_label"], description=element["shows"])
+    from PIL import Image
+    import io
+    with Image.open(io.BytesIO(big)) as image:
+        width, height = image.size
+    info = {"asset_id": asset.asset_id, "src": "assets/" + asset.path, "parts": value.get("parts", []), "width": width,
+            "height": height, "credit": f"{(cand.author or 'Wikimedia Commons')[:60]} · {cand.licence}", "preview": thumbs[index]}
+    return info, {"element": key, "status": "chosen", "title": cand.title, "licence": cand.licence, "asset_id": asset.asset_id}
+
+
 def resolve_assets(course: Course, video: dict, runner, library: AssetLibrary, *, opener=None, workers: int = 4):
     """element_id → chosen picture (library asset with parts, a preview for the AI and the src for the video)."""
     plan = runner.run(plan_step(course, video, rulebook=runner.rulebook))
@@ -444,36 +482,8 @@ def resolve_assets(course: Course, video: dict, runner, library: AssetLibrary, *
 
     def one(key):
         element, need = elements[key], needs.get(key, {"queries": [element_text(elements[key])], "must_show": []})
-        candidates = _fetch_candidates(need, opener=opener)
-        thumbs, kept = [], []
-        for cand in candidates:
-            try:
-                thumbs.append(_open(cand.thumb_url, opener=opener, max_bytes=4 * 1024 * 1024))
-                kept.append(cand)
-            except Exception:
-                continue
-        if not kept:
-            return key, None, {"element": key, "status": "no_candidates", "queries": need.get("queries", [])}
-        result = runner.run(choose_step(course, key, element, need, kept, thumbs, rulebook=runner.rulebook))
-        value = result.output or {}
-        index = value.get("choice", -1)
-        if not result.passed or index < 0:
-            return key, None, {"element": key, "status": "none_fits", "reason": value.get("reason", "")}
-        cand = kept[index]
-        try:
-            big = _open(bigger_thumb(cand.thumb_url), opener=opener, max_bytes=12 * 1024 * 1024)
-        except Exception:
-            big = thumbs[index]
-        asset = library.add_bytes(big, mime=_media(big), source=cand.source, title=cand.title, page_url=cand.page_url,
-                                  licence=cand.licence, licence_url=cand.licence_url, author=cand.author, credit=cand.credit,
-                                  tags=[element["kind"]] + element["parts_to_label"], description=element["shows"])
-        from PIL import Image
-        import io
-        with Image.open(io.BytesIO(big)) as image:
-            width, height = image.size
-        info = {"asset_id": asset.asset_id, "src": "assets/" + asset.path, "parts": value.get("parts", []), "width": width,
-                "height": height, "credit": f"{(cand.author or 'Wikimedia Commons')[:60]} · {cand.licence}", "preview": thumbs[index]}
-        return key, info, {"element": key, "status": "chosen", "title": cand.title, "licence": cand.licence, "asset_id": asset.asset_id}
+        info, row = find_picture(course, key, element, need, runner, library, opener=opener)
+        return key, info, row
 
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
         for key, info, row in pool.map(one, sorted(elements)):

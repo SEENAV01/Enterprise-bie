@@ -45,9 +45,9 @@ on:
         required: false
         default: ''
       providers:
-        description: 'blind-test and probe: providers; brain-understand: maker,reviewer (two different providers), for example anthropic,openai'
+        description: 'blind-test and probe: providers; brain-understand: maker,reviewer (two different providers), for example openai,google (Navin, 21 Oct 2026: Claude is not used)'
         required: false
-        default: 'anthropic,openai,google'
+        default: 'openai,google'
       models:
         description: 'optional model overrides, for example anthropic=anthropic/claude-sonnet-5.5,google=google/gemini-3.1-pro-preview'
         required: false
