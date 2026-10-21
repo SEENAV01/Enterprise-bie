@@ -201,6 +201,7 @@ class Runner(unittest.TestCase):
         self.assertTrue(result.passed)
         self.assertEqual(len(result.rounds), 2)
         self.assertTrue(result.rounds[0]["review_problems"][0].startswith("[reviewer] missing: offline missing row"))
+        self.assertEqual(result.rounds[1]["mode"], "patch")
         record = json.loads(Path(result.record_path).read_text(encoding="utf-8"))
         self.assertEqual(record["avoid_rounds"], [1])
 
@@ -288,9 +289,21 @@ class PageChecks(unittest.TestCase):
     def test_review_problems(self):
         self.assertEqual(review_problems({"verdict": "pass", "missing": [], "checklist": [{"rule_id": "S1-03", "met": True, "note": ""}]}), [])
         self.assertTrue(review_problems({"verdict": "fail"}))
-        found = review_problems({"verdict": "fail", "missing": [{"what": "row 3", "where_on_page": "top table"}],
+        found = review_problems({"verdict": "fail", "missing": [{"what": "row 3", "where_on_page": "top table", "severity": "blocking"},
+                                                                {"what": "a nuance", "where_on_page": "x", "severity": "minor"}],
                                  "checklist": [{"rule_id": "S1-03", "met": False, "note": "row 3 missing"}]})
-        self.assertEqual(found, ["missing: row 3 (top table)", "rule S1-03 not met: row 3 missing"])
+        self.assertEqual(found, ["missing: row 3 (top table)"])
+        self.assertEqual(review_problems({"verdict": "pass", "wrong": [{"item_id": "i1", "problem": "p", "fix": "f", "severity": "minor"}]}), [])
+
+    def test_page_patch(self):
+        from bie.brain.understanding import apply_page_patch
+        previous = page_value([item("i1"), item("i2"), item("i3")], boilerplate=["b9"])
+        patched = apply_page_patch(previous, {"notes": {"about": "x"}, "replace_items": [item("i2", content="fixed"), item("i4")],
+                                              "remove_item_ids": ["i3"], "boilerplate_block_ids": [], "text_image_disagreements": []})
+        self.assertEqual([i["item_id"] for i in patched["items"]], ["i1", "i2", "i4"])
+        self.assertEqual(patched["items"][1]["content"], "fixed")
+        self.assertEqual(patched["boilerplate_block_ids"], ["b9"])
+        self.assertEqual(patched["notes"], {"about": "x"})
 
 
 class ConnectChecks(unittest.TestCase):
@@ -397,6 +410,16 @@ class Lesson(unittest.TestCase):
                          "1 items are covered by no beat", "1 teacher questions are answered by no beat", "Devanagari",
                          "more than a couple of beats"):
             self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_script_patch(self):
+        from bie.brain.lesson import apply_script_patch
+        previous = {"title": "t", "beats": [self.beat("b1"), self.beat("b2"), self.beat("b3")]}
+        patched = apply_script_patch(previous, {"notes": {}, "replace_beats": [self.beat("b2", say="नया")],
+                                                "insert_beats": [{"after_beat_id": "b1", "beat": self.beat("b1a")},
+                                                                 {"after_beat_id": "", "beat": self.beat("b0")}],
+                                                "remove_beat_ids": ["b3"]})
+        self.assertEqual([b["beat_id"] for b in patched["beats"]], ["b0", "b1", "b1a", "b2"])
+        self.assertEqual(patched["beats"][3]["say"], "नया")
 
     def test_offline_chain_from_pdf_to_scripts(self):
         from structural_pdf_fixtures import positioned_text_pdf

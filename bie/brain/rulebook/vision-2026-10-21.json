@@ -1,6 +1,6 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.3",
+  "version": "2026-10-21.4",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "rules": [
@@ -85,7 +85,7 @@
       "id": "S1-07",
       "sections": ["understand", "connect"],
       "status": "locked",
-      "rule": "Mark every answer's basis: 'book' when the book states it, 'outside' when it comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says.",
+      "rule": "Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.",
       "check": "Is every answer's basis marked correctly, and is every outside answer correct?"
     },
     {
@@ -218,7 +218,7 @@
       "id": "R-01",
       "sections": ["review"],
       "status": "locked",
-      "rule": "Review against the page and the rulebook, never against your own taste. Report concretely: what is missing (where on the page), what is wrong (which item and the fix), what is shallow (which item and what understanding is missing). Pass only when nothing teachable is missing or wrong.",
+      "rule": "Review against the source and the rulebook, never against your own taste, and judge at the level of a standard textbook for these learners and this exam. Every finding has a severity. Blocking: teachable content missing; a fact that is wrong at this level; a wrong reading of the source; a wrong book/outside label; an important item explained too shallowly for these learners; a broken rule. Minor: precision beyond this level, wording preferences, optional extra depth. Pass when there is nothing blocking; report minor findings as suggestions.",
       "check": "n/a"
     }
   ]

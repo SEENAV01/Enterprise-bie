@@ -28,6 +28,8 @@ from bie.model_gateway.live.errors import ProviderError
 from bie.model_gateway.live.pricing import estimate_cost
 from bie.model_gateway.model_interface import ModelRequest
 
+from .common import minor_findings
+
 RECORD_SCHEMA = "bie.brain.process-record/1"
 
 NOTES_SCHEMA = {
@@ -50,6 +52,10 @@ REMAKE_INSTRUCTION = (
     "Fix every problem and keep everything that was already right. Reply with the complete corrected JSON "
     "for the whole unit, not only the changes, and update your notes to say what you changed and why."
 )
+PATCH_INSTRUCTION = (
+    "BIE's checks found problems with your output.\n{problems}\n\n"
+    "Fix every problem and keep everything that was already right. {hint} Update your notes to say what you changed and why."
+)
 
 
 @dataclass
@@ -65,6 +71,9 @@ class Step:
     review_user: Callable[[dict], Any] | None = None
     review_schema: dict | None = None
     review_problems: Callable[[dict], list] | None = None
+    patch_schema: dict | None = None          # remakes answer with a patch instead of the whole output
+    apply_patch: Callable[[dict, dict], dict] | None = None
+    patch_hint: str = ""
     max_rounds: int = 3
 
 
@@ -132,10 +141,11 @@ class SectionRunner:
     def run(self, step: Step) -> StepResult:
         messages = [{"role": "system", "content": step.system}, {"role": "user", "content": step.user}]
         rounds, output, status = [], None, "failed"
+        schema, patching = step.schema, False
         for number in range(1, step.max_rounds + 1):
-            entry = {"round": number, "started_at": self._clock()}
+            entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
             request = ModelRequest(request_id=f"{step.section}:{step.unit}:r{number}", messages=tuple(messages),
-                                   response_schema=step.schema)
+                                   response_schema=schema)
             try:
                 response = self.gateway.complete(self.maker, request, prompt_version=step.instructions_version)
             except ProviderError as exc:
@@ -143,6 +153,9 @@ class SectionRunner:
                 rounds.append(entry)
                 break
             value = response.content
+            if patching:
+                entry["patch"] = value
+                value = step.apply_patch(output, value)
             entry["maker"] = _call_info(response, self.maker)
             entry["notes"] = value.get("notes")
             entry["output"] = value
@@ -164,6 +177,7 @@ class SectionRunner:
                 entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
                 problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
                 entry["review_problems"] = problems
+                entry["review_minor"] = minor_findings(review.content)
             entry["passed"] = not problems
             entry["finished_at"] = self._clock()
             rounds.append(entry)
@@ -172,8 +186,12 @@ class SectionRunner:
                 status = "passed"
                 break
             previous = json.dumps(value, ensure_ascii=False)
+            patching = step.patch_schema is not None and step.apply_patch is not None
+            schema = step.patch_schema if patching else step.schema
+            instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=step.patch_hint) if patching
+                           else REMAKE_INSTRUCTION.format(problems=_problems_text(problems)))
             messages = [messages[0], messages[1], {"role": "assistant", "content": previous},
-                        {"role": "user", "content": REMAKE_INSTRUCTION.format(problems=_problems_text(problems))}]
+                        {"role": "user", "content": instruction}]
         cost = sum(r.get("maker", {}).get("cost_usd", 0.0) + r.get("review", {}).get("cost_usd", 0.0) for r in rounds)
         result = StepResult(step.section, step.unit, status, output, rounds, cost_usd=round(cost, 6))
         result.record_path = self._save(step, result)

@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
-from .common import S, arr, checklist_text, fmt, obj, review_problems
+from .common import SEVERITY, S, arr, checklist_text, fmt, obj, review_problems
 from .runner import NOTES_SCHEMA, SectionRunner, Step
 
 SECTION = "understand"
@@ -78,9 +78,9 @@ PAGE_SCHEMA = _obj({
 PAGE_REVIEW_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
     "verdict": {"type": "string", "enum": ["pass", "fail"]},
-    "missing": _arr(_obj({"what": S, "where_on_page": S})),
-    "wrong": _arr(_obj({"item_id": S, "problem": S, "fix": S})),
-    "shallow": _arr(_obj({"item_id": S, "what_is_missing": S})),
+    "missing": _arr(_obj({"what": S, "where_on_page": S, "severity": SEVERITY})),
+    "wrong": _arr(_obj({"item_id": S, "problem": S, "fix": S, "severity": SEVERITY})),
+    "shallow": _arr(_obj({"item_id": S, "what_is_missing": S, "severity": SEVERITY})),
     "checklist": _arr(_obj({"rule_id": S, "met": {"type": "boolean"}, "note": S})),
 })
 CONNECT_SCHEMA = _obj({
@@ -100,9 +100,31 @@ CONNECT_SCHEMA = _obj({
 CONNECT_REVIEW_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
     "verdict": {"type": "string", "enum": ["pass", "fail"]},
-    "problems": _arr(_obj({"where": S, "problem": S, "fix": S})),
+    "problems": _arr(_obj({"where": S, "problem": S, "fix": S, "severity": SEVERITY})),
     "checklist": _arr(_obj({"rule_id": S, "met": {"type": "boolean"}, "note": S})),
 })
+PAGE_PATCH_SCHEMA = _obj({
+    "notes": NOTES_SCHEMA,
+    "replace_items": _arr(ITEM_SCHEMA),
+    "remove_item_ids": _arr(S),
+    "boilerplate_block_ids": _arr(S),
+    "text_image_disagreements": _arr(_obj({"block_ids": _arr(S), "text_says": S, "image_shows": S})),
+})
+
+
+def apply_page_patch(previous: dict, patch: dict) -> dict:
+    """The previous page understanding with the patch applied: items replaced or added by id, removed by id."""
+    replace = {i["item_id"]: i for i in patch.get("replace_items") or []}
+    removed = set(patch.get("remove_item_ids") or [])
+    items = []
+    for item in previous.get("items") or []:
+        if item["item_id"] in removed:
+            continue
+        items.append(replace.pop(item["item_id"], item))
+    items.extend(i for i in (patch.get("replace_items") or []) if i["item_id"] in replace)
+    return dict(previous, notes=patch.get("notes") or previous.get("notes"), items=items,
+                boilerplate_block_ids=patch.get("boilerplate_block_ids") or previous.get("boilerplate_block_ids") or [],
+                text_image_disagreements=patch.get("text_image_disagreements") or previous.get("text_image_disagreements") or [])
 
 
 # ---------------------------------------------------------------- prompts
@@ -135,7 +157,9 @@ How to fill the JSON:
     formula, data, example, question, other).
   - teachable: false only for pure headings and containers whose children carry the content.
   - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for
-    "why"/"how" on an earlier answer; basis "book" or "outside".
+    "why"/"how" on an earlier answer; basis "book" only if the page states it, else "outside". BIE's code checks every teachable item:
+    at least two questions, at least one "why" or "how"; a process needs "how"; a comparison or classification needs "compare" or
+    "difference".
   - prerequisites: concrete concepts a student must understand first.
   - exam_importance and exam_note: for this exam.
   - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).
@@ -152,12 +176,15 @@ its work.
 Check against this list (answer every item in "checklist" with its rule id):
 {checklist}
 
-Report concretely:
+You also get the maker's notes (what the page is about, its decisions with reasons, what is uncertain).
+
+Report concretely, each finding with a severity ("blocking" or "minor", see R-01):
 - missing: anything visible on the page that no item captures (a table row, a cell, a diagram label, an arrow, a branch of a tree, a
   sentence, an equation), with where it is on the page;
-- wrong: an item whose reading, kind, content type, basis or answer is wrong, with the fix;
-- shallow: a teachable item whose questions and answers do not reach teacher-level understanding, with what is missing.
-verdict is "pass" only if missing and wrong are empty and nothing important is shallow. Fill your own brief notes first.
+- wrong: an item whose reading, kind, content type, basis or answer is wrong at this learners' level, with the fix;
+- shallow: a teachable item whose questions and answers do not reach the understanding these learners need, with what is missing.
+Judge at the level of a standard textbook for {learners} ({exam}); precision beyond that level is minor.
+verdict is "pass" when nothing is blocking. Fill your own brief notes first.
 Reply with the JSON object only."""
 
 CONNECT_ROLE = """You are BIE's book-understanding section, connecting a whole chapter. You are an expert teacher of {subject} for {learners}
@@ -188,9 +215,16 @@ chapter's items and the map another AI made from them.
 Check against this list (answer every item in "checklist" with its rule id):
 {checklist}
 
-Report every problem with where it is and the fix: an item left out of all concepts, a wrong or missing relation, a prerequisite that is
-vague or missing, an unresolved reference, a question not linked, a teaching order that would confuse a student.
-verdict is "pass" only if problems is empty. Fill your own brief notes first. Reply with the JSON object only."""
+You also get the maker's notes. Report every problem with where it is, the fix and a severity ("blocking" or "minor", see R-01): an
+item left out of all concepts, a wrong or missing relation, a prerequisite that is vague or missing, an unresolved reference, a question
+not linked, a teaching order that would confuse a student, a fact wrong at this learners' level. Precision beyond the level of a standard
+textbook for {learners} ({exam}) is minor.
+verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
+
+
+PAGE_PATCH_HINT = ("Reply with a patch, not the whole page: replace_items = the complete corrected or new items (use the same item_id to "
+                   "replace an item, a new item_id to add one), remove_item_ids = items to delete, and the full boilerplate_block_ids "
+                   "and text_image_disagreements lists.")
 
 
 def _blocks_text(page):
@@ -340,7 +374,7 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
                          checklist=checklist_text(rulebook, SECTION))
 
     def review_user(value):
-        shown = {k: value[k] for k in ("page_summary", "items", "boilerplate_block_ids", "text_image_disagreements")}
+        shown = {k: value[k] for k in ("notes", "page_summary", "items", "boilerplate_block_ids", "text_image_disagreements")}
         parts = [{"type": "text", "text": f"Chapter: {course.title}. Page {page.number} of {page_count}.\n\n"
                                           f"Native text blocks (id | text):\n{_blocks_text(page)}"}]
         if page.image_part():
@@ -351,7 +385,7 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
     return Step(section=SECTION, unit=f"page-{page.number:03d}", instructions_version=PAGE_VERSION, system=system, user=user,
                 schema=PAGE_SCHEMA, check=lambda value: check_page(value, page), review_system=review_system,
                 review_user=review_user, review_schema=PAGE_REVIEW_SCHEMA, review_problems=review_problems,
-                max_rounds=max_rounds)
+                patch_schema=PAGE_PATCH_SCHEMA, apply_patch=apply_page_patch, patch_hint=PAGE_PATCH_HINT, max_rounds=max_rounds)
 
 
 def _compact_items(items: dict):
@@ -371,7 +405,7 @@ def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3) -> Step
                          checklist=checklist_text(rulebook, CONNECT))
 
     def review_user(value):
-        shown = {k: v for k, v in value.items() if k != "notes"}
+        shown = value
         return (f"Chapter: {course.title}.\nItems (JSON list):\n{listing}\n\n"
                 f"The chapter map to review (JSON):\n{json.dumps(shown, ensure_ascii=False)}")
 

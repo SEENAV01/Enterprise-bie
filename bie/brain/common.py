@@ -22,13 +22,28 @@ def checklist_text(rulebook, section):
     return "\n".join(f"[{rule_id}] {question}" for rule_id, question in rulebook.checklist(section))
 
 
+SEVERITY = {"type": "string", "enum": ["blocking", "minor"]}
+
+
+def blocking(findings):
+    return [f for f in findings or [] if f.get("severity", "blocking") == "blocking"]
+
+
 def review_problems(review: dict) -> list:
-    """A reviewer's findings as remake instructions; empty means pass."""
-    problems = [f"missing: {m['what']} ({m['where_on_page']})" for m in review.get("missing") or []]
-    problems += [f"wrong in {w['item_id']}: {w['problem']} -> fix: {w['fix']}" for w in review.get("wrong") or []]
-    problems += [f"shallow {s['item_id']}: {s['what_is_missing']}" for s in review.get("shallow") or []]
-    problems += [f"{p['where']}: {p['problem']} -> fix: {p['fix']}" for p in review.get("problems") or []]
-    problems += [f"rule {c['rule_id']} not met: {c['note']}" for c in review.get("checklist") or [] if not c.get("met")]
+    """A reviewer's blocking findings as remake instructions; empty means pass. Minor findings never block."""
+    problems = [f"missing: {m['what']} ({m['where_on_page']})" for m in blocking(review.get("missing"))]
+    problems += [f"wrong in {w['item_id']}: {w['problem']} -> fix: {w['fix']}" for w in blocking(review.get("wrong"))]
+    problems += [f"shallow {s['item_id']}: {s['what_is_missing']}" for s in blocking(review.get("shallow"))]
+    problems += [f"{p['where']}: {p['problem']} -> fix: {p['fix']}" for p in blocking(review.get("problems"))]
     if review.get("verdict") != "pass" and not problems:
-        problems.append("the reviewer did not pass this work but gave no detail; check the work again completely")
+        problems.append("the reviewer did not pass this work but named no blocking finding; check the work again completely")
     return problems
+
+
+def minor_findings(review: dict) -> list:
+    found = []
+    for key in ("missing", "wrong", "shallow", "problems"):
+        for f in review.get(key) or []:
+            if f.get("severity") == "minor":
+                found.append({k: v for k, v in f.items() if k != "severity"} | {"kind": key})
+    return found

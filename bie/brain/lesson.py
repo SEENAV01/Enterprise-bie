@@ -18,7 +18,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from .runner import NOTES_SCHEMA, Step
-from .common import S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
+from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
 from .understanding import Course
 
 SECTION = "lesson"
@@ -43,25 +43,45 @@ PLAN_SCHEMA = _obj({
     })),
     "chapter_flow": S,
 })
+BEAT_SCHEMA = _obj({
+    "beat_id": S,
+    "purpose": {"type": "string", "enum": PURPOSES},
+    "say": S,
+    "covers_item_ids": _arr(S),
+    "answers": _arr(S),
+    "on_screen": S,
+    "basis": {"type": "string", "enum": ["book", "outside", "mixed"]},
+})
 SCRIPT_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
     "title": S,
-    "beats": _arr(_obj({
-        "beat_id": S,
-        "purpose": {"type": "string", "enum": PURPOSES},
-        "say": S,
-        "covers_item_ids": _arr(S),
-        "answers": _arr(S),
-        "on_screen": S,
-        "basis": {"type": "string", "enum": ["book", "outside", "mixed"]},
-    })),
+    "beats": _arr(BEAT_SCHEMA),
 })
+SCRIPT_PATCH_SCHEMA = _obj({
+    "notes": NOTES_SCHEMA,
+    "replace_beats": _arr(BEAT_SCHEMA),
+    "insert_beats": _arr(_obj({"after_beat_id": S, "beat": BEAT_SCHEMA})),
+    "remove_beat_ids": _arr(S),
+})
+SCRIPT_PATCH_HINT = ("Reply with a patch, not the whole script: replace_beats = complete corrected beats (same beat_id), insert_beats = "
+                     "new beats with the beat_id they follow (\"\" for the very start), remove_beat_ids = beats to delete.")
 REVIEW_SCHEMA = _obj({
     "notes": NOTES_SCHEMA,
     "verdict": {"type": "string", "enum": ["pass", "fail"]},
-    "problems": _arr(_obj({"where": S, "problem": S, "fix": S})),
+    "problems": _arr(_obj({"where": S, "problem": S, "fix": S, "severity": SEVERITY})),
     "checklist": _arr(_obj({"rule_id": S, "met": {"type": "boolean"}, "note": S})),
 })
+
+
+def apply_script_patch(previous: dict, patch: dict) -> dict:
+    replace = {b["beat_id"]: b for b in patch.get("replace_beats") or []}
+    removed = set(patch.get("remove_beat_ids") or [])
+    beats = [replace.get(b["beat_id"], b) for b in previous.get("beats") or [] if b["beat_id"] not in removed]
+    for entry in patch.get("insert_beats") or []:
+        ids = [b["beat_id"] for b in beats]
+        at = ids.index(entry["after_beat_id"]) + 1 if entry["after_beat_id"] in ids else (0 if not entry["after_beat_id"] else len(beats))
+        beats.insert(at, entry["beat"])
+    return dict(previous, notes=patch.get("notes") or previous.get("notes"), beats=beats)
 
 PLAN_ROLE = """You are BIE's lesson section: the best teacher of {subject} for {learners} preparing for {exam}, planning the video
 lessons of one chapter from BIE's chapter map. Students learn only from these videos, so the plan must make the whole chapter
@@ -111,10 +131,11 @@ Another AI wrote the work below from BIE's chapter map. You check it as Navin wo
 Check against this list (answer every item in "checklist" with its rule id):
 {checklist}
 
-Report every problem with where it is (video or beat id), what is wrong and the fix: an item or teacher question not really covered
-(even if claimed), a prerequisite named but not taught, a jump a student cannot follow, an analogy that does not fit, wrong or
-invented facts, language that is not natural spoken Hinglish, beats that read out lists.
-verdict is "pass" only if problems is empty. Fill your own brief notes first. Reply with the JSON object only."""
+You also get the maker's notes. Report every problem with where it is (video or beat id), what is wrong, the fix and a severity
+("blocking" or "minor", see R-01): an item or teacher question not really covered (even if claimed), a prerequisite named but not
+taught, a jump a student cannot follow, an analogy that does not fit, a fact wrong at this level, language that is not natural spoken
+Hinglish, beats that read out lists. Precision beyond the level of a standard textbook for {learners} ({exam}) is minor.
+verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
 
 
 def question_ids(item: dict):
@@ -241,7 +262,7 @@ def plan_step(course: Course, chapter, *, rulebook, max_rounds=3) -> Step:
                          checklist=_checklist_text(rulebook, SECTION))
 
     def review_user(value):
-        shown = {k: v for k, v in value.items() if k != "notes"}
+        shown = value
         return (f"Chapter: {course.title}.\nBIE's chapter map (JSON):\n{payload}\n\n"
                 f"The lesson plan to review (JSON):\n{json.dumps(shown, ensure_ascii=False)}")
 
@@ -259,14 +280,15 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3)
                          checklist=_checklist_text(rulebook, SECTION))
 
     def review_user(value):
-        shown = {k: v for k, v in value.items() if k != "notes"}
+        shown = value
         return (f"Chapter: {course.title}. Video {video['video_id']}.\nWhat this video must teach (JSON):\n{payload}\n\n"
                 f"The teacher script to review (JSON):\n{json.dumps(shown, ensure_ascii=False)}")
 
     return Step(section=SECTION, unit=f"script-{video['video_id']}", instructions_version=SCRIPT_VERSION, system=system,
                 user=user, schema=SCRIPT_SCHEMA, check=lambda value: check_script(value, chapter, video, course.language),
                 review_system=review_system, review_user=review_user, review_schema=REVIEW_SCHEMA,
-                review_problems=review_problems, max_rounds=max_rounds)
+                review_problems=review_problems, patch_schema=SCRIPT_PATCH_SCHEMA, apply_patch=apply_script_patch,
+                patch_hint=SCRIPT_PATCH_HINT, max_rounds=max_rounds)
 
 
 def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int = 4, max_rounds: int = 3):

@@ -105,8 +105,14 @@ class BrainFakeClient:
                 self.fail_reviews -= 1
                 value["verdict"] = "fail"
                 key = "missing" if "missing" in props else "problems"
-                value[key] = ([{"what": "offline missing row", "where_on_page": "offline"}] if key == "missing" else
-                              [{"where": "offline", "problem": "offline problem", "fix": "offline fix"}])
+                value[key] = ([{"what": "offline missing row", "where_on_page": "offline", "severity": "blocking"}]
+                              if key == "missing" else
+                              [{"where": "offline", "problem": "offline problem", "fix": "offline fix", "severity": "blocking"}])
+        elif "replace_beats" in props:
+            value = {"notes": NOTES, "replace_beats": [], "insert_beats": [], "remove_beat_ids": []}
+        elif "replace_items" in props:
+            value = {"notes": NOTES, "replace_items": [], "remove_item_ids": [], "boilerplate_block_ids": [],
+                     "text_image_disagreements": []}
         elif "items" in props:
             value = page_answer(user)
         elif "concepts" in props:
