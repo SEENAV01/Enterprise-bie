@@ -1,6 +1,6 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.1",
+  "version": "2026-10-21.2",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "rules": [
@@ -22,8 +22,8 @@
       "id": "G-03",
       "sections": ["*"],
       "status": "locked",
-      "rule": "Write your thinking in the 'thinking' field before the output: what you understood, the questions you asked yourself, the options you considered, what you chose and why, and any doubts. This record is kept and reused, so make it honest and specific.",
-      "check": "Does the thinking field honestly explain the understanding, the options and the reasons for the choices?"
+      "rule": "Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.",
+      "check": "Do the notes say what the unit is about, the main decisions with reasons, and what is uncertain?"
     },
     {
       "id": "G-04",

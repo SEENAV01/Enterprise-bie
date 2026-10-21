@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
-from .runner import THINKING_SCHEMA, SectionRunner, Step
+from .runner import NOTES_SCHEMA, SectionRunner, Step
 
 SECTION = "understand"
 CONNECT = "connect"
@@ -76,14 +76,14 @@ ITEM_SCHEMA = _obj({
     "tests_item_ids": _arr(S),
 })
 PAGE_SCHEMA = _obj({
-    "thinking": THINKING_SCHEMA,
+    "notes": NOTES_SCHEMA,
     "page_summary": S,
     "items": _arr(ITEM_SCHEMA),
     "boilerplate_block_ids": _arr(S),
     "text_image_disagreements": _arr(_obj({"block_ids": _arr(S), "text_says": S, "image_shows": S})),
 })
 PAGE_REVIEW_SCHEMA = _obj({
-    "thinking": THINKING_SCHEMA,
+    "notes": NOTES_SCHEMA,
     "verdict": {"type": "string", "enum": ["pass", "fail"]},
     "missing": _arr(_obj({"what": S, "where_on_page": S})),
     "wrong": _arr(_obj({"item_id": S, "problem": S, "fix": S})),
@@ -91,7 +91,7 @@ PAGE_REVIEW_SCHEMA = _obj({
     "checklist": _arr(_obj({"rule_id": S, "met": {"type": "boolean"}, "note": S})),
 })
 CONNECT_SCHEMA = _obj({
-    "thinking": THINKING_SCHEMA,
+    "notes": NOTES_SCHEMA,
     "chapter_title": S,
     "chapter_summary": S,
     "concepts": _arr(_obj({"concept_id": S, "name": S, "item_ids": _arr(S),
@@ -105,7 +105,7 @@ CONNECT_SCHEMA = _obj({
     "exam_focus": _arr(_obj({"concept_id": S, "why": S})),
 })
 CONNECT_REVIEW_SCHEMA = _obj({
-    "thinking": THINKING_SCHEMA,
+    "notes": NOTES_SCHEMA,
     "verdict": {"type": "string", "enum": ["pass", "fail"]},
     "problems": _arr(_obj({"where": S, "problem": S, "fix": S})),
     "checklist": _arr(_obj({"rule_id": S, "met": {"type": "boolean"}, "note": S})),
@@ -126,8 +126,8 @@ Navin's rules for this section (follow every one):
 {rules}
 
 How to fill the JSON:
-- thinking: what the page is about and how it fits the chapter; the questions you asked yourself; the options you weighed (how to split
-  items, how to read an unclear part); each choice with its reason; your doubts.
+- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,
+  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.
 - items: everything on the page, in reading order.
   - item_id: short and unique on this page ("i1", "i2", ...).
   - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),
@@ -164,7 +164,7 @@ Report concretely:
   sentence, an equation), with where it is on the page;
 - wrong: an item whose reading, kind, content type, basis or answer is wrong, with the fix;
 - shallow: a teachable item whose questions and answers do not reach teacher-level understanding, with what is missing.
-verdict is "pass" only if missing and wrong are empty and nothing important is shallow. Write your own thinking first.
+verdict is "pass" only if missing and wrong are empty and nothing important is shallow. Fill your own brief notes first.
 Reply with the JSON object only."""
 
 CONNECT_ROLE = """You are BIE's book-understanding section, connecting a whole chapter. You are an expert teacher of {subject} for {learners}
@@ -197,7 +197,7 @@ Check against this list (answer every item in "checklist" with its rule id):
 
 Report every problem with where it is and the fix: an item left out of all concepts, a wrong or missing relation, a prerequisite that is
 vague or missing, an unresolved reference, a question not linked, a teaching order that would confuse a student.
-verdict is "pass" only if problems is empty. Write your own thinking first. Reply with the JSON object only."""
+verdict is "pass" only if problems is empty. Fill your own brief notes first. Reply with the JSON object only."""
 
 
 def _blocks_text(page):
@@ -398,7 +398,7 @@ def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3) -> Step
                          checklist=_checklist_text(rulebook, CONNECT))
 
     def review_user(value):
-        shown = {k: v for k, v in value.items() if k != "thinking"}
+        shown = {k: v for k, v in value.items() if k != "notes"}
         return (f"Chapter: {course.title}.\nItems (JSON list):\n{listing}\n\n"
                 f"The chapter map to review (JSON):\n{json.dumps(shown, ensure_ascii=False)}")
 
@@ -469,7 +469,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
             "cost_usd": result.cost_usd,
         } for number, result in results],
         "items": items,
-        "map": {k: v for k, v in (connect.output or {}).items() if k != "thinking"} if connect else {},
+        "map": {k: v for k, v in (connect.output or {}).items() if k != "notes"} if connect else {},
         "map_status": connect.status if connect else "not_run",
         "map_record": Path(connect.record_path).name if connect and connect.record_path else None,
         "cost_usd": round(sum(r.cost_usd for _, r in results) + (connect.cost_usd if connect else 0.0), 6),

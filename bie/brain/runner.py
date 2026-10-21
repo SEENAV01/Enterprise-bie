@@ -3,12 +3,13 @@
 One step is one unit of work of one section (for example one page for "understand"). It runs:
 
 1. The maker AI gets the section's instructions (role, course, the vision rules for this section,
-   output format) and the source (text and page images). It writes its thinking and its output.
+   output format) and the source (text and page images). It writes brief notes (what the unit is
+   about, its main decisions with reasons, what is uncertain) and its output.
 2. BIE's code checks the output (``Step.check``). Problems go straight back to the maker.
 3. An independent reviewer AI, on a different provider, checks the output against the source and
    the rulebook checklist (``Step.review_*``). Its findings go back to the maker.
 4. The maker remakes the whole output with those findings, at most ``max_rounds`` rounds in all.
-5. Every round is kept in the process record: the maker's written thinking and output, the code
+5. Every round is kept in the process record: the maker's notes and output, the code
    problems, the reviewer's findings, models, tokens and cost. A passed step is a candidate for
    locking; failed rounds are kept and marked "avoid".
 
@@ -29,26 +30,25 @@ from bie.model_gateway.model_interface import ModelRequest
 
 RECORD_SCHEMA = "bie.brain.process-record/1"
 
-THINKING_SCHEMA = {
+NOTES_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["understood", "questions_asked", "options_considered", "choices", "doubts"],
+    "required": ["about", "key_questions", "decisions", "uncertain"],
     "properties": {
-        "understood": {"type": "string", "description": "What you understood about this unit of work and how it fits the whole."},
-        "questions_asked": {"type": "array", "items": {"type": "string"},
-                            "description": "The questions you asked yourself while working."},
-        "options_considered": {"type": "array", "items": {"type": "string"}},
-        "choices": {"type": "array", "items": {
-            "type": "object", "additionalProperties": False, "required": ["choice", "why"],
-            "properties": {"choice": {"type": "string"}, "why": {"type": "string"}}}},
-        "doubts": {"type": "array", "items": {"type": "string"}},
+        "about": {"type": "string", "description": "What this unit of work is about and how it fits the whole (one or two sentences)."},
+        "key_questions": {"type": "array", "items": {"type": "string"},
+                          "description": "The key questions a teacher must answer about this unit."},
+        "decisions": {"type": "array", "items": {
+            "type": "object", "additionalProperties": False, "required": ["decision", "reason"],
+            "properties": {"decision": {"type": "string"}, "reason": {"type": "string"}}}},
+        "uncertain": {"type": "array", "items": {"type": "string"}},
     },
 }
 
 REMAKE_INSTRUCTION = (
     "BIE's checks found problems with your output.\n{problems}\n\n"
     "Fix every problem and keep everything that was already right. Reply with the complete corrected JSON "
-    "for the whole unit, not only the changes, and update your thinking to say what you changed and why."
+    "for the whole unit, not only the changes, and update your notes to say what you changed and why."
 )
 
 
@@ -144,7 +144,7 @@ class SectionRunner:
                 break
             value = response.content
             entry["maker"] = _call_info(response, self.maker)
-            entry["thinking"] = value.get("thinking")
+            entry["notes"] = value.get("notes")
             entry["output"] = value
             problems = [f"[code] {p}" for p in step.check(value)]
             entry["code_problems"] = problems

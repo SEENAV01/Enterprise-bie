@@ -12,7 +12,7 @@ import re
 from bie.model_gateway.live.messages import split_messages, text_of
 
 BLOCK_LINE = re.compile(r"^(p\d{4}-b\d{4}) \| (.*)$", re.MULTILINE)
-THINKING = {"understood": "fake", "questions_asked": ["fake?"], "options_considered": [], "choices": [], "doubts": []}
+NOTES = {"about": "offline", "key_questions": ["offline?"], "decisions": [], "uncertain": []}
 
 
 def _qa(text):
@@ -35,7 +35,7 @@ def page_answer(user_text: str):
         items = [_item("i1", "Figure read from the image", source="image", kind="diagram"),
                  _item("i2", "First label of the figure", source="image", kind="diagram_label", parent="i1"),
                  _item("i3", "Second label of the figure", source="image", kind="diagram_label", parent="i1")]
-    return {"thinking": THINKING, "page_summary": "Offline page summary.", "items": items, "boilerplate_block_ids": [],
+    return {"notes": NOTES, "page_summary": "Offline page summary.", "items": items, "boilerplate_block_ids": [],
             "text_image_disagreements": []}
 
 
@@ -46,13 +46,13 @@ def connect_answer(user_text: str):
     concepts = [{"concept_id": f"c{p}", "name": f"Page {p}", "item_ids": [i["id"] for i in items if i["page"] == p],
                  "content_type": "fact", "core_explanation": "Offline concept."} for p in pages]
     links = [{"question_item_id": i["id"], "tests_concepts": [f"c{i['page']}"]} for i in items if i["kind"] == "question"]
-    return {"thinking": THINKING, "chapter_title": "Offline", "chapter_summary": "Offline map.", "concepts": concepts,
+    return {"notes": NOTES, "chapter_title": "Offline", "chapter_summary": "Offline map.", "concepts": concepts,
             "relations": [], "prerequisites_to_teach": [], "cross_references": [], "question_links": links,
             "teaching_order": [c["concept_id"] for c in concepts], "exam_focus": []}
 
 
 def review_answer(schema):
-    value = {"thinking": THINKING, "verdict": "pass", "checklist": []}
+    value = {"notes": NOTES, "verdict": "pass", "checklist": []}
     for key in schema.get("properties", {}):
         value.setdefault(key, [])
     return value

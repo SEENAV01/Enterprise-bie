@@ -148,8 +148,8 @@ class Rulebook(unittest.TestCase):
             self.assertNotEqual(first, rulebook.load(folder).digest)
 
 
-SIMPLE_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["thinking", "items"],
-                 "properties": {"thinking": {"type": "object"}, "items": {"type": "array", "items": {"type": "object"}}}}
+SIMPLE_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["notes", "items"],
+                 "properties": {"notes": {"type": "object"}, "items": {"type": "array", "items": {"type": "object"}}}}
 REVIEW_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["verdict", "missing"],
                  "properties": {"verdict": {"type": "string"}, "missing": {"type": "array"}}}
 
@@ -187,7 +187,7 @@ class Runner(unittest.TestCase):
         self.assertEqual(record["avoid_rounds"], [])
         self.assertIsNone(record["navin_verdict"])
         self.assertIn("S1-06", record["rules_used"])
-        self.assertIn("thinking", record["rounds"][0])
+        self.assertIn("notes", record["rounds"][0])
         raw = Path(result.record_path).read_text(encoding="utf-8")
         self.assertNotIn(base64.b64encode(b"\x89PNG" + b"1" * 40).decode(), raw)
         self.assertTrue(any(p.get("sha256") for p in record["inputs"]["user"] if p["type"] == "image"))
@@ -243,7 +243,7 @@ def item(iid, **extra):
 
 
 def page_value(items, boilerplate=()):
-    return {"thinking": {}, "page_summary": "", "items": items, "boilerplate_block_ids": list(boilerplate),
+    return {"notes": {}, "page_summary": "", "items": items, "boilerplate_block_ids": list(boilerplate),
             "text_image_disagreements": []}
 
 
