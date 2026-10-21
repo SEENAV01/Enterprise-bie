@@ -493,3 +493,75 @@ class Director(unittest.TestCase):
             self.assertEqual(director["quality"]["videos_passed"], director["quality"]["videos"])
             self.assertGreater(director["quality"]["scenes"], 0)
             self.assertTrue(Path(folder, "DIRECTOR.md").exists())
+
+
+class Assets(unittest.TestCase):
+    def opener(self, routes):
+        class Response:
+            def __init__(self, body):
+                self.body = body
+
+            def read(self, limit=-1):
+                return self.body
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        def open_(request, timeout):
+            for prefix, body in routes.items():
+                if request.full_url.startswith(prefix):
+                    self.assertTrue(request.get_header("User-agent").startswith("BIE-asset-search"))
+                    return Response(body)
+            raise AssertionError("unexpected url " + request.full_url)
+        return open_
+
+    def commons_reply(self):
+        def page(index, title, licence, mime="image/png"):
+            return {"index": index, "title": title, "imageinfo": [{
+                "url": f"https://upload.wikimedia.org/{index}.png", "thumburl": f"https://upload.wikimedia.org/t{index}.png",
+                "descriptionurl": f"https://commons.wikimedia.org/wiki/{title}", "width": 1200, "height": 800, "mime": mime,
+                "extmetadata": {"LicenseShortName": {"value": licence}, "Artist": {"value": "<a href='x'>Servier</a>"},
+                                "LicenseUrl": {"value": "https://creativecommons.org/licenses/by/4.0"}}}]}
+        pages = {"1": page(1, "File:Neuron.png", "CC BY 4.0"), "2": page(2, "File:Cell.png", "CC BY-SA 4.0"),
+                 "3": page(3, "File:Old.png", "Public domain"), "4": page(4, "File:Nc.png", "CC BY-NC 2.0"),
+                 "5": page(5, "File:Movie.ogv", "CC0", mime="video/ogg")}
+        return json.dumps({"query": {"pages": pages}}).encode()
+
+    def test_licences(self):
+        from bie.brain.assets import licence_allowed, normalise_licence
+        self.assertEqual(normalise_licence("CC BY-SA 4.0"), "cc-by-sa")
+        self.assertEqual(normalise_licence("Public domain"), "public-domain")
+        self.assertEqual(normalise_licence("CC BY-NC-SA 2.0"), "non-commercial")
+        self.assertTrue(licence_allowed("CC BY 4.0"))
+        self.assertFalse(licence_allowed("CC BY-SA 4.0"))
+        self.assertTrue(licence_allowed("CC BY-SA 4.0", allow_share_alike=True))
+        self.assertFalse(licence_allowed("CC BY-NC 2.0", allow_share_alike=True))
+
+    def test_commons_search_keeps_allowed_images_only(self):
+        from bie.brain.assets import search_commons
+        found = search_commons("neuron", opener=self.opener({"https://commons.wikimedia.org/": self.commons_reply()}))
+        self.assertEqual([c.title for c in found], ["File:Neuron.png", "File:Old.png"])
+        self.assertEqual(found[0].author, "Servier")
+        with_sa = search_commons("neuron", allow_share_alike=True,
+                                 opener=self.opener({"https://commons.wikimedia.org/": self.commons_reply()}))
+        self.assertIn("File:Cell.png", [c.title for c in with_sa])
+
+    def test_library_stores_once_with_licence_and_credits(self):
+        from bie.brain.assets import AssetLibrary, AssetError, search_commons
+        routes = {"https://commons.wikimedia.org/": self.commons_reply(), "https://upload.wikimedia.org/": b"\x89PNG fake"}
+        candidate = search_commons("neuron", opener=self.opener(routes))[0]
+        with tempfile.TemporaryDirectory() as folder:
+            library = AssetLibrary(folder)
+            first = library.add_candidate(candidate, tags=["neuron", "biology"], opener=self.opener(routes))
+            again = library.add_candidate(candidate, tags=["nerve"], opener=self.opener(routes))
+            self.assertEqual(first.asset_id, again.asset_id)
+            reloaded = AssetLibrary(folder)
+            self.assertEqual(reloaded.assets[first.asset_id].tags, ["biology", "nerve", "neuron"])
+            self.assertEqual(reloaded.find(["neuron"])[0].asset_id, first.asset_id)
+            self.assertIn("CC BY 4.0", reloaded.credits([first.asset_id])[0])
+            from dataclasses import replace
+            with self.assertRaises(AssetError):
+                library.add_candidate(replace(candidate, licence="CC BY-NC 2.0"), opener=self.opener(routes))
