@@ -1,0 +1,293 @@
+# Chapter map · 10. Tissues and Its Types
+
+Science and Technology · UPSC / State PCS aspirants · UPSC / State PCS · learner language Hinglish
+
+Maker `anthropic`, reviewer `openai`, rulebook `vision-2026-10-21@2026-10-21.4`.
+
+- Pages passed: 0 of 2; chapter map: failed
+- Items: 49 (47 teachable, 49 read from the image)
+- Teacher questions: 126 (52 deeper why/how, 78 from outside the book)
+- Estimated cost: $0.8437 ($0.4219 per page)
+
+## Pages
+
+### Page 3 · failed after 2 round(s)
+
+Four main tissues: epithelial (covering/lining), muscular (movement), neural (responds to stimuli) and connective (supports, links, cushions). Epithelium covers organs and cavities and forms a barrier. Its cells are tightly packed in a continuous sheet with little cementing material and almost no intercellular spaces. It sits on an extracellular fibrous basement membrane and can specialise into gland cells and multicellular glands (glandular epithelium). A figure shows squamous, stratified squamous, cuboidal and ciliated columnar epithelium. A table gives the location, structure and function of simple squamous, simple cuboidal, simple columnar, stratified squamous, stratified cuboidal and stratified columnar epithelia.
+
+- **p003-i1** · paragraph · classification · both · exam high
+  - There are mainly four different types of tissues present in our body.
+    - what: What are the four main tissue types in the human body? → Epithelial, muscular, neural and connective tissue.
+    - difference: How do the four tissue types differ in their main job? → Epithelial tissue covers or lines, muscular tissue moves, neural tissue responds to stimuli, and connective tissue supports, links and cushions.
+      - why: Why does the body need different tissues rather than one kind? → A tissue is a group of similar cells doing one function. Dividing labour among specialised tissues lets each job be done efficiently, and organs are then built by combining tissues. _(outside the book)_
+  - prerequisites: what a cell is; definition of a tissue as a group of similar cells with a common function
+- **p003-i2** · list_point · fact · both · exam high
+  - 1. Epithelial- provides covering or lining
+    - what: What is the role of epithelial tissue? → It provides covering or lining to body surfaces.
+    - where: Where do we find coverings and linings? → Examples are the skin surface, the lining of the mouth and gut, and the linings of blood vessels and lung air sacs. _(outside the book)_
+      - why: Why is a covering tissue needed? → Surfaces face the outside or a cavity. A covering protects the tissue beneath and controls what passes in or out. _(outside the book)_
+  - prerequisites: organs and body cavities
+- **p003-i3** · list_point · fact · both · exam high
+  - 2. Muscular- helps in movement
+    - what: What does muscular tissue do? → It helps in movement.
+      - how: How does muscle produce movement? → Muscle cells contain contractile proteins (actin and myosin) that shorten the cell when stimulated. The pull moves bones, or squeezes organs such as the gut and heart. _(outside the book)_
+  - prerequisites: idea of contraction
+- **p003-i4** · list_point · fact · both · exam high
+  - 3. Neural- responds to stimuli
+    - what: What does neural tissue do? → It responds to stimuli.
+      - how: How does neural tissue respond to stimuli? → Neurons convert a stimulus into electrical impulses and pass them rapidly to other neurons, muscles or glands, which coordinates the body's response. _(outside the book)_
+  - prerequisites: what a stimulus is; neuron as a cell
+- **p003-i5** · list_point · fact · both · exam high
+  - 4. Connective- supports, links and cushions
+    - what: What are the three roles of connective tissue named here? → It supports, links and cushions.
+    - which: Which tissues are typical examples of connective tissue? → Bone and cartilage (support), tendons and ligaments (link), adipose tissue (cushion), and blood. _(outside the book)_
+      - how: How can connective tissue link and support? → Its cells lie in a large matrix with fibres (such as collagen) that give strength, and in bone the matrix is hardened. _(outside the book)_
+  - prerequisites: concept of extracellular matrix
+- **p003-i6** · list_point · fact · both · exam medium
+  - Epithelium covers most organs and cavities within the body.
+    - what: What does epithelium cover? → Most organs and cavities within the body.
+      - why: Why is epithelium the tissue found at surfaces? → Its tightly packed, continuous sheet of cells suits a boundary layer that protects and regulates exchange. _(outside the book)_
+  - prerequisites: body cavities and organs
+- **p003-i7** · list_point · fact · both · exam medium
+  - It also forms a barrier to keep different body systems separate.
+    - what: What barrier role does epithelium play? → It keeps different body systems separate.
+      - how: How can a thin layer act as a barrier? → Its cells are tightly joined with almost no spaces between them, so substances must pass through the cells, which control what enters. _(outside the book)_
+  - prerequisites: organ systems
+- **p003-i8** · list_point · structure · both · exam high
+  - Epithelial tissue cells are tightly packed and form a continuous sheet.
+    - what: How are epithelial cells arranged? → They are tightly packed and form a continuous sheet.
+      - why: Why is a continuous sheet important? → A sheet without gaps prevents leakage and the entry of germs, which supports the barrier and covering roles. _(outside the book)_
+  - prerequisites: cell membrane
+- **p003-i9** · list_point · structure · both · exam high
+  - They have only a small amount of cementing material between them and almost no intercellular spaces.
+    - what: What lies between epithelial cells? → Only a small amount of cementing material, with almost no intercellular spaces.
+    - compare: How does this compare with connective tissue? → Connective tissue cells are loosely spaced in an abundant matrix, which is the opposite of epithelium. _(outside the book)_
+      - why: Why is so little intercellular material needed? → Epithelium's job is to cover and guard, not to fill space or bear loads, so close cell contact matters more than matrix. _(outside the book)_
+  - prerequisites: intercellular space; matrix
+- **p003-i10** · list_point · structure · both · exam medium
+  - All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.
+    - what: What separates epithelium from the tissue beneath it? → An extracellular fibrous basement membrane.
+      - why: Why does epithelium need a basement membrane? → It anchors the epithelial sheet and supports it. Because epithelium usually lacks blood vessels, nutrients diffuse to it from the tissue below across this membrane. _(outside the book)_
+    - what: What does 'extracellular' mean here? → The membrane is not made of cells. It is a layer of secreted fibres and proteins lying outside the cells. _(outside the book)_
+  - prerequisites: difference between cellular and extracellular material
+- **p003-i11** · list_point · process · both · exam medium
+  - Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.
+    - what: What is glandular epithelium? → Epithelium specialised to secrete substances. A part of the epithelium folds inward to form a multicellular gland.
+    - how: How is a multicellular gland formed? → A portion of the epithelial tissue folds inward.
+      - why: Why fold inward rather than stay flat? → Folding packs many secretory cells into a small area, which increases secretion while the opening still drains onto the surface. _(outside the book)_
+    - which: Which are examples of gland cells or glands? → Goblet cells (single, mucus-secreting), and sweat and salivary glands (multicellular). _(outside the book)_
+  - prerequisites: secretion; epithelial sheet
+- **p003-i12** · diagram · structure · image · exam medium
+  - Fig. 6.9: four 3-D block drawings of epithelial tissues, stacked top to bottom: (a) Squamous, a thin flat layer of cells with irregular outlines; (b) Stratified squamous, a thick block of many layers with flat cells on top; (c) Cuboidal, a single layer of box-like cells with round nuclei; (d) Columnar (Ciliated), a single layer of tall cells bearing cilia on the free surface. Each sits on a blue base layer, the underlying tissue or basement membrane.
+    - what: What does the figure show? → Cell shapes and layering of four epithelial types: squamous, stratified squamous, cuboidal and ciliated columnar.
+    - difference: How do these four differ visually? → Squamous cells are flat; cuboidal cells are cube-like; columnar cells are tall, here with cilia; stratified squamous is many layers thick. _(outside the book)_
+      - why: Why is stratified squamous drawn so thick? → Multiple layers resist wear, and worn-off cells are replaced from below. _(outside the book)_
+  - prerequisites: cell shapes; simple versus stratified layering
+- **p003-i13** · diagram_label · structure · image · exam low
+  - (a) Squamous: points to a single thin layer of flat polygonal cells.
+    - what: What is squamous epithelium? → Epithelium of flat, scale-like cells. _(outside the book)_
+      - why: Why are the cells flat? → A thin layer gives a short path for diffusion. _(outside the book)_
+  - prerequisites: diffusion
+- **p003-i14** · diagram_label · structure · image · exam low
+  - (b) Stratified squamous: points to a multilayered block of cells.
+    - what: What does 'stratified' mean? → Arranged in many layers. _(outside the book)_
+      - why: Why is it layered? → Layering gives protection against abrasion. _(outside the book)_
+  - prerequisites: layering
+- **p003-i15** · diagram_label · structure · image · exam low
+  - (c) Cuboidal: points to a single layer of cube-shaped cells.
+    - what: What shape are cuboidal cells? → Roughly as tall as they are wide, like cubes. _(outside the book)_
+      - how: How does this shape help? → The extra cell volume holds organelles needed for secretion and absorption. _(outside the book)_
+  - prerequisites: cell organelles
+- **p003-i16** · diagram_label · structure · image · exam medium
+  - (d) Columnar (Ciliated): points to tall cells with cilia on their free surface.
+    - what: What is ciliated columnar epithelium? → Tall columnar cells carrying hair-like cilia. _(outside the book)_
+      - how: How do cilia help? → They beat in a coordinated way to move mucus or particles in one direction, for example in the respiratory tract. _(outside the book)_
+  - prerequisites: cilia
+- **p003-i17** · caption · other · image
+  - Fig. 6.9: Different types of epithelial tissues
+- **p003-i18** · table · classification · both · exam high
+  - Table with columns Types of Epithelial Tissue | Location | Structure | Function and six rows: Simple squamous, Simple Cuboidal, Simple Columnar, Stratified Squamous, Stratified Cuboidal, Stratified Columnar.
+    - what: How does the table classify epithelium? → By the number of layers (simple or stratified) and by cell shape (squamous, cuboidal or columnar), giving six types.
+    - difference: What is the difference between simple and stratified epithelium? → Simple epithelium is a single layer, mainly for diffusion, absorption and secretion. Stratified epithelium has several layers, mainly for protection.
+      - why: Why does a single layer suit exchange while many layers suit protection? → One layer gives a short path for substances to cross. Many layers mean that losing the surface cells does not expose the tissue underneath. _(outside the book)_
+  - prerequisites: cell shapes; simple versus stratified layering
+- **p003-i19** · table_row · structure · both · exam high
+  - Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman's capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required
+    - where: Where is simple squamous epithelium found? → In the lining of blood vessels and capillaries, the air sacs of the lungs and Bowman's capsule of the kidney.
+      - why: Why is it found at these sites? → All are sites of rapid exchange: gas exchange in the alveoli, exchange at capillaries, and filtration in Bowman's capsule. Thin flat cells give the shortest diffusion path. _(outside the book)_
+  - prerequisites: diffusion; alveoli; Bowman's capsule of the nephron
+- **p003-i20** · table_row · structure · both · exam high
+  - Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion
+    - where: Where is simple cuboidal epithelium found? → In the tubular lining of the kidneys and in glandular ducts.
+    - what: What special feature does it have in the proximal convoluted tubule? → Microvilli.
+      - why: Why have microvilli in the PCT? → Microvilli form a brush border that greatly increases surface area for reabsorbing water, glucose and salts from the filtrate. _(outside the book)_
+  - prerequisites: nephron parts (PCT); reabsorption; microvilli
+- **p003-i21** · table_row · structure · both · exam high
+  - Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction
+    - where: Where is simple columnar epithelium found? → In the lining of the digestive tract and the upper respiratory tract.
+      - how: How does it achieve movement in a specific direction? → Its cilia beat in one direction, pushing mucus with trapped dust out of the airways. _(outside the book)_
+      - why: Why tall cells in the gut? → Tall cells have room for absorption machinery and mucus-secreting goblet cells. _(outside the book)_
+  - prerequisites: cilia; mucus; intestinal absorption
+- **p003-i22** · table_row · structure · both · exam high
+  - Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection
+    - where: Where is stratified squamous epithelium found per the book? → In the lining of the mouth and vagina.
+    - how: How is the layer renewed? → The lower columnar layer is metabolically active and makes new cells. Older cells are pushed upwards, become flat and are sloughed off.
+      - why: Why do these sites need it? → They face friction and abrasion, so continual replacement of surface cells protects the tissue below. Skin epidermis is a keratinised form of it. _(outside the book)_
+  - prerequisites: cell division; abrasion
+- **p003-i23** · table_row · structure · both · exam medium
+  - Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands
+    - where: Where is stratified cuboidal epithelium found? → In the mammary, sweat and salivary glands.
+      - why: Why do gland ducts need protection? → Ducts carry secretions continuously, and a multilayered lining keeps them strong and sealed. _(outside the book)_
+  - prerequisites: exocrine glands and ducts
+- **p003-i24** · table_row · structure · both · exam medium
+  - Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion
+    - where: Where is stratified columnar epithelium found? → In the male urethra and the lobar ducts of salivary glands.
+    - what: What is its structure? → A top layer of columnar cells over squamous, columnar or cuboidal cells.
+      - why: Why is it both protective and secretory? → The several layers give protection, and the columnar surface cells can secrete. _(outside the book)_
+  - prerequisites: urethra; salivary glands
+
+### Page 7 · failed after 3 round(s)
+
+The page compares the three types of muscular tissue in a table. Skeletal muscle is in the skeleton, gives movement, heat and posture, is striated, multinucleated with eccentric nuclei and parallel fibres, and is voluntary. Cardiac muscle is in the heart, pumps blood continuously, is striated with one central nucleus, and is involuntary. Visceral (smooth) muscle is in the G.I. tract, uterus, eye and blood vessels, drives peristalsis, blood pressure, pupil size and hair erection, has no striations and one central nucleus, and is involuntary. Below are NCERT Fig. 6.10 on types of connective tissue (blood cells, compact bone, hyaline cartilage, areolar tissue, adipose tissue) and a diagram of how neurons transmit impulses: dendrites, cell body and nucleus, axon carrying an electrical signal, axon tips and the synapse with the next neuron's dendrites.
+
+- **p007-i1** · heading · other · image
+  - Three Types of Muscular Tissue
+- **p007-i2** · table · comparison · image · exam high
+  - Table comparing the three muscular tissues (Skeletal, Cardiac, Visceral/smooth muscle), each with a small cell illustration. The columns are Location, Function, Appearance and Control.
+    - what: What does this table compare? → It compares skeletal, cardiac and visceral (smooth) muscle on four features: where each is found, what it does, how it looks under a microscope (striations, nuclei) and whether it is under voluntary control.
+    - difference: Which feature separates skeletal muscle from the other two? → Control. Only skeletal muscle is voluntary, while cardiac and smooth muscle are involuntary. Skeletal muscle is also the only multinucleated one; the other two have one central nucleus.
+    - compare: What do cardiac and skeletal muscle share, and what do cardiac and smooth muscle share? → Cardiac and skeletal muscle are both striated. Cardiac and smooth muscle are both involuntary and have one central nucleus. Cardiac muscle is therefore the bridge: it looks like skeletal muscle but is controlled like smooth muscle.
+      - why: Why do striations appear in some muscles? → Striations are alternating light and dark bands. They come from the regular, repeating arrangement of the contractile proteins actin and myosin. Smooth muscle has these proteins but not in a regular banded order, so it looks unstriped. _(outside the book)_
+      - why: Why does it make sense that heart and gut muscles are involuntary? → Heartbeat and digestion must continue without conscious thought, even during sleep. They are controlled by the autonomic nervous system and by the muscle's own rhythm rather than by our will. _(outside the book)_
+  - prerequisites: what a tissue is; the cell and its nucleus; contraction of muscle fibres; difference between voluntary and involuntary actions
+- **p007-i3** · table_row · comparison · image · exam high
+  - Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary
+    - where: Where is skeletal muscle found? → It is attached to the skeleton (bones), usually through tendons, so its pull moves the bones at joints.
+    - what: What are its functions? → It produces movement, generates body heat and maintains posture.
+      - how: How does skeletal muscle produce heat? → Contraction uses ATP, and part of that energy is released as heat. This is why shivering, which is rapid skeletal muscle contraction, warms the body. _(outside the book)_
+      - why: Why is a skeletal fibre multinucleated? → Each fibre forms by the fusion of many embryonic cells, so it is long and keeps many nuclei. The book describes these nuclei as eccentric, meaning they lie at the edge of the fibre and not in the centre. _(outside the book)_
+    - difference: How does skeletal muscle differ from cardiac and smooth muscle? → It is the only one of the three that is voluntary and the only one that is multi-nucleated. Cardiac and smooth muscle both have one central nucleus and are involuntary. It shares striations with cardiac muscle but not with smooth muscle.
+    - which: Which type of control does it have? → Voluntary control: it contracts when we consciously decide to move, through the somatic nervous system.
+  - prerequisites: bones and joints; muscle contraction; the cell nucleus; voluntary versus involuntary actions
+- **p007-i4** · table_row · comparison · image · exam high
+  - Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary
+    - where: Where is cardiac muscle found? → It is found in the heart wall.
+    - what: What does it do? → It pumps blood continuously throughout life.
+      - how: How can it work continuously without tiring? → Cardiac cells have many mitochondria and a rich blood supply, which give steady aerobic energy. They are branched and joined by intercalated discs, so they contract together in a rhythm with a brief relaxation between beats. _(outside the book)_
+    - compare: How does cardiac muscle compare with skeletal and smooth muscle? → It resembles skeletal muscle in being striated. It resembles smooth muscle in being involuntary and having one central nucleus. It is therefore a mix of both, and it is the 'striated but involuntary' odd one out.
+      - why: Why is it involuntary? → The heartbeat starts in the heart's own pacemaker (the SA node). Autonomic nerves only speed it up or slow it down, so we cannot stop the heart at will. _(outside the book)_
+  - prerequisites: structure of the heart; circulation of blood; what striations are
+- **p007-i5** · table_row · comparison · image · exam high
+  - Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary
+    - where: Where is smooth muscle found? → It is found in the walls of internal organs (the viscera, hence the name 'visceral'): the G.I. tract, uterus, eye and blood vessels.
+    - how: How does each function link to its location? → In the gut it drives peristalsis. In blood vessels it narrows or widens them and so controls blood pressure. In the iris it changes pupil size. The tiny muscles attached to hairs erect the hairs, producing goosebumps.
+      - how: How does peristalsis move food? → Rings of smooth muscle contract behind the food and relax ahead of it, creating a wave that pushes the food forward. _(outside the book)_
+    - difference: How does smooth muscle differ from skeletal and cardiac muscle? → It is the only one of the three with no striations. It differs from skeletal muscle in having one central nucleus and in being involuntary. It shares both of these features with cardiac muscle, but it lacks cardiac muscle's striations.
+      - why: Why is it also called unstriated or involuntary muscle? → It shows no bands, because its contractile proteins are not arranged in a regular repeating pattern. It also works without our will, under autonomic control. _(outside the book)_
+  - prerequisites: the digestive tract; blood vessels and blood pressure; the iris and pupil of the eye
+- **p007-i6** · diagram · structure · image · exam high
+  - NCERT Fig. 6.10, a composite of five panels. (a) Types of blood cells: different white blood corpuscles (Neutrophil, Eosinophil, Basophil, Lymphocyte, Monocyte), Platelets and a Red blood corpuscle. (b) Compact bone, with concentric rings around a Haversian canal and canaliculi. (c) Hyaline cartilage, with chondrocytes in hyaline matrix. (d) Areolar tissue, with reticular fibre, fibroblast, macrophage, collagen fibre, mast cell and plasma cell. (e) Adipose tissue, with adipocytes holding fat droplets and nuclei pushed aside.
+    - what: What does the figure show? → It shows five types of connective tissue: blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.
+    - compare: What common plan do all these tissues share? → In each, cells are scattered within an intercellular matrix. Blood has a fluid matrix (plasma). Bone has a hard matrix with calcium and phosphorus. Cartilage has a firm, flexible matrix. Areolar tissue has fibres in a jelly-like matrix. Adipose tissue is mostly fat-filled cells. _(outside the book)_
+      - why: Why are such different tissues grouped as 'connective'? → They all arise from embryonic mesoderm, and all connect, support, bind or transport between other tissues. The nature of the matrix decides each tissue's role. _(outside the book)_
+  - prerequisites: what a tissue is; intercellular matrix; blood components
+- **p007-i7** · diagram_label · structure · image · exam medium
+  - Different white blood corpuscles: Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil; labels Cytoplasm and Nucleus point to parts of a WBC
+    - what: What are neutrophils, eosinophils and basophils? → They are granular white blood cells (granulocytes) with lobed nuclei. The neutrophil is called polymorphonuclear because its nucleus has many lobes. _(outside the book)_
+      - how: How does each help the body? → Neutrophils engulf bacteria (phagocytosis). Eosinophils fight parasites and are involved in allergy. Basophils release histamine during inflammation. _(outside the book)_
+  - prerequisites: blood and its cells; immunity basics
+- **p007-i8** · diagram_label · structure · image · exam medium
+  - Lymphocyte, Monocyte, Platelets
+    - what: What are lymphocytes and monocytes? → They are agranular WBCs. Lymphocytes (B and T cells) give specific immunity, including antibody production. Monocytes become macrophages that engulf microbes. _(outside the book)_
+    - why: Why are platelets important? → Platelets are cell fragments that help blood clot at a wound and stop bleeding. _(outside the book)_
+  - prerequisites: blood components
+- **p007-i9** · diagram_label · structure · image · exam medium
+  - Red blood corpuscle, pointing to a round biconcave cell without a nucleus
+    - what: What does the RBC do? → It carries oxygen using haemoglobin. _(outside the book)_
+      - why: Why does a mammalian RBC lack a nucleus? → Losing the nucleus leaves more space for haemoglobin, and the biconcave shape increases surface area for gas exchange. _(outside the book)_
+  - prerequisites: haemoglobin; oxygen transport
+- **p007-i10** · diagram_label · structure · image · exam medium
+  - Haversian canal (contains blood vessels and nerve fibres), pointing to the central canal of the concentric rings of bone
+    - what: What is the Haversian canal? → It is a central channel in compact bone that carries blood vessels and nerve fibres.
+      - why: Why does bone need such canals? → Bone is hard and living. Its cells need nutrients and oxygen, and the canals bring blood deep into the hard matrix. _(outside the book)_
+  - prerequisites: structure of bone; blood vessels
+- **p007-i11** · diagram_label · structure · image · exam low
+  - Canaliculus (contains slender process of bone cell or osteocyte)
+    - what: What is a canaliculus? → It is a tiny channel in bone that holds the thin extensions of osteocytes (bone cells).
+      - how: How do canaliculi keep bone cells alive? → They connect the osteocytes to one another and to the Haversian canal, so nutrients and wastes can pass through the hard matrix. _(outside the book)_
+  - prerequisites: osteocyte; Haversian canal
+- **p007-i12** · diagram_label · structure · image · exam medium
+  - Chondrocyte and Hyaline matrix, pointing to cartilage cells and the clear surrounding matrix
+    - what: What is hyaline cartilage made of? → It consists of chondrocytes (cartilage cells) in a clear, firm matrix of proteins and sugars. _(outside the book)_
+    - where: Where is it found? → It is found at the ends of bones in joints, in the nose, the ear (as cartilage), the trachea and the larynx. _(outside the book)_
+      - why: Why is cartilage used there instead of bone? → Its matrix is firm yet flexible, so it smooths joint surfaces and gives shape that can bend. _(outside the book)_
+  - prerequisites: connective tissue matrix
+- **p007-i13** · diagram_label · structure · image · exam medium
+  - Reticular fibre, Fibroblast, Macrophage, Collagen fibre, Mast cell, Plasma cell
+    - what: What cells and fibres make up areolar tissue? → Fibroblasts produce the fibres (collagen and reticular). Macrophages engulf microbes. Mast cells release histamine. Plasma cells make antibodies. _(outside the book)_
+    - where: Where is areolar tissue found? → It lies between skin and muscles, around blood vessels and nerves, and in bone marrow. It fills spaces inside organs. _(outside the book)_
+      - why: Why does it contain immune cells? → It lies just under the skin and around organs, where microbes may enter, so it also helps repair tissues and defend the body. _(outside the book)_
+  - prerequisites: fibres of connective tissue; immune cells
+- **p007-i14** · diagram_label · structure · image · exam medium
+  - Fat droplet, Nucleus, Adipocyte, pointing to large fat-filled cells with the nucleus pushed to one side
+    - what: What is adipose tissue? → It is connective tissue made of adipocytes, which are cells filled with fat droplets. _(outside the book)_
+      - why: Why does it matter to the body? → It stores energy as fat and acts as a thermal insulator, for example under the skin. It also cushions organs. _(outside the book)_
+  - prerequisites: fats as energy store
+- **p007-i15** · caption · classification · image · exam high
+  - Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue
+    - which: Which connective tissues does the caption list? → Blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.
+    - difference: How do they differ in matrix? → The matrix is fluid in blood, hard in bone, firm and flexible in cartilage, loose and fibrous in areolar tissue, and mostly fat-filled cells in adipose tissue. _(outside the book)_
+      - why: Why is blood a connective tissue though it is fluid? → It has cells in an intercellular matrix (plasma), and it connects body parts by transporting gases, nutrients and hormones. _(outside the book)_
+  - prerequisites: connective tissue definition
+- **p007-i16** · diagram · process · image · exam high
+  - Title: 'How do neurons transmit impulses (send message to other cells)?' Two orange neurons are shown. At the lower left, the axon of a previous neuron meets the first neuron's dendrites at a synapse (circled). The first neuron's cell body and nucleus give rise to a long axon. A blue arrow labelled 'electrical signal' runs along the axon towards its branched axon tips. The tips form a synapse (circled) with the dendrites of the next neuron, whose cell body and nucleus are labelled. The sequence is dendrites → cell body → axon → axon tips → synapse → next neuron's dendrites.
+    - what: What does the diagram show? → It shows the path of a nerve impulse through one neuron and across a synapse to the next neuron.
+    - how: How does the impulse travel? → Dendrites receive a signal and pass it to the cell body. From there it travels along the axon as an electrical signal to the axon tips. At the synapse it is passed to the dendrites of the next neuron.
+      - how: How does the signal cross the synapse? → A synapse is a tiny gap. The electrical signal reaching the axon tips causes release of chemicals (neurotransmitters), which cross the gap and start a new electrical signal in the next neuron. _(outside the book)_
+      - why: Why does the impulse move in one direction only? → Neurotransmitters are released only from axon tips and received only by the next neuron's dendrites, so the message flows one way. _(outside the book)_
+  - prerequisites: structure of a neuron; what a nerve impulse is; nervous tissue
+- **p007-i17** · diagram_label · structure · image · exam low
+  - axon of previous neuron, pointing to the incoming fibre at the left that ends at the first synapse
+    - what: What is the 'axon of previous neuron'? → It is the axon of the neuron that sends the message into the first neuron shown.
+      - why: Why is it shown? → It shows that neurons form chains, with one neuron's output becoming the next neuron's input. _(outside the book)_
+  - prerequisites: axon
+- **p007-i18** · diagram_label · structure · image · exam high
+  - synapse, pointing to the circled junctions between the axon ends and the dendrites of the next neuron
+    - what: What is a synapse? → It is the junction between the axon tip of one neuron and the dendrite of the next neuron. _(outside the book)_
+      - how: How is a message passed there? → It is passed chemically, through neurotransmitters released into the gap. _(outside the book)_
+  - prerequisites: neuron parts
+- **p007-i19** · diagram_label · structure · image · exam medium
+  - neuron cell body, pointing to the central star-shaped part of each neuron
+    - what: What is the cell body? → It is the main part of the neuron (cyton). It contains the nucleus and cytoplasm. _(outside the book)_
+      - why: Why is it essential? → It keeps the neuron alive by making proteins, and it combines the incoming signals before passing them to the axon. _(outside the book)_
+  - prerequisites: cell structure
+- **p007-i20** · diagram_label · structure · image · exam low
+  - nucleus, pointing to the dark dot in each neuron cell body
+    - where: Where is the neuron's nucleus? → It is in the cell body.
+      - why: Why does this matter? → The nucleus controls the cell. Mature neurons generally do not divide, so damage is hard to repair. _(outside the book)_
+  - prerequisites: nucleus
+- **p007-i21** · diagram_label · structure · image · exam high
+  - dendrites, pointing to the short branched projections around the first neuron's cell body
+    - what: What are dendrites? → They are short, branched extensions of the cell body that receive signals. _(outside the book)_
+      - why: Why are they highly branched? → Branching gives more surface area to receive signals from many neurons. _(outside the book)_
+  - prerequisites: neuron structure
+- **p007-i22** · diagram_label · structure · image · exam high
+  - axon, pointing to the long single fibre from the first neuron's cell body towards the next neuron
+    - what: What is the axon? → It is a long single fibre that carries the impulse away from the cell body. _(outside the book)_
+      - how: How can the signal travel fast along it? → Many axons are wrapped in a myelin sheath, which speeds up conduction of the impulse. _(outside the book)_
+  - prerequisites: neuron structure
+- **p007-i23** · diagram_label · process · image · exam medium
+  - electrical signal, a blue arrow running along the axon from the cell body towards the axon tips
+    - what: What is the electrical signal? → It is the nerve impulse moving along the axon.
+      - how: How is it generated? → Ions such as sodium and potassium move across the neuron membrane, and this creates a travelling change in voltage. _(outside the book)_
+  - prerequisites: nerve impulse
+- **p007-i24** · diagram_label · structure · image · exam low
+  - axon tips, pointing to the branched endings of the axon near the next neuron
+    - what: What are axon tips? → They are the terminal branches of the axon that form synapses. _(outside the book)_
+      - why: Why are they important? → They release neurotransmitters to pass the message on to the next neuron. _(outside the book)_
+  - prerequisites: axon
+- **p007-i25** · diagram_label · structure · image · exam low
+  - dendrites of next neuron, pointing to the branches of the second neuron that receive the signal
+    - what: What do the dendrites of the next neuron do? → They receive the message across the synapse.
+      - how: How does this continue the message? → They start a new impulse in the second neuron, which then repeats the same path. _(outside the book)_
+  - prerequisites: synapse

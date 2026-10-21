@@ -1,0 +1,1296 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "understand",
+ "unit": "page-003",
+ "status": "failed",
+ "instructions_version": "understand-page/1",
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "rulebook_digest": "908e9062d9c07eab89f99b7ec668b9c0c40a9f69a03ec91338f9434931fbe477",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-05",
+  "S1-01",
+  "S1-02",
+  "S1-03",
+  "S1-04",
+  "S1-05",
+  "S1-06",
+  "S1-07",
+  "S1-08",
+  "S1-09",
+  "S1-10",
+  "S1-11"
+ ],
+ "maker_route": "anthropic",
+ "reviewer_route": "openai",
+ "inputs_digest": "6221ec64449792d94b67030dd1c7860a5438094c95cf5f3ce8038af72f7c3444",
+ "inputs": {
+  "system": "You are BIE's book-understanding section: an expert teacher of Science and Technology for UPSC / State PCS aspirants preparing for UPSC / State PCS.\nYou read one page of a book chapter with two eyes, the page's native text blocks and the page image, and turn it into a complete,\nquestion-based teacher's understanding. Later BIE sections build the video lessons, the chapter game and the notes only from what you\ncapture, so anything you miss is missing from the whole course.\n\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\nYour output is internal to BIE: write it in clear English and keep the book's own terms and spellings.\n\nNavin's rules for this section (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S1-01] Read the page with two eyes: the native text blocks (exact words and numbers) and the page image (tables, diagrams, labels, arrows, equations, layout). Items that exist only in the image are as important as text items. A page whose text layer is empty or nearly empty is read entirely from the image.\n[S1-02] Every native text block is either covered by an item (its id in that item's block_ids) or listed as boilerplate. Boilerplate is only running headers, page numbers, publisher adverts, contact lines and watermarks; nothing teachable is boilerplate.\n[S1-03] Every table becomes one 'table' item plus one 'table_row' item per row, in order, each row's content giving every cell with its column header, for example 'Smooth muscle | Location: G.I. tract, uterus, eye, blood vessels | Function: peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary'. A table continued from the previous page continues the same table.\n[S1-04] Every diagram, chart, flow or tree becomes one 'diagram' item that says what it shows and how its parts connect (arrows, branches, flows, sequence), plus one 'diagram_label' item per label naming what the label points to. A classification tree lists every branch and leaf with its parent.\n[S1-05] Every equation, formula, chemical formula and symbol is read exactly and each symbol's meaning and unit are stated.\n[S1-06] Understand every teachable item by questioning it like a teacher. Ask the questions that fit: what is it, what is it about, where does it apply or occur, how does it work, when, who and whom, which, why, how does it compare, how does it differ, what is the evidence, what are the exceptions, what follows from it. Then keep asking 'why' and 'how' on your own answers (depth 2, 3 ...) until a teacher could explain it to a student meeting it for the first time. Answers explain; they never just repeat the item's words.\n[S1-07] Mark every answer's basis: 'book' only when the page itself states it, 'outside' when any part comes from general knowledge. Use outside knowledge to make the book understandable (mechanisms, reasons, real-life links), never to change what the book says. Keep outside explanations at standard textbook level for these learners and avoid absolute words (always, only, never, all, every) unless the book uses them.\n[S1-08] Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.\n[S1-09] Name the prerequisites a student must already understand for each item, as concrete concepts ('cell and its nucleus', 'what a nerve impulse is'), never vague ('basic biology'). Prerequisites are taught later, not just listed.\n[S1-10] Judge exam importance for the course's exam (for UPSC / State PCS: classifications, comparisons, locations, functions, examples and odd-one-out facts are high). Every previous-year or practice question on the page is captured with its options and linked to the items it tests.\n[S1-11] Where the text layer and the image disagree (garbled symbols, missing words, wrong order), report the disagreement. Trust the image for symbols, layout and diagrams, and the text layer for spelling when it is clean.\n\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what the page is about and how it fits the chapter, the key questions a teacher must answer,\n  your main decisions (how you split items, how you read an unclear part) with a reason each, and what is uncertain.\n- items: everything on the page, in reading order.\n  - item_id: short and unique on this page (\"i1\", \"i2\", ...).\n  - kind: heading, paragraph, definition, list_point, example, table (the whole table), table_row (one per row), diagram (the whole figure),\n    diagram_label (one per label), equation, symbol, box_note, caption, question (a PYQ or practice question), answer_option, other.\n  - parent_item_id: the table of a table_row, the diagram of a diagram_label, the question of an answer_option, else \"\".\n  - source: \"text\" if the item comes from native text blocks, \"image\" if it is visible only in the image, \"both\" if both show it.\n  - block_ids: the ids of the native text blocks this item covers ([] for image-only items). Use only ids from the list given.\n  - where_on_page: where it is (\"top table, row 2\", \"right diagram, label at the axon end\").\n  - content: the exact words for text items; a complete, faithful reading for image items (every cell with its column header for a\n    table_row; what a label names and what it points to for a diagram_label; all branches for a tree).\n  - content_type: what the content really is (definition, fact, process, structure, comparison, classification, timeline, cause_effect,\n    formula, data, example, question, other).\n  - teachable: false only for pure headings and containers whose children carry the content.\n  - teacher_understanding: the teacher's questions and answers for this item (see S1-06); depth 1 for first questions, 2 and more for\n    \"why\"/\"how\" on an earlier answer; basis \"book\" only if the page states it, else \"outside\". BIE's code checks every teachable item:\n    at least two questions, at least one \"why\" or \"how\"; a process needs \"how\"; a comparison or classification needs \"compare\" or\n    \"difference\".\n  - prerequisites: concrete concepts a student must understand first.\n  - exam_importance and exam_note: for this exam.\n  - tests_item_ids: for a question, the ids on this page that it tests ([] if they are on other pages).\n- boilerplate_block_ids: ids of running headers, page numbers, adverts, contact lines and watermarks only.\n- text_image_disagreements: where the text layer and the image differ.\nReply with the JSON object only.",
+  "user": [
+   {
+    "type": "text",
+    "text": "Chapter: 10. Tissues and Its Types. Page 3 of 14.\n\nLast lines of the previous page (context only):\n(none)\n\nFirst lines of the next page (context only):\nScience and Technology\n93\n\nNative text blocks of this page (id | text):\np0003-b0001 | Science and Technology\np0003-b0002 | There are mainly four different types of tissues present in our body.\np0003-b0003 | 1. Epithelial- provides covering or lining\np0003-b0004 | 2. Muscular- helps in movement\np0003-b0005 | 3. Neural- responds to stimuli\np0003-b0006 | 4. Connective- supports, links and cushions\np0003-b0007 |  Epithelium covers most organs and cavities within the body.\np0003-b0008 |  It also forms a barrier to keep different body systems separate.\np0003-b0009 |  Epithelial tissue cells are tightly packed and form a continuous sheet.\np0003-b0010 |  They have only a small amount of cementing material between them and\np0003-b0011 | almost no intercellular spaces.\np0003-b0012 |  All epithelium is usually separated from the underlying tissue by an\np0003-b0013 | extracellular fibrous basement membrane.\np0003-b0014 |  Epithelial cells often acquire additional specialisation as gland cells, which\np0003-b0015 | can secrete substances at the epithelial surface. Sometimes a portion of the\np0003-b0016 | epithelial tissue folds inward, and a multicellular gland is formed. This is glandular\np0003-b0017 | epithelium.\np0003-b0018 | Types of Epithelial Tissue Location Structure Function\np0003-b0019 | Simple squamous Blood vessel lining, A single layer of flat cells Transport by diffusion and\np0003-b0020 | capillaries, air sac lining of having irregular boundaries where minimal protection is\np0003-b0021 | lungs, Bowman’s capsule of required\np0003-b0022 | kidney\np0003-b0023 | Simple Cuboidal Epithelium The tubular lining of kidneys, A single layer of short Absorption and secretion\np0003-b0024 | glandular ducts cylindrical cells. It may have\np0003-b0025 | microvilli as in proximal\np0003-b0026 | convoluted tubules\np0003-b0027 | Simple Columnar Epithelium Digestive tract and upper A single layer of columnar Protection, absorption,\np0003-b0028 | respiratory tract lining cells (tall and slender) and mucus secretion and\np0003-b0029 | often ciliated movement in a specific\np0003-b0030 | direction\np0003-b0031 | Stratified Squamous The lining of the mouth and Made up of several layers of Protection\np0003-b0032 | Epithelium vagina cells, continuously sloughed\np0003-b0033 | off and regenerated. The\np0003-b0034 | older layer of cells is pushed\np0003-b0035 | upwards and becomes flat.\np0003-b0036 | The lower layer is columnar\np0003-b0037 | and metabolically active\np0003-b0038 | Stratified Cuboidal Mammary glands, sweat The upper layer is cuboid and Protection of ducts of various\np0003-b0039 | gland and salivary glands other layers may be cuboidal glands\np0003-b0040 | or other types\np0003-b0041 | Stratified Columnar Male urethra and lobar ducts There is a layer of columnar Protection and secretion\np0003-b0042 | of salivary glands cells present on squamous,\np0003-b0043 | columnar or cuboidal\np0003-b0044 | epithelial cells\np0003-b0045 | 89"
+   },
+   {
+    "type": "text",
+    "text": "The page image:"
+   },
+   {
+    "type": "image",
+    "media_type": "image/png",
+    "sha256": "773410d21e421a508b3dd38cfd9b60d439102dbf14990e4c9bc9fdb0075f28f7",
+    "base64_chars": 745996
+   },
+   {
+    "type": "text",
+    "text": "Read this page with both eyes and reply with the page understanding JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792592272.8044548,
+   "mode": "full",
+   "maker": {
+    "route": "anthropic",
+    "provider": "anthropic",
+    "model": "anthropic/claude-opus-5.5",
+    "via": "aicredits",
+    "returned_model": "anthropic/claude-opus-5.5",
+    "request_hash": "941d97904e76a31b862d80f91cc175c375bce3bd105386220a44117269129275",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 9486,
+    "output_tokens": 10862,
+    "cost_usd": 0.280702
+   },
+   "notes": {
+    "about": "Page 3 of the Tissues chapter introduces the four basic animal tissue types, then the general features of epithelial tissue, glandular epithelium, a figure of epithelial types and a table of six epithelial types with location, structure and function.",
+    "key_questions": [
+     "What are the four main animal tissues and the function of each?",
+     "What structural features make epithelium a good covering and barrier?",
+     "What is the basement membrane and what does it do?",
+     "How does glandular epithelium form?",
+     "How do simple and stratified epithelia differ, and where is each type found?",
+     "Why does each epithelial type's structure suit its location and function?"
+    ],
+    "decisions": [
+     {
+      "decision": "Each bullet and numbered point is a separate item; the multi-line glandular bullet is one item.",
+      "reason": "Each states a distinct, testable fact."
+     },
+     {
+      "decision": "The table is rebuilt from the image, with one row item per epithelial type.",
+      "reason": "The text layer splits cells across lines and merges columns."
+     },
+     {
+      "decision": "The right-side figure is captured as a diagram with four labels read from the image.",
+      "reason": "The labels are tiny and appear only in the image."
+     },
+     {
+      "decision": "Block p0003-b0001 (running header) and p0003-b0045 (page number) are boilerplate.",
+      "reason": "They are a running header and a page number."
+     }
+    ],
+    "uncertain": [
+     "The tiny text above the top of the figure is unreadable. The figure labels are read as (a) Squamous, (b) Stratified squamous, (c) Cuboidal, (d) Columnar (Ciliated); the caption is read as 'Fig. 6.9: Different types of epithelial tissues'."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "Page 3 of the Tissues chapter introduces the four basic animal tissue types, then the general features of epithelial tissue, glandular epithelium, a figure of epithelial types and a table of six epithelial types with location, structure and function.",
+     "key_questions": [
+      "What are the four main animal tissues and the function of each?",
+      "What structural features make epithelium a good covering and barrier?",
+      "What is the basement membrane and what does it do?",
+      "How does glandular epithelium form?",
+      "How do simple and stratified epithelia differ, and where is each type found?",
+      "Why does each epithelial type's structure suit its location and function?"
+     ],
+     "decisions": [
+      {
+       "decision": "Each bullet and numbered point is a separate item; the multi-line glandular bullet is one item.",
+       "reason": "Each states a distinct, testable fact."
+      },
+      {
+       "decision": "The table is rebuilt from the image, with one row item per epithelial type.",
+       "reason": "The text layer splits cells across lines and merges columns."
+      },
+      {
+       "decision": "The right-side figure is captured as a diagram with four labels read from the image.",
+       "reason": "The labels are tiny and appear only in the image."
+      },
+      {
+       "decision": "Block p0003-b0001 (running header) and p0003-b0045 (page number) are boilerplate.",
+       "reason": "They are a running header and a page number."
+      }
+     ],
+     "uncertain": [
+      "The tiny text above the top of the figure is unreadable. The figure labels are read as (a) Squamous, (b) Stratified squamous, (c) Cuboidal, (d) Columnar (Ciliated); the caption is read as 'Fig. 6.9: Different types of epithelial tissues'."
+     ]
+    },
+    "page_summary": "Four main tissues: epithelial (covering/lining), muscular (movement), neural (responds to stimuli) and connective (supports, links, cushions). Epithelium covers organs and cavities and forms a barrier. Its cells are tightly packed in a continuous sheet with little cementing material and almost no intercellular spaces. It sits on an extracellular fibrous basement membrane and can specialise into gland cells and multicellular glands (glandular epithelium). A figure shows squamous, stratified squamous, cuboidal and ciliated columnar epithelium. A table gives the location, structure and function of simple squamous, simple cuboidal, simple columnar, stratified squamous, stratified cuboidal and stratified columnar epithelia.",
+    "items": [
+     {
+      "item_id": "i1",
+      "kind": "paragraph",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0002"
+      ],
+      "where_on_page": "top, bold intro line",
+      "content": "There are mainly four different types of tissues present in our body.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the four main tissue types in the human body?",
+        "answer": "Epithelial, muscular, neural and connective tissue.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do the four tissue types differ in their main job?",
+        "answer": "Epithelial tissue covers or lines, muscular tissue moves, neural tissue responds to stimuli, and connective tissue supports, links and cushions.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does the body need different tissues rather than one kind?",
+        "answer": "A tissue is a group of similar cells doing one function. Dividing labour among specialised tissues lets each job be done efficiently, and organs are then built by combining tissues.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "what a cell is",
+       "definition of a tissue as a group of similar cells with a common function"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Matching each tissue with its function is a classic one-liner question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i2",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0003"
+      ],
+      "where_on_page": "numbered list, point 1",
+      "content": "1. Epithelial- provides covering or lining",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is the role of epithelial tissue?",
+        "answer": "It provides covering or lining to body surfaces.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where do we find coverings and linings?",
+        "answer": "Examples are the skin surface, the lining of the mouth and gut, and the linings of blood vessels and lung air sacs.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a covering tissue needed?",
+        "answer": "Surfaces face the outside or a cavity. A covering protects the tissue beneath and controls what passes in or out.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organs and body cavities"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Function matching.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i3",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0004"
+      ],
+      "where_on_page": "numbered list, point 2",
+      "content": "2. Muscular- helps in movement",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does muscular tissue do?",
+        "answer": "It helps in movement.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does muscle produce movement?",
+        "answer": "Muscle cells contain contractile proteins (actin and myosin) that shorten the cell when stimulated. The pull moves bones, or squeezes organs such as the gut and heart.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "idea of contraction"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Function matching.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i4",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0005"
+      ],
+      "where_on_page": "numbered list, point 3",
+      "content": "3. Neural- responds to stimuli",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does neural tissue do?",
+        "answer": "It responds to stimuli.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does neural tissue respond to stimuli?",
+        "answer": "Neurons convert a stimulus into electrical impulses and pass them rapidly to other neurons, muscles or glands, which coordinates the body's response.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "what a stimulus is",
+       "neuron as a cell"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Function matching.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i5",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0006"
+      ],
+      "where_on_page": "numbered list, point 4",
+      "content": "4. Connective- supports, links and cushions",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What are the three roles of connective tissue named here?",
+        "answer": "It supports, links and cushions.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which tissues are typical examples of connective tissue?",
+        "answer": "Bone and cartilage (support), tendons and ligaments (link), adipose tissue (cushion), and blood.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can connective tissue link and support?",
+        "answer": "Its cells lie in a large matrix with fibres (such as collagen) that give strength, and in bone the matrix is hardened.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "concept of extracellular matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Function matching; blood counted as connective tissue is a common trick question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i6",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0007"
+      ],
+      "where_on_page": "bullet 1 below the numbered list",
+      "content": "Epithelium covers most organs and cavities within the body.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does epithelium cover?",
+        "answer": "Most organs and cavities within the body.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is epithelium the tissue found at surfaces?",
+        "answer": "Its tightly packed, continuous sheet of cells suits a boundary layer that protects and regulates exchange.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "body cavities and organs"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "General property.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i7",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0008"
+      ],
+      "where_on_page": "bullet 2",
+      "content": "It also forms a barrier to keep different body systems separate.",
+      "content_type": "fact",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What barrier role does epithelium play?",
+        "answer": "It keeps different body systems separate.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How can a thin layer act as a barrier?",
+        "answer": "Its cells are tightly joined with almost no spaces between them, so substances must pass through the cells, which control what enters.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "organ systems"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Property statement.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i8",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0009"
+      ],
+      "where_on_page": "bullet 3",
+      "content": "Epithelial tissue cells are tightly packed and form a continuous sheet.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How are epithelial cells arranged?",
+        "answer": "They are tightly packed and form a continuous sheet.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is a continuous sheet important?",
+        "answer": "A sheet without gaps prevents leakage and the entry of germs, which supports the barrier and covering roles.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell membrane"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Distinguishing feature versus connective tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i9",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0010",
+       "p0003-b0011"
+      ],
+      "where_on_page": "bullet 4",
+      "content": "They have only a small amount of cementing material between them and almost no intercellular spaces.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What lies between epithelial cells?",
+        "answer": "Only a small amount of cementing material, with almost no intercellular spaces.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "compare",
+        "question": "How does this compare with connective tissue?",
+        "answer": "Connective tissue cells are loosely spaced in an abundant matrix, which is the opposite of epithelium.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is so little intercellular material needed?",
+        "answer": "Epithelium's job is to cover and guard, not to fill space or bear loads, so close cell contact matters more than matrix.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "intercellular space",
+       "matrix"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Common comparison question between epithelium and connective tissue.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i10",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0012",
+       "p0003-b0013"
+      ],
+      "where_on_page": "bullet 5",
+      "content": "All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What separates epithelium from the tissue beneath it?",
+        "answer": "An extracellular fibrous basement membrane.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does epithelium need a basement membrane?",
+        "answer": "It anchors the epithelial sheet and supports it. Because epithelium usually lacks blood vessels, nutrients diffuse to it from the tissue below across this membrane.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does 'extracellular' mean here?",
+        "answer": "The membrane is not made of cells. It is a layer of secreted fibres and proteins lying outside the cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "difference between cellular and extracellular material"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Basement membrane is a key term.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i11",
+      "kind": "list_point",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0014",
+       "p0003-b0015",
+       "p0003-b0016",
+       "p0003-b0017"
+      ],
+      "where_on_page": "bullet 6, spanning full width",
+      "content": "Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.",
+      "content_type": "process",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is glandular epithelium?",
+        "answer": "Epithelium specialised to secrete substances. A part of the epithelium folds inward to form a multicellular gland.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How is a multicellular gland formed?",
+        "answer": "A portion of the epithelial tissue folds inward.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why fold inward rather than stay flat?",
+        "answer": "Folding packs many secretory cells into a small area, which increases secretion while the opening still drains onto the surface.",
+        "basis": "outside"
+       },
+       {
+        "depth": 1,
+        "ask": "which",
+        "question": "Which are examples of gland cells or glands?",
+        "answer": "Goblet cells (single, mucus-secreting), and sweat and salivary glands (multicellular).",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "secretion",
+       "epithelial sheet"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "The definition of glandular epithelium can be asked directly.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i12",
+      "kind": "diagram",
+      "parent_item_id": "",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "right margin, top half, four stacked drawings",
+      "content": "Fig. 6.9: four 3-D block drawings of epithelial tissues, stacked top to bottom: (a) Squamous, a thin flat layer of cells with irregular outlines; (b) Stratified squamous, a thick block of many layers with flat cells on top; (c) Cuboidal, a single layer of box-like cells with round nuclei; (d) Columnar (Ciliated), a single layer of tall cells bearing cilia on the free surface. Each sits on a blue base layer, the underlying tissue or basement membrane.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does the figure show?",
+        "answer": "Cell shapes and layering of four epithelial types: squamous, stratified squamous, cuboidal and ciliated columnar.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "How do these four differ visually?",
+        "answer": "Squamous cells are flat; cuboidal cells are cube-like; columnar cells are tall, here with cilia; stratified squamous is many layers thick.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is stratified squamous drawn so thick?",
+        "answer": "Multiple layers resist wear, and worn-off cells are replaced from below.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shapes",
+       "simple versus stratified layering"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Identifying a type from its shape helps in odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i13",
+      "kind": "diagram_label",
+      "parent_item_id": "i12",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, label under the top drawing",
+      "content": "(a) Squamous: points to a single thin layer of flat polygonal cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is squamous epithelium?",
+        "answer": "Epithelium of flat, scale-like cells.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why are the cells flat?",
+        "answer": "A thin layer gives a short path for diffusion.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "diffusion"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Label recognition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i14",
+      "kind": "diagram_label",
+      "parent_item_id": "i12",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, label under the second drawing",
+      "content": "(b) Stratified squamous: points to a multilayered block of cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What does 'stratified' mean?",
+        "answer": "Arranged in many layers.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is it layered?",
+        "answer": "Layering gives protection against abrasion.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "layering"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Label recognition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i15",
+      "kind": "diagram_label",
+      "parent_item_id": "i12",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, label under the third drawing",
+      "content": "(c) Cuboidal: points to a single layer of cube-shaped cells.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What shape are cuboidal cells?",
+        "answer": "Roughly as tall as they are wide, like cubes.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does this shape help?",
+        "answer": "The extra cell volume holds organelles needed for secretion and absorption.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell organelles"
+      ],
+      "exam_importance": "low",
+      "exam_note": "Label recognition.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i16",
+      "kind": "diagram_label",
+      "parent_item_id": "i12",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "figure, label under the bottom drawing",
+      "content": "(d) Columnar (Ciliated): points to tall cells with cilia on their free surface.",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is ciliated columnar epithelium?",
+        "answer": "Tall columnar cells carrying hair-like cilia.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How do cilia help?",
+        "answer": "They beat in a coordinated way to move mucus or particles in one direction, for example in the respiratory tract.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cilia"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Links to the 'movement in a specific direction' function in the table.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i17",
+      "kind": "caption",
+      "parent_item_id": "i12",
+      "source": "image",
+      "block_ids": [],
+      "where_on_page": "below the figure, right margin",
+      "content": "Fig. 6.9: Different types of epithelial tissues",
+      "content_type": "other",
+      "teachable": false,
+      "teacher_understanding": [],
+      "prerequisites": [],
+      "exam_importance": "low",
+      "exam_note": "Caption only.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i18",
+      "kind": "table",
+      "parent_item_id": "",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0018"
+      ],
+      "where_on_page": "bottom half, full-width table",
+      "content": "Table with columns Types of Epithelial Tissue | Location | Structure | Function and six rows: Simple squamous, Simple Cuboidal, Simple Columnar, Stratified Squamous, Stratified Cuboidal, Stratified Columnar.",
+      "content_type": "classification",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "How does the table classify epithelium?",
+        "answer": "By the number of layers (simple or stratified) and by cell shape (squamous, cuboidal or columnar), giving six types.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "difference",
+        "question": "What is the difference between simple and stratified epithelium?",
+        "answer": "Simple epithelium is a single layer, mainly for diffusion, absorption and secretion. Stratified epithelium has several layers, mainly for protection.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why does a single layer suit exchange while many layers suit protection?",
+        "answer": "One layer gives a short path for substances to cross. Many layers mean that losing the surface cells does not expose the tissue underneath.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell shapes",
+       "simple versus stratified layering"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Location–type matching is a very common question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i19",
+      "kind": "table_row",
+      "parent_item_id": "i18",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0019",
+       "p0003-b0020",
+       "p0003-b0021",
+       "p0003-b0022"
+      ],
+      "where_on_page": "table row 1",
+      "content": "Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman's capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is simple squamous epithelium found?",
+        "answer": "In the lining of blood vessels and capillaries, the air sacs of the lungs and Bowman's capsule of the kidney.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is it found at these sites?",
+        "answer": "All are sites of rapid exchange: gas exchange in the alveoli, exchange at capillaries, and filtration in Bowman's capsule. Thin flat cells give the shortest diffusion path.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "diffusion",
+       "alveoli",
+       "Bowman's capsule of the nephron"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Alveoli and Bowman's capsule as squamous sites are a favourite question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i20",
+      "kind": "table_row",
+      "parent_item_id": "i18",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0023",
+       "p0003-b0024",
+       "p0003-b0025",
+       "p0003-b0026"
+      ],
+      "where_on_page": "table row 2",
+      "content": "Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is simple cuboidal epithelium found?",
+        "answer": "In the tubular lining of the kidneys and in glandular ducts.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What special feature does it have in the proximal convoluted tubule?",
+        "answer": "Microvilli.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why have microvilli in the PCT?",
+        "answer": "Microvilli form a brush border that greatly increases surface area for reabsorbing water, glucose and salts from the filtrate.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "nephron parts (PCT)",
+       "reabsorption",
+       "microvilli"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Microvilli in the PCT is a key fact.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i21",
+      "kind": "table_row",
+      "parent_item_id": "i18",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0027",
+       "p0003-b0028",
+       "p0003-b0029",
+       "p0003-b0030"
+      ],
+      "where_on_page": "table row 3",
+      "content": "Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is simple columnar epithelium found?",
+        "answer": "In the lining of the digestive tract and the upper respiratory tract.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "how",
+        "question": "How does it achieve movement in a specific direction?",
+        "answer": "Its cilia beat in one direction, pushing mucus with trapped dust out of the airways.",
+        "basis": "outside"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why tall cells in the gut?",
+        "answer": "Tall cells have room for absorption machinery and mucus-secreting goblet cells.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cilia",
+       "mucus",
+       "intestinal absorption"
+      ],
+      "exam_importance": "high",
+      "exam_note": "Ciliated epithelium of the respiratory tract is a common question.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i22",
+      "kind": "table_row",
+      "parent_item_id": "i18",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0031",
+       "p0003-b0032",
+       "p0003-b0033",
+       "p0003-b0034",
+       "p0003-b0035",
+       "p0003-b0036",
+       "p0003-b0037"
+      ],
+      "where_on_page": "table row 4",
+      "content": "Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is stratified squamous epithelium found per the book?",
+        "answer": "In the lining of the mouth and vagina.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "how",
+        "question": "How is the layer renewed?",
+        "answer": "The lower columnar layer is metabolically active and makes new cells. Older cells are pushed upwards, become flat and are sloughed off.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do these sites need it?",
+        "answer": "They face friction and abrasion, so continual replacement of surface cells protects the tissue below. Skin epidermis is a keratinised form of it.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "cell division",
+       "abrasion"
+      ],
+      "exam_importance": "high",
+      "exam_note": "The skin and mouth lining example is commonly asked.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i23",
+      "kind": "table_row",
+      "parent_item_id": "i18",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0038",
+       "p0003-b0039",
+       "p0003-b0040"
+      ],
+      "where_on_page": "table row 5",
+      "content": "Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is stratified cuboidal epithelium found?",
+        "answer": "In the mammary, sweat and salivary glands.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why do gland ducts need protection?",
+        "answer": "Ducts carry secretions continuously, and a multilayered lining keeps them strong and sealed.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "exocrine glands and ducts"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "A less common type that suits odd-one-out questions.",
+      "tests_item_ids": []
+     },
+     {
+      "item_id": "i24",
+      "kind": "table_row",
+      "parent_item_id": "i18",
+      "source": "both",
+      "block_ids": [
+       "p0003-b0041",
+       "p0003-b0042",
+       "p0003-b0043",
+       "p0003-b0044"
+      ],
+      "where_on_page": "table row 6",
+      "content": "Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion",
+      "content_type": "structure",
+      "teachable": true,
+      "teacher_understanding": [
+       {
+        "depth": 1,
+        "ask": "where",
+        "question": "Where is stratified columnar epithelium found?",
+        "answer": "In the male urethra and the lobar ducts of salivary glands.",
+        "basis": "book"
+       },
+       {
+        "depth": 1,
+        "ask": "what",
+        "question": "What is its structure?",
+        "answer": "A top layer of columnar cells over squamous, columnar or cuboidal cells.",
+        "basis": "book"
+       },
+       {
+        "depth": 2,
+        "ask": "why",
+        "question": "Why is it both protective and secretory?",
+        "answer": "The several layers give protection, and the columnar surface cells can secrete.",
+        "basis": "outside"
+       }
+      ],
+      "prerequisites": [
+       "urethra",
+       "salivary glands"
+      ],
+      "exam_importance": "medium",
+      "exam_note": "Male urethra is the classic location for this type.",
+      "tests_item_ids": []
+     }
+    ],
+    "boilerplate_block_ids": [
+     "p0003-b0001",
+     "p0003-b0045"
+    ],
+    "text_image_disagreements": [
+     {
+      "block_ids": [
+       "p0003-b0019",
+       "p0003-b0020",
+       "p0003-b0023",
+       "p0003-b0027"
+      ],
+      "text_says": "Table cells from different columns are merged into single lines, e.g. 'Simple squamous Blood vessel lining, A single layer of flat cells Transport by diffusion and'.",
+      "image_shows": "Four separate columns (Type, Location, Structure, Function), with each cell wrapping over several lines; rows were rebuilt from the image."
+     }
+    ]
+   },
+   "code_problems": [],
+   "review": {
+    "route": "openai",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "direct",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "aa6f6055bd0c4c179d5e640b2493e52fe2eafca11a299f3006329ef7094bfeba",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 11728,
+    "output_tokens": 1998,
+    "cost_usd": 0.043436,
+    "value": {
+     "notes": {
+      "about": "This page introduces the four animal tissue types and develops epithelial structure, gland formation, and six epithelial types through a figure and a comparison table.",
+      "key_questions": [
+       "Are all epithelial types, locations, structures and functions captured accurately?",
+       "Do the explanations correctly connect epithelial structure with barrier, exchange, secretory and protective functions?",
+       "Are source simplifications distinguished from standard biological explanations?"
+      ],
+      "decisions": [
+       {
+        "decision": "Treat the page's substantive content as captured.",
+        "reason": "All numbered points, epithelial bullets, six table rows, and four readable diagram labels have corresponding items."
+       },
+       {
+        "decision": "Require correction of the epithelial transport explanation and qualification of the respiratory classification.",
+        "reason": "These affect standard textbook understanding, rather than optional specialist detail."
+       }
+      ],
+      "uncertain": [
+       "The tiny text above the figure cannot be read reliably from the supplied image; the maker appropriately records that uncertainty.",
+       "The blue supporting layers in the diagram are not explicitly labelled, so their precise identity should remain an interpretation."
+      ]
+     },
+     "verdict": "fail",
+     "missing": [],
+     "wrong": [
+      {
+       "item_id": "i7",
+       "problem": "The outside answer says substances 'must pass through the cells'. Epithelial transport can occur both through cells and between cells; close packing does not eliminate the paracellular route.",
+       "fix": "Explain that closely packed cells and junctions restrict uncontrolled passage. Substances may cross through cells or, depending on the epithelium and its junctions, between cells.",
+       "severity": "blocking"
+      },
+      {
+       "item_id": "i21",
+       "problem": "The book's placement of upper respiratory tract lining under simple columnar epithelium is repeated without qualification and reinforced by the airway-clearance explanation. Much of the conducting respiratory lining, notably the trachea, is pseudostratified ciliated columnar epithelium, not simple columnar.",
+       "fix": "Preserve the table entry as the book's wording, but add a clearly marked outside clarification that respiratory epithelia vary by region and that the typical tracheal lining is pseudostratified ciliated columnar. Use the intestine as a standard simple-columnar example and smaller bronchi or bronchioles when discussing simple ciliated forms.",
+       "severity": "blocking"
+      },
+      {
+       "item_id": "i21",
+       "problem": "The explanation that tall cells have room for 'mucus-secreting goblet cells' incorrectly implies that goblet cells are contained within other columnar cells.",
+       "fix": "State that absorptive columnar cells have cytoplasm and organelles supporting absorption, while separate goblet cells interspersed among them secrete mucus.",
+       "severity": "blocking"
+      },
+      {
+       "item_id": "i12",
+       "problem": "The unlabelled blue base is identified as 'the underlying tissue or basement membrane' without distinguishing observation from interpretation.",
+       "fix": "Describe the visible blue supporting layer without assigning a definite identity, or explicitly label its identification as a tentative outside interpretation.",
+       "severity": "minor"
+      },
+      {
+       "item_id": "i19",
+       "problem": "The explanation ends by invoking a short diffusion path for all listed sites, although the Bowman's capsule example concerns filtration rather than diffusion.",
+       "fix": "Distinguish diffusion across alveolar and capillary exchange surfaces from pressure-driven filtration at the renal corpuscle; retain thinness as the shared structural advantage.",
+       "severity": "minor"
+      }
+     ],
+     "shallow": [
+      {
+       "item_id": "i18",
+       "what_is_missing": "Add that stratified epithelia are named by the shape of their surface cells, not all their constituent cells. This explains why the lower layers in the stratified squamous, cuboidal and columnar rows can have different shapes.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": false,
+       "note": "Most material is sourced or explicitly marked outside, but some outside explanations are incorrect, notably obligatory passage through epithelial cells and the goblet-cell explanation."
+      },
+      {
+       "rule_id": "G-02",
+       "met": false,
+       "note": "Coverage and explanatory depth are generally strong, but the identified biological errors prevent teacher-level acceptance."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker provides the unit's purpose, key questions, decisions with reasons, and uncertainty about the tiny figure text."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No substantive content is visibly cut short or replaced by an unresolved 'etc.'"
+      },
+      {
+       "rule_id": "S1-01",
+       "met": true,
+       "note": "All readable substantive page content is captured, including the image-only figure and table."
+      },
+      {
+       "rule_id": "S1-02",
+       "met": true,
+       "note": "The running header and page number are appropriately excluded; no teachable content is wrongly dismissed as boilerplate."
+      },
+      {
+       "rule_id": "S1-03",
+       "met": true,
+       "note": "Each of the six table rows has a separate item with its type, location, structure and function."
+      },
+      {
+       "rule_id": "S1-04",
+       "met": true,
+       "note": "All four readable diagram labels are captured and associated with the relevant drawings. The unlabelled base-layer interpretation needs qualification."
+      },
+      {
+       "rule_id": "S1-05",
+       "met": true,
+       "note": "There are no equations or technical symbols requiring interpretation on this page."
+      },
+      {
+       "rule_id": "S1-06",
+       "met": false,
+       "note": "Most items answer why or how, but several explanations teach incorrect mechanisms or classifications. The surface-cell naming principle would also improve the table explanation."
+      },
+      {
+       "rule_id": "S1-07",
+       "met": false,
+       "note": "Basis labels are generally appropriate, but not all outside answers are correct. The book-derived respiratory classification also needs a clearly labelled corrective note."
+      },
+      {
+       "rule_id": "S1-08",
+       "met": true,
+       "note": "The paragraph, list, diagram, diagram-label, caption and table-row kinds and content types are sensible."
+      },
+      {
+       "rule_id": "S1-09",
+       "met": true,
+       "note": "Prerequisites generally identify concrete concepts such as diffusion, extracellular matrix, secretion, nephron parts and abrasion."
+      },
+      {
+       "rule_id": "S1-10",
+       "met": true,
+       "note": "Exam priorities reasonably emphasise tissue-function and epithelial location matching. There are no separate exam-question items requiring cross-item links."
+      },
+      {
+       "rule_id": "S1-11",
+       "met": true,
+       "note": "The table's text-layer column merging is reported, image-only content is identified, and unreadable figure text is acknowledged rather than invented."
+      }
+     ]
+    }
+   },
+   "review_problems": [
+    "[reviewer] wrong in i7: The outside answer says substances 'must pass through the cells'. Epithelial transport can occur both through cells and between cells; close packing does not eliminate the paracellular route. -> fix: Explain that closely packed cells and junctions restrict uncontrolled passage. Substances may cross through cells or, depending on the epithelium and its junctions, between cells.",
+    "[reviewer] wrong in i21: The book's placement of upper respiratory tract lining under simple columnar epithelium is repeated without qualification and reinforced by the airway-clearance explanation. Much of the conducting respiratory lining, notably the trachea, is pseudostratified ciliated columnar epithelium, not simple columnar. -> fix: Preserve the table entry as the book's wording, but add a clearly marked outside clarification that respiratory epithelia vary by region and that the typical tracheal lining is pseudostratified ciliated columnar. Use the intestine as a standard simple-columnar example and smaller bronchi or bronchioles when discussing simple ciliated forms.",
+    "[reviewer] wrong in i21: The explanation that tall cells have room for 'mucus-secreting goblet cells' incorrectly implies that goblet cells are contained within other columnar cells. -> fix: State that absorptive columnar cells have cytoplasm and organelles supporting absorption, while separate goblet cells interspersed among them secrete mucus."
+   ],
+   "review_minor": [
+    {
+     "item_id": "i12",
+     "problem": "The unlabelled blue base is identified as 'the underlying tissue or basement membrane' without distinguishing observation from interpretation.",
+     "fix": "Describe the visible blue supporting layer without assigning a definite identity, or explicitly label its identification as a tentative outside interpretation.",
+     "kind": "wrong"
+    },
+    {
+     "item_id": "i19",
+     "problem": "The explanation ends by invoking a short diffusion path for all listed sites, although the Bowman's capsule example concerns filtration rather than diffusion.",
+     "fix": "Distinguish diffusion across alveolar and capillary exchange surfaces from pressure-driven filtration at the renal corpuscle; retain thinness as the shared structural advantage.",
+     "kind": "wrong"
+    },
+    {
+     "item_id": "i18",
+     "what_is_missing": "Add that stratified epithelia are named by the shape of their surface cells, not all their constituent cells. This explains why the lower layers in the stratified squamous, cuboidal and columnar rows can have different shapes.",
+     "kind": "shallow"
+    }
+   ],
+   "passed": false,
+   "finished_at": 1792592441.7312508
+  },
+  {
+   "round": 2,
+   "started_at": 1792592441.7314909,
+   "mode": "patch",
+   "maker_error": {
+    "kind": "provider_unavailable",
+    "message": "aicredits:provider_unavailable: [Errno 104] Connection reset by peer"
+   },
+   "passed": false
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.324138,
+ "navin_verdict": null
+}

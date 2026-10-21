@@ -1,0 +1,2078 @@
+{
+ "schema": "bie.brain.chapter-map/1",
+ "course": {
+  "title": "10. Tissues and Its Types",
+  "subject": "Science and Technology",
+  "learners": "UPSC / State PCS aspirants",
+  "exam": "UPSC / State PCS",
+  "language": "Hinglish"
+ },
+ "source_sha256": "05616c29dd08d715424c0ae242097ddc82c3fefc48d9e009db09ce371ae7db7d",
+ "page_count": 14,
+ "rulebook_version": "vision-2026-10-21@2026-10-21.4",
+ "maker_route": "anthropic",
+ "reviewer_route": "openai",
+ "pages": [
+  {
+   "page": 3,
+   "status": "failed",
+   "rounds": 2,
+   "summary": "Four main tissues: epithelial (covering/lining), muscular (movement), neural (responds to stimuli) and connective (supports, links, cushions). Epithelium covers organs and cavities and forms a barrier. Its cells are tightly packed in a continuous sheet with little cementing material and almost no intercellular spaces. It sits on an extracellular fibrous basement membrane and can specialise into gland cells and multicellular glands (glandular epithelium). A figure shows squamous, stratified squamous, cuboidal and ciliated columnar epithelium. A table gives the location, structure and function of simple squamous, simple cuboidal, simple columnar, stratified squamous, stratified cuboidal and stratified columnar epithelia.",
+   "boilerplate_block_ids": [
+    "p0003-b0001",
+    "p0003-b0045"
+   ],
+   "text_image_disagreements": [
+    {
+     "block_ids": [
+      "p0003-b0019",
+      "p0003-b0020",
+      "p0003-b0023",
+      "p0003-b0027"
+     ],
+     "text_says": "Table cells from different columns are merged into single lines, e.g. 'Simple squamous Blood vessel lining, A single layer of flat cells Transport by diffusion and'.",
+     "image_shows": "Four separate columns (Type, Location, Structure, Function), with each cell wrapping over several lines; rows were rebuilt from the image."
+    }
+   ],
+   "item_ids": [
+    "p003-i1",
+    "p003-i2",
+    "p003-i3",
+    "p003-i4",
+    "p003-i5",
+    "p003-i6",
+    "p003-i7",
+    "p003-i8",
+    "p003-i9",
+    "p003-i10",
+    "p003-i11",
+    "p003-i12",
+    "p003-i13",
+    "p003-i14",
+    "p003-i15",
+    "p003-i16",
+    "p003-i17",
+    "p003-i18",
+    "p003-i19",
+    "p003-i20",
+    "p003-i21",
+    "p003-i22",
+    "p003-i23",
+    "p003-i24"
+   ],
+   "last_problems": [],
+   "record": "understand--page-003.json",
+   "cost_usd": 0.324138
+  },
+  {
+   "page": 7,
+   "status": "failed",
+   "rounds": 3,
+   "summary": "The page compares the three types of muscular tissue in a table. Skeletal muscle is in the skeleton, gives movement, heat and posture, is striated, multinucleated with eccentric nuclei and parallel fibres, and is voluntary. Cardiac muscle is in the heart, pumps blood continuously, is striated with one central nucleus, and is involuntary. Visceral (smooth) muscle is in the G.I. tract, uterus, eye and blood vessels, drives peristalsis, blood pressure, pupil size and hair erection, has no striations and one central nucleus, and is involuntary. Below are NCERT Fig. 6.10 on types of connective tissue (blood cells, compact bone, hyaline cartilage, areolar tissue, adipose tissue) and a diagram of how neurons transmit impulses: dendrites, cell body and nucleus, axon carrying an electrical signal, axon tips and the synapse with the next neuron's dendrites.",
+   "boilerplate_block_ids": [
+    "p0007-b0001",
+    "p0007-b0002"
+   ],
+   "text_image_disagreements": [],
+   "item_ids": [
+    "p007-i1",
+    "p007-i2",
+    "p007-i3",
+    "p007-i4",
+    "p007-i5",
+    "p007-i6",
+    "p007-i7",
+    "p007-i8",
+    "p007-i9",
+    "p007-i10",
+    "p007-i11",
+    "p007-i12",
+    "p007-i13",
+    "p007-i14",
+    "p007-i15",
+    "p007-i16",
+    "p007-i17",
+    "p007-i18",
+    "p007-i19",
+    "p007-i20",
+    "p007-i21",
+    "p007-i22",
+    "p007-i23",
+    "p007-i24",
+    "p007-i25"
+   ],
+   "last_problems": [],
+   "record": "understand--page-007.json",
+   "cost_usd": 0.519562
+  }
+ ],
+ "items": {
+  "p003-i1": {
+   "item_id": "p003-i1",
+   "kind": "paragraph",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0002"
+   ],
+   "where_on_page": "top, bold intro line",
+   "content": "There are mainly four different types of tissues present in our body.",
+   "content_type": "classification",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are the four main tissue types in the human body?",
+     "answer": "Epithelial, muscular, neural and connective tissue.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "How do the four tissue types differ in their main job?",
+     "answer": "Epithelial tissue covers or lines, muscular tissue moves, neural tissue responds to stimuli, and connective tissue supports, links and cushions.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does the body need different tissues rather than one kind?",
+     "answer": "A tissue is a group of similar cells doing one function. Dividing labour among specialised tissues lets each job be done efficiently, and organs are then built by combining tissues.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "what a cell is",
+    "definition of a tissue as a group of similar cells with a common function"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Matching each tissue with its function is a classic one-liner question.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i2": {
+   "item_id": "p003-i2",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0003"
+   ],
+   "where_on_page": "numbered list, point 1",
+   "content": "1. Epithelial- provides covering or lining",
+   "content_type": "fact",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is the role of epithelial tissue?",
+     "answer": "It provides covering or lining to body surfaces.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where do we find coverings and linings?",
+     "answer": "Examples are the skin surface, the lining of the mouth and gut, and the linings of blood vessels and lung air sacs.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is a covering tissue needed?",
+     "answer": "Surfaces face the outside or a cavity. A covering protects the tissue beneath and controls what passes in or out.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "organs and body cavities"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Function matching.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i3": {
+   "item_id": "p003-i3",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0004"
+   ],
+   "where_on_page": "numbered list, point 2",
+   "content": "2. Muscular- helps in movement",
+   "content_type": "fact",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does muscular tissue do?",
+     "answer": "It helps in movement.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does muscle produce movement?",
+     "answer": "Muscle cells contain contractile proteins (actin and myosin) that shorten the cell when stimulated. The pull moves bones, or squeezes organs such as the gut and heart.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "idea of contraction"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Function matching.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i4": {
+   "item_id": "p003-i4",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0005"
+   ],
+   "where_on_page": "numbered list, point 3",
+   "content": "3. Neural- responds to stimuli",
+   "content_type": "fact",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does neural tissue do?",
+     "answer": "It responds to stimuli.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does neural tissue respond to stimuli?",
+     "answer": "Neurons convert a stimulus into electrical impulses and pass them rapidly to other neurons, muscles or glands, which coordinates the body's response.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "what a stimulus is",
+    "neuron as a cell"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Function matching.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i5": {
+   "item_id": "p003-i5",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0006"
+   ],
+   "where_on_page": "numbered list, point 4",
+   "content": "4. Connective- supports, links and cushions",
+   "content_type": "fact",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are the three roles of connective tissue named here?",
+     "answer": "It supports, links and cushions.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "which",
+     "question": "Which tissues are typical examples of connective tissue?",
+     "answer": "Bone and cartilage (support), tendons and ligaments (link), adipose tissue (cushion), and blood.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How can connective tissue link and support?",
+     "answer": "Its cells lie in a large matrix with fibres (such as collagen) that give strength, and in bone the matrix is hardened.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "concept of extracellular matrix"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Function matching; blood counted as connective tissue is a common trick question.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i6": {
+   "item_id": "p003-i6",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0007"
+   ],
+   "where_on_page": "bullet 1 below the numbered list",
+   "content": "Epithelium covers most organs and cavities within the body.",
+   "content_type": "fact",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does epithelium cover?",
+     "answer": "Most organs and cavities within the body.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is epithelium the tissue found at surfaces?",
+     "answer": "Its tightly packed, continuous sheet of cells suits a boundary layer that protects and regulates exchange.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "body cavities and organs"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "General property.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i7": {
+   "item_id": "p003-i7",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0008"
+   ],
+   "where_on_page": "bullet 2",
+   "content": "It also forms a barrier to keep different body systems separate.",
+   "content_type": "fact",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What barrier role does epithelium play?",
+     "answer": "It keeps different body systems separate.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How can a thin layer act as a barrier?",
+     "answer": "Its cells are tightly joined with almost no spaces between them, so substances must pass through the cells, which control what enters.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "organ systems"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Property statement.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i8": {
+   "item_id": "p003-i8",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0009"
+   ],
+   "where_on_page": "bullet 3",
+   "content": "Epithelial tissue cells are tightly packed and form a continuous sheet.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "How are epithelial cells arranged?",
+     "answer": "They are tightly packed and form a continuous sheet.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is a continuous sheet important?",
+     "answer": "A sheet without gaps prevents leakage and the entry of germs, which supports the barrier and covering roles.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cell membrane"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Distinguishing feature versus connective tissue.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i9": {
+   "item_id": "p003-i9",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0010",
+    "p0003-b0011"
+   ],
+   "where_on_page": "bullet 4",
+   "content": "They have only a small amount of cementing material between them and almost no intercellular spaces.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What lies between epithelial cells?",
+     "answer": "Only a small amount of cementing material, with almost no intercellular spaces.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "compare",
+     "question": "How does this compare with connective tissue?",
+     "answer": "Connective tissue cells are loosely spaced in an abundant matrix, which is the opposite of epithelium.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is so little intercellular material needed?",
+     "answer": "Epithelium's job is to cover and guard, not to fill space or bear loads, so close cell contact matters more than matrix.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "intercellular space",
+    "matrix"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Common comparison question between epithelium and connective tissue.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i10": {
+   "item_id": "p003-i10",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0012",
+    "p0003-b0013"
+   ],
+   "where_on_page": "bullet 5",
+   "content": "All epithelium is usually separated from the underlying tissue by an extracellular fibrous basement membrane.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What separates epithelium from the tissue beneath it?",
+     "answer": "An extracellular fibrous basement membrane.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does epithelium need a basement membrane?",
+     "answer": "It anchors the epithelial sheet and supports it. Because epithelium usually lacks blood vessels, nutrients diffuse to it from the tissue below across this membrane.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does 'extracellular' mean here?",
+     "answer": "The membrane is not made of cells. It is a layer of secreted fibres and proteins lying outside the cells.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "difference between cellular and extracellular material"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Basement membrane is a key term.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i11": {
+   "item_id": "p003-i11",
+   "kind": "list_point",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0014",
+    "p0003-b0015",
+    "p0003-b0016",
+    "p0003-b0017"
+   ],
+   "where_on_page": "bullet 6, spanning full width",
+   "content": "Epithelial cells often acquire additional specialisation as gland cells, which can secrete substances at the epithelial surface. Sometimes a portion of the epithelial tissue folds inward, and a multicellular gland is formed. This is glandular epithelium.",
+   "content_type": "process",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is glandular epithelium?",
+     "answer": "Epithelium specialised to secrete substances. A part of the epithelium folds inward to form a multicellular gland.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "how",
+     "question": "How is a multicellular gland formed?",
+     "answer": "A portion of the epithelial tissue folds inward.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why fold inward rather than stay flat?",
+     "answer": "Folding packs many secretory cells into a small area, which increases secretion while the opening still drains onto the surface.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "which",
+     "question": "Which are examples of gland cells or glands?",
+     "answer": "Goblet cells (single, mucus-secreting), and sweat and salivary glands (multicellular).",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "secretion",
+    "epithelial sheet"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "The definition of glandular epithelium can be asked directly.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i12": {
+   "item_id": "p003-i12",
+   "kind": "diagram",
+   "parent_item_id": "",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "right margin, top half, four stacked drawings",
+   "content": "Fig. 6.9: four 3-D block drawings of epithelial tissues, stacked top to bottom: (a) Squamous, a thin flat layer of cells with irregular outlines; (b) Stratified squamous, a thick block of many layers with flat cells on top; (c) Cuboidal, a single layer of box-like cells with round nuclei; (d) Columnar (Ciliated), a single layer of tall cells bearing cilia on the free surface. Each sits on a blue base layer, the underlying tissue or basement membrane.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does the figure show?",
+     "answer": "Cell shapes and layering of four epithelial types: squamous, stratified squamous, cuboidal and ciliated columnar.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "How do these four differ visually?",
+     "answer": "Squamous cells are flat; cuboidal cells are cube-like; columnar cells are tall, here with cilia; stratified squamous is many layers thick.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is stratified squamous drawn so thick?",
+     "answer": "Multiple layers resist wear, and worn-off cells are replaced from below.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cell shapes",
+    "simple versus stratified layering"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Identifying a type from its shape helps in odd-one-out questions.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i13": {
+   "item_id": "p003-i13",
+   "kind": "diagram_label",
+   "parent_item_id": "p003-i12",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "figure, label under the top drawing",
+   "content": "(a) Squamous: points to a single thin layer of flat polygonal cells.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is squamous epithelium?",
+     "answer": "Epithelium of flat, scale-like cells.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why are the cells flat?",
+     "answer": "A thin layer gives a short path for diffusion.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "diffusion"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Label recognition.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i14": {
+   "item_id": "p003-i14",
+   "kind": "diagram_label",
+   "parent_item_id": "p003-i12",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "figure, label under the second drawing",
+   "content": "(b) Stratified squamous: points to a multilayered block of cells.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does 'stratified' mean?",
+     "answer": "Arranged in many layers.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it layered?",
+     "answer": "Layering gives protection against abrasion.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "layering"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Label recognition.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i15": {
+   "item_id": "p003-i15",
+   "kind": "diagram_label",
+   "parent_item_id": "p003-i12",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "figure, label under the third drawing",
+   "content": "(c) Cuboidal: points to a single layer of cube-shaped cells.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What shape are cuboidal cells?",
+     "answer": "Roughly as tall as they are wide, like cubes.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does this shape help?",
+     "answer": "The extra cell volume holds organelles needed for secretion and absorption.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cell organelles"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Label recognition.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i16": {
+   "item_id": "p003-i16",
+   "kind": "diagram_label",
+   "parent_item_id": "p003-i12",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "figure, label under the bottom drawing",
+   "content": "(d) Columnar (Ciliated): points to tall cells with cilia on their free surface.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is ciliated columnar epithelium?",
+     "answer": "Tall columnar cells carrying hair-like cilia.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How do cilia help?",
+     "answer": "They beat in a coordinated way to move mucus or particles in one direction, for example in the respiratory tract.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cilia"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Links to the 'movement in a specific direction' function in the table.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i17": {
+   "item_id": "p003-i17",
+   "kind": "caption",
+   "parent_item_id": "p003-i12",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "below the figure, right margin",
+   "content": "Fig. 6.9: Different types of epithelial tissues",
+   "content_type": "other",
+   "teachable": false,
+   "teacher_understanding": [],
+   "prerequisites": [],
+   "exam_importance": "low",
+   "exam_note": "Caption only.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i18": {
+   "item_id": "p003-i18",
+   "kind": "table",
+   "parent_item_id": "",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0018"
+   ],
+   "where_on_page": "bottom half, full-width table",
+   "content": "Table with columns Types of Epithelial Tissue | Location | Structure | Function and six rows: Simple squamous, Simple Cuboidal, Simple Columnar, Stratified Squamous, Stratified Cuboidal, Stratified Columnar.",
+   "content_type": "classification",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "How does the table classify epithelium?",
+     "answer": "By the number of layers (simple or stratified) and by cell shape (squamous, cuboidal or columnar), giving six types.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "What is the difference between simple and stratified epithelium?",
+     "answer": "Simple epithelium is a single layer, mainly for diffusion, absorption and secretion. Stratified epithelium has several layers, mainly for protection.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does a single layer suit exchange while many layers suit protection?",
+     "answer": "One layer gives a short path for substances to cross. Many layers mean that losing the surface cells does not expose the tissue underneath.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cell shapes",
+    "simple versus stratified layering"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Location–type matching is a very common question.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i19": {
+   "item_id": "p003-i19",
+   "kind": "table_row",
+   "parent_item_id": "p003-i18",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0019",
+    "p0003-b0020",
+    "p0003-b0021",
+    "p0003-b0022"
+   ],
+   "where_on_page": "table row 1",
+   "content": "Simple squamous | Location: Blood vessel lining, capillaries, air sac lining of lungs, Bowman's capsule of kidney | Structure: A single layer of flat cells having irregular boundaries | Function: Transport by diffusion and where minimal protection is required",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is simple squamous epithelium found?",
+     "answer": "In the lining of blood vessels and capillaries, the air sacs of the lungs and Bowman's capsule of the kidney.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it found at these sites?",
+     "answer": "All are sites of rapid exchange: gas exchange in the alveoli, exchange at capillaries, and filtration in Bowman's capsule. Thin flat cells give the shortest diffusion path.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "diffusion",
+    "alveoli",
+    "Bowman's capsule of the nephron"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Alveoli and Bowman's capsule as squamous sites are a favourite question.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i20": {
+   "item_id": "p003-i20",
+   "kind": "table_row",
+   "parent_item_id": "p003-i18",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0023",
+    "p0003-b0024",
+    "p0003-b0025",
+    "p0003-b0026"
+   ],
+   "where_on_page": "table row 2",
+   "content": "Simple Cuboidal Epithelium | Location: The tubular lining of kidneys, glandular ducts | Structure: A single layer of short cylindrical cells. It may have microvilli as in proximal convoluted tubules | Function: Absorption and secretion",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is simple cuboidal epithelium found?",
+     "answer": "In the tubular lining of the kidneys and in glandular ducts.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What special feature does it have in the proximal convoluted tubule?",
+     "answer": "Microvilli.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why have microvilli in the PCT?",
+     "answer": "Microvilli form a brush border that greatly increases surface area for reabsorbing water, glucose and salts from the filtrate.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "nephron parts (PCT)",
+    "reabsorption",
+    "microvilli"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Microvilli in the PCT is a key fact.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i21": {
+   "item_id": "p003-i21",
+   "kind": "table_row",
+   "parent_item_id": "p003-i18",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0027",
+    "p0003-b0028",
+    "p0003-b0029",
+    "p0003-b0030"
+   ],
+   "where_on_page": "table row 3",
+   "content": "Simple Columnar Epithelium | Location: Digestive tract and upper respiratory tract lining | Structure: A single layer of columnar cells (tall and slender) and often ciliated | Function: Protection, absorption, mucus secretion and movement in a specific direction",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is simple columnar epithelium found?",
+     "answer": "In the lining of the digestive tract and the upper respiratory tract.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does it achieve movement in a specific direction?",
+     "answer": "Its cilia beat in one direction, pushing mucus with trapped dust out of the airways.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why tall cells in the gut?",
+     "answer": "Tall cells have room for absorption machinery and mucus-secreting goblet cells.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cilia",
+    "mucus",
+    "intestinal absorption"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Ciliated epithelium of the respiratory tract is a common question.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i22": {
+   "item_id": "p003-i22",
+   "kind": "table_row",
+   "parent_item_id": "p003-i18",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0031",
+    "p0003-b0032",
+    "p0003-b0033",
+    "p0003-b0034",
+    "p0003-b0035",
+    "p0003-b0036",
+    "p0003-b0037"
+   ],
+   "where_on_page": "table row 4",
+   "content": "Stratified Squamous Epithelium | Location: The lining of the mouth and vagina | Structure: Made up of several layers of cells, continuously sloughed off and regenerated. The older layer of cells is pushed upwards and becomes flat. The lower layer is columnar and metabolically active | Function: Protection",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is stratified squamous epithelium found per the book?",
+     "answer": "In the lining of the mouth and vagina.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "how",
+     "question": "How is the layer renewed?",
+     "answer": "The lower columnar layer is metabolically active and makes new cells. Older cells are pushed upwards, become flat and are sloughed off.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why do these sites need it?",
+     "answer": "They face friction and abrasion, so continual replacement of surface cells protects the tissue below. Skin epidermis is a keratinised form of it.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cell division",
+    "abrasion"
+   ],
+   "exam_importance": "high",
+   "exam_note": "The skin and mouth lining example is commonly asked.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i23": {
+   "item_id": "p003-i23",
+   "kind": "table_row",
+   "parent_item_id": "p003-i18",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0038",
+    "p0003-b0039",
+    "p0003-b0040"
+   ],
+   "where_on_page": "table row 5",
+   "content": "Stratified Cuboidal | Location: Mammary glands, sweat gland and salivary glands | Structure: The upper layer is cuboid and other layers may be cuboidal or other types | Function: Protection of ducts of various glands",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is stratified cuboidal epithelium found?",
+     "answer": "In the mammary, sweat and salivary glands.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why do gland ducts need protection?",
+     "answer": "Ducts carry secretions continuously, and a multilayered lining keeps them strong and sealed.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "exocrine glands and ducts"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "A less common type that suits odd-one-out questions.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p003-i24": {
+   "item_id": "p003-i24",
+   "kind": "table_row",
+   "parent_item_id": "p003-i18",
+   "source": "both",
+   "block_ids": [
+    "p0003-b0041",
+    "p0003-b0042",
+    "p0003-b0043",
+    "p0003-b0044"
+   ],
+   "where_on_page": "table row 6",
+   "content": "Stratified Columnar | Location: Male urethra and lobar ducts of salivary glands | Structure: There is a layer of columnar cells present on squamous, columnar or cuboidal epithelial cells | Function: Protection and secretion",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is stratified columnar epithelium found?",
+     "answer": "In the male urethra and the lobar ducts of salivary glands.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is its structure?",
+     "answer": "A top layer of columnar cells over squamous, columnar or cuboidal cells.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it both protective and secretory?",
+     "answer": "The several layers give protection, and the columnar surface cells can secrete.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "urethra",
+    "salivary glands"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Male urethra is the classic location for this type.",
+   "tests_item_ids": [],
+   "page": 3
+  },
+  "p007-i1": {
+   "item_id": "p007-i1",
+   "kind": "heading",
+   "parent_item_id": "",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "top, below running header",
+   "content": "Three Types of Muscular Tissue",
+   "content_type": "other",
+   "teachable": false,
+   "teacher_understanding": [],
+   "prerequisites": [],
+   "exam_importance": "low",
+   "exam_note": "Heading only.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i2": {
+   "item_id": "p007-i2",
+   "kind": "table",
+   "parent_item_id": "",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "top half, green-bordered table",
+   "content": "Table comparing the three muscular tissues (Skeletal, Cardiac, Visceral/smooth muscle), each with a small cell illustration. The columns are Location, Function, Appearance and Control.",
+   "content_type": "comparison",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does this table compare?",
+     "answer": "It compares skeletal, cardiac and visceral (smooth) muscle on four features: where each is found, what it does, how it looks under a microscope (striations, nuclei) and whether it is under voluntary control.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "Which feature separates skeletal muscle from the other two?",
+     "answer": "Control. Only skeletal muscle is voluntary, while cardiac and smooth muscle are involuntary. Skeletal muscle is also the only multinucleated one; the other two have one central nucleus.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "compare",
+     "question": "What do cardiac and skeletal muscle share, and what do cardiac and smooth muscle share?",
+     "answer": "Cardiac and skeletal muscle are both striated. Cardiac and smooth muscle are both involuntary and have one central nucleus. Cardiac muscle is therefore the bridge: it looks like skeletal muscle but is controlled like smooth muscle.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why do striations appear in some muscles?",
+     "answer": "Striations are alternating light and dark bands. They come from the regular, repeating arrangement of the contractile proteins actin and myosin. Smooth muscle has these proteins but not in a regular banded order, so it looks unstriped.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does it make sense that heart and gut muscles are involuntary?",
+     "answer": "Heartbeat and digestion must continue without conscious thought, even during sleep. They are controlled by the autonomic nervous system and by the muscle's own rhythm rather than by our will.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "what a tissue is",
+    "the cell and its nucleus",
+    "contraction of muscle fibres",
+    "difference between voluntary and involuntary actions"
+   ],
+   "exam_importance": "high",
+   "exam_note": "This is a classic UPSC/PCS comparison. Expect odd-one-out and matching questions on striations, nuclei, control and location (e.g. 'which muscle is striated but involuntary').",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i3": {
+   "item_id": "p007-i3",
+   "kind": "table_row",
+   "parent_item_id": "p007-i2",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "table row 1",
+   "content": "Skeletal | Location: skeleton | Function: movement, heat, posture | Appearance: striated, multi-nucleated (eccentric), fibers parallel | Control: voluntary",
+   "content_type": "comparison",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is skeletal muscle found?",
+     "answer": "It is attached to the skeleton (bones), usually through tendons, so its pull moves the bones at joints.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are its functions?",
+     "answer": "It produces movement, generates body heat and maintains posture.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does skeletal muscle produce heat?",
+     "answer": "Contraction uses ATP, and part of that energy is released as heat. This is why shivering, which is rapid skeletal muscle contraction, warms the body.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is a skeletal fibre multinucleated?",
+     "answer": "Each fibre forms by the fusion of many embryonic cells, so it is long and keeps many nuclei. The book describes these nuclei as eccentric, meaning they lie at the edge of the fibre and not in the centre.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "How does skeletal muscle differ from cardiac and smooth muscle?",
+     "answer": "It is the only one of the three that is voluntary and the only one that is multi-nucleated. Cardiac and smooth muscle both have one central nucleus and are involuntary. It shares striations with cardiac muscle but not with smooth muscle.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "which",
+     "question": "Which type of control does it have?",
+     "answer": "Voluntary control: it contracts when we consciously decide to move, through the somatic nervous system.",
+     "basis": "book"
+    }
+   ],
+   "prerequisites": [
+    "bones and joints",
+    "muscle contraction",
+    "the cell nucleus",
+    "voluntary versus involuntary actions"
+   ],
+   "exam_importance": "high",
+   "exam_note": "The combination 'striated + multinucleate + voluntary' is a frequently tested identification.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i4": {
+   "item_id": "p007-i4",
+   "kind": "table_row",
+   "parent_item_id": "p007-i2",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "table row 2",
+   "content": "Cardiac | Location: heart | Function: pump blood continuously | Appearance: striated, one central nucleus | Control: involuntary",
+   "content_type": "comparison",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is cardiac muscle found?",
+     "answer": "It is found in the heart wall.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does it do?",
+     "answer": "It pumps blood continuously throughout life.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How can it work continuously without tiring?",
+     "answer": "Cardiac cells have many mitochondria and a rich blood supply, which give steady aerobic energy. They are branched and joined by intercalated discs, so they contract together in a rhythm with a brief relaxation between beats.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "compare",
+     "question": "How does cardiac muscle compare with skeletal and smooth muscle?",
+     "answer": "It resembles skeletal muscle in being striated. It resembles smooth muscle in being involuntary and having one central nucleus. It is therefore a mix of both, and it is the 'striated but involuntary' odd one out.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it involuntary?",
+     "answer": "The heartbeat starts in the heart's own pacemaker (the SA node). Autonomic nerves only speed it up or slow it down, so we cannot stop the heart at will.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "structure of the heart",
+    "circulation of blood",
+    "what striations are"
+   ],
+   "exam_importance": "high",
+   "exam_note": "'Striated but involuntary' is a favourite odd-one-out fact.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i5": {
+   "item_id": "p007-i5",
+   "kind": "table_row",
+   "parent_item_id": "p007-i2",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "table row 3",
+   "content": "Visceral (smooth muscle) | Location: G.I. tract, uterus, eye, blood vessels | Function: Peristalsis, blood pressure, pupil size, erects hairs | Appearance: no striations, one central nucleus | Control: involuntary",
+   "content_type": "comparison",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is smooth muscle found?",
+     "answer": "It is found in the walls of internal organs (the viscera, hence the name 'visceral'): the G.I. tract, uterus, eye and blood vessels.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "how",
+     "question": "How does each function link to its location?",
+     "answer": "In the gut it drives peristalsis. In blood vessels it narrows or widens them and so controls blood pressure. In the iris it changes pupil size. The tiny muscles attached to hairs erect the hairs, producing goosebumps.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does peristalsis move food?",
+     "answer": "Rings of smooth muscle contract behind the food and relax ahead of it, creating a wave that pushes the food forward.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "How does smooth muscle differ from skeletal and cardiac muscle?",
+     "answer": "It is the only one of the three with no striations. It differs from skeletal muscle in having one central nucleus and in being involuntary. It shares both of these features with cardiac muscle, but it lacks cardiac muscle's striations.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it also called unstriated or involuntary muscle?",
+     "answer": "It shows no bands, because its contractile proteins are not arranged in a regular repeating pattern. It also works without our will, under autonomic control.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "the digestive tract",
+    "blood vessels and blood pressure",
+    "the iris and pupil of the eye"
+   ],
+   "exam_importance": "high",
+   "exam_note": "The location–function pairings (peristalsis, pupil size, blood pressure, hair erection) are common in matching questions.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i6": {
+   "item_id": "p007-i6",
+   "kind": "diagram",
+   "parent_item_id": "",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "lower-left box",
+   "content": "NCERT Fig. 6.10, a composite of five panels. (a) Types of blood cells: different white blood corpuscles (Neutrophil, Eosinophil, Basophil, Lymphocyte, Monocyte), Platelets and a Red blood corpuscle. (b) Compact bone, with concentric rings around a Haversian canal and canaliculi. (c) Hyaline cartilage, with chondrocytes in hyaline matrix. (d) Areolar tissue, with reticular fibre, fibroblast, macrophage, collagen fibre, mast cell and plasma cell. (e) Adipose tissue, with adipocytes holding fat droplets and nuclei pushed aside.",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does the figure show?",
+     "answer": "It shows five types of connective tissue: blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "compare",
+     "question": "What common plan do all these tissues share?",
+     "answer": "In each, cells are scattered within an intercellular matrix. Blood has a fluid matrix (plasma). Bone has a hard matrix with calcium and phosphorus. Cartilage has a firm, flexible matrix. Areolar tissue has fibres in a jelly-like matrix. Adipose tissue is mostly fat-filled cells.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why are such different tissues grouped as 'connective'?",
+     "answer": "They all arise from embryonic mesoderm, and all connect, support, bind or transport between other tissues. The nature of the matrix decides each tissue's role.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "what a tissue is",
+    "intercellular matrix",
+    "blood components"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Examples of connective tissue and their cell types (osteocyte, chondrocyte, adipocyte) are often asked.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i7": {
+   "item_id": "p007-i7",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (a), top",
+   "content": "Different white blood corpuscles: Neutrophil (polymorphonuclear leucocyte), Eosinophil, Basophil; labels Cytoplasm and Nucleus point to parts of a WBC",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are neutrophils, eosinophils and basophils?",
+     "answer": "They are granular white blood cells (granulocytes) with lobed nuclei. The neutrophil is called polymorphonuclear because its nucleus has many lobes.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does each help the body?",
+     "answer": "Neutrophils engulf bacteria (phagocytosis). Eosinophils fight parasites and are involved in allergy. Basophils release histamine during inflammation.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "blood and its cells",
+    "immunity basics"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "The most abundant WBC (neutrophil) is a common question.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i8": {
+   "item_id": "p007-i8",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (a), middle",
+   "content": "Lymphocyte, Monocyte, Platelets",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are lymphocytes and monocytes?",
+     "answer": "They are agranular WBCs. Lymphocytes (B and T cells) give specific immunity, including antibody production. Monocytes become macrophages that engulf microbes.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "why",
+     "question": "Why are platelets important?",
+     "answer": "Platelets are cell fragments that help blood clot at a wound and stop bleeding.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "blood components"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Platelets and clotting; lymphocytes and antibodies.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i9": {
+   "item_id": "p007-i9",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (b) bottom-left",
+   "content": "Red blood corpuscle, pointing to a round biconcave cell without a nucleus",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does the RBC do?",
+     "answer": "It carries oxygen using haemoglobin.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does a mammalian RBC lack a nucleus?",
+     "answer": "Losing the nucleus leaves more space for haemoglobin, and the biconcave shape increases surface area for gas exchange.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "haemoglobin",
+    "oxygen transport"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "An enucleated RBC is a frequent fact.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i10": {
+   "item_id": "p007-i10",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (b), compact bone",
+   "content": "Haversian canal (contains blood vessels and nerve fibres), pointing to the central canal of the concentric rings of bone",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is the Haversian canal?",
+     "answer": "It is a central channel in compact bone that carries blood vessels and nerve fibres.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does bone need such canals?",
+     "answer": "Bone is hard and living. Its cells need nutrients and oxygen, and the canals bring blood deep into the hard matrix.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "structure of bone",
+    "blood vessels"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "The Haversian system is characteristic of mammalian compact bone.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i11": {
+   "item_id": "p007-i11",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (b), near bone rings",
+   "content": "Canaliculus (contains slender process of bone cell or osteocyte)",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is a canaliculus?",
+     "answer": "It is a tiny channel in bone that holds the thin extensions of osteocytes (bone cells).",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How do canaliculi keep bone cells alive?",
+     "answer": "They connect the osteocytes to one another and to the Haversian canal, so nutrients and wastes can pass through the hard matrix.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "osteocyte",
+    "Haversian canal"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Remember: osteocyte = bone cell.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i12": {
+   "item_id": "p007-i12",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (c), hyaline cartilage",
+   "content": "Chondrocyte and Hyaline matrix, pointing to cartilage cells and the clear surrounding matrix",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is hyaline cartilage made of?",
+     "answer": "It consists of chondrocytes (cartilage cells) in a clear, firm matrix of proteins and sugars.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is it found?",
+     "answer": "It is found at the ends of bones in joints, in the nose, the ear (as cartilage), the trachea and the larynx.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is cartilage used there instead of bone?",
+     "answer": "Its matrix is firm yet flexible, so it smooths joint surfaces and gives shape that can bend.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "connective tissue matrix"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Chondrocyte = cartilage cell.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i13": {
+   "item_id": "p007-i13",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (d), areolar tissue",
+   "content": "Reticular fibre, Fibroblast, Macrophage, Collagen fibre, Mast cell, Plasma cell",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What cells and fibres make up areolar tissue?",
+     "answer": "Fibroblasts produce the fibres (collagen and reticular). Macrophages engulf microbes. Mast cells release histamine. Plasma cells make antibodies.",
+     "basis": "outside"
+    },
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is areolar tissue found?",
+     "answer": "It lies between skin and muscles, around blood vessels and nerves, and in bone marrow. It fills spaces inside organs.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does it contain immune cells?",
+     "answer": "It lies just under the skin and around organs, where microbes may enter, so it also helps repair tissues and defend the body.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "fibres of connective tissue",
+    "immune cells"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Areolar tissue is the 'packing' tissue between skin and muscle.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i14": {
+   "item_id": "p007-i14",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10 panel (e), adipose tissue",
+   "content": "Fat droplet, Nucleus, Adipocyte, pointing to large fat-filled cells with the nucleus pushed to one side",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is adipose tissue?",
+     "answer": "It is connective tissue made of adipocytes, which are cells filled with fat droplets.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does it matter to the body?",
+     "answer": "It stores energy as fat and acts as a thermal insulator, for example under the skin. It also cushions organs.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "fats as energy store"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Adipose tissue gives insulation, for example blubber in whales.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i15": {
+   "item_id": "p007-i15",
+   "kind": "caption",
+   "parent_item_id": "p007-i6",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "Fig 6.10, bottom caption",
+   "content": "Fig. 6.10: Types of connective tissues: (a) types of blood cells, (b) compact bone, (c) hyaline cartilage, (d) areolar tissue, (e) adipose tissue",
+   "content_type": "classification",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "which",
+     "question": "Which connective tissues does the caption list?",
+     "answer": "Blood, compact bone, hyaline cartilage, areolar tissue and adipose tissue.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "difference",
+     "question": "How do they differ in matrix?",
+     "answer": "The matrix is fluid in blood, hard in bone, firm and flexible in cartilage, loose and fibrous in areolar tissue, and mostly fat-filled cells in adipose tissue.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is blood a connective tissue though it is fluid?",
+     "answer": "It has cells in an intercellular matrix (plasma), and it connects body parts by transporting gases, nutrients and hormones.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "connective tissue definition"
+   ],
+   "exam_importance": "high",
+   "exam_note": "'Blood is a connective tissue' is an exam staple.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i16": {
+   "item_id": "p007-i16",
+   "kind": "diagram",
+   "parent_item_id": "",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "lower-right box",
+   "content": "Title: 'How do neurons transmit impulses (send message to other cells)?' Two orange neurons are shown. At the lower left, the axon of a previous neuron meets the first neuron's dendrites at a synapse (circled). The first neuron's cell body and nucleus give rise to a long axon. A blue arrow labelled 'electrical signal' runs along the axon towards its branched axon tips. The tips form a synapse (circled) with the dendrites of the next neuron, whose cell body and nucleus are labelled. The sequence is dendrites → cell body → axon → axon tips → synapse → next neuron's dendrites.",
+   "content_type": "process",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What does the diagram show?",
+     "answer": "It shows the path of a nerve impulse through one neuron and across a synapse to the next neuron.",
+     "basis": "book"
+    },
+    {
+     "depth": 1,
+     "ask": "how",
+     "question": "How does the impulse travel?",
+     "answer": "Dendrites receive a signal and pass it to the cell body. From there it travels along the axon as an electrical signal to the axon tips. At the synapse it is passed to the dendrites of the next neuron.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does the signal cross the synapse?",
+     "answer": "A synapse is a tiny gap. The electrical signal reaching the axon tips causes release of chemicals (neurotransmitters), which cross the gap and start a new electrical signal in the next neuron.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does the impulse move in one direction only?",
+     "answer": "Neurotransmitters are released only from axon tips and received only by the next neuron's dendrites, so the message flows one way.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "structure of a neuron",
+    "what a nerve impulse is",
+    "nervous tissue"
+   ],
+   "exam_importance": "high",
+   "exam_note": "The direction of impulse flow and the parts of a neuron (dendrite, axon, synapse) are frequently asked.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i17": {
+   "item_id": "p007-i17",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, upper left",
+   "content": "axon of previous neuron, pointing to the incoming fibre at the left that ends at the first synapse",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is the 'axon of previous neuron'?",
+     "answer": "It is the axon of the neuron that sends the message into the first neuron shown.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it shown?",
+     "answer": "It shows that neurons form chains, with one neuron's output becoming the next neuron's input.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "axon"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Shows that neurons connect in chains.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i18": {
+   "item_id": "p007-i18",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, circled at lower left and upper middle",
+   "content": "synapse, pointing to the circled junctions between the axon ends and the dendrites of the next neuron",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is a synapse?",
+     "answer": "It is the junction between the axon tip of one neuron and the dendrite of the next neuron.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How is a message passed there?",
+     "answer": "It is passed chemically, through neurotransmitters released into the gap.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "neuron parts"
+   ],
+   "exam_importance": "high",
+   "exam_note": "The definition of a synapse is commonly asked.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i19": {
+   "item_id": "p007-i19",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, both neurons' centres",
+   "content": "neuron cell body, pointing to the central star-shaped part of each neuron",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is the cell body?",
+     "answer": "It is the main part of the neuron (cyton). It contains the nucleus and cytoplasm.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why is it essential?",
+     "answer": "It keeps the neuron alive by making proteins, and it combines the incoming signals before passing them to the axon.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "cell structure"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Part of a neuron.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i20": {
+   "item_id": "p007-i20",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, inside each cell body",
+   "content": "nucleus, pointing to the dark dot in each neuron cell body",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "where",
+     "question": "Where is the neuron's nucleus?",
+     "answer": "It is in the cell body.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why does this matter?",
+     "answer": "The nucleus controls the cell. Mature neurons generally do not divide, so damage is hard to repair.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "nucleus"
+   ],
+   "exam_importance": "low",
+   "exam_note": "The nucleus lies in the cyton.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i21": {
+   "item_id": "p007-i21",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, bottom of first neuron",
+   "content": "dendrites, pointing to the short branched projections around the first neuron's cell body",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are dendrites?",
+     "answer": "They are short, branched extensions of the cell body that receive signals.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why are they highly branched?",
+     "answer": "Branching gives more surface area to receive signals from many neurons.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "neuron structure"
+   ],
+   "exam_importance": "high",
+   "exam_note": "Dendrites receive; the axon carries the signal away.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i22": {
+   "item_id": "p007-i22",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, middle",
+   "content": "axon, pointing to the long single fibre from the first neuron's cell body towards the next neuron",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is the axon?",
+     "answer": "It is a long single fibre that carries the impulse away from the cell body.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How can the signal travel fast along it?",
+     "answer": "Many axons are wrapped in a myelin sheath, which speeds up conduction of the impulse.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "neuron structure"
+   ],
+   "exam_importance": "high",
+   "exam_note": "The axon is the longest part of a neuron.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i23": {
+   "item_id": "p007-i23",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, blue arrow along the axon",
+   "content": "electrical signal, a blue arrow running along the axon from the cell body towards the axon tips",
+   "content_type": "process",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What is the electrical signal?",
+     "answer": "It is the nerve impulse moving along the axon.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How is it generated?",
+     "answer": "Ions such as sodium and potassium move across the neuron membrane, and this creates a travelling change in voltage.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "nerve impulse"
+   ],
+   "exam_importance": "medium",
+   "exam_note": "Impulses are electrical along the axon and chemical at the synapse.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i24": {
+   "item_id": "p007-i24",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, right side",
+   "content": "axon tips, pointing to the branched endings of the axon near the next neuron",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What are axon tips?",
+     "answer": "They are the terminal branches of the axon that form synapses.",
+     "basis": "outside"
+    },
+    {
+     "depth": 2,
+     "ask": "why",
+     "question": "Why are they important?",
+     "answer": "They release neurotransmitters to pass the message on to the next neuron.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "axon"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Also called axon terminals.",
+   "tests_item_ids": [],
+   "page": 7
+  },
+  "p007-i25": {
+   "item_id": "p007-i25",
+   "kind": "diagram_label",
+   "parent_item_id": "p007-i16",
+   "source": "image",
+   "block_ids": [],
+   "where_on_page": "neuron diagram, far right",
+   "content": "dendrites of next neuron, pointing to the branches of the second neuron that receive the signal",
+   "content_type": "structure",
+   "teachable": true,
+   "teacher_understanding": [
+    {
+     "depth": 1,
+     "ask": "what",
+     "question": "What do the dendrites of the next neuron do?",
+     "answer": "They receive the message across the synapse.",
+     "basis": "book"
+    },
+    {
+     "depth": 2,
+     "ask": "how",
+     "question": "How does this continue the message?",
+     "answer": "They start a new impulse in the second neuron, which then repeats the same path.",
+     "basis": "outside"
+    }
+   ],
+   "prerequisites": [
+    "synapse"
+   ],
+   "exam_importance": "low",
+   "exam_note": "Completes the impulse path.",
+   "tests_item_ids": [],
+   "page": 7
+  }
+ },
+ "map": {},
+ "map_status": "failed",
+ "map_record": "connect--chapter.json",
+ "cost_usd": 0.8437,
+ "quality": {
+  "pages": 2,
+  "pages_passed": 0,
+  "map_passed": false,
+  "items": 49,
+  "teachable_items": 47,
+  "items_from_image": 49,
+  "teacher_questions": 126,
+  "deeper_questions": 52,
+  "outside_answers": 78,
+  "cost_usd": 0.8437,
+  "cost_usd_per_page": 0.42185
+ }
+}
