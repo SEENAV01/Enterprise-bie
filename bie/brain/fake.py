@@ -51,6 +51,34 @@ def connect_answer(user_text: str):
             "teaching_order": [c["concept_id"] for c in concepts], "exam_focus": []}
 
 
+def _payload(user_text: str):
+    start = user_text.index("{")
+    value, _ = json.JSONDecoder().raw_decode(user_text[start:])
+    return value
+
+
+def plan_answer(user_text: str):
+    data = _payload(user_text)
+    names = [p["name"] for p in data.get("prerequisites_to_teach", [])]
+    videos = [{"video_id": f"v{n}", "title": f"वीडियो {n}: {c['name']}", "goal": "Offline goal.", "concept_ids": [c["concept_id"]],
+               "prerequisites_taught": names if n == 1 else [], "opening_hook": "Offline hook.", "story_or_analogy": "",
+               "estimated_minutes": 5, "why_this_unit": "Offline."} for n, c in enumerate(data.get("concepts", []), 1)]
+    return {"notes": NOTES, "videos": videos, "chapter_flow": "Offline flow."}
+
+
+def script_answer(user_text: str):
+    data = _payload(user_text)
+    beats = [{"beat_id": "b0", "purpose": "hook", "say": "ज़रा सोचिए, ये offline hook है।", "covers_item_ids": [], "answers": [],
+              "on_screen": "Offline.", "basis": "book"}]
+    for n, item in enumerate(data.get("items", []), 1):
+        beats.append({"beat_id": f"b{n}", "purpose": "explain", "say": "ये offline explanation है: " + item["content"][:60],
+                      "covers_item_ids": [item["item_id"]], "answers": [q["id"] for q in item["teacher_questions"]],
+                      "on_screen": "Offline.", "basis": "book"})
+    beats.append({"beat_id": "b-end", "purpose": "recap", "say": "तो आज हमने offline recap किया।", "covers_item_ids": [],
+                  "answers": [], "on_screen": "Offline.", "basis": "book"})
+    return {"notes": NOTES, "title": data["video"]["title"], "beats": beats}
+
+
 def review_answer(schema):
     value = {"notes": NOTES, "verdict": "pass", "checklist": []}
     for key in schema.get("properties", {}):
@@ -83,6 +111,10 @@ class BrainFakeClient:
             value = page_answer(user)
         elif "concepts" in props:
             value = connect_answer(user)
+        elif "videos" in props:
+            value = plan_answer(user)
+        elif "beats" in props:
+            value = script_answer(user)
         else:
             raise ValueError("BrainFakeClient does not know this schema")
         self.calls.append({"model": model, "kind": next(iter(props), "")})

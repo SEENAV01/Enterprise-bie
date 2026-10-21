@@ -1,4 +1,8 @@
-"""Run a BIE brain section on a real chapter (Task 039: Section 1, understanding the book).
+"""Run BIE brain sections on a real chapter.
+
+  --section understand   Section 1: the chapter PDF → chapter_map.json, MAP.md
+  --section lesson       Section 2: a chapter map (--chapter-map, path or https URL) → lesson_plan.json, SCRIPT.md
+  --section chain        Section 1 then Section 2 in one run
 
   python tools/run_brain.py --section understand --source <pdf path or https URL> --out <dir> \
       --title "10. Tissues and Its Types" --subject "Science and Technology" --learners "UPSC / State PCS aspirants" \
@@ -24,12 +28,22 @@ sys.path.insert(0, str(ROOT / "tools"))
 from bie.brain import rulebook as rulebook_module  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
+from bie.brain.lesson import run_lesson  # noqa: E402
 from bie.brain.understanding import Course, run_chapter  # noqa: E402
 from bie.model_gateway.live.config import ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes  # noqa: E402
 from bie.model_gateway.live.errors import redact  # noqa: E402
 from bie.model_gateway.live.gateway import LiveGateway  # noqa: E402
 from bie.model_gateway.live.ledger import UsageLedger  # noqa: E402
 from run_blind_test import apply_overrides, notice, read_source  # noqa: E402
+
+
+def read_text(source: str) -> str:
+    if source.startswith("https://"):
+        import urllib.request
+        with urllib.request.urlopen(urllib.request.Request(source, headers={"user-agent": "bie-brain/1"}), timeout=120) as response:
+            return response.read(50 * 1024 * 1024).decode("utf-8")
+    path = (ROOT / source).resolve() if not Path(source).is_absolute() else Path(source)
+    return path.read_text(encoding="utf-8")
 
 
 def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens):
@@ -45,8 +59,9 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--section", choices=("understand",), default="understand")
-    parser.add_argument("--source", required=True)
+    parser.add_argument("--section", choices=("understand", "lesson", "chain"), default="understand")
+    parser.add_argument("--source", help="chapter PDF (understand, chain)")
+    parser.add_argument("--chapter-map", help="chapter_map.json from an earlier run (lesson)")
     parser.add_argument("--pages")
     parser.add_argument("--out", required=True)
     parser.add_argument("--title", default="")
@@ -79,7 +94,6 @@ def main(argv=None):
     ledger = UsageLedger(out / "LEDGER.jsonl")
     summary = {"section": args.section, "fake": args.fake, "maker": args.maker, "reviewer": args.reviewer}
     try:
-        data = read_source(args.source)
         gateway = build_gateway(args.maker, args.reviewer, fake=args.fake, ledger=ledger,
                                 max_output_tokens=args.max_output_tokens)
         summary["models"] = {route: gateway.model_of(route) for route in gateway.routes}
@@ -88,10 +102,23 @@ def main(argv=None):
                                records_dir=out / "records")
         course = Course(title=args.title or "Chapter", subject=args.subject or "as in the chapter",
                         learners=args.learners or "learners of this book", exam=args.exam or "their exam", language=args.language)
-        chapter = run_chapter(data, course, runner, out, pages=args.pages, workers=args.workers, max_rounds=args.max_rounds)
-        summary.update(status="ok", rulebook=book.version, quality=chapter["quality"],
-                       pages=[{k: p[k] for k in ("page", "status", "rounds", "cost_usd")} for p in chapter["pages"]],
-                       map_status=chapter["map_status"])
+        summary.update(status="ok", rulebook=book.version)
+        if args.section in ("understand", "chain"):
+            if not args.source:
+                raise SystemExit("SOURCE_REQUIRED")
+            chapter = run_chapter(read_source(args.source), course, runner, out, pages=args.pages, workers=args.workers,
+                                  max_rounds=args.max_rounds)
+            summary.update(quality=chapter["quality"], map_status=chapter["map_status"],
+                           pages=[{k: p[k] for k in ("page", "status", "rounds", "cost_usd")} for p in chapter["pages"]])
+        else:
+            if not args.chapter_map:
+                raise SystemExit("CHAPTER_MAP_REQUIRED")
+            chapter = json.loads(read_text(args.chapter_map))
+            course = Course(**chapter["course"]) if not args.course else course
+        if args.section in ("lesson", "chain"):
+            lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
+            summary.update(lesson_quality=lesson["quality"],
+                           videos=[{k: v[k] for k in ("video_id", "status", "rounds", "cost_usd")} for v in lesson["videos"]])
     except SystemExit:
         raise
     except Exception as exc:  # report every failure without leaking a key
@@ -101,7 +128,8 @@ def main(argv=None):
     text = json.dumps(summary, indent=2, sort_keys=True, ensure_ascii=False)
     (out / "SUMMARY.json").write_text(text + "\n", encoding="utf-8")
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
-                                                         ("status", "quality", "map_status", "ledger_cost_usd", "error")},
+                                                         ("status", "quality", "map_status", "lesson_quality", "ledger_cost_usd",
+                                                          "error")},
                                                         ensure_ascii=False), secrets),
            "notice" if summary["status"] == "ok" else "error")
     return 0 if summary["status"] == "ok" else 1

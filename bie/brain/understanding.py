@@ -17,6 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
+from .common import S, arr, checklist_text, fmt, obj, review_problems
 from .runner import NOTES_SCHEMA, SectionRunner, Step
 
 SECTION = "understand"
@@ -43,15 +44,7 @@ class Course:
     language: str
 
 
-def _obj(properties: dict, **extra):
-    return {"type": "object", "additionalProperties": False, "required": list(properties), "properties": properties, **extra}
-
-
-def _arr(items):
-    return {"type": "array", "items": items}
-
-
-S = {"type": "string"}
+_obj, _arr, S = obj, arr, S
 QA_SCHEMA = _obj({
     "depth": {"type": "integer", "description": "1 for a first question; 2, 3 ... for a deeper why/how on an earlier answer"},
     "ask": {"type": "string", "enum": ASKS},
@@ -213,15 +206,6 @@ def _context_lines(page, *, head: bool, count: int = 8):
     return "\n".join(b.text for b in blocks)
 
 
-def _fmt(template, course, **extra):
-    return template.format(title=course.title, subject=course.subject, learners=course.learners, exam=course.exam,
-                           language=course.language, **extra)
-
-
-def _checklist_text(rulebook, section):
-    return "\n".join(f"[{rule_id}] {question}" for rule_id, question in rulebook.checklist(section))
-
-
 # ---------------------------------------------------------------- code checks
 
 def check_page(value: dict, page) -> list:
@@ -340,21 +324,10 @@ def check_connect(value: dict, items: dict) -> list:
     return problems
 
 
-def review_problems(review: dict) -> list:
-    problems = [f"missing: {m['what']} ({m['where_on_page']})" for m in review.get("missing") or []]
-    problems += [f"wrong in {w['item_id']}: {w['problem']} -> fix: {w['fix']}" for w in review.get("wrong") or []]
-    problems += [f"shallow {s['item_id']}: {s['what_is_missing']}" for s in review.get("shallow") or []]
-    problems += [f"{p['where']}: {p['problem']} -> fix: {p['fix']}" for p in review.get("problems") or []]
-    problems += [f"rule {c['rule_id']} not met: {c['note']}" for c in review.get("checklist") or [] if not c.get("met")]
-    if review.get("verdict") != "pass" and not problems:
-        problems.append("the reviewer did not pass this work but gave no detail; read the page again completely")
-    return problems
-
-
 # ---------------------------------------------------------------- steps
 
 def page_step(course: Course, page, *, page_count: int, previous=None, following=None, rulebook, max_rounds=3) -> Step:
-    system = _fmt(PAGE_ROLE, course, rules=rulebook.instructions(SECTION))
+    system = fmt(PAGE_ROLE, course, rules=rulebook.instructions(SECTION))
     intro = (f"Chapter: {course.title}. Page {page.number} of {page_count}.\n\n"
              f"Last lines of the previous page (context only):\n{_context_lines(previous, head=False)}\n\n"
              f"First lines of the next page (context only):\n{_context_lines(following, head=True)}\n\n"
@@ -363,8 +336,8 @@ def page_step(course: Course, page, *, page_count: int, previous=None, following
     if page.image_part():
         user += [{"type": "text", "text": "The page image:"}, page.image_part()]
     user.append({"type": "text", "text": "Read this page with both eyes and reply with the page understanding JSON."})
-    review_system = _fmt(PAGE_REVIEW_ROLE, course, review_rules=rulebook.reviewer_instructions(),
-                         checklist=_checklist_text(rulebook, SECTION))
+    review_system = fmt(PAGE_REVIEW_ROLE, course, review_rules=rulebook.reviewer_instructions(),
+                         checklist=checklist_text(rulebook, SECTION))
 
     def review_user(value):
         shown = {k: value[k] for k in ("page_summary", "items", "boilerplate_block_ids", "text_image_disagreements")}
@@ -391,11 +364,11 @@ def _compact_items(items: dict):
 
 
 def connect_step(course: Course, items: dict, *, rulebook, max_rounds=3) -> Step:
-    system = _fmt(CONNECT_ROLE, course, rules=rulebook.instructions(CONNECT))
+    system = fmt(CONNECT_ROLE, course, rules=rulebook.instructions(CONNECT))
     listing = json.dumps(_compact_items(items), ensure_ascii=False)
     user = f"Chapter: {course.title}.\nItems of the chapter (JSON list):\n{listing}\n\nReply with the chapter map JSON."
-    review_system = _fmt(CONNECT_REVIEW_ROLE, course, review_rules=rulebook.reviewer_instructions(),
-                         checklist=_checklist_text(rulebook, CONNECT))
+    review_system = fmt(CONNECT_REVIEW_ROLE, course, review_rules=rulebook.reviewer_instructions(),
+                         checklist=checklist_text(rulebook, CONNECT))
 
     def review_user(value):
         shown = {k: v for k, v in value.items() if k != "notes"}

@@ -357,3 +357,58 @@ class Chapter(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Lesson(unittest.TestCase):
+    chapter = {
+        "course": {"title": "T", "subject": "Biology", "learners": "UPSC", "exam": "UPSC", "language": "Hinglish"},
+        "items": {"p001-i1": item("p001-i1", page=1), "p001-i2": item("p001-i2", page=1, teachable=False, teacher_understanding=[])},
+        "map": {"concepts": [{"concept_id": "c1", "name": "Tissue", "item_ids": ["p001-i1", "p001-i2"], "content_type": "fact",
+                              "core_explanation": "x"}],
+                "prerequisites_to_teach": [{"name": "Cell", "why_needed": "x", "needed_for": ["c1"], "basis": "outside"}],
+                "teaching_order": ["c1"], "relations": [], "exam_focus": []},
+    }
+    video = {"video_id": "v1", "title": "Tissue", "goal": "", "concept_ids": ["c1"], "prerequisites_taught": ["Cell"],
+             "opening_hook": "", "story_or_analogy": "", "estimated_minutes": 5, "why_this_unit": ""}
+
+    def beat(self, bid, say="ये tissue है।", covers=(), answers=()):
+        return {"beat_id": bid, "purpose": "explain", "say": say, "covers_item_ids": list(covers), "answers": list(answers),
+                "on_screen": "", "basis": "book"}
+
+    def test_plan_checks(self):
+        from bie.brain.lesson import check_plan
+        self.assertEqual(check_plan({"videos": [self.video]}, self.chapter), [])
+        problems = check_plan({"videos": [dict(self.video, concept_ids=["c9"], prerequisites_taught=[], estimated_minutes=0)]},
+                              self.chapter)
+        for fragment in ("unknown concept 'c9'", "concept c1 (Tissue) is in no video", "prerequisite 'cell' is taught in no video",
+                         "estimated_minutes must be at least 1"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_script_checks(self):
+        from bie.brain.lesson import check_script, question_ids
+        self.assertEqual(question_ids(self.chapter["items"]["p001-i1"]), ["p001-i1#q1", "p001-i1#q2"])
+        good = {"beats": [self.beat("b1"), self.beat("b2", covers=["p001-i1"], answers=["p001-i1#q1", "p001-i1#q2"]),
+                          self.beat("b3")]}
+        self.assertEqual(check_script(good, self.chapter, self.video, "Hinglish"), [])
+        bad = {"beats": [self.beat("b1", say="This is English only.", covers=["p009-i1"], answers=["p001-i1#q1"]),
+                         self.beat("b1", say="Still English.")]}
+        problems = check_script(bad, self.chapter, self.video, "Hinglish")
+        for fragment in ("beat_id 'b1' is used more than once", "'p009-i1' is not an item of this video",
+                         "1 items are covered by no beat", "1 teacher questions are answered by no beat", "Devanagari",
+                         "more than a couple of beats"):
+            self.assertTrue(any(fragment in p for p in problems), fragment)
+
+    def test_offline_chain_from_pdf_to_scripts(self):
+        from structural_pdf_fixtures import positioned_text_pdf
+        from bie.brain.lesson import run_lesson
+        pdf = positioned_text_pdf([[(72, 720, "Tissue is a group of similar cells."), (72, 700, "Muscles help in movement.")]])
+        book = rulebook.load()
+        with tempfile.TemporaryDirectory() as folder:
+            runner = SectionRunner(gateway(), maker="anthropic", reviewer="openai", rulebook=book, records_dir=Path(folder, "records"))
+            chapter = run_chapter(pdf, COURSE, runner, folder, workers=1)
+            lesson = run_lesson(chapter, COURSE, runner, folder, workers=1)
+            self.assertTrue(lesson["quality"]["plan_passed"])
+            self.assertEqual(lesson["quality"]["videos_passed"], lesson["quality"]["videos"])
+            self.assertTrue(Path(folder, "SCRIPT.md").exists())
+            self.assertTrue(Path(folder, "records", "lesson--plan.json").exists())
+            self.assertTrue(Path(folder, "records", "lesson--script-v1.json").exists())

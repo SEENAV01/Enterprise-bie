@@ -1,6 +1,6 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.2",
+  "version": "2026-10-21.3",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
   "rules": [
@@ -136,6 +136,27 @@
       "status": "locked",
       "rule": "Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.",
       "check": "Does the script flow like a real teacher and answer every chapter-map question?"
+    },
+    {
+      "id": "S2-03",
+      "sections": ["lesson"],
+      "status": "locked",
+      "rule": "Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.",
+      "check": "Is every prerequisite actually taught with an explanation and example before it is used?"
+    },
+    {
+      "id": "S2-04",
+      "sections": ["lesson"],
+      "status": "locked",
+      "rule": "Spoken Hinglish the way Navin teaches (he approved this style on 21 October 2026): Hindi sentence flow written in Devanagari, English technical terms in Latin script exactly as the book spells them, numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.",
+      "check": "Does the script sound like Navin's spoken Hinglish (Devanagari Hindi, English terms in Latin script, short spoken sentences)?"
+    },
+    {
+      "id": "S2-05",
+      "sections": ["lesson"],
+      "status": "locked",
+      "rule": "Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.",
+      "check": "Are the beats' coverage claims true (the beat really explains the item and answers the question)?"
     },
     {
       "id": "S3-01",

@@ -20,9 +20,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test, brain-understand = Task 039 Section 1 on a chapter'
+        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test; brain-understand = Section 1, brain-lesson = Section 2 from a chapter map (source = its URL), brain-chain = Sections 1 and 2'
         type: choice
-        options: [probe, smoke, blind-test, brain-understand]
+        options: [probe, smoke, blind-test, brain-understand, brain-lesson, brain-chain]
         default: probe
       source:
         description: 'blind-test: chapter PDF as an https URL or a repository path'
@@ -170,10 +170,12 @@ jobs:
           AICREDITS_GEMINI_API_KEY: ${{ secrets.AICREDITS_GEMINI_API_KEY }}
         run: |
           set -euo pipefail
-          if [ "$MODE" = "brain-understand" ]; then
+          if [[ "$MODE" == brain-* ]]; then
+            section="${MODE#brain-}"
             maker="${PROVIDERS%%,*}"; reviewer="${PROVIDERS#*,}"; reviewer="${reviewer%%,*}"
-            args=(--section understand --source "$SOURCE" --maker "$maker" --reviewer "$reviewer" --models "$MODELS" --routes "$ROUTES"
-                  --course "$SUBJECT" --out "$RUNNER_TEMP/live")
+            args=(--section "$section" --maker "$maker" --reviewer "$reviewer" --models "$MODELS" --routes "$ROUTES"
+                  --course "$SUBJECT" --workers 8 --out "$RUNNER_TEMP/live")
+            if [ "$section" = "lesson" ]; then args+=(--chapter-map "$SOURCE"); else args+=(--source "$SOURCE"); fi
             if [ -n "$PAGES" ]; then args+=(--pages "$PAGES"); fi
             if [ -n "$LANGUAGE" ]; then args+=(--language "$LANGUAGE"); fi
             python -B tools/run_brain.py "${args[@]}"
