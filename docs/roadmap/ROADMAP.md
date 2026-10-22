@@ -67,24 +67,83 @@ for every beat.
 licences, a fast online asset fetch, AI images only for gaps; blocks written by AI, compiled to Remotion code,
 locked after review.
 
-**043 · Voice** — tested voice options including a cloned voice (Navin chooses by ear); word timings drive the
-animation; resolve the open AUDIO reconciliation.
+Tasks 039–042 were built together and merged in PR #41 (22 October 2026). The old entries 043 Voice,
+044 Render, 045 Game, 046 Notes and 047 Review are superseded by the plan agreed on 22 October below: Voice is
+now 047, Render 048, Game 049, Notes 050, Review 051–052.
 
-**044 · Render and interactive player** — VIDEO_CODE → compile → render in the cloud → frame checks by a
-reviewer AI; the same code as an interactive player with questions and tap-to-explore.
+### Agreed on 22 October 2026: BIE is the system between Navin and AI (binding)
 
-**045 · Chapter game** — game designer AI on the Section 15 engine; missions from content types; item →
-mission coverage; bot playtest on a phone screen.
+BIE must (1) understand the whole book as a chapter map; (2) tell the AI exactly what to make, through compact
+task cards and fixed output formats (`docs/roadmap/TASK_CARD.md`); (3) check every AI output with code and a
+second AI; (4) build video, game and notes with its own engines, the AI only filling data; (5) record and lock
+whatever passes, so it gets more exact with every book. It is not a prompt wrapper. Lesson content is made only
+by BIE, never by hand.
 
-**046 · Notes** — Navin's summariser design: question-based infographic slides with three depths, source
-links, "book says" and "new now", and a PDF; built as an engine the summariser app can reuse.
+**The tarazu (five points).** Every section must meet: 1 understanding, 2 teaching and video, 3 game, 4 notes,
+5 review and lock. The audit of every old section and brain module, with its gap, decision (use, extend, or
+replace and retire) and fixing task, is `docs/roadmap/TARAZU.md`.
 
-**047 · Review page, rulebook and test set** — Navin's review page (watch, play, read, pass or fail with his
-words); fail comments become rules he approves; passes lock examples and process records; the test set reruns
-on every change of code, rule or model.
+**Order.**
+1. Make every section meet the five points, merging the brain code into the old BIE code: one BIE, no parallel
+   systems. For each old engine: use it, extend it, or replace it and retire the old one explicitly.
+2. Connect ChatGPT Pro early (Codex, on a private machine).
+3. After each section: run it on the tissue chapter plus 4–5 chapters from other subjects; Navin judges.
+4. Wire everything into a one-button software.
+5. Only then: decide the heavy or light method, optimise cost, and later train BIE's own model.
+
+**Cost.** Target ₹50–300 per book. Optimisation comes later, but the cost guard is in place from Task 043:
+estimate before a run, preflight, hard cap (`max_inr`, default 300), rupees per section and per page after.
+
+**Keys.** Never use the Anthropic key. The GPT API key is off. Only the Gemini key (AICredits) until ChatGPT
+Pro is connected. Nothing runs on Navin's laptop; heavy work runs in GitHub Actions.
+
+**043 · Cost guard, tarazu audit, content-type map, task-card design** (this plan)
+- Cost guard ("pahra"): preflight call per route; estimate "Andaaza ₹X, seema ₹Y"; hard cap; rupees per
+  section and per page in SUMMARY.json; a slot for the real dashboard bill (`docs/roadmap/COST_LOG.md`).
+- `docs/roadmap/TARAZU.md`; `bie/brain/rulebook/content_types.json`; `docs/roadmap/TASK_CARD.md` with its
+  JSON schema.
+- Research: batch mode and prompt caching on AICredits and Gemini; the Gemini models on the key; a maker and a
+  different checker model (same company, temporary, marked in records).
+
+**044 · ChatGPT Pro engine** — Codex as a maker route on a private machine. First check whether Navin's
+JioPC (an Ubuntu cloud PC that shuts down 15 minutes after disconnect) can host it; otherwise a small cloud VM,
+with its monthly cost shown to Navin before anything is bought. The Gemini API stays as the checker. Done when a
+brain section runs with Codex as maker and Gemini as checker, under the cost guard, recorded like any route.
+
+**045 · Understanding and script on the tarazu** — a compact chapter map shared by all sections; content-type
+detection in code (`content_types.json`) compared with the AI's type; task cards for Sections 1 and 2; merge
+with the old KI, PR, RE and PED engines as code checks (TARAZU rows). Run: tissue + 4–5 chapters of other
+subjects; Navin judges.
+
+**046 · Director, asset finder v2 and silent video** — the director's scene plan drives the asset finder:
+the library first, then Wikimedia Commons and Openverse; SVG preferred; part locations read from SVG text;
+choice by a vision AI; an AI-drawn SVG as the last fallback; adapt the asset to the scene; add it to the
+library with licence and credit. One scene format decision (Scene IR vs VideoSpec, Navin's video path).
+Output: silent videos. Run on the chapters; Navin judges.
+
+**047 · Voice** — extend Section 14: tested natural voices including a cloned voice (Navin chooses by ear);
+word timestamps drive the animation; close the AUDIO reconciliation.
+
+**048 · Render and interactive player** — real Remotion render through the COMP compiler in the cloud, frame
+checks (Section 16 video QA and a reviewer AI); the same code as an interactive player (pause questions,
+tap-to-explore).
+
+**049 · Game** — the Section 15 decision (one engine), the builder, the bot playtest on a phone screen, and the
+book world that joins chapter games as levels.
+
+**050 · Notes** — the full summariser design: question-based slides in three depths, "kitaab mein nahi bataya
+gaya", source pages, "book says" separate from "latest update" (link and date checked), code-drawn
+infographics, slides and PDF; an engine the summariser app can reuse.
+
+**051 · One-button software and review page** — extend the Section 18 operator app: upload a book, run every
+section under the cost guard, then watch, play, read and give a verdict in Navin's words; fail comments become
+rules Navin approves; passes lock examples with their process records.
+
+**052 · Real test** — the tissue chapter plus one chapter per content type, end to end; Navin decides the heavy
+or light method; then cost optimisation (batch, caching, locked blocks) and, later, BIE's own model.
 
 **Gate 1:** one BIE run turns the tissue chapter into video, game and notes; Navin judges the whole package;
-the real cost per page is read from the ledger.
+the real cost per page is read from the ledger and compared with the dashboard bill.
 
 ## Phase 2 · Every kind of subject
 

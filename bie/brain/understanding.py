@@ -496,6 +496,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
         "rulebook_version": runner.rulebook.version,
         "maker_route": runner.maker,
         "reviewer_route": runner.reviewer,
+        "reviewer_independence": runner.independence,
         "pages": [{
             "page": number,
             "status": result.status,
@@ -546,7 +547,9 @@ def render_markdown(chapter: dict) -> str:
     course = chapter["course"]
     lines = [f"# Chapter map · {course['title']}", "",
              f"{course['subject']} · {course['learners']} · {course['exam']} · learner language {course['language']}", "",
-             f"Maker `{chapter['maker_route']}`, reviewer `{chapter['reviewer_route']}`, rulebook `{chapter['rulebook_version']}`.", "",
+             f"Maker `{chapter['maker_route']}`, reviewer `{chapter['reviewer_route']}`"
+             + (" (same company, another model: temporary)" if chapter.get("reviewer_independence") == "same_company_temporary" else "")
+             + f", rulebook `{chapter['rulebook_version']}`.", "",
              f"- Pages passed: {q['pages_passed']} of {q['pages']}; chapter map: {chapter['map_status']}",
              f"- Items: {q['items']} ({q['teachable_items']} teachable, {q['items_from_image']} read from the image)",
              f"- Teacher questions: {q['teacher_questions']} ({q['deeper_questions']} deeper why/how, {q['outside_answers']} from outside the book)",

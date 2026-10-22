@@ -23,10 +23,15 @@ PRICES = {
     "gemini-3.5-flash": (1.50, 9.00, "morphllm.com, checked 2026-08-21"),
     "gemini-2.5-pro": (1.25, 10.00, "morphllm.com, checked 2026-08-21 (<=200k context)"),
     "gemini-2.5-flash": (0.30, 2.50, "morphllm.com, checked 2026-08-21"),
+    "gemini-3.8-flash": (0.75, 3.75, "api.aicredits.in/api/models USD per token, last_updated 2026-10-20"),
+    "gemini-3.7-flash": (0.75, 3.75, "api.aicredits.in/api/models USD per token, last_updated 2026-10-20"),
+    "gemini-3.1-flash-lite": (0.25, 1.50, "api.aicredits.in/api/models USD per token, last_updated 2026-10-20"),
+    "gemini-pro-latest": (1.25, 10.00, "api.aicredits.in/api/models USD per token, last_updated 2026-10-20"),
     "fake": (0.0, 0.0, "offline fake provider"),
 }
 VERIFIED = False
-# Resellers bill on top of the provider price. AICredits: 5% platform fee + 5% forex buffer (aicredits.in, 2026-10-20).
+# Resellers bill on top of the provider price. AICredits: 5% platform fee + 5% forex buffer (aicredits.in, 2026-10-20);
+# its model list (2026-10-22) shows INR per token = USD per token x exchange_rate x 1.05.
 VIA_MARKUP = {"direct": 1.0, "aicredits": 1.10}
 
 

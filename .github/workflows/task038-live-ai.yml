@@ -16,13 +16,15 @@ on:
       - 'tests/test_task039_*'
       - 'tools/run_brain.py'
       - 'tools/run_task039_tests.py'
+      - 'tests/test_task043_*'
+      - 'tools/run_task043_tests.py'
       - '.github/workflows/task038-live-ai.yml'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test; brain-understand = Section 1, brain-lesson = Section 2 from a chapter map (source = its URL), brain-director = Section 3 from an earlier run (source = its folder URL), brain-notes = Section 7 and brain-game = Section 6 design from a chapter map (source = its URL), brain-visual = Section 4 and MP4 previews from an earlier run (source = its folder URL; pages = video ids), brain-chain = all of them'
+        description: 'probe = list models (free), access = which models the key may call (models = google=a|b|c; refused ones cost nothing), smoke = one tiny call each, blind-test = the chapter test; brain-understand = Section 1, brain-lesson = Section 2 from a chapter map (source = its URL), brain-director = Section 3 from an earlier run (source = its folder URL), brain-notes = Section 7 and brain-game = Section 6 design from a chapter map (source = its URL), brain-visual = Section 4 and MP4 previews from an earlier run (source = its folder URL; pages = video ids), brain-chain = all of them'
         type: choice
-        options: [probe, smoke, blind-test, brain-understand, brain-lesson, brain-director, brain-notes, brain-game, brain-visual, brain-chain]
+        options: [probe, access, smoke, blind-test, brain-understand, brain-lesson, brain-director, brain-notes, brain-game, brain-visual, brain-chain]
         default: probe
       source:
         description: 'blind-test: chapter PDF as an https URL or a repository path'
@@ -45,7 +47,7 @@ on:
         required: false
         default: ''
       providers:
-        description: 'blind-test and probe: providers; brain-understand: maker,reviewer (two different providers), for example openai,google (Navin, 21 Oct 2026: Claude is not used)'
+        description: 'blind-test and probe: providers; brain-*: maker,reviewer, for example openai,google; a same-company checker names its model after a colon, for example google,google:google/gemini-3.1-pro (temporary, marked in records). Claude is not used (Navin, 21 Oct 2026)'
         required: false
         default: 'openai,google'
       models:
@@ -56,6 +58,10 @@ on:
         description: 'optional routes, for example anthropic=aicredits,google=aicredits (default: direct key if set, else AICredits)'
         required: false
         default: ''
+      max_inr:
+        description: 'brain-*: hard cost cap in rupees for this run (pahra); a call that would cross it is not sent and passed work is kept'
+        required: false
+        default: '300'
 
 permissions:
   contents: read
@@ -84,8 +90,8 @@ jobs:
           python -m pip check
       - name: Task038 offline tests (clients, gateway, blind test) and unchanged gateway contracts
         run: python -B tools/run_task038_tests.py --output "$RUNNER_TEMP/task038-evidence/task038-tests.json"
-      - name: Task039 offline tests (image parts, rulebook, section runner, Section 1)
-        run: python -B tools/run_task039_tests.py --output "$RUNNER_TEMP/task038-evidence/task039-tests.json"
+      - name: Task043 offline tests (cost guard) with the Task039 brain tests
+        run: python -B tools/run_task043_tests.py --output "$RUNNER_TEMP/task038-evidence/task043-tests.json"
       - name: Fake Section 1 run on a real PDF through the DI text runtime and page images
         run: |
           set -euo pipefail
@@ -149,6 +155,7 @@ jobs:
       PROVIDERS: ${{ inputs.providers }}
       MODELS: ${{ inputs.models }}
       ROUTES: ${{ inputs.routes }}
+      MAX_INR: ${{ inputs.max_inr }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -185,9 +192,10 @@ jobs:
           set -euo pipefail
           if [[ "$MODE" == brain-* ]]; then
             section="${MODE#brain-}"
-            maker="${PROVIDERS%%,*}"; reviewer="${PROVIDERS#*,}"; reviewer="${reviewer%%,*}"
+            maker="${PROVIDERS%%,*}"; rspec="${PROVIDERS#*,}"; rspec="${rspec%%,*}"; reviewer="${rspec%%:*}"
             args=(--section "$section" --maker "$maker" --reviewer "$reviewer" --models "$MODELS" --routes "$ROUTES"
-                  --course "$SUBJECT" --workers 8 --out "$RUNNER_TEMP/live")
+                  --course "$SUBJECT" --workers 8 --max-inr "${MAX_INR:-300}" --out "$RUNNER_TEMP/live")
+            if [[ "$rspec" == *:* ]]; then args+=(--reviewer-model "${rspec#*:}"); fi
             case "$section" in
               lesson|notes|game) args+=(--chapter-map "$SOURCE") ;;
               director) args+=(--from-run "$SOURCE") ;;

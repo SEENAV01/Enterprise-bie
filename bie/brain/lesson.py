@@ -307,6 +307,7 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
         "rulebook_version": runner.rulebook.version,
         "maker_route": runner.maker,
         "reviewer_route": runner.reviewer,
+        "reviewer_independence": runner.independence,
         "plan_status": plan_result.status,
         "plan": {k: v for k, v in plan.items() if k != "notes"},
         "videos": [{

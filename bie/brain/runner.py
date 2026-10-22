@@ -13,7 +13,9 @@ One step is one unit of work of one section (for example one page for "understan
    problems, the reviewer's findings, models, tokens and cost. A passed step is a candidate for
    locking; failed rounds are kept and marked "avoid".
 
-Images are recorded by hash and size only, never by content.
+Images are recorded by hash and size only, never by content. When the run's cost guard refuses a call
+(rupee cap reached) or the provider says its balance is used up, the step ends as "stopped", not
+"failed": nothing is wrong with the work, it simply was not paid for.
 """
 from __future__ import annotations
 
@@ -24,6 +26,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable
 
+from bie.model_gateway.live.budget import STOP_KINDS
 from bie.model_gateway.live.errors import ProviderError
 from bie.model_gateway.live.pricing import estimate_cost
 from bie.model_gateway.model_interface import ModelRequest
@@ -81,7 +84,7 @@ class Step:
 class StepResult:
     section: str
     unit: str
-    status: str            # "passed" or "failed"
+    status: str            # "passed", "failed" or "stopped" (cost cap or provider balance)
     output: dict | None
     rounds: list = field(default_factory=list)
     record_path: str | None = None
@@ -129,6 +132,15 @@ def _problems_text(problems):
     return "\n".join(f"- {p}" for p in problems[:60]) + (f"\n- ... and {len(problems) - 60} more" if len(problems) > 60 else "")
 
 
+def independence(gateway, maker: str, reviewer: str | None) -> str:
+    """How independent the reviewer is: another company (the rule), or the same company with another model
+    (a temporary exception while only one provider key is usable; marked in every record)."""
+    if reviewer is None:
+        return "none"
+    company = lambda route: getattr(gateway.routes[route], "provider", route) if route in getattr(gateway, "routes", {}) else route
+    return "same_company_temporary" if company(maker) == company(reviewer) else "other_company"
+
+
 class SectionRunner:
     def __init__(self, gateway, *, maker: str, reviewer: str | None, rulebook, records_dir: str | Path | None = None,
                  clock=time.time):
@@ -137,6 +149,7 @@ class SectionRunner:
         self.gateway, self.maker, self.reviewer, self.rulebook = gateway, maker, reviewer, rulebook
         self.records_dir = Path(records_dir) if records_dir else None
         self._clock = clock
+        self.independence = independence(gateway, maker, reviewer)
 
     def run(self, step: Step) -> StepResult:
         messages = [{"role": "system", "content": step.system}, {"role": "user", "content": step.user}]
@@ -151,6 +164,7 @@ class SectionRunner:
             except ProviderError as exc:
                 entry.update(maker_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
                 rounds.append(entry)
+                status = "stopped" if exc.kind in STOP_KINDS else status
                 break
             value = response.content
             if patching:
@@ -173,6 +187,7 @@ class SectionRunner:
                     entry.update(review_error={"kind": exc.kind, "message": str(exc)[:300]}, passed=False)
                     rounds.append(entry)
                     output = value
+                    status = "stopped" if exc.kind in STOP_KINDS else status
                     break
                 entry["review"] = dict(_call_info(review, self.reviewer), value=review.content)
                 problems = [f"[reviewer] {p}" for p in step.review_problems(review.content)]
@@ -197,6 +212,12 @@ class SectionRunner:
         result.record_path = self._save(step, result)
         return result
 
+    def _model(self, route):
+        try:
+            return self.gateway.model_of(route) if route else None
+        except (AttributeError, KeyError):
+            return None
+
     def _save(self, step: Step, result: StepResult):
         if self.records_dir is None:
             return None
@@ -211,6 +232,9 @@ class SectionRunner:
             "rules_used": [r.id for r in self.rulebook.for_section(step.section)],
             "maker_route": self.maker,
             "reviewer_route": self.reviewer,
+            "maker_model": self._model(self.maker),
+            "reviewer_model": self._model(self.reviewer),
+            "reviewer_independence": self.independence,
             "inputs_digest": content_digest(step.system, step.user),
             "inputs": {"system": step.system, "user": safe_content(step.user)},
             "rounds": result.rounds,

@@ -5,6 +5,8 @@ existing ``retry_policy``) → JSON parse (existing ``structured_output`` / ``ma
 strict schema validation (existing ``schema_validation``) → at most ``max_repairs`` repair turns
 that show the model its validation error → cache store → ``ModelResponse`` with provenance.
 Every provider call, failed or cached, becomes one ledger row with tokens and estimated cost.
+With a ``CostGuard`` (``budget.py``) every call, retries and repairs included, first reserves its projected
+cost; a call that would cross the run's rupee cap is not sent (ledger outcome ``stopped``).
 """
 from __future__ import annotations
 
@@ -17,6 +19,7 @@ from ..model_provenance import ModelProvenance, request_hash, validate as valida
 from ..retry_policy import RetryPolicy, delay, should_retry
 from ..schema_validation import SchemaValidationError, validate as validate_schema
 from ..structured_output import StructuredOutputError, parse_json
+from .budget import STOP_KINDS, output_cap
 from .disk_cache import cache_key
 from .errors import ProviderError
 from .ledger import UsageLedger
@@ -29,7 +32,7 @@ REPAIR_INSTRUCTION = ("Your previous answer did not match the required JSON sche
 
 class LiveGateway:
     def __init__(self, routes: dict, *, ledger: UsageLedger | None = None, cache=None, retry: RetryPolicy = DEFAULT_RETRY,
-                 max_repairs: int = 1, sleep=None, clock=time.monotonic, wall=time.time, env=None):
+                 max_repairs: int = 1, sleep=None, clock=time.monotonic, wall=time.time, env=None, guard=None):
         if not routes:
             raise ValueError("at least one route is required")
         if max_repairs < 0:
@@ -40,12 +43,15 @@ class LiveGateway:
         self.retry = retry
         self.max_repairs = max_repairs
         self._sleep, self._clock, self._wall, self._env = sleep or time.sleep, clock, wall, env
+        self.guard = guard
 
     def model_of(self, route: str) -> str:
         return self.routes[route].model
 
-    def complete(self, route: str, request: ModelRequest, *, prompt_version: str, check=None) -> ModelResponse:
-        """``check(value)`` may return a list of content problems; they are repaired like schema errors."""
+    def complete(self, route: str, request: ModelRequest, *, prompt_version: str, check=None,
+                 expected_output_tokens: int | None = None) -> ModelResponse:
+        """``check(value)`` may return a list of content problems; they are repaired like schema errors.
+        ``expected_output_tokens`` overrides the cost guard's output projection for this request."""
         validate_request(request)
         if route not in self.routes:
             raise ProviderError("config", "unknown route " + repr(route))
@@ -75,12 +81,17 @@ class LiveGateway:
         total = {"input_tokens": 0, "output_tokens": 0, "reasoning_tokens": 0, "cached_input_tokens": 0}
         while True:
             attempt += 1
+            reserved = self._reserve(request, messages, adapter, via, expected_output_tokens, base, attempt)
             t0 = self._clock()
             try:
                 raw = adapter.invoke(replace(request, messages=tuple(messages)))
             except ProviderError as exc:
                 self.ledger.record(**base, attempt=attempt, outcome="error", error_kind=exc.kind, cache_hit=False,
                                    latency_ms=round((self._clock() - t0) * 1000))
+                if self.guard is not None:
+                    self.guard.settle(request.request_id, reserved, 0.0, model=model)
+                    if exc.kind in STOP_KINDS:
+                        self.guard.trip(f"{exc.kind}: {provider} via {via}: {exc.message[:200]}")
                 transient += 1
                 if should_retry(exc.kind, transient, self.retry):
                     self._sleep(delay(transient, self.retry))
@@ -94,6 +105,8 @@ class LiveGateway:
             cost = estimate_cost(returned_model, usage, self._env, via)
             if cost is None:
                 cost = estimate_cost(model, usage, self._env, via)
+            if self.guard is not None:
+                self.guard.settle(request.request_id, reserved, cost, model=model, output_tokens=usage["output_tokens"])
             text = raw.get("content")
             try:
                 value = parse_json(text) if isinstance(text, dict) else repair_json(text)
@@ -107,7 +120,7 @@ class LiveGateway:
                 problem = str(exc)
             row = dict(base, returned_model=returned_model, attempt=attempt, cache_hit=False, latency_ms=latency, cost_usd=cost,
                        input_tokens=usage["input_tokens"], output_tokens=usage["output_tokens"],
-                       reasoning_tokens=usage["reasoning_tokens"])
+                       reasoning_tokens=usage["reasoning_tokens"], cached_input_tokens=usage["cached_input_tokens"])
             if problem is None:
                 self.ledger.record(**row, outcome="ok")
                 finish = raw.get("finish_reason", "unknown")
@@ -122,6 +135,19 @@ class LiveGateway:
             previous = text if isinstance(text, str) else str(text)
             messages += [{"role": "assistant", "content": previous[:20000]},
                          {"role": "user", "content": REPAIR_INSTRUCTION.format(problem=problem[:300])}]
+
+    def _reserve(self, request, messages, adapter, via, expected_output_tokens, base, attempt):
+        """Reserve the projected cost of the next call with the guard; record and re-raise a refusal."""
+        if self.guard is None:
+            return 0.0
+        projection = self.guard.project(model=adapter.model, via=via, request=request, messages=messages,
+                                        cap=output_cap(adapter), expected_output_tokens=expected_output_tokens)
+        try:
+            return self.guard.reserve(request.request_id, projection["usd"], model=adapter.model, provider=adapter.provider)
+        except ProviderError:
+            self.ledger.record(**base, attempt=attempt, outcome="stopped", error_kind="budget", cache_hit=False,
+                               cost_usd=0.0, latency_ms=0)
+            raise
 
     def _response(self, provider, model, content, usage, finish, identity, prompt_version, started, *, cache_hit,
                   attempts, returned_model, via="direct"):

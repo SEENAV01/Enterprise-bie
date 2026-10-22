@@ -11,7 +11,7 @@ import socket
 import urllib.error
 import urllib.request
 
-from .errors import ProviderError, kind_for_status, redact
+from .errors import ProviderError, classify, redact
 
 MAX_RESPONSE_BYTES = 32 * 1024 * 1024
 
@@ -40,8 +40,8 @@ class HttpTransport:
                 detail = exc.read(4000).decode("utf-8", "replace")
             except Exception:  # pragma: no cover - defensive
                 detail = ""
-            raise ProviderError(kind_for_status(exc.code), redact(_error_text(detail), secrets),
-                                status=exc.code, provider=provider) from None
+            text = _error_text(detail)
+            raise ProviderError(classify(exc.code, text), redact(text, secrets), status=exc.code, provider=provider) from None
         except (socket.timeout, TimeoutError) as exc:
             raise ProviderError("timeout", redact(exc, secrets), provider=provider) from None
         except urllib.error.URLError as exc:
@@ -82,8 +82,8 @@ class HttpTransport:
                 detail = exc.read(4000).decode("utf-8", "replace")
             except Exception:  # pragma: no cover - defensive
                 detail = ""
-            raise ProviderError(kind_for_status(exc.code), redact(_error_text(detail), secrets),
-                                status=exc.code, provider=provider) from None
+            text = _error_text(detail)
+            raise ProviderError(classify(exc.code, text), redact(text, secrets), status=exc.code, provider=provider) from None
         except (socket.timeout, TimeoutError) as exc:
             raise ProviderError("timeout", redact(exc, secrets), provider=provider) from None
         except urllib.error.URLError as exc:

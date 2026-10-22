@@ -1,0 +1,257 @@
+{
+  "schema": "bie.brain.content-types/1",
+  "version": "2026-10-22.1",
+  "status": "DESIGN (Task 043). Code detection is implemented in Task 045; until then the maker AI names the type and this file tells every section what that type needs.",
+  "source": "Navin's five points (22 Oct 2026); Vision Spec 'Agreed on 21 October 2026'; rulebook vision-2026-10-21 (S1-06, S3-*, S6-03, S7-01, S7-02); docs/roadmap/TARAZU.md",
+  "how_it_is_used": [
+    "Section 1 (understanding) gives every teachable item one content type; the code-side hints below let BIE propose a type before the AI reads the page and flag a disagreement.",
+    "The type decides which teacher questions are required (S1-06), the teaching pattern of the lesson, the video blocks of the director, the game mechanic (S6-03) and the notes infographic (S7-02).",
+    "One item has one primary type; a whole section of a chapter can mix types. Examples, PYQs and headings are roles, not types: an example takes the type of what it illustrates.",
+    "Changing a type, a required question or a pattern is a rule change: bump the version, record why, and rerun the locked test set."
+  ],
+  "question_words": {
+    "kya": {"asks": ["what", "about"], "meaning": "what it is, what it is about"},
+    "kyun": {"asks": ["why"], "meaning": "why it is so, why it matters"},
+    "kaise": {"asks": ["how"], "meaning": "how it works or happens"},
+    "kab": {"asks": ["when"], "meaning": "when, in what order, under what conditions"},
+    "kaun": {"asks": ["who", "whom", "which"], "meaning": "who does it, to whom, which one"},
+    "kahan": {"asks": ["where"], "meaning": "where it is found or happens"},
+    "tulna": {"asks": ["compare", "difference"], "meaning": "how it compares and differs"},
+    "saboot": {"asks": ["evidence"], "meaning": "the evidence: facts, numbers, examples"},
+    "nateeja": {"asks": ["consequence"], "meaning": "the result, the conclusion"}
+  },
+  "legacy_types": {
+    "_note": "The Section 1 schema of 21 Oct 2026 (bie/brain/understanding.py CONTENT_TYPES) maps onto these types as follows; Task 045 switches the schema to the ids below.",
+    "definition": "definition",
+    "fact": "facts_numbers",
+    "data": "facts_numbers",
+    "formula": "facts_numbers",
+    "process": "process",
+    "structure": "structure",
+    "comparison": "comparison",
+    "classification": "classification",
+    "timeline": "timeline",
+    "cause_effect": "cause_effect",
+    "example": "role: takes the type of what it illustrates",
+    "question": "role: a PYQ or exercise, linked to the items it tests",
+    "other": "none: Section 1 must say why no type fits"
+  },
+  "blocks_available": ["image", "title", "label", "highlight", "flow", "steps", "timeline", "scale", "table", "arrow", "question", "camera_zoom"],
+  "blocks_planned": ["tree", "cycle", "chart", "map", "svg_parts", "counter", "split_compare", "cause_chain", "formula_build"],
+  "types": [
+    {
+      "id": "process",
+      "name": "Process",
+      "what_it_is": "Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law).",
+      "typical_questions": [
+        {"ask": "what", "word": "kya", "question": "What is the process and what does it achieve?"},
+        {"ask": "how", "word": "kaise", "question": "How does it happen, step by step?"},
+        {"ask": "when", "word": "kab", "question": "In what order, and under which conditions does each step happen?"},
+        {"ask": "where", "word": "kahan", "question": "Where does each step take place?"},
+        {"ask": "why", "word": "kyun", "question": "Why is each step needed, and what goes wrong if one is missing?"},
+        {"ask": "consequence", "word": "nateeja", "question": "What is the final result or product?"}
+      ],
+      "required_asks": ["how", "when"],
+      "teaching_pattern": ["the result first (what it makes)", "inputs and the place", "each step with its cause and its condition", "what breaks when a step fails", "the whole run once more at speed", "recap as a flow"],
+      "video_blocks": ["steps", "flow", "highlight", "image", "arrow", "label", "camera_zoom", "cycle (planned)"],
+      "visual_grammar": "bie/visual_intelligence/process_flow_grammar.py (biology_cellular_grammar for cell processes)",
+      "game_mechanic": {"brain": ["run_process", "assemble_sequence"], "section15": ["sequencing", "simulation_experiment"], "how": "The student runs the process step by step; a wrong step visibly breaks it and says why."},
+      "notes_infographic": "flow",
+      "detection_hints": {
+        "keywords": ["process", "steps", "stages", "first", "then", "next", "finally", "after", "followed by", "takes place", "results in", "cycle", "mechanism", "prakriya", "charan", "phir", "uske baad"],
+        "patterns": ["^\\s*(step|stage)\\s*\\d+", "^\\s*\\(?[0-9ivx]+[.)]\\s+\\w+", "\\b(first|second|third)ly?\\b.*\\b(then|next)\\b"],
+        "structure": ["numbered or lettered list of actions", "arrows between boxes in a figure", "verbs in time order"]
+      },
+      "code_checks": ["at least two ordered steps", "every step names what changes", "a 'how' question exists (S1-06)"]
+    },
+    {
+      "id": "structure",
+      "name": "Structure",
+      "what_it_is": "Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament).",
+      "typical_questions": [
+        {"ask": "what", "word": "kya", "question": "What are its parts?"},
+        {"ask": "where", "word": "kahan", "question": "Where is each part, and where is the whole found?"},
+        {"ask": "how", "word": "kaise", "question": "How does the shape of each part suit its job?"},
+        {"ask": "why", "word": "kyun", "question": "Why is it built this way?"},
+        {"ask": "which", "word": "kaun", "question": "Which part does which job?"}
+      ],
+      "required_asks": ["what", "where"],
+      "teaching_pattern": ["the whole in context", "zoom into each part in a fixed path (outside to inside)", "function of each part tied to its shape", "how the parts work together", "labelled recap"],
+      "video_blocks": ["image", "label", "highlight", "camera_zoom", "arrow", "svg_parts (planned)"],
+      "visual_grammar": "bie/visual_intelligence/biology_cellular_grammar.py, geometry_grammar.py",
+      "game_mechanic": {"brain": ["build_structure"], "section15": ["construct_model", "spatial_arrangement", "drag_drop"], "how": "The student builds the structure; it only works when every part is in the right place, and a wrong part shows the failure it causes."},
+      "notes_infographic": "labelled_list",
+      "detection_hints": {
+        "keywords": ["consists of", "made up of", "composed of", "parts", "layer", "wall", "membrane", "located", "situated", "surrounded by", "inner", "outer", "bana hota hai", "bhaag"],
+        "patterns": ["\\b(consists|composed|made up) of\\b", "\\bis (located|found|situated) in\\b"],
+        "structure": ["a labelled diagram", "a figure caption naming parts", "a list of parts with functions"]
+      },
+      "code_checks": ["every labelled part in the figure is an item", "every part has a function or a reason it is named"]
+    },
+    {
+      "id": "classification",
+      "name": "Classification",
+      "what_it_is": "A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs).",
+      "typical_questions": [
+        {"ask": "what", "word": "kya", "question": "What is being divided, and into which kinds?"},
+        {"ask": "which", "word": "kaun", "question": "On what basis is it divided?"},
+        {"ask": "difference", "word": "tulna", "question": "How does each kind differ from the others?"},
+        {"ask": "evidence", "word": "saboot", "question": "What are examples of each kind?"},
+        {"ask": "where", "word": "kahan", "question": "Where is each kind found?"}
+      ],
+      "required_asks": ["which", "difference"],
+      "teaching_pattern": ["the basis of division first", "the tree from the top down", "each kind with its identifying feature and an example", "the borderline cases and exceptions", "the tree as recap"],
+      "video_blocks": ["table", "image", "label", "highlight", "tree (planned)"],
+      "visual_grammar": "concept tree; bie/visual_intelligence/grammar_registry.py",
+      "game_mechanic": {"brain": ["build_structure", "judge_the_case"], "section15": ["classify_sort", "misconception_trap"], "how": "The student sorts real specimens or cases by their features; a wrong sort shows which feature was misread."},
+      "notes_infographic": "tree",
+      "detection_hints": {
+        "keywords": ["types of", "kinds of", "classified", "classification", "categories", "divided into", "groups", "are of two types", "prakar", "vargikaran"],
+        "patterns": ["\\b(types|kinds|forms|categories) of\\b", "\\b(classified|divided|grouped) into\\b", "\\bare of (two|three|four|\\d+) (types|kinds)\\b"],
+        "structure": ["a heading followed by sub-headings of the same level", "a tree diagram", "a table whose first column lists kinds"]
+      },
+      "code_checks": ["the basis is stated", "every kind has an identifying feature", "a 'compare' or 'difference' question exists (S1-06)"]
+    },
+    {
+      "id": "comparison",
+      "name": "Comparison",
+      "what_it_is": "Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha).",
+      "typical_questions": [
+        {"ask": "compare", "word": "tulna", "question": "On which points are they compared?"},
+        {"ask": "difference", "word": "tulna", "question": "Where do they differ, point by point?"},
+        {"ask": "what", "word": "kya", "question": "What do they have in common?"},
+        {"ask": "why", "word": "kyun", "question": "Why does each difference exist?"},
+        {"ask": "evidence", "word": "saboot", "question": "Which example shows the difference best?"}
+      ],
+      "required_asks": ["compare", "difference"],
+      "teaching_pattern": ["what is common", "criteria one at a time, both sides together", "the reason behind each difference", "the most confused pair named directly", "difference table as recap"],
+      "video_blocks": ["table", "image", "highlight", "label", "split_compare (planned)"],
+      "visual_grammar": "difference table; bie/visual_intelligence/data_chart_grammar.py for measured differences",
+      "game_mechanic": {"brain": ["judge_the_case"], "section15": ["classify_sort", "misconception_trap"], "how": "The student meets a case and must decide which side it belongs to by its features; a wrong call shows the feature that decides."},
+      "notes_infographic": "difference_table",
+      "detection_hints": {
+        "keywords": ["difference between", "differ", "compared to", "whereas", "while", "unlike", "similar", "in contrast", "on the other hand", "versus", "vs", "antar", "tulna"],
+        "patterns": ["\\bdifference(s)? between\\b", "\\b(unlike|whereas|in contrast to)\\b", "\\b\\w+ vs\\.? \\w+\\b"],
+        "structure": ["a two- or three-column table with criteria rows", "paired sentences with opposite properties"]
+      },
+      "code_checks": ["at least two sides and one criterion", "each criterion filled for every side", "a 'compare' or 'difference' question exists (S1-06)"]
+    },
+    {
+      "id": "timeline",
+      "name": "Timeline",
+      "what_it_is": "Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory).",
+      "typical_questions": [
+        {"ask": "when", "word": "kab", "question": "When did each event happen, and in what order?"},
+        {"ask": "who", "word": "kaun", "question": "Who acted, and on whom?"},
+        {"ask": "where", "word": "kahan", "question": "Where did it happen?"},
+        {"ask": "why", "word": "kyun", "question": "Why did it happen then: the conditions and the atmosphere?"},
+        {"ask": "consequence", "word": "nateeja", "question": "What changed because of it?"}
+      ],
+      "required_asks": ["when", "why"],
+      "teaching_pattern": ["the period and its atmosphere", "events in order with their causes", "the people and their choices", "the turning point", "what changed after", "timeline recap"],
+      "video_blocks": ["timeline", "image", "label", "highlight", "map (planned)", "camera_zoom"],
+      "visual_grammar": "bie/visual_intelligence/history_timeline_grammar.py; geography_map_grammar.py for places",
+      "game_mechanic": {"brain": ["choose_as_character", "assemble_sequence", "change_the_map"], "section15": ["timeline_reconstruction", "branching_scenario", "map_interaction"], "how": "The student acts as a person of the time; a wrong choice breaks the timeline and shows what really happened and why."},
+      "notes_infographic": "timeline",
+      "detection_hints": {
+        "keywords": ["in the year", "century", "era", "period", "dynasty", "reign", "founded", "established", "later", "earlier", "BC", "AD", "BCE", "CE", "san", "shatabdi"],
+        "patterns": ["\\b(1[0-9]{3}|20[0-9]{2})\\b", "\\b\\d{1,2}(st|nd|rd|th) century\\b", "\\b\\d+\\s?(BC|BCE|AD|CE)\\b"],
+        "structure": ["three or more dated sentences", "a chronology table", "a dated figure or map"]
+      },
+      "code_checks": ["dates are in order and match the book", "each event has a when (S1-06)", "reasoning/chronology checks from bie/reasoning (chronology_reasoning, event_order_reasoning)"]
+    },
+    {
+      "id": "cause_effect",
+      "name": "Reasoning (cause and effect)",
+      "what_it_is": "Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed).",
+      "typical_questions": [
+        {"ask": "why", "word": "kyun", "question": "Why does it happen: what is the cause?"},
+        {"ask": "how", "word": "kaise", "question": "How does the cause lead to the effect, link by link?"},
+        {"ask": "consequence", "word": "nateeja", "question": "What follows from it?"},
+        {"ask": "evidence", "word": "saboot", "question": "What evidence shows the link?"},
+        {"ask": "exception", "word": "tulna", "question": "When does the link not hold?"}
+      ],
+      "required_asks": ["why", "how"],
+      "teaching_pattern": ["the effect students can see", "the cause", "each link of the chain with its mechanism", "the evidence", "the exception or limit", "the chain as recap"],
+      "video_blocks": ["flow", "arrow", "highlight", "label", "scale", "cause_chain (planned)"],
+      "visual_grammar": "bie/visual_intelligence/causal_network_grammar.py",
+      "game_mechanic": {"brain": ["predict_with_sliders", "diagnose_and_fix"], "section15": ["prediction_observe", "diagnose_error", "simulation_experiment", "resource_tradeoff"], "how": "The student changes the cause and predicts the effect, or finds the broken link that caused a wrong outcome."},
+      "notes_infographic": "relationship",
+      "detection_hints": {
+        "keywords": ["because", "due to", "therefore", "hence", "as a result", "leads to", "causes", "so that", "consequently", "if", "then", "kyunki", "isliye", "jiske karan", "parinaam"],
+        "patterns": ["\\b(because|due to|owing to)\\b", "\\b(therefore|hence|thus|consequently)\\b", "\\b(leads?|led) to\\b", "\\bif\\b.*\\bthen\\b"],
+        "structure": ["a sentence with a connective of cause", "an arrow diagram between conditions"]
+      },
+      "code_checks": ["every chain has a cause, a link and an effect", "no cycle in the cause graph (bie/reasoning causal_graph, graph_cycles)", "a 'why' and a 'how' question exist"]
+    },
+    {
+      "id": "facts_numbers",
+      "name": "Facts and numbers",
+      "what_it_is": "Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma).",
+      "typical_questions": [
+        {"ask": "what", "word": "kya", "question": "What exactly is the fact or value, with its unit?"},
+        {"ask": "compare", "word": "tulna", "question": "Compared with what is it big or small?"},
+        {"ask": "evidence", "word": "saboot", "question": "Where does the number come from, and when was it true?"},
+        {"ask": "why", "word": "kyun", "question": "Why does this number matter here?"}
+      ],
+      "required_asks": ["what", "evidence"],
+      "teaching_pattern": ["the fact in one line", "the number shown to scale against something familiar", "where it comes from (book or outside, dated)", "what it changes or proves", "a formula built term by term when there is one"],
+      "video_blocks": ["scale", "table", "label", "highlight", "counter (planned)", "chart (planned)", "formula_build (planned)"],
+      "visual_grammar": "bie/visual_intelligence/data_chart_grammar.py, mathematics_graph_grammar.py",
+      "game_mechanic": {"brain": ["predict_with_sliders"], "section15": ["parameter", "graph_exploration", "equation_balance", "prediction_observe"], "how": "The student estimates or sets the value and sees it to scale; a wrong guess shows how far off it was and why."},
+      "notes_infographic": "chart",
+      "detection_hints": {
+        "keywords": ["percent", "per cent", "%", "million", "crore", "lakh", "approximately", "about", "average", "rate", "ratio", "equal to", "formula", "pratishat"],
+        "patterns": ["\\b\\d[\\d,]*(\\.\\d+)?\\s?(%|percent|per cent|km|m|cm|mm|kg|g|mg|l|ml|°C|K|s|min|hr|years?)\\b", "\\b\\d[\\d,]*(\\.\\d+)?\\s?(crore|lakh|million|billion)\\b", "[A-Za-z]\\s?=\\s?[A-Za-z0-9]"],
+        "structure": ["a table of values", "a sentence with a number and a unit", "an equation line"]
+      },
+      "code_checks": ["the value and unit match the book exactly", "unit and number checks from bie/math_intelligence (unit_parser, unit_mismatch, numerical_equivalence)", "outside numbers carry a source and a date"]
+    },
+    {
+      "id": "figure",
+      "name": "Figure",
+      "what_it_is": "A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only).",
+      "typical_questions": [
+        {"ask": "what", "word": "kya", "question": "What does the figure show, part by part?"},
+        {"ask": "which", "word": "kaun", "question": "Which label points to which part?"},
+        {"ask": "how", "word": "kaise", "question": "How should a student read it (axes, arrows, colours, scale)?"},
+        {"ask": "why", "word": "kyun", "question": "Why is it in the book: what does it prove or explain?"}
+      ],
+      "required_asks": ["what", "which"],
+      "teaching_pattern": ["what the figure is and why it is here", "a reading path across it (labels in order)", "the one thing to remember from it", "link back to the text it explains"],
+      "video_blocks": ["image", "label", "highlight", "camera_zoom", "arrow", "svg_parts (planned)"],
+      "visual_grammar": "the original figure or a licensed better asset (bie/brain/assets.py); figure_semantics and diagram_classification in bie/document_intelligence as checks",
+      "game_mechanic": {"brain": ["build_structure", "change_the_map"], "section15": ["drag_drop", "spatial_arrangement", "map_interaction"], "how": "The student labels or rebuilds the figure; a wrong label shows what that part really is."},
+      "notes_infographic": "labelled_list",
+      "detection_hints": {
+        "keywords": ["Fig.", "Figure", "Diagram", "Table", "Map", "Graph", "chitra", "aakriti"],
+        "patterns": ["^\\s*(Fig\\.?|Figure|Table|Map|Graph)\\s*\\d+", "\\(see (fig|figure|table)\\b"],
+        "structure": ["a page region with an image and little or no native text", "a caption line", "labels near lines"]
+      },
+      "code_checks": ["every visible label is an item with a parent figure (S1-03)", "image-only items are marked source=image", "the figure is linked to the text items it explains"]
+    },
+    {
+      "id": "definition",
+      "name": "Definition",
+      "what_it_is": "A term and its meaning as the book states it (tissue, meristem, sovereignty).",
+      "typical_questions": [
+        {"ask": "what", "word": "kya", "question": "What does the term mean, in the book's words?"},
+        {"ask": "about", "word": "kya", "question": "What does each key word of the definition add?"},
+        {"ask": "evidence", "word": "saboot", "question": "What is a clear example and a near non-example?"},
+        {"ask": "why", "word": "kyun", "question": "Why is this term needed in the chapter?"}
+      ],
+      "required_asks": ["what", "evidence"],
+      "teaching_pattern": ["a concrete example first", "the book's definition word by word", "a non-example that tests the boundary", "where the term is used next in the chapter"],
+      "video_blocks": ["title", "label", "highlight", "image"],
+      "visual_grammar": "term card; concept map link to its parent concept",
+      "game_mechanic": {"brain": ["judge_the_case"], "section15": ["classify_sort", "retrieval"], "how": "The student decides whether cases fit the definition; a wrong call shows which word of the definition decides."},
+      "notes_infographic": "concept_map",
+      "detection_hints": {
+        "keywords": ["is called", "is known as", "is defined as", "refers to", "means", "termed", "kehte hain", "arth hai"],
+        "patterns": ["\\b(is|are) (called|known as|termed|defined as)\\b", "\\brefers? to\\b", "^\\s*[A-Z][a-z]+\\s*[:–-]\\s"],
+        "structure": ["a bold or italic term followed by its meaning", "a glossary line"]
+      },
+      "code_checks": ["the book's exact words are kept", "an example exists", "outside wording is marked basis=outside"]
+    }
+  ]
+}

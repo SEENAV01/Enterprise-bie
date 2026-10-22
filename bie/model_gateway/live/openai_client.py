@@ -6,7 +6,7 @@ mode needs every object to list all its properties as required and set
 """
 from __future__ import annotations
 
-from .errors import ProviderError
+from .errors import ProviderError, classify
 from .messages import openai_responses_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
@@ -51,7 +51,7 @@ class OpenAIClient:
                 if kind in ("response.completed", "response.incomplete", "response.failed"):
                     raw = event.get("response") or {}
                 elif kind == "error":
-                    raise ProviderError("server_error", str(event.get("message") or event)[:300], provider=self.provider)
+                    raise ProviderError(classify(None, event), str(event.get("message") or event)[:300], provider=self.provider)
             if raw is None:
                 raise ProviderError("provider_unavailable", "the stream ended before the response completed", provider=self.provider)
             return self.parse(raw)
@@ -75,7 +75,7 @@ class OpenAIClient:
             raise ProviderError(kind, f"response incomplete: {reason}", provider=self.provider)
         if status == "failed":
             error = raw.get("error") or {}
-            raise ProviderError("server_error", str(error.get("message") or "response failed")[:300], provider=self.provider)
+            raise ProviderError(classify(None, error), str(error.get("message") or "response failed")[:300], provider=self.provider)
         texts, refusals = [], []
         for item in raw.get("output") or []:
             if not isinstance(item, dict) or item.get("type") != "message":
