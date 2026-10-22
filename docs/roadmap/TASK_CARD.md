@@ -1,7 +1,7 @@
 # Task card · how BIE tells the AI exactly what to make
 
-Task 043 · design, 22 October 2026 · implemented in Task 045 · Schema: `docs/roadmap/task_card.schema.json`
-(moves into `bie/brain/` when Task 045 implements it) · Example: `docs/roadmap/task_card.example.json`
+Task 043 · design, 22 October 2026 · implemented in Task 045 (`bie/brain/cards.py`, Sections 1 and 2) · Schema:
+`bie/brain/task_card.schema.json` · Example: `docs/roadmap/task_card.example.json` (a real read_page card, built by code)
 
 BIE is the system between Navin and the AI. It does not send the AI a long essay and hope; it sends a
 **task card**: a short, fixed-format instruction that names the task, the unit, every part with its content
@@ -80,24 +80,36 @@ them (lesson and notes), as part of the source, never the whole chapter.
 
 ## Example
 
-`docs/roadmap/task_card.example.json` is a card for the lesson script of one video on page 3 of the tissue
-chapter, using real item ids from live run 39620281561 (epithelial tissue: the four kinds of tissue, the
-structure of epithelium, Fig. 6.9 and the comparison table). It validates against the schema with BIE's own
-strict validator and is 2,731 characters (about 800 tokens). It is a format example only; lesson content is
-made by BIE.
+`docs/roadmap/task_card.example.json` is the real read_page card that `bie/brain/cards.py` builds for page 3 of the tissue
+chapter (no AI involved): BIE's code proposes `classification` for "There are mainly four different types of tissues
+present in our body." and the four numbered lines under it (list context), structure or classification for other lines,
+lists the page number as `may_skip` and every other block in `must_cover`. It is 4,129 characters compact (about 1,200
+tokens). Its prefix (`understand.read_page/2`) is 14,915 characters (about 4,350 tokens) and is the same bytes for
+every page of the run.
 
-That run also shows why the card names the type: Section 1 typed the four list points "1. Epithelial …
-4. Connective" as `fact`, while together they are a classification. In Task 045 the code-side hints in
-`content_types.json` ("four different types of tissues", numbered list) propose `classification`, and a
-disagreement between code and AI is flagged for the reviewer.
+The design example of Task 043 (a lesson card for page 3) showed why the card names the type: Section 1 typed the four
+list points "1. Epithelial … 4. Connective" as `fact`, while together they are a classification. The code now
+proposes `classification` for them, and a maker that disagrees must say why.
 
-## What Task 045 implements
+## What Task 045 implemented (PR A, offline)
 
-1. `bie/brain/cards.py`: build the prefix (stable bytes, hash) and the card per unit; validate the card with
-   the schema; record `prefix.sha256` and the card in every process record.
-2. Compact chapter map from Section 1's output; map slices per unit.
-3. Content-type detection from the hints (code), compared with the AI's type; required questions per type
-   enforced in Section 1's checks (today only process, comparison and classification are enforced).
-4. Sections 2–7 switch from prose instructions to cards, one section at a time, each rerun on the tissue
-   chapter and 4–5 chapters of other subjects; tokens, cached tokens and rupees per page compared before and
-   after from the ledger.
+1. `bie/brain/cards.py`: the prefix (stable bytes, sha256 on the card and in every process record), the card in schema
+   order, card checks before anything is sent, `must_cover` checked both ways after the answer. The reviewer gets its
+   own fixed review prefix and the maker's card.
+2. Cards for Section 1 (`read_page`, `build_chapter_map`) and Section 2 (`plan_videos`, `write_script`).
+3. Content-type detection in code (`bie/brain/content_types.py`) compared with the maker's type in every round; required
+   questions per type enforced in Section 1 for every teachable item.
+4. The naksha (`bie/brain/naksha.py`): the compact chapter map, with slices per card.
+
+Changes to the design, found while building it:
+
+- A part's `type` may be `none`: on a read_page card for blocks the code has no proposal for (the maker decides), and
+  on a script card for a video's exam questions (PYQs), which are answered as exam tips (step 0).
+- On a read_page card, `item_ids` are native text block ids (and `pNNNN-image` for the page image); on a plan_videos
+  card the parts are concepts and `must_cover` lists concept ids.
+- The course (title, subject, learners, exam, language) is in the prefix: it is the same for every card of a run.
+- Measured on the tissue chapter: a read_page card is 1,256–4,129 characters; the prefix makes each page's input larger
+  than before (about 4,350 + 1,030 tokens against about 2,240 + 900), so its value depends on provider caching, which the
+  ledger's `cached_input_tokens` will show in the live runs.
+
+Still to do: Sections 3–7 switch to cards one at a time (046–050), each measured before and after from the ledger.

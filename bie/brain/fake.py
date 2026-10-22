@@ -11,41 +11,61 @@ import re
 
 from bie.model_gateway.live.messages import split_messages, text_of
 
+from . import cards
+from . import content_types as ct
+
 BLOCK_LINE = re.compile(r"^(p\d{4}-b\d{4}) \| (.*)$", re.MULTILINE)
+ITEM_LINE = re.compile(r"^(p\d{3}-[^ |]+) \| (\d+) \| (\w+) \| (\w+) \| (teach|no) \|", re.MULTILINE)
+QUESTION_LINE = re.compile(r"^  (p\d{3}-[^ |#]+#q\d+) \|", re.MULTILINE)
 NOTES = {"about": "offline", "key_questions": ["offline?"], "decisions": [], "uncertain": []}
 
 
-def _qa(text):
-    return [{"depth": 1, "ask": "what", "question": "What does the book say here?", "answer": "Offline restatement: " + text[:80]},
-            {"depth": 2, "ask": "why", "question": "Why does it matter?", "answer": "Offline answer for " + text[:40]}]
+def _qa(text, asks=("what",)):
+    asks = list(dict.fromkeys(list(asks) + ["why"]))
+    if len(asks) < 2:
+        asks.insert(0, "what")
+    return [{"depth": 1 if n == 0 else 2, "ask": ask, "question": f"Offline {ask} question?",
+             "answer": f"Offline answer ({ask}) for " + text[:40]} for n, ask in enumerate(asks)]
 
 
-def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent=""):
+def _item(iid, text, *, source="text", block_ids=(), kind="paragraph", parent="", content_type="definition"):
+    asks = ct.load().required_asks(content_type)
     return {"item_id": iid, "kind": kind, "parent_item_id": parent, "source": source, "block_ids": list(block_ids),
-            "where_on_page": "offline", "content": text, "content_type": "fact", "teachable": True,
-            "teacher_understanding": [dict(q, basis="book") for q in _qa(text)], "prerequisites": [],
+            "where_on_page": "offline", "content": text, "content_type": content_type, "type_note": "", "teachable": True,
+            "teacher_understanding": [dict(q, basis="book") for q in _qa(text, asks)], "prerequisites": [],
             "exam_importance": "medium", "exam_note": "", "tests_item_ids": []}
 
 
 def page_answer(user_text: str):
-    blocks = BLOCK_LINE.findall(user_text.split("First lines of the next page")[-1])
-    if blocks:
-        items = [_item(f"i{n}", text, block_ids=[bid]) for n, (bid, text) in enumerate(blocks, 1)]
-    else:
-        items = [_item("i1", "Figure read from the image", source="image", kind="diagram"),
-                 _item("i2", "First label of the figure", source="image", kind="diagram_label", parent="i1"),
-                 _item("i3", "Second label of the figure", source="image", kind="diagram_label", parent="i1")]
-    return {"notes": NOTES, "page_summary": "Offline page summary.", "items": items, "boilerplate_block_ids": [],
-            "text_image_disagreements": []}
+    """Agrees with BIE's proposed type for every block (definition where the code has none)."""
+    card = cards.read_card(user_text)
+    types = ct.load()
+    proposed = {i: p["type"] for p in card["parts"] for i in p["item_ids"]}
+    skip = {s["item_id"] for s in card["coverage"]["may_skip"]}
+    blocks = BLOCK_LINE.findall(user_text)
+    items = []
+    for bid, text in (b for b in blocks if b[0] not in skip):
+        kind = proposed.get(bid, ct.NONE)
+        items.append(_item(f"i{len(items) + 1}", text, block_ids=[bid], content_type=kind if kind in types.types else "definition"))
+    if not items:
+        items = [_item("i1", "Figure read from the image", source="image", kind="diagram", content_type="figure"),
+                 _item("i2", "First label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure"),
+                 _item("i3", "Second label of the figure", source="image", kind="diagram_label", parent="i1", content_type="figure")]
+    return {"notes": NOTES, "page_summary": "Offline page summary.", "items": items,
+            "boilerplate_block_ids": [bid for bid, _ in blocks if bid in skip], "text_image_disagreements": []}
 
 
 def connect_answer(user_text: str):
-    start = user_text.index("[")
-    items, _ = json.JSONDecoder().raw_decode(user_text[start:])
-    pages = sorted({i["page"] for i in items})
-    concepts = [{"concept_id": f"c{p}", "name": f"Page {p}", "item_ids": [i["id"] for i in items if i["page"] == p],
-                 "content_type": "fact", "core_explanation": "Offline concept."} for p in pages]
-    links = [{"question_item_id": i["id"], "tests_concepts": [f"c{i['page']}"]} for i in items if i["kind"] == "question"]
+    rows = ITEM_LINE.findall(user_text)
+    pages = sorted({int(page) for _, page, _, _, _ in rows})
+    concepts = []
+    for page in pages:
+        mine = [r for r in rows if int(r[1]) == page]
+        kinds = [r[3] for r in mine if r[3] in ct.load().types]
+        concepts.append({"concept_id": f"c{page}", "name": f"Page {page}", "item_ids": [r[0] for r in mine],
+                         "content_type": max(set(kinds), key=kinds.count) if kinds else "facts_numbers",
+                         "core_explanation": "Offline concept."})
+    links = [{"question_item_id": r[0], "tests_concepts": [f"c{r[1]}"]} for r in rows if r[2] == "question"]
     return {"notes": NOTES, "chapter_title": "Offline", "chapter_summary": "Offline map.", "concepts": concepts,
             "relations": [], "prerequisites_to_teach": [], "cross_references": [], "question_links": links,
             "teaching_order": [c["concept_id"] for c in concepts], "exam_focus": []}
@@ -58,25 +78,41 @@ def _payload(user_text: str):
 
 
 def plan_answer(user_text: str):
-    data = _payload(user_text)
-    names = [p["name"] for p in data.get("prerequisites_to_teach", [])]
-    videos = [{"video_id": f"v{n}", "title": f"वीडियो {n}: {c['name']}", "goal": "Offline goal.", "concept_ids": [c["concept_id"]],
+    card = cards.read_card(user_text)
+    section = user_text.split("Prerequisites to teach", 1)[-1].split("BIE's teaching order", 1)[0]
+    names = [line[2:].split(" · ")[0] for line in section.splitlines() if line.startswith("- ")]
+    videos = [{"video_id": f"v{n}", "title": f"वीडियो {n}: {cid}", "goal": "Offline goal.", "concept_ids": [cid],
                "prerequisites_taught": names if n == 1 else [], "opening_hook": "Offline hook.", "story_or_analogy": "",
-               "estimated_minutes": 5, "why_this_unit": "Offline."} for n, c in enumerate(data.get("concepts", []), 1)]
+               "estimated_minutes": 1, "why_this_unit": "Offline."}
+              for n, cid in enumerate(card["coverage"]["must_cover"], 1)]
     return {"notes": NOTES, "videos": videos, "chapter_flow": "Offline flow."}
 
 
 def script_answer(user_text: str):
-    data = _payload(user_text)
-    beats = [{"beat_id": "b0", "purpose": "hook", "say": "ज़रा सोचिए, ये offline hook है।", "covers_item_ids": [], "answers": [],
-              "on_screen": "Offline.", "basis": "book"}]
-    for n, item in enumerate(data.get("items", []), 1):
-        beats.append({"beat_id": f"b{n}", "purpose": "explain", "say": "ये offline explanation है: " + item["content"][:60],
-                      "covers_item_ids": [item["item_id"]], "answers": [q["id"] for q in item["teacher_questions"]],
-                      "on_screen": "Offline.", "basis": "book"})
-    beats.append({"beat_id": "b-end", "purpose": "recap", "say": "तो आज हमने offline recap किया।", "covers_item_ids": [],
-                  "answers": [], "on_screen": "Offline.", "basis": "book"})
-    return {"notes": NOTES, "title": data["video"]["title"], "beats": beats}
+    """One beat per item for the first pattern step, then one beat per further step; a frame for every part."""
+    card = cards.read_card(user_text)
+    types = ct.load()
+    questions = {}
+    for qid in QUESTION_LINE.findall(user_text):
+        questions.setdefault(qid.split("#")[0], []).append(qid)
+    hook = {"beat_id": "b0", "part_id": "", "step": 0, "purpose": "hook", "say": "ज़रा सोचिए, ये offline hook है। आज हम इस topic को बहुत ध्यान से समझेंगे।",
+            "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book"}
+    beats, parts = [hook], []
+    for part in card["parts"]:
+        parts.append({"part_id": part["part_id"], "frame": {k: f"offline {k}" for k in ("process", "how", "when", "conditions",
+                                                                                           "atmosphere")}})
+        first_step = 1 if types.pattern(part["type"]) else 0
+        for iid in part["item_ids"]:
+            beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": first_step, "purpose": "explain",
+                          "say": f"ये offline explanation है: {iid}। इसे ध्यान से समझिए, ये exam में बहुत काम आएगा।", "covers_item_ids": [iid], "answers": questions.get(iid, []),
+                          "on_screen": "Offline.", "basis": "book"})
+        for step in range(2, len(types.pattern(part["type"])) + 1):
+            beats.append({"beat_id": f"b{len(beats)}", "part_id": part["part_id"], "step": step, "purpose": "explain",
+                          "say": f"अब step {step} offline समझते हैं। सोचिए, ये पिछली बात से कैसे जुड़ता है?", "covers_item_ids": [], "answers": [],
+                          "on_screen": "Offline.", "basis": "book"})
+    beats.append({"beat_id": "b-end", "part_id": "", "step": 0, "purpose": "recap", "say": "तो आज हमने offline recap किया। अगली video में हम आगे की बात करेंगे।",
+                  "covers_item_ids": [], "answers": [], "on_screen": "Offline.", "basis": "book"})
+    return {"notes": NOTES, "title": card["unit"]["title"], "parts": parts, "beats": beats}
 
 
 def director_answer(user_text: str):
@@ -218,7 +254,7 @@ class BrainFakeClient:
         elif "scenes" in props:
             value = director_answer(user)
         elif "replace_beats" in props:
-            value = {"notes": NOTES, "replace_beats": [], "insert_beats": [], "remove_beat_ids": []}
+            value = {"notes": NOTES, "replace_parts": [], "replace_beats": [], "insert_beats": [], "remove_beat_ids": []}
         elif "replace_items" in props:
             value = {"notes": NOTES, "replace_items": [], "remove_item_ids": [], "boilerplate_block_ids": [],
                      "text_image_disagreements": []}

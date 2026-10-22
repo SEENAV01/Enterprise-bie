@@ -121,6 +121,10 @@ from OpenAI on where tokens may be stored.
 detection in code (`content_types.json`) compared with the AI's type; task cards for Sections 1 and 2; merge
 with the old KI, PR, RE and PED engines as code checks (TARAZU rows). Run: tissue + 4–5 chapters of other
 subjects; Navin judges.
+PR A (22 October 2026, branch `task045-understanding-script`): the naksha (`bie/brain/naksha.py`), type detection
+(`bie/brain/content_types.py`), task cards (`bie/brain/cards.py`), the KI, PR, RE and PED engines as checks
+(`bie/brain/engines.py`) and Section 2 on the card, tested offline with the fake AI. PR B: the live runs, only after
+Navin's yes to the estimate, the checker choice and the five chapter PDFs.
 
 **046 · Director, asset finder v2 and silent video** — the director's scene plan drives the asset finder:
 the library first, then Wikimedia Commons and Openverse; SVG preferred; part locations read from SVG text;

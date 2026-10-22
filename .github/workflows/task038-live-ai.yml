@@ -20,6 +20,8 @@ on:
       - 'tools/run_task043_tests.py'
       - 'tests/test_task044_*'
       - 'tools/run_task044_tests.py'
+      - 'tests/test_task045_*'
+      - 'tools/run_task045_tests.py'
       - 'tools/codex_vm.py'
       - 'deployment/codex-vm/**'
       - '.github/workflows/task038-live-ai.yml'
@@ -51,7 +53,7 @@ on:
         required: false
         default: ''
       providers:
-        description: 'probe, access and smoke: providers (only google has a key here). brain-*: maker,reviewer; a same-company checker names its model after a colon, for example google,google:google/gemini-3.1-pro. The ChatGPT Pro maker (codex) runs only on the private machine (tools/codex_vm.py), never here'
+        description: 'probe, access and smoke: providers (only google has a key here). brain-*: maker,reviewer; a same-company checker names its model after a colon, for example google,google:google/gemini-3.1-pro; google,google:same = the maker model checks itself in a fresh call (kamzor jaanch, only when the key allows one model). The ChatGPT Pro maker (codex) runs only on the private machine (tools/codex_vm.py), never here'
         required: false
         default: 'google'
       models:
@@ -94,8 +96,8 @@ jobs:
           python -m pip check
       - name: Task038 offline tests (clients, gateway, blind test) and unchanged gateway contracts
         run: python -B tools/run_task038_tests.py --output "$RUNNER_TEMP/task038-evidence/task038-tests.json"
-      - name: Task044 offline tests (Codex maker with a fake codex executable, VM job runner) with the Task043, 039 and 038 lanes
-        run: python -B tools/run_task044_tests.py --output "$RUNNER_TEMP/task038-evidence/task044-tests.json"
+      - name: Task045 offline tests (content types, naksha, task cards, KI/PR/RE/PED checks, Sections 1 and 2 on cards) with the Task044, 043, 039 and 038 lanes
+        run: python -B tools/run_task045_tests.py --output "$RUNNER_TEMP/task038-evidence/task045-tests.json"
       - name: Fake Section 1 run on a real PDF through the DI text runtime and page images
         run: |
           set -euo pipefail
@@ -111,6 +113,7 @@ jobs:
             --course 'title=Offline chapter;subject=Biology;learners=UPSC aspirants;exam=UPSC'
           test -s "$RUNNER_TEMP/task038-evidence/fake-brain/chapter_map.json"
           test -s "$RUNNER_TEMP/task038-evidence/fake-brain/MAP.md"
+          test -s "$RUNNER_TEMP/task038-evidence/fake-brain/naksha.json"
       - name: Fake Codex maker run (no ChatGPT sign-in here; Codex runs only on Navin's private machine)
         env:
           BIE_FAKE_CODEX_STATE: ${{ runner.temp }}/fake-codex

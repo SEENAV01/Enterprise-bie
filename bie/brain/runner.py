@@ -13,6 +13,10 @@ One step is one unit of work of one section (for example one page for "understan
    problems, the reviewer's findings, models, tokens and cost. A passed step is a candidate for
    locking; failed rounds are kept and marked "avoid".
 
+Since Task 045 a step can carry its task card (``bie/brain/cards.py``): the system message is then the card's
+fixed prefix, whose hash must match the card before anything is sent, and the record keeps the card, the
+prefix hash and what BIE's code observed about each round (``Step.observe``, for example the type comparison).
+
 Images are recorded by hash and size only, never by content. When the run's cost guard refuses a call
 (rupee cap reached) or the provider says its balance is used up, the step ends as "stopped", not
 "failed": nothing is wrong with the work, it simply was not paid for.
@@ -78,6 +82,8 @@ class Step:
     apply_patch: Callable[[dict, dict], dict] | None = None
     patch_hint: str = ""
     max_rounds: int = 3
+    card: dict | None = None                  # the task card sent with this step (Task 045)
+    observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
 
 
 @dataclass
@@ -134,12 +140,19 @@ def _problems_text(problems):
 
 
 def independence(gateway, maker: str, reviewer: str | None) -> str:
-    """How independent the reviewer is: another company (the rule), or the same company with another model
-    (a temporary exception while only one provider key is usable; marked in every record)."""
+    """How independent the reviewer is: another company (the rule); the same company with another model (a temporary
+    exception while only one provider key is usable); or the same model in a fresh call when the key allows only one
+    model (kamzor jaanch, the weakest check). Marked in every record; nothing it passes is ever locked as accepted."""
     if reviewer is None:
         return "none"
     company = lambda route: getattr(gateway.routes[route], "provider", route) if route in getattr(gateway, "routes", {}) else route
-    return "same_company_temporary" if company(maker) == company(reviewer) else "other_company"
+    if company(maker) != company(reviewer):
+        return "other_company"
+    try:
+        same_model = gateway.model_of(maker) == gateway.model_of(reviewer)
+    except (AttributeError, KeyError):
+        same_model = False
+    return "same_model_temporary" if same_model else "same_company_temporary"
 
 
 class SectionRunner:
@@ -153,6 +166,8 @@ class SectionRunner:
         self.independence = independence(gateway, maker, reviewer)
 
     def run(self, step: Step) -> StepResult:
+        if step.card is not None and step.card["prefix"]["sha256"] != hashlib.sha256(step.system.encode("utf-8")).hexdigest():
+            raise ValueError(f"{step.section}:{step.unit}: the card's prefix hash is not the system message that would be sent")
         messages = [{"role": "system", "content": step.system}, {"role": "user", "content": step.user}]
         rounds, output, status = [], None, "failed"
         started = self._clock()
@@ -177,6 +192,8 @@ class SectionRunner:
             entry["output"] = value
             problems = [f"[code] {p}" for p in step.check(value)]
             entry["code_problems"] = problems
+            if step.observe is not None:
+                entry["observed"] = step.observe(value)
             if not problems and self.reviewer and step.review_system:
                 review_messages = ({"role": "system", "content": step.review_system},
                                    {"role": "user", "content": step.review_user(value)})
@@ -239,6 +256,9 @@ class SectionRunner:
             "reviewer_model": self._model(self.reviewer),
             "reviewer_independence": self.independence,
             "inputs_digest": content_digest(step.system, step.user),
+            "card": step.card,
+            "prefix_sha256": hashlib.sha256(step.system.encode("utf-8")).hexdigest(),
+            "review_prefix_sha256": hashlib.sha256(step.review_system.encode("utf-8")).hexdigest() if step.review_system else None,
             "inputs": {"system": step.system, "user": safe_content(step.user)},
             "rounds": result.rounds,
             "avoid_rounds": [r["round"] for r in result.rounds if not r.get("passed")],
