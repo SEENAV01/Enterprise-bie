@@ -113,6 +113,9 @@ Decided on 22 October 2026 (`deployment/codex-vm/README.md`): Codex cloud works 
 shuts down, so the maker runs with `codex exec` on a small private machine (recommended AWS Lightsail Mumbai,
 about ₹1,340 a month), never in this public repository's Actions. The route, the cost-guard update and the
 machine kit are built first; the live test runs once Navin has said yes and signed the machine in.
+Machine (22 October 2026): Navin chose Hostinger KVM 2 in Mumbai (Ubuntu 24.04, about ₹1,300 a month, 1-month term,
+30-day refund) instead of Lightsail and finished `bie-setup`; the Step 5 live test (tissue pages 1, 7, 11, 13, cap ₹30)
+runs after his yes to its estimate.
 Task 044c (22 October 2026, report only, `docs/roadmap/SIWC_FEASIBILITY.md`): the Codex route stays primary;
 Sign in with ChatGPT is an optional later route, only after a one-time probe (needs Navin's yes) and an answer
 from OpenAI on where tokens may be stored.
