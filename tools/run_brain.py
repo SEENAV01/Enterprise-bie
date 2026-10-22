@@ -13,10 +13,18 @@
       --exam "UPSC / State PCS" --language Hinglish --maker anthropic --reviewer openai
 
 Keys come only from environment variables (GitHub Actions secrets). The maker and the reviewer must be
-different providers. Outputs in --out: chapter_map.json, MAP.md, records/ (one process record per step,
-images by hash only), LEDGER.jsonl (every provider call with tokens and estimated cost) and
-SUMMARY.json (also printed as ::notice annotations). --fake runs offline with the deterministic
-brain fake.
+different providers; while only one provider key is usable, the same provider is allowed with another
+model (--reviewer-model; temporary, marked "same_company_temporary" in every record). Outputs in --out:
+chapter_map.json, MAP.md, records/ (one process record per step, images by hash only), LEDGER.jsonl (every
+provider call with tokens and estimated cost) and SUMMARY.json (also printed as ::notice annotations).
+--fake runs offline with the deterministic brain fake.
+
+Cost guard ("pahra", bie/model_gateway/live/budget.py): before any work, an estimate in rupees per section
+("Andaaza Rs X, seema Rs Y") and one tiny preflight call per route; a failed preflight (balance, budget,
+key) stops the run before real work. --max-inr (default 300) is a hard cap checked before every call: a
+call that would cross it is not sent, passed work is kept and the status is "stopped: budget". SUMMARY.json
+reports rupees per section and per page (price-table estimates, not the bill) and keeps real_bill_inr for
+the dashboard amount.
 """
 from __future__ import annotations
 
@@ -29,6 +37,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
+from bie.brain import cost as cost_module  # noqa: E402
 from bie.brain import rulebook as rulebook_module  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
@@ -38,7 +47,9 @@ from bie.brain.lesson import run_lesson  # noqa: E402
 from bie.brain.notes import run_notes  # noqa: E402
 from bie.brain.understanding import Course, run_chapter  # noqa: E402
 from bie.brain.visual import run_visual  # noqa: E402
-from bie.model_gateway.live.config import ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes  # noqa: E402
+from bie.model_gateway.live.budget import COST_NOTE, CostGuard, preflight, preflight_message, usd_inr  # noqa: E402
+from bie.model_gateway.live.config import (ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes,  # noqa: E402
+                                           make_client, route_for)
 from bie.model_gateway.live.errors import redact  # noqa: E402
 from bie.model_gateway.live.gateway import LiveGateway  # noqa: E402
 from bie.model_gateway.live.ledger import UsageLedger  # noqa: E402
@@ -54,15 +65,52 @@ def read_text(source: str) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens):
-    providers = [p for p in (maker, reviewer) if p]
+def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_model="", guard=None):
+    """(gateway, reviewer route). A same-provider reviewer gets its own route ``<provider>-checker`` with
+    ``reviewer_model``, which must differ from the maker's model."""
+    same = maker == reviewer
+    if same and not reviewer_model:
+        raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: a same-company checker needs --reviewer-model")
+    providers = [maker] if same else [p for p in (maker, reviewer) if p]
     if fake:
         routes = {p: ADAPTERS[p](BrainFakeClient(p), f"fake-{p}") for p in providers}
-        return LiveGateway(routes, ledger=ledger, sleep=lambda s: None)
-    routes, missing = build_routes(providers, max_output_tokens=max_output_tokens, stream=True)
-    if missing:
-        raise SystemExit("NOT_CONFIGURED:" + ",".join(missing))
-    return LiveGateway(routes, ledger=ledger)
+    else:
+        routes, missing = build_routes(providers, max_output_tokens=max_output_tokens, stream=True)
+        if missing:
+            raise SystemExit("NOT_CONFIGURED:" + ",".join(missing))
+    route = reviewer
+    if reviewer and reviewer_model:
+        route = f"{reviewer}-checker" if same else reviewer
+        if fake:
+            client, model = BrainFakeClient(reviewer), "fake-" + reviewer_model.replace("/", "-")
+        else:
+            via, key = route_for(reviewer)
+            client, model = make_client(reviewer, key, via=via, max_output_tokens=max_output_tokens, stream=True), reviewer_model
+        if same and model == routes[maker].model:
+            raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: the checker needs another model than the maker")
+        routes[route] = ADAPTERS[reviewer](client, model)
+    extra = {"sleep": lambda s: None} if fake else {}
+    return LiveGateway(routes, ledger=ledger, guard=guard, **extra), route
+
+
+def page_total(pdf_bytes: bytes, spec: str | None) -> int:
+    import pypdfium2 as pdfium
+
+    from bie.brain.pages import parse_page_range
+    document = pdfium.PdfDocument(pdf_bytes)
+    try:
+        count = len(document)
+    finally:
+        document.close()
+    return len(parse_page_range(spec, count))
+
+
+def chapter_pages(chapter: dict) -> int:
+    return len(chapter.get("pages") or []) or int(chapter.get("page_count") or 1)
+
+
+def stop_status(guard) -> str:
+    return "stopped: balance" if (guard.stop_reason or "").startswith("balance") else "stopped: budget"
 
 
 def main(argv=None):
@@ -84,6 +132,9 @@ def main(argv=None):
     parser.add_argument("--language", default="Hinglish")
     parser.add_argument("--maker", choices=PROVIDERS, default="openai")
     parser.add_argument("--reviewer", choices=PROVIDERS, default="google")
+    parser.add_argument("--reviewer-model", default="", help="checker model; required when maker and reviewer are the same "
+                                                             "provider (temporary same-company checker)")
+    parser.add_argument("--max-inr", type=float, default=300.0, help="hard cost cap in rupees for this run (default 300)")
     parser.add_argument("--models", default="", help="for example anthropic=anthropic/claude-opus-5.5")
     parser.add_argument("--routes", default="", help="for example anthropic=aicredits")
     parser.add_argument("--workers", type=int, default=4)
@@ -97,8 +148,10 @@ def main(argv=None):
         if not sep or key.strip() not in ("title", "subject", "learners", "exam", "language"):
             raise SystemExit("BAD_COURSE_FIELD:" + pair)
         setattr(args, key.strip(), value.strip())
-    if args.maker == args.reviewer:
+    if args.maker == args.reviewer and not args.reviewer_model:
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER")
+    if args.max_inr <= 0:
+        raise SystemExit("MAX_INR_MUST_BE_POSITIVE")
     apply_overrides(args.models, MODEL_ENV, "MODEL")
     apply_overrides(args.routes, VIA_ENV, "ROUTE")
     out = Path(args.out)
@@ -106,31 +159,33 @@ def main(argv=None):
     secrets = all_keys()
     ledger = UsageLedger(out / "LEDGER.jsonl")
     summary = {"section": args.section, "fake": args.fake, "maker": args.maker, "reviewer": args.reviewer}
+    rate = usd_inr()
+    guard = CostGuard(args.max_inr, rate=rate)
+    pages = 0
     try:
-        gateway = build_gateway(args.maker, args.reviewer, fake=args.fake, ledger=ledger,
-                                max_output_tokens=args.max_output_tokens)
+        gateway, reviewer = build_gateway(args.maker, args.reviewer, fake=args.fake, ledger=ledger,
+                                          max_output_tokens=args.max_output_tokens, reviewer_model=args.reviewer_model,
+                                          guard=guard)
         summary["models"] = {route: gateway.model_of(route) for route in gateway.routes}
         book = rulebook_module.load()
-        runner = SectionRunner(gateway, maker=args.maker, reviewer=args.reviewer, rulebook=book,
-                               records_dir=out / "records")
+        runner = SectionRunner(gateway, maker=args.maker, reviewer=reviewer, rulebook=book, records_dir=out / "records")
+        summary.update(reviewer_route=reviewer, reviewer_independence=runner.independence)
         course = Course(title=args.title or "Chapter", subject=args.subject or "as in the chapter",
                         learners=args.learners or "learners of this book", exam=args.exam or "their exam", language=args.language)
         summary.update(status="ok", rulebook=book.version)
+        # Inputs first, so the estimate knows the page count.
         if args.section in ("understand", "chain"):
             if not args.source:
                 raise SystemExit("SOURCE_REQUIRED")
+            pdf = read_source(args.source)
+            pages = page_total(pdf, args.pages)
             previous = json.loads(read_text(args.resume_from.rstrip("/") + "/chapter_map.json")) if args.resume_from else None
-            chapter = run_chapter(read_source(args.source), course, runner, out, pages=args.pages, workers=args.workers,
-                                  max_rounds=args.max_rounds, previous_chapter=previous)
-            summary.update(quality=chapter["quality"], map_status=chapter["map_status"],
-                           pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd")} for p in chapter["pages"]])
-            if args.section == "chain" and chapter["map_status"] != "passed":
-                summary.update(status="stopped", error="the chapter map did not pass, so the lesson and director were not run")
         elif args.section in ("lesson", "notes", "game"):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
             chapter = json.loads(read_text(args.chapter_map))
             course = Course(**chapter["course"]) if not args.course else course
+            pages = chapter_pages(chapter)
         else:
             if not args.from_run:
                 raise SystemExit("FROM_RUN_REQUIRED")
@@ -140,27 +195,62 @@ def main(argv=None):
             if args.section == "visual":
                 director = json.loads(read_text(base + "director.json"))
             course = Course(**chapter["course"]) if not args.course else course
+            pages = chapter_pages(chapter)
+        estimate = cost_module.estimate(args.section, pages, rate=rate, maker_model=gateway.model_of(args.maker),
+                                        reviewer_model=gateway.model_of(reviewer), with_visual=args.with_visual)
+        summary["estimate"] = estimate
+        notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
+               "warning" if estimate["total_inr"] > args.max_inr else "notice")
+        checked = preflight(gateway)
+        summary["preflight"] = checked
+        for route, entry in checked["routes"].items():
+            if entry["status"] != "ok":
+                notice(f"pahra preflight {route}", redact(preflight_message(route, entry), secrets), "error")
+            elif entry.get("wallet"):
+                notice(f"pahra wallet {route}", redact(json.dumps(entry["wallet"]), secrets))
+        if not checked["passed"]:
+            summary.update(status="stopped: preflight",
+                           error="a preflight call failed, so no section was run (see the pahra preflight annotations)")
+        if args.section in ("understand", "chain") and summary["status"] == "ok":
+            chapter = run_chapter(pdf, course, runner, out, pages=args.pages, workers=args.workers,
+                                  max_rounds=args.max_rounds, previous_chapter=previous)
+            summary.update(quality=chapter["quality"], map_status=chapter["map_status"],
+                           pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd")} for p in chapter["pages"]])
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+            elif args.section == "chain" and chapter["map_status"] != "passed":
+                summary.update(status="stopped", error="the chapter map did not pass, so the lesson and director were not run")
         if args.section in ("notes", "chain") and summary["status"] == "ok":
             notes = run_notes(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(notes_quality=notes["quality"])
+        if guard.stopped and summary["status"] == "ok":
+            summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if args.section in ("game", "chain") and summary["status"] == "ok":
             game = run_game_design(chapter, course, runner, out, max_rounds=args.max_rounds)
             summary.update(game_quality=game["quality"])
+        if guard.stopped and summary["status"] == "ok":
+            summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if args.section in ("lesson", "chain") and summary["status"] == "ok":
             lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(lesson_quality=lesson["quality"],
                            videos=[{k: v[k] for k in ("video_id", "status", "rounds", "cost_usd")} for v in lesson["videos"]])
-        if args.section == "chain" and summary["status"] == "ok" and not lesson["quality"]["videos_passed"]:
-            summary.update(status="stopped", error="no lesson script passed, so the director was not run")
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+            elif args.section == "chain" and not lesson["quality"]["videos_passed"]:
+                summary.update(status="stopped", error="no lesson script passed, so the director was not run")
         if args.section in ("director", "chain") and summary["status"] == "ok":
             director = run_director(chapter, lesson, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(director_quality=director["quality"])
-        if args.section == "visual" or (args.section == "chain" and args.with_visual and summary["status"] == "ok"):
+        if guard.stopped and summary["status"] == "ok":
+            summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
+        if summary["status"] == "ok" and (args.section == "visual" or (args.section == "chain" and args.with_visual)):
             wanted = {v.strip() for v in args.videos.split(",") if v.strip()}
             if wanted:
                 director = dict(director, videos=[v for v in director["videos"] if v["video_id"] in wanted])
             visual = run_visual(chapter, lesson, director, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
             summary.update(visual_quality=visual["quality"])
+            if guard.stopped:
+                summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
             if args.render:
                 from bie.brain.video.render import RenderError, mp4
                 (out / "videos").mkdir(exist_ok=True)
@@ -176,15 +266,22 @@ def main(argv=None):
         summary.update(status="failed", error=redact(f"{type(exc).__name__}: {exc}", secrets)[:500])
     summary["ledger_calls"] = len(ledger.rows)
     summary["ledger_cost_usd"] = round(sum(r.get("cost_usd") or 0.0 for r in ledger.rows), 6)
-    text = json.dumps(summary, indent=2, sort_keys=True, ensure_ascii=False)
+    summary["cost"] = dict(cost_module.actual(ledger.rows, pages=pages, rate=rate), cap=guard.report(), note=COST_NOTE,
+                           real_bill_inr=None)
+    text = redact(json.dumps(summary, indent=2, sort_keys=True, ensure_ascii=False), secrets)
     (out / "SUMMARY.json").write_text(text + "\n", encoding="utf-8")
+    spent = summary["cost"]
+    notice("pahra kharch", f"Kharch Rs {spent['total_inr']:g}" + (f" (Rs {spent['inr_per_page']:g} per page, {pages} pages)" if pages else "")
+           + f", seema Rs {args.max_inr:g}; " + ", ".join(f"{k} Rs {v['inr']:g}" for k, v in spent["sections"].items())
+           + ". Ledger estimate, not the bill.", "warning" if guard.stopped else "notice")
+    level = ("notice" if summary["status"] == "ok" else "warning" if summary["status"] in ("stopped", "stopped: budget")
+             else "error")
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
-                                                         ("status", "quality", "map_status", "notes_quality", "game_quality",
-                                                          "lesson_quality", "director_quality", "visual_quality",
-                                                          "render_errors", "ledger_cost_usd", "error")},
-                                                        ensure_ascii=False), secrets),
-           "notice" if summary["status"] == "ok" else "warning" if summary["status"] == "stopped" else "error")
-    return 0 if summary["status"] in ("ok", "stopped") else 1
+                                                         ("status", "stop_reason", "quality", "map_status", "notes_quality",
+                                                          "game_quality", "lesson_quality", "director_quality",
+                                                          "visual_quality", "render_errors", "ledger_cost_usd", "error")},
+                                                        ensure_ascii=False), secrets), level)
+    return 0 if summary["status"] in ("ok", "stopped", "stopped: budget") else 1
 
 
 if __name__ == "__main__":

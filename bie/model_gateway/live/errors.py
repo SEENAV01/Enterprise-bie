@@ -13,6 +13,8 @@ KINDS = RETRYABLE_KINDS | frozenset({
     "malformed",     # the response could not be read
     "schema_invalid",  # valid JSON that does not match the schema after repair
     "config",        # local configuration (missing key, unknown provider)
+    "balance",       # the provider or reseller says the wallet, key budget or quota is used up
+    "budget",        # BIE's own cost guard stopped the call before it was sent
 })
 
 
@@ -33,7 +35,16 @@ class ProviderError(RuntimeError):
         return self.kind in RETRYABLE_KINDS
 
 
+# Wallet, key budget or quota exhausted: retrying cannot help and only adds calls. OpenAI sends 429
+# "insufficient_quota"; AICredits sends 402 "insufficient_quota" ("API Key Budget Exceeded",
+# "Insufficient Balance"); Anthropic's Messages format names it "billing_error".
+_BALANCE_TEXT = re.compile(r"(?i)insufficient[_ ]quota|insufficient[_ ]balance|credit[_ ]balance|billing[_ ]error|"
+                           r"budget[_ ]exceeded|no credits remaining|exceeded your current quota")
+
+
 def kind_for_status(status: int) -> str:
+    if status == 402:
+        return "balance"
     if status in (401, 403):
         return "auth"
     if status == 404:
@@ -47,6 +58,13 @@ def kind_for_status(status: int) -> str:
     if status >= 500:
         return "server_error"
     return "bad_request"
+
+
+def classify(status: int | None, text: object = "") -> str:
+    """The kind for an HTTP status and the provider's error text; balance messages win over the status."""
+    if _BALANCE_TEXT.search(str(text or "")):
+        return "balance"
+    return kind_for_status(status) if status is not None else "server_error"
 
 
 _KEY_PATTERNS = (

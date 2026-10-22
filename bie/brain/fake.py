@@ -182,7 +182,9 @@ class BrainFakeClient:
         split_messages(messages, provider=self.provider)
         user = text_of(messages[1]["content"])
         props = (schema or {}).get("properties", {})
-        if "verdict" in props:
+        if list(props) == ["status"]:                   # the cost guard's preflight call
+            value = {"status": "ready"}
+        elif "verdict" in props:
             value = review_answer(schema)
             if self.fail_reviews > 0:
                 self.fail_reviews -= 1

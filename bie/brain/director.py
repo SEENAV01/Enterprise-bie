@@ -217,6 +217,7 @@ def run_director(chapter: dict, lesson: dict, course: Course, runner, out_dir, *
         "rulebook_version": runner.rulebook.version,
         "maker_route": runner.maker,
         "reviewer_route": runner.reviewer,
+        "reviewer_independence": runner.independence,
         "videos": [{
             "video_id": video["video_id"],
             "title": video["title"],

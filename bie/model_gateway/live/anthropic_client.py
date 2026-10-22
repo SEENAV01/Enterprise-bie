@@ -5,7 +5,7 @@ header). Source: platform.claude.com/docs/en/build-with-claude/structured-output
 """
 from __future__ import annotations
 
-from .errors import ProviderError
+from .errors import ProviderError, classify
 from .messages import anthropic_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
@@ -59,7 +59,7 @@ class AnthropicClient:
                     raw["usage"].update({k: v for k, v in (event.get("usage") or {}).items() if v is not None})
                 elif kind == "error":
                     error = event.get("error") or {}
-                    raise ProviderError("server_error", str(error.get("message") or error)[:300], provider=self.provider)
+                    raise ProviderError(classify(None, error), str(error.get("message") or error)[:300], provider=self.provider)
             raw["content"] = [{"type": "text", "text": "".join(texts)}]
             return self.parse(raw)
         raw = self.transport.request_json("POST", self.base_url + "/messages", self._headers(), body,

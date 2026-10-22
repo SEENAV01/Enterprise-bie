@@ -17,7 +17,7 @@ from __future__ import annotations
 import json
 import urllib.parse
 
-from .errors import ProviderError
+from .errors import ProviderError, classify
 from .messages import chat_parts, split_messages
 from .transport import HttpTransport
 
@@ -106,7 +106,9 @@ class OpenAICompatChatClient:
 
     def parse(self, raw):
         if isinstance(raw.get("error"), dict):
-            raise ProviderError("server_error", str(raw["error"].get("message") or "error")[:300], provider=self.via)
+            error = raw["error"]
+            text = " | ".join(str(error.get(k)) for k in ("type", "code", "message") if error.get(k)) or "error"
+            raise ProviderError(classify(None, text), text[:300], provider=self.via)
         self.last_model = raw.get("model")
         usage = raw.get("usage") or {}
         details = usage.get("completion_tokens_details") or {}
@@ -133,5 +135,32 @@ class OpenAICompatChatClient:
         return {"content": content, "usage": normalized, "finish_reason": finish, "model": self.last_model}
 
     def list_models(self):
+        return [m["id"] for m in self.list_model_details()]
+
+    def list_model_details(self):
+        """Every model the gateway lists, with its published price fields (``input_cost_per_1m``,
+        ``output_cost_per_1m``; AICredits does not state the currency, its model page shows USD)."""
         raw = self.transport.request_json("GET", self.models_url, {}, provider=self.via, secrets=(self._key,))
-        return sorted(str(m.get("id")) for m in raw.get("data", []) if isinstance(m, dict) and m.get("id"))
+        keep = ("id", "name", "provider", "context_window", "input_cost_per_1m", "output_cost_per_1m")
+        rows = [{k: m.get(k) for k in keep if m.get(k) is not None} | {"id": str(m["id"])}
+                for m in raw.get("data", []) if isinstance(m, dict) and m.get("id")]
+        return sorted(rows, key=lambda m: m["id"])
+
+    def credits(self):
+        """The key's wallet balance as the gateway reports it (``GET /v1/credits``, free, no tokens).
+
+        The response format is not documented beyond "wallet balance in INR", so only numeric fields whose
+        name mentions balance, credit, budget or remaining are kept."""
+        raw = self.transport.request_json("GET", self.base_url + "/credits", self._headers(), provider=self.via,
+                                          secrets=(self._key,))
+        found = {}
+        def walk(value, prefix=""):
+            for name, item in (value.items() if isinstance(value, dict) else ()):
+                path = prefix + str(name)
+                if isinstance(item, dict):
+                    walk(item, path + ".")
+                elif isinstance(item, (int, float)) and not isinstance(item, bool) and any(
+                        word in path.lower() for word in ("balance", "credit", "budget", "remaining", "inr")):
+                    found[path] = item
+        walk(raw)
+        return found

@@ -176,6 +176,7 @@ def run_game_design(chapter: dict, course: Course, runner, out_dir, *, max_round
         "rulebook_version": runner.rulebook.version,
         "maker_route": runner.maker,
         "reviewer_route": runner.reviewer,
+        "reviewer_independence": runner.independence,
         "status": result.status,
         "rounds": len(result.rounds),
         "game": {k: v for k, v in value.items() if k != "notes"},

@@ -85,14 +85,23 @@ def probe(providers, fake):
         else:
             client = make_client(provider, key, via=via, timeout=60)
         try:
-            models = client.list_models()
+            details = client.list_model_details() if callable(getattr(client, "list_model_details", None)) else None
+            models = [m["id"] for m in details] if details is not None else client.list_models()
         except ProviderError as exc:
             out[provider] = {"status": "failed", "via": via, "error_kind": exc.kind, "error": str(exc)[:300]}
             continue
         wanted = model_for(provider, via=via)
         out[provider] = {"status": "ok", "via": via, "configured_model": wanted, "configured_model_available": wanted in models,
                          "model_count": len(models), "models": models}
+        if details is not None:
+            out[provider]["prices"] = {m["id"]: {k: m[k] for k in ("input_cost_per_1m", "output_cost_per_1m", "context_window")
+                                                 if k in m} for m in details if _family(provider, m["id"])}
     return out
+
+
+def _family(provider, model_id):
+    names = {"anthropic": ("claude",), "openai": ("gpt", "o3", "o4"), "google": ("gemini",)}[provider] + ("fake",)
+    return any(t in model_id for t in names)
 
 
 def write_json(path: Path, value):
@@ -134,11 +143,13 @@ def main(argv=None):
             write_json(out / "PROBE.json", result)
             for provider, item in result.items():
                 if item["status"] == "ok":
-                    family = {"anthropic": ("claude",), "openai": ("gpt", "o3", "o4"), "google": ("gemini",)}[provider] + ("fake",)
-                    names = [m for m in item["models"] if any(t in m for t in family)]
+                    names = [m for m in item["models"] if _family(provider, m)]
+                    prices = item.get("prices") or {}
+                    listed = [m + (f" ({prices[m].get('input_cost_per_1m')}/{prices[m].get('output_cost_per_1m')} per 1M)"
+                                   if m in prices else "") for m in names]
                     notice(f"probe {provider}", f"via {item['via']}: configured {item['configured_model']} "
                                                  f"available={item['configured_model_available']}; "
-                                                 f"{item['model_count']} models: " + ", ".join(names[:120]))
+                                                 f"{item['model_count']} models: " + ", ".join(listed[:120]))
                 else:
                     notice(f"probe {provider}", json.dumps(item), "warning")
             ok = any(item["status"] == "ok" for item in result.values())

@@ -204,6 +204,7 @@ def run_notes(chapter: dict, course: Course, runner, out_dir, *, workers: int = 
         "rulebook_version": runner.rulebook.version,
         "maker_route": runner.maker,
         "reviewer_route": runner.reviewer,
+        "reviewer_independence": runner.independence,
         "concepts": [{
             "concept_id": cid, "name": concepts[cid]["name"], "status": result.status, "rounds": len(result.rounds),
             "slides": (result.output or {}).get("slides", []),
