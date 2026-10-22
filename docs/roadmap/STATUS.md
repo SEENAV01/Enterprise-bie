@@ -7,15 +7,24 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | 044 · ChatGPT Pro as BIE's maker (GPT via the Codex CLI), Gemini 4 Argon as checker |
-| Branch | `task044-chatgpt-pro` (PR to `main`) |
-| State | Codex maker route, cost-guard update and the private-machine kit built and tested offline; **waiting for Navin's yes to the machine** (AWS Lightsail Mumbai, about ₹1,340 a month); the live test follows once the machine is signed in |
+| Current task | 044c · Sign in with ChatGPT (SIWC) feasibility report (report only, nothing built) |
+| Branch | `task044c-siwc-feasibility` (PR to `main`) |
+| State | Report written (`docs/roadmap/SIWC_FEASIBILITY.md`). Task 044's code is merged (PR #43); its live test still **waits for Navin's yes to the machine** (AWS Lightsail Mumbai, about ₹1,340 a month). Task 044b (laptop/WSL variant) was never approved and is not started |
 | Next task | 045 · Understanding and script on the tarazu (after the 044 live test) |
-| Canonical main | `afe169b1` (PR #42 merged: Task 043) |
+| Canonical main | `9fbb256a` (PR #43 merged: Task 044 code) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro on Navin's private machine |
+
+## Task 044c · Sign in with ChatGPT feasibility (22 October 2026, report only)
+
+- **Report:** `docs/roadmap/SIWC_FEASIBILITY.md` (8 questions, every rule quoted with its URL, status words confirmed / confirmed (excerpt) / not confirmed / unknown). No code, no sign-in, no model call, ₹0.
+- **Verdict: conditional (shart ke saath).** The plan could power BIE's maker only from a machine Navin alone controls. His own laptop is the only place the SIWC terms clearly allow; a VPS he alone controls is described by the developer docs but conflicts with the terms sentence "Any persistent storage of Authentication Tokens must be local and under the user's control, not in a remote or managed environment." (excerpt; the terms page returns HTTP 403 to our tools). GitHub Actions, Codespaces and managed VPS plans are not allowed.
+- **Plan change: none.** The Codex route (Task 044) stays primary: it enforces the JSON schema (SIWC does not document one), signs in on the server itself and shows plan usage. SIWC uses the same ChatGPT/Codex usage pool.
+- **Unknowns:** JSON-schema output, whether BIE counts as open source without a LICENSE, whether a commercial personal project qualifies, how far a suspension would reach.
+- **Next (all optional, Navin's choice):** a one-time probe on his laptop (designed in the report, not written), OpenAI's interest form to ask about a rented server; the Codex machine decision is still open.
 
 ## Task 044 · ChatGPT Pro maker (22 October 2026)
 
+- **PR #43 merged** at `9fbb256a` (code, tests and the machine kit); the live test waits for the machine.
 - **PR #42 merged** at `afe169b1` after all 7 checks on its head `f432e245` passed.
 - **Hosting decision** (`deployment/codex-vm/README.md`), from OpenAI's docs read on 22 Oct 2026 and the Codex CLI itself (0.162.1, installed in the cloud workspace without signing in):
   - ChatGPT sign-in for automation is for trusted private machines only ("Do not use this workflow for public or open-source repositories"); this repository is public, so its GitHub Actions never sign in. The Anthropic and GPT API key secrets were removed from the live workflow step.
@@ -103,6 +112,7 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | 2026-10-20 | 037C · Let working source evolve | PR #34 merged at `dce749ed` after all 12 checks passed on its final head `377e313c` |
 | 2026-10-22 | 039–042 · Brain frame, Sections 1–4 and 6–7 (design), asset library | PR #41 merged at `c8853eb2` after all 7 checks passed on its final head `0287f668`; Section 1 INTEGRATED, the rest IMPLEMENTED |
 | 2026-10-22 | 043 · Cost guard, tarazu audit, content-type map, task-card design | PR #42 merged at `afe169b1` after all 7 checks passed on its final head `f432e245` |
+| 2026-10-22 | 044 · Codex maker route, cost-guard update, private-machine kit (code only) | PR #43 merged at `9fbb256a`; IMPLEMENTED offline, the live test waits for the machine |
 
 ## Task 037B · what changed
 
@@ -155,6 +165,8 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 - [x] Cost target — ₹50–300 per book; a cost guard now, optimisation later (22 October 2026).
 - [x] Keys — never the Anthropic key; GPT API key off; only the Gemini key (AICredits) until ChatGPT Pro is connected (22 October 2026).
 - [ ] The Codex machine: yes or no to AWS Lightsail Mumbai, 2 GB, $12 a month (about ₹1,340 with GST), or the $7 option; then the one-time steps in `deployment/codex-vm/README.md` (create the machine with the launch script, then `sudo bie-setup`: Gemini key, GitHub deploy key, ChatGPT sign-in with a code). Includes approving the deploy key (it can write to the repository).
+- [ ] Optional (Task 044c): approve a one-time Sign in with ChatGPT probe on the laptop, as an exception to "never run things locally" (`docs/roadmap/SIWC_FEASIBILITY.md`, section 5).
+- [ ] Optional (Task 044c): fill in OpenAI's interest form to ask whether BIE may use the plan from a rented server Navin alone controls (Claude can draft the answers).
 - [ ] Optional now: a second model on the AICredits Gemini key (proposed `google/gemini-3.1-pro-preview`) — needed only for a same-company fallback when the Codex maker is unavailable.
 - [ ] Monthly budget (Navin set the estimates aside on 21 October; decide on measured cost).
 - [ ] Narration voice — by ear, among tested options including a cloned voice (Task 047).

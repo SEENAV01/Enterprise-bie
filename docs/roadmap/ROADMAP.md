@@ -113,6 +113,9 @@ Decided on 22 October 2026 (`deployment/codex-vm/README.md`): Codex cloud works 
 shuts down, so the maker runs with `codex exec` on a small private machine (recommended AWS Lightsail Mumbai,
 about ₹1,340 a month), never in this public repository's Actions. The route, the cost-guard update and the
 machine kit are built first; the live test runs once Navin has said yes and signed the machine in.
+Task 044c (22 October 2026, report only, `docs/roadmap/SIWC_FEASIBILITY.md`): the Codex route stays primary;
+Sign in with ChatGPT is an optional later route, only after a one-time probe (needs Navin's yes) and an answer
+from OpenAI on where tokens may be stored.
 
 **045 · Understanding and script on the tarazu** — a compact chapter map shared by all sections; content-type
 detection in code (`content_types.json`) compared with the AI's type; task cards for Sections 1 and 2; merge
