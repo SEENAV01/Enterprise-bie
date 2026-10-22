@@ -1,0 +1,95 @@
+{
+  "cost": {
+    "cap": {
+      "by_section_inr": {
+        "preflight": 0.08
+      },
+      "calls_allowed": 2,
+      "calls_refused": 0,
+      "cap_inr": 5.0,
+      "spent_inr": 0.08,
+      "spent_usd": 0.000873,
+      "stop_reason": "preflight: google-checker auth",
+      "stopped": true,
+      "usd_inr": 94.59
+    },
+    "inr_per_page": 0.08,
+    "note": "Ledger cost is an estimate: exact token counts times the dated price table in bie/model_gateway/live/pricing.py (plus the AICredits 10% markup), converted at usd_inr. It is not the bill. Write the provider dashboard amount for this run into real_bill_inr (and docs/roadmap/COST_LOG.md) to compare.",
+    "pages": 1,
+    "real_bill_inr": null,
+    "sections": {
+      "preflight": {
+        "calls": 2,
+        "inr": 0.08,
+        "inr_per_page": 0.08,
+        "name": "preflight",
+        "usd": 0.000873
+      }
+    },
+    "total_inr": 0.08,
+    "total_usd": 0.000873,
+    "usd_inr": 94.59
+  },
+  "error": "a preflight call failed, so no section was run (see the pahra preflight annotations)",
+  "estimate": {
+    "measured_share_inr": 23.47,
+    "pages": 1,
+    "price_scale": 1.029,
+    "sections": {
+      "connect": {
+        "basis": "measured",
+        "inr": 5.84,
+        "inr_per_page": 5.84,
+        "source": "run 39627682253 maker + run 39617164262 reviewer share"
+      },
+      "understand": {
+        "basis": "measured",
+        "inr": 17.63,
+        "inr_per_page": 17.63,
+        "source": "run 39620281561, 14 pages"
+      }
+    },
+    "total_inr": 23.47,
+    "usd_inr": 94.59
+  },
+  "fake": false,
+  "ledger_calls": 2,
+  "ledger_cost_usd": 0.000873,
+  "maker": "google",
+  "models": {
+    "google": "google/gemini-4-argon",
+    "google-checker": "google/gemini-3.1-pro-preview"
+  },
+  "preflight": {
+    "passed": false,
+    "routes": {
+      "google": {
+        "input_tokens": 287,
+        "model": "google/gemini-4-argon",
+        "output_tokens": 22,
+        "returned_model": "google/gemini-4-argon",
+        "status": "ok",
+        "via": "aicredits",
+        "wallet": {
+          "unavailable": "not_found"
+        }
+      },
+      "google-checker": {
+        "error": "invalid_request_error | model_not_allowed | This API key is not permitted to use model 'google/gemini-3.1-pro-preview'.",
+        "error_kind": "auth",
+        "model": "google/gemini-3.1-pro-preview",
+        "status": "failed",
+        "via": "aicredits",
+        "wallet": {
+          "unavailable": "not_found"
+        }
+      }
+    }
+  },
+  "reviewer": "google",
+  "reviewer_independence": "same_company_temporary",
+  "reviewer_route": "google-checker",
+  "rulebook": "vision-2026-10-21@2026-10-21.7",
+  "section": "understand",
+  "status": "stopped: preflight"
+}
