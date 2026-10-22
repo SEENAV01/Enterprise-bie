@@ -65,6 +65,10 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 - **Live test (pending the machine):** brain-understand on the tissue chapter resuming from run 39627682253 (pages 1, 7, 11 and 13 run, the other 10 reused), maker codex, checker Gemini 4 Argon, `max_inr` 30; the chapter map is rebuilt over all 14 pages for Task 045.
 - **Status words:** the Codex route is IMPLEMENTED (offline, fake CLI); nothing live yet.
 
+## 22 October 2026 · build freedom (Task 044d)
+
+- Navin decided that Claude may write any amount of code and add any tools, resources, code libraries and subject-specific libraries (for example SciPy, RDKit, three.js) that make BIE better, even beyond the tarazu, as long as everything joins the existing BIE (use, extend, or replace and retire explicitly) and nothing becomes a parallel system. Recorded in `CLAUDE.md` under "Engineering rules (binding)" as "Build freedom", with its guardrails: licence check, pinning and tests for every library; real-book proof and honest status words for every part; the cost guard and "reuse, do not duplicate" still apply; security-sensitive changes, budget and quality verdicts stay Navin's to decide.
+
 ## 22 October 2026 · what was agreed
 
 - **BIE is the system between Navin and AI** (binding): it understands the whole book (chapter map), tells the AI exactly what to make through compact task cards and fixed output formats, checks every output with code and a second AI, builds video, game and notes with its own engines (the AI only fills data), and records and locks whatever passes. Not a prompt wrapper; lesson content only by BIE.
