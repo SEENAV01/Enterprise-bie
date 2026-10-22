@@ -23,7 +23,7 @@ from .budget import STOP_KINDS, output_cap
 from .disk_cache import cache_key
 from .errors import ProviderError
 from .ledger import UsageLedger
-from .pricing import estimate_cost
+from .pricing import SUBSCRIPTION_VIAS, estimate_cost
 
 DEFAULT_RETRY = RetryPolicy(max_attempts=4, base_delay=2.0, max_delay=60.0)
 REPAIR_INSTRUCTION = ("Your previous answer did not match the required JSON schema: {problem}. "
@@ -64,7 +64,8 @@ class LiveGateway:
                     "temperature": request.temperature, "prompt_version": prompt_version}
         key = cache_key(**identity)
         via = getattr(getattr(adapter, "client", None), "via", "direct")
-        base = {"request_id": request.request_id, "provider": provider, "via": via, "model": model, "prompt_version": prompt_version}
+        base = {"request_id": request.request_id, "provider": provider, "via": via, "model": model, "prompt_version": prompt_version,
+                "billing": "subscription" if via in SUBSCRIPTION_VIAS else "api"}
 
         if self.cache is not None:
             hit = self.cache.get(key)

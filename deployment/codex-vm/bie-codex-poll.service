@@ -1,0 +1,15 @@
+[Unit]
+Description=BIE Codex machine: run queued BIE jobs (tools/codex_vm.py poll)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=bie
+Group=bie
+EnvironmentFile=/etc/bie/bie.env
+WorkingDirectory=/var/lib/bie/repo
+ExecStart=/var/lib/bie/venv/bin/python -B tools/codex_vm.py poll
+TimeoutStartSec=9h
+NoNewPrivileges=yes
+PrivateTmp=yes

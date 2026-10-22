@@ -7,7 +7,7 @@ from pathlib import Path
 
 FIELDS = ("seq", "request_id", "provider", "via", "model", "returned_model", "attempt", "outcome", "error_kind",
           "cache_hit", "input_tokens", "output_tokens", "reasoning_tokens", "cost_usd", "latency_ms", "prompt_version",
-          "cached_input_tokens")
+          "cached_input_tokens", "billing")
 
 
 class UsageLedger:

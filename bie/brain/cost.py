@@ -49,17 +49,20 @@ def _blend(model, env=None):
     return None if price is None else 0.3 * price[0] + 0.7 * price[1]
 
 
-def price_scale(maker_model, reviewer_model, env=None) -> float | None:
-    maker, reviewer = _blend(maker_model, env), _blend(reviewer_model, env)
+def price_scale(maker_model, reviewer_model, env=None, *, maker_subscription=False) -> float | None:
+    """Price of these models against the measured basis; a subscription maker (Codex) adds no rupees."""
+    maker, reviewer = (0.0 if maker_subscription else _blend(maker_model, env)), _blend(reviewer_model, env)
     if maker is None or reviewer is None:
         return None
     return (MAKER_SHARE * maker + (1 - MAKER_SHARE) * reviewer) / BASIS_BLEND
 
 
-def estimate(mode: str, pages: int, *, rate: float, maker_model=None, reviewer_model=None, with_visual=False, env=None) -> dict:
+def estimate(mode: str, pages: int, *, rate: float, maker_model=None, reviewer_model=None, with_visual=False, env=None,
+             maker_subscription=False) -> dict:
     """Rupees per section for ``pages`` pages. ``scale`` is None when a model has no price (estimate on the basis)."""
     sections = SECTIONS_OF_MODE[mode] + (("visual",) if mode == "chain" and with_visual else ())
-    scale = price_scale(maker_model, reviewer_model, env) if maker_model and reviewer_model else None
+    scale = (price_scale(maker_model, reviewer_model, env, maker_subscription=maker_subscription)
+             if maker_model and reviewer_model else None)
     factor = 1.0 if scale is None else scale
     rows = {}
     for name in sections:
@@ -68,6 +71,7 @@ def estimate(mode: str, pages: int, *, rate: float, maker_model=None, reviewer_m
                       "basis": kind, "source": source}
     total = round(sum(r["inr"] for r in rows.values()), 2)
     return {"pages": pages, "usd_inr": rate, "price_scale": None if scale is None else round(scale, 3),
+            "maker_billing": "subscription" if maker_subscription else "api",
             "sections": rows, "total_inr": total,
             "measured_share_inr": round(sum(r["inr"] for r in rows.values() if r["basis"] == "measured"), 2)}
 
@@ -86,8 +90,19 @@ def actual(ledger_rows, *, pages: int, rate: float) -> dict:
         out[section] = {"name": SECTION_NAMES.get(section, section), "calls": entry["calls"], "usd": round(entry["usd"], 6),
                         "inr": round(inr, 2), "inr_per_page": round(inr / pages, 2) if pages else None}
     total_usd = sum(e["usd"] for e in by.values())
+    plan = [r for r in ledger_rows if r.get("billing") == "subscription"]
+    subscription = None
+    if plan:
+        seconds = sum((r.get("latency_ms") or 0) for r in plan) / 1000
+        subscription = {"calls": len(plan), "failed_calls": sum(r.get("outcome") != "ok" for r in plan),
+                        "input_tokens": sum(r.get("input_tokens") or 0 for r in plan),
+                        "output_tokens": sum(r.get("output_tokens") or 0 for r in plan),
+                        "reasoning_tokens": sum(r.get("reasoning_tokens") or 0 for r in plan),
+                        "minutes": round(seconds / 60, 1),
+                        "note": "paid by the ChatGPT plan, no rupees; time is the sum of call times"}
     return {"pages": pages, "usd_inr": rate, "sections": out, "total_usd": round(total_usd, 6),
-            "total_inr": round(total_usd * rate, 2), "inr_per_page": round(total_usd * rate / pages, 2) if pages else None}
+            "total_inr": round(total_usd * rate, 2), "inr_per_page": round(total_usd * rate / pages, 2) if pages else None,
+            "subscription": subscription}
 
 
 def estimate_line(est: dict, cap_inr: float) -> str:

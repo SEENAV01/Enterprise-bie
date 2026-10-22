@@ -184,6 +184,10 @@ class BrainFakeClient:
         props = (schema or {}).get("properties", {})
         if list(props) == ["status"]:                   # the cost guard's preflight call
             value = {"status": "ready"}
+        elif list(props) == ["number"]:                 # the vision preflight: "reads" 47 only when an image was sent
+            content = messages[1]["content"]
+            sent = not isinstance(content, str) and any(part.get("type") == "image" for part in content)
+            value = {"number": "47" if sent else "none"}
         elif "verdict" in props:
             value = review_answer(schema)
             if self.fail_reviews > 0:

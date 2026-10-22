@@ -7,12 +7,27 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | 043 · Cost guard (pahra), tarazu audit, content-type map, task-card design |
-| Branch | `task043-pahra-tarazu` (PR to `main`) |
-| State | Built and tested offline; live probe, access check and a ₹5 smoke run done; PR open |
-| Next task | 044 · ChatGPT Pro engine (Codex as maker on a private machine; Gemini as checker) |
-| Canonical main | `c8853eb2` (PR #41 merged: Tasks 039–042, the brain) |
-| Keys | Never the Anthropic key. GPT API key off. Only the Gemini key (AICredits) until ChatGPT Pro is connected. That key may call only `google/gemini-4-argon` today |
+| Current task | 044 · ChatGPT Pro as BIE's maker (GPT via the Codex CLI), Gemini 4 Argon as checker |
+| Branch | `task044-chatgpt-pro` (PR to `main`) |
+| State | Codex maker route, cost-guard update and the private-machine kit built and tested offline; **waiting for Navin's yes to the machine** (AWS Lightsail Mumbai, about ₹1,340 a month); the live test follows once the machine is signed in |
+| Next task | 045 · Understanding and script on the tarazu (after the 044 live test) |
+| Canonical main | `afe169b1` (PR #42 merged: Task 043) |
+| Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro on Navin's private machine |
+
+## Task 044 · ChatGPT Pro maker (22 October 2026)
+
+- **PR #42 merged** at `afe169b1` after all 7 checks on its head `f432e245` passed.
+- **Hosting decision** (`deployment/codex-vm/README.md`), from OpenAI's docs read on 22 Oct 2026 and the Codex CLI itself (0.162.1, installed in the cloud workspace without signing in):
+  - ChatGPT sign-in for automation is for trusted private machines only ("Do not use this workflow for public or open-source repositories"); this repository is public, so its GitHub Actions never sign in. The Anthropic and GPT API key secrets were removed from the live workflow step.
+  - Codex cloud: possible only as a slow hand-off (an agent inside a cloud task, started from the ChatGPT app, an `@codex` comment or `codex cloud exec`, which itself needs a signed-in machine; results as diffs or PRs; a new task per remake; no enforced output schema; image reading cannot be checked; same 5-hour plan window). Judged not reliable or automatic enough.
+  - **Chosen: a small private machine running `codex exec`.** Recommended AWS Lightsail Mumbai, 2 GB, $12 a month (about ₹1,340 with GST); budget option $7 (about ₹780); DigitalOcean Bangalore similar; Hetzner about ₹650–700 (no India location); Oracle free tier not recommended (idle machines are reclaimed). Nothing bought; Navin decides.
+  - JioPC: not suitable (shuts down 15 minutes after disconnect).
+- **Codex maker route** (`bie/model_gateway/live/codex_client.py`): one `codex exec` per maker step: instructions and task on stdin, page images as `--image` files (the CLI accepts them; the flags were checked against the real CLI, which reached OpenAI and returned 401 without sign-in), the JSON schema as `--output-schema`, read-only, ephemeral, empty working folder, no API key and no other secret in its environment. Usage per call: `billing: subscription`, Codex's token counts, time; no rupees. A used-up plan window is a new error kind `plan_limit`, never retried; the run ends `stopped: plan limit` and `--resume-from` continues it.
+- **Cost guard update:** preflight checks Codex sign-in first (no call if signed out), reads the plan's usage windows (`account/rateLimits/read` through `codex app-server`) before and after the run, sends a tiny call per route and, for sections that read pages, a picture of the number 47 that each model must read (images are never dropped silently). The rupee cap counts only the Gemini checker; the estimate drops the maker's share when the maker is on the plan. SUMMARY.json adds plan usage before and after, subscription calls, tokens and minutes, and seconds per page.
+- **Private-machine kit** (`deployment/codex-vm/`, `tools/codex_vm.py`): `setup.sh` (no secrets), `sudo bie-setup` for Navin (Gemini key, GitHub deploy key, `codex login --device-auth`), a 2-minute timer that runs jobs from `jobs/<id>.json` on the `codex-jobs` branch through `tools/run_brain.py` and publishes to `blindtest-results`. Security note for Navin's approval: the deploy key can write to the whole repository; branch protection comes with Phase 4.
+- **Tests:** `tools/run_task044_tests.py`, 295 offline tests (22 new in `tests/test_task044_codex.py` with a fake `codex` executable, `bie/brain/fake_codex.py`): success with images and schema, schema error, plan-limit stop and resume, sign-in missing, vision check, no secret reaching Codex, subscription billing, the VM job runner end to end against a local git remote. The Task 043 cap test now counts the vision preflight calls.
+- **Live test (pending the machine):** brain-understand on the tissue chapter resuming from run 39627682253 (pages 1, 7, 11 and 13 run, the other 10 reused), maker codex, checker Gemini 4 Argon, `max_inr` 30; the chapter map is rebuilt over all 14 pages for Task 045.
+- **Status words:** the Codex route is IMPLEMENTED (offline, fake CLI); nothing live yet.
 
 ## 22 October 2026 · what was agreed
 
@@ -21,7 +36,7 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 - **Cost target:** ₹50–300 per book; optimisation later, a cost guard now.
 - **Tasks 043–052** are in ROADMAP. Task numbers in STATUS entries written before 22 October follow the old plan (old 043 Voice is now 047, 044 Render 048, 045 Game 049, 046 Notes 050, 047 Review 051–052).
 
-## Task 043 · cost guard, tarazu, content types, task card
+## Task 043 · cost guard, tarazu, content types, task card (merged in PR #42)
 
 - **PR #41 merged** at `c8853eb2` after all 7 checks on its head `0287f668` passed (Post-DIR canonical, Section 16 combined, Section 18 canonical-regression, native-render and section16-regression, Task038 offline; the live job is skipped on pull requests).
 - **Cost guard ("pahra")** (`bie/model_gateway/live/budget.py`, `bie/brain/cost.py`, `tools/run_brain.py`, workflow input `max_inr`, default 300):
@@ -87,6 +102,7 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | 2026-10-19 | 037B · Fast lane and CI debts | PR #32 merged at `d464d7f7` after all 12 checks passed on its final head `ad1436e5`. F-08 instrumented, not closed |
 | 2026-10-20 | 037C · Let working source evolve | PR #34 merged at `dce749ed` after all 12 checks passed on its final head `377e313c` |
 | 2026-10-22 | 039–042 · Brain frame, Sections 1–4 and 6–7 (design), asset library | PR #41 merged at `c8853eb2` after all 7 checks passed on its final head `0287f668`; Section 1 INTEGRATED, the rest IMPLEMENTED |
+| 2026-10-22 | 043 · Cost guard, tarazu audit, content-type map, task-card design | PR #42 merged at `afe169b1` after all 7 checks passed on its final head `f432e245` |
 
 ## Task 037B · what changed
 
@@ -138,12 +154,12 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 - [x] Video form — animated, code-based (Remotion) and rendered; no AI video-generation models (21 October 2026).
 - [x] Cost target — ₹50–300 per book; a cost guard now, optimisation later (22 October 2026).
 - [x] Keys — never the Anthropic key; GPT API key off; only the Gemini key (AICredits) until ChatGPT Pro is connected (22 October 2026).
-- [ ] Allow a second model on the AICredits Gemini key for the checker: proposed `google/gemini-3.1-pro-preview` (AICredits dashboard → API keys → the Gemini key → allowed models). Until then no brain section can run, because maker and checker must differ.
+- [ ] The Codex machine: yes or no to AWS Lightsail Mumbai, 2 GB, $12 a month (about ₹1,340 with GST), or the $7 option; then the one-time steps in `deployment/codex-vm/README.md` (create the machine with the launch script, then `sudo bie-setup`: Gemini key, GitHub deploy key, ChatGPT sign-in with a code). Includes approving the deploy key (it can write to the repository).
+- [ ] Optional now: a second model on the AICredits Gemini key (proposed `google/gemini-3.1-pro-preview`) — needed only for a same-company fallback when the Codex maker is unavailable.
 - [ ] Monthly budget (Navin set the estimates aside on 21 October; decide on measured cost).
 - [ ] Narration voice — by ear, among tested options including a cloned voice (Task 047).
 - [ ] Video path: A (old Scene IR compiler) or B (brain video path, recommended) — at Task 046.
 - [ ] CC BY-SA assets in a paid course: allowed or not — before Task 046.
-- [ ] Where ChatGPT Pro (Codex) runs: JioPC or a small cloud VM (cost shown first) — Task 044.
 - [ ] What the Dhanteras goal becomes (a pilot of a few chapters?).
 - [ ] Parked Director Step 4–6 work: finish, rework or drop.
 - [ ] Where courses are published first.

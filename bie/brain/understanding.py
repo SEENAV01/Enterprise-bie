@@ -510,6 +510,7 @@ def run_chapter(pdf_bytes: bytes, course: Course, runner: SectionRunner, out_dir
             "record": Path(result.record_path).name if result.record_path else None,
             "reused": number in reuse,
             "cost_usd": result.cost_usd,
+            "seconds": result.seconds,
         } for number, result in results],
         "items": items,
         "map": {k: v for k, v in (connect.output or {}).items() if k != "notes"} if connect else {},

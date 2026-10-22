@@ -25,11 +25,19 @@ key) stops the run before real work. --max-inr (default 300) is a hard cap check
 call that would cross it is not sent, passed work is kept and the status is "stopped: budget". SUMMARY.json
 reports rupees per section and per page (price-table estimates, not the bill) and keeps real_bill_inr for
 the dashboard amount.
+
+Codex maker (Task 044): --maker codex runs the maker through OpenAI's Codex CLI signed in with Navin's
+ChatGPT Pro plan (``codex exec``; BIE_CODEX_BIN names the CLI, BIE_CODEX_MODEL the model). It runs only on
+Navin's private machine (deployment/codex-vm/), never in this public repository's GitHub Actions. Its calls
+cost no rupees; they use the plan, whose usage is shown before and after the run. A used-up plan window
+ends the run as "stopped: plan limit"; --resume-from continues it later.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -40,6 +48,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from bie.brain import cost as cost_module  # noqa: E402
 from bie.brain import rulebook as rulebook_module  # noqa: E402
 from bie.brain.fake import BrainFakeClient  # noqa: E402
+from bie.brain.pages import parse_page_range  # noqa: E402
 from bie.brain.runner import SectionRunner  # noqa: E402
 from bie.brain.director import run_director  # noqa: E402
 from bie.brain.game import run_game_design  # noqa: E402
@@ -47,7 +56,10 @@ from bie.brain.lesson import run_lesson  # noqa: E402
 from bie.brain.notes import run_notes  # noqa: E402
 from bie.brain.understanding import Course, run_chapter  # noqa: E402
 from bie.brain.visual import run_visual  # noqa: E402
+from bie.model_gateway.gpt_adapter import GPTAdapter  # noqa: E402
 from bie.model_gateway.live.budget import COST_NOTE, CostGuard, preflight, preflight_message, usd_inr  # noqa: E402
+from bie.model_gateway.live.codex_client import DEFAULT_MODEL as CODEX_MODEL, CodexExecClient  # noqa: E402
+from bie.model_gateway.live.pricing import SUBSCRIPTION_VIAS  # noqa: E402
 from bie.model_gateway.live.config import (ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes,  # noqa: E402
                                            make_client, route_for)
 from bie.model_gateway.live.errors import redact  # noqa: E402
@@ -67,17 +79,20 @@ def read_text(source: str) -> str:
 
 def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_model="", guard=None):
     """(gateway, reviewer route). A same-provider reviewer gets its own route ``<provider>-checker`` with
-    ``reviewer_model``, which must differ from the maker's model."""
+    ``reviewer_model``, which must differ from the maker's model. The ``codex`` maker always runs the Codex CLI
+    named by BIE_CODEX_BIN (``--fake`` replaces only the API routes, so tests use a fake executable)."""
     same = maker == reviewer
     if same and not reviewer_model:
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: a same-company checker needs --reviewer-model")
-    providers = [maker] if same else [p for p in (maker, reviewer) if p]
+    providers = [maker] if same else [p for p in (maker, reviewer) if p and p != "codex"]
     if fake:
         routes = {p: ADAPTERS[p](BrainFakeClient(p), f"fake-{p}") for p in providers}
     else:
         routes, missing = build_routes(providers, max_output_tokens=max_output_tokens, stream=True)
         if missing:
             raise SystemExit("NOT_CONFIGURED:" + ",".join(missing))
+    if maker == "codex":
+        routes["codex"] = GPTAdapter(CodexExecClient(), os.environ.get("BIE_CODEX_MODEL") or CODEX_MODEL)
     route = reviewer
     if reviewer and reviewer_model:
         route = f"{reviewer}-checker" if same else reviewer
@@ -105,12 +120,24 @@ def page_total(pdf_bytes: bytes, spec: str | None) -> int:
     return len(parse_page_range(spec, count))
 
 
+GRACEFUL = ("stopped", "stopped: budget", "stopped: plan limit")
+
+
 def chapter_pages(chapter: dict) -> int:
     return len(chapter.get("pages") or []) or int(chapter.get("page_count") or 1)
 
 
 def stop_status(guard) -> str:
-    return "stopped: balance" if (guard.stop_reason or "").startswith("balance") else "stopped: budget"
+    reason = guard.stop_reason or ""
+    if reason.startswith("plan_limit"):
+        return "stopped: plan limit"
+    return "stopped: balance" if reason.startswith("balance") else "stopped: budget"
+
+
+def plan_usage(gateway) -> dict:
+    """The plan usage of every subscription route (Codex), numbers only."""
+    return {route: adapter.client.plan_usage() for route, adapter in gateway.routes.items()
+            if callable(getattr(getattr(adapter, "client", None), "plan_usage", None))}
 
 
 def main(argv=None):
@@ -130,7 +157,8 @@ def main(argv=None):
     parser.add_argument("--learners", default="")
     parser.add_argument("--exam", default="")
     parser.add_argument("--language", default="Hinglish")
-    parser.add_argument("--maker", choices=PROVIDERS, default="openai")
+    parser.add_argument("--maker", choices=PROVIDERS + ("codex",), default="openai",
+                        help="codex = GPT through the ChatGPT Pro plan with the Codex CLI (private machine only)")
     parser.add_argument("--reviewer", choices=PROVIDERS, default="google")
     parser.add_argument("--reviewer-model", default="", help="checker model; required when maker and reviewer are the same "
                                                              "provider (temporary same-company checker)")
@@ -180,6 +208,10 @@ def main(argv=None):
             pdf = read_source(args.source)
             pages = page_total(pdf, args.pages)
             previous = json.loads(read_text(args.resume_from.rstrip("/") + "/chapter_map.json")) if args.resume_from else None
+            if previous and previous.get("source_sha256") == hashlib.sha256(pdf).hexdigest():
+                selected = set(parse_page_range(args.pages, previous.get("page_count") or pages))
+                reused = sum(1 for p in previous.get("pages") or [] if p.get("status") == "passed" and p["page"] in selected)
+                summary["resume"] = {"pages_reused": reused, "pages_to_run": pages - reused}
         elif args.section in ("lesson", "notes", "game"):
             if not args.chapter_map:
                 raise SystemExit("CHAPTER_MAP_REQUIRED")
@@ -196,18 +228,22 @@ def main(argv=None):
                 director = json.loads(read_text(base + "director.json"))
             course = Course(**chapter["course"]) if not args.course else course
             pages = chapter_pages(chapter)
-        estimate = cost_module.estimate(args.section, pages, rate=rate, maker_model=gateway.model_of(args.maker),
-                                        reviewer_model=gateway.model_of(reviewer), with_visual=args.with_visual)
+        maker_via = getattr(getattr(gateway.routes[args.maker], "client", None), "via", "direct")
+        estimate = cost_module.estimate(args.section, summary.get("resume", {}).get("pages_to_run", pages), rate=rate,
+                                        maker_model=gateway.model_of(args.maker), reviewer_model=gateway.model_of(reviewer),
+                                        with_visual=args.with_visual, maker_subscription=maker_via in SUBSCRIPTION_VIAS)
         summary["estimate"] = estimate
         notice("pahra andaaza", cost_module.estimate_line(estimate, args.max_inr),
                "warning" if estimate["total_inr"] > args.max_inr else "notice")
-        checked = preflight(gateway)
+        checked = preflight(gateway, vision=args.section in ("understand", "chain", "visual"))
         summary["preflight"] = checked
         for route, entry in checked["routes"].items():
             if entry["status"] != "ok":
                 notice(f"pahra preflight {route}", redact(preflight_message(route, entry), secrets), "error")
             elif entry.get("wallet"):
                 notice(f"pahra wallet {route}", redact(json.dumps(entry["wallet"]), secrets))
+            if entry.get("plan_usage_before"):
+                notice(f"pahra plan {route}", "before the run: " + redact(json.dumps(entry["plan_usage_before"]), secrets))
         if not checked["passed"]:
             summary.update(status="stopped: preflight",
                            error="a preflight call failed, so no section was run (see the pahra preflight annotations)")
@@ -215,7 +251,7 @@ def main(argv=None):
             chapter = run_chapter(pdf, course, runner, out, pages=args.pages, workers=args.workers,
                                   max_rounds=args.max_rounds, previous_chapter=previous)
             summary.update(quality=chapter["quality"], map_status=chapter["map_status"],
-                           pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd")} for p in chapter["pages"]])
+                           pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd", "seconds")} for p in chapter["pages"]])
             if guard.stopped:
                 summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
             elif args.section == "chain" and chapter["map_status"] != "passed":
@@ -266,22 +302,26 @@ def main(argv=None):
         summary.update(status="failed", error=redact(f"{type(exc).__name__}: {exc}", secrets)[:500])
     summary["ledger_calls"] = len(ledger.rows)
     summary["ledger_cost_usd"] = round(sum(r.get("cost_usd") or 0.0 for r in ledger.rows), 6)
-    summary["cost"] = dict(cost_module.actual(ledger.rows, pages=pages, rate=rate), cap=guard.report(), note=COST_NOTE,
-                           real_bill_inr=None)
+    summary["cost"] = dict(cost_module.actual(ledger.rows, pages=summary.get("resume", {}).get("pages_to_run", pages), rate=rate),
+                           cap=guard.report(), note=COST_NOTE, real_bill_inr=None)
+    if "gateway" in locals():
+        after = plan_usage(gateway)
+        if after:
+            summary["plan_usage_after"] = after
+            notice("pahra plan", "after the run: " + redact(json.dumps(after), secrets))
     text = redact(json.dumps(summary, indent=2, sort_keys=True, ensure_ascii=False), secrets)
     (out / "SUMMARY.json").write_text(text + "\n", encoding="utf-8")
     spent = summary["cost"]
     notice("pahra kharch", f"Kharch Rs {spent['total_inr']:g}" + (f" (Rs {spent['inr_per_page']:g} per page, {pages} pages)" if pages else "")
            + f", seema Rs {args.max_inr:g}; " + ", ".join(f"{k} Rs {v['inr']:g}" for k, v in spent["sections"].items())
            + ". Ledger estimate, not the bill.", "warning" if guard.stopped else "notice")
-    level = ("notice" if summary["status"] == "ok" else "warning" if summary["status"] in ("stopped", "stopped: budget")
-             else "error")
+    level = ("notice" if summary["status"] == "ok" else "warning" if summary["status"] in GRACEFUL else "error")
     notice("bie brain " + args.section, redact(json.dumps({k: summary.get(k) for k in
                                                          ("status", "stop_reason", "quality", "map_status", "notes_quality",
                                                           "game_quality", "lesson_quality", "director_quality",
                                                           "visual_quality", "render_errors", "ledger_cost_usd", "error")},
                                                         ensure_ascii=False), secrets), level)
-    return 0 if summary["status"] in ("ok", "stopped", "stopped: budget") else 1
+    return 0 if summary["status"] == "ok" or summary["status"] in GRACEFUL else 1
 
 
 if __name__ == "__main__":

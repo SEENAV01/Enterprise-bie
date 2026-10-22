@@ -15,6 +15,7 @@ KINDS = RETRYABLE_KINDS | frozenset({
     "config",        # local configuration (missing key, unknown provider)
     "balance",       # the provider or reseller says the wallet, key budget or quota is used up
     "budget",        # BIE's own cost guard stopped the call before it was sent
+    "plan_limit",    # a subscription plan's usage window is used up (ChatGPT Pro via Codex); resumable later
 })
 
 

@@ -25,13 +25,14 @@ live rate). The real bill is what the provider dashboard shows; runs keep a slot
 """
 from __future__ import annotations
 
+import base64
 import json
 import os
 import threading
 
 from ..model_interface import ModelRequest
 from .errors import ProviderError
-from .pricing import VIA_MARKUP, price_for
+from .pricing import SUBSCRIPTION_VIAS, VIA_MARKUP, price_for
 
 DEFAULT_USD_INR = 94.59         # AICredits exchange_rate in api.aicredits.in/api/models (last_updated 2026-10-20)
 DEFAULT_OUTPUT_TOKENS = 8000    # first call of a kind: about the measured maker output of one page (Task 039 ledgers)
@@ -45,7 +46,9 @@ COST_NOTE = ("Ledger cost is an estimate: exact token counts times the dated pri
 PREFLIGHT_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["status"],
                     "properties": {"status": {"type": "string", "enum": ["ready"]}}}
 PREFLIGHT_VERSION = "bie-preflight/1"
-STOP_KINDS = frozenset({"budget", "balance"})
+VISION_SCHEMA = {"type": "object", "additionalProperties": False, "required": ["number"],
+                 "properties": {"number": {"type": "string"}}}
+STOP_KINDS = frozenset({"budget", "balance", "plan_limit"})
 
 
 class BudgetExceeded(ProviderError):
@@ -145,7 +148,10 @@ class CostGuard:
         tokens_out = (max(1, min(int(cap), int(expected_output_tokens))) if expected_output_tokens
                       else self.expected_output(model, request.request_id, cap))
         price = price_for(model, self._env)
-        usd = None if price is None else (tokens_in * price[0] + tokens_out * price[1]) / 1e6 * VIA_MARKUP.get(via, 1.0)
+        if via in SUBSCRIPTION_VIAS:                       # paid by the plan: no rupees, the plan window is the limit
+            usd = 0.0
+        else:
+            usd = None if price is None else (tokens_in * price[0] + tokens_out * price[1]) / 1e6 * VIA_MARKUP.get(via, 1.0)
         return {"input_tokens": tokens_in, "output_tokens": tokens_out, "usd": usd}
 
     def reserve(self, request_id: str, projected_usd, *, model: str = "", provider: str | None = None) -> float:
@@ -195,8 +201,32 @@ class CostGuard:
                     "by_section_inr": {k: round(v * self.rate, 2) for k, v in sorted(self.by_section.items())}}
 
 
-def preflight(gateway, routes=None, *, wallet=True) -> dict:
-    """One tiny structured call per route, plus the free AICredits wallet balance where the route has one.
+def vision_image() -> dict:
+    """A small PNG that shows the number 47, to prove that page images really reach a model."""
+    import io
+
+    from PIL import Image, ImageDraw, ImageFont
+
+    image = Image.new("RGB", (360, 200), "white")
+    draw = ImageDraw.Draw(image)
+    try:
+        font = ImageFont.load_default(size=120)
+    except TypeError:                                    # Pillow before 10.1: small bitmap font, drawn bigger below
+        font = ImageFont.load_default()
+    draw.text((70, 30), "47", fill="black", font=font)
+    data = io.BytesIO()
+    image.save(data, format="PNG")
+    return {"type": "image", "media_type": "image/png", "data": base64.b64encode(data.getvalue()).decode("ascii")}
+
+
+def preflight(gateway, routes=None, *, wallet=True, vision=False) -> dict:
+    """One tiny structured call per route, plus the free extras a route offers.
+
+    - AICredits routes: the wallet balance (free).
+    - Codex routes: the sign-in state first (``codex login status``; not signed in = no call at all) and the
+      plan's usage windows before the run.
+    - ``vision=True`` (sections that read page images): a second tiny call with a picture of the number 47;
+      a route that cannot read it fails, so images are never dropped silently.
 
     Returns ``{"passed": bool, "routes": {route: {...}}}``. A failed route carries its error kind and a
     short, already redacted message; the caller stops the run before any real work. Every route is checked
@@ -208,24 +238,41 @@ def preflight(gateway, routes=None, *, wallet=True) -> dict:
         adapter = gateway.routes[route]
         client = getattr(adapter, "client", None)
         entry = {"model": adapter.model, "via": getattr(client, "via", "direct")}
+        out[route] = entry
         if wallet and callable(getattr(client, "credits", None)):
             try:
                 entry["wallet"] = client.credits()
             except ProviderError as exc:
                 entry["wallet"] = {"unavailable": exc.kind}
-        request = ModelRequest(request_id=f"preflight:{route}", response_schema=PREFLIGHT_SCHEMA, messages=(
-            {"role": "system", "content": "You are a health check. Answer with JSON only."},
-            {"role": "user", "content": "Set status to ready."}))
+        if callable(getattr(client, "login_status", None)):
+            entry["login"] = client.login_status()
+            if not entry["login"]["logged_in"]:
+                entry.update(status="failed", error_kind="auth", error="codex is not signed in: " + entry["login"]["mode"])
+                continue
+        if callable(getattr(client, "plan_usage", None)):
+            entry["plan_usage_before"] = client.plan_usage()
         before = guard.stop_reason if guard is not None else None
         try:
+            request = ModelRequest(request_id=f"preflight:{route}", response_schema=PREFLIGHT_SCHEMA, messages=(
+                {"role": "system", "content": "You are a health check. Answer with JSON only."},
+                {"role": "user", "content": "Set status to ready."}))
             response = gateway.complete(route, request, prompt_version=PREFLIGHT_VERSION, expected_output_tokens=50)
             entry.update(status="ok", returned_model=response.provenance.get("returned_model"),
                          input_tokens=response.usage.get("input_tokens", 0), output_tokens=response.usage.get("output_tokens", 0))
+            if vision:
+                request = ModelRequest(request_id=f"preflight:{route}:vision", response_schema=VISION_SCHEMA, messages=(
+                    {"role": "system", "content": "You are a health check. Answer with JSON only."},
+                    {"role": "user", "content": [{"type": "text", "text": "Which number is written in the picture? Digits only."},
+                                                 vision_image()]}))
+                seen = str(gateway.complete(route, request, prompt_version=PREFLIGHT_VERSION + "/vision",
+                                            expected_output_tokens=50).content.get("number", "")).strip()
+                entry["vision"] = "ok" if seen == "47" else f"failed: read {seen[:20]!r}"
+                if entry["vision"] != "ok":
+                    entry.update(status="failed", error_kind="vision", error="the model did not read the test picture (47)")
         except ProviderError as exc:
             entry.update(status="failed", error_kind=exc.kind, error=exc.message[:240])
             if guard is not None:
                 guard.restore(before)
-        out[route] = entry
     passed = all(e["status"] == "ok" for e in out.values())
     if guard is not None and not passed:
         guard.trip("preflight: " + ", ".join(f"{r} {e['error_kind']}" for r, e in out.items() if e["status"] != "ok"))
@@ -235,7 +282,9 @@ def preflight(gateway, routes=None, *, wallet=True) -> dict:
 PREFLIGHT_ADVICE = {
     "balance": "the wallet, key budget or quota is used up: top up or raise the key budget on the provider dashboard",
     "budget": "the cap (max_inr) is too small even for the preflight call",
-    "auth": "the key is wrong, expired or not allowed to use this model",
+    "auth": "the key is wrong, expired or not allowed to use this model (Codex: sign in again with bie-setup)",
+    "plan_limit": "the ChatGPT plan's usage window is used up: run again after it resets",
+    "vision": "this model does not read images here, so page images would be lost",
     "not_found": "the model name is not available on this key: run the probe mode",
     "config": "a key or setting is missing",
 }
