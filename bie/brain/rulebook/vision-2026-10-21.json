@@ -1,8 +1,11 @@
 {
   "rulebook": "bie-vision",
-  "version": "2026-10-21.7",
+  "version": "2026-10-21.8",
   "source": "Navin's vision, agreed point by point on 21 October 2026 (docs/vision/VISION_SPEC.md, section 'Agreed on 21 October 2026')",
   "notes": "Each rule is an instruction for the section that makes the work (rule) and a yes/no question for the reviewer (check). Rules change only through a reviewed version bump; Navin approves every new or changed rule.",
+  "changes": [
+    "2026-10-21.8 (Task 045, 22 October 2026, from Navin's Task 045 brief): S1-08 names BIE's nine content types (content_types.json) instead of the old list and says BIE's code proposes a type first; new S2-06: every part of a lesson answers the universal frame and is taught through the teaching pattern of its content type."
+  ],
   "rules": [
     {
       "id": "G-01",
@@ -92,7 +95,7 @@
       "id": "S1-08",
       "sections": ["understand"],
       "status": "locked",
-      "rule": "Give every item its true content type (definition, fact, process, structure, comparison, classification, timeline, cause_effect, formula, data, example, question). The content type decides later how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.",
+      "rule": "Give every item its true content type, one of BIE's nine: process, structure, classification, comparison, timeline, cause_effect, facts_numbers, figure, definition (bie/brain/rulebook/content_types.json). An example takes the type of what it illustrates; a question or an answer option is a role, not a type. BIE's code proposes a type before you read the page; when you choose another, say why. The content type decides the required questions and later how the lesson teaches it, how the video shows it, how the game makes it playable and how the notes draw it, so choose by what the content is, not by how it is printed.",
       "check": "Is each item's content type what the content really is?"
     },
     {
@@ -157,6 +160,13 @@
       "status": "locked",
       "rule": "Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.",
       "check": "Are the beats' coverage claims true (the beat really explains the item and answers the question)?"
+    },
+    {
+      "id": "S2-06",
+      "sections": ["lesson"],
+      "status": "locked",
+      "rule": "Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.",
+      "check": "Does every part answer the universal frame and follow its content type's teaching pattern, with every card item really taught?"
     },
     {
       "id": "S3-01",

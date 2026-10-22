@@ -79,8 +79,10 @@ def read_text(source: str) -> str:
 
 def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_model="", guard=None):
     """(gateway, reviewer route). A same-provider reviewer gets its own route ``<provider>-checker`` with
-    ``reviewer_model``, which must differ from the maker's model. The ``codex`` maker always runs the Codex CLI
-    named by BIE_CODEX_BIN (``--fake`` replaces only the API routes, so tests use a fake executable)."""
+    ``reviewer_model``, which must differ from the maker's model; ``reviewer_model="same"`` is the one explicit
+    exception (the key allows a single model: the maker's model checks in a fresh call, marked
+    same_model_temporary, kamzor jaanch). The ``codex`` maker always runs the Codex CLI named by BIE_CODEX_BIN
+    (``--fake`` replaces only the API routes, so tests use a fake executable)."""
     same = maker == reviewer
     if same and not reviewer_model:
         raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: a same-company checker needs --reviewer-model")
@@ -95,14 +97,20 @@ def build_gateway(maker, reviewer, *, fake, ledger, max_output_tokens, reviewer_
         routes["codex"] = GPTAdapter(CodexExecClient(), os.environ.get("BIE_CODEX_MODEL") or CODEX_MODEL)
     route = reviewer
     if reviewer and reviewer_model:
+        same_model = reviewer_model == "same"
+        if same_model and not same:
+            raise SystemExit("SAME_MODEL_CHECKER_NEEDS_THE_SAME_PROVIDER")
         route = f"{reviewer}-checker" if same else reviewer
         if fake:
-            client, model = BrainFakeClient(reviewer), "fake-" + reviewer_model.replace("/", "-")
+            client = BrainFakeClient(reviewer)
+            model = routes[maker].model if same_model else "fake-" + reviewer_model.replace("/", "-")
         else:
             via, key = route_for(reviewer)
-            client, model = make_client(reviewer, key, via=via, max_output_tokens=max_output_tokens, stream=True), reviewer_model
-        if same and model == routes[maker].model:
-            raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: the checker needs another model than the maker")
+            client = make_client(reviewer, key, via=via, max_output_tokens=max_output_tokens, stream=True)
+            model = routes[maker].model if same_model else reviewer_model
+        if same and model == routes[maker].model and not same_model:
+            raise SystemExit("MAKER_AND_REVIEWER_MUST_DIFFER: the checker needs another model than the maker "
+                             "(or --reviewer-model same, the weakest check)")
         routes[route] = ADAPTERS[reviewer](client, model)
     extra = {"sleep": lambda s: None} if fake else {}
     return LiveGateway(routes, ledger=ledger, guard=guard, **extra), route
@@ -161,7 +169,9 @@ def main(argv=None):
                         help="codex = GPT through the ChatGPT Pro plan with the Codex CLI (private machine only)")
     parser.add_argument("--reviewer", choices=PROVIDERS, default="google")
     parser.add_argument("--reviewer-model", default="", help="checker model; required when maker and reviewer are the same "
-                                                             "provider (temporary same-company checker)")
+                                                             "provider (temporary same-company checker); 'same' = the maker's "
+                                                             "model in a fresh call when the key allows only one model "
+                                                             "(kamzor jaanch, marked same_model_temporary)")
     parser.add_argument("--max-inr", type=float, default=300.0, help="hard cost cap in rupees for this run (default 300)")
     parser.add_argument("--models", default="", help="for example anthropic=anthropic/claude-opus-5.5")
     parser.add_argument("--routes", default="", help="for example anthropic=aicredits")
@@ -249,7 +259,7 @@ def main(argv=None):
                            error="a preflight call failed, so no section was run (see the pahra preflight annotations)")
         if args.section in ("understand", "chain") and summary["status"] == "ok":
             chapter = run_chapter(pdf, course, runner, out, pages=args.pages, workers=args.workers,
-                                  max_rounds=args.max_rounds, previous_chapter=previous)
+                                  max_rounds=args.max_rounds, previous_chapter=previous, max_output_tokens=args.max_output_tokens)
             summary.update(quality=chapter["quality"], map_status=chapter["map_status"],
                            pages=[{k: p[k] for k in ("page", "status", "rounds", "reused", "cost_usd", "seconds")} for p in chapter["pages"]])
             if guard.stopped:
@@ -267,7 +277,8 @@ def main(argv=None):
         if guard.stopped and summary["status"] == "ok":
             summary.update(status=stop_status(guard), stop_reason=guard.stop_reason)
         if args.section in ("lesson", "chain") and summary["status"] == "ok":
-            lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds)
+            lesson = run_lesson(chapter, course, runner, out, workers=args.workers, max_rounds=args.max_rounds,
+                                max_output_tokens=args.max_output_tokens)
             summary.update(lesson_quality=lesson["quality"],
                            videos=[{k: v[k] for k in ("video_id", "status", "rounds", "cost_usd")} for v in lesson["videos"]])
             if guard.stopped:

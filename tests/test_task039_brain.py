@@ -278,7 +278,7 @@ class PageChecks(unittest.TestCase):
         problems = check_page(page_value([shallow]), page)
         self.assertTrue(any("at least two teacher questions" in p for p in problems))
         self.assertTrue(any("'why' or 'how'" in p for p in problems))
-        self.assertTrue(any("a process needs a 'how'" in p for p in problems))
+        self.assertTrue(any("a process item must answer the required questions ['how', 'when']" in p for p in problems))
         self.assertTrue(any("only repeats" in p for p in problems))
 
     def test_image_only_page_must_be_read_from_the_image(self):
@@ -393,7 +393,7 @@ class Lesson(unittest.TestCase):
         self.assertEqual(check_plan({"videos": [self.video]}, self.chapter), [])
         problems = check_plan({"videos": [dict(self.video, concept_ids=["c9"], prerequisites_taught=[], estimated_minutes=0)]},
                               self.chapter)
-        for fragment in ("unknown concept 'c9'", "concept c1 (Tissue) is in no video", "prerequisite 'cell' is taught in no video",
+        for fragment in ("unknown concept 'c9'", "concept c1 (Tissue) is in no video", "prerequisite 'Cell' is taught in no video",
                          "estimated_minutes must be at least 1"):
             self.assertTrue(any(fragment in p for p in problems), fragment)
 

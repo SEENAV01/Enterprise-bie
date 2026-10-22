@@ -1,7 +1,11 @@
 {
   "schema": "bie.brain.content-types/1",
-  "version": "2026-10-22.1",
-  "status": "DESIGN (Task 043). Code detection is implemented in Task 045; until then the maker AI names the type and this file tells every section what that type needs.",
+  "version": "2026-10-22.2",
+  "status": "IMPLEMENTED (Task 045): bie/brain/content_types.py proposes a type per block from the detection hints before the maker reads the page; the maker decides, every difference is recorded, unexplained strong differences go back to the maker.",
+  "changes": [
+    "2026-10-22.1 (Task 043): first version.",
+    "2026-10-22.2 (Task 045): detection hints only, after running them on the tissue chapter: a bare 'Types:' heading proposes classification; field labels such as 'Example:', 'Occurrence:', 'Function:' are no longer read as definitions; 'thus called CHLORENCHYMA' proposes a definition. No type, required question or teaching pattern changed."
+  ],
   "source": "Navin's five points (22 Oct 2026); Vision Spec 'Agreed on 21 October 2026'; rulebook vision-2026-10-21 (S1-06, S3-*, S6-03, S7-01, S7-02); docs/roadmap/TARAZU.md",
   "how_it_is_used": [
     "Section 1 (understanding) gives every teachable item one content type; the code-side hints below let BIE propose a type before the AI reads the page and flag a disagreement.",
@@ -107,7 +111,7 @@
       "notes_infographic": "tree",
       "detection_hints": {
         "keywords": ["types of", "kinds of", "classified", "classification", "categories", "divided into", "groups", "are of two types", "prakar", "vargikaran"],
-        "patterns": ["\\b(types|kinds|forms|categories) of\\b", "\\b(classified|divided|grouped) into\\b", "\\bare of (two|three|four|\\d+) (types|kinds)\\b"],
+        "patterns": ["\\b(types|kinds|forms|categories) of\\b", "\\b(classified|divided|grouped) into\\b", "\\bare of (two|three|four|\\d+) (types|kinds)\\b", "^\\s*(types|kinds|classification|categories)\\s*[:\\-–]*\\s*$"],
         "structure": ["a heading followed by sub-headings of the same level", "a tree diagram", "a table whose first column lists kinds"]
       },
       "code_checks": ["the basis is stated", "every kind has an identifying feature", "a 'compare' or 'difference' question exists (S1-06)"]
@@ -248,7 +252,7 @@
       "notes_infographic": "concept_map",
       "detection_hints": {
         "keywords": ["is called", "is known as", "is defined as", "refers to", "means", "termed", "kehte hain", "arth hai"],
-        "patterns": ["\\b(is|are) (called|known as|termed|defined as)\\b", "\\brefers? to\\b", "^\\s*[A-Z][a-z]+\\s*[:–-]\\s"],
+        "patterns": ["\\b(is|are) (called|known as|termed|defined as)\\b", "\\brefers? to\\b", "^\\s*(?!(?:examples?|occurrence|functions?|locations?|structure|types?|characteristics?|characters|features?|note|other names|properties|q|ans|answer)\\b)[A-Z][a-z]+\\s*[:–-]\\s", "\\b(called|named|termed)\\s+(?-i:[A-Z]{3,})"],
         "structure": ["a bold or italic term followed by its meaning", "a glossary line"]
       },
       "code_checks": ["the book's exact words are kept", "an example exists", "outside wording is marked basis=outside"]

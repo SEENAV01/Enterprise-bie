@@ -7,12 +7,35 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | Field | Value |
 | --- | --- |
 | Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
-| Current task | 044c · Sign in with ChatGPT (SIWC) feasibility report (report only, nothing built) |
-| Branch | `task044c-siwc-feasibility` (PR to `main`) |
-| State | Report written (`docs/roadmap/SIWC_FEASIBILITY.md`). Task 044's code is merged (PR #43); its live test still **waits for Navin's yes to the machine** (AWS Lightsail Mumbai, about ₹1,340 a month). Task 044b (laptop/WSL variant) was never approved and is not started |
-| Next task | 045 · Understanding and script on the tarazu (after the 044 live test) |
-| Canonical main | `9fbb256a` (PR #43 merged: Task 044 code) |
+| Current task | 045 · Understanding and script on the tarazu |
+| Branch | `task045-understanding-script` (PR A: code and fake tests) |
+| State | PR A built and tested offline (fake AI, ₹0). PR B (live runs) **waits for Navin's yes** to the estimate and the checker choice, and for the five chapter PDFs he picks. Codex, Sign in with ChatGPT and the machine question are parked; Task 044b is not started |
+| Next task | 046 · Director, asset finder v2 and silent video |
+| Canonical main | `86a8c91d` (PR #44 merged: Task 044c report) |
 | Keys | Never the Anthropic key. GPT API key off. Gemini key (AICredits) for the checker; it may call only `google/gemini-4-argon`. GPT only through ChatGPT Pro on Navin's private machine |
+
+## Task 045 · understanding and script on the tarazu (22 October 2026, PR A)
+
+What is built (all offline; nothing live yet):
+
+- **Content types in code** (`bie/brain/content_types.py`): before the maker reads a page, BIE proposes a type for every native text block from the hints in `content_types.json` (keywords, patterns, and list context: a numbered list takes the type of the line that introduces it). The maker sees the proposals on its card, uses BIE's nine type ids (Section 1 schema `bie.brain.understand-page/2`; old types convert through `legacy_types`) and gives a `type_note` when it chooses another type. Every difference is recorded per item (agree, explained, disagree, weak, silent, role, follows parent); an unexplained strong difference goes back to the maker. Required questions per type are enforced for every teachable item (before: only process, comparison and classification). Hints were refined on the tissue chapter (`content_types.json` 2026-10-22.2; no type, question or pattern changed).
+- **Naksha** (`bie/brain/naksha.py`, `bie.brain.naksha/1`): built once from the chapter map, written as `naksha.json`: one row per teachable item `[id, type, page, short text, required questions (kya, kaise …), exam]`, concepts, links (`pre`, `part`, `kind`, `cause`, `compare`, `seq`, `example`, `test`, `ref`), teaching order, prerequisites, sha256. Later sections get slices only (own items plus one row per related concept). Measured on the old tissue map (run 39627682253, converted): 469 items, 71 concepts, 399 links, 80,463 characters, about 23,500 tokens, against about 204,000 tokens for the full chapter map; a 12-item slice is about 860 tokens, the concept layer about 1,500. Tokens are estimated at 3.43 characters per token, measured from that run's connect call; the ledger has real counts.
+- **Task cards** (`bie/brain/cards.py`, schema moved to `bie/brain/task_card.schema.json`): every Section 1 and 2 call is a fixed prefix (header, role and course, rule texts sorted by id, content types, output schema, how to answer) plus a compact card. The prefix is the same bytes for every page or video of a run, hashed on the card and in every process record; the runner refuses a step whose card does not match the prefix it would send. Cards are checked before anything is sent (schema, prefix, task of the section, locked rules, required questions per part, known ids); `must_cover` is checked both ways after the answer. Example: `docs/roadmap/task_card.example.json`, the real read_page card of tissue page 3 built by code.
+- **Old engines merged as checks** (`bie/brain/engines.py`, decisions in `engines.DECISIONS` and TARAZU): KI replaced and retired (the lexical producer `bie/productization/candidates.py`); its coverage, orphan and definition QA checks the map. PR producer (`pr_reasoning.py`) replaced and retired; its graph checks prerequisite circles, the teaching order (with a valid order proposed) and redundant links. RE extended: cause circles and dated links that go back in time. PED planner (`pedagogy_plan.py`, `pedagogy_slice.py`) replaced and retired; its QA checks objective coverage, load per beat, prerequisite coverage and length. Retired files stay (the ledgers fail on a deleted working file); a test proves no brain code imports them; the 11-stage technical pipeline keeps them as regression fixtures until Task 051 moves its durable run onto the brain.
+- **Section 2 on the card** (`bie/brain/lesson.py`, `bie.brain.lesson-script/2`): the plan card carries the concept layer only; a script card carries its video's items grouped by concept and type, with their required questions and a naksha slice. The script fills the universal frame for every part (process, how, when, conditions, atmosphere; a process, timeline or cause part may not skip its key fields) and tags every beat with its part and teaching-pattern step; code checks every step, `must_cover` both ways, Navin's Hinglish (Devanagari share, digits 0-9, no sentence over 40 words) and the PED checks. PYQs get their own part and are answered as exam tips.
+- **Rulebook** `vision-2026-10-21@2026-10-21.8`: S1-08 names the nine types; new S2-06 (frame and teaching pattern), from Navin's Task 045 brief.
+- **Same-model checker** (`--reviewer-model same`, workflow `providers` `google,google:same`): only for a key that allows one model; marked `same_model_temporary` and "kamzor jaanch" in every record and page. A same-company checker on another model stays `same_company_temporary`.
+- **Tests:** `tools/run_task045_tests.py`, 328 offline tests (33 new in `tests/test_task045_cards.py`), plus the fake chain on four real tissue pages (all pass; the fake proves plumbing, not quality).
+
+Measured offline on the tissue PDF (₹0):
+
+- Type check against the old run's AI types (converted): 15 agree, 10 strong differences that would go back to the maker, 11 weak differences, 153 items the code has no hint for, 340 rows, labels or questions that follow their parent or role. Examples: the four lines under "There are mainly four different types of tissues" (AI: fact, code: classification); "Collagen fibres … made up of fibrous protein" (AI: fact, code: structure); "Xylem consists of tracheids, vessels …" (AI: classification, code: structure).
+- Prompt size per page, Section 1: old system prompt about 2,240 tokens plus about 700–1,050 for the page text; new fixed prefix about 4,350 tokens (cacheable, the same for every page) plus card and blocks about 430–2,090 (about 1,030 on average). The card makes the input bigger; output (10,800–18,200 tokens per page in run 39620281561) still decides the cost.
+- Reuse: none of the 10 pages that passed in run 39627682253 passes today's checks (their items lack the required questions of their type), so the tissue chapter is read again in full.
+
+Status words: Sections 1 and 2 on cards, the naksha, type detection and the engine checks are IMPLEMENTED (fake AI only). Nothing from Task 045 is INTEGRATED or ACCEPTED until the live runs and Navin's verdict.
+
+PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini-4-argon`, a same-company checker marked "kamzor jaanch"; nothing locked as accepted. Estimate for the tissue chapter (14 pages, price-table basis): understanding about ₹319 (page reading ₹240, map ₹79), script about ₹199 (assumed, not measured); a ₹30 cap per run covers about 1–2 pages, so the chapter needs several stop-and-resume runs or a higher cap (Navin decides). Then one chapter each of History, Geography, Polity, Economics and Physics/Maths (Navin sends the PDFs).
 
 ## Task 044c · Sign in with ChatGPT feasibility (22 October 2026, report only)
 
@@ -113,6 +136,7 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 | 2026-10-22 | 039–042 · Brain frame, Sections 1–4 and 6–7 (design), asset library | PR #41 merged at `c8853eb2` after all 7 checks passed on its final head `0287f668`; Section 1 INTEGRATED, the rest IMPLEMENTED |
 | 2026-10-22 | 043 · Cost guard, tarazu audit, content-type map, task-card design | PR #42 merged at `afe169b1` after all 7 checks passed on its final head `f432e245` |
 | 2026-10-22 | 044 · Codex maker route, cost-guard update, private-machine kit (code only) | PR #43 merged at `9fbb256a`; IMPLEMENTED offline, the live test waits for the machine |
+| 2026-10-22 | 044c · Sign in with ChatGPT feasibility report | PR #44 merged at `86a8c91d` (docs only: fast lane, no workflow ran) |
 
 ## Task 037B · what changed
 
@@ -165,6 +189,8 @@ Updated: 22 October 2026 · Read this first in every new session, then show Navi
 - [x] Cost target — ₹50–300 per book; a cost guard now, optimisation later (22 October 2026).
 - [x] Keys — never the Anthropic key; GPT API key off; only the Gemini key (AICredits) until ChatGPT Pro is connected (22 October 2026).
 - [ ] The Codex machine: yes or no to AWS Lightsail Mumbai, 2 GB, $12 a month (about ₹1,340 with GST), or the $7 option; then the one-time steps in `deployment/codex-vm/README.md` (create the machine with the launch script, then `sudo bie-setup`: Gemini key, GitHub deploy key, ChatGPT sign-in with a code). Includes approving the deploy key (it can write to the repository).
+- [ ] Task 045 PR B: yes or no to the live runs with their estimate (tissue chapter about ₹319 for understanding plus about ₹199 for the script; a ₹30 cap per run means several resumed runs), and the checker: allow `google/gemini-3.1-pro-preview` on the AICredits key (better) or let Gemini 4 Argon check itself (`same`, kamzor jaanch).
+- [ ] Task 045 PR B: one chapter PDF each of History, Geography, Polity, Economics and Physics/Maths (Navin chooses the chapters).
 - [ ] Optional (Task 044c): approve a one-time Sign in with ChatGPT probe on the laptop, as an exception to "never run things locally" (`docs/roadmap/SIWC_FEASIBILITY.md`, section 5).
 - [ ] Optional (Task 044c): fill in OpenAI's interest form to ask whether BIE may use the plan from a rented server Navin alone controls (Claude can draft the answers).
 - [ ] Optional now: a second model on the AICredits Gemini key (proposed `google/gemini-3.1-pro-preview`) — needed only for a same-company fallback when the Codex maker is unavailable.
