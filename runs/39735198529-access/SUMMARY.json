@@ -1,0 +1,53 @@
+{
+  "access": {
+    "google": {
+      "google/gemini-2.5-pro": {
+        "allowed": false,
+        "error": "invalid_request_error | model_not_allowed | This API key is not permitted to use model 'google/gemini-2.5-pro'.",
+        "error_kind": "auth"
+      },
+      "google/gemini-3.1-pro-preview": {
+        "allowed": false,
+        "error": "invalid_request_error | model_not_allowed | This API key is not permitted to use model 'google/gemini-3.1-pro-preview'.",
+        "error_kind": "auth"
+      },
+      "google/gemini-3.5-flash": {
+        "allowed": false,
+        "error": "invalid_request_error | model_not_allowed | This API key is not permitted to use model 'google/gemini-3.5-flash'.",
+        "error_kind": "auth"
+      },
+      "google/gemini-3.8-flash": {
+        "allowed": false,
+        "error": "invalid_request_error | model_not_allowed | This API key is not permitted to use model 'google/gemini-3.8-flash'.",
+        "error_kind": "auth"
+      },
+      "google/gemini-4-argon": {
+        "allowed": true
+      },
+      "google/gemini-pro-latest": {
+        "allowed": false,
+        "error": "invalid_request_error | model_not_allowed | This API key is not permitted to use model 'google/gemini-2.5-pro'.",
+        "error_kind": "auth"
+      }
+    }
+  },
+  "evidence_kind": "TECHNICAL_RUN",
+  "fake": false,
+  "mode": "access",
+  "passed": true,
+  "product_accepted": false,
+  "providers": [
+    "google"
+  ],
+  "usage": {
+    "google": {
+      "cache_hits": 0,
+      "calls": 6,
+      "cost_complete": true,
+      "cost_usd": 0.000873,
+      "failed_calls": 5,
+      "input_tokens": 287,
+      "output_tokens": 22
+    }
+  }
+}
