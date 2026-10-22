@@ -20,8 +20,8 @@ Preflight. ``preflight(gateway)`` sends one tiny structured call per route befor
 AICredits routes, reads the free wallet balance). Any failure stops the run before real work is spent.
 
 Rupees. All ledger costs are price-table ESTIMATES in USD from exact token counts (``pricing.py``),
-converted at ``BIE_USD_INR`` (default ``DEFAULT_USD_INR``, an assumption, not a live rate). The real
-bill is what the provider dashboard shows; runs keep a slot for it so the two can be compared.
+converted at ``BIE_USD_INR`` (default ``DEFAULT_USD_INR``, the AICredits rate of 20 October 2026, not a
+live rate). The real bill is what the provider dashboard shows; runs keep a slot for it to compare.
 """
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ from ..model_interface import ModelRequest
 from .errors import ProviderError
 from .pricing import VIA_MARKUP, price_for
 
-DEFAULT_USD_INR = 88.0          # assumption; AICredits converts at its own live rate shown on its dashboard
+DEFAULT_USD_INR = 94.59         # AICredits exchange_rate in api.aicredits.in/api/models (last_updated 2026-10-20)
 DEFAULT_OUTPUT_TOKENS = 8000    # first call of a kind: about the measured maker output of one page (Task 039 ledgers)
 DEFAULT_OUTPUT_CAP = 16000
 IMAGE_TOKENS = 1600             # allowance per page image (a 1568 px page is about 1,100-1,600 tokens)

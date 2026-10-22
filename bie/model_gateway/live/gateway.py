@@ -120,7 +120,7 @@ class LiveGateway:
                 problem = str(exc)
             row = dict(base, returned_model=returned_model, attempt=attempt, cache_hit=False, latency_ms=latency, cost_usd=cost,
                        input_tokens=usage["input_tokens"], output_tokens=usage["output_tokens"],
-                       reasoning_tokens=usage["reasoning_tokens"])
+                       reasoning_tokens=usage["reasoning_tokens"], cached_input_tokens=usage["cached_input_tokens"])
             if problem is None:
                 self.ledger.record(**row, outcome="ok")
                 finish = raw.get("finish_reason", "unknown")

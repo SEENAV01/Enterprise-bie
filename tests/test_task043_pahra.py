@@ -211,17 +211,24 @@ class Preflight(unittest.TestCase):
                 if url.endswith("/credits"):
                     return {"balance_inr": 512.5, "currency": "INR", "user": {"credits": 3, "name": "x"}}
                 if url.endswith("/api/models"):
-                    return {"data": [{"id": "google/gemini-4-argon", "input_cost_per_1m": 2, "output_cost_per_1m": 10,
-                                      "context_window": 1000000, "extra": "dropped"}, {"name": "no id"}]}
+                    return {"data": [
+                        {"id": "google/gemini-4-argon", "input_cost_per_token": 2e-06, "output_cost_per_token": 1e-05,
+                         "cached_input_cost_per_token": 1e-07, "input_cost_per_token_inr": 0.000198647, "exchange_rate": 94.593871,
+                         "context_length": 1048576, "input_modalities": ["text", "image"], "description": "dropped"},
+                        {"id": "google/documented-form", "input_cost_per_1m": 2, "output_cost_per_1m": 10, "context_window": 1000},
+                        {"name": "no id"}]}
                 return {"model": "google/gemini-4-argon", "choices": [{"message": {"content": '{"status": "ready"}'},
                                                                         "finish_reason": "stop"}],
                         "usage": {"prompt_tokens": 30, "completion_tokens": 5}}
         stub = Stub()
         client = OpenAICompatChatClient(SECRET, transport=stub)
         self.assertEqual(client.credits(), {"balance_inr": 512.5, "user.credits": 3})
-        self.assertEqual(client.list_model_details(), [{"id": "google/gemini-4-argon", "input_cost_per_1m": 2,
-                                                        "output_cost_per_1m": 10, "context_window": 1000000}])
-        self.assertEqual(client.list_models(), ["google/gemini-4-argon"])
+        self.assertEqual(client.list_model_details(), [
+            {"id": "google/documented-form", "context_window": 1000, "usd_per_1m": {"input": 2, "output": 10}},
+            {"id": "google/gemini-4-argon", "exchange_rate": 94.593871, "context_window": 1048576,
+             "usd_per_1m": {"input": 2.0, "output": 10.0, "cached_input": 0.1}, "inr_per_1m": {"input": 198.647},
+             "input_modalities": ["text", "image"]}])
+        self.assertEqual(client.list_models(), ["google/documented-form", "google/gemini-4-argon"])
         guard = CostGuard(10, rate=100.0)
         gateway = LiveGateway({"google": GeminiAdapter(client, "google/gemini-4-argon")}, sleep=lambda s: None, guard=guard)
         checked = preflight(gateway)

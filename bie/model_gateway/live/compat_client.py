@@ -138,12 +138,37 @@ class OpenAICompatChatClient:
         return [m["id"] for m in self.list_model_details()]
 
     def list_model_details(self):
-        """Every model the gateway lists, with its published price fields (``input_cost_per_1m``,
-        ``output_cost_per_1m``; AICredits does not state the currency, its model page shows USD)."""
+        """Every model the gateway lists, with its published prices per 1M tokens.
+
+        AICredits documents ``input_cost_per_1m``/``output_cost_per_1m``; its live list (read 2026-10-22) sends
+        ``input_cost_per_token``, ``output_cost_per_token`` and ``cached_input_cost_per_token`` in USD, the same in
+        INR (``*_inr``), its ``exchange_rate`` and ``last_updated``. Both forms are read."""
         raw = self.transport.request_json("GET", self.models_url, {}, provider=self.via, secrets=(self._key,))
-        keep = ("id", "name", "provider", "context_window", "input_cost_per_1m", "output_cost_per_1m")
-        rows = [{k: m.get(k) for k in keep if m.get(k) is not None} | {"id": str(m["id"])}
-                for m in raw.get("data", []) if isinstance(m, dict) and m.get("id")]
+        rows = []
+        for m in raw.get("data", []):
+            if not isinstance(m, dict) or not m.get("id"):
+                continue
+            row = {"id": str(m["id"])}
+            for key in ("name", "exchange_rate", "last_updated"):
+                if m.get(key) is not None:
+                    row[key] = m[key]
+            context = m.get("context_window", m.get("context_length"))
+            if context is not None:
+                row["context_window"] = context
+            for currency, suffix in (("usd", ""), ("inr", "_inr")):
+                prices = {}
+                for kind in ("input", "output", "cached_input"):
+                    per_token = m.get(f"{kind}_cost_per_token{suffix}")
+                    per_million = m.get(f"{kind}_cost_per_1m{suffix}")
+                    if isinstance(per_token, (int, float)):
+                        prices[kind] = round(per_token * 1e6, 6)
+                    elif isinstance(per_million, (int, float)):
+                        prices[kind] = per_million
+                if prices:
+                    row[f"{currency}_per_1m"] = prices
+            if isinstance(m.get("input_modalities"), list):
+                row["input_modalities"] = m["input_modalities"]
+            rows.append(row)
         return sorted(rows, key=lambda m: m["id"])
 
     def credits(self):

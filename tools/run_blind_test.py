@@ -94,8 +94,9 @@ def probe(providers, fake):
         out[provider] = {"status": "ok", "via": via, "configured_model": wanted, "configured_model_available": wanted in models,
                          "model_count": len(models), "models": models}
         if details is not None:
-            out[provider]["prices"] = {m["id"]: {k: m[k] for k in ("input_cost_per_1m", "output_cost_per_1m", "context_window")
-                                                 if k in m} for m in details if _family(provider, m["id"])}
+            out[provider]["prices"] = {m["id"]: {k: m[k] for k in ("usd_per_1m", "inr_per_1m", "exchange_rate", "context_window",
+                                                                  "input_modalities", "last_updated") if k in m}
+                                       for m in details if _family(provider, m["id"])}
     return out
 
 
@@ -145,8 +146,8 @@ def main(argv=None):
                 if item["status"] == "ok":
                     names = [m for m in item["models"] if _family(provider, m)]
                     prices = item.get("prices") or {}
-                    listed = [m + (f" ({prices[m].get('input_cost_per_1m')}/{prices[m].get('output_cost_per_1m')} per 1M)"
-                                   if m in prices else "") for m in names]
+                    usd = {m: prices.get(m, {}).get("usd_per_1m") or {} for m in names}
+                    listed = [m + (f" (${usd[m].get('input')}/${usd[m].get('output')} per 1M)" if usd[m] else "") for m in names]
                     notice(f"probe {provider}", f"via {item['via']}: configured {item['configured_model']} "
                                                  f"available={item['configured_model_available']}; "
                                                  f"{item['model_count']} models: " + ", ".join(listed[:120]))
