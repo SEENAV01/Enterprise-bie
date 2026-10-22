@@ -171,6 +171,20 @@ class OpenAICompatChatClient:
             rows.append(row)
         return sorted(rows, key=lambda m: m["id"])
 
+    def key_models(self):
+        """The models this key may call, if the gateway lists them (OpenAI-style ``GET /v1/models`` with the key).
+
+        The public model list shows every model on the platform; an AICredits key can be limited to some of them
+        ("model_not_allowed"). Returns None when the gateway has no such list."""
+        try:
+            raw = self.transport.request_json("GET", self.base_url + "/models", self._headers(), provider=self.via,
+                                              secrets=(self._key,))
+        except ProviderError as exc:
+            if exc.kind in ("not_found", "bad_request"):
+                return None
+            raise
+        return sorted(str(m.get("id")) for m in raw.get("data", []) if isinstance(m, dict) and m.get("id"))
+
     def credits(self):
         """The key's wallet balance as the gateway reports it (``GET /v1/credits``, free, no tokens).
 

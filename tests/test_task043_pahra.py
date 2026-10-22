@@ -210,6 +210,8 @@ class Preflight(unittest.TestCase):
                 self.urls.append(url)
                 if url.endswith("/credits"):
                     return {"balance_inr": 512.5, "currency": "INR", "user": {"credits": 3, "name": "x"}}
+                if url.endswith("/v1/models"):
+                    return {"data": [{"id": "google/gemini-4-argon"}]}
                 if url.endswith("/api/models"):
                     return {"data": [
                         {"id": "google/gemini-4-argon", "input_cost_per_token": 2e-06, "output_cost_per_token": 1e-05,
@@ -229,6 +231,8 @@ class Preflight(unittest.TestCase):
              "usd_per_1m": {"input": 2.0, "output": 10.0, "cached_input": 0.1}, "inr_per_1m": {"input": 198.647},
              "input_modalities": ["text", "image"]}])
         self.assertEqual(client.list_models(), ["google/documented-form", "google/gemini-4-argon"])
+        self.assertEqual(client.key_models(), ["google/gemini-4-argon"])            # the key-scoped list (GET /v1/models)
+        self.assertTrue(stub.urls[-1].endswith("/v1/models"))
         guard = CostGuard(10, rate=100.0)
         gateway = LiveGateway({"google": GeminiAdapter(client, "google/gemini-4-argon")}, sleep=lambda s: None, guard=guard)
         checked = preflight(gateway)

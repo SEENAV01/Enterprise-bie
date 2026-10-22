@@ -93,6 +93,13 @@ def probe(providers, fake):
         wanted = model_for(provider, via=via)
         out[provider] = {"status": "ok", "via": via, "configured_model": wanted, "configured_model_available": wanted in models,
                          "model_count": len(models), "models": models}
+        if callable(getattr(client, "key_models", None)):
+            try:
+                allowed = client.key_models()
+            except ProviderError as exc:
+                allowed = {"unavailable": exc.kind}
+            out[provider]["key_models"] = ([m for m in allowed if _family(provider, m)] if isinstance(allowed, list)
+                                           else allowed)
         if details is not None:
             out[provider]["prices"] = {m["id"]: {k: m[k] for k in ("usd_per_1m", "inr_per_1m", "exchange_rate", "context_window",
                                                                   "input_modalities", "last_updated") if k in m}
@@ -151,6 +158,8 @@ def main(argv=None):
                     notice(f"probe {provider}", f"via {item['via']}: configured {item['configured_model']} "
                                                  f"available={item['configured_model_available']}; "
                                                  f"{item['model_count']} models: " + ", ".join(listed[:120]))
+                    if "key_models" in item:
+                        notice(f"probe {provider} key", "models this key may call: " + json.dumps(item["key_models"]))
                 else:
                     notice(f"probe {provider}", json.dumps(item), "warning")
             ok = any(item["status"] == "ok" for item in result.values())
