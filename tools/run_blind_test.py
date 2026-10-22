@@ -3,6 +3,9 @@
   --mode probe       list the models each configured key can use (no generation, no cost)
   --mode smoke       one tiny structured request per provider (proves key + model + schema path)
   --mode blind-test  one chapter PDF → lesson plan, narration script, 5 questions per provider
+  --mode access      which candidate models this key may really call: one tiny preflight call per model
+                     (--models google=a|b|c); a refused model costs nothing, an allowed one about Rs 0.05;
+                     capped at Rs 5 by the cost guard
 
 Keys come only from environment variables (GitHub Actions secrets in CI). Outputs go to --out:
 SUMMARY.json (no generated content; also printed as ::notice annotations), LEDGER.jsonl, and for the
@@ -22,8 +25,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from bie.model_gateway.live import blind_test  # noqa: E402
-from bie.model_gateway.live.config import (MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes, make_client,  # noqa: E402
-                                           model_for, route_for)
+from bie.model_gateway.live.budget import CostGuard, preflight  # noqa: E402
+from bie.model_gateway.live.config import (ADAPTERS, MODEL_ENV, PROVIDERS, VIA_ENV, all_keys, build_routes,  # noqa: E402
+                                           make_client, model_for, route_for)
 from bie.model_gateway.live.disk_cache import DiskCache  # noqa: E402
 from bie.model_gateway.live.errors import ProviderError, redact  # noqa: E402
 from bie.model_gateway.live.fake_client import FakeProviderClient  # noqa: E402
@@ -107,6 +111,28 @@ def probe(providers, fake):
     return out
 
 
+def access(candidates: dict, fake: bool, ledger) -> dict:
+    """{provider: {model: allowed?}} from one tiny call per candidate model, under a Rs 5 cost guard."""
+    routes = {}
+    for provider, models in candidates.items():
+        via, key = ("direct", "") if fake else route_for(provider)
+        if not fake and not key:
+            continue
+        for model in models:
+            client = FakeProviderClient(provider) if fake else make_client(provider, key, via=via, timeout=60, max_output_tokens=200)
+            routes[f"{provider}:{model}"] = ADAPTERS[provider](client, model)
+    if not routes:
+        return {}
+    gateway = LiveGateway(routes, ledger=ledger, guard=CostGuard(5.0), max_repairs=0)
+    checked = preflight(gateway, wallet=False)["routes"]
+    out = {}
+    for route, entry in checked.items():
+        provider, model = route.split(":", 1)
+        out.setdefault(provider, {})[model] = ({"allowed": True} if entry["status"] == "ok" else
+                                               {"allowed": False, "error_kind": entry["error_kind"], "error": entry["error"]})
+    return out
+
+
 def _family(provider, model_id):
     names = {"anthropic": ("claude",), "openai": ("gpt", "o3", "o4"), "google": ("gemini",)}[provider] + ("fake",)
     return any(t in model_id for t in names)
@@ -118,7 +144,7 @@ def write_json(path: Path, value):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--mode", choices=("probe", "smoke", "blind-test"), required=True)
+    parser.add_argument("--mode", choices=("probe", "smoke", "blind-test", "access"), required=True)
     parser.add_argument("--providers", default=",".join(PROVIDERS))
     parser.add_argument("--out", required=True)
     parser.add_argument("--fake", action="store_true", help="offline deterministic fake providers")
@@ -132,7 +158,15 @@ def main(argv=None):
     parser.add_argument("--routes", default="", help="route overrides: anthropic=aicredits,google=direct")
     parser.add_argument("--seed", type=int, help="fixed letter order (tests only)")
     args = parser.parse_args(argv)
-    apply_overrides(args.models, MODEL_ENV, "MODEL")
+    candidates = {}
+    if args.mode == "access":
+        for item in filter(None, (part.strip() for part in args.models.split(","))):
+            provider, _, models = item.partition("=")
+            if provider.strip() not in PROVIDERS or not models.strip():
+                raise SystemExit("BAD_ACCESS_MODELS:" + item)
+            candidates[provider.strip()] = [m.strip() for m in models.split("|") if m.strip()]
+    else:
+        apply_overrides(args.models, MODEL_ENV, "MODEL")
     apply_overrides(args.routes, VIA_ENV, "ROUTE")
 
     providers = [p.strip() for p in args.providers.split(",") if p.strip()]
@@ -165,6 +199,17 @@ def main(argv=None):
             ok = any(item["status"] == "ok" for item in result.values())
             summary["passed"] = ok
             return 0 if ok else 1
+
+        if args.mode == "access":
+            ledger = UsageLedger(out / "LEDGER.jsonl")
+            result = access(candidates, args.fake, ledger)
+            summary["access"] = result
+            summary["usage"] = ledger.summary()
+            for provider, models in result.items():
+                notice(f"access {provider}", "allowed: " + ", ".join(m for m, v in models.items() if v["allowed"]) + "; refused: "
+                       + ", ".join(f"{m} ({v['error_kind']})" for m, v in models.items() if not v["allowed"]))
+            summary["passed"] = bool(result)
+            return 0 if result else 1
 
         routes, missing = build_routes(providers, fake=args.fake, timeout=600 if args.mode == "blind-test" else 120)
         summary["not_configured"] = missing

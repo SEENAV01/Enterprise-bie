@@ -241,6 +241,30 @@ class Preflight(unittest.TestCase):
         self.assertLess(guard.spent_inr, 0.1)
 
 
+class Access(unittest.TestCase):
+    def test_access_mode_tells_allowed_from_refused_models(self):
+        import run_blind_test
+
+        class KeyWithAllowlist(BrainFakeClient):
+            def _respond(self, model, messages, schema):
+                if model == "fake-denied":
+                    raise ProviderError("auth", "invalid_request_error | model_not_allowed | This API key is not permitted",
+                                        status=403, provider="aicredits")
+                return super()._respond(model, messages, schema)
+
+        with tempfile.TemporaryDirectory() as folder, contextlib.redirect_stdout(io.StringIO()) as log, \
+                mock.patch.object(run_blind_test, "FakeProviderClient", KeyWithAllowlist), mock.patch.dict(os.environ, ENV):
+            code = run_blind_test.main(["--mode", "access", "--fake", "--providers", "google", "--out", folder,
+                                        "--models", "google=fake-denied|fake-ok|unpriced-model"])
+            summary = json.loads(Path(folder, "SUMMARY.json").read_text())
+        self.assertEqual(code, 0)
+        got = summary["access"]["google"]
+        self.assertEqual(got["fake-ok"], {"allowed": True})
+        self.assertEqual((got["fake-denied"]["allowed"], got["fake-denied"]["error_kind"]), (False, "auth"))
+        self.assertEqual(got["unpriced-model"]["error_kind"], "budget")       # fail closed, and the next model was still checked
+        self.assertIn("allowed: fake-ok; refused: fake-denied (auth), unpriced-model (budget)", log.getvalue())
+
+
 class Estimate(unittest.TestCase):
     def test_section_one_estimate_comes_from_the_measured_runs(self):
         est = cost.estimate("understand", 14, rate=88.0, maker_model="gpt-6.1-sol", reviewer_model="google/gemini-4-argon")

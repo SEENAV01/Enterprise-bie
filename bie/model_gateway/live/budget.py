@@ -223,7 +223,7 @@ def preflight(gateway, routes=None, *, wallet=True) -> dict:
                          input_tokens=response.usage.get("input_tokens", 0), output_tokens=response.usage.get("output_tokens", 0))
         except ProviderError as exc:
             entry.update(status="failed", error_kind=exc.kind, error=exc.message[:240])
-            if guard is not None and exc.kind == "balance":
+            if guard is not None:
                 guard.restore(before)
         out[route] = entry
     passed = all(e["status"] == "ok" for e in out.values())

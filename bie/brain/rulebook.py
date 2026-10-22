@@ -4,7 +4,9 @@ A rule is an instruction for the section that makes the work (``rule``) and a ye
 the reviewer (``check``). Rulebook files live in ``bie/brain/rulebook/*.json``; the rulebook version
 recorded with every output is the files' own version strings plus a hash of their bytes, so a
 changed rule can never pass silently as the old one. Only ``locked`` rules (approved by Navin) are
-used; ``proposed`` rules wait for his approval.
+used; ``proposed`` rules wait for his approval. Companion data files in the same folder (for example
+``content_types.json``, schema ``bie.brain.content-types/1``) carry no rules but count in the version
+and the hash, because the sections read them too.
 """
 from __future__ import annotations
 
@@ -15,6 +17,7 @@ from pathlib import Path
 
 RULEBOOK_DIR = Path(__file__).resolve().parent / "rulebook"
 STATUSES = ("locked", "proposed", "retired")
+DATA_SCHEMAS = ("bie.brain.content-types/1",)
 
 
 class RulebookError(ValueError):
@@ -60,6 +63,8 @@ def _parse(path: Path):
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         raise RulebookError(f"{path.name}: unreadable rulebook ({exc})") from None
+    if isinstance(data, dict) and data.get("schema") in DATA_SCHEMAS and data.get("version") and "rules" not in data:
+        return str(data["version"]), []
     if not isinstance(data, dict) or not isinstance(data.get("rules"), list) or not data.get("version"):
         raise RulebookError(f"{path.name}: needs 'version' and a 'rules' list")
     rules = []
