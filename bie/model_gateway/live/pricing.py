@@ -33,6 +33,8 @@ VERIFIED = False
 # Resellers bill on top of the provider price. AICredits: 5% platform fee + 5% forex buffer (aicredits.in, 2026-10-20);
 # its model list (2026-10-22) shows INR per token = USD per token x exchange_rate x 1.05.
 VIA_MARKUP = {"direct": 1.0, "aicredits": 1.10}
+# Routes paid by a flat subscription (ChatGPT Pro through Codex): no per-call rupees; usage counts against the plan.
+SUBSCRIPTION_VIAS = frozenset({"codex"})
 
 
 def normalize(model: str) -> str:
@@ -66,6 +68,8 @@ def price_for(model: str | None, env=None):
 
 
 def estimate_cost(model: str | None, usage: dict, env=None, via: str = "direct"):
+    if via in SUBSCRIPTION_VIAS:
+        return 0.0
     price = price_for(model, env)
     if price is None:
         return None

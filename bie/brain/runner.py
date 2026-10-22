@@ -89,6 +89,7 @@ class StepResult:
     rounds: list = field(default_factory=list)
     record_path: str | None = None
     cost_usd: float = 0.0
+    seconds: float = 0.0
 
     @property
     def passed(self) -> bool:
@@ -154,6 +155,7 @@ class SectionRunner:
     def run(self, step: Step) -> StepResult:
         messages = [{"role": "system", "content": step.system}, {"role": "user", "content": step.user}]
         rounds, output, status = [], None, "failed"
+        started = self._clock()
         schema, patching = step.schema, False
         for number in range(1, step.max_rounds + 1):
             entry = {"round": number, "started_at": self._clock(), "mode": "patch" if patching else "full"}
@@ -208,7 +210,8 @@ class SectionRunner:
             messages = [messages[0], messages[1], {"role": "assistant", "content": previous},
                         {"role": "user", "content": instruction}]
         cost = sum(r.get("maker", {}).get("cost_usd", 0.0) + r.get("review", {}).get("cost_usd", 0.0) for r in rounds)
-        result = StepResult(step.section, step.unit, status, output, rounds, cost_usd=round(cost, 6))
+        result = StepResult(step.section, step.unit, status, output, rounds, cost_usd=round(cost, 6),
+                            seconds=round(self._clock() - started, 1))
         result.record_path = self._save(step, result)
         return result
 
@@ -240,6 +243,7 @@ class SectionRunner:
             "rounds": result.rounds,
             "avoid_rounds": [r["round"] for r in result.rounds if not r.get("passed")],
             "cost_usd": result.cost_usd,
+            "seconds": result.seconds,
             "navin_verdict": None,
         }
         self.records_dir.mkdir(parents=True, exist_ok=True)

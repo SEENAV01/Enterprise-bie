@@ -18,6 +18,10 @@ on:
       - 'tools/run_task039_tests.py'
       - 'tests/test_task043_*'
       - 'tools/run_task043_tests.py'
+      - 'tests/test_task044_*'
+      - 'tools/run_task044_tests.py'
+      - 'tools/codex_vm.py'
+      - 'deployment/codex-vm/**'
       - '.github/workflows/task038-live-ai.yml'
   workflow_dispatch:
     inputs:
@@ -47,9 +51,9 @@ on:
         required: false
         default: ''
       providers:
-        description: 'blind-test and probe: providers; brain-*: maker,reviewer, for example openai,google; a same-company checker names its model after a colon, for example google,google:google/gemini-3.1-pro (temporary, marked in records). Claude is not used (Navin, 21 Oct 2026)'
+        description: 'probe, access and smoke: providers (only google has a key here). brain-*: maker,reviewer; a same-company checker names its model after a colon, for example google,google:google/gemini-3.1-pro. The ChatGPT Pro maker (codex) runs only on the private machine (tools/codex_vm.py), never here'
         required: false
-        default: 'openai,google'
+        default: 'google'
       models:
         description: 'optional model overrides, for example anthropic=anthropic/claude-sonnet-5.5,google=google/gemini-3.1-pro-preview'
         required: false
@@ -90,8 +94,8 @@ jobs:
           python -m pip check
       - name: Task038 offline tests (clients, gateway, blind test) and unchanged gateway contracts
         run: python -B tools/run_task038_tests.py --output "$RUNNER_TEMP/task038-evidence/task038-tests.json"
-      - name: Task043 offline tests (cost guard) with the Task039 brain tests
-        run: python -B tools/run_task043_tests.py --output "$RUNNER_TEMP/task038-evidence/task043-tests.json"
+      - name: Task044 offline tests (Codex maker with a fake codex executable, VM job runner) with the Task043, 039 and 038 lanes
+        run: python -B tools/run_task044_tests.py --output "$RUNNER_TEMP/task038-evidence/task044-tests.json"
       - name: Fake Section 1 run on a real PDF through the DI text runtime and page images
         run: |
           set -euo pipefail
@@ -107,6 +111,15 @@ jobs:
             --course 'title=Offline chapter;subject=Biology;learners=UPSC aspirants;exam=UPSC'
           test -s "$RUNNER_TEMP/task038-evidence/fake-brain/chapter_map.json"
           test -s "$RUNNER_TEMP/task038-evidence/fake-brain/MAP.md"
+      - name: Fake Codex maker run (no ChatGPT sign-in here; Codex runs only on Navin's private machine)
+        env:
+          BIE_FAKE_CODEX_STATE: ${{ runner.temp }}/fake-codex
+        run: |
+          set -euo pipefail
+          export BIE_CODEX_BIN="python -B $GITHUB_WORKSPACE/bie/brain/fake_codex.py"
+          python -B tools/run_brain.py --fake --maker codex --reviewer google --source "$RUNNER_TEMP/brain.pdf" \
+            --out "$RUNNER_TEMP/task038-evidence/fake-codex-brain" --course 'title=Offline chapter;subject=Biology;learners=UPSC aspirants;exam=UPSC'
+          test -s "$RUNNER_TEMP/task038-evidence/fake-codex-brain/chapter_map.json"
       - name: Fake end-to-end blind test through the real DI text runtime
         run: |
           set -euo pipefail
@@ -181,12 +194,10 @@ jobs:
           echo "NODE_PATH=$RUNNER_TEMP/node/node_modules" >> "$GITHUB_ENV"
           echo "ESBUILD=$RUNNER_TEMP/node/node_modules/esbuild/bin/esbuild" >> "$GITHUB_ENV"
       - name: Live run (keys only in this step)
+        # Navin, 22 Oct 2026: never the Anthropic key, the GPT API key is off; only the Gemini key (AICredits).
+        # The Codex maker (ChatGPT Pro) never runs here: this repository is public (deployment/codex-vm/).
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          AICREDITS_API_KEY: ${{ secrets.AICREDITS_API_KEY }}
-          AICREDITS_ANTHROPIC_API_KEY: ${{ secrets.AICREDITS_ANTHROPIC_API_KEY }}
           AICREDITS_GEMINI_API_KEY: ${{ secrets.AICREDITS_GEMINI_API_KEY }}
         run: |
           set -euo pipefail

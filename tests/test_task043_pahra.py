@@ -375,34 +375,36 @@ class RunBrain(unittest.TestCase):
 
     def test_cap_stop_keeps_passed_work(self):
         # Every fake call really costs Rs 300 (20,000 + 10,000 tokens); its projection is about Rs 115-160.
-        # Rs 1,850: preflight (600) and pages 1 and 2 (1,200) fit; page 3 (1,800 + ~150) would cross.
-        code, log = run(self.args("cap", "--max-inr", "1850"), client=functools.partial(BrainFakeClient, usage=(20000, 10000)))
+        # Rs 2,450: preflight (2 routes x text and vision check = 1,200) and pages 1 and 2 (1,200) fit;
+        # page 3 (2,400 + ~150) would cross.
+        code, log = run(self.args("cap", "--max-inr", "2450"), client=functools.partial(BrainFakeClient, usage=(20000, 10000)))
         self.assertEqual(code, 0)
         summary = self.read("cap", "SUMMARY.json")
         self.assertEqual(summary["status"], "stopped: budget")
-        self.assertIn("would cross the cap of Rs 1850", summary["stop_reason"])
+        self.assertIn("would cross the cap of Rs 2450", summary["stop_reason"])
         chapter = self.read("cap", "chapter_map.json")
         self.assertEqual([p["status"] for p in chapter["pages"]], ["passed", "passed", "stopped"])
         self.assertEqual(chapter["map_status"], "stopped")
         self.assertTrue(chapter["items"])                                  # the passed pages' items are kept
         ledger = [json.loads(line) for line in Path(self.tmp.name, "cap", "LEDGER.jsonl").read_text().splitlines()]
         sent = [r for r in ledger if r["outcome"] == "ok"]
-        self.assertEqual(len(sent), 6)                                      # 2 preflight + 2 pages x (maker + reviewer)
+        self.assertEqual(len(sent), 8)                                      # 4 preflight + 2 pages x (maker + reviewer)
         self.assertTrue(any(r["outcome"] == "stopped" for r in ledger))
         spent = summary["cost"]
-        self.assertEqual(spent["total_inr"], 1800.0)
-        self.assertLessEqual(spent["total_inr"], 1850)
+        self.assertEqual(spent["total_inr"], 2400.0)
+        self.assertLessEqual(spent["total_inr"], 2450)
         self.assertEqual(spent["sections"]["understand"]["inr"], 1200.0)
-        self.assertEqual(spent["inr_per_page"], 600.0)
+        self.assertEqual(spent["sections"]["preflight"]["inr"], 1200.0)
+        self.assertEqual(spent["inr_per_page"], 800.0)
         self.assertTrue(spent["cap"]["stopped"])
         self.assertIsNone(spent["real_bill_inr"])
         self.assertIn("not the bill", spent["note"])
         self.assertIn("pahra andaaza::Andaaza Rs", log)
-        self.assertIn("::warning title=pahra kharch::Kharch Rs 1800", log)
+        self.assertIn("::warning title=pahra kharch::Kharch Rs 2400", log)
 
     def test_chain_does_not_start_the_next_section_after_a_stop(self):
         code, _ = run(["--fake", "--section", "chain", "--source", str(self.source), "--out", str(Path(self.tmp.name, "chain")),
-                       "--workers", "1", "--max-inr", "1850"], client=functools.partial(BrainFakeClient, usage=(20000, 10000)))
+                       "--workers", "1", "--max-inr", "2450"], client=functools.partial(BrainFakeClient, usage=(20000, 10000)))
         self.assertEqual(code, 0)
         summary = self.read("chain", "SUMMARY.json")
         self.assertEqual(summary["status"], "stopped: budget")

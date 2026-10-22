@@ -109,6 +109,10 @@ Pro is connected. Nothing runs on Navin's laptop; heavy work runs in GitHub Acti
 JioPC (an Ubuntu cloud PC that shuts down 15 minutes after disconnect) can host it; otherwise a small cloud VM,
 with its monthly cost shown to Navin before anything is bought. The Gemini API stays as the checker. Done when a
 brain section runs with Codex as maker and Gemini as checker, under the cost guard, recorded like any route.
+Decided on 22 October 2026 (`deployment/codex-vm/README.md`): Codex cloud works only as a slow hand-off and JioPC
+shuts down, so the maker runs with `codex exec` on a small private machine (recommended AWS Lightsail Mumbai,
+about ₹1,340 a month), never in this public repository's Actions. The route, the cost-guard update and the
+machine kit are built first; the live test runs once Navin has said yes and signed the machine in.
 
 **045 · Understanding and script on the tarazu** — a compact chapter map shared by all sections; content-type
 detection in code (`content_types.json`) compared with the AI's type; task cards for Sections 1 and 2; merge

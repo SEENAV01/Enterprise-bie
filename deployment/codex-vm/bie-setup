@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# One-time steps for Navin on the BIE Codex machine (Task 044). Run: sudo bie-setup
+#   1. paste the AICredits Gemini key (hidden; stored only in /etc/bie/bie.env on this machine)
+#   2. add this machine's GitHub deploy key (one paste on github.com) so it can publish results
+#   3. sign Codex in with ChatGPT: open the link on the tablet and type the code shown here
+# Then the job timer starts. Running it again skips what is already done.
+set -euo pipefail
+BIE_HOME=/var/lib/bie
+ENV_FILE=/etc/bie/bie.env
+KEY="$BIE_HOME/deploy_key"
+REPO_SSH="git@github.com:SEENAV01/Enterprise-bie.git"
+GIT_SSH="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+
+if [ "$(id -u)" != "0" ]; then echo "Aise chalaiye: sudo bie-setup"; exit 1; fi
+
+echo "== 1/3 Gemini key =="
+if grep -q '^AICREDITS_GEMINI_API_KEY=.' "$ENV_FILE"; then
+  echo "Gemini key pehle se rakhi hai."
+else
+  read -rsp "AICredits Gemini key paste karein (screen par nahi dikhegi), phir Enter: " gemini; echo
+  [ -n "$gemini" ] || { echo "Key khaali hai. Dobara chalaiye."; exit 1; }
+  printf 'AICREDITS_GEMINI_API_KEY=%s\n' "$gemini" >> "$ENV_FILE"
+  unset gemini
+fi
+grep -q '^BIE_HOME=' "$ENV_FILE" || cat >> "$ENV_FILE" <<EOF
+BIE_HOME="$BIE_HOME"
+CODEX_HOME="$BIE_HOME/codex"
+BIE_REPO_URL="$REPO_SSH"
+BIE_GIT_SSH="$GIT_SSH"
+EOF
+
+echo "== 2/3 GitHub deploy key =="
+[ -f "$KEY" ] || sudo -u bie ssh-keygen -q -t ed25519 -N '' -C bie-codex-vm -f "$KEY"
+if sudo -u bie env GIT_SSH_COMMAND="$GIT_SSH" git ls-remote "$REPO_SSH" HEAD >/dev/null 2>&1; then
+  echo "GitHub key pehle se judi hai."
+else
+  echo "Yeh link tablet par kholiye:  https://github.com/SEENAV01/Enterprise-bie/settings/keys/new"
+  echo "Title: bie-codex-vm   |   Key: neeche wali poori line   |   'Allow write access' par tick"
+  echo
+  cat "$KEY.pub"
+  echo
+  read -rp "Jod di? Enter dabaiye... " _
+  sudo -u bie env GIT_SSH_COMMAND="$GIT_SSH" git ls-remote "$REPO_SSH" HEAD >/dev/null && echo "GitHub OK"
+fi
+
+echo "== 3/3 Codex sign-in (ChatGPT) =="
+if sudo -u bie env CODEX_HOME="$BIE_HOME/codex" codex login status >/dev/null 2>&1; then
+  echo "Codex pehle se signed in hai."
+else
+  echo "Neeche ek link aur code aayega. Link tablet par kholiye, ChatGPT se login kijiye, code daaliye."
+  sudo -u bie env CODEX_HOME="$BIE_HOME/codex" codex login --device-auth
+fi
+chmod 700 "$BIE_HOME/codex"
+
+systemctl enable --now bie-codex-poll.timer
+echo
+echo "Ho gaya. Machine ab har 2 minute mein naya kaam dekhegi."
+sudo -u bie bash -c "set -a; . $ENV_FILE; set +a; exec $BIE_HOME/venv/bin/python -B $BIE_HOME/repo/tools/codex_vm.py status" \
+  | grep -E '"logged_in"|usedPercent|gemini_key_set' || true
