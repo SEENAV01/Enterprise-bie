@@ -1,19 +1,50 @@
 # BIE Status
 
-Updated: 21 October 2026 · Read this first in every new session, then show Navin the current task card.
+Updated: 22 October 2026 · Read this first in every new session, then show Navin the current task card.
 
 ## Now
 
 | Field | Value |
 | --- | --- |
-| Phase | 1 · BIE as one whole system on the tissue chapter |
-| Current task | 039–041 · brain frame, Section 1 (understanding), Section 2 (lesson plan and script), Section 3 (director); Task 042 asset library started |
-| Branch | `task039-brain-understanding` (PR #41; Tasks 039–042 so far, one PR because the sections were built in one go) |
-| State | Section 1 INTEGRATED on the real tissue chapter (live runs); Sections 2 and 3 implemented and run offline; first full-chapter chain rerun in progress |
-| Next task | 042 · Visual library and animation blocks — waiting for Navin's choice of video path (A: old Scene IR compiler, B: new brain video path, recommended) |
-| Canonical main | `d51e3aeb` (PR #40 merged: vision and roadmap) |
+| Phase | 1 · BIE as one whole system; plan agreed on 22 October 2026 (ROADMAP, "Agreed on 22 October 2026") |
+| Current task | 043 · Cost guard (pahra), tarazu audit, content-type map, task-card design |
+| Branch | `task043-pahra-tarazu` (PR to `main`) |
+| State | Built and tested offline; live probe, access check and a ₹5 smoke run done; PR open |
+| Next task | 044 · ChatGPT Pro engine (Codex as maker on a private machine; Gemini as checker) |
+| Canonical main | `c8853eb2` (PR #41 merged: Tasks 039–042, the brain) |
+| Keys | Never the Anthropic key. GPT API key off. Only the Gemini key (AICredits) until ChatGPT Pro is connected. That key may call only `google/gemini-4-argon` today |
 
-## Tasks 039–042 · the brain (in progress, PR #41)
+## 22 October 2026 · what was agreed
+
+- **BIE is the system between Navin and AI** (binding): it understands the whole book (chapter map), tells the AI exactly what to make through compact task cards and fixed output formats, checks every output with code and a second AI, builds video, game and notes with its own engines (the AI only fills data), and records and locks whatever passes. Not a prompt wrapper; lesson content only by BIE.
+- **Order:** every section meets the five points (the tarazu), merging the brain into the old BIE code (one BIE) → ChatGPT Pro early → after each section, tissue + 4–5 chapters of other subjects judged by Navin → one-button software → only then heavy vs light method, cost optimisation, own model.
+- **Cost target:** ₹50–300 per book; optimisation later, a cost guard now.
+- **Tasks 043–052** are in ROADMAP. Task numbers in STATUS entries written before 22 October follow the old plan (old 043 Voice is now 047, 044 Render 048, 045 Game 049, 046 Notes 050, 047 Review 051–052).
+
+## Task 043 · cost guard, tarazu, content types, task card
+
+- **PR #41 merged** at `c8853eb2` after all 7 checks on its head `0287f668` passed (Post-DIR canonical, Section 16 combined, Section 18 canonical-regression, native-render and section16-regression, Task038 offline; the live job is skipped on pull requests).
+- **Cost guard ("pahra")** (`bie/model_gateway/live/budget.py`, `bie/brain/cost.py`, `tools/run_brain.py`, workflow input `max_inr`, default 300):
+  - Preflight: one tiny structured call per route before any work (plus the AICredits wallet, which answered "not found" at `/v1/credits`). Any failure stops the run as `stopped: preflight` with a `pahra preflight` annotation; keys are redacted.
+  - Estimate: "Andaaza ₹X, seema ₹Y" per section from the page count. Section 1 uses the measured Task 039 ledgers ($0.181 per page reading, $0.06 per page for the chapter map, GPT-6.1 Sol + Gemini 4 Argon); Sections 2–7 are marked "assumed" until a live run measures them. Rate ₹94.59 per dollar (AICredits, 20 Oct).
+  - Hard cap: checked before every call, including retries and repairs; a call whose projected cost would cross the cap is not sent, passed work is kept, the status is `stopped: budget`, and the chain does not start the next section.
+  - Balance errors (HTTP 402, `insufficient_quota`, "Budget Exceeded", "Insufficient Balance") are a new error kind, never retried; they stop the run (OpenAI's quota error was retried four times before).
+  - After the run: rupees per section and per page in `SUMMARY.json`, with the note that it is a price-table estimate and a `real_bill_inr` slot; `docs/roadmap/COST_LOG.md` is where dashboard amounts are written.
+  - Records name the maker and reviewer models and the reviewer's independence; a same-company checker is allowed only with another model and is marked `same_company_temporary`.
+  - Ledger rows now carry `cached_input_tokens`, so provider caching is measured.
+- **Tests:** `tools/run_task043_tests.py`, 273 offline tests (27 new in `tests/test_task043_pahra.py`, plus the Task 039 and 038 lanes): cap-stop keeps passed pages (pages 1–2 passed, page 3 stopped, ledger ₹1,800 under a ₹1,850 cap), preflight-stop runs no section and leaks no key, every preflight route judged on its own, estimate numbers, rupees per section, same-company checker records, content types and the example task card.
+- **Live (all on the Gemini key via AICredits):**
+  - Probe (run 39734021966, 39734670129, free): the platform lists 439 models, 30 of them Gemini, with prices; the key's own model list shows the same 30.
+  - Live smoke, `max_inr` 5 (run 39734293232): maker Gemini 4 Argon, checker Gemini 3.1 Pro Preview, one page. Estimate ₹23.47 for one page against the ₹5 cap (warning shown). Preflight stopped the run: "This API key is not permitted to use model 'google/gemini-3.1-pro-preview'". Spent ₹0.08 (the maker's preflight call).
+  - Access check (run 39735198529): of Gemini 4 Argon, 3.1 Pro Preview, 2.5 Pro, Pro Latest, 3.8 Flash and 3.5 Flash, the key allows only **Gemini 4 Argon**; the five refusals cost nothing. Spent ₹0.08.
+  - Proposed pair (temporary, same company, marked in records): maker `google/gemini-4-argon` ($2 / $10 per million tokens, reads images), checker `google/gemini-3.1-pro-preview` ($2 / $12, reads images, a different generation). Needs Navin to allow the checker model on the AICredits Gemini key.
+- **Batch and caching (research, not built):** AICredits documents no batch API and no batch discount (its pricing page names a "Batch tier" without a figure). It passes provider caching through at cached-input prices: Gemini 4 Argon cached input $0.10 instead of $2.00 per million (api.aicredits.in/api/models); OpenAI cached input at half price; Claude only with `"cache": true` (reads 0.1×, writes 1.25×, 5 minutes). Gemini caches repeated prefixes implicitly on 2.5 and newer models (hits not guaranteed). Google's own Gemini API has a Batch mode at 50% of the price (up to 24 hours) and caching at a 90% discount, but only with a direct Google key, which BIE does not use now. The task-card design puts all fixed text first so caching can hit (Task 045 measures it).
+- **Tarazu audit:** `docs/roadmap/TARAZU.md` (18 old sections, the productization glue and 12 brain modules). Biggest gaps: review and lock not built (051, 052); no voice (047); no real render or player (046, 048); game half built with two runtimes and no book world (049); understanding not yet on content types and task cards (045).
+- **Content-type map:** `bie/brain/rulebook/content_types.json` (version 2026-10-22.1, design): process, structure, classification, comparison, timeline, cause-effect, facts and numbers, figure, definition; for each the questions (kya, kyun, kaise, kab, kaun, kahan, tulna, saboot, nateeja), teaching pattern, video blocks, game mechanic, notes infographic and code-side detection hints. The rulebook version now includes it (`content_types@2026-10-22.1+vision-2026-10-21@2026-10-21.7`).
+- **Task card:** `docs/roadmap/TASK_CARD.md`, schema `docs/roadmap/task_card.schema.json`, example `docs/roadmap/task_card.example.json` (a lesson card for page 3 of the tissue chapter with real item ids, about 800 tokens).
+- **Status words:** the cost guard is INTEGRATED for preflight (a real provider refusal stopped a real run); the cap-stop is proven offline only, until the second Gemini model is allowed. Nothing is ACCEPTED.
+
+## Tasks 039–042 · the brain (merged in PR #41 on 22 October 2026)
 
 - **Vision rulebook** (`bie/brain/rulebook/vision-2026-10-21.json`, `bie/brain/rulebook.py`, version 2026-10-21.5, 34 locked rules): Navin's agreed vision, each rule an instruction for the maker and a yes/no check for the reviewer. Changes since the first version, all forced by live runs or added sections: G-03 now asks for brief decision notes instead of written "thinking" (a provider blocked the first wording, see below); R-01 gives reviewer findings a severity and judges at the learners' level; S1-07 keeps outside explanations at textbook level without absolute words; S2-03–S2-05 (prerequisites taught, Navin's spoken Hinglish, true coverage claims); S3-03–S3-05 (word-timed visuals, anatomy-level descriptions, interactive moments).
 - **Section runner** (`bie/brain/runner.py`): maker AI writes brief notes and its output → BIE code checks → independent reviewer on another provider with the rulebook checklist (blocking or minor findings) → remake as a patch of only the changed parts, at most 3 rounds → one process record per step (each round's notes, output, patch, problems, reviewer findings, models, tokens, cost; failed rounds marked "avoid"; images by hash only; `navin_verdict` left for Navin).
@@ -55,6 +86,7 @@ Updated: 21 October 2026 · Read this first in every new session, then show Navi
 | 2026-10-19 | 037A · Repository memory | `CLAUDE.md`, Vision Spec, roadmap and this file; PR #31, merged through PR #32 |
 | 2026-10-19 | 037B · Fast lane and CI debts | PR #32 merged at `d464d7f7` after all 12 checks passed on its final head `ad1436e5`. F-08 instrumented, not closed |
 | 2026-10-20 | 037C · Let working source evolve | PR #34 merged at `dce749ed` after all 12 checks passed on its final head `377e313c` |
+| 2026-10-22 | 039–042 · Brain frame, Sections 1–4 and 6–7 (design), asset library | PR #41 merged at `c8853eb2` after all 7 checks passed on its final head `0287f668`; Section 1 INTEGRATED, the rest IMPLEMENTED |
 
 ## Task 037B · what changed
 
@@ -104,8 +136,14 @@ Updated: 21 October 2026 · Read this first in every new session, then show Navi
 - [x] Providers — Claude and Gemini through AICredits, OpenAI direct (20 October 2026); the model for each section is chosen by test on the locked chapters, quality first (21 October 2026).
 - [x] First chapter — "10. Tissues and Its Types", UPSC / State PCS, Hinglish (20 October 2026).
 - [x] Video form — animated, code-based (Remotion) and rendered; no AI video-generation models (21 October 2026).
+- [x] Cost target — ₹50–300 per book; a cost guard now, optimisation later (22 October 2026).
+- [x] Keys — never the Anthropic key; GPT API key off; only the Gemini key (AICredits) until ChatGPT Pro is connected (22 October 2026).
+- [ ] Allow a second model on the AICredits Gemini key for the checker: proposed `google/gemini-3.1-pro-preview` (AICredits dashboard → API keys → the Gemini key → allowed models). Until then no brain section can run, because maker and checker must differ.
 - [ ] Monthly budget (Navin set the estimates aside on 21 October; decide on measured cost).
-- [ ] Narration voice — by ear, among tested options including a cloned voice (Task 043).
+- [ ] Narration voice — by ear, among tested options including a cloned voice (Task 047).
+- [ ] Video path: A (old Scene IR compiler) or B (brain video path, recommended) — at Task 046.
+- [ ] CC BY-SA assets in a paid course: allowed or not — before Task 046.
+- [ ] Where ChatGPT Pro (Codex) runs: JioPC or a small cloud VM (cost shown first) — Task 044.
 - [ ] What the Dhanteras goal becomes (a pilot of a few chapters?).
 - [ ] Parked Director Step 4–6 work: finish, rework or drop.
 - [ ] Where courses are published first.

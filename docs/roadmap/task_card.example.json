@@ -1,0 +1,201 @@
+{
+ "card": "bie.task-card/1",
+ "card_id": "lesson.write_script@tissues-10/v2",
+ "section": "lesson",
+ "task": "write_script",
+ "prefix": {
+  "prefix_id": "lesson.write_script/1",
+  "rulebook_version": "content_types@2026-10-22.1+vision-2026-10-21@2026-10-21.7",
+  "content_types_version": "2026-10-22.1",
+  "schema_id": "bie.brain.lesson-script/2",
+  "sha256": "7d6fe25fd1ccda83781e853eac07b363a27e3f19ba67d2e181fada4b4fe56c36"
+ },
+ "unit": {
+  "unit_id": "v2",
+  "title": "Epithelial tissue",
+  "pages": [
+   3
+  ]
+ },
+ "parts": [
+  {
+   "part_id": "a",
+   "item_ids": [
+    "p003-i1",
+    "p003-i2",
+    "p003-i3",
+    "p003-i4",
+    "p003-i5"
+   ],
+   "type": "classification",
+   "questions": [
+    "which",
+    "difference",
+    "what"
+   ],
+   "focus": "The four kinds of animal tissue by their job, before epithelium is opened up."
+  },
+  {
+   "part_id": "b",
+   "item_ids": [
+    "p003-i6",
+    "p003-i7",
+    "p003-i8",
+    "p003-i9",
+    "p003-i10"
+   ],
+   "type": "structure",
+   "questions": [
+    "what",
+    "where",
+    "how",
+    "why"
+   ],
+   "focus": "How tightly packed cells on a membrane make a covering and a barrier."
+  },
+  {
+   "part_id": "c",
+   "item_ids": [
+    "p003-i12",
+    "p003-i13",
+    "p003-i14",
+    "p003-i15",
+    "p003-i16",
+    "p003-i17"
+   ],
+   "type": "figure",
+   "questions": [
+    "what",
+    "which",
+    "how"
+   ],
+   "focus": "Read Fig. 6.9 label by label: the shape of each epithelium."
+  },
+  {
+   "part_id": "d",
+   "item_ids": [
+    "p003-i20",
+    "p003-i21",
+    "p003-i22",
+    "p003-i23",
+    "p003-i24",
+    "p003-i25"
+   ],
+   "type": "comparison",
+   "questions": [
+    "compare",
+    "difference",
+    "where",
+    "why"
+   ],
+   "focus": "The table row by row: location, structure and function, and why shape fits the job."
+  },
+  {
+   "part_id": "e",
+   "item_ids": [
+    "p003-i11"
+   ],
+   "type": "process",
+   "questions": [
+    "how",
+    "when"
+   ],
+   "focus": "How epithelial cells become gland cells that secrete."
+  }
+ ],
+ "rules": [
+  "G-01",
+  "G-02",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-03",
+  "S2-04",
+  "S2-05"
+ ],
+ "output": {
+  "schema_id": "bie.brain.lesson-script/2",
+  "mode": "full",
+  "max_output_tokens": 12000
+ },
+ "coverage": {
+  "must_cover": [
+   "p003-i1",
+   "p003-i2",
+   "p003-i3",
+   "p003-i4",
+   "p003-i5",
+   "p003-i6",
+   "p003-i7",
+   "p003-i8",
+   "p003-i9",
+   "p003-i10",
+   "p003-i11",
+   "p003-i12",
+   "p003-i13",
+   "p003-i14",
+   "p003-i15",
+   "p003-i16",
+   "p003-i17",
+   "p003-i20",
+   "p003-i21",
+   "p003-i22",
+   "p003-i23",
+   "p003-i24",
+   "p003-i25"
+  ],
+  "claim_field": "beats[].covers_item_ids",
+  "may_skip": [
+   {
+    "item_id": "p003-i19",
+    "reason": "table header row, not teachable"
+   }
+  ]
+ },
+ "context": {
+  "map_slice": [
+   [
+    "p003-i1",
+    "classification",
+    "3",
+    "Four types of tissues in our body"
+   ],
+   [
+    "p003-i8",
+    "structure",
+    "3",
+    "Epithelial cells tightly packed, continuous sheet"
+   ],
+   [
+    "p003-i12",
+    "figure",
+    "3",
+    "Fig. 6.9 four epithelium drawings"
+   ],
+   [
+    "p003-i20",
+    "comparison",
+    "3",
+    "Simple squamous: location, structure, function"
+   ]
+  ],
+  "before": "v1: what a tissue is and why the body divides work among tissues",
+  "after": "v3: muscular tissue"
+ },
+ "source": {
+  "block_ids": [
+   "p0003-b0002",
+   "p0003-b0003",
+   "p0003-b0007",
+   "p0003-b0009",
+   "p0003-b0014",
+   "p0003-b0018"
+  ],
+  "page_images": [
+   {
+    "page": 3,
+    "sha256": "b05674dc835a3ca31de79ac8d479126e9a29c8be7f9013dd8c5e5a683547d21b"
+   }
+  ]
+ }
+}

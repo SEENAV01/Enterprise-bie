@@ -28,9 +28,10 @@ Book → LLM → Remotion shortcut.
 ## Current reality (October 2026)
 
 - The productized pipeline runs 11 stages end to end: SOURCE → DOCUMENT_INTELLIGENCE → KNOWLEDGE → PREREQUISITE → MATH → REASONING → PEDAGOGY → DIRECTOR → VISUAL → ANIMATION → SCENE_IR.
-- Live AI connections exist (Task 038: Claude and Gemini through AICredits, OpenAI direct; runs only in GitHub Actions), but the thinking stages still run on regex and fixed templates.
+- Live AI connections exist (Task 038; runs only in GitHub Actions). The 11-stage pipeline's thinking stages still run on regex and fixed templates; the new brain (`bie/brain/`, Tasks 039–042) runs AI sections through one section runner and is being merged into the old engines (`docs/roadmap/TARAZU.md`).
+- Keys (Navin, 22 October 2026): never use the Anthropic key; the GPT API key is off; only the Gemini key through AICredits until ChatGPT Pro is connected. Every live brain run goes through the cost guard (`max_inr`, preflight, estimate).
 - There is no AUDIO stage in the pipeline, and VIDEO_CODE → COMPILE → RENDER → QA and the GAME stages are not wired after Scene IR.
-- Phase 1 (from 21 October 2026) builds BIE into an AI tailored to Navin's vision, section by section, judged as one whole system; read the Vision Spec section "Agreed on 21 October 2026" before any BIE work.
+- Phase 1 (from 21 October 2026) builds BIE into an AI tailored to Navin's vision, section by section, judged as one whole system; read the Vision Spec section "Agreed on 21 October 2026" and the ROADMAP section "Agreed on 22 October 2026" (BIE is the system between Navin and AI; the five points; Tasks 043–052) before any BIE work.
 - Claude builds BIE; lesson content (scripts, scenes, videos, games, notes) is made only by BIE, never by hand.
 
 ## How work is done
