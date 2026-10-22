@@ -9,7 +9,7 @@ from __future__ import annotations
 import urllib.parse
 
 from .errors import ProviderError
-from .messages import provider_schema, split_messages
+from .messages import gemini_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
@@ -20,7 +20,7 @@ class GeminiClient:
     provider = "google"
 
     def __init__(self, api_key: str, *, transport: HttpTransport | None = None, max_output_tokens: int = 32768,
-                 base_url: str = BASE_URL, temperature: float | None = None):
+                 base_url: str = BASE_URL, temperature: float | None = None, stream: bool = False):
         if not api_key:
             raise ProviderError("config", "GEMINI_API_KEY is not set", provider=self.provider)
         self._key = api_key
@@ -28,6 +28,7 @@ class GeminiClient:
         self.max_output_tokens = max_output_tokens
         self.base_url = base_url.rstrip("/")
         self.temperature = temperature
+        self.stream = stream
         self.last_model = None
 
     def _headers(self):
@@ -35,7 +36,7 @@ class GeminiClient:
 
     def generate(self, *, model, messages, schema=None):
         system, conversation = split_messages(messages, provider=self.provider)
-        contents = [{"role": "model" if m["role"] == "assistant" else "user", "parts": [{"text": m["content"]}]}
+        contents = [{"role": "model" if m["role"] == "assistant" else "user", "parts": gemini_parts(m["content"])}
                     for m in conversation]
         config = {"maxOutputTokens": self.max_output_tokens}
         if self.temperature is not None:
@@ -47,6 +48,27 @@ class GeminiClient:
         if system:
             body["systemInstruction"] = {"parts": [{"text": system}]}
         name = model if model.startswith("models/") else "models/" + model
+        if self.stream:
+            url = f"{self.base_url}/{urllib.parse.quote(name, safe='/.-_')}:streamGenerateContent?alt=sse"
+            texts, last = [], {}
+            for event in self.transport.request_events("POST", url, self._headers(), body, provider=self.provider,
+                                                       secrets=(self._key,)):
+                if event.get("promptFeedback", {}).get("blockReason"):
+                    last["promptFeedback"] = event["promptFeedback"]
+                candidate = (event.get("candidates") or [{}])[0]
+                for part in (candidate.get("content") or {}).get("parts") or []:
+                    if isinstance(part, dict) and not part.get("thought") and "text" in part:
+                        texts.append(part["text"])
+                if candidate.get("finishReason"):
+                    last["finishReason"] = candidate["finishReason"]
+                for key in ("usageMetadata", "modelVersion"):
+                    if event.get(key):
+                        last[key] = event[key]
+            raw = {"candidates": [{"content": {"parts": [{"text": "".join(texts)}]}, "finishReason": last.get("finishReason")}],
+                   "usageMetadata": last.get("usageMetadata") or {}, "modelVersion": last.get("modelVersion")}
+            if "promptFeedback" in last:
+                raw["promptFeedback"] = last["promptFeedback"]
+            return self.parse(raw, model)
         url = f"{self.base_url}/{urllib.parse.quote(name, safe='/.-_')}:generateContent"
         raw = self.transport.request_json("POST", url, self._headers(), body, provider=self.provider, secrets=(self._key,))
         return self.parse(raw, model)

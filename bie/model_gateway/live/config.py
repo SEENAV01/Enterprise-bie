@@ -80,22 +80,27 @@ def model_for(provider: str, env=None, via: str = "direct") -> str:
     return (env.get(MODEL_ENV[provider]) or "").strip() or DEFAULT_MODELS_VIA[via or "direct"][provider]
 
 
-def make_client(provider: str, key: str, *, via: str = "direct", timeout: float = 600.0):
+def make_client(provider: str, key: str, *, via: str = "direct", timeout: float = 600.0, max_output_tokens: int | None = None,
+                stream: bool = False):
+    """A client for ``provider``; ``max_output_tokens`` overrides each client's default output cap; ``stream`` keeps
+    long generations alive as server-sent events."""
     transport = HttpTransport(timeout=timeout)
+    cap = {} if max_output_tokens is None else {"max_tokens": int(max_output_tokens)}
     if via == "aicredits":
-        return OpenAICompatChatClient(key, via="aicredits", transport=transport)
+        return OpenAICompatChatClient(key, via="aicredits", transport=transport, stream=stream, **cap)
     if via != "direct":
         raise ValueError("unknown route " + repr(via))
     if provider == "anthropic":
-        return AnthropicClient(key, transport=transport)
+        return AnthropicClient(key, transport=transport, stream=stream, **cap)
     if provider == "openai":
-        return OpenAIClient(key, transport=transport)
+        return OpenAIClient(key, transport=transport, stream=stream, **({"max_output_tokens": cap["max_tokens"]} if cap else {}))
     if provider == "google":
-        return GeminiClient(key, transport=transport)
+        return GeminiClient(key, transport=transport, stream=stream, **({"max_output_tokens": cap["max_tokens"]} if cap else {}))
     raise ValueError("unknown provider " + repr(provider))
 
 
-def build_routes(providers=PROVIDERS, *, env=None, fake=False, fake_scripts=None, timeout: float = 600.0):
+def build_routes(providers=PROVIDERS, *, env=None, fake=False, fake_scripts=None, timeout: float = 600.0,
+                 max_output_tokens: int | None = None, stream: bool = False):
     """Return (routes, not_configured): adapters keyed by provider, and providers without a key."""
     routes, missing = {}, []
     for provider in providers:
@@ -109,7 +114,7 @@ def build_routes(providers=PROVIDERS, *, env=None, fake=False, fake_scripts=None
             if not key:
                 missing.append(provider)
                 continue
-            client = make_client(provider, key, via=via, timeout=timeout)
+            client = make_client(provider, key, via=via, timeout=timeout, max_output_tokens=max_output_tokens, stream=stream)
             model = model_for(provider, env, via)
         routes[provider] = ADAPTERS[provider](client, model)
     return routes, missing

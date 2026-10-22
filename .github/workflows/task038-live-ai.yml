@@ -12,13 +12,17 @@ on:
       - 'tests/imported/BIE_MODEL_GW_*/**'
       - 'tools/run_task038_tests.py'
       - 'tools/run_blind_test.py'
+      - 'bie/brain/**'
+      - 'tests/test_task039_*'
+      - 'tools/run_brain.py'
+      - 'tools/run_task039_tests.py'
       - '.github/workflows/task038-live-ai.yml'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test'
+        description: 'probe = list models (free), smoke = one tiny call each, blind-test = the chapter test; brain-understand = Section 1, brain-lesson = Section 2 from a chapter map (source = its URL), brain-director = Section 3 from an earlier run (source = its folder URL), brain-notes = Section 7 and brain-game = Section 6 design from a chapter map (source = its URL), brain-visual = Section 4 and MP4 previews from an earlier run (source = its folder URL; pages = video ids), brain-chain = all of them'
         type: choice
-        options: [probe, smoke, blind-test]
+        options: [probe, smoke, blind-test, brain-understand, brain-lesson, brain-director, brain-notes, brain-game, brain-visual, brain-chain]
         default: probe
       source:
         description: 'blind-test: chapter PDF as an https URL or a repository path'
@@ -29,7 +33,7 @@ on:
         required: false
         default: ''
       class_level:
-        description: 'blind-test: learners, for example Class 8'
+        description: 'blind-test: learners, for example Class 8; brain-understand and brain-chain: an https URL of an earlier run folder to reuse its passed pages'
         required: false
         default: 'Class 8'
       language:
@@ -37,11 +41,13 @@ on:
         required: false
         default: 'English'
       subject:
+        description: 'blind-test: subject; brain-understand: course fields, for example title=10. Tissues and Its Types;subject=Science and Technology;learners=UPSC / State PCS aspirants;exam=UPSC / State PCS;language=Hinglish'
         required: false
         default: ''
       providers:
+        description: 'blind-test and probe: providers; brain-understand: maker,reviewer (two different providers), for example openai,google (Navin, 21 Oct 2026: Claude is not used)'
         required: false
-        default: 'anthropic,openai,google'
+        default: 'openai,google'
       models:
         description: 'optional model overrides, for example anthropic=anthropic/claude-sonnet-5.5,google=google/gemini-3.1-pro-preview'
         required: false
@@ -78,6 +84,23 @@ jobs:
           python -m pip check
       - name: Task038 offline tests (clients, gateway, blind test) and unchanged gateway contracts
         run: python -B tools/run_task038_tests.py --output "$RUNNER_TEMP/task038-evidence/task038-tests.json"
+      - name: Task039 offline tests (image parts, rulebook, section runner, Section 1)
+        run: python -B tools/run_task039_tests.py --output "$RUNNER_TEMP/task038-evidence/task039-tests.json"
+      - name: Fake Section 1 run on a real PDF through the DI text runtime and page images
+        run: |
+          set -euo pipefail
+          python -B - <<'PY'
+          import os, sys
+          sys.path.insert(0, 'tests/productization/document_intelligence')
+          from structural_pdf_fixtures import positioned_text_pdf
+          lines = ('Tissue is a group of similar cells doing one job.', 'Muscle tissue helps in movement.')
+          pdf = positioned_text_pdf([[(72, 720 - i * 20, lines[i % 2]) for i in range(12)], []])
+          open(os.path.join(os.environ['RUNNER_TEMP'], 'brain.pdf'), 'wb').write(pdf)
+          PY
+          python -B tools/run_brain.py --fake --source "$RUNNER_TEMP/brain.pdf" --out "$RUNNER_TEMP/task038-evidence/fake-brain" \
+            --course 'title=Offline chapter;subject=Biology;learners=UPSC aspirants;exam=UPSC'
+          test -s "$RUNNER_TEMP/task038-evidence/fake-brain/chapter_map.json"
+          test -s "$RUNNER_TEMP/task038-evidence/fake-brain/MAP.md"
       - name: Fake end-to-end blind test through the real DI text runtime
         run: |
           set -euo pipefail
@@ -111,7 +134,7 @@ jobs:
   live:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 120
     permissions:
       contents: write  # only to push the run's outputs to the blindtest-results branch
     env:
@@ -137,6 +160,19 @@ jobs:
         run: |
           python -m pip install -e '.[document-intelligence,document-intelligence-layout]'
           python -m pip check
+      - name: Preview renderer tools for brain visual runs (Node, Chromium, Noto fonts, ffmpeg)
+        if: inputs.mode == 'brain-visual' || inputs.mode == 'brain-chain'
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-core fonts-noto-ui-core ffmpeg >/dev/null
+          mkdir -p "$RUNNER_TEMP/node" && cd "$RUNNER_TEMP/node"
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund --ignore-scripts esbuild@0.28.2 react@19.2.0 react-dom@19.2.0 playwright@1.56.0 >/dev/null
+          node node_modules/esbuild/install.js >/dev/null 2>&1 || true
+          npx --yes playwright@1.56.0 install chromium >/dev/null
+          echo "NODE_PATH=$RUNNER_TEMP/node/node_modules" >> "$GITHUB_ENV"
+          echo "ESBUILD=$RUNNER_TEMP/node/node_modules/esbuild/bin/esbuild" >> "$GITHUB_ENV"
       - name: Live run (keys only in this step)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -147,6 +183,22 @@ jobs:
           AICREDITS_GEMINI_API_KEY: ${{ secrets.AICREDITS_GEMINI_API_KEY }}
         run: |
           set -euo pipefail
+          if [[ "$MODE" == brain-* ]]; then
+            section="${MODE#brain-}"
+            maker="${PROVIDERS%%,*}"; reviewer="${PROVIDERS#*,}"; reviewer="${reviewer%%,*}"
+            args=(--section "$section" --maker "$maker" --reviewer "$reviewer" --models "$MODELS" --routes "$ROUTES"
+                  --course "$SUBJECT" --workers 8 --out "$RUNNER_TEMP/live")
+            case "$section" in
+              lesson|notes|game) args+=(--chapter-map "$SOURCE") ;;
+              director) args+=(--from-run "$SOURCE") ;;
+              visual) args+=(--from-run "$SOURCE" --render); if [ -n "$PAGES" ]; then args+=(--videos "$PAGES"); fi; PAGES="" ;;
+              *) args+=(--source "$SOURCE"); if [ -n "$CLASS_LEVEL" ] && [[ "$CLASS_LEVEL" == https://* ]]; then args+=(--resume-from "$CLASS_LEVEL"); fi ;;
+            esac
+            if [ -n "$PAGES" ]; then args+=(--pages "$PAGES"); fi
+            if [ -n "$LANGUAGE" ]; then args+=(--language "$LANGUAGE"); fi
+            python -B tools/run_brain.py "${args[@]}"
+            exit 0
+          fi
           args=(--mode "$MODE" --providers "$PROVIDERS" --models "$MODELS" --routes "$ROUTES" --out "$RUNNER_TEMP/live")
           if [ "$MODE" = "blind-test" ]; then
             args+=(--source "$SOURCE" --class-level "$CLASS_LEVEL" --language "$LANGUAGE" --subject "$SUBJECT")
@@ -170,8 +222,8 @@ jobs:
           else
             git checkout -q --orphan blindtest-results
           fi
-          mkdir -p "$dest" && cp "$RUNNER_TEMP/live/"* "$dest/"
-          printf '# Task038 live AI runs\n\nOne folder per manual run: SUMMARY.json, LEDGER.jsonl and, for blind tests, REPORT.md, RESULTS.json and KEY.json.\n' > README.md
+          mkdir -p "$dest" && cp -R "$RUNNER_TEMP/live/." "$dest/"
+          printf '# Task038 live AI runs\n\nOne folder per manual run: SUMMARY.json, LEDGER.jsonl and, for blind tests, REPORT.md, RESULTS.json and KEY.json; for brain runs, chapter_map.json, MAP.md and records/.\n' > README.md
           git add README.md "$dest"
           git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
             commit -q -m "Task038 ${MODE} run ${GITHUB_RUN_ID} from ${GITHUB_SHA}"

@@ -7,7 +7,7 @@ mode needs every object to list all its properties as required and set
 from __future__ import annotations
 
 from .errors import ProviderError
-from .messages import provider_schema, split_messages
+from .messages import openai_responses_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
 BASE_URL = "https://api.openai.com/v1"
@@ -17,7 +17,7 @@ class OpenAIClient:
     provider = "openai"
 
     def __init__(self, api_key: str, *, transport: HttpTransport | None = None, max_output_tokens: int = 32000,
-                 base_url: str = BASE_URL, reasoning_effort: str | None = None):
+                 base_url: str = BASE_URL, reasoning_effort: str | None = None, stream: bool = False):
         if not api_key:
             raise ProviderError("config", "OPENAI_API_KEY is not set", provider=self.provider)
         self._key = api_key
@@ -25,6 +25,7 @@ class OpenAIClient:
         self.max_output_tokens = max_output_tokens
         self.base_url = base_url.rstrip("/")
         self.reasoning_effort = reasoning_effort
+        self.stream = stream
         self.last_model = None
 
     def _headers(self):
@@ -32,7 +33,8 @@ class OpenAIClient:
 
     def responses_create(self, *, model, messages, response_schema=None):
         system, conversation = split_messages(messages, provider=self.provider)
-        body = {"model": model, "input": conversation, "max_output_tokens": self.max_output_tokens, "store": False}
+        turns = [{"role": m["role"], "content": openai_responses_parts(m["content"], m["role"])} for m in conversation]
+        body = {"model": model, "input": turns, "max_output_tokens": self.max_output_tokens, "store": False}
         if system:
             body["instructions"] = system
         if self.reasoning_effort:
@@ -40,6 +42,19 @@ class OpenAIClient:
         if response_schema is not None:
             body["text"] = {"format": {"type": "json_schema", "name": "bie_output", "strict": True,
                                        "schema": provider_schema(response_schema, self.provider)}}
+        if self.stream:
+            body["stream"] = True
+            raw = None
+            for event in self.transport.request_events("POST", self.base_url + "/responses", self._headers(), body,
+                                                       provider=self.provider, secrets=(self._key,)):
+                kind = event.get("type", "")
+                if kind in ("response.completed", "response.incomplete", "response.failed"):
+                    raw = event.get("response") or {}
+                elif kind == "error":
+                    raise ProviderError("server_error", str(event.get("message") or event)[:300], provider=self.provider)
+            if raw is None:
+                raise ProviderError("provider_unavailable", "the stream ended before the response completed", provider=self.provider)
+            return self.parse(raw)
         raw = self.transport.request_json("POST", self.base_url + "/responses", self._headers(), body,
                                           provider=self.provider, secrets=(self._key,))
         return self.parse(raw)

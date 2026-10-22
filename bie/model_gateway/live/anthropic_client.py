@@ -6,7 +6,7 @@ header). Source: platform.claude.com/docs/en/build-with-claude/structured-output
 from __future__ import annotations
 
 from .errors import ProviderError
-from .messages import provider_schema, split_messages
+from .messages import anthropic_parts, provider_schema, split_messages
 from .transport import HttpTransport
 
 API_VERSION = "2023-06-01"
@@ -17,7 +17,7 @@ class AnthropicClient:
     provider = "anthropic"
 
     def __init__(self, api_key: str, *, transport: HttpTransport | None = None, max_tokens: int = 16000,
-                 base_url: str = BASE_URL, temperature: float | None = None):
+                 base_url: str = BASE_URL, temperature: float | None = None, stream: bool = False):
         if not api_key:
             raise ProviderError("config", "ANTHROPIC_API_KEY is not set", provider=self.provider)
         self._key = api_key
@@ -25,6 +25,7 @@ class AnthropicClient:
         self.max_tokens = max_tokens
         self.base_url = base_url.rstrip("/")
         self.temperature = temperature
+        self.stream = stream
         self.last_model = None
 
     def _headers(self):
@@ -32,13 +33,35 @@ class AnthropicClient:
 
     def messages_create(self, *, model, messages, schema=None):
         system, conversation = split_messages(messages, provider=self.provider)
-        body = {"model": model, "max_tokens": self.max_tokens, "messages": conversation}
+        body = {"model": model, "max_tokens": self.max_tokens,
+                "messages": [{"role": m["role"], "content": anthropic_parts(m["content"])} for m in conversation]}
         if system:
             body["system"] = system
         if self.temperature is not None:
             body["temperature"] = self.temperature
         if schema is not None:
             body["output_config"] = {"format": {"type": "json_schema", "schema": provider_schema(schema, self.provider)}}
+        if self.stream:
+            body["stream"] = True
+            raw = {"content": [], "usage": {}}
+            texts = []
+            for event in self.transport.request_events("POST", self.base_url + "/messages", self._headers(), body,
+                                                       provider=self.provider, secrets=(self._key,)):
+                kind = event.get("type")
+                if kind == "message_start":
+                    message = event.get("message") or {}
+                    raw["model"] = message.get("model")
+                    raw["usage"] = dict(message.get("usage") or {})
+                elif kind == "content_block_delta" and (event.get("delta") or {}).get("type") == "text_delta":
+                    texts.append(event["delta"].get("text", ""))
+                elif kind == "message_delta":
+                    raw["stop_reason"] = (event.get("delta") or {}).get("stop_reason")
+                    raw["usage"].update({k: v for k, v in (event.get("usage") or {}).items() if v is not None})
+                elif kind == "error":
+                    error = event.get("error") or {}
+                    raise ProviderError("server_error", str(error.get("message") or error)[:300], provider=self.provider)
+            raw["content"] = [{"type": "text", "text": "".join(texts)}]
+            return self.parse(raw)
         raw = self.transport.request_json("POST", self.base_url + "/messages", self._headers(), body,
                                           provider=self.provider, secrets=(self._key,))
         return self.parse(raw)
