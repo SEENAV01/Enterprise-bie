@@ -70,6 +70,13 @@ PR B (only after Navin's yes): live runs on the Gemini key, maker `google/gemini
 - **Live test (pending the machine):** brain-understand on the tissue chapter resuming from run 39627682253 (pages 1, 7, 11 and 13 run, the other 10 reused), maker codex, checker Gemini 4 Argon, `max_inr` 30; the chapter map is rebuilt over all 14 pages for Task 045.
 - **Status words:** the Codex route is IMPLEMENTED (offline, fake CLI); nothing live yet.
 
+## 23 October 2026 · mixed-script narration (Task 045b)
+
+- **Navin's teaching decision:** narration is mixed script: Hindi words in Devanagari, English words (above all the book's terms) in Roman, as in "आज हम tissue के बारे में पढ़ेंगे". A Hindi word that is not a simple everyday word gets its English word in brackets right after it, "सतह (surface)"; the screen and subtitles show the bracket, the voice says "सतह, यानी surface".
+- **Built:** `bie/brain/rulebook/simple_hindi.json` (version 2026-10-23.1, 778 seed words; Navin adds words and the version goes up; it counts in the rulebook version); `bie/brain/hinglish.py` (simple-word test with common endings and spelling variants, the bracket check, Roman-written Hindi check, `voice_text` and `subtitle_text`). Section 2 checks every beat with it; the script prefix carries the rule and the word list; `lesson_plan.json` beats get `subtitle` and `voice`, and SCRIPT.md shows the voice line. The check never asks for an English term in Devanagari or a Hindi word in Roman.
+- **Rulebook** `vision-2026-10-21@2026-10-21.9`: S2-04 states the mixed-script rule.
+- **Status:** IMPLEMENTED (offline tests, 333 in the Task 045 lane). The seed list is a first guess at "simple everyday Hindi"; the live scripts will show which words it misses, and Navin decides additions.
+
 ## 22 October 2026 · build freedom (Task 044d)
 
 - Navin decided that Claude may write any amount of code and add any tools, resources, code libraries and subject-specific libraries (for example SciPy, RDKit, three.js) that make BIE better, even beyond the tarazu, as long as everything joins the existing BIE (use, extend, or replace and retire explicitly) and nothing becomes a parallel system. Recorded in `CLAUDE.md` under "Engineering rules (binding)" as "Build freedom", with its guardrails: licence check, pinning and tests for every library; real-book proof and honest status words for every part; the cost guard and "reuse, do not duplicate" still apply; security-sensitive changes, budget and quality verdicts stay Navin's to decide.

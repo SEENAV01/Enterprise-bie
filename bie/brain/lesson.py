@@ -28,6 +28,7 @@ from pathlib import Path
 from . import cards
 from . import content_types as ct
 from . import engines
+from . import hinglish
 from . import naksha as naksha_module
 from .common import SEVERITY, S, arr as _arr, checklist_text as _checklist_text, fmt as _fmt, obj as _obj, review_problems
 from .runner import NOTES_SCHEMA, Step
@@ -157,8 +158,10 @@ How to fill the JSON:
   every step of a part's pattern must appear, in order;
   purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,
   question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):
-  Hindi sentence flow in Devanagari, English technical terms in Latin script exactly as the book spells them, numbers as digits,
-  addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat
+  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in
+  Roman, as in "आज हम tissue के बारे में पढ़ेंगे"; a Hindi word that is not in the simple everyday list below gets its English word in
+  brackets right after it, as in "सतह (surface)" (BIE's code checks it, shows the bracket on screen and makes the voice say
+  "सतह, यानी surface"); never write an English term in Devanagari or a Hindi word in Roman; numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat
   really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or mixed.
 Every item in must_cover and every teacher question listed for this video must be covered by some beat. A beat introduces at most a
 few new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with the JSON object only."""
@@ -355,6 +358,17 @@ def spoken_problems(beats, language) -> list:
         digits = [b["beat_id"] for b in beats if DEVANAGARI_DIGIT.search(b["say"])]
         if digits:
             problems.append(f"beats {', '.join(digits[:10])} write numbers in Devanagari digits; write numbers as digits 0-9 (S2-04)")
+        for b in beats:
+            hard = hinglish.difficult_words(b["say"])
+            if hard:
+                problems.append(f"beat {b['beat_id']}: the Hindi words {hard[:8]} are not simple everyday words; put the English "
+                                f"word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)")
+            for bad in hinglish.bracket_problems(b["say"]):
+                problems.append(f"beat {b['beat_id']}: {bad} (S2-04)")
+            roman = hinglish.roman_hindi(b["say"])
+            if roman:
+                problems.append(f"beat {b['beat_id']}: the Hindi words {roman} are written in Roman; write Hindi words in "
+                                "Devanagari (S2-04)")
     long = [b["beat_id"] for b in beats
             if any(len(s.split()) > LONGEST_SENTENCE for s in SENTENCE_END.split(b["say"]))]
     if long:
@@ -475,7 +489,8 @@ def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, m
 
 
 def script_prefixes(course, rulebook):
-    return (_prefix(course, rulebook, "write_script", SCRIPT_SCHEMA_ID, SCRIPT_SCHEMA, SCRIPT_ROLE, SCRIPT_HOW),
+    how = SCRIPT_HOW + "\n\n" + hinglish.prefix_text()
+    return (_prefix(course, rulebook, "write_script", SCRIPT_SCHEMA_ID, SCRIPT_SCHEMA, SCRIPT_ROLE, how),
             _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/2", REVIEW_SCHEMA, REVIEW_ROLE, REVIEW_HOW,
                     review=True))
 
@@ -542,7 +557,8 @@ def run_lesson(chapter: dict, course: Course, runner, out_dir, *, workers: int =
             "rounds": len(result.rounds),
             "parts": (result.output or {}).get("parts", []),
             "card_parts": [{k: p[k] for k in ("part_id", "type", "item_ids")} for p in step.card["parts"]],
-            "beats": (result.output or {}).get("beats", []),
+            "beats": [dict(b, subtitle=hinglish.subtitle_text(b["say"]), voice=hinglish.voice_text(b["say"]))
+                      for b in (result.output or {}).get("beats", [])],
             "checks": (result.rounds[-1].get("observed") if result.rounds else None) or {},
             "last_problems": (result.rounds[-1].get("code_problems") or []) + (result.rounds[-1].get("review_problems") or [])
             if result.rounds and not result.passed else [],
@@ -598,6 +614,8 @@ def render_markdown(lesson: dict) -> str:
             pattern = types.pattern(kinds.get(pid, "")) if pid else ()
             label = f" · step {step}: {pattern[step - 1]}" if pid and 1 <= step <= len(pattern) else ""
             lines.append(f"**{beat['beat_id']} · {beat['purpose']}{label}** — {beat['say']}")
+            if beat.get("voice") and beat["voice"] != beat["say"]:
+                lines.append(f"  _voice: {beat['voice']}_")
             lines.append(f"  _screen: {beat['on_screen']}_")
             lines.append("")
     return "\n".join(lines)
