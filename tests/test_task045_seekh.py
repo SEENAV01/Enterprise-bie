@@ -626,5 +626,75 @@ class CacheProbe(unittest.TestCase):
         self.assertAlmostEqual(est["total_inr"], 104.48, delta=0.5)       # job 2's ledger: Rs 104.48 for the lesson
 
 
+class ScriptReviewerFollowsTheTimeRule(unittest.TestCase):
+    """Job 3 (t045c, 23 October): 5 of 11 scripts failed in the same loop. Round 2 cut the script into its time, the
+    reviewer blocked it for leaving out teacher questions answered from outside the book (optional under S2-02) and
+    counted the words itself (1,105 against BIE's 1,586), round 3 added them back and the script was too long again."""
+
+    def chapter_and_step(self):
+        from bie.brain.lesson import script_step
+        chapter = tiny_chapter()
+        plan = {"videos": [plan_video("v0", [], 6, "prerequisites", ["Idea 1"]), plan_video("v1", ["c1", "c2"], 14)]}
+        return chapter, plan, script_step(Course(**chapter["course"]), chapter, plan, plan["videos"][1], rulebook=rulebook.load())
+
+    def test_the_reviewer_requires_only_book_questions_and_never_counts_words(self):
+        _, _, step = self.chapter_and_step()
+        self.assertIn('A teacher question whose basis is "outside" is optional', step.review_system)
+        self.assertIn("Never count words or judge the length yourself", step.review_system)
+        self.assertIn("bie.brain.lesson-script-review/3", step.review_system)
+        shown = step.review_user({"beats": [say_beat("b1", 260)], "parts": [], "title": "t", "notes": None})[0]["text"]
+        self.assertIn("BIE's code measured: 2.0 spoken minutes; narration time 12.0-16.0 minutes", shown)
+
+    def test_a_patch_round_tells_the_maker_its_measured_time(self):
+        _, _, step = self.chapter_and_step()
+        hint = step.patch_hint({"beats": [say_beat("b1", 1950)]})
+        self.assertIn("measured this script at 15.0 spoken minutes; the video's narration time is 12.0-16.0 minutes", hint)
+        self.assertIn("pay for every addition with a cut", hint)
+
+    def test_the_runner_accepts_a_patch_hint_made_from_the_answer(self):
+        import types
+        from bie.brain.runner import SectionRunner, Step
+
+        class Stub:
+            def __init__(self):
+                self.answers, self.requests = [{"ok": False}, {"ok": True}], []
+
+            def complete(self, route, request, prompt_version=None):
+                self.requests.append(request)
+                return types.SimpleNamespace(content=self.answers.pop(0), provenance={"via": "fake"}, model="stub",
+                                             provider="stub", usage={"input_tokens": 1, "output_tokens": 1})
+
+        stub = Stub()
+        step = Step(section="lesson", unit="script-v1", instructions_version="v", system="S", user="U", schema={},
+                    check=lambda value: [] if value["ok"] else ["not ok"], patch_schema={}, apply_patch=lambda old, patch: patch,
+                    patch_hint=lambda value: f"HINT ok={value['ok']}")
+        self.assertEqual(SectionRunner(stub, maker="stub", reviewer=None, rulebook=rulebook.load()).run(step).status, "passed")
+        self.assertIn("HINT ok=False", stub.requests[1].messages[3]["content"])
+
+    def test_a_pattern_step_for_when_there_is_one_is_optional(self):
+        from bie.brain.lesson import frame_problems
+        types_ = ct.load()
+        card = {"parts": [{"part_id": "c1.1", "type": "facts_numbers", "item_ids": ["p001-i1"]}]}
+        frame = {k: "x" for k in ("process", "how", "when", "conditions", "atmosphere")}
+        beats = lambda steps: {"parts": [{"part_id": "c1.1", "frame": frame}],
+                               "beats": [dict(say_beat(f"b{n}", 5), part_id="c1.1", step=n) for n in steps]}
+        self.assertIn("formula", types_.pattern("facts_numbers")[4])
+        self.assertEqual(frame_problems(beats([1, 2, 3, 4]), card, types_)[0], [])
+        self.assertTrue(any("4) what it changes or proves" in p for p in frame_problems(beats([1, 2, 3]), card, types_)[0]))
+
+    def test_everyday_words_from_job_3_are_simple_and_formal_ones_are_not(self):
+        from bie.brain import hinglish
+        simple = hinglish.load()
+        for word in ("पड़ोसी", "मर्ज़ी", "गुजरते", "सटकर", "झड़ने", "किस्में", "संभव", "समूह"):
+            self.assertTrue(simple.is_simple(word), word)
+        for word in ("पदार्थ", "प्रभावित", "मुख्यतः", "नियंत्रित", "निष्कर्ष"):
+            self.assertFalse(simple.is_simple(word), word)
+
+    def test_the_maker_reads_the_beat_load_limit_up_front(self):
+        from bie.brain.lesson import script_prefixes
+        maker = script_prefixes(Course(**tiny_chapter()["course"]), rulebook.load())[0]
+        self.assertIn("at most about 70 spoken words with one new item, 50 with two and 30 with three", maker.text)
+
+
 if __name__ == "__main__":
     unittest.main()

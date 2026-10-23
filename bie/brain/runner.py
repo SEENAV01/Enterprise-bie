@@ -80,7 +80,7 @@ class Step:
     review_problems: Callable[[dict], list] | None = None
     patch_schema: dict | None = None          # remakes answer with a patch instead of the whole output
     apply_patch: Callable[[dict, dict], dict] | None = None
-    patch_hint: str = ""
+    patch_hint: str | Callable[[dict], str] = ""     # text, or (current answer) -> text for the next patch round
     max_rounds: int = 3
     card: dict | None = None                  # the task card sent with this step (Task 045)
     observe: Callable[[dict], dict] | None = None   # code findings to record per round, never sent back
@@ -239,7 +239,8 @@ class SectionRunner:
             previous = json.dumps(value, ensure_ascii=False, separators=(",", ":"))     # compact: the maker reads it again
             patching = step.patch_schema is not None and step.apply_patch is not None
             schema = step.patch_schema if patching else step.schema
-            instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=step.patch_hint) if patching
+            hint = step.patch_hint(value) if callable(step.patch_hint) else step.patch_hint
+            instruction = (PATCH_INSTRUCTION.format(problems=_problems_text(problems), hint=hint) if patching
                            else REMAKE_INSTRUCTION.format(problems=_problems_text(problems)))
             messages = [messages[0], messages[1], {"role": "assistant", "content": previous},
                         {"role": "user", "content": instruction}]

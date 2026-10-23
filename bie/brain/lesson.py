@@ -61,6 +61,7 @@ DEVANAGARI_DIGIT = re.compile(r"[०-९]")
 SENTENCE_END = re.compile(r"[।?!.]+")
 LONGEST_SENTENCE = 40        # words; Navin's style is short spoken sentences (S2-04)
 FRAME = ("process", "how", "when", "conditions", "atmosphere")
+CONDITIONAL_STEP = re.compile(r"\bwhen there is one\b")   # "a formula built term by term when there is one": only if there is one
 MINUTES_PER_PAGE = (6.0, 8.0)        # S2-01, Navin 23 October 2026
 DENSE_ALLOWANCE = 1.25               # a very dense video, with the reason in length_note
 PREREQUISITE_MINUTES = (5.0, 8.0)    # the "pehle yeh jaan lo" video
@@ -184,7 +185,7 @@ How to fill the JSON:
 - beats: the whole video in order. beat_id "b1", "b2" ...; part_id = the card part this beat teaches ("" for the opening hook, a
   prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type
   that this beat performs (see the content types above; 0 when part_id is "" and for an exam-question part, whose type is "none");
-  every step of a part's pattern must appear, in order;
+  every step of a part's pattern must appear, in order (a step that says "when there is one" only when there is one);
   purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,
   question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):
   mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in
@@ -200,8 +201,9 @@ time allows.
 Prerequisites (S2-03): in a topic video they were already taught in the prerequisite video; remind of one in at most 2 beats (purpose
 "prerequisite"). In the prerequisite video (card parts "pre1", "pre2" ...) teach each prerequisite simply, with an everyday example, in
 the order given: part_id = the prerequisite id, step 0, covers_item_ids = the prerequisite ids the beat teaches, answers [].
-A beat introduces at most a few new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with
-the JSON object only."""
+A beat introduces at most a few new items: BIE's code measures the load of every beat (0.4 per new item plus 1 per 50 spoken words, at
+most 1.8), so a beat holds at most about 70 spoken words with one new item, 50 with two and 30 with three; split longer beats. Reply
+with the JSON object only."""
 
 REVIEW_ROLE = """You are BIE's independent reviewer for the lesson section. Another AI wrote the work below from BIE's task card. You check
 it as Navin would: is this how the best teacher would teach it?"""
@@ -212,6 +214,24 @@ empty or wrong, a teaching-pattern step that is only named and not done, a prere
 follow, an analogy that does not fit, a fact wrong at this level, language that is not natural spoken Hinglish, beats that read out
 lists. Precision beyond the level of a standard textbook for these learners is minor.
 verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
+
+
+SCRIPT_REVIEW_HOW = """You also get the maker's notes. Report every problem with where it is (part or beat id), what is wrong, the fix and a
+severity ("blocking" or "minor", see R-01). What this script must contain (S2-01, S2-02; the same rules BIE's code checks):
+- every item in card.coverage.must_cover really taught (not only named), and every teacher question whose basis is "book" really
+  answered (even if claimed). A teacher question whose basis is "outside" is optional: the maker uses it only where it helps and the
+  time allows, so leaving it out is never blocking; report it as minor only when leaving it out leaves a gap a student cannot cross.
+- the universal frame of every part and every teaching-pattern step really done, not only named.
+Length (S2-01): BIE's code counts the spoken words (130 a minute) and checks the video's narration time; the review message gives the
+measured minutes. Never count words or judge the length yourself. The script must stay within its time, so when you ask for something
+to be added, say what may be cut (repetition, side-tracks, outside material), never book content.
+Blocking: a book item or book-answered question not really covered, a fact wrong at this level, a frame or pattern step missing, a
+prerequisite named but not taught, a jump a student cannot follow, language that is not natural spoken Hinglish, beats that read out
+lists. Minor: precision beyond a standard textbook for these learners, an analogy that could fit better, an optional outside question.
+verdict is "pass" when nothing is blocking. Fill your own brief notes first. Reply with the JSON object only."""
+
+SCRIPT_TIME_HINT = (" BIE's code measured this script at {spoken} spoken minutes; the video's narration time is {low}-{high} minutes "
+                    "(S2-01). Stay within it: pay for every addition with a cut of repetition or side-tracks in the same patch.")
 
 
 def question_ids(item: dict):
@@ -605,7 +625,7 @@ def frame_problems(value, card, types=None) -> tuple:
     for pid, part in card_parts.items():
         pattern = types.pattern(part["type"])
         done = steps.get(pid, [])
-        missing = [n for n in range(1, len(pattern) + 1) if n not in done]
+        missing = [n for n in range(1, len(pattern) + 1) if n not in done and not CONDITIONAL_STEP.search(pattern[n - 1])]
         if missing:
             names = "; ".join(f"{n}) {pattern[n - 1]}" for n in missing)
             problems.append(f"part {pid} ({part['type']}): teaching-pattern steps not taught: {names}")
@@ -706,7 +726,7 @@ def plan_step(course: Course, chapter, *, rulebook, max_rounds=3, naksha=None, m
 def script_prefixes(course, rulebook):
     how = SCRIPT_HOW + "\n\n" + hinglish.prefix_text()
     return (_prefix(course, rulebook, "write_script", SCRIPT_SCHEMA_ID, SCRIPT_SCHEMA, SCRIPT_ROLE, how),
-            _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/2", REVIEW_SCHEMA, REVIEW_ROLE, REVIEW_HOW,
+            _prefix(course, rulebook, "write_script", "bie.brain.lesson-script-review/3", REVIEW_SCHEMA, REVIEW_ROLE, SCRIPT_REVIEW_HOW,
                     review=True))
 
 
@@ -720,8 +740,15 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
     user = cards.user_message(card, source, (), "Answer the card with the teacher script JSON.")
 
     def review_user(value):
-        return cards.user_message(card, source + "\n\nThe teacher script to review (JSON):\n" + cards.compact(value),
+        measured = (f"\n\nBIE's code measured: {spoken_minutes(value.get('beats') or [])} spoken minutes; narration time "
+                    f"{budget[0]}-{budget[1]} minutes (S2-01, already checked by code)." if budget else "")
+        return cards.user_message(card, source + measured + "\n\nThe teacher script to review (JSON):\n" + cards.compact(value),
                                   (), "Review the script; reply with the review JSON.")
+
+    def patch_hint(value):
+        low, high = budget or (None, None)
+        return SCRIPT_PATCH_HINT + (SCRIPT_TIME_HINT.format(spoken=spoken_minutes(value.get("beats") or []), low=low, high=high)
+                                    if budget else "")
 
     def observe(value):
         found = frame_problems(value, card)[1]
@@ -734,7 +761,7 @@ def script_step(course: Course, chapter, plan, video, *, rulebook, max_rounds=3,
                 check=lambda value: check_script(value, chapter, video, course.language, card, budget),
                 review_system=review_prefix.text, review_user=review_user, review_schema=REVIEW_SCHEMA,
                 review_problems=review_problems, patch_schema=SCRIPT_PATCH_SCHEMA, apply_patch=apply_script_patch,
-                patch_hint=SCRIPT_PATCH_HINT, max_rounds=max_rounds, card=card, observe=observe, normalize=tidy_script)
+                patch_hint=patch_hint, max_rounds=max_rounds, card=card, observe=observe, normalize=tidy_script)
 
 
 def tidy_script(value: dict) -> tuple:
