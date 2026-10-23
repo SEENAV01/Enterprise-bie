@@ -1,0 +1,3053 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v3",
+ "status": "passed",
+ "instructions_version": "lesson-script/2",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+ "rulebook_digest": "28605da59d26c73736de5b33795b73d03bdd42650b2c6e83491a617748b00791",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "32d5189c5a22046098a851540e3cfb8be8650a6aa0be8809953cc99adbc94421",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v3",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.lesson-script/2",
+   "sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e"
+  },
+  "unit": {
+   "unit_id": "v3",
+   "title": "Epithelial figures: दिखने वाली layers और असली layers",
+   "pages": [
+    3,
+    4
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c10.1",
+    "item_ids": [
+     "p004-i2",
+     "p004-i3",
+     "p004-i4"
+    ],
+    "type": "comparison",
+    "questions": [
+     "compare",
+     "difference",
+     "where",
+     "how",
+     "why",
+     "when",
+     "exception"
+    ],
+    "focus": "Pseudostratified, keratinised and transitional epithelia: teach these comparison items through the comparison pattern"
+   },
+   {
+    "part_id": "c11.1",
+    "item_ids": [
+     "p003-i8",
+     "p003-i9",
+     "p003-i10",
+     "p003-i11",
+     "p003-i12",
+     "p004-i5",
+     "p004-i6",
+     "p004-i7",
+     "p004-i8",
+     "p004-i9",
+     "p004-i10",
+     "p004-i11",
+     "p004-i12"
+    ],
+    "type": "figure",
+    "questions": [
+     "what",
+     "which",
+     "how",
+     "why"
+    ],
+    "focus": "Visual identification of epithelial tissues: teach these figure items through the figure pattern"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p004-i2",
+    "p004-i3",
+    "p004-i4",
+    "p003-i8",
+    "p003-i9",
+    "p003-i10",
+    "p003-i11",
+    "p003-i12",
+    "p004-i5",
+    "p004-i6",
+    "p004-i7",
+    "p004-i8",
+    "p004-i9",
+    "p004-i10",
+    "p004-i11",
+    "p004-i12"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p004-i2",
+     "comparison",
+     "4",
+     "Type: Pseudo-stratified Columnar | Location: Respiratory passage and ducts of many glands |…"
+    ],
+    [
+     "p004-i3",
+     "comparison",
+     "4",
+     "Type: Keratinised | Location: The outer or apical layer of the cell | Structure/characteristics…"
+    ],
+    [
+     "p004-i4",
+     "comparison",
+     "4",
+     "Type: Transitional epithelia or urothelium | Location: Urinary bladder, urethra, ureter |…"
+    ],
+    [
+     "p003-i8",
+     "figure",
+     "3",
+     "Four separate three-dimensional epithelial tissue drawings are arranged vertically: (a) Squamous…"
+    ],
+    [
+     "p003-i9",
+     "figure",
+     "3",
+     "(a) Squamous — names the top drawing of a thin sheet of flattened cells."
+    ],
+    [
+     "p003-i10",
+     "figure",
+     "3",
+     "(b) Stratified squamous — names the multilayered block with flattened surface cells."
+    ],
+    [
+     "p003-i11",
+     "figure",
+     "3",
+     "(c) Cuboidal — names the drawing of a single layer of roughly cube-shaped cells."
+    ],
+    [
+     "p003-i12",
+     "figure",
+     "3",
+     "(d) Columnar (Ciliated) — names the drawing of tall epithelial cells bearing fine hair-like…"
+    ],
+    [
+     "p004-i5",
+     "figure",
+     "4",
+     "Seven schematic epithelial tissue blocks arranged for visual comparison. Upper portion: Simple…"
+    ],
+    [
+     "p004-i6",
+     "figure",
+     "4",
+     "Simple squamous: label beneath a single thin sheet of flattened, tile-like cells."
+    ],
+    [
+     "p004-i7",
+     "figure",
+     "4",
+     "Simple cuboidal: label beneath one layer of cube-like cells with visible dark nuclei."
+    ],
+    [
+     "p004-i8",
+     "figure",
+     "4",
+     "Simple columnar: label beneath a single row of tall column-like cells containing dark nuclei."
+    ],
+    [
+     "p004-i9",
+     "figure",
+     "4",
+     "Stratified squamous: label beneath a thick multilayered block with flattened surface cells and…"
+    ],
+    [
+     "p004-i10",
+     "figure",
+     "4",
+     "Stratified cuboidal: label beneath a block showing two layers of cube-like cells."
+    ],
+    [
+     "p004-i11",
+     "figure",
+     "4",
+     "Pseudostratified columnar: label beneath tall cells with nuclei at differing heights, producing an…"
+    ],
+    [
+     "p004-i12",
+     "figure",
+     "4",
+     "Transitional: label above a multilayered block with large rounded surface cells and smaller…"
+    ],
+    [
+     "c10",
+     "comparison",
+     "4",
+     "Pseudostratified, keratinised and transitional epithelia"
+    ],
+    [
+     "c11",
+     "figure",
+     "3-4",
+     "Visual identification of epithelial tissues"
+    ],
+    [
+     "c09",
+     "structure",
+     "3",
+     "Stratified epithelial types"
+    ]
+   ],
+   "before": "Epithelial tissue: cell की shape, layers और काम",
+   "after": "Connective tissue: cells के बाहर का material क्या करता है?"
+  },
+  "source": {
+   "block_ids": [
+    "p0004-b0002",
+    "p0004-b0003",
+    "p0004-b0004",
+    "p0004-b0005",
+    "p0004-b0006",
+    "p0004-b0007",
+    "p0004-b0008",
+    "p0004-b0009",
+    "p0004-b0010",
+    "p0004-b0011",
+    "p0004-b0012",
+    "p0004-b0013",
+    "p0004-b0014",
+    "p0004-b0015",
+    "p0004-b0016",
+    "p0004-b0017"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e",
+ "review_prefix_sha256": "aa60eb89d3e543fd5fdefce841750e8f2d3415545576861237a772184f93d03c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9 · content types 2026-10-22.2 · schema bie.brain.lesson-script/2\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S2-01] Plan the chapter's videos from the chapter map: how many, in what order, prerequisites taught first. Video length follows the content, never a fixed length.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.\n[S2-03] Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a Hindi word that is not in the simple everyday word list (rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the basis of division first. 2) the tree from the top down. 3) each kind with its identifying feature and an example. 4) the borderline cases and exceptions. 5) the tree as recap.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"}},\"required\":[\"part_id\",\"frame\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  every step of a part's pattern must appear, in order;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; a Hindi word that is not in the simple everyday list below gets its English word in\n  brackets right after it, as in \"सतह (surface)\" (BIE's code checks it, shows the bracket on screen and makes the voice say\n  \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman; numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat\n  really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or mixed.\nEvery item in must_cover and every teacher question listed for this video must be covered by some beat. A beat introduces at most a\nfew new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with the JSON object only.\n\nSimple everyday Hindi words (list 2026-10-23.1); any other Hindi word gets its English word in brackets right after it, for example \"सतह (surface)\":\nअंतर अंदर अंधेरा अगर अगला अगली अगले अच्छा अच्छी अच्छे अजीब अधूरा अनेक अन्दर अपना अपनी अपने अब अभी अर्थात् अलग अलग-अलग असर असली आ आंख आई आए आकार आखिरी आग आगे आज आठ आदमी आधा आधी आधे आना आने आप आपका आपकी आपके आपको आम आया आये आसमान आसान इंसान इतना इतनी इतने इधर इन इनका इनकी इनके इनको इनाम इन्हें इस इसका इसकी इसके इसको इसलिए इसीलिए इसे उठ उठना उड उडना उतना उतर उतरना उत्तर उदाहरण उधर उन उनका उनकी उनके उनको उन्हें उस उसका उसकी उसके उसको उसे ऊंचा ऊपर एक एक-जैसा ऐसा ऐसी ऐसे ओर और औरत कई कक्षा कठिन कडा कडी कब कभी कभी-कभी कम कर करना करने करवाना करा कराना करीब करोड कल कह कहना कहां कहानी का काट काटना कान काफी काम कारण कि किए कितना कितनी कितने किताब किया किये किस किसका किसकी किसके किसको किसे की कुछ कुल के केवल कैसा कैसी कैसे को कोई कौन कौनसा कौनसी क्या क्यों क्योंकि खडा खत्म खा खाना खाली खास खींच खींचना खुद खुशी खून खेल खेलना खोज खोजना खोल खोलना गंदा गंदी गई गए गति गया गये गरम गर्म गर्मी गलत गलती गहरा गहरी गहरे गांव गिन गिनना गिर गिरना गिराना गीला गुस्सा गोल घंटा घट घटना घटाना घर घुमाना घूम घूमना चढ चढना चपटा चपटी चपटे चमडी चल चलना चलिए चांद चार चारों चावल चाह चाहना चाहिए चीज चुक चुकना चौडाई चौथा चौथी चौथे छः छह छात्र छू छूना छोटा छोटी छोटे छोड छोडना जगह जड जब जबकि जमीन जरा जरूर जरूरत जरूरी जल्दी जवाब जहां जा जान जानना जाना जाने जिंदगी जिंदा जितना जी जीवन जुड जुडना जैसा जैसी जैसे जोड जोडना जोर ज्यादा झूठ टीचर टुकडा टूट टूटना ठंड ठंडा ठंडी ठीक डर डाल डालना डाली डॉक्टर ढूंढ ढूंढना तक तना तब तरफ तरह तरीका ताकत ताकि तारा तीन तीनों तीसरा तीसरी तीसरे तुम तुम्हारा तुम्हारी तुम्हारे तुम्हें तेज तो तोड तोडना तौल तौलना त्वचा था थी थे थोडा थोडी थोडे दबा दबाना दम दवा दस दांत दाल दिख दिखना दिखाई दिखाना दिन दिया दिल दी दीजिए दुख दुनिया दूध दूर दूसरा दूसरी दूसरे दे देख देखना देखिए देना देने देर देश दो दोनों दोस्त दौड दौडना धकेलना धरती धीमा धीमी धीरे धूप ध्यान न नई नए नकली नतीजा नदी नया नये नरम नहीं ना नाक नाप नापना नाम निकल निकलना निकाल निकालना नीचा नीचे नुकसान ने नौ पकड पकडना पक्का पढ पढना पढा पढाना पतला पतली पतले पत्ता पत्तियां पत्ती पत्थर पन्ना पर परसों परिवार परीक्षा पल पहचान पहचानना पहला पहली पहले पहाड पहुंच पहुंचना पा पांच पांचवां पाना पानी पास पिछला पिछली पिछले पिता पी पीछे पीना पुराना पुरानी पुराने पूछ पूछना पूरा पूरी पूरे पेज पेट पेड पैर पौधा पौधे प्यार प्यारा प्रश्न फर्क फल फायदा फिर फूल फैल फैलना फैलाना बंद बच बचना बचाना बच्चा बच्ची बच्चे बडा बडी बडे बढ बढना बढाना बता बताइए बताना बदल बदलना बदलाव बन बनना बना बनाना बल्कि बस बहन बहुत बांट बांटना बाकी बात बाद बादल बार बारिश बाल बाहर बिना बिल्कुल बीच बीज बीमारी बीस बुरा बुरी बुरे बैठ बैठना बोल बोलना भर भरना भरा भरी भाई भाग भारी भाषा भी भेज भेजना मगर मजेदार मत मतलब मदद मरा मरी महीना मां मांस मान मानना मिट्टी मिनट मिल मिलना मिलाना मिसाल मुंह मुझको मुझे मुलायम मुश्किल में मेरा मेरी मेरे मेहनत मैं मोटा मोटी मोटे मौत यह यहां या याद यानी ये रंग रख रखना रखिए रफ्तार रह रहना रहने रहा रही रहे रात रास्ता रूप रोज रोजाना रोटी रोना रोशनी लंबा लंबाई लंबी लंबे लग लगना लगभग लगा लगाना लडका लडकी लम्बा लाख लिए लिख लिखना लिया लिये ली लीजिए ले लेकिन लेना लेने लोग वक्त वजन वजह वरना वर्ना वह वहां वाला वाली वाले विचार विद्यार्थी वे वैसा वैसी वैसे वो शरीर शहर शाम शायद शिक्षक शुरू सक सकता सकती सकते सकना सख्त सच सचमुच सपना सब सबसे सभी समझ समझना समझाना समझिए समय समुद्र सरल सर्दी सवाल सही सांस सात साथ साफ सामने सामान्य सारा सारी सारे साल सिकुड सिकुडना सिखाना सिर सिर्फ सीख सीखना सीधा सीधी सीधे सुंदर सुन सुनना सुनाई सुन्दर सुबह सूखा सूखी सूरज से सेहत सोच सोचना सोचिए सोना सौ स्कूल हंसना हजार हड्डियां हड्डी हफ्ता हम हमको हमारा हमारी हमारे हमें हमेशा हर हरेक हल्का हल्की हवा हां हाथ हिल हिलना हिलाना हिसाब हिस्सा ही हुआ हुई हुए है हैं हो होंगे होगा होगी होता होती होते होना होने",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v3\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.lesson-script/2\",\"sha256\":\"4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e\"},\"unit\":{\"unit_id\":\"v3\",\"title\":\"Epithelial figures: दिखने वाली layers और असली layers\",\"pages\":[3,4]},\"parts\":[{\"part_id\":\"c10.1\",\"item_ids\":[\"p004-i2\",\"p004-i3\",\"p004-i4\"],\"type\":\"comparison\",\"questions\":[\"compare\",\"difference\",\"where\",\"how\",\"why\",\"when\",\"exception\"],\"focus\":\"Pseudostratified, keratinised and transitional epithelia: teach these comparison items through the comparison pattern\"},{\"part_id\":\"c11.1\",\"item_ids\":[\"p003-i8\",\"p003-i9\",\"p003-i10\",\"p003-i11\",\"p003-i12\",\"p004-i5\",\"p004-i6\",\"p004-i7\",\"p004-i8\",\"p004-i9\",\"p004-i10\",\"p004-i11\",\"p004-i12\"],\"type\":\"figure\",\"questions\":[\"what\",\"which\",\"how\",\"why\"],\"focus\":\"Visual identification of epithelial tissues: teach these figure items through the figure pattern\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p004-i2\",\"p004-i3\",\"p004-i4\",\"p003-i8\",\"p003-i9\",\"p003-i10\",\"p003-i11\",\"p003-i12\",\"p004-i5\",\"p004-i6\",\"p004-i7\",\"p004-i8\",\"p004-i9\",\"p004-i10\",\"p004-i11\",\"p004-i12\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p004-i2\",\"comparison\",\"4\",\"Type: Pseudo-stratified Columnar | Location: Respiratory passage and ducts of many glands |…\"],[\"p004-i3\",\"comparison\",\"4\",\"Type: Keratinised | Location: The outer or apical layer of the cell | Structure/characteristics…\"],[\"p004-i4\",\"comparison\",\"4\",\"Type: Transitional epithelia or urothelium | Location: Urinary bladder, urethra, ureter |…\"],[\"p003-i8\",\"figure\",\"3\",\"Four separate three-dimensional epithelial tissue drawings are arranged vertically: (a) Squamous…\"],[\"p003-i9\",\"figure\",\"3\",\"(a) Squamous — names the top drawing of a thin sheet of flattened cells.\"],[\"p003-i10\",\"figure\",\"3\",\"(b) Stratified squamous — names the multilayered block with flattened surface cells.\"],[\"p003-i11\",\"figure\",\"3\",\"(c) Cuboidal — names the drawing of a single layer of roughly cube-shaped cells.\"],[\"p003-i12\",\"figure\",\"3\",\"(d) Columnar (Ciliated) — names the drawing of tall epithelial cells bearing fine hair-like…\"],[\"p004-i5\",\"figure\",\"4\",\"Seven schematic epithelial tissue blocks arranged for visual comparison. Upper portion: Simple…\"],[\"p004-i6\",\"figure\",\"4\",\"Simple squamous: label beneath a single thin sheet of flattened, tile-like cells.\"],[\"p004-i7\",\"figure\",\"4\",\"Simple cuboidal: label beneath one layer of cube-like cells with visible dark nuclei.\"],[\"p004-i8\",\"figure\",\"4\",\"Simple columnar: label beneath a single row of tall column-like cells containing dark nuclei.\"],[\"p004-i9\",\"figure\",\"4\",\"Stratified squamous: label beneath a thick multilayered block with flattened surface cells and…\"],[\"p004-i10\",\"figure\",\"4\",\"Stratified cuboidal: label beneath a block showing two layers of cube-like cells.\"],[\"p004-i11\",\"figure\",\"4\",\"Pseudostratified columnar: label beneath tall cells with nuclei at differing heights, producing an…\"],[\"p004-i12\",\"figure\",\"4\",\"Transitional: label above a multilayered block with large rounded surface cells and smaller…\"],[\"c10\",\"comparison\",\"4\",\"Pseudostratified, keratinised and transitional epithelia\"],[\"c11\",\"figure\",\"3-4\",\"Visual identification of epithelial tissues\"],[\"c09\",\"structure\",\"3\",\"Stratified epithelial types\"]],\"before\":\"Epithelial tissue: cell की shape, layers और काम\",\"after\":\"Connective tissue: cells के बाहर का material क्या करता है?\"},\"source\":{\"block_ids\":[\"p0004-b0002\",\"p0004-b0003\",\"p0004-b0004\",\"p0004-b0005\",\"p0004-b0006\",\"p0004-b0007\",\"p0004-b0008\",\"p0004-b0009\",\"p0004-b0010\",\"p0004-b0011\",\"p0004-b0012\",\"p0004-b0013\",\"p0004-b0014\",\"p0004-b0015\",\"p0004-b0016\",\"p0004-b0017\"],\"page_images\":[]}}\n\nVideo v3: Epithelial figures: दिखने वाली layers और असली layers\nGoal: Pseudostratified, keratinised और transitional epithelia को पहले epithelial sheets के common frame में रखेंगे। फिर layer count, nucleus arrangement, surface features, stretch और book-listed locations पर एक-एक criterion से तुलना करेंगे। Pseudostratified का कई layers जैसा दिखना और वास्तव में cells का basal attachment अलग समझेंगे। Keratinisation, cilia और microvilli के काम अलग रखेंगे। c11 के हर figure में reading path exposed side → cell shape → nuclei → basal side रहेगा; पहचान के हर claim के लिए दिखाई देने वाला feature बताएँगे। Comparison table और labelled figure recap से समाप्त करेंगे।\nOpening hook: अगर nuclei अलग-अलग ऊँचाई पर दिखें, तो क्या tissue में कई layers होना तय है?\nStory or analogy: (none)\nPlanned minutes: 28\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis):\np004-i2 | 4 | table_row | comparison | Type: Pseudo-stratified Columnar | Location: Respiratory passage and ducts of many glands | Structure/characteristics: Similar to columnar epithelium but all the cells are not of similar height | Function: Protection, secretion and movement of mucous\n  p004-i2#q1 | compare | How does the book compare pseudo-stratified columnar epithelium with columnar epithelium? → It resembles columnar epithelium, but its cells are not all of similar height. Unequal cell heights are the distinction highlighted in this row. | book\n  p004-i2#q2 | difference | How does pseudo-stratified epithelium differ from genuinely stratified epithelium? → Pseudo-stratified epithelium is a single layer whose nuclei lie at different levels, creating an appearance of several layers. Its cells contact the basement membrane, although some do not reach the free surface. Stratified epithelium has several actual cell layers. | outside\n  p004-i2#q3 | where | Where does this row locate the tissue, and what functions does it assign? → It occurs in the respiratory passage and ducts of many glands. The listed functions are protection, secretion and movement of mucous. | book\n  p004-i2#q4 | how | How can this epithelium help protect a respiratory passage? → In ciliated respiratory examples, mucus traps inhaled particles and cilia move the mucus along the surface. This connects secretion and mucus movement with protection; the row does not establish that every listed gland duct has the same specialisations. | outside\np004-i3 | 4 | table_row | comparison | Type: Keratinised | Location: The outer or apical layer of the cell | Structure/characteristics: Mostly dead and devoid of nucleus and cytoplasm. The cytoplasm gets replaced by keratin, which makes the layer waterproof | Function: Protection against abrasion\n  p004-i3#q1 | compare | How does the Keratinised row compare with the pseudo-stratified columnar row? → The Keratinised row emphasises a mostly dead surface layer, loss of nucleus and cytoplasm, keratin and protection against abrasion. The pseudo-stratified row emphasises unequal cell heights and protection, secretion and movement of mucous. | book\n  p004-i3#q2 | difference | What distinguishes the keratinised layer described here? → Its cells are described as mostly dead and devoid of nucleus and cytoplasm, with keratin replacing the cytoplasm and making the layer waterproof. | book\n  p004-i3#q3 | where | What location wording does the book provide, and how should a teacher explain it? → The printed location is 'The outer or apical layer of the cell'. In standard tissue terminology, keratinisation concerns superficial cells of an epithelium, as in the epidermis; the printed phrase should not be interpreted as a separate tissue layer inside an individual cell. | outside\n  p004-i3#q4 | why | Why does keratinisation suit protection against abrasion? → Keratin makes the surface tough, while superficial dead cells can be shed as the surface experiences friction. The surface also helps reduce water loss, explaining the book's waterproof description. | outside\np004-i4 | 4 | table_row | comparison | Type: Transitional epithelia or urothelium | Location: Urinary bladder, urethra, ureter | Structure/characteristics: Stratified epithelium, which can contract or expand as per the requirement. Cells are cuboidal when not stretched, but when the organ stretches, then tissue gets compressed and cells appear irregular and squamous-shaped | Function: Stretch readily to accommodate the different volume of liquids. Act as a barrier and have tight junctions to prevent reabsorption of toxic substances\n  p004-i4#q1 | compare | How does transitional epithelium compare in its unstretched and stretched states? → The book describes the cells as cuboidal when the tissue is not stretched. As the organ stretches, the tissue becomes compressed and the cells appear irregular and squamous-shaped. | book\n  p004-i4#q2 | difference | What distinguishes transitional epithelium from the other two table entries? → This row specifically describes a stratified lining that changes its appearance with stretching and accommodates different liquid volumes. The other rows emphasise unequal cell heights or a keratinised protective surface. | book\n  p004-i4#q3 | where | Which organs are listed for transitional epithelia or urothelium? → The page lists urinary bladder, urethra and ureter. | book\n  p004-i4#q4 | how | How does the change in tissue shape help a liquid-containing organ? → Expansion allows the lining to accommodate a larger liquid volume. The page links stretching of the organ with compression of the tissue and a flatter, squamous-like cellular appearance. | book\n  p004-i4#q5 | when | When does the flattened appearance become relevant in a urinary bladder? → As the bladder fills, its wall stretches and the lining becomes thinner in appearance. After emptying, the lining can return toward a thicker, less stretched arrangement. | outside\n  p004-i4#q6 | how | How do tight junctions contribute to the barrier function? → Tight junctions seal pathways between neighbouring cells, limiting movement of urinary substances through the spaces between them. This helps explain the book's statement about preventing reabsorption of toxic substances. | outside\n  p004-i4#q7 | exception | Does the urethra entry mean the entire urethra has transitional epithelium? → No. In standard anatomy, the epithelial lining varies along the urethra. The table's location entry should be taught as a broad association rather than a claim about its entire length. | outside\np003-i8 | 3 | diagram | figure | Four separate three-dimensional epithelial tissue drawings are arranged vertically: (a) Squamous, a thin sheet of flattened cells; (b) Stratified squamous, a thick block with multiple cell layers and flatter surface cells; (c) Cuboidal, a single layer of roughly cube-shaped cells; and (d) Columnar (Ciliated), a layer of tall cells with hair-like projections along the free surface. Coloured supporting bands lie beneath the cells. No arrows or process connections join the drawings.\n  p003-i8#q1 | what | What does this figure show? → It shows four epithelial forms through cell shape, number of layers and the presence of cilia. | book\n  p003-i8#q2 | which | Which four epithelial forms are labelled? → Squamous, stratified squamous, cuboidal and columnar (ciliated). | book\n  p003-i8#q3 | how | How can the forms be distinguished visually? → Look first at the number of layers, then at cell shape: flat cells form the squamous sheet, several layers form the stratified squamous block, cube-like cells form the cuboidal sheet, and tall cells with surface projections form the ciliated columnar sheet. | book\np003-i9 | 3 | diagram_label | figure | (a) Squamous — names the top drawing of a thin sheet of flattened cells.\n  p003-i9#q1 | what | What does label (a) identify? → It identifies squamous epithelium in the uppermost drawing. | book\n  p003-i9#q2 | which | Which visible feature identifies this form? → The cells form a thin, flat, tile-like sheet. | book\n  p003-i9#q3 | why | Why does a thin epithelial sheet suit diffusion? → A thin sheet creates a short distance for substances to cross, helping diffusion occur efficiently. | outside\np003-i10 | 3 | diagram_label | figure | (b) Stratified squamous — names the multilayered block with flattened surface cells.\n  p003-i10#q1 | what | What does label (b) identify? → It identifies stratified squamous epithelium. | book\n  p003-i10#q2 | which | Which visual features distinguish it from drawing (a)? → Drawing (b) has many stacked layers and a much thicker block, while drawing (a) is a thin sheet. | book\n  p003-i10#q3 | why | Why are the surface cells important when naming stratified squamous epithelium? → Stratified epithelia are named according to the shape of their surface cells. Deeper cells can have a different shape. | outside\np003-i11 | 3 | diagram_label | figure | (c) Cuboidal — names the drawing of a single layer of roughly cube-shaped cells.\n  p003-i11#q1 | what | What does label (c) identify? → It identifies cuboidal epithelium. | book\n  p003-i11#q2 | which | Which shape distinguishes the labelled cells? → They appear roughly as tall as they are wide, forming a cube-like layer. | book\n  p003-i11#q3 | how | How does cuboidal shape differ from squamous and columnar shapes? → Cuboidal cells have roughly similar height and width; squamous cells are flattened, while columnar cells are taller than they are wide. | outside\np003-i12 | 3 | diagram_label | figure | (d) Columnar (Ciliated) — names the drawing of tall epithelial cells bearing fine hair-like projections at their upper free surface.\n  p003-i12#q1 | what | What does label (d) identify? → It identifies columnar (ciliated) epithelium. | book\n  p003-i12#q2 | which | Which visible structures indicate that this epithelium is ciliated? → Fine hair-like projections extend from the free surface of the tall cells. | book\n  p003-i12#q3 | how | How do cilia contribute to epithelial function? → Coordinated ciliary beating moves material along the surface in a particular direction. | outside\np004-i5 | 4 | diagram | figure | Seven schematic epithelial tissue blocks arranged for visual comparison. Upper portion: Simple squamous, Simple cuboidal and Simple columnar. Lower portion: Stratified squamous, Stratified cuboidal and Pseudostratified columnar. Transitional is at the right. The blocks show differences in cell shape, number of layers and levels of nuclei. There are no arrows or sequential links.\n  p004-i5#q1 | what | What does this figure show? → It shows seven labelled epithelial forms so that their cell shapes and layering can be compared visually. | book\n  p004-i5#q2 | which | Which epithelial forms are illustrated? → Simple squamous, Simple cuboidal, Simple columnar, Stratified squamous, Stratified cuboidal, Pseudostratified columnar and Transitional. | book\n  p004-i5#q3 | how | How should a student identify an epithelial tissue in such a drawing? → First examine whether there is one actual layer or several, then examine the shape of the surface cells. Nuclei at different heights can suggest pseudostratification, but establishing actual layering requires attention to cell boundaries and basement-membrane contact. | outside\np004-i6 | 4 | diagram_label | figure | Simple squamous: label beneath a single thin sheet of flattened, tile-like cells.\n  p004-i6#q1 | what | What visual structure does Simple squamous name? → The upper-left drawing shows a thin sheet of flattened cells. | book\n  p004-i6#q2 | which | Which features explain the two words in the label? → 'Simple' means one cell layer, while 'squamous' describes flattened cells. | outside\n  p004-i6#q3 | why | Why can this arrangement suit exchange across a lining? → A thin layer gives substances a short distance to cross, supporting diffusion in suitable locations. | outside\np004-i7 | 4 | diagram_label | figure | Simple cuboidal: label beneath one layer of cube-like cells with visible dark nuclei.\n  p004-i7#q1 | what | What does the Simple cuboidal drawing show? → It shows one layer of cube-like cells with nuclei visible inside them. | book\n  p004-i7#q2 | which | Which feature distinguishes it from Simple columnar? → The cuboidal cells are approximately as tall as they are wide, while the columnar cells are visibly taller. | book\n  p004-i7#q3 | how | How does the label describe both arrangement and shape? → 'Simple' identifies one layer and 'cuboidal' identifies the cube-like form of its cells. | outside\np004-i8 | 4 | diagram_label | figure | Simple columnar: label beneath a single row of tall column-like cells containing dark nuclei.\n  p004-i8#q1 | what | What does Simple columnar identify? → It identifies the drawing with a single row of tall, column-like cells. | book\n  p004-i8#q2 | which | Which visible feature separates it from Simple squamous? → Its cells are tall, whereas the simple squamous cells form a flattened sheet. | book\n  p004-i8#q3 | how | How should a student interpret tall cells with visible nuclei? → Cell height determines the columnar description; the presence of several visible nuclei across neighbouring cells does not make the tissue stratified. Layer number concerns how cells are stacked from the base to the free surface. | outside\np004-i9 | 4 | diagram_label | figure | Stratified squamous: label beneath a thick multilayered block with flattened surface cells and deeper cells of different shapes.\n  p004-i9#q1 | what | What does the Stratified squamous drawing show? → It shows several stacked cell layers with flattened cells at the surface. | book\n  p004-i9#q2 | which | Which cells determine the squamous name in a stratified epithelium? → The surface cells determine the shape-based name; deeper cells can have different shapes. | outside\n  p004-i9#q3 | why | Why do several layers help a protective lining? → Superficial cells can withstand wear and be shed while underlying layers continue to cover the tissue beneath. | outside\np004-i10 | 4 | diagram_label | figure | Stratified cuboidal: label beneath a block showing two layers of cube-like cells.\n  p004-i10#q1 | what | What does Stratified cuboidal identify in the figure? → It identifies the block with two visible layers of cube-like cells. | book\n  p004-i10#q2 | which | Which feature distinguishes this drawing from Simple cuboidal? → Both show cube-like cells, but the stratified drawing shows stacked layers while the simple drawing shows one layer. | book\n  p004-i10#q3 | how | How should the two layers in this schematic be interpreted? → They demonstrate stratification. The important naming feature is more than one cell layer, rather than treating the exact schematic layer count as a universal definition. | outside\np004-i11 | 4 | diagram_label | figure | Pseudostratified columnar: label beneath tall cells with nuclei at differing heights, producing an apparent layered pattern.\n  p004-i11#q1 | what | What does the Pseudostratified columnar drawing emphasise? → Tall cells contain nuclei at different heights, giving the block an apparently layered appearance. | book\n  p004-i11#q2 | which | Which visible clue suggests pseudostratification? → The nuclei occur at noticeably different levels within the epithelial block. | book\n  p004-i11#q3 | why | Why does the prefix pseudo matter? → It means the stratification is apparent: this tissue has one actual layer, with cells contacting the basement membrane even though some do not reach the free surface. | outside\np004-i12 | 4 | diagram_label | figure | Transitional: label above a multilayered block with large rounded surface cells and smaller underlying cells.\n  p004-i12#q1 | what | What does the Transitional drawing show? → It shows a layered epithelium with large rounded surface cells over smaller underlying cells. | book\n  p004-i12#q2 | which | Which table entry explains this drawing? → The entry 'Transitional epithelia or urothelium' describes a stratified tissue that changes cell appearance when stretched. | book\n  p004-i12#q3 | how | How would the appearance change as the lining stretches? → The table states that the tissue becomes compressed and the cells appear irregular and squamous-shaped, rather than retaining the unstretched cuboidal appearance. | book"
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792745724.6362803,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "b6d7868f73a104d5c80c468da14f804560867304de20e20586025250c36d1dc0",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 23916,
+    "output_tokens": 11171,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video compares three epithelial specialisations, then teaches a consistent reading method for all epithelial figures on pages 3–4. It follows the earlier lesson on epithelial shape and layers.",
+    "key_questions": [
+     "How can apparent layering differ from actual layering?",
+     "How do keratinisation, cilia and stretching relate to epithelial function?",
+     "Which visible features justify each figure label?",
+     "Which book statements need a careful anatomical qualification?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach free surface, basal attachment and actual layer count before the comparison.",
+      "reason": "These prerequisites let the student distinguish pseudostratified from stratified tissue."
+     },
+     {
+      "decision": "Compare one criterion at a time, then explain functional reasons.",
+      "reason": "This preserves the comparison pattern and avoids three disconnected descriptions."
+     },
+     {
+      "decision": "Read every drawing from exposed side to shape, nuclei and basal side.",
+      "reason": "A fixed visual path makes identification evidence explicit."
+     },
+     {
+      "decision": "Mark anatomical clarification and functional explanations as outside or mixed.",
+      "reason": "They explain the supplied book content without attributing additions to the book."
+     }
+    ],
+    "uncertain": [
+     "Original page images are not attached; visual directions follow the supplied figure descriptions, without inferring unreported details.",
+     "The printed keratinised location wording is imprecise; the script explicitly explains its tissue-level meaning.",
+     "The simple Hindi list is followed by using English for technical vocabulary and bracketed glosses where needed."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This video compares three epithelial specialisations, then teaches a consistent reading method for all epithelial figures on pages 3–4. It follows the earlier lesson on epithelial shape and layers.",
+     "key_questions": [
+      "How can apparent layering differ from actual layering?",
+      "How do keratinisation, cilia and stretching relate to epithelial function?",
+      "Which visible features justify each figure label?",
+      "Which book statements need a careful anatomical qualification?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach free surface, basal attachment and actual layer count before the comparison.",
+       "reason": "These prerequisites let the student distinguish pseudostratified from stratified tissue."
+      },
+      {
+       "decision": "Compare one criterion at a time, then explain functional reasons.",
+       "reason": "This preserves the comparison pattern and avoids three disconnected descriptions."
+      },
+      {
+       "decision": "Read every drawing from exposed side to shape, nuclei and basal side.",
+       "reason": "A fixed visual path makes identification evidence explicit."
+      },
+      {
+       "decision": "Mark anatomical clarification and functional explanations as outside or mixed.",
+       "reason": "They explain the supplied book content without attributing additions to the book."
+      }
+     ],
+     "uncertain": [
+      "Original page images are not attached; visual directions follow the supplied figure descriptions, without inferring unreported details.",
+      "The printed keratinised location wording is imprecise; the script explicitly explains its tissue-level meaning.",
+      "The simple Hindi list is followed by using English for technical vocabulary and bracketed glosses where needed."
+     ]
+    },
+    "title": "Epithelial figures: दिखने वाली layers और असली layers",
+    "parts": [
+     {
+      "part_id": "c10.1",
+      "frame": {
+       "process": "Compare pseudostratified columnar, keratinised and transitional epithelia as epithelial coverings and linings with different structural specialisations.",
+       "how": "Compare actual layers, cell and nuclear arrangement, exposed-surface features, response to stretching, locations and functions; then explain each functional connection.",
+       "when": "Establish shared epithelial orientation first. Contrast resting and stretched transitional tissue as an organ fills and empties.",
+       "conditions": "Different nuclear heights do not establish multiple layers. Keratinisation concerns superficial epithelial cells; respiratory ciliary specialisation and urethral locations require qualification.",
+       "atmosphere": "A student compares tissue sections beside the book table, picturing a respiratory passage, an exposed protective surface and a filling urinary bladder."
+      }
+     },
+     {
+      "part_id": "c11.1",
+      "frame": {
+       "process": "Identify the four epithelial drawings on page 3 and the seven schematic blocks on page 4 using visible structural evidence.",
+       "how": "For each block, follow exposed side, cell shape, nuclei and basal side; establish actual layer count and use surface-cell shape for stratified names.",
+       "when": "Read page 3 from top to bottom, then page 4 across the upper group, across the lower group and finally the right-hand transitional block.",
+       "conditions": "Drawings are comparisons, not stages of a process. Nuclear positions are clues; cell boundaries and basal contact establish layering, and stretching changes transitional appearance.",
+       "atmosphere": "A guided inspection of labelled textbook drawings, followed by an evidence-based identification exercise and labelled recap."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अगर nuclei अलग-अलग ऊंचाई (height) पर दिखें, तो क्या tissue में कई layers होना तय है? अभी जवाब मत दीजिए। आज आप drawing में दिखने वाली layers और असली layers का फर्क खुद पहचानेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Opening question beside an unlabelled pseudostratified schematic: Different nuclear heights = several actual layers?",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले epithelial sheet की 2 तरफ समझिए। किसी passage की अंदर वाली जगह की ओर cell का जो हिस्सा खुला है, उसे free surface या apical side कहते हैं। cell की दूसरी तरफ basal side होती है, जहां basement membrane नाम की supporting layer होती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Orient a generic epithelial sheet: lumen or exposed space → free/apical surface → epithelial cells → basal side → basement membrane. Mark this as explanatory orientation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब 1 layer का उदाहरण लीजिए: cells एक-दूसरे के पास हैं और सभी basement membrane को छूते हैं। कई nuclei पास-पास दिखने से कई layers नहीं बनतीं। कई असली layers में cells नीचे से ऊपर एक-दूसरे के ऊपर रखे होते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Compare a single row of adjacent cells with several stacked rows. Trace basal-to-free-surface paths; do not count nuclei horizontally.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c10.1",
+      "step": 1,
+      "purpose": "compare",
+      "say": "Pseudo-stratified Columnar, Keratinised और Transitional epithelia में common बात क्या है? हम तीनों को epithelial covering या lining के रूप में समझ रहे हैं। अब actual layers, cells का आकार, ऊपर की खास बातें, stretch, जगह और काम को एक-एक करके साथ देखेंगे।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [],
+      "on_screen": "Start a comparison table with the three book headings and shared heading: epithelial coverings/linings. Leave criterion rows empty for progressive completion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "पहला criterion है actual layers। Pseudo-stratified Columnar में 1 actual layer होती है, जबकि Transitional epithelia एक stratified lining है। Keratinised वाली row का खास ध्यान सबसे बाहर के cells में keratin आने पर है; केवल इस नाम से layer count तय मत कीजिए।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q2",
+       "p004-i4#q2"
+      ],
+      "on_screen": "Layer criterion: Pseudostratified—one actual layer; Transitional—several actual layers; Keratinised—describes superficial keratinisation, not a standalone layer-count rule.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "किताब Pseudo-stratified Columnar को columnar epithelium जैसा बताती है, लेकिन सभी cells की height एक-जैसी नहीं होती। nuclei भी अलग-अलग levels पर होने से कई layers जैसा रूप दिखता है। फिर भी सभी cells basement membrane को छूते हैं; कुछ cells free surface तक नहीं पहुंचते।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q1",
+       "p004-i2#q2"
+      ],
+      "on_screen": "Compare ordinary columnar arrangement with unequal-height pseudostratified cells. Trace each pseudostratified cell to the basement membrane; distinguish cells that reach the free surface.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब nucleus और cell के अंदर की चीजों वाला criterion लीजिए। Pseudo-stratified में nuclei का अलग-अलग level पहचान में मदद करता है। Keratinised row में किताब ऊपर के cells को mostly dead, nucleus और cytoplasm के बिना बताती है। किताब के अनुसार cytoplasm की जगह keratin आता है और layer waterproof बनती है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q1",
+       "p004-i3#q2"
+      ],
+      "on_screen": "Compare nuclear arrangement with the keratinised superficial layer. Display book wording: mostly dead; devoid of nucleus and cytoplasm; keratin replaces cytoplasm; waterproof.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Keratinised की location में किताब लिखती है, ‘The outer or apical layer of the cell’। इसे individual cell के अंदर कोई अलग tissue layer मत समझिए। यहां सही tissue-level मतलब epithelium के सबसे बाहर के cells में keratinisation है; epidermis इसका उदाहरण है।",
+      "covers_item_ids": [
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q3"
+      ],
+      "on_screen": "Show the printed location wording, then clarify: superficial epithelial cells, as in epidermis. Highlight the outer epithelial region, not a compartment within one cell.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब stretch होने पर आकार बदलने की बात देखिए। Transitional epithelia या urothelium के cells को किताब बिना stretch के cuboidal बताती है। organ stretch होता है तो tissue दबता है और cells irregular तथा squamous-shaped दिखाई देते हैं। बाकी 2 rows की पहचान के लिए किताब ऐसा stretch वाला बदलाव नहीं देती।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q1",
+       "p004-i4#q2",
+       "p004-i4#q4"
+      ],
+      "on_screen": "Two states of transitional tissue: unstretched, cuboidal appearance → stretched organ, compressed lining, irregular and squamous-shaped appearance. Keep the other rows visible without implying they are mechanically rigid.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जगह के criterion पर Pseudo-stratified Columnar को किताब respiratory passage और कई glands के ducts में रखती है। Keratinised row ऊपर के protective cells की ओर ध्यान दिलाती है। Transitional epithelia के लिए urinary bladder, urethra और ureter दिए हैं। यहां जगह को structure के साथ जोड़कर याद रखिए।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q3",
+       "p004-i4#q3"
+      ],
+      "on_screen": "Location row: respiratory passage and ducts of many glands; outer/apical wording with superficial-cell clarification; urinary bladder, urethra, ureter.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "काम में भी फर्क देखिए। Pseudo-stratified Columnar के लिए protection, secretion और mucous का movement दिया है। Keratinised के लिए abrasion, यानी रगड़ (friction), से protection दिया है। Transitional में liquid की अलग-अलग volume के लिए stretch करना और barrier बनाना खास है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q3",
+       "p004-i3#q1",
+       "p004-i4#q2",
+       "p004-i4#q4"
+      ],
+      "on_screen": "Function row: protection + secretion + mucous movement; protection against abrasion; accommodation of different liquid volumes + barrier.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Respiratory passage के ciliated उदाहरण में protection कैसे होता है? Mucus सांस के साथ आने वाले particles को पकड़ता है। Cilia इस mucus को free surface के साथ आगे ले जाते हैं। इस तरह secretion और mucus movement मिलकर protection में मदद करते हैं।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q4"
+      ],
+      "on_screen": "Explanatory animation: inhaled particles caught in mucus; cilia move the mucus along the epithelial surface. Label as a ciliated respiratory example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Keratinised layer abrasion से protection में क्यों काम आती है? Keratin ऊपर के हिस्से को सख्त बनाता है। रगड़ (friction) के साथ ऊपर के dead cells हट सकते हैं, जबकि नीचे tissue ढका रहता है। यह ऊपर की layer पानी का loss कम करने में भी मदद करती है; किताब का waterproof शब्द इसी से समझिए।",
+      "covers_item_ids": [
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q4"
+      ],
+      "on_screen": "Show a tough superficial keratinised layer, shedding superficial cells and reduced outward water loss. Retain the book term waterproof with the explanatory phrase helps reduce water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब urinary bladder भरते हुए सोचिए। Liquid बढ़ता है तो bladder की wall stretch होती है और lining ज्यादा पतली तथा cells ज्यादा चपटे दिखाई देते हैं। इससे lining ज्यादा liquid volume के साथ फैल सकती है। Bladder खाली होने पर lining फिर कम stretched और ज्यादा मोटी दिखाई देने वाली हालत में लौट सकती है।",
+      "covers_item_ids": [
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q4",
+       "p004-i4#q5"
+      ],
+      "on_screen": "Bladder filling → wall stretches → lining appears thinner and cells flatter; emptying → less stretched, thicker-looking lining. Show these as states of the same tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "लेकिन stretch के साथ urine और नीचे के tissue के बीच barrier भी चाहिए। किताब tight junctions को toxic substances के reabsorption को रोकने से जोड़ती है। Tight junctions पास-पास के cells के बीच का रास्ता बंद रखते हैं। इससे urinary substances का cells के बीच से नीचे जाना कम होता है।",
+      "covers_item_ids": [
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q6"
+      ],
+      "on_screen": "Magnify adjoining urothelial cells. Mark tight junctions sealing the intercellular route; connect to the book's barrier and prevention-of-reabsorption statement.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "सबसे ज्यादा confusion वाली जोड़ी है Pseudostratified और Stratified। दोनों में drawing कई levels जैसी लग सकती है। Pseudostratified में सभी cells basement membrane को छूते हैं; Stratified में कई actual cell layers होती हैं। इसलिए nuclei की height देखकर अकेले layer count तय करना गलत होगा।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q2"
+      ],
+      "on_screen": "Side-by-side basal-contact tracing: pseudostratified, one actual layer; stratified, several stacked layers. Cross out the rule nuclear levels = layer count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "ऊपर की 3 खास चीजों के काम भी अलग रखिए। Keratin protective surface को सख्त बनाता है और पानी का loss कम करने में मदद करता है। Cilia का beating material को surface के साथ चलाता है। Microvilli surface area बढ़ाते हैं; उन्हें cilia जैसा mucus चलाने वाला हिस्सा मत मानिए।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i2#q4",
+       "p004-i3#q4"
+      ],
+      "on_screen": "Explanatory three-way contrast: keratin—tough protective surface; cilia—surface transport; microvilli—increased surface area. Mark microvilli as clarification, not a feature claimed for every illustrated block.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Location की 2 सावधानियां (cautions) भी समझिए। Respiratory ciliated example से यह मत मानिए कि किताब में दिए सभी gland ducts में वही cilia और mucus वाला arrangement होगा। इसी तरह urethra लिखा होने का मतलब पूरी urethra में urothelium होना नहीं है। Urethra के अलग-अलग हिस्सों में epithelial lining बदलती है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q4",
+       "p004-i4#q7"
+      ],
+      "on_screen": "Qualify location associations: ciliated respiratory example does not establish identical specialisation in every gland duct; urethral epithelium varies along its length.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c10.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "अब comparison table को 3 पहचान में पढ़िए। Pseudostratified: unequal cell heights, अलग nuclear levels, लेकिन 1 actual layer; काम protection, secretion और mucous movement। Keratinised: ऊपर mostly dead cells, keratin, waterproof layer और abrasion से protection। Transitional: कई actual layers, stretch के साथ बदलता आकार, liquid volume के लिए जगह और tight junctions वाला barrier।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q1",
+       "p004-i3#q1",
+       "p004-i3#q2",
+       "p004-i4#q2"
+      ],
+      "on_screen": "Complete comparison table with rows for layering, cell/nuclear features, surface features, stretching, book locations and functions. Keep location qualifications as short footnotes.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब इन्हीं बातों को figures में पहचानेंगे। हर drawing में एक ही रास्ता रखिए: पहले exposed side, फिर cell shape, फिर nuclei, फिर basal side। इस पूरे रास्ते से actual layers समझिए; केवल dark dots मत गिनिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Persistent reading guide: exposed side → cell shape → nuclei → basal side; conclude actual layer count from boundaries and basal attachment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c11.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Page 3 पर 4 अलग epithelial drawings ऊपर से नीचे दी हैं। ये Squamous, Stratified squamous, Cuboidal और Columnar (Ciliated) हैं। Page 4 पर 7 blocks cell shape, layers और nuclei के levels की तुलना कराते हैं। ये एक tissue के बदलने के stages नहीं हैं; drawings के बीच कोई process arrows नहीं दिए हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p004-i5"
+      ],
+      "answers": [
+       "p003-i8#q1",
+       "p003-i8#q2",
+       "p004-i5#q1"
+      ],
+      "on_screen": "Show page 3's four vertically arranged forms beside page 4's seven comparative blocks. State: separate forms for comparison; no sequential arrows.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c11.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Page 4 की ऊपर वाली drawings Simple squamous, Simple cuboidal और Simple columnar हैं। नीचे Stratified squamous, Stratified cuboidal और Pseudostratified columnar हैं। दाईं (right) ओर Transitional है। हर label के साथ आप drawing का पहचान वाला feature खोजेंगे।",
+      "covers_item_ids": [
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i5#q2"
+      ],
+      "on_screen": "Locate all seven page 4 labels in the supplied layout: upper group, lower group, right-hand transitional block. Avoid arrows implying transformation.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Page 3 में ऊपर drawing (a), Squamous, से शुरू कीजिए। Exposed side से नीचे देखें तो cells चपटे हैं और पतली, tile जैसी sheet बनाते हैं। फिर cells के अंदर का हिस्सा देखते हुए basal side तक आइए; नीचे coloured supporting band है। पहचान का सबूत (evidence) यही पतली, चपटी cell sheet है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9"
+      ],
+      "answers": [
+       "p003-i9#q1",
+       "p003-i9#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (a): highlight exposed side → flattened tile-like cells → cell interiors/nuclei only if visible → basal side and coloured supporting band. Do not invent unreported nuclear details.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इतनी पतली sheet diffusion में क्यों मदद कर सकती है? किसी substance को sheet के पार जाने के लिए कम दूरी (distance) पार करनी होगी। इसलिए सही जगह पर यह arrangement diffusion के लिए अच्छा है। Drawing का पतलापन देखकर यह connection समझिए।",
+      "covers_item_ids": [
+       "p003-i9"
+      ],
+      "answers": [
+       "p003-i9#q3"
+      ],
+      "on_screen": "Explanatory inset: a short crossing path through a thin squamous sheet. Mark the functional explanation as outside the figure's direct labels.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब drawing (b), Stratified squamous, की exposed side देखिए। सबसे ऊपर cells चपटे हैं; अंदर की ओर देखें तो कई actual layers मिलती हैं और block मोटा है। Nuclei के dots से पहले cell boundaries देखते हुए basal side के supporting band तक जाइए। Drawing (a) की पतली sheet के सामने यहां cells एक-दूसरे के ऊपर रखे हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i10"
+      ],
+      "answers": [
+       "p003-i10#q1",
+       "p003-i10#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (b): exposed flattened cells → deeper stacked cells → nuclear features only where visible → basal supporting band. Contrast thickness and stacking with (a).",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "नाम Stratified squamous क्यों है, जब अंदर के सभी cells चपटे होना जरूरी नहीं? Stratified बताता है कि कई layers हैं। Squamous नाम exposed side के cells के आकार से आता है। अंदर के cells का आकार अलग हो सकता है।",
+      "covers_item_ids": [
+       "p003-i10"
+      ],
+      "answers": [
+       "p003-i10#q3"
+      ],
+      "on_screen": "Label rule beside (b): Stratified = multiple actual layers; squamous = flattened surface cells. Highlight surface cells separately from deeper cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Drawing (c) में exposed side से cells का आकार देखिए। हर cell की height और width लगभग बराबर है, इसलिए cube जैसा रूप है। फिर cell के अंदर से नीचे basal supporting band तक देखें तो 1 layer मिलती है। यह Cuboidal drawing है; इसकी पहचान flat sheet से अलग, cube जैसा आकार है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i11"
+      ],
+      "answers": [
+       "p003-i11#q1",
+       "p003-i11#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (c): exposed side → approximately equal cell height and width → cell interiors/nuclei if visible → basal band. Highlight a single cube-like layer.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "एक cell की height और width साथ देखकर 3 shapes अलग कीजिए। Squamous चपटा है। Cuboidal में height और width लगभग बराबर हैं। Columnar में height, width से ज्यादा होती है।",
+      "covers_item_ids": [
+       "p003-i11"
+      ],
+      "answers": [
+       "p003-i11#q3"
+      ],
+      "on_screen": "Three explanatory outlines with height and width guides: squamous, cuboidal and columnar. Use approximate proportions without invented measurements.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Drawing (d) में exposed side पर पहले बारीक (fine), बाल जैसे projections देखिए। उनके नीचे लंबे columnar cells हैं; फिर cell interiors देखते हुए basal supporting band तक आइए। Label Columnar (Ciliated) है। लंबे cells columnar होने का, और ऊपर projections ciliated होने का सबूत (evidence) हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i12#q1",
+       "p003-i12#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (d): surface cilia → tall cell shape → cell interiors/nuclei if visible → basal band. Attach separate callouts to columnar shape and ciliated surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ये cilia केवल पहचान का feature नहीं हैं। इनके साथ मिलकर beating करने से material free surface के साथ एक खास ओर चलता है। इसलिए movement को ऊपर की surface के साथ सोचिए। यह cilia के काम का connection है।",
+      "covers_item_ids": [
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i12#q3"
+      ],
+      "on_screen": "Explanatory inset: coordinated ciliary beating moves material along the free surface. Distinguish the functional arrow from the original static figure.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Page 4 पर ऊपर बाईं (left) ओर Simple squamous देखिए। Exposed side पर tile जैसे चपटे cells हैं; cell interiors से basal side तक देखें तो 1 पतली layer मिलती है। नाम का Simple हिस्सा 1 layer बताता है, और squamous हिस्सा चपटा cell shape बताता है। यहां दोनों शब्दों का अपना अलग काम है।",
+      "covers_item_ids": [
+       "p004-i6"
+      ],
+      "answers": [
+       "p004-i6#q1",
+       "p004-i6#q2"
+      ],
+      "on_screen": "Page 4 Simple squamous: exposed face → flat tile-like cells → nuclei where visible → basal edge. Split label into Simple: one layer; squamous: flattened cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस drawing में thin lining का मतलब कम crossing distance है। इसलिए सही location और conditions में substances का diffusion आसान हो सकता है। केवल label याद करने के बजाय thin shape को exchange के काम से जोड़िए।",
+      "covers_item_ids": [
+       "p004-i6"
+      ],
+      "answers": [
+       "p004-i6#q3"
+      ],
+      "on_screen": "Short crossing path through the single thin layer; caption: supports diffusion in suitable locations.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अगला block Simple cuboidal है। Exposed side से नीचे cells देखिए: height और width लगभग बराबर हैं, और अंदर dark nuclei दिखते हैं। Cell boundaries को basal side तक देखते जाइए; cells की 1 layer है। इसलिए Simple arrangement बताता है और cuboidal shape बताता है।",
+      "covers_item_ids": [
+       "p004-i7"
+      ],
+      "answers": [
+       "p004-i7#q1",
+       "p004-i7#q3"
+      ],
+      "on_screen": "Page 4 Simple cuboidal: exposed side → cube-like proportions → dark nuclei → basal side. Trace the single cell layer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Simple columnar की exposed side से cells के नीचे तक आइए। Cells लंबे columns जैसे हैं; अंदर dark nuclei हैं, और basal side से free surface तक 1 row है। Simple cuboidal के सामने फर्क साफ है: वहां height और width करीब बराबर थीं, यहां height ज्यादा है। Simple squamous के चपटे cells से भी यह अलग है।",
+      "covers_item_ids": [
+       "p004-i7",
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i7#q2",
+       "p004-i8#q1",
+       "p004-i8#q2"
+      ],
+      "on_screen": "Page 4 Simple columnar: exposed side → tall cells → dark nuclei → basal side. Compare its height-to-width appearance with Simple cuboidal and Simple squamous.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "Simple columnar में कई nuclei दिख रहे हैं, तो क्या कई layers कहेंगे? नहीं, ये पास-पास के अलग cells के nuclei हैं। Columnar नाम cell की height से आता है। Layer count के लिए नीचे से free surface तक cells का arrangement देखिए।",
+      "covers_item_ids": [
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i8#q3"
+      ],
+      "on_screen": "Highlight neighbouring nuclei horizontally, then trace a basal-to-apical cell boundary. Caption: number of visible nuclei is not number of layers.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब नीचे वाले Stratified squamous block की exposed side देखिए। ऊपर के cells चपटे हैं, और उनके नीचे अलग shapes के cells कई layers में हैं। Nuclei वाले cell interiors के साथ boundaries देखते हुए basal side तक पहुंचिए। यहां actual stacking Stratified बताती है और ऊपर के चपटे cells squamous नाम देते हैं।",
+      "covers_item_ids": [
+       "p004-i9"
+      ],
+      "answers": [
+       "p004-i9#q1",
+       "p004-i9#q2"
+      ],
+      "on_screen": "Page 4 Stratified squamous: flattened exposed cells → deeper differently shaped cells → nuclear positions within distinct cell boundaries → basal side. Highlight several actual layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "कई layers protective lining में क्यों मदद करती हैं? ऊपर के cells wear का सामना कर सकते हैं और हट सकते हैं। तब भी नीचे की layers tissue को ढके रखती हैं। इसलिए इस block की मोटाई को protection के साथ जोड़कर समझिए।",
+      "covers_item_ids": [
+       "p004-i9"
+      ],
+      "answers": [
+       "p004-i9#q3"
+      ],
+      "on_screen": "Explanatory inset: superficial wear and shedding with underlying layers maintaining coverage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Stratified cuboidal में exposed side के cells cube जैसे दिखते हैं। अंदर के nuclei और cell boundaries से basal side तक देखें तो drawing में 2 layers दिखती हैं। Simple cuboidal में shape भी cube जैसी थी, लेकिन layer सिर्फ 1 थी। यहां पहचान बदलने वाला feature cells का ऊपर-नीचे रखा होना है।",
+      "covers_item_ids": [
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i10#q1",
+       "p004-i10#q2"
+      ],
+      "on_screen": "Page 4 Stratified cuboidal: exposed cells → cube-like shape → nuclei where visible and two stacked cell rows → basal side. Compare directly with Simple cuboidal.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "क्या Stratified cuboidal की definition में हमेशा ठीक 2 layers लिखेंगे? इस drawing में 2 layers दिखाई गई हैं। यहां उनसे stratification समझनी है, यानी 1 से ज्यादा actual layer। Drawing की exact गिनती (count) को हर जगह लागू होने वाली definition मत बनाइए।",
+      "covers_item_ids": [
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i10#q3"
+      ],
+      "on_screen": "Separate observed schematic count: two layers, from naming principle: more than one actual layer. Avoid a universal equals-two rule.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Pseudostratified columnar block की exposed side से नीचे देखिए। लंबे cells के अंदर nuclei अलग-अलग levels पर हैं। यही feature कई layers जैसा रूप दिखाता है। लेकिन अगला जरूरी कदम basal side की ओर cell boundaries और basement membrane contact को देखना है।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i11#q1",
+       "p004-i11#q2",
+       "p004-i5#q3"
+      ],
+      "on_screen": "Page 4 Pseudostratified columnar: exposed side → tall/unequal-height cells → nuclei at differing heights → basal side. Treat nuclear levels as a clue, not proof of multiple layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Pseudo का मतलब यहां दिखने वाली, लेकिन असली न होने वाली stratification है। इस tissue में सभी cells basement membrane को छूते हैं, हालांकि कुछ free surface तक नहीं पहुंचते। इसलिए actual layer 1 है। अगर original drawing में कोई cell boundary साफ न हो, तो केवल nuclei देखकर basal contact का दावा मत कीजिए।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i11#q3",
+       "p004-i5#q3"
+      ],
+      "on_screen": "Add a separately marked explanatory tracing of basal contacts. State: standard structural explanation; do not claim indistinct boundaries are directly visible in the original schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "दाईं (right) ओर Transitional block की exposed side पर बड़े, गोल cells देखिए। उनके नीचे छोटे cells हैं; cell interiors और boundaries देखते हुए basal side तक जाइए। यहां कई layers हैं। ऊपर के गोल बड़े cells और नीचे के छोटे cells इस drawing की पहचान वाले features हैं।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q1"
+      ],
+      "on_screen": "Page 4 Transitional: exposed large rounded surface cells → smaller underlying cells → nuclear features only where visible → basal side. Highlight multilayered arrangement.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस drawing को table की Transitional epithelia या urothelium वाली row समझाती है। Drawing में ऊपर गोल cells हैं; table बिना stretch के cells को cuboidal बताती है। Organ stretch होने पर tissue दबता है और cells irregular तथा squamous-shaped दिखाई देते हैं। इसलिए यहां shape के साथ stretch की हालत भी पूछनी है।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q2",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Connect Transitional label to its table row. Distinguish the drawing's rounded surface cells from the table's unstretched cuboidal wording; add a marked stretched-state explanatory inset.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Page 3 से 1 मुख्य (main) बात पकड़िए: हर नाम के पीछे दिखाई देने वाला feature है। Squamous की thin flat sheet, Stratified squamous की कई layers और flat surface cells, Cuboidal का cube जैसा shape। Columnar (Ciliated) में लंबे cells और ऊपर hair-like projections, दोनों देखने हैं। नीचे के coloured bands को epithelial cells की extra layers मत गिनिए।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9",
+       "p003-i10",
+       "p003-i11",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i8#q3",
+       "p003-i9#q2",
+       "p003-i10#q2",
+       "p003-i11#q2",
+       "p003-i12#q2"
+      ],
+      "on_screen": "Labelled page 3 recap with one identifying feature per drawing. Keep supporting bands visually distinct from epithelial cell layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Page 4 की 1 मुख्य (main) बात है: actual layers और surface-cell shape को अलग सवाल बनाइए। Simple group में 1 layer है; squamous, cuboidal और columnar shape बताते हैं। Stratified drawings में कई layers हैं और ऊपर के cells नाम देते हैं। Pseudostratified में nuclei के levels आपको धोखा दे सकते हैं।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i6",
+       "p004-i7",
+       "p004-i8",
+       "p004-i9",
+       "p004-i10",
+       "p004-i11"
+      ],
+      "answers": [
+       "p004-i5#q3"
+      ],
+      "on_screen": "Recap previously taught blocks without introducing new content: layer-count column beside surface-shape column. Flag different nuclear levels as an apparent-layering trap.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "question_to_student",
+      "say": "अब खुद जांचिए: nuclei कई heights पर हैं, तो आपका अगला सवाल क्या होगा? यही कि cells की boundaries कैसी हैं और कौन basement membrane को छूता है। फिर पूछिए कि actual layer 1 है या कई। केवल dark dots देखकर Stratified कहना पूरा जवाब नहीं है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i11"
+      ],
+      "answers": [
+       "p004-i5#q3",
+       "p004-i11#q3"
+      ],
+      "on_screen": "Pause on a pseudostratified identification prompt, then reveal the checking questions: cell boundaries? basal contacts? actual stacking?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Transitional के लिए पहचान को एक fixed shape तक मत रोकिए। इस figure में कई layers और बड़े गोल surface cells हैं। Table बताती है कि stretch के साथ cells का रूप चपटा और irregular हो सकता है। इसलिए figure और हालत, दोनों मिलकर पहचान समझाते हैं।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q1",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Transitional identification card: multilayered block + large rounded surface cells in the depicted state; flatter appearance when stretched.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "अब Page 3 के labels को पहले पढ़े text से जोड़िए। Squamous का thin shape diffusion की कम crossing distance समझाता है। Stratified squamous की कई layers protection समझने में मदद करती हैं। Cuboidal और Columnar के names cell shape बताते हैं; Ciliated जोड़ने पर surface movement वाला feature भी आता है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9",
+       "p003-i10",
+       "p003-i11",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i9#q3",
+       "p003-i10#q3",
+       "p003-i11#q3",
+       "p003-i12#q3"
+      ],
+      "on_screen": "Labelled page 3 figure linked to explanatory text: thin → short diffusion path; multiple layers → protective coverage; cube/tall → shape names; cilia → surface transport.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Page 4 की ऊपर वाली row में Simple squamous, Simple cuboidal और Simple columnar को साथ देखिए। तीनों में Simple का मतलब 1 actual layer है। चपटे, cube जैसे और लंबे cells बाकी नाम बताते हैं। इस तरह figure, layer और shape वाले text को आंख के सामने रख देती है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i6",
+       "p004-i7",
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i6#q2",
+       "p004-i7#q3",
+       "p004-i8#q3"
+      ],
+      "on_screen": "Labelled recap of page 4 upper row. Bracket each single layer and mark flat, cube-like and tall proportions.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "नीचे Stratified squamous और Stratified cuboidal को साथ देखिए। दोनों में actual stacking है, लेकिन ऊपर के cells का आकार अलग है। Squamous में flat surface cells हैं; cuboidal drawing में cube जैसे cells की 2 layers दिखाई हैं। याद रखिए, 2 इस drawing की गिनती (count) है; Stratified का बड़ा नियम 1 से ज्यादा layer है।",
+      "covers_item_ids": [
+       "p004-i9",
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i9#q2",
+       "p004-i10#q2",
+       "p004-i10#q3"
+      ],
+      "on_screen": "Labelled lower-row recap: Stratified squamous and Stratified cuboidal. Attach the surface-shape naming rule and the schematic-count qualification.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आखिरी 2 labels आज की table से सीधे जुड़ते हैं। Pseudostratified columnar में अलग nuclear levels, unequal heights वाली row को समझाते हैं; actual layer फिर भी 1 है। Transitional में गोल surface cells वाली layered drawing, stretch के साथ बदलने वाली urothelium row से जुड़ती है। अब opening सवाल का जवाब साफ है: nuclei की अलग height से कई actual layers होना तय नहीं होता।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i11#q1",
+       "p004-i11#q3",
+       "p004-i12#q2",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Final labelled figure recap: pseudostratified block linked to its table row; transitional block linked to resting/stretched descriptions. End with the opening question answered: different nuclear heights do not establish multiple actual layers.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b1: the Hindi words ['तय'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b2: the Hindi words ['खुला'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b3: the Hindi words ['बनतीं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: the Hindi words ['करके'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['तय', 'कीजिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: the Hindi words ['अनुसार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b9: the Hindi words ['तथा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b10: the Hindi words ['दिलाती', 'दिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b13: the Hindi words ['हट', 'ढका', 'शब्द'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['तथा', 'इससे', 'हालत', 'लौट'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['रोकने', 'इससे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['अकेले', 'तय'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17: the Hindi words ['चलाता', 'चलाने'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b18: the Hindi words ['दिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['इन्हीं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: the Hindi words ['तुलना', 'दिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: (Ciliated) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b23: the Hindi words ['कीजिए', 'आइए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: (a) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b24: the Hindi words ['पार', 'पतलापन'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b25: (b) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b25: (a) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b27: the Hindi words ['बराबर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b27: (c) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b28: the Hindi words ['कीजिए', 'बराबर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b29: the Hindi words ['आइए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b29: (d) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b29: (Ciliated) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b31: the Hindi words ['शब्दों'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b32: the Hindi words ['बजाय'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b33: the Hindi words ['बराबर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b34: the Hindi words ['आइए', 'बराबर', 'थीं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b37: the Hindi words ['सामना', 'हट', 'ढके'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b39: the Hindi words ['उनसे', 'लागू'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b40: the Hindi words ['कदम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b41: the Hindi words ['हालांकि', 'दावा', 'कीजिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b43: the Hindi words ['तथा', 'हालत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b44: (Ciliated) must come right after the Hindi word it explains (S2-04)",
+    "[code] beat b45: the Hindi words ['धोखा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b46: the Hindi words ['जांचिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b47: the Hindi words ['रोकिए', 'हालत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b50: the Hindi words ['नियम'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b51: the Hindi words ['तय'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4 is too heavy for one breath (load 2.06 over 1.8: 3 items, 43 words); split it into smaller beats (PED cognitive-load check)",
+    "[code] beat b21 is too heavy for one breath (load 1.9 over 1.8: 2 items, 55 words); split it into smaller beats (PED cognitive-load check)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 2.06,
+     "abrupt_jumps": [
+      "b3->b4",
+      "b4->b5",
+      "b20->b21",
+      "b21->b22",
+      "b24->b25",
+      "b25->b26",
+      "b27->b28",
+      "b28->b29",
+      "b30->b31",
+      "b31->b32",
+      "b34->b35"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 19.1,
+     "planned_minutes": 28
+    }
+   },
+   "passed": false,
+   "finished_at": 1792746067.8546622
+  },
+  {
+   "round": 2,
+   "started_at": 1792746067.8548677,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch preserves the lesson’s teaching sequence, coverage and scientific explanations while correcting the flagged narration.",
+     "key_questions": [
+      "Does every Hindi word outside the supplied list have an immediate English gloss?",
+      "Are figure labels spoken without parentheses that could be mistaken for Hindi glosses?",
+      "Are the opening comparison and figure overview light enough for one beat?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use simpler Hindi or English replacements for every flagged word.",
+       "reason": "This satisfies the mixed-script vocabulary rule while preserving meaning."
+      },
+      {
+       "decision": "Speak figure letters without parentheses and say Columnar with Ciliated as separate label components.",
+       "reason": "This prevents technical label parentheses from being mistaken for Hindi glosses; exact printed labels remain on screen."
+      },
+      {
+       "decision": "Shorten b4 and divide b21 into two beats.",
+       "reason": "This reduces cognitive load without dropping content."
+      }
+     ],
+     "uncertain": [
+      "Original page images remain unavailable; figure directions continue to follow the supplied descriptions."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अगर nuclei अलग-अलग ऊंचाई (height) पर दिखें, तो क्या tissue में जरूर कई layers हैं? अभी जवाब मत दीजिए। आज आप drawing में दिखने वाली layers और असली layers का फर्क खुद पहचानेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Opening question beside an unlabelled pseudostratified schematic: Different nuclear heights = several actual layers?",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले epithelial sheet की 2 तरफ समझिए। किसी passage की अंदर वाली जगह की ओर cell का हिस्सा free surface या apical side कहलाता (is called) है। cell की दूसरी तरफ basal side होती है, जहां basement membrane नाम की supporting layer होती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Orient a generic epithelial sheet: lumen or exposed space → free/apical surface → epithelial cells → basal side → basement membrane. Mark this as explanatory orientation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब 1 layer का उदाहरण लीजिए: cells एक-दूसरे के पास हैं और सभी basement membrane को छूते हैं। कई nuclei पास-पास दिखने का मतलब कई layers होना नहीं है। कई असली layers में cells नीचे से ऊपर एक-दूसरे के ऊपर रखे होते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Compare a single row of adjacent cells with several stacked rows. Trace basal-to-free-surface paths; do not count nuclei horizontally.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c10.1",
+      "step": 1,
+      "purpose": "compare",
+      "say": "Pseudo-stratified Columnar, Keratinised और Transitional epithelia में common बात समझिए। तीनों epithelial covering या lining से जुड़े (related) हैं। अब इनके features साथ देखेंगे।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [],
+      "on_screen": "Start a comparison table with the three book headings and shared heading: epithelial coverings/linings. Leave criterion rows empty for progressive completion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "पहला criterion है actual layers। Pseudo-stratified Columnar में 1 actual layer होती है, जबकि Transitional epithelia एक stratified lining है। Keratinised वाली row का खास ध्यान सबसे बाहर के cells में keratin आने पर है; केवल इस नाम से layer count नहीं मिलता।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q2",
+       "p004-i4#q2"
+      ],
+      "on_screen": "Layer criterion: Pseudostratified—one actual layer; Transitional—several actual layers; Keratinised—describes superficial keratinisation, not a standalone layer-count rule.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब nucleus और cell के अंदर की चीजों वाला criterion लीजिए। Pseudo-stratified में nuclei का अलग-अलग level पहचान में मदद करता है। Keratinised row में किताब ऊपर के cells को mostly dead, nucleus और cytoplasm के बिना बताती है। किताब कहती है कि cytoplasm की जगह keratin आता है और layer waterproof बनती है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q1",
+       "p004-i3#q2"
+      ],
+      "on_screen": "Compare nuclear arrangement with the keratinised superficial layer. Display book wording: mostly dead; devoid of nucleus and cytoplasm; keratin replaces cytoplasm; waterproof.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब stretch होने पर आकार बदलने की बात देखिए। Transitional epithelia या urothelium के cells को किताब बिना stretch के cuboidal बताती है। organ stretch होता है तो tissue दबता है और cells irregular और squamous-shaped दिखाई देते हैं। बाकी 2 rows की पहचान के लिए किताब ऐसा stretch वाला बदलाव नहीं देती।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q1",
+       "p004-i4#q2",
+       "p004-i4#q4"
+      ],
+      "on_screen": "Two states of transitional tissue: unstretched, cuboidal appearance → stretched organ, compressed lining, irregular and squamous-shaped appearance. Keep the other rows visible without implying they are mechanically rigid.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जगह के criterion पर Pseudo-stratified Columnar को किताब respiratory passage और कई glands के ducts में रखती है। Keratinised row ऊपर के protective cells के बारे में है। Transitional epithelia के लिए किताब में urinary bladder, urethra और ureter हैं। यहां जगह को structure के साथ जोड़कर याद रखिए।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q3",
+       "p004-i4#q3"
+      ],
+      "on_screen": "Location row: respiratory passage and ducts of many glands; outer/apical wording with superficial-cell clarification; urinary bladder, urethra, ureter.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Keratinised layer abrasion से protection में क्यों काम आती है? Keratin ऊपर के हिस्से को सख्त बनाता है। रगड़ (friction) के साथ ऊपर के dead cells निकल सकते हैं, जबकि नीचे tissue पर covering रहती है। यह layer पानी का loss कम करने में भी मदद करती है; किताब में waterproof का मतलब इसी से समझिए।",
+      "covers_item_ids": [
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q4"
+      ],
+      "on_screen": "Show a tough superficial keratinised layer, shedding superficial cells and reduced outward water loss. Retain the book term waterproof with the explanatory phrase helps reduce water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब urinary bladder भरते हुए सोचिए। Liquid बढ़ता है तो bladder की wall stretch होती है और lining ज्यादा पतली और cells ज्यादा चपटे दिखाई देते हैं। इस तरह lining ज्यादा liquid volume के साथ फैल सकती है। Bladder खाली होने पर lining फिर कम stretched और ज्यादा मोटी दिखाई दे सकती है।",
+      "covers_item_ids": [
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q4",
+       "p004-i4#q5"
+      ],
+      "on_screen": "Bladder filling → wall stretches → lining appears thinner and cells flatter; emptying → less stretched, thicker-looking lining. Show these as states of the same tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "लेकिन stretch के साथ urine और नीचे के tissue के बीच barrier भी चाहिए। किताब tight junctions को toxic substances के reabsorption की prevention से जोड़ती है। Tight junctions पास-पास के cells के बीच का रास्ता बंद रखते हैं। इस तरह urinary substances का cells के बीच से नीचे जाना कम होता है।",
+      "covers_item_ids": [
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q6"
+      ],
+      "on_screen": "Magnify adjoining urothelial cells. Mark tight junctions sealing the intercellular route; connect to the book's barrier and prevention-of-reabsorption statement.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "सबसे ज्यादा confusion वाली जोड़ी है Pseudostratified और Stratified। दोनों में drawing कई levels जैसी लग सकती है। Pseudostratified में सभी cells basement membrane को छूते हैं; Stratified में कई actual cell layers होती हैं। इसलिए केवल nuclei की height से layer count नहीं मिलता।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q2"
+      ],
+      "on_screen": "Side-by-side basal-contact tracing: pseudostratified, one actual layer; stratified, several stacked layers. Cross out the rule nuclear levels = layer count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "ऊपर की 3 खास चीजों के काम भी अलग रखिए। Keratin protective surface को सख्त बनाता है और पानी का loss कम करने में मदद करता है। Cilia के beating से material surface के साथ चलता है। Microvilli surface area बढ़ाते हैं; उनका काम cilia जैसा mucus movement नहीं है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i2#q4",
+       "p004-i3#q4"
+      ],
+      "on_screen": "Explanatory three-way contrast: keratin—tough protective surface; cilia—surface transport; microvilli—increased surface area. Mark microvilli as clarification, not a feature claimed for every illustrated block.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Location की 2 सावधानियां (cautions) भी समझिए। Respiratory ciliated example से यह मत मानिए कि किताब वाले सभी gland ducts में वही cilia और mucus वाला arrangement होगा। इसी तरह urethra लिखा होने का मतलब पूरी urethra में urothelium होना नहीं है। Urethra के अलग-अलग हिस्सों में epithelial lining बदलती है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q4",
+       "p004-i4#q7"
+      ],
+      "on_screen": "Qualify location associations: ciliated respiratory example does not establish identical specialisation in every gland duct; urethral epithelium varies along its length.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब इन बातों को figures में पहचानेंगे। हर drawing में एक ही रास्ता रखिए: पहले exposed side, फिर cell shape, फिर nuclei, फिर basal side। इस पूरे रास्ते से actual layers समझिए; केवल dark dots मत गिनिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Persistent reading guide: exposed side → cell shape → nuclei → basal side; conclude actual layer count from boundaries and basal attachment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c11.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Page 3 पर 4 अलग epithelial drawings ऊपर से नीचे दी हैं। ये Squamous, Stratified squamous, Cuboidal और Columnar हैं। आखिरी drawing के label में Ciliated भी है। यहां cell shape, layers और cilia पहचानने हैं।",
+      "covers_item_ids": [
+       "p003-i8"
+      ],
+      "answers": [
+       "p003-i8#q1",
+       "p003-i8#q2"
+      ],
+      "on_screen": "Show page 3's four vertically arranged forms with exact printed labels: (a) Squamous, (b) Stratified squamous, (c) Cuboidal, (d) Columnar (Ciliated).",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Page 3 में ऊपर drawing a, Squamous, से शुरू कर सकते हैं। Exposed side से नीचे देखें तो cells चपटे हैं और पतली, tile जैसी sheet बनाते हैं। फिर cells के अंदर का हिस्सा देखते हुए basal side तक देखिए; नीचे coloured supporting band है। पहचान का सबूत (evidence) यही पतली, चपटी cell sheet है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9"
+      ],
+      "answers": [
+       "p003-i9#q1",
+       "p003-i9#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (a): highlight exposed side → flattened tile-like cells → cell interiors/nuclei only if visible → basal side and coloured supporting band. Do not invent unreported nuclear details.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इतनी पतली sheet diffusion में क्यों मदद कर सकती है? किसी substance के लिए sheet की crossing distance कम होगी। इसलिए सही जगह पर यह arrangement diffusion के लिए अच्छा है। Drawing की thin shape देखकर यह connection समझिए।",
+      "covers_item_ids": [
+       "p003-i9"
+      ],
+      "answers": [
+       "p003-i9#q3"
+      ],
+      "on_screen": "Explanatory inset: a short crossing path through a thin squamous sheet. Mark the functional explanation as outside the figure's direct labels.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब drawing b, Stratified squamous, की exposed side देखिए। सबसे ऊपर cells चपटे हैं; अंदर की ओर देखें तो कई actual layers मिलती हैं और block मोटा है। Nuclei के dots से पहले cell boundaries देखते हुए basal side के supporting band तक जाइए। Drawing a की पतली sheet के सामने यहां cells एक-दूसरे के ऊपर रखे हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i10"
+      ],
+      "answers": [
+       "p003-i10#q1",
+       "p003-i10#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (b): exposed flattened cells → deeper stacked cells → nuclear features only where visible → basal supporting band. Contrast thickness and stacking with (a).",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Drawing c में exposed side से cells का आकार देखिए। हर cell की height और width लगभग एक-जैसी हैं, इसलिए cube जैसा रूप है। फिर cell के अंदर से नीचे basal supporting band तक देखें तो 1 layer मिलती है। यह Cuboidal drawing है; इसकी पहचान flat sheet से अलग, cube जैसा आकार है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i11"
+      ],
+      "answers": [
+       "p003-i11#q1",
+       "p003-i11#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (c): exposed side → approximately equal cell height and width → cell interiors/nuclei if visible → basal band. Highlight a single cube-like layer.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "एक cell की height और width साथ देखकर 3 shapes अलग पहचान सकते हैं। Squamous चपटा है। Cuboidal में height और width लगभग एक-जैसी हैं। Columnar में height, width से ज्यादा होती है।",
+      "covers_item_ids": [
+       "p003-i11"
+      ],
+      "answers": [
+       "p003-i11#q3"
+      ],
+      "on_screen": "Three explanatory outlines with height and width guides: squamous, cuboidal and columnar. Use approximate proportions without invented measurements.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Drawing d में exposed side पर पहले बारीक (fine), बाल जैसे projections देखिए। उनके नीचे लंबे columnar cells हैं; फिर cell interiors देखते हुए basal supporting band तक देखिए। Label में Columnar के साथ Ciliated लिखा है। लंबे cells columnar होने का, और ऊपर projections ciliated होने का सबूत (evidence) हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i12#q1",
+       "p003-i12#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (d), exact label Columnar (Ciliated): surface cilia → tall cell shape → cell interiors/nuclei if visible → basal band. Attach separate callouts to columnar shape and ciliated surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Page 4 पर ऊपर बाईं (left) ओर Simple squamous देखिए। Exposed side पर tile जैसे चपटे cells हैं; cell interiors से basal side तक देखें तो 1 पतली layer मिलती है। नाम का Simple हिस्सा 1 layer बताता है, और squamous हिस्सा चपटा cell shape बताता है। यहां दोनों terms का अपना अलग काम है।",
+      "covers_item_ids": [
+       "p004-i6"
+      ],
+      "answers": [
+       "p004-i6#q1",
+       "p004-i6#q2"
+      ],
+      "on_screen": "Page 4 Simple squamous: exposed face → flat tile-like cells → nuclei where visible → basal edge. Split label into Simple: one layer; squamous: flattened cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस drawing में thin lining का मतलब कम crossing distance है। इसलिए सही location और conditions में substances का diffusion आसान हो सकता है। Label के साथ thin shape को exchange के काम से भी जोड़िए।",
+      "covers_item_ids": [
+       "p004-i6"
+      ],
+      "answers": [
+       "p004-i6#q3"
+      ],
+      "on_screen": "Short crossing path through the single thin layer; caption: supports diffusion in suitable locations.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अगला block Simple cuboidal है। Exposed side से नीचे cells देखिए: height और width लगभग एक-जैसी हैं, और अंदर dark nuclei दिखते हैं। Cell boundaries को basal side तक देखते जाइए; cells की 1 layer है। इसलिए Simple arrangement बताता है और cuboidal shape बताता है।",
+      "covers_item_ids": [
+       "p004-i7"
+      ],
+      "answers": [
+       "p004-i7#q1",
+       "p004-i7#q3"
+      ],
+      "on_screen": "Page 4 Simple cuboidal: exposed side → cube-like proportions → dark nuclei → basal side. Trace the single cell layer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Simple columnar की exposed side से cells के नीचे तक देखिए। Cells लंबे columns जैसे हैं; अंदर dark nuclei हैं, और basal side से free surface तक 1 row है। Simple cuboidal के सामने फर्क साफ है: वहां height और width लगभग एक-जैसी हैं, यहां height ज्यादा है। Simple squamous के चपटे cells से भी यह अलग है।",
+      "covers_item_ids": [
+       "p004-i7",
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i7#q2",
+       "p004-i8#q1",
+       "p004-i8#q2"
+      ],
+      "on_screen": "Page 4 Simple columnar: exposed side → tall cells → dark nuclei → basal side. Compare its height-to-width appearance with Simple cuboidal and Simple squamous.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "कई layers protective lining में क्यों मदद करती हैं? ऊपर के cells पर wear होता है और वे निकल सकते हैं। तब भी नीचे की layers tissue पर covering बनाए (maintain) रखती हैं। इसलिए इस block की मोटाई को protection के साथ जोड़कर समझिए।",
+      "covers_item_ids": [
+       "p004-i9"
+      ],
+      "answers": [
+       "p004-i9#q3"
+      ],
+      "on_screen": "Explanatory inset: superficial wear and shedding with underlying layers maintaining coverage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "क्या Stratified cuboidal की definition में हमेशा ठीक 2 layers लिखेंगे? इस drawing में 2 layers दिखाई गई हैं। यहां इन layers से stratification समझनी है, यानी 1 से ज्यादा actual layer। Drawing की exact गिनती (count) को हर जगह की definition मत मानिए।",
+      "covers_item_ids": [
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i10#q3"
+      ],
+      "on_screen": "Separate observed schematic count: two layers, from naming principle: more than one actual layer. Avoid a universal equals-two rule.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Pseudostratified columnar block की exposed side से नीचे देखिए। लंबे cells के अंदर nuclei अलग-अलग levels पर हैं। यही feature कई layers जैसा रूप दिखाता है। लेकिन अगला जरूरी काम basal side की ओर cell boundaries और basement membrane contact को देखना है।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i11#q1",
+       "p004-i11#q2",
+       "p004-i5#q3"
+      ],
+      "on_screen": "Page 4 Pseudostratified columnar: exposed side → tall/unequal-height cells → nuclei at differing heights → basal side. Treat nuclear levels as a clue, not proof of multiple layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Pseudo का मतलब यहां दिखने वाली, लेकिन असली न होने वाली stratification है। इस tissue में सभी cells basement membrane को छूते हैं, लेकिन कुछ free surface तक नहीं पहुंचते। इसलिए actual layer 1 है। अगर original drawing में कोई cell boundary साफ न हो, तो केवल nuclei से basal contact का conclusion मत निकालिए।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i11#q3",
+       "p004-i5#q3"
+      ],
+      "on_screen": "Add a separately marked explanatory tracing of basal contacts. State: standard structural explanation; do not claim indistinct boundaries are directly visible in the original schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस drawing को table की Transitional epithelia या urothelium वाली row समझाती है। Drawing में ऊपर गोल cells हैं; table बिना stretch के cells को cuboidal बताती है। Organ stretch होने पर tissue दबता है और cells irregular और squamous-shaped दिखाई देते हैं। इसलिए यहां shape के साथ stretch की state भी पूछनी है।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q2",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Connect Transitional label to its table row. Distinguish the drawing's rounded surface cells from the table's unstretched cuboidal wording; add a marked stretched-state explanatory inset.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Page 3 से 1 मुख्य (main) बात पकड़िए: हर नाम के पीछे दिखाई देने वाला feature है। Squamous की thin flat sheet, Stratified squamous की कई layers और flat surface cells, Cuboidal का cube जैसा shape। Columnar के साथ Ciliated वाले label में लंबे cells और ऊपर hair-like projections, दोनों देखने हैं। नीचे के coloured bands को epithelial cells की extra layers मत गिनिए।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9",
+       "p003-i10",
+       "p003-i11",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i8#q3",
+       "p003-i9#q2",
+       "p003-i10#q2",
+       "p003-i11#q2",
+       "p003-i12#q2"
+      ],
+      "on_screen": "Labelled page 3 recap with one identifying feature per drawing, preserving the exact printed label Columnar (Ciliated). Keep supporting bands visually distinct from epithelial cell layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Page 4 की 1 मुख्य (main) बात है: actual layers और surface-cell shape को अलग सवाल बनाइए। Simple group में 1 layer है; squamous, cuboidal और columnar shape बताते हैं। Stratified drawings में कई layers हैं और ऊपर के cells नाम देते हैं। Pseudostratified में nuclei के levels से confusion हो सकता है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i6",
+       "p004-i7",
+       "p004-i8",
+       "p004-i9",
+       "p004-i10",
+       "p004-i11"
+      ],
+      "answers": [
+       "p004-i5#q3"
+      ],
+      "on_screen": "Recap previously taught blocks without introducing new content: layer-count column beside surface-shape column. Flag different nuclear levels as an apparent-layering trap.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "question_to_student",
+      "say": "अब खुद सोचिए: nuclei कई heights पर हैं, तो आपका अगला सवाल क्या होगा? यही कि cells की boundaries कैसी हैं और कौन basement membrane को छूता है। फिर पूछिए कि actual layer 1 है या कई। केवल dark dots देखकर Stratified कहना पूरा जवाब नहीं है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i11"
+      ],
+      "answers": [
+       "p004-i5#q3",
+       "p004-i11#q3"
+      ],
+      "on_screen": "Pause on a pseudostratified identification prompt, then reveal the checking questions: cell boundaries? basal contacts? actual stacking?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Transitional की पहचान को केवल एक fixed shape से मत जोड़िए। इस figure में कई layers और बड़े गोल surface cells हैं। Table बताती है कि stretch के साथ cells का रूप चपटा और irregular हो सकता है। इसलिए figure और stretch की state, दोनों मिलकर पहचान समझाते हैं।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q1",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Transitional identification card: multilayered block + large rounded surface cells in the depicted state; flatter appearance when stretched.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "नीचे Stratified squamous और Stratified cuboidal को साथ देखिए। दोनों में actual stacking है, लेकिन ऊपर के cells का आकार अलग है। Squamous में flat surface cells हैं; cuboidal drawing में cube जैसे cells की 2 layers दिखाई हैं। याद रखिए, 2 इस drawing की गिनती (count) है; Stratified का मतलब 1 से ज्यादा layer है।",
+      "covers_item_ids": [
+       "p004-i9",
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i9#q2",
+       "p004-i10#q2",
+       "p004-i10#q3"
+      ],
+      "on_screen": "Labelled lower-row recap: Stratified squamous and Stratified cuboidal. Attach the surface-shape naming rule and the schematic-count qualification.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आखिरी 2 labels आज की table से सीधे जुड़ते हैं। Pseudostratified columnar में अलग nuclear levels, unequal heights वाली row को समझाते हैं; actual layer फिर भी 1 है। Transitional में गोल surface cells वाली layered drawing, stretch के साथ बदलने वाली urothelium row से जुड़ती है। अब opening सवाल का जवाब साफ है: nuclei की अलग height का मतलब जरूर कई actual layers होना नहीं है।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i11#q1",
+       "p004-i11#q3",
+       "p004-i12#q2",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Final labelled figure recap: pseudostratified block linked to its table row; transitional block linked to resting/stretched descriptions. End with the opening question answered: different nuclear heights do not establish multiple actual layers.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [
+     {
+      "after_beat_id": "b21",
+      "beat": {
+       "beat_id": "b21a",
+       "part_id": "c11.1",
+       "step": 1,
+       "purpose": "explain",
+       "say": "Page 4 पर 7 blocks cell shape, layers और nuclei के levels का comparison दिखाते हैं। ये एक tissue के बदलने के stages नहीं हैं। दोनों figures में drawings के बीच कोई process arrows नहीं हैं।",
+       "covers_item_ids": [
+        "p003-i8",
+        "p004-i5"
+       ],
+       "answers": [
+        "p004-i5#q1"
+       ],
+       "on_screen": "Show page 4's seven comparative blocks beside page 3's four drawings. State: separate forms for comparison; no sequential arrows.",
+       "basis": "book"
+      }
+     }
+    ],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "24e004f66ddc6b39d65aae7524c48e4b390e82c97fc2268b90c99de0b8639452",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 36244,
+    "output_tokens": 7994,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch preserves the lesson’s teaching sequence, coverage and scientific explanations while correcting the flagged narration.",
+    "key_questions": [
+     "Does every Hindi word outside the supplied list have an immediate English gloss?",
+     "Are figure labels spoken without parentheses that could be mistaken for Hindi glosses?",
+     "Are the opening comparison and figure overview light enough for one beat?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use simpler Hindi or English replacements for every flagged word.",
+      "reason": "This satisfies the mixed-script vocabulary rule while preserving meaning."
+     },
+     {
+      "decision": "Speak figure letters without parentheses and say Columnar with Ciliated as separate label components.",
+      "reason": "This prevents technical label parentheses from being mistaken for Hindi glosses; exact printed labels remain on screen."
+     },
+     {
+      "decision": "Shorten b4 and divide b21 into two beats.",
+      "reason": "This reduces cognitive load without dropping content."
+     }
+    ],
+    "uncertain": [
+     "Original page images remain unavailable; figure directions continue to follow the supplied descriptions."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This patch preserves the lesson’s teaching sequence, coverage and scientific explanations while correcting the flagged narration.",
+     "key_questions": [
+      "Does every Hindi word outside the supplied list have an immediate English gloss?",
+      "Are figure labels spoken without parentheses that could be mistaken for Hindi glosses?",
+      "Are the opening comparison and figure overview light enough for one beat?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use simpler Hindi or English replacements for every flagged word.",
+       "reason": "This satisfies the mixed-script vocabulary rule while preserving meaning."
+      },
+      {
+       "decision": "Speak figure letters without parentheses and say Columnar with Ciliated as separate label components.",
+       "reason": "This prevents technical label parentheses from being mistaken for Hindi glosses; exact printed labels remain on screen."
+      },
+      {
+       "decision": "Shorten b4 and divide b21 into two beats.",
+       "reason": "This reduces cognitive load without dropping content."
+      }
+     ],
+     "uncertain": [
+      "Original page images remain unavailable; figure directions continue to follow the supplied descriptions."
+     ]
+    },
+    "title": "Epithelial figures: दिखने वाली layers और असली layers",
+    "parts": [
+     {
+      "part_id": "c10.1",
+      "frame": {
+       "process": "Compare pseudostratified columnar, keratinised and transitional epithelia as epithelial coverings and linings with different structural specialisations.",
+       "how": "Compare actual layers, cell and nuclear arrangement, exposed-surface features, response to stretching, locations and functions; then explain each functional connection.",
+       "when": "Establish shared epithelial orientation first. Contrast resting and stretched transitional tissue as an organ fills and empties.",
+       "conditions": "Different nuclear heights do not establish multiple layers. Keratinisation concerns superficial epithelial cells; respiratory ciliary specialisation and urethral locations require qualification.",
+       "atmosphere": "A student compares tissue sections beside the book table, picturing a respiratory passage, an exposed protective surface and a filling urinary bladder."
+      }
+     },
+     {
+      "part_id": "c11.1",
+      "frame": {
+       "process": "Identify the four epithelial drawings on page 3 and the seven schematic blocks on page 4 using visible structural evidence.",
+       "how": "For each block, follow exposed side, cell shape, nuclei and basal side; establish actual layer count and use surface-cell shape for stratified names.",
+       "when": "Read page 3 from top to bottom, then page 4 across the upper group, across the lower group and finally the right-hand transitional block.",
+       "conditions": "Drawings are comparisons, not stages of a process. Nuclear positions are clues; cell boundaries and basal contact establish layering, and stretching changes transitional appearance.",
+       "atmosphere": "A guided inspection of labelled textbook drawings, followed by an evidence-based identification exercise and labelled recap."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "अगर nuclei अलग-अलग ऊंचाई (height) पर दिखें, तो क्या tissue में जरूर कई layers हैं? अभी जवाब मत दीजिए। आज आप drawing में दिखने वाली layers और असली layers का फर्क खुद पहचानेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Opening question beside an unlabelled pseudostratified schematic: Different nuclear heights = several actual layers?",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले epithelial sheet की 2 तरफ समझिए। किसी passage की अंदर वाली जगह की ओर cell का हिस्सा free surface या apical side कहलाता (is called) है। cell की दूसरी तरफ basal side होती है, जहां basement membrane नाम की supporting layer होती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Orient a generic epithelial sheet: lumen or exposed space → free/apical surface → epithelial cells → basal side → basement membrane. Mark this as explanatory orientation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब 1 layer का उदाहरण लीजिए: cells एक-दूसरे के पास हैं और सभी basement membrane को छूते हैं। कई nuclei पास-पास दिखने का मतलब कई layers होना नहीं है। कई असली layers में cells नीचे से ऊपर एक-दूसरे के ऊपर रखे होते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Compare a single row of adjacent cells with several stacked rows. Trace basal-to-free-surface paths; do not count nuclei horizontally.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "c10.1",
+      "step": 1,
+      "purpose": "compare",
+      "say": "Pseudo-stratified Columnar, Keratinised और Transitional epithelia में common बात समझिए। तीनों epithelial covering या lining से जुड़े (related) हैं। अब इनके features साथ देखेंगे।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [],
+      "on_screen": "Start a comparison table with the three book headings and shared heading: epithelial coverings/linings. Leave criterion rows empty for progressive completion.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "पहला criterion है actual layers। Pseudo-stratified Columnar में 1 actual layer होती है, जबकि Transitional epithelia एक stratified lining है। Keratinised वाली row का खास ध्यान सबसे बाहर के cells में keratin आने पर है; केवल इस नाम से layer count नहीं मिलता।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q2",
+       "p004-i4#q2"
+      ],
+      "on_screen": "Layer criterion: Pseudostratified—one actual layer; Transitional—several actual layers; Keratinised—describes superficial keratinisation, not a standalone layer-count rule.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "किताब Pseudo-stratified Columnar को columnar epithelium जैसा बताती है, लेकिन सभी cells की height एक-जैसी नहीं होती। nuclei भी अलग-अलग levels पर होने से कई layers जैसा रूप दिखता है। फिर भी सभी cells basement membrane को छूते हैं; कुछ cells free surface तक नहीं पहुंचते।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q1",
+       "p004-i2#q2"
+      ],
+      "on_screen": "Compare ordinary columnar arrangement with unequal-height pseudostratified cells. Trace each pseudostratified cell to the basement membrane; distinguish cells that reach the free surface.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब nucleus और cell के अंदर की चीजों वाला criterion लीजिए। Pseudo-stratified में nuclei का अलग-अलग level पहचान में मदद करता है। Keratinised row में किताब ऊपर के cells को mostly dead, nucleus और cytoplasm के बिना बताती है। किताब कहती है कि cytoplasm की जगह keratin आता है और layer waterproof बनती है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q1",
+       "p004-i3#q2"
+      ],
+      "on_screen": "Compare nuclear arrangement with the keratinised superficial layer. Display book wording: mostly dead; devoid of nucleus and cytoplasm; keratin replaces cytoplasm; waterproof.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Keratinised की location में किताब लिखती है, ‘The outer or apical layer of the cell’। इसे individual cell के अंदर कोई अलग tissue layer मत समझिए। यहां सही tissue-level मतलब epithelium के सबसे बाहर के cells में keratinisation है; epidermis इसका उदाहरण है।",
+      "covers_item_ids": [
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q3"
+      ],
+      "on_screen": "Show the printed location wording, then clarify: superficial epithelial cells, as in epidermis. Highlight the outer epithelial region, not a compartment within one cell.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब stretch होने पर आकार बदलने की बात देखिए। Transitional epithelia या urothelium के cells को किताब बिना stretch के cuboidal बताती है। organ stretch होता है तो tissue दबता है और cells irregular और squamous-shaped दिखाई देते हैं। बाकी 2 rows की पहचान के लिए किताब ऐसा stretch वाला बदलाव नहीं देती।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q1",
+       "p004-i4#q2",
+       "p004-i4#q4"
+      ],
+      "on_screen": "Two states of transitional tissue: unstretched, cuboidal appearance → stretched organ, compressed lining, irregular and squamous-shaped appearance. Keep the other rows visible without implying they are mechanically rigid.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "जगह के criterion पर Pseudo-stratified Columnar को किताब respiratory passage और कई glands के ducts में रखती है। Keratinised row ऊपर के protective cells के बारे में है। Transitional epithelia के लिए किताब में urinary bladder, urethra और ureter हैं। यहां जगह को structure के साथ जोड़कर याद रखिए।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q3",
+       "p004-i4#q3"
+      ],
+      "on_screen": "Location row: respiratory passage and ducts of many glands; outer/apical wording with superficial-cell clarification; urinary bladder, urethra, ureter.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c10.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "काम में भी फर्क देखिए। Pseudo-stratified Columnar के लिए protection, secretion और mucous का movement दिया है। Keratinised के लिए abrasion, यानी रगड़ (friction), से protection दिया है। Transitional में liquid की अलग-अलग volume के लिए stretch करना और barrier बनाना खास है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q3",
+       "p004-i3#q1",
+       "p004-i4#q2",
+       "p004-i4#q4"
+      ],
+      "on_screen": "Function row: protection + secretion + mucous movement; protection against abrasion; accommodation of different liquid volumes + barrier.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Respiratory passage के ciliated उदाहरण में protection कैसे होता है? Mucus सांस के साथ आने वाले particles को पकड़ता है। Cilia इस mucus को free surface के साथ आगे ले जाते हैं। इस तरह secretion और mucus movement मिलकर protection में मदद करते हैं।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q4"
+      ],
+      "on_screen": "Explanatory animation: inhaled particles caught in mucus; cilia move the mucus along the epithelial surface. Label as a ciliated respiratory example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "Keratinised layer abrasion से protection में क्यों काम आती है? Keratin ऊपर के हिस्से को सख्त बनाता है। रगड़ (friction) के साथ ऊपर के dead cells निकल सकते हैं, जबकि नीचे tissue पर covering रहती है। यह layer पानी का loss कम करने में भी मदद करती है; किताब में waterproof का मतलब इसी से समझिए।",
+      "covers_item_ids": [
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i3#q4"
+      ],
+      "on_screen": "Show a tough superficial keratinised layer, shedding superficial cells and reduced outward water loss. Retain the book term waterproof with the explanatory phrase helps reduce water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "process_walkthrough",
+      "say": "अब urinary bladder भरते हुए सोचिए। Liquid बढ़ता है तो bladder की wall stretch होती है और lining ज्यादा पतली और cells ज्यादा चपटे दिखाई देते हैं। इस तरह lining ज्यादा liquid volume के साथ फैल सकती है। Bladder खाली होने पर lining फिर कम stretched और ज्यादा मोटी दिखाई दे सकती है।",
+      "covers_item_ids": [
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q4",
+       "p004-i4#q5"
+      ],
+      "on_screen": "Bladder filling → wall stretches → lining appears thinner and cells flatter; emptying → less stretched, thicker-looking lining. Show these as states of the same tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c10.1",
+      "step": 3,
+      "purpose": "explain",
+      "say": "लेकिन stretch के साथ urine और नीचे के tissue के बीच barrier भी चाहिए। किताब tight junctions को toxic substances के reabsorption की prevention से जोड़ती है। Tight junctions पास-पास के cells के बीच का रास्ता बंद रखते हैं। इस तरह urinary substances का cells के बीच से नीचे जाना कम होता है।",
+      "covers_item_ids": [
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i4#q6"
+      ],
+      "on_screen": "Magnify adjoining urothelial cells. Mark tight junctions sealing the intercellular route; connect to the book's barrier and prevention-of-reabsorption statement.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "सबसे ज्यादा confusion वाली जोड़ी है Pseudostratified और Stratified। दोनों में drawing कई levels जैसी लग सकती है। Pseudostratified में सभी cells basement membrane को छूते हैं; Stratified में कई actual cell layers होती हैं। इसलिए केवल nuclei की height से layer count नहीं मिलता।",
+      "covers_item_ids": [
+       "p004-i2"
+      ],
+      "answers": [
+       "p004-i2#q2"
+      ],
+      "on_screen": "Side-by-side basal-contact tracing: pseudostratified, one actual layer; stratified, several stacked layers. Cross out the rule nuclear levels = layer count.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "ऊपर की 3 खास चीजों के काम भी अलग रखिए। Keratin protective surface को सख्त बनाता है और पानी का loss कम करने में मदद करता है। Cilia के beating से material surface के साथ चलता है। Microvilli surface area बढ़ाते हैं; उनका काम cilia जैसा mucus movement नहीं है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3"
+      ],
+      "answers": [
+       "p004-i2#q4",
+       "p004-i3#q4"
+      ],
+      "on_screen": "Explanatory three-way contrast: keratin—tough protective surface; cilia—surface transport; microvilli—increased surface area. Mark microvilli as clarification, not a feature claimed for every illustrated block.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c10.1",
+      "step": 4,
+      "purpose": "misconception",
+      "say": "Location की 2 सावधानियां (cautions) भी समझिए। Respiratory ciliated example से यह मत मानिए कि किताब वाले सभी gland ducts में वही cilia और mucus वाला arrangement होगा। इसी तरह urethra लिखा होने का मतलब पूरी urethra में urothelium होना नहीं है। Urethra के अलग-अलग हिस्सों में epithelial lining बदलती है।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q4",
+       "p004-i4#q7"
+      ],
+      "on_screen": "Qualify location associations: ciliated respiratory example does not establish identical specialisation in every gland duct; urethral epithelium varies along its length.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c10.1",
+      "step": 5,
+      "purpose": "recap",
+      "say": "अब comparison table को 3 पहचान में पढ़िए। Pseudostratified: unequal cell heights, अलग nuclear levels, लेकिन 1 actual layer; काम protection, secretion और mucous movement। Keratinised: ऊपर mostly dead cells, keratin, waterproof layer और abrasion से protection। Transitional: कई actual layers, stretch के साथ बदलता आकार, liquid volume के लिए जगह और tight junctions वाला barrier।",
+      "covers_item_ids": [
+       "p004-i2",
+       "p004-i3",
+       "p004-i4"
+      ],
+      "answers": [
+       "p004-i2#q1",
+       "p004-i3#q1",
+       "p004-i3#q2",
+       "p004-i4#q2"
+      ],
+      "on_screen": "Complete comparison table with rows for layering, cell/nuclear features, surface features, stretching, book locations and functions. Keep location qualifications as short footnotes.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब इन बातों को figures में पहचानेंगे। हर drawing में एक ही रास्ता रखिए: पहले exposed side, फिर cell shape, फिर nuclei, फिर basal side। इस पूरे रास्ते से actual layers समझिए; केवल dark dots मत गिनिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Persistent reading guide: exposed side → cell shape → nuclei → basal side; conclude actual layer count from boundaries and basal attachment.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c11.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Page 3 पर 4 अलग epithelial drawings ऊपर से नीचे दी हैं। ये Squamous, Stratified squamous, Cuboidal और Columnar हैं। आखिरी drawing के label में Ciliated भी है। यहां cell shape, layers और cilia पहचानने हैं।",
+      "covers_item_ids": [
+       "p003-i8"
+      ],
+      "answers": [
+       "p003-i8#q1",
+       "p003-i8#q2"
+      ],
+      "on_screen": "Show page 3's four vertically arranged forms with exact printed labels: (a) Squamous, (b) Stratified squamous, (c) Cuboidal, (d) Columnar (Ciliated).",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21a",
+      "part_id": "c11.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Page 4 पर 7 blocks cell shape, layers और nuclei के levels का comparison दिखाते हैं। ये एक tissue के बदलने के stages नहीं हैं। दोनों figures में drawings के बीच कोई process arrows नहीं हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i5#q1"
+      ],
+      "on_screen": "Show page 4's seven comparative blocks beside page 3's four drawings. State: separate forms for comparison; no sequential arrows.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c11.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "Page 4 की ऊपर वाली drawings Simple squamous, Simple cuboidal और Simple columnar हैं। नीचे Stratified squamous, Stratified cuboidal और Pseudostratified columnar हैं। दाईं (right) ओर Transitional है। हर label के साथ आप drawing का पहचान वाला feature खोजेंगे।",
+      "covers_item_ids": [
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i5#q2"
+      ],
+      "on_screen": "Locate all seven page 4 labels in the supplied layout: upper group, lower group, right-hand transitional block. Avoid arrows implying transformation.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Page 3 में ऊपर drawing a, Squamous, से शुरू कर सकते हैं। Exposed side से नीचे देखें तो cells चपटे हैं और पतली, tile जैसी sheet बनाते हैं। फिर cells के अंदर का हिस्सा देखते हुए basal side तक देखिए; नीचे coloured supporting band है। पहचान का सबूत (evidence) यही पतली, चपटी cell sheet है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9"
+      ],
+      "answers": [
+       "p003-i9#q1",
+       "p003-i9#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (a): highlight exposed side → flattened tile-like cells → cell interiors/nuclei only if visible → basal side and coloured supporting band. Do not invent unreported nuclear details.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इतनी पतली sheet diffusion में क्यों मदद कर सकती है? किसी substance के लिए sheet की crossing distance कम होगी। इसलिए सही जगह पर यह arrangement diffusion के लिए अच्छा है। Drawing की thin shape देखकर यह connection समझिए।",
+      "covers_item_ids": [
+       "p003-i9"
+      ],
+      "answers": [
+       "p003-i9#q3"
+      ],
+      "on_screen": "Explanatory inset: a short crossing path through a thin squamous sheet. Mark the functional explanation as outside the figure's direct labels.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब drawing b, Stratified squamous, की exposed side देखिए। सबसे ऊपर cells चपटे हैं; अंदर की ओर देखें तो कई actual layers मिलती हैं और block मोटा है। Nuclei के dots से पहले cell boundaries देखते हुए basal side के supporting band तक जाइए। Drawing a की पतली sheet के सामने यहां cells एक-दूसरे के ऊपर रखे हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i10"
+      ],
+      "answers": [
+       "p003-i10#q1",
+       "p003-i10#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (b): exposed flattened cells → deeper stacked cells → nuclear features only where visible → basal supporting band. Contrast thickness and stacking with (a).",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "नाम Stratified squamous क्यों है, जब अंदर के सभी cells चपटे होना जरूरी नहीं? Stratified बताता है कि कई layers हैं। Squamous नाम exposed side के cells के आकार से आता है। अंदर के cells का आकार अलग हो सकता है।",
+      "covers_item_ids": [
+       "p003-i10"
+      ],
+      "answers": [
+       "p003-i10#q3"
+      ],
+      "on_screen": "Label rule beside (b): Stratified = multiple actual layers; squamous = flattened surface cells. Highlight surface cells separately from deeper cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Drawing c में exposed side से cells का आकार देखिए। हर cell की height और width लगभग एक-जैसी हैं, इसलिए cube जैसा रूप है। फिर cell के अंदर से नीचे basal supporting band तक देखें तो 1 layer मिलती है। यह Cuboidal drawing है; इसकी पहचान flat sheet से अलग, cube जैसा आकार है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i11"
+      ],
+      "answers": [
+       "p003-i11#q1",
+       "p003-i11#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (c): exposed side → approximately equal cell height and width → cell interiors/nuclei if visible → basal band. Highlight a single cube-like layer.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "एक cell की height और width साथ देखकर 3 shapes अलग पहचान सकते हैं। Squamous चपटा है। Cuboidal में height और width लगभग एक-जैसी हैं। Columnar में height, width से ज्यादा होती है।",
+      "covers_item_ids": [
+       "p003-i11"
+      ],
+      "answers": [
+       "p003-i11#q3"
+      ],
+      "on_screen": "Three explanatory outlines with height and width guides: squamous, cuboidal and columnar. Use approximate proportions without invented measurements.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Drawing d में exposed side पर पहले बारीक (fine), बाल जैसे projections देखिए। उनके नीचे लंबे columnar cells हैं; फिर cell interiors देखते हुए basal supporting band तक देखिए। Label में Columnar के साथ Ciliated लिखा है। लंबे cells columnar होने का, और ऊपर projections ciliated होने का सबूत (evidence) हैं।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i12#q1",
+       "p003-i12#q2",
+       "p003-i8#q3"
+      ],
+      "on_screen": "Page 3 (d), exact label Columnar (Ciliated): surface cilia → tall cell shape → cell interiors/nuclei if visible → basal band. Attach separate callouts to columnar shape and ciliated surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ये cilia केवल पहचान का feature नहीं हैं। इनके साथ मिलकर beating करने से material free surface के साथ एक खास ओर चलता है। इसलिए movement को ऊपर की surface के साथ सोचिए। यह cilia के काम का connection है।",
+      "covers_item_ids": [
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i12#q3"
+      ],
+      "on_screen": "Explanatory inset: coordinated ciliary beating moves material along the free surface. Distinguish the functional arrow from the original static figure.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Page 4 पर ऊपर बाईं (left) ओर Simple squamous देखिए। Exposed side पर tile जैसे चपटे cells हैं; cell interiors से basal side तक देखें तो 1 पतली layer मिलती है। नाम का Simple हिस्सा 1 layer बताता है, और squamous हिस्सा चपटा cell shape बताता है। यहां दोनों terms का अपना अलग काम है।",
+      "covers_item_ids": [
+       "p004-i6"
+      ],
+      "answers": [
+       "p004-i6#q1",
+       "p004-i6#q2"
+      ],
+      "on_screen": "Page 4 Simple squamous: exposed face → flat tile-like cells → nuclei where visible → basal edge. Split label into Simple: one layer; squamous: flattened cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस drawing में thin lining का मतलब कम crossing distance है। इसलिए सही location और conditions में substances का diffusion आसान हो सकता है। Label के साथ thin shape को exchange के काम से भी जोड़िए।",
+      "covers_item_ids": [
+       "p004-i6"
+      ],
+      "answers": [
+       "p004-i6#q3"
+      ],
+      "on_screen": "Short crossing path through the single thin layer; caption: supports diffusion in suitable locations.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अगला block Simple cuboidal है। Exposed side से नीचे cells देखिए: height और width लगभग एक-जैसी हैं, और अंदर dark nuclei दिखते हैं। Cell boundaries को basal side तक देखते जाइए; cells की 1 layer है। इसलिए Simple arrangement बताता है और cuboidal shape बताता है।",
+      "covers_item_ids": [
+       "p004-i7"
+      ],
+      "answers": [
+       "p004-i7#q1",
+       "p004-i7#q3"
+      ],
+      "on_screen": "Page 4 Simple cuboidal: exposed side → cube-like proportions → dark nuclei → basal side. Trace the single cell layer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Simple columnar की exposed side से cells के नीचे तक देखिए। Cells लंबे columns जैसे हैं; अंदर dark nuclei हैं, और basal side से free surface तक 1 row है। Simple cuboidal के सामने फर्क साफ है: वहां height और width लगभग एक-जैसी हैं, यहां height ज्यादा है। Simple squamous के चपटे cells से भी यह अलग है।",
+      "covers_item_ids": [
+       "p004-i7",
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i7#q2",
+       "p004-i8#q1",
+       "p004-i8#q2"
+      ],
+      "on_screen": "Page 4 Simple columnar: exposed side → tall cells → dark nuclei → basal side. Compare its height-to-width appearance with Simple cuboidal and Simple squamous.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "Simple columnar में कई nuclei दिख रहे हैं, तो क्या कई layers कहेंगे? नहीं, ये पास-पास के अलग cells के nuclei हैं। Columnar नाम cell की height से आता है। Layer count के लिए नीचे से free surface तक cells का arrangement देखिए।",
+      "covers_item_ids": [
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i8#q3"
+      ],
+      "on_screen": "Highlight neighbouring nuclei horizontally, then trace a basal-to-apical cell boundary. Caption: number of visible nuclei is not number of layers.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब नीचे वाले Stratified squamous block की exposed side देखिए। ऊपर के cells चपटे हैं, और उनके नीचे अलग shapes के cells कई layers में हैं। Nuclei वाले cell interiors के साथ boundaries देखते हुए basal side तक पहुंचिए। यहां actual stacking Stratified बताती है और ऊपर के चपटे cells squamous नाम देते हैं।",
+      "covers_item_ids": [
+       "p004-i9"
+      ],
+      "answers": [
+       "p004-i9#q1",
+       "p004-i9#q2"
+      ],
+      "on_screen": "Page 4 Stratified squamous: flattened exposed cells → deeper differently shaped cells → nuclear positions within distinct cell boundaries → basal side. Highlight several actual layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "कई layers protective lining में क्यों मदद करती हैं? ऊपर के cells पर wear होता है और वे निकल सकते हैं। तब भी नीचे की layers tissue पर covering बनाए (maintain) रखती हैं। इसलिए इस block की मोटाई को protection के साथ जोड़कर समझिए।",
+      "covers_item_ids": [
+       "p004-i9"
+      ],
+      "answers": [
+       "p004-i9#q3"
+      ],
+      "on_screen": "Explanatory inset: superficial wear and shedding with underlying layers maintaining coverage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "Stratified cuboidal में exposed side के cells cube जैसे दिखते हैं। अंदर के nuclei और cell boundaries से basal side तक देखें तो drawing में 2 layers दिखती हैं। Simple cuboidal में shape भी cube जैसी थी, लेकिन layer सिर्फ 1 थी। यहां पहचान बदलने वाला feature cells का ऊपर-नीचे रखा होना है।",
+      "covers_item_ids": [
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i10#q1",
+       "p004-i10#q2"
+      ],
+      "on_screen": "Page 4 Stratified cuboidal: exposed cells → cube-like shape → nuclei where visible and two stacked cell rows → basal side. Compare directly with Simple cuboidal.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "क्या Stratified cuboidal की definition में हमेशा ठीक 2 layers लिखेंगे? इस drawing में 2 layers दिखाई गई हैं। यहां इन layers से stratification समझनी है, यानी 1 से ज्यादा actual layer। Drawing की exact गिनती (count) को हर जगह की definition मत मानिए।",
+      "covers_item_ids": [
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i10#q3"
+      ],
+      "on_screen": "Separate observed schematic count: two layers, from naming principle: more than one actual layer. Avoid a universal equals-two rule.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "अब Pseudostratified columnar block की exposed side से नीचे देखिए। लंबे cells के अंदर nuclei अलग-अलग levels पर हैं। यही feature कई layers जैसा रूप दिखाता है। लेकिन अगला जरूरी काम basal side की ओर cell boundaries और basement membrane contact को देखना है।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i11#q1",
+       "p004-i11#q2",
+       "p004-i5#q3"
+      ],
+      "on_screen": "Page 4 Pseudostratified columnar: exposed side → tall/unequal-height cells → nuclei at differing heights → basal side. Treat nuclear levels as a clue, not proof of multiple layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Pseudo का मतलब यहां दिखने वाली, लेकिन असली न होने वाली stratification है। इस tissue में सभी cells basement membrane को छूते हैं, लेकिन कुछ free surface तक नहीं पहुंचते। इसलिए actual layer 1 है। अगर original drawing में कोई cell boundary साफ न हो, तो केवल nuclei से basal contact का conclusion मत निकालिए।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i5"
+      ],
+      "answers": [
+       "p004-i11#q3",
+       "p004-i5#q3"
+      ],
+      "on_screen": "Add a separately marked explanatory tracing of basal contacts. State: standard structural explanation; do not claim indistinct boundaries are directly visible in the original schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "process_walkthrough",
+      "say": "दाईं (right) ओर Transitional block की exposed side पर बड़े, गोल cells देखिए। उनके नीचे छोटे cells हैं; cell interiors और boundaries देखते हुए basal side तक जाइए। यहां कई layers हैं। ऊपर के गोल बड़े cells और नीचे के छोटे cells इस drawing की पहचान वाले features हैं।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q1"
+      ],
+      "on_screen": "Page 4 Transitional: exposed large rounded surface cells → smaller underlying cells → nuclear features only where visible → basal side. Highlight multilayered arrangement.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "c11.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस drawing को table की Transitional epithelia या urothelium वाली row समझाती है। Drawing में ऊपर गोल cells हैं; table बिना stretch के cells को cuboidal बताती है। Organ stretch होने पर tissue दबता है और cells irregular और squamous-shaped दिखाई देते हैं। इसलिए यहां shape के साथ stretch की state भी पूछनी है।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q2",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Connect Transitional label to its table row. Distinguish the drawing's rounded surface cells from the table's unstretched cuboidal wording; add a marked stretched-state explanatory inset.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Page 3 से 1 मुख्य (main) बात पकड़िए: हर नाम के पीछे दिखाई देने वाला feature है। Squamous की thin flat sheet, Stratified squamous की कई layers और flat surface cells, Cuboidal का cube जैसा shape। Columnar के साथ Ciliated वाले label में लंबे cells और ऊपर hair-like projections, दोनों देखने हैं। नीचे के coloured bands को epithelial cells की extra layers मत गिनिए।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9",
+       "p003-i10",
+       "p003-i11",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i8#q3",
+       "p003-i9#q2",
+       "p003-i10#q2",
+       "p003-i11#q2",
+       "p003-i12#q2"
+      ],
+      "on_screen": "Labelled page 3 recap with one identifying feature per drawing, preserving the exact printed label Columnar (Ciliated). Keep supporting bands visually distinct from epithelial cell layers.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Page 4 की 1 मुख्य (main) बात है: actual layers और surface-cell shape को अलग सवाल बनाइए। Simple group में 1 layer है; squamous, cuboidal और columnar shape बताते हैं। Stratified drawings में कई layers हैं और ऊपर के cells नाम देते हैं। Pseudostratified में nuclei के levels से confusion हो सकता है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i6",
+       "p004-i7",
+       "p004-i8",
+       "p004-i9",
+       "p004-i10",
+       "p004-i11"
+      ],
+      "answers": [
+       "p004-i5#q3"
+      ],
+      "on_screen": "Recap previously taught blocks without introducing new content: layer-count column beside surface-shape column. Flag different nuclear levels as an apparent-layering trap.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "question_to_student",
+      "say": "अब खुद सोचिए: nuclei कई heights पर हैं, तो आपका अगला सवाल क्या होगा? यही कि cells की boundaries कैसी हैं और कौन basement membrane को छूता है। फिर पूछिए कि actual layer 1 है या कई। केवल dark dots देखकर Stratified कहना पूरा जवाब नहीं है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i11"
+      ],
+      "answers": [
+       "p004-i5#q3",
+       "p004-i11#q3"
+      ],
+      "on_screen": "Pause on a pseudostratified identification prompt, then reveal the checking questions: cell boundaries? basal contacts? actual stacking?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "c11.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "Transitional की पहचान को केवल एक fixed shape से मत जोड़िए। इस figure में कई layers और बड़े गोल surface cells हैं। Table बताती है कि stretch के साथ cells का रूप चपटा और irregular हो सकता है। इसलिए figure और stretch की state, दोनों मिलकर पहचान समझाते हैं।",
+      "covers_item_ids": [
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i12#q1",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Transitional identification card: multilayered block + large rounded surface cells in the depicted state; flatter appearance when stretched.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "अब Page 3 के labels को पहले पढ़े text से जोड़िए। Squamous का thin shape diffusion की कम crossing distance समझाता है। Stratified squamous की कई layers protection समझने में मदद करती हैं। Cuboidal और Columnar के names cell shape बताते हैं; Ciliated जोड़ने पर surface movement वाला feature भी आता है।",
+      "covers_item_ids": [
+       "p003-i8",
+       "p003-i9",
+       "p003-i10",
+       "p003-i11",
+       "p003-i12"
+      ],
+      "answers": [
+       "p003-i9#q3",
+       "p003-i10#q3",
+       "p003-i11#q3",
+       "p003-i12#q3"
+      ],
+      "on_screen": "Labelled page 3 figure linked to explanatory text: thin → short diffusion path; multiple layers → protective coverage; cube/tall → shape names; cilia → surface transport.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "Page 4 की ऊपर वाली row में Simple squamous, Simple cuboidal और Simple columnar को साथ देखिए। तीनों में Simple का मतलब 1 actual layer है। चपटे, cube जैसे और लंबे cells बाकी नाम बताते हैं। इस तरह figure, layer और shape वाले text को आंख के सामने रख देती है।",
+      "covers_item_ids": [
+       "p004-i5",
+       "p004-i6",
+       "p004-i7",
+       "p004-i8"
+      ],
+      "answers": [
+       "p004-i6#q2",
+       "p004-i7#q3",
+       "p004-i8#q3"
+      ],
+      "on_screen": "Labelled recap of page 4 upper row. Bracket each single layer and mark flat, cube-like and tall proportions.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "नीचे Stratified squamous और Stratified cuboidal को साथ देखिए। दोनों में actual stacking है, लेकिन ऊपर के cells का आकार अलग है। Squamous में flat surface cells हैं; cuboidal drawing में cube जैसे cells की 2 layers दिखाई हैं। याद रखिए, 2 इस drawing की गिनती (count) है; Stratified का मतलब 1 से ज्यादा layer है।",
+      "covers_item_ids": [
+       "p004-i9",
+       "p004-i10"
+      ],
+      "answers": [
+       "p004-i9#q2",
+       "p004-i10#q2",
+       "p004-i10#q3"
+      ],
+      "on_screen": "Labelled lower-row recap: Stratified squamous and Stratified cuboidal. Attach the surface-shape naming rule and the schematic-count qualification.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "c11.1",
+      "step": 4,
+      "purpose": "recap",
+      "say": "आखिरी 2 labels आज की table से सीधे जुड़ते हैं। Pseudostratified columnar में अलग nuclear levels, unequal heights वाली row को समझाते हैं; actual layer फिर भी 1 है। Transitional में गोल surface cells वाली layered drawing, stretch के साथ बदलने वाली urothelium row से जुड़ती है। अब opening सवाल का जवाब साफ है: nuclei की अलग height का मतलब जरूर कई actual layers होना नहीं है।",
+      "covers_item_ids": [
+       "p004-i11",
+       "p004-i12"
+      ],
+      "answers": [
+       "p004-i11#q1",
+       "p004-i11#q3",
+       "p004-i12#q2",
+       "p004-i12#q3"
+      ],
+      "on_screen": "Final labelled figure recap: pseudostratified block linked to its table row; transitional block linked to resting/stretched descriptions. End with the opening question answered: different nuclear heights do not establish multiple actual layers.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.68,
+     "abrupt_jumps": [
+      "b3->b4",
+      "b4->b5",
+      "b22->b23",
+      "b23->b24",
+      "b24->b25",
+      "b25->b26",
+      "b27->b28",
+      "b28->b29",
+      "b30->b31",
+      "b31->b32",
+      "b34->b35"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 19.1,
+     "planned_minutes": 28
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "003a33b7296c283541f34b56307106e29d0942065e49f0f760234ce1aace0d99",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 19435,
+    "output_tokens": 995,
+    "cost_usd": 0.053702,
+    "value": {
+     "notes": {
+      "about": "This review evaluates the teacher script for Video v3 ('Epithelial figures: दिखने वाली layers और असली layers'), covering the comparison of pseudostratified, keratinised, and transitional epithelia (c10.1) and the visual identification of epithelial tissue figures on pages 3 and 4 (c11.1).",
+      "key_questions": [
+       "Are all 16 required items and their associated teacher questions thoroughly taught and accurately marked for basis?",
+       "Does c10.1 follow the 5-step comparison teaching pattern and c11.1 follow the 4-step figure teaching pattern?",
+       "Does the narration strictly follow the mixed-script Hinglish rules with appropriate brackets for difficult Hindi words and clean spoken sentences?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with zero blocking findings.",
+        "reason": "All items, teacher questions, prerequisites, content-type steps, and language rules are thoroughly and accurately satisfied at the UPSC/State PCS level."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is faithful to the book or clearly marked as standard outside knowledge (e.g., basement membrane contact in pseudostratified epithelium, epidermis example for keratinisation, tight junction mechanism, and urethral lining variation)."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The explanations are deep, clear, and complete for UPSC/State PCS aspirants, addressing both visual identification rules and functional mechanisms."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes clearly state what the unit is about, the main decisions with reasons, and the uncertainty regarding unavailable original page images."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The Hinglish narration sounds like a natural, authoritative teacher guiding students through table rows and textbook diagrams."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "No items or figures are cut short, merged away, or left as 'etc.'; all 4 drawings on page 3 and all 7 schematic blocks on page 4 are walked through individually."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "The script follows the unit plan, teaches prerequisites (apical/basal orientation and single vs stacked layers in b2-b3) before using them, and paces the 52 beats well."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The script flows smoothly and explicitly answers every teacher question across all 16 items."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "Prerequisites (free/apical side, basal side, basement membrane, and how to count actual layers vs horizontal nuclei) are clearly explained with examples in beats b2 and b3 before the comparison begins."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "The script uses Devanagari for Hindi, Roman for English technical terms, and provides English glosses in brackets for difficult Hindi words, with short spoken sentences."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "All coverage claims in covers_item_ids and answers are accurate and substantiated in the spoken text."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Both parts have complete universal frames and strictly follow their content-type teaching patterns (5 steps for comparison in c10.1; 4 steps for figure in c11.1)."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792746225.0545397
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.053702,
+ "seconds": 500.4,
+ "navin_verdict": null
+}

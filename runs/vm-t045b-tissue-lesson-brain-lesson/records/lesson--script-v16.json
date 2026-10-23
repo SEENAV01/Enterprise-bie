@@ -1,0 +1,4081 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v16",
+ "status": "passed",
+ "instructions_version": "lesson-script/2",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+ "rulebook_digest": "28605da59d26c73736de5b33795b73d03bdd42650b2c6e83491a617748b00791",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "794f92f55ff4c9373fd7dba09398402ed12bf78c8f9907f9d925ec26f8603bb4",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v16",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.lesson-script/2",
+   "sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e"
+  },
+  "unit": {
+   "unit_id": "v16",
+   "title": "Plant की outer covering: epidermis, cuticle और protection",
+   "pages": [
+    14
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c41.q",
+    "item_ids": [
+     "p014-i5",
+     "p014-i6",
+     "p014-i7",
+     "p014-i8",
+     "p014-i9"
+    ],
+    "type": "none",
+    "questions": [
+     "what",
+     "which",
+     "where",
+     "how",
+     "why",
+     "difference"
+    ],
+    "focus": "Practice question: epidermis and a waxy protective surface: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p014-i5",
+    "p014-i6",
+    "p014-i7",
+    "p014-i8",
+    "p014-i9"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p014-i5",
+     "none",
+     "14",
+     "Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy…"
+    ],
+    [
+     "p014-i6",
+     "none",
+     "14",
+     "a. Sclerenchyma"
+    ],
+    [
+     "p014-i7",
+     "none",
+     "14",
+     "b. Epidermis"
+    ],
+    [
+     "p014-i8",
+     "none",
+     "14",
+     "c. Parenchyma"
+    ],
+    [
+     "p014-i9",
+     "none",
+     "14",
+     "d. Suberin"
+    ],
+    [
+     "c41",
+     "structure",
+     "14",
+     "Practice question: epidermis and a waxy protective surface"
+    ],
+    [
+     "c32",
+     "figure",
+     "11-12",
+     "Xylem and phloem anatomy, cambium and transport figures"
+    ],
+    [
+     "c42",
+     "structure",
+     "14",
+     "Practice question: leaf gaseous exchange and stomata"
+    ]
+   ],
+   "before": "Xylem–phloem figures, transport arrows और comparison",
+   "after": "Stomata: gas कहाँ से जाती है और opening कौन बदलता है?"
+  },
+  "source": {
+   "block_ids": [
+    "p0014-b0006",
+    "p0014-b0007",
+    "p0014-b0008",
+    "p0014-b0009",
+    "p0014-b0010",
+    "p0014-b0011"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e",
+ "review_prefix_sha256": "aa60eb89d3e543fd5fdefce841750e8f2d3415545576861237a772184f93d03c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9 · content types 2026-10-22.2 · schema bie.brain.lesson-script/2\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S2-01] Plan the chapter's videos from the chapter map: how many, in what order, prerequisites taught first. Video length follows the content, never a fixed length.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.\n[S2-03] Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a Hindi word that is not in the simple everyday word list (rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the basis of division first. 2) the tree from the top down. 3) each kind with its identifying feature and an example. 4) the borderline cases and exceptions. 5) the tree as recap.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"}},\"required\":[\"part_id\",\"frame\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  every step of a part's pattern must appear, in order;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; a Hindi word that is not in the simple everyday list below gets its English word in\n  brackets right after it, as in \"सतह (surface)\" (BIE's code checks it, shows the bracket on screen and makes the voice say\n  \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman; numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat\n  really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or mixed.\nEvery item in must_cover and every teacher question listed for this video must be covered by some beat. A beat introduces at most a\nfew new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with the JSON object only.\n\nSimple everyday Hindi words (list 2026-10-23.1); any other Hindi word gets its English word in brackets right after it, for example \"सतह (surface)\":\nअंतर अंदर अंधेरा अगर अगला अगली अगले अच्छा अच्छी अच्छे अजीब अधूरा अनेक अन्दर अपना अपनी अपने अब अभी अर्थात् अलग अलग-अलग असर असली आ आंख आई आए आकार आखिरी आग आगे आज आठ आदमी आधा आधी आधे आना आने आप आपका आपकी आपके आपको आम आया आये आसमान आसान इंसान इतना इतनी इतने इधर इन इनका इनकी इनके इनको इनाम इन्हें इस इसका इसकी इसके इसको इसलिए इसीलिए इसे उठ उठना उड उडना उतना उतर उतरना उत्तर उदाहरण उधर उन उनका उनकी उनके उनको उन्हें उस उसका उसकी उसके उसको उसे ऊंचा ऊपर एक एक-जैसा ऐसा ऐसी ऐसे ओर और औरत कई कक्षा कठिन कडा कडी कब कभी कभी-कभी कम कर करना करने करवाना करा कराना करीब करोड कल कह कहना कहां कहानी का काट काटना कान काफी काम कारण कि किए कितना कितनी कितने किताब किया किये किस किसका किसकी किसके किसको किसे की कुछ कुल के केवल कैसा कैसी कैसे को कोई कौन कौनसा कौनसी क्या क्यों क्योंकि खडा खत्म खा खाना खाली खास खींच खींचना खुद खुशी खून खेल खेलना खोज खोजना खोल खोलना गंदा गंदी गई गए गति गया गये गरम गर्म गर्मी गलत गलती गहरा गहरी गहरे गांव गिन गिनना गिर गिरना गिराना गीला गुस्सा गोल घंटा घट घटना घटाना घर घुमाना घूम घूमना चढ चढना चपटा चपटी चपटे चमडी चल चलना चलिए चांद चार चारों चावल चाह चाहना चाहिए चीज चुक चुकना चौडाई चौथा चौथी चौथे छः छह छात्र छू छूना छोटा छोटी छोटे छोड छोडना जगह जड जब जबकि जमीन जरा जरूर जरूरत जरूरी जल्दी जवाब जहां जा जान जानना जाना जाने जिंदगी जिंदा जितना जी जीवन जुड जुडना जैसा जैसी जैसे जोड जोडना जोर ज्यादा झूठ टीचर टुकडा टूट टूटना ठंड ठंडा ठंडी ठीक डर डाल डालना डाली डॉक्टर ढूंढ ढूंढना तक तना तब तरफ तरह तरीका ताकत ताकि तारा तीन तीनों तीसरा तीसरी तीसरे तुम तुम्हारा तुम्हारी तुम्हारे तुम्हें तेज तो तोड तोडना तौल तौलना त्वचा था थी थे थोडा थोडी थोडे दबा दबाना दम दवा दस दांत दाल दिख दिखना दिखाई दिखाना दिन दिया दिल दी दीजिए दुख दुनिया दूध दूर दूसरा दूसरी दूसरे दे देख देखना देखिए देना देने देर देश दो दोनों दोस्त दौड दौडना धकेलना धरती धीमा धीमी धीरे धूप ध्यान न नई नए नकली नतीजा नदी नया नये नरम नहीं ना नाक नाप नापना नाम निकल निकलना निकाल निकालना नीचा नीचे नुकसान ने नौ पकड पकडना पक्का पढ पढना पढा पढाना पतला पतली पतले पत्ता पत्तियां पत्ती पत्थर पन्ना पर परसों परिवार परीक्षा पल पहचान पहचानना पहला पहली पहले पहाड पहुंच पहुंचना पा पांच पांचवां पाना पानी पास पिछला पिछली पिछले पिता पी पीछे पीना पुराना पुरानी पुराने पूछ पूछना पूरा पूरी पूरे पेज पेट पेड पैर पौधा पौधे प्यार प्यारा प्रश्न फर्क फल फायदा फिर फूल फैल फैलना फैलाना बंद बच बचना बचाना बच्चा बच्ची बच्चे बडा बडी बडे बढ बढना बढाना बता बताइए बताना बदल बदलना बदलाव बन बनना बना बनाना बल्कि बस बहन बहुत बांट बांटना बाकी बात बाद बादल बार बारिश बाल बाहर बिना बिल्कुल बीच बीज बीमारी बीस बुरा बुरी बुरे बैठ बैठना बोल बोलना भर भरना भरा भरी भाई भाग भारी भाषा भी भेज भेजना मगर मजेदार मत मतलब मदद मरा मरी महीना मां मांस मान मानना मिट्टी मिनट मिल मिलना मिलाना मिसाल मुंह मुझको मुझे मुलायम मुश्किल में मेरा मेरी मेरे मेहनत मैं मोटा मोटी मोटे मौत यह यहां या याद यानी ये रंग रख रखना रखिए रफ्तार रह रहना रहने रहा रही रहे रात रास्ता रूप रोज रोजाना रोटी रोना रोशनी लंबा लंबाई लंबी लंबे लग लगना लगभग लगा लगाना लडका लडकी लम्बा लाख लिए लिख लिखना लिया लिये ली लीजिए ले लेकिन लेना लेने लोग वक्त वजन वजह वरना वर्ना वह वहां वाला वाली वाले विचार विद्यार्थी वे वैसा वैसी वैसे वो शरीर शहर शाम शायद शिक्षक शुरू सक सकता सकती सकते सकना सख्त सच सचमुच सपना सब सबसे सभी समझ समझना समझाना समझिए समय समुद्र सरल सर्दी सवाल सही सांस सात साथ साफ सामने सामान्य सारा सारी सारे साल सिकुड सिकुडना सिखाना सिर सिर्फ सीख सीखना सीधा सीधी सीधे सुंदर सुन सुनना सुनाई सुन्दर सुबह सूखा सूखी सूरज से सेहत सोच सोचना सोचिए सोना सौ स्कूल हंसना हजार हड्डियां हड्डी हफ्ता हम हमको हमारा हमारी हमारे हमें हमेशा हर हरेक हल्का हल्की हवा हां हाथ हिल हिलना हिलाना हिसाब हिस्सा ही हुआ हुई हुए है हैं हो होंगे होगा होगी होता होती होते होना होने",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v16\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.lesson-script/2\",\"sha256\":\"4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e\"},\"unit\":{\"unit_id\":\"v16\",\"title\":\"Plant की outer covering: epidermis, cuticle और protection\",\"pages\":[14]},\"parts\":[{\"part_id\":\"c41.q\",\"item_ids\":[\"p014-i5\",\"p014-i6\",\"p014-i7\",\"p014-i8\",\"p014-i9\"],\"type\":\"none\",\"questions\":[\"what\",\"which\",\"where\",\"how\",\"why\",\"difference\"],\"focus\":\"Practice question: epidermis and a waxy protective surface: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p014-i5\",\"p014-i6\",\"p014-i7\",\"p014-i8\",\"p014-i9\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p014-i5\",\"none\",\"14\",\"Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy…\"],[\"p014-i6\",\"none\",\"14\",\"a. Sclerenchyma\"],[\"p014-i7\",\"none\",\"14\",\"b. Epidermis\"],[\"p014-i8\",\"none\",\"14\",\"c. Parenchyma\"],[\"p014-i9\",\"none\",\"14\",\"d. Suberin\"],[\"c41\",\"structure\",\"14\",\"Practice question: epidermis and a waxy protective surface\"],[\"c32\",\"figure\",\"11-12\",\"Xylem and phloem anatomy, cambium and transport figures\"],[\"c42\",\"structure\",\"14\",\"Practice question: leaf gaseous exchange and stomata\"]],\"before\":\"Xylem–phloem figures, transport arrows और comparison\",\"after\":\"Stomata: gas कहाँ से जाती है और opening कौन बदलता है?\"},\"source\":{\"block_ids\":[\"p0014-b0006\",\"p0014-b0007\",\"p0014-b0008\",\"p0014-b0009\",\"p0014-b0010\",\"p0014-b0011\"],\"page_images\":[]}}\n\nVideo v16: Plant की outer covering: epidermis, cuticle और protection\nGoal: c41 के question से outer protection का context रखेंगे। पहले Outside clarification में epidermis, plant cuticle, cork और suberin को एक-दूसरे से अलग करके पढ़ेंगे। Outside से अंदर के क्रम में waxy cuticle → epidermal cells → नीचे के tissue का simple view बनाएँगे और हर हिस्से का काम बताएँगे। Protective tissue और protective substance का फर्क example तथा non-example से जाँचेंगे। फिर question के हर option को सही category और location में रखेंगे। Thickest wording के unclear होने को साफ बताएँगे; intended protective-covering concept समझाएँगे और उससे कोई universal thickness rule नहीं बनाएँगे।\nOpening hook: Leaf के बाहर waxy protection है। क्या उस waxy material और उसे बनाने वाली cell layer का नाम एक ही है?\nStory or analogy: (none)\nPlanned minutes: 19\nPrerequisites to teach first in this video (name · basis · why):\n- Plant cuticle, epidermal protection, cork and suberin · outside · Outside basis: Supply the textbook explanation absent from the prose for the waxy-surface question and distinguish an outer tissue layer from a protective wall substance.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis):\np014-i5 | 14 | question | none | Q. …………… layer is thickest and helps in protection against water loss and further secrete a waxy substance on outer surface:\n  p014-i5#q1 | what | What properties does the question ask the learner to associate with a layer? → The stem describes the layer as 'thickest', protective against water loss and secreting a waxy substance on the outer surface. | book\n  p014-i5#q2 | which | Which option is the intended answer? → Option b, Epidermis, is the intended answer because the protective surface and waxy-covering clues point to the epidermis. | outside\n  p014-i5#q3 | where | Where is the epidermis situated? → It forms the outer covering of the primary plant body, including leaves and young stems. | outside\n  p014-i5#q4 | how | How does the waxy outer covering reduce water loss? → Epidermal cells of aerial plant parts secrete material forming a cuticle. Its water-resistant character reduces evaporation through the exposed surface. | outside\n  p014-i5#q5 | why | Why should 'thickest' not be memorised as a general property of epidermis? → Epidermis is commonly a single cell layer. Its thickness and the thickness of its cuticle vary, and the stem gives no comparison that establishes it as the thickest layer. | outside\np014-i6 | 14 | answer_option | none | a. Sclerenchyma\n  p014-i6#q1 | what | What is sclerenchyma? → It is a supporting plant tissue whose mature cells generally have thick, lignified walls and are dead. | outside\n  p014-i6#q2 | why | Why is it a plausible distractor but not the intended answer? → Its thick walls may attract a learner focusing on 'thickest', but its main role is mechanical support. The wax-secreting protective surface described in the question points to epidermis. | outside\np014-i7 | 14 | answer_option | none | b. Epidermis\n  p014-i7#q1 | what | What is epidermis in a plant? → It is the outer protective tissue covering the primary plant body. | outside\n  p014-i7#q2 | how | How does its position help explain its protective function? → As the tissue at the exposed surface, it separates underlying tissues from the surroundings. In aerial parts its cuticle helps restrict surface water loss. | outside\n  p014-i7#q3 | why | Why is this the intended answer despite the wording problem? → The combination of an outer protective layer and a secreted waxy covering identifies epidermis more closely than the other options; 'thickest' remains an imprecise clue. | outside\np014-i8 | 14 | answer_option | none | c. Parenchyma\n  p014-i8#q1 | what | What is parenchyma? → It is a simple permanent plant tissue of living cells, generally with relatively thin cell walls, serving functions such as storage. | outside\n  p014-i8#q2 | why | Why does parenchyma not fit the specific clues in the stem? → The stem asks for the external protective layer associated with a waxy surface covering. That description identifies epidermis rather than general storage or ground parenchyma. | outside\np014-i9 | 14 | answer_option | none | d. Suberin\n  p014-i9#q1 | what | What is suberin? → Suberin is a water-resistant substance deposited in certain plant cell walls, notably those of cork cells. | outside\n  p014-i9#q2 | why | Why is suberin a tempting but unsuitable answer here? → Its association with limiting water movement matches part of the clue, but suberin is a substance rather than the named tissue layer sought by the question. Epidermis is the intended option. | outside\n  p014-i9#q3 | difference | How does the suberin association differ from the epidermal cuticle association? → Suberin is associated with walls such as those of cork cells. The epidermis of aerial parts commonly bears a cuticle containing cutin and waxes on its outer surface. | outside"
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792749773.4669929,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "5ab8fe33030518f031be9a75e25c8c5e8375e57c91a63c5e460c5f21e5babc7f",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20738,
+    "output_tokens": 5882,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video prepares the learner to solve the page 14 protective-covering question by distinguishing epidermis, cuticle, cork and suberin. It then evaluates every option and identifies Epidermis as the intended answer while flagging the unclear word 'thickest'.",
+    "key_questions": [
+     "How do the epidermal tissue and its external cuticle differ?",
+     "How does a cuticle reduce surface water loss?",
+     "How do cork and suberin differ from epidermis and cuticle?",
+     "Why does each option fit or fail, and why is 'thickest' unreliable?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach the missing concepts first as explicitly labelled outside clarification.",
+      "reason": "The supplied book material contains the question and options but no explanatory prose."
+     },
+     {
+      "decision": "Read the protective covering from outside to inside, then compare tissue with substance.",
+      "reason": "Position and category explain the options more clearly than memorising their names."
+     },
+     {
+      "decision": "Keep every beat at step 0 and use the supplied question part only for exam application.",
+      "reason": "The card assigns content type none; prerequisite beats therefore use an empty part_id."
+     },
+     {
+      "decision": "Present b. Epidermis as the intended answer with a wording qualification.",
+      "reason": "The waxy surface clue supports it, but the question supplies no valid basis for a universal thickness claim."
+     }
+    ],
+    "uncertain": [
+     "The supplied source does not establish what 'thickest' is being compared with; it should not be treated as a general property of epidermis."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This video prepares the learner to solve the page 14 protective-covering question by distinguishing epidermis, cuticle, cork and suberin. It then evaluates every option and identifies Epidermis as the intended answer while flagging the unclear word 'thickest'.",
+     "key_questions": [
+      "How do the epidermal tissue and its external cuticle differ?",
+      "How does a cuticle reduce surface water loss?",
+      "How do cork and suberin differ from epidermis and cuticle?",
+      "Why does each option fit or fail, and why is 'thickest' unreliable?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach the missing concepts first as explicitly labelled outside clarification.",
+       "reason": "The supplied book material contains the question and options but no explanatory prose."
+      },
+      {
+       "decision": "Read the protective covering from outside to inside, then compare tissue with substance.",
+       "reason": "Position and category explain the options more clearly than memorising their names."
+      },
+      {
+       "decision": "Keep every beat at step 0 and use the supplied question part only for exam application.",
+       "reason": "The card assigns content type none; prerequisite beats therefore use an empty part_id."
+      },
+      {
+       "decision": "Present b. Epidermis as the intended answer with a wording qualification.",
+       "reason": "The waxy surface clue supports it, but the question supplies no valid basis for a universal thickness claim."
+      }
+     ],
+     "uncertain": [
+      "The supplied source does not establish what 'thickest' is being compared with; it should not be treated as a general property of epidermis."
+     ]
+    },
+    "title": "Plant की outer covering: epidermis, cuticle और protection",
+    "parts": [
+     {
+      "part_id": "c41.q",
+      "frame": {
+       "process": "Identify the intended protective tissue from the question's location, water-loss and waxy-covering clues, then evaluate all four options.",
+       "how": "Distinguish the external cuticle from epidermal cells, compare tissue with substance, and reject distractors using their defining features.",
+       "when": "Teach the outside prerequisites first, then read the stem, evaluate the options and qualify the unclear thickness wording.",
+       "conditions": "The cuticle explanation applies to aerial plant parts; epidermis is commonly one cell layer, and neither epidermal nor cuticle thickness is universally fixed.",
+       "atmosphere": "Picture a leaf or young stem exposed to air, followed by an exam question whose clues must be checked together."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक leaf के बाहर waxy covering है। क्या उस waxy material और उसे बनाने वाली cell layer का नाम एक ही होगा? आज के question में यही फर्क तुम्हें सही answer तक पहुंचाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf outline with two separate prompts: waxy material? cell layer?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब के इस हिस्से में question और options दिए हैं। उन्हें समझने के लिए पहले standard textbook की outside clarification लेते हैं। पहले epidermis और cuticle समझेंगे, फिर cork और suberin का फर्क देखेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: epidermis • cuticle • cork • suberin",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक leaf या young stem को देखो। उसके बाहर जो protective tissue होता है, उसे epidermis कहते हैं। यह primary plant body की outer covering है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "Leaf and young stem; outer tissue highlighted and labelled epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां tissue का मतलब cells का ऐसा group समझो जो मिलकर कोई काम करता है। Epidermis में cells मिलकर plant की outer protective covering बनाते हैं। इसलिए epidermis एक tissue का नाम है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1"
+      ],
+      "on_screen": "Several epidermal cells highlighted together: cells → protective tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब leaf के बाहर से अंदर की ओर चलो। सबसे बाहर cuticle दिखाओ, उसके नीचे epidermal cells, और फिर उनके नीचे के tissues। यह aerial plant part की covering समझने का simple view है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Simplified aerial-part section; reading arrow: outside → cuticle → epidermal cells → underlying tissues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Aerial parts यानी plant के वे हिस्से जो हवा में होते हैं, जैसे leaves और young stems। इनके epidermal cells बाहर की ओर cuticle बनाने वाला material secrete करते हैं। Secrete करना यानी cells का कोई material बनाकर बाहर देना।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Outside clarification: epidermal cells → secreted material → external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इस cuticle में cutin और waxes होते हैं। ध्यान दो, cuticle खुद epidermal cells का दूसरा नाम नहीं है। यह उन cells के बाहर की protective covering है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Cuticle: cutin + waxes. Separate bracket below: epidermal cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब इसका काम समझो। Exposed surface से पानी evaporation के कारण बाहर जा सकता है, यानी पानी water vapour बनकर निकल सकता है। Cuticle का water-resistant character इस रास्ते से पानी का निकलना कम करता है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Surface water-loss arrows become smaller across the cuticle; label: reduced evaporation through surface.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Water-resistant का मतलब यहां पानी का निकलना कम करने में मदद है। इसे ऐसा मत समझना कि plant से पानी बाहर जाना बिल्कुल बंद हो गया। हमारा point exposed surface से होने वाले water loss को कम करना है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Reduces surface water loss ≠ stops all water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cuticle के नीचे epidermal cells की जगह देखो। बाहर का माहौल (surroundings) एक ओर है और अंदर के tissues दूसरी ओर हैं। बीच में epidermis होने से अंदर के tissues को protective covering मिलती है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Surroundings | cuticle | epidermis | underlying tissues; epidermis highlighted as outer tissue boundary.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरा view फिर देखो। बाहर cuticle water loss कम करने में मदद करती है, और उसके नीचे epidermis protective tissue है। दोनों साथ काम करते हैं, लेकिन दोनों का नाम और category अलग है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i7#q2"
+      ],
+      "on_screen": "Labelled recap: cuticle—external water-resistant covering; epidermis—outer protective tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब cork को अलग जगह रखो। Cork भी plant का protective tissue है। Suberin का नाम समझने के लिए इसके cells की walls पर ध्यान देना है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [],
+      "on_screen": "Separate cork-cell sketch; highlight cell walls. Keep distinct from the epidermis–cuticle sketch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Suberin एक water-resistant substance है जो कुछ plant cells की walls में deposit होता है। Cork cells की walls इसका खास example हैं। इसलिए cork tissue है, और suberin उसकी walls से जुड़ा substance है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "Cork = tissue. Suberin = water-resistant substance deposited in cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "compare",
+      "say": "दोनों protective arrangements को साथ देखो। Aerial epidermis के बाहर cutin और waxes वाली cuticle है। दूसरी ओर, cork cells की walls में suberin मिलता है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q3"
+      ],
+      "on_screen": "Side-by-side: aerial epidermis → external cuticle containing cutin and waxes; cork cells → suberin in walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बताओ, epidermis और suberin को क्या 2 tissues कह सकते हो? नहीं, epidermis tissue है, जबकि suberin substance है। Protection में मदद करना दोनों को एक category में नहीं बदल देता।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Category check: epidermis ✓ tissue; suberin ✗ tissue, ✓ substance.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर example चाहिए protective tissue का, तो epidermis या cork कह सकते हो। लेकिन suberin उस category का example नहीं होगा। और cuticle को epidermal cells की layer कहना भी गलत होगा; वह उनके बाहर की covering है।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Examples: protective tissue—epidermis, cork. Non-example of tissue—suberin. Cuticle—covering outside epidermal cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब question में 3 बातें अलग-अलग जांचेंगे। पूछा किस category का नाम है, वह plant में कहां है, और उसका काम क्या है? इससे केवल एक मिलता-जुलता word देखकर answer चुनने की गलती नहीं होगी।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Check together: category • location • function.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Question एक layer पूछता है और उसे thickest कहता है। आगे कहता है कि वह water loss से protection देती है और outer surface पर waxy substance secrete करती है। Answer चुनने से पहले इन सारे clues को साथ देखो।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1"
+      ],
+      "on_screen": "Book stem with three clues highlighted separately: thickest; protection against water loss; secretes waxy substance on outer surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "पहला option है a. Sclerenchyma। यह supporting plant tissue है। इसके mature cells generally dead होते हैं और उनकी walls thick तथा lignified होती हैं, यानी walls में lignin जमा (deposited) होता है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "a. Sclerenchyma: support; generally dead at maturity; thick, lignified cell walls.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Thickest पढ़कर sclerenchyma तुम्हें सही लग सकता है, क्योंकि इसकी cell walls thick होती हैं। लेकिन thick cell wall और plant की outer wax-secreting layer अलग बातें हैं। Sclerenchyma का main role mechanical support है, इसलिए यह पूरे clue को fit नहीं करता।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q2"
+      ],
+      "on_screen": "Sclerenchyma: thick cell walls → support. Cross out as answer to outer wax-secreting layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "दूसरा option है b. Epidermis। यह primary plant body की outer protective tissue covering है, जैसे leaves और young stems में। इसलिए outer layer वाला clue इससे मिलता है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "b. Epidermis: outer protective tissue of primary plant body; leaf and young stem highlighted.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerial parts के epidermal cells cuticle बनाने वाला material secrete करते हैं। बाहर की यह water-resistant covering surface से evaporation कम करती है। इसलिए outer protection और waxy covering, दोनों clues epidermis की ओर जाते हैं।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Epidermal cells → cuticle → reduced surface water loss. Mark b as intended answer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तीसरा option है c. Parenchyma। यह simple permanent plant tissue है, जिसके cells living होते हैं और cell walls generally relatively thin होती हैं। Storage यानी चीजें अपने अंदर रखने जैसे काम इसका example हैं।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q1"
+      ],
+      "on_screen": "c. Parenchyma: living cells; generally relatively thin walls; storage as an example function.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "लेकिन यहां question general storage tissue नहीं पूछ रहा। इसे outer protective layer चाहिए, जो waxy surface covering से जुड़ी हो। इस खास description के लिए parenchyma की जगह epidermis सही पहचान है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q2"
+      ],
+      "on_screen": "Parenchyma: general storage or ground tissue clue does not match the specified wax-associated outer protective layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "चौथा option है d. Suberin। यह water-resistant substance है, जो कुछ cell walls में मिलता है, खासकर cork cells की walls में। यहां option किसी cell layer का नाम नहीं दे रहा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "d. Suberin: substance in certain cell walls, notably cork cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Water loss वाला clue देखकर suberin चुनने का मन हो सकता है। लेकिन सवाल layer पूछता है, और suberin substance है। साथ ही यहां waxy outer covering का clue aerial epidermis की cuticle से मिलता है, cork wall के suberin से नहीं।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Suberin: partial water-resistance match, category mismatch. Contrast: cork wall—suberin; aerial epidermis—external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब thickest word को अलग से जांचो। Thickest कहने के लिए बताना चाहिए कि किसके साथ thickness compare हो रही है। इस question में वह comparison साफ नहीं है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "‘Thickest’—compared with what? No comparison specified in stem.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Epidermis commonly एक cell layer होती है। Epidermis की thickness और उसके बाहर की cuticle की thickness अलग बातें हैं, और दोनों की thickness बदल सकती है। इसलिए epidermis हमेशा thickest होती है, ऐसा rule याद मत करना।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Epidermis: commonly one cell layer. Epidermal thickness ≠ cuticle thickness. Both can vary.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तो इस question का intended answer b. Epidermis है। कारण है outer protective tissue और उसके बाहर waxy cuticle बनने का connection। Answer का कारण thickest नहीं बनाना है; वह wording यहां unclear है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Intended answer: b. Epidermis. Reliable clues: outer protective tissue + secreted waxy covering. Qualification: ‘thickest’ is imprecise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Options का फर्क एक बार साथ देखो। Sclerenchyma में thick walls और support पर ध्यान दो, epidermis में outer protection और cuticle पर। Parenchyma में living, generally thin-walled cells और storage जैसे काम; suberin में cork की walls से जुड़ा water-resistant substance।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i7",
+       "p014-i8",
+       "p014-i9"
+      ],
+      "answers": [],
+      "on_screen": "Comparison table: Sclerenchyma | supporting tissue, thick lignified walls; Epidermis | outer protective tissue, aerial cuticle; Parenchyma | living, generally thin-walled cells, storage; Suberin | wall substance, notably in cork.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद जांचो, waxy cuticle और epidermis में कौन cells का tissue है? Epidermis। और cork तथा suberin में कौन substance है? Suberin।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1"
+      ],
+      "on_screen": "Pause-and-reveal: tissue? epidermis. Substance associated with cork walls? suberin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Leaf के बाहर से अंदर का view याद रखो: cuticle, epidermal cells, फिर नीचे के tissues। Cuticle surface water loss कम करने में मदद करती है, और epidermis outer protective tissue है। इसी connection से आज के question का intended answer Epidermis मिलता है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2"
+      ],
+      "on_screen": "Final labelled section: outside → cuticle → epidermal cells → underlying tissues. Intended option: b. Epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब outer covering की पहचान साफ है। अगले हिस्से में देखेंगे कि leaf में gases के आने-जाने का रास्ता कहां है, और उसकी opening कौन बदलता है। वहां stomata को समझेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Next: stomata—gas exchange and control of opening.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b2: the Hindi words ['दिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['दिखाओ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['बताओ'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17: the Hindi words ['जांचेंगे', 'इससे', 'जुलता', 'चुनने'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b18: the Hindi words ['चुनने'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b19: the Hindi words ['तथा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: the Hindi words ['इससे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: the Hindi words ['जिसके'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b26: the Hindi words ['चुनने', 'मन'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b27: the Hindi words ['जांचो'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b31: the Hindi words ['जांचो', 'तथा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 8.7 minutes but the plan gives this video 19; nothing may be compressed away (G-05, PED duration check)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.2,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 8.7,
+     "planned_minutes": 19
+    }
+   },
+   "passed": false,
+   "finished_at": 1792749939.8418796
+  },
+  {
+   "round": 2,
+   "started_at": 1792749939.8420029,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch preserves the intended answer and scientific qualifications while correcting the flagged Hindi vocabulary and expanding the prerequisite teaching and guided exam practice.",
+     "key_questions": [
+      "How do cuticle, epidermis and underlying tissues fit together?",
+      "How do protective tissue and protective substance differ?",
+      "Why do the distractors fail when all clues are considered?",
+      "Why does the question not establish a universal thickness rule?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace every flagged Hindi expression with everyday Hindi or clear English.",
+       "reason": "The spoken script must follow the supplied simple Hindi vocabulary rule."
+      },
+      {
+       "decision": "Add substantial teaching between the existing beats, including spatial reading, mechanism, category checks and worked elimination.",
+       "reason": "The earlier script moved too quickly for the planned lesson; the additions develop understanding without introducing unrelated content."
+      },
+      {
+       "decision": "Keep the existing part, step assignments, answer and thickness qualification.",
+       "reason": "The card defines an exam-question part at step 0, and the original scientific distinction remains appropriate."
+      }
+     ],
+     "uncertain": [
+      "The source does not specify a comparison for 'thickest'.",
+      "Exact playback duration depends on narration pace and student pauses; the expanded script is intended to approach the planned 19 minutes."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब के इस हिस्से में question और options हैं। उन्हें समझने के लिए पहले standard textbook की outside clarification लेते हैं। पहले epidermis और cuticle समझेंगे, फिर cork और suberin का फर्क देखेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: epidermis • cuticle • cork • suberin",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब leaf के बाहर से अंदर की ओर चलो। सबसे बाहर cuticle देखो, उसके नीचे epidermal cells, और फिर उनके नीचे के tissues। यह aerial plant part की covering समझने का simple view है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Simplified aerial-part section; reading arrow: outside → cuticle → epidermal cells → underlying tissues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बताइए, epidermis और suberin को क्या 2 tissues कह सकते हो? नहीं, epidermis tissue है, जबकि suberin substance है। Protection में मदद करना दोनों को एक category में नहीं बदल देता।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Category check: epidermis ✓ tissue; suberin ✗ tissue, ✓ substance.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब question में 3 बातें अलग-अलग check करेंगे। पूछा किस category का नाम है, वह plant में कहां है, और उसका काम क्या है? तीनों बातें साथ देखने से केवल एक word के कारण गलत answer देने से बच सकते हो।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Check together: category • location • function.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Question एक layer पूछता है और उसे thickest कहता है। आगे कहता है कि वह water loss से protection देती है और outer surface पर waxy substance secrete करती है। Answer देने से पहले इन सारे clues को साथ देखो।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1"
+      ],
+      "on_screen": "Book stem with three clues highlighted separately: thickest; protection against water loss; secretes waxy substance on outer surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "पहला option है a. Sclerenchyma। यह supporting plant tissue है। इसके mature cells generally dead होते हैं और उनकी walls thick और lignified होती हैं, यानी walls में lignin जमा (deposited) होता है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "a. Sclerenchyma: support; generally dead at maturity; thick, lignified cell walls.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "दूसरा option है b. Epidermis। यह primary plant body की outer protective tissue covering है, जैसे leaves और young stems में। इसलिए outer layer वाला clue epidermis से मिलता है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "b. Epidermis: outer protective tissue of primary plant body; leaf and young stem highlighted.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तीसरा option है c. Parenchyma। यह simple permanent plant tissue है। इसके cells living होते हैं और cell walls generally relatively thin होती हैं। Storage यानी चीजें अपने अंदर रखने जैसे काम इसका example हैं।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q1"
+      ],
+      "on_screen": "c. Parenchyma: living cells; generally relatively thin walls; storage as an example function.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Water loss वाला clue देखकर suberin सही लग सकता है। लेकिन सवाल layer पूछता है, और suberin substance है। साथ ही यहां waxy outer covering का clue aerial epidermis की cuticle से मिलता है, cork wall के suberin से नहीं।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Suberin: partial water-resistance match, category mismatch. Contrast: cork wall—suberin; aerial epidermis—external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब thickest word को अलग से देखो। Thickest कहने के लिए बताना चाहिए कि किसके साथ thickness compare हो रही है। इस question में वह comparison साफ नहीं है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "‘Thickest’—compared with what? No comparison specified in stem.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद check करो, waxy cuticle और epidermis में कौन cells का tissue है? Epidermis। और cork और suberin में कौन substance है? Suberin।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1"
+      ],
+      "on_screen": "Pause-and-reveal: tissue? epidermis. Substance associated with cork walls? suberin.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [
+     {
+      "after_beat_id": "b3",
+      "beat": {
+       "beat_id": "b34",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "यहां primary plant body की outer covering पर ध्यान रखो। Leaf और young stem इसके आसान examples हैं। इन examples से epidermis की जगह समझो, लेकिन plant के हर पुराने और नए हिस्से की covering हमेशा बिल्कुल एक-जैसी है, ऐसा rule मत बनाना। अभी हमारा सवाल aerial parts की waxy protective covering से जुड़ा है।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i5#q3",
+        "p014-i7#q1"
+       ],
+       "on_screen": "Highlight leaf and young stem as examples. Caption: epidermis—outer covering of the primary plant body; keep the scope explicit.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b4",
+      "beat": {
+       "beat_id": "b35",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "एक cell और cells की layer को अलग-अलग देखो। एक epidermal cell उस tissue का हिस्सा है; कई ऐसे cells साथ मिलकर outer covering बनाते हैं। इसलिए epidermis कहने पर हम केवल किसी material का नाम नहीं ले रहे। हम cells से बने protective tissue की बात कर रहे हैं, और यही category आगे options में काम आएगी।",
+       "covers_item_ids": [
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i7#q1"
+       ],
+       "on_screen": "Zoom from one epidermal cell to a continuous group. Label: individual cell → cells forming epidermal tissue.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b5",
+      "beat": {
+       "beat_id": "b36",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "इस view में ऊपर का मतलब plant के बाहर की ओर है। नीचे का मतलब उसी plant part के अंदर की ओर है। Cuticle और epidermal cells को 2 अलग जगह इसलिए दिखाया है, ताकि covering और उसे बनाने वाले cells का फर्क साफ रहे। नीचे के tissues के नाम अभी जरूरी नहीं; उनकी जगह समझना जरूरी है।",
+       "covers_item_ids": [
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i7#q2"
+       ],
+       "on_screen": "Hold the section still. Mark outside and inside, then trace the three positions without introducing additional tissue names.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b36",
+      "beat": {
+       "beat_id": "b37",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब बाहर से अंदर आते हुए पहले क्या मिलेगा: cuticle या epidermal cells? इस simple aerial-part view में पहले cuticle, फिर epidermal cells मिलेंगे। और epidermis के नीचे जो tissues हैं, क्या वे सीधे बाहर की हवा के सामने हैं? नहीं, उनकी ओर जाने से पहले यह outer protective arrangement आता है।",
+       "covers_item_ids": [
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i7#q2"
+       ],
+       "on_screen": "Reveal the sequence one label at a time: outside → cuticle → epidermal cells → underlying tissues.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b6",
+      "beat": {
+       "beat_id": "b38",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "Secretion की बात में 2 सवाल अलग रखो: material कौन बनाता है, और material से बाहर क्या बनता है? यहां epidermal cells material secrete करते हैं, और बाहर cuticle बनती है। इसलिए question में waxy substance का नाम पढ़कर केवल substance पर मत रुकना। देखना है कि सवाल उस material से जुड़ी कौनसी cell layer पूछ रहा है।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i5#q4",
+        "p014-i7#q3"
+       ],
+       "on_screen": "Two linked questions: producer? epidermal cells. External covering formed? cuticle.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b7",
+      "beat": {
+       "beat_id": "b39",
+       "part_id": "",
+       "step": 0,
+       "purpose": "misconception",
+       "say": "एक और छोटा फर्क समझो: cuticle का नाम और उसमें मौजूद (present) materials के नाम एक नहीं हैं। Cuticle covering है; cutin और waxes उसके materials हैं। इसलिए waxy covering, epidermal tissue और waxy material को एक ही नाम से बुलाना सही नहीं होगा। Question समझते समय covering, cells और substance की पहचान अलग रखनी है।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i5#q4",
+        "p014-i9#q3"
+       ],
+       "on_screen": "Three distinct labels: epidermis—tissue; cuticle—external covering; cutin and waxes—cuticle materials.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b8",
+      "beat": {
+       "beat_id": "b40",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "अब पानी का रास्ता सोचो: सवाल exposed surface से बाहर होने वाले water loss का है। उस surface पर water-resistant covering होने से इस रास्ते से पानी का निकलना कम होता है। इसलिए cuticle की जगह और उसके material का character, दोनों काम से जुड़े हैं। केवल बाहर होना काफी नहीं; यहां बाहर की covering water-resistant भी है।",
+       "covers_item_ids": [
+        "p014-i5"
+       ],
+       "answers": [
+        "p014-i5#q4"
+       ],
+       "on_screen": "Trace surface water-loss arrows against the external cuticle. Connect position + water resistance → reduced surface evaporation.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b40",
+      "beat": {
+       "beat_id": "b41",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अगर बाहर की water-resistant covering का असर हटा दो, तो उस covering से मिलने वाली मदद भी नहीं रहेगी। किस मदद की बात कर रहे हैं? Exposed surface से evaporation कम करने की मदद की। इसका मतलब यह नहीं कि हम plant के हर water-loss route को समझा चुके हैं; अभी केवल surface covering वाला connection देख रहे हैं।",
+       "covers_item_ids": [
+        "p014-i5"
+       ],
+       "answers": [
+        "p014-i5#q4"
+       ],
+       "on_screen": "Conceptual comparison of the same surface with the cuticle barrier highlighted and then faded; no numerical rates or total-water-loss claims.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b10",
+      "beat": {
+       "beat_id": "b42",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "Epidermis का protective काम उसकी जगह से समझ में आता है। वह बाहर और अंदर के tissues के बीच outer tissue covering बनाती है। Aerial parts में बाहर की cuticle surface water loss कम करने में मदद करती है। इसलिए tissue का protective role और cuticle का water-resistant role साथ समझो, ताकि दोनों के काम को एक-दूसरे से अलग भी पहचान सको।",
+       "covers_item_ids": [
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i7#q2"
+       ],
+       "on_screen": "Highlight epidermis as the tissue boundary, then cuticle as the external water-resistant covering; combine both highlights.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b12",
+      "beat": {
+       "beat_id": "b43",
+       "part_id": "",
+       "step": 0,
+       "purpose": "misconception",
+       "say": "Cork का sketch इस leaf वाले sketch से अलग रखो। हम यह नहीं कह रहे कि इसी simple view में cuticle, epidermis और फिर cork का एक fixed क्रम (order) है। Cork यहां एक दूसरे protective tissue का example है। इसका काम अभी suberin की सही category और उसकी cell-wall location समझने में हमारी मदद करना है।",
+       "covers_item_ids": [
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i9#q1",
+        "p014-i9#q3"
+       ],
+       "on_screen": "Separate panels: aerial epidermis–cuticle and cork cell walls–suberin. No spatial arrow joining the panels.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b13",
+      "beat": {
+       "beat_id": "b44",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "Deposit होने का मतलब यहां substance का cell wall में होना समझो। Cork cells की walls में suberin मिलता है; suberin खुद उन cells का group नहीं बन जाता। इसलिए cork और suberin का रिश्ता tissue और उसकी walls से जुड़े material का है। एक नाम cells वाले tissue का है, दूसरा नाम protective substance का है।",
+       "covers_item_ids": [
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i9#q1"
+       ],
+       "on_screen": "Zoom into a cork cell wall. Label the cell group as cork and the highlighted wall material as suberin.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b14",
+      "beat": {
+       "beat_id": "b45",
+       "part_id": "",
+       "step": 0,
+       "purpose": "compare",
+       "say": "दोनों में common बात क्या है? Water resistance से protection में मदद मिलती है। लेकिन location देखो: एक तरफ epidermal cells के बाहर cuticle है, दूसरी तरफ cork cells की walls में suberin है। इसलिए केवल water-resistant सुनकर दोनों arrangements को एक नहीं कह सकते; material किस जगह है और किस tissue से जुड़ा है, यह भी देखना होगा।",
+       "covers_item_ids": [
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i9#q3"
+       ],
+       "on_screen": "Comparison rows: common function—water resistance; location—outside epidermal cells versus in cork cell walls.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b16",
+      "beat": {
+       "beat_id": "b46",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "मैं कहूं, cork cells की walls से जुड़ा water-resistant substance पहचानो, तो तुम्हारा answer क्या होगा? Suberin। अब कहूं, leaf या young stem की outer protective tissue layer पहचानो, तो answer epidermis होगा। दोनों सवाल protection से जुड़े हैं, लेकिन पूछी गई category और location बदलने से सही नाम भी बदल गया।",
+       "covers_item_ids": [
+        "p014-i7",
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i7#q1",
+        "p014-i9#q1",
+        "p014-i9#q2"
+       ],
+       "on_screen": "Alternating prompts: cork-wall substance? → suberin. Leaf/young-stem outer tissue? → epidermis.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b46",
+      "beat": {
+       "beat_id": "b47",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब तीसरा सवाल लो: aerial epidermal cells के बाहर cutin और waxes वाली covering कौनसी है? यहां answer cuticle होगा। ध्यान दो, cuticle इस question के 4 options में है ही नहीं। Options में उस covering से जुड़ा tissue epidermis है, इसलिए question में material का clue और tissue वाला answer साथ आ सकते हैं।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i7",
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i5#q2",
+        "p014-i7#q3",
+        "p014-i9#q3"
+       ],
+       "on_screen": "Prompt: external cutin-and-wax covering? → cuticle. Then highlight epidermis among the supplied options as the associated tissue.",
+       "basis": "mixed"
+      }
+     },
+     {
+      "after_beat_id": "b18",
+      "beat": {
+       "beat_id": "b48",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Stem में layer किसकी है और waxy substance कहां है, यह अलग पढ़ो। Layer protective काम करती है, और waxy substance outer surface पर है। यानी question एक tissue और उसके बाहर बनने वाली covering का connection दे रहा है। इस connection को समझकर options देखोगे, तो केवल thickest या केवल water loss वाला word तुम्हें गलत दिशा (direction) में नहीं ले जाएगा।",
+       "covers_item_ids": [
+        "p014-i5"
+       ],
+       "answers": [
+        "p014-i5#q1",
+        "p014-i5#q2"
+       ],
+       "on_screen": "Separate stem into requested entity—layer, location—outer surface, association—secreted waxy material, function—protection against water loss.",
+       "basis": "mixed"
+      }
+     },
+     {
+      "after_beat_id": "b19",
+      "beat": {
+       "beat_id": "b49",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Sclerenchyma के description में thick किस चीज को कहा है? Individual cells की walls को। Question में layer शब्द आया है, इसलिए cell wall की thickness को पूरी tissue layer की thickness समझना गलत होगा। पहले यह पहचानो कि दोनों जगह हम एक ही चीज की thickness देख भी रहे हैं या केवल thick शब्द common दिख रहा है।",
+       "covers_item_ids": [
+        "p014-i6"
+       ],
+       "answers": [
+        "p014-i6#q1",
+        "p014-i6#q2"
+       ],
+       "on_screen": "Magnify one sclerenchyma cell wall. Distinguish thick cell wall from the thickness of a tissue layer.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b20",
+      "beat": {
+       "beat_id": "b50",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Option a को हटाने का कारण केवल यह नहीं कि कोई दूसरा option ज्यादा जाना-पहचाना (familiar) है। कारण यह है कि sclerenchyma का thick, lignified wall वाला supporting description wax-secreting outer covering को identify नहीं करता। Exam में option हटाने के लिए ऐसा clear कारण रखो। यहां support वाला clue और epidermal protection वाला clue अलग काम की ओर जाते हैं।",
+       "covers_item_ids": [
+        "p014-i6"
+       ],
+       "answers": [
+        "p014-i6#q2"
+       ],
+       "on_screen": "Eliminate a using the mismatch: mechanical support description versus wax-associated outer protective layer.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b22",
+      "beat": {
+       "beat_id": "b51",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Option b के लिए connection पूरा बोलो: epidermis outer protective tissue है। Aerial parts में उसके cells बाहर cuticle बनाने वाला material secrete करते हैं। Cuticle water-resistant होने के कारण exposed surface से water loss कम करने में मदद करती है। इसलिए location, secretion और protective function, तीनों को साथ समझने पर intended answer epidermis बनता है।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i5#q2",
+        "p014-i5#q4",
+        "p014-i7#q2",
+        "p014-i7#q3"
+       ],
+       "on_screen": "Build the reasoning chain: outer epidermis → secreted cuticle material → water-resistant covering → reduced surface water loss.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b23",
+      "beat": {
+       "beat_id": "b52",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Parenchyma में storage को एक example की तरह याद रखो, केवल एक ही काम की तरह नहीं। अभी इसकी पहचान living cells और generally relatively thin walls से कर रहे हैं। Sclerenchyma के thick, lignified walls वाले description से इसका फर्क भी साफ है। लेकिन इस question में आखिर हमें outer wax-associated protective tissue पहचानना है, केवल living या dead cells नहीं।",
+       "covers_item_ids": [
+        "p014-i6",
+        "p014-i8"
+       ],
+       "answers": [
+        "p014-i6#q1",
+        "p014-i8#q1",
+        "p014-i8#q2"
+       ],
+       "on_screen": "Parenchyma: living, generally relatively thin-walled; storage is an example function. Return attention to the stem's specific protective-covering clues.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b24",
+      "beat": {
+       "beat_id": "b53",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Parenchyma को हटाते समय ऐसा मत कहना कि living cells protection से कभी जुड़ ही नहीं सकते। इतना बड़ा rule यहां चाहिए ही नहीं। हमें इस stem के खास clues का answer चाहिए: outer tissue और बाहर की waxy covering। General storage या ground parenchyma वाला description इन clues की सही पहचान नहीं देता, जबकि epidermis वाला connection देता है।",
+       "covers_item_ids": [
+        "p014-i8"
+       ],
+       "answers": [
+        "p014-i8#q2"
+       ],
+       "on_screen": "Reject c by the specific clue mismatch. Avoid adding a universal claim about all functions of living cells.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b25",
+      "beat": {
+       "beat_id": "b54",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Suberin को देखकर एक बात सही लगती है: water resistance का connection है। इसलिए यह option बिना कारण नहीं रखा गया लगता है। लेकिन अब दूसरा check करो: क्या suberin खुद named tissue layer है, या certain cell walls का substance? Substance है, और यही category का फर्क इसे इस stem के intended answer से अलग कर देता है।",
+       "covers_item_ids": [
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i9#q1",
+        "p014-i9#q2"
+       ],
+       "on_screen": "For suberin, show partial match—water resistance; then decisive mismatch—substance rather than tissue layer.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b26",
+      "beat": {
+       "beat_id": "b55",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "एक ही सवाल को 2 checks से हल करके देखो। Category check कहता है कि suberin substance है, मांगी (requested) गई tissue layer नहीं। Location check कहता है कि cork walls का suberin और aerial epidermis के बाहर की cuticle अलग associations हैं। दोनों checks एक ही नतीजे तक आते हैं: इस question में suberin के बजाय epidermis intended answer है।",
+       "covers_item_ids": [
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i9#q2",
+        "p014-i9#q3"
+       ],
+       "on_screen": "Two checks converge: category—substance versus tissue; association—cork walls versus aerial epidermal cuticle.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b27",
+      "beat": {
+       "beat_id": "b56",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Thick और thickest में भी फर्क है। Thick किसी चीज का description हो सकता है, लेकिन thickest कहने पर दूसरे layers के साथ comparison चाहिए। यहां कौनसी layers, कौनसा plant part और किस हालत (condition) की बात है, यह साफ नहीं है। इसलिए इस एक word से epidermis के लिए हर जगह सही होने वाला thickness rule नहीं बना सकते।",
+       "covers_item_ids": [
+        "p014-i5"
+       ],
+       "answers": [
+        "p014-i5#q5"
+       ],
+       "on_screen": "Thick: description. Thickest: comparison required. Show missing comparison scope without inventing measurements.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b28",
+      "beat": {
+       "beat_id": "b57",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "Diagram में 2 अलग brackets सोचो: एक epidermal cells की layer की thickness के लिए, दूसरा बाहर की cuticle की thickness के लिए। ये एक ही measurement नहीं हैं। Epidermis commonly single cell layer है, और thickness के descriptions बदल सकते हैं। इसलिए cuticle की thickness की बात सुनकर epidermal tissue को अपने आप thickest कह देना सही नहीं होगा।",
+       "covers_item_ids": [
+        "p014-i5"
+       ],
+       "answers": [
+        "p014-i5#q5"
+       ],
+       "on_screen": "Separate unscaled brackets for epidermal tissue thickness and cuticle thickness. Caption: distinct measurements; no universal ranking.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b29",
+      "beat": {
+       "beat_id": "b58",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "अगर answer का कारण एक छोटा explanation बनाकर देना हो, तो ऐसे बोलो। Epidermis primary plant body की outer protective tissue है; aerial parts में उसके बाहर water-resistant cuticle होती है। इसी कारण outer protection और waxy covering के clues option b की ओर जाते हैं। साथ में यह qualification रखो कि thickest वाला word यहां clear comparison नहीं देता।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i5#q2",
+        "p014-i5#q5",
+        "p014-i7#q3"
+       ],
+       "on_screen": "Model explanation: b. Epidermis—outer protective tissue associated with an aerial cuticle. Separate note: 'thickest' remains imprecise.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b30",
+      "beat": {
+       "beat_id": "b59",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "अब table को category के हिसाब से पढ़ो। Sclerenchyma supporting tissue है, जबकि parenchyma living cells वाला simple permanent tissue है। ये दोनों tissue हैं, लेकिन केवल tissue होना इस question के लिए काफी नहीं। Tissue options में भी outer protective position और waxy cuticle वाला connection देखना है, इसलिए epidermis अलग पहचान में आती है।",
+       "covers_item_ids": [
+        "p014-i6",
+        "p014-i7",
+        "p014-i8"
+       ],
+       "answers": [
+        "p014-i6#q2",
+        "p014-i7#q3",
+        "p014-i8#q2"
+       ],
+       "on_screen": "Read tissue options by role: sclerenchyma—support; parenchyma—storage example; epidermis—outer protection with aerial cuticle association.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b59",
+      "beat": {
+       "beat_id": "b60",
+       "part_id": "c41.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "अब table में epidermis और suberin को साथ देखो, क्योंकि water-loss clue पर यही pair confuse कर सकता है। Epidermis cells वाला outer tissue है; suberin certain cell walls का water-resistant substance है। Cuticle को epidermis के बाहर रखो और suberin को cork walls से जोड़ो। इस तरह category और location साथ याद रहेंगी, केवल protection वाला common काम नहीं।",
+       "covers_item_ids": [
+        "p014-i7",
+        "p014-i9"
+       ],
+       "answers": [
+        "p014-i7#q1",
+        "p014-i9#q1",
+        "p014-i9#q2",
+        "p014-i9#q3"
+       ],
+       "on_screen": "Focused comparison: epidermis—tissue, aerial external cuticle; suberin—substance, notably cork cell walls.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b31",
+      "beat": {
+       "beat_id": "b61",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "आखिरी self-check में पहले statement को सुनो: epidermis हमेशा plant की thickest layer है। क्या आज की explanation से यह statement सही हो जाता है? नहीं, क्योंकि question comparison नहीं देता और epidermis commonly single cell layer है। अब दूसरा statement सुनो: aerial epidermis की cuticle surface water loss कम करने में मदद करती है; यह हमारा सही connection है।",
+       "covers_item_ids": [
+        "p014-i5"
+       ],
+       "answers": [
+        "p014-i5#q4",
+        "p014-i5#q5"
+       ],
+       "on_screen": "Self-check: universal thickest claim—unsupported. Aerial cuticle reduces surface water loss—supported clarification.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b61",
+      "beat": {
+       "beat_id": "b62",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब book का question फिर सामने रखो और अपना कारण खुद बोलो। Answer b. Epidermis क्यों है: केवल thickest word के कारण, या outer protective tissue और waxy cuticle के connection के कारण? दूसरा कारण सही है। यही समझ तुम्हें answer के साथ उसकी limit भी याद रखवाती है, ताकि इस question की unclear wording आगे गलत concept न बना दे।",
+       "covers_item_ids": [
+        "p014-i5",
+        "p014-i7"
+       ],
+       "answers": [
+        "p014-i5#q2",
+        "p014-i5#q5",
+        "p014-i7#q3"
+       ],
+       "on_screen": "Return to the original question. Reveal b with the protective-tissue/cuticle reasoning, and retain the thickness qualification.",
+       "basis": "mixed"
+      }
+     }
+    ],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "8480fcc5c0c4bdb63be1ac90abd6d2d2a5d44347099f3585bbefb555e932fca2",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 26680,
+    "output_tokens": 8489,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch preserves the intended answer and scientific qualifications while correcting the flagged Hindi vocabulary and expanding the prerequisite teaching and guided exam practice.",
+    "key_questions": [
+     "How do cuticle, epidermis and underlying tissues fit together?",
+     "How do protective tissue and protective substance differ?",
+     "Why do the distractors fail when all clues are considered?",
+     "Why does the question not establish a universal thickness rule?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace every flagged Hindi expression with everyday Hindi or clear English.",
+      "reason": "The spoken script must follow the supplied simple Hindi vocabulary rule."
+     },
+     {
+      "decision": "Add substantial teaching between the existing beats, including spatial reading, mechanism, category checks and worked elimination.",
+      "reason": "The earlier script moved too quickly for the planned lesson; the additions develop understanding without introducing unrelated content."
+     },
+     {
+      "decision": "Keep the existing part, step assignments, answer and thickness qualification.",
+      "reason": "The card defines an exam-question part at step 0, and the original scientific distinction remains appropriate."
+     }
+    ],
+    "uncertain": [
+     "The source does not specify a comparison for 'thickest'.",
+     "Exact playback duration depends on narration pace and student pauses; the expanded script is intended to approach the planned 19 minutes."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This patch preserves the intended answer and scientific qualifications while correcting the flagged Hindi vocabulary and expanding the prerequisite teaching and guided exam practice.",
+     "key_questions": [
+      "How do cuticle, epidermis and underlying tissues fit together?",
+      "How do protective tissue and protective substance differ?",
+      "Why do the distractors fail when all clues are considered?",
+      "Why does the question not establish a universal thickness rule?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace every flagged Hindi expression with everyday Hindi or clear English.",
+       "reason": "The spoken script must follow the supplied simple Hindi vocabulary rule."
+      },
+      {
+       "decision": "Add substantial teaching between the existing beats, including spatial reading, mechanism, category checks and worked elimination.",
+       "reason": "The earlier script moved too quickly for the planned lesson; the additions develop understanding without introducing unrelated content."
+      },
+      {
+       "decision": "Keep the existing part, step assignments, answer and thickness qualification.",
+       "reason": "The card defines an exam-question part at step 0, and the original scientific distinction remains appropriate."
+      }
+     ],
+     "uncertain": [
+      "The source does not specify a comparison for 'thickest'.",
+      "Exact playback duration depends on narration pace and student pauses; the expanded script is intended to approach the planned 19 minutes."
+     ]
+    },
+    "title": "Plant की outer covering: epidermis, cuticle और protection",
+    "parts": [
+     {
+      "part_id": "c41.q",
+      "frame": {
+       "process": "Identify the intended protective tissue from the question's location, water-loss and waxy-covering clues, then evaluate all four options.",
+       "how": "Distinguish the external cuticle from epidermal cells, compare tissue with substance, and reject distractors using their defining features.",
+       "when": "Teach the outside prerequisites first, then read the stem, evaluate the options and qualify the unclear thickness wording.",
+       "conditions": "The cuticle explanation applies to aerial plant parts; epidermis is commonly one cell layer, and neither epidermal nor cuticle thickness is universally fixed.",
+       "atmosphere": "Picture a leaf or young stem exposed to air, followed by an exam question whose clues must be checked together."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक leaf के बाहर waxy covering है। क्या उस waxy material और उसे बनाने वाली cell layer का नाम एक ही होगा? आज के question में यही फर्क तुम्हें सही answer तक पहुंचाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf outline with two separate prompts: waxy material? cell layer?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब के इस हिस्से में question और options हैं। उन्हें समझने के लिए पहले standard textbook की outside clarification लेते हैं। पहले epidermis और cuticle समझेंगे, फिर cork और suberin का फर्क देखेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: epidermis • cuticle • cork • suberin",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक leaf या young stem को देखो। उसके बाहर जो protective tissue होता है, उसे epidermis कहते हैं। यह primary plant body की outer covering है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "Leaf and young stem; outer tissue highlighted and labelled epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां primary plant body की outer covering पर ध्यान रखो। Leaf और young stem इसके आसान examples हैं। इन examples से epidermis की जगह समझो, लेकिन plant के हर पुराने और नए हिस्से की covering हमेशा बिल्कुल एक-जैसी है, ऐसा rule मत बनाना। अभी हमारा सवाल aerial parts की waxy protective covering से जुड़ा है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "Highlight leaf and young stem as examples. Caption: epidermis—outer covering of the primary plant body; keep the scope explicit.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां tissue का मतलब cells का ऐसा group समझो जो मिलकर कोई काम करता है। Epidermis में cells मिलकर plant की outer protective covering बनाते हैं। इसलिए epidermis एक tissue का नाम है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1"
+      ],
+      "on_screen": "Several epidermal cells highlighted together: cells → protective tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक cell और cells की layer को अलग-अलग देखो। एक epidermal cell उस tissue का हिस्सा है; कई ऐसे cells साथ मिलकर outer covering बनाते हैं। इसलिए epidermis कहने पर हम केवल किसी material का नाम नहीं ले रहे। हम cells से बने protective tissue की बात कर रहे हैं, और यही category आगे options में काम आएगी।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1"
+      ],
+      "on_screen": "Zoom from one epidermal cell to a continuous group. Label: individual cell → cells forming epidermal tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब leaf के बाहर से अंदर की ओर चलो। सबसे बाहर cuticle देखो, उसके नीचे epidermal cells, और फिर उनके नीचे के tissues। यह aerial plant part की covering समझने का simple view है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Simplified aerial-part section; reading arrow: outside → cuticle → epidermal cells → underlying tissues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इस view में ऊपर का मतलब plant के बाहर की ओर है। नीचे का मतलब उसी plant part के अंदर की ओर है। Cuticle और epidermal cells को 2 अलग जगह इसलिए दिखाया है, ताकि covering और उसे बनाने वाले cells का फर्क साफ रहे। नीचे के tissues के नाम अभी जरूरी नहीं; उनकी जगह समझना जरूरी है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Hold the section still. Mark outside and inside, then trace the three positions without introducing additional tissue names.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बाहर से अंदर आते हुए पहले क्या मिलेगा: cuticle या epidermal cells? इस simple aerial-part view में पहले cuticle, फिर epidermal cells मिलेंगे। और epidermis के नीचे जो tissues हैं, क्या वे सीधे बाहर की हवा के सामने हैं? नहीं, उनकी ओर जाने से पहले यह outer protective arrangement आता है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Reveal the sequence one label at a time: outside → cuticle → epidermal cells → underlying tissues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Aerial parts यानी plant के वे हिस्से जो हवा में होते हैं, जैसे leaves और young stems। इनके epidermal cells बाहर की ओर cuticle बनाने वाला material secrete करते हैं। Secrete करना यानी cells का कोई material बनाकर बाहर देना।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Outside clarification: epidermal cells → secreted material → external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Secretion की बात में 2 सवाल अलग रखो: material कौन बनाता है, और material से बाहर क्या बनता है? यहां epidermal cells material secrete करते हैं, और बाहर cuticle बनती है। इसलिए question में waxy substance का नाम पढ़कर केवल substance पर मत रुकना। देखना है कि सवाल उस material से जुड़ी कौनसी cell layer पूछ रहा है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Two linked questions: producer? epidermal cells. External covering formed? cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इस cuticle में cutin और waxes होते हैं। ध्यान दो, cuticle खुद epidermal cells का दूसरा नाम नहीं है। यह उन cells के बाहर की protective covering है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Cuticle: cutin + waxes. Separate bracket below: epidermal cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और छोटा फर्क समझो: cuticle का नाम और उसमें मौजूद (present) materials के नाम एक नहीं हैं। Cuticle covering है; cutin और waxes उसके materials हैं। इसलिए waxy covering, epidermal tissue और waxy material को एक ही नाम से बुलाना सही नहीं होगा। Question समझते समय covering, cells और substance की पहचान अलग रखनी है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Three distinct labels: epidermis—tissue; cuticle—external covering; cutin and waxes—cuticle materials.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब इसका काम समझो। Exposed surface से पानी evaporation के कारण बाहर जा सकता है, यानी पानी water vapour बनकर निकल सकता है। Cuticle का water-resistant character इस रास्ते से पानी का निकलना कम करता है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Surface water-loss arrows become smaller across the cuticle; label: reduced evaporation through surface.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब पानी का रास्ता सोचो: सवाल exposed surface से बाहर होने वाले water loss का है। उस surface पर water-resistant covering होने से इस रास्ते से पानी का निकलना कम होता है। इसलिए cuticle की जगह और उसके material का character, दोनों काम से जुड़े हैं। केवल बाहर होना काफी नहीं; यहां बाहर की covering water-resistant भी है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Trace surface water-loss arrows against the external cuticle. Connect position + water resistance → reduced surface evaporation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अगर बाहर की water-resistant covering का असर हटा दो, तो उस covering से मिलने वाली मदद भी नहीं रहेगी। किस मदद की बात कर रहे हैं? Exposed surface से evaporation कम करने की मदद की। इसका मतलब यह नहीं कि हम plant के हर water-loss route को समझा चुके हैं; अभी केवल surface covering वाला connection देख रहे हैं।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Conceptual comparison of the same surface with the cuticle barrier highlighted and then faded; no numerical rates or total-water-loss claims.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Water-resistant का मतलब यहां पानी का निकलना कम करने में मदद है। इसे ऐसा मत समझना कि plant से पानी बाहर जाना बिल्कुल बंद हो गया। हमारा point exposed surface से होने वाले water loss को कम करना है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Reduces surface water loss ≠ stops all water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cuticle के नीचे epidermal cells की जगह देखो। बाहर का माहौल (surroundings) एक ओर है और अंदर के tissues दूसरी ओर हैं। बीच में epidermis होने से अंदर के tissues को protective covering मिलती है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Surroundings | cuticle | epidermis | underlying tissues; epidermis highlighted as outer tissue boundary.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Epidermis का protective काम उसकी जगह से समझ में आता है। वह बाहर और अंदर के tissues के बीच outer tissue covering बनाती है। Aerial parts में बाहर की cuticle surface water loss कम करने में मदद करती है। इसलिए tissue का protective role और cuticle का water-resistant role साथ समझो, ताकि दोनों के काम को एक-दूसरे से अलग भी पहचान सको।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Highlight epidermis as the tissue boundary, then cuticle as the external water-resistant covering; combine both highlights.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरा view फिर देखो। बाहर cuticle water loss कम करने में मदद करती है, और उसके नीचे epidermis protective tissue है। दोनों साथ काम करते हैं, लेकिन दोनों का नाम और category अलग है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i7#q2"
+      ],
+      "on_screen": "Labelled recap: cuticle—external water-resistant covering; epidermis—outer protective tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब cork को अलग जगह रखो। Cork भी plant का protective tissue है। Suberin का नाम समझने के लिए इसके cells की walls पर ध्यान देना है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [],
+      "on_screen": "Separate cork-cell sketch; highlight cell walls. Keep distinct from the epidermis–cuticle sketch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Cork का sketch इस leaf वाले sketch से अलग रखो। हम यह नहीं कह रहे कि इसी simple view में cuticle, epidermis और फिर cork का एक fixed क्रम (order) है। Cork यहां एक दूसरे protective tissue का example है। इसका काम अभी suberin की सही category और उसकी cell-wall location समझने में हमारी मदद करना है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Separate panels: aerial epidermis–cuticle and cork cell walls–suberin. No spatial arrow joining the panels.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Suberin एक water-resistant substance है जो कुछ plant cells की walls में deposit होता है। Cork cells की walls इसका खास example हैं। इसलिए cork tissue है, और suberin उसकी walls से जुड़ा substance है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "Cork = tissue. Suberin = water-resistant substance deposited in cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Deposit होने का मतलब यहां substance का cell wall में होना समझो। Cork cells की walls में suberin मिलता है; suberin खुद उन cells का group नहीं बन जाता। इसलिए cork और suberin का रिश्ता tissue और उसकी walls से जुड़े material का है। एक नाम cells वाले tissue का है, दूसरा नाम protective substance का है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "Zoom into a cork cell wall. Label the cell group as cork and the highlighted wall material as suberin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "compare",
+      "say": "दोनों protective arrangements को साथ देखो। Aerial epidermis के बाहर cutin और waxes वाली cuticle है। दूसरी ओर, cork cells की walls में suberin मिलता है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q3"
+      ],
+      "on_screen": "Side-by-side: aerial epidermis → external cuticle containing cutin and waxes; cork cells → suberin in walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "",
+      "step": 0,
+      "purpose": "compare",
+      "say": "दोनों में common बात क्या है? Water resistance से protection में मदद मिलती है। लेकिन location देखो: एक तरफ epidermal cells के बाहर cuticle है, दूसरी तरफ cork cells की walls में suberin है। इसलिए केवल water-resistant सुनकर दोनों arrangements को एक नहीं कह सकते; material किस जगह है और किस tissue से जुड़ा है, यह भी देखना होगा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q3"
+      ],
+      "on_screen": "Comparison rows: common function—water resistance; location—outside epidermal cells versus in cork cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बताइए, epidermis और suberin को क्या 2 tissues कह सकते हो? नहीं, epidermis tissue है, जबकि suberin substance है। Protection में मदद करना दोनों को एक category में नहीं बदल देता।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Category check: epidermis ✓ tissue; suberin ✗ tissue, ✓ substance.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर example चाहिए protective tissue का, तो epidermis या cork कह सकते हो। लेकिन suberin उस category का example नहीं होगा। और cuticle को epidermal cells की layer कहना भी गलत होगा; वह उनके बाहर की covering है।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Examples: protective tissue—epidermis, cork. Non-example of tissue—suberin. Cuticle—covering outside epidermal cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "मैं कहूं, cork cells की walls से जुड़ा water-resistant substance पहचानो, तो तुम्हारा answer क्या होगा? Suberin। अब कहूं, leaf या young stem की outer protective tissue layer पहचानो, तो answer epidermis होगा। दोनों सवाल protection से जुड़े हैं, लेकिन पूछी गई category और location बदलने से सही नाम भी बदल गया।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Alternating prompts: cork-wall substance? → suberin. Leaf/young-stem outer tissue? → epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब तीसरा सवाल लो: aerial epidermal cells के बाहर cutin और waxes वाली covering कौनसी है? यहां answer cuticle होगा। ध्यान दो, cuticle इस question के 4 options में है ही नहीं। Options में उस covering से जुड़ा tissue epidermis है, इसलिए question में material का clue और tissue वाला answer साथ आ सकते हैं।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i7#q3",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Prompt: external cutin-and-wax covering? → cuticle. Then highlight epidermis among the supplied options as the associated tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब question में 3 बातें अलग-अलग check करेंगे। पूछा किस category का नाम है, वह plant में कहां है, और उसका काम क्या है? तीनों बातें साथ देखने से केवल एक word के कारण गलत answer देने से बच सकते हो।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Check together: category • location • function.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Question एक layer पूछता है और उसे thickest कहता है। आगे कहता है कि वह water loss से protection देती है और outer surface पर waxy substance secrete करती है। Answer देने से पहले इन सारे clues को साथ देखो।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1"
+      ],
+      "on_screen": "Book stem with three clues highlighted separately: thickest; protection against water loss; secretes waxy substance on outer surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Stem में layer किसकी है और waxy substance कहां है, यह अलग पढ़ो। Layer protective काम करती है, और waxy substance outer surface पर है। यानी question एक tissue और उसके बाहर बनने वाली covering का connection दे रहा है। इस connection को समझकर options देखोगे, तो केवल thickest या केवल water loss वाला word तुम्हें गलत दिशा (direction) में नहीं ले जाएगा।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1",
+       "p014-i5#q2"
+      ],
+      "on_screen": "Separate stem into requested entity—layer, location—outer surface, association—secreted waxy material, function—protection against water loss.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "पहला option है a. Sclerenchyma। यह supporting plant tissue है। इसके mature cells generally dead होते हैं और उनकी walls thick और lignified होती हैं, यानी walls में lignin जमा (deposited) होता है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "a. Sclerenchyma: support; generally dead at maturity; thick, lignified cell walls.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Sclerenchyma के description में thick किस चीज को कहा है? Individual cells की walls को। Question में layer शब्द आया है, इसलिए cell wall की thickness को पूरी tissue layer की thickness समझना गलत होगा। पहले यह पहचानो कि दोनों जगह हम एक ही चीज की thickness देख भी रहे हैं या केवल thick शब्द common दिख रहा है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1",
+       "p014-i6#q2"
+      ],
+      "on_screen": "Magnify one sclerenchyma cell wall. Distinguish thick cell wall from the thickness of a tissue layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Thickest पढ़कर sclerenchyma तुम्हें सही लग सकता है, क्योंकि इसकी cell walls thick होती हैं। लेकिन thick cell wall और plant की outer wax-secreting layer अलग बातें हैं। Sclerenchyma का main role mechanical support है, इसलिए यह पूरे clue को fit नहीं करता।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q2"
+      ],
+      "on_screen": "Sclerenchyma: thick cell walls → support. Cross out as answer to outer wax-secreting layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a को हटाने का कारण केवल यह नहीं कि कोई दूसरा option ज्यादा जाना-पहचाना (familiar) है। कारण यह है कि sclerenchyma का thick, lignified wall वाला supporting description wax-secreting outer covering को identify नहीं करता। Exam में option हटाने के लिए ऐसा clear कारण रखो। यहां support वाला clue और epidermal protection वाला clue अलग काम की ओर जाते हैं।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q2"
+      ],
+      "on_screen": "Eliminate a using the mismatch: mechanical support description versus wax-associated outer protective layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "दूसरा option है b. Epidermis। यह primary plant body की outer protective tissue covering है, जैसे leaves और young stems में। इसलिए outer layer वाला clue epidermis से मिलता है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "b. Epidermis: outer protective tissue of primary plant body; leaf and young stem highlighted.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerial parts के epidermal cells cuticle बनाने वाला material secrete करते हैं। बाहर की यह water-resistant covering surface से evaporation कम करती है। इसलिए outer protection और waxy covering, दोनों clues epidermis की ओर जाते हैं।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Epidermal cells → cuticle → reduced surface water loss. Mark b as intended answer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option b के लिए connection पूरा बोलो: epidermis outer protective tissue है। Aerial parts में उसके cells बाहर cuticle बनाने वाला material secrete करते हैं। Cuticle water-resistant होने के कारण exposed surface से water loss कम करने में मदद करती है। इसलिए location, secretion और protective function, तीनों को साथ समझने पर intended answer epidermis बनता है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Build the reasoning chain: outer epidermis → secreted cuticle material → water-resistant covering → reduced surface water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तीसरा option है c. Parenchyma। यह simple permanent plant tissue है। इसके cells living होते हैं और cell walls generally relatively thin होती हैं। Storage यानी चीजें अपने अंदर रखने जैसे काम इसका example हैं।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q1"
+      ],
+      "on_screen": "c. Parenchyma: living cells; generally relatively thin walls; storage as an example function.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b52",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Parenchyma में storage को एक example की तरह याद रखो, केवल एक ही काम की तरह नहीं। अभी इसकी पहचान living cells और generally relatively thin walls से कर रहे हैं। Sclerenchyma के thick, lignified walls वाले description से इसका फर्क भी साफ है। लेकिन इस question में आखिर हमें outer wax-associated protective tissue पहचानना है, केवल living या dead cells नहीं।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q1",
+       "p014-i8#q1",
+       "p014-i8#q2"
+      ],
+      "on_screen": "Parenchyma: living, generally relatively thin-walled; storage is an example function. Return attention to the stem's specific protective-covering clues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "लेकिन यहां question general storage tissue नहीं पूछ रहा। इसे outer protective layer चाहिए, जो waxy surface covering से जुड़ी हो। इस खास description के लिए parenchyma की जगह epidermis सही पहचान है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q2"
+      ],
+      "on_screen": "Parenchyma: general storage or ground tissue clue does not match the specified wax-associated outer protective layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b53",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Parenchyma को हटाते समय ऐसा मत कहना कि living cells protection से कभी जुड़ ही नहीं सकते। इतना बड़ा rule यहां चाहिए ही नहीं। हमें इस stem के खास clues का answer चाहिए: outer tissue और बाहर की waxy covering। General storage या ground parenchyma वाला description इन clues की सही पहचान नहीं देता, जबकि epidermis वाला connection देता है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q2"
+      ],
+      "on_screen": "Reject c by the specific clue mismatch. Avoid adding a universal claim about all functions of living cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "चौथा option है d. Suberin। यह water-resistant substance है, जो कुछ cell walls में मिलता है, खासकर cork cells की walls में। यहां option किसी cell layer का नाम नहीं दे रहा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "d. Suberin: substance in certain cell walls, notably cork cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b54",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Suberin को देखकर एक बात सही लगती है: water resistance का connection है। इसलिए यह option बिना कारण नहीं रखा गया लगता है। लेकिन अब दूसरा check करो: क्या suberin खुद named tissue layer है, या certain cell walls का substance? Substance है, और यही category का फर्क इसे इस stem के intended answer से अलग कर देता है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "For suberin, show partial match—water resistance; then decisive mismatch—substance rather than tissue layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Water loss वाला clue देखकर suberin सही लग सकता है। लेकिन सवाल layer पूछता है, और suberin substance है। साथ ही यहां waxy outer covering का clue aerial epidermis की cuticle से मिलता है, cork wall के suberin से नहीं।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Suberin: partial water-resistance match, category mismatch. Contrast: cork wall—suberin; aerial epidermis—external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b55",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "एक ही सवाल को 2 checks से हल करके देखो। Category check कहता है कि suberin substance है, मांगी (requested) गई tissue layer नहीं। Location check कहता है कि cork walls का suberin और aerial epidermis के बाहर की cuticle अलग associations हैं। दोनों checks एक ही नतीजे तक आते हैं: इस question में suberin के बजाय epidermis intended answer है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Two checks converge: category—substance versus tissue; association—cork walls versus aerial epidermal cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब thickest word को अलग से देखो। Thickest कहने के लिए बताना चाहिए कि किसके साथ thickness compare हो रही है। इस question में वह comparison साफ नहीं है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "‘Thickest’—compared with what? No comparison specified in stem.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b56",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Thick और thickest में भी फर्क है। Thick किसी चीज का description हो सकता है, लेकिन thickest कहने पर दूसरे layers के साथ comparison चाहिए। यहां कौनसी layers, कौनसा plant part और किस हालत (condition) की बात है, यह साफ नहीं है। इसलिए इस एक word से epidermis के लिए हर जगह सही होने वाला thickness rule नहीं बना सकते।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Thick: description. Thickest: comparison required. Show missing comparison scope without inventing measurements.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Epidermis commonly एक cell layer होती है। Epidermis की thickness और उसके बाहर की cuticle की thickness अलग बातें हैं, और दोनों की thickness बदल सकती है। इसलिए epidermis हमेशा thickest होती है, ऐसा rule याद मत करना।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Epidermis: commonly one cell layer. Epidermal thickness ≠ cuticle thickness. Both can vary.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b57",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Diagram में 2 अलग brackets सोचो: एक epidermal cells की layer की thickness के लिए, दूसरा बाहर की cuticle की thickness के लिए। ये एक ही measurement नहीं हैं। Epidermis commonly single cell layer है, और thickness के descriptions बदल सकते हैं। इसलिए cuticle की thickness की बात सुनकर epidermal tissue को अपने आप thickest कह देना सही नहीं होगा।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Separate unscaled brackets for epidermal tissue thickness and cuticle thickness. Caption: distinct measurements; no universal ranking.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तो इस question का intended answer b. Epidermis है। कारण है outer protective tissue और उसके बाहर waxy cuticle बनने का connection। Answer का कारण thickest नहीं बनाना है; वह wording यहां unclear है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Intended answer: b. Epidermis. Reliable clues: outer protective tissue + secreted waxy covering. Qualification: ‘thickest’ is imprecise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b58",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर answer का कारण एक छोटा explanation बनाकर देना हो, तो ऐसे बोलो। Epidermis primary plant body की outer protective tissue है; aerial parts में उसके बाहर water-resistant cuticle होती है। इसी कारण outer protection और waxy covering के clues option b की ओर जाते हैं। साथ में यह qualification रखो कि thickest वाला word यहां clear comparison नहीं देता।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q5",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Model explanation: b. Epidermis—outer protective tissue associated with an aerial cuticle. Separate note: 'thickest' remains imprecise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Options का फर्क एक बार साथ देखो। Sclerenchyma में thick walls और support पर ध्यान दो, epidermis में outer protection और cuticle पर। Parenchyma में living, generally thin-walled cells और storage जैसे काम; suberin में cork की walls से जुड़ा water-resistant substance।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i7",
+       "p014-i8",
+       "p014-i9"
+      ],
+      "answers": [],
+      "on_screen": "Comparison table: Sclerenchyma | supporting tissue, thick lignified walls; Epidermis | outer protective tissue, aerial cuticle; Parenchyma | living, generally thin-walled cells, storage; Suberin | wall substance, notably in cork.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b59",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब table को category के हिसाब से पढ़ो। Sclerenchyma supporting tissue है, जबकि parenchyma living cells वाला simple permanent tissue है। ये दोनों tissue हैं, लेकिन केवल tissue होना इस question के लिए काफी नहीं। Tissue options में भी outer protective position और waxy cuticle वाला connection देखना है, इसलिए epidermis अलग पहचान में आती है।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i7",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q2",
+       "p014-i7#q3",
+       "p014-i8#q2"
+      ],
+      "on_screen": "Read tissue options by role: sclerenchyma—support; parenchyma—storage example; epidermis—outer protection with aerial cuticle association.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b60",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब table में epidermis और suberin को साथ देखो, क्योंकि water-loss clue पर यही pair confuse कर सकता है। Epidermis cells वाला outer tissue है; suberin certain cell walls का water-resistant substance है। Cuticle को epidermis के बाहर रखो और suberin को cork walls से जोड़ो। इस तरह category और location साथ याद रहेंगी, केवल protection वाला common काम नहीं।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Focused comparison: epidermis—tissue, aerial external cuticle; suberin—substance, notably cork cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद check करो, waxy cuticle और epidermis में कौन cells का tissue है? Epidermis। और cork और suberin में कौन substance है? Suberin।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1"
+      ],
+      "on_screen": "Pause-and-reveal: tissue? epidermis. Substance associated with cork walls? suberin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b61",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "आखिरी self-check में पहले statement को सुनो: epidermis हमेशा plant की thickest layer है। क्या आज की explanation से यह statement सही हो जाता है? नहीं, क्योंकि question comparison नहीं देता और epidermis commonly single cell layer है। अब दूसरा statement सुनो: aerial epidermis की cuticle surface water loss कम करने में मदद करती है; यह हमारा सही connection है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i5#q5"
+      ],
+      "on_screen": "Self-check: universal thickest claim—unsupported. Aerial cuticle reduces surface water loss—supported clarification.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b62",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब book का question फिर सामने रखो और अपना कारण खुद बोलो। Answer b. Epidermis क्यों है: केवल thickest word के कारण, या outer protective tissue और waxy cuticle के connection के कारण? दूसरा कारण सही है। यही समझ तुम्हें answer के साथ उसकी limit भी याद रखवाती है, ताकि इस question की unclear wording आगे गलत concept न बना दे।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q5",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Return to the original question. Reveal b with the protective-tissue/cuticle reasoning, and retain the thickness qualification.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Leaf के बाहर से अंदर का view याद रखो: cuticle, epidermal cells, फिर नीचे के tissues। Cuticle surface water loss कम करने में मदद करती है, और epidermis outer protective tissue है। इसी connection से आज के question का intended answer Epidermis मिलता है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2"
+      ],
+      "on_screen": "Final labelled section: outside → cuticle → epidermal cells → underlying tissues. Intended option: b. Epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब outer covering की पहचान साफ है। अगले हिस्से में देखेंगे कि leaf में gases के आने-जाने का रास्ता कहां है, और उसकी opening कौन बदलता है। वहां stomata को समझेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Next: stomata—gas exchange and control of opening.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b38: the Hindi words ['रुकना'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b39: the Hindi words ['उसमें', 'बुलाना'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b41: the Hindi words ['हटा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b44: the Hindi words ['रिश्ता'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b46: the Hindi words ['कहूं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b47: the Hindi words ['लो'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b48: the Hindi words ['देखोगे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b49: the Hindi words ['शब्द'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b50: the Hindi words ['हटाने'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b52: the Hindi words ['आखिर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b53: the Hindi words ['हटाते'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b55: the Hindi words ['हल', 'करके', 'बजाय'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b60: the Hindi words ['रहेंगी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b62: the Hindi words ['रखवाती'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.5,
+     "abrupt_jumps": [
+      "b34->b4",
+      "b60->b31",
+      "b31->b61"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 21.8,
+     "planned_minutes": 19
+    }
+   },
+   "passed": false,
+   "finished_at": 1792750119.8303003
+  },
+  {
+   "round": 3,
+   "started_at": 1792750119.830555,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch corrects the flagged Hindi vocabulary while preserving the teaching, scientific qualifications and intended answer.",
+     "key_questions": [
+      "Do all corrected beats follow the supplied everyday Hindi vocabulary rule?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged expressions with everyday Hindi or English while retaining each beat's meaning and coverage.",
+       "reason": "This resolves S2-04 vocabulary findings without changing the lesson's explanations or sequence."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Secretion की बात में 2 सवाल अलग रखो: material कौन बनाता है, और material से बाहर क्या बनता है? यहां epidermal cells material secrete करते हैं, और बाहर cuticle बनती है। इसलिए question में waxy substance का नाम पढ़कर केवल substance पर ध्यान मत देना। देखना है कि सवाल उस material से जुड़ी कौनसी cell layer पूछ रहा है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Two linked questions: producer? epidermal cells. External covering formed? cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और छोटा फर्क समझो: cuticle का नाम और उसके materials के नाम एक नहीं हैं। Cuticle covering है; cutin और waxes उसके materials हैं। इसलिए waxy covering, epidermal tissue और waxy material को एक ही नाम देना सही नहीं होगा। Question समझते समय covering, cells और substance की पहचान अलग रखनी है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Three distinct labels: epidermis—tissue; cuticle—external covering; cutin and waxes—cuticle materials.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अगर बाहर की water-resistant covering का असर नहीं रहे, तो उस covering से मिलने वाली मदद भी नहीं रहेगी। किस मदद की बात कर रहे हैं? Exposed surface से evaporation कम करने की मदद की। इसका मतलब यह नहीं कि हम plant के हर water-loss route को समझा चुके हैं; अभी केवल surface covering वाला connection देख रहे हैं।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Conceptual comparison of the same surface with the cuticle barrier highlighted and then faded; no numerical rates or total-water-loss claims.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Deposit होने का मतलब यहां substance का cell wall में होना समझो। Cork cells की walls में suberin मिलता है; suberin खुद उन cells का group नहीं बन जाता। इसलिए cork और suberin का connection tissue और उसकी walls से जुड़े material का है। एक नाम cells वाले tissue का है, दूसरा नाम protective substance का है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "Zoom into a cork cell wall. Label the cell group as cork and the highlighted wall material as suberin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अगर सवाल है, cork cells की walls से जुड़ा water-resistant substance पहचानो, तो तुम्हारा answer क्या होगा? Suberin। अब सवाल है, leaf या young stem की outer protective tissue layer पहचानो, तो answer epidermis होगा। दोनों सवाल protection से जुड़े हैं, लेकिन पूछी गई category और location बदलने से सही नाम भी बदल गया।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Alternating prompts: cork-wall substance? → suberin. Leaf/young-stem outer tissue? → epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब तीसरा सवाल देखो: aerial epidermal cells के बाहर cutin और waxes वाली covering कौनसी है? यहां answer cuticle होगा। ध्यान दो, cuticle इस question के 4 options में है ही नहीं। Options में उस covering से जुड़ा tissue epidermis है, इसलिए question में material का clue और tissue वाला answer साथ आ सकते हैं।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i7#q3",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Prompt: external cutin-and-wax covering? → cuticle. Then highlight epidermis among the supplied options as the associated tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Stem में layer किसकी है और waxy substance कहां है, यह अलग पढ़ो। Layer protective काम करती है, और waxy substance outer surface पर है। यानी question एक tissue और उसके बाहर बनने वाली covering का connection दे रहा है। इस connection को समझो और फिर options देखो, ताकि केवल thickest या केवल water loss वाला word तुम्हें गलत दिशा (direction) में नहीं ले जाए।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1",
+       "p014-i5#q2"
+      ],
+      "on_screen": "Separate stem into requested entity—layer, location—outer surface, association—secreted waxy material, function—protection against water loss.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Sclerenchyma के description में thick किस चीज को कहा है? Individual cells की walls को। Question में layer word आया है, इसलिए cell wall की thickness को पूरी tissue layer की thickness समझना गलत होगा। पहले यह पहचानो कि दोनों जगह हम एक ही चीज की thickness देख भी रहे हैं या केवल thick word common दिख रहा है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1",
+       "p014-i6#q2"
+      ],
+      "on_screen": "Magnify one sclerenchyma cell wall. Distinguish thick cell wall from the thickness of a tissue layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a को reject करने का कारण केवल यह नहीं कि कोई दूसरा option ज्यादा जाना-पहचाना (familiar) है। कारण यह है कि sclerenchyma का thick, lignified wall वाला supporting description wax-secreting outer covering को identify नहीं करता। Exam में option reject करने के लिए ऐसा clear कारण रखो। यहां support वाला clue और epidermal protection वाला clue अलग काम की ओर जाते हैं।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q2"
+      ],
+      "on_screen": "Eliminate a using the mismatch: mechanical support description versus wax-associated outer protective layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b52",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Parenchyma में storage को एक example की तरह याद रखो, केवल एक ही काम की तरह नहीं। अभी इसकी पहचान living cells और generally relatively thin walls से कर रहे हैं। Sclerenchyma के thick, lignified walls वाले description से इसका फर्क भी साफ है। लेकिन इस question में हमें outer wax-associated protective tissue पहचानना है, केवल living या dead cells नहीं।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q1",
+       "p014-i8#q1",
+       "p014-i8#q2"
+      ],
+      "on_screen": "Parenchyma: living, generally relatively thin-walled; storage is an example function. Return attention to the stem's specific protective-covering clues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b53",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Parenchyma को reject करते समय ऐसा मत कहना कि living cells protection से कभी जुड़ ही नहीं सकते। इतना बड़ा rule यहां चाहिए ही नहीं। हमें इस stem के खास clues का answer चाहिए: outer tissue और बाहर की waxy covering। General storage या ground parenchyma वाला description इन clues की सही पहचान नहीं देता, जबकि epidermis वाला connection देता है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q2"
+      ],
+      "on_screen": "Reject c by the specific clue mismatch. Avoid adding a universal claim about all functions of living cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b55",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "एक ही सवाल के answer के लिए 2 checks देखो। Category check कहता है कि suberin substance है, पूछी गई tissue layer नहीं। Location check कहता है कि cork walls का suberin और aerial epidermis के बाहर की cuticle अलग associations हैं। दोनों checks एक ही नतीजे तक आते हैं: इस question में epidermis intended answer है, suberin नहीं।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Two checks converge: category—substance versus tissue; association—cork walls versus aerial epidermal cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b60",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब table में epidermis और suberin को साथ देखो, क्योंकि water-loss clue पर यही pair confuse कर सकता है। Epidermis cells वाला outer tissue है; suberin certain cell walls का water-resistant substance है। Cuticle को epidermis के बाहर रखो और suberin को cork walls से जोड़ो। इस तरह category और location साथ याद रखो, केवल protection वाला common काम नहीं।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Focused comparison: epidermis—tissue, aerial external cuticle; suberin—substance, notably cork cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b62",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब book का question फिर सामने रखो और अपना कारण खुद बोलो। Answer b. Epidermis क्यों है: केवल thickest word के कारण, या outer protective tissue और waxy cuticle के connection के कारण? दूसरा कारण सही है। इस तरह answer के साथ उसकी limit भी याद रखो, ताकि इस question की unclear wording आगे गलत concept न बना दे।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q5",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Return to the original question. Reveal b with the protective-tissue/cuticle reasoning, and retain the thickness qualification.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "45198a5056952b0280ab05b0940490dbe87129e872f5b36b7146ad751e930cd8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 31872,
+    "output_tokens": 2405,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch corrects the flagged Hindi vocabulary while preserving the teaching, scientific qualifications and intended answer.",
+    "key_questions": [
+     "Do all corrected beats follow the supplied everyday Hindi vocabulary rule?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace flagged expressions with everyday Hindi or English while retaining each beat's meaning and coverage.",
+      "reason": "This resolves S2-04 vocabulary findings without changing the lesson's explanations or sequence."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This patch corrects the flagged Hindi vocabulary while preserving the teaching, scientific qualifications and intended answer.",
+     "key_questions": [
+      "Do all corrected beats follow the supplied everyday Hindi vocabulary rule?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace flagged expressions with everyday Hindi or English while retaining each beat's meaning and coverage.",
+       "reason": "This resolves S2-04 vocabulary findings without changing the lesson's explanations or sequence."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Plant की outer covering: epidermis, cuticle और protection",
+    "parts": [
+     {
+      "part_id": "c41.q",
+      "frame": {
+       "process": "Identify the intended protective tissue from the question's location, water-loss and waxy-covering clues, then evaluate all four options.",
+       "how": "Distinguish the external cuticle from epidermal cells, compare tissue with substance, and reject distractors using their defining features.",
+       "when": "Teach the outside prerequisites first, then read the stem, evaluate the options and qualify the unclear thickness wording.",
+       "conditions": "The cuticle explanation applies to aerial plant parts; epidermis is commonly one cell layer, and neither epidermal nor cuticle thickness is universally fixed.",
+       "atmosphere": "Picture a leaf or young stem exposed to air, followed by an exam question whose clues must be checked together."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक leaf के बाहर waxy covering है। क्या उस waxy material और उसे बनाने वाली cell layer का नाम एक ही होगा? आज के question में यही फर्क तुम्हें सही answer तक पहुंचाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf outline with two separate prompts: waxy material? cell layer?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "किताब के इस हिस्से में question और options हैं। उन्हें समझने के लिए पहले standard textbook की outside clarification लेते हैं। पहले epidermis और cuticle समझेंगे, फिर cork और suberin का फर्क देखेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: epidermis • cuticle • cork • suberin",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक leaf या young stem को देखो। उसके बाहर जो protective tissue होता है, उसे epidermis कहते हैं। यह primary plant body की outer covering है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "Leaf and young stem; outer tissue highlighted and labelled epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां primary plant body की outer covering पर ध्यान रखो। Leaf और young stem इसके आसान examples हैं। इन examples से epidermis की जगह समझो, लेकिन plant के हर पुराने और नए हिस्से की covering हमेशा बिल्कुल एक-जैसी है, ऐसा rule मत बनाना। अभी हमारा सवाल aerial parts की waxy protective covering से जुड़ा है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "Highlight leaf and young stem as examples. Caption: epidermis—outer covering of the primary plant body; keep the scope explicit.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां tissue का मतलब cells का ऐसा group समझो जो मिलकर कोई काम करता है। Epidermis में cells मिलकर plant की outer protective covering बनाते हैं। इसलिए epidermis एक tissue का नाम है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1"
+      ],
+      "on_screen": "Several epidermal cells highlighted together: cells → protective tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक cell और cells की layer को अलग-अलग देखो। एक epidermal cell उस tissue का हिस्सा है; कई ऐसे cells साथ मिलकर outer covering बनाते हैं। इसलिए epidermis कहने पर हम केवल किसी material का नाम नहीं ले रहे। हम cells से बने protective tissue की बात कर रहे हैं, और यही category आगे options में काम आएगी।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q1"
+      ],
+      "on_screen": "Zoom from one epidermal cell to a continuous group. Label: individual cell → cells forming epidermal tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब leaf के बाहर से अंदर की ओर चलो। सबसे बाहर cuticle देखो, उसके नीचे epidermal cells, और फिर उनके नीचे के tissues। यह aerial plant part की covering समझने का simple view है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Simplified aerial-part section; reading arrow: outside → cuticle → epidermal cells → underlying tissues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इस view में ऊपर का मतलब plant के बाहर की ओर है। नीचे का मतलब उसी plant part के अंदर की ओर है। Cuticle और epidermal cells को 2 अलग जगह इसलिए दिखाया है, ताकि covering और उसे बनाने वाले cells का फर्क साफ रहे। नीचे के tissues के नाम अभी जरूरी नहीं; उनकी जगह समझना जरूरी है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Hold the section still. Mark outside and inside, then trace the three positions without introducing additional tissue names.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बाहर से अंदर आते हुए पहले क्या मिलेगा: cuticle या epidermal cells? इस simple aerial-part view में पहले cuticle, फिर epidermal cells मिलेंगे। और epidermis के नीचे जो tissues हैं, क्या वे सीधे बाहर की हवा के सामने हैं? नहीं, उनकी ओर जाने से पहले यह outer protective arrangement आता है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Reveal the sequence one label at a time: outside → cuticle → epidermal cells → underlying tissues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Aerial parts यानी plant के वे हिस्से जो हवा में होते हैं, जैसे leaves और young stems। इनके epidermal cells बाहर की ओर cuticle बनाने वाला material secrete करते हैं। Secrete करना यानी cells का कोई material बनाकर बाहर देना।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Outside clarification: epidermal cells → secreted material → external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Secretion की बात में 2 सवाल अलग रखो: material कौन बनाता है, और material से बाहर क्या बनता है? यहां epidermal cells material secrete करते हैं, और बाहर cuticle बनती है। इसलिए question में waxy substance का नाम पढ़कर केवल substance पर ध्यान मत देना। देखना है कि सवाल उस material से जुड़ी कौनसी cell layer पूछ रहा है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Two linked questions: producer? epidermal cells. External covering formed? cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "इस cuticle में cutin और waxes होते हैं। ध्यान दो, cuticle खुद epidermal cells का दूसरा नाम नहीं है। यह उन cells के बाहर की protective covering है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Cuticle: cutin + waxes. Separate bracket below: epidermal cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और छोटा फर्क समझो: cuticle का नाम और उसके materials के नाम एक नहीं हैं। Cuticle covering है; cutin और waxes उसके materials हैं। इसलिए waxy covering, epidermal tissue और waxy material को एक ही नाम देना सही नहीं होगा। Question समझते समय covering, cells और substance की पहचान अलग रखनी है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Three distinct labels: epidermis—tissue; cuticle—external covering; cutin and waxes—cuticle materials.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब इसका काम समझो। Exposed surface से पानी evaporation के कारण बाहर जा सकता है, यानी पानी water vapour बनकर निकल सकता है। Cuticle का water-resistant character इस रास्ते से पानी का निकलना कम करता है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Surface water-loss arrows become smaller across the cuticle; label: reduced evaporation through surface.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब पानी का रास्ता सोचो: सवाल exposed surface से बाहर होने वाले water loss का है। उस surface पर water-resistant covering होने से इस रास्ते से पानी का निकलना कम होता है। इसलिए cuticle की जगह और उसके material का character, दोनों काम से जुड़े हैं। केवल बाहर होना काफी नहीं; यहां बाहर की covering water-resistant भी है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Trace surface water-loss arrows against the external cuticle. Connect position + water resistance → reduced surface evaporation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अगर बाहर की water-resistant covering का असर नहीं रहे, तो उस covering से मिलने वाली मदद भी नहीं रहेगी। किस मदद की बात कर रहे हैं? Exposed surface से evaporation कम करने की मदद की। इसका मतलब यह नहीं कि हम plant के हर water-loss route को समझा चुके हैं; अभी केवल surface covering वाला connection देख रहे हैं।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Conceptual comparison of the same surface with the cuticle barrier highlighted and then faded; no numerical rates or total-water-loss claims.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Water-resistant का मतलब यहां पानी का निकलना कम करने में मदद है। इसे ऐसा मत समझना कि plant से पानी बाहर जाना बिल्कुल बंद हो गया। हमारा point exposed surface से होने वाले water loss को कम करना है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4"
+      ],
+      "on_screen": "Reduces surface water loss ≠ stops all water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cuticle के नीचे epidermal cells की जगह देखो। बाहर का माहौल (surroundings) एक ओर है और अंदर के tissues दूसरी ओर हैं। बीच में epidermis होने से अंदर के tissues को protective covering मिलती है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Surroundings | cuticle | epidermis | underlying tissues; epidermis highlighted as outer tissue boundary.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Epidermis का protective काम उसकी जगह से समझ में आता है। वह बाहर और अंदर के tissues के बीच outer tissue covering बनाती है। Aerial parts में बाहर की cuticle surface water loss कम करने में मदद करती है। इसलिए tissue का protective role और cuticle का water-resistant role साथ समझो, ताकि दोनों के काम को एक-दूसरे से अलग भी पहचान सको।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i7#q2"
+      ],
+      "on_screen": "Highlight epidermis as the tissue boundary, then cuticle as the external water-resistant covering; combine both highlights.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरा view फिर देखो। बाहर cuticle water loss कम करने में मदद करती है, और उसके नीचे epidermis protective tissue है। दोनों साथ काम करते हैं, लेकिन दोनों का नाम और category अलग है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i7#q2"
+      ],
+      "on_screen": "Labelled recap: cuticle—external water-resistant covering; epidermis—outer protective tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब cork को अलग जगह रखो। Cork भी plant का protective tissue है। Suberin का नाम समझने के लिए इसके cells की walls पर ध्यान देना है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [],
+      "on_screen": "Separate cork-cell sketch; highlight cell walls. Keep distinct from the epidermis–cuticle sketch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Cork का sketch इस leaf वाले sketch से अलग रखो। हम यह नहीं कह रहे कि इसी simple view में cuticle, epidermis और फिर cork का एक fixed क्रम (order) है। Cork यहां एक दूसरे protective tissue का example है। इसका काम अभी suberin की सही category और उसकी cell-wall location समझने में हमारी मदद करना है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Separate panels: aerial epidermis–cuticle and cork cell walls–suberin. No spatial arrow joining the panels.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Suberin एक water-resistant substance है जो कुछ plant cells की walls में deposit होता है। Cork cells की walls इसका खास example हैं। इसलिए cork tissue है, और suberin उसकी walls से जुड़ा substance है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "Cork = tissue. Suberin = water-resistant substance deposited in cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Deposit होने का मतलब यहां substance का cell wall में होना समझो। Cork cells की walls में suberin मिलता है; suberin खुद उन cells का group नहीं बन जाता। इसलिए cork और suberin का connection tissue और उसकी walls से जुड़े material का है। एक नाम cells वाले tissue का है, दूसरा नाम protective substance का है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "Zoom into a cork cell wall. Label the cell group as cork and the highlighted wall material as suberin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "compare",
+      "say": "दोनों protective arrangements को साथ देखो। Aerial epidermis के बाहर cutin और waxes वाली cuticle है। दूसरी ओर, cork cells की walls में suberin मिलता है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q3"
+      ],
+      "on_screen": "Side-by-side: aerial epidermis → external cuticle containing cutin and waxes; cork cells → suberin in walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "",
+      "step": 0,
+      "purpose": "compare",
+      "say": "दोनों में common बात क्या है? Water resistance से protection में मदद मिलती है। लेकिन location देखो: एक तरफ epidermal cells के बाहर cuticle है, दूसरी तरफ cork cells की walls में suberin है। इसलिए केवल water-resistant सुनकर दोनों arrangements को एक नहीं कह सकते; material किस जगह है और किस tissue से जुड़ा है, यह भी देखना होगा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q3"
+      ],
+      "on_screen": "Comparison rows: common function—water resistance; location—outside epidermal cells versus in cork cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बताइए, epidermis और suberin को क्या 2 tissues कह सकते हो? नहीं, epidermis tissue है, जबकि suberin substance है। Protection में मदद करना दोनों को एक category में नहीं बदल देता।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Category check: epidermis ✓ tissue; suberin ✗ tissue, ✓ substance.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर example चाहिए protective tissue का, तो epidermis या cork कह सकते हो। लेकिन suberin उस category का example नहीं होगा। और cuticle को epidermal cells की layer कहना भी गलत होगा; वह उनके बाहर की covering है।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Examples: protective tissue—epidermis, cork. Non-example of tissue—suberin. Cuticle—covering outside epidermal cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अगर सवाल है, cork cells की walls से जुड़ा water-resistant substance पहचानो, तो तुम्हारा answer क्या होगा? Suberin। अब सवाल है, leaf या young stem की outer protective tissue layer पहचानो, तो answer epidermis होगा। दोनों सवाल protection से जुड़े हैं, लेकिन पूछी गई category और location बदलने से सही नाम भी बदल गया।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "Alternating prompts: cork-wall substance? → suberin. Leaf/young-stem outer tissue? → epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब तीसरा सवाल देखो: aerial epidermal cells के बाहर cutin और waxes वाली covering कौनसी है? यहां answer cuticle होगा। ध्यान दो, cuticle इस question के 4 options में है ही नहीं। Options में उस covering से जुड़ा tissue epidermis है, इसलिए question में material का clue और tissue वाला answer साथ आ सकते हैं।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i7#q3",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Prompt: external cutin-and-wax covering? → cuticle. Then highlight epidermis among the supplied options as the associated tissue.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब question में 3 बातें अलग-अलग check करेंगे। पूछा किस category का नाम है, वह plant में कहां है, और उसका काम क्या है? तीनों बातें साथ देखने से केवल एक word के कारण गलत answer देने से बच सकते हो।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Check together: category • location • function.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Question एक layer पूछता है और उसे thickest कहता है। आगे कहता है कि वह water loss से protection देती है और outer surface पर waxy substance secrete करती है। Answer देने से पहले इन सारे clues को साथ देखो।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1"
+      ],
+      "on_screen": "Book stem with three clues highlighted separately: thickest; protection against water loss; secretes waxy substance on outer surface.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Stem में layer किसकी है और waxy substance कहां है, यह अलग पढ़ो। Layer protective काम करती है, और waxy substance outer surface पर है। यानी question एक tissue और उसके बाहर बनने वाली covering का connection दे रहा है। इस connection को समझो और फिर options देखो, ताकि केवल thickest या केवल water loss वाला word तुम्हें गलत दिशा (direction) में नहीं ले जाए।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q1",
+       "p014-i5#q2"
+      ],
+      "on_screen": "Separate stem into requested entity—layer, location—outer surface, association—secreted waxy material, function—protection against water loss.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "पहला option है a. Sclerenchyma। यह supporting plant tissue है। इसके mature cells generally dead होते हैं और उनकी walls thick और lignified होती हैं, यानी walls में lignin जमा (deposited) होता है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1"
+      ],
+      "on_screen": "a. Sclerenchyma: support; generally dead at maturity; thick, lignified cell walls.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Sclerenchyma के description में thick किस चीज को कहा है? Individual cells की walls को। Question में layer word आया है, इसलिए cell wall की thickness को पूरी tissue layer की thickness समझना गलत होगा। पहले यह पहचानो कि दोनों जगह हम एक ही चीज की thickness देख भी रहे हैं या केवल thick word common दिख रहा है।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q1",
+       "p014-i6#q2"
+      ],
+      "on_screen": "Magnify one sclerenchyma cell wall. Distinguish thick cell wall from the thickness of a tissue layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Thickest पढ़कर sclerenchyma तुम्हें सही लग सकता है, क्योंकि इसकी cell walls thick होती हैं। लेकिन thick cell wall और plant की outer wax-secreting layer अलग बातें हैं। Sclerenchyma का main role mechanical support है, इसलिए यह पूरे clue को fit नहीं करता।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q2"
+      ],
+      "on_screen": "Sclerenchyma: thick cell walls → support. Cross out as answer to outer wax-secreting layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option a को reject करने का कारण केवल यह नहीं कि कोई दूसरा option ज्यादा जाना-पहचाना (familiar) है। कारण यह है कि sclerenchyma का thick, lignified wall वाला supporting description wax-secreting outer covering को identify नहीं करता। Exam में option reject करने के लिए ऐसा clear कारण रखो। यहां support वाला clue और epidermal protection वाला clue अलग काम की ओर जाते हैं।",
+      "covers_item_ids": [
+       "p014-i6"
+      ],
+      "answers": [
+       "p014-i6#q2"
+      ],
+      "on_screen": "Eliminate a using the mismatch: mechanical support description versus wax-associated outer protective layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "दूसरा option है b. Epidermis। यह primary plant body की outer protective tissue covering है, जैसे leaves और young stems में। इसलिए outer layer वाला clue epidermis से मिलता है।",
+      "covers_item_ids": [
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q3",
+       "p014-i7#q1"
+      ],
+      "on_screen": "b. Epidermis: outer protective tissue of primary plant body; leaf and young stem highlighted.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerial parts के epidermal cells cuticle बनाने वाला material secrete करते हैं। बाहर की यह water-resistant covering surface से evaporation कम करती है। इसलिए outer protection और waxy covering, दोनों clues epidermis की ओर जाते हैं।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Epidermal cells → cuticle → reduced surface water loss. Mark b as intended answer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option b के लिए connection पूरा बोलो: epidermis outer protective tissue है। Aerial parts में उसके cells बाहर cuticle बनाने वाला material secrete करते हैं। Cuticle water-resistant होने के कारण exposed surface से water loss कम करने में मदद करती है। इसलिए location, secretion और protective function, तीनों को साथ समझने पर intended answer epidermis बनता है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Build the reasoning chain: outer epidermis → secreted cuticle material → water-resistant covering → reduced surface water loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तीसरा option है c. Parenchyma। यह simple permanent plant tissue है। इसके cells living होते हैं और cell walls generally relatively thin होती हैं। Storage यानी चीजें अपने अंदर रखने जैसे काम इसका example हैं।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q1"
+      ],
+      "on_screen": "c. Parenchyma: living cells; generally relatively thin walls; storage as an example function.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b52",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Parenchyma में storage को एक example की तरह याद रखो, केवल एक ही काम की तरह नहीं। अभी इसकी पहचान living cells और generally relatively thin walls से कर रहे हैं। Sclerenchyma के thick, lignified walls वाले description से इसका फर्क भी साफ है। लेकिन इस question में हमें outer wax-associated protective tissue पहचानना है, केवल living या dead cells नहीं।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q1",
+       "p014-i8#q1",
+       "p014-i8#q2"
+      ],
+      "on_screen": "Parenchyma: living, generally relatively thin-walled; storage is an example function. Return attention to the stem's specific protective-covering clues.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "लेकिन यहां question general storage tissue नहीं पूछ रहा। इसे outer protective layer चाहिए, जो waxy surface covering से जुड़ी हो। इस खास description के लिए parenchyma की जगह epidermis सही पहचान है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q2"
+      ],
+      "on_screen": "Parenchyma: general storage or ground tissue clue does not match the specified wax-associated outer protective layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b53",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Parenchyma को reject करते समय ऐसा मत कहना कि living cells protection से कभी जुड़ ही नहीं सकते। इतना बड़ा rule यहां चाहिए ही नहीं। हमें इस stem के खास clues का answer चाहिए: outer tissue और बाहर की waxy covering। General storage या ground parenchyma वाला description इन clues की सही पहचान नहीं देता, जबकि epidermis वाला connection देता है।",
+      "covers_item_ids": [
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i8#q2"
+      ],
+      "on_screen": "Reject c by the specific clue mismatch. Avoid adding a universal claim about all functions of living cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "चौथा option है d. Suberin। यह water-resistant substance है, जो कुछ cell walls में मिलता है, खासकर cork cells की walls में। यहां option किसी cell layer का नाम नहीं दे रहा।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1"
+      ],
+      "on_screen": "d. Suberin: substance in certain cell walls, notably cork cells.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b54",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Suberin को देखकर एक बात सही लगती है: water resistance का connection है। इसलिए यह option बिना कारण नहीं रखा गया लगता है। लेकिन अब दूसरा check करो: क्या suberin खुद named tissue layer है, या certain cell walls का substance? Substance है, और यही category का फर्क इसे इस stem के intended answer से अलग कर देता है।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q1",
+       "p014-i9#q2"
+      ],
+      "on_screen": "For suberin, show partial match—water resistance; then decisive mismatch—substance rather than tissue layer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Water loss वाला clue देखकर suberin सही लग सकता है। लेकिन सवाल layer पूछता है, और suberin substance है। साथ ही यहां waxy outer covering का clue aerial epidermis की cuticle से मिलता है, cork wall के suberin से नहीं।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Suberin: partial water-resistance match, category mismatch. Contrast: cork wall—suberin; aerial epidermis—external cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b55",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "एक ही सवाल के answer के लिए 2 checks देखो। Category check कहता है कि suberin substance है, पूछी गई tissue layer नहीं। Location check कहता है कि cork walls का suberin और aerial epidermis के बाहर की cuticle अलग associations हैं। दोनों checks एक ही नतीजे तक आते हैं: इस question में epidermis intended answer है, suberin नहीं।",
+      "covers_item_ids": [
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Two checks converge: category—substance versus tissue; association—cork walls versus aerial epidermal cuticle.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब thickest word को अलग से देखो। Thickest कहने के लिए बताना चाहिए कि किसके साथ thickness compare हो रही है। इस question में वह comparison साफ नहीं है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "‘Thickest’—compared with what? No comparison specified in stem.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b56",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Thick और thickest में भी फर्क है। Thick किसी चीज का description हो सकता है, लेकिन thickest कहने पर दूसरे layers के साथ comparison चाहिए। यहां कौनसी layers, कौनसा plant part और किस हालत (condition) की बात है, यह साफ नहीं है। इसलिए इस एक word से epidermis के लिए हर जगह सही होने वाला thickness rule नहीं बना सकते।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Thick: description. Thickest: comparison required. Show missing comparison scope without inventing measurements.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Epidermis commonly एक cell layer होती है। Epidermis की thickness और उसके बाहर की cuticle की thickness अलग बातें हैं, और दोनों की thickness बदल सकती है। इसलिए epidermis हमेशा thickest होती है, ऐसा rule याद मत करना।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Epidermis: commonly one cell layer. Epidermal thickness ≠ cuticle thickness. Both can vary.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b57",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Diagram में 2 अलग brackets सोचो: एक epidermal cells की layer की thickness के लिए, दूसरा बाहर की cuticle की thickness के लिए। ये एक ही measurement नहीं हैं। Epidermis commonly single cell layer है, और thickness के descriptions बदल सकते हैं। इसलिए cuticle की thickness की बात सुनकर epidermal tissue को अपने आप thickest कह देना सही नहीं होगा।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q5"
+      ],
+      "on_screen": "Separate unscaled brackets for epidermal tissue thickness and cuticle thickness. Caption: distinct measurements; no universal ranking.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "तो इस question का intended answer b. Epidermis है। कारण है outer protective tissue और उसके बाहर waxy cuticle बनने का connection। Answer का कारण thickest नहीं बनाना है; वह wording यहां unclear है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Intended answer: b. Epidermis. Reliable clues: outer protective tissue + secreted waxy covering. Qualification: ‘thickest’ is imprecise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b58",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर answer का कारण एक छोटा explanation बनाकर देना हो, तो ऐसे बोलो। Epidermis primary plant body की outer protective tissue है; aerial parts में उसके बाहर water-resistant cuticle होती है। इसी कारण outer protection और waxy covering के clues option b की ओर जाते हैं। साथ में यह qualification रखो कि thickest वाला word यहां clear comparison नहीं देता।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q5",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Model explanation: b. Epidermis—outer protective tissue associated with an aerial cuticle. Separate note: 'thickest' remains imprecise.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Options का फर्क एक बार साथ देखो। Sclerenchyma में thick walls और support पर ध्यान दो, epidermis में outer protection और cuticle पर। Parenchyma में living, generally thin-walled cells और storage जैसे काम; suberin में cork की walls से जुड़ा water-resistant substance।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i7",
+       "p014-i8",
+       "p014-i9"
+      ],
+      "answers": [],
+      "on_screen": "Comparison table: Sclerenchyma | supporting tissue, thick lignified walls; Epidermis | outer protective tissue, aerial cuticle; Parenchyma | living, generally thin-walled cells, storage; Suberin | wall substance, notably in cork.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b59",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब table को category के हिसाब से पढ़ो। Sclerenchyma supporting tissue है, जबकि parenchyma living cells वाला simple permanent tissue है। ये दोनों tissue हैं, लेकिन केवल tissue होना इस question के लिए काफी नहीं। Tissue options में भी outer protective position और waxy cuticle वाला connection देखना है, इसलिए epidermis अलग पहचान में आती है।",
+      "covers_item_ids": [
+       "p014-i6",
+       "p014-i7",
+       "p014-i8"
+      ],
+      "answers": [
+       "p014-i6#q2",
+       "p014-i7#q3",
+       "p014-i8#q2"
+      ],
+      "on_screen": "Read tissue options by role: sclerenchyma—support; parenchyma—storage example; epidermis—outer protection with aerial cuticle association.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b60",
+      "part_id": "c41.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब table में epidermis और suberin को साथ देखो, क्योंकि water-loss clue पर यही pair confuse कर सकता है। Epidermis cells वाला outer tissue है; suberin certain cell walls का water-resistant substance है। Cuticle को epidermis के बाहर रखो और suberin को cork walls से जोड़ो। इस तरह category और location साथ याद रखो, केवल protection वाला common काम नहीं।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1",
+       "p014-i9#q2",
+       "p014-i9#q3"
+      ],
+      "on_screen": "Focused comparison: epidermis—tissue, aerial external cuticle; suberin—substance, notably cork cell walls.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद check करो, waxy cuticle और epidermis में कौन cells का tissue है? Epidermis। और cork और suberin में कौन substance है? Suberin।",
+      "covers_item_ids": [
+       "p014-i7",
+       "p014-i9"
+      ],
+      "answers": [
+       "p014-i7#q1",
+       "p014-i9#q1"
+      ],
+      "on_screen": "Pause-and-reveal: tissue? epidermis. Substance associated with cork walls? suberin.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b61",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "आखिरी self-check में पहले statement को सुनो: epidermis हमेशा plant की thickest layer है। क्या आज की explanation से यह statement सही हो जाता है? नहीं, क्योंकि question comparison नहीं देता और epidermis commonly single cell layer है। अब दूसरा statement सुनो: aerial epidermis की cuticle surface water loss कम करने में मदद करती है; यह हमारा सही connection है।",
+      "covers_item_ids": [
+       "p014-i5"
+      ],
+      "answers": [
+       "p014-i5#q4",
+       "p014-i5#q5"
+      ],
+      "on_screen": "Self-check: universal thickest claim—unsupported. Aerial cuticle reduces surface water loss—supported clarification.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b62",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब book का question फिर सामने रखो और अपना कारण खुद बोलो। Answer b. Epidermis क्यों है: केवल thickest word के कारण, या outer protective tissue और waxy cuticle के connection के कारण? दूसरा कारण सही है। इस तरह answer के साथ उसकी limit भी याद रखो, ताकि इस question की unclear wording आगे गलत concept न बना दे।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q5",
+       "p014-i7#q3"
+      ],
+      "on_screen": "Return to the original question. Reveal b with the protective-tissue/cuticle reasoning, and retain the thickness qualification.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Leaf के बाहर से अंदर का view याद रखो: cuticle, epidermal cells, फिर नीचे के tissues। Cuticle surface water loss कम करने में मदद करती है, और epidermis outer protective tissue है। इसी connection से आज के question का intended answer Epidermis मिलता है।",
+      "covers_item_ids": [
+       "p014-i5",
+       "p014-i7"
+      ],
+      "answers": [
+       "p014-i5#q2",
+       "p014-i5#q4",
+       "p014-i7#q2"
+      ],
+      "on_screen": "Final labelled section: outside → cuticle → epidermal cells → underlying tissues. Intended option: b. Epidermis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "",
+      "step": 0,
+      "purpose": "transition",
+      "say": "अब outer covering की पहचान साफ है। अगले हिस्से में देखेंगे कि leaf में gases के आने-जाने का रास्ता कहां है, और उसकी opening कौन बदलता है। वहां stomata को समझेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Next: stomata—gas exchange and control of opening.",
+      "basis": "book"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.5,
+     "abrupt_jumps": [
+      "b34->b4",
+      "b60->b31",
+      "b31->b61"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 21.8,
+     "planned_minutes": 19
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "31f87b776f3feb5a8ac44d0148935f0f451031a24cd5f448b0d98a68a0e0cc41",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 16041,
+    "output_tokens": 671,
+    "cost_usd": 0.042671,
+    "value": {
+     "notes": {
+      "about": "This script teaches the prerequisites of plant outer protection (epidermis, cuticle, cork, suberin) and then solves and evaluates the practice question on epidermis and its waxy protective surface (p014-i5 to p014-i9).",
+      "key_questions": [
+       "Are the outside prerequisites (epidermis, cuticle, cork, suberin) taught clearly before tackling the MCQ?",
+       "Are all four options evaluated with their category, location, and function, and is the imprecise 'thickest' wording properly qualified?",
+       "Does the script follow the Hinglish mixed-script and simple Hindi rules?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with no blocking issues.",
+        "reason": "All items (p014-i5 to p014-i9) and all 14 teacher questions are thoroughly covered, outside knowledge is properly labeled, prerequisites are taught first with examples and non-examples, and the language follows the simple Hinglish rulebook."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every beat is accurately marked as book, outside, or mixed, and outside textbook facts are standard and properly scoped."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The script provides a thorough, deep explanation suitable for UPSC/State PCS learners, carefully distinguishing tissues from substances and qualifying the flawed PYQ stem."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "The maker's notes state what the unit/patch is about, the key decision with its reason, and uncertainties."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The spoken language is natural teacher-style Hinglish."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short, merged away, or left as 'etc.'"
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Follows the video plan, teaching the outside prerequisites (epidermis, cuticle, cork, suberin) before evaluating the question and options."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "Flows like a real teacher and answers every teacher question across p014-i5 to p014-i9."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "All prerequisites (epidermis, cuticle, cork, suberin) are explained with concrete examples and non-examples before being used in the question analysis."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Uses Devanagari for Hindi, Roman for English technical terms, brackets for any potentially formal Hindi words, and short spoken sentences."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "The beats' coverage claims in covers_item_ids and answers are accurate."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "The part c41.q has a complete universal frame and follows the step 0 exam_tip pattern after prerequisites are taught."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792750190.0110116
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.042671,
+ "seconds": 416.5,
+ "navin_verdict": null
+}

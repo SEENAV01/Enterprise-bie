@@ -1,0 +1,2237 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v8",
+ "status": "passed",
+ "instructions_version": "lesson-script/2",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+ "rulebook_digest": "28605da59d26c73736de5b33795b73d03bdd42650b2c6e83491a617748b00791",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "0c2bd4243bfb0ff86531ae29687745b0e28d01375839ffab1a25d541ae3099c5",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v8",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.lesson-script/2",
+   "sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e"
+  },
+  "unit": {
+   "unit_id": "v8",
+   "title": "Neuron: message कहाँ से आता है और आगे कैसे जाता है?",
+   "pages": [
+    7
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c21.1",
+    "item_ids": [
+     "p007-i36",
+     "p007-i37",
+     "p007-i38",
+     "p007-i39",
+     "p007-i40",
+     "p007-i41",
+     "p007-i42",
+     "p007-i43",
+     "p007-i44",
+     "p007-i45",
+     "p007-i46",
+     "p007-i47",
+     "p007-i48",
+     "p007-i49"
+    ],
+    "type": "figure",
+    "questions": [
+     "what",
+     "which",
+     "how",
+     "why"
+    ],
+    "focus": "Neuron structure and transmission of impulses: teach these figure items through the figure pattern"
+   },
+   {
+    "part_id": "c21.q",
+    "item_ids": [
+     "p007-i35"
+    ],
+    "type": "none",
+    "questions": [
+     "how",
+     "when",
+     "why"
+    ],
+    "focus": "Neuron structure and transmission of impulses: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p007-i36",
+    "p007-i37",
+    "p007-i38",
+    "p007-i39",
+    "p007-i40",
+    "p007-i41",
+    "p007-i42",
+    "p007-i43",
+    "p007-i44",
+    "p007-i45",
+    "p007-i46",
+    "p007-i47",
+    "p007-i48",
+    "p007-i49",
+    "p007-i35"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p007-i36",
+     "figure",
+     "7",
+     "Two neurons are arranged from lower left to upper right. An axon of a previous neuron approaches…"
+    ],
+    [
+     "p007-i37",
+     "figure",
+     "7",
+     "axon of previous neuron — points to the incoming process approaching the first neuron from the left."
+    ],
+    [
+     "p007-i38",
+     "figure",
+     "7",
+     "synapse — points to the circled contact region between the previous neuron's axon and the first…"
+    ],
+    [
+     "p007-i39",
+     "figure",
+     "7",
+     "neuron cell body — points to the expanded orange central region of the first displayed neuron."
+    ],
+    [
+     "p007-i40",
+     "figure",
+     "7",
+     "nucleus — points to the dark oval within the first neuron's cell body."
+    ],
+    [
+     "p007-i41",
+     "figure",
+     "7",
+     "dendrites — points to the short branching processes extending from the first neuron's cell body."
+    ],
+    [
+     "p007-i42",
+     "figure",
+     "7",
+     "axon — points to the long process extending from the first neuron's cell body towards the next…"
+    ],
+    [
+     "p007-i43",
+     "figure",
+     "7",
+     "electrical signal — names the blue directional arrows following the axon from the first neuron…"
+    ],
+    [
+     "p007-i44",
+     "figure",
+     "7",
+     "axon tips — points to the terminal branches of the first neuron's axon near the next neuron."
+    ],
+    [
+     "p007-i45",
+     "figure",
+     "7",
+     "synapse — points to the circled junction between the first neuron's axon terminal and the next…"
+    ],
+    [
+     "p007-i46",
+     "figure",
+     "7",
+     "neuron cell body — points to the expanded central region of the next neuron."
+    ],
+    [
+     "p007-i47",
+     "figure",
+     "7",
+     "nucleus — points to the dark oval within the next neuron's cell body."
+    ],
+    [
+     "p007-i48",
+     "figure",
+     "7",
+     "dendrites of next neuron — points to branching receiving processes of the next neuron."
+    ],
+    [
+     "p007-i49",
+     "figure",
+     "7",
+     "Directional arrows run along the axon from the lower-left neuron's cell-body region towards the…"
+    ],
+    [
+     "p007-i35",
+     "process",
+     "7",
+     "How do neurons transmit impulses (send message to other cells)?"
+    ],
+    [
+     "c21",
+     "process",
+     "7",
+     "Neuron structure and transmission of impulses"
+    ],
+    [
+     "c06",
+     "figure",
+     "2-3",
+     "Animal-tissue classification and body overview"
+    ]
+   ],
+   "before": "Cardiac muscle, 3 muscle types और attachment questions",
+   "after": "Mitosis और meiosis: chromosome गिनती सही कैसे रखें?"
+  },
+  "source": {
+   "block_ids": [],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e",
+ "review_prefix_sha256": "aa60eb89d3e543fd5fdefce841750e8f2d3415545576861237a772184f93d03c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9 · content types 2026-10-22.2 · schema bie.brain.lesson-script/2\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S2-01] Plan the chapter's videos from the chapter map: how many, in what order, prerequisites taught first. Video length follows the content, never a fixed length.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.\n[S2-03] Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a Hindi word that is not in the simple everyday word list (rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the basis of division first. 2) the tree from the top down. 3) each kind with its identifying feature and an example. 4) the borderline cases and exceptions. 5) the tree as recap.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"}},\"required\":[\"part_id\",\"frame\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  every step of a part's pattern must appear, in order;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; a Hindi word that is not in the simple everyday list below gets its English word in\n  brackets right after it, as in \"सतह (surface)\" (BIE's code checks it, shows the bracket on screen and makes the voice say\n  \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman; numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat\n  really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or mixed.\nEvery item in must_cover and every teacher question listed for this video must be covered by some beat. A beat introduces at most a\nfew new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with the JSON object only.\n\nSimple everyday Hindi words (list 2026-10-23.1); any other Hindi word gets its English word in brackets right after it, for example \"सतह (surface)\":\nअंतर अंदर अंधेरा अगर अगला अगली अगले अच्छा अच्छी अच्छे अजीब अधूरा अनेक अन्दर अपना अपनी अपने अब अभी अर्थात् अलग अलग-अलग असर असली आ आंख आई आए आकार आखिरी आग आगे आज आठ आदमी आधा आधी आधे आना आने आप आपका आपकी आपके आपको आम आया आये आसमान आसान इंसान इतना इतनी इतने इधर इन इनका इनकी इनके इनको इनाम इन्हें इस इसका इसकी इसके इसको इसलिए इसीलिए इसे उठ उठना उड उडना उतना उतर उतरना उत्तर उदाहरण उधर उन उनका उनकी उनके उनको उन्हें उस उसका उसकी उसके उसको उसे ऊंचा ऊपर एक एक-जैसा ऐसा ऐसी ऐसे ओर और औरत कई कक्षा कठिन कडा कडी कब कभी कभी-कभी कम कर करना करने करवाना करा कराना करीब करोड कल कह कहना कहां कहानी का काट काटना कान काफी काम कारण कि किए कितना कितनी कितने किताब किया किये किस किसका किसकी किसके किसको किसे की कुछ कुल के केवल कैसा कैसी कैसे को कोई कौन कौनसा कौनसी क्या क्यों क्योंकि खडा खत्म खा खाना खाली खास खींच खींचना खुद खुशी खून खेल खेलना खोज खोजना खोल खोलना गंदा गंदी गई गए गति गया गये गरम गर्म गर्मी गलत गलती गहरा गहरी गहरे गांव गिन गिनना गिर गिरना गिराना गीला गुस्सा गोल घंटा घट घटना घटाना घर घुमाना घूम घूमना चढ चढना चपटा चपटी चपटे चमडी चल चलना चलिए चांद चार चारों चावल चाह चाहना चाहिए चीज चुक चुकना चौडाई चौथा चौथी चौथे छः छह छात्र छू छूना छोटा छोटी छोटे छोड छोडना जगह जड जब जबकि जमीन जरा जरूर जरूरत जरूरी जल्दी जवाब जहां जा जान जानना जाना जाने जिंदगी जिंदा जितना जी जीवन जुड जुडना जैसा जैसी जैसे जोड जोडना जोर ज्यादा झूठ टीचर टुकडा टूट टूटना ठंड ठंडा ठंडी ठीक डर डाल डालना डाली डॉक्टर ढूंढ ढूंढना तक तना तब तरफ तरह तरीका ताकत ताकि तारा तीन तीनों तीसरा तीसरी तीसरे तुम तुम्हारा तुम्हारी तुम्हारे तुम्हें तेज तो तोड तोडना तौल तौलना त्वचा था थी थे थोडा थोडी थोडे दबा दबाना दम दवा दस दांत दाल दिख दिखना दिखाई दिखाना दिन दिया दिल दी दीजिए दुख दुनिया दूध दूर दूसरा दूसरी दूसरे दे देख देखना देखिए देना देने देर देश दो दोनों दोस्त दौड दौडना धकेलना धरती धीमा धीमी धीरे धूप ध्यान न नई नए नकली नतीजा नदी नया नये नरम नहीं ना नाक नाप नापना नाम निकल निकलना निकाल निकालना नीचा नीचे नुकसान ने नौ पकड पकडना पक्का पढ पढना पढा पढाना पतला पतली पतले पत्ता पत्तियां पत्ती पत्थर पन्ना पर परसों परिवार परीक्षा पल पहचान पहचानना पहला पहली पहले पहाड पहुंच पहुंचना पा पांच पांचवां पाना पानी पास पिछला पिछली पिछले पिता पी पीछे पीना पुराना पुरानी पुराने पूछ पूछना पूरा पूरी पूरे पेज पेट पेड पैर पौधा पौधे प्यार प्यारा प्रश्न फर्क फल फायदा फिर फूल फैल फैलना फैलाना बंद बच बचना बचाना बच्चा बच्ची बच्चे बडा बडी बडे बढ बढना बढाना बता बताइए बताना बदल बदलना बदलाव बन बनना बना बनाना बल्कि बस बहन बहुत बांट बांटना बाकी बात बाद बादल बार बारिश बाल बाहर बिना बिल्कुल बीच बीज बीमारी बीस बुरा बुरी बुरे बैठ बैठना बोल बोलना भर भरना भरा भरी भाई भाग भारी भाषा भी भेज भेजना मगर मजेदार मत मतलब मदद मरा मरी महीना मां मांस मान मानना मिट्टी मिनट मिल मिलना मिलाना मिसाल मुंह मुझको मुझे मुलायम मुश्किल में मेरा मेरी मेरे मेहनत मैं मोटा मोटी मोटे मौत यह यहां या याद यानी ये रंग रख रखना रखिए रफ्तार रह रहना रहने रहा रही रहे रात रास्ता रूप रोज रोजाना रोटी रोना रोशनी लंबा लंबाई लंबी लंबे लग लगना लगभग लगा लगाना लडका लडकी लम्बा लाख लिए लिख लिखना लिया लिये ली लीजिए ले लेकिन लेना लेने लोग वक्त वजन वजह वरना वर्ना वह वहां वाला वाली वाले विचार विद्यार्थी वे वैसा वैसी वैसे वो शरीर शहर शाम शायद शिक्षक शुरू सक सकता सकती सकते सकना सख्त सच सचमुच सपना सब सबसे सभी समझ समझना समझाना समझिए समय समुद्र सरल सर्दी सवाल सही सांस सात साथ साफ सामने सामान्य सारा सारी सारे साल सिकुड सिकुडना सिखाना सिर सिर्फ सीख सीखना सीधा सीधी सीधे सुंदर सुन सुनना सुनाई सुन्दर सुबह सूखा सूखी सूरज से सेहत सोच सोचना सोचिए सोना सौ स्कूल हंसना हजार हड्डियां हड्डी हफ्ता हम हमको हमारा हमारी हमारे हमें हमेशा हर हरेक हल्का हल्की हवा हां हाथ हिल हिलना हिलाना हिसाब हिस्सा ही हुआ हुई हुए है हैं हो होंगे होगा होगी होता होती होते होना होने",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v8\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.lesson-script/2\",\"sha256\":\"4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e\"},\"unit\":{\"unit_id\":\"v8\",\"title\":\"Neuron: message कहाँ से आता है और आगे कैसे जाता है?\",\"pages\":[7]},\"parts\":[{\"part_id\":\"c21.1\",\"item_ids\":[\"p007-i36\",\"p007-i37\",\"p007-i38\",\"p007-i39\",\"p007-i40\",\"p007-i41\",\"p007-i42\",\"p007-i43\",\"p007-i44\",\"p007-i45\",\"p007-i46\",\"p007-i47\",\"p007-i48\",\"p007-i49\"],\"type\":\"figure\",\"questions\":[\"what\",\"which\",\"how\",\"why\"],\"focus\":\"Neuron structure and transmission of impulses: teach these figure items through the figure pattern\"},{\"part_id\":\"c21.q\",\"item_ids\":[\"p007-i35\"],\"type\":\"none\",\"questions\":[\"how\",\"when\",\"why\"],\"focus\":\"Neuron structure and transmission of impulses: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p007-i36\",\"p007-i37\",\"p007-i38\",\"p007-i39\",\"p007-i40\",\"p007-i41\",\"p007-i42\",\"p007-i43\",\"p007-i44\",\"p007-i45\",\"p007-i46\",\"p007-i47\",\"p007-i48\",\"p007-i49\",\"p007-i35\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p007-i36\",\"figure\",\"7\",\"Two neurons are arranged from lower left to upper right. An axon of a previous neuron approaches…\"],[\"p007-i37\",\"figure\",\"7\",\"axon of previous neuron — points to the incoming process approaching the first neuron from the left.\"],[\"p007-i38\",\"figure\",\"7\",\"synapse — points to the circled contact region between the previous neuron's axon and the first…\"],[\"p007-i39\",\"figure\",\"7\",\"neuron cell body — points to the expanded orange central region of the first displayed neuron.\"],[\"p007-i40\",\"figure\",\"7\",\"nucleus — points to the dark oval within the first neuron's cell body.\"],[\"p007-i41\",\"figure\",\"7\",\"dendrites — points to the short branching processes extending from the first neuron's cell body.\"],[\"p007-i42\",\"figure\",\"7\",\"axon — points to the long process extending from the first neuron's cell body towards the next…\"],[\"p007-i43\",\"figure\",\"7\",\"electrical signal — names the blue directional arrows following the axon from the first neuron…\"],[\"p007-i44\",\"figure\",\"7\",\"axon tips — points to the terminal branches of the first neuron's axon near the next neuron.\"],[\"p007-i45\",\"figure\",\"7\",\"synapse — points to the circled junction between the first neuron's axon terminal and the next…\"],[\"p007-i46\",\"figure\",\"7\",\"neuron cell body — points to the expanded central region of the next neuron.\"],[\"p007-i47\",\"figure\",\"7\",\"nucleus — points to the dark oval within the next neuron's cell body.\"],[\"p007-i48\",\"figure\",\"7\",\"dendrites of next neuron — points to branching receiving processes of the next neuron.\"],[\"p007-i49\",\"figure\",\"7\",\"Directional arrows run along the axon from the lower-left neuron's cell-body region towards the…\"],[\"p007-i35\",\"process\",\"7\",\"How do neurons transmit impulses (send message to other cells)?\"],[\"c21\",\"process\",\"7\",\"Neuron structure and transmission of impulses\"],[\"c06\",\"figure\",\"2-3\",\"Animal-tissue classification and body overview\"]],\"before\":\"Cardiac muscle, 3 muscle types और attachment questions\",\"after\":\"Mitosis और meiosis: chromosome गिनती सही कैसे रखें?\"},\"source\":{\"block_ids\":[],\"page_images\":[]}}\n\nVideo v8: Neuron: message कहाँ से आता है और आगे कैसे जाता है?\nGoal: Result पहले रखेंगे: एक cell का message दूसरी cell तक पहुँचता है। फिर stimulus और cell-membrane electrical change को Outside clarification के रूप में सरल example से फिर खोलेंगे। Neuron figure में dendrites → cell body → axon → terminal का reading path रखेंगे और हर labelled part का काम बताएँगे। Typical chemical synapse में impulse का terminal तक पहुँचना, neurotransmitter release और अगली cell पर असर क्रम से पढ़ेंगे। Electrical travel और synapse के chemical step का फर्क, ज़रूरी conditions और किसी link में रुकावट का असर समझाएँगे। पूरा route तेज़ recap और arrow flow में फिर चलेगा।\nOpening hook: 2 cells के बीच छोटा gap हो, तो nerve message अगली cell तक कैसे पहुँचेगा?\nStory or analogy: Relay में message आगे देने का छोटा example signal handover समझाएगा। Neuron के अंदर membrane signal और synapse पर chemical messenger की अलग working तुरंत स्पष्ट करेंगे।\nPlanned minutes: 23\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis):\np007-i35 | 7 | question | process | How do neurons transmit impulses (send message to other cells)?\n  p007-i35#q1 | how | How does the diagram answer its introductory question? → It shows an electrical signal travelling along an axon towards its tips, which communicate with the next neuron at a synapse. | book\n  p007-i35#q2 | when | When does a neuron pass an impulse onwards? → When sufficient stimulation brings its membrane to threshold, an action potential is generated and travels along its axon. At a typical chemical synapse, arrival at the terminal triggers neurotransmitter release. | outside\n  p007-i35#q3 | how | How does the signal cross a typical chemical synapse? → Neurotransmitter released from the axon terminal diffuses across the synaptic cleft and binds receptors on the receiving cell, changing its activity. | outside\n  p007-i35#q4 | why | Why should the arrows not be interpreted as showing an axon physically merging with the next cell? → At a typical chemical synapse, the two cells remain separated by a small cleft; chemical signalling links their electrical activity. | outside\np007-i36 | 7 | diagram | figure | Two neurons are arranged from lower left to upper right. An axon of a previous neuron approaches the first neuron's receiving region at a circled synapse. The first neuron has dendrites, a cell body and a nucleus. Its axon extends rightwards and curves upwards; blue arrows labelled electrical signal point along it towards axon tips. The tips approach dendrites of the next neuron at another circled synapse. The next neuron's cell body and nucleus are labelled.\n  p007-i36#q1 | what | What relationship does the diagram show? → It shows successive neurons communicating: an incoming axon contacts one neuron, whose own axon carries a signal towards the next neuron. | book\n  p007-i36#q2 | which | Which labels establish the direction of the illustrated message? → 'Axon of previous neuron', 'electrical signal', 'axon tips' and 'dendrites of next neuron' establish the progression. | book\n  p007-i36#q3 | how | How should the diagram be traced? → Begin at the previous neuron's axon on the left, follow its contact with the first neuron, then follow the first neuron's axon and blue arrows to its tips near the next neuron. | book\n  p007-i36#q4 | why | Why does the diagram use a long axon and branched receiving regions? → An axon conducts output away from the cell body, while dendritic branches provide sites for receiving signals from other cells. | outside\np007-i37 | 7 | diagram_label | figure | axon of previous neuron — points to the incoming process approaching the first neuron from the left.\n  p007-i37#q1 | what | What is the incoming process labelled? → It is the axon of a previous neuron. | book\n  p007-i37#q2 | which | Which neuron sends the incoming message represented at the left? → A previous neuron, whose cell body is outside the main illustrated sequence. | book\n  p007-i37#q3 | how | How does this axon relate to the first displayed neuron? → It brings output from the previous neuron to a synaptic contact with the displayed neuron's receiving region. | outside\np007-i38 | 7 | diagram_label | figure | synapse — points to the circled contact region between the previous neuron's axon and the first displayed neuron.\n  p007-i38#q1 | what | What does the lower-left Synapse label identify? → It identifies the contact region where the previous neuron's axon approaches the first neuron. | book\n  p007-i38#q2 | which | Which two successive neurons communicate at this site? → The previous neuron and the first fully displayed neuron. | book\n  p007-i38#q3 | how | How is communication typically achieved at this contact? → At a chemical synapse, the sending axon terminal releases neurotransmitter, which acts on receptors of the receiving cell. | outside\np007-i39 | 7 | diagram_label | figure | neuron cell body — points to the expanded orange central region of the first displayed neuron.\n  p007-i39#q1 | what | What region does this label identify? → The expanded cell body of the first displayed neuron. | book\n  p007-i39#q2 | which | Which labelled structure lies inside this cell body? → The nucleus lies within it. | book\n  p007-i39#q3 | how | How does the cell body support the neuron? → It contains the nucleus and much of the machinery needed for metabolism and protein synthesis, and participates in integrating incoming signals. | outside\np007-i40 | 7 | diagram_label | figure | nucleus — points to the dark oval within the first neuron's cell body.\n  p007-i40#q1 | what | What is the dark oval in the first cell body? → It is the labelled nucleus. | book\n  p007-i40#q2 | which | Which main neuron region contains it in this diagram? → The cell body contains it. | book\n  p007-i40#q3 | how | How does the nucleus contribute to neuronal maintenance? → Its genetic material directs production of proteins needed for the neuron's structure, metabolism and signalling machinery. | outside\np007-i41 | 7 | diagram_label | figure | dendrites — points to the short branching processes extending from the first neuron's cell body.\n  p007-i41#q1 | what | What are the short branches labelled beneath the first neuron? → They are dendrites. | book\n  p007-i41#q2 | which | Which illustrated processes differ from the long outgoing axon? → The shorter branching dendrites arise around the cell body. | book\n  p007-i41#q3 | how | How do dendrites contribute to communication? → They receive many incoming signals and conduct resulting electrical changes towards the cell body. | outside\n  p007-i41#q4 | why | Why is branching useful for this role? → Branching increases the surface available for contacts with other neurons. | outside\np007-i42 | 7 | diagram_label | figure | axon — points to the long process extending from the first neuron's cell body towards the next neuron.\n  p007-i42#q1 | what | What does the Axon label identify? → It identifies the long curved process connecting the first neuron's cell-body region to its terminal branches near the next neuron. | book\n  p007-i42#q2 | which | Which labelled structure carries the illustrated electrical signal? → The axon carries the signal shown by the blue arrows. | book\n  p007-i42#q3 | how | How does an electrical impulse travel along an axon? → Changes in membrane permeability allow ions to move across successive regions of the membrane, propagating an action potential along the axon. | outside\np007-i43 | 7 | diagram_label | figure | electrical signal — names the blue directional arrows following the axon from the first neuron towards the next neuron.\n  p007-i43#q1 | what | What do the blue arrows represent? → They represent an electrical signal travelling along the axon. | book\n  p007-i43#q2 | which | Which direction do they show? → They point away from the first neuron's cell body and towards its axon tips near the next neuron. | book\n  p007-i43#q3 | how | How should 'electrical signal' be understood biologically? → It is a travelling change in voltage across the cell membrane produced by controlled movement of ions. | outside\np007-i44 | 7 | diagram_label | figure | axon tips — points to the terminal branches of the first neuron's axon near the next neuron.\n  p007-i44#q1 | what | What does Axon tips identify? → It identifies terminal branches at the end of the first neuron's axon. | book\n  p007-i44#q2 | which | Which neuron's receiving region lies near these tips? → The dendrites of the next neuron lie near them. | book\n  p007-i44#q3 | how | How do axon tips pass a message at a typical chemical synapse? → Arrival of an impulse triggers neurotransmitter release from terminal vesicles, allowing the signal to influence the receiving cell. | outside\np007-i45 | 7 | diagram_label | figure | synapse — points to the circled junction between the first neuron's axon terminal and the next neuron's receiving process.\n  p007-i45#q1 | what | What does the upper Synapse label mark? → It marks the junction where the first displayed neuron communicates with the next neuron. | book\n  p007-i45#q2 | which | Which labelled parts meet at this communication region? → The sending neuron's axon-tip region and a receiving process of the next neuron. | book\n  p007-i45#q3 | how | How does this second synapse extend the sequence? → It allows output from the first displayed neuron to influence the next neuron, continuing communication through successive cells. | outside\np007-i46 | 7 | diagram_label | figure | neuron cell body — points to the expanded central region of the next neuron.\n  p007-i46#q1 | what | What does the upper Neuron cell body label identify? → The expanded central region of the next neuron. | book\n  p007-i46#q2 | which | Which repeated features show that this is another neuron? → It has a labelled cell body, an internal nucleus and branching processes. | book\n  p007-i46#q3 | how | How can this neuron become the next sender in a pathway? → Its incoming signals may bring it to threshold, initiating an impulse in its own axon that carries output onwards. | outside\np007-i47 | 7 | diagram_label | figure | nucleus — points to the dark oval within the next neuron's cell body.\n  p007-i47#q1 | what | What is the dark structure inside the next neuron's cell body? → It is the labelled nucleus. | book\n  p007-i47#q2 | which | Which other neuron in the diagram has the same labelled component? → The first fully displayed neuron also has a labelled nucleus in its cell body. | book\n  p007-i47#q3 | why | Why should the nucleus not be treated as the point through which the impulse must pass? → Nerve impulses depend on electrical changes across the cell membrane. The nucleus primarily supports genetic regulation and cellular maintenance. | outside\np007-i48 | 7 | diagram_label | figure | dendrites of next neuron — points to branching receiving processes of the next neuron.\n  p007-i48#q1 | what | What does this label identify? → It identifies dendrites belonging to the next neuron in the illustrated sequence. | book\n  p007-i48#q2 | which | Which sending structure is shown approaching this neuron's receiving region? → The axon tips of the preceding displayed neuron. | book\n  p007-i48#q3 | how | How does this label complete the message sequence? → It identifies the receiving side after the signal has travelled along the preceding neuron's axon. | book\np007-i49 | 7 | other | figure | Directional arrows run along the axon from the lower-left neuron's cell-body region towards the terminal region beside the upper-right neuron.\n  p007-i49#q1 | what | What additional information is supplied by the arrows? → They establish the illustrated direction of signal travel along the axon. | book\n  p007-i49#q2 | which | Which neuron sends the signal represented by these arrows? → The lower-left neuron sends it towards the upper-right neuron. | book\n  p007-i49#q3 | how | How do the arrows help distinguish axonal conduction from synaptic transfer? → They show travel along the axon, while the separately circled synapses mark communication between different cells. | book"
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792747415.3329442,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "a090f6d48b31905bf363199da0d763a0796ae7c1c18aa23d8d3e47802914dbf8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 22768,
+    "output_tokens": 7573,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video reads the neuron figure from the incoming axon to the next neuron and explains how electrical signalling within a neuron connects with chemical signalling between neurons.",
+    "key_questions": [
+     "How do the labelled parts establish the direction of communication?",
+     "How do dendrites, the cell body, nucleus, axon and axon tips contribute?",
+     "When does an incoming signal produce an action potential?",
+     "How does a typical chemical synapse transfer a message without joining the cells?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach stimulus, membrane voltage and threshold before tracing the figure.",
+      "reason": "These prerequisites make electrical signal and onward transmission understandable."
+     },
+     {
+      "decision": "Follow the figure from lower left to upper right, explaining function beside each label.",
+      "reason": "A consistent reading path connects anatomy with message direction."
+     },
+     {
+      "decision": "Mark physiology beyond the labels as outside clarification and limit synaptic explanations to a typical chemical synapse.",
+      "reason": "The diagram establishes the route but does not itself supply the detailed mechanism."
+     },
+     {
+      "decision": "Answer the transmission question after the figure, followed by a brief flow recap.",
+      "reason": "The student can construct an explained answer from the labelled route."
+     }
+    ],
+    "uncertain": [
+     "No page image is attached; visual directions follow the supplied figure description.",
+     "The source identifies the transmission question but supplies no exam name or year, so no PYQ attribution is asserted."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This video reads the neuron figure from the incoming axon to the next neuron and explains how electrical signalling within a neuron connects with chemical signalling between neurons.",
+     "key_questions": [
+      "How do the labelled parts establish the direction of communication?",
+      "How do dendrites, the cell body, nucleus, axon and axon tips contribute?",
+      "When does an incoming signal produce an action potential?",
+      "How does a typical chemical synapse transfer a message without joining the cells?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach stimulus, membrane voltage and threshold before tracing the figure.",
+       "reason": "These prerequisites make electrical signal and onward transmission understandable."
+      },
+      {
+       "decision": "Follow the figure from lower left to upper right, explaining function beside each label.",
+       "reason": "A consistent reading path connects anatomy with message direction."
+      },
+      {
+       "decision": "Mark physiology beyond the labels as outside clarification and limit synaptic explanations to a typical chemical synapse.",
+       "reason": "The diagram establishes the route but does not itself supply the detailed mechanism."
+      },
+      {
+       "decision": "Answer the transmission question after the figure, followed by a brief flow recap.",
+       "reason": "The student can construct an explained answer from the labelled route."
+      }
+     ],
+     "uncertain": [
+      "No page image is attached; visual directions follow the supplied figure description.",
+      "The source identifies the transmission question but supplies no exam name or year, so no PYQ attribution is asserted."
+     ]
+    },
+    "title": "Neuron: message कहां से आता है और आगे कैसे जाता है?",
+    "parts": [
+     {
+      "part_id": "c21.1",
+      "frame": {
+       "process": "Successive neurons communicate through receiving regions, axonal electrical conduction and synaptic transfer.",
+       "how": "Read the figure from the previous neuron's axon through the first neuron's receiving region, cell body, axon and tips to the next neuron; distinguish membrane signalling from chemical transfer.",
+       "when": "Follow the illustrated spatial route first. Physiologically, sufficient stimulation initiates an action potential, and its arrival at a typical chemical terminal triggers transmitter release.",
+       "conditions": "Axonal propagation requires functioning membrane signalling; chemical transfer requires transmitter release and suitable receiving receptors. Receiving input does not guarantee a new action potential.",
+       "atmosphere": "A close view of connected nerve cells, with two displayed neurons arranged from lower left to upper right and synaptic regions circled."
+      }
+     },
+     {
+      "part_id": "c21.q",
+      "frame": {
+       "process": "Build an exam answer explaining how neurons transmit impulses to other cells.",
+       "how": "Connect the labelled electrical route with threshold, terminal release, diffusion across the cleft and receptor action.",
+       "when": "Answer after the figure has been read; distinguish impulse initiation, axonal travel and terminal arrival in that order.",
+       "conditions": "Explain typical chemical synapses explicitly and avoid claiming that every input produces another impulse or that adjacent neurons merge.",
+       "atmosphere": "An exam question beside a simplified arrow flow, with the student explaining each link."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक neuron का message दूसरी cell तक पहुंचता है। लेकिन दोनों cells के बीच छोटा gap हो, तो message आगे कैसे जाएगा? आज इसी सवाल को figure में रास्ता देखकर समझेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two separate neuron outlines with a small gap; highlight the question of message transfer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले stimulus समझिए। कोई ऐसा बदलाव जो cell पर असर डाल सकता है, stimulus कहलाता है। जैसे त्वचा को छूने से sensory system में signal की शुरुआत (start) हो सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: touch at the skin → sensory input. Define stimulus as a change capable of affecting a cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell membrane, cell के अंदर और बाहर को अलग रखने वाली पतली boundary है। इसके दोनों तरफ electrical voltage में फर्क हो सकता है। Ions, यानी electric charge वाले particles, membrane के पार चलते हैं तो यह voltage बदल सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: membrane separating inside and outside; charged ions cross through membrane channels; voltage indicator changes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक छोटा input अपने आप पूरा nerve impulse नहीं बना देता। Membrane का बदलाव threshold, यानी जरूरी level तक पहुंचे, तब action potential शुरू हो सकता है। Action potential membrane voltage का ऐसा बदलाव है जो axon के साथ आगे चलता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: input below threshold versus input reaching threshold; only the latter initiates an action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c21.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "अब पूरा figure देखिए। नीचे बाईं तरफ एक neuron और ऊपर दाईं तरफ अगला neuron दिखाया गया है। पिछले neuron का axon भी बाईं तरफ से आता है; इसलिए यह figure कई neurons के बीच message आगे जाने का रास्ता दिखाता है।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q1"
+      ],
+      "on_screen": "Full described figure: previous axon enters from left; first displayed neuron lower left; next neuron upper right.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c21.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "इस figure को पढ़ने का रास्ता तय कर लीजिए। पहले axon of previous neuron, फिर उसका synapse और पहले neuron का receiving हिस्सा देखेंगे। उसके बाद cell body से axon के blue arrows के साथ axon tips और अगले neuron तक जाएंगे।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q2",
+       "p007-i36#q3"
+      ],
+      "on_screen": "Preview reading path using highlights: incoming axon → first synapse → receiving region → cell body → axon → tips → next dendrites.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सबसे बाईं तरफ label है axon of previous neuron। यह पिछले neuron का axon है; उस neuron का cell body यहां नहीं दिखाया गया। यह axon पिछले neuron का output पहले दिख रहे neuron के receiving हिस्से तक लाता है।",
+      "covers_item_ids": [
+       "p007-i37"
+      ],
+      "answers": [
+       "p007-i37#q1",
+       "p007-i37#q2",
+       "p007-i37#q3"
+      ],
+      "on_screen": "Highlight incoming process and exact label 'axon of previous neuron'; show its cell body outside the illustrated area.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब नीचे बाईं तरफ circle में synapse देखिए। यहां previous neuron का axon, पहले पूरे दिख रहे neuron के receiving हिस्से के पास आता है। यह इन 2 neurons के बीच communication की जगह है।",
+      "covers_item_ids": [
+       "p007-i38"
+      ],
+      "answers": [
+       "p007-i38#q1",
+       "p007-i38#q2"
+      ],
+      "on_screen": "Highlight lower-left circled synapse; identify previous neuron as sender and first fully displayed neuron as receiver.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस synapse की working के लिए outside clarification लेते हैं। Typical chemical synapse में भेजने वाला axon terminal, neurotransmitter नाम का chemical messenger छोड़ता है। यह receiving cell के receptors पर असर डालता है; receptors ऐसे proteins हैं जिनसे सही messenger जुड़ सकता है।",
+      "covers_item_ids": [
+       "p007-i38"
+      ],
+      "answers": [
+       "p007-i38#q3"
+      ],
+      "on_screen": "Outside clarification inset: sending terminal releases neurotransmitter; messenger binds a matching receptor on a separate receiving membrane.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पहले neuron के छोटे-छोटे branching हिस्सों पर आइए। ये dendrites हैं, जो cell body के पास से निकलते हैं। लंबे बाहर जाने वाले axon से इनकी पहचान अलग है: यहां कई छोटी branches दिख रही हैं।",
+      "covers_item_ids": [
+       "p007-i41"
+      ],
+      "answers": [
+       "p007-i41#q1",
+       "p007-i41#q2"
+      ],
+      "on_screen": "Highlight 'dendrites' and trace their short branches; briefly outline the long axon for comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Dendrites कई incoming signals लेते हैं और उनसे बने electrical changes को cell body की तरफ लाते हैं। Branches होने से दूसरे neurons के साथ contact के लिए ज्यादा जगह मिलती है। इसलिए इनकी branching और receiving काम को साथ समझिए।",
+      "covers_item_ids": [
+       "p007-i41"
+      ],
+      "answers": [
+       "p007-i41#q3",
+       "p007-i41#q4"
+      ],
+      "on_screen": "Outside clarification: multiple contact sites across dendritic branches; local electrical changes move toward the cell body.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब बीच का फैला हुआ orange हिस्सा देखिए। इसका label neuron cell body है। इसी cell body के अंदर nucleus दिखाया गया है।",
+      "covers_item_ids": [
+       "p007-i39"
+      ],
+      "answers": [
+       "p007-i39#q1",
+       "p007-i39#q2"
+      ],
+      "on_screen": "Highlight the first neuron's orange cell body, then the nucleus within it.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cell body, neuron को जिंदा रखने वाले बहुत से काम करता है। इसमें metabolism, यानी cell के अंदर होने वाली chemical reactions, और protein synthesis, यानी proteins बनाने की machinery का बड़ा हिस्सा होता है। यह incoming signals को साथ लेकर उनके मिले हुए असर में भी हिस्सा लेता है।",
+      "covers_item_ids": [
+       "p007-i39"
+      ],
+      "answers": [
+       "p007-i39#q3"
+      ],
+      "on_screen": "Outside clarification: cell body supports metabolism and protein synthesis; several incoming signal effects converge toward the cell-body region.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cell body के अंदर का गहरा oval, nucleus है। इसके genetic material की मदद से cell जरूरी proteins बनाता है। यही proteins neuron का आकार बनाए रखने, metabolism और signalling machinery के काम आते हैं।",
+      "covers_item_ids": [
+       "p007-i40"
+      ],
+      "answers": [
+       "p007-i40#q1",
+       "p007-i40#q2",
+       "p007-i40#q3"
+      ],
+      "on_screen": "Highlight 'nucleus' inside the first cell body; outside clarification inset: genetic material → protein production → maintenance and signalling machinery.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब cell body वाले हिस्से से निकलता लंबा, मुड़ा हुआ हिस्सा देखिए। यह axon है। इसी पर blue arrows बने हैं, जो electrical signal को axon tips की तरफ जाते दिखाते हैं।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q1",
+       "p007-i42#q2"
+      ],
+      "on_screen": "Trace the long curved process labelled 'axon' from the first cell-body region toward terminal branches.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Axon के साथ impulse कैसे चलता है? Outside clarification में membrane के एक छोटे हिस्से को देखिए: उसकी permeability बदलती है, यानी ions के पार जाने की आसानी बदलती है। Ions की movement से voltage बदलता है और पास वाले membrane हिस्से में ऐसा बदलाव शुरू होता है।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q3"
+      ],
+      "on_screen": "Outside clarification: sequential membrane segments activate as ion permeability and membrane voltage change; label travelling action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस तरह membrane के अगले-से-अगले हिस्से में बदलाव होता जाता है। यही action potential का axon के साथ आगे चलना है। अगर किसी जगह यह membrane mechanism काम न करे, तो impulse का आगे पहुंचना रुक सकता है।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q3"
+      ],
+      "on_screen": "Outside clarification: travelling activation proceeds along an intact axon; a nonfunctioning membrane segment interrupts propagation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Blue arrows का label electrical signal है। ये पहले neuron के cell body से दूर, उसके axon tips की तरफ इशारा करते हैं। Biology में यह signal membrane के आर-पार voltage का चलता हुआ बदलाव है, जो ions की controlled movement से बनता है।",
+      "covers_item_ids": [
+       "p007-i43"
+      ],
+      "answers": [
+       "p007-i43#q1",
+       "p007-i43#q2",
+       "p007-i43#q3"
+      ],
+      "on_screen": "Highlight 'electrical signal' and blue arrowheads; outside clarification inset shows voltage change across the membrane.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब दोनों shapes का काम जोड़िए। Dendrites की branches incoming signals लेने की जगह बढ़ाती हैं। लंबा axon, cell body से दूर output ले जाता है; इसलिए receiving branches और outgoing axon का आकार अलग दिख रहा है।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q4"
+      ],
+      "on_screen": "Outside clarification: branching receiving region versus long outgoing axon, each linked to its function.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Axon के आखिर की branches पर label है axon tips। ये पहले दिख रहे neuron के axon के terminal हिस्से हैं। इनके पास अगले neuron की dendrites हैं, यानी यहां message आगे देने की जगह आती है।",
+      "covers_item_ids": [
+       "p007-i44"
+      ],
+      "answers": [
+       "p007-i44#q1",
+       "p007-i44#q2"
+      ],
+      "on_screen": "Highlight axon tips at the end of the first neuron's axon and the next neuron's nearby dendrites.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Typical chemical synapse में impulse terminal तक पहुंचता है, तब neurotransmitter release शुरू होता है। Terminal में छोटी vesicles होती हैं, यानी membrane से बने छोटे sacs, जिनमें neurotransmitter रखा होता है। इनसे निकला messenger receiving cell पर असर डाल सकता है।",
+      "covers_item_ids": [
+       "p007-i44"
+      ],
+      "answers": [
+       "p007-i44#q3"
+      ],
+      "on_screen": "Outside clarification: action potential arrives at a terminal; neurotransmitter-containing vesicles release messenger into the gap.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब ऊपर वाला circled synapse देखिए। यह पहले पूरे दिख रहे neuron के axon tips और अगले neuron के receiving हिस्से के बीच communication की जगह है। नीचे वाला synapse इस neuron तक input लाया था; ऊपर वाला उसका output अगले neuron तक पहुंचाने की जगह दिखाता है।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q1",
+       "p007-i45#q2",
+       "p007-i45#q3"
+      ],
+      "on_screen": "Highlight upper circled synapse, then compare the two circled locations as incoming and outgoing communication sites for the first displayed neuron.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस ऊपर वाले synapse को बड़ा करके देखिए। Typical chemical synapse में sending terminal और receiving cell के बीच छोटा gap रहता है, जिसे synaptic cleft कहते हैं। Neurotransmitter इस gap में diffusion से फैलकर receiving membrane तक पहुंचता है।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q3"
+      ],
+      "on_screen": "Outside clarification: enlarged chemical synapse with clearly separate membranes, synaptic cleft and neurotransmitter diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Receiving membrane पर सही receptors हों, तो neurotransmitter उनसे जुड़ता है और cell की activity बदल सकती है। अगर transmitter release न हो, या सही receptor काम न करे, तो इस रास्ते से message का असर आगे नहीं पहुंचेगा। इसलिए terminal तक impulse पहुंचना और receiving cell पर असर होना, दोनों अलग links हैं।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q3"
+      ],
+      "on_screen": "Outside clarification: release → diffusion → receptor binding → receiving-cell effect; show interruption at release or receptor failure.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "analogy",
+      "say": "इसे relay में message आगे देने जैसा सोच सकते हैं। एक तरफ message आता है, फिर अगला उसे लेकर आगे काम करता है। यहां handover की असली working याद रखिए: axon में electrical signal और typical chemical synapse में neurotransmitter।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [],
+      "on_screen": "Brief relay handover analogy, then return immediately to electrical axonal travel → chemical synaptic transfer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब label dendrites of next neuron पढ़िए। ये अगले neuron की receiving branches हैं। पहले neuron के axon tips इनके पास आते हैं; इसलिए axon वाला रास्ता पूरा करने के बाद हम अगले neuron के receiving हिस्से पर पहुंचे हैं।",
+      "covers_item_ids": [
+       "p007-i48"
+      ],
+      "answers": [
+       "p007-i48#q1",
+       "p007-i48#q2",
+       "p007-i48#q3"
+      ],
+      "on_screen": "Highlight 'dendrites of next neuron' and the preceding neuron's approaching axon tips.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ऊपर दाईं तरफ फैला हुआ हिस्सा अगले neuron का neuron cell body है। इसमें भी nucleus और बाहर branching हिस्से दिखते हैं। Cell body, अंदर nucleus और बाहर branches का फिर दिखना बताता है कि यह दूसरा neuron है।",
+      "covers_item_ids": [
+       "p007-i46"
+      ],
+      "answers": [
+       "p007-i46#q1",
+       "p007-i46#q2"
+      ],
+      "on_screen": "Highlight the next neuron's cell body, nucleus and branching processes; compare these repeated features with the first neuron.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "क्या यह अगला neuron भी sender बन सकता है? हां, अगर incoming signals का मिला हुआ असर उसकी membrane को threshold तक ले जाए। तब उसके अपने axon में नया action potential शुरू होकर आगे जा सकता है; हर incoming message से ऐसा होना जरूरी नहीं है।",
+      "covers_item_ids": [
+       "p007-i46"
+      ],
+      "answers": [
+       "p007-i46#q3"
+      ],
+      "on_screen": "Outside clarification: incoming effects → threshold reached → new action potential in the next neuron's own axon; below-threshold case produces no new action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगले neuron के cell body के अंदर गहरा oval भी nucleus है। पहले neuron के cell body में भी यही labelled हिस्सा था। दोनों में nucleus cell body के अंदर दिखाया गया है।",
+      "covers_item_ids": [
+       "p007-i47"
+      ],
+      "answers": [
+       "p007-i47#q1",
+       "p007-i47#q2"
+      ],
+      "on_screen": "Highlight the next neuron's nucleus, then both labelled nuclei within their respective cell bodies.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "लेकिन message का रास्ता nucleus के अंदर से बनाकर मत पढ़िए। Nerve impulse membrane के electrical changes पर चलता है। Nucleus का मुख्य (main) काम genetic control और cell को काम करने लायक बनाए रखने में मदद करना है।",
+      "covers_item_ids": [
+       "p007-i47"
+      ],
+      "answers": [
+       "p007-i47#q3"
+      ],
+      "on_screen": "Outside clarification: remove an incorrect route through the nucleus; highlight membrane signalling and nucleus-supported cellular maintenance separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिर में blue arrows को फिर देखिए। ये नीचे बाईं तरफ के neuron से ऊपर दाईं तरफ वाले neuron की ओर, axon के साथ signal जाने की दिशा (direction) बताते हैं। Axon पर arrows, एक cell के अंदर conduction दिखाते हैं; अलग circles, cells के बीच synapse वाली communication की जगह बताते हैं।",
+      "covers_item_ids": [
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i49#q1",
+       "p007-i49#q2",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Trace blue arrows along the first axon; contrast the axonal route with both separately circled synapses.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c21.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "इस figure की 1 सबसे जरूरी बात याद रखिए: incoming axon से message आता है और पहले neuron का axon उसे अगले receiving हिस्से की तरफ ले जाता है। Labels का रास्ता बोलिए: axon of previous neuron, synapse, पहले neuron का receiving हिस्सा। फिर उसके axon के electrical signal वाले arrows, axon tips और dendrites of next neuron।",
+      "covers_item_ids": [
+       "p007-i36",
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i36#q2",
+       "p007-i36#q3",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Single labelled route across the complete figure; pause separately on axonal arrows and synaptic circles.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c21.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "अब figure को किताब के सवाल से जोड़िए: How do neurons transmit impulses? इसका दिखाया हुआ जवाब है कि electrical signal axon के साथ tips तक जाता है। वहां synapse पर अगले neuron से communication होता है; इसलिए figure के labels मिलकर पूरे सवाल का रास्ता बताते हैं।",
+      "covers_item_ids": [
+       "p007-i36",
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i36#q1",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Place the source question beside the figure; connect electrical signal, axon tips and next-neuron receiving region with highlights.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब सवाल का सीधा exam answer बनाइए। Neuron में electrical impulse axon के साथ axon tips तक जाता है। Axon tips अगले neuron के साथ synapse पर communicate करते हैं; figure में blue arrows और circled synapse इसी जवाब का आधार (basis) हैं।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q1"
+      ],
+      "on_screen": "Exam answer from the figure: electrical signal along axon → axon tips → synaptic communication with next neuron.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर सवाल पूछे कि neuron impulse आगे कब भेजता है, तो threshold जोड़िए। Enough stimulation से membrane threshold तक पहुंचे, तब action potential शुरू होकर axon के साथ चलता है। Typical chemical synapse में उसके terminal तक पहुंचने पर neurotransmitter release शुरू होता है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q2"
+      ],
+      "on_screen": "Outside clarification for the answer: sufficient stimulation → threshold → action potential → axon terminal arrival → neurotransmitter release.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Typical chemical synapse को पार करने का क्रम (sequence) भी साफ बोलिए। Axon terminal से neurotransmitter निकलता है, synaptic cleft में diffusion से फैलता है और receiving cell के receptors से जुड़ता है। इससे receiving cell की activity बदलती है; नया action potential बनेगा या नहीं, यह उसके threshold तक पहुंचने पर भी निर्भर (dependent) है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q3"
+      ],
+      "on_screen": "Outside clarification: release → diffusion across cleft → receptor binding → changed receiving-cell activity; new impulse is conditional.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Arrows देखकर यह मत लिखिए कि पहले neuron का axon अगले neuron में मिलकर 1 cell बन जाता है। Typical chemical synapse में दोनों cells अलग रहती हैं और बीच में synaptic cleft होता है। Chemical messenger इस gap के पार असर पहुंचाकर उनकी electrical activity को जोड़ता है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q4"
+      ],
+      "on_screen": "Outside clarification: two separate cell membranes with a cleft; cross out fusion of the two neurons.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद बताइए: terminal तक impulse आ गया, लेकिन neurotransmitter release नहीं हुआ, तो क्या इस chemical synapse से असर आगे पहुंचेगा? नहीं, इस रास्ते की chemical कड़ी (link) रुक गई। और neurotransmitter पहुंच भी जाए, तो अगला neuron नया impulse तभी बनाएगा जब जरूरी threshold तक पहुंचे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Pause on a terminal with failed transmitter release; then show a separate receiving neuron whose input remains below threshold.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरा रास्ता अब तेजी से देखिए: previous neuron का axon, synapse और पहले neuron की receiving branches। Incoming signals का असर threshold तक पहुंचे, तो action potential उसके axon से terminal तक जाता है। Typical chemical synapse पर neurotransmitter निकलकर gap पार करता है, receptors पर असर डालता है और अगले neuron तक communication पहुंचता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Full animated run: previous axon → synapse → receiving region → threshold → axonal action potential → terminal release → cleft → receptors on next neuron.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अपने मन में छोटा flow रखिए: receive, threshold, axon में electrical signal, terminal पर release और अगले cell पर असर। Dendrites receiving में, cell body support और incoming signals के मिले हुए असर में, और nucleus cell को बनाए रखने में मदद करता है। इसी flow से figure भी पढ़ पाएंगे और impulse transmission का जवाब भी समझाकर दे पाएंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Final flow with supporting labels: receive → threshold → electrical axonal travel → chemical synaptic transfer → receiving-cell effect; cell body and nucleus shown in supporting roles.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b2: the Hindi words ['कहलाता'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b3: the Hindi words ['पार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b5: the Hindi words ['बाईं', 'दाईं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b6: the Hindi words ['तय'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: the Hindi words ['बाईं', 'लाता'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b8: the Hindi words ['बाईं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b9: the Hindi words ['जिनसे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b10: the Hindi words ['आइए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b11: the Hindi words ['उनसे', 'लाते'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b13: the Hindi words ['इसमें'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['मुड़ा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['पार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17: the Hindi words ['रुक'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b18: the Hindi words ['इशारा', 'आर', 'पार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b20: the Hindi words ['आखिर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b21: the Hindi words ['जिनमें', 'इनसे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b22: the Hindi words ['लाया', 'पहुंचाने'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: the Hindi words ['करके', 'जिसे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b24: the Hindi words ['हों', 'उनसे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b27: the Hindi words ['दाईं', 'इसमें'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b30: the Hindi words ['लायक'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b31: the Hindi words ['आखिर', 'बाईं', 'दाईं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b36: the Hindi words ['पार', 'इससे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b37: the Hindi words ['पार', 'पहुंचाकर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b38: the Hindi words ['रुक', 'तभी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b39: the Hindi words ['पार'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b40: the Hindi words ['मन'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.46,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 13.1,
+     "planned_minutes": 23
+    }
+   },
+   "passed": false,
+   "finished_at": 1792747631.336203
+  },
+  {
+   "round": 2,
+   "started_at": 1792747631.3363917,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch corrects the Hindi vocabulary flagged by BIE while preserving the teaching sequence, explanations and coverage.",
+     "key_questions": [
+      "Does each flagged Hindi word now have an immediate English gloss?"
+     ],
+     "decisions": [
+      {
+       "decision": "Add English glosses immediately after the flagged words.",
+       "reason": "This satisfies S2-04 while retaining the existing spoken script and its meaning."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले stimulus समझिए। कोई ऐसा बदलाव जो cell पर असर डाल सकता है, stimulus कहलाता (is called) है। जैसे त्वचा को छूने से sensory system में signal की शुरुआत (start) हो सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: touch at the skin → sensory input. Define stimulus as a change capable of affecting a cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell membrane, cell के अंदर और बाहर को अलग रखने वाली पतली boundary है। इसके दोनों तरफ electrical voltage में फर्क हो सकता है। Ions, यानी electric charge वाले particles, membrane के पार (across) चलते हैं तो यह voltage बदल सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: membrane separating inside and outside; charged ions cross through membrane channels; voltage indicator changes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c21.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "अब पूरा figure देखिए। नीचे बाईं (left) तरफ एक neuron और ऊपर दाईं (right) तरफ अगला neuron दिखाया गया है। पिछले neuron का axon भी बाईं (left) तरफ से आता है; इसलिए यह figure कई neurons के बीच message आगे जाने का रास्ता दिखाता है।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q1"
+      ],
+      "on_screen": "Full described figure: previous axon enters from left; first displayed neuron lower left; next neuron upper right.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c21.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "इस figure को पढ़ने का रास्ता तय (set) कर लीजिए। पहले axon of previous neuron, फिर उसका synapse और पहले neuron का receiving हिस्सा देखेंगे। उसके बाद cell body से axon के blue arrows के साथ axon tips और अगले neuron तक जाएंगे।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q2",
+       "p007-i36#q3"
+      ],
+      "on_screen": "Preview reading path using highlights: incoming axon → first synapse → receiving region → cell body → axon → tips → next dendrites.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सबसे बाईं (left) तरफ label है axon of previous neuron। यह पिछले neuron का axon है; उस neuron का cell body यहां नहीं दिखाया गया। यह axon पिछले neuron का output पहले दिख रहे neuron के receiving हिस्से तक लाता (brings) है।",
+      "covers_item_ids": [
+       "p007-i37"
+      ],
+      "answers": [
+       "p007-i37#q1",
+       "p007-i37#q2",
+       "p007-i37#q3"
+      ],
+      "on_screen": "Highlight incoming process and exact label 'axon of previous neuron'; show its cell body outside the illustrated area.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब नीचे बाईं (left) तरफ circle में synapse देखिए। यहां previous neuron का axon, पहले पूरे दिख रहे neuron के receiving हिस्से के पास आता है। यह इन 2 neurons के बीच communication की जगह है।",
+      "covers_item_ids": [
+       "p007-i38"
+      ],
+      "answers": [
+       "p007-i38#q1",
+       "p007-i38#q2"
+      ],
+      "on_screen": "Highlight lower-left circled synapse; identify previous neuron as sender and first fully displayed neuron as receiver.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस synapse की working के लिए outside clarification लेते हैं। Typical chemical synapse में भेजने वाला axon terminal, neurotransmitter नाम का chemical messenger छोड़ता है। यह receiving cell के receptors पर असर डालता है; receptors ऐसे proteins हैं जिनसे (to which) सही messenger जुड़ सकता है।",
+      "covers_item_ids": [
+       "p007-i38"
+      ],
+      "answers": [
+       "p007-i38#q3"
+      ],
+      "on_screen": "Outside clarification inset: sending terminal releases neurotransmitter; messenger binds a matching receptor on a separate receiving membrane.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पहले neuron के छोटे-छोटे branching हिस्सों पर आइए (come)। ये dendrites हैं, जो cell body के पास से निकलते हैं। लंबे बाहर जाने वाले axon से इनकी पहचान अलग है: यहां कई छोटी branches दिख रही हैं।",
+      "covers_item_ids": [
+       "p007-i41"
+      ],
+      "answers": [
+       "p007-i41#q1",
+       "p007-i41#q2"
+      ],
+      "on_screen": "Highlight 'dendrites' and trace their short branches; briefly outline the long axon for comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Dendrites कई incoming signals लेते हैं और उनसे (from them) बने electrical changes को cell body की तरफ लाते (bring) हैं। Branches होने से दूसरे neurons के साथ contact के लिए ज्यादा जगह मिलती है। इसलिए इनकी branching और receiving काम को साथ समझिए।",
+      "covers_item_ids": [
+       "p007-i41"
+      ],
+      "answers": [
+       "p007-i41#q3",
+       "p007-i41#q4"
+      ],
+      "on_screen": "Outside clarification: multiple contact sites across dendritic branches; local electrical changes move toward the cell body.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cell body, neuron को जिंदा रखने वाले बहुत से काम करता है। इसमें (in it) metabolism, यानी cell के अंदर होने वाली chemical reactions, और protein synthesis, यानी proteins बनाने की machinery का बड़ा हिस्सा होता है। यह incoming signals को साथ लेकर उनके मिले हुए असर में भी हिस्सा लेता है।",
+      "covers_item_ids": [
+       "p007-i39"
+      ],
+      "answers": [
+       "p007-i39#q3"
+      ],
+      "on_screen": "Outside clarification: cell body supports metabolism and protein synthesis; several incoming signal effects converge toward the cell-body region.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब cell body वाले हिस्से से निकलता लंबा, मुड़ा (curved) हुआ हिस्सा देखिए। यह axon है। इसी पर blue arrows बने हैं, जो electrical signal को axon tips की तरफ जाते दिखाते हैं।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q1",
+       "p007-i42#q2"
+      ],
+      "on_screen": "Trace the long curved process labelled 'axon' from the first cell-body region toward terminal branches.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Axon के साथ impulse कैसे चलता है? Outside clarification में membrane के एक छोटे हिस्से को देखिए: उसकी permeability बदलती है, यानी ions के पार (across) जाने की आसानी बदलती है। Ions की movement से voltage बदलता है और पास वाले membrane हिस्से में ऐसा बदलाव शुरू होता है।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q3"
+      ],
+      "on_screen": "Outside clarification: sequential membrane segments activate as ion permeability and membrane voltage change; label travelling action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस तरह membrane के अगले-से-अगले हिस्से में बदलाव होता जाता है। यही action potential का axon के साथ आगे चलना है। अगर किसी जगह यह membrane mechanism काम न करे, तो impulse का आगे पहुंचना रुक (stop) सकता है।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q3"
+      ],
+      "on_screen": "Outside clarification: travelling activation proceeds along an intact axon; a nonfunctioning membrane segment interrupts propagation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Blue arrows का label electrical signal है। ये पहले neuron के cell body से दूर, उसके axon tips की तरफ इशारा (indication) करते हैं। Biology में यह signal membrane के आर (from one side) पार (to the other side) voltage का चलता हुआ बदलाव है, जो ions की controlled movement से बनता है।",
+      "covers_item_ids": [
+       "p007-i43"
+      ],
+      "answers": [
+       "p007-i43#q1",
+       "p007-i43#q2",
+       "p007-i43#q3"
+      ],
+      "on_screen": "Highlight 'electrical signal' and blue arrowheads; outside clarification inset shows voltage change across the membrane.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Axon के आखिर (end) की branches पर label है axon tips। ये पहले दिख रहे neuron के axon के terminal हिस्से हैं। इनके पास अगले neuron की dendrites हैं, यानी यहां message आगे देने की जगह आती है।",
+      "covers_item_ids": [
+       "p007-i44"
+      ],
+      "answers": [
+       "p007-i44#q1",
+       "p007-i44#q2"
+      ],
+      "on_screen": "Highlight axon tips at the end of the first neuron's axon and the next neuron's nearby dendrites.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Typical chemical synapse में impulse terminal तक पहुंचता है, तब neurotransmitter release शुरू होता है। Terminal में छोटी vesicles होती हैं, यानी membrane से बने छोटे sacs, जिनमें (in which) neurotransmitter रखा होता है। इनसे (from these) निकला messenger receiving cell पर असर डाल सकता है।",
+      "covers_item_ids": [
+       "p007-i44"
+      ],
+      "answers": [
+       "p007-i44#q3"
+      ],
+      "on_screen": "Outside clarification: action potential arrives at a terminal; neurotransmitter-containing vesicles release messenger into the gap.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब ऊपर वाला circled synapse देखिए। यह पहले पूरे दिख रहे neuron के axon tips और अगले neuron के receiving हिस्से के बीच communication की जगह है। नीचे वाला synapse इस neuron तक input लाया (brought) था; ऊपर वाला उसका output अगले neuron तक पहुंचाने (delivering) की जगह दिखाता है।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q1",
+       "p007-i45#q2",
+       "p007-i45#q3"
+      ],
+      "on_screen": "Highlight upper circled synapse, then compare the two circled locations as incoming and outgoing communication sites for the first displayed neuron.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस ऊपर वाले synapse को बड़ा करके (by making) देखिए। Typical chemical synapse में sending terminal और receiving cell के बीच छोटा gap रहता है, जिसे (which) synaptic cleft कहते हैं। Neurotransmitter इस gap में diffusion से फैलकर receiving membrane तक पहुंचता है।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q3"
+      ],
+      "on_screen": "Outside clarification: enlarged chemical synapse with clearly separate membranes, synaptic cleft and neurotransmitter diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Receiving membrane पर सही receptors हों (are present), तो neurotransmitter उनसे (to them) जुड़ता है और cell की activity बदल सकती है। अगर transmitter release न हो, या सही receptor काम न करे, तो इस रास्ते से message का असर आगे नहीं पहुंचेगा। इसलिए terminal तक impulse पहुंचना और receiving cell पर असर होना, दोनों अलग links हैं।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q3"
+      ],
+      "on_screen": "Outside clarification: release → diffusion → receptor binding → receiving-cell effect; show interruption at release or receptor failure.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ऊपर दाईं (right) तरफ फैला हुआ हिस्सा अगले neuron का neuron cell body है। इसमें (in it) भी nucleus और बाहर branching हिस्से दिखते हैं। Cell body, अंदर nucleus और बाहर branches का फिर दिखना बताता है कि यह दूसरा neuron है।",
+      "covers_item_ids": [
+       "p007-i46"
+      ],
+      "answers": [
+       "p007-i46#q1",
+       "p007-i46#q2"
+      ],
+      "on_screen": "Highlight the next neuron's cell body, nucleus and branching processes; compare these repeated features with the first neuron.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "लेकिन message का रास्ता nucleus के अंदर से बनाकर मत पढ़िए। Nerve impulse membrane के electrical changes पर चलता है। Nucleus का मुख्य (main) काम genetic control और cell को काम करने लायक (capable) बनाए रखने में मदद करना है।",
+      "covers_item_ids": [
+       "p007-i47"
+      ],
+      "answers": [
+       "p007-i47#q3"
+      ],
+      "on_screen": "Outside clarification: remove an incorrect route through the nucleus; highlight membrane signalling and nucleus-supported cellular maintenance separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिर (finally) में blue arrows को फिर देखिए। ये नीचे बाईं (left) तरफ के neuron से ऊपर दाईं (right) तरफ वाले neuron की ओर, axon के साथ signal जाने की दिशा (direction) बताते हैं। Axon पर arrows, एक cell के अंदर conduction दिखाते हैं; अलग circles, cells के बीच synapse वाली communication की जगह बताते हैं।",
+      "covers_item_ids": [
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i49#q1",
+       "p007-i49#q2",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Trace blue arrows along the first axon; contrast the axonal route with both separately circled synapses.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Typical chemical synapse को पार (across) करने का क्रम (sequence) भी साफ बोलिए। Axon terminal से neurotransmitter निकलता है, synaptic cleft में diffusion से फैलता है और receiving cell के receptors से जुड़ता है। इससे (as a result) receiving cell की activity बदलती है; नया action potential बनेगा या नहीं, यह उसके threshold तक पहुंचने पर भी निर्भर (dependent) है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q3"
+      ],
+      "on_screen": "Outside clarification: release → diffusion across cleft → receptor binding → changed receiving-cell activity; new impulse is conditional.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Arrows देखकर यह मत लिखिए कि पहले neuron का axon अगले neuron में मिलकर 1 cell बन जाता है। Typical chemical synapse में दोनों cells अलग रहती हैं और बीच में synaptic cleft होता है। Chemical messenger इस gap के पार (across) असर पहुंचाकर (by delivering) उनकी electrical activity को जोड़ता है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q4"
+      ],
+      "on_screen": "Outside clarification: two separate cell membranes with a cleft; cross out fusion of the two neurons.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद बताइए: terminal तक impulse आ गया, लेकिन neurotransmitter release नहीं हुआ, तो क्या इस chemical synapse से असर आगे पहुंचेगा? नहीं, इस रास्ते की chemical कड़ी (link) रुक (stopped) गई। और neurotransmitter पहुंच भी जाए, तो अगला neuron नया impulse तभी (only then) बनाएगा जब जरूरी threshold तक पहुंचे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Pause on a terminal with failed transmitter release; then show a separate receiving neuron whose input remains below threshold.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरा रास्ता अब तेजी से देखिए: previous neuron का axon, synapse और पहले neuron की receiving branches। Incoming signals का असर threshold तक पहुंचे, तो action potential उसके axon से terminal तक जाता है। Typical chemical synapse पर neurotransmitter निकलकर gap पार (across) करता है, receptors पर असर डालता है और अगले neuron तक communication पहुंचता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Full animated run: previous axon → synapse → receiving region → threshold → axonal action potential → terminal release → cleft → receptors on next neuron.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अपने मन (mind) में छोटा flow रखिए: receive, threshold, axon में electrical signal, terminal पर release और अगले cell पर असर। Dendrites receiving में, cell body support और incoming signals के मिले हुए असर में, और nucleus cell को बनाए रखने में मदद करता है। इसी flow से figure भी पढ़ पाएंगे और impulse transmission का जवाब भी समझाकर दे पाएंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Final flow with supporting labels: receive → threshold → electrical axonal travel → chemical synaptic transfer → receiving-cell effect; cell body and nucleus shown in supporting roles.",
+      "basis": "mixed"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "017b67afb53ac5bc764439b8a909ab531e527bd29bb8a23aaa96c20fe7ce2a18",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 31109,
+    "output_tokens": 4776,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch corrects the Hindi vocabulary flagged by BIE while preserving the teaching sequence, explanations and coverage.",
+    "key_questions": [
+     "Does each flagged Hindi word now have an immediate English gloss?"
+    ],
+    "decisions": [
+     {
+      "decision": "Add English glosses immediately after the flagged words.",
+      "reason": "This satisfies S2-04 while retaining the existing spoken script and its meaning."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This patch corrects the Hindi vocabulary flagged by BIE while preserving the teaching sequence, explanations and coverage.",
+     "key_questions": [
+      "Does each flagged Hindi word now have an immediate English gloss?"
+     ],
+     "decisions": [
+      {
+       "decision": "Add English glosses immediately after the flagged words.",
+       "reason": "This satisfies S2-04 while retaining the existing spoken script and its meaning."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Neuron: message कहां से आता है और आगे कैसे जाता है?",
+    "parts": [
+     {
+      "part_id": "c21.1",
+      "frame": {
+       "process": "Successive neurons communicate through receiving regions, axonal electrical conduction and synaptic transfer.",
+       "how": "Read the figure from the previous neuron's axon through the first neuron's receiving region, cell body, axon and tips to the next neuron; distinguish membrane signalling from chemical transfer.",
+       "when": "Follow the illustrated spatial route first. Physiologically, sufficient stimulation initiates an action potential, and its arrival at a typical chemical terminal triggers transmitter release.",
+       "conditions": "Axonal propagation requires functioning membrane signalling; chemical transfer requires transmitter release and suitable receiving receptors. Receiving input does not guarantee a new action potential.",
+       "atmosphere": "A close view of connected nerve cells, with two displayed neurons arranged from lower left to upper right and synaptic regions circled."
+      }
+     },
+     {
+      "part_id": "c21.q",
+      "frame": {
+       "process": "Build an exam answer explaining how neurons transmit impulses to other cells.",
+       "how": "Connect the labelled electrical route with threshold, terminal release, diffusion across the cleft and receptor action.",
+       "when": "Answer after the figure has been read; distinguish impulse initiation, axonal travel and terminal arrival in that order.",
+       "conditions": "Explain typical chemical synapses explicitly and avoid claiming that every input produces another impulse or that adjacent neurons merge.",
+       "atmosphere": "An exam question beside a simplified arrow flow, with the student explaining each link."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "एक neuron का message दूसरी cell तक पहुंचता है। लेकिन दोनों cells के बीच छोटा gap हो, तो message आगे कैसे जाएगा? आज इसी सवाल को figure में रास्ता देखकर समझेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two separate neuron outlines with a small gap; highlight the question of message transfer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले stimulus समझिए। कोई ऐसा बदलाव जो cell पर असर डाल सकता है, stimulus कहलाता (is called) है। जैसे त्वचा को छूने से sensory system में signal की शुरुआत (start) हो सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: touch at the skin → sensory input. Define stimulus as a change capable of affecting a cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell membrane, cell के अंदर और बाहर को अलग रखने वाली पतली boundary है। इसके दोनों तरफ electrical voltage में फर्क हो सकता है। Ions, यानी electric charge वाले particles, membrane के पार (across) चलते हैं तो यह voltage बदल सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: membrane separating inside and outside; charged ions cross through membrane channels; voltage indicator changes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक छोटा input अपने आप पूरा nerve impulse नहीं बना देता। Membrane का बदलाव threshold, यानी जरूरी level तक पहुंचे, तब action potential शुरू हो सकता है। Action potential membrane voltage का ऐसा बदलाव है जो axon के साथ आगे चलता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Outside clarification: input below threshold versus input reaching threshold; only the latter initiates an action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "c21.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "अब पूरा figure देखिए। नीचे बाईं (left) तरफ एक neuron और ऊपर दाईं (right) तरफ अगला neuron दिखाया गया है। पिछले neuron का axon भी बाईं (left) तरफ से आता है; इसलिए यह figure कई neurons के बीच message आगे जाने का रास्ता दिखाता है।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q1"
+      ],
+      "on_screen": "Full described figure: previous axon enters from left; first displayed neuron lower left; next neuron upper right.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "c21.1",
+      "step": 1,
+      "purpose": "explain",
+      "say": "इस figure को पढ़ने का रास्ता तय (set) कर लीजिए। पहले axon of previous neuron, फिर उसका synapse और पहले neuron का receiving हिस्सा देखेंगे। उसके बाद cell body से axon के blue arrows के साथ axon tips और अगले neuron तक जाएंगे।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q2",
+       "p007-i36#q3"
+      ],
+      "on_screen": "Preview reading path using highlights: incoming axon → first synapse → receiving region → cell body → axon → tips → next dendrites.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "सबसे बाईं (left) तरफ label है axon of previous neuron। यह पिछले neuron का axon है; उस neuron का cell body यहां नहीं दिखाया गया। यह axon पिछले neuron का output पहले दिख रहे neuron के receiving हिस्से तक लाता (brings) है।",
+      "covers_item_ids": [
+       "p007-i37"
+      ],
+      "answers": [
+       "p007-i37#q1",
+       "p007-i37#q2",
+       "p007-i37#q3"
+      ],
+      "on_screen": "Highlight incoming process and exact label 'axon of previous neuron'; show its cell body outside the illustrated area.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब नीचे बाईं (left) तरफ circle में synapse देखिए। यहां previous neuron का axon, पहले पूरे दिख रहे neuron के receiving हिस्से के पास आता है। यह इन 2 neurons के बीच communication की जगह है।",
+      "covers_item_ids": [
+       "p007-i38"
+      ],
+      "answers": [
+       "p007-i38#q1",
+       "p007-i38#q2"
+      ],
+      "on_screen": "Highlight lower-left circled synapse; identify previous neuron as sender and first fully displayed neuron as receiver.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस synapse की working के लिए outside clarification लेते हैं। Typical chemical synapse में भेजने वाला axon terminal, neurotransmitter नाम का chemical messenger छोड़ता है। यह receiving cell के receptors पर असर डालता है; receptors ऐसे proteins हैं जिनसे (to which) सही messenger जुड़ सकता है।",
+      "covers_item_ids": [
+       "p007-i38"
+      ],
+      "answers": [
+       "p007-i38#q3"
+      ],
+      "on_screen": "Outside clarification inset: sending terminal releases neurotransmitter; messenger binds a matching receptor on a separate receiving membrane.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "पहले neuron के छोटे-छोटे branching हिस्सों पर आइए (come)। ये dendrites हैं, जो cell body के पास से निकलते हैं। लंबे बाहर जाने वाले axon से इनकी पहचान अलग है: यहां कई छोटी branches दिख रही हैं।",
+      "covers_item_ids": [
+       "p007-i41"
+      ],
+      "answers": [
+       "p007-i41#q1",
+       "p007-i41#q2"
+      ],
+      "on_screen": "Highlight 'dendrites' and trace their short branches; briefly outline the long axon for comparison.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Dendrites कई incoming signals लेते हैं और उनसे (from them) बने electrical changes को cell body की तरफ लाते (bring) हैं। Branches होने से दूसरे neurons के साथ contact के लिए ज्यादा जगह मिलती है। इसलिए इनकी branching और receiving काम को साथ समझिए।",
+      "covers_item_ids": [
+       "p007-i41"
+      ],
+      "answers": [
+       "p007-i41#q3",
+       "p007-i41#q4"
+      ],
+      "on_screen": "Outside clarification: multiple contact sites across dendritic branches; local electrical changes move toward the cell body.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब बीच का फैला हुआ orange हिस्सा देखिए। इसका label neuron cell body है। इसी cell body के अंदर nucleus दिखाया गया है।",
+      "covers_item_ids": [
+       "p007-i39"
+      ],
+      "answers": [
+       "p007-i39#q1",
+       "p007-i39#q2"
+      ],
+      "on_screen": "Highlight the first neuron's orange cell body, then the nucleus within it.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cell body, neuron को जिंदा रखने वाले बहुत से काम करता है। इसमें (in it) metabolism, यानी cell के अंदर होने वाली chemical reactions, और protein synthesis, यानी proteins बनाने की machinery का बड़ा हिस्सा होता है। यह incoming signals को साथ लेकर उनके मिले हुए असर में भी हिस्सा लेता है।",
+      "covers_item_ids": [
+       "p007-i39"
+      ],
+      "answers": [
+       "p007-i39#q3"
+      ],
+      "on_screen": "Outside clarification: cell body supports metabolism and protein synthesis; several incoming signal effects converge toward the cell-body region.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Cell body के अंदर का गहरा oval, nucleus है। इसके genetic material की मदद से cell जरूरी proteins बनाता है। यही proteins neuron का आकार बनाए रखने, metabolism और signalling machinery के काम आते हैं।",
+      "covers_item_ids": [
+       "p007-i40"
+      ],
+      "answers": [
+       "p007-i40#q1",
+       "p007-i40#q2",
+       "p007-i40#q3"
+      ],
+      "on_screen": "Highlight 'nucleus' inside the first cell body; outside clarification inset: genetic material → protein production → maintenance and signalling machinery.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब cell body वाले हिस्से से निकलता लंबा, मुड़ा (curved) हुआ हिस्सा देखिए। यह axon है। इसी पर blue arrows बने हैं, जो electrical signal को axon tips की तरफ जाते दिखाते हैं।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q1",
+       "p007-i42#q2"
+      ],
+      "on_screen": "Trace the long curved process labelled 'axon' from the first cell-body region toward terminal branches.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Axon के साथ impulse कैसे चलता है? Outside clarification में membrane के एक छोटे हिस्से को देखिए: उसकी permeability बदलती है, यानी ions के पार (across) जाने की आसानी बदलती है। Ions की movement से voltage बदलता है और पास वाले membrane हिस्से में ऐसा बदलाव शुरू होता है।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q3"
+      ],
+      "on_screen": "Outside clarification: sequential membrane segments activate as ion permeability and membrane voltage change; label travelling action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस तरह membrane के अगले-से-अगले हिस्से में बदलाव होता जाता है। यही action potential का axon के साथ आगे चलना है। अगर किसी जगह यह membrane mechanism काम न करे, तो impulse का आगे पहुंचना रुक (stop) सकता है।",
+      "covers_item_ids": [
+       "p007-i42"
+      ],
+      "answers": [
+       "p007-i42#q3"
+      ],
+      "on_screen": "Outside clarification: travelling activation proceeds along an intact axon; a nonfunctioning membrane segment interrupts propagation.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Blue arrows का label electrical signal है। ये पहले neuron के cell body से दूर, उसके axon tips की तरफ इशारा (indication) करते हैं। Biology में यह signal membrane के आर (from one side) पार (to the other side) voltage का चलता हुआ बदलाव है, जो ions की controlled movement से बनता है।",
+      "covers_item_ids": [
+       "p007-i43"
+      ],
+      "answers": [
+       "p007-i43#q1",
+       "p007-i43#q2",
+       "p007-i43#q3"
+      ],
+      "on_screen": "Highlight 'electrical signal' and blue arrowheads; outside clarification inset shows voltage change across the membrane.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "compare",
+      "say": "अब दोनों shapes का काम जोड़िए। Dendrites की branches incoming signals लेने की जगह बढ़ाती हैं। लंबा axon, cell body से दूर output ले जाता है; इसलिए receiving branches और outgoing axon का आकार अलग दिख रहा है।",
+      "covers_item_ids": [
+       "p007-i36"
+      ],
+      "answers": [
+       "p007-i36#q4"
+      ],
+      "on_screen": "Outside clarification: branching receiving region versus long outgoing axon, each linked to its function.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Axon के आखिर (end) की branches पर label है axon tips। ये पहले दिख रहे neuron के axon के terminal हिस्से हैं। इनके पास अगले neuron की dendrites हैं, यानी यहां message आगे देने की जगह आती है।",
+      "covers_item_ids": [
+       "p007-i44"
+      ],
+      "answers": [
+       "p007-i44#q1",
+       "p007-i44#q2"
+      ],
+      "on_screen": "Highlight axon tips at the end of the first neuron's axon and the next neuron's nearby dendrites.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Typical chemical synapse में impulse terminal तक पहुंचता है, तब neurotransmitter release शुरू होता है। Terminal में छोटी vesicles होती हैं, यानी membrane से बने छोटे sacs, जिनमें (in which) neurotransmitter रखा होता है। इनसे (from these) निकला messenger receiving cell पर असर डाल सकता है।",
+      "covers_item_ids": [
+       "p007-i44"
+      ],
+      "answers": [
+       "p007-i44#q3"
+      ],
+      "on_screen": "Outside clarification: action potential arrives at a terminal; neurotransmitter-containing vesicles release messenger into the gap.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब ऊपर वाला circled synapse देखिए। यह पहले पूरे दिख रहे neuron के axon tips और अगले neuron के receiving हिस्से के बीच communication की जगह है। नीचे वाला synapse इस neuron तक input लाया (brought) था; ऊपर वाला उसका output अगले neuron तक पहुंचाने (delivering) की जगह दिखाता है।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q1",
+       "p007-i45#q2",
+       "p007-i45#q3"
+      ],
+      "on_screen": "Highlight upper circled synapse, then compare the two circled locations as incoming and outgoing communication sites for the first displayed neuron.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "इस ऊपर वाले synapse को बड़ा करके (by making) देखिए। Typical chemical synapse में sending terminal और receiving cell के बीच छोटा gap रहता है, जिसे (which) synaptic cleft कहते हैं। Neurotransmitter इस gap में diffusion से फैलकर receiving membrane तक पहुंचता है।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q3"
+      ],
+      "on_screen": "Outside clarification: enlarged chemical synapse with clearly separate membranes, synaptic cleft and neurotransmitter diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "Receiving membrane पर सही receptors हों (are present), तो neurotransmitter उनसे (to them) जुड़ता है और cell की activity बदल सकती है। अगर transmitter release न हो, या सही receptor काम न करे, तो इस रास्ते से message का असर आगे नहीं पहुंचेगा। इसलिए terminal तक impulse पहुंचना और receiving cell पर असर होना, दोनों अलग links हैं।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [
+       "p007-i45#q3"
+      ],
+      "on_screen": "Outside clarification: release → diffusion → receptor binding → receiving-cell effect; show interruption at release or receptor failure.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "analogy",
+      "say": "इसे relay में message आगे देने जैसा सोच सकते हैं। एक तरफ message आता है, फिर अगला उसे लेकर आगे काम करता है। यहां handover की असली working याद रखिए: axon में electrical signal और typical chemical synapse में neurotransmitter।",
+      "covers_item_ids": [
+       "p007-i45"
+      ],
+      "answers": [],
+      "on_screen": "Brief relay handover analogy, then return immediately to electrical axonal travel → chemical synaptic transfer.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अब label dendrites of next neuron पढ़िए। ये अगले neuron की receiving branches हैं। पहले neuron के axon tips इनके पास आते हैं; इसलिए axon वाला रास्ता पूरा करने के बाद हम अगले neuron के receiving हिस्से पर पहुंचे हैं।",
+      "covers_item_ids": [
+       "p007-i48"
+      ],
+      "answers": [
+       "p007-i48#q1",
+       "p007-i48#q2",
+       "p007-i48#q3"
+      ],
+      "on_screen": "Highlight 'dendrites of next neuron' and the preceding neuron's approaching axon tips.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "ऊपर दाईं (right) तरफ फैला हुआ हिस्सा अगले neuron का neuron cell body है। इसमें (in it) भी nucleus और बाहर branching हिस्से दिखते हैं। Cell body, अंदर nucleus और बाहर branches का फिर दिखना बताता है कि यह दूसरा neuron है।",
+      "covers_item_ids": [
+       "p007-i46"
+      ],
+      "answers": [
+       "p007-i46#q1",
+       "p007-i46#q2"
+      ],
+      "on_screen": "Highlight the next neuron's cell body, nucleus and branching processes; compare these repeated features with the first neuron.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "क्या यह अगला neuron भी sender बन सकता है? हां, अगर incoming signals का मिला हुआ असर उसकी membrane को threshold तक ले जाए। तब उसके अपने axon में नया action potential शुरू होकर आगे जा सकता है; हर incoming message से ऐसा होना जरूरी नहीं है।",
+      "covers_item_ids": [
+       "p007-i46"
+      ],
+      "answers": [
+       "p007-i46#q3"
+      ],
+      "on_screen": "Outside clarification: incoming effects → threshold reached → new action potential in the next neuron's own axon; below-threshold case produces no new action potential.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "अगले neuron के cell body के अंदर गहरा oval भी nucleus है। पहले neuron के cell body में भी यही labelled हिस्सा था। दोनों में nucleus cell body के अंदर दिखाया गया है।",
+      "covers_item_ids": [
+       "p007-i47"
+      ],
+      "answers": [
+       "p007-i47#q1",
+       "p007-i47#q2"
+      ],
+      "on_screen": "Highlight the next neuron's nucleus, then both labelled nuclei within their respective cell bodies.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "misconception",
+      "say": "लेकिन message का रास्ता nucleus के अंदर से बनाकर मत पढ़िए। Nerve impulse membrane के electrical changes पर चलता है। Nucleus का मुख्य (main) काम genetic control और cell को काम करने लायक (capable) बनाए रखने में मदद करना है।",
+      "covers_item_ids": [
+       "p007-i47"
+      ],
+      "answers": [
+       "p007-i47#q3"
+      ],
+      "on_screen": "Outside clarification: remove an incorrect route through the nucleus; highlight membrane signalling and nucleus-supported cellular maintenance separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c21.1",
+      "step": 2,
+      "purpose": "explain",
+      "say": "आखिर (finally) में blue arrows को फिर देखिए। ये नीचे बाईं (left) तरफ के neuron से ऊपर दाईं (right) तरफ वाले neuron की ओर, axon के साथ signal जाने की दिशा (direction) बताते हैं। Axon पर arrows, एक cell के अंदर conduction दिखाते हैं; अलग circles, cells के बीच synapse वाली communication की जगह बताते हैं।",
+      "covers_item_ids": [
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i49#q1",
+       "p007-i49#q2",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Trace blue arrows along the first axon; contrast the axonal route with both separately circled synapses.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c21.1",
+      "step": 3,
+      "purpose": "recap",
+      "say": "इस figure की 1 सबसे जरूरी बात याद रखिए: incoming axon से message आता है और पहले neuron का axon उसे अगले receiving हिस्से की तरफ ले जाता है। Labels का रास्ता बोलिए: axon of previous neuron, synapse, पहले neuron का receiving हिस्सा। फिर उसके axon के electrical signal वाले arrows, axon tips और dendrites of next neuron।",
+      "covers_item_ids": [
+       "p007-i36",
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i36#q2",
+       "p007-i36#q3",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Single labelled route across the complete figure; pause separately on axonal arrows and synaptic circles.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c21.1",
+      "step": 4,
+      "purpose": "explain",
+      "say": "अब figure को किताब के सवाल से जोड़िए: How do neurons transmit impulses? इसका दिखाया हुआ जवाब है कि electrical signal axon के साथ tips तक जाता है। वहां synapse पर अगले neuron से communication होता है; इसलिए figure के labels मिलकर पूरे सवाल का रास्ता बताते हैं।",
+      "covers_item_ids": [
+       "p007-i36",
+       "p007-i49"
+      ],
+      "answers": [
+       "p007-i36#q1",
+       "p007-i49#q3"
+      ],
+      "on_screen": "Place the source question beside the figure; connect electrical signal, axon tips and next-neuron receiving region with highlights.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब सवाल का सीधा exam answer बनाइए। Neuron में electrical impulse axon के साथ axon tips तक जाता है। Axon tips अगले neuron के साथ synapse पर communicate करते हैं; figure में blue arrows और circled synapse इसी जवाब का आधार (basis) हैं।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q1"
+      ],
+      "on_screen": "Exam answer from the figure: electrical signal along axon → axon tips → synaptic communication with next neuron.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर सवाल पूछे कि neuron impulse आगे कब भेजता है, तो threshold जोड़िए। Enough stimulation से membrane threshold तक पहुंचे, तब action potential शुरू होकर axon के साथ चलता है। Typical chemical synapse में उसके terminal तक पहुंचने पर neurotransmitter release शुरू होता है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q2"
+      ],
+      "on_screen": "Outside clarification for the answer: sufficient stimulation → threshold → action potential → axon terminal arrival → neurotransmitter release.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Typical chemical synapse को पार (across) करने का क्रम (sequence) भी साफ बोलिए। Axon terminal से neurotransmitter निकलता है, synaptic cleft में diffusion से फैलता है और receiving cell के receptors से जुड़ता है। इससे (as a result) receiving cell की activity बदलती है; नया action potential बनेगा या नहीं, यह उसके threshold तक पहुंचने पर भी निर्भर (dependent) है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q3"
+      ],
+      "on_screen": "Outside clarification: release → diffusion across cleft → receptor binding → changed receiving-cell activity; new impulse is conditional.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "c21.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Arrows देखकर यह मत लिखिए कि पहले neuron का axon अगले neuron में मिलकर 1 cell बन जाता है। Typical chemical synapse में दोनों cells अलग रहती हैं और बीच में synaptic cleft होता है। Chemical messenger इस gap के पार (across) असर पहुंचाकर (by delivering) उनकी electrical activity को जोड़ता है।",
+      "covers_item_ids": [
+       "p007-i35"
+      ],
+      "answers": [
+       "p007-i35#q4"
+      ],
+      "on_screen": "Outside clarification: two separate cell membranes with a cleft; cross out fusion of the two neurons.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब खुद बताइए: terminal तक impulse आ गया, लेकिन neurotransmitter release नहीं हुआ, तो क्या इस chemical synapse से असर आगे पहुंचेगा? नहीं, इस रास्ते की chemical कड़ी (link) रुक (stopped) गई। और neurotransmitter पहुंच भी जाए, तो अगला neuron नया impulse तभी (only then) बनाएगा जब जरूरी threshold तक पहुंचे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Pause on a terminal with failed transmitter release; then show a separate receiving neuron whose input remains below threshold.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरा रास्ता अब तेजी से देखिए: previous neuron का axon, synapse और पहले neuron की receiving branches। Incoming signals का असर threshold तक पहुंचे, तो action potential उसके axon से terminal तक जाता है। Typical chemical synapse पर neurotransmitter निकलकर gap पार (across) करता है, receptors पर असर डालता है और अगले neuron तक communication पहुंचता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Full animated run: previous axon → synapse → receiving region → threshold → axonal action potential → terminal release → cleft → receptors on next neuron.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अपने मन (mind) में छोटा flow रखिए: receive, threshold, axon में electrical signal, terminal पर release और अगले cell पर असर। Dendrites receiving में, cell body support और incoming signals के मिले हुए असर में, और nucleus cell को बनाए रखने में मदद करता है। इसी flow से figure भी पढ़ पाएंगे और impulse transmission का जवाब भी समझाकर दे पाएंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Final flow with supporting labels: receive → threshold → electrical axonal travel → chemical synaptic transfer → receiving-cell effect; cell body and nucleus shown in supporting roles.",
+      "basis": "mixed"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.52,
+     "abrupt_jumps": [
+      "b30->b31"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 13.6,
+     "planned_minutes": 23
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "5ff82a572cd6676a2509f10384d2645b302b82bb1ecd0f083c1a3b4aa3022834",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 14747,
+    "output_tokens": 1305,
+    "cost_usd": 0.046798,
+    "value": {
+     "notes": {
+      "about": "Review of the lesson script for Video v8 ('Neuron: message कहाँ से आता है और आगे कैसे जाता है?') covering the neuron structure figure and impulse transmission process on page 7.",
+      "key_questions": [
+       "Are all figure items (p007-i36 to p007-i49) and the introductory process question (p007-i35) along with their sub-questions accurately and deeply taught?",
+       "Are outside clarifications (action potential, threshold, chemical synapse, neurotransmitter release, receptors) clearly marked and explained before use?",
+       "Does the script follow the figure teaching pattern for c21.1 and the exam question pattern for c21.q, while using natural Hinglish in mixed script?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with a minor suggestion on over-glossing simple Hindi words and updating the patch-focused maker notes.",
+        "reason": "All 15 items and their 49 teacher questions are thoroughly covered, prerequisites are taught first with examples, book vs. outside distinctions are rigorously maintained, and the teaching patterns are followed completely."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [
+      {
+       "where": "beats (multiple, e.g., b7, b10, b13, b24)",
+       "problem": "Several everyday Hindi words and pronouns have English glosses in brackets—such as 'लाता (brings)', 'आइए (come)', 'इसमें (in it)', 'उनसे (to them)'—which makes the spoken text look slightly mechanical in places.",
+       "fix": "Retain English brackets only for genuinely difficult Hindi words (like 'शुरुआत (start)', 'निर्भर (dependent)', 'दिशा (direction)') and remove them from basic verbs and pronouns.",
+       "severity": "minor"
+      },
+      {
+       "where": "notes",
+       "problem": "The maker's notes describe the vocabulary patch ('This patch corrects the Hindi vocabulary...') rather than summarizing the unit's pedagogical scope and teaching decisions.",
+       "fix": "Keep the unit summary and main teaching decisions in `notes.about` and `notes.decisions` alongside any patch notes.",
+       "severity": "minor"
+      }
+     ],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is accurately sourced from the diagram/labels or explicitly marked as 'outside' clarification (e.g., threshold, action potential, vesicles, synaptic cleft, receptors)."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The explanation is thorough and appropriate for UPSC/State PCS aspirants, clearly distinguishing electrical conduction along the membrane from chemical transfer across the synaptic cleft, and addressing key misconceptions (such as the impulse passing through the nucleus or neurons physically fusing)."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Notes are present and state the focus and reason for the current revision, though they are brief and patch-oriented."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The spoken Hinglish flows naturally like a real teacher guiding a student across a diagram, despite some minor over-glossing of simple Hindi words."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short, merged away, or left as 'etc.'; every label and step in the transmission pathway is unpacked in full."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "Follows the chapter map, teaches prerequisites (stimulus, cell membrane voltage/ions, threshold/action potential) in b2–b4 before using them, and sizes the 40-beat script appropriately."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The script flows logically from hook to prerequisites, figure reading path, label-by-label walkthrough, exam question breakdown, student check, and final flow recap, answering all 49 teacher questions."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "Prerequisites (stimulus with skin-touch example, membrane voltage & ions, threshold & action potential, receptors, vesicles) are clearly explained before being applied."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi is in Devanagari, English scientific terms are in Roman script, difficult Hindi words have English glosses in brackets, and sentences are short and spoken."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Every beat's `covers_item_ids` and `answers` claims match the actual spoken explanation in `say`."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Both parts have complete universal frames; c21.1 follows the 4-step figure pattern (steps 1 to 4) while integrating the process mechanics and failure conditions, and c21.q teaches the PYQ/exam answers at step 0."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [
+    {
+     "where": "beats (multiple, e.g., b7, b10, b13, b24)",
+     "problem": "Several everyday Hindi words and pronouns have English glosses in brackets—such as 'लाता (brings)', 'आइए (come)', 'इसमें (in it)', 'उनसे (to them)'—which makes the spoken text look slightly mechanical in places.",
+     "fix": "Retain English brackets only for genuinely difficult Hindi words (like 'शुरुआत (start)', 'निर्भर (dependent)', 'दिशा (direction)') and remove them from basic verbs and pronouns.",
+     "kind": "problems"
+    },
+    {
+     "where": "notes",
+     "problem": "The maker's notes describe the vocabulary patch ('This patch corrects the Hindi vocabulary...') rather than summarizing the unit's pedagogical scope and teaching decisions.",
+     "fix": "Keep the unit summary and main teaching decisions in `notes.about` and `notes.decisions` alongside any patch notes.",
+     "kind": "problems"
+    }
+   ],
+   "passed": true,
+   "finished_at": 1792747726.6412141
+  }
+ ],
+ "avoid_rounds": [
+  1
+ ],
+ "cost_usd": 0.046798,
+ "seconds": 311.3,
+ "navin_verdict": null
+}

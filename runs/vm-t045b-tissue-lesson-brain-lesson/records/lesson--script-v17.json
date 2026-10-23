@@ -1,0 +1,3783 @@
+{
+ "schema": "bie.brain.process-record/1",
+ "section": "lesson",
+ "unit": "script-v17",
+ "status": "passed",
+ "instructions_version": "lesson-script/2",
+ "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+ "rulebook_digest": "28605da59d26c73736de5b33795b73d03bdd42650b2c6e83491a617748b00791",
+ "rules_used": [
+  "G-01",
+  "G-02",
+  "G-03",
+  "G-04",
+  "G-05",
+  "S2-01",
+  "S2-02",
+  "S2-03",
+  "S2-04",
+  "S2-05",
+  "S2-06"
+ ],
+ "maker_route": "codex",
+ "reviewer_route": "google",
+ "maker_model": "gpt-6.1-sol",
+ "reviewer_model": "google/gemini-4-argon",
+ "reviewer_independence": "other_company",
+ "inputs_digest": "d377cecfc5b6c84733302edd3285bb03057757d0f45f066f9726afd1683e0ea3",
+ "card": {
+  "card": "bie.task-card/1",
+  "card_id": "lesson.write_script@10-tissues-and-its-types/v17",
+  "section": "lesson",
+  "task": "write_script",
+  "prefix": {
+   "prefix_id": "lesson.write_script/2",
+   "rulebook_version": "content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9",
+   "content_types_version": "2026-10-22.2",
+   "schema_id": "bie.brain.lesson-script/2",
+   "sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e"
+  },
+  "unit": {
+   "unit_id": "v17",
+   "title": "Stomata: gas कहाँ से जाती है और opening कौन बदलता है?",
+   "pages": [
+    14
+   ]
+  },
+  "parts": [
+   {
+    "part_id": "c42.q",
+    "item_ids": [
+     "p014-i10",
+     "p014-i11",
+     "p014-i12",
+     "p014-i13",
+     "p014-i14"
+    ],
+    "type": "none",
+    "questions": [
+     "what",
+     "which",
+     "how",
+     "why"
+    ],
+    "focus": "Practice question: leaf gaseous exchange and stomata: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)"
+   }
+  ],
+  "rules": [
+   "G-01",
+   "G-02",
+   "G-03",
+   "G-04",
+   "G-05",
+   "S2-01",
+   "S2-02",
+   "S2-03",
+   "S2-04",
+   "S2-05",
+   "S2-06"
+  ],
+  "output": {
+   "schema_id": "bie.brain.lesson-script/2",
+   "mode": "full",
+   "max_output_tokens": 32000
+  },
+  "coverage": {
+   "must_cover": [
+    "p014-i10",
+    "p014-i11",
+    "p014-i12",
+    "p014-i13",
+    "p014-i14"
+   ],
+   "claim_field": "beats[].covers_item_ids",
+   "may_skip": []
+  },
+  "context": {
+   "map_slice": [
+    [
+     "p014-i10",
+     "none",
+     "14",
+     "Q. Site of gaseous exchange on leaf is:"
+    ],
+    [
+     "p014-i11",
+     "none",
+     "14",
+     "a. Guard cells"
+    ],
+    [
+     "p014-i12",
+     "none",
+     "14",
+     "b. Stomata"
+    ],
+    [
+     "p014-i13",
+     "none",
+     "14",
+     "c. Aerenchyma"
+    ],
+    [
+     "p014-i14",
+     "none",
+     "14",
+     "d. Chlorenchyma"
+    ],
+    [
+     "c42",
+     "structure",
+     "14",
+     "Practice question: leaf gaseous exchange and stomata"
+    ],
+    [
+     "c41",
+     "structure",
+     "14",
+     "Practice question: epidermis and a waxy protective surface"
+    ]
+   ],
+   "before": "Plant की outer covering: epidermis, cuticle और protection",
+   "after": ""
+  },
+  "source": {
+   "block_ids": [
+    "p0014-b0012",
+    "p0014-b0013",
+    "p0014-b0014",
+    "p0014-b0015",
+    "p0014-b0016"
+   ],
+   "page_images": []
+  }
+ },
+ "prefix_sha256": "4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e",
+ "review_prefix_sha256": "aa60eb89d3e543fd5fdefce841750e8f2d3415545576861237a772184f93d03c",
+ "inputs": {
+  "system": "BIE task prefix lesson.write_script/2 · rulebook content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9 · content types 2026-10-22.2 · schema bie.brain.lesson-script/2\n\nYou are BIE's lesson section writing what the teacher says in one video lesson: you are the best teacher of Science and Technology\nfor UPSC / State PCS aspirants preparing for UPSC / State PCS, speaking to one student. BIE turns your beats into narration and animation, so write only\nwhat is spoken, beat by beat.\nCourse: \"10. Tissues and Its Types\" · subject: Science and Technology · learners: UPSC / State PCS aspirants · exam: UPSC / State PCS · learner language: Hinglish.\n\nNavin's rules for this task (follow every one):\n[G-01] Everything taught comes from the book. Knowledge from outside the book is allowed only to explain the book better; it is marked as outside, standard textbook-level and correct. Never invent facts, numbers, names or quotations.\n[G-02] Work like the best teacher of these learners and this exam, not like a summariser. Depth beats brevity: nothing teachable on the page is skipped or compressed away, and every explanation makes a student understand, not just remember.\n[G-03] Before the output, fill 'notes' with brief notes for the reviewer and for Navin: what this unit is about, the key questions a teacher must answer about it, the main decisions you made with a one-line reason each, and anything uncertain. Keep the notes short; they explain the work, they are not the work.\n[G-04] Learner-facing language follows the course setting. For the first course (UPSC / State PCS) it is Hinglish: natural Hindi sentence flow, English technical terms, the way Navin teaches.\n[G-05] Never shorten work to fit a length. If a unit of work is too large, it is split by BIE into smaller units; within a unit, completeness wins.\n[S2-01] Plan the chapter's videos from the chapter map: how many, in what order, prerequisites taught first. Video length follows the content, never a fixed length.\n[S2-02] Write a spoken teacher script in beats with a natural teacher flow. Stories and analogies only where they genuinely help that topic. Every question in the chapter map's teacher understanding is answered somewhere in the script.\n[S2-03] Prerequisites are taught, not named: a prerequisite gets its own beats with a simple explanation and an example before the chapter uses it.\n[S2-04] Spoken Hinglish the way Navin teaches, in mixed script (Navin, 21 and 23 October 2026): Hindi words in Devanagari, English words, above all the book's technical terms, in Roman exactly as the book spells them, as in 'आज हम tissue के बारे में पढ़ेंगे'; a Hindi word that is not in the simple everyday word list (rulebook/simple_hindi.json) gets its English word in brackets right after it, as in 'सतह (surface)'; the screen and subtitles show the bracket and the voice says 'सतह, यानी surface'. Never an English term in Devanagari or a Hindi word in Roman. Numbers as digits; short spoken sentences addressed to one student; questions to the student and natural pauses; no reading out of lists.\n[S2-05] Every beat states which chapter-map items it covers and which teacher questions it answers, and those claims must be true: the beat really explains that item and really answers that question.\n[S2-06] Teach every part of a video through the universal frame (what the process is, how it works, when and in what order, under which conditions, in what atmosphere) and through the teaching pattern of its content type, step by step in the pattern's order; every item on the task card is really taught, none only named.\n\nBIE's content types (the type of an item decides its required questions and how it is taught, shown, played and drawn):\n- process · Process: Something that happens in steps or stages over time: a mechanism, a procedure, a cycle (photosynthesis, cell division, how a bill becomes law). Required questions: how (kaise), when (kab). Other questions: what (kya), where (kahan), why (kyun), consequence (nateeja).\n  Teaching pattern: 1) the result first (what it makes). 2) inputs and the place. 3) each step with its cause and its condition. 4) what breaks when a step fails. 5) the whole run once more at speed. 6) recap as a flow.\n- structure · Structure: Something made of parts arranged in space, each part with a function (a cell, a leaf, the heart, a machine, the Parliament). Required questions: what (kya), where (kahan). Other questions: how (kaise), why (kyun), which (kaun).\n  Teaching pattern: 1) the whole in context. 2) zoom into each part in a fixed path (outside to inside). 3) function of each part tied to its shape. 4) how the parts work together. 5) labelled recap.\n- classification · Classification: A group divided into kinds by a stated basis (types of tissues, kinds of rocks, kinds of writs). Required questions: which (kaun), difference (tulna). Other questions: what (kya), evidence (saboot), where (kahan).\n  Teaching pattern: 1) the basis of division first. 2) the tree from the top down. 3) each kind with its identifying feature and an example. 4) the borderline cases and exceptions. 5) the tree as recap.\n- comparison · Comparison: Two or more things set side by side on stated criteria (plant and animal cells, Lok Sabha and Rajya Sabha). Required questions: compare (tulna), difference (tulna). Other questions: what (kya), why (kyun), evidence (saboot).\n  Teaching pattern: 1) what is common. 2) criteria one at a time, both sides together. 3) the reason behind each difference. 4) the most confused pair named directly. 5) difference table as recap.\n- timeline · Timeline: Events placed in time: history, the development of an idea, stages of a life (the Revolt of 1857, evolution of cell theory). Required questions: when (kab), why (kyun). Other questions: who (kaun), where (kahan), consequence (nateeja).\n  Teaching pattern: 1) the period and its atmosphere. 2) events in order with their causes. 3) the people and their choices. 4) the turning point. 5) what changed after. 6) timeline recap.\n- cause_effect · Reasoning (cause and effect): Why something happens: causes, effects, conditions and chains of reasoning (why tissues specialise, why prices rise, why a law was needed). Required questions: why (kyun), how (kaise). Other questions: consequence (nateeja), evidence (saboot), exception (tulna).\n  Teaching pattern: 1) the effect students can see. 2) the cause. 3) each link of the chain with its mechanism. 4) the evidence. 5) the exception or limit. 6) the chain as recap.\n- facts_numbers · Facts and numbers: Stated facts, quantities, measurements, statistics and formulas (heart rate 72 per minute, 3,000 against 50,000 soldiers at Plassey, F = ma). Required questions: what (kya), evidence (saboot). Other questions: compare (tulna), why (kyun).\n  Teaching pattern: 1) the fact in one line. 2) the number shown to scale against something familiar. 3) where it comes from (book or outside, dated). 4) what it changes or proves. 5) a formula built term by term when there is one.\n- figure · Figure: A diagram, photo, map, graph or table drawing on the page whose content is visual (tissue pages 2, 7 and 8 are figures only). Required questions: what (kya), which (kaun). Other questions: how (kaise), why (kyun).\n  Teaching pattern: 1) what the figure is and why it is here. 2) a reading path across it (labels in order). 3) the one thing to remember from it. 4) link back to the text it explains.\n- definition · Definition: A term and its meaning as the book states it (tissue, meristem, sovereignty). Required questions: what (kya), evidence (saboot). Other questions: about (kya), why (kyun).\n  Teaching pattern: 1) a concrete example first. 2) the book's definition word by word. 3) a non-example that tests the boundary. 4) where the term is used next in the chapter.\n\nOutput schema (JSON):\n{\"additionalProperties\":false,\"properties\":{\"beats\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"answers\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"basis\":{\"enum\":[\"book\",\"outside\",\"mixed\"],\"type\":\"string\"},\"beat_id\":{\"type\":\"string\"},\"covers_item_ids\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"on_screen\":{\"type\":\"string\"},\"part_id\":{\"type\":\"string\"},\"purpose\":{\"enum\":[\"hook\",\"prerequisite\",\"explain\",\"example\",\"analogy\",\"story\",\"compare\",\"process_walkthrough\",\"misconception\",\"exam_tip\",\"question_to_student\",\"recap\",\"transition\"],\"type\":\"string\"},\"say\":{\"type\":\"string\"},\"step\":{\"type\":\"integer\"}},\"required\":[\"beat_id\",\"part_id\",\"step\",\"purpose\",\"say\",\"covers_item_ids\",\"answers\",\"on_screen\",\"basis\"],\"type\":\"object\"},\"type\":\"array\"},\"notes\":{\"additionalProperties\":false,\"properties\":{\"about\":{\"description\":\"What this unit of work is about and how it fits the whole (one or two sentences).\",\"type\":\"string\"},\"decisions\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"decision\":{\"type\":\"string\"},\"reason\":{\"type\":\"string\"}},\"required\":[\"decision\",\"reason\"],\"type\":\"object\"},\"type\":\"array\"},\"key_questions\":{\"description\":\"The key questions a teacher must answer about this unit.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"uncertain\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"about\",\"key_questions\",\"decisions\",\"uncertain\"],\"type\":\"object\"},\"parts\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"frame\":{\"additionalProperties\":false,\"properties\":{\"atmosphere\":{\"type\":\"string\"},\"conditions\":{\"type\":\"string\"},\"how\":{\"type\":\"string\"},\"process\":{\"type\":\"string\"},\"when\":{\"type\":\"string\"}},\"required\":[\"process\",\"how\",\"when\",\"conditions\",\"atmosphere\"],\"type\":\"object\"},\"part_id\":{\"type\":\"string\"}},\"required\":[\"part_id\",\"frame\"],\"type\":\"object\"},\"type\":\"array\"},\"title\":{\"type\":\"string\"}},\"required\":[\"notes\",\"title\",\"parts\",\"beats\"],\"type\":\"object\"}\n\nHow BIE talks to you: every request is a task card (JSON) followed by its source. The card names the unit, its parts with their content type and required questions, the ids of the rules above that apply, the output, the ids you must cover and the context. The card is BIE's instruction; the source is the material.\nFor a write_script card:\n- card.parts are this video's parts: each has item ids, one content type and the questions it must answer. The source gives every item's\n  full content and its teacher questions with ids (\"p003-i4#q2\") and answers from BIE's chapter map; teach from them.\n- card.coverage.must_cover lists every item this video must teach: each must be in covers_item_ids of a beat that really explains it.\n  may_skip lists items you may leave out (not teachable). card.context.map_slice shows the related concepts for context only.\nHow to fill the JSON:\n- notes: brief notes for the reviewer: what this video is about, the key questions it must answer, your main decisions (order,\n  hook, analogy, where prerequisites are taught) with a reason each, what is uncertain.\n- title: the video title in the learner language.\n- parts: one entry per card part, with the universal frame of that part (S3-01), each in one or two lines of clear English for BIE:\n  process (what happens or what the thing does), how (how it works or happens), when (when, in what order, under which timing),\n  conditions (what must be true for it, or what changes it), atmosphere (the setting and situation a student should picture). Write\n  \"n/a: \" and the reason only where a question truly does not apply to that part.\n- beats: the whole video in order. beat_id \"b1\", \"b2\" ...; part_id = the card part this beat teaches (\"\" for the opening hook, a\n  prerequisite taught first, a transition or the final recap); step = the number of the teaching-pattern step of that part's content type\n  that this beat performs (see the content types above; 0 when part_id is \"\" and for an exam-question part, whose type is \"none\");\n  every step of a part's pattern must appear, in order;\n  purpose (hook, prerequisite, explain, example, analogy, story, compare, process_walkthrough, misconception, exam_tip,\n  question_to_student, recap, transition); say = the exact spoken words, one to four short spoken sentences in Navin's Hinglish (S2-04):\n  mixed script: Hindi words in Devanagari, English words (above all the book's technical terms, spelled as the book spells them) in\n  Roman, as in \"आज हम tissue के बारे में पढ़ेंगे\"; a Hindi word that is not in the simple everyday list below gets its English word in\n  brackets right after it, as in \"सतह (surface)\" (BIE's code checks it, shows the bracket on screen and makes the voice say\n  \"सतह, यानी surface\"); never write an English term in Devanagari or a Hindi word in Roman; numbers as digits; addressed to one student; covers_item_ids = the item ids this beat really explains; answers = the teacher question ids this beat\n  really answers; on_screen = what the student should see while hearing it (for the director); basis = book, outside or mixed.\nEvery item in must_cover and every teacher question listed for this video must be covered by some beat. A beat introduces at most a\nfew new items: BIE's code measures the load of every beat and asks you to split heavy ones. Reply with the JSON object only.\n\nSimple everyday Hindi words (list 2026-10-23.1); any other Hindi word gets its English word in brackets right after it, for example \"सतह (surface)\":\nअंतर अंदर अंधेरा अगर अगला अगली अगले अच्छा अच्छी अच्छे अजीब अधूरा अनेक अन्दर अपना अपनी अपने अब अभी अर्थात् अलग अलग-अलग असर असली आ आंख आई आए आकार आखिरी आग आगे आज आठ आदमी आधा आधी आधे आना आने आप आपका आपकी आपके आपको आम आया आये आसमान आसान इंसान इतना इतनी इतने इधर इन इनका इनकी इनके इनको इनाम इन्हें इस इसका इसकी इसके इसको इसलिए इसीलिए इसे उठ उठना उड उडना उतना उतर उतरना उत्तर उदाहरण उधर उन उनका उनकी उनके उनको उन्हें उस उसका उसकी उसके उसको उसे ऊंचा ऊपर एक एक-जैसा ऐसा ऐसी ऐसे ओर और औरत कई कक्षा कठिन कडा कडी कब कभी कभी-कभी कम कर करना करने करवाना करा कराना करीब करोड कल कह कहना कहां कहानी का काट काटना कान काफी काम कारण कि किए कितना कितनी कितने किताब किया किये किस किसका किसकी किसके किसको किसे की कुछ कुल के केवल कैसा कैसी कैसे को कोई कौन कौनसा कौनसी क्या क्यों क्योंकि खडा खत्म खा खाना खाली खास खींच खींचना खुद खुशी खून खेल खेलना खोज खोजना खोल खोलना गंदा गंदी गई गए गति गया गये गरम गर्म गर्मी गलत गलती गहरा गहरी गहरे गांव गिन गिनना गिर गिरना गिराना गीला गुस्सा गोल घंटा घट घटना घटाना घर घुमाना घूम घूमना चढ चढना चपटा चपटी चपटे चमडी चल चलना चलिए चांद चार चारों चावल चाह चाहना चाहिए चीज चुक चुकना चौडाई चौथा चौथी चौथे छः छह छात्र छू छूना छोटा छोटी छोटे छोड छोडना जगह जड जब जबकि जमीन जरा जरूर जरूरत जरूरी जल्दी जवाब जहां जा जान जानना जाना जाने जिंदगी जिंदा जितना जी जीवन जुड जुडना जैसा जैसी जैसे जोड जोडना जोर ज्यादा झूठ टीचर टुकडा टूट टूटना ठंड ठंडा ठंडी ठीक डर डाल डालना डाली डॉक्टर ढूंढ ढूंढना तक तना तब तरफ तरह तरीका ताकत ताकि तारा तीन तीनों तीसरा तीसरी तीसरे तुम तुम्हारा तुम्हारी तुम्हारे तुम्हें तेज तो तोड तोडना तौल तौलना त्वचा था थी थे थोडा थोडी थोडे दबा दबाना दम दवा दस दांत दाल दिख दिखना दिखाई दिखाना दिन दिया दिल दी दीजिए दुख दुनिया दूध दूर दूसरा दूसरी दूसरे दे देख देखना देखिए देना देने देर देश दो दोनों दोस्त दौड दौडना धकेलना धरती धीमा धीमी धीरे धूप ध्यान न नई नए नकली नतीजा नदी नया नये नरम नहीं ना नाक नाप नापना नाम निकल निकलना निकाल निकालना नीचा नीचे नुकसान ने नौ पकड पकडना पक्का पढ पढना पढा पढाना पतला पतली पतले पत्ता पत्तियां पत्ती पत्थर पन्ना पर परसों परिवार परीक्षा पल पहचान पहचानना पहला पहली पहले पहाड पहुंच पहुंचना पा पांच पांचवां पाना पानी पास पिछला पिछली पिछले पिता पी पीछे पीना पुराना पुरानी पुराने पूछ पूछना पूरा पूरी पूरे पेज पेट पेड पैर पौधा पौधे प्यार प्यारा प्रश्न फर्क फल फायदा फिर फूल फैल फैलना फैलाना बंद बच बचना बचाना बच्चा बच्ची बच्चे बडा बडी बडे बढ बढना बढाना बता बताइए बताना बदल बदलना बदलाव बन बनना बना बनाना बल्कि बस बहन बहुत बांट बांटना बाकी बात बाद बादल बार बारिश बाल बाहर बिना बिल्कुल बीच बीज बीमारी बीस बुरा बुरी बुरे बैठ बैठना बोल बोलना भर भरना भरा भरी भाई भाग भारी भाषा भी भेज भेजना मगर मजेदार मत मतलब मदद मरा मरी महीना मां मांस मान मानना मिट्टी मिनट मिल मिलना मिलाना मिसाल मुंह मुझको मुझे मुलायम मुश्किल में मेरा मेरी मेरे मेहनत मैं मोटा मोटी मोटे मौत यह यहां या याद यानी ये रंग रख रखना रखिए रफ्तार रह रहना रहने रहा रही रहे रात रास्ता रूप रोज रोजाना रोटी रोना रोशनी लंबा लंबाई लंबी लंबे लग लगना लगभग लगा लगाना लडका लडकी लम्बा लाख लिए लिख लिखना लिया लिये ली लीजिए ले लेकिन लेना लेने लोग वक्त वजन वजह वरना वर्ना वह वहां वाला वाली वाले विचार विद्यार्थी वे वैसा वैसी वैसे वो शरीर शहर शाम शायद शिक्षक शुरू सक सकता सकती सकते सकना सख्त सच सचमुच सपना सब सबसे सभी समझ समझना समझाना समझिए समय समुद्र सरल सर्दी सवाल सही सांस सात साथ साफ सामने सामान्य सारा सारी सारे साल सिकुड सिकुडना सिखाना सिर सिर्फ सीख सीखना सीधा सीधी सीधे सुंदर सुन सुनना सुनाई सुन्दर सुबह सूखा सूखी सूरज से सेहत सोच सोचना सोचिए सोना सौ स्कूल हंसना हजार हड्डियां हड्डी हफ्ता हम हमको हमारा हमारी हमारे हमें हमेशा हर हरेक हल्का हल्की हवा हां हाथ हिल हिलना हिलाना हिसाब हिस्सा ही हुआ हुई हुए है हैं हो होंगे होगा होगी होता होती होते होना होने",
+  "user": [
+   {
+    "type": "text",
+    "text": "BIE task card (JSON):\n{\"card\":\"bie.task-card/1\",\"card_id\":\"lesson.write_script@10-tissues-and-its-types/v17\",\"section\":\"lesson\",\"task\":\"write_script\",\"prefix\":{\"prefix_id\":\"lesson.write_script/2\",\"rulebook_version\":\"content_types@2026-10-22.2+simple_hindi@2026-10-23.1+vision-2026-10-21@2026-10-21.9\",\"content_types_version\":\"2026-10-22.2\",\"schema_id\":\"bie.brain.lesson-script/2\",\"sha256\":\"4bb5e9cc29c7cb07c3b7370bb6bd468bb9f84b0c9ff13c3fe40077e5a02caf2e\"},\"unit\":{\"unit_id\":\"v17\",\"title\":\"Stomata: gas कहाँ से जाती है और opening कौन बदलता है?\",\"pages\":[14]},\"parts\":[{\"part_id\":\"c42.q\",\"item_ids\":[\"p014-i10\",\"p014-i11\",\"p014-i12\",\"p014-i13\",\"p014-i14\"],\"type\":\"none\",\"questions\":[\"what\",\"which\",\"how\",\"why\"],\"focus\":\"Practice question: leaf gaseous exchange and stomata: exam questions (PYQ); answer each as an exam tip once the concept is taught (step 0)\"}],\"rules\":[\"G-01\",\"G-02\",\"G-03\",\"G-04\",\"G-05\",\"S2-01\",\"S2-02\",\"S2-03\",\"S2-04\",\"S2-05\",\"S2-06\"],\"output\":{\"schema_id\":\"bie.brain.lesson-script/2\",\"mode\":\"full\",\"max_output_tokens\":32000},\"coverage\":{\"must_cover\":[\"p014-i10\",\"p014-i11\",\"p014-i12\",\"p014-i13\",\"p014-i14\"],\"claim_field\":\"beats[].covers_item_ids\",\"may_skip\":[]},\"context\":{\"map_slice\":[[\"p014-i10\",\"none\",\"14\",\"Q. Site of gaseous exchange on leaf is:\"],[\"p014-i11\",\"none\",\"14\",\"a. Guard cells\"],[\"p014-i12\",\"none\",\"14\",\"b. Stomata\"],[\"p014-i13\",\"none\",\"14\",\"c. Aerenchyma\"],[\"p014-i14\",\"none\",\"14\",\"d. Chlorenchyma\"],[\"c42\",\"structure\",\"14\",\"Practice question: leaf gaseous exchange and stomata\"],[\"c41\",\"structure\",\"14\",\"Practice question: epidermis and a waxy protective surface\"]],\"before\":\"Plant की outer covering: epidermis, cuticle और protection\",\"after\":\"\"},\"source\":{\"block_ids\":[\"p0014-b0012\",\"p0014-b0013\",\"p0014-b0014\",\"p0014-b0015\",\"p0014-b0016\"],\"page_images\":[]}}\n\nVideo v17: Stomata: gas कहाँ से जाती है और opening कौन बदलता है?\nGoal: Leaf की epidermis में stomatal apparatus को whole context में रखेंगे। बाहर से pore, उसके दोनों ओर guard cells और अंदर के air spaces तक reading path देंगे। Outside clarification में turgor का सरल अर्थ और pore opening से उसका link समझाएँगे; gas movement के लिए diffusion को फिर example से जोड़ेंगे। Light या photosynthesis का मतलब stomata हमेशा खुले होने का universal rule नहीं बनाएँगे। c42 में gas-exchange site और उसे regulate करने वाली cells का फर्क हर option पर लागू करेंगे। आखिरी labelled recap में epidermis, cuticle, pore और guard cells के अलग काम पढ़ेंगे और chapter के structure–location–function frame से जोड़ेंगे।\nOpening hook: Gas guard cells से होकर जाती है या उनके बीच की opening से? दोनों के काम कैसे अलग हैं?\nStory or analogy: Door opening और उसे खोलने-बंद करने वाले हिस्से का फर्क pore तथा guard cells के अलग roles समझाएगा। Actual movement को turgor से अलग समझाएँगे।\nPlanned minutes: 20\nPrerequisites to teach first in this video (name · basis · why):\n- Stomatal pore, guard cells, turgor and gas diffusion · outside · Outside basis: Explain the difference between the opening used for gas exchange and the cells that regulate it, providing the missing conceptual basis for the leaf-gas-exchange question.\n\nItems (item id | page | kind | type | content), each with its teacher questions (question id | ask | question → answer | basis):\np014-i10 | 14 | question | none | Q. Site of gaseous exchange on leaf is:\n  p014-i10#q1 | what | What relationship does this question test? → It asks the learner to identify the site of gaseous exchange on a leaf from four listed structures or tissues. | book\n  p014-i10#q2 | which | Which option answers the question? → Option b, Stomata, is the correct textbook answer. | outside\n  p014-i10#q3 | how | How do stomata permit gaseous exchange? → Their pores connect the atmosphere with internal leaf air spaces. Gases diffuse through these openings according to concentration differences. | outside\n  p014-i10#q4 | why | Why should guard cells be distinguished from the site itself? → Guard cells regulate the opening and closing of the stomatal pore; the pore provides the passage through which gases move. | outside\np014-i11 | 14 | answer_option | none | a. Guard cells\n  p014-i11#q1 | what | What are guard cells? → They are specialised epidermal cells surrounding a stomatal pore. | outside\n  p014-i11#q2 | how | How do guard cells influence gas exchange? → Changes in their turgor alter the pore opening, regulating gas movement and water-vapour loss. They control the passage rather than being the passage itself. | outside\np014-i12 | 14 | answer_option | none | b. Stomata\n  p014-i12#q1 | what | What are stomata? → They are pores in the epidermis, each associated with guard cells, that provide routes for leaf gas exchange. | outside\n  p014-i12#q2 | how | How are gas exchange and water loss linked at stomata? → An open pore allows carbon dioxide and oxygen to diffuse between the leaf and the atmosphere, while water vapour can also diffuse outward. Guard-cell regulation therefore affects both gas exchange and transpiration. | outside\np014-i13 | 14 | answer_option | none | c. Aerenchyma\n  p014-i13#q1 | what | What is aerenchyma? → It is parenchyma with conspicuous air spaces, common in aquatic plants, where it aids internal aeration and buoyancy. | outside\n  p014-i13#q2 | why | Why is an air-space tissue not the answer to this leaf-surface question? → Internal air spaces help gases move within plant organs, but the question asks for the site of exchange on the leaf surface, which is identified as stomata. | outside\np014-i14 | 14 | answer_option | none | d. Chlorenchyma\n  p014-i14#q1 | what | What is chlorenchyma? → It is parenchyma containing chloroplasts and specialised for photosynthesis. | outside\n  p014-i14#q2 | why | Why is chlorenchyma not the best answer even though photosynthesis uses gases? → Photosynthetic tissue uses carbon dioxide, but the surface openings through which gases pass are stomata. Gas use inside a tissue and exchange through a surface opening are distinct functions. | outside"
+   },
+   {
+    "type": "text",
+    "text": "Answer the card with the teacher script JSON."
+   }
+  ]
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "started_at": 1792750190.015369,
+   "mode": "full",
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "c56314d7a9cc2572e5127b8031f2b88b4dfaabc6b2bc735a59602ecb65587e74",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 20482,
+    "output_tokens": 6043,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This video teaches the leaf gas-exchange question by separating the stomatal passage from the guard cells that regulate it. It closes the chapter with a structure–location–function recap.",
+    "key_questions": [
+     "Where do gases pass between a leaf and the atmosphere?",
+     "How do guard cells, turgor and diffusion have different roles?",
+     "Why are Aerenchyma and Chlorenchyma unsuitable answers to this question?",
+     "How do epidermis, cuticle, stomatal pore and guard cells differ?"
+    ],
+    "decisions": [
+     {
+      "decision": "Teach the stomatal apparatus, turgor and diffusion before solving the question.",
+      "reason": "The options become meaningful only after the learner distinguishes a passage, its controller and internal tissues."
+     },
+     {
+      "decision": "Mark conceptual explanations as outside and keep every exam-question beat at step 0.",
+      "reason": "The supplied book excerpt contains the question and options; the supporting explanations are supplied as outside clarification."
+     },
+     {
+      "decision": "Use a door analogy briefly, then explain turgor and diffusion separately.",
+      "reason": "The analogy clarifies roles but does not explain the biological mechanism."
+     },
+     {
+      "decision": "Avoid fixed gas directions and a universal light–opening rule.",
+      "reason": "Gas movement depends on concentration differences, and stomatal opening depends on conditions."
+     }
+    ],
+    "uncertain": [
+     "No page image or printed answer key is supplied; option b is identified as correct in the supplied teacher answers."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This video teaches the leaf gas-exchange question by separating the stomatal passage from the guard cells that regulate it. It closes the chapter with a structure–location–function recap.",
+     "key_questions": [
+      "Where do gases pass between a leaf and the atmosphere?",
+      "How do guard cells, turgor and diffusion have different roles?",
+      "Why are Aerenchyma and Chlorenchyma unsuitable answers to this question?",
+      "How do epidermis, cuticle, stomatal pore and guard cells differ?"
+     ],
+     "decisions": [
+      {
+       "decision": "Teach the stomatal apparatus, turgor and diffusion before solving the question.",
+       "reason": "The options become meaningful only after the learner distinguishes a passage, its controller and internal tissues."
+      },
+      {
+       "decision": "Mark conceptual explanations as outside and keep every exam-question beat at step 0.",
+       "reason": "The supplied book excerpt contains the question and options; the supporting explanations are supplied as outside clarification."
+      },
+      {
+       "decision": "Use a door analogy briefly, then explain turgor and diffusion separately.",
+       "reason": "The analogy clarifies roles but does not explain the biological mechanism."
+      },
+      {
+       "decision": "Avoid fixed gas directions and a universal light–opening rule.",
+       "reason": "Gas movement depends on concentration differences, and stomatal opening depends on conditions."
+      }
+     ],
+     "uncertain": [
+      "No page image or printed answer key is supplied; option b is identified as correct in the supplied teacher answers."
+     ]
+    },
+    "title": "Stomata: gas कहां से जाती है और opening कौन बदलता है?",
+    "parts": [
+     {
+      "part_id": "c42.q",
+      "frame": {
+       "process": "Identify Stomata as the textbook site of leaf gaseous exchange and distinguish the passage from its regulating cells and internal tissues.",
+       "how": "Read the question through structure, location and function; connect the stomatal pore to internal air spaces, then assess each option.",
+       "when": "Teach the apparatus, turgor and diffusion first; solve the question and eliminate distractors afterward.",
+       "conditions": "Gas diffusion requires concentration differences and an available passage; guard-cell turgor changes pore opening. Light alone does not establish a universal opening rule.",
+       "atmosphere": "Picture a magnified leaf epidermis, an adjustable pore with guard cells, internal air spaces and the surrounding air, followed by the four-option question."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Leaf में gas guard cells के अंदर से होकर जाती है, या उनके बीच की opening से? आज इसी छोटे फर्क को समझना है। इसी से 4 options वाला सवाल आसान हो जाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show a leaf and zoom toward a pore with two surrounding cells. Display: Passage? Controller?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले gaseous exchange का मतलब समझिए। Leaf और बाहर की हवा के बीच gases का आना-जाना gaseous exchange है। सवाल यह है कि इसके लिए रास्ता कहां मिलता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf ↔ surrounding air. Label the arrows gaseous exchange without fixing gas directions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पिछले video में आपने epidermis को पौधे की outer covering के रूप में समझा। अब leaf की उसी covering को पास से देखिए। इसमें stomatal pores होते हैं, जिनके साथ guard cells होती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → magnified epidermis → one stomatal pore with guard cells. Mark the drawing as schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक opening और उसके साथ की guard cells को साथ देखकर stomatal apparatus समझिए। Pore बीच का खुला रास्ता है। Guard cells उस रास्ते के दोनों ओर की खास epidermal cells हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Top view: outline the whole stomatal apparatus, then label stomatal pore and guard cells separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब बाहर से अंदर चलिए। पहले बाहर की हवा, फिर epidermis में stomatal pore, और उसके बाद leaf के अंदर के air spaces। Pore बाहर की हवा और अंदर के air spaces के बीच रास्ता देता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cross-section reading path: surrounding air → stomatal pore in epidermis → internal leaf air spaces.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "",
+      "step": 0,
+      "purpose": "analogy",
+      "say": "एक door opening से कोई अंदर-बाहर जा सकता है। उसे खोलने-बंद करने वाले हिस्से का काम अलग है। इसी तरह stomatal pore रास्ता है और guard cells उसकी opening बदलती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Compare a doorway and its opening mechanism with a pore and guard cells. Label: passage; opening control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "लेकिन guard cells हाथ से door नहीं खोलतीं। इनके अंदर पानी की हालत बदलने से turgor बदलता है। पहले turgor का मतलब समझिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Return from the door analogy to a guard cell. Highlight water inside the cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में पानी आने पर उसके अंदर का हिस्सा cell wall पर बाहर की ओर pressure डालता है। इसी pressure से जुड़ी cell की भरी और कड़ी हालत को turgor से समझते हैं। पानी कम होने पर यह pressure कम हो सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Simple cell diagram: water entry → outward pressure against cell wall; less water → reduced pressure. Label turgor.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Guard cells में turgor बढ़ने पर उनका आकार ऐसे बदलता है कि pore खुलता है। Turgor कम होने पर opening छोटी होती है और pore बंद हो सकता है। यानी पानी की हालत से guard-cell shape, और shape से opening बदलती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Paired schematic views: increased guard-cell turgor and open pore; reduced turgor and narrowed or closed pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अब 2 बातें अलग रखिए। Turgor opening बदलने में मदद करता है। Gas उस opening से कैसे चलती है, उसका जवाब diffusion है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two separate chains: turgor → pore opening; concentration difference → gas diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "मान लीजिए, हवा के एक हिस्से में किसी gas की concentration ज्यादा है और पास के हिस्से में कम। Concentration यानी किसी जगह उस gas की कितनी मात्रा (amount) है। Diffusion में gas का net movement ज्यादा concentration से कम concentration की ओर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two connected regions with high and low concentrations of the same gas. Show movement both ways and a larger net arrow toward lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अब यही बात leaf पर लगाइए। अगर carbon dioxide बाहर ज्यादा और अंदर कम है, तो खुले pore से उसका net movement अंदर की ओर होगा। Direction concentration difference से निकली है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: CO₂ concentration outside > inside; open pore; net CO₂ arrow inward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर oxygen की concentration अंदर ज्यादा और बाहर कम हो, तो उसका net movement बाहर की ओर होगा। इसलिए carbon dioxide के लिए अंदर और oxygen के लिए बाहर की direction को हर समय का fixed rule मत बनाइए। हर gas का concentration difference देखना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: O₂ concentration inside > outside; net arrow outward. Add: direction depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "खुले pore से water vapour भी बाहर जा सकती है। Leaf से water vapour के रूप में पानी बाहर जाने को transpiration कहते हैं। इसलिए opening बदलने का असर gas exchange और पानी के नुकसान, दोनों पर पड़ता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Open pore with separate CO₂, O₂ and outward water-vapour arrows. Label water-vapour loss: transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अगर pore बंद हो जाए, तो उस रास्ते से gas exchange बहुत कम हो जाता है। लेकिन खुला pore भी हर gas को एक fixed direction में नहीं भेजता। Net diffusion के लिए concentration difference जरूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Closed pore: restricted exchange through this route. Open pore: net diffusion depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और बात ध्यान में रखिए। रोशनी है, इसलिए stomata हमेशा खुले होंगे, ऐसा universal rule नहीं है। Opening पर पानी की हालत और दूसरी conditions का भी असर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Light alone ≠ guaranteed open stomata. Show water status and other conditions feeding into pore opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरी बात एक बार जोड़िए। Guard-cell turgor बदलता है, उससे pore opening बदलती है। खुले रास्ते से gases अपने concentration differences के अनुसार (according to) diffuse करती हैं, और water vapour भी बाहर जा सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Labelled recap: guard cells → adjustable pore → internal air spaces; separate labels for turgor, diffusion and transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब किताब का सवाल पढ़िए: Site of gaseous exchange on leaf is। यहां आपसे leaf पर gaseous exchange की जगह पूछी गई है। किसी cell या tissue का नाम पहचानने के साथ उसका काम भी मिलाना होगा।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1"
+      ],
+      "on_screen": "Display the exact stem: Q. Site of gaseous exchange on leaf is: Highlight Site and gaseous exchange.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "Options हैं: a. Guard cells, b. Stomata, c. Aerenchyma और d. Chlorenchyma। पहले खुद चुनिए। आपको passage चुनना है, opening बदलने वाली cells चुननी हैं, या gas इस्तेमाल करने वाला tissue?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show all four exact options. Pause before revealing the answer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "सही जवाब है b. Stomata। Stomata epidermis में pores हैं, और हर pore के साथ guard cells होती हैं। Leaf और बाहर की हवा के बीच gas exchange का रास्ता ये openings देती हैं।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i10#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Highlight b. Stomata. Beside it show a labelled pore in the epidermis with associated guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "यह जवाब क्यों सही है? Stomatal pore बाहर की हवा को leaf के अंदर के air spaces से जोड़ता है। इसी रास्ते से gases concentration differences के कारण diffuse करती हैं।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q3"
+      ],
+      "on_screen": "Trace atmosphere ↔ stomatal pore ↔ internal air spaces. Label the mechanism diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब a. Guard cells को देखिए। ये pore के चारों ओर की खास epidermal cells हैं। ये opening को बदलती हैं, जबकि बीच का pore gas के लिए रास्ता देता है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Highlight a. Guard cells. Colour the guard cells separately from the pore; label controller and passage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Guard cells का turgor बदलने से opening बदलती है। इससे gas movement और water-vapour loss पर असर पड़ता है। इसलिए ये gas exchange को control करती हैं, लेकिन इस सवाल में passage की जगह पर इन्हें नहीं चुनेंगे।",
+      "covers_item_ids": [
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i11#q2"
+      ],
+      "on_screen": "Guard-cell turgor → pore opening → effects on gas exchange and water-vapour loss. Mark option a unsuitable for this stem.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर सवाल opening और closing को control करने वाली cells पूछे, तो जवाब Guard cells होगा। अभी सवाल gaseous exchange की site पूछ रहा है, इसलिए Stomata सही है। दोनों सवालों में एक ही diagram है, लेकिन पूछा गया काम अलग है।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i10#q4",
+       "p014-i11#q2"
+      ],
+      "on_screen": "Compare stems: Site of gaseous exchange → Stomata; Cells regulating opening and closing → Guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option b से एक और link बनाइए। Open stomatal pore carbon dioxide और oxygen के diffusion का रास्ता देता है। उसी opening से water vapour भी बाहर जा सकती है, इसलिए gas exchange और transpiration आपस में जुड़े हैं।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q2"
+      ],
+      "on_screen": "Stomatal pore with concentration-dependent CO₂ and O₂ arrows, plus outward water vapour. Link guard-cell regulation to both outcomes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब c. Aerenchyma समझिए। पहले parenchyma का मतलब याद कर लें: यह पौधों का एक simple permanent tissue है, जो आम तौर पर जिंदा, पतली cell walls वाली cells से बना होता है। Aerenchyma इसी parenchyma का एक खास रूप है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [],
+      "on_screen": "Parenchyma: living cells with generally thin cell walls. Branch toward Aerenchyma; leave identifying air-space feature for the next beat.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Aerenchyma में बड़े और साफ दिखाई देने वाले air spaces होते हैं। यह पानी में रहने वाले पौधों में आम है। ये spaces अंदर gases के आने-जाने और पौधे को पानी में तैरने में मदद करते हैं।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q1"
+      ],
+      "on_screen": "Schematic Aerenchyma with conspicuous internal air spaces. Show an aquatic plant; label internal aeration and buoyancy.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerenchyma में air spaces हैं, इसलिए option देखकर जल्दी में इसे मत चुनिए। ये पौधे के अंदर gases के आने-जाने में मदद करते हैं। इस सवाल में leaf की outer surface पर exchange का रास्ता पूछा है, जिसका जवाब Stomata है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q2"
+      ],
+      "on_screen": "Contrast an internal air-space tissue with a stomatal surface opening. Mark c. Aerenchyma unsuitable for this stem.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आखिरी option समझने से पहले chloroplast को याद करिए। Chloroplast cell के अंदर का वह हिस्सा है जहां photosynthesis होता है। Photosynthesis में पौधा रोशनी की मदद से carbon dioxide और पानी से food बनाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom into a plant cell and label chloroplast. Simple context: light + carbon dioxide + water → food.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब d. Chlorenchyma देखिए। यह chloroplasts वाला parenchyma है, जिसका खास काम photosynthesis करना है। नाम को उसके अंदर के chloroplasts और उनके काम से जोड़िए।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q1"
+      ],
+      "on_screen": "Parenchyma → cells containing chloroplasts → Chlorenchyma → photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Photosynthesis में carbon dioxide इस्तेमाल होती है, लेकिन gas इस्तेमाल करना और gas के लिए बाहर से रास्ता देना अलग काम हैं। Chlorenchyma अंदर photosynthesis करता है। बाहर की हवा से gas exchange की opening के लिए Stomata चुनेंगे।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q2"
+      ],
+      "on_screen": "Contrast gas use inside photosynthetic tissue with passage through a surface pore. Mark d. Chlorenchyma unsuitable for this stem.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "compare",
+      "say": "अब options को उनके काम से अलग कीजिए। Guard cells opening control करती हैं, और Stomata exchange का रास्ता देते हैं। Aerenchyma में बड़े air spaces होते हैं, जबकि Chlorenchyma photosynthesis से जुड़ा है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12",
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [],
+      "on_screen": "Four-row recap table: Guard cells—opening control; Stomata—gas-exchange passage; Aerenchyma—large air spaces; Chlorenchyma—photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "एक बार बिना options देखे जवाब दीजिए। Gas के लिए opening कौन देता है, और उस opening को कौन बदलता है? जवाब है Stomata और Guard cells।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i10#q2",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Hide options. Ask Passage? Controller? Pause, then reveal Stomata and Guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब आखिरी diagram में पहले epidermis पहचानिए। यह outer covering है। इसके बाहर की cuticle एक waxy layer है, जो पानी के नुकसान को कम करने में मदद करती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Schematic leaf cross-section. Label epidermis and overlying cuticle; show cuticle as a protective waxy layer without bridging the open pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब epidermis में stomatal pore देखिए। यह gas exchange का रास्ता है। उसके दोनों ओर guard cells देखिए, जो opening बदलती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Add stomatal pore and guard-cell labels to the same diagram. Highlight passage and control as separate functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Pore के बाद अंदर के air spaces तक रास्ता पूरा कीजिए। Opening का आकार guard-cell turgor से जुड़ा है। उस रास्ते से gas का net movement concentration difference से जुड़ा है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Complete the labelled path: external air ↔ pore ↔ internal air spaces. Place turgor beside guard cells and diffusion beside gas arrows.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरे chapter में यही तरीका काम आएगा: structure क्या है, कहां है, और क्या काम करता है। यहां opening और उसे control करने वाली cells का फर्क समझते ही जवाब साफ हो गया। Leaf की gaseous exchange site पूछे, तो b. Stomata।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Structure → Location → Function. Final answer card: b. Stomata; guard cells regulate the pore opening.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b3: the Hindi words ['इसमें', 'जिनके'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b4: the Hindi words ['खुला'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b7: the Hindi words ['खोलतीं', 'हालत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b8: the Hindi words ['हालत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b9: the Hindi words ['खुलता', 'हालत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b12: the Hindi words ['खुले'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b14: the Hindi words ['खुले', 'पड़ता'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b15: the Hindi words ['खुला'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b16: the Hindi words ['खुले', 'हालत'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b17: the Hindi words ['उससे', 'खुले'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b18: the Hindi words ['आपसे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b19: the Hindi words ['चुनिए', 'चुनना', 'चुननी', 'इस्तेमाल'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b23: the Hindi words ['इससे', 'पड़ता', 'चुनेंगे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b25: the Hindi words ['आपस'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b26: the Hindi words ['लें', 'तौर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b27: the Hindi words ['तैरने'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b28: the Hindi words ['चुनिए', 'जिसका'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b30: the Hindi words ['जिसका'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b31: the Hindi words ['इस्तेमाल', 'चुनेंगे'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b32: the Hindi words ['कीजिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b36: the Hindi words ['कीजिए'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] the script speaks about 9.9 minutes but the plan gives this video 20; nothing may be compressed away (G-05, PED duration check)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.22,
+     "abrupt_jumps": []
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 9.9,
+     "planned_minutes": 20
+    }
+   },
+   "passed": false,
+   "finished_at": 1792750343.5893314
+  },
+  {
+   "round": 2,
+   "started_at": 1792750343.5895054,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch preserves the original question coverage and expands the conceptual teaching, diagram reading and guided practice before the final answer.",
+     "key_questions": [
+      "How do the pore, guard cells and internal air spaces work together?",
+      "How does turgor change the opening, and how does diffusion move gases?",
+      "Why does each distractor fail the structure–location–function test?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace every flagged Hindi expression with everyday Hindi or an English expression.",
+       "reason": "This corrects the language findings while preserving the original explanations."
+      },
+      {
+       "decision": "Add substantial guided teaching between the existing beats.",
+       "reason": "The earlier script moved too quickly through the planned concepts; the additions explain mechanisms, conditions, examples and option boundaries without padding."
+      },
+      {
+       "decision": "Keep all added conceptual material marked outside and all exam-question beats at step 0.",
+       "reason": "The supplied book material contains the question and options; supporting biology comes from the supplied outside clarifications."
+      }
+     ],
+     "uncertain": [
+      "Exact running time depends on narration speed and student-response pauses; the expanded script addresses the earlier duration shortfall.",
+      "No page image or printed answer key is supplied; the supplied teacher answers identify option b as correct."
+     ]
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पिछले video में आपने epidermis को पौधे की outer covering के रूप में समझा। अब leaf की उसी covering को पास से देखिए। यहां stomatal pores होते हैं, और हर pore के साथ guard cells होती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → magnified epidermis → one stomatal pore with guard cells. Mark the drawing as schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक opening और उसके साथ की guard cells को साथ देखकर stomatal apparatus समझिए। Pore बीच का open रास्ता है। Guard cells उस रास्ते के दोनों ओर की खास epidermal cells हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Top view: outline the stomatal apparatus, then label stomatal pore and guard cells separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "लेकिन guard cells के पास door खोलने वाला हाथ नहीं है। इनके अंदर पानी की condition बदलने से turgor बदलता है। पहले turgor का मतलब समझिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Return from the door analogy to a guard cell. Highlight water inside the cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में पानी आने पर उसके अंदर का हिस्सा cell wall पर बाहर की ओर pressure डालता है। इस pressure को turgor pressure कहते हैं। ज्यादा turgor वाली cell भरी और कड़ी होती है; पानी कम होने पर pressure कम हो सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Water entry → pressure against cell wall. Label turgor pressure and distinguish pressure from the resulting firm cell condition.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Guard cells में turgor बढ़ने पर उनका आकार ऐसे बदलता है कि pore open होता है। Turgor कम होने पर opening छोटी होती है और pore बंद हो सकता है। यानी पानी की condition से guard-cell shape, और shape से opening बदलती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Increased guard-cell turgor → open pore; reduced turgor → narrowed or closed pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अब यही बात leaf पर लगाइए। अगर carbon dioxide बाहर ज्यादा और अंदर कम है, तो open pore से उसका net movement अंदर की ओर होगा। Direction concentration difference से निकली है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: CO₂ concentration outside > inside; open pore; net CO₂ arrow inward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Open pore से water vapour भी बाहर जा सकती है। Leaf से water vapour के रूप में पानी बाहर जाने को transpiration कहते हैं। इसलिए opening बदलने का असर gas exchange और पानी के नुकसान, दोनों पर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Open pore with concentration-dependent gas arrows and outward water-vapour arrows. Label transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अगर pore बंद हो जाए, तो उस रास्ते से gas exchange बहुत कम हो जाता है। लेकिन open pore भी हर gas को एक fixed direction में नहीं भेजता। Net diffusion के लिए concentration difference जरूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Closed pore: restricted exchange through this route. Open pore: net diffusion depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और बात ध्यान में रखिए। रोशनी है, इसलिए stomata हमेशा open होंगे, ऐसा universal rule नहीं है। Opening पर पानी की condition और दूसरी conditions का भी असर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Light alone ≠ guaranteed open stomata. Show water status and other conditions affecting opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरी बात एक बार जोड़िए। Guard-cell turgor बदलता है, तो pore opening बदलती है। Open रास्ते से gases अपने concentration differences के अनुसार (according to) diffuse करती हैं, और water vapour भी बाहर जा सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard cells → adjustable pore → internal air spaces. Distinguish turgor, diffusion and transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब किताब का सवाल पढ़िए: Site of gaseous exchange on leaf is। यहां leaf पर gaseous exchange की जगह पूछी गई है। किसी cell या tissue का नाम पहचानने के साथ उसका काम भी मिलाना होगा।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1"
+      ],
+      "on_screen": "Display the exact question stem. Highlight Site and gaseous exchange.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "Options हैं: a. Guard cells, b. Stomata, c. Aerenchyma और d. Chlorenchyma। पहले खुद answer दीजिए। आपको passage पहचानना है, opening बदलने वाली cells पहचानना है, या gas use करने वाला tissue?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show all four exact options. Pause before revealing the answer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Guard cells का turgor बदलने से opening बदलती है। इस बदलाव का असर gas movement और water-vapour loss पर होता है। इसलिए ये gas exchange को control करती हैं, लेकिन इस सवाल में passage की जगह पर ये सही answer नहीं हैं।",
+      "covers_item_ids": [
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i11#q2"
+      ],
+      "on_screen": "Guard-cell turgor → pore opening → gas exchange and water-vapour loss. Mark option a unsuitable for this stem.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option b से एक और link बनाइए। Open stomatal pore carbon dioxide और oxygen के diffusion का रास्ता देता है। उसी opening से water vapour भी बाहर जा सकती है, इसलिए opening का control gas exchange और transpiration, दोनों को बदल सकता है।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q2"
+      ],
+      "on_screen": "Stomatal pore with concentration-dependent gas arrows and outward water vapour. Link opening control to both outcomes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब c. Aerenchyma समझिए। पहले parenchyma का मतलब याद करिए: यह पौधों का एक simple permanent tissue है, जो generally जिंदा, पतली cell walls वाली cells से बना होता है। Aerenchyma इसी parenchyma का एक खास रूप है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [],
+      "on_screen": "Parenchyma: generally living, thin-walled cells. Branch toward Aerenchyma.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Aerenchyma में बड़े और साफ दिखाई देने वाले air spaces होते हैं। यह पानी में रहने वाले पौधों में आम है। ये spaces अंदर gases के आने-जाने और buoyancy, यानी पानी में floating में मदद करते हैं।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q1"
+      ],
+      "on_screen": "Aerenchyma with conspicuous internal air spaces. Show internal aeration and buoyancy in an aquatic plant.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerenchyma में air spaces हैं, इसलिए option देखकर जल्दी में इसे सही मत मानिए। ये पौधे के अंदर gases के आने-जाने में मदद करते हैं। इस सवाल में leaf की outer surface पर exchange का रास्ता पूछा है, और उसके लिए Stomata सही answer है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q2"
+      ],
+      "on_screen": "Contrast internal air-space tissue with a stomatal surface opening. Mark option c unsuitable.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब d. Chlorenchyma देखिए। यह chloroplasts वाला parenchyma है, और इसका खास काम photosynthesis करना है। नाम को उसके अंदर के chloroplasts और उनके काम से जोड़िए।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q1"
+      ],
+      "on_screen": "Parenchyma containing chloroplasts → Chlorenchyma → photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Photosynthesis में carbon dioxide use होती है, लेकिन gas use करना और gas के लिए बाहर से रास्ता देना अलग काम हैं। Chlorenchyma अंदर photosynthesis करता है। बाहर की हवा से gas exchange की opening के लिए Stomata सही answer है।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q2"
+      ],
+      "on_screen": "Contrast gas use inside photosynthetic tissue with passage through a surface pore. Mark option d unsuitable.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "compare",
+      "say": "अब options को उनके काम से अलग करिए। Guard cells opening control करती हैं, और Stomata exchange का रास्ता देते हैं। Aerenchyma में बड़े air spaces होते हैं, जबकि Chlorenchyma photosynthesis से जुड़ा है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12",
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [],
+      "on_screen": "Recap table: Guard cells—opening control; Stomata—passage; Aerenchyma—air spaces; Chlorenchyma—photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Pore के बाद अंदर के air spaces तक रास्ता पूरा करिए। Opening का आकार guard-cell turgor से जुड़ा है। उस रास्ते से gas का net movement concentration difference से जुड़ा है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Complete external air ↔ pore ↔ internal air spaces. Place turgor beside guard cells and diffusion beside gas arrows.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [
+     {
+      "after_beat_id": "b2",
+      "beat": {
+       "beat_id": "b38",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "यहां exchange का मतलब किसी एक gas का सिर्फ अंदर जाना नहीं है। Leaf और हवा के बीच carbon dioxide, oxygen और water vapour का movement समझना है। कौनसी gas किस ओर जाएगी, यह आगे concentration difference देखकर समझेंगे। पहले सिर्फ रास्ते की पहचान पर ध्यान रखिए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Leaf and surrounding air with three gas labels. Keep arrow directions unrevealed.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b3",
+      "beat": {
+       "beat_id": "b39",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "एक leaf को दूर से देखकर उसकी पूरी covering एक जैसी लग सकती है। लेकिन microscopic view में covering और opening अलग पहचान में आते हैं। Epidermis covering बनाती है; pore उस covering में रास्ता देता है। इसलिए covering का नाम और exchange opening का नाम एक जैसा नहीं होगा।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Zoom from whole leaf to epidermis. Highlight continuous covering, then one opening.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b4",
+      "beat": {
+       "beat_id": "b40",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "Diagram में बीच की खाली जगह पर ध्यान दीजिए। क्या यह भी guard cell है? नहीं, guard cells इसके दोनों ओर हैं; बीच की opening pore है। किसी diagram में label की line कहां खत्म होती है, यह देखना जरूरी है, वरना cell और उसके बीच की जगह एक समझ में आ सकते हैं।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Alternate label pointers between guard-cell bodies and the central pore. Ask the learner to identify each.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b5",
+      "beat": {
+       "beat_id": "b41",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "ऊपर से देखने पर pore और उसके दोनों ओर की cells दिखाई देती हैं। अब side से leaf का cross-section देखिए: उसी pore के नीचे अंदर के air spaces हैं। ये 2 views अलग structures नहीं दिखा रहे; एक ही रास्ते को 2 अलग तरफ से समझा रहे हैं।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Link top view and cross-section with matching colours. Trace the same pore in both views.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b41",
+      "beat": {
+       "beat_id": "b42",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "अंदर का air space और बाहर से आने की opening अलग हैं। Air space leaf के अंदर gas के लिए जगह देता है, जबकि stomatal pore बाहर की हवा तक connection देता है। अगर आप सिर्फ अंदर की खाली जगह दिखाएं, तो बाहर से वहां तक पहुंचने वाला रास्ता अभी समझाना बाकी रहेगा।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Highlight internal spaces first, then reveal their connection to external air through the pore.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b6",
+      "beat": {
+       "beat_id": "b43",
+       "part_id": "",
+       "step": 0,
+       "purpose": "analogy",
+       "say": "Door की opening छोटी हो या बड़ी, आने-जाने के रास्ते पर असर होता है। लेकिन opening अपने आप यह नहीं बताती कि कोई अंदर जाएगा या बाहर। Leaf में भी opening की चौड़ाई और gas movement की direction अलग सवाल हैं। पहला guard cells से और दूसरा concentration difference से समझना है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Door analogy: opening width versus travel direction. Transition to the two biological questions.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b8",
+      "beat": {
+       "beat_id": "b44",
+       "part_id": "",
+       "step": 0,
+       "purpose": "example",
+       "say": "मान लीजिए, एक guard cell में पहले से ज्यादा पानी आता है। अब cell के अंदर से wall पर pressure ज्यादा हो सकता है; यही turgor बढ़ने का link है। यहां पानी का cell में आना समझ रहे हैं, gas का pore से जाना नहीं। दोनों movements को एक mechanism मत मानिए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Guard-cell enlargement: water entry and pressure arrows. Keep the gas pathway visually separate.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b9",
+      "beat": {
+       "beat_id": "b45",
+       "part_id": "",
+       "step": 0,
+       "purpose": "process_walkthrough",
+       "say": "अब यह link धीरे पढ़िए: guard cells में पानी की condition बदलती है, turgor बदलता है, फिर cell का आकार बदलता है। आकार के उस बदलाव से बीच की opening बदलती है। Guard cells अपनी खास बनावट (structure) के कारण ऐसा करती हैं; हर cell के लिए pore खोलने वाला यही नतीजा नहीं मानना है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Water condition → turgor → guard-cell shape → pore opening. Mark the explanation as specific to guard cells.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b45",
+      "beat": {
+       "beat_id": "b46",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब diagram में opening पहले बड़ी और फिर छोटी दिखाई गई है। बीच का pore कोई नई cell बन गया है क्या? नहीं, उसी रास्ते का आकार बदला है। अगर सवाल पूछे कि यह बदलाव कौन control करता है, तो आसपास की guard cells देखिए; अगर रास्ता पूछे, तो बीच का pore देखिए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Animate the same pore narrowing. Keep guard-cell and pore labels attached throughout.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b10",
+      "beat": {
+       "beat_id": "b47",
+       "part_id": "",
+       "step": 0,
+       "purpose": "misconception",
+       "say": "Guard cells को gas खींचने वाला pump मत समझिए। उनका opening बदलना रास्ते की condition बदलता है। Gas का net movement समझने के लिए फिर भी दोनों ओर उसकी concentration देखनी होगी। यानी controller की पहचान से movement का पूरा mechanism अपने आप नहीं मिल जाता।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Guard cells: opening control. Gas arrows: concentration-dependent diffusion. Cross out a pump symbol.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b11",
+      "beat": {
+       "beat_id": "b48",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "Concentration की तुलना (comparison) में एक बात जरूरी है: बराबर जगह में कितनी gas है? एक बड़े हिस्से में कुल gas ज्यादा हो सकती है, फिर भी उसकी concentration कम हो सकती है। अभी diagram में बराबर आकार के 2 हिस्से देखिए; ज्यादा dots वाला हिस्सा ज्यादा concentration दिखाता है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Equal-volume regions containing different numbers of gas dots. Label higher and lower concentration.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b48",
+      "beat": {
+       "beat_id": "b49",
+       "part_id": "",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "Net movement शब्द पर भी ध्यान दीजिए। Gas के particles दोनों ओर जा सकते हैं, लेकिन एक ओर ज्यादा जाने पर कुल नतीजा उस ओर का movement होता है। इसलिए ज्यादा concentration से कम concentration का arrow net movement दिखाता है; इसका मतलब दूसरी ओर movement बिल्कुल बंद होना नहीं है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Show particles crossing both ways, then a larger net arrow from higher to lower concentration.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b12",
+      "beat": {
+       "beat_id": "b50",
+       "part_id": "",
+       "step": 0,
+       "purpose": "example",
+       "say": "इस example में answer अंदर की ओर क्यों आया? क्योंकि हमने carbon dioxide की concentration बाहर ज्यादा और अंदर कम मानी थी। अगर आप सिर्फ carbon dioxide का नाम याद करके arrow बनाएं, तो condition छूट जाएगी। पहले gas पहचानिए, फिर उसकी दोनों ओर की concentration, और उसके बाद net arrow बनाइए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Three checks: gas identity → outside/inside concentration → net direction. Apply to the CO₂ example.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b13",
+      "beat": {
+       "beat_id": "b51",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब सोचिए, एक ही open pore पर carbon dioxide का net arrow अंदर और oxygen का बाहर कैसे हो सकता है? क्योंकि हर gas का अपना concentration difference है। Pore सब gases को एक साथ एक ही direction का आदेश (command) नहीं देता। हर gas के लिए दोनों ओर की condition अलग पढ़नी है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "One pore, with independent concentration comparisons for CO₂ and O₂ and conditional opposite net arrows.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b51",
+      "beat": {
+       "beat_id": "b52",
+       "part_id": "",
+       "step": 0,
+       "purpose": "example",
+       "say": "अगर किसी gas की concentration दोनों ओर बराबर हो, तो क्या open pore अपने आप उसका net movement पैदा करेगा? नहीं, बराबर concentration पर उस difference के कारण net diffusion नहीं होगा। फिर भी particles की movement चल सकती है। Open रास्ता और net movement के लिए driving condition, दोनों अलग बातें हैं।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Equal concentrations across an open pore. Show balanced movement and no net arrow.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b14",
+      "beat": {
+       "beat_id": "b53",
+       "part_id": "",
+       "step": 0,
+       "purpose": "explain",
+       "say": "Water vapour के लिए भी अंदर और बाहर की condition देखनी है। जब leaf के अंदर water vapour ज्यादा और बाहर की हवा में कम हो, तो उसका net diffusion बाहर की ओर होता है। इसलिए transpiration को सिर्फ पानी का नाम लेकर नहीं, पानी के vapour बनने और बाहर जाने से पहचानिए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Conditional water-vapour concentration gradient: leaf interior > outside air → outward net diffusion.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b53",
+      "beat": {
+       "beat_id": "b54",
+       "part_id": "",
+       "step": 0,
+       "purpose": "explain",
+       "say": "अब guard-cell control की जरूरत ज्यादा साफ है। वही opening gases के exchange का रास्ता देती है और water vapour के बाहर जाने का भी। Opening छोटी होने पर दोनों पर असर हो सकता है। इसलिए सिर्फ gas exchange देखकर opening का फायदा समझना अधूरा है; पानी के नुकसान वाला link भी साथ रखिए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Adjustable pore linked to two outcomes: gas exchange and water-vapour loss.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b15",
+      "beat": {
+       "beat_id": "b55",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "एक diagram में concentration difference है, लेकिन pore बंद है। दूसरे में pore open है, लेकिन gas की concentration दोनों ओर बराबर है। क्या दोनों diagrams एक ही condition दिखाते हैं? नहीं, पहले में रास्ते की opening कम है; दूसरे में उस gas के net diffusion के लिए concentration difference नहीं है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Side-by-side cases: closed pore with gradient; open pore without gradient. Ask which condition limits each case.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b16",
+      "beat": {
+       "beat_id": "b56",
+       "part_id": "",
+       "step": 0,
+       "purpose": "misconception",
+       "say": "इसी तरह photosynthesis का नाम देखकर भी stomata हमेशा open हैं, यह answer मत दीजिए। Photosynthesis gas के use से जुड़ा है, जबकि opening guard cells की condition से जुड़ी है। दोनों में link है, लेकिन सिर्फ एक शब्द देखकर हर पौधे और हर समय के लिए fixed rule बनाना सही नहीं होगा।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Photosynthesis context linked to, but not equated with, guaranteed stomatal opening.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b17",
+      "beat": {
+       "beat_id": "b57",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब बिना diagram के रास्ता बोलकर देखिए: बाहर की हवा से pore, फिर leaf के अंदर के air spaces। अगला सवाल: pore opening कौन बदलता है? Guard cells; और gas का net movement कैसे समझेंगे, तो concentration difference से diffusion। आपने location, control और movement के 3 अलग जवाब बनाए हैं।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Reveal three answers after separate pauses: route, controller, movement mechanism.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b21",
+      "beat": {
+       "beat_id": "b58",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "इस question में site शब्द जरूरी है। यह opening को बदलने की पूरी कहानी या photosynthesis करने वाला tissue नहीं पूछ रहा। आपको उस structure का नाम देना है जो leaf और हवा के बीच exchange का रास्ता देता है। इसलिए explanation में guard cells जरूरी होते हुए भी सही option Stomata रहता है।",
+       "covers_item_ids": [
+        "p014-i10",
+        "p014-i12"
+       ],
+       "answers": [
+        "p014-i10#q1",
+        "p014-i10#q2",
+        "p014-i10#q4"
+       ],
+       "on_screen": "Underline Site. Match the stem to passage rather than controller or photosynthetic tissue.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b24",
+      "beat": {
+       "beat_id": "b59",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब मैं सिर्फ पूछा गया काम बदलता हूं: specialised epidermal cells जो pore opening बदलती हैं। आपका answer क्या होगा? Guard cells; लेकिन अगले सवाल में बाहर की हवा और अंदर के air spaces के बीच passage पूछा जाए, तो Stomata। एक ही leaf में पास-पास होने से दोनों के काम एक नहीं हो जाते।",
+       "covers_item_ids": [
+        "p014-i11",
+        "p014-i12"
+       ],
+       "answers": [
+        "p014-i11#q1",
+        "p014-i11#q2",
+        "p014-i12#q1"
+       ],
+       "on_screen": "Alternate two stems with pauses: regulating epidermal cells; exchange passage. Reveal the matching options.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b26",
+      "beat": {
+       "beat_id": "b60",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "Parenchyma को एक cell के नाम की तरह मत पढ़िए; यह tissue है, यानी cells का ऐसा group जो मिलकर काम करता है। Simple permanent tissue में एक ही मुख्य (main) तरह की cells होती हैं और वे सामान्य (usual) condition में लगातार (continuously) divide नहीं करतीं। अब इसी tissue के खास रूप को पहचानेंगे।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Cell → group of similar cells → parenchyma tissue. Explain simple and permanent before returning to Aerenchyma.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b27",
+      "beat": {
+       "beat_id": "b61",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "explain",
+       "say": "Aerenchyma के diagram में cells के बीच बड़े air spaces पहचानिए। Internal aeration का मतलब है अंदर gases के आने-जाने में मदद। Buoyancy का मतलब पानी में floating को मदद मिलना है। ये दोनों काम air spaces वाले tissue से जुड़े हैं; यहां epidermis में guard cells के बीच का pore नहीं दिखाया गया है।",
+       "covers_item_ids": [
+        "p014-i13"
+       ],
+       "answers": [
+        "p014-i13#q1",
+        "p014-i13#q2"
+       ],
+       "on_screen": "Label cells and large intercellular air spaces in Aerenchyma. Contrast with a separate stomatal-pore diagram.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b28",
+      "beat": {
+       "beat_id": "b62",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "exam_tip",
+       "say": "इस distractor में गलती का कारण air शब्द हो सकता है। Gas exchange पढ़ते ही air spaces वाला option सही लग सकता है। लेकिन नाम के एक हिस्से को नहीं, location और function को मिलाना है: Aerenchyma अंदर air spaces वाला tissue है; Stomata leaf की epidermis में exchange openings हैं।",
+       "covers_item_ids": [
+        "p014-i13",
+        "p014-i12"
+       ],
+       "answers": [
+        "p014-i13#q2",
+        "p014-i12#q1"
+       ],
+       "on_screen": "Compare location and function in two rows: Aerenchyma versus Stomata.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b29",
+      "beat": {
+       "beat_id": "b63",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "prerequisite",
+       "say": "एक chloroplast और पूरा tissue अलग levels हैं। Chloroplast cell के अंदर होता है; कई cells मिलकर tissue बनाती हैं। इसलिए chloroplasts वाला parenchyma कहने पर हम ऐसे tissue की बात कर रहे हैं जिसकी cells में chloroplasts हैं। अब Chlorenchyma की पहचान और उसका photosynthesis वाला काम एक साथ समझ सकते हैं।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Zoom sequence: chloroplast inside cell → multiple chloroplast-containing cells → tissue.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b30",
+      "beat": {
+       "beat_id": "b64",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "compare",
+       "say": "Aerenchyma और Chlorenchyma, दोनों parenchyma के खास रूप हैं। पहले में बड़े air spaces पहचान का आधार (basis) हैं; दूसरे में chloroplasts। इसी फर्क से उनके खास काम समझ में आते हैं: अंदर aeration और buoyancy की मदद, या photosynthesis। दोनों tissue हैं, लेकिन दोनों को एक जैसा function नहीं देना है।",
+       "covers_item_ids": [
+        "p014-i13",
+        "p014-i14"
+       ],
+       "answers": [
+        "p014-i13#q1",
+        "p014-i14#q1"
+       ],
+       "on_screen": "Parenchyma branches into Aerenchyma and Chlorenchyma. Pair identifying feature with function on each branch.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b31",
+      "beat": {
+       "beat_id": "b65",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "process_walkthrough",
+       "say": "Carbon dioxide वाला example पूरा जोड़िए। बाहर concentration ज्यादा होने पर gas open stomatal pore से अंदर diffuse कर सकती है, फिर अंदर photosynthesis में use हो सकती है। Passage वाला काम और use वाला काम इस chain में अलग जगह आते हैं। इसी कारण Chlorenchyma का photosynthesis करना उसे इस सवाल का सही option नहीं बनाता।",
+       "covers_item_ids": [
+        "p014-i10",
+        "p014-i14"
+       ],
+       "answers": [
+        "p014-i10#q3",
+        "p014-i14#q2"
+       ],
+       "on_screen": "Conditional chain: outside CO₂ → stomatal passage → internal spaces → use in photosynthetic tissue. Distinguish passage from use.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b32",
+      "beat": {
+       "beat_id": "b66",
+       "part_id": "c42.q",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब 4 छोटे clues सुनिए और हर बार खुद answer दीजिए। Opening control करने वाली cells कौनसी, और exchange opening कौनसी? फिर बड़े air spaces वाला parenchyma कौनसा, और chloroplasts वाला parenchyma कौनसा? जवाब हैं Guard cells, Stomata, Aerenchyma और Chlorenchyma; हर नाम को उसके अपने clue से मिलाइए।",
+       "covers_item_ids": [
+        "p014-i11",
+        "p014-i12",
+        "p014-i13",
+        "p014-i14"
+       ],
+       "answers": [],
+       "on_screen": "Present one previously taught clue at a time with a response pause, then reveal its matching option.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b34",
+      "beat": {
+       "beat_id": "b67",
+       "part_id": "",
+       "step": 0,
+       "purpose": "recap",
+       "say": "Cuticle और epidermis को भी एक label मत बना दीजिए। Epidermis cells की outer covering है; cuticle उसके बाहर waxy layer है। Cuticle पानी के नुकसान को कम करने में मदद करती है, जबकि stomatal pore exchange का रास्ता देता है। Diagram में waxy layer को open pore के ऊपर बंद ढक्कन (lid) की तरह नहीं दिखाना है।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Different colours for epidermis and overlying cuticle. Preserve the open stomatal passage through the surface.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b35",
+      "beat": {
+       "beat_id": "b68",
+       "part_id": "",
+       "step": 0,
+       "purpose": "question_to_student",
+       "say": "अब labels हटा देते हैं। पहले outer covering पहचानिए, फिर उसके बाहर की waxy layer, फिर बीच का pore और उसके दोनों ओर guard cells। हर label के साथ काम भी बोलिए: covering, पानी के नुकसान को कम करने में मदद, gas का रास्ता और opening का control। सिर्फ आकार देखकर नहीं, काम जोड़कर पहचान पूरी करिए।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Unlabelled schematic with four sequential highlights. Reveal each structure and its function after a pause.",
+       "basis": "outside"
+      }
+     },
+     {
+      "after_beat_id": "b36",
+      "beat": {
+       "beat_id": "b69",
+       "part_id": "",
+       "step": 0,
+       "purpose": "recap",
+       "say": "एक आखिरी condition check करिए। Pore open है या बंद, यह opening का सवाल है; gas किस ओर net move करेगी, यह concentration difference का सवाल है। Photosynthesis कहां होगा, यह अंदर के tissue का सवाल है। आपने अब एक ही leaf में passage, controller, movement और gas use के अलग काम पहचान लिए हैं।",
+       "covers_item_ids": [],
+       "answers": [],
+       "on_screen": "Four linked prompts: passage, controller, movement condition, gas use. Match to pore, guard cells, concentration difference and photosynthetic tissue.",
+       "basis": "outside"
+      }
+     }
+    ],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "ba8e4fa762a8d61cac5aa69613a29082d21a3f921e49e4b0e13de20f4b0dffb8",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 27268,
+    "output_tokens": 9254,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch preserves the original question coverage and expands the conceptual teaching, diagram reading and guided practice before the final answer.",
+    "key_questions": [
+     "How do the pore, guard cells and internal air spaces work together?",
+     "How does turgor change the opening, and how does diffusion move gases?",
+     "Why does each distractor fail the structure–location–function test?"
+    ],
+    "decisions": [
+     {
+      "decision": "Replace every flagged Hindi expression with everyday Hindi or an English expression.",
+      "reason": "This corrects the language findings while preserving the original explanations."
+     },
+     {
+      "decision": "Add substantial guided teaching between the existing beats.",
+      "reason": "The earlier script moved too quickly through the planned concepts; the additions explain mechanisms, conditions, examples and option boundaries without padding."
+     },
+     {
+      "decision": "Keep all added conceptual material marked outside and all exam-question beats at step 0.",
+      "reason": "The supplied book material contains the question and options; supporting biology comes from the supplied outside clarifications."
+     }
+    ],
+    "uncertain": [
+     "Exact running time depends on narration speed and student-response pauses; the expanded script addresses the earlier duration shortfall.",
+     "No page image or printed answer key is supplied; the supplied teacher answers identify option b as correct."
+    ]
+   },
+   "output": {
+    "notes": {
+     "about": "This patch preserves the original question coverage and expands the conceptual teaching, diagram reading and guided practice before the final answer.",
+     "key_questions": [
+      "How do the pore, guard cells and internal air spaces work together?",
+      "How does turgor change the opening, and how does diffusion move gases?",
+      "Why does each distractor fail the structure–location–function test?"
+     ],
+     "decisions": [
+      {
+       "decision": "Replace every flagged Hindi expression with everyday Hindi or an English expression.",
+       "reason": "This corrects the language findings while preserving the original explanations."
+      },
+      {
+       "decision": "Add substantial guided teaching between the existing beats.",
+       "reason": "The earlier script moved too quickly through the planned concepts; the additions explain mechanisms, conditions, examples and option boundaries without padding."
+      },
+      {
+       "decision": "Keep all added conceptual material marked outside and all exam-question beats at step 0.",
+       "reason": "The supplied book material contains the question and options; supporting biology comes from the supplied outside clarifications."
+      }
+     ],
+     "uncertain": [
+      "Exact running time depends on narration speed and student-response pauses; the expanded script addresses the earlier duration shortfall.",
+      "No page image or printed answer key is supplied; the supplied teacher answers identify option b as correct."
+     ]
+    },
+    "title": "Stomata: gas कहां से जाती है और opening कौन बदलता है?",
+    "parts": [
+     {
+      "part_id": "c42.q",
+      "frame": {
+       "process": "Identify Stomata as the textbook site of leaf gaseous exchange and distinguish the passage from its regulating cells and internal tissues.",
+       "how": "Read the question through structure, location and function; connect the stomatal pore to internal air spaces, then assess each option.",
+       "when": "Teach the apparatus, turgor and diffusion first; solve the question and eliminate distractors afterward.",
+       "conditions": "Gas diffusion requires concentration differences and an available passage; guard-cell turgor changes pore opening. Light alone does not establish a universal opening rule.",
+       "atmosphere": "Picture a magnified leaf epidermis, an adjustable pore with guard cells, internal air spaces and the surrounding air, followed by the four-option question."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Leaf में gas guard cells के अंदर से होकर जाती है, या उनके बीच की opening से? आज इसी छोटे फर्क को समझना है। इसी से 4 options वाला सवाल आसान हो जाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show a leaf and zoom toward a pore with two surrounding cells. Display: Passage? Controller?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले gaseous exchange का मतलब समझिए। Leaf और बाहर की हवा के बीच gases का आना-जाना gaseous exchange है। सवाल यह है कि इसके लिए रास्ता कहां मिलता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf ↔ surrounding air. Label the arrows gaseous exchange without fixing gas directions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां exchange का मतलब किसी एक gas का सिर्फ अंदर जाना नहीं है। Leaf और हवा के बीच carbon dioxide, oxygen और water vapour का movement समझना है। कौनसी gas किस ओर जाएगी, यह आगे concentration difference देखकर समझेंगे। पहले सिर्फ रास्ते की पहचान पर ध्यान रखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf and surrounding air with three gas labels. Keep arrow directions unrevealed.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पिछले video में आपने epidermis को पौधे की outer covering के रूप में समझा। अब leaf की उसी covering को पास से देखिए। यहां stomatal pores होते हैं, और हर pore के साथ guard cells होती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → magnified epidermis → one stomatal pore with guard cells. Mark the drawing as schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक leaf को दूर से देखकर उसकी पूरी covering एक जैसी लग सकती है। लेकिन microscopic view में covering और opening अलग पहचान में आते हैं। Epidermis covering बनाती है; pore उस covering में रास्ता देता है। इसलिए covering का नाम और exchange opening का नाम एक जैसा नहीं होगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom from whole leaf to epidermis. Highlight continuous covering, then one opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक opening और उसके साथ की guard cells को साथ देखकर stomatal apparatus समझिए। Pore बीच का open रास्ता है। Guard cells उस रास्ते के दोनों ओर की खास epidermal cells हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Top view: outline the stomatal apparatus, then label stomatal pore and guard cells separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "Diagram में बीच की खाली जगह पर ध्यान दीजिए। क्या यह भी guard cell है? नहीं, guard cells इसके दोनों ओर हैं; बीच की opening pore है। किसी diagram में label की line कहां खत्म होती है, यह देखना जरूरी है, वरना cell और उसके बीच की जगह एक समझ में आ सकते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Alternate label pointers between guard-cell bodies and the central pore. Ask the learner to identify each.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब बाहर से अंदर चलिए। पहले बाहर की हवा, फिर epidermis में stomatal pore, और उसके बाद leaf के अंदर के air spaces। Pore बाहर की हवा और अंदर के air spaces के बीच रास्ता देता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cross-section reading path: surrounding air → stomatal pore in epidermis → internal leaf air spaces.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "ऊपर से देखने पर pore और उसके दोनों ओर की cells दिखाई देती हैं। अब side से leaf का cross-section देखिए: उसी pore के नीचे अंदर के air spaces हैं। ये 2 views अलग structures नहीं दिखा रहे; एक ही रास्ते को 2 अलग तरफ से समझा रहे हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Link top view and cross-section with matching colours. Trace the same pore in both views.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अंदर का air space और बाहर से आने की opening अलग हैं। Air space leaf के अंदर gas के लिए जगह देता है, जबकि stomatal pore बाहर की हवा तक connection देता है। अगर आप सिर्फ अंदर की खाली जगह दिखाएं, तो बाहर से वहां तक पहुंचने वाला रास्ता अभी समझाना बाकी रहेगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Highlight internal spaces first, then reveal their connection to external air through the pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "",
+      "step": 0,
+      "purpose": "analogy",
+      "say": "एक door opening से कोई अंदर-बाहर जा सकता है। उसे खोलने-बंद करने वाले हिस्से का काम अलग है। इसी तरह stomatal pore रास्ता है और guard cells उसकी opening बदलती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Compare a doorway and its opening mechanism with a pore and guard cells. Label: passage; opening control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "",
+      "step": 0,
+      "purpose": "analogy",
+      "say": "Door की opening छोटी हो या बड़ी, आने-जाने के रास्ते पर असर होता है। लेकिन opening अपने आप यह नहीं बताती कि कोई अंदर जाएगा या बाहर। Leaf में भी opening की चौड़ाई और gas movement की direction अलग सवाल हैं। पहला guard cells से और दूसरा concentration difference से समझना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Door analogy: opening width versus travel direction. Transition to the two biological questions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "लेकिन guard cells के पास door खोलने वाला हाथ नहीं है। इनके अंदर पानी की condition बदलने से turgor बदलता है। पहले turgor का मतलब समझिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Return from the door analogy to a guard cell. Highlight water inside the cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में पानी आने पर उसके अंदर का हिस्सा cell wall पर बाहर की ओर pressure डालता है। इस pressure को turgor pressure कहते हैं। ज्यादा turgor वाली cell भरी और कड़ी होती है; पानी कम होने पर pressure कम हो सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Water entry → pressure against cell wall. Label turgor pressure and distinguish pressure from the resulting firm cell condition.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "मान लीजिए, एक guard cell में पहले से ज्यादा पानी आता है। अब cell के अंदर से wall पर pressure ज्यादा हो सकता है; यही turgor बढ़ने का link है। यहां पानी का cell में आना समझ रहे हैं, gas का pore से जाना नहीं। दोनों movements को एक mechanism मत मानिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard-cell enlargement: water entry and pressure arrows. Keep the gas pathway visually separate.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Guard cells में turgor बढ़ने पर उनका आकार ऐसे बदलता है कि pore open होता है। Turgor कम होने पर opening छोटी होती है और pore बंद हो सकता है। यानी पानी की condition से guard-cell shape, और shape से opening बदलती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Increased guard-cell turgor → open pore; reduced turgor → narrowed or closed pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "अब यह link धीरे पढ़िए: guard cells में पानी की condition बदलती है, turgor बदलता है, फिर cell का आकार बदलता है। आकार के उस बदलाव से बीच की opening बदलती है। Guard cells अपनी खास बनावट (structure) के कारण ऐसा करती हैं; हर cell के लिए pore खोलने वाला यही नतीजा नहीं मानना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Water condition → turgor → guard-cell shape → pore opening. Mark the explanation as specific to guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब diagram में opening पहले बड़ी और फिर छोटी दिखाई गई है। बीच का pore कोई नई cell बन गया है क्या? नहीं, उसी रास्ते का आकार बदला है। अगर सवाल पूछे कि यह बदलाव कौन control करता है, तो आसपास की guard cells देखिए; अगर रास्ता पूछे, तो बीच का pore देखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Animate the same pore narrowing. Keep guard-cell and pore labels attached throughout.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अब 2 बातें अलग रखिए। Turgor opening बदलने में मदद करता है। Gas उस opening से कैसे चलती है, उसका जवाब diffusion है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two separate chains: turgor → pore opening; concentration difference → gas diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Guard cells को gas खींचने वाला pump मत समझिए। उनका opening बदलना रास्ते की condition बदलता है। Gas का net movement समझने के लिए फिर भी दोनों ओर उसकी concentration देखनी होगी। यानी controller की पहचान से movement का पूरा mechanism अपने आप नहीं मिल जाता।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard cells: opening control. Gas arrows: concentration-dependent diffusion. Cross out a pump symbol.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "मान लीजिए, हवा के एक हिस्से में किसी gas की concentration ज्यादा है और पास के हिस्से में कम। Concentration यानी किसी जगह उस gas की कितनी मात्रा (amount) है। Diffusion में gas का net movement ज्यादा concentration से कम concentration की ओर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two connected regions with high and low concentrations of the same gas. Show movement both ways and a larger net arrow toward lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Concentration की तुलना (comparison) में एक बात जरूरी है: बराबर जगह में कितनी gas है? एक बड़े हिस्से में कुल gas ज्यादा हो सकती है, फिर भी उसकी concentration कम हो सकती है। अभी diagram में बराबर आकार के 2 हिस्से देखिए; ज्यादा dots वाला हिस्सा ज्यादा concentration दिखाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Equal-volume regions containing different numbers of gas dots. Label higher and lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Net movement शब्द पर भी ध्यान दीजिए। Gas के particles दोनों ओर जा सकते हैं, लेकिन एक ओर ज्यादा जाने पर कुल नतीजा उस ओर का movement होता है। इसलिए ज्यादा concentration से कम concentration का arrow net movement दिखाता है; इसका मतलब दूसरी ओर movement बिल्कुल बंद होना नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show particles crossing both ways, then a larger net arrow from higher to lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अब यही बात leaf पर लगाइए। अगर carbon dioxide बाहर ज्यादा और अंदर कम है, तो open pore से उसका net movement अंदर की ओर होगा। Direction concentration difference से निकली है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: CO₂ concentration outside > inside; open pore; net CO₂ arrow inward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "इस example में answer अंदर की ओर क्यों आया? क्योंकि हमने carbon dioxide की concentration बाहर ज्यादा और अंदर कम मानी थी। अगर आप सिर्फ carbon dioxide का नाम याद करके arrow बनाएं, तो condition छूट जाएगी। पहले gas पहचानिए, फिर उसकी दोनों ओर की concentration, और उसके बाद net arrow बनाइए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Three checks: gas identity → outside/inside concentration → net direction. Apply to the CO₂ example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर oxygen की concentration अंदर ज्यादा और बाहर कम हो, तो उसका net movement बाहर की ओर होगा। इसलिए carbon dioxide के लिए अंदर और oxygen के लिए बाहर की direction को हर समय का fixed rule मत बनाइए। हर gas का concentration difference देखना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: O₂ concentration inside > outside; net arrow outward. Add: direction depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब सोचिए, एक ही open pore पर carbon dioxide का net arrow अंदर और oxygen का बाहर कैसे हो सकता है? क्योंकि हर gas का अपना concentration difference है। Pore सब gases को एक साथ एक ही direction का आदेश (command) नहीं देता। हर gas के लिए दोनों ओर की condition अलग पढ़नी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "One pore, with independent concentration comparisons for CO₂ and O₂ and conditional opposite net arrows.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b52",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर किसी gas की concentration दोनों ओर बराबर हो, तो क्या open pore अपने आप उसका net movement पैदा करेगा? नहीं, बराबर concentration पर उस difference के कारण net diffusion नहीं होगा। फिर भी particles की movement चल सकती है। Open रास्ता और net movement के लिए driving condition, दोनों अलग बातें हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Equal concentrations across an open pore. Show balanced movement and no net arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Open pore से water vapour भी बाहर जा सकती है। Leaf से water vapour के रूप में पानी बाहर जाने को transpiration कहते हैं। इसलिए opening बदलने का असर gas exchange और पानी के नुकसान, दोनों पर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Open pore with concentration-dependent gas arrows and outward water-vapour arrows. Label transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b53",
+      "part_id": "",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Water vapour के लिए भी अंदर और बाहर की condition देखनी है। जब leaf के अंदर water vapour ज्यादा और बाहर की हवा में कम हो, तो उसका net diffusion बाहर की ओर होता है। इसलिए transpiration को सिर्फ पानी का नाम लेकर नहीं, पानी के vapour बनने और बाहर जाने से पहचानिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional water-vapour concentration gradient: leaf interior > outside air → outward net diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b54",
+      "part_id": "",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब guard-cell control की जरूरत ज्यादा साफ है। वही opening gases के exchange का रास्ता देती है और water vapour के बाहर जाने का भी। Opening छोटी होने पर दोनों पर असर हो सकता है। इसलिए सिर्फ gas exchange देखकर opening का फायदा समझना अधूरा है; पानी के नुकसान वाला link भी साथ रखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Adjustable pore linked to two outcomes: gas exchange and water-vapour loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अगर pore बंद हो जाए, तो उस रास्ते से gas exchange बहुत कम हो जाता है। लेकिन open pore भी हर gas को एक fixed direction में नहीं भेजता। Net diffusion के लिए concentration difference जरूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Closed pore: restricted exchange through this route. Open pore: net diffusion depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b55",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "एक diagram में concentration difference है, लेकिन pore बंद है। दूसरे में pore open है, लेकिन gas की concentration दोनों ओर बराबर है। क्या दोनों diagrams एक ही condition दिखाते हैं? नहीं, पहले में रास्ते की opening कम है; दूसरे में उस gas के net diffusion के लिए concentration difference नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Side-by-side cases: closed pore with gradient; open pore without gradient. Ask which condition limits each case.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और बात ध्यान में रखिए। रोशनी है, इसलिए stomata हमेशा open होंगे, ऐसा universal rule नहीं है। Opening पर पानी की condition और दूसरी conditions का भी असर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Light alone ≠ guaranteed open stomata. Show water status and other conditions affecting opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b56",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "इसी तरह photosynthesis का नाम देखकर भी stomata हमेशा open हैं, यह answer मत दीजिए। Photosynthesis gas के use से जुड़ा है, जबकि opening guard cells की condition से जुड़ी है। दोनों में link है, लेकिन सिर्फ एक शब्द देखकर हर पौधे और हर समय के लिए fixed rule बनाना सही नहीं होगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Photosynthesis context linked to, but not equated with, guaranteed stomatal opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरी बात एक बार जोड़िए। Guard-cell turgor बदलता है, तो pore opening बदलती है। Open रास्ते से gases अपने concentration differences के अनुसार (according to) diffuse करती हैं, और water vapour भी बाहर जा सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard cells → adjustable pore → internal air spaces. Distinguish turgor, diffusion and transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b57",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बिना diagram के रास्ता बोलकर देखिए: बाहर की हवा से pore, फिर leaf के अंदर के air spaces। अगला सवाल: pore opening कौन बदलता है? Guard cells; और gas का net movement कैसे समझेंगे, तो concentration difference से diffusion। आपने location, control और movement के 3 अलग जवाब बनाए हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Reveal three answers after separate pauses: route, controller, movement mechanism.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब किताब का सवाल पढ़िए: Site of gaseous exchange on leaf is। यहां leaf पर gaseous exchange की जगह पूछी गई है। किसी cell या tissue का नाम पहचानने के साथ उसका काम भी मिलाना होगा।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1"
+      ],
+      "on_screen": "Display the exact question stem. Highlight Site and gaseous exchange.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "Options हैं: a. Guard cells, b. Stomata, c. Aerenchyma और d. Chlorenchyma। पहले खुद answer दीजिए। आपको passage पहचानना है, opening बदलने वाली cells पहचानना है, या gas use करने वाला tissue?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show all four exact options. Pause before revealing the answer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "सही जवाब है b. Stomata। Stomata epidermis में pores हैं, और हर pore के साथ guard cells होती हैं। Leaf और बाहर की हवा के बीच gas exchange का रास्ता ये openings देती हैं।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i10#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Highlight b. Stomata. Beside it show a labelled pore in the epidermis with associated guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "यह जवाब क्यों सही है? Stomatal pore बाहर की हवा को leaf के अंदर के air spaces से जोड़ता है। इसी रास्ते से gases concentration differences के कारण diffuse करती हैं।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q3"
+      ],
+      "on_screen": "Trace atmosphere ↔ stomatal pore ↔ internal air spaces. Label the mechanism diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b58",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस question में site शब्द जरूरी है। यह opening को बदलने की पूरी कहानी या photosynthesis करने वाला tissue नहीं पूछ रहा। आपको उस structure का नाम देना है जो leaf और हवा के बीच exchange का रास्ता देता है। इसलिए explanation में guard cells जरूरी होते हुए भी सही option Stomata रहता है।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i10#q1",
+       "p014-i10#q2",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Underline Site. Match the stem to passage rather than controller or photosynthetic tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब a. Guard cells को देखिए। ये pore के चारों ओर की खास epidermal cells हैं। ये opening को बदलती हैं, जबकि बीच का pore gas के लिए रास्ता देता है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Highlight a. Guard cells. Colour the guard cells separately from the pore; label controller and passage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Guard cells का turgor बदलने से opening बदलती है। इस बदलाव का असर gas movement और water-vapour loss पर होता है। इसलिए ये gas exchange को control करती हैं, लेकिन इस सवाल में passage की जगह पर ये सही answer नहीं हैं।",
+      "covers_item_ids": [
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i11#q2"
+      ],
+      "on_screen": "Guard-cell turgor → pore opening → gas exchange and water-vapour loss. Mark option a unsuitable for this stem.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर सवाल opening और closing को control करने वाली cells पूछे, तो जवाब Guard cells होगा। अभी सवाल gaseous exchange की site पूछ रहा है, इसलिए Stomata सही है। दोनों सवालों में एक ही diagram है, लेकिन पूछा गया काम अलग है।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i10#q4",
+       "p014-i11#q2"
+      ],
+      "on_screen": "Compare stems: Site of gaseous exchange → Stomata; Cells regulating opening and closing → Guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b59",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब मैं सिर्फ पूछा गया काम बदलता हूं: specialised epidermal cells जो pore opening बदलती हैं। आपका answer क्या होगा? Guard cells; लेकिन अगले सवाल में बाहर की हवा और अंदर के air spaces के बीच passage पूछा जाए, तो Stomata। एक ही leaf में पास-पास होने से दोनों के काम एक नहीं हो जाते।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i11#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Alternate two stems with pauses: regulating epidermal cells; exchange passage. Reveal the matching options.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option b से एक और link बनाइए। Open stomatal pore carbon dioxide और oxygen के diffusion का रास्ता देता है। उसी opening से water vapour भी बाहर जा सकती है, इसलिए opening का control gas exchange और transpiration, दोनों को बदल सकता है।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q2"
+      ],
+      "on_screen": "Stomatal pore with concentration-dependent gas arrows and outward water vapour. Link opening control to both outcomes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब c. Aerenchyma समझिए। पहले parenchyma का मतलब याद करिए: यह पौधों का एक simple permanent tissue है, जो generally जिंदा, पतली cell walls वाली cells से बना होता है। Aerenchyma इसी parenchyma का एक खास रूप है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [],
+      "on_screen": "Parenchyma: generally living, thin-walled cells. Branch toward Aerenchyma.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b60",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Parenchyma को एक cell के नाम की तरह मत पढ़िए; यह tissue है, यानी cells का ऐसा group जो मिलकर काम करता है। Simple permanent tissue में एक ही मुख्य (main) तरह की cells होती हैं और वे सामान्य (usual) condition में लगातार (continuously) divide नहीं करतीं। अब इसी tissue के खास रूप को पहचानेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → group of similar cells → parenchyma tissue. Explain simple and permanent before returning to Aerenchyma.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Aerenchyma में बड़े और साफ दिखाई देने वाले air spaces होते हैं। यह पानी में रहने वाले पौधों में आम है। ये spaces अंदर gases के आने-जाने और buoyancy, यानी पानी में floating में मदद करते हैं।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q1"
+      ],
+      "on_screen": "Aerenchyma with conspicuous internal air spaces. Show internal aeration and buoyancy in an aquatic plant.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b61",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Aerenchyma के diagram में cells के बीच बड़े air spaces पहचानिए। Internal aeration का मतलब है अंदर gases के आने-जाने में मदद। Buoyancy का मतलब पानी में floating को मदद मिलना है। ये दोनों काम air spaces वाले tissue से जुड़े हैं; यहां epidermis में guard cells के बीच का pore नहीं दिखाया गया है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q1",
+       "p014-i13#q2"
+      ],
+      "on_screen": "Label cells and large intercellular air spaces in Aerenchyma. Contrast with a separate stomatal-pore diagram.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerenchyma में air spaces हैं, इसलिए option देखकर जल्दी में इसे सही मत मानिए। ये पौधे के अंदर gases के आने-जाने में मदद करते हैं। इस सवाल में leaf की outer surface पर exchange का रास्ता पूछा है, और उसके लिए Stomata सही answer है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q2"
+      ],
+      "on_screen": "Contrast internal air-space tissue with a stomatal surface opening. Mark option c unsuitable.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b62",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस distractor में गलती का कारण air शब्द हो सकता है। Gas exchange पढ़ते ही air spaces वाला option सही लग सकता है। लेकिन नाम के एक हिस्से को नहीं, location और function को मिलाना है: Aerenchyma अंदर air spaces वाला tissue है; Stomata leaf की epidermis में exchange openings हैं।",
+      "covers_item_ids": [
+       "p014-i13",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i13#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Compare location and function in two rows: Aerenchyma versus Stomata.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आखिरी option समझने से पहले chloroplast को याद करिए। Chloroplast cell के अंदर का वह हिस्सा है जहां photosynthesis होता है। Photosynthesis में पौधा रोशनी की मदद से carbon dioxide और पानी से food बनाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom into a plant cell and label chloroplast. Simple context: light + carbon dioxide + water → food.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b63",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक chloroplast और पूरा tissue अलग levels हैं। Chloroplast cell के अंदर होता है; कई cells मिलकर tissue बनाती हैं। इसलिए chloroplasts वाला parenchyma कहने पर हम ऐसे tissue की बात कर रहे हैं जिसकी cells में chloroplasts हैं। अब Chlorenchyma की पहचान और उसका photosynthesis वाला काम एक साथ समझ सकते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom sequence: chloroplast inside cell → multiple chloroplast-containing cells → tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब d. Chlorenchyma देखिए। यह chloroplasts वाला parenchyma है, और इसका खास काम photosynthesis करना है। नाम को उसके अंदर के chloroplasts और उनके काम से जोड़िए।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q1"
+      ],
+      "on_screen": "Parenchyma containing chloroplasts → Chlorenchyma → photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b64",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "compare",
+      "say": "Aerenchyma और Chlorenchyma, दोनों parenchyma के खास रूप हैं। पहले में बड़े air spaces पहचान का आधार (basis) हैं; दूसरे में chloroplasts। इसी फर्क से उनके खास काम समझ में आते हैं: अंदर aeration और buoyancy की मदद, या photosynthesis। दोनों tissue हैं, लेकिन दोनों को एक जैसा function नहीं देना है।",
+      "covers_item_ids": [
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i13#q1",
+       "p014-i14#q1"
+      ],
+      "on_screen": "Parenchyma branches into Aerenchyma and Chlorenchyma. Pair identifying feature with function on each branch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Photosynthesis में carbon dioxide use होती है, लेकिन gas use करना और gas के लिए बाहर से रास्ता देना अलग काम हैं। Chlorenchyma अंदर photosynthesis करता है। बाहर की हवा से gas exchange की opening के लिए Stomata सही answer है।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q2"
+      ],
+      "on_screen": "Contrast gas use inside photosynthetic tissue with passage through a surface pore. Mark option d unsuitable.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b65",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "Carbon dioxide वाला example पूरा जोड़िए। बाहर concentration ज्यादा होने पर gas open stomatal pore से अंदर diffuse कर सकती है, फिर अंदर photosynthesis में use हो सकती है। Passage वाला काम और use वाला काम इस chain में अलग जगह आते हैं। इसी कारण Chlorenchyma का photosynthesis करना उसे इस सवाल का सही option नहीं बनाता।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i10#q3",
+       "p014-i14#q2"
+      ],
+      "on_screen": "Conditional chain: outside CO₂ → stomatal passage → internal spaces → use in photosynthetic tissue. Distinguish passage from use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "compare",
+      "say": "अब options को उनके काम से अलग करिए। Guard cells opening control करती हैं, और Stomata exchange का रास्ता देते हैं। Aerenchyma में बड़े air spaces होते हैं, जबकि Chlorenchyma photosynthesis से जुड़ा है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12",
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [],
+      "on_screen": "Recap table: Guard cells—opening control; Stomata—passage; Aerenchyma—air spaces; Chlorenchyma—photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b66",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब 4 छोटे clues सुनिए और हर बार खुद answer दीजिए। Opening control करने वाली cells कौनसी, और exchange opening कौनसी? फिर बड़े air spaces वाला parenchyma कौनसा, और chloroplasts वाला parenchyma कौनसा? जवाब हैं Guard cells, Stomata, Aerenchyma और Chlorenchyma; हर नाम को उसके अपने clue से मिलाइए।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12",
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [],
+      "on_screen": "Present one previously taught clue at a time with a response pause, then reveal its matching option.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "एक बार बिना options देखे जवाब दीजिए। Gas के लिए opening कौन देता है, और उस opening को कौन बदलता है? जवाब है Stomata और Guard cells।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i10#q2",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Hide options. Ask Passage? Controller? Pause, then reveal Stomata and Guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब आखिरी diagram में पहले epidermis पहचानिए। यह outer covering है। इसके बाहर की cuticle एक waxy layer है, जो पानी के नुकसान को कम करने में मदद करती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Schematic leaf cross-section. Label epidermis and overlying cuticle; show cuticle as a protective waxy layer without bridging the open pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b67",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Cuticle और epidermis को भी एक label मत बना दीजिए। Epidermis cells की outer covering है; cuticle उसके बाहर waxy layer है। Cuticle पानी के नुकसान को कम करने में मदद करती है, जबकि stomatal pore exchange का रास्ता देता है। Diagram में waxy layer को open pore के ऊपर बंद ढक्कन (lid) की तरह नहीं दिखाना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Different colours for epidermis and overlying cuticle. Preserve the open stomatal passage through the surface.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब epidermis में stomatal pore देखिए। यह gas exchange का रास्ता है। उसके दोनों ओर guard cells देखिए, जो opening बदलती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Add stomatal pore and guard-cell labels to the same diagram. Highlight passage and control as separate functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b68",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब labels हटा देते हैं। पहले outer covering पहचानिए, फिर उसके बाहर की waxy layer, फिर बीच का pore और उसके दोनों ओर guard cells। हर label के साथ काम भी बोलिए: covering, पानी के नुकसान को कम करने में मदद, gas का रास्ता और opening का control। सिर्फ आकार देखकर नहीं, काम जोड़कर पहचान पूरी करिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Unlabelled schematic with four sequential highlights. Reveal each structure and its function after a pause.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Pore के बाद अंदर के air spaces तक रास्ता पूरा करिए। Opening का आकार guard-cell turgor से जुड़ा है। उस रास्ते से gas का net movement concentration difference से जुड़ा है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Complete external air ↔ pore ↔ internal air spaces. Place turgor beside guard cells and diffusion beside gas arrows.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b69",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "एक आखिरी condition check करिए। Pore open है या बंद, यह opening का सवाल है; gas किस ओर net move करेगी, यह concentration difference का सवाल है। Photosynthesis कहां होगा, यह अंदर के tissue का सवाल है। आपने अब एक ही leaf में passage, controller, movement और gas use के अलग काम पहचान लिए हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Four linked prompts: passage, controller, movement condition, gas use. Match to pore, guard cells, concentration difference and photosynthetic tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरे chapter में यही तरीका काम आएगा: structure क्या है, कहां है, और क्या काम करता है। यहां opening और उसे control करने वाली cells का फर्क समझते ही जवाब साफ हो गया। Leaf की gaseous exchange site पूछे, तो b. Stomata।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Structure → Location → Function. Final answer card: b. Stomata; guard cells regulate the pore opening.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [
+    "[code] beat b46: the Hindi words ['आसपास'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b48: the Hindi words ['बराबर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b49: the Hindi words ['शब्द'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b50: the Hindi words ['करके', 'छूट'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b52: the Hindi words ['बराबर', 'पैदा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b55: the Hindi words ['बराबर'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b56: the Hindi words ['शब्द'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b58: the Hindi words ['शब्द'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b59: the Hindi words ['हूं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b60: the Hindi words ['करतीं'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b62: the Hindi words ['शब्द'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b63: the Hindi words ['जिसकी'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)",
+    "[code] beat b68: the Hindi words ['हटा'] are not simple everyday words; put the English word in brackets right after each, as in \"सतह (surface)\", or use a simpler word (S2-04)"
+   ],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.16,
+     "abrupt_jumps": [
+      "b67->b35"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 23.0,
+     "planned_minutes": 20
+    }
+   },
+   "passed": false,
+   "finished_at": 1792750610.0182076
+  },
+  {
+   "round": 3,
+   "started_at": 1792750610.0184436,
+   "mode": "patch",
+   "patch": {
+    "notes": {
+     "about": "This patch corrects the flagged language in 13 beats while preserving their teaching, coverage and sequence.",
+     "key_questions": [
+      "Do all corrected beats retain their original conceptual meaning?",
+      "Have all flagged Hindi words been replaced or given an immediate English gloss?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use everyday Hindi or English expressions for the flagged words, retaining an immediate English gloss for बराबर.",
+       "reason": "This satisfies S2-04 without changing the explanations or question coverage."
+      }
+     ],
+     "uncertain": []
+    },
+    "replace_parts": [],
+    "replace_beats": [
+     {
+      "beat_id": "b46",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब diagram में opening पहले बड़ी और फिर छोटी दिखाई गई है। बीच का pore कोई नई cell बन गया है क्या? नहीं, उसी रास्ते का आकार बदला है। अगर सवाल पूछे कि यह बदलाव कौन control करता है, तो दोनों ओर की guard cells देखिए; अगर रास्ता पूछे, तो बीच का pore देखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Animate the same pore narrowing. Keep guard-cell and pore labels attached throughout.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Concentration की तुलना (comparison) में एक बात जरूरी है: बराबर (equal) जगह में कितनी gas है? एक बड़े हिस्से में कुल gas ज्यादा हो सकती है, फिर भी उसकी concentration कम हो सकती है। अभी diagram में बराबर (equal) आकार के 2 हिस्से देखिए; ज्यादा dots वाला हिस्सा ज्यादा concentration दिखाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Equal-volume regions containing different numbers of gas dots. Label higher and lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Net movement का मतलब भी समझिए। Gas के particles दोनों ओर जा सकते हैं, लेकिन एक ओर ज्यादा जाने पर कुल नतीजा उस ओर का movement होता है। इसलिए ज्यादा concentration से कम concentration का arrow net movement दिखाता है; इसका मतलब दूसरी ओर movement बिल्कुल बंद होना नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show particles crossing both ways, then a larger net arrow from higher to lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "इस example में answer अंदर की ओर क्यों आया? क्योंकि हमने carbon dioxide की concentration बाहर ज्यादा और अंदर कम मानी थी। अगर आप सिर्फ carbon dioxide का नाम याद रखकर (by remembering) arrow बनाएं, तो condition पर ध्यान नहीं जाएगा। पहले gas पहचानिए, फिर उसकी दोनों ओर की concentration, और उसके बाद net arrow बनाइए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Three checks: gas identity → outside/inside concentration → net direction. Apply to the CO₂ example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b52",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर किसी gas की concentration दोनों ओर बराबर (equal) हो, तो क्या open pore अपने आप उसका net movement कराएगा (will cause)? नहीं, बराबर (equal) concentration पर उस difference के कारण net diffusion नहीं होगा। फिर भी particles की movement चल सकती है। Open रास्ता और net movement के लिए driving condition, दोनों अलग बातें हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Equal concentrations across an open pore. Show balanced movement and no net arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b55",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "एक diagram में concentration difference है, लेकिन pore बंद है। दूसरे में pore open है, लेकिन gas की concentration दोनों ओर बराबर (equal) है। क्या दोनों diagrams एक ही condition दिखाते हैं? नहीं, पहले में रास्ते की opening कम है; दूसरे में उस gas के net diffusion के लिए concentration difference नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Side-by-side cases: closed pore with gradient; open pore without gradient. Ask which condition limits each case.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b56",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "इसी तरह photosynthesis का नाम देखकर भी stomata हमेशा open हैं, यह answer मत दीजिए। Photosynthesis gas के use से जुड़ा है, जबकि opening guard cells की condition से जुड़ी है। दोनों में link है, लेकिन सिर्फ photosynthesis का नाम देखकर हर पौधे और हर समय के लिए fixed rule बनाना सही नहीं होगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Photosynthesis context linked to, but not equated with, guaranteed stomatal opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b58",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस question में site का मतलब समझना जरूरी है। यह opening को बदलने की पूरी कहानी या photosynthesis करने वाला tissue नहीं पूछ रहा। आपको उस structure का नाम देना है जो leaf और हवा के बीच exchange का रास्ता देता है। इसलिए explanation में guard cells जरूरी होते हुए भी सही option Stomata रहता है।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i10#q1",
+       "p014-i10#q2",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Underline Site. Match the stem to passage rather than controller or photosynthetic tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b59",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब सिर्फ पूछा गया काम बदलकर (by changing) देखिए: specialised epidermal cells जो pore opening बदलती हैं। आपका answer क्या होगा? Guard cells; लेकिन अगले सवाल में बाहर की हवा और अंदर के air spaces के बीच passage पूछा जाए, तो Stomata। एक ही leaf में पास-पास होने से दोनों के काम एक नहीं हो जाते।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i11#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Alternate two stems with pauses: regulating epidermal cells; exchange passage. Reveal the matching options.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b60",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Parenchyma को एक cell के नाम की तरह मत पढ़िए; यह tissue है, यानी cells का ऐसा group जो मिलकर काम करता है। Simple permanent tissue में एक ही मुख्य (main) तरह की cells होती हैं और वे सामान्य (usual) condition में लगातार (continuously) divide नहीं करती हैं। अब इसी tissue के खास रूप को पहचानेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → group of similar cells → parenchyma tissue. Explain simple and permanent before returning to Aerenchyma.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b62",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस distractor में गलती का कारण air का नाम हो सकता है। Gas exchange पढ़ते ही air spaces वाला option सही लग सकता है। लेकिन नाम के एक हिस्से को नहीं, location और function को मिलाना है: Aerenchyma अंदर air spaces वाला tissue है; Stomata leaf की epidermis में exchange openings हैं।",
+      "covers_item_ids": [
+       "p014-i13",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i13#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Compare location and function in two rows: Aerenchyma versus Stomata.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b63",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक chloroplast और पूरा tissue अलग levels हैं। Chloroplast cell के अंदर होता है; कई cells मिलकर tissue बनाती हैं। इसलिए chloroplasts वाला parenchyma कहने का मतलब है कि इस tissue की cells में chloroplasts हैं। अब Chlorenchyma की पहचान और उसका photosynthesis वाला काम एक साथ समझ सकते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom sequence: chloroplast inside cell → multiple chloroplast-containing cells → tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b68",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बिना labels वाला diagram देखिए। पहले outer covering पहचानिए, फिर उसके बाहर की waxy layer, फिर बीच का pore और उसके दोनों ओर guard cells। हर label के साथ काम भी बोलिए: covering, पानी के नुकसान को कम करने में मदद, gas का रास्ता और opening का control। सिर्फ आकार देखकर नहीं, काम जोड़कर पहचान पूरी करिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Unlabelled schematic with four sequential highlights. Reveal each structure and its function after a pause.",
+      "basis": "outside"
+     }
+    ],
+    "insert_beats": [],
+    "remove_beat_ids": []
+   },
+   "maker": {
+    "route": "codex",
+    "provider": "openai",
+    "model": "gpt-6.1-sol",
+    "via": "codex",
+    "returned_model": "gpt-6.1-sol",
+    "request_hash": "dbf2c37db2f07a207bc94cadf5efc29f23a528dcda8d25ccdaf25b8216fe4e1e",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 31352,
+    "output_tokens": 2323,
+    "cost_usd": 0.0
+   },
+   "notes": {
+    "about": "This patch corrects the flagged language in 13 beats while preserving their teaching, coverage and sequence.",
+    "key_questions": [
+     "Do all corrected beats retain their original conceptual meaning?",
+     "Have all flagged Hindi words been replaced or given an immediate English gloss?"
+    ],
+    "decisions": [
+     {
+      "decision": "Use everyday Hindi or English expressions for the flagged words, retaining an immediate English gloss for बराबर.",
+      "reason": "This satisfies S2-04 without changing the explanations or question coverage."
+     }
+    ],
+    "uncertain": []
+   },
+   "output": {
+    "notes": {
+     "about": "This patch corrects the flagged language in 13 beats while preserving their teaching, coverage and sequence.",
+     "key_questions": [
+      "Do all corrected beats retain their original conceptual meaning?",
+      "Have all flagged Hindi words been replaced or given an immediate English gloss?"
+     ],
+     "decisions": [
+      {
+       "decision": "Use everyday Hindi or English expressions for the flagged words, retaining an immediate English gloss for बराबर.",
+       "reason": "This satisfies S2-04 without changing the explanations or question coverage."
+      }
+     ],
+     "uncertain": []
+    },
+    "title": "Stomata: gas कहां से जाती है और opening कौन बदलता है?",
+    "parts": [
+     {
+      "part_id": "c42.q",
+      "frame": {
+       "process": "Identify Stomata as the textbook site of leaf gaseous exchange and distinguish the passage from its regulating cells and internal tissues.",
+       "how": "Read the question through structure, location and function; connect the stomatal pore to internal air spaces, then assess each option.",
+       "when": "Teach the apparatus, turgor and diffusion first; solve the question and eliminate distractors afterward.",
+       "conditions": "Gas diffusion requires concentration differences and an available passage; guard-cell turgor changes pore opening. Light alone does not establish a universal opening rule.",
+       "atmosphere": "Picture a magnified leaf epidermis, an adjustable pore with guard cells, internal air spaces and the surrounding air, followed by the four-option question."
+      }
+     }
+    ],
+    "beats": [
+     {
+      "beat_id": "b1",
+      "part_id": "",
+      "step": 0,
+      "purpose": "hook",
+      "say": "Leaf में gas guard cells के अंदर से होकर जाती है, या उनके बीच की opening से? आज इसी छोटे फर्क को समझना है। इसी से 4 options वाला सवाल आसान हो जाएगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show a leaf and zoom toward a pore with two surrounding cells. Display: Passage? Controller?",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b2",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पहले gaseous exchange का मतलब समझिए। Leaf और बाहर की हवा के बीच gases का आना-जाना gaseous exchange है। सवाल यह है कि इसके लिए रास्ता कहां मिलता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf ↔ surrounding air. Label the arrows gaseous exchange without fixing gas directions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b38",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "यहां exchange का मतलब किसी एक gas का सिर्फ अंदर जाना नहीं है। Leaf और हवा के बीच carbon dioxide, oxygen और water vapour का movement समझना है। कौनसी gas किस ओर जाएगी, यह आगे concentration difference देखकर समझेंगे। पहले सिर्फ रास्ते की पहचान पर ध्यान रखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf and surrounding air with three gas labels. Keep arrow directions unrevealed.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b3",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "पिछले video में आपने epidermis को पौधे की outer covering के रूप में समझा। अब leaf की उसी covering को पास से देखिए। यहां stomatal pores होते हैं, और हर pore के साथ guard cells होती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Leaf → magnified epidermis → one stomatal pore with guard cells. Mark the drawing as schematic.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b39",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक leaf को दूर से देखकर उसकी पूरी covering एक जैसी लग सकती है। लेकिन microscopic view में covering और opening अलग पहचान में आते हैं। Epidermis covering बनाती है; pore उस covering में रास्ता देता है। इसलिए covering का नाम और exchange opening का नाम एक जैसा नहीं होगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom from whole leaf to epidermis. Highlight continuous covering, then one opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b4",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक opening और उसके साथ की guard cells को साथ देखकर stomatal apparatus समझिए। Pore बीच का open रास्ता है। Guard cells उस रास्ते के दोनों ओर की खास epidermal cells हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Top view: outline the stomatal apparatus, then label stomatal pore and guard cells separately.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b40",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "Diagram में बीच की खाली जगह पर ध्यान दीजिए। क्या यह भी guard cell है? नहीं, guard cells इसके दोनों ओर हैं; बीच की opening pore है। किसी diagram में label की line कहां खत्म होती है, यह देखना जरूरी है, वरना cell और उसके बीच की जगह एक समझ में आ सकते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Alternate label pointers between guard-cell bodies and the central pore. Ask the learner to identify each.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b5",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अब बाहर से अंदर चलिए। पहले बाहर की हवा, फिर epidermis में stomatal pore, और उसके बाद leaf के अंदर के air spaces। Pore बाहर की हवा और अंदर के air spaces के बीच रास्ता देता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cross-section reading path: surrounding air → stomatal pore in epidermis → internal leaf air spaces.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b41",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "ऊपर से देखने पर pore और उसके दोनों ओर की cells दिखाई देती हैं। अब side से leaf का cross-section देखिए: उसी pore के नीचे अंदर के air spaces हैं। ये 2 views अलग structures नहीं दिखा रहे; एक ही रास्ते को 2 अलग तरफ से समझा रहे हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Link top view and cross-section with matching colours. Trace the same pore in both views.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b42",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "अंदर का air space और बाहर से आने की opening अलग हैं। Air space leaf के अंदर gas के लिए जगह देता है, जबकि stomatal pore बाहर की हवा तक connection देता है। अगर आप सिर्फ अंदर की खाली जगह दिखाएं, तो बाहर से वहां तक पहुंचने वाला रास्ता अभी समझाना बाकी रहेगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Highlight internal spaces first, then reveal their connection to external air through the pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b6",
+      "part_id": "",
+      "step": 0,
+      "purpose": "analogy",
+      "say": "एक door opening से कोई अंदर-बाहर जा सकता है। उसे खोलने-बंद करने वाले हिस्से का काम अलग है। इसी तरह stomatal pore रास्ता है और guard cells उसकी opening बदलती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Compare a doorway and its opening mechanism with a pore and guard cells. Label: passage; opening control.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b43",
+      "part_id": "",
+      "step": 0,
+      "purpose": "analogy",
+      "say": "Door की opening छोटी हो या बड़ी, आने-जाने के रास्ते पर असर होता है। लेकिन opening अपने आप यह नहीं बताती कि कोई अंदर जाएगा या बाहर। Leaf में भी opening की चौड़ाई और gas movement की direction अलग सवाल हैं। पहला guard cells से और दूसरा concentration difference से समझना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Door analogy: opening width versus travel direction. Transition to the two biological questions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b7",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "लेकिन guard cells के पास door खोलने वाला हाथ नहीं है। इनके अंदर पानी की condition बदलने से turgor बदलता है। पहले turgor का मतलब समझिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Return from the door analogy to a guard cell. Highlight water inside the cell.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b8",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Cell में पानी आने पर उसके अंदर का हिस्सा cell wall पर बाहर की ओर pressure डालता है। इस pressure को turgor pressure कहते हैं। ज्यादा turgor वाली cell भरी और कड़ी होती है; पानी कम होने पर pressure कम हो सकता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Water entry → pressure against cell wall. Label turgor pressure and distinguish pressure from the resulting firm cell condition.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b44",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "मान लीजिए, एक guard cell में पहले से ज्यादा पानी आता है। अब cell के अंदर से wall पर pressure ज्यादा हो सकता है; यही turgor बढ़ने का link है। यहां पानी का cell में आना समझ रहे हैं, gas का pore से जाना नहीं। दोनों movements को एक mechanism मत मानिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard-cell enlargement: water entry and pressure arrows. Keep the gas pathway visually separate.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b9",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Guard cells में turgor बढ़ने पर उनका आकार ऐसे बदलता है कि pore open होता है। Turgor कम होने पर opening छोटी होती है और pore बंद हो सकता है। यानी पानी की condition से guard-cell shape, और shape से opening बदलती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Increased guard-cell turgor → open pore; reduced turgor → narrowed or closed pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b45",
+      "part_id": "",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "अब यह link धीरे पढ़िए: guard cells में पानी की condition बदलती है, turgor बदलता है, फिर cell का आकार बदलता है। आकार के उस बदलाव से बीच की opening बदलती है। Guard cells अपनी खास बनावट (structure) के कारण ऐसा करती हैं; हर cell के लिए pore खोलने वाला यही नतीजा नहीं मानना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Water condition → turgor → guard-cell shape → pore opening. Mark the explanation as specific to guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b46",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब diagram में opening पहले बड़ी और फिर छोटी दिखाई गई है। बीच का pore कोई नई cell बन गया है क्या? नहीं, उसी रास्ते का आकार बदला है। अगर सवाल पूछे कि यह बदलाव कौन control करता है, तो दोनों ओर की guard cells देखिए; अगर रास्ता पूछे, तो बीच का pore देखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Animate the same pore narrowing. Keep guard-cell and pore labels attached throughout.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b10",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अब 2 बातें अलग रखिए। Turgor opening बदलने में मदद करता है। Gas उस opening से कैसे चलती है, उसका जवाब diffusion है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two separate chains: turgor → pore opening; concentration difference → gas diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b47",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "Guard cells को gas खींचने वाला pump मत समझिए। उनका opening बदलना रास्ते की condition बदलता है। Gas का net movement समझने के लिए फिर भी दोनों ओर उसकी concentration देखनी होगी। यानी controller की पहचान से movement का पूरा mechanism अपने आप नहीं मिल जाता।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard cells: opening control. Gas arrows: concentration-dependent diffusion. Cross out a pump symbol.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b11",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "मान लीजिए, हवा के एक हिस्से में किसी gas की concentration ज्यादा है और पास के हिस्से में कम। Concentration यानी किसी जगह उस gas की कितनी मात्रा (amount) है। Diffusion में gas का net movement ज्यादा concentration से कम concentration की ओर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Two connected regions with high and low concentrations of the same gas. Show movement both ways and a larger net arrow toward lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b48",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Concentration की तुलना (comparison) में एक बात जरूरी है: बराबर (equal) जगह में कितनी gas है? एक बड़े हिस्से में कुल gas ज्यादा हो सकती है, फिर भी उसकी concentration कम हो सकती है। अभी diagram में बराबर (equal) आकार के 2 हिस्से देखिए; ज्यादा dots वाला हिस्सा ज्यादा concentration दिखाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Equal-volume regions containing different numbers of gas dots. Label higher and lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b49",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Net movement का मतलब भी समझिए। Gas के particles दोनों ओर जा सकते हैं, लेकिन एक ओर ज्यादा जाने पर कुल नतीजा उस ओर का movement होता है। इसलिए ज्यादा concentration से कम concentration का arrow net movement दिखाता है; इसका मतलब दूसरी ओर movement बिल्कुल बंद होना नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show particles crossing both ways, then a larger net arrow from higher to lower concentration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b12",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अब यही बात leaf पर लगाइए। अगर carbon dioxide बाहर ज्यादा और अंदर कम है, तो open pore से उसका net movement अंदर की ओर होगा। Direction concentration difference से निकली है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: CO₂ concentration outside > inside; open pore; net CO₂ arrow inward.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b50",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "इस example में answer अंदर की ओर क्यों आया? क्योंकि हमने carbon dioxide की concentration बाहर ज्यादा और अंदर कम मानी थी। अगर आप सिर्फ carbon dioxide का नाम याद रखकर (by remembering) arrow बनाएं, तो condition पर ध्यान नहीं जाएगा। पहले gas पहचानिए, फिर उसकी दोनों ओर की concentration, और उसके बाद net arrow बनाइए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Three checks: gas identity → outside/inside concentration → net direction. Apply to the CO₂ example.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b13",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर oxygen की concentration अंदर ज्यादा और बाहर कम हो, तो उसका net movement बाहर की ओर होगा। इसलिए carbon dioxide के लिए अंदर और oxygen के लिए बाहर की direction को हर समय का fixed rule मत बनाइए। हर gas का concentration difference देखना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional example: O₂ concentration inside > outside; net arrow outward. Add: direction depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b51",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब सोचिए, एक ही open pore पर carbon dioxide का net arrow अंदर और oxygen का बाहर कैसे हो सकता है? क्योंकि हर gas का अपना concentration difference है। Pore सब gases को एक साथ एक ही direction का आदेश (command) नहीं देता। हर gas के लिए दोनों ओर की condition अलग पढ़नी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "One pore, with independent concentration comparisons for CO₂ and O₂ and conditional opposite net arrows.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b52",
+      "part_id": "",
+      "step": 0,
+      "purpose": "example",
+      "say": "अगर किसी gas की concentration दोनों ओर बराबर (equal) हो, तो क्या open pore अपने आप उसका net movement कराएगा (will cause)? नहीं, बराबर (equal) concentration पर उस difference के कारण net diffusion नहीं होगा। फिर भी particles की movement चल सकती है। Open रास्ता और net movement के लिए driving condition, दोनों अलग बातें हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Equal concentrations across an open pore. Show balanced movement and no net arrow.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b14",
+      "part_id": "",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Open pore से water vapour भी बाहर जा सकती है। Leaf से water vapour के रूप में पानी बाहर जाने को transpiration कहते हैं। इसलिए opening बदलने का असर gas exchange और पानी के नुकसान, दोनों पर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Open pore with concentration-dependent gas arrows and outward water-vapour arrows. Label transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b53",
+      "part_id": "",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Water vapour के लिए भी अंदर और बाहर की condition देखनी है। जब leaf के अंदर water vapour ज्यादा और बाहर की हवा में कम हो, तो उसका net diffusion बाहर की ओर होता है। इसलिए transpiration को सिर्फ पानी का नाम लेकर नहीं, पानी के vapour बनने और बाहर जाने से पहचानिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Conditional water-vapour concentration gradient: leaf interior > outside air → outward net diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b54",
+      "part_id": "",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब guard-cell control की जरूरत ज्यादा साफ है। वही opening gases के exchange का रास्ता देती है और water vapour के बाहर जाने का भी। Opening छोटी होने पर दोनों पर असर हो सकता है। इसलिए सिर्फ gas exchange देखकर opening का फायदा समझना अधूरा है; पानी के नुकसान वाला link भी साथ रखिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Adjustable pore linked to two outcomes: gas exchange and water-vapour loss.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b15",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "अगर pore बंद हो जाए, तो उस रास्ते से gas exchange बहुत कम हो जाता है। लेकिन open pore भी हर gas को एक fixed direction में नहीं भेजता। Net diffusion के लिए concentration difference जरूरी है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Closed pore: restricted exchange through this route. Open pore: net diffusion depends on concentration difference.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b55",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "एक diagram में concentration difference है, लेकिन pore बंद है। दूसरे में pore open है, लेकिन gas की concentration दोनों ओर बराबर (equal) है। क्या दोनों diagrams एक ही condition दिखाते हैं? नहीं, पहले में रास्ते की opening कम है; दूसरे में उस gas के net diffusion के लिए concentration difference नहीं है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Side-by-side cases: closed pore with gradient; open pore without gradient. Ask which condition limits each case.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b16",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "एक और बात ध्यान में रखिए। रोशनी है, इसलिए stomata हमेशा open होंगे, ऐसा universal rule नहीं है। Opening पर पानी की condition और दूसरी conditions का भी असर होता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Light alone ≠ guaranteed open stomata. Show water status and other conditions affecting opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b56",
+      "part_id": "",
+      "step": 0,
+      "purpose": "misconception",
+      "say": "इसी तरह photosynthesis का नाम देखकर भी stomata हमेशा open हैं, यह answer मत दीजिए। Photosynthesis gas के use से जुड़ा है, जबकि opening guard cells की condition से जुड़ी है। दोनों में link है, लेकिन सिर्फ photosynthesis का नाम देखकर हर पौधे और हर समय के लिए fixed rule बनाना सही नहीं होगा।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Photosynthesis context linked to, but not equated with, guaranteed stomatal opening.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b17",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरी बात एक बार जोड़िए। Guard-cell turgor बदलता है, तो pore opening बदलती है। Open रास्ते से gases अपने concentration differences के अनुसार (according to) diffuse करती हैं, और water vapour भी बाहर जा सकती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Guard cells → adjustable pore → internal air spaces. Distinguish turgor, diffusion and transpiration.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b57",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बिना diagram के रास्ता बोलकर देखिए: बाहर की हवा से pore, फिर leaf के अंदर के air spaces। अगला सवाल: pore opening कौन बदलता है? Guard cells; और gas का net movement कैसे समझेंगे, तो concentration difference से diffusion। आपने location, control और movement के 3 अलग जवाब बनाए हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Reveal three answers after separate pauses: route, controller, movement mechanism.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b18",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब किताब का सवाल पढ़िए: Site of gaseous exchange on leaf is। यहां leaf पर gaseous exchange की जगह पूछी गई है। किसी cell या tissue का नाम पहचानने के साथ उसका काम भी मिलाना होगा।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q1"
+      ],
+      "on_screen": "Display the exact question stem. Highlight Site and gaseous exchange.",
+      "basis": "book"
+     },
+     {
+      "beat_id": "b19",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "Options हैं: a. Guard cells, b. Stomata, c. Aerenchyma और d. Chlorenchyma। पहले खुद answer दीजिए। आपको passage पहचानना है, opening बदलने वाली cells पहचानना है, या gas use करने वाला tissue?",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Show all four exact options. Pause before revealing the answer.",
+      "basis": "mixed"
+     },
+     {
+      "beat_id": "b20",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "सही जवाब है b. Stomata। Stomata epidermis में pores हैं, और हर pore के साथ guard cells होती हैं। Leaf और बाहर की हवा के बीच gas exchange का रास्ता ये openings देती हैं।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i10#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Highlight b. Stomata. Beside it show a labelled pore in the epidermis with associated guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b21",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "यह जवाब क्यों सही है? Stomatal pore बाहर की हवा को leaf के अंदर के air spaces से जोड़ता है। इसी रास्ते से gases concentration differences के कारण diffuse करती हैं।",
+      "covers_item_ids": [
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i10#q3"
+      ],
+      "on_screen": "Trace atmosphere ↔ stomatal pore ↔ internal air spaces. Label the mechanism diffusion.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b58",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस question में site का मतलब समझना जरूरी है। यह opening को बदलने की पूरी कहानी या photosynthesis करने वाला tissue नहीं पूछ रहा। आपको उस structure का नाम देना है जो leaf और हवा के बीच exchange का रास्ता देता है। इसलिए explanation में guard cells जरूरी होते हुए भी सही option Stomata रहता है।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i10#q1",
+       "p014-i10#q2",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Underline Site. Match the stem to passage rather than controller or photosynthetic tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b22",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अब a. Guard cells को देखिए। ये pore के चारों ओर की खास epidermal cells हैं। ये opening को बदलती हैं, जबकि बीच का pore gas के लिए रास्ता देता है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i10"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Highlight a. Guard cells. Colour the guard cells separately from the pore; label controller and passage.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b23",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Guard cells का turgor बदलने से opening बदलती है। इस बदलाव का असर gas movement और water-vapour loss पर होता है। इसलिए ये gas exchange को control करती हैं, लेकिन इस सवाल में passage की जगह पर ये सही answer नहीं हैं।",
+      "covers_item_ids": [
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i11#q2"
+      ],
+      "on_screen": "Guard-cell turgor → pore opening → gas exchange and water-vapour loss. Mark option a unsuitable for this stem.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b24",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "अगर सवाल opening और closing को control करने वाली cells पूछे, तो जवाब Guard cells होगा। अभी सवाल gaseous exchange की site पूछ रहा है, इसलिए Stomata सही है। दोनों सवालों में एक ही diagram है, लेकिन पूछा गया काम अलग है।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i10#q4",
+       "p014-i11#q2"
+      ],
+      "on_screen": "Compare stems: Site of gaseous exchange → Stomata; Cells regulating opening and closing → Guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b59",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब सिर्फ पूछा गया काम बदलकर (by changing) देखिए: specialised epidermal cells जो pore opening बदलती हैं। आपका answer क्या होगा? Guard cells; लेकिन अगले सवाल में बाहर की हवा और अंदर के air spaces के बीच passage पूछा जाए, तो Stomata। एक ही leaf में पास-पास होने से दोनों के काम एक नहीं हो जाते।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i11#q1",
+       "p014-i11#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Alternate two stems with pauses: regulating epidermal cells; exchange passage. Reveal the matching options.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b25",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Option b से एक और link बनाइए। Open stomatal pore carbon dioxide और oxygen के diffusion का रास्ता देता है। उसी opening से water vapour भी बाहर जा सकती है, इसलिए opening का control gas exchange और transpiration, दोनों को बदल सकता है।",
+      "covers_item_ids": [
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i12#q2"
+      ],
+      "on_screen": "Stomatal pore with concentration-dependent gas arrows and outward water vapour. Link opening control to both outcomes.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b26",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब c. Aerenchyma समझिए। पहले parenchyma का मतलब याद करिए: यह पौधों का एक simple permanent tissue है, जो generally जिंदा, पतली cell walls वाली cells से बना होता है। Aerenchyma इसी parenchyma का एक खास रूप है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [],
+      "on_screen": "Parenchyma: generally living, thin-walled cells. Branch toward Aerenchyma.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b60",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "Parenchyma को एक cell के नाम की तरह मत पढ़िए; यह tissue है, यानी cells का ऐसा group जो मिलकर काम करता है। Simple permanent tissue में एक ही मुख्य (main) तरह की cells होती हैं और वे सामान्य (usual) condition में लगातार (continuously) divide नहीं करती हैं। अब इसी tissue के खास रूप को पहचानेंगे।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Cell → group of similar cells → parenchyma tissue. Explain simple and permanent before returning to Aerenchyma.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b27",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Aerenchyma में बड़े और साफ दिखाई देने वाले air spaces होते हैं। यह पानी में रहने वाले पौधों में आम है। ये spaces अंदर gases के आने-जाने और buoyancy, यानी पानी में floating में मदद करते हैं।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q1"
+      ],
+      "on_screen": "Aerenchyma with conspicuous internal air spaces. Show internal aeration and buoyancy in an aquatic plant.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b61",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "Aerenchyma के diagram में cells के बीच बड़े air spaces पहचानिए। Internal aeration का मतलब है अंदर gases के आने-जाने में मदद। Buoyancy का मतलब पानी में floating को मदद मिलना है। ये दोनों काम air spaces वाले tissue से जुड़े हैं; यहां epidermis में guard cells के बीच का pore नहीं दिखाया गया है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q1",
+       "p014-i13#q2"
+      ],
+      "on_screen": "Label cells and large intercellular air spaces in Aerenchyma. Contrast with a separate stomatal-pore diagram.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b28",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Aerenchyma में air spaces हैं, इसलिए option देखकर जल्दी में इसे सही मत मानिए। ये पौधे के अंदर gases के आने-जाने में मदद करते हैं। इस सवाल में leaf की outer surface पर exchange का रास्ता पूछा है, और उसके लिए Stomata सही answer है।",
+      "covers_item_ids": [
+       "p014-i13"
+      ],
+      "answers": [
+       "p014-i13#q2"
+      ],
+      "on_screen": "Contrast internal air-space tissue with a stomatal surface opening. Mark option c unsuitable.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b62",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "इस distractor में गलती का कारण air का नाम हो सकता है। Gas exchange पढ़ते ही air spaces वाला option सही लग सकता है। लेकिन नाम के एक हिस्से को नहीं, location और function को मिलाना है: Aerenchyma अंदर air spaces वाला tissue है; Stomata leaf की epidermis में exchange openings हैं।",
+      "covers_item_ids": [
+       "p014-i13",
+       "p014-i12"
+      ],
+      "answers": [
+       "p014-i13#q2",
+       "p014-i12#q1"
+      ],
+      "on_screen": "Compare location and function in two rows: Aerenchyma versus Stomata.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b29",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "आखिरी option समझने से पहले chloroplast को याद करिए। Chloroplast cell के अंदर का वह हिस्सा है जहां photosynthesis होता है। Photosynthesis में पौधा रोशनी की मदद से carbon dioxide और पानी से food बनाता है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom into a plant cell and label chloroplast. Simple context: light + carbon dioxide + water → food.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b63",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "prerequisite",
+      "say": "एक chloroplast और पूरा tissue अलग levels हैं। Chloroplast cell के अंदर होता है; कई cells मिलकर tissue बनाती हैं। इसलिए chloroplasts वाला parenchyma कहने का मतलब है कि इस tissue की cells में chloroplasts हैं। अब Chlorenchyma की पहचान और उसका photosynthesis वाला काम एक साथ समझ सकते हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Zoom sequence: chloroplast inside cell → multiple chloroplast-containing cells → tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b30",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "explain",
+      "say": "अब d. Chlorenchyma देखिए। यह chloroplasts वाला parenchyma है, और इसका खास काम photosynthesis करना है। नाम को उसके अंदर के chloroplasts और उनके काम से जोड़िए।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q1"
+      ],
+      "on_screen": "Parenchyma containing chloroplasts → Chlorenchyma → photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b64",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "compare",
+      "say": "Aerenchyma और Chlorenchyma, दोनों parenchyma के खास रूप हैं। पहले में बड़े air spaces पहचान का आधार (basis) हैं; दूसरे में chloroplasts। इसी फर्क से उनके खास काम समझ में आते हैं: अंदर aeration और buoyancy की मदद, या photosynthesis। दोनों tissue हैं, लेकिन दोनों को एक जैसा function नहीं देना है।",
+      "covers_item_ids": [
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i13#q1",
+       "p014-i14#q1"
+      ],
+      "on_screen": "Parenchyma branches into Aerenchyma and Chlorenchyma. Pair identifying feature with function on each branch.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b31",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "exam_tip",
+      "say": "Photosynthesis में carbon dioxide use होती है, लेकिन gas use करना और gas के लिए बाहर से रास्ता देना अलग काम हैं। Chlorenchyma अंदर photosynthesis करता है। बाहर की हवा से gas exchange की opening के लिए Stomata सही answer है।",
+      "covers_item_ids": [
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i14#q2"
+      ],
+      "on_screen": "Contrast gas use inside photosynthetic tissue with passage through a surface pore. Mark option d unsuitable.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b65",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "process_walkthrough",
+      "say": "Carbon dioxide वाला example पूरा जोड़िए। बाहर concentration ज्यादा होने पर gas open stomatal pore से अंदर diffuse कर सकती है, फिर अंदर photosynthesis में use हो सकती है। Passage वाला काम और use वाला काम इस chain में अलग जगह आते हैं। इसी कारण Chlorenchyma का photosynthesis करना उसे इस सवाल का सही option नहीं बनाता।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i14"
+      ],
+      "answers": [
+       "p014-i10#q3",
+       "p014-i14#q2"
+      ],
+      "on_screen": "Conditional chain: outside CO₂ → stomatal passage → internal spaces → use in photosynthetic tissue. Distinguish passage from use.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b32",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "compare",
+      "say": "अब options को उनके काम से अलग करिए। Guard cells opening control करती हैं, और Stomata exchange का रास्ता देते हैं। Aerenchyma में बड़े air spaces होते हैं, जबकि Chlorenchyma photosynthesis से जुड़ा है।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12",
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [],
+      "on_screen": "Recap table: Guard cells—opening control; Stomata—passage; Aerenchyma—air spaces; Chlorenchyma—photosynthesis.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b66",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब 4 छोटे clues सुनिए और हर बार खुद answer दीजिए। Opening control करने वाली cells कौनसी, और exchange opening कौनसी? फिर बड़े air spaces वाला parenchyma कौनसा, और chloroplasts वाला parenchyma कौनसा? जवाब हैं Guard cells, Stomata, Aerenchyma और Chlorenchyma; हर नाम को उसके अपने clue से मिलाइए।",
+      "covers_item_ids": [
+       "p014-i11",
+       "p014-i12",
+       "p014-i13",
+       "p014-i14"
+      ],
+      "answers": [],
+      "on_screen": "Present one previously taught clue at a time with a response pause, then reveal its matching option.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b33",
+      "part_id": "c42.q",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "एक बार बिना options देखे जवाब दीजिए। Gas के लिए opening कौन देता है, और उस opening को कौन बदलता है? जवाब है Stomata और Guard cells।",
+      "covers_item_ids": [
+       "p014-i10",
+       "p014-i11"
+      ],
+      "answers": [
+       "p014-i10#q2",
+       "p014-i10#q4"
+      ],
+      "on_screen": "Hide options. Ask Passage? Controller? Pause, then reveal Stomata and Guard cells.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b34",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब आखिरी diagram में पहले epidermis पहचानिए। यह outer covering है। इसके बाहर की cuticle एक waxy layer है, जो पानी के नुकसान को कम करने में मदद करती है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Schematic leaf cross-section. Label epidermis and overlying cuticle; show cuticle as a protective waxy layer without bridging the open pore.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b67",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Cuticle और epidermis को भी एक label मत बना दीजिए। Epidermis cells की outer covering है; cuticle उसके बाहर waxy layer है। Cuticle पानी के नुकसान को कम करने में मदद करती है, जबकि stomatal pore exchange का रास्ता देता है। Diagram में waxy layer को open pore के ऊपर बंद ढक्कन (lid) की तरह नहीं दिखाना है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Different colours for epidermis and overlying cuticle. Preserve the open stomatal passage through the surface.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b35",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "अब epidermis में stomatal pore देखिए। यह gas exchange का रास्ता है। उसके दोनों ओर guard cells देखिए, जो opening बदलती हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Add stomatal pore and guard-cell labels to the same diagram. Highlight passage and control as separate functions.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b68",
+      "part_id": "",
+      "step": 0,
+      "purpose": "question_to_student",
+      "say": "अब बिना labels वाला diagram देखिए। पहले outer covering पहचानिए, फिर उसके बाहर की waxy layer, फिर बीच का pore और उसके दोनों ओर guard cells। हर label के साथ काम भी बोलिए: covering, पानी के नुकसान को कम करने में मदद, gas का रास्ता और opening का control। सिर्फ आकार देखकर नहीं, काम जोड़कर पहचान पूरी करिए।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Unlabelled schematic with four sequential highlights. Reveal each structure and its function after a pause.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b36",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "Pore के बाद अंदर के air spaces तक रास्ता पूरा करिए। Opening का आकार guard-cell turgor से जुड़ा है। उस रास्ते से gas का net movement concentration difference से जुड़ा है।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Complete external air ↔ pore ↔ internal air spaces. Place turgor beside guard cells and diffusion beside gas arrows.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b69",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "एक आखिरी condition check करिए। Pore open है या बंद, यह opening का सवाल है; gas किस ओर net move करेगी, यह concentration difference का सवाल है। Photosynthesis कहां होगा, यह अंदर के tissue का सवाल है। आपने अब एक ही leaf में passage, controller, movement और gas use के अलग काम पहचान लिए हैं।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Four linked prompts: passage, controller, movement condition, gas use. Match to pore, guard cells, concentration difference and photosynthetic tissue.",
+      "basis": "outside"
+     },
+     {
+      "beat_id": "b37",
+      "part_id": "",
+      "step": 0,
+      "purpose": "recap",
+      "say": "पूरे chapter में यही तरीका काम आएगा: structure क्या है, कहां है, और क्या काम करता है। यहां opening और उसे control करने वाली cells का फर्क समझते ही जवाब साफ हो गया। Leaf की gaseous exchange site पूछे, तो b. Stomata।",
+      "covers_item_ids": [],
+      "answers": [],
+      "on_screen": "Structure → Location → Function. Final answer card: b. Stomata; guard cells regulate the pore opening.",
+      "basis": "outside"
+     }
+    ]
+   },
+   "code_problems": [],
+   "observed": {
+    "pattern_order": [],
+    "objective_coverage": {
+     "coverage": 1.0,
+     "uncovered": []
+    },
+    "cognitive_load": {
+     "max": 1.16,
+     "abrupt_jumps": [
+      "b67->b35",
+      "b35->b68"
+     ]
+    },
+    "duration": {
+     "spoken_minutes_at_130_wpm": 23.1,
+     "planned_minutes": 20
+    }
+   },
+   "review": {
+    "route": "google",
+    "provider": "google",
+    "model": "google/gemini-4-argon",
+    "via": "aicredits",
+    "returned_model": "google/gemini-4-argon",
+    "request_hash": "04afe8c080bfd7c40edfe5033ac3af543b4904b1926a2cb475345200b2180b81",
+    "cache_hit": false,
+    "attempts": 1,
+    "input_tokens": 15438,
+    "output_tokens": 884,
+    "cost_usd": 0.043688,
+    "value": {
+     "notes": {
+      "about": "Review of the teacher script for v17 covering the stomatal apparatus, turgor-mediated pore regulation, gas diffusion, and the PYQ on leaf gaseous exchange (p014-i10 to p014-i14).",
+      "key_questions": [
+       "Are all prerequisites (stomatal pore, guard cells, turgor, and gas diffusion) clearly taught with examples before solving the question?",
+       "Does the script thoroughly explain the correct option (Stomata) and eliminate each distractor (Guard cells, Aerenchyma, Chlorenchyma) by answering all teacher questions?",
+       "Does the language follow Navin's natural Hinglish style (S2-04) with proper mixed script and bracketed English glosses?"
+      ],
+      "decisions": [
+       {
+        "decision": "Pass the script with zero blocking issues.",
+        "reason": "All coverage requirements, prerequisite steps, universal frame fields, and language rules (including S2-04) are completely satisfied."
+       }
+      ],
+      "uncertain": []
+     },
+     "verdict": "pass",
+     "problems": [],
+     "checklist": [
+      {
+       "rule_id": "G-01",
+       "met": true,
+       "note": "Every statement is accurately marked as 'book', 'outside', or 'mixed' matching the source and standard biology."
+      },
+      {
+       "rule_id": "G-02",
+       "met": true,
+       "note": "The explanation is thorough and deep, clearly separating passage, controller, driving force (concentration gradient), and internal gas use."
+      },
+      {
+       "rule_id": "G-03",
+       "met": true,
+       "note": "Maker notes clearly state the scope, key questions, and decisions."
+      },
+      {
+       "rule_id": "G-04",
+       "met": true,
+       "note": "The Hinglish sounds like a natural, thoughtful teacher speaking directly to aspirants."
+      },
+      {
+       "rule_id": "G-05",
+       "met": true,
+       "note": "Nothing is cut short, merged away, or left as 'etc.'."
+      },
+      {
+       "rule_id": "S2-01",
+       "met": true,
+       "note": "The script follows the video plan, teaching the prerequisites and apparatus before tackling the PYQ and concluding with the labelled recap."
+      },
+      {
+       "rule_id": "S2-02",
+       "met": true,
+       "note": "The script flows smoothly and answers all 12 teacher questions across the 5 items."
+      },
+      {
+       "rule_id": "S2-03",
+       "met": true,
+       "note": "Prerequisites (stomatal pore, guard cells, turgor pressure, diffusion, parenchyma, chloroplast) are explained with clear examples and analogies before use."
+      },
+      {
+       "rule_id": "S2-04",
+       "met": true,
+       "note": "Hindi is in Devanagari, technical terms are in Roman, sentences are short and spoken, and potentially formal Hindi words are immediately glossed in English brackets."
+      },
+      {
+       "rule_id": "S2-05",
+       "met": true,
+       "note": "Every beat's `covers_item_ids` and `answers` claims accurately match the spoken explanation."
+      },
+      {
+       "rule_id": "S2-06",
+       "met": true,
+       "note": "Part c42.q has a complete universal frame and follows the step-0 exam tip teaching pattern."
+      }
+     ]
+    }
+   },
+   "review_problems": [],
+   "review_minor": [],
+   "passed": true,
+   "finished_at": 1792750703.9816194
+  }
+ ],
+ "avoid_rounds": [
+  1,
+  2
+ ],
+ "cost_usd": 0.043688,
+ "seconds": 514.0,
+ "navin_verdict": null
+}
