@@ -91,6 +91,10 @@ replace and retire) and fixing task, is `docs/roadmap/TARAZU.md`.
 4. Wire everything into a one-button software.
 5. Only then: decide the heavy or light method, optimise cost, and later train BIE's own model.
 
+**Seekh → code (standing approval, Navin, 23 October 2026).** After every live run, the reviewer findings that repeated
+become BIE code checks without asking first; each new check has tests and must not fail any output that passed before;
+every run report lists the checks added and why. Locking an output as an accepted example still needs Navin's verdict.
+
 **Cost.** Target ₹50–300 per book. Optimisation comes later, but the cost guard is in place from Task 043:
 estimate before a run, preflight, hard cap (`max_inr`, default 300), rupees per section and per page after.
 
@@ -129,6 +133,9 @@ PR A (22 October 2026, branch `task045-understanding-script`): the naksha (`bie/
 (`bie/brain/content_types.py`), task cards (`bie/brain/cards.py`), the KI, PR, RE and PED engines as checks
 (`bie/brain/engines.py`) and Section 2 on the card, tested offline with the fake AI. PR B: the live runs, only after
 Navin's yes to the estimate, the checker choice and the five chapter PDFs.
+PR B, Navin's decision (23 October 2026): the tissue chapter first, all 14 pages, the chapter map and the script; maker
+Codex (ChatGPT plan, no rupee cap; the plan's own limit stops a run, which is resumable), checker Gemini 4 Argon with a
+₹250 cap for the whole chapter. The other five chapters wait until Navin has judged this one.
 
 **046 · Director, asset finder v2 and silent video** — the director's scene plan drives the asset finder:
 the library first, then Wikimedia Commons and Openverse; SVG preferred; part locations read from SVG text;
